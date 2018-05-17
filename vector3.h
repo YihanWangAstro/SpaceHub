@@ -1,0 +1,158 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Filename:vector.h                                                                                                   //
+//Author:Yihan Wang                                                                                                   //
+//                                                                                                                    //
+//                                                                                                                    //
+//Description:                                                                                                        //
+//  Basic 3-d vector class for all vector operations.                                                                 //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef GENVECT_H
+#define GENVECT_H
+#include <math.h>
+#include "macros.h"
+
+#include<iostream>
+template<typename T>
+struct vec3
+{
+public:
+    T x, y, z;
+    vec3() : x(0), y(0), z(0){};
+    vec3(T vx, T vy, T vz) : x(vx), y(vy), z(vz){};
+    vec3(const vec3& v) : x(v.x), y(v.y), z(v.z){};
+    inline vec3 operator+(const vec3& v) const
+    {
+        return vec3(x + v.x, y + v.y, z + v.z);
+    }
+    inline vec3 operator-(const vec3& v) const
+    {
+        return vec3(x - v.x, y - v.y, z - v.z);
+    }
+    inline vec3 operator/(const vec3& v) const
+    {
+        return vec3(x / v.x, y / v.y, z / v.z);
+    }
+    inline vec3 operator+(const double c) const
+    {
+        return vec3(x + c, y + c, z + c);
+    }
+    inline vec3 operator-(const double c) const
+    {
+        return vec3(x - c, y - c, z - c);
+    }
+    inline vec3 operator*(const double c) const
+    {
+        return vec3(x * c, y * c, z * c);
+    }
+    inline vec3 operator/(const double c) const
+    {
+        return vec3(x / c, y / c, z / c);
+    }
+    inline vec3 operator-() const
+    {
+        return vec3(-x, -y, -z);
+    }
+    inline vec3 operator^(const vec3& v) const
+    {
+        return vec3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
+    }
+    inline vec3 abs() const
+    {
+        return vec3(abs(x), abs(y), abs(z));
+    }
+    inline const vec3& operator+=(const vec3& v)
+    {
+        x += v.x, y += v.y, z += v.z;
+        return *this;
+    }
+    inline const vec3& operator-=(const vec3& v)
+    {
+        x -= v.x, y -= v.y, z -= v.z;
+        return *this;
+    }
+    inline const vec3& operator/=(const vec3& v)
+    {
+        x /= v.x, y /= v.y, z /= v.z;
+        return *this;
+    }
+    inline const vec3& operator+=(const double c)
+    {
+        x += c, y += c, z += c;
+        return *this;
+    }
+    inline const vec3& operator-=(const double c)
+    {
+        x -= c, y -= c, z -= c;
+        return *this;
+    }
+    inline const vec3& operator*=(const double c)
+    {
+        x *= c, y *= c, z *= c;
+        return *this;
+    }
+    inline const vec3& operator/=(const double c)
+    {
+        x /= c, y /= c, z /= c;
+        return *this;
+    }
+    inline const vec3& operator=(const vec3& v)
+    {
+        x = v.x, y = v.y, z = v.z;
+        return *this;
+    }
+    inline double operator*(const vec3& v) const
+    {
+        return x*v.x + y*v.y + z*v.z;
+    }
+    inline double norm() const
+    {
+        return sqrt(x*x + y*y + z*z);
+    }
+    inline double normSquare() const
+    {
+        return (x*x + y*y + z*z);
+    }
+    inline double reNorm() const
+    {
+        return 1.0/sqrt(x*x+y*y+z*z);
+    }
+    inline void setZero()
+    {
+        x = y = z = 0;
+    }
+    friend vec3 operator+(const double c, const vec3& v)
+    {
+        return vec3(v.x + c, v.y + c, v.z + c);
+    }
+    friend vec3 operator-(const double c, const vec3& v)
+    {
+        return vec3(c - v.x, c - v.y, c - v.z);
+    }
+    friend vec3 operator*(const double c, const vec3& v)
+    {
+        return vec3(v.x * c, v.y * c, v.z * c);
+    }
+    friend std::ostream& operator<<(std::ostream& output, const vec3& v)
+    {
+        output << v.x << " " << v.y << " " << v.z;
+        return output;
+    }
+    friend std::istream& operator>>(std::istream& input, vec3& v)
+    {
+        input >> v.x >> v.y >> v.z;
+        return input;
+    }
+    /*template<typename T1>
+    operator vec3<T1>(){ return vec3<T1>(x,y,z);}*/
+};
+template<typename T>
+inline T distance(const vec3<T>& v1, const vec3<T>& v2)
+{
+    return sqrt((v1.x - v2.x)*(v1.x - v2.x) + (v1.y - v2.y)*(v1.y - v2.y) + (v1.z - v2.z)*(v1.z - v2.z));
+}
+typedef vec3<double> vec3d;
+typedef vec3<float>  vec3f;
+typedef vec3<int>    vec3i;
+typedef vec3<char>   vec3c;
+#endif
+
