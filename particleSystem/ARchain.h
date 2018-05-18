@@ -36,14 +36,17 @@ public:
     PlainArray&   array(){return chain.array();}
     ///////////////////////////////Member variables/////////////////////////////////
 private:
-    EvolvedData  chain;
-    IndexArray   chainIndex;
-    VectorArray  velIndepAcc;
-    VectorArray  chainVelIndepAcc;
-    VectorArray  velDepAcc;
-    VectorArray  chainVelDepAcc;
-    Interaction  velDepForce;
-    Regularitor  regular;
+#ifdef KAHAN_SUMMATION
+    EvolvedData roundoffErr;
+#endif
+    EvolvedData chain;
+    IndexArray  chainIndex;
+    VectorArray velIndepAcc;
+    VectorArray chainVelIndepAcc;
+    VectorArray velDepAcc;
+    VectorArray chainVelDepAcc;
+    Interaction velDepForce;
+    Regularitor regular;
     /////////////////////////////private function///////////////////////////////////
 private:
     void advanceOmega(Scalar stepSize);
@@ -93,15 +96,13 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void ARchain<Interaction, EvolvedData, Regularitor>::advanceVel(Scalar timeStepSize)
 {
     Scalar physicalTime = regular.getPhysicalVelTime(this->mass, this->dynState, timeStepSize);
-    Scalar halfTime = 0.5*physicalTime;
+    Scalar halfTime     = 0.5*physicalTime;
     updateVelIndepAcc();
     
     updateAccWith(this->vel, chain.vel);
-    
     kickAuxiVel(halfTime);
     
     updateAccWith(this->dynState.auxiVel, chain.auxiVel);
-    
     advanceB(physicalTime);
     advanceOmega(physicalTime);
     kickVel(physicalTime);
@@ -133,7 +134,7 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void ARchain<Interaction, EvolvedData, Regularitor>::load(PlainArray& data)
 {
     chain.array() = data;
-    chain.auxiVel = this->vel;
+   // chain.auxiVel = chain.vel;
     chain.toCartesian(this->dynState, chainIndex);
     this->dynState.moveToCentralMassCoords(this->mass);
     updateChain();
@@ -177,9 +178,7 @@ void ARchain<Interaction, EvolvedData, Regularitor>::advanceOmega(Scalar stepSiz
 {
     Scalar dOmega = 0;
     for(size_t i = 0 ; i < size() ; ++i)
-    {
         dOmega += (this->velIndepAcc[i]*this->dynState.auxiVel[i])*(this->mass[i]);
-    }
 #ifdef KAHAN_SUMMATION
     KahanAdvance(this->chain.omega, dOmega*stepSize, roundoffErr.omega);
 #else
@@ -256,6 +255,8 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateVelIndepAcc()
     
     for(size_t i = 0 ; i < size() - 1; ++i)
         chainVelIndepAcc[i] = velIndepAcc[chainIndex[i + 1]] - velIndepAcc[chainIndex[i]];
+    /*for(size_t i = 0 ; i < size() - 1; ++i)
+        this->acc[i] = velIndepAcc[chainIndex[i + 1]] - velIndepAcc[chainIndex[i]];*/
 }
 
 template<typename Interaction, typename EvolvedData, typename Regularitor>

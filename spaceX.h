@@ -33,19 +33,19 @@ using VelDepSystem = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Reg
 
 template<
 size_t                            N,
-template<typename> class          Regularitor,
-typename                          Scalar     ,
-template<typename, size_t> class  EvolvedData,
-template<typename> class          Interaction
+template<typename> class          Regularitor = logH,
+typename                          Scalar      = double ,
+template<typename, size_t> class  EvolvedData = GAR,
+template<typename> class          Interaction = Newtonian
 >
 using AR_chain = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
 template<
 size_t                            N,
 template<typename> class          Interaction,
-template<typename> class          Regularitor,
-typename                          Scalar     ,
-template<typename, size_t> class  EvolvedData
+template<typename> class          Regularitor = logH,
+typename                          Scalar      = double,
+template<typename, size_t> class  EvolvedData = GAR
 >
 using VelARchain = ARchain<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
