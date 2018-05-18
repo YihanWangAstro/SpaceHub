@@ -127,4 +127,12 @@ inline double getTotalEnergy(const std::array<Scalar,N>& mass, const std::array<
     }
     return potentialEnergy + kineticEnergy;
 }
+
+template<typename T>
+void print(T& var)
+{
+    for(size_t i = 0 ; i < var.size(); ++i )
+        std::cout << var[i] << ' ';
+    std::cout << '\n';
+}
 #endif

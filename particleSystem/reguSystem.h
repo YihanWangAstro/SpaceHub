@@ -9,10 +9,8 @@
 #ifndef REGULARIZEDSYSTEM_H
 #define REGULARIZEDSYSTEM_H
 #include "../particleSystem.h"
-#include "../libs.h"
 #include "../interaction/interaction.h"
-#include "../dynamicState.h"
-#include "regularization.h"
+#include "../libs.h"
 #include <cstring>
 #include <algorithm>
 template<typename Interaction, typename EvolvedData, typename Regularitor>
@@ -27,26 +25,29 @@ public:
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     /////////////////////////////////Interface /////////////////////////////////////
     constexpr static size_t size(){return EvolvedData::size();}
-    void advancePos(Scalar timeStepSize);
-    void advanceVel(Scalar timeStepSize);
+    constexpr static size_t volume(){return EvolvedData::volume();}
+    void  advancePos(Scalar timeStepSize);
+    void  advanceVel(Scalar timeStepSize);
     const reguSystem& operator=(const reguSystem& other);
     //////////////////////Base class Interface implement////////////////////////////
     std::istream& read(std::istream&);
-    void load(PlainArray& data);
+    void   load(PlainArray& data);
     Scalar timeScale(Scalar scale);
     ///////////////////////////////Member variables/////////////////////////////////
 private:
 #ifdef KAHAN_SUMMATION
-    EvolvedData  roundoffErr;
+    EvolvedData roundoffErr;
 #endif
-    VectorArray  velIndepAcc;
-    VectorArray  velDepAcc;
-    Interaction  velDepForce;
-    Regularitor  regular;
+    VectorArray velIndepAcc;
+    VectorArray velDepAcc;
+    Interaction velDepForce;
+    Regularitor regular;
     /////////////////////////////private function///////////////////////////////////
 private:
       void advanceOmega(Scalar stepSize);
       void advanceB(Scalar stepSize);
+      void kickVel(Scalar stepSize);
+      void kickAuxiVel(Scalar stepSize);
       void updateAccWith(VectorArray& vel);
       void updateVelIndepAcc();
 };
@@ -59,6 +60,8 @@ const reguSystem<Interaction, EvolvedData, Regularitor>& reguSystem<Interaction,
     this->mass        = other.mass;
     this->radius      = other.radius;
     this->type        = other.type;
+    this->velIndepAcc = other.velIndepAcc;
+    this->velDepAcc   = other.velDepAcc;
     return *this;
 }
 
@@ -80,30 +83,17 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::advanceVel(Scalar timeSt
     Scalar physicalTime = regular.getPhysicalVelTime(this->mass, this->dynState, timeStepSize);
     Scalar halfTime = 0.5*physicalTime;
     updateVelIndepAcc();
-    updateAccWith(this->vel);
     
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.auxiVel, this->acc, roundoffErr.auxiVel, halfTime);
-#else
-    advanceVariable(this->dynState.auxiVel, this->acc, halfTime);
-#endif
+    updateAccWith(this->vel);
+    kickAuxiVel(halfTime);
     
     updateAccWith(this->dynState.auxiVel);
     advanceB(physicalTime);
     advanceOmega(physicalTime);
-    
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->vel, this->acc, roundoffErr.vel, physicalTime);
-#else
-    advanceVariable(this->vel, this->acc, physicalTime);
-#endif
+    kickVel(physicalTime);
     
     updateAccWith(this->vel);
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.auxiVel, this->acc, roundoffErr.auxiVel, halfTime);
-#else
-    advanceVariable(this->dynState.auxiVel, this->acc, halfTime);
-#endif
+    kickAuxiVel(halfTime);
 }
 
 template<typename Interaction, typename EvolvedData, typename Regularitor>
@@ -139,6 +129,26 @@ typename EvolvedData::Scalar reguSystem<Interaction, EvolvedData, Regularitor>::
     return regular.getPhysicalPosTime(this->mass, this->dynState, scale);
 }
 /////////////////////////////private function///////////////////////////////////
+template<typename Interaction, typename EvolvedData, typename Regularitor>
+void reguSystem<Interaction, EvolvedData, Regularitor>::kickVel(Scalar stepSize)
+{
+#ifdef KAHAN_SUMMATION
+    KahanAdvance(this->vel, this->acc, roundoffErr.vel, stepSize);
+#else
+    advanceVariable(this->vel, this->acc, stepSize);
+#endif
+}
+
+template<typename Interaction, typename EvolvedData, typename Regularitor>
+void reguSystem<Interaction, EvolvedData, Regularitor>::kickAuxiVel(Scalar stepSize)
+{
+#ifdef KAHAN_SUMMATION
+    KahanAdvance(this->dynState.auxiVel, this->acc, roundoffErr.auxiVel, stepSize);
+#else
+    advanceVariable(this->dynState.auxiVel, this->acc, stepSize);
+#endif
+}
+
 template<typename Interaction, typename EvolvedData, typename Regularitor>
 void reguSystem<Interaction, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
 {
@@ -191,12 +201,17 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void reguSystem<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArray& velocity)
 {
     memset(&(velDepAcc[0]), 0, sizeof(Vector)*size());
+    Vector dr;
+    Vector dv;
     for(size_t i = 0 ; i < size() ; ++i)
     {
         for(size_t j = i + 1 ; j < size() ; ++j)
         {
-            velDepForce(this->mass[i], this->mass[j], this->pos[i], this->pos[j],
-                          velocity[i], velocity[j]  , velDepAcc[i], velDepAcc[j]);
+            dr = this->pos[i] - this->pos[j];
+            dv = velocity[i] - velocity[j];
+            velDepForce(this->mass[i], this->mass[j], dr, dv,
+                        velocity[i], velocity[j],
+                        velDepAcc[i], velDepAcc[j]);
         }
     }
     for(size_t i = 0 ; i < size() ; ++i)
@@ -218,6 +233,7 @@ public:
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     
     constexpr static size_t size(){return EvolvedData::size();}
+    constexpr static size_t volume(){return EvolvedData::volume();}
     void advancePos(Scalar timeStepSize);
     void advanceVel(Scalar timeStepSize);
     //////////////////////Base class size_terface implement////////////////////////////
@@ -328,23 +344,5 @@ void reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularito
         }
     }
 }
-
-template<
-         size_t                            N,
-         template<typename> class          Regularitor = logH,
-         typename                          Scalar      = double,
-         template<typename, size_t> class  EvolvedData = reguDynamics,
-         template<typename> class          Interaction = Newtonian
-        >
-using NewtonianSystem = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
-
-template<
-         size_t                            N,
-         template<typename> class          Interaction,
-         template<typename> class          Regularitor = logH,
-         typename                          Scalar      = double,
-         template<typename, size_t> class  EvolvedData = GAR
->
-using VelDepSystem = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 #endif
 

@@ -8,17 +8,21 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef CONSTITERATOR_H
 #define CONSTITERATOR_H
-#include "../odeIterator.h"
 template <typename ParticSys, typename Integrator>
-class constIterator : public odeIterator<constIterator<ParticSys, Integrator>, ParticSys, Integrator>
+class constIterator
 {
 public:
     typedef typename ParticSys::Scalar Scalar;
-    Scalar impl_iterate(ParticSys& particles, Integrator& integrator, Scalar stepLength)
+    Scalar iterate(ParticSys& particles, Integrator& integrator, Scalar stepLength)
     {
-        integrator.size_tegrate(particles, stepLength);
+        integrator.integrate(particles, stepLength);
         return stepLength;
     }
+    /*void setRelativeError(Scalar relError){ relativeError = relError; }
+    void setAbsoluteError(Scalar absError){ absoluteError = absError; }
+private:
+    Scalar absoluteError{1e-15};
+    Scalar relativeError{1e-15};*/
 };
 
 #endif

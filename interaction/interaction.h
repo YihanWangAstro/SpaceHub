@@ -23,10 +23,8 @@ class PN1th
 private:
     typedef vec3<Scalar> Vector;
 public:
-    void operator()(Scalar m1, Scalar m2, Vector& p1, Vector& p2, Vector& v1, Vector& v2, Vector& acc1, Vector& acc2)
+    void operator()(Scalar m1, Scalar m2, Vector& dr, Vector& dv, Vector& v1, Vector& v2, Vector& acc1, Vector& acc2)
     {
-        Vector dr(p1 - p2);
-        Vector dv(v1 - v2);
         Scalar inv_r  = dr.reNorm();
         Scalar inv_r2 = inv_r*inv_r;
         Vector n12(dr*inv_r);

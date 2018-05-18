@@ -20,7 +20,6 @@ template <typename Derived, typename EvolvedData>
 class particleSystem
 {
  public:
-    
     /////////////////////////////////Type Define////////////////////////////////////
     typedef typename EvolvedData::Scalar              Scalar;
     typedef typename EvolvedData::Vector              Vector;
@@ -35,7 +34,9 @@ class particleSystem
     VectorArray& pos;
     VectorArray& vel;
     Scalar&      time;
+protected:
     VectorArray  acc;
+public:
     ScalarArray  mass;
     ScalarArray  radius;
     IntArray     type;
@@ -92,6 +93,7 @@ std::istream& particleSystem<Derived, EvolvedData>::read(std::istream& input)
     MoveToCentralMassCoordinate(mass, dynState.pos);
     MoveToCentralMassCoordinate(mass, dynState.vel);
     dynState.initAddiVariable  (mass);
+    
     return input;
 }
 
