@@ -8,7 +8,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef GENVECT_H
 #define GENVECT_H
-#include "libs.h"
 #include <math.h>
 #include <iostream>
 /** @brief Self 3D vector class */
@@ -17,9 +16,9 @@ struct vec3
 {
 public:
     T x, y, z;
-    vec3() : x(0), y(0), z(0){};
-    vec3(T vx, T vy, T vz) : x(vx), y(vy), z(vz){};
-    vec3(const vec3& v) : x(v.x), y(v.y), z(v.z){};
+    vec3() : x(0), y(0), z(0) {};
+    vec3(T vx, T vy, T vz) : x(vx), y(vy), z(vz) {};
+    vec3(const vec3& v) : x(v.x), y(v.y), z(v.z) {};
     /** @brief Addition by wise */
     inline vec3 operator+(const vec3& v) const
     {
@@ -63,12 +62,12 @@ public:
     /** @brief Cross product */
     inline vec3 operator^(const vec3& v) const
     {
-        return vec3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
+        return vec3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
     }
     /** @brief Absolute value by wise */
     inline vec3 abs() const
     {
-        return vec3(abs(x), abs(y), abs(z));
+        return vec3(x > -x ? x : -x, y > -y ? y : -y, z > -z ? z : -z);
     }
     inline const vec3& operator+=(const vec3& v)
     {
@@ -113,22 +112,22 @@ public:
     /** @brief Inner product */
     inline double operator*(const vec3& v) const
     {
-        return x*v.x + y*v.y + z*v.z;
+        return x * v.x + y * v.y + z * v.z;
     }
     /** @brief Calculate the norm */
     inline double norm() const
     {
-        return sqrt(x*x + y*y + z*z);
+        return sqrt(x * x + y * y + z * z);
     }
     /** @brief Calcualte the square of the norm */
     inline double normSquare() const
     {
-        return (x*x + y*y + z*z);
+        return (x * x + y * y + z * z);
     }
     /** @brief Calculate the inverse of the norm */
     inline double reNorm() const
     {
-        return 1.0/sqrt(x*x+y*y+z*z);
+        return 1.0 / sqrt(x * x + y * y + z * z);
     }
     inline void setZero()
     {
@@ -166,7 +165,7 @@ public:
 template<typename T>
 inline T distance(const vec3<T>& v1, const vec3<T>& v2)
 {
-    return sqrt((v1.x - v2.x)*(v1.x - v2.x) + (v1.y - v2.y)*(v1.y - v2.y) + (v1.z - v2.z)*(v1.z - v2.z));
+    return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
 }
 typedef vec3<double> vec3d;
 typedef vec3<float>  vec3f;

@@ -51,13 +51,15 @@ void swap(T& a, T& b)
  *  @param dt       Step size of advance.
  */
 template<typename Scalar, size_t N>
-void KahanAdvance(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar>, N>& increase, std::array<vec3<Scalar>, N>& err, Scalar dt)
+void KahanAdvance(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar>, N>& increase,
+                  std::array<vec3<Scalar>, N>& err, Scalar dt)
 {
     vec3<Scalar> add;
     vec3<Scalar> sum;
+    
     for(size_t i = 0 ; i < N; ++i)
     {
-        add    = increase[i]*dt - err[i];
+        add    = increase[i] * dt - err[i];
         sum    = var[i] + add;
         err[i] = (sum - var[i]) - add;
         var[i] = sum;
@@ -78,7 +80,6 @@ void KahanAdvance(Scalar& var, const Scalar increase, Scalar& err)
 {
     Scalar add;
     Scalar sum;
-
     add = increase - err;
     sum = var + add;
     err = (sum - var) - add;
@@ -95,7 +96,7 @@ template<typename Scalar, size_t N>
 void advanceVariable(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar>, N>& add, Scalar dt)
 {
     for(size_t i = 0 ; i < N; ++i)
-        var[i] += add[i]*dt;
+        var[i] += add[i] * dt;
 }
 
 /** @brief Move variables to central mass coordinates
@@ -104,7 +105,7 @@ void advanceVariable(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Sca
  *  @param phyVar Array of variables need to be moved.
  */
 template<typename Scalar, size_t N>
-void MoveToCentralMassCoordinate(const std::array<Scalar,N>& mass, std::array<vec3<Scalar>, N>& phyVar)
+void MoveToCentralMassCoordinate(const std::array<Scalar, N>& mass, std::array<vec3<Scalar>, N>& phyVar)
 {
     vec3<Scalar> centralMassVar(0.0, 0.0, 0.0);
     Scalar totalMass = 0;
@@ -112,11 +113,11 @@ void MoveToCentralMassCoordinate(const std::array<Scalar,N>& mass, std::array<ve
     for(size_t i = 0 ; i < N ; ++i)
     {
         totalMass += mass[i];
-        centralMassVar += phyVar[i]*mass[i];
+        centralMassVar += phyVar[i] * mass[i];
     }
     
     centralMassVar /= totalMass;
-   
+    
     for(size_t i = 0 ; i < N ; ++i)
     {
         phyVar[i] -= centralMassVar;
@@ -130,13 +131,13 @@ void MoveToCentralMassCoordinate(const std::array<Scalar,N>& mass, std::array<ve
  *  @return The kinetic energy.
  */
 template<typename Scalar, size_t N>
-double getKineticEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<Scalar>, N>& vel)
+double getKineticEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& vel)
 {
     Scalar kineticEnergy = 0;
     
     for(size_t i = 0 ;  i < N ; ++i)
-        kineticEnergy += 0.5*mass[i]*vel[i].normSquare();
-    
+        kineticEnergy += 0.5 * mass[i] * vel[i].normSquare();
+        
     return kineticEnergy;
 }
 
@@ -147,14 +148,14 @@ double getKineticEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<
  *  @return The potential energy.
  */
 template<typename Scalar, size_t N>
-double getPotentialEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<Scalar>, N>& pos)
+double getPotentialEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& pos)
 {
     Scalar potentialEnergy = 0;
     
     for(size_t i = 0 ;  i < N ; ++i)
         for(size_t j = i + 1; j < N; ++j)
-            potentialEnergy -= mass[i]*mass[j]/distance(pos[i], pos[j]);
-    
+            potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
+            
     return potentialEnergy;
 }
 
@@ -166,18 +167,20 @@ double getPotentialEnergy(const std::array<Scalar,N>& mass, const std::array<vec
  *  @return The total energy.
  */
 template<typename Scalar, size_t N>
-inline double getTotalEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<Scalar>, N>& pos, const std::array<vec3<Scalar>, N>& vel)
+inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& pos,
+                             const std::array<vec3<Scalar>, N>& vel)
 {
     Scalar potentialEnergy = 0;
     Scalar kineticEnergy   = 0;
     
     for(size_t i = 0 ;  i < N ; ++i)
     {
-        kineticEnergy += 0.5*mass[i]*vel[i].normSquare();
+        kineticEnergy += 0.5 * mass[i] * vel[i].normSquare();
         
         for(size_t j = i + 1; j < N; ++j)
-            potentialEnergy -= mass[i]*mass[j]/distance(pos[i], pos[j]);
+            potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
     }
+    
     return potentialEnergy + kineticEnergy;
 }
 
@@ -187,6 +190,7 @@ void print(T& var)
 {
     for(size_t i = 0 ; i < var.size(); ++i )
         std::cout << var[i] << ' ';
+        
     std::cout << '\n';
 }
 #endif

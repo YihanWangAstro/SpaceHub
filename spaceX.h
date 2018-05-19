@@ -12,41 +12,41 @@
 #include "particleSystem/regularization.h"
 #include "interaction/interaction.h"
 
-template<
-size_t                            N,
-template<typename> class          Regularitor = logH,
-typename                          Scalar      = double,
-template<typename, size_t> class  EvolvedData = reguDynamics,
-template<typename> class          Interaction = Newtonian
->
+template <
+    size_t                            N,
+    template<typename> class          Regularitor = logH,
+    typename                          Scalar      = double,
+    template<typename, size_t> class  EvolvedData = reguDynamics,
+    template<typename> class          Interaction = Newtonian
+    >
 using NewtonianSystem = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
-template<
-size_t                            N,
-template<typename> class          Interaction,
-template<typename> class          Regularitor = logH,
-typename                          Scalar      = double,
-template<typename, size_t> class  EvolvedData = GAR
->
+template <
+    size_t                            N,
+    template<typename> class          Interaction,
+    template<typename> class          Regularitor = logH,
+    typename                          Scalar      = double,
+    template<typename, size_t> class  EvolvedData = GAR
+    >
 using VelDepSystem = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
 
-template<
-size_t                            N,
-template<typename> class          Regularitor = logH,
-typename                          Scalar      = double ,
-template<typename, size_t> class  EvolvedData = reguDynamics,
-template<typename> class          Interaction = Newtonian
->
+template <
+    size_t                            N,
+    template<typename> class          Regularitor = logH,
+    typename                          Scalar      = double,
+    template<typename, size_t> class  EvolvedData = reguDynamics,
+    template<typename> class          Interaction = Newtonian
+    >
 using AR_chain = ARchain<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
-template<
-size_t                            N,
-template<typename> class          Interaction,
-template<typename> class          Regularitor = logH,
-typename                          Scalar      = double,
-template<typename, size_t> class  EvolvedData = GAR
->
+template <
+    size_t                            N,
+    template<typename> class          Interaction,
+    template<typename> class          Regularitor = logH,
+    typename                          Scalar      = double,
+    template<typename, size_t> class  EvolvedData = GAR
+    >
 using VelARchain = ARchain<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
 #endif

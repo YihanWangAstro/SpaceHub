@@ -22,10 +22,13 @@ public:
     typedef typename EvolvedData::Vector              Vector;
     typedef typename EvolvedData::VectorArray         VectorArray;
     typedef typename EvolvedData::ScalarArray         ScalarArray;
-    typedef std::array<size_t,EvolvedData::size()>    IndexArray;
+    typedef std::array<size_t, EvolvedData::size()>    IndexArray;
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     /////////////////////////////////Interface /////////////////////////////////////
-    constexpr static size_t size(){return EvolvedData::size();}
+    constexpr static size_t size()
+    {
+        return EvolvedData::size();
+    }
     void advancePos(Scalar timeStepSize);
     void advanceVel(Scalar timeStepSize);
     const ARchain& operator=(const ARchain& other);
@@ -33,7 +36,10 @@ public:
     std::istream& read(std::istream&);
     void load(PlainArray& data);
     Scalar timeScale(Scalar scale);
-    PlainArray&   array(){return chain.array();}
+    PlainArray&   array()
+    {
+        return chain.array();
+    }
     ///////////////////////////////Member variables/////////////////////////////////
 private:
 #ifdef KAHAN_SUMMATION
@@ -53,13 +59,14 @@ private:
     void advanceB(Scalar stepSize);
     void kickVel(Scalar stepSize);
     void kickAuxiVel(Scalar stepSize);
-    void updateAccWith(VectorArray& vel,VectorArray& chainVel);
+    void updateAccWith(VectorArray& vel, VectorArray& chainVel);
     void updateVelIndepAcc();
     void updateChain();
 };
-    ////////////////////////////implement function//////////////////////////////////
+////////////////////////////implement function//////////////////////////////////
 template<typename Interaction, typename EvolvedData, typename Regularitor>
-const ARchain<Interaction, EvolvedData, Regularitor>& ARchain<Interaction, EvolvedData, Regularitor>::operator=(const ARchain& other)
+const ARchain<Interaction, EvolvedData, Regularitor>& ARchain<Interaction, EvolvedData, Regularitor>::operator=
+(const ARchain& other)
 {
     this->dynState         = other.dynState;
     this->acc              = other.acc;
@@ -84,10 +91,8 @@ void ARchain<Interaction, EvolvedData, Regularitor>::advancePos(Scalar timeStepS
 #else
     advanceVariable(chain.pos, chain.vel, physicalTime);
 #endif
-    
     chain::synCartesian(chain.pos, this->pos, chainIndex);
     MoveToCentralMassCoordinate(this->mass, this->pos);
-    
     this->chain.time += physicalTime;
     this->dynState.time = this->chain.time;
 }
@@ -96,20 +101,16 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void ARchain<Interaction, EvolvedData, Regularitor>::advanceVel(Scalar timeStepSize)
 {
     Scalar physicalTime = regular.getPhysicalVelTime(this->mass, this->dynState, timeStepSize);
-    Scalar halfTime     = 0.5*physicalTime;
+    Scalar halfTime     = 0.5 * physicalTime;
     updateVelIndepAcc();
-    
     updateAccWith(this->vel, chain.vel);
     kickAuxiVel(halfTime);
-    
     updateAccWith(this->dynState.auxiVel, chain.auxiVel);
     advanceB(physicalTime);
     advanceOmega(physicalTime);
     kickVel(physicalTime);
-    
     updateAccWith(this->vel, chain.vel);
     kickAuxiVel(halfTime);
-    
 }
 
 template<typename Interaction, typename EvolvedData, typename Regularitor>
@@ -117,8 +118,10 @@ std::istream& ARchain<Interaction, EvolvedData, Regularitor>::read(std::istream&
 {
     input >> this->time;
     size_t id;
+    
     for(size_t i = 0 ; i < size() ; ++i)
         input >> id >> this->type[i] >> this->mass[i] >> this->radius[i] >> this->pos[i] >> this->vel[i];
+        
     memset(&(this->acc[0]), 0, sizeof(Vector)*size());
     this->dynState.moveToCentralMassCoords(this->mass);
     this->dynState.initAddiVariable(this->mass);
@@ -134,7 +137,7 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void ARchain<Interaction, EvolvedData, Regularitor>::load(PlainArray& data)
 {
     chain.array() = data;
-   // chain.auxiVel = chain.vel;
+    // chain.auxiVel = chain.vel;
     chain.toCartesian(this->dynState, chainIndex);
     this->dynState.moveToCentralMassCoords(this->mass);
     updateChain();
@@ -177,12 +180,14 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void ARchain<Interaction, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
 {
     Scalar dOmega = 0;
+    
     for(size_t i = 0 ; i < size() ; ++i)
-        dOmega += (this->velIndepAcc[i]*this->dynState.auxiVel[i])*(this->mass[i]);
+        dOmega += (this->velIndepAcc[i] * this->dynState.auxiVel[i]) * (this->mass[i]);
+        
 #ifdef KAHAN_SUMMATION
-    KahanAdvance(this->chain.omega, dOmega*stepSize, roundoffErr.omega);
+    KahanAdvance(this->chain.omega, dOmega * stepSize, roundoffErr.omega);
 #else
-    this->chain.omega += dOmega*stepSize;
+    this->chain.omega += dOmega * stepSize;
 #endif
     this->dynState.omega = this->chain.omega;
 }
@@ -191,12 +196,14 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void ARchain<Interaction, EvolvedData, Regularitor>::advanceB(Scalar stepSize)
 {
     Scalar dE = 0;
+    
     for(size_t i = 0 ; i < size() ; ++i)
-        dE -= (this->velDepAcc[i]*this->dynState.auxiVel[i])*(this->mass[i]);
+        dE -= (this->velDepAcc[i] * this->dynState.auxiVel[i]) * (this->mass[i]);
+        
 #ifdef KAHAN_SUMMATION
-    KahanAdvance(this->chain.bindE, dE*stepSize, roundoffErr.bindE);
+    KahanAdvance(this->chain.bindE, dE * stepSize, roundoffErr.bindE);
 #else
-    this->chain.bindE += dE*stepSize;
+    this->chain.bindE += dE * stepSize;
 #endif
     this->dynState.bindE = this->chain.bindE;
 }
@@ -206,9 +213,11 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateChain()
 {
     IndexArray newIndex;
     chain::getChainIndex(this->pos, newIndex);
+    
     if(chain::IsDiff(chainIndex, newIndex))
     {
-        chain::updateChain(this->chain.pos, chainIndex, newIndex);//Update chain index and update new position chain with old chain
+        chain::updateChain(this->chain.pos, chainIndex,
+                           newIndex);//Update chain index and update new position chain with old chain
         chainIndex = newIndex;
         chain::synChain(this->vel, chain.vel, chainIndex);
         chain::synChain(this->dynState.auxiVel, chain.auxiVel, chainIndex);
@@ -227,18 +236,18 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateVelIndepAcc()
     {
         dr = chain.pos[i];
         inv_r  = dr.reNorm();
-        inv_r3 = (inv_r*inv_r*inv_r);
-        velIndepAcc[chainIndex[i]]     += dr*(inv_r3*this->mass[chainIndex[i + 1]]);
-        velIndepAcc[chainIndex[i + 1]] -= dr*(inv_r3*this->mass[chainIndex[i]]);
+        inv_r3 = (inv_r * inv_r * inv_r);
+        velIndepAcc[chainIndex[i]]     += dr * (inv_r3 * this->mass[chainIndex[i + 1]]);
+        velIndepAcc[chainIndex[i + 1]] -= dr * (inv_r3 * this->mass[chainIndex[i]]);
     }
     
     for(size_t i = 0 ; i < size() - 2; ++i)
     {
-        dr = chain.pos[i] + chain.pos[i+1];
+        dr = chain.pos[i] + chain.pos[i + 1];
         inv_r = dr.reNorm();
-        inv_r3 = (inv_r*inv_r*inv_r);
-        velIndepAcc[chainIndex[i]]     += dr*(inv_r3*this->mass[chainIndex[i + 2]]);
-        velIndepAcc[chainIndex[i + 2]] -= dr*(inv_r3*this->mass[chainIndex[i]]);
+        inv_r3 = (inv_r * inv_r * inv_r);
+        velIndepAcc[chainIndex[i]]     += dr * (inv_r3 * this->mass[chainIndex[i + 2]]);
+        velIndepAcc[chainIndex[i + 2]] -= dr * (inv_r3 * this->mass[chainIndex[i]]);
     }
     
     for(size_t i = 0 ; i < size() ; ++i)
@@ -247,14 +256,15 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateVelIndepAcc()
         {
             dr = this->pos[chainIndex[j]] - this->pos[chainIndex[i]];
             inv_r = dr.reNorm();
-            inv_r3 = (inv_r*inv_r*inv_r);
-            velIndepAcc[chainIndex[i]] += dr*(inv_r3*this->mass[chainIndex[j]]);
-            velIndepAcc[chainIndex[j]] -= dr*(inv_r3*this->mass[chainIndex[i]]);
+            inv_r3 = (inv_r * inv_r * inv_r);
+            velIndepAcc[chainIndex[i]] += dr * (inv_r3 * this->mass[chainIndex[j]]);
+            velIndepAcc[chainIndex[j]] -= dr * (inv_r3 * this->mass[chainIndex[i]]);
         }
     }
     
     for(size_t i = 0 ; i < size() - 1; ++i)
         chainVelIndepAcc[i] = velIndepAcc[chainIndex[i + 1]] - velIndepAcc[chainIndex[i]];
+        
     /*for(size_t i = 0 ; i < size() - 1; ++i)
         this->acc[i] = velIndepAcc[chainIndex[i + 1]] - velIndepAcc[chainIndex[i]];*/
 }
@@ -265,6 +275,7 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArray& 
     memset(&(velDepAcc[0]), 0, sizeof(Vector)*size());
     Vector dr;
     Vector dv;
+    
     for(int i = 1 ; i < size(); ++i)//update chain data(near pair)
     {
         dr = chain.pos[i - 1];
@@ -297,7 +308,7 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArray& 
     
     for(size_t i = 0 ; i < size() - 1; ++i)
         chainVelDepAcc[i] = velDepAcc[chainIndex[i + 1]] - velDepAcc[chainIndex[i]];
-    
+        
     for(size_t i = 0 ; i < size() ; ++i)
         this->acc[i] = chainVelIndepAcc[i] + chainVelDepAcc[i];
 }
@@ -306,7 +317,7 @@ void ARchain<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArray& 
 
 template<typename EvolvedData, typename Regularitor>
 class ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor> :
-public particleSystem<ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>, EvolvedData>
+    public particleSystem<ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>, EvolvedData>
 {
 public:
     /////////////////////////////////Type Define////////////////////////////////////
@@ -314,10 +325,13 @@ public:
     typedef typename EvolvedData::Vector              Vector;
     typedef typename EvolvedData::VectorArray         VectorArray;
     typedef typename EvolvedData::ScalarArray         ScalarArray;
-    typedef std::array<size_t,EvolvedData::size()>    IndexArray;
+    typedef std::array<size_t, EvolvedData::size()>    IndexArray;
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     /////////////////////////////////Interface /////////////////////////////////////
-    constexpr static size_t size(){return EvolvedData::size();}
+    constexpr static size_t size()
+    {
+        return EvolvedData::size();
+    }
     void advancePos(Scalar timeStepSize);
     void advanceVel(Scalar timeStepSize);
     const ARchain& operator=(const ARchain& other);
@@ -325,7 +339,10 @@ public:
     std::istream& read(std::istream&);
     void load(PlainArray& data);
     Scalar timeScale(Scalar scale);
-    PlainArray&   array(){return chain.array();}
+    PlainArray&   array()
+    {
+        return chain.array();
+    }
     ///////////////////////////////Member variables/////////////////////////////////
 private:
 #ifdef KAHAN_SUMMATION
@@ -366,10 +383,8 @@ void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>:
 #else
     advanceVariable(chain.pos, chain.vel, physicalTime);
 #endif
-    
     chain::synCartesian(chain.pos, this->pos, chainIndex);
     MoveToCentralMassCoordinate(this->mass, this->pos);
-    
     this->chain.time += physicalTime;
     this->dynState.time = this->chain.time;
 }
@@ -378,11 +393,9 @@ template<typename EvolvedData, typename Regularitor>
 void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::advanceVel(Scalar timeStepSize)
 {
     Scalar physicalTime = regular.getPhysicalVelTime(this->mass, this->dynState, timeStepSize);
-    Scalar halfTime     = 0.5*physicalTime;
+    Scalar halfTime     = 0.5 * physicalTime;
     updateVelIndepAcc();
-    
     advanceOmega(halfTime);
-    
 #ifdef KAHAN_SUMMATION
     KahanAdvance(chain.vel, this->acc, roundoffErr.vel, physicalTime);
 #else
@@ -390,7 +403,6 @@ void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>:
 #endif
     chain::synCartesian(chain.vel, this->vel, chainIndex);
     MoveToCentralMassCoordinate(this->mass, this->vel);
-    
     advanceOmega(halfTime);
 }
 
@@ -399,8 +411,10 @@ std::istream& ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regu
 {
     input >> this->time;
     size_t id;
+    
     for(size_t i = 0 ; i < size() ; ++i)
         input >> id >> this->type[i] >> this->mass[i] >> this->radius[i] >> this->pos[i] >> this->vel[i];
+        
     memset(&(this->acc[0]), 0, sizeof(Vector)*size());
     this->dynState.moveToCentralMassCoords(this->mass);
     this->dynState.initAddiVariable(this->mass);
@@ -425,7 +439,8 @@ void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>:
 }
 
 template<typename EvolvedData, typename Regularitor>
-typename EvolvedData::Scalar ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::timeScale(Scalar scale)
+typename EvolvedData::Scalar ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::timeScale(
+    Scalar scale)
 {
     return regular.getPhysicalPosTime(this->mass, this->dynState, scale);
 }
@@ -434,12 +449,14 @@ template<typename EvolvedData, typename Regularitor>
 void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
 {
     Scalar dOmega = 0;
+    
     for(size_t i = 0 ; i < size() ; ++i)
-        dOmega += (this->velIndepAcc[i]*this->dynState.vel[i])*(this->mass[i]);
+        dOmega += (this->velIndepAcc[i] * this->dynState.vel[i]) * (this->mass[i]);
+        
 #ifdef KAHAN_SUMMATION
-    KahanAdvance(this->chain.omega, dOmega*stepSize, roundoffErr.omega);
+    KahanAdvance(this->chain.omega, dOmega * stepSize, roundoffErr.omega);
 #else
-    this->chain.omega += dOmega*stepSize;
+    this->chain.omega += dOmega * stepSize;
 #endif
     this->dynState.omega = this->chain.omega;
 }
@@ -449,9 +466,11 @@ void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>:
 {
     IndexArray newIndex;
     chain::getChainIndex(this->pos, newIndex);
+    
     if(chain::IsDiff(chainIndex, newIndex))
     {
-        chain::updateChain(this->chain.pos, chainIndex, newIndex);//Update chain index and update new position chain with old chain
+        chain::updateChain(this->chain.pos, chainIndex,
+                           newIndex);//Update chain index and update new position chain with old chain
         chainIndex = newIndex;
         chain::synChain(this->vel, chain.vel, chainIndex);
     }
@@ -469,18 +488,18 @@ void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>:
     {
         dr = chain.pos[i];
         inv_r  = dr.reNorm();
-        inv_r3 = (inv_r*inv_r*inv_r);
-        velIndepAcc[chainIndex[i]]     += dr*(inv_r3*this->mass[chainIndex[i + 1]]);
-        velIndepAcc[chainIndex[i + 1]] -= dr*(inv_r3*this->mass[chainIndex[i]]);
+        inv_r3 = (inv_r * inv_r * inv_r);
+        velIndepAcc[chainIndex[i]]     += dr * (inv_r3 * this->mass[chainIndex[i + 1]]);
+        velIndepAcc[chainIndex[i + 1]] -= dr * (inv_r3 * this->mass[chainIndex[i]]);
     }
     
     for(size_t i = 0 ; i < size() - 2; ++i)
     {
-        dr = chain.pos[i] + chain.pos[i+1];
+        dr = chain.pos[i] + chain.pos[i + 1];
         inv_r = dr.reNorm();
-        inv_r3 = (inv_r*inv_r*inv_r);
-        velIndepAcc[chainIndex[i]]     += dr*(inv_r3*this->mass[chainIndex[i + 2]]);
-        velIndepAcc[chainIndex[i + 2]] -= dr*(inv_r3*this->mass[chainIndex[i]]);
+        inv_r3 = (inv_r * inv_r * inv_r);
+        velIndepAcc[chainIndex[i]]     += dr * (inv_r3 * this->mass[chainIndex[i + 2]]);
+        velIndepAcc[chainIndex[i + 2]] -= dr * (inv_r3 * this->mass[chainIndex[i]]);
     }
     
     for(size_t i = 0 ; i < size() ; ++i)
@@ -489,9 +508,9 @@ void ARchain<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>:
         {
             dr = this->pos[chainIndex[j]] - this->pos[chainIndex[i]];
             inv_r = dr.reNorm();
-            inv_r3 = (inv_r*inv_r*inv_r);
-            velIndepAcc[chainIndex[i]] += dr*(inv_r3*this->mass[chainIndex[j]]);
-            velIndepAcc[chainIndex[j]] -= dr*(inv_r3*this->mass[chainIndex[i]]);
+            inv_r3 = (inv_r * inv_r * inv_r);
+            velIndepAcc[chainIndex[i]] += dr * (inv_r3 * this->mass[chainIndex[j]]);
+            velIndepAcc[chainIndex[j]] -= dr * (inv_r3 * this->mass[chainIndex[i]]);
         }
     }
     

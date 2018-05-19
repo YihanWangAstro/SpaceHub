@@ -36,7 +36,7 @@ public:
     void advanceOneStep();
     void loadText(char const* initFilePath);
     void setStepLength(double);
-    virtual ~dynamicSystem(){}/**< @brief Default destructor, virtualize for inherent class*/
+    virtual ~dynamicSystem() {} /**< @brief Default destructor, virtualize for inherent class*/
 public:
     /** @brief Macro step size for ODE iterator*/
     double stepLength{0.0};
@@ -49,7 +49,7 @@ public:
     
     /** @brief ODE Iterator*/
     ODEiterator iterator;
-
+    
 private:
     void getInitStepLength();
 };
@@ -77,7 +77,7 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::getInitStepLength()
 {
     if(stepLength == 0.0)
     {
-        stepLength = 0.1*YEAR*particles.timeScale(1);
+        stepLength = 0.1 * YEAR * particles.timeScale(1);
     }
 }
 
@@ -98,11 +98,13 @@ template<typename ParticSys, typename Integrator, typename ODEiterator>
 void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* initFilePath)
 {
     std::ifstream inFile(initFilePath);
+    
     if(inFile.is_open())
     {
         char   head;
         size_t num;
         inFile >> head >> num;
+        
         if(head == '#' && num == particles.size())
             inFile >> particles;
         else
@@ -110,6 +112,7 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* ini
     }
     else
         throw errhand("Fail to open the initial condition file!", __FILE__, __LINE__);
+        
     inFile.close();
     getInitStepLength();
 }
@@ -124,7 +127,7 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::setStepLength(double ste
 /**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
 template<typename ParticSys,
          template<typename> class Integrator,
-         template<typename,typename> class ODEiterator>
-using spaceX = dynamicSystem<ParticSys, Integrator<ParticSys>, ODEiterator<ParticSys, Integrator<ParticSys> > >;
+         template<typename, typename> class ODEiterator>
+using spaceX = dynamicSystem<ParticSys, Integrator<ParticSys>, ODEiterator<ParticSys, Integrator<ParticSys>>>;
 #endif
 

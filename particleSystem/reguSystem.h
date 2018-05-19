@@ -24,8 +24,14 @@ public:
     typedef typename EvolvedData::ScalarArray         ScalarArray;
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     /////////////////////////////////Interface /////////////////////////////////////
-    constexpr static size_t size(){return EvolvedData::size();}
-    constexpr static size_t volume(){return EvolvedData::volume();}
+    constexpr static size_t size()
+    {
+        return EvolvedData::size();
+    }
+    constexpr static size_t volume()
+    {
+        return EvolvedData::volume();
+    }
     void  advancePos(Scalar timeStepSize);
     void  advanceVel(Scalar timeStepSize);
     const reguSystem& operator=(const reguSystem& other);
@@ -44,16 +50,17 @@ private:
     Regularitor regular;
     /////////////////////////////private function///////////////////////////////////
 private:
-      void advanceOmega(Scalar stepSize);
-      void advanceB(Scalar stepSize);
-      void kickVel(Scalar stepSize);
-      void kickAuxiVel(Scalar stepSize);
-      void updateAccWith(VectorArray& vel);
-      void updateVelIndepAcc();
+    void advanceOmega(Scalar stepSize);
+    void advanceB(Scalar stepSize);
+    void kickVel(Scalar stepSize);
+    void kickAuxiVel(Scalar stepSize);
+    void updateAccWith(VectorArray& vel);
+    void updateVelIndepAcc();
 };
 ////////////////////////////implement function//////////////////////////////////
 template<typename Interaction, typename EvolvedData, typename Regularitor>
-const reguSystem<Interaction, EvolvedData, Regularitor>& reguSystem<Interaction, EvolvedData, Regularitor>::operator=(const reguSystem& other)
+const reguSystem<Interaction, EvolvedData, Regularitor>& reguSystem<Interaction, EvolvedData, Regularitor>::operator=
+(const reguSystem& other)
 {
     this->dynState    = other.dynState;
     this->acc         = other.acc;
@@ -81,17 +88,14 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void reguSystem<Interaction, EvolvedData, Regularitor>::advanceVel(Scalar timeStepSize)
 {
     Scalar physicalTime = regular.getPhysicalVelTime(this->mass, this->dynState, timeStepSize);
-    Scalar halfTime = 0.5*physicalTime;
+    Scalar halfTime = 0.5 * physicalTime;
     updateVelIndepAcc();
-    
     updateAccWith(this->vel);
     kickAuxiVel(halfTime);
-    
     updateAccWith(this->dynState.auxiVel);
     advanceB(physicalTime);
     advanceOmega(physicalTime);
     kickVel(physicalTime);
-    
     updateAccWith(this->vel);
     kickAuxiVel(halfTime);
 }
@@ -101,8 +105,10 @@ std::istream& reguSystem<Interaction, EvolvedData, Regularitor>::read(std::istre
 {
     input >> this->time;
     size_t id;
+    
     for(size_t i = 0 ; i < size() ; ++i)
         input >> id >> this->type[i] >> this->mass[i] >> this->radius[i] >> this->pos[i] >> this->vel[i];
+        
     memset(&(this->acc[0]), 0, sizeof(Vector)*size());
     MoveToCentralMassCoordinate(this->mass, this->pos);
     MoveToCentralMassCoordinate(this->mass, this->vel);
@@ -153,13 +159,14 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void reguSystem<Interaction, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
 {
     Scalar dOmega = 0;
-    for(size_t i = 0 ; i < size() ; ++i)
-        dOmega += (this->velIndepAcc[i]*this->dynState.auxiVel[i])*(this->mass[i]);
     
+    for(size_t i = 0 ; i < size() ; ++i)
+        dOmega += (this->velIndepAcc[i] * this->dynState.auxiVel[i]) * (this->mass[i]);
+        
 #ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.omega, dOmega*stepSize, roundoffErr.omega);
+    KahanAdvance(this->dynState.omega, dOmega * stepSize, roundoffErr.omega);
 #else
-    this->dynState.omega += dOmega*stepSize;
+    this->dynState.omega += dOmega * stepSize;
 #endif
 }
 
@@ -167,13 +174,14 @@ template<typename Interaction, typename EvolvedData, typename Regularitor>
 void reguSystem<Interaction, EvolvedData, Regularitor>::advanceB(Scalar stepSize)
 {
     Scalar dE = 0;
-    for(size_t i = 0 ; i < size() ; ++i)
-        dE -= (this->velDepAcc[i]*this->dynState.auxiVel[i])*(this->mass[i]);
     
+    for(size_t i = 0 ; i < size() ; ++i)
+        dE -= (this->velDepAcc[i] * this->dynState.auxiVel[i]) * (this->mass[i]);
+        
 #ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.bindE, dE*stepSize, roundoffErr.bindE);
+    KahanAdvance(this->dynState.bindE, dE * stepSize, roundoffErr.bindE);
 #else
-    this->dynState.bindE += dE*stepSize;
+    this->dynState.bindE += dE * stepSize;
 #endif
 }
 
@@ -184,15 +192,16 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::updateVelIndepAcc()
     Scalar inv_r  = 1;
     Scalar inv_r3 = 1;
     memset(&(velIndepAcc[0]), 0, sizeof(Vector)*size());
+    
     for(size_t i = 0 ; i < size() ; ++i)
     {
         for(size_t j = i + 1 ; j < size() ; ++j)
         {
             dr     = this->pos[j] - this->pos[i];
             inv_r  = dr.reNorm();
-            inv_r3 = inv_r*inv_r*inv_r;
-            velIndepAcc[i] += dr*(inv_r3*this->mass[j]);
-            velIndepAcc[j] -= dr*(inv_r3*this->mass[i]);
+            inv_r3 = inv_r * inv_r * inv_r;
+            velIndepAcc[i] += dr * (inv_r3 * this->mass[j]);
+            velIndepAcc[j] -= dr * (inv_r3 * this->mass[i]);
         }
     }
 }
@@ -203,6 +212,7 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArra
     memset(&(velDepAcc[0]), 0, sizeof(Vector)*size());
     Vector dr;
     Vector dv;
+    
     for(size_t i = 0 ; i < size() ; ++i)
     {
         for(size_t j = i + 1 ; j < size() ; ++j)
@@ -214,6 +224,7 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArra
                         velDepAcc[i], velDepAcc[j]);
         }
     }
+    
     for(size_t i = 0 ; i < size() ; ++i)
         this->acc[i] = velIndepAcc[i] + velDepAcc[i];
 }
@@ -222,7 +233,7 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArra
 
 template<typename EvolvedData, typename Regularitor>
 class reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor> :
-public particleSystem<reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>, EvolvedData>
+    public particleSystem<reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>, EvolvedData>
 {
 public:
     /////////////////////////////////size_terface /////////////////////////////////////
@@ -232,8 +243,14 @@ public:
     typedef typename EvolvedData::ScalarArray   ScalarArray;
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     
-    constexpr static size_t size(){return EvolvedData::size();}
-    constexpr static size_t volume(){return EvolvedData::volume();}
+    constexpr static size_t size()
+    {
+        return EvolvedData::size();
+    }
+    constexpr static size_t volume()
+    {
+        return EvolvedData::volume();
+    }
     void advancePos(Scalar timeStepSize);
     void advanceVel(Scalar timeStepSize);
     //////////////////////Base class size_terface implement////////////////////////////
@@ -270,13 +287,13 @@ void reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularito
 {
     Scalar physicalTime = regular.getPhysicalVelTime(this->mass, this->dynState, timeStepSize);
     updateVelIndepAcc();
-    advanceOmega(0.5*physicalTime);
+    advanceOmega(0.5 * physicalTime);
 #ifdef KAHAN_SUMMATION
     KahanAdvance(this->vel, this->acc, roundoffErr.vel, physicalTime);
 #else
     advanceVariable(this->vel, this->acc, physicalTime);
 #endif
-    advanceOmega(0.5*physicalTime);
+    advanceOmega(0.5 * physicalTime);
 }
 
 template<typename EvolvedData, typename Regularitor>
@@ -284,8 +301,10 @@ std::istream& reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, R
 {
     input >> this->time;
     size_t id;
+    
     for(size_t i = 0 ; i < size() ; ++i)
         input >> id >> this->type[i] >> this->mass[i] >> this->radius[i] >> this->pos[i] >> this->vel[i];
+        
     memset(&(this->acc[0]), 0, sizeof(Vector)*size());
     MoveToCentralMassCoordinate(this->mass, this->pos);
     MoveToCentralMassCoordinate(this->mass, this->vel);
@@ -306,7 +325,8 @@ void reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularito
 }
 
 template<typename EvolvedData, typename Regularitor>
-typename EvolvedData::Scalar reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::timeScale(Scalar scale)
+typename EvolvedData::Scalar reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::timeScale(
+    Scalar scale)
 {
     return regular.getPhysicalPosTime(this->mass, this->dynState, scale);
 }
@@ -315,13 +335,14 @@ template<typename EvolvedData, typename Regularitor>
 void reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
 {
     Scalar dOmega = 0;
+    
     for(size_t i = 0 ; i < size() ; ++i)
-        dOmega += (this->acc[i]*this->vel[i])*(this->mass[i]);
-
+        dOmega += (this->acc[i] * this->vel[i]) * (this->mass[i]);
+        
 #ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.omega, dOmega*stepSize, roundoffErr.omega);
+    KahanAdvance(this->dynState.omega, dOmega * stepSize, roundoffErr.omega);
 #else
-    this->dynState.omega += dOmega*stepSize;
+    this->dynState.omega += dOmega * stepSize;
 #endif
 }
 
@@ -331,16 +352,20 @@ void reguSystem<Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularito
     Vector dr(0.0, 0.0, 0.0);
     Scalar inv_r  = 1;
     Scalar inv_r3 = 1;
-    std::for_each(this->acc.begin(), this->acc.end(), [](vec3<Scalar>& v){ v.setZero(); });
+    std::for_each(this->acc.begin(), this->acc.end(), [](vec3<Scalar>& v)
+    {
+        v.setZero();
+    });
+    
     for(size_t i = 0 ; i < size() ; ++i)
     {
         for(size_t j = i + 1 ; j < size() ; ++j)
         {
             dr     = this->pos[j] - this->pos[i];
             inv_r  = dr.reNorm();
-            inv_r3 = inv_r*inv_r*inv_r;
-            this->acc[i] += dr*(inv_r3*this->mass[j]);
-            this->acc[j] -= dr*(inv_r3*this->mass[i]);
+            inv_r3 = inv_r * inv_r * inv_r;
+            this->acc[i] += dr * (inv_r3 * this->mass[j]);
+            this->acc[j] -= dr * (inv_r3 * this->mass[i]);
         }
     }
 }

@@ -23,19 +23,25 @@ class reguDynamics
 public:
     typedef DataType                   Scalar;
     typedef vec3<Scalar>               Vector;
-    typedef std::array<vec3<Scalar>,N> VectorArray;
-    typedef std::array<Scalar,N>       ScalarArray;
-    typedef std::array<size_t,N>       IndexArray;
+    typedef std::array<vec3<Scalar>, N> VectorArray;
+    typedef std::array<Scalar, N>       ScalarArray;
+    typedef std::array<size_t, N>       IndexArray;
     
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
-    constexpr static size_t size(){return N;}
+    constexpr static size_t size()
+    {
+        return N;
+    }
     
     /** @brief Get the total data number.
      *  @return The data number.
      */
-    constexpr static size_t volume(){return 6*N + 3;}
+    constexpr static size_t volume()
+    {
+        return 6 * N + 3;
+    }
     
     /** @brief Array of position of the particles. Element is 3D vector.*/
     VectorArray pos;
@@ -83,7 +89,7 @@ public:
      */
     void initAddiVariable(ScalarArray& mass)
     {
-        bindE = -getTotalEnergy(mass,pos,vel);
+        bindE = -getTotalEnergy(mass, pos, vel);
         omega = getOmega(mass);
     }
     

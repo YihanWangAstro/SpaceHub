@@ -27,8 +27,8 @@ public:
 template <typename ParticSys>
 void symplectic8th<ParticSys>::integrate(ParticSys& particles, double stepLength)
 {
-    particles.AdvancePos(0.5*stepLength);
+    particles.AdvancePos(0.5 * stepLength);
     particles.AdvanceVel(stepLength);
-    particles.AdvancePos(0.5*stepLength);
+    particles.AdvancePos(0.5 * stepLength);
 }
 #endif

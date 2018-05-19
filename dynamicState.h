@@ -23,18 +23,24 @@ class dynamics
 public:
     typedef DataType                   Scalar;
     typedef vec3<Scalar>               Vector;
-    typedef std::array<vec3<Scalar>,N> VectorArray;
-    typedef std::array<Scalar,N>       ScalarArray;
+    typedef std::array<vec3<Scalar>, N> VectorArray;
+    typedef std::array<Scalar, N>       ScalarArray;
     
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
-    constexpr static size_t size(){return N;}
+    constexpr static size_t size()
+    {
+        return N;
+    }
     
     /** @brief Get the total data number.
      *  @return The data number.
      */
-    constexpr static size_t volume(){return 6*N + 1;}
+    constexpr static size_t volume()
+    {
+        return 6 * N + 1;
+    }
     
     /** @brief Array of position of the particles. Element is 3D vector.*/
     VectorArray pos;
@@ -44,7 +50,7 @@ public:
     
     /** @brief The physical time of the dynamic system*/
     Scalar      time{0.0};
-
+    
     /** @brief Transfer this class to a plain array.
      *  @return The reference of head of this class, reinterpret as a plain array.
      */
@@ -56,7 +62,7 @@ public:
     /** @brief Initialize extra user defined variables. Interface required for other class.
      *  @param mass The mass of particles, might be required for initialization.
      */
-    void initAddiVariable(ScalarArray& mass){};
+    void initAddiVariable(ScalarArray& mass) {};
     
     /** @brief Set all data to be zero.*/
     void setZero()

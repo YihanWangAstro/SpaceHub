@@ -19,17 +19,23 @@
 template <typename Derived, typename EvolvedData>
 class particleSystem
 {
- public:
+public:
     /////////////////////////////////Type Define////////////////////////////////////
     typedef typename EvolvedData::Scalar              Scalar;
     typedef typename EvolvedData::Vector              Vector;
     typedef typename EvolvedData::VectorArray         VectorArray;
     typedef typename EvolvedData::ScalarArray         ScalarArray;
-    typedef std::array<size_t,EvolvedData::size()>    IntArray;
+    typedef std::array<size_t, EvolvedData::size()>    IntArray;
     typedef std::array<Scalar, EvolvedData::volume()> PlainArray;
     ///////////////////////////////////Interface////////////////////////////////////
-    constexpr static size_t size(){return EvolvedData::size();}
-    constexpr static size_t volume(){return EvolvedData::volume();}
+    constexpr static size_t size()
+    {
+        return EvolvedData::size();
+    }
+    constexpr static size_t volume()
+    {
+        return EvolvedData::volume();
+    }
     EvolvedData  dynState;
     VectorArray& pos;
     VectorArray& vel;
@@ -40,12 +46,15 @@ public:
     ScalarArray  mass;
     ScalarArray  radius;
     IntArray     type;
-             particleSystem() : pos(dynState.pos), vel(dynState.vel), time(dynState.time){}
-    virtual ~particleSystem(){}
+    particleSystem() : pos(dynState.pos), vel(dynState.vel), time(dynState.time) {}
+    virtual ~particleSystem() {}
     
     std::ostream& write(std::ostream&)const;
     std::istream& read (std::istream&);
-    PlainArray&   array(){return dynState.array();}
+    PlainArray&   array()
+    {
+        return dynState.array();
+    }
     Scalar timeScale(Scalar scale);
     void load(PlainArray& data);
     const particleSystem& operator=(const particleSystem& other);
@@ -87,13 +96,14 @@ std::istream& particleSystem<Derived, EvolvedData>::read(std::istream& input)
 {
     input >> time;
     size_t id;
+    
     for(size_t i = 0 ; i < size() ; ++i)
         input >> id >> type[i] >> mass[i] >> radius[i] >> pos[i] >> vel[i];
-    memset(acc, 0, sizeof(Scalar)*3*size());
+        
+    memset(acc, 0, sizeof(Scalar) * 3 * size());
     MoveToCentralMassCoordinate(mass, dynState.pos);
     MoveToCentralMassCoordinate(mass, dynState.vel);
     dynState.initAddiVariable  (mass);
-    
     return input;
 }
 
@@ -101,11 +111,13 @@ template <typename Derived, typename EvolvedData>
 std::ostream& particleSystem<Derived, EvolvedData>::write(std::ostream& output) const
 {
     output << "#" << size() << " " << time << "\r\n";
+    
     for(size_t i = 0 ; i < size() ; ++i)
     {
         output << i << " " << type[i] << " " << mass[i] << " " << radius[i]
-                    << " " << pos [i] << " " << vel [i] << "\r\n";
+               << " " << pos [i] << " " << vel [i] << "\r\n";
     }
+    
     return output;
 }
 

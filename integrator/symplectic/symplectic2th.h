@@ -27,8 +27,8 @@ public:
 template <typename ParticSys>
 void symplectic2th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength)
 {
-    particles.advancePos(0.5*stepLength);
+    particles.advancePos(0.5 * stepLength);
     particles.advanceVel(stepLength);
-    particles.advancePos(0.5*stepLength);
+    particles.advancePos(0.5 * stepLength);
 }
 #endif
