@@ -8,16 +8,23 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef SYMPLECTIC_6TH_INTEGRATOR_H
 #define SYMPLECTIC_6TH_INTEGRATOR_H
+/** @brief Sixth order symplectic integrator */
 template <typename ParticSys>
 class symplectic6th
 {
     //////////////////////////////////Interface/////////////////////////////////////
 public:
+    /** @brief Order of the integrator*/
    static const int order{6};
 private:
     void integrate(ParticSys& particles, double stepLength);
 };
-    /////////////////////////////Implement Function/////////////////////////////////
+/** @brief Interface to integrate particle system
+ *
+ *  This function integrate the particle system for one step with DKD leapfrog second order symplectic algorithm.
+ *  @param particles  Particle system need to be integrated.
+ *  @param stepLength Step size for integration.
+ */
 template <typename ParticSys>
 void symplectic6th<ParticSys>::integrate(ParticSys& particles, double stepLength)
 {

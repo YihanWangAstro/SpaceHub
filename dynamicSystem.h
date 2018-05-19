@@ -1,4 +1,4 @@
-/**
+/*
  *                                          _ooOoo_
  *                                         o8888888o
  *                                         88" . "88
@@ -19,48 +19,59 @@
  *                                          `=---='
  *
  *                      .............................................
- *                                佛祖保佑             永无BUG
  */
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:dynamicSystem.h                                                                                            //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef DYNAMICSYSTEM_H
 #define DYNAMICSYSTEM_H
 #include "errhand.h"
 #include <float.h>
 #include <fstream>
+
+/**
+ *  @brief A wrapper to make particle system, integrator and ODE iterator work together.
+*/
 template<typename ParticSys, typename Integrator, typename ODEiterator>
 class dynamicSystem
 {
-    //////////////////////////////////size_terface/////////////////////////////////////
 public:
     void advanceOneStep();
     void loadText(char const* initFilePath);
     void setStepLength(double);
-    virtual ~dynamicSystem(){}
-    ///////////////////////////////Member variables/////////////////////////////////
+    virtual ~dynamicSystem(){}/**< @brief Default destructor, virtualize for inherent class*/
 public:
-    double      stepLength{0.0};
-    ParticSys   particles;
-    Integrator  integrator;
+    /** @brief Macro step size for ODE iterator*/
+    double stepLength{0.0};
+    
+    /** @brief Particle system*/
+    ParticSys particles;
+    
+    /** @brief Integrator*/
+    Integrator integrator;
+    
+    /** @brief ODE Iterator*/
     ODEiterator iterator;
-    //////////////////////////////Private Function//////////////////////////////////
+
 private:
     void getInitStepLength();
 };
-    /////////////////////////////Implement Function/////////////////////////////////
+
+/**  @brief Advance the particle system for one step.
+ *
+ *   Advance the particle system with current steplength stepLength. The ODE iterator
+ *   iterate the integrator to convergence by its own implement. The step length will also
+ *   be updated by its own implement.
+ */
 template<typename ParticSys, typename Integrator, typename ODEiterator>
 inline void dynamicSystem<ParticSys, Integrator, ODEiterator>::advanceOneStep()
 {
     stepLength = iterator.iterate(particles, integrator, stepLength);
 }
 
+/**  @brief Calculate the initial step length of the particle system
+ *
+ *   If the user didn't set the step length with setStepLength(), calculate the proper initial
+ *   step length automatically.
+ *
+ */
 template<typename ParticSys, typename Integrator, typename ODEiterator>
 void dynamicSystem<ParticSys, Integrator, ODEiterator>::getInitStepLength()
 {
@@ -70,6 +81,19 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::getInitStepLength()
     }
 }
 
+
+/**  @brief Load particle system initial condition from file
+ *
+ *   This function will read and check the initial file header (begin with '#') and the
+ *   particle number after the '#'. Pass the rest information to particles by
+ *   operator '>>'. The way to load the initial condition depend on the implemet of
+ *   the particles. If the initial condition read successfully. This function will
+ *   call getInitStepLength() to set the initial step length.
+ *
+ *   @param initFilePath The relative path of initial conditions file
+ *   @exception If the partcile number in the header is inconsisitent with the size of
+ *              particles, this function will throw an exception.
+ */
 template<typename ParticSys, typename Integrator, typename ODEiterator>
 void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* initFilePath)
 {
@@ -90,12 +114,14 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* ini
     getInitStepLength();
 }
 
+/**  @brief Set the step length*/
 template<typename ParticSys, typename Integrator, typename ODEiterator>
 void dynamicSystem<ParticSys, Integrator, ODEiterator>::setStepLength(double stepSize)
 {
     stepLength = stepSize;
 }
 
+/**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
 template<typename ParticSys,
          template<typename> class Integrator,
          template<typename,typename> class ODEiterator>

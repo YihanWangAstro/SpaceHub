@@ -9,26 +9,29 @@
 #ifndef LIBS_H
 #define LIBS_H
 #include "vector3.h"
-#include "rdFloat.h"
 
+/** @brief Self min()*/
 template<typename T1, typename T2>
 inline const T2 min(const T1& x, const T2& y)
 {
     return x > y ? y : x;
 }
 
+/** @brief Self max()*/
 template<typename T1, typename T2>
 inline const T2 max(const T1& x, const T2& y)
 {
     return y > x ? y : x;
 }
 
+/** @brief Self abs()*/
 template<class T>
 inline const T abs(const T& x)
 {
     return x > -x ? x : -x;
 }
 
+/** @brief Self swap()*/
 template <class T>
 void swap(T& a, T& b)
 {
@@ -37,6 +40,16 @@ void swap(T& a, T& b)
     b = std::move(tmp);
 }
 
+/** @brief Kahan Summation for Array
+ *
+ *  A way to reduce the round off error when adding a small number to a big one.
+ *  See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm
+ *
+ *  @param var      Array of variable needs evolution.
+ *  @param increase Array of inreament.
+ *  @param err      Array of round off error from last addition.
+ *  @param dt       Step size of advance.
+ */
 template<typename Scalar, size_t N>
 void KahanAdvance(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar>, N>& increase, std::array<vec3<Scalar>, N>& err, Scalar dt)
 {
@@ -51,6 +64,15 @@ void KahanAdvance(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar
     }
 }
 
+/** @brief Kahan Summation for Scalar
+ *
+ *  A way to reduce the round off error when adding a small number to a big one.
+ *  See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm
+ *
+ *  @param var      Scalar variable needs evolution.
+ *  @param increase Scalar inreament.
+ *  @param err      Scalar round off error from last addition.
+ */
 template<typename Scalar>
 void KahanAdvance(Scalar& var, const Scalar increase, Scalar& err)
 {
@@ -63,6 +85,12 @@ void KahanAdvance(Scalar& var, const Scalar increase, Scalar& err)
     var = sum;
 }
 
+/** @brief Normal Summation of two Arrays
+ *
+ *  @param var      Array of variable needs evolution.
+ *  @param increase Array of inreament.
+ *  @param dt       Step size of advance.
+ */
 template<typename Scalar, size_t N>
 void advanceVariable(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar>, N>& add, Scalar dt)
 {
@@ -70,6 +98,11 @@ void advanceVariable(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Sca
         var[i] += add[i]*dt;
 }
 
+/** @brief Move variables to central mass coordinates
+ *
+ *  @param mass   Array of mass.
+ *  @param phyVar Array of variables need to be moved.
+ */
 template<typename Scalar, size_t N>
 void MoveToCentralMassCoordinate(const std::array<Scalar,N>& mass, std::array<vec3<Scalar>, N>& phyVar)
 {
@@ -90,6 +123,12 @@ void MoveToCentralMassCoordinate(const std::array<Scalar,N>& mass, std::array<ve
     }
 }
 
+/** @brief Calculate the kinetic energy of particles
+ *
+ *  @param  mass          Array of mass.
+ *  @param  vel           Array of velocity.
+ *  @return The kinetic energy.
+ */
 template<typename Scalar, size_t N>
 double getKineticEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<Scalar>, N>& vel)
 {
@@ -101,6 +140,12 @@ double getKineticEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<
     return kineticEnergy;
 }
 
+/** @brief Calculate the potential energy of particles
+ *
+ *  @param  mass            Array of mass.
+ *  @param  pos             Array of position.
+ *  @return The potential energy.
+ */
 template<typename Scalar, size_t N>
 double getPotentialEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<Scalar>, N>& pos)
 {
@@ -112,6 +157,14 @@ double getPotentialEnergy(const std::array<Scalar,N>& mass, const std::array<vec
     
     return potentialEnergy;
 }
+
+/** @brief Calculate the total(potential + kinetic) energy of particles
+ *
+ *  @param  mass            Array of mass.
+ *  @param  pos             Array of position.
+ *  @param  vel             Array of velocity.
+ *  @return The total energy.
+ */
 template<typename Scalar, size_t N>
 inline double getTotalEnergy(const std::array<Scalar,N>& mass, const std::array<vec3<Scalar>, N>& pos, const std::array<vec3<Scalar>, N>& vel)
 {
@@ -128,6 +181,7 @@ inline double getTotalEnergy(const std::array<Scalar,N>& mass, const std::array<
     return potentialEnergy + kineticEnergy;
 }
 
+/** @brief print an array. Used for debug*/
 template<typename T>
 void print(T& var)
 {

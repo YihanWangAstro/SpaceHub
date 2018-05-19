@@ -16,13 +16,23 @@ constexpr double INV_C2 = INV_C*INV_C;
 constexpr double INV_C3 = INV_C2*INV_C;
 constexpr double INV_C4 = INV_C3*INV_C;
 constexpr double INV_C5 = INV_C4*INV_C;
-
+/** @brief Post newtonian pair interaction functor(c++ std11)*/
 template<typename Scalar>
 class PN1th
 {
 private:
     typedef vec3<Scalar> Vector;
 public:
+    /** @brief Update the velocity dependent acceleration of particle 1 and 2.
+     *  @param m1   Mass of particle 1.
+     *  @param m2   Mass of particle 2.
+     *  @param dr   Relative position pos1 - pos2.
+     *  @param dv   Relative velocity vel1 - vel2.
+     *  @param v1   Velocity of particle 1.
+     *  @param v2   Velocity of particle 2.
+     *  @param acc1 Velocity dependent acceleration of particle 1 as return value.
+     *  @param acc2 Velocity dependent acceleration of particle 1 as return value.
+     */
     void operator()(Scalar m1, Scalar m2, Vector& dr, Vector& dv, Vector& v1, Vector& v2, Vector& acc1, Vector& acc2)
     {
         Scalar inv_r  = dr.reNorm();
@@ -43,6 +53,7 @@ public:
     }
 };
 
+/** @brief Marker of None velocity dependent force functor(c++ std11)*/
 template<typename Scalar>
 class Newtonian
 {

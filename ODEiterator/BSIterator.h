@@ -94,6 +94,8 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys&
 
             h = H/nSteps[k];
             
+            /*for(size_t i = 0 ; i < nSteps[k]; i++)
+                integrator.integrate(localSystem,h);*/
             localSystem.advancePos(0.5*h);
             for(size_t i = 1 ; i < nSteps[k]; i++)
             {

@@ -12,13 +12,14 @@
 #include <vector>
 namespace chain
 {
+    /** @brief Struture to store the relative distance and index of two particles.*/
     template <typename Scalar>
     struct Node
     {
-        Scalar Rij;
-        size_t i;
-        size_t j;
-        bool   available;
+        Scalar Rij; /**< Relative distance of two particles.*/
+        size_t i; /**< Particle index.*/
+        size_t j; /**< Particle index.*/
+        bool   available; /**< State of node. If this node can be chained.*/
     };
     
     template <typename Scalar, size_t N>
@@ -30,6 +31,13 @@ namespace chain
     template <typename Scalar, size_t N>
     using NodeArray = std::array<Node<Scalar>, N>;
 
+    /** @brief Calculate the mapping index from Cartesian coordinate to chain coordinate.
+     *
+     *  Find the mapping index from Cartesian coordinate to chain coordinate. The chain is formed by
+     *  connecting the nearest particle pairs consequently.
+     *  @param pos        The array of particle position, used to calculate the distance of particle pairs.
+     *  @param chainIndex The maping index needs to be calculated as a return value.
+     */
     template <typename Scalar, size_t N>
     void getChainIndex(const VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex)
     {
@@ -39,6 +47,12 @@ namespace chain
         createChainIndex(AdjMatrix, chainIndex);
     }
     
+    /** @brief Create the adjoint matrix for particle pairs.
+     *
+     *  Create the adjoint matrix(distance of particle pairs organized by index-index matrix).
+     *  @param pos        The array of particle position, used to calculate the distance of particle pairs.
+     *  @param AdjMatrix  The adjoint matrix needs to be calculated as a return value.
+     */
     template <typename Scalar, size_t N>
     void createAdjMartix(const VectorArray<Scalar, N>& pos, NodeArray<Scalar, N*(N-1)/2>& AdjMatrix )
     {
@@ -56,6 +70,12 @@ namespace chain
         }
     }
     
+    /** @brief Create mapping index from adjoint matrix.
+     *
+     *  Create mapping index from sorted elements of adjoint matrix and connect them to a chain consequently.
+     *  @param AdjMatrix  The adjoint matrix.
+     *  @param chainIndex The maping index needs to be calculated as a return value.
+     */
     template <typename Scalar, size_t N>
     void createChainIndex(NodeArray<Scalar, N*(N-1)/2>& AdjMatrix, IndexArray<N>& chainIndex)
     {
@@ -152,6 +172,14 @@ namespace chain
             chainIndex[i] = Index[i];
     }
     
+    /** @brief Check if two mapping indexes are the same.
+     *
+     *  Checking the identity of two chain index mappings.
+     *  @param Index1  The first index array.
+     *  @param Index2  The second index array.
+     *  @return boolean
+     *  @note  [2,4,5,3,1] is identical to [1,3,5,4,2]
+     */
     template <size_t N>
     bool IsDiff(const IndexArray<N>& Index1, const IndexArray<N>& Index2)
     {
@@ -177,6 +205,14 @@ namespace chain
             return true;
     }
     
+    /** @brief Update the position chain.
+     *
+     *  Update the position chain. Due to the evolution, the chain index mapping could change with time,
+     *  this function is used to update the position chain with old chain data.
+     *  @param pos        The old chain position array needs update.
+     *  @param chainIndex The old chain index mapping.
+     *  @param newIndex   The new chain index mapping.
+     */
     template <typename Scalar, size_t N>
     void updateChain(VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex, IndexArray<N>& newIndex)
     {
@@ -212,6 +248,13 @@ namespace chain
             pos[i] = newPos[i];
     }
     
+    /** @brief Calulate the chain data from Cartesian data and chain index mapping.
+     *
+     *  @param data       Data in Cartesian coordinates.
+     *  @param chainData  Data need to be calculated in chain coordinates.
+     *  @param chainIndex Chain index mapping.
+     *  @note This function should be a inverse transformation of synCartesian().
+     */
     template <typename Scalar, size_t N>
     void synChain(VectorArray<Scalar, N>& data, VectorArray<Scalar, N>& chainData, IndexArray<N>& chainIndex)
     {
@@ -221,6 +264,13 @@ namespace chain
             chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
     }
     
+    /** @brief Calulate the Cartesian data from chain data and chain index mapping.
+     *
+     *  @param chainData  Data in chain coordinates.
+     *  @param data       Data need to be calculated in Cartesian coordinates.
+     *  @param chainIndex Chain index mapping.
+     *  @note This function should be a inverse transformation of synChain().
+     */
     template <typename Scalar, size_t N>
     void synCartesian(VectorArray<Scalar, N>& chainData, VectorArray<Scalar, N>& data, IndexArray<N>& chainIndex)
     {
