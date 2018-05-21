@@ -1,0 +1,5 @@
+<map id="errhand::print_to_stdout" name="errhand::print_to_stdout">
+<area shape="rect" id="node2" href="$classerrhand.html#a524dfc6821f703329d8801dd3298f33f" title="errhand::get_msg" alt="" coords="216,5,342,31"/>
+<area shape="rect" id="node3" href="$classerrhand.html#a1556ee8d0aaefeea3bbab73f7ae50914" title="errhand::get_file" alt="" coords="220,55,338,80"/>
+<area shape="rect" id="node4" href="$classerrhand.html#a258f97d84476b21efc38827cda3e5889" title="errhand::get_line" alt="" coords="218,104,340,129"/>
+</map>

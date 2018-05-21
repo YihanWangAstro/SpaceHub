@@ -1,0 +1,7 @@
+<map id="getPotentialEnergy" name="getPotentialEnergy">
+<area shape="rect" id="node2" href="$class_g_a_r.html#a3d5871f25d147497399fa65343bca84a" title="Calculate the regularization variable omega. " alt="" coords="215,5,335,31"/>
+<area shape="rect" id="node4" href="$classlog_h.html#a4e287cd21c48b51fa9535c5b692ca3f2" title="Calculate the physical time for velocity advance from integration step size. " alt="" coords="189,55,361,80"/>
+<area shape="rect" id="node5" href="$classregu_dynamics.html#a0fe3b4f9a468687ec1f004120b347ddd" title="Calculate the regularization variable omega. " alt="" coords="187,104,364,129"/>
+<area shape="rect" id="node3" href="$class_g_a_r.html#a31b5ad2527cc52d1422fa11e2d93fbc6" title="Initialize extra user defined variables. Interface required for other class. " alt="" coords="440,5,589,31"/>
+<area shape="rect" id="node6" href="$classregu_dynamics.html#aa42158ddf3c5385aa89988b9bb80ff29" title="Initialize extra user defined variables. Interface required for other class. " alt="" coords="412,104,617,129"/>
+</map>

@@ -1,0 +1,69 @@
+\hypertarget{space_x_8h}{}\section{space\+X.\+h File Reference}
+\label{space_x_8h}\index{space\+X.\+h@{space\+X.\+h}}
+{\ttfamily \#include \char`\"{}dynamic\+System.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dynamic\+State.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic2th.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+D\+Eiterator/\+B\+S\+Iterator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+D\+Eiterator/const\+Iterator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/regu\+System.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/\+A\+Rchain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/\+G\+A\+R.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/regular\+State.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/regularization.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interaction/interaction.\+h\char`\"{}}\newline
+Include dependency graph for space\+X.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_x_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{space_x_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t N, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = regu\+Dynamics, template$<$ typename $>$ class Interaction = Newtonian$>$ }\\using \mbox{\hyperlink{space_x_8h_a04ff37e2b6eb34044a8d158f3c9032ab}{Newtonian\+System}} = \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ Interaction$<$ Scalar $>$, Evolved\+Data$<$ Scalar, N $>$, Regularitor$<$ Evolved\+Data$<$ Scalar, N $>$ $>$$>$
+\item 
+{\footnotesize template$<$size\+\_\+t N, template$<$ typename $>$ class Interaction, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = G\+AR$>$ }\\using \mbox{\hyperlink{space_x_8h_ae4fbdecd57c9144670b8d2d15bd71c90}{Vel\+Dep\+System}} = \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ Interaction$<$ Scalar $>$, Evolved\+Data$<$ Scalar, N $>$, Regularitor$<$ Evolved\+Data$<$ Scalar, N $>$ $>$$>$
+\item 
+{\footnotesize template$<$size\+\_\+t N, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = regu\+Dynamics, template$<$ typename $>$ class Interaction = Newtonian$>$ }\\using \mbox{\hyperlink{space_x_8h_ad3c101d4698b8c0e57b3ea93bdbea82a}{A\+R\+\_\+chain}} = \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction$<$ Scalar $>$, Evolved\+Data$<$ Scalar, N $>$, Regularitor$<$ Evolved\+Data$<$ Scalar, N $>$ $>$$>$
+\item 
+{\footnotesize template$<$size\+\_\+t N, template$<$ typename $>$ class Interaction, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = G\+AR$>$ }\\using \mbox{\hyperlink{space_x_8h_adbd6393c2ea7b194946ba651d9f0b4e1}{Vel\+A\+Rchain}} = \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction$<$ Scalar $>$, Evolved\+Data$<$ Scalar, N $>$, Regularitor$<$ Evolved\+Data$<$ Scalar, N $>$ $>$$>$
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{space_x_8h_ad3c101d4698b8c0e57b3ea93bdbea82a}\label{space_x_8h_ad3c101d4698b8c0e57b3ea93bdbea82a}} 
+\index{space\+X.\+h@{space\+X.\+h}!A\+R\+\_\+chain@{A\+R\+\_\+chain}}
+\index{A\+R\+\_\+chain@{A\+R\+\_\+chain}!space\+X.\+h@{space\+X.\+h}}
+\subsubsection{\texorpdfstring{A\+R\+\_\+chain}{AR\_chain}}
+{\footnotesize\ttfamily template$<$size\+\_\+t N, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = regu\+Dynamics, template$<$ typename $>$ class Interaction = Newtonian$>$ \\
+using \mbox{\hyperlink{space_x_8h_ad3c101d4698b8c0e57b3ea93bdbea82a}{A\+R\+\_\+chain}} =  \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$Interaction$<$Scalar$>$, Evolved\+Data$<$Scalar, N$>$, Regularitor$<$Evolved\+Data$<$Scalar, N$>$ $>$$>$}
+
+\mbox{\Hypertarget{space_x_8h_a04ff37e2b6eb34044a8d158f3c9032ab}\label{space_x_8h_a04ff37e2b6eb34044a8d158f3c9032ab}} 
+\index{space\+X.\+h@{space\+X.\+h}!Newtonian\+System@{Newtonian\+System}}
+\index{Newtonian\+System@{Newtonian\+System}!space\+X.\+h@{space\+X.\+h}}
+\subsubsection{\texorpdfstring{Newtonian\+System}{NewtonianSystem}}
+{\footnotesize\ttfamily template$<$size\+\_\+t N, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = regu\+Dynamics, template$<$ typename $>$ class Interaction = Newtonian$>$ \\
+using \mbox{\hyperlink{space_x_8h_a04ff37e2b6eb34044a8d158f3c9032ab}{Newtonian\+System}} =  \mbox{\hyperlink{classregu_system}{regu\+System}}$<$Interaction$<$Scalar$>$, Evolved\+Data$<$Scalar, N$>$, Regularitor$<$Evolved\+Data$<$Scalar, N$>$ $>$$>$}
+
+\mbox{\Hypertarget{space_x_8h_adbd6393c2ea7b194946ba651d9f0b4e1}\label{space_x_8h_adbd6393c2ea7b194946ba651d9f0b4e1}} 
+\index{space\+X.\+h@{space\+X.\+h}!Vel\+A\+Rchain@{Vel\+A\+Rchain}}
+\index{Vel\+A\+Rchain@{Vel\+A\+Rchain}!space\+X.\+h@{space\+X.\+h}}
+\subsubsection{\texorpdfstring{Vel\+A\+Rchain}{VelARchain}}
+{\footnotesize\ttfamily template$<$size\+\_\+t N, template$<$ typename $>$ class Interaction, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = G\+AR$>$ \\
+using \mbox{\hyperlink{space_x_8h_adbd6393c2ea7b194946ba651d9f0b4e1}{Vel\+A\+Rchain}} =  \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$Interaction$<$Scalar$>$, Evolved\+Data$<$Scalar, N$>$, Regularitor$<$Evolved\+Data$<$Scalar, N$>$ $>$$>$}
+
+\mbox{\Hypertarget{space_x_8h_ae4fbdecd57c9144670b8d2d15bd71c90}\label{space_x_8h_ae4fbdecd57c9144670b8d2d15bd71c90}} 
+\index{space\+X.\+h@{space\+X.\+h}!Vel\+Dep\+System@{Vel\+Dep\+System}}
+\index{Vel\+Dep\+System@{Vel\+Dep\+System}!space\+X.\+h@{space\+X.\+h}}
+\subsubsection{\texorpdfstring{Vel\+Dep\+System}{VelDepSystem}}
+{\footnotesize\ttfamily template$<$size\+\_\+t N, template$<$ typename $>$ class Interaction, template$<$ typename $>$ class Regularitor = logH, typename Scalar  = double, template$<$ typename, size\+\_\+t $>$ class Evolved\+Data = G\+AR$>$ \\
+using \mbox{\hyperlink{space_x_8h_ae4fbdecd57c9144670b8d2d15bd71c90}{Vel\+Dep\+System}} =  \mbox{\hyperlink{classregu_system}{regu\+System}}$<$Interaction$<$Scalar$>$, Evolved\+Data$<$Scalar, N$>$, Regularitor$<$Evolved\+Data$<$Scalar, N$>$ $>$$>$}
+

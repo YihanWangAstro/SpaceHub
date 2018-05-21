@@ -1,0 +1,101 @@
+\hypertarget{class_no_regu}{}\section{No\+Regu$<$ Dynamic\+State $>$ Class Template Reference}
+\label{class_no_regu}\index{No\+Regu$<$ Dynamic\+State $>$@{No\+Regu$<$ Dynamic\+State $>$}}
+
+
+Ordinary algorithmatic regularization interface.  
+
+
+
+
+{\ttfamily \#include $<$regularization.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Dynamic\+State\+::\+Scalar \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}} \mbox{\hyperlink{class_no_regu_a0c365c1758907b76ee8bf5138f3b20be}{get\+Physical\+Pos\+Time}} (std\+::array$<$ \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}, \mbox{\hyperlink{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}{size}}()$>$ \&mass, Dynamic\+State \&dyn, \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate the physical time for position advance from integration step size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}} \mbox{\hyperlink{class_no_regu_a3294ff362189dbdcab88a094ada2ce1c}{get\+Physical\+Vel\+Time}} (std\+::array$<$ \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}, \mbox{\hyperlink{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}{size}}()$>$ \&mass, Dynamic\+State \&dyn, \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate the physical time for velocity advance from integration step size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}{size}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Dynamic\+State$>$\newline
+class No\+Regu$<$ Dynamic\+State $>$}
+
+Ordinary algorithmatic regularization interface. 
+
+No regularization. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}\label{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}} 
+\index{No\+Regu@{No\+Regu}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!No\+Regu@{No\+Regu}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Dynamic\+State $>$ \\
+typedef Dynamic\+State\+::\+Scalar \mbox{\hyperlink{class_no_regu}{No\+Regu}}$<$ Dynamic\+State $>$\+::\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_no_regu_a0c365c1758907b76ee8bf5138f3b20be}\label{class_no_regu_a0c365c1758907b76ee8bf5138f3b20be}} 
+\index{No\+Regu@{No\+Regu}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}}
+\index{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!No\+Regu@{No\+Regu}}
+\subsubsection{\texorpdfstring{get\+Physical\+Pos\+Time()}{getPhysicalPosTime()}}
+{\footnotesize\ttfamily template$<$typename Dynamic\+State $>$ \\
+\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}} \mbox{\hyperlink{class_no_regu}{No\+Regu}}$<$ Dynamic\+State $>$\+::get\+Physical\+Pos\+Time (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}, \mbox{\hyperlink{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}{size}}()$>$ \&}]{mass,  }\item[{Dynamic\+State \&}]{dyn,  }\item[{\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the physical time for position advance from integration step size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mass} & Array of particle mass. \\
+\hline
+{\em dyn} & Dynamic system contains position, velocity and regularization variables. See example class in \mbox{\hyperlink{dynamic_state_8h}{dynamic\+State.\+h}}. \\
+\hline
+{\em step\+Size} & Integration step size. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_no_regu_a3294ff362189dbdcab88a094ada2ce1c}\label{class_no_regu_a3294ff362189dbdcab88a094ada2ce1c}} 
+\index{No\+Regu@{No\+Regu}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}}
+\index{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!No\+Regu@{No\+Regu}}
+\subsubsection{\texorpdfstring{get\+Physical\+Vel\+Time()}{getPhysicalVelTime()}}
+{\footnotesize\ttfamily template$<$typename Dynamic\+State $>$ \\
+\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}} \mbox{\hyperlink{class_no_regu}{No\+Regu}}$<$ Dynamic\+State $>$\+::get\+Physical\+Vel\+Time (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}, \mbox{\hyperlink{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}{size}}()$>$ \&}]{mass,  }\item[{Dynamic\+State \&}]{dyn,  }\item[{\mbox{\hyperlink{class_no_regu_aa6d40425c316da9c24b55bc908d3cd14}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the physical time for velocity advance from integration step size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mass} & Array of particle mass. \\
+\hline
+{\em dyn} & Dynamic system contains position, velocity and regularization variables. See example class in \mbox{\hyperlink{dynamic_state_8h}{dynamic\+State.\+h}}. \\
+\hline
+{\em step\+Size} & Integration step size. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}\label{class_no_regu_ade4184183a8b2c2095831f3a54e1836a}} 
+\index{No\+Regu@{No\+Regu}!size@{size}}
+\index{size@{size}!No\+Regu@{No\+Regu}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Dynamic\+State $>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{class_no_regu}{No\+Regu}}$<$ Dynamic\+State $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle\+System/\mbox{\hyperlink{regularization_8h}{regularization.\+h}}\end{DoxyCompactItemize}

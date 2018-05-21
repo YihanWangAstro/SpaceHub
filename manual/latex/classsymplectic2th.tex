@@ -1,0 +1,82 @@
+\hypertarget{classsymplectic2th}{}\section{symplectic2th$<$ Partic\+Sys $>$ Class Template Reference}
+\label{classsymplectic2th}\index{symplectic2th$<$ Partic\+Sys $>$@{symplectic2th$<$ Partic\+Sys $>$}}
+
+
+Second order symplectic integrator.  
+
+
+
+
+{\ttfamily \#include $<$symplectic2th.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsymplectic2th_ade78f67685ed50280a210e67397af092}{integrate}} (Partic\+Sys \&particles, \mbox{\hyperlink{classsymplectic2th_a08d72f435fb4c69320ead95ba05625a1}{Scalar}} step\+Length)
+\begin{DoxyCompactList}\small\item\em Interface to integrate particle system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{classsymplectic2th_a1082d668c1081ff0116e8816f1240fcd}{order}} \{2\}
+\begin{DoxyCompactList}\small\item\em Order of the integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Partic\+Sys\+::\+Scalar \mbox{\hyperlink{classsymplectic2th_a08d72f435fb4c69320ead95ba05625a1}{Scalar}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys$>$\newline
+class symplectic2th$<$ Partic\+Sys $>$}
+
+Second order symplectic integrator. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classsymplectic2th_a08d72f435fb4c69320ead95ba05625a1}\label{classsymplectic2th_a08d72f435fb4c69320ead95ba05625a1}} 
+\index{symplectic2th@{symplectic2th}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!symplectic2th@{symplectic2th}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+typedef Partic\+Sys\+::\+Scalar \mbox{\hyperlink{classsymplectic2th}{symplectic2th}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{classsymplectic2th_a08d72f435fb4c69320ead95ba05625a1}{Scalar}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsymplectic2th_ade78f67685ed50280a210e67397af092}\label{classsymplectic2th_ade78f67685ed50280a210e67397af092}} 
+\index{symplectic2th@{symplectic2th}!integrate@{integrate}}
+\index{integrate@{integrate}!symplectic2th@{symplectic2th}}
+\subsubsection{\texorpdfstring{integrate()}{integrate()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{classsymplectic2th}{symplectic2th}}$<$ Partic\+Sys $>$\+::integrate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{classsymplectic2th_a08d72f435fb4c69320ead95ba05625a1}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})}
+
+
+
+Interface to integrate particle system. 
+
+This function integrate the particle system for one step with D\+KD leapfrog second order symplectic algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em particles} & Particle system need to be integrated. \\
+\hline
+{\em step\+Length} & Step size for integration. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classsymplectic2th_a1082d668c1081ff0116e8816f1240fcd}\label{classsymplectic2th_a1082d668c1081ff0116e8816f1240fcd}} 
+\index{symplectic2th@{symplectic2th}!order@{order}}
+\index{order@{order}!symplectic2th@{symplectic2th}}
+\subsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const int \mbox{\hyperlink{classsymplectic2th}{symplectic2th}}$<$ Partic\+Sys $>$\+::order \{2\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Order of the integrator. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+integrator/symplectic/\mbox{\hyperlink{symplectic2th_8h}{symplectic2th.\+h}}\end{DoxyCompactItemize}

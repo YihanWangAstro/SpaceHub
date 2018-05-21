@@ -1,0 +1,82 @@
+\hypertarget{class_p_n1th}{}\section{P\+N1th$<$ Scalar $>$ Class Template Reference}
+\label{class_p_n1th}\index{P\+N1th$<$ Scalar $>$@{P\+N1th$<$ Scalar $>$}}
+
+
+Post newtonian pair interaction functor(c++ std11)  
+
+
+
+
+{\ttfamily \#include $<$interaction.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_p_n1th_a1ed48e417256ef44bf6faa3e7c433b7e}{operator()}} (Scalar m1, Scalar m2, \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&dr, \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&dv, \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&v1, \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&v2, \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&acc1, \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&acc2)
+\begin{DoxyCompactList}\small\item\em Update the velocity dependent acceleration of particle 1 and 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$ \mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Scalar$>$\newline
+class P\+N1th$<$ Scalar $>$}
+
+Post newtonian pair interaction functor(c++ std11) 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}\label{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}} 
+\index{P\+N1th@{P\+N1th}!Vector@{Vector}}
+\index{Vector@{Vector}!P\+N1th@{P\+N1th}}
+\subsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Scalar $>$ \\
+typedef \mbox{\hyperlink{structvec3}{vec3}}$<$Scalar$>$ \mbox{\hyperlink{class_p_n1th}{P\+N1th}}$<$ Scalar $>$\+::\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_n1th_a1ed48e417256ef44bf6faa3e7c433b7e}\label{class_p_n1th_a1ed48e417256ef44bf6faa3e7c433b7e}} 
+\index{P\+N1th@{P\+N1th}!operator()@{operator()}}
+\index{operator()@{operator()}!P\+N1th@{P\+N1th}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename Scalar $>$ \\
+void \mbox{\hyperlink{class_p_n1th}{P\+N1th}}$<$ Scalar $>$\+::operator() (\begin{DoxyParamCaption}\item[{Scalar}]{m1,  }\item[{Scalar}]{m2,  }\item[{\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&}]{dr,  }\item[{\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&}]{dv,  }\item[{\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&}]{v1,  }\item[{\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&}]{v2,  }\item[{\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&}]{acc1,  }\item[{\mbox{\hyperlink{class_p_n1th_affb0517b66197be4e03c50d632f35c3f}{Vector}} \&}]{acc2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the velocity dependent acceleration of particle 1 and 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & Mass of particle 1. \\
+\hline
+{\em m2} & Mass of particle 2. \\
+\hline
+{\em dr} & Relative position pos1 -\/ pos2. \\
+\hline
+{\em dv} & Relative velocity vel1 -\/ vel2. \\
+\hline
+{\em v1} & Velocity of particle 1. \\
+\hline
+{\em v2} & Velocity of particle 2. \\
+\hline
+{\em acc1} & Velocity dependent acceleration of particle 1 as return value. \\
+\hline
+{\em acc2} & Velocity dependent acceleration of particle 1 as return value. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{class_p_n1th_a1ed48e417256ef44bf6faa3e7c433b7e_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+interaction/\mbox{\hyperlink{interaction_8h}{interaction.\+h}}\end{DoxyCompactItemize}
