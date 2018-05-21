@@ -18,6 +18,7 @@ public:
     static const int order{4};
     void integrate(ParticSys& particles, double stepLength);
 };
+
 /** @brief Interface to integrate particle system
  *
  *  This function integrate the particle system for one step with DKD leapfrog second order symplectic algorithm.

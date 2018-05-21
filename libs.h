@@ -56,7 +56,7 @@ void KahanAdvance(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar
 {
     vec3<Scalar> add;
     vec3<Scalar> sum;
-    
+
     for(size_t i = 0 ; i < N; ++i)
     {
         add    = increase[i] * dt - err[i];
@@ -109,15 +109,15 @@ void MoveToCentralMassCoordinate(const std::array<Scalar, N>& mass, std::array<v
 {
     vec3<Scalar> centralMassVar(0.0, 0.0, 0.0);
     Scalar totalMass = 0;
-    
+
     for(size_t i = 0 ; i < N ; ++i)
     {
         totalMass += mass[i];
         centralMassVar += phyVar[i] * mass[i];
     }
-    
+
     centralMassVar /= totalMass;
-    
+
     for(size_t i = 0 ; i < N ; ++i)
     {
         phyVar[i] -= centralMassVar;
@@ -134,10 +134,10 @@ template<typename Scalar, size_t N>
 double getKineticEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& vel)
 {
     Scalar kineticEnergy = 0;
-    
+
     for(size_t i = 0 ;  i < N ; ++i)
         kineticEnergy += 0.5 * mass[i] * vel[i].normSquare();
-        
+
     return kineticEnergy;
 }
 
@@ -151,11 +151,11 @@ template<typename Scalar, size_t N>
 double getPotentialEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& pos)
 {
     Scalar potentialEnergy = 0;
-    
+
     for(size_t i = 0 ;  i < N ; ++i)
         for(size_t j = i + 1; j < N; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
-            
+
     return potentialEnergy;
 }
 
@@ -172,15 +172,15 @@ inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array
 {
     Scalar potentialEnergy = 0;
     Scalar kineticEnergy   = 0;
-    
+
     for(size_t i = 0 ;  i < N ; ++i)
     {
         kineticEnergy += 0.5 * mass[i] * vel[i].normSquare();
-        
+
         for(size_t j = i + 1; j < N; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
     }
-    
+
     return potentialEnergy + kineticEnergy;
 }
 
@@ -190,7 +190,7 @@ void print(T& var)
 {
     for(size_t i = 0 ; i < var.size(); ++i )
         std::cout << var[i] << ' ';
-        
+
     std::cout << '\n';
 }
 #endif

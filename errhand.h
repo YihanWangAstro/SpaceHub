@@ -32,13 +32,13 @@ inline void Title(const char* T)
     {
         size_t len = strlen(T);
         size_t rest = (WIDTH - len) >> 1;
-        
+
         for(size_t i = 0 ; i < rest; i++)printf("=");
-        
+
         printf(ANSI_COLOR_RED "%s" ANSI_COLOR_RESET, T);
-        
+
         for(size_t i = 0 ; i < rest; i++)printf("=");
-        
+
         NEWLINE
     }
 };
@@ -49,13 +49,13 @@ inline void SubTitle(const char* T)
     {
         size_t len = strlen(T);
         size_t rest = (WIDTH - len) >> 1;
-        
+
         for(size_t i = 0 ; i < rest; i++)printf("-");
-        
+
         printf(ANSI_COLOR_RED "%s" ANSI_COLOR_RESET, T);
-        
+
         for(size_t i = 0 ; i < rest; i++)printf("-");
-        
+
         NEWLINE
     }
 };
@@ -70,7 +70,7 @@ inline void Line()
     if(Message)
     {
         for(size_t i = 0 ; i < WIDTH; i++)printf("=");
-        
+
         NEWLINE
     }
 };
@@ -80,7 +80,7 @@ inline void SubLine()
     if(Message)
     {
         for(size_t i = 0 ; i < WIDTH; i++)printf("-");
-        
+
         NEWLINE
     }
 };
@@ -131,7 +131,7 @@ public:
         out << obj;
         return out.str();
     }
-    
+
     void invoke_telegram_bot()
     {
 #ifdef TELEGRAM
@@ -144,7 +144,7 @@ public:
 #endif
         return;
     }
-    
+
     void print_to_stdout()
     {
         std::cout << " An error occurred: " << '\n';
@@ -160,7 +160,7 @@ private:
 #ifdef TELEGRAM
     bot_alert* bot;
 #endif
-    
+
 };
 
 

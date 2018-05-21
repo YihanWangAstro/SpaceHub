@@ -17,8 +17,6 @@
  *                              \ \ `-. \_ __\ /__ _/ .-` / /
  *                      ======`-.____`-.___\_____/___.-`____.-'======
  *                                          `=---='
- *
- *                      .............................................
  */
 #ifndef DYNAMICSYSTEM_H
 #define DYNAMICSYSTEM_H
@@ -40,16 +38,16 @@ public:
 public:
     /** @brief Macro step size for ODE iterator*/
     double stepLength{0.0};
-    
+
     /** @brief Particle system*/
     ParticSys particles;
-    
+
     /** @brief Integrator*/
     Integrator integrator;
-    
+
     /** @brief ODE Iterator*/
     ODEiterator iterator;
-    
+
 private:
     void getInitStepLength();
 };
@@ -98,13 +96,13 @@ template<typename ParticSys, typename Integrator, typename ODEiterator>
 void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* initFilePath)
 {
     std::ifstream inFile(initFilePath);
-    
+
     if(inFile.is_open())
     {
         char   head;
         size_t num;
         inFile >> head >> num;
-        
+
         if(head == '#' && num == particles.size())
             inFile >> particles;
         else
@@ -112,7 +110,7 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* ini
     }
     else
         throw errhand("Fail to open the initial condition file!", __FILE__, __LINE__);
-        
+
     inFile.close();
     getInitStepLength();
 }

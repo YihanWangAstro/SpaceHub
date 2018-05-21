@@ -26,7 +26,7 @@ public:
     typedef std::array<vec3<Scalar>, N> VectorArray;
     typedef std::array<Scalar, N>       ScalarArray;
     typedef std::array<size_t, N>       IndexArray;
-    
+
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
@@ -34,7 +34,7 @@ public:
     {
         return N;
     }
-    
+
     /** @brief Get the total data number.
      *  @return The data number.
      */
@@ -42,22 +42,22 @@ public:
     {
         return 6 * N + 3;
     }
-    
+
     /** @brief Array of position of the particles. Element is 3D vector.*/
     VectorArray pos;
-    
+
     /** @brief Array of velocity of the particles. Element is 3D vector.*/
     VectorArray vel;
-    
+
     /** @brief The physical time of the dynamic system*/
     Scalar time{0.0};
-    
+
     /** @brief The binding energy(for regularization) of the dynamic system*/
     Scalar bindE{0.0};
-    
+
     /** @brief The regularization variable of the dynamic system*/
     Scalar omega{0.0};
-    
+
     /** @brief Transfer this class to a plain array.
      *  @return The reference of head of this class, reinterpret as a plain array.
      */
@@ -65,13 +65,13 @@ public:
     {
         return reinterpret_cast<std::array<Scalar, volume()>&>(pos);
     }
-    
+
     /** @brief Set all data to be zero.*/
     void setZero()
     {
         memset(&pos[0], 0, sizeof(Scalar)*volume());
     }
-    
+
     /** @brief Calculate the regularization variable omega
      *
      *  @param mass The mass of particles, might be required for calculation.
@@ -81,7 +81,7 @@ public:
     {
         return -getPotentialEnergy(mass, pos);
     }
-    
+
     /** @brief Initialize extra user defined variables. Interface required for other class.
      *
      *  Initialize regularizaiton variable bindE and omega.
@@ -92,7 +92,7 @@ public:
         bindE = -getTotalEnergy(mass, pos, vel);
         omega = getOmega(mass);
     }
-    
+
     /** @brief Transfer Cartesian coordinate regularization system to chain regularization system.
      *
      *  Coordinate transformation. From Cartesian to chain. See details in
@@ -108,7 +108,7 @@ public:
         chainData.omega = omega;
         chainData.bindE = bindE;
     }
-    
+
     /** @brief Transfer chain coordinate regularization system to Cartesian regularization system.
      *
      *  Coordinate transformation. From chain to Cartesian. See details in
@@ -124,7 +124,7 @@ public:
         cartesian.omega = omega;
         cartesian.bindE = bindE;
     }
-    
+
     /** @brief Move particles to central mass coordinates
      *
      *  Move position and velocity to central mass coordinates.

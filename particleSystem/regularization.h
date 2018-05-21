@@ -24,7 +24,7 @@ public:
     {
         return DynamicState::size();
     }
-    
+
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
      *  @param dyn      Dynamic system contains position, velocity and regularization variables.
@@ -36,7 +36,7 @@ public:
     {
         return stepSize / (dyn.bindE + getKineticEnergy(mass, dyn.vel));
     }
-    
+
     /** @brief Calculate the physical time for velocity advance from integration step size
      *  @param mass     Array of particle mass.
      *  @param dyn      Dynamic system contains position, velocity and regularization variables.
@@ -63,7 +63,7 @@ public:
     {
         return DynamicState::size();
     }
-    
+
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
      *  @param dyn      Dynamic system contains position, velocity and regularization variables.
@@ -75,7 +75,7 @@ public:
     {
         return stepSize / dyn.omega;
     }
-    
+
     /** @brief Calculate the physical time for velocity advance from integration step size
      *  @param mass     Array of particle mass.
      *  @param dyn      Dynamic system contains position, velocity and regularization variables.
@@ -102,7 +102,7 @@ public:
     {
         return DynamicState::size();
     }
-    
+
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
      *  @param dyn      Dynamic system contains position, velocity and regularization variables.
@@ -113,7 +113,7 @@ public:
     {
         return stepSize;
     }
-    
+
     /** @brief Calculate the physical time for velocity advance from integration step size
      *  @param mass     Array of particle mass.
      *  @param dyn      Dynamic system contains position, velocity and regularization variables.

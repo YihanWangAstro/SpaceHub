@@ -60,7 +60,7 @@ template <typename Scalar, size_t N>
 void createAdjMartix(const VectorArray<Scalar, N>& pos, NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix )
 {
     size_t k = 0;
-    
+
     for(size_t i = 0 ; i < N ; ++i )
     {
         for(size_t j = i + 1 ; j < N ; ++j)
@@ -91,27 +91,27 @@ void createChainIndex(NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix, IndexAr
     Index.push_back(AdjMatrix[0].j);
     AdjMatrix[0].available = false;
     chainedNumber++;
-    
+
     for(size_t k = 0 ; k < AdjSize; ++k)
     {
         if(AdjMatrix[k].available)
         {
             size_t head = Index[0];
             size_t tail = Index[chainedNumber];
-            
+
             if(AdjMatrix[k].i == head)
             {
                 if( Index.end() == std::find(Index.begin(), Index.end(), AdjMatrix[k].j) )
                 {
                     Index.insert(Index.begin(), AdjMatrix[k].j);
                     chainedNumber++;
-                    
+
                     if(chainedNumber < N)
                         k = 0;
                     else
                         return;
                 }
-                
+
                 AdjMatrix[k].available = false;
                 continue;
             }
@@ -121,30 +121,30 @@ void createChainIndex(NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix, IndexAr
                 {
                     Index.push_back(AdjMatrix[k].j);
                     chainedNumber++;
-                    
+
                     if(chainedNumber < N)
                         k = 0;
                     else
                         return;
                 }
-                
+
                 AdjMatrix[k].available = false;
                 continue;
             }
-            
+
             if(AdjMatrix[k].j == head)
             {
                 if( Index.end() == std::find(Index.begin(), Index.end(), AdjMatrix[k].i) )
                 {
                     Index.insert(Index.begin(), AdjMatrix[k].i);
                     chainedNumber++;
-                    
+
                     if(chainedNumber < N)
                         k = 0;
                     else
                         return;
                 }
-                
+
                 AdjMatrix[k].available = false;
                 continue;
             }
@@ -154,19 +154,19 @@ void createChainIndex(NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix, IndexAr
                 {
                     Index.push_back(AdjMatrix[k].i);
                     chainedNumber++;
-                    
+
                     if(chainedNumber < N)
                         k = 0;
                     else
                         return;
                 }
-                
+
                 AdjMatrix[k].available = false;
                 continue;
             }
         }
     }
-    
+
     for(size_t i = 0 ; i < N; ++i)
         chainIndex[i] = Index[i];
 }
@@ -189,7 +189,7 @@ bool IsDiff(const IndexArray<N>& Index1, const IndexArray<N>& Index2)
             if(Index1[i] != Index2[i])
                 return true;
         }
-        
+
         return false;
     }
     else if(Index1[0] == Index2[N - 1])
@@ -199,7 +199,7 @@ bool IsDiff(const IndexArray<N>& Index1, const IndexArray<N>& Index2)
             if(Index1[i] != Index2[N - 1 - i])
                 return true;
         }
-        
+
         return false;
     }
     else
@@ -223,7 +223,7 @@ void updateChain(VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex, IndexA
     size_t oldhead = 0;
     size_t oldtail = 0;
     size_t size    = N - 1;
-    
+
     for(size_t i = 0 ; i < size; i++)
     {
         head    = newIndex[i];
@@ -231,7 +231,7 @@ void updateChain(VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex, IndexA
         oldhead = std::find(chainIndex.begin(), chainIndex.end(), head) - chainIndex.begin();
         oldtail = std::find(chainIndex.begin(), chainIndex.end(), tail) - chainIndex.begin();
         newPos[i].setZero();
-        
+
         if(oldhead < oldtail)
         {
             for(size_t j = oldhead; j < oldtail; ++j)
@@ -243,7 +243,7 @@ void updateChain(VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex, IndexA
                 newPos[i] -= pos[j];
         }
     }
-    
+
     for(int i = 0 ; i < size; ++i)
         pos[i] = newPos[i];
 }
@@ -259,7 +259,7 @@ template <typename Scalar, size_t N>
 void synChain(VectorArray<Scalar, N>& data, VectorArray<Scalar, N>& chainData, IndexArray<N>& chainIndex)
 {
     chainData[N - 1].setZero();
-    
+
     for(int i = 0 ; i < N - 1; ++i)
         chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
 }
@@ -275,7 +275,7 @@ template <typename Scalar, size_t N>
 void synCartesian(VectorArray<Scalar, N>& chainData, VectorArray<Scalar, N>& data, IndexArray<N>& chainIndex)
 {
     data[chainIndex[0]].setZero();
-    
+
     for(int i = 1 ; i < N ; ++i)
         data[chainIndex[i]] = data[chainIndex[i - 1]] + chainData[i - 1];
 }

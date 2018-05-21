@@ -157,8 +157,6 @@ public:
         input >> v.x >> v.y >> v.z;
         return input;
     }
-    /*template<typename T1>
-    operator vec3<T1>(){ return vec3<T1>(x,y,z);}*/
 };
 
 /** @brief Calculate the Euclid distance of two vectors */

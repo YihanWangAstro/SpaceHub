@@ -12,12 +12,13 @@
 template <typename ParticSys>
 class symplectic10th
 {
-    //////////////////////////////////Interface/////////////////////////////////////
+    
 public:
     /** @brief Order of the integrator*/
     static const int order{10};
     void integrate(ParticSys& particles, double stepLength);
 };
+
 /** @brief Interface to integrate particle system
  *
  *  This function integrate the particle system for one step with DKD leapfrog second order symplectic algorithm.

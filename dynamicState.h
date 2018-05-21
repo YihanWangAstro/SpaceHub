@@ -25,7 +25,7 @@ public:
     typedef vec3<Scalar>               Vector;
     typedef std::array<vec3<Scalar>, N> VectorArray;
     typedef std::array<Scalar, N>       ScalarArray;
-    
+
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
@@ -33,7 +33,7 @@ public:
     {
         return N;
     }
-    
+
     /** @brief Get the total data number.
      *  @return The data number.
      */
@@ -41,16 +41,16 @@ public:
     {
         return 6 * N + 1;
     }
-    
+
     /** @brief Array of position of the particles. Element is 3D vector.*/
     VectorArray pos;
-    
+
     /** @brief Array of velocity of the particles. Element is 3D vector.*/
     VectorArray vel;
-    
+
     /** @brief The physical time of the dynamic system*/
     Scalar      time{0.0};
-    
+
     /** @brief Transfer this class to a plain array.
      *  @return The reference of head of this class, reinterpret as a plain array.
      */
@@ -58,12 +58,12 @@ public:
     {
         return reinterpret_cast<std::array<Scalar, volume()>&>(*this);
     }
-    
+
     /** @brief Initialize extra user defined variables. Interface required for other class.
      *  @param mass The mass of particles, might be required for initialization.
      */
     void initAddiVariable(ScalarArray& mass) {};
-    
+
     /** @brief Set all data to be zero.*/
     void setZero()
     {
