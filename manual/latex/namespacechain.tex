@@ -1,11 +1,11 @@
-\hypertarget{namespacechain}{}\section{chain Namespace Reference}
+\hypertarget{namespacechain}{}\subsection{chain Namespace Reference}
 \label{namespacechain}\index{chain@{chain}}
-\subsection*{Classes}
+\subsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structchain_1_1_node}{Node}}
 \begin{DoxyCompactList}\small\item\em Struture to store the relative distance and index of two particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Typedefs}
+\subsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}} = std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$
@@ -14,7 +14,7 @@ struct \mbox{\hyperlink{structchain_1_1_node}{Node}}
 \item 
 {\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacechain_a3a021b84403e03113e1dcd61ba304963}{Node\+Array}} = std\+::array$<$ \mbox{\hyperlink{structchain_1_1_node}{Node}}$<$ Scalar $>$, N $>$
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespacechain_a3e7b0a001442f121ce1408e7c9d12016}{get\+Chain\+Index}} (const \mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&pos, \mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&chain\+Index)
@@ -33,35 +33,35 @@ struct \mbox{\hyperlink{structchain_1_1_node}{Node}}
 \begin{DoxyCompactList}\small\item\em Calulate the Cartesian data from chain data and chain index mapping. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Typedef Documentation}
+\subsubsection{Typedef Documentation}
 \mbox{\Hypertarget{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}\label{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}} 
 \index{chain@{chain}!Index\+Array@{Index\+Array}}
 \index{Index\+Array@{Index\+Array}!chain@{chain}}
-\subsubsection{\texorpdfstring{Index\+Array}{IndexArray}}
+\paragraph{\texorpdfstring{Index\+Array}{IndexArray}}
 {\footnotesize\ttfamily template$<$size\+\_\+t N$>$ \\
 using \mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{chain\+::\+Index\+Array}} = typedef std\+::array$<$size\+\_\+t, N$>$}
 
 \mbox{\Hypertarget{namespacechain_a3a021b84403e03113e1dcd61ba304963}\label{namespacechain_a3a021b84403e03113e1dcd61ba304963}} 
 \index{chain@{chain}!Node\+Array@{Node\+Array}}
 \index{Node\+Array@{Node\+Array}!chain@{chain}}
-\subsubsection{\texorpdfstring{Node\+Array}{NodeArray}}
+\paragraph{\texorpdfstring{Node\+Array}{NodeArray}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 using \mbox{\hyperlink{namespacechain_a3a021b84403e03113e1dcd61ba304963}{chain\+::\+Node\+Array}} = typedef std\+::array$<$\mbox{\hyperlink{structchain_1_1_node}{Node}}$<$Scalar$>$, N$>$}
 
 \mbox{\Hypertarget{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}\label{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}} 
 \index{chain@{chain}!Vector\+Array@{Vector\+Array}}
 \index{Vector\+Array@{Vector\+Array}!chain@{chain}}
-\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 using \mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{chain\+::\+Vector\+Array}} = typedef std\+::array$<$\mbox{\hyperlink{structvec3}{vec3}}$<$Scalar$>$, N$>$}
 
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
 \mbox{\Hypertarget{namespacechain_a68d5d08ece7d82a6b4bb1968b783a8f3}\label{namespacechain_a68d5d08ece7d82a6b4bb1968b783a8f3}} 
 \index{chain@{chain}!create\+Adj\+Martix@{create\+Adj\+Martix}}
 \index{create\+Adj\+Martix@{create\+Adj\+Martix}!chain@{chain}}
-\subsubsection{\texorpdfstring{create\+Adj\+Martix()}{createAdjMartix()}}
+\paragraph{\texorpdfstring{create\+Adj\+Martix()}{createAdjMartix()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void chain\+::create\+Adj\+Martix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{pos,  }\item[{\mbox{\hyperlink{namespacechain_a3a021b84403e03113e1dcd61ba304963}{Node\+Array}}$<$ Scalar, N $\ast$(N -\/ 1)/2 $>$ \&}]{Adj\+Matrix }\end{DoxyParamCaption})}
 
@@ -83,8 +83,7 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=284pt]{namespacechain_a68d5d08ece7d82a6b4bb1968b783a8f3_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -94,7 +93,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespacechain_ae008a8273beabf1473c347994197ef53}\label{namespacechain_ae008a8273beabf1473c347994197ef53}} 
 \index{chain@{chain}!create\+Chain\+Index@{create\+Chain\+Index}}
 \index{create\+Chain\+Index@{create\+Chain\+Index}!chain@{chain}}
-\subsubsection{\texorpdfstring{create\+Chain\+Index()}{createChainIndex()}}
+\paragraph{\texorpdfstring{create\+Chain\+Index()}{createChainIndex()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void chain\+::create\+Chain\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacechain_a3a021b84403e03113e1dcd61ba304963}{Node\+Array}}$<$ Scalar, N $\ast$(N -\/ 1)/2 $>$ \&}]{Adj\+Matrix,  }\item[{\mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{chain\+Index }\end{DoxyParamCaption})}
 
@@ -109,8 +108,7 @@ Create mapping index from sorted elements of adjoint matrix and connect them to 
 {\em chain\+Index} & The maping index needs to be calculated as a return value. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -120,7 +118,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespacechain_a3e7b0a001442f121ce1408e7c9d12016}\label{namespacechain_a3e7b0a001442f121ce1408e7c9d12016}} 
 \index{chain@{chain}!get\+Chain\+Index@{get\+Chain\+Index}}
 \index{get\+Chain\+Index@{get\+Chain\+Index}!chain@{chain}}
-\subsubsection{\texorpdfstring{get\+Chain\+Index()}{getChainIndex()}}
+\paragraph{\texorpdfstring{get\+Chain\+Index()}{getChainIndex()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void chain\+::get\+Chain\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{pos,  }\item[{\mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{chain\+Index }\end{DoxyParamCaption})}
 
@@ -135,16 +133,14 @@ Find the mapping index from Cartesian coordinate to chain coordinate. The chain 
 {\em chain\+Index} & The maping index needs to be calculated as a return value. \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{namespacechain_a3e7b0a001442f121ce1408e7c9d12016_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -154,7 +150,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespacechain_a874f28a6248b56c6b2b3ca45c1bbea09}\label{namespacechain_a874f28a6248b56c6b2b3ca45c1bbea09}} 
 \index{chain@{chain}!Is\+Diff@{Is\+Diff}}
 \index{Is\+Diff@{Is\+Diff}!chain@{chain}}
-\subsubsection{\texorpdfstring{Is\+Diff()}{IsDiff()}}
+\paragraph{\texorpdfstring{Is\+Diff()}{IsDiff()}}
 {\footnotesize\ttfamily template$<$size\+\_\+t N$>$ \\
 bool chain\+::\+Is\+Diff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{Index1,  }\item[{const \mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{Index2 }\end{DoxyParamCaption})}
 
@@ -175,8 +171,7 @@ boolean
 \begin{DoxyNote}{Note}
 \mbox{[}2,4,5,3,1\mbox{]} is identical to \mbox{[}1,3,5,4,2\mbox{]} 
 \end{DoxyNote}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -186,7 +181,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespacechain_ae85619534182ce257fc47857a9c133e4}\label{namespacechain_ae85619534182ce257fc47857a9c133e4}} 
 \index{chain@{chain}!syn\+Cartesian@{syn\+Cartesian}}
 \index{syn\+Cartesian@{syn\+Cartesian}!chain@{chain}}
-\subsubsection{\texorpdfstring{syn\+Cartesian()}{synCartesian()}}
+\paragraph{\texorpdfstring{syn\+Cartesian()}{synCartesian()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void chain\+::syn\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{chain\+Data,  }\item[{\mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{data,  }\item[{\mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{chain\+Index }\end{DoxyParamCaption})}
 
@@ -206,8 +201,7 @@ Calulate the Cartesian data from chain data and chain index mapping.
 \begin{DoxyNote}{Note}
 This function should be a inverse transformation of \mbox{\hyperlink{namespacechain_abdcb44461ef66afb82d42ff5a441ed5c}{syn\+Chain()}}. 
 \end{DoxyNote}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -217,7 +211,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespacechain_abdcb44461ef66afb82d42ff5a441ed5c}\label{namespacechain_abdcb44461ef66afb82d42ff5a441ed5c}} 
 \index{chain@{chain}!syn\+Chain@{syn\+Chain}}
 \index{syn\+Chain@{syn\+Chain}!chain@{chain}}
-\subsubsection{\texorpdfstring{syn\+Chain()}{synChain()}}
+\paragraph{\texorpdfstring{syn\+Chain()}{synChain()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void chain\+::syn\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{data,  }\item[{\mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{chain\+Data,  }\item[{\mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{chain\+Index }\end{DoxyParamCaption})}
 
@@ -237,8 +231,7 @@ Calulate the chain data from Cartesian data and chain index mapping.
 \begin{DoxyNote}{Note}
 This function should be a inverse transformation of \mbox{\hyperlink{namespacechain_ae85619534182ce257fc47857a9c133e4}{syn\+Cartesian()}}. 
 \end{DoxyNote}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -248,7 +241,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespacechain_a36c1d242033be6243c1cff525f818724}\label{namespacechain_a36c1d242033be6243c1cff525f818724}} 
 \index{chain@{chain}!update\+Chain@{update\+Chain}}
 \index{update\+Chain@{update\+Chain}!chain@{chain}}
-\subsubsection{\texorpdfstring{update\+Chain()}{updateChain()}}
+\paragraph{\texorpdfstring{update\+Chain()}{updateChain()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void chain\+::update\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacechain_aa715d2f046187ea9f0c3ea55605d6214}{Vector\+Array}}$<$ Scalar, N $>$ \&}]{pos,  }\item[{\mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{chain\+Index,  }\item[{\mbox{\hyperlink{namespacechain_aa40d2da395c0ac2bc5f37832442ac403}{Index\+Array}}$<$ N $>$ \&}]{new\+Index }\end{DoxyParamCaption})}
 
@@ -265,8 +258,7 @@ Update the position chain. Due to the evolution, the chain index mapping could c
 {\em new\+Index} & The new chain index mapping. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

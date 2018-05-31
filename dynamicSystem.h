@@ -61,7 +61,9 @@ private:
 template<typename ParticSys, typename Integrator, typename ODEiterator>
 inline void dynamicSystem<ParticSys, Integrator, ODEiterator>::advanceOneStep()
 {
+    particles.preIterProcess();
     stepLength = iterator.iterate(particles, integrator, stepLength);
+    particles.afterIterProcess();
 }
 
 /**  @brief Calculate the initial step length of the particle system
@@ -104,9 +106,14 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* ini
         inFile >> head >> num;
 
         if(head == '#' && num == particles.size())
+        {
             inFile >> particles;
+        }
         else
+        {
+            std::cout << num << ' ' <<particles.size() << '\n';
             throw errhand("Particle number dismatch or wrong initial file header format!", __FILE__, __LINE__);
+        }
     }
     else
         throw errhand("Fail to open the initial condition file!", __FILE__, __LINE__);

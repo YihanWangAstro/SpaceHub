@@ -1,6 +1,6 @@
 <map id="chain::updateChain" name="chain::updateChain">
-<area shape="rect" id="node2" href="$class_a_rchain.html#a7edf1240a094d55df222c816659dced0" title="ARchain::load" alt="" coords="230,5,334,31"/>
-<area shape="rect" id="node3" href="$class_a_rchain.html#ad576df000b6d9f3948eae2793c6b3c54" title="ARchain::updateChain" alt="" coords="205,55,359,80"/>
-<area shape="rect" id="node4" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#a8e7bc5b32dbd7a0c9c3541f17fa54e28" title="ARchain\&lt; Newtonian\l\&lt; typename EvolvedData\l::Scalar \&gt;, EvolvedData,\l Regularitor \&gt;::load" alt="" coords="197,104,367,169"/>
-<area shape="rect" id="node5" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#acbe31e9aa918e4f80a2763e16f0bb7bc" title="ARchain\&lt; Newtonian\l\&lt; typename EvolvedData\l::Scalar \&gt;, EvolvedData,\l Regularitor \&gt;::updateChain" alt="" coords="190,193,374,259"/>
+<area shape="rect" id="node2" href="$class_a_rchain.html#a7edf1240a094d55df222c816659dced0" title="Load data from a plain array. " alt="" coords="230,5,334,31"/>
+<area shape="rect" id="node3" href="$class_a_rchain.html#ad576df000b6d9f3948eae2793c6b3c54" title="Update the chain data based on current Cartesian coordinates. " alt="" coords="205,55,359,80"/>
+<area shape="rect" id="node4" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#a8e7bc5b32dbd7a0c9c3541f17fa54e28" title="Load data from a plain array. " alt="" coords="197,104,367,169"/>
+<area shape="rect" id="node5" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#acbe31e9aa918e4f80a2763e16f0bb7bc" title="Update the chain data based on current Cartesian coordinates. " alt="" coords="190,193,374,259"/>
 </map>

@@ -1,5 +1,10 @@
-\hypertarget{class_a_rchain}{}\section{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$ Class Template Reference}
+\hypertarget{class_a_rchain}{}\subsection{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$ Class Template Reference}
 \label{class_a_rchain}\index{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$}}
+
+
+Algorithmatic Regularization chain System.  
+
+
 
 
 {\ttfamily \#include $<$A\+Rchain.\+h$>$}
@@ -15,15 +20,14 @@ Inheritance diagram for A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$
 \end{figure}
 
 
-Collaboration diagram for A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$\+:
-\nopagebreak
+Collaboration diagram for A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_a_rchain__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Types}
+\subsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 typedef Evolved\+Data\+::\+Scalar \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}
@@ -38,122 +42,141 @@ typedef std\+::array$<$ size\+\_\+t, Evolved\+Data\+::size()$>$ \mbox{\hyperlink
 \item 
 typedef std\+::array$<$ \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}, Evolved\+Data\+::volume()$>$ \mbox{\hyperlink{class_a_rchain_a829aca51411c08ffd518294770a374d5}{Plain\+Array}}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_a_rchain_a8d3ac75a6b4231e0859492257553316e}{advance\+Pos}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} time\+Step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance position one step with current velocity. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a6a76ab7a095adfbf4a69226a31d866d4}{advance\+Vel}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} time\+Step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance velocity one step with current acceleration. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{class_a_rchain}{A\+Rchain}} \& \mbox{\hyperlink{class_a_rchain_a7bcc783f99cad1e9113d2b505544aba1}{operator=}} (const \mbox{\hyperlink{class_a_rchain}{A\+Rchain}} \&other)
-\item 
+\begin{DoxyCompactList}\small\item\em Overload operator =. \end{DoxyCompactList}\item 
 std\+::istream \& \mbox{\hyperlink{class_a_rchain_a86bd89bacf59c9c3bb0594499db82e04}{read}} (std\+::istream \&)
-\item 
+\begin{DoxyCompactList}\small\item\em Input data from standard c++ istream. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a7edf1240a094d55df222c816659dced0}{load}} (\mbox{\hyperlink{class_a_rchain_a829aca51411c08ffd518294770a374d5}{Plain\+Array}} \&data)
-\item 
+\begin{DoxyCompactList}\small\item\em Load data from a plain array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} \mbox{\hyperlink{class_a_rchain_a979a40abd086aeb411dc8e82a3bb1cdf}{time\+Scale}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} scale)
-\item 
+\begin{DoxyCompactList}\small\item\em Interface to rescale the time. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_a829aca51411c08ffd518294770a374d5}{Plain\+Array}} \& \mbox{\hyperlink{class_a_rchain_aeb4d9b0a28ae3b4e4286edf838e5a905}{array}} ()
-\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\begin{DoxyCompactList}\small\item\em Transfer the evolved data to a plain scalar array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static constexpr size\+\_\+t \mbox{\hyperlink{class_a_rchain_ac612af46ce057d56dc47a6d28738a4cf}{size}} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
+\begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_a_rchain_ac54722bde3c9a15e04dd004ebcf0db5e}{advance\+Omega}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance regularization variable omega. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a1b2ae6231caeba3df20e4ab41f63a4b8}{advanceB}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance regularization variable bindE. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a0b073cd82321047d7fafda59cef998ef}{kick\+Vel}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance velocity with current acceleration. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a53838a7890cee54c69786bda87dd6cd9}{kick\+Auxi\+Vel}} (\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}} step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance auxiliary velocity with current acceleration. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a92865bff07dc16e3065a8f695120a5f5}{update\+Acc\+With}} (\mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \&\mbox{\hyperlink{classparticle_system_a545da170c4d59f18c6ddb18817cb5f3e}{vel}}, \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \&chain\+Vel)
-\item 
+\begin{DoxyCompactList}\small\item\em Update velocity dependent acceleration with given velocity. Then update the total acceleration. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_a08ddf32fb537ac1556b2e4560abf3b5d}{update\+Vel\+Indep\+Acc}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Update velocity independent acceleration. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_ad576df000b6d9f3948eae2793c6b3c54}{update\+Chain}} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\begin{DoxyCompactList}\small\item\em Update the chain data based on current Cartesian coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Evolved\+Data \mbox{\hyperlink{class_a_rchain_af7780024bfc1beca5f5622086b909db2}{chain}}
-\item 
+\begin{DoxyCompactList}\small\item\em Evolved variables in chain coordinates. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_aae40d4b5881eecfc960814f9e368215d}{Index\+Array}} \mbox{\hyperlink{class_a_rchain_a0691e6612b661e329f1fc72d4cb7c895}{chain\+Index}}
-\item 
+\begin{DoxyCompactList}\small\item\em Mapping index from Cartesian coordinates to chain coordinates. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain_a9359b4fb9f08ad849b0f1dfbdf661016}{vel\+Indep\+Acc}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity independent acceleration array in Cartesian coordiantes. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain_a80d060a3341913f94c4bbbf2e2321b1d}{chain\+Vel\+Indep\+Acc}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity independent acceleration array in chain coordiantes. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain_a3c3a74f839bbfe5cbe1d8eb239dd8cc1}{vel\+Dep\+Acc}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity dependent acceleration array in Cartesian coordiantes. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain_a64087e0cb9cdb6b118b4a6e416d9f012}{chain\+Vel\+Dep\+Acc}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity dependent acceleration array in chain coordiantes. \end{DoxyCompactList}\item 
 Interaction \mbox{\hyperlink{class_a_rchain_a5ad11cefbdb69a58225b799b36dd9eee}{vel\+Dep\+Force}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity dependent pair force functor. \end{DoxyCompactList}\item 
 Regularitor \mbox{\hyperlink{class_a_rchain_a4dd20aa56d6a6403260ad3ced2987eb0}{regular}}
-\end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\begin{DoxyCompactList}\small\item\em Regularization interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
 
 
-\subsection{Member Typedef Documentation}
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$\newline
+class A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$}
+
+Algorithmatic Regularization chain System. 
+
+See details in \href{https://arxiv.org/abs/0709.3367}{\tt https\+://arxiv.\+org/abs/0709.\+3367} . 
+
+\subsubsection{Member Typedef Documentation}
 \mbox{\Hypertarget{class_a_rchain_aae40d4b5881eecfc960814f9e368215d}\label{class_a_rchain_aae40d4b5881eecfc960814f9e368215d}} 
 \index{A\+Rchain@{A\+Rchain}!Index\+Array@{Index\+Array}}
 \index{Index\+Array@{Index\+Array}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{Index\+Array}{IndexArray}}
+\paragraph{\texorpdfstring{Index\+Array}{IndexArray}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 typedef std\+::array$<$size\+\_\+t, Evolved\+Data\+::size()$>$ \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_aae40d4b5881eecfc960814f9e368215d}{Index\+Array}}}
 
 \mbox{\Hypertarget{class_a_rchain_a829aca51411c08ffd518294770a374d5}\label{class_a_rchain_a829aca51411c08ffd518294770a374d5}} 
 \index{A\+Rchain@{A\+Rchain}!Plain\+Array@{Plain\+Array}}
 \index{Plain\+Array@{Plain\+Array}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{Plain\+Array}{PlainArray}}
+\paragraph{\texorpdfstring{Plain\+Array}{PlainArray}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 typedef std\+::array$<$\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}, Evolved\+Data\+::volume()$>$ \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a829aca51411c08ffd518294770a374d5}{Plain\+Array}}}
 
 \mbox{\Hypertarget{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}\label{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}} 
 \index{A\+Rchain@{A\+Rchain}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+\paragraph{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 typedef Evolved\+Data\+::\+Scalar \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}
 
 \mbox{\Hypertarget{class_a_rchain_a206c7f2ff7ce15041a20d327d28b7be3}\label{class_a_rchain_a206c7f2ff7ce15041a20d327d28b7be3}} 
 \index{A\+Rchain@{A\+Rchain}!Scalar\+Array@{Scalar\+Array}}
 \index{Scalar\+Array@{Scalar\+Array}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+\paragraph{\texorpdfstring{Scalar\+Array}{ScalarArray}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 typedef Evolved\+Data\+::\+Scalar\+Array \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a206c7f2ff7ce15041a20d327d28b7be3}{Scalar\+Array}}}
 
 \mbox{\Hypertarget{class_a_rchain_ab9b518a463f750eb54e002842b66e8dd}\label{class_a_rchain_ab9b518a463f750eb54e002842b66e8dd}} 
 \index{A\+Rchain@{A\+Rchain}!Vector@{Vector}}
 \index{Vector@{Vector}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{Vector}{Vector}}
+\paragraph{\texorpdfstring{Vector}{Vector}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 typedef Evolved\+Data\+::\+Vector \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_ab9b518a463f750eb54e002842b66e8dd}{Vector}}}
 
 \mbox{\Hypertarget{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}\label{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}} 
 \index{A\+Rchain@{A\+Rchain}!Vector\+Array@{Vector\+Array}}
 \index{Vector\+Array@{Vector\+Array}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 typedef Evolved\+Data\+::\+Vector\+Array \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}}}
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_a_rchain_a1b2ae6231caeba3df20e4ab41f63a4b8}\label{class_a_rchain_a1b2ae6231caeba3df20e4ab41f63a4b8}} 
 \index{A\+Rchain@{A\+Rchain}!advanceB@{advanceB}}
 \index{advanceB@{advanceB}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{advance\+B()}{advanceB()}}
+\paragraph{\texorpdfstring{advance\+B()}{advanceB()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::advanceB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance regularization variable bindE. 
+
+Advance bindE with velocity dependent acceleration and auxiliar velocity with physical time step size. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & Physical time step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Update the bindE in chain, which will be processed by the integrator. 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -163,12 +186,23 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_ac54722bde3c9a15e04dd004ebcf0db5e}\label{class_a_rchain_ac54722bde3c9a15e04dd004ebcf0db5e}} 
 \index{A\+Rchain@{A\+Rchain}!advance\+Omega@{advance\+Omega}}
 \index{advance\+Omega@{advance\+Omega}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{advance\+Omega()}{advanceOmega()}}
+\paragraph{\texorpdfstring{advance\+Omega()}{advanceOmega()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::advance\+Omega (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance regularization variable omega. 
+
+Advance omega with velocity independent acceleration and auxiliar velocity with physical time step size. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & Physical time step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Update the omega in chain, which will be processed by the integrator. 
+\end{DoxyNote}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -178,12 +212,22 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_a8d3ac75a6b4231e0859492257553316e}\label{class_a_rchain_a8d3ac75a6b4231e0859492257553316e}} 
 \index{A\+Rchain@{A\+Rchain}!advance\+Pos@{advance\+Pos}}
 \index{advance\+Pos@{advance\+Pos}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{advance\+Pos()}{advancePos()}}
+\paragraph{\texorpdfstring{advance\+Pos()}{advancePos()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::advance\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{time\+Step\+Size }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance position one step with current velocity. 
+
+Advance chain position one step with current velocity.
+
+Advance chain position array and physical time one step with current integration step size and velocity. 
+\begin{DoxyParams}{Parameters}
+{\em time\+Step\+Size} & Integration step size, will be transfered to physical time in the function. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -193,26 +237,54 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_a6a76ab7a095adfbf4a69226a31d866d4}\label{class_a_rchain_a6a76ab7a095adfbf4a69226a31d866d4}} 
 \index{A\+Rchain@{A\+Rchain}!advance\+Vel@{advance\+Vel}}
 \index{advance\+Vel@{advance\+Vel}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{advance\+Vel()}{advanceVel()}}
+\paragraph{\texorpdfstring{advance\+Vel()}{advanceVel()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::advance\+Vel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{time\+Step\+Size }\end{DoxyParamCaption})}
 
+
+
+Advance velocity one step with current acceleration. 
+
+Advance chain velocity one step with current acceleration.
+
+Advance chain velocity and chian auxiliary velocity array one step with current integration step size and accelerations. 
+\begin{DoxyParams}{Parameters}
+{\em time\+Step\+Size} & Integration step size, will be transfered to physical time in the function. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_rchain_aeb4d9b0a28ae3b4e4286edf838e5a905}\label{class_a_rchain_aeb4d9b0a28ae3b4e4286edf838e5a905}} 
 \index{A\+Rchain@{A\+Rchain}!array@{array}}
 \index{array@{array}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{array()}{array()}}
+\paragraph{\texorpdfstring{array()}{array()}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 \mbox{\hyperlink{class_a_rchain_a829aca51411c08ffd518294770a374d5}{Plain\+Array}}\& \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Transfer the evolved data to a plain scalar array. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{class_a_rchain_aeb4d9b0a28ae3b4e4286edf838e5a905}{array()}}. 
+\end{DoxyNote}
 \mbox{\Hypertarget{class_a_rchain_a53838a7890cee54c69786bda87dd6cd9}\label{class_a_rchain_a53838a7890cee54c69786bda87dd6cd9}} 
 \index{A\+Rchain@{A\+Rchain}!kick\+Auxi\+Vel@{kick\+Auxi\+Vel}}
 \index{kick\+Auxi\+Vel@{kick\+Auxi\+Vel}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{kick\+Auxi\+Vel()}{kickAuxiVel()}}
+\paragraph{\texorpdfstring{kick\+Auxi\+Vel()}{kickAuxiVel()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::kick\+Auxi\+Vel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance auxiliary velocity with current acceleration. 
+
+Advance chain auxiliary velocity with current acceleration.
+
+Advance the chain auxiliary velocity with current total acceleration variable \textquotesingle{}acc\textquotesingle{} and synchronize the Cartesian data. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & Integration step size. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -222,12 +294,22 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_a0b073cd82321047d7fafda59cef998ef}\label{class_a_rchain_a0b073cd82321047d7fafda59cef998ef}} 
 \index{A\+Rchain@{A\+Rchain}!kick\+Vel@{kick\+Vel}}
 \index{kick\+Vel@{kick\+Vel}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{kick\+Vel()}{kickVel()}}
+\paragraph{\texorpdfstring{kick\+Vel()}{kickVel()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::kick\+Vel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance velocity with current acceleration. 
+
+Advance chain velocity with current acceleration.
+
+Advance the chain velocity with current total acceleration variable \textquotesingle{}acc\textquotesingle{} and synchronize the Cartesian data. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & Integration step size. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -237,12 +319,25 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_a7edf1240a094d55df222c816659dced0}\label{class_a_rchain_a7edf1240a094d55df222c816659dced0}} 
 \index{A\+Rchain@{A\+Rchain}!load@{load}}
 \index{load@{load}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{load()}{load()}}
+\paragraph{\texorpdfstring{load()}{load()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a829aca51411c08ffd518294770a374d5}{Plain\+Array}} \&}]{data }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Load data from a plain array. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{class_a_rchain_a7edf1240a094d55df222c816659dced0}{load()}}.
+\end{DoxyNote}
+Interface usded by integrator and O\+DE iterator. Load data from a plain array processed by itegrator and iterator to chain data. Then synchrosize Cartesian data and update the chain. Derived class could overload this function to additional process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Plain scalar array. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -252,19 +347,29 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_a7bcc783f99cad1e9113d2b505544aba1}\label{class_a_rchain_a7bcc783f99cad1e9113d2b505544aba1}} 
 \index{A\+Rchain@{A\+Rchain}!operator=@{operator=}}
 \index{operator=@{operator=}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+\paragraph{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 const \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$ \& \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$ \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Overload operator =. 
 
 \mbox{\Hypertarget{class_a_rchain_a86bd89bacf59c9c3bb0594499db82e04}\label{class_a_rchain_a86bd89bacf59c9c3bb0594499db82e04}} 
 \index{A\+Rchain@{A\+Rchain}!read@{read}}
 \index{read@{read}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{read()}{read()}}
+\paragraph{\texorpdfstring{read()}{read()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 std\+::istream \& \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Input data from standard c++ istream. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{class_a_rchain_a86bd89bacf59c9c3bb0594499db82e04}{read()}}.
+\end{DoxyNote}
+Implement of C\+R\+TP \textquotesingle{}$>$$>$\textquotesingle{} method. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -274,33 +379,62 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_ac612af46ce057d56dc47a6d28738a4cf}\label{class_a_rchain_ac612af46ce057d56dc47a6d28738a4cf}} 
 \index{A\+Rchain@{A\+Rchain}!size@{size}}
 \index{size@{size}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{size()}{size()}}
+\paragraph{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
+
+
+Get the number of the particles. 
+
+\begin{DoxyReturn}{Returns}
+The particle number. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{class_a_rchain_ac612af46ce057d56dc47a6d28738a4cf}{size()}}. 
+\end{DoxyNote}
 \mbox{\Hypertarget{class_a_rchain_a979a40abd086aeb411dc8e82a3bb1cdf}\label{class_a_rchain_a979a40abd086aeb411dc8e82a3bb1cdf}} 
 \index{A\+Rchain@{A\+Rchain}!time\+Scale@{time\+Scale}}
 \index{time\+Scale@{time\+Scale}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{time\+Scale()}{timeScale()}}
+\paragraph{\texorpdfstring{time\+Scale()}{timeScale()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 Evolved\+Data\+::\+Scalar \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::time\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Scalar}}}]{scale }\end{DoxyParamCaption})}
 
+
+
+Interface to rescale the time. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{class_a_rchain_a979a40abd086aeb411dc8e82a3bb1cdf}{time\+Scale()}}.
+\end{DoxyNote}
+Interace used by dynamic system. Transfer integration time to physical time. \begin{DoxyReturn}{Returns}
+The phsyical time. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_rchain_a92865bff07dc16e3065a8f695120a5f5}\label{class_a_rchain_a92865bff07dc16e3065a8f695120a5f5}} 
 \index{A\+Rchain@{A\+Rchain}!update\+Acc\+With@{update\+Acc\+With}}
 \index{update\+Acc\+With@{update\+Acc\+With}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{update\+Acc\+With()}{updateAccWith()}}
+\paragraph{\texorpdfstring{update\+Acc\+With()}{updateAccWith()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
-void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::update\+Acc\+With (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \&}]{vel,  }\item[{\mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \&}]{chain\+Vel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::update\+Acc\+With (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \&}]{velocity,  }\item[{\mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \&}]{chain\+Vel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_a_rchain_ad576df000b6d9f3948eae2793c6b3c54}\label{class_a_rchain_ad576df000b6d9f3948eae2793c6b3c54}} 
+
+
+Update velocity dependent acceleration with given velocity. Then update the total acceleration. 
+
+Update the velocity dependent accelaration variable \textquotesingle{}vel\+Dep\+Acc\textquotesingle{} with given velocity and velocity dependent pair force \textquotesingle{}vel\+Dep\+Force\textquotesingle{}. Then update the total acceleration \textquotesingle{}acc\textquotesingle{} by adding \textquotesingle{}vel\+Indep\+Acc\textquotesingle{} and \textquotesingle{}vel\+Dep\+Acc\textquotesingle{}. \mbox{\Hypertarget{class_a_rchain_ad576df000b6d9f3948eae2793c6b3c54}\label{class_a_rchain_ad576df000b6d9f3948eae2793c6b3c54}} 
 \index{A\+Rchain@{A\+Rchain}!update\+Chain@{update\+Chain}}
 \index{update\+Chain@{update\+Chain}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{update\+Chain()}{updateChain()}}
+\paragraph{\texorpdfstring{update\+Chain()}{updateChain()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::update\+Chain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Update the chain data based on current Cartesian coordinates. 
+
+Update chain index and chain.
+
+Due to the evolution, the relative position of particles may vary with time. This function update the chain index and chain if needed. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -310,68 +444,104 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{class_a_rchain_a08ddf32fb537ac1556b2e4560abf3b5d}\label{class_a_rchain_a08ddf32fb537ac1556b2e4560abf3b5d}} 
 \index{A\+Rchain@{A\+Rchain}!update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}}
 \index{update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{update\+Vel\+Indep\+Acc()}{updateVelIndepAcc()}}
+\paragraph{\texorpdfstring{update\+Vel\+Indep\+Acc()}{updateVelIndepAcc()}}
 {\footnotesize\ttfamily template$<$typename Interaction , typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::update\+Vel\+Indep\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-\subsection{Member Data Documentation}
+Update velocity independent acceleration. 
+
+Update velocity independent acceleration \textquotesingle{}vel\+Indep\+Acc\textquotesingle{} based on \mbox{\hyperlink{class_newtonian}{Newtonian}} interaction with chain data. 
+
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_a_rchain_af7780024bfc1beca5f5622086b909db2}\label{class_a_rchain_af7780024bfc1beca5f5622086b909db2}} 
 \index{A\+Rchain@{A\+Rchain}!chain@{chain}}
 \index{chain@{chain}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{chain}{chain}}
+\paragraph{\texorpdfstring{chain}{chain}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 Evolved\+Data \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::chain\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Evolved variables in chain coordinates. 
 
 \mbox{\Hypertarget{class_a_rchain_a0691e6612b661e329f1fc72d4cb7c895}\label{class_a_rchain_a0691e6612b661e329f1fc72d4cb7c895}} 
 \index{A\+Rchain@{A\+Rchain}!chain\+Index@{chain\+Index}}
 \index{chain\+Index@{chain\+Index}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{chain\+Index}{chainIndex}}
+\paragraph{\texorpdfstring{chain\+Index}{chainIndex}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 \mbox{\hyperlink{class_a_rchain_aae40d4b5881eecfc960814f9e368215d}{Index\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::chain\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mapping index from Cartesian coordinates to chain coordinates. 
 
 \mbox{\Hypertarget{class_a_rchain_a64087e0cb9cdb6b118b4a6e416d9f012}\label{class_a_rchain_a64087e0cb9cdb6b118b4a6e416d9f012}} 
 \index{A\+Rchain@{A\+Rchain}!chain\+Vel\+Dep\+Acc@{chain\+Vel\+Dep\+Acc}}
 \index{chain\+Vel\+Dep\+Acc@{chain\+Vel\+Dep\+Acc}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{chain\+Vel\+Dep\+Acc}{chainVelDepAcc}}
+\paragraph{\texorpdfstring{chain\+Vel\+Dep\+Acc}{chainVelDepAcc}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::chain\+Vel\+Dep\+Acc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Velocity dependent acceleration array in chain coordiantes. 
 
 \mbox{\Hypertarget{class_a_rchain_a80d060a3341913f94c4bbbf2e2321b1d}\label{class_a_rchain_a80d060a3341913f94c4bbbf2e2321b1d}} 
 \index{A\+Rchain@{A\+Rchain}!chain\+Vel\+Indep\+Acc@{chain\+Vel\+Indep\+Acc}}
 \index{chain\+Vel\+Indep\+Acc@{chain\+Vel\+Indep\+Acc}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{chain\+Vel\+Indep\+Acc}{chainVelIndepAcc}}
+\paragraph{\texorpdfstring{chain\+Vel\+Indep\+Acc}{chainVelIndepAcc}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::chain\+Vel\+Indep\+Acc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Velocity independent acceleration array in chain coordiantes. 
 
 \mbox{\Hypertarget{class_a_rchain_a4dd20aa56d6a6403260ad3ced2987eb0}\label{class_a_rchain_a4dd20aa56d6a6403260ad3ced2987eb0}} 
 \index{A\+Rchain@{A\+Rchain}!regular@{regular}}
 \index{regular@{regular}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{regular}{regular}}
+\paragraph{\texorpdfstring{regular}{regular}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 Regularitor \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::regular\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Regularization interface. 
 
 \mbox{\Hypertarget{class_a_rchain_a3c3a74f839bbfe5cbe1d8eb239dd8cc1}\label{class_a_rchain_a3c3a74f839bbfe5cbe1d8eb239dd8cc1}} 
 \index{A\+Rchain@{A\+Rchain}!vel\+Dep\+Acc@{vel\+Dep\+Acc}}
 \index{vel\+Dep\+Acc@{vel\+Dep\+Acc}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{vel\+Dep\+Acc}{velDepAcc}}
+\paragraph{\texorpdfstring{vel\+Dep\+Acc}{velDepAcc}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::vel\+Dep\+Acc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Velocity dependent acceleration array in Cartesian coordiantes. 
 
 \mbox{\Hypertarget{class_a_rchain_a5ad11cefbdb69a58225b799b36dd9eee}\label{class_a_rchain_a5ad11cefbdb69a58225b799b36dd9eee}} 
 \index{A\+Rchain@{A\+Rchain}!vel\+Dep\+Force@{vel\+Dep\+Force}}
 \index{vel\+Dep\+Force@{vel\+Dep\+Force}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{vel\+Dep\+Force}{velDepForce}}
+\paragraph{\texorpdfstring{vel\+Dep\+Force}{velDepForce}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 Interaction \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::vel\+Dep\+Force\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Velocity dependent pair force functor. 
 
 \mbox{\Hypertarget{class_a_rchain_a9359b4fb9f08ad849b0f1dfbdf661016}\label{class_a_rchain_a9359b4fb9f08ad849b0f1dfbdf661016}} 
 \index{A\+Rchain@{A\+Rchain}!vel\+Indep\+Acc@{vel\+Indep\+Acc}}
 \index{vel\+Indep\+Acc@{vel\+Indep\+Acc}!A\+Rchain@{A\+Rchain}}
-\subsubsection{\texorpdfstring{vel\+Indep\+Acc}{velIndepAcc}}
+\paragraph{\texorpdfstring{vel\+Indep\+Acc}{velIndepAcc}}
 {\footnotesize\ttfamily template$<$typename Interaction, typename Evolved\+Data, typename Regularitor$>$ \\
 \mbox{\hyperlink{class_a_rchain_a019fbadb9f4e5892736d9127537338bb}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ Interaction, Evolved\+Data, Regularitor $>$\+::vel\+Indep\+Acc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Velocity independent acceleration array in Cartesian coordiantes. 
 
 
 

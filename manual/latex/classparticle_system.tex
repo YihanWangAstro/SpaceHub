@@ -1,4 +1,4 @@
-\hypertarget{classparticle_system}{}\section{particle\+System$<$ Derived, Evolved\+Data $>$ Class Template Reference}
+\hypertarget{classparticle_system}{}\subsection{particle\+System$<$ Derived, Evolved\+Data $>$ Class Template Reference}
 \label{classparticle_system}\index{particle\+System$<$ Derived, Evolved\+Data $>$@{particle\+System$<$ Derived, Evolved\+Data $>$}}
 
 
@@ -18,7 +18,7 @@ Collaboration diagram for particle\+System$<$ Derived, Evolved\+Data $>$\+:\nopa
 \includegraphics[width=207pt]{classparticle_system__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Types}
+\subsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 typedef Evolved\+Data\+::\+Scalar \mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}}
@@ -33,7 +33,7 @@ typedef std\+::array$<$ size\+\_\+t, Evolved\+Data\+::size()$>$ \mbox{\hyperlink
 \item 
 typedef std\+::array$<$ \mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}}, Evolved\+Data\+::volume()$>$ \mbox{\hyperlink{classparticle_system_ae5a7215810a9f2cad5508aca6b26a063}{Plain\+Array}}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classparticle_system_a6fcdf55bb3999bde562ef2ba22693c6d}{particle\+System}} ()
@@ -52,14 +52,14 @@ std\+::istream \& \mbox{\hyperlink{classparticle_system_ade26a52e1b5eae4ba5e37a3
 \begin{DoxyCompactList}\small\item\em Input data from standard c++ istream. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classparticle_system}{particle\+System}} \& \mbox{\hyperlink{classparticle_system_a95f991ac50fde37e7c57dd6feca1e358}{operator=}} (const \mbox{\hyperlink{classparticle_system}{particle\+System}} \&other)
 \begin{DoxyCompactList}\small\item\em Overload operator =. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static constexpr size\+\_\+t \mbox{\hyperlink{classparticle_system_add9db06ecfc4ba31291641c5b2157764}{size}} ()
 \begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\item 
 static constexpr size\+\_\+t \mbox{\hyperlink{classparticle_system_aac9e6701e4486c89b508a2508b77089b}{volume}} ()
 \begin{DoxyCompactList}\small\item\em Get the total dynamic scalar number. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Evolved\+Data \mbox{\hyperlink{classparticle_system_a68651a7d05d0799f3eda4e785fcec725}{dyn\+State}}
@@ -76,14 +76,14 @@ Evolved\+Data \mbox{\hyperlink{classparticle_system_a68651a7d05d0799f3eda4e785fc
 \begin{DoxyCompactList}\small\item\em Radius array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classparticle_system_aee9dc82f46ce17a477251805094cf19f}{Int\+Array}} \mbox{\hyperlink{classparticle_system_afafaf8f74705b4f569be8d7e4d78aa4f}{type}}
 \begin{DoxyCompactList}\small\item\em Particle type array. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
+\subsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}{Vector\+Array}} \mbox{\hyperlink{classparticle_system_ad7e503534c878abae38d4b06f50286fb}{acc}}
 \begin{DoxyCompactList}\small\item\em Acceleration array used to update velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 \subsubsection*{template$<$typename Derived, typename Evolved\+Data$>$\newline
 class particle\+System$<$ Derived, Evolved\+Data $>$}
 
@@ -91,56 +91,56 @@ Base class of particle System.
 
 Base particles system class. Other particle system can inherit this class. Considering the performance, we don\textquotesingle{}t set virtual function. Here we use C\+R\+TP technique to bind derived class method. See more details in \href{https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Curiously\+\_\+recurring\+\_\+template\+\_\+pattern} . 
 
-\subsection{Member Typedef Documentation}
+\subsubsection{Member Typedef Documentation}
 \mbox{\Hypertarget{classparticle_system_aee9dc82f46ce17a477251805094cf19f}\label{classparticle_system_aee9dc82f46ce17a477251805094cf19f}} 
 \index{particle\+System@{particle\+System}!Int\+Array@{Int\+Array}}
 \index{Int\+Array@{Int\+Array}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{Int\+Array}{IntArray}}
+\paragraph{\texorpdfstring{Int\+Array}{IntArray}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 typedef std\+::array$<$size\+\_\+t, Evolved\+Data\+::size()$>$ \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system_aee9dc82f46ce17a477251805094cf19f}{Int\+Array}}}
 
 \mbox{\Hypertarget{classparticle_system_ae5a7215810a9f2cad5508aca6b26a063}\label{classparticle_system_ae5a7215810a9f2cad5508aca6b26a063}} 
 \index{particle\+System@{particle\+System}!Plain\+Array@{Plain\+Array}}
 \index{Plain\+Array@{Plain\+Array}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{Plain\+Array}{PlainArray}}
+\paragraph{\texorpdfstring{Plain\+Array}{PlainArray}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 typedef std\+::array$<$\mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}}, Evolved\+Data\+::volume()$>$ \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system_ae5a7215810a9f2cad5508aca6b26a063}{Plain\+Array}}}
 
 \mbox{\Hypertarget{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}\label{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}} 
 \index{particle\+System@{particle\+System}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+\paragraph{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 typedef Evolved\+Data\+::\+Scalar \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}}}
 
 \mbox{\Hypertarget{classparticle_system_af7f328120ff85c8b34edeed4a68b746e}\label{classparticle_system_af7f328120ff85c8b34edeed4a68b746e}} 
 \index{particle\+System@{particle\+System}!Scalar\+Array@{Scalar\+Array}}
 \index{Scalar\+Array@{Scalar\+Array}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+\paragraph{\texorpdfstring{Scalar\+Array}{ScalarArray}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 typedef Evolved\+Data\+::\+Scalar\+Array \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system_af7f328120ff85c8b34edeed4a68b746e}{Scalar\+Array}}}
 
 \mbox{\Hypertarget{classparticle_system_ab7ee6005b0bed27658db2fa983def5ec}\label{classparticle_system_ab7ee6005b0bed27658db2fa983def5ec}} 
 \index{particle\+System@{particle\+System}!Vector@{Vector}}
 \index{Vector@{Vector}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{Vector}{Vector}}
+\paragraph{\texorpdfstring{Vector}{Vector}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 typedef Evolved\+Data\+::\+Vector \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system_ab7ee6005b0bed27658db2fa983def5ec}{Vector}}}
 
 \mbox{\Hypertarget{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}\label{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}} 
 \index{particle\+System@{particle\+System}!Vector\+Array@{Vector\+Array}}
 \index{Vector\+Array@{Vector\+Array}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 typedef Evolved\+Data\+::\+Vector\+Array \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}{Vector\+Array}}}
 
 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classparticle_system_a6fcdf55bb3999bde562ef2ba22693c6d}\label{classparticle_system_a6fcdf55bb3999bde562ef2ba22693c6d}} 
 \index{particle\+System@{particle\+System}!particle\+System@{particle\+System}}
 \index{particle\+System@{particle\+System}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{particle\+System()}{particleSystem()}}
+\paragraph{\texorpdfstring{particle\+System()}{particleSystem()}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::\mbox{\hyperlink{classparticle_system}{particle\+System}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -151,7 +151,7 @@ Default construction.
 Default constructor. Bind position, velocity and time interface reference to dyn\+State.\+pos, dyn\+State.\+vel and dyn.\+time. \mbox{\Hypertarget{classparticle_system_a14ddda3c186e335eb989790db240dd94}\label{classparticle_system_a14ddda3c186e335eb989790db240dd94}} 
 \index{particle\+System@{particle\+System}!````~particle\+System@{$\sim$particle\+System}}
 \index{````~particle\+System@{$\sim$particle\+System}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{$\sim$particle\+System()}{~particleSystem()}}
+\paragraph{\texorpdfstring{$\sim$particle\+System()}{~particleSystem()}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 virtual \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::$\sim$\mbox{\hyperlink{classparticle_system}{particle\+System}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
@@ -161,11 +161,11 @@ Virtualize default destructor.
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{classparticle_system_a1817956f802188c82c12c223c32bd28a}\label{classparticle_system_a1817956f802188c82c12c223c32bd28a}} 
 \index{particle\+System@{particle\+System}!array@{array}}
 \index{array@{array}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{array()}{array()}}
+\paragraph{\texorpdfstring{array()}{array()}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_ae5a7215810a9f2cad5508aca6b26a063}{Plain\+Array}}\& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -186,7 +186,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classparticle_system_a73609eb9d95e01724f9f56cb0d9f7ac7}\label{classparticle_system_a73609eb9d95e01724f9f56cb0d9f7ac7}} 
 \index{particle\+System@{particle\+System}!load@{load}}
 \index{load@{load}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{load()}{load()}}
+\paragraph{\texorpdfstring{load()}{load()}}
 {\footnotesize\ttfamily template$<$typename Derived , typename Evolved\+Data $>$ \\
 void \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classparticle_system_ae5a7215810a9f2cad5508aca6b26a063}{Plain\+Array}} \&}]{data }\end{DoxyParamCaption})}
 
@@ -204,7 +204,7 @@ Interface usded by integrator and O\+DE iterator. Load data from a plain array p
 \mbox{\Hypertarget{classparticle_system_a95f991ac50fde37e7c57dd6feca1e358}\label{classparticle_system_a95f991ac50fde37e7c57dd6feca1e358}} 
 \index{particle\+System@{particle\+System}!operator=@{operator=}}
 \index{operator=@{operator=}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+\paragraph{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily template$<$typename Derived , typename Evolved\+Data $>$ \\
 const \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$ \& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$ \&}]{other }\end{DoxyParamCaption})}
 
@@ -215,7 +215,7 @@ Overload operator =.
 \mbox{\Hypertarget{classparticle_system_ade26a52e1b5eae4ba5e37a3e4a3b9cd4}\label{classparticle_system_ade26a52e1b5eae4ba5e37a3e4a3b9cd4}} 
 \index{particle\+System@{particle\+System}!read@{read}}
 \index{read@{read}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{read()}{read()}}
+\paragraph{\texorpdfstring{read()}{read()}}
 {\footnotesize\ttfamily template$<$typename Derived , typename Evolved\+Data $>$ \\
 std\+::istream \& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input }\end{DoxyParamCaption})}
 
@@ -226,7 +226,7 @@ Input data from standard c++ istream.
 Implement of C\+R\+TP \textquotesingle{}$>$$>$\textquotesingle{} method. \mbox{\Hypertarget{classparticle_system_add9db06ecfc4ba31291641c5b2157764}\label{classparticle_system_add9db06ecfc4ba31291641c5b2157764}} 
 \index{particle\+System@{particle\+System}!size@{size}}
 \index{size@{size}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{size()}{size()}}
+\paragraph{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
@@ -240,7 +240,7 @@ The particle number.
 \mbox{\Hypertarget{classparticle_system_a973f0cdc8c8ab21c65e57b8729207551}\label{classparticle_system_a973f0cdc8c8ab21c65e57b8729207551}} 
 \index{particle\+System@{particle\+System}!time\+Scale@{time\+Scale}}
 \index{time\+Scale@{time\+Scale}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{time\+Scale()}{timeScale()}}
+\paragraph{\texorpdfstring{time\+Scale()}{timeScale()}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}} \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::time\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}}}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -254,7 +254,7 @@ The phsyical time.
 \mbox{\Hypertarget{classparticle_system_aac9e6701e4486c89b508a2508b77089b}\label{classparticle_system_aac9e6701e4486c89b508a2508b77089b}} 
 \index{particle\+System@{particle\+System}!volume@{volume}}
 \index{volume@{volume}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{volume()}{volume()}}
+\paragraph{\texorpdfstring{volume()}{volume()}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
@@ -268,7 +268,7 @@ The dynamic scalar number.
 \mbox{\Hypertarget{classparticle_system_a7f37791caaafd35f6c2d7afcc2a49b34}\label{classparticle_system_a7f37791caaafd35f6c2d7afcc2a49b34}} 
 \index{particle\+System@{particle\+System}!write@{write}}
 \index{write@{write}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{write()}{write()}}
+\paragraph{\texorpdfstring{write()}{write()}}
 {\footnotesize\ttfamily template$<$typename Derived , typename Evolved\+Data $>$ \\
 std\+::ostream \& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::write (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output }\end{DoxyParamCaption}) const}
 
@@ -278,11 +278,11 @@ Output data to standard c++ ostream.
 
 Implement of C\+R\+TP \textquotesingle{}$<$$<$\textquotesingle{} method. 
 
-\subsection{Member Data Documentation}
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{classparticle_system_ad7e503534c878abae38d4b06f50286fb}\label{classparticle_system_ad7e503534c878abae38d4b06f50286fb}} 
 \index{particle\+System@{particle\+System}!acc@{acc}}
 \index{acc@{acc}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{acc}{acc}}
+\paragraph{\texorpdfstring{acc}{acc}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}{Vector\+Array}} \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::acc\hspace{0.3cm}{\ttfamily [protected]}}
 
@@ -293,7 +293,7 @@ Acceleration array used to update velocity.
 \mbox{\Hypertarget{classparticle_system_a68651a7d05d0799f3eda4e785fcec725}\label{classparticle_system_a68651a7d05d0799f3eda4e785fcec725}} 
 \index{particle\+System@{particle\+System}!dyn\+State@{dyn\+State}}
 \index{dyn\+State@{dyn\+State}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{dyn\+State}{dynState}}
+\paragraph{\texorpdfstring{dyn\+State}{dynState}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 Evolved\+Data \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::dyn\+State}
 
@@ -304,7 +304,7 @@ Evolved variables class.
 \mbox{\Hypertarget{classparticle_system_ada52f9d5fc33ca23a9ab6dee96d88957}\label{classparticle_system_ada52f9d5fc33ca23a9ab6dee96d88957}} 
 \index{particle\+System@{particle\+System}!mass@{mass}}
 \index{mass@{mass}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{mass}{mass}}
+\paragraph{\texorpdfstring{mass}{mass}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_af7f328120ff85c8b34edeed4a68b746e}{Scalar\+Array}} \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::mass}
 
@@ -315,7 +315,7 @@ Mass array.
 \mbox{\Hypertarget{classparticle_system_ae845daf120c9ad16dea4f2ca1df5b11a}\label{classparticle_system_ae845daf120c9ad16dea4f2ca1df5b11a}} 
 \index{particle\+System@{particle\+System}!pos@{pos}}
 \index{pos@{pos}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{pos}{pos}}
+\paragraph{\texorpdfstring{pos}{pos}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}{Vector\+Array}}\& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::pos}
 
@@ -326,7 +326,7 @@ Position array interface. Reference to dyn\+State.\+pos.
 \mbox{\Hypertarget{classparticle_system_a8f1ca1c5c748549b9b1fc57cb9bd01a0}\label{classparticle_system_a8f1ca1c5c748549b9b1fc57cb9bd01a0}} 
 \index{particle\+System@{particle\+System}!radius@{radius}}
 \index{radius@{radius}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{radius}{radius}}
+\paragraph{\texorpdfstring{radius}{radius}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_af7f328120ff85c8b34edeed4a68b746e}{Scalar\+Array}} \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::radius}
 
@@ -337,7 +337,7 @@ Radius array.
 \mbox{\Hypertarget{classparticle_system_a2edb9719905f209d84079450c1a01280}\label{classparticle_system_a2edb9719905f209d84079450c1a01280}} 
 \index{particle\+System@{particle\+System}!time@{time}}
 \index{time@{time}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{time}{time}}
+\paragraph{\texorpdfstring{time}{time}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_a28e49da72c0ca5786d0611e6128a8994}{Scalar}}\& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::time}
 
@@ -348,7 +348,7 @@ Physical time scalar interface. Reference to dyn\+State.\+time.
 \mbox{\Hypertarget{classparticle_system_afafaf8f74705b4f569be8d7e4d78aa4f}\label{classparticle_system_afafaf8f74705b4f569be8d7e4d78aa4f}} 
 \index{particle\+System@{particle\+System}!type@{type}}
 \index{type@{type}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{type}{type}}
+\paragraph{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_aee9dc82f46ce17a477251805094cf19f}{Int\+Array}} \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::type}
 
@@ -359,7 +359,7 @@ Particle type array.
 \mbox{\Hypertarget{classparticle_system_a545da170c4d59f18c6ddb18817cb5f3e}\label{classparticle_system_a545da170c4d59f18c6ddb18817cb5f3e}} 
 \index{particle\+System@{particle\+System}!vel@{vel}}
 \index{vel@{vel}!particle\+System@{particle\+System}}
-\subsubsection{\texorpdfstring{vel}{vel}}
+\paragraph{\texorpdfstring{vel}{vel}}
 {\footnotesize\ttfamily template$<$typename Derived, typename Evolved\+Data$>$ \\
 \mbox{\hyperlink{classparticle_system_a6f66ed187a286c0d42ab2f83b8b6193b}{Vector\+Array}}\& \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ Derived, Evolved\+Data $>$\+::vel}
 

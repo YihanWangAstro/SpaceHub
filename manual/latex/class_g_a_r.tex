@@ -1,4 +1,4 @@
-\hypertarget{class_g_a_r}{}\section{G\+AR$<$ Data\+Type, N $>$ Class Template Reference}
+\hypertarget{class_g_a_r}{}\subsection{G\+AR$<$ Data\+Type, N $>$ Class Template Reference}
 \label{class_g_a_r}\index{G\+A\+R$<$ Data\+Type, N $>$@{G\+A\+R$<$ Data\+Type, N $>$}}
 
 
@@ -9,7 +9,7 @@ Class of velocity dependent dynamical system with regularization variables.
 
 {\ttfamily \#include $<$G\+A\+R.\+h$>$}
 
-\subsection*{Public Types}
+\subsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 typedef Data\+Type \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}
@@ -22,7 +22,7 @@ typedef std\+::array$<$ \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcd
 \item 
 typedef std\+::array$<$ size\+\_\+t, N $>$ \mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 std\+::array$<$ \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}, \mbox{\hyperlink{class_g_a_r_abdbcc31db058125bd2ee207e7648b20b}{volume}}()$>$ \& \mbox{\hyperlink{class_g_a_r_a152aa5eea95fe568b010d85a7ba23bf7}{array}} ()
@@ -39,14 +39,14 @@ void \mbox{\hyperlink{class_g_a_r_a2a282218e90ffb1a367da364b70e54a3}{to\+Cartesi
 \begin{DoxyCompactList}\small\item\em Transfer chain coordinate regularization system to Cartesian regularization system. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_a_r_a373d938047a04b051683ee93198b1832}{move\+To\+Central\+Mass\+Coords}} (\mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}} \&mass)
 \begin{DoxyCompactList}\small\item\em Move particles to central mass coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static constexpr size\+\_\+t \mbox{\hyperlink{class_g_a_r_a850c24cdfd1656389e3e42f575035edb}{size}} ()
 \begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\item 
 static constexpr size\+\_\+t \mbox{\hyperlink{class_g_a_r_abdbcc31db058125bd2ee207e7648b20b}{volume}} ()
 \begin{DoxyCompactList}\small\item\em Get the total data number. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}{Vector\+Array}} \mbox{\hyperlink{class_g_a_r_aec6b3fdb2c4dd7bdae27c0b41fbf6dda}{pos}}
@@ -63,7 +63,7 @@ static constexpr size\+\_\+t \mbox{\hyperlink{class_g_a_r_abdbcc31db058125bd2ee2
 \begin{DoxyCompactList}\small\item\em The regularization variable of the dynamic system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 \subsubsection*{template$<$typename Data\+Type, size\+\_\+t N$>$\newline
 class G\+A\+R$<$ Data\+Type, N $>$}
 
@@ -71,49 +71,49 @@ Class of velocity dependent dynamical system with regularization variables.
 
 A simple extension of class dynamics in \mbox{\hyperlink{dynamic_state_8h}{dynamic\+State.\+h}}. Used for regularization system. See detail in \href{https://academic.oup.com/mnras/article/372/1/219/974304}{\tt https\+://academic.\+oup.\+com/mnras/article/372/1/219/974304} . 
 
-\subsection{Member Typedef Documentation}
+\subsubsection{Member Typedef Documentation}
 \mbox{\Hypertarget{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}\label{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}} 
 \index{G\+AR@{G\+AR}!Index\+Array@{Index\+Array}}
 \index{Index\+Array@{Index\+Array}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{Index\+Array}{IndexArray}}
+\paragraph{\texorpdfstring{Index\+Array}{IndexArray}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef std\+::array$<$size\+\_\+t, N$>$ \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}}}
 
 \mbox{\Hypertarget{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}\label{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}} 
 \index{G\+AR@{G\+AR}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+\paragraph{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef Data\+Type \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}}
 
 \mbox{\Hypertarget{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}\label{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}} 
 \index{G\+AR@{G\+AR}!Scalar\+Array@{Scalar\+Array}}
 \index{Scalar\+Array@{Scalar\+Array}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+\paragraph{\texorpdfstring{Scalar\+Array}{ScalarArray}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef std\+::array$<$\mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}, N$>$ \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}}}
 
 \mbox{\Hypertarget{class_g_a_r_ad2f5b930feb3831a717f96155b3ff74e}\label{class_g_a_r_ad2f5b930feb3831a717f96155b3ff74e}} 
 \index{G\+AR@{G\+AR}!Vector@{Vector}}
 \index{Vector@{Vector}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{Vector}{Vector}}
+\paragraph{\texorpdfstring{Vector}{Vector}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef \mbox{\hyperlink{structvec3}{vec3}}$<$\mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}$>$ \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{class_g_a_r_ad2f5b930feb3831a717f96155b3ff74e}{Vector}}}
 
 \mbox{\Hypertarget{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}\label{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}} 
 \index{G\+AR@{G\+AR}!Vector\+Array@{Vector\+Array}}
 \index{Vector\+Array@{Vector\+Array}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef std\+::array$<$\mbox{\hyperlink{structvec3}{vec3}}$<$\mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}$>$, N$>$ \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}{Vector\+Array}}}
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_g_a_r_a152aa5eea95fe568b010d85a7ba23bf7}\label{class_g_a_r_a152aa5eea95fe568b010d85a7ba23bf7}} 
 \index{G\+AR@{G\+AR}!array@{array}}
 \index{array@{array}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{array()}{array()}}
+\paragraph{\texorpdfstring{array()}{array()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 std\+::array$<$\mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}}, \mbox{\hyperlink{class_g_a_r_abdbcc31db058125bd2ee207e7648b20b}{volume}}()$>$\& \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -127,7 +127,7 @@ The reference of head of this class, reinterpret as a plain array.
 \mbox{\Hypertarget{class_g_a_r_a3d5871f25d147497399fa65343bca84a}\label{class_g_a_r_a3d5871f25d147497399fa65343bca84a}} 
 \index{G\+AR@{G\+AR}!get\+Omega@{get\+Omega}}
 \index{get\+Omega@{get\+Omega}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{get\+Omega()}{getOmega()}}
+\paragraph{\texorpdfstring{get\+Omega()}{getOmega()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::get\+Omega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -160,7 +160,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{class_g_a_r_a31b5ad2527cc52d1422fa11e2d93fbc6}\label{class_g_a_r_a31b5ad2527cc52d1422fa11e2d93fbc6}} 
 \index{G\+AR@{G\+AR}!init\+Addi\+Variable@{init\+Addi\+Variable}}
 \index{init\+Addi\+Variable@{init\+Addi\+Variable}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{init\+Addi\+Variable()}{initAddiVariable()}}
+\paragraph{\texorpdfstring{init\+Addi\+Variable()}{initAddiVariable()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::init\+Addi\+Variable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -183,7 +183,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{class_g_a_r_a373d938047a04b051683ee93198b1832}\label{class_g_a_r_a373d938047a04b051683ee93198b1832}} 
 \index{G\+AR@{G\+AR}!move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}}
 \index{move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{move\+To\+Central\+Mass\+Coords()}{moveToCentralMassCoords()}}
+\paragraph{\texorpdfstring{move\+To\+Central\+Mass\+Coords()}{moveToCentralMassCoords()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::move\+To\+Central\+Mass\+Coords (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -206,7 +206,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{class_g_a_r_a3c59ee9bf8aae928644fa2beabbffa7c}\label{class_g_a_r_a3c59ee9bf8aae928644fa2beabbffa7c}} 
 \index{G\+AR@{G\+AR}!set\+Zero@{set\+Zero}}
 \index{set\+Zero@{set\+Zero}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{set\+Zero()}{setZero()}}
+\paragraph{\texorpdfstring{set\+Zero()}{setZero()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::set\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -224,7 +224,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{class_g_a_r_a850c24cdfd1656389e3e42f575035edb}\label{class_g_a_r_a850c24cdfd1656389e3e42f575035edb}} 
 \index{G\+AR@{G\+AR}!size@{size}}
 \index{size@{size}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{size()}{size()}}
+\paragraph{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
@@ -238,7 +238,7 @@ The particle number.
 \mbox{\Hypertarget{class_g_a_r_a2a282218e90ffb1a367da364b70e54a3}\label{class_g_a_r_a2a282218e90ffb1a367da364b70e54a3}} 
 \index{G\+AR@{G\+AR}!to\+Cartesian@{to\+Cartesian}}
 \index{to\+Cartesian@{to\+Cartesian}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{to\+Cartesian()}{toCartesian()}}
+\paragraph{\texorpdfstring{to\+Cartesian()}{toCartesian()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::to\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$ \&}]{cartesian,  }\item[{\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -263,7 +263,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{class_g_a_r_a18041ac48dc47e6ada3e8a33893b1200}\label{class_g_a_r_a18041ac48dc47e6ada3e8a33893b1200}} 
 \index{G\+AR@{G\+AR}!to\+Chain@{to\+Chain}}
 \index{to\+Chain@{to\+Chain}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{to\+Chain()}{toChain()}}
+\paragraph{\texorpdfstring{to\+Chain()}{toChain()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::to\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$ \&}]{chain\+Data,  }\item[{\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -288,7 +288,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{class_g_a_r_abdbcc31db058125bd2ee207e7648b20b}\label{class_g_a_r_abdbcc31db058125bd2ee207e7648b20b}} 
 \index{G\+AR@{G\+AR}!volume@{volume}}
 \index{volume@{volume}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{volume()}{volume()}}
+\paragraph{\texorpdfstring{volume()}{volume()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
@@ -308,11 +308,11 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\subsection{Member Data Documentation}
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_g_a_r_ade7c1f936a5f23a0ded2d02b2cc750e6}\label{class_g_a_r_ade7c1f936a5f23a0ded2d02b2cc750e6}} 
 \index{G\+AR@{G\+AR}!auxi\+Vel@{auxi\+Vel}}
 \index{auxi\+Vel@{auxi\+Vel}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{auxi\+Vel}{auxiVel}}
+\paragraph{\texorpdfstring{auxi\+Vel}{auxiVel}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}{Vector\+Array}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::auxi\+Vel}
 
@@ -323,7 +323,7 @@ Array of auxiliary velocity of the particles. Element is 3D vector.
 \mbox{\Hypertarget{class_g_a_r_a10f49216d9cacb2b21bd053a2ddb997c}\label{class_g_a_r_a10f49216d9cacb2b21bd053a2ddb997c}} 
 \index{G\+AR@{G\+AR}!bindE@{bindE}}
 \index{bindE@{bindE}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{bindE}{bindE}}
+\paragraph{\texorpdfstring{bindE}{bindE}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::bindE \{0.\+0\}}
 
@@ -334,7 +334,7 @@ The binding energy(for regularization) of the dynamic system.
 \mbox{\Hypertarget{class_g_a_r_a702f19b87d8754ac66914985d7c8229e}\label{class_g_a_r_a702f19b87d8754ac66914985d7c8229e}} 
 \index{G\+AR@{G\+AR}!omega@{omega}}
 \index{omega@{omega}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{omega}{omega}}
+\paragraph{\texorpdfstring{omega}{omega}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::omega \{0.\+0\}}
 
@@ -345,7 +345,7 @@ The regularization variable of the dynamic system.
 \mbox{\Hypertarget{class_g_a_r_aec6b3fdb2c4dd7bdae27c0b41fbf6dda}\label{class_g_a_r_aec6b3fdb2c4dd7bdae27c0b41fbf6dda}} 
 \index{G\+AR@{G\+AR}!pos@{pos}}
 \index{pos@{pos}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{pos}{pos}}
+\paragraph{\texorpdfstring{pos}{pos}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}{Vector\+Array}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::pos}
 
@@ -356,7 +356,7 @@ Array of position of the particles. Element is 3D vector.
 \mbox{\Hypertarget{class_g_a_r_afaec5fb6242a3e5ae5cd368832cd1bb8}\label{class_g_a_r_afaec5fb6242a3e5ae5cd368832cd1bb8}} 
 \index{G\+AR@{G\+AR}!time@{time}}
 \index{time@{time}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{time}{time}}
+\paragraph{\texorpdfstring{time}{time}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a2ae44eda8e28d5dd26cf707dcda69314}{Scalar}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::time \{0.\+0\}}
 
@@ -367,7 +367,7 @@ The physical time of the dynamic system.
 \mbox{\Hypertarget{class_g_a_r_a9619f6250eb37cb006bd508591f01997}\label{class_g_a_r_a9619f6250eb37cb006bd508591f01997}} 
 \index{G\+AR@{G\+AR}!vel@{vel}}
 \index{vel@{vel}!G\+AR@{G\+AR}}
-\subsubsection{\texorpdfstring{vel}{vel}}
+\paragraph{\texorpdfstring{vel}{vel}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{class_g_a_r_a5818e17eb203504af6e10f38fc38d378}{Vector\+Array}} \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::vel}
 

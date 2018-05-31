@@ -21,11 +21,11 @@ template <typename DataType, size_t N>
 class dynamics
 {
 public:
-    typedef DataType                   Scalar;
-    typedef vec3<Scalar>               Vector;
-    typedef std::array<vec3<Scalar>, N> VectorArray;
-    typedef std::array<Scalar, N>       ScalarArray;
-
+    typedef DataType                      Scalar;
+    typedef vec3<Scalar>                  Vector;
+    typedef std::array<vec3<Scalar>, N>   VectorArray;
+    typedef std::array<Scalar, N>         ScalarArray;
+    typedef std::array<Scalar, 6 * N + 1> PlainArray;
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
@@ -52,12 +52,27 @@ public:
     Scalar      time{0.0};
 
     /** @brief Transfer this class to a plain array.
-     *  @return The reference of head of this class, reinterpret as a plain array.
+     *  @param arr The destination plain array.
      */
-    std::array<Scalar, volume()>& array()
+    void flatten(PlainArray& arr)
     {
-        return reinterpret_cast<std::array<Scalar, volume()>&>(*this);
+        size_t len = sizeof(VectorArray);
+        memcpy(static_cast<void*>(&arr[0]), static_cast<void*>(&pos[0]), len);
+        memcpy(static_cast<void*>(&arr[3*N]), static_cast<void*>(&vel[0]), len);
+        memcpy(static_cast<void*>(&arr[6*N]), static_cast<void*>(&time), sizeof(Scalar));
     }
+    
+    /** @brief Load data from a plain array.
+     *  @param arr The plain array data.
+     */
+    void loadFlatten(PlainArray& arr)
+    {
+        size_t len = sizeof(VectorArray);
+        memcpy(static_cast<void*>(&pos[0]), static_cast<void*>(&arr[0]), len);
+        memcpy(static_cast<void*>(&vel[0]), static_cast<void*>(&arr[3*N]),  len);
+        memcpy(static_cast<void*>(&time), static_cast<void*>(&arr[6*N]), sizeof(Scalar));
+    }
+    
 
     /** @brief Initialize extra user defined variables. Interface required for other class.
      *  @param mass The mass of particles, might be required for initialization.

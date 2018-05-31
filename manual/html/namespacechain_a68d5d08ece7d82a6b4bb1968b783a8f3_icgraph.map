@@ -1,7 +1,7 @@
 <map id="chain::createAdjMartix" name="chain::createAdjMartix">
 <area shape="rect" id="node2" href="$namespacechain.html#a3e7b0a001442f121ce1408e7c9d12016" title="Calculate the mapping index from Cartesian coordinate to chain coordinate. " alt="" coords="207,89,353,115"/>
-<area shape="rect" id="node3" href="$class_a_rchain.html#a86bd89bacf59c9c3bb0594499db82e04" title="ARchain::read" alt="" coords="441,5,546,31"/>
-<area shape="rect" id="node4" href="$class_a_rchain.html#ad576df000b6d9f3948eae2793c6b3c54" title="ARchain::updateChain" alt="" coords="416,55,571,80"/>
-<area shape="rect" id="node5" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#aa4b0a64e05c3942e402606e74c08b593" title="ARchain\&lt; Newtonian\l\&lt; typename EvolvedData\l::Scalar \&gt;, EvolvedData,\l Regularitor \&gt;::read" alt="" coords="408,104,579,169"/>
-<area shape="rect" id="node6" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#acbe31e9aa918e4f80a2763e16f0bb7bc" title="ARchain\&lt; Newtonian\l\&lt; typename EvolvedData\l::Scalar \&gt;, EvolvedData,\l Regularitor \&gt;::updateChain" alt="" coords="401,193,586,259"/>
+<area shape="rect" id="node3" href="$class_a_rchain.html#a86bd89bacf59c9c3bb0594499db82e04" title="Input data from standard c++ istream. " alt="" coords="441,5,546,31"/>
+<area shape="rect" id="node4" href="$class_a_rchain.html#ad576df000b6d9f3948eae2793c6b3c54" title="Update the chain data based on current Cartesian coordinates. " alt="" coords="416,55,571,80"/>
+<area shape="rect" id="node5" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#aa4b0a64e05c3942e402606e74c08b593" title="Input data from standard c++ istream. " alt="" coords="408,104,579,169"/>
+<area shape="rect" id="node6" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#acbe31e9aa918e4f80a2763e16f0bb7bc" title="Update the chain data based on current Cartesian coordinates. " alt="" coords="401,193,586,259"/>
 </map>

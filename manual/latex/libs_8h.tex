@@ -1,4 +1,4 @@
-\hypertarget{libs_8h}{}\section{libs.\+h File Reference}
+\hypertarget{libs_8h}{}\subsection{libs.\+h File Reference}
 \label{libs_8h}\index{libs.\+h@{libs.\+h}}
 {\ttfamily \#include \char`\"{}vector3.\+h\char`\"{}}\newline
 Include dependency graph for libs.\+h\+:\nopagebreak
@@ -15,7 +15,7 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \includegraphics[width=350pt]{libs_8h__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T1 , typename T2 $>$ }\\const T2 \mbox{\hyperlink{libs_8h_adb6875f6dace526381a24047243e0793}{min}} (const T1 \&x, const T2 \&y)
@@ -44,11 +44,11 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactList}\small\item\em print an array. Used for debug \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
 \mbox{\Hypertarget{libs_8h_a31805e582d38bc4a014e8c9db13162dd}\label{libs_8h_a31805e582d38bc4a014e8c9db13162dd}} 
 \index{libs.\+h@{libs.\+h}!abs@{abs}}
 \index{abs@{abs}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{abs()}{abs()}}
+\paragraph{\texorpdfstring{abs()}{abs()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 const T abs (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -56,8 +56,7 @@ const T abs (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCaptio
 
 Self \mbox{\hyperlink{libs_8h_a31805e582d38bc4a014e8c9db13162dd}{abs()}} 
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -67,7 +66,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_afb99ac76cfb0aeb281fba1279f0d87b4}\label{libs_8h_afb99ac76cfb0aeb281fba1279f0d87b4}} 
 \index{libs.\+h@{libs.\+h}!advance\+Variable@{advance\+Variable}}
 \index{advance\+Variable@{advance\+Variable}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{advance\+Variable()}{advanceVariable()}}
+\paragraph{\texorpdfstring{advance\+Variable()}{advanceVariable()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void advance\+Variable (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{var,  }\item[{const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{add,  }\item[{Scalar}]{dt }\end{DoxyParamCaption})}
 
@@ -84,8 +83,7 @@ Normal Summation of two Arrays.
 {\em dt} & Step size of advance. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -95,7 +93,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_a5a28cca029d759175e05e634100a2b32}\label{libs_8h_a5a28cca029d759175e05e634100a2b32}} 
 \index{libs.\+h@{libs.\+h}!get\+Kinetic\+Energy@{get\+Kinetic\+Energy}}
 \index{get\+Kinetic\+Energy@{get\+Kinetic\+Energy}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{get\+Kinetic\+Energy()}{getKineticEnergy()}}
+\paragraph{\texorpdfstring{get\+Kinetic\+Energy()}{getKineticEnergy()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 double get\+Kinetic\+Energy (\begin{DoxyParamCaption}\item[{const std\+::array$<$ Scalar, N $>$ \&}]{mass,  }\item[{const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{vel }\end{DoxyParamCaption})}
 
@@ -113,8 +111,7 @@ Calculate the kinetic energy of particles.
 \begin{DoxyReturn}{Returns}
 The kinetic energy. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -124,7 +121,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_af1cca4f74ad20e3811105e322490f03b}\label{libs_8h_af1cca4f74ad20e3811105e322490f03b}} 
 \index{libs.\+h@{libs.\+h}!get\+Potential\+Energy@{get\+Potential\+Energy}}
 \index{get\+Potential\+Energy@{get\+Potential\+Energy}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{get\+Potential\+Energy()}{getPotentialEnergy()}}
+\paragraph{\texorpdfstring{get\+Potential\+Energy()}{getPotentialEnergy()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 double get\+Potential\+Energy (\begin{DoxyParamCaption}\item[{const std\+::array$<$ Scalar, N $>$ \&}]{mass,  }\item[{const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{pos }\end{DoxyParamCaption})}
 
@@ -142,16 +139,14 @@ Calculate the potential energy of particles.
 \begin{DoxyReturn}{Returns}
 The potential energy. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=270pt]{libs_8h_af1cca4f74ad20e3811105e322490f03b_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -161,7 +156,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_ace908a4ccc8a98941316b09215fd0f59}\label{libs_8h_ace908a4ccc8a98941316b09215fd0f59}} 
 \index{libs.\+h@{libs.\+h}!get\+Total\+Energy@{get\+Total\+Energy}}
 \index{get\+Total\+Energy@{get\+Total\+Energy}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{get\+Total\+Energy()}{getTotalEnergy()}}
+\paragraph{\texorpdfstring{get\+Total\+Energy()}{getTotalEnergy()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 double get\+Total\+Energy (\begin{DoxyParamCaption}\item[{const std\+::array$<$ Scalar, N $>$ \&}]{mass,  }\item[{const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{pos,  }\item[{const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{vel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -181,16 +176,14 @@ Calculate the total(potential + kinetic) energy of particles.
 \begin{DoxyReturn}{Returns}
 The total energy. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=252pt]{libs_8h_ace908a4ccc8a98941316b09215fd0f59_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -200,7 +193,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_a302acdc31259a4e500089d4f8b0d920c}\label{libs_8h_a302acdc31259a4e500089d4f8b0d920c}} 
 \index{libs.\+h@{libs.\+h}!Kahan\+Advance@{Kahan\+Advance}}
 \index{Kahan\+Advance@{Kahan\+Advance}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{Kahan\+Advance()}{KahanAdvance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\paragraph{\texorpdfstring{Kahan\+Advance()}{KahanAdvance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void Kahan\+Advance (\begin{DoxyParamCaption}\item[{std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{var,  }\item[{const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{increase,  }\item[{std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{err,  }\item[{Scalar}]{dt }\end{DoxyParamCaption})}
 
@@ -221,8 +214,7 @@ A way to reduce the round off error when adding a small number to a big one. See
 {\em dt} & Step size of advance. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -232,7 +224,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_aba4a2b07b8c6c7e9028bd87846e89148}\label{libs_8h_aba4a2b07b8c6c7e9028bd87846e89148}} 
 \index{libs.\+h@{libs.\+h}!Kahan\+Advance@{Kahan\+Advance}}
 \index{Kahan\+Advance@{Kahan\+Advance}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{Kahan\+Advance()}{KahanAdvance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\paragraph{\texorpdfstring{Kahan\+Advance()}{KahanAdvance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename Scalar $>$ \\
 void Kahan\+Advance (\begin{DoxyParamCaption}\item[{Scalar \&}]{var,  }\item[{const Scalar}]{increase,  }\item[{Scalar \&}]{err }\end{DoxyParamCaption})}
 
@@ -254,7 +246,7 @@ A way to reduce the round off error when adding a small number to a big one. See
 \mbox{\Hypertarget{libs_8h_af1bd859bdf56da1084cea883fc9aaf12}\label{libs_8h_af1bd859bdf56da1084cea883fc9aaf12}} 
 \index{libs.\+h@{libs.\+h}!max@{max}}
 \index{max@{max}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{max()}{max()}}
+\paragraph{\texorpdfstring{max()}{max()}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 const T2 max (\begin{DoxyParamCaption}\item[{const T1 \&}]{x,  }\item[{const T2 \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -262,8 +254,7 @@ const T2 max (\begin{DoxyParamCaption}\item[{const T1 \&}]{x,  }\item[{const T2 
 
 Self \mbox{\hyperlink{libs_8h_af1bd859bdf56da1084cea883fc9aaf12}{max()}} 
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -273,7 +264,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_adb6875f6dace526381a24047243e0793}\label{libs_8h_adb6875f6dace526381a24047243e0793}} 
 \index{libs.\+h@{libs.\+h}!min@{min}}
 \index{min@{min}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{min()}{min()}}
+\paragraph{\texorpdfstring{min()}{min()}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 const T2 min (\begin{DoxyParamCaption}\item[{const T1 \&}]{x,  }\item[{const T2 \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -281,8 +272,7 @@ const T2 min (\begin{DoxyParamCaption}\item[{const T1 \&}]{x,  }\item[{const T2 
 
 Self \mbox{\hyperlink{libs_8h_adb6875f6dace526381a24047243e0793}{min()}} 
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -292,7 +282,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_a8b40ec671b4a583da975da94f7e7993e}\label{libs_8h_a8b40ec671b4a583da975da94f7e7993e}} 
 \index{libs.\+h@{libs.\+h}!Move\+To\+Central\+Mass\+Coordinate@{Move\+To\+Central\+Mass\+Coordinate}}
 \index{Move\+To\+Central\+Mass\+Coordinate@{Move\+To\+Central\+Mass\+Coordinate}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{Move\+To\+Central\+Mass\+Coordinate()}{MoveToCentralMassCoordinate()}}
+\paragraph{\texorpdfstring{Move\+To\+Central\+Mass\+Coordinate()}{MoveToCentralMassCoordinate()}}
 {\footnotesize\ttfamily template$<$typename Scalar , size\+\_\+t N$>$ \\
 void Move\+To\+Central\+Mass\+Coordinate (\begin{DoxyParamCaption}\item[{const std\+::array$<$ Scalar, N $>$ \&}]{mass,  }\item[{std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, N $>$ \&}]{phy\+Var }\end{DoxyParamCaption})}
 
@@ -307,8 +297,7 @@ Move variables to central mass coordinates.
 {\em phy\+Var} & Array of variables need to be moved. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -318,7 +307,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{libs_8h_a3a9aed21e89f9e8b6ea6adcfa5037996}\label{libs_8h_a3a9aed21e89f9e8b6ea6adcfa5037996}} 
 \index{libs.\+h@{libs.\+h}!print@{print}}
 \index{print@{print}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{print()}{print()}}
+\paragraph{\texorpdfstring{print()}{print()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void print (\begin{DoxyParamCaption}\item[{T \&}]{var }\end{DoxyParamCaption})}
 
@@ -329,7 +318,7 @@ print an array. Used for debug
 \mbox{\Hypertarget{libs_8h_ac2353dbd40ac679cac5ce9213952d284}\label{libs_8h_ac2353dbd40ac679cac5ce9213952d284}} 
 \index{libs.\+h@{libs.\+h}!swap@{swap}}
 \index{swap@{swap}!libs.\+h@{libs.\+h}}
-\subsubsection{\texorpdfstring{swap()}{swap()}}
+\paragraph{\texorpdfstring{swap()}{swap()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void swap (\begin{DoxyParamCaption}\item[{T \&}]{a,  }\item[{T \&}]{b }\end{DoxyParamCaption})}
 

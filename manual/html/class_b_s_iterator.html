@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('class_b_s_iterator.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Bulirsch-Stoer extrapolation algorithm.  
+ <a href="class_b_s_iterator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -110,68 +113,99 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a144fb5c55fcd7bc873e73f4d06276fb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a144fb5c55fcd7bc873e73f4d06276fb2">BSIterator</a> ()</td></tr>
+<tr class="memdesc:a144fb5c55fcd7bc873e73f4d06276fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for initializing cost, nSteps, fmin and CC.  <a href="#a144fb5c55fcd7bc873e73f4d06276fb2">More...</a><br /></td></tr>
 <tr class="separator:a144fb5c55fcd7bc873e73f4d06276fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5520642ecbd454fb1f4d9ece18dc4e3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a5520642ecbd454fb1f4d9ece18dc4e3f">iterate</a> (ParticSys &amp;particles, Integrator &amp;integrator, <a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a> stepLength)</td></tr>
+<tr class="memdesc:a5520642ecbd454fb1f4d9ece18dc4e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface of ODE iterator.  <a href="#a5520642ecbd454fb1f4d9ece18dc4e3f">More...</a><br /></td></tr>
 <tr class="separator:a5520642ecbd454fb1f4d9ece18dc4e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9b6cc673e297135646699d581fcdc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#ada9b6cc673e297135646699d581fcdc7">setRelativeError</a> (<a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a> relError)</td></tr>
+<tr class="memdesc:ada9b6cc673e297135646699d581fcdc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the local relative error.  <a href="#ada9b6cc673e297135646699d581fcdc7">More...</a><br /></td></tr>
 <tr class="separator:ada9b6cc673e297135646699d581fcdc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57603539823be271c2229d0951b7d957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a57603539823be271c2229d0951b7d957">setAbsoluteError</a> (<a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a> absError)</td></tr>
+<tr class="memdesc:a57603539823be271c2229d0951b7d957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the local absolute error.  <a href="#a57603539823be271c2229d0951b7d957">More...</a><br /></td></tr>
 <tr class="separator:a57603539823be271c2229d0951b7d957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a95c268219a8321af35a628db4e22bec4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a95c268219a8321af35a628db4e22bec4">copyDataToExtrapTab</a> (size_t k)</td></tr>
+<tr class="memdesc:a95c268219a8321af35a628db4e22bec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the current results of localsystem as a plain array to the first column of extrapolation talbe.  <a href="#a95c268219a8321af35a628db4e22bec4">More...</a><br /></td></tr>
 <tr class="separator:a95c268219a8321af35a628db4e22bec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42976d786ffe422a86cc5a7b0a077609"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a42976d786ffe422a86cc5a7b0a077609">checkRejection</a> (<a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a> error, size_t k) const</td></tr>
+<tr class="memdesc:a42976d786ffe422a86cc5a7b0a077609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check the rejection criteria for current iteration.  <a href="#a42976d786ffe422a86cc5a7b0a077609">More...</a><br /></td></tr>
 <tr class="separator:a42976d786ffe422a86cc5a7b0a077609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1edf158e3dd05ed15afd5d0f31c121a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#ac1edf158e3dd05ed15afd5d0f31c121a">extrapolate</a> (size_t k)</td></tr>
+<tr class="memdesc:ac1edf158e3dd05ed15afd5d0f31c121a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extrapolate the kth row to the right end.  <a href="#ac1edf158e3dd05ed15afd5d0f31c121a">More...</a><br /></td></tr>
 <tr class="separator:ac1edf158e3dd05ed15afd5d0f31c121a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f50e084f8650e4d7fea3535a0547139"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a9f50e084f8650e4d7fea3535a0547139">getError</a> (size_t k) const</td></tr>
+<tr class="memdesc:a9f50e084f8650e4d7fea3535a0547139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the error of the k row of the extrapolation table.  <a href="#a9f50e084f8650e4d7fea3535a0547139">More...</a><br /></td></tr>
 <tr class="separator:a9f50e084f8650e4d7fea3535a0547139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d06a0d0c9e458ea96952b0514adece9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a9d06a0d0c9e458ea96952b0514adece9">getTimeStepCoef</a> (<a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a> error, size_t order)</td></tr>
+<tr class="memdesc:a9d06a0d0c9e458ea96952b0514adece9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the new iteration integration step coefficient.  <a href="#a9d06a0d0c9e458ea96952b0514adece9">More...</a><br /></td></tr>
 <tr class="separator:a9d06a0d0c9e458ea96952b0514adece9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a738a558ddfacd9959c9438862001d7e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a738a558ddfacd9959c9438862001d7e8">prepareForNewIteration</a> (size_t k, bool lastRejection)</td></tr>
+<tr class="memdesc:a738a558ddfacd9959c9438862001d7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the new iteration integration step and new iteration depth for next iteration.  <a href="#a738a558ddfacd9959c9438862001d7e8">More...</a><br /></td></tr>
 <tr class="separator:a738a558ddfacd9959c9438862001d7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a9d6fc5f237246465161ea86854985395"><td class="memItemLeft" align="right" valign="top">ParticSys&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a9d6fc5f237246465161ea86854985395">localSystem</a></td></tr>
+<tr class="memdesc:a9d6fc5f237246465161ea86854985395"><td class="mdescLeft">&#160;</td><td class="mdescRight">The local partical system used to iterate.  <a href="#a9d6fc5f237246465161ea86854985395">More...</a><br /></td></tr>
 <tr class="separator:a9d6fc5f237246465161ea86854985395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa501e973f342248fc445d59a5166ccc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; <a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; <a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>, ParticSys::volume()&gt;,(<a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1) *(<a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+2)/2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#aa501e973f342248fc445d59a5166ccc9">extrapTab</a></td></tr>
+<tr class="memdesc:aa501e973f342248fc445d59a5166ccc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extrapolation table.  <a href="#aa501e973f342248fc445d59a5166ccc9">More...</a><br /></td></tr>
 <tr class="separator:aa501e973f342248fc445d59a5166ccc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28f6cc2fd6bfd554f85225492f4210b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; <a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>,(<a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1) *(<a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+2)/2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a28f6cc2fd6bfd554f85225492f4210b7">CC</a></td></tr>
+<tr class="memdesc:a28f6cc2fd6bfd554f85225492f4210b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extrapolation coefficient.  <a href="#a28f6cc2fd6bfd554f85225492f4210b7">More...</a><br /></td></tr>
 <tr class="separator:a28f6cc2fd6bfd554f85225492f4210b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96c58777cbefe7d02e160317621fc0b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; <a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>, <a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a96c58777cbefe7d02e160317621fc0b9">macroStepLength</a></td></tr>
+<tr class="memdesc:a96c58777cbefe7d02e160317621fc0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro step length for different iteration depth.  <a href="#a96c58777cbefe7d02e160317621fc0b9">More...</a><br /></td></tr>
 <tr class="separator:a96c58777cbefe7d02e160317621fc0b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2a338d6c3e5014d529666032d34c987"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; <a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>, <a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#ac2a338d6c3e5014d529666032d34c987">work</a></td></tr>
+<tr class="memdesc:ac2a338d6c3e5014d529666032d34c987"><td class="mdescLeft">&#160;</td><td class="mdescRight">The work(calculation quantities) per integration length of each iteration depth.  <a href="#ac2a338d6c3e5014d529666032d34c987">More...</a><br /></td></tr>
 <tr class="separator:ac2a338d6c3e5014d529666032d34c987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05bf5c727d23e47349683cda1a08ed13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; <a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>, <a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a05bf5c727d23e47349683cda1a08ed13">fmin</a></td></tr>
+<tr class="memdesc:a05bf5c727d23e47349683cda1a08ed13"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimal coeffient of integration step estimation.  <a href="#a05bf5c727d23e47349683cda1a08ed13">More...</a><br /></td></tr>
 <tr class="separator:a05bf5c727d23e47349683cda1a08ed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53f435811c23c0ae1713df13197fc9c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; size_t, <a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a53f435811c23c0ae1713df13197fc9c9">cost</a></td></tr>
+<tr class="memdesc:a53f435811c23c0ae1713df13197fc9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The work(calculation quantities) of each iteration depth.  <a href="#a53f435811c23c0ae1713df13197fc9c9">More...</a><br /></td></tr>
 <tr class="separator:a53f435811c23c0ae1713df13197fc9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c4c8c17a759cdff694e0bd62ed249bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#ab0aa7c10b56500273af05dcd85fd8389">scalarArray</a>&lt; size_t, <a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a>+1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a9c4c8c17a759cdff694e0bd62ed249bd">nSteps</a></td></tr>
+<tr class="memdesc:a9c4c8c17a759cdff694e0bd62ed249bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps of integration of each iteration depth.  <a href="#a9c4c8c17a759cdff694e0bd62ed249bd">More...</a><br /></td></tr>
 <tr class="separator:a9c4c8c17a759cdff694e0bd62ed249bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8948aa04b0ec390d43eb3d1f0a2efb03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a8948aa04b0ec390d43eb3d1f0a2efb03">absoluteError</a> {1e-15}</td></tr>
+<tr class="memdesc:a8948aa04b0ec390d43eb3d1f0a2efb03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local absolute error.  <a href="#a8948aa04b0ec390d43eb3d1f0a2efb03">More...</a><br /></td></tr>
 <tr class="separator:a8948aa04b0ec390d43eb3d1f0a2efb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abce71b7bac10363f7772dc848f8722b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#abce71b7bac10363f7772dc848f8722b6">relativeError</a> {1e-15}</td></tr>
+<tr class="memdesc:abce71b7bac10363f7772dc848f8722b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local relative error.  <a href="#abce71b7bac10363f7772dc848f8722b6">More...</a><br /></td></tr>
 <tr class="separator:abce71b7bac10363f7772dc848f8722b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a942f85e00c28ef1990d1dfbed69c9e13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a942f85e00c28ef1990d1dfbed69c9e13">s1</a> {0.94}</td></tr>
+<tr class="memdesc:a942f85e00c28ef1990d1dfbed69c9e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient of new step length estimation. See "Numerical recipes" on page 926.  <a href="#a942f85e00c28ef1990d1dfbed69c9e13">More...</a><br /></td></tr>
 <tr class="separator:a942f85e00c28ef1990d1dfbed69c9e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1cdde25df6bca7a456c1908be54065f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#ad1cdde25df6bca7a456c1908be54065f">s2</a> {0.95}</td></tr>
+<tr class="memdesc:ad1cdde25df6bca7a456c1908be54065f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient of new step length estimation.  <a href="#ad1cdde25df6bca7a456c1908be54065f">More...</a><br /></td></tr>
 <tr class="separator:ad1cdde25df6bca7a456c1908be54065f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ea0bb96f7971e9c477daef1fda6e16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a10ea0bb96f7971e9c477daef1fda6e16">s3</a> {0.02}</td></tr>
+<tr class="memdesc:a10ea0bb96f7971e9c477daef1fda6e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient of new step length estimation.  <a href="#a10ea0bb96f7971e9c477daef1fda6e16">More...</a><br /></td></tr>
 <tr class="separator:a10ea0bb96f7971e9c477daef1fda6e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b3bbb2d988a5d91030060508e3b4f66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a7857f8ff9032955ea4dcc22cd18ca7a1">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a5b3bbb2d988a5d91030060508e3b4f66">s4</a> {4.0}</td></tr>
+<tr class="memdesc:a5b3bbb2d988a5d91030060508e3b4f66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient of new step length estimation.  <a href="#a5b3bbb2d988a5d91030060508e3b4f66">More...</a><br /></td></tr>
 <tr class="separator:a5b3bbb2d988a5d91030060508e3b4f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa073f847cc5855f727c8f326f539a5f0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#aa073f847cc5855f727c8f326f539a5f0">iterDepth</a> {7}</td></tr>
+<tr class="memdesc:aa073f847cc5855f727c8f326f539a5f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current iteraation depth.  <a href="#aa073f847cc5855f727c8f326f539a5f0">More...</a><br /></td></tr>
 <tr class="separator:aa073f847cc5855f727c8f326f539a5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a39409b9a12d4854d101ce59a0efc0f74"><td class="memItemLeft" align="right" valign="top">static const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a39409b9a12d4854d101ce59a0efc0f74">MaxDepth</a> {8}</td></tr>
+<tr class="memdesc:a39409b9a12d4854d101ce59a0efc0f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Maximum iteration depth.  <a href="#a39409b9a12d4854d101ce59a0efc0f74">More...</a><br /></td></tr>
 <tr class="separator:a39409b9a12d4854d101ce59a0efc0f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ParticSys, typename Integrator&gt;<br />
+class BSIterator&lt; ParticSys, Integrator &gt;</h3>
+
+<p>Bulirsch-Stoer extrapolation algorithm. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7857f8ff9032955ea4dcc22cd18ca7a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7857f8ff9032955ea4dcc22cd18ca7a1">&#9670;&nbsp;</a></span>Scalar</h2>
 
@@ -224,6 +258,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor for initializing cost, nSteps, fmin and CC. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -263,6 +299,15 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Check the rejection criteria for current iteration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The kth iteration depth. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>If current iteration is rejected. </dd></dl>
+
 </div>
 </div>
 <a id="a95c268219a8321af35a628db4e22bec4"></a>
@@ -290,6 +335,14 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Copy the current results of localsystem as a plain array to the first column of extrapolation talbe. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The kth row of extrapolation table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -319,6 +372,15 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Extrapolate the kth row to the right end. </p>
+<p>Extrapolate the k-th row to the right end.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The kth row of extrapolation table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9f50e084f8650e4d7fea3535a0547139"></a>
@@ -346,6 +408,14 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculate the error of the k row of the extrapolation table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The kth row of extrapolation table. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -394,6 +464,16 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculate the new iteration integration step coefficient. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>The error of the k-th row of extrapolation table. </td></tr>
+    <tr><td class="paramname">order</td><td>The order of the error in k-th row of extrapolation table. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new iteration integration step length coefficient. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -440,6 +520,18 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Interface of ODE iterator. </p>
+<dl class="section note"><dt>Note</dt><dd>BSiterator will force use the internal mid-point integrator as the basic integrator.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particles</td><td>Particle system need iteration. </td></tr>
+    <tr><td class="paramname">integrator</td><td>Basica integrator used to evolve, but here BS iterator will force use internal mid-point integrator. </td></tr>
+    <tr><td class="paramname">stepLength</td><td>Macro integration step length. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The next macro integration step length. </dd></dl>
+
 </div>
 </div>
 <a id="a738a558ddfacd9959c9438862001d7e8"></a>
@@ -477,6 +569,16 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculate the new iteration integration step and new iteration depth for next iteration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The k-th iteration depth. </td></tr>
+    <tr><td class="paramname">lastRejection</td><td>The rejection status of last trail of iteration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new iteration step length. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -515,6 +617,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Set the local absolute error. </p>
+
 </div>
 </div>
 <a id="ada9b6cc673e297135646699d581fcdc7"></a>
@@ -543,6 +647,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Set the local relative error. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -568,6 +674,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Local absolute error. </p>
+
 </div>
 </div>
 <a id="a28f6cc2fd6bfd554f85225492f4210b7"></a>
@@ -591,6 +699,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Extrapolation coefficient. </p>
 
 </div>
 </div>
@@ -616,6 +726,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>The work(calculation quantities) of each iteration depth. </p>
+
 </div>
 </div>
 <a id="aa501e973f342248fc445d59a5166ccc9"></a>
@@ -639,6 +751,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Extrapolation table. </p>
 
 </div>
 </div>
@@ -664,6 +778,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>The minimal coeffient of integration step estimation. </p>
+
 </div>
 </div>
 <a id="aa073f847cc5855f727c8f326f539a5f0"></a>
@@ -687,6 +803,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Current iteraation depth. </p>
 
 </div>
 </div>
@@ -712,6 +830,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>The local partical system used to iterate. </p>
+
 </div>
 </div>
 <a id="a96c58777cbefe7d02e160317621fc0b9"></a>
@@ -735,6 +855,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Macro step length for different iteration depth. </p>
 
 </div>
 </div>
@@ -760,6 +882,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>The Maximum iteration depth. </p>
+
 </div>
 </div>
 <a id="a9c4c8c17a759cdff694e0bd62ed249bd"></a>
@@ -783,6 +907,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Steps of integration of each iteration depth. </p>
 
 </div>
 </div>
@@ -808,6 +934,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Local relative error. </p>
+
 </div>
 </div>
 <a id="a942f85e00c28ef1990d1dfbed69c9e13"></a>
@@ -831,6 +959,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Coefficient of new step length estimation. See "Numerical recipes" on page 926. </p>
 
 </div>
 </div>
@@ -856,6 +986,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Coefficient of new step length estimation. </p>
+
 </div>
 </div>
 <a id="a10ea0bb96f7971e9c477daef1fda6e16"></a>
@@ -879,6 +1011,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Coefficient of new step length estimation. </p>
 
 </div>
 </div>
@@ -904,6 +1038,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Coefficient of new step length estimation. </p>
+
 </div>
 </div>
 <a id="ac2a338d6c3e5014d529666032d34c987"></a>
@@ -927,6 +1063,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The work(calculation quantities) per integration length of each iteration depth. </p>
 
 </div>
 </div>

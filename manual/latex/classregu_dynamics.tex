@@ -1,4 +1,4 @@
-\hypertarget{classregu_dynamics}{}\section{regu\+Dynamics$<$ Data\+Type, N $>$ Class Template Reference}
+\hypertarget{classregu_dynamics}{}\subsection{regu\+Dynamics$<$ Data\+Type, N $>$ Class Template Reference}
 \label{classregu_dynamics}\index{regu\+Dynamics$<$ Data\+Type, N $>$@{regu\+Dynamics$<$ Data\+Type, N $>$}}
 
 
@@ -9,7 +9,7 @@ Class of dynamical system with regularization variables.
 
 {\ttfamily \#include $<$regular\+State.\+h$>$}
 
-\subsection*{Public Types}
+\subsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 typedef Data\+Type \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}
@@ -22,7 +22,7 @@ typedef std\+::array$<$ \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee03239
 \item 
 typedef std\+::array$<$ size\+\_\+t, N $>$ \mbox{\hyperlink{classregu_dynamics_a2c9fa7372e4a11be9d85728b4a0e455f}{Index\+Array}}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 std\+::array$<$ \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}, \mbox{\hyperlink{classregu_dynamics_a3a00b2009ce88898871ca024c30c6882}{volume}}()$>$ \& \mbox{\hyperlink{classregu_dynamics_aa1c12cfc524f02a52590b2659db79795}{array}} ()
@@ -39,14 +39,14 @@ void \mbox{\hyperlink{classregu_dynamics_a3dd8d377588308a02396ca6d06945859}{to\+
 \begin{DoxyCompactList}\small\item\em Transfer chain coordinate regularization system to Cartesian regularization system. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classregu_dynamics_adb57f1775922d615b8e506eaf79a1bc0}{move\+To\+Central\+Mass\+Coords}} (\mbox{\hyperlink{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}{Scalar\+Array}} \&mass)
 \begin{DoxyCompactList}\small\item\em Move particles to central mass coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_dynamics_a794ed66952b542ae63caa936e3641c4a}{size}} ()
 \begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\item 
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_dynamics_a3a00b2009ce88898871ca024c30c6882}{volume}} ()
 \begin{DoxyCompactList}\small\item\em Get the total data number. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classregu_dynamics_a86a05253d927e1716f3401e887aa5c8e}{Vector\+Array}} \mbox{\hyperlink{classregu_dynamics_a5e39085954d2dd9bcaa545a00880f442}{pos}}
@@ -61,7 +61,7 @@ static constexpr size\+\_\+t \mbox{\hyperlink{classregu_dynamics_a3a00b2009ce888
 \begin{DoxyCompactList}\small\item\em The regularization variable of the dynamic system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 \subsubsection*{template$<$typename Data\+Type, size\+\_\+t N$>$\newline
 class regu\+Dynamics$<$ Data\+Type, N $>$}
 
@@ -69,49 +69,49 @@ Class of dynamical system with regularization variables.
 
 A simple extension of class dynamics in \mbox{\hyperlink{dynamic_state_8h}{dynamic\+State.\+h}}. Used for regularization system. See detail in \href{https://academic.oup.com/mnras/article/372/1/219/974304}{\tt https\+://academic.\+oup.\+com/mnras/article/372/1/219/974304} . 
 
-\subsection{Member Typedef Documentation}
+\subsubsection{Member Typedef Documentation}
 \mbox{\Hypertarget{classregu_dynamics_a2c9fa7372e4a11be9d85728b4a0e455f}\label{classregu_dynamics_a2c9fa7372e4a11be9d85728b4a0e455f}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!Index\+Array@{Index\+Array}}
 \index{Index\+Array@{Index\+Array}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{Index\+Array}{IndexArray}}
+\paragraph{\texorpdfstring{Index\+Array}{IndexArray}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef std\+::array$<$size\+\_\+t, N$>$ \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classregu_dynamics_a2c9fa7372e4a11be9d85728b4a0e455f}{Index\+Array}}}
 
 \mbox{\Hypertarget{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}\label{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+\paragraph{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef Data\+Type \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}}
 
 \mbox{\Hypertarget{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}\label{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!Scalar\+Array@{Scalar\+Array}}
 \index{Scalar\+Array@{Scalar\+Array}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+\paragraph{\texorpdfstring{Scalar\+Array}{ScalarArray}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef std\+::array$<$\mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}, N$>$ \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}{Scalar\+Array}}}
 
 \mbox{\Hypertarget{classregu_dynamics_a454c165b5e838c6b44a3f18d6722a9e2}\label{classregu_dynamics_a454c165b5e838c6b44a3f18d6722a9e2}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!Vector@{Vector}}
 \index{Vector@{Vector}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{Vector}{Vector}}
+\paragraph{\texorpdfstring{Vector}{Vector}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef \mbox{\hyperlink{structvec3}{vec3}}$<$\mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}$>$ \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classregu_dynamics_a454c165b5e838c6b44a3f18d6722a9e2}{Vector}}}
 
 \mbox{\Hypertarget{classregu_dynamics_a86a05253d927e1716f3401e887aa5c8e}\label{classregu_dynamics_a86a05253d927e1716f3401e887aa5c8e}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!Vector\+Array@{Vector\+Array}}
 \index{Vector\+Array@{Vector\+Array}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 typedef std\+::array$<$\mbox{\hyperlink{structvec3}{vec3}}$<$\mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}$>$, N$>$ \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classregu_dynamics_a86a05253d927e1716f3401e887aa5c8e}{Vector\+Array}}}
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{classregu_dynamics_aa1c12cfc524f02a52590b2659db79795}\label{classregu_dynamics_aa1c12cfc524f02a52590b2659db79795}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!array@{array}}
 \index{array@{array}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{array()}{array()}}
+\paragraph{\texorpdfstring{array()}{array()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 std\+::array$<$\mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}}, \mbox{\hyperlink{classregu_dynamics_a3a00b2009ce88898871ca024c30c6882}{volume}}()$>$\& \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -125,7 +125,7 @@ The reference of head of this class, reinterpret as a plain array.
 \mbox{\Hypertarget{classregu_dynamics_a0fe3b4f9a468687ec1f004120b347ddd}\label{classregu_dynamics_a0fe3b4f9a468687ec1f004120b347ddd}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!get\+Omega@{get\+Omega}}
 \index{get\+Omega@{get\+Omega}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{get\+Omega()}{getOmega()}}
+\paragraph{\texorpdfstring{get\+Omega()}{getOmega()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}} \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::get\+Omega (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -158,7 +158,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classregu_dynamics_aa42158ddf3c5385aa89988b9bb80ff29}\label{classregu_dynamics_aa42158ddf3c5385aa89988b9bb80ff29}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!init\+Addi\+Variable@{init\+Addi\+Variable}}
 \index{init\+Addi\+Variable@{init\+Addi\+Variable}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{init\+Addi\+Variable()}{initAddiVariable()}}
+\paragraph{\texorpdfstring{init\+Addi\+Variable()}{initAddiVariable()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::init\+Addi\+Variable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -181,7 +181,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classregu_dynamics_adb57f1775922d615b8e506eaf79a1bc0}\label{classregu_dynamics_adb57f1775922d615b8e506eaf79a1bc0}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}}
 \index{move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{move\+To\+Central\+Mass\+Coords()}{moveToCentralMassCoords()}}
+\paragraph{\texorpdfstring{move\+To\+Central\+Mass\+Coords()}{moveToCentralMassCoords()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::move\+To\+Central\+Mass\+Coords (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_dynamics_a34b4b77ea3e49e1cdef584ec8bd281dc}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -204,7 +204,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classregu_dynamics_a50e6ec7efc990c325d3694e225f04194}\label{classregu_dynamics_a50e6ec7efc990c325d3694e225f04194}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!set\+Zero@{set\+Zero}}
 \index{set\+Zero@{set\+Zero}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{set\+Zero()}{setZero()}}
+\paragraph{\texorpdfstring{set\+Zero()}{setZero()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::set\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -222,7 +222,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classregu_dynamics_a794ed66952b542ae63caa936e3641c4a}\label{classregu_dynamics_a794ed66952b542ae63caa936e3641c4a}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!size@{size}}
 \index{size@{size}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{size()}{size()}}
+\paragraph{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
@@ -236,7 +236,7 @@ The particle number.
 \mbox{\Hypertarget{classregu_dynamics_a3dd8d377588308a02396ca6d06945859}\label{classregu_dynamics_a3dd8d377588308a02396ca6d06945859}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!to\+Cartesian@{to\+Cartesian}}
 \index{to\+Cartesian@{to\+Cartesian}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{to\+Cartesian()}{toCartesian()}}
+\paragraph{\texorpdfstring{to\+Cartesian()}{toCartesian()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::to\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$ \&}]{cartesian,  }\item[{\mbox{\hyperlink{classregu_dynamics_a2c9fa7372e4a11be9d85728b4a0e455f}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -261,7 +261,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classregu_dynamics_aae4e77bbbb00f0bdddb396047f1c0fc2}\label{classregu_dynamics_aae4e77bbbb00f0bdddb396047f1c0fc2}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!to\+Chain@{to\+Chain}}
 \index{to\+Chain@{to\+Chain}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{to\+Chain()}{toChain()}}
+\paragraph{\texorpdfstring{to\+Chain()}{toChain()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 void \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::to\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$ \&}]{chain\+Data,  }\item[{\mbox{\hyperlink{classregu_dynamics_a2c9fa7372e4a11be9d85728b4a0e455f}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -286,7 +286,7 @@ Here is the call graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classregu_dynamics_a3a00b2009ce88898871ca024c30c6882}\label{classregu_dynamics_a3a00b2009ce88898871ca024c30c6882}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!volume@{volume}}
 \index{volume@{volume}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{volume()}{volume()}}
+\paragraph{\texorpdfstring{volume()}{volume()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
@@ -306,11 +306,11 @@ Here is the caller graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\subsection{Member Data Documentation}
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{classregu_dynamics_a7e2b804745638810d38ed547487c26f2}\label{classregu_dynamics_a7e2b804745638810d38ed547487c26f2}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!bindE@{bindE}}
 \index{bindE@{bindE}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{bindE}{bindE}}
+\paragraph{\texorpdfstring{bindE}{bindE}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}} \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::bindE \{0.\+0\}}
 
@@ -321,7 +321,7 @@ The binding energy(for regularization) of the dynamic system.
 \mbox{\Hypertarget{classregu_dynamics_afef2a874c21e951765e50a497a411eae}\label{classregu_dynamics_afef2a874c21e951765e50a497a411eae}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!omega@{omega}}
 \index{omega@{omega}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{omega}{omega}}
+\paragraph{\texorpdfstring{omega}{omega}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}} \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::omega \{0.\+0\}}
 
@@ -332,7 +332,7 @@ The regularization variable of the dynamic system.
 \mbox{\Hypertarget{classregu_dynamics_a5e39085954d2dd9bcaa545a00880f442}\label{classregu_dynamics_a5e39085954d2dd9bcaa545a00880f442}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!pos@{pos}}
 \index{pos@{pos}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{pos}{pos}}
+\paragraph{\texorpdfstring{pos}{pos}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{classregu_dynamics_a86a05253d927e1716f3401e887aa5c8e}{Vector\+Array}} \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::pos}
 
@@ -343,7 +343,7 @@ Array of position of the particles. Element is 3D vector.
 \mbox{\Hypertarget{classregu_dynamics_a05e287cf3f87cba248f69b5ff97a054d}\label{classregu_dynamics_a05e287cf3f87cba248f69b5ff97a054d}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!time@{time}}
 \index{time@{time}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{time}{time}}
+\paragraph{\texorpdfstring{time}{time}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{classregu_dynamics_a359c55370b4dee032396f0df86ad5fab}{Scalar}} \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::time \{0.\+0\}}
 
@@ -354,7 +354,7 @@ The physical time of the dynamic system.
 \mbox{\Hypertarget{classregu_dynamics_abf1176124ddfd429310f804491239801}\label{classregu_dynamics_abf1176124ddfd429310f804491239801}} 
 \index{regu\+Dynamics@{regu\+Dynamics}!vel@{vel}}
 \index{vel@{vel}!regu\+Dynamics@{regu\+Dynamics}}
-\subsubsection{\texorpdfstring{vel}{vel}}
+\paragraph{\texorpdfstring{vel}{vel}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{classregu_dynamics_a86a05253d927e1716f3401e887aa5c8e}{Vector\+Array}} \mbox{\hyperlink{classregu_dynamics}{regu\+Dynamics}}$<$ Data\+Type, N $>$\+::vel}
 

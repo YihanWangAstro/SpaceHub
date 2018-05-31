@@ -11,53 +11,104 @@
 #define BSITERATOR_H
 #include "../libs.h"
 
-
+/** @brief Bulirsch-Stoer extrapolation algorithm*/
 template <typename ParticSys, typename Integrator>
 class BSIterator
 {
-    //////////////////////////////////Interface/////////////////////////////////////
+    
 public:
-    typedef typename ParticSys::Scalar Scalar;
+    typedef typename ParticSys::PlainArray PlainArray;
+    typedef typename ParticSys::Scalar     Scalar;
     template <typename Scalar, size_t N> using scalarArray = std::array<Scalar, N>;
 
+    /** @brief Constructor for initializing cost, nSteps, fmin and CC*/
     BSIterator();
+    
+    /** @brief Interface of ODE iterator
+     *  @note  BSiterator will force use the internal mid-point integrator as the basic integrator.
+     */
     Scalar iterate(ParticSys& particles, Integrator& integrator, Scalar stepLength);
+    
+    /** @brief Set the local relative error*/
     void setRelativeError(Scalar relError)
     {
         relativeError = relError;
     }
+    
+    /** @brief Set the local absolute error*/
     void setAbsoluteError(Scalar absError)
     {
         absoluteError = absError;
     }
-    ///////////////////////////////Member variables/////////////////////////////////
+    
 private:
+    /** @brief The Maximum iteration depth*/
     static const size_t MaxDepth{8};
+    
+    /** @brief The local partical system used to iterate.*/
     ParticSys localSystem;
-    scalarArray < scalarArray<Scalar, ParticSys::volume()>, (MaxDepth + 1)* (MaxDepth + 2) / 2 > extrapTab;
+    
+    /** @brief Extrapolation table.*/
+    scalarArray < PlainArray, (MaxDepth + 1)* (MaxDepth + 2) / 2 > extrapTab;
+    
+    /** @brief Extrapolation coefficient.*/
     scalarArray < Scalar, (MaxDepth + 1)* (MaxDepth + 2) / 2 > CC;
+    
+    /** @brief Macro step length for different iteration depth.*/
     scalarArray < Scalar, MaxDepth + 1 > macroStepLength;
+    
+    /** @brief The work(calculation quantities) per integration length of each iteration depth.*/
     scalarArray < Scalar, MaxDepth + 1 > work;
+    
+    /** @brief The minimal coeffient of integration step estimation.*/
     scalarArray < Scalar, MaxDepth + 1 > fmin;
+    
+    /** @brief The work(calculation quantities) of each iteration depth.*/
     scalarArray < size_t, MaxDepth + 1 > cost;
+    
+    /** @brief Steps of integration of each iteration depth.*/
     scalarArray < size_t, MaxDepth + 1 > nSteps;
-    Scalar        absoluteError{1e-15};
-    Scalar        relativeError{1e-15};
-    Scalar        s1{0.94};
-    Scalar        s2{0.95};
-    Scalar        s3{0.02};
-    Scalar        s4{4.0};
-    size_t        iterDepth{7};
-    //////////////////////////////Private Function//////////////////////////////////
+    
+    /** @brief Local absolute error*/
+    Scalar absoluteError{1e-15};
+    
+    /** @brief Local relative error*/
+    Scalar relativeError{1e-15};
+    
+    /** @brief Coefficient of new step length estimation. See "Numerical recipes" on page 926.*/
+    Scalar s1{0.94};
+    
+    /** @brief Coefficient of new step length estimation*/
+    Scalar s2{0.95};
+    
+    /** @brief Coefficient of new step length estimation*/
+    Scalar s3{0.02};
+    
+    /** @brief Coefficient of new step length estimation*/
+    Scalar s4{4.0};
+    
+    /** @brief Current iteraation depth.*/
+    size_t iterDepth{7};
+    
 private:
-    void copyDataToExtrapTab(size_t k);
+    
+    /** @brief Check the rejection criteria for current iteration.*/
     bool checkRejection(Scalar error, size_t k) const;
+    
+    /** @brief Extrapolate the kth row to the right end.*/
     void extrapolate(size_t k);
+    
+    /** @brief Calculate the error of the k row of the extrapolation table.*/
     Scalar getError(size_t k) const;
+    
+    /** @brief Calculate the new iteration integration step coefficient*/
     Scalar getTimeStepCoef(Scalar error, size_t order);
+    
+    /** @brief Calculate the new iteration integration step and new iteration depth for next iteration.*/
     Scalar prepareForNewIteration(size_t k, bool lastRejection);
 };
-/////////////////////////////size_terface Implement////////////////////////////////
+
+/** @brief Constructor for initializing cost, nSteps, fmin and CC*/
 template <typename ParticSys, typename Integrator>
 BSIterator<ParticSys, Integrator>::BSIterator()
 {
@@ -73,7 +124,7 @@ BSIterator<ParticSys, Integrator>::BSIterator()
 
         for(size_t j = 0 ; j < i; ++j)
         {
-            ratio               = (Scalar)nSteps[i] / (Scalar)nSteps[i - j - 1];
+            ratio = (Scalar)nSteps[i] / (Scalar)nSteps[i - j - 1];
             CC[i * (i + 1) / 2 + j] = 1.0 / (ratio * ratio - 1);
         }
     }
@@ -84,6 +135,12 @@ BSIterator<ParticSys, Integrator>::BSIterator()
     }
 }
 
+/** @brief Interface of ODE iterator
+ *  @param particles Particle system need iteration.
+ *  @param integrator Basica integrator used to evolve, but here BS iterator will force use internal mid-point integrator.
+ *  @param stepLength Macro integration step length.
+ *  @return The next macro integration step length.
+ */
 template <typename ParticSys, typename Integrator>
 typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys& particles, Integrator& integrator,
         Scalar stepLength)
@@ -99,6 +156,7 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys&
         {
             localSystem = particles;
             h = H / nSteps[k];
+            
             /*for(size_t i = 0 ; i < nSteps[k]; i++)
                 integrator.integrate(localSystem,h);*/
             
@@ -111,7 +169,9 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys&
             localSystem.advanceVel(h);
             localSystem.advancePos(0.5 * h);
             
-            copyDataToExtrapTab(k);
+            
+            localSystem.flatten(extrapTab[k * (k + 1) / 2]);//copyDataToExtrapTab;
+            
             extrapolate(k);
             error = getError(k);
             macroStepLength[k] = H * getTimeStepCoef(error, 2 * k + 1);
@@ -124,7 +184,7 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys&
                 {
                     reject = false;
                     H = prepareForNewIteration(k, reject);
-                    particles.load(extrapTab[k * (k + 1) / 2 + k]);
+                    particles.loadFlatten( extrapTab[k * (k + 1) / 2 + k] );
                     return H;
                 }
                 else if(checkRejection(error, k))
@@ -138,14 +198,10 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys&
     }
 }
 
-//////////////////////////////Private Implement/////////////////////////////////
-template <typename ParticSys, typename Integrator>
-void BSIterator<ParticSys, Integrator>::copyDataToExtrapTab(size_t k)
-{
-    size_t n = k * (k + 1) / 2;
-    extrapTab[n] = localSystem.array();
-}
-
+/** @brief Check the rejection criteria for current iteration.
+ *  @param k The kth iteration depth.
+ *  @return If current iteration is rejected.
+ */
 template <typename ParticSys, typename Integrator>
 bool BSIterator<ParticSys, Integrator>::checkRejection(Scalar error, size_t k) const
 {
@@ -161,6 +217,9 @@ bool BSIterator<ParticSys, Integrator>::checkRejection(Scalar error, size_t k) c
     return error > stepLengthRatio * stepLengthRatio;
 }
 
+/** @brief Extrapolate the k-th row to the right end.
+ *  @param k The kth row of extrapolation table.
+ */
 template <typename ParticSys, typename Integrator>
 void BSIterator<ParticSys, Integrator>::extrapolate(size_t k)
 {
@@ -185,7 +244,9 @@ void BSIterator<ParticSys, Integrator>::extrapolate(size_t k)
         return;
     }
 }
-
+/** @brief Calculate the error of the k row of the extrapolation table.
+ *  @param k The kth row of extrapolation table.
+ */
 template <typename ParticSys, typename Integrator>
 typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getError(size_t k) const
 {
@@ -212,6 +273,11 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getError(size_t k)
     }
 }
 
+/** @brief Calculate the new iteration integration step coefficient
+ *  @param error The error of the k-th row of extrapolation table.
+ *  @param order The order of the error in k-th row of extrapolation table.
+ *  @return The new iteration integration step length coefficient.
+ */
 template <typename ParticSys, typename Integrator>
 typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getTimeStepCoef(Scalar error, size_t order)
 {
@@ -221,6 +287,11 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getTimeStepCoef(Sc
         return 1 / fmin[order];
 }
 
+/** @brief Calculate the new iteration integration step and new iteration depth for next iteration.
+ *  @param k The k-th iteration depth.
+ *  @param lastRejection The rejection status of last trail of iteration.
+ *  @return The new iteration step length.
+ */
 template <typename ParticSys, typename Integrator>
 typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::prepareForNewIteration(size_t k, bool lastRejection)
 {

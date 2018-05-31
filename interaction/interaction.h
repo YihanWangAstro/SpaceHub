@@ -10,7 +10,9 @@
 #define POSTNEWTONIAN_H
 #include "../macros.h"
 #include "../vector3.h"
-
+namespace interact
+{
+    
 constexpr double INV_C  = 1 / C;
 constexpr double INV_C2 = INV_C * INV_C;
 constexpr double INV_C3 = INV_C2 * INV_C;
@@ -18,7 +20,7 @@ constexpr double INV_C4 = INV_C3 * INV_C;
 constexpr double INV_C5 = INV_C4 * INV_C;
 /** @brief Post newtonian pair interaction functor(c++ std11)*/
 template<typename Scalar>
-class PN1th
+class PostNewtonian
 {
 private:
     typedef vec3<Scalar> Vector;
@@ -59,4 +61,6 @@ class Newtonian
 public:
     void operator()() {}
 };
+    
+}
 #endif

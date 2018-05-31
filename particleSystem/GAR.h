@@ -21,12 +21,12 @@ template <typename DataType, size_t N>
 class GAR
 {
 public:
-    typedef DataType                   Scalar;
-    typedef vec3<Scalar>               Vector;
-    typedef std::array<vec3<Scalar>, N> VectorArray;
-    typedef std::array<Scalar, N>       ScalarArray;
-    typedef std::array<size_t, N>       IndexArray;
-
+    typedef DataType                      Scalar;
+    typedef vec3<Scalar>                  Vector;
+    typedef std::array<vec3<Scalar>, N>   VectorArray;
+    typedef std::array<Scalar, N>         ScalarArray;
+    typedef std::array<size_t, N>         IndexArray;
+    typedef std::array<Scalar, 9 * N + 3> PlainArray;
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
@@ -62,11 +62,19 @@ public:
     Scalar      omega{0.0};
 
     /** @brief Transfer this class to a plain array.
-     *  @return The reference of head of this class, reinterpret as a plain array.
+     *  @param arr The destination plain array.
      */
-    std::array<Scalar, volume()>& array()
+    void flatten(PlainArray& arr)
     {
-        return reinterpret_cast<std::array<Scalar, volume()>&>(pos);
+        return reinterpret_cast<std::array<Scalar, volume()>&>(*this);
+    }
+    
+    /** @brief Load data from a plain array.
+     *  @param arr The plain array data.
+     */
+    void loadFlatten(PlainArray& arr)
+    {
+        return reinterpret_cast<std::array<Scalar, volume()>&>(*this);
     }
 
     /** @brief Set all data to be zero.*/

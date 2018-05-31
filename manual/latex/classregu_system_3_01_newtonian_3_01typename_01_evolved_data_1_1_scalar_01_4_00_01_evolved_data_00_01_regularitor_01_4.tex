@@ -1,5 +1,10 @@
-\hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4}{}\section{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+:\+:Scalar $>$, Evolved\+Data, Regularitor $>$ Class Template Reference}
+\hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4}{}\subsection{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+:\+:Scalar $>$, Evolved\+Data, Regularitor $>$ Class Template Reference}
 \label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4}\index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
+
+
+Partial specialization of \mbox{\hyperlink{classregu_system}{regu\+System}} for velocity independent system.  
+
+
 
 
 {\ttfamily \#include $<$regu\+System.\+h$>$}
@@ -22,7 +27,7 @@ Collaboration diagram for regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+:
 \includegraphics[width=350pt]{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_ab8a227f22946e01b399bfcd69c7be8d}
 \end{center}
 \end{figure}
-\subsection*{Public Types}
+\subsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 typedef Evolved\+Data\+::\+Scalar \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}
@@ -35,89 +40,103 @@ typedef Evolved\+Data\+::\+Scalar\+Array \mbox{\hyperlink{classregu_system_3_01_
 \item 
 typedef \mbox{\hyperlink{classparticle_system_a1817956f802188c82c12c223c32bd28a}{std\+::array}}$<$ \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}, \mbox{\hyperlink{classregu_system_a4260b237d36d137b01504c0effd385fa}{Evolved\+Data\+::volume}}()$>$ \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a26da8a1ed92e5aced3615da524ef37b3}{Plain\+Array}}
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_ae0b6977439ce7171e5ef5767237e050d}{advance\+Pos}} (\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}} time\+Step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance position one step with current velocity. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a04de03e59e9369cae79251b8ab876c2c}{advance\+Vel}} (\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}} time\+Step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance velocity one step with current acceleration. \end{DoxyCompactList}\item 
 std\+::istream \& \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0cfd66a24e4b23158a6450510c40ab31}{read}} (std\+::istream \&)
-\item 
+\begin{DoxyCompactList}\small\item\em Input data from standard c++ istream. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a968643b9deaa2a579a025652238fdc75}{load}} (\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a26da8a1ed92e5aced3615da524ef37b3}{Plain\+Array}} \&data)
-\item 
+\begin{DoxyCompactList}\small\item\em Load data from a plain array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}} \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_adc3c44589517529c80470050edf5db0c}{time\+Scale}} (\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}} scale)
-\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\begin{DoxyCompactList}\small\item\em Interface to rescale the time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a168315b01bf058c43a97b0d364a5f649}{size}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\item 
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6aa04cb165b83702f851a1697936fa23}{volume}} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
+\begin{DoxyCompactList}\small\item\em Get the total dynamic scalar number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a114c39dbc724ee6cda9f2b3da8d1ff3c}{advance\+Omega}} (\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}} step\+Size)
-\item 
+\begin{DoxyCompactList}\small\item\em Advance regularization variable omega. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a90719aee4d16176e982461d1f4d2fd33}{update\+Vel\+Indep\+Acc}} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\begin{DoxyCompactList}\small\item\em Update velocity independent acceleration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Regularitor \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a56f2b9c617d94ca6e1d5ae5cc97fef0f}{regular}}
-\end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\begin{DoxyCompactList}\small\item\em Regularization interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
 
 
-\subsection{Member Typedef Documentation}
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename Evolved\+Data, typename Regularitor$>$\newline
+class regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}
+
+Partial specialization of \mbox{\hyperlink{classregu_system}{regu\+System}} for velocity independent system. 
+
+\subsubsection{Member Typedef Documentation}
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a26da8a1ed92e5aced3615da524ef37b3}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a26da8a1ed92e5aced3615da524ef37b3}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Plain\+Array@{Plain\+Array}}
 \index{Plain\+Array@{Plain\+Array}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{Plain\+Array}{PlainArray}}
+\paragraph{\texorpdfstring{Plain\+Array}{PlainArray}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 typedef \mbox{\hyperlink{classparticle_system_a1817956f802188c82c12c223c32bd28a}{std\+::array}}$<$\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}, \mbox{\hyperlink{classregu_system_a4260b237d36d137b01504c0effd385fa}{Evolved\+Data\+::volume}}()$>$ \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a26da8a1ed92e5aced3615da524ef37b3}{Plain\+Array}}}
 
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+\paragraph{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 typedef Evolved\+Data\+::\+Scalar \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}}
 
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a07a1e7c26da06051d8184993828ede8c}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a07a1e7c26da06051d8184993828ede8c}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Scalar\+Array@{Scalar\+Array}}
 \index{Scalar\+Array@{Scalar\+Array}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+\paragraph{\texorpdfstring{Scalar\+Array}{ScalarArray}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 typedef Evolved\+Data\+::\+Scalar\+Array \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a07a1e7c26da06051d8184993828ede8c}{Scalar\+Array}}}
 
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a21c05c4ff0b6317622c03f389ccefa85}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a21c05c4ff0b6317622c03f389ccefa85}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Vector@{Vector}}
 \index{Vector@{Vector}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{Vector}{Vector}}
+\paragraph{\texorpdfstring{Vector}{Vector}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 typedef Evolved\+Data\+::\+Vector \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a21c05c4ff0b6317622c03f389ccefa85}{Vector}}}
 
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a3b84b504bd689b0a0f6543e885772a8d}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a3b84b504bd689b0a0f6543e885772a8d}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Vector\+Array@{Vector\+Array}}
 \index{Vector\+Array@{Vector\+Array}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 typedef Evolved\+Data\+::\+Vector\+Array \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a3b84b504bd689b0a0f6543e885772a8d}{Vector\+Array}}}
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a114c39dbc724ee6cda9f2b3da8d1ff3c}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a114c39dbc724ee6cda9f2b3da8d1ff3c}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Omega@{advance\+Omega}}
 \index{advance\+Omega@{advance\+Omega}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{advance\+Omega()}{advanceOmega()}}
+\paragraph{\texorpdfstring{advance\+Omega()}{advanceOmega()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::advance\+Omega (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance regularization variable omega. 
+
+Advance omega with velocity independent acceleration and auxiliar velocity with physical time step size. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & Physical time step. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -127,12 +146,20 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_ae0b6977439ce7171e5ef5767237e050d}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_ae0b6977439ce7171e5ef5767237e050d}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Pos@{advance\+Pos}}
 \index{advance\+Pos@{advance\+Pos}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{advance\+Pos()}{advancePos()}}
+\paragraph{\texorpdfstring{advance\+Pos()}{advancePos()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::advance\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}}]{time\+Step\+Size }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance position one step with current velocity. 
+
+Advance position array and physical time one step with current integration step size and velocity. 
+\begin{DoxyParams}{Parameters}
+{\em time\+Step\+Size} & Integration step size, will be transfered to physical time in the function. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -142,12 +169,20 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a04de03e59e9369cae79251b8ab876c2c}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a04de03e59e9369cae79251b8ab876c2c}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Vel@{advance\+Vel}}
 \index{advance\+Vel@{advance\+Vel}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{advance\+Vel()}{advanceVel()}}
+\paragraph{\texorpdfstring{advance\+Vel()}{advanceVel()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::advance\+Vel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}}]{time\+Step\+Size }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Advance velocity one step with current acceleration. 
+
+Advance velocity array one step with current integration step size and accelerations. 
+\begin{DoxyParams}{Parameters}
+{\em time\+Step\+Size} & Integration step size, will be transfered to physical time in the function. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -157,12 +192,25 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a968643b9deaa2a579a025652238fdc75}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a968643b9deaa2a579a025652238fdc75}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!load@{load}}
 \index{load@{load}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{load()}{load()}}
+\paragraph{\texorpdfstring{load()}{load()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a26da8a1ed92e5aced3615da524ef37b3}{Plain\+Array}} \&}]{data }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Load data from a plain array. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a968643b9deaa2a579a025652238fdc75}{load()}}.
+\end{DoxyNote}
+Interface usded by integrator and O\+DE iterator. Load data from a plain array processed by itegrator and iterator. Derived class could overload this function to additional process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Plain scalar array. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -172,12 +220,18 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0cfd66a24e4b23158a6450510c40ab31}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0cfd66a24e4b23158a6450510c40ab31}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!read@{read}}
 \index{read@{read}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{read()}{read()}}
+\paragraph{\texorpdfstring{read()}{read()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 std\+::istream \& \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::read (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+
+
+Input data from standard c++ istream. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0cfd66a24e4b23158a6450510c40ab31}{read()}}.
+\end{DoxyNote}
+Implement of C\+R\+TP \textquotesingle{}$>$$>$\textquotesingle{} method. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -187,40 +241,78 @@ Here is the call graph for this function\+:
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a168315b01bf058c43a97b0d364a5f649}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a168315b01bf058c43a97b0d364a5f649}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!size@{size}}
 \index{size@{size}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{size()}{size()}}
+\paragraph{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
+
+
+Get the number of the particles. 
+
+\begin{DoxyReturn}{Returns}
+The particle number. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a168315b01bf058c43a97b0d364a5f649}{size()}}. 
+\end{DoxyNote}
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_adc3c44589517529c80470050edf5db0c}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_adc3c44589517529c80470050edf5db0c}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!time\+Scale@{time\+Scale}}
 \index{time\+Scale@{time\+Scale}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{time\+Scale()}{timeScale()}}
+\paragraph{\texorpdfstring{time\+Scale()}{timeScale()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::time\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6993f135075541f441a7642845b183a5}{Scalar}}}]{scale }\end{DoxyParamCaption})}
 
+
+
+Interface to rescale the time. 
+
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_adc3c44589517529c80470050edf5db0c}{time\+Scale()}}.
+\end{DoxyNote}
+Interace used by dynamic system. Transfer integration time to physical time. \begin{DoxyReturn}{Returns}
+The phsyical time. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a90719aee4d16176e982461d1f4d2fd33}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a90719aee4d16176e982461d1f4d2fd33}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}}
 \index{update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{update\+Vel\+Indep\+Acc()}{updateVelIndepAcc()}}
+\paragraph{\texorpdfstring{update\+Vel\+Indep\+Acc()}{updateVelIndepAcc()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 void \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::update\+Vel\+Indep\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6aa04cb165b83702f851a1697936fa23}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6aa04cb165b83702f851a1697936fa23}} 
+
+
+Update velocity independent acceleration. 
+
+Update velocity independent acceleration \textquotesingle{}acc\textquotesingle{} with \mbox{\hyperlink{class_newtonian}{Newtonian}} interaction. \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6aa04cb165b83702f851a1697936fa23}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6aa04cb165b83702f851a1697936fa23}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!volume@{volume}}
 \index{volume@{volume}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{volume()}{volume()}}
+\paragraph{\texorpdfstring{volume()}{volume()}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 static constexpr size\+\_\+t \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 
-\subsection{Member Data Documentation}
+Get the total dynamic scalar number. 
+
+\begin{DoxyReturn}{Returns}
+The dynamic scalar number. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Overload base class \mbox{\hyperlink{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6aa04cb165b83702f851a1697936fa23}{volume()}}. 
+\end{DoxyNote}
+
+
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a56f2b9c617d94ca6e1d5ae5cc97fef0f}\label{classregu_system_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a56f2b9c617d94ca6e1d5ae5cc97fef0f}} 
 \index{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!regular@{regular}}
 \index{regular@{regular}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\subsubsection{\texorpdfstring{regular}{regular}}
+\paragraph{\texorpdfstring{regular}{regular}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
 Regularitor \mbox{\hyperlink{classregu_system}{regu\+System}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{classregu_system_aca8ee2c387943164ee3ea68370fc3ac0}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::regular\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Regularization interface. 
 
 
 

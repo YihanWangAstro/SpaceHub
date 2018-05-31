@@ -21,12 +21,12 @@ template <typename DataType, size_t N>
 class reguDynamics
 {
 public:
-    typedef DataType                   Scalar;
-    typedef vec3<Scalar>               Vector;
-    typedef std::array<vec3<Scalar>, N> VectorArray;
-    typedef std::array<Scalar, N>       ScalarArray;
-    typedef std::array<size_t, N>       IndexArray;
-
+    typedef DataType                      Scalar;
+    typedef vec3<Scalar>                  Vector;
+    typedef std::array<vec3<Scalar>, N>   VectorArray;
+    typedef std::array<Scalar, N>         ScalarArray;
+    typedef std::array<size_t, N>         IndexArray;
+    typedef std::array<Scalar, 6 * N + 3> PlainArray;
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
@@ -59,11 +59,29 @@ public:
     Scalar omega{0.0};
 
     /** @brief Transfer this class to a plain array.
-     *  @return The reference of head of this class, reinterpret as a plain array.
+     *  @param arr The destination plain array.
      */
-    std::array<Scalar, volume()>& array()
+    void flatten(PlainArray& arr)
     {
-        return reinterpret_cast<std::array<Scalar, volume()>&>(pos);
+        size_t len = sizeof(VectorArray);
+        memcpy(static_cast<void*>(&arr[0]), static_cast<void*>(&pos[0]), len);
+        memcpy(static_cast<void*>(&arr[3*N]), static_cast<void*>(&vel[0]), len);
+        memcpy(static_cast<void*>(&arr[6*N]), static_cast<void*>(&time), sizeof(Scalar));
+        memcpy(static_cast<void*>(&arr[6*N + 1]), static_cast<void*>(&bindE), sizeof(Scalar));
+        memcpy(static_cast<void*>(&arr[6*N + 2]), static_cast<void*>(&omega), sizeof(Scalar));
+    }
+    
+    /** @brief Load data from a plain array.
+     *  @param arr The plain array data.
+     */
+    void loadFlatten(PlainArray& arr)
+    {
+        size_t len = sizeof(VectorArray);
+        memcpy(static_cast<void*>(&pos[0]), static_cast<void*>(&arr[0]), len);
+        memcpy(static_cast<void*>(&vel[0]), static_cast<void*>(&arr[3*N]),  len);
+        memcpy(static_cast<void*>(&time), static_cast<void*>(&arr[6*N]), sizeof(Scalar));
+        memcpy(static_cast<void*>(&bindE), static_cast<void*>(&arr[6*N + 1]), sizeof(Scalar));
+        memcpy(static_cast<void*>(&omega), static_cast<void*>(&arr[6*N + 2 ]), sizeof(Scalar));
     }
 
     /** @brief Set all data to be zero.*/

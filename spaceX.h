@@ -3,6 +3,10 @@
 #include "dynamicSystem.h"
 #include "dynamicState.h"
 #include "integrator/symplectic/symplectic2th.h"
+#include "integrator/symplectic/symplectic4th.h"
+#include "integrator/symplectic/symplectic6th.h"
+#include "integrator/symplectic/symplectic8th.h"
+#include "integrator/symplectic/symplectic10th.h"
 #include "ODEiterator/BSIterator.h"
 #include "ODEiterator/constIterator.h"
 #include "particleSystem/reguSystem.h"
@@ -17,7 +21,7 @@ template <
     template<typename> class          Regularitor = logH,
     typename                          Scalar      = double,
     template<typename, size_t> class  EvolvedData = reguDynamics,
-    template<typename> class          Interaction = Newtonian
+template<typename> class          Interaction = interact::Newtonian
     >
 using NewtonianSystem = reguSystem<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 
@@ -36,7 +40,7 @@ template <
     template<typename> class          Regularitor = logH,
     typename                          Scalar      = double,
     template<typename, size_t> class  EvolvedData = reguDynamics,
-    template<typename> class          Interaction = Newtonian
+    template<typename> class          Interaction = interact::Newtonian
     >
 using AR_chain = ARchain<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
 

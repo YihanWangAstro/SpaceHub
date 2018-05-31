@@ -1,6 +1,6 @@
 <map id="chain::synChain" name="chain::synChain">
-<area shape="rect" id="node2" href="$class_a_rchain.html#ad576df000b6d9f3948eae2793c6b3c54" title="ARchain::updateChain" alt="" coords="185,5,339,31"/>
-<area shape="rect" id="node3" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#acbe31e9aa918e4f80a2763e16f0bb7bc" title="ARchain\&lt; Newtonian\l\&lt; typename EvolvedData\l::Scalar \&gt;, EvolvedData,\l Regularitor \&gt;::updateChain" alt="" coords="170,55,354,120"/>
+<area shape="rect" id="node2" href="$class_a_rchain.html#ad576df000b6d9f3948eae2793c6b3c54" title="Update the chain data based on current Cartesian coordinates. " alt="" coords="185,5,339,31"/>
+<area shape="rect" id="node3" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#acbe31e9aa918e4f80a2763e16f0bb7bc" title="Update the chain data based on current Cartesian coordinates. " alt="" coords="170,55,354,120"/>
 <area shape="rect" id="node4" href="$class_g_a_r.html#a18041ac48dc47e6ada3e8a33893b1200" title="Transfer Cartesian coordinate regularization system to chain regularization system. " alt="" coords="210,144,314,169"/>
 <area shape="rect" id="node5" href="$classregu_dynamics.html#aae4e77bbbb00f0bdddb396047f1c0fc2" title="Transfer Cartesian coordinate regularization system to chain regularization system. " alt="" coords="182,193,342,219"/>
 </map>

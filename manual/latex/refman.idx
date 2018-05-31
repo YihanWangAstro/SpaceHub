@@ -1,100 +1,812 @@
-\indexentry{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$}|hyperpage}{7}
-\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{9}
-\indexentry{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$@{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}|hyperpage}{10}
-\indexentry{const\+Iterator$<$ Partic\+Sys, Integrator $>$@{const\+Iterator$<$ Partic\+Sys, Integrator $>$}|hyperpage}{10}
-\indexentry{const\+Iterator@{const\+Iterator}!Scalar@{Scalar}|hyperpage}{11}
-\indexentry{Scalar@{Scalar}!const\+Iterator@{const\+Iterator}|hyperpage}{11}
-\indexentry{dynamics$<$ Data\+Type, N $>$@{dynamics$<$ Data\+Type, N $>$}|hyperpage}{11}
-\indexentry{dynamics@{dynamics}!array@{array}|hyperpage}{12}
-\indexentry{array@{array}!dynamics@{dynamics}|hyperpage}{12}
-\indexentry{dynamics@{dynamics}!init\+Addi\+Variable@{init\+Addi\+Variable}|hyperpage}{12}
-\indexentry{init\+Addi\+Variable@{init\+Addi\+Variable}!dynamics@{dynamics}|hyperpage}{12}
-\indexentry{dynamics@{dynamics}!size@{size}|hyperpage}{13}
-\indexentry{size@{size}!dynamics@{dynamics}|hyperpage}{13}
-\indexentry{dynamics@{dynamics}!volume@{volume}|hyperpage}{13}
-\indexentry{volume@{volume}!dynamics@{dynamics}|hyperpage}{13}
-\indexentry{dynamic\+System$<$ Partic\+Sys, Integrator, O\+D\+Eiterator $>$@{dynamic\+System$<$ Partic\+Sys, Integrator, O\+D\+Eiterator $>$}|hyperpage}{14}
-\indexentry{dynamic\+System@{dynamic\+System}!advance\+One\+Step@{advance\+One\+Step}|hyperpage}{14}
-\indexentry{advance\+One\+Step@{advance\+One\+Step}!dynamic\+System@{dynamic\+System}|hyperpage}{14}
-\indexentry{dynamic\+System@{dynamic\+System}!load\+Text@{load\+Text}|hyperpage}{14}
-\indexentry{load\+Text@{load\+Text}!dynamic\+System@{dynamic\+System}|hyperpage}{14}
-\indexentry{errhand@{errhand}|hyperpage}{15}
-\indexentry{G\+A\+R$<$ Data\+Type, N $>$@{G\+A\+R$<$ Data\+Type, N $>$}|hyperpage}{15}
-\indexentry{G\+AR@{G\+AR}!array@{array}|hyperpage}{17}
-\indexentry{array@{array}!G\+AR@{G\+AR}|hyperpage}{17}
-\indexentry{G\+AR@{G\+AR}!get\+Omega@{get\+Omega}|hyperpage}{17}
-\indexentry{get\+Omega@{get\+Omega}!G\+AR@{G\+AR}|hyperpage}{17}
-\indexentry{G\+AR@{G\+AR}!init\+Addi\+Variable@{init\+Addi\+Variable}|hyperpage}{18}
-\indexentry{init\+Addi\+Variable@{init\+Addi\+Variable}!G\+AR@{G\+AR}|hyperpage}{18}
-\indexentry{G\+AR@{G\+AR}!move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}|hyperpage}{18}
-\indexentry{move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}!G\+AR@{G\+AR}|hyperpage}{18}
-\indexentry{G\+AR@{G\+AR}!size@{size}|hyperpage}{20}
-\indexentry{size@{size}!G\+AR@{G\+AR}|hyperpage}{20}
-\indexentry{G\+AR@{G\+AR}!to\+Cartesian@{to\+Cartesian}|hyperpage}{20}
-\indexentry{to\+Cartesian@{to\+Cartesian}!G\+AR@{G\+AR}|hyperpage}{20}
-\indexentry{G\+AR@{G\+AR}!to\+Chain@{to\+Chain}|hyperpage}{20}
-\indexentry{to\+Chain@{to\+Chain}!G\+AR@{G\+AR}|hyperpage}{20}
-\indexentry{G\+AR@{G\+AR}!volume@{volume}|hyperpage}{21}
-\indexentry{volume@{volume}!G\+AR@{G\+AR}|hyperpage}{21}
-\indexentry{log\+H$<$ Dynamic\+State $>$@{log\+H$<$ Dynamic\+State $>$}|hyperpage}{21}
-\indexentry{logH@{logH}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}|hyperpage}{22}
-\indexentry{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!logH@{logH}|hyperpage}{22}
-\indexentry{logH@{logH}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}|hyperpage}{22}
-\indexentry{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!logH@{logH}|hyperpage}{22}
-\indexentry{Newtonian$<$ Scalar $>$@{Newtonian$<$ Scalar $>$}|hyperpage}{23}
-\indexentry{chain\+::\+Node$<$ Scalar $>$@{chain\+::\+Node$<$ Scalar $>$}|hyperpage}{23}
-\indexentry{chain\+::\+Node@{chain\+::\+Node}!available@{available}|hyperpage}{24}
-\indexentry{available@{available}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{24}
-\indexentry{chain\+::\+Node@{chain\+::\+Node}!i@{i}|hyperpage}{24}
-\indexentry{i@{i}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{24}
-\indexentry{chain\+::\+Node@{chain\+::\+Node}!j@{j}|hyperpage}{24}
-\indexentry{j@{j}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{24}
-\indexentry{chain\+::\+Node@{chain\+::\+Node}!Rij@{Rij}|hyperpage}{24}
-\indexentry{Rij@{Rij}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{24}
-\indexentry{No\+Regu$<$ Dynamic\+State $>$@{No\+Regu$<$ Dynamic\+State $>$}|hyperpage}{25}
-\indexentry{No\+Regu@{No\+Regu}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}|hyperpage}{25}
-\indexentry{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!No\+Regu@{No\+Regu}|hyperpage}{25}
-\indexentry{No\+Regu@{No\+Regu}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}|hyperpage}{26}
-\indexentry{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!No\+Regu@{No\+Regu}|hyperpage}{26}
-\indexentry{particle\+System$<$ Derived, Evolved\+Data $>$@{particle\+System$<$ Derived, Evolved\+Data $>$}|hyperpage}{26}
-\indexentry{P\+N1th$<$ Scalar $>$@{P\+N1th$<$ Scalar $>$}|hyperpage}{27}
-\indexentry{P\+N1th@{P\+N1th}!operator()@{operator()}|hyperpage}{28}
-\indexentry{operator()@{operator()}!P\+N1th@{P\+N1th}|hyperpage}{28}
-\indexentry{regu\+Dynamics$<$ Data\+Type, N $>$@{regu\+Dynamics$<$ Data\+Type, N $>$}|hyperpage}{29}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!array@{array}|hyperpage}{30}
-\indexentry{array@{array}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{30}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!get\+Omega@{get\+Omega}|hyperpage}{30}
-\indexentry{get\+Omega@{get\+Omega}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{30}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!init\+Addi\+Variable@{init\+Addi\+Variable}|hyperpage}{31}
-\indexentry{init\+Addi\+Variable@{init\+Addi\+Variable}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{31}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}|hyperpage}{31}
-\indexentry{move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{31}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!size@{size}|hyperpage}{32}
-\indexentry{size@{size}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{32}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!to\+Cartesian@{to\+Cartesian}|hyperpage}{32}
-\indexentry{to\+Cartesian@{to\+Cartesian}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{32}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!to\+Chain@{to\+Chain}|hyperpage}{32}
-\indexentry{to\+Chain@{to\+Chain}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{32}
-\indexentry{regu\+Dynamics@{regu\+Dynamics}!volume@{volume}|hyperpage}{33}
-\indexentry{volume@{volume}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{33}
-\indexentry{regu\+System$<$ Interaction, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Interaction, Evolved\+Data, Regularitor $>$}|hyperpage}{34}
-\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{35}
-\indexentry{symplectic10th$<$ Partic\+Sys $>$@{symplectic10th$<$ Partic\+Sys $>$}|hyperpage}{36}
-\indexentry{symplectic10th@{symplectic10th}!integrate@{integrate}|hyperpage}{36}
-\indexentry{integrate@{integrate}!symplectic10th@{symplectic10th}|hyperpage}{36}
-\indexentry{symplectic2th$<$ Partic\+Sys $>$@{symplectic2th$<$ Partic\+Sys $>$}|hyperpage}{37}
-\indexentry{symplectic2th@{symplectic2th}!integrate@{integrate}|hyperpage}{37}
-\indexentry{integrate@{integrate}!symplectic2th@{symplectic2th}|hyperpage}{37}
-\indexentry{symplectic4th$<$ Partic\+Sys $>$@{symplectic4th$<$ Partic\+Sys $>$}|hyperpage}{38}
-\indexentry{symplectic4th@{symplectic4th}!integrate@{integrate}|hyperpage}{38}
-\indexentry{integrate@{integrate}!symplectic4th@{symplectic4th}|hyperpage}{38}
-\indexentry{symplectic6th$<$ Partic\+Sys $>$@{symplectic6th$<$ Partic\+Sys $>$}|hyperpage}{39}
-\indexentry{symplectic8th$<$ Partic\+Sys $>$@{symplectic8th$<$ Partic\+Sys $>$}|hyperpage}{39}
-\indexentry{symplectic8th@{symplectic8th}!integrate@{integrate}|hyperpage}{40}
-\indexentry{integrate@{integrate}!symplectic8th@{symplectic8th}|hyperpage}{40}
-\indexentry{T\+T\+L$<$ Dynamic\+State $>$@{T\+T\+L$<$ Dynamic\+State $>$}|hyperpage}{40}
-\indexentry{T\+TL@{T\+TL}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}|hyperpage}{41}
-\indexentry{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!T\+TL@{T\+TL}|hyperpage}{41}
-\indexentry{T\+TL@{T\+TL}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}|hyperpage}{41}
-\indexentry{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!T\+TL@{T\+TL}|hyperpage}{41}
-\indexentry{vec3$<$ T $>$@{vec3$<$ T $>$}|hyperpage}{42}
+\indexentry{chain@{chain}|hyperpage}{5}
+\indexentry{chain@{chain}!Index\+Array@{Index\+Array}|hyperpage}{6}
+\indexentry{Index\+Array@{Index\+Array}!chain@{chain}|hyperpage}{6}
+\indexentry{chain@{chain}!Node\+Array@{Node\+Array}|hyperpage}{6}
+\indexentry{Node\+Array@{Node\+Array}!chain@{chain}|hyperpage}{6}
+\indexentry{chain@{chain}!Vector\+Array@{Vector\+Array}|hyperpage}{6}
+\indexentry{Vector\+Array@{Vector\+Array}!chain@{chain}|hyperpage}{6}
+\indexentry{chain@{chain}!create\+Adj\+Martix@{create\+Adj\+Martix}|hyperpage}{7}
+\indexentry{create\+Adj\+Martix@{create\+Adj\+Martix}!chain@{chain}|hyperpage}{7}
+\indexentry{chain@{chain}!create\+Chain\+Index@{create\+Chain\+Index}|hyperpage}{7}
+\indexentry{create\+Chain\+Index@{create\+Chain\+Index}!chain@{chain}|hyperpage}{7}
+\indexentry{chain@{chain}!get\+Chain\+Index@{get\+Chain\+Index}|hyperpage}{8}
+\indexentry{get\+Chain\+Index@{get\+Chain\+Index}!chain@{chain}|hyperpage}{8}
+\indexentry{chain@{chain}!Is\+Diff@{Is\+Diff}|hyperpage}{9}
+\indexentry{Is\+Diff@{Is\+Diff}!chain@{chain}|hyperpage}{9}
+\indexentry{chain@{chain}!syn\+Cartesian@{syn\+Cartesian}|hyperpage}{10}
+\indexentry{syn\+Cartesian@{syn\+Cartesian}!chain@{chain}|hyperpage}{10}
+\indexentry{chain@{chain}!syn\+Chain@{syn\+Chain}|hyperpage}{11}
+\indexentry{syn\+Chain@{syn\+Chain}!chain@{chain}|hyperpage}{11}
+\indexentry{chain@{chain}!update\+Chain@{update\+Chain}|hyperpage}{12}
+\indexentry{update\+Chain@{update\+Chain}!chain@{chain}|hyperpage}{12}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{13}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Erase\+Line@{Erase\+Line}|hyperpage}{13}
+\indexentry{Erase\+Line@{Erase\+Line}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{13}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Line@{Line}|hyperpage}{13}
+\indexentry{Line@{Line}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{13}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Run\+Info@{Run\+Info}|hyperpage}{14}
+\indexentry{Run\+Info@{Run\+Info}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Sub\+Line@{Sub\+Line}|hyperpage}{14}
+\indexentry{Sub\+Line@{Sub\+Line}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Sub\+Title@{Sub\+Title}|hyperpage}{14}
+\indexentry{Sub\+Title@{Sub\+Title}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Telegram@{Telegram}|hyperpage}{14}
+\indexentry{Telegram@{Telegram}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Title@{Title}|hyperpage}{14}
+\indexentry{Title@{Title}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!Message@{Message}|hyperpage}{14}
+\indexentry{Message@{Message}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}!W\+I\+D\+TH@{W\+I\+D\+TH}|hyperpage}{14}
+\indexentry{W\+I\+D\+TH@{W\+I\+D\+TH}!N\+O\+T\+I\+CE@{N\+O\+T\+I\+CE}|hyperpage}{14}
+\indexentry{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Interaction, Evolved\+Data, Regularitor $>$}|hyperpage}{15}
+\indexentry{A\+Rchain@{A\+Rchain}!Index\+Array@{Index\+Array}|hyperpage}{17}
+\indexentry{Index\+Array@{Index\+Array}!A\+Rchain@{A\+Rchain}|hyperpage}{17}
+\indexentry{A\+Rchain@{A\+Rchain}!Plain\+Array@{Plain\+Array}|hyperpage}{17}
+\indexentry{Plain\+Array@{Plain\+Array}!A\+Rchain@{A\+Rchain}|hyperpage}{17}
+\indexentry{A\+Rchain@{A\+Rchain}!Scalar@{Scalar}|hyperpage}{17}
+\indexentry{Scalar@{Scalar}!A\+Rchain@{A\+Rchain}|hyperpage}{17}
+\indexentry{A\+Rchain@{A\+Rchain}!Scalar\+Array@{Scalar\+Array}|hyperpage}{17}
+\indexentry{Scalar\+Array@{Scalar\+Array}!A\+Rchain@{A\+Rchain}|hyperpage}{17}
+\indexentry{A\+Rchain@{A\+Rchain}!Vector@{Vector}|hyperpage}{18}
+\indexentry{Vector@{Vector}!A\+Rchain@{A\+Rchain}|hyperpage}{18}
+\indexentry{A\+Rchain@{A\+Rchain}!Vector\+Array@{Vector\+Array}|hyperpage}{18}
+\indexentry{Vector\+Array@{Vector\+Array}!A\+Rchain@{A\+Rchain}|hyperpage}{18}
+\indexentry{A\+Rchain@{A\+Rchain}!advanceB@{advanceB}|hyperpage}{18}
+\indexentry{advanceB@{advanceB}!A\+Rchain@{A\+Rchain}|hyperpage}{18}
+\indexentry{A\+Rchain@{A\+Rchain}!advance\+Omega@{advance\+Omega}|hyperpage}{19}
+\indexentry{advance\+Omega@{advance\+Omega}!A\+Rchain@{A\+Rchain}|hyperpage}{19}
+\indexentry{A\+Rchain@{A\+Rchain}!advance\+Pos@{advance\+Pos}|hyperpage}{19}
+\indexentry{advance\+Pos@{advance\+Pos}!A\+Rchain@{A\+Rchain}|hyperpage}{19}
+\indexentry{A\+Rchain@{A\+Rchain}!advance\+Vel@{advance\+Vel}|hyperpage}{20}
+\indexentry{advance\+Vel@{advance\+Vel}!A\+Rchain@{A\+Rchain}|hyperpage}{20}
+\indexentry{A\+Rchain@{A\+Rchain}!array@{array}|hyperpage}{20}
+\indexentry{array@{array}!A\+Rchain@{A\+Rchain}|hyperpage}{20}
+\indexentry{A\+Rchain@{A\+Rchain}!kick\+Auxi\+Vel@{kick\+Auxi\+Vel}|hyperpage}{20}
+\indexentry{kick\+Auxi\+Vel@{kick\+Auxi\+Vel}!A\+Rchain@{A\+Rchain}|hyperpage}{20}
+\indexentry{A\+Rchain@{A\+Rchain}!kick\+Vel@{kick\+Vel}|hyperpage}{21}
+\indexentry{kick\+Vel@{kick\+Vel}!A\+Rchain@{A\+Rchain}|hyperpage}{21}
+\indexentry{A\+Rchain@{A\+Rchain}!load@{load}|hyperpage}{22}
+\indexentry{load@{load}!A\+Rchain@{A\+Rchain}|hyperpage}{22}
+\indexentry{A\+Rchain@{A\+Rchain}!operator=@{operator=}|hyperpage}{23}
+\indexentry{operator=@{operator=}!A\+Rchain@{A\+Rchain}|hyperpage}{23}
+\indexentry{A\+Rchain@{A\+Rchain}!read@{read}|hyperpage}{23}
+\indexentry{read@{read}!A\+Rchain@{A\+Rchain}|hyperpage}{23}
+\indexentry{A\+Rchain@{A\+Rchain}!size@{size}|hyperpage}{23}
+\indexentry{size@{size}!A\+Rchain@{A\+Rchain}|hyperpage}{23}
+\indexentry{A\+Rchain@{A\+Rchain}!time\+Scale@{time\+Scale}|hyperpage}{23}
+\indexentry{time\+Scale@{time\+Scale}!A\+Rchain@{A\+Rchain}|hyperpage}{23}
+\indexentry{A\+Rchain@{A\+Rchain}!update\+Acc\+With@{update\+Acc\+With}|hyperpage}{24}
+\indexentry{update\+Acc\+With@{update\+Acc\+With}!A\+Rchain@{A\+Rchain}|hyperpage}{24}
+\indexentry{A\+Rchain@{A\+Rchain}!update\+Chain@{update\+Chain}|hyperpage}{24}
+\indexentry{update\+Chain@{update\+Chain}!A\+Rchain@{A\+Rchain}|hyperpage}{24}
+\indexentry{A\+Rchain@{A\+Rchain}!update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}|hyperpage}{24}
+\indexentry{update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}!A\+Rchain@{A\+Rchain}|hyperpage}{24}
+\indexentry{A\+Rchain@{A\+Rchain}!chain@{chain}|hyperpage}{25}
+\indexentry{chain@{chain}!A\+Rchain@{A\+Rchain}|hyperpage}{25}
+\indexentry{A\+Rchain@{A\+Rchain}!chain\+Index@{chain\+Index}|hyperpage}{25}
+\indexentry{chain\+Index@{chain\+Index}!A\+Rchain@{A\+Rchain}|hyperpage}{25}
+\indexentry{A\+Rchain@{A\+Rchain}!chain\+Vel\+Dep\+Acc@{chain\+Vel\+Dep\+Acc}|hyperpage}{25}
+\indexentry{chain\+Vel\+Dep\+Acc@{chain\+Vel\+Dep\+Acc}!A\+Rchain@{A\+Rchain}|hyperpage}{25}
+\indexentry{A\+Rchain@{A\+Rchain}!chain\+Vel\+Indep\+Acc@{chain\+Vel\+Indep\+Acc}|hyperpage}{25}
+\indexentry{chain\+Vel\+Indep\+Acc@{chain\+Vel\+Indep\+Acc}!A\+Rchain@{A\+Rchain}|hyperpage}{25}
+\indexentry{A\+Rchain@{A\+Rchain}!regular@{regular}|hyperpage}{25}
+\indexentry{regular@{regular}!A\+Rchain@{A\+Rchain}|hyperpage}{25}
+\indexentry{A\+Rchain@{A\+Rchain}!vel\+Dep\+Acc@{vel\+Dep\+Acc}|hyperpage}{26}
+\indexentry{vel\+Dep\+Acc@{vel\+Dep\+Acc}!A\+Rchain@{A\+Rchain}|hyperpage}{26}
+\indexentry{A\+Rchain@{A\+Rchain}!vel\+Dep\+Force@{vel\+Dep\+Force}|hyperpage}{26}
+\indexentry{vel\+Dep\+Force@{vel\+Dep\+Force}!A\+Rchain@{A\+Rchain}|hyperpage}{26}
+\indexentry{A\+Rchain@{A\+Rchain}!vel\+Indep\+Acc@{vel\+Indep\+Acc}|hyperpage}{26}
+\indexentry{vel\+Indep\+Acc@{vel\+Indep\+Acc}!A\+Rchain@{A\+Rchain}|hyperpage}{26}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{26}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Index\+Array@{Index\+Array}|hyperpage}{28}
+\indexentry{Index\+Array@{Index\+Array}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{28}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Plain\+Array@{Plain\+Array}|hyperpage}{28}
+\indexentry{Plain\+Array@{Plain\+Array}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{28}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Scalar@{Scalar}|hyperpage}{28}
+\indexentry{Scalar@{Scalar}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{28}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Scalar\+Array@{Scalar\+Array}|hyperpage}{28}
+\indexentry{Scalar\+Array@{Scalar\+Array}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{28}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Vector@{Vector}|hyperpage}{29}
+\indexentry{Vector@{Vector}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{29}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Vector\+Array@{Vector\+Array}|hyperpage}{29}
+\indexentry{Vector\+Array@{Vector\+Array}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{29}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Omega@{advance\+Omega}|hyperpage}{29}
+\indexentry{advance\+Omega@{advance\+Omega}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{29}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Pos@{advance\+Pos}|hyperpage}{30}
+\indexentry{advance\+Pos@{advance\+Pos}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{30}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Vel@{advance\+Vel}|hyperpage}{31}
+\indexentry{advance\+Vel@{advance\+Vel}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{31}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!array@{array}|hyperpage}{31}
+\indexentry{array@{array}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{31}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!load@{load}|hyperpage}{31}
+\indexentry{load@{load}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{31}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!operator=@{operator=}|hyperpage}{32}
+\indexentry{operator=@{operator=}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{32}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!read@{read}|hyperpage}{32}
+\indexentry{read@{read}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{32}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!size@{size}|hyperpage}{33}
+\indexentry{size@{size}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{33}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!time\+Scale@{time\+Scale}|hyperpage}{33}
+\indexentry{time\+Scale@{time\+Scale}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{33}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!update\+Chain@{update\+Chain}|hyperpage}{33}
+\indexentry{update\+Chain@{update\+Chain}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{33}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}|hyperpage}{34}
+\indexentry{update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{34}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!chain@{chain}|hyperpage}{34}
+\indexentry{chain@{chain}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{34}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!chain\+Index@{chain\+Index}|hyperpage}{34}
+\indexentry{chain\+Index@{chain\+Index}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{34}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!regular@{regular}|hyperpage}{35}
+\indexentry{regular@{regular}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{35}
+\indexentry{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!vel\+Indep\+Acc@{vel\+Indep\+Acc}|hyperpage}{35}
+\indexentry{vel\+Indep\+Acc@{vel\+Indep\+Acc}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{35}
+\indexentry{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$@{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}|hyperpage}{35}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!Scalar@{Scalar}|hyperpage}{37}
+\indexentry{Scalar@{Scalar}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{37}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!scalar\+Array@{scalar\+Array}|hyperpage}{37}
+\indexentry{scalar\+Array@{scalar\+Array}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{37}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{37}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{37}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!check\+Rejection@{check\+Rejection}|hyperpage}{37}
+\indexentry{check\+Rejection@{check\+Rejection}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{37}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!copy\+Data\+To\+Extrap\+Tab@{copy\+Data\+To\+Extrap\+Tab}|hyperpage}{38}
+\indexentry{copy\+Data\+To\+Extrap\+Tab@{copy\+Data\+To\+Extrap\+Tab}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{38}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!extrapolate@{extrapolate}|hyperpage}{38}
+\indexentry{extrapolate@{extrapolate}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{38}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!get\+Error@{get\+Error}|hyperpage}{38}
+\indexentry{get\+Error@{get\+Error}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{38}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!get\+Time\+Step\+Coef@{get\+Time\+Step\+Coef}|hyperpage}{39}
+\indexentry{get\+Time\+Step\+Coef@{get\+Time\+Step\+Coef}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{39}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!iterate@{iterate}|hyperpage}{39}
+\indexentry{iterate@{iterate}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{39}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!prepare\+For\+New\+Iteration@{prepare\+For\+New\+Iteration}|hyperpage}{40}
+\indexentry{prepare\+For\+New\+Iteration@{prepare\+For\+New\+Iteration}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{40}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!set\+Absolute\+Error@{set\+Absolute\+Error}|hyperpage}{41}
+\indexentry{set\+Absolute\+Error@{set\+Absolute\+Error}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{41}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!set\+Relative\+Error@{set\+Relative\+Error}|hyperpage}{41}
+\indexentry{set\+Relative\+Error@{set\+Relative\+Error}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{41}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!absolute\+Error@{absolute\+Error}|hyperpage}{41}
+\indexentry{absolute\+Error@{absolute\+Error}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{41}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!CC@{CC}|hyperpage}{41}
+\indexentry{CC@{CC}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{41}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!cost@{cost}|hyperpage}{42}
+\indexentry{cost@{cost}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{42}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!extrap\+Tab@{extrap\+Tab}|hyperpage}{42}
+\indexentry{extrap\+Tab@{extrap\+Tab}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{42}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!fmin@{fmin}|hyperpage}{42}
+\indexentry{fmin@{fmin}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{42}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!iter\+Depth@{iter\+Depth}|hyperpage}{42}
+\indexentry{iter\+Depth@{iter\+Depth}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{42}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!local\+System@{local\+System}|hyperpage}{42}
+\indexentry{local\+System@{local\+System}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{42}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!macro\+Step\+Length@{macro\+Step\+Length}|hyperpage}{42}
+\indexentry{macro\+Step\+Length@{macro\+Step\+Length}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{42}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!Max\+Depth@{Max\+Depth}|hyperpage}{43}
+\indexentry{Max\+Depth@{Max\+Depth}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{43}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!n\+Steps@{n\+Steps}|hyperpage}{43}
+\indexentry{n\+Steps@{n\+Steps}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{43}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!relative\+Error@{relative\+Error}|hyperpage}{43}
+\indexentry{relative\+Error@{relative\+Error}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{43}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!s1@{s1}|hyperpage}{43}
+\indexentry{s1@{s1}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{43}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!s2@{s2}|hyperpage}{43}
+\indexentry{s2@{s2}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{43}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!s3@{s3}|hyperpage}{43}
+\indexentry{s3@{s3}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{43}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!s4@{s4}|hyperpage}{44}
+\indexentry{s4@{s4}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{44}
+\indexentry{B\+S\+Iterator@{B\+S\+Iterator}!work@{work}|hyperpage}{44}
+\indexentry{work@{work}!B\+S\+Iterator@{B\+S\+Iterator}|hyperpage}{44}
+\indexentry{const\+Iterator$<$ Partic\+Sys, Integrator $>$@{const\+Iterator$<$ Partic\+Sys, Integrator $>$}|hyperpage}{44}
+\indexentry{const\+Iterator@{const\+Iterator}!Scalar@{Scalar}|hyperpage}{44}
+\indexentry{Scalar@{Scalar}!const\+Iterator@{const\+Iterator}|hyperpage}{44}
+\indexentry{const\+Iterator@{const\+Iterator}!iterate@{iterate}|hyperpage}{45}
+\indexentry{iterate@{iterate}!const\+Iterator@{const\+Iterator}|hyperpage}{45}
+\indexentry{dynamics$<$ Data\+Type, N $>$@{dynamics$<$ Data\+Type, N $>$}|hyperpage}{45}
+\indexentry{dynamics@{dynamics}!Scalar@{Scalar}|hyperpage}{46}
+\indexentry{Scalar@{Scalar}!dynamics@{dynamics}|hyperpage}{46}
+\indexentry{dynamics@{dynamics}!Scalar\+Array@{Scalar\+Array}|hyperpage}{46}
+\indexentry{Scalar\+Array@{Scalar\+Array}!dynamics@{dynamics}|hyperpage}{46}
+\indexentry{dynamics@{dynamics}!Vector@{Vector}|hyperpage}{46}
+\indexentry{Vector@{Vector}!dynamics@{dynamics}|hyperpage}{46}
+\indexentry{dynamics@{dynamics}!Vector\+Array@{Vector\+Array}|hyperpage}{46}
+\indexentry{Vector\+Array@{Vector\+Array}!dynamics@{dynamics}|hyperpage}{46}
+\indexentry{dynamics@{dynamics}!array@{array}|hyperpage}{47}
+\indexentry{array@{array}!dynamics@{dynamics}|hyperpage}{47}
+\indexentry{dynamics@{dynamics}!init\+Addi\+Variable@{init\+Addi\+Variable}|hyperpage}{47}
+\indexentry{init\+Addi\+Variable@{init\+Addi\+Variable}!dynamics@{dynamics}|hyperpage}{47}
+\indexentry{dynamics@{dynamics}!set\+Zero@{set\+Zero}|hyperpage}{47}
+\indexentry{set\+Zero@{set\+Zero}!dynamics@{dynamics}|hyperpage}{47}
+\indexentry{dynamics@{dynamics}!size@{size}|hyperpage}{48}
+\indexentry{size@{size}!dynamics@{dynamics}|hyperpage}{48}
+\indexentry{dynamics@{dynamics}!volume@{volume}|hyperpage}{48}
+\indexentry{volume@{volume}!dynamics@{dynamics}|hyperpage}{48}
+\indexentry{dynamics@{dynamics}!pos@{pos}|hyperpage}{48}
+\indexentry{pos@{pos}!dynamics@{dynamics}|hyperpage}{48}
+\indexentry{dynamics@{dynamics}!time@{time}|hyperpage}{48}
+\indexentry{time@{time}!dynamics@{dynamics}|hyperpage}{48}
+\indexentry{dynamics@{dynamics}!vel@{vel}|hyperpage}{49}
+\indexentry{vel@{vel}!dynamics@{dynamics}|hyperpage}{49}
+\indexentry{dynamic\+System$<$ Partic\+Sys, Integrator, O\+D\+Eiterator $>$@{dynamic\+System$<$ Partic\+Sys, Integrator, O\+D\+Eiterator $>$}|hyperpage}{49}
+\indexentry{dynamic\+System@{dynamic\+System}!````~dynamic\+System@{$\sim$dynamic\+System}|hyperpage}{50}
+\indexentry{````~dynamic\+System@{$\sim$dynamic\+System}!dynamic\+System@{dynamic\+System}|hyperpage}{50}
+\indexentry{dynamic\+System@{dynamic\+System}!advance\+One\+Step@{advance\+One\+Step}|hyperpage}{50}
+\indexentry{advance\+One\+Step@{advance\+One\+Step}!dynamic\+System@{dynamic\+System}|hyperpage}{50}
+\indexentry{dynamic\+System@{dynamic\+System}!get\+Init\+Step\+Length@{get\+Init\+Step\+Length}|hyperpage}{50}
+\indexentry{get\+Init\+Step\+Length@{get\+Init\+Step\+Length}!dynamic\+System@{dynamic\+System}|hyperpage}{50}
+\indexentry{dynamic\+System@{dynamic\+System}!load\+Text@{load\+Text}|hyperpage}{51}
+\indexentry{load\+Text@{load\+Text}!dynamic\+System@{dynamic\+System}|hyperpage}{51}
+\indexentry{dynamic\+System@{dynamic\+System}!set\+Step\+Length@{set\+Step\+Length}|hyperpage}{51}
+\indexentry{set\+Step\+Length@{set\+Step\+Length}!dynamic\+System@{dynamic\+System}|hyperpage}{51}
+\indexentry{dynamic\+System@{dynamic\+System}!integrator@{integrator}|hyperpage}{52}
+\indexentry{integrator@{integrator}!dynamic\+System@{dynamic\+System}|hyperpage}{52}
+\indexentry{dynamic\+System@{dynamic\+System}!iterator@{iterator}|hyperpage}{52}
+\indexentry{iterator@{iterator}!dynamic\+System@{dynamic\+System}|hyperpage}{52}
+\indexentry{dynamic\+System@{dynamic\+System}!particles@{particles}|hyperpage}{52}
+\indexentry{particles@{particles}!dynamic\+System@{dynamic\+System}|hyperpage}{52}
+\indexentry{dynamic\+System@{dynamic\+System}!step\+Length@{step\+Length}|hyperpage}{52}
+\indexentry{step\+Length@{step\+Length}!dynamic\+System@{dynamic\+System}|hyperpage}{52}
+\indexentry{errhand@{errhand}|hyperpage}{53}
+\indexentry{errhand@{errhand}!errhand@{errhand}|hyperpage}{53}
+\indexentry{errhand@{errhand}!errhand@{errhand}|hyperpage}{53}
+\indexentry{errhand@{errhand}!get\+\_\+file@{get\+\_\+file}|hyperpage}{53}
+\indexentry{get\+\_\+file@{get\+\_\+file}!errhand@{errhand}|hyperpage}{53}
+\indexentry{errhand@{errhand}!get\+\_\+line@{get\+\_\+line}|hyperpage}{54}
+\indexentry{get\+\_\+line@{get\+\_\+line}!errhand@{errhand}|hyperpage}{54}
+\indexentry{errhand@{errhand}!get\+\_\+msg@{get\+\_\+msg}|hyperpage}{54}
+\indexentry{get\+\_\+msg@{get\+\_\+msg}!errhand@{errhand}|hyperpage}{54}
+\indexentry{errhand@{errhand}!invoke\+\_\+telegram\+\_\+bot@{invoke\+\_\+telegram\+\_\+bot}|hyperpage}{54}
+\indexentry{invoke\+\_\+telegram\+\_\+bot@{invoke\+\_\+telegram\+\_\+bot}!errhand@{errhand}|hyperpage}{54}
+\indexentry{errhand@{errhand}!print\+\_\+to\+\_\+stdout@{print\+\_\+to\+\_\+stdout}|hyperpage}{55}
+\indexentry{print\+\_\+to\+\_\+stdout@{print\+\_\+to\+\_\+stdout}!errhand@{errhand}|hyperpage}{55}
+\indexentry{errhand@{errhand}!to\+\_\+string\+\_\+loc@{to\+\_\+string\+\_\+loc}|hyperpage}{56}
+\indexentry{to\+\_\+string\+\_\+loc@{to\+\_\+string\+\_\+loc}!errhand@{errhand}|hyperpage}{56}
+\indexentry{errhand@{errhand}!err\+\_\+msg@{err\+\_\+msg}|hyperpage}{56}
+\indexentry{err\+\_\+msg@{err\+\_\+msg}!errhand@{errhand}|hyperpage}{56}
+\indexentry{errhand@{errhand}!file@{file}|hyperpage}{56}
+\indexentry{file@{file}!errhand@{errhand}|hyperpage}{56}
+\indexentry{errhand@{errhand}!line@{line}|hyperpage}{56}
+\indexentry{line@{line}!errhand@{errhand}|hyperpage}{56}
+\indexentry{G\+A\+R$<$ Data\+Type, N $>$@{G\+A\+R$<$ Data\+Type, N $>$}|hyperpage}{57}
+\indexentry{G\+AR@{G\+AR}!Index\+Array@{Index\+Array}|hyperpage}{58}
+\indexentry{Index\+Array@{Index\+Array}!G\+AR@{G\+AR}|hyperpage}{58}
+\indexentry{G\+AR@{G\+AR}!Scalar@{Scalar}|hyperpage}{58}
+\indexentry{Scalar@{Scalar}!G\+AR@{G\+AR}|hyperpage}{58}
+\indexentry{G\+AR@{G\+AR}!Scalar\+Array@{Scalar\+Array}|hyperpage}{58}
+\indexentry{Scalar\+Array@{Scalar\+Array}!G\+AR@{G\+AR}|hyperpage}{58}
+\indexentry{G\+AR@{G\+AR}!Vector@{Vector}|hyperpage}{58}
+\indexentry{Vector@{Vector}!G\+AR@{G\+AR}|hyperpage}{58}
+\indexentry{G\+AR@{G\+AR}!Vector\+Array@{Vector\+Array}|hyperpage}{58}
+\indexentry{Vector\+Array@{Vector\+Array}!G\+AR@{G\+AR}|hyperpage}{58}
+\indexentry{G\+AR@{G\+AR}!array@{array}|hyperpage}{58}
+\indexentry{array@{array}!G\+AR@{G\+AR}|hyperpage}{58}
+\indexentry{G\+AR@{G\+AR}!get\+Omega@{get\+Omega}|hyperpage}{59}
+\indexentry{get\+Omega@{get\+Omega}!G\+AR@{G\+AR}|hyperpage}{59}
+\indexentry{G\+AR@{G\+AR}!init\+Addi\+Variable@{init\+Addi\+Variable}|hyperpage}{59}
+\indexentry{init\+Addi\+Variable@{init\+Addi\+Variable}!G\+AR@{G\+AR}|hyperpage}{59}
+\indexentry{G\+AR@{G\+AR}!move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}|hyperpage}{60}
+\indexentry{move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}!G\+AR@{G\+AR}|hyperpage}{60}
+\indexentry{G\+AR@{G\+AR}!set\+Zero@{set\+Zero}|hyperpage}{60}
+\indexentry{set\+Zero@{set\+Zero}!G\+AR@{G\+AR}|hyperpage}{60}
+\indexentry{G\+AR@{G\+AR}!size@{size}|hyperpage}{61}
+\indexentry{size@{size}!G\+AR@{G\+AR}|hyperpage}{61}
+\indexentry{G\+AR@{G\+AR}!to\+Cartesian@{to\+Cartesian}|hyperpage}{61}
+\indexentry{to\+Cartesian@{to\+Cartesian}!G\+AR@{G\+AR}|hyperpage}{61}
+\indexentry{G\+AR@{G\+AR}!to\+Chain@{to\+Chain}|hyperpage}{62}
+\indexentry{to\+Chain@{to\+Chain}!G\+AR@{G\+AR}|hyperpage}{62}
+\indexentry{G\+AR@{G\+AR}!volume@{volume}|hyperpage}{62}
+\indexentry{volume@{volume}!G\+AR@{G\+AR}|hyperpage}{62}
+\indexentry{G\+AR@{G\+AR}!auxi\+Vel@{auxi\+Vel}|hyperpage}{63}
+\indexentry{auxi\+Vel@{auxi\+Vel}!G\+AR@{G\+AR}|hyperpage}{63}
+\indexentry{G\+AR@{G\+AR}!bindE@{bindE}|hyperpage}{63}
+\indexentry{bindE@{bindE}!G\+AR@{G\+AR}|hyperpage}{63}
+\indexentry{G\+AR@{G\+AR}!omega@{omega}|hyperpage}{63}
+\indexentry{omega@{omega}!G\+AR@{G\+AR}|hyperpage}{63}
+\indexentry{G\+AR@{G\+AR}!pos@{pos}|hyperpage}{63}
+\indexentry{pos@{pos}!G\+AR@{G\+AR}|hyperpage}{63}
+\indexentry{G\+AR@{G\+AR}!time@{time}|hyperpage}{63}
+\indexentry{time@{time}!G\+AR@{G\+AR}|hyperpage}{63}
+\indexentry{G\+AR@{G\+AR}!vel@{vel}|hyperpage}{64}
+\indexentry{vel@{vel}!G\+AR@{G\+AR}|hyperpage}{64}
+\indexentry{log\+H$<$ Dynamic\+State $>$@{log\+H$<$ Dynamic\+State $>$}|hyperpage}{64}
+\indexentry{logH@{logH}!Scalar@{Scalar}|hyperpage}{65}
+\indexentry{Scalar@{Scalar}!logH@{logH}|hyperpage}{65}
+\indexentry{logH@{logH}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}|hyperpage}{65}
+\indexentry{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!logH@{logH}|hyperpage}{65}
+\indexentry{logH@{logH}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}|hyperpage}{65}
+\indexentry{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!logH@{logH}|hyperpage}{65}
+\indexentry{logH@{logH}!size@{size}|hyperpage}{67}
+\indexentry{size@{size}!logH@{logH}|hyperpage}{67}
+\indexentry{Newtonian$<$ Scalar $>$@{Newtonian$<$ Scalar $>$}|hyperpage}{67}
+\indexentry{Newtonian@{Newtonian}!operator()@{operator()}|hyperpage}{68}
+\indexentry{operator()@{operator()}!Newtonian@{Newtonian}|hyperpage}{68}
+\indexentry{chain\+::\+Node$<$ Scalar $>$@{chain\+::\+Node$<$ Scalar $>$}|hyperpage}{68}
+\indexentry{chain\+::\+Node@{chain\+::\+Node}!available@{available}|hyperpage}{68}
+\indexentry{available@{available}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{68}
+\indexentry{chain\+::\+Node@{chain\+::\+Node}!i@{i}|hyperpage}{68}
+\indexentry{i@{i}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{68}
+\indexentry{chain\+::\+Node@{chain\+::\+Node}!j@{j}|hyperpage}{68}
+\indexentry{j@{j}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{68}
+\indexentry{chain\+::\+Node@{chain\+::\+Node}!Rij@{Rij}|hyperpage}{69}
+\indexentry{Rij@{Rij}!chain\+::\+Node@{chain\+::\+Node}|hyperpage}{69}
+\indexentry{No\+Regu$<$ Dynamic\+State $>$@{No\+Regu$<$ Dynamic\+State $>$}|hyperpage}{69}
+\indexentry{No\+Regu@{No\+Regu}!Scalar@{Scalar}|hyperpage}{70}
+\indexentry{Scalar@{Scalar}!No\+Regu@{No\+Regu}|hyperpage}{70}
+\indexentry{No\+Regu@{No\+Regu}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}|hyperpage}{70}
+\indexentry{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!No\+Regu@{No\+Regu}|hyperpage}{70}
+\indexentry{No\+Regu@{No\+Regu}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}|hyperpage}{70}
+\indexentry{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!No\+Regu@{No\+Regu}|hyperpage}{70}
+\indexentry{No\+Regu@{No\+Regu}!size@{size}|hyperpage}{70}
+\indexentry{size@{size}!No\+Regu@{No\+Regu}|hyperpage}{70}
+\indexentry{particle\+System$<$ Derived, Evolved\+Data $>$@{particle\+System$<$ Derived, Evolved\+Data $>$}|hyperpage}{71}
+\indexentry{particle\+System@{particle\+System}!Int\+Array@{Int\+Array}|hyperpage}{73}
+\indexentry{Int\+Array@{Int\+Array}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!Plain\+Array@{Plain\+Array}|hyperpage}{73}
+\indexentry{Plain\+Array@{Plain\+Array}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!Scalar@{Scalar}|hyperpage}{73}
+\indexentry{Scalar@{Scalar}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!Scalar\+Array@{Scalar\+Array}|hyperpage}{73}
+\indexentry{Scalar\+Array@{Scalar\+Array}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!Vector@{Vector}|hyperpage}{73}
+\indexentry{Vector@{Vector}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!Vector\+Array@{Vector\+Array}|hyperpage}{73}
+\indexentry{Vector\+Array@{Vector\+Array}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!particle\+System@{particle\+System}|hyperpage}{73}
+\indexentry{particle\+System@{particle\+System}!````~particle\+System@{$\sim$particle\+System}|hyperpage}{74}
+\indexentry{````~particle\+System@{$\sim$particle\+System}!particle\+System@{particle\+System}|hyperpage}{74}
+\indexentry{particle\+System@{particle\+System}!array@{array}|hyperpage}{74}
+\indexentry{array@{array}!particle\+System@{particle\+System}|hyperpage}{74}
+\indexentry{particle\+System@{particle\+System}!load@{load}|hyperpage}{74}
+\indexentry{load@{load}!particle\+System@{particle\+System}|hyperpage}{74}
+\indexentry{particle\+System@{particle\+System}!operator=@{operator=}|hyperpage}{75}
+\indexentry{operator=@{operator=}!particle\+System@{particle\+System}|hyperpage}{75}
+\indexentry{particle\+System@{particle\+System}!read@{read}|hyperpage}{75}
+\indexentry{read@{read}!particle\+System@{particle\+System}|hyperpage}{75}
+\indexentry{particle\+System@{particle\+System}!size@{size}|hyperpage}{75}
+\indexentry{size@{size}!particle\+System@{particle\+System}|hyperpage}{75}
+\indexentry{particle\+System@{particle\+System}!time\+Scale@{time\+Scale}|hyperpage}{75}
+\indexentry{time\+Scale@{time\+Scale}!particle\+System@{particle\+System}|hyperpage}{75}
+\indexentry{particle\+System@{particle\+System}!volume@{volume}|hyperpage}{75}
+\indexentry{volume@{volume}!particle\+System@{particle\+System}|hyperpage}{75}
+\indexentry{particle\+System@{particle\+System}!write@{write}|hyperpage}{76}
+\indexentry{write@{write}!particle\+System@{particle\+System}|hyperpage}{76}
+\indexentry{particle\+System@{particle\+System}!acc@{acc}|hyperpage}{76}
+\indexentry{acc@{acc}!particle\+System@{particle\+System}|hyperpage}{76}
+\indexentry{particle\+System@{particle\+System}!dyn\+State@{dyn\+State}|hyperpage}{76}
+\indexentry{dyn\+State@{dyn\+State}!particle\+System@{particle\+System}|hyperpage}{76}
+\indexentry{particle\+System@{particle\+System}!mass@{mass}|hyperpage}{76}
+\indexentry{mass@{mass}!particle\+System@{particle\+System}|hyperpage}{76}
+\indexentry{particle\+System@{particle\+System}!pos@{pos}|hyperpage}{76}
+\indexentry{pos@{pos}!particle\+System@{particle\+System}|hyperpage}{76}
+\indexentry{particle\+System@{particle\+System}!radius@{radius}|hyperpage}{77}
+\indexentry{radius@{radius}!particle\+System@{particle\+System}|hyperpage}{77}
+\indexentry{particle\+System@{particle\+System}!time@{time}|hyperpage}{77}
+\indexentry{time@{time}!particle\+System@{particle\+System}|hyperpage}{77}
+\indexentry{particle\+System@{particle\+System}!type@{type}|hyperpage}{77}
+\indexentry{type@{type}!particle\+System@{particle\+System}|hyperpage}{77}
+\indexentry{particle\+System@{particle\+System}!vel@{vel}|hyperpage}{77}
+\indexentry{vel@{vel}!particle\+System@{particle\+System}|hyperpage}{77}
+\indexentry{P\+N1th$<$ Scalar $>$@{P\+N1th$<$ Scalar $>$}|hyperpage}{77}
+\indexentry{P\+N1th@{P\+N1th}!Vector@{Vector}|hyperpage}{78}
+\indexentry{Vector@{Vector}!P\+N1th@{P\+N1th}|hyperpage}{78}
+\indexentry{P\+N1th@{P\+N1th}!operator()@{operator()}|hyperpage}{78}
+\indexentry{operator()@{operator()}!P\+N1th@{P\+N1th}|hyperpage}{78}
+\indexentry{regu\+Dynamics$<$ Data\+Type, N $>$@{regu\+Dynamics$<$ Data\+Type, N $>$}|hyperpage}{79}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!Index\+Array@{Index\+Array}|hyperpage}{80}
+\indexentry{Index\+Array@{Index\+Array}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{80}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!Scalar@{Scalar}|hyperpage}{80}
+\indexentry{Scalar@{Scalar}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{80}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!Scalar\+Array@{Scalar\+Array}|hyperpage}{80}
+\indexentry{Scalar\+Array@{Scalar\+Array}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{80}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!Vector@{Vector}|hyperpage}{81}
+\indexentry{Vector@{Vector}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{81}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!Vector\+Array@{Vector\+Array}|hyperpage}{81}
+\indexentry{Vector\+Array@{Vector\+Array}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{81}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!array@{array}|hyperpage}{81}
+\indexentry{array@{array}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{81}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!get\+Omega@{get\+Omega}|hyperpage}{81}
+\indexentry{get\+Omega@{get\+Omega}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{81}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!init\+Addi\+Variable@{init\+Addi\+Variable}|hyperpage}{82}
+\indexentry{init\+Addi\+Variable@{init\+Addi\+Variable}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{82}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}|hyperpage}{82}
+\indexentry{move\+To\+Central\+Mass\+Coords@{move\+To\+Central\+Mass\+Coords}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{82}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!set\+Zero@{set\+Zero}|hyperpage}{83}
+\indexentry{set\+Zero@{set\+Zero}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{83}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!size@{size}|hyperpage}{83}
+\indexentry{size@{size}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{83}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!to\+Cartesian@{to\+Cartesian}|hyperpage}{83}
+\indexentry{to\+Cartesian@{to\+Cartesian}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{83}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!to\+Chain@{to\+Chain}|hyperpage}{84}
+\indexentry{to\+Chain@{to\+Chain}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{84}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!volume@{volume}|hyperpage}{85}
+\indexentry{volume@{volume}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{85}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!bindE@{bindE}|hyperpage}{85}
+\indexentry{bindE@{bindE}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{85}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!omega@{omega}|hyperpage}{85}
+\indexentry{omega@{omega}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{85}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!pos@{pos}|hyperpage}{86}
+\indexentry{pos@{pos}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{86}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!time@{time}|hyperpage}{86}
+\indexentry{time@{time}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{86}
+\indexentry{regu\+Dynamics@{regu\+Dynamics}!vel@{vel}|hyperpage}{86}
+\indexentry{vel@{vel}!regu\+Dynamics@{regu\+Dynamics}|hyperpage}{86}
+\indexentry{regu\+System$<$ Interaction, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Interaction, Evolved\+Data, Regularitor $>$}|hyperpage}{86}
+\indexentry{regu\+System@{regu\+System}!Plain\+Array@{Plain\+Array}|hyperpage}{88}
+\indexentry{Plain\+Array@{Plain\+Array}!regu\+System@{regu\+System}|hyperpage}{88}
+\indexentry{regu\+System@{regu\+System}!Scalar@{Scalar}|hyperpage}{88}
+\indexentry{Scalar@{Scalar}!regu\+System@{regu\+System}|hyperpage}{88}
+\indexentry{regu\+System@{regu\+System}!Scalar\+Array@{Scalar\+Array}|hyperpage}{88}
+\indexentry{Scalar\+Array@{Scalar\+Array}!regu\+System@{regu\+System}|hyperpage}{88}
+\indexentry{regu\+System@{regu\+System}!Vector@{Vector}|hyperpage}{88}
+\indexentry{Vector@{Vector}!regu\+System@{regu\+System}|hyperpage}{88}
+\indexentry{regu\+System@{regu\+System}!Vector\+Array@{Vector\+Array}|hyperpage}{89}
+\indexentry{Vector\+Array@{Vector\+Array}!regu\+System@{regu\+System}|hyperpage}{89}
+\indexentry{regu\+System@{regu\+System}!advanceB@{advanceB}|hyperpage}{89}
+\indexentry{advanceB@{advanceB}!regu\+System@{regu\+System}|hyperpage}{89}
+\indexentry{regu\+System@{regu\+System}!advance\+Omega@{advance\+Omega}|hyperpage}{89}
+\indexentry{advance\+Omega@{advance\+Omega}!regu\+System@{regu\+System}|hyperpage}{89}
+\indexentry{regu\+System@{regu\+System}!advance\+Pos@{advance\+Pos}|hyperpage}{90}
+\indexentry{advance\+Pos@{advance\+Pos}!regu\+System@{regu\+System}|hyperpage}{90}
+\indexentry{regu\+System@{regu\+System}!advance\+Vel@{advance\+Vel}|hyperpage}{90}
+\indexentry{advance\+Vel@{advance\+Vel}!regu\+System@{regu\+System}|hyperpage}{90}
+\indexentry{regu\+System@{regu\+System}!kick\+Auxi\+Vel@{kick\+Auxi\+Vel}|hyperpage}{91}
+\indexentry{kick\+Auxi\+Vel@{kick\+Auxi\+Vel}!regu\+System@{regu\+System}|hyperpage}{91}
+\indexentry{regu\+System@{regu\+System}!kick\+Vel@{kick\+Vel}|hyperpage}{91}
+\indexentry{kick\+Vel@{kick\+Vel}!regu\+System@{regu\+System}|hyperpage}{91}
+\indexentry{regu\+System@{regu\+System}!load@{load}|hyperpage}{92}
+\indexentry{load@{load}!regu\+System@{regu\+System}|hyperpage}{92}
+\indexentry{regu\+System@{regu\+System}!operator=@{operator=}|hyperpage}{92}
+\indexentry{operator=@{operator=}!regu\+System@{regu\+System}|hyperpage}{92}
+\indexentry{regu\+System@{regu\+System}!read@{read}|hyperpage}{92}
+\indexentry{read@{read}!regu\+System@{regu\+System}|hyperpage}{92}
+\indexentry{regu\+System@{regu\+System}!size@{size}|hyperpage}{93}
+\indexentry{size@{size}!regu\+System@{regu\+System}|hyperpage}{93}
+\indexentry{regu\+System@{regu\+System}!time\+Scale@{time\+Scale}|hyperpage}{93}
+\indexentry{time\+Scale@{time\+Scale}!regu\+System@{regu\+System}|hyperpage}{93}
+\indexentry{regu\+System@{regu\+System}!update\+Acc\+With@{update\+Acc\+With}|hyperpage}{93}
+\indexentry{update\+Acc\+With@{update\+Acc\+With}!regu\+System@{regu\+System}|hyperpage}{93}
+\indexentry{regu\+System@{regu\+System}!update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}|hyperpage}{94}
+\indexentry{update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}!regu\+System@{regu\+System}|hyperpage}{94}
+\indexentry{regu\+System@{regu\+System}!volume@{volume}|hyperpage}{94}
+\indexentry{volume@{volume}!regu\+System@{regu\+System}|hyperpage}{94}
+\indexentry{regu\+System@{regu\+System}!regular@{regular}|hyperpage}{94}
+\indexentry{regular@{regular}!regu\+System@{regu\+System}|hyperpage}{94}
+\indexentry{regu\+System@{regu\+System}!vel\+Dep\+Acc@{vel\+Dep\+Acc}|hyperpage}{94}
+\indexentry{vel\+Dep\+Acc@{vel\+Dep\+Acc}!regu\+System@{regu\+System}|hyperpage}{94}
+\indexentry{regu\+System@{regu\+System}!vel\+Dep\+Force@{vel\+Dep\+Force}|hyperpage}{95}
+\indexentry{vel\+Dep\+Force@{vel\+Dep\+Force}!regu\+System@{regu\+System}|hyperpage}{95}
+\indexentry{regu\+System@{regu\+System}!vel\+Indep\+Acc@{vel\+Indep\+Acc}|hyperpage}{95}
+\indexentry{vel\+Indep\+Acc@{vel\+Indep\+Acc}!regu\+System@{regu\+System}|hyperpage}{95}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{95}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Plain\+Array@{Plain\+Array}|hyperpage}{97}
+\indexentry{Plain\+Array@{Plain\+Array}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{97}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Scalar@{Scalar}|hyperpage}{97}
+\indexentry{Scalar@{Scalar}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{97}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Scalar\+Array@{Scalar\+Array}|hyperpage}{97}
+\indexentry{Scalar\+Array@{Scalar\+Array}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{97}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Vector@{Vector}|hyperpage}{97}
+\indexentry{Vector@{Vector}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{97}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!Vector\+Array@{Vector\+Array}|hyperpage}{97}
+\indexentry{Vector\+Array@{Vector\+Array}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{97}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Omega@{advance\+Omega}|hyperpage}{97}
+\indexentry{advance\+Omega@{advance\+Omega}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{97}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Pos@{advance\+Pos}|hyperpage}{98}
+\indexentry{advance\+Pos@{advance\+Pos}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{98}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!advance\+Vel@{advance\+Vel}|hyperpage}{98}
+\indexentry{advance\+Vel@{advance\+Vel}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{98}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!load@{load}|hyperpage}{99}
+\indexentry{load@{load}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{99}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!read@{read}|hyperpage}{100}
+\indexentry{read@{read}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{100}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!size@{size}|hyperpage}{100}
+\indexentry{size@{size}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{100}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!time\+Scale@{time\+Scale}|hyperpage}{100}
+\indexentry{time\+Scale@{time\+Scale}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{100}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}|hyperpage}{101}
+\indexentry{update\+Vel\+Indep\+Acc@{update\+Vel\+Indep\+Acc}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{101}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!volume@{volume}|hyperpage}{101}
+\indexentry{volume@{volume}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{101}
+\indexentry{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!regular@{regular}|hyperpage}{101}
+\indexentry{regular@{regular}!regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{regu\+System$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}|hyperpage}{101}
+\indexentry{symplectic10th$<$ Partic\+Sys $>$@{symplectic10th$<$ Partic\+Sys $>$}|hyperpage}{102}
+\indexentry{symplectic10th@{symplectic10th}!integrate@{integrate}|hyperpage}{102}
+\indexentry{integrate@{integrate}!symplectic10th@{symplectic10th}|hyperpage}{102}
+\indexentry{symplectic10th@{symplectic10th}!order@{order}|hyperpage}{103}
+\indexentry{order@{order}!symplectic10th@{symplectic10th}|hyperpage}{103}
+\indexentry{symplectic2th$<$ Partic\+Sys $>$@{symplectic2th$<$ Partic\+Sys $>$}|hyperpage}{103}
+\indexentry{symplectic2th@{symplectic2th}!Scalar@{Scalar}|hyperpage}{104}
+\indexentry{Scalar@{Scalar}!symplectic2th@{symplectic2th}|hyperpage}{104}
+\indexentry{symplectic2th@{symplectic2th}!integrate@{integrate}|hyperpage}{104}
+\indexentry{integrate@{integrate}!symplectic2th@{symplectic2th}|hyperpage}{104}
+\indexentry{symplectic2th@{symplectic2th}!order@{order}|hyperpage}{104}
+\indexentry{order@{order}!symplectic2th@{symplectic2th}|hyperpage}{104}
+\indexentry{symplectic4th$<$ Partic\+Sys $>$@{symplectic4th$<$ Partic\+Sys $>$}|hyperpage}{104}
+\indexentry{symplectic4th@{symplectic4th}!integrate@{integrate}|hyperpage}{105}
+\indexentry{integrate@{integrate}!symplectic4th@{symplectic4th}|hyperpage}{105}
+\indexentry{symplectic4th@{symplectic4th}!order@{order}|hyperpage}{105}
+\indexentry{order@{order}!symplectic4th@{symplectic4th}|hyperpage}{105}
+\indexentry{symplectic6th$<$ Partic\+Sys $>$@{symplectic6th$<$ Partic\+Sys $>$}|hyperpage}{106}
+\indexentry{symplectic6th@{symplectic6th}!integrate@{integrate}|hyperpage}{106}
+\indexentry{integrate@{integrate}!symplectic6th@{symplectic6th}|hyperpage}{106}
+\indexentry{symplectic6th@{symplectic6th}!order@{order}|hyperpage}{106}
+\indexentry{order@{order}!symplectic6th@{symplectic6th}|hyperpage}{106}
+\indexentry{symplectic8th$<$ Partic\+Sys $>$@{symplectic8th$<$ Partic\+Sys $>$}|hyperpage}{107}
+\indexentry{symplectic8th@{symplectic8th}!integrate@{integrate}|hyperpage}{107}
+\indexentry{integrate@{integrate}!symplectic8th@{symplectic8th}|hyperpage}{107}
+\indexentry{symplectic8th@{symplectic8th}!order@{order}|hyperpage}{108}
+\indexentry{order@{order}!symplectic8th@{symplectic8th}|hyperpage}{108}
+\indexentry{T\+T\+L$<$ Dynamic\+State $>$@{T\+T\+L$<$ Dynamic\+State $>$}|hyperpage}{108}
+\indexentry{T\+TL@{T\+TL}!Scalar@{Scalar}|hyperpage}{109}
+\indexentry{Scalar@{Scalar}!T\+TL@{T\+TL}|hyperpage}{109}
+\indexentry{T\+TL@{T\+TL}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}|hyperpage}{109}
+\indexentry{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!T\+TL@{T\+TL}|hyperpage}{109}
+\indexentry{T\+TL@{T\+TL}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}|hyperpage}{109}
+\indexentry{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!T\+TL@{T\+TL}|hyperpage}{109}
+\indexentry{T\+TL@{T\+TL}!size@{size}|hyperpage}{110}
+\indexentry{size@{size}!T\+TL@{T\+TL}|hyperpage}{110}
+\indexentry{vec3$<$ T $>$@{vec3$<$ T $>$}|hyperpage}{110}
+\indexentry{vec3@{vec3}!vec3@{vec3}|hyperpage}{111}
+\indexentry{vec3@{vec3}!vec3@{vec3}|hyperpage}{111}
+\indexentry{vec3@{vec3}!vec3@{vec3}|hyperpage}{112}
+\indexentry{vec3@{vec3}!vec3@{vec3}|hyperpage}{112}
+\indexentry{vec3@{vec3}!vec3@{vec3}|hyperpage}{112}
+\indexentry{vec3@{vec3}!vec3@{vec3}|hyperpage}{112}
+\indexentry{vec3@{vec3}!abs@{abs}|hyperpage}{112}
+\indexentry{abs@{abs}!vec3@{vec3}|hyperpage}{112}
+\indexentry{vec3@{vec3}!norm@{norm}|hyperpage}{113}
+\indexentry{norm@{norm}!vec3@{vec3}|hyperpage}{113}
+\indexentry{vec3@{vec3}!norm\+Square@{norm\+Square}|hyperpage}{113}
+\indexentry{norm\+Square@{norm\+Square}!vec3@{vec3}|hyperpage}{113}
+\indexentry{vec3@{vec3}!operator$\ast$@{operator$\ast$}|hyperpage}{113}
+\indexentry{operator$\ast$@{operator$\ast$}!vec3@{vec3}|hyperpage}{113}
+\indexentry{vec3@{vec3}!operator$\ast$@{operator$\ast$}|hyperpage}{113}
+\indexentry{operator$\ast$@{operator$\ast$}!vec3@{vec3}|hyperpage}{113}
+\indexentry{vec3@{vec3}!operator$\ast$=@{operator$\ast$=}|hyperpage}{114}
+\indexentry{operator$\ast$=@{operator$\ast$=}!vec3@{vec3}|hyperpage}{114}
+\indexentry{vec3@{vec3}!operator+@{operator+}|hyperpage}{114}
+\indexentry{operator+@{operator+}!vec3@{vec3}|hyperpage}{114}
+\indexentry{vec3@{vec3}!operator+@{operator+}|hyperpage}{114}
+\indexentry{operator+@{operator+}!vec3@{vec3}|hyperpage}{114}
+\indexentry{vec3@{vec3}!operator+=@{operator+=}|hyperpage}{114}
+\indexentry{operator+=@{operator+=}!vec3@{vec3}|hyperpage}{114}
+\indexentry{vec3@{vec3}!operator+=@{operator+=}|hyperpage}{115}
+\indexentry{operator+=@{operator+=}!vec3@{vec3}|hyperpage}{115}
+\indexentry{vec3@{vec3}!operator-\/@{operator-\/}|hyperpage}{115}
+\indexentry{operator-\/@{operator-\/}!vec3@{vec3}|hyperpage}{115}
+\indexentry{vec3@{vec3}!operator-\/@{operator-\/}|hyperpage}{115}
+\indexentry{operator-\/@{operator-\/}!vec3@{vec3}|hyperpage}{115}
+\indexentry{vec3@{vec3}!operator-\/@{operator-\/}|hyperpage}{115}
+\indexentry{operator-\/@{operator-\/}!vec3@{vec3}|hyperpage}{115}
+\indexentry{vec3@{vec3}!operator-\/=@{operator-\/=}|hyperpage}{116}
+\indexentry{operator-\/=@{operator-\/=}!vec3@{vec3}|hyperpage}{116}
+\indexentry{vec3@{vec3}!operator-\/=@{operator-\/=}|hyperpage}{116}
+\indexentry{operator-\/=@{operator-\/=}!vec3@{vec3}|hyperpage}{116}
+\indexentry{vec3@{vec3}!operator/@{operator/}|hyperpage}{116}
+\indexentry{operator/@{operator/}!vec3@{vec3}|hyperpage}{116}
+\indexentry{vec3@{vec3}!operator/@{operator/}|hyperpage}{116}
+\indexentry{operator/@{operator/}!vec3@{vec3}|hyperpage}{116}
+\indexentry{vec3@{vec3}!operator/=@{operator/=}|hyperpage}{117}
+\indexentry{operator/=@{operator/=}!vec3@{vec3}|hyperpage}{117}
+\indexentry{vec3@{vec3}!operator/=@{operator/=}|hyperpage}{117}
+\indexentry{operator/=@{operator/=}!vec3@{vec3}|hyperpage}{117}
+\indexentry{vec3@{vec3}!operator=@{operator=}|hyperpage}{117}
+\indexentry{operator=@{operator=}!vec3@{vec3}|hyperpage}{117}
+\indexentry{vec3@{vec3}!operator$^\wedge$@{operator$^\wedge$}|hyperpage}{117}
+\indexentry{operator$^\wedge$@{operator$^\wedge$}!vec3@{vec3}|hyperpage}{117}
+\indexentry{vec3@{vec3}!re\+Norm@{re\+Norm}|hyperpage}{118}
+\indexentry{re\+Norm@{re\+Norm}!vec3@{vec3}|hyperpage}{118}
+\indexentry{vec3@{vec3}!set\+Zero@{set\+Zero}|hyperpage}{118}
+\indexentry{set\+Zero@{set\+Zero}!vec3@{vec3}|hyperpage}{118}
+\indexentry{vec3@{vec3}!operator$\ast$@{operator$\ast$}|hyperpage}{118}
+\indexentry{operator$\ast$@{operator$\ast$}!vec3@{vec3}|hyperpage}{118}
+\indexentry{vec3@{vec3}!operator+@{operator+}|hyperpage}{119}
+\indexentry{operator+@{operator+}!vec3@{vec3}|hyperpage}{119}
+\indexentry{vec3@{vec3}!operator-\/@{operator-\/}|hyperpage}{119}
+\indexentry{operator-\/@{operator-\/}!vec3@{vec3}|hyperpage}{119}
+\indexentry{vec3@{vec3}!operator$<$$<$@{operator$<$$<$}|hyperpage}{119}
+\indexentry{operator$<$$<$@{operator$<$$<$}!vec3@{vec3}|hyperpage}{119}
+\indexentry{vec3@{vec3}!operator$>$$>$@{operator$>$$>$}|hyperpage}{119}
+\indexentry{operator$>$$>$@{operator$>$$>$}!vec3@{vec3}|hyperpage}{119}
+\indexentry{vec3@{vec3}!x@{x}|hyperpage}{119}
+\indexentry{x@{x}!vec3@{vec3}|hyperpage}{119}
+\indexentry{vec3@{vec3}!y@{y}|hyperpage}{120}
+\indexentry{y@{y}!vec3@{vec3}|hyperpage}{120}
+\indexentry{vec3@{vec3}!z@{z}|hyperpage}{120}
+\indexentry{z@{z}!vec3@{vec3}|hyperpage}{120}
+\indexentry{dynamic\+State.\+h@{dynamic\+State.\+h}|hyperpage}{120}
+\indexentry{dynamic\+System.\+h@{dynamic\+System.\+h}|hyperpage}{121}
+\indexentry{dynamic\+System.\+h@{dynamic\+System.\+h}!spaceX@{spaceX}|hyperpage}{122}
+\indexentry{spaceX@{spaceX}!dynamic\+System.\+h@{dynamic\+System.\+h}|hyperpage}{122}
+\indexentry{errhand.\+h@{errhand.\+h}|hyperpage}{123}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+B\+L\+UE@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+B\+L\+UE}|hyperpage}{124}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+B\+L\+UE@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+B\+L\+UE}!errhand.\+h@{errhand.\+h}|hyperpage}{124}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+C\+Y\+AN@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+C\+Y\+AN}|hyperpage}{124}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+C\+Y\+AN@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+C\+Y\+AN}!errhand.\+h@{errhand.\+h}|hyperpage}{124}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+G\+R\+E\+EN@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+G\+R\+E\+EN}|hyperpage}{124}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+G\+R\+E\+EN@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+G\+R\+E\+EN}!errhand.\+h@{errhand.\+h}|hyperpage}{124}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+M\+A\+G\+E\+N\+TA@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+M\+A\+G\+E\+N\+TA}|hyperpage}{124}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+M\+A\+G\+E\+N\+TA@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+M\+A\+G\+E\+N\+TA}!errhand.\+h@{errhand.\+h}|hyperpage}{124}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+ED@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+ED}|hyperpage}{125}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+ED@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+ED}!errhand.\+h@{errhand.\+h}|hyperpage}{125}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+E\+S\+ET@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+E\+S\+ET}|hyperpage}{125}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+E\+S\+ET@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+E\+S\+ET}!errhand.\+h@{errhand.\+h}|hyperpage}{125}
+\indexentry{errhand.\+h@{errhand.\+h}!A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+Y\+E\+L\+L\+OW@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+Y\+E\+L\+L\+OW}|hyperpage}{125}
+\indexentry{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+Y\+E\+L\+L\+OW@{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+Y\+E\+L\+L\+OW}!errhand.\+h@{errhand.\+h}|hyperpage}{125}
+\indexentry{errhand.\+h@{errhand.\+h}!N\+E\+W\+L\+I\+NE@{N\+E\+W\+L\+I\+NE}|hyperpage}{125}
+\indexentry{N\+E\+W\+L\+I\+NE@{N\+E\+W\+L\+I\+NE}!errhand.\+h@{errhand.\+h}|hyperpage}{125}
+\indexentry{integrator/symplectic/symplectic10th.\+h@{integrator/symplectic/symplectic10th.\+h}|hyperpage}{125}
+\indexentry{integrator/symplectic/symplectic2th.\+h@{integrator/symplectic/symplectic2th.\+h}|hyperpage}{125}
+\indexentry{integrator/symplectic/symplectic4th.\+h@{integrator/symplectic/symplectic4th.\+h}|hyperpage}{126}
+\indexentry{integrator/symplectic/symplectic6th.\+h@{integrator/symplectic/symplectic6th.\+h}|hyperpage}{126}
+\indexentry{integrator/symplectic/symplectic8th.\+h@{integrator/symplectic/symplectic8th.\+h}|hyperpage}{126}
+\indexentry{interaction/interaction.\+h@{interaction/interaction.\+h}|hyperpage}{126}
+\indexentry{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+C@{I\+N\+V\+\_\+C}|hyperpage}{127}
+\indexentry{I\+N\+V\+\_\+C@{I\+N\+V\+\_\+C}!interaction.\+h@{interaction.\+h}|hyperpage}{127}
+\indexentry{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C2@{I\+N\+V\+\_\+\+C2}|hyperpage}{127}
+\indexentry{I\+N\+V\+\_\+\+C2@{I\+N\+V\+\_\+\+C2}!interaction.\+h@{interaction.\+h}|hyperpage}{127}
+\indexentry{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C3@{I\+N\+V\+\_\+\+C3}|hyperpage}{128}
+\indexentry{I\+N\+V\+\_\+\+C3@{I\+N\+V\+\_\+\+C3}!interaction.\+h@{interaction.\+h}|hyperpage}{128}
+\indexentry{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C4@{I\+N\+V\+\_\+\+C4}|hyperpage}{128}
+\indexentry{I\+N\+V\+\_\+\+C4@{I\+N\+V\+\_\+\+C4}!interaction.\+h@{interaction.\+h}|hyperpage}{128}
+\indexentry{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C5@{I\+N\+V\+\_\+\+C5}|hyperpage}{128}
+\indexentry{I\+N\+V\+\_\+\+C5@{I\+N\+V\+\_\+\+C5}!interaction.\+h@{interaction.\+h}|hyperpage}{128}
+\indexentry{libs.\+h@{libs.\+h}|hyperpage}{128}
+\indexentry{libs.\+h@{libs.\+h}!abs@{abs}|hyperpage}{129}
+\indexentry{abs@{abs}!libs.\+h@{libs.\+h}|hyperpage}{129}
+\indexentry{libs.\+h@{libs.\+h}!advance\+Variable@{advance\+Variable}|hyperpage}{130}
+\indexentry{advance\+Variable@{advance\+Variable}!libs.\+h@{libs.\+h}|hyperpage}{130}
+\indexentry{libs.\+h@{libs.\+h}!get\+Kinetic\+Energy@{get\+Kinetic\+Energy}|hyperpage}{131}
+\indexentry{get\+Kinetic\+Energy@{get\+Kinetic\+Energy}!libs.\+h@{libs.\+h}|hyperpage}{131}
+\indexentry{libs.\+h@{libs.\+h}!get\+Potential\+Energy@{get\+Potential\+Energy}|hyperpage}{132}
+\indexentry{get\+Potential\+Energy@{get\+Potential\+Energy}!libs.\+h@{libs.\+h}|hyperpage}{132}
+\indexentry{libs.\+h@{libs.\+h}!get\+Total\+Energy@{get\+Total\+Energy}|hyperpage}{133}
+\indexentry{get\+Total\+Energy@{get\+Total\+Energy}!libs.\+h@{libs.\+h}|hyperpage}{133}
+\indexentry{libs.\+h@{libs.\+h}!Kahan\+Advance@{Kahan\+Advance}|hyperpage}{134}
+\indexentry{Kahan\+Advance@{Kahan\+Advance}!libs.\+h@{libs.\+h}|hyperpage}{134}
+\indexentry{libs.\+h@{libs.\+h}!Kahan\+Advance@{Kahan\+Advance}|hyperpage}{135}
+\indexentry{Kahan\+Advance@{Kahan\+Advance}!libs.\+h@{libs.\+h}|hyperpage}{135}
+\indexentry{libs.\+h@{libs.\+h}!max@{max}|hyperpage}{136}
+\indexentry{max@{max}!libs.\+h@{libs.\+h}|hyperpage}{136}
+\indexentry{libs.\+h@{libs.\+h}!min@{min}|hyperpage}{136}
+\indexentry{min@{min}!libs.\+h@{libs.\+h}|hyperpage}{136}
+\indexentry{libs.\+h@{libs.\+h}!Move\+To\+Central\+Mass\+Coordinate@{Move\+To\+Central\+Mass\+Coordinate}|hyperpage}{137}
+\indexentry{Move\+To\+Central\+Mass\+Coordinate@{Move\+To\+Central\+Mass\+Coordinate}!libs.\+h@{libs.\+h}|hyperpage}{137}
+\indexentry{libs.\+h@{libs.\+h}!print@{print}|hyperpage}{138}
+\indexentry{print@{print}!libs.\+h@{libs.\+h}|hyperpage}{138}
+\indexentry{libs.\+h@{libs.\+h}!swap@{swap}|hyperpage}{138}
+\indexentry{swap@{swap}!libs.\+h@{libs.\+h}|hyperpage}{138}
+\indexentry{macros.\+h@{macros.\+h}|hyperpage}{139}
+\indexentry{macros.\+h@{macros.\+h}!E\+V\+E\+N\+T\+T\+Y\+PE@{E\+V\+E\+N\+T\+T\+Y\+PE}|hyperpage}{140}
+\indexentry{E\+V\+E\+N\+T\+T\+Y\+PE@{E\+V\+E\+N\+T\+T\+Y\+PE}!macros.\+h@{macros.\+h}|hyperpage}{140}
+\indexentry{T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}DE@{T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}DE}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}DE@{T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}DE}|hyperpage}{140}
+\indexentry{M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GE@{M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GE}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GE@{M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GE}|hyperpage}{140}
+\indexentry{E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}PE@{E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}PE}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}PE@{E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}PE}|hyperpage}{140}
+\indexentry{D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ED@{D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ED}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ED@{D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ED}|hyperpage}{140}
+\indexentry{U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}V\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}UL@{U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}V\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}UL}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}V\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}UL@{U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}V\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}UL}|hyperpage}{140}
+\indexentry{H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}VS@{H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}VS}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}VS@{H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}VS}|hyperpage}{140}
+\indexentry{macros.\+h@{macros.\+h}!I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+T\+Y\+PE@{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+T\+Y\+PE}|hyperpage}{140}
+\indexentry{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+T\+Y\+PE@{I\+N\+T\+E\+G\+R\+A\+T\+O\+R\+T\+Y\+PE}!macros.\+h@{macros.\+h}|hyperpage}{140}
+\indexentry{D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG@{D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG@{D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG}|hyperpage}{140}
+\indexentry{K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG@{K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG@{K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}OG}|hyperpage}{140}
+\indexentry{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M4@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M4}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M4@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M4}|hyperpage}{140}
+\indexentry{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}RL@{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}RL}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}RL@{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}RL}|hyperpage}{140}
+\indexentry{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M6@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M6}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M6@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M6}|hyperpage}{140}
+\indexentry{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M8@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M8}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M8@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M8}|hyperpage}{140}
+\indexentry{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M10@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M10}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{140}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M10@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Y\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}M10}|hyperpage}{140}
+\indexentry{macros.\+h@{macros.\+h}!I\+T\+E\+R\+T\+Y\+PE@{I\+T\+E\+R\+T\+Y\+PE}|hyperpage}{140}
+\indexentry{I\+T\+E\+R\+T\+Y\+PE@{I\+T\+E\+R\+T\+Y\+PE}!macros.\+h@{macros.\+h}|hyperpage}{140}
+\indexentry{B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER@{B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER@{B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER}|hyperpage}{141}
+\indexentry{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Q\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Q\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Q\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Q\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}ER}|hyperpage}{141}
+\indexentry{macros.\+h@{macros.\+h}!P\+A\+R\+T\+I\+C\+T\+Y\+PE@{P\+A\+R\+T\+I\+C\+T\+Y\+PE}|hyperpage}{141}
+\indexentry{P\+A\+R\+T\+I\+C\+T\+Y\+PE@{P\+A\+R\+T\+I\+C\+T\+Y\+PE}!macros.\+h@{macros.\+h}|hyperpage}{141}
+\indexentry{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR@{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR@{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR}|hyperpage}{141}
+\indexentry{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR@{S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}AR}|hyperpage}{141}
+\indexentry{B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}LE@{B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}LE}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}LE@{B\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}K\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}LE}|hyperpage}{141}
+\indexentry{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Osize\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}t@{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Osize\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}t}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Osize\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}t@{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}Osize\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}t}|hyperpage}{141}
+\indexentry{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE@{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE@{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE}|hyperpage}{141}
+\indexentry{macros.\+h@{macros.\+h}!R\+E\+G\+U\+T\+Y\+PE@{R\+E\+G\+U\+T\+Y\+PE}|hyperpage}{141}
+\indexentry{R\+E\+G\+U\+T\+Y\+PE@{R\+E\+G\+U\+T\+Y\+PE}!macros.\+h@{macros.\+h}|hyperpage}{141}
+\indexentry{L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GH@{L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GH}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GH@{L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}GH}|hyperpage}{141}
+\indexentry{T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}TL@{T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}TL}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}TL@{T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}TL}|hyperpage}{141}
+\indexentry{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE@{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE@{N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}NE}|hyperpage}{141}
+\indexentry{macros.\+h@{macros.\+h}!S\+Y\+S\+T\+E\+M\+T\+Y\+PE@{S\+Y\+S\+T\+E\+M\+T\+Y\+PE}|hyperpage}{141}
+\indexentry{S\+Y\+S\+T\+E\+M\+T\+Y\+PE@{S\+Y\+S\+T\+E\+M\+T\+Y\+PE}!macros.\+h@{macros.\+h}|hyperpage}{141}
+\indexentry{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN@{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN@{P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN}|hyperpage}{141}
+\indexentry{C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN@{C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN}!macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}|hyperpage}{141}
+\indexentry{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h@{macros.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}h}!C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN@{C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}H\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize  {7}{8}\selectfont  $\leftarrow \joinrel  \rhook $}}{}{}IN}|hyperpage}{141}
+\indexentry{macros.\+h@{macros.\+h}!AU@{AU}|hyperpage}{141}
+\indexentry{AU@{AU}!macros.\+h@{macros.\+h}|hyperpage}{141}
+\indexentry{macros.\+h@{macros.\+h}!C@{C}|hyperpage}{142}
+\indexentry{C@{C}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!D\+AY@{D\+AY}|hyperpage}{142}
+\indexentry{D\+AY@{D\+AY}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!G@{G}|hyperpage}{142}
+\indexentry{G@{G}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!KM@{KM}|hyperpage}{142}
+\indexentry{KM@{KM}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!M\+\_\+\+J\+U\+P\+I\+T\+ER@{M\+\_\+\+J\+U\+P\+I\+T\+ER}|hyperpage}{142}
+\indexentry{M\+\_\+\+J\+U\+P\+I\+T\+ER@{M\+\_\+\+J\+U\+P\+I\+T\+ER}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!M\+\_\+\+S\+O\+L\+AR@{M\+\_\+\+S\+O\+L\+AR}|hyperpage}{142}
+\indexentry{M\+\_\+\+S\+O\+L\+AR@{M\+\_\+\+S\+O\+L\+AR}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!PC@{PC}|hyperpage}{142}
+\indexentry{PC@{PC}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!PI@{PI}|hyperpage}{142}
+\indexentry{PI@{PI}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!R\+\_\+\+S\+O\+L\+AR@{R\+\_\+\+S\+O\+L\+AR}|hyperpage}{142}
+\indexentry{R\+\_\+\+S\+O\+L\+AR@{R\+\_\+\+S\+O\+L\+AR}!macros.\+h@{macros.\+h}|hyperpage}{142}
+\indexentry{macros.\+h@{macros.\+h}!V\+\_\+\+U\+N\+IT@{V\+\_\+\+U\+N\+IT}|hyperpage}{143}
+\indexentry{V\+\_\+\+U\+N\+IT@{V\+\_\+\+U\+N\+IT}!macros.\+h@{macros.\+h}|hyperpage}{143}
+\indexentry{macros.\+h@{macros.\+h}!Y\+E\+AR@{Y\+E\+AR}|hyperpage}{143}
+\indexentry{Y\+E\+AR@{Y\+E\+AR}!macros.\+h@{macros.\+h}|hyperpage}{143}
+\indexentry{O\+D\+Eiterator/\+B\+S\+Iterator.\+h@{O\+D\+Eiterator/\+B\+S\+Iterator.\+h}|hyperpage}{143}
+\indexentry{O\+D\+Eiterator/const\+Iterator.\+h@{O\+D\+Eiterator/const\+Iterator.\+h}|hyperpage}{144}
+\indexentry{particle\+System.\+h@{particle\+System.\+h}|hyperpage}{145}
+\indexentry{particle\+System.\+h@{particle\+System.\+h}!operator$<$$<$@{operator$<$$<$}|hyperpage}{146}
+\indexentry{operator$<$$<$@{operator$<$$<$}!particle\+System.\+h@{particle\+System.\+h}|hyperpage}{146}
+\indexentry{particle\+System.\+h@{particle\+System.\+h}!operator$>$$>$@{operator$>$$>$}|hyperpage}{146}
+\indexentry{operator$>$$>$@{operator$>$$>$}!particle\+System.\+h@{particle\+System.\+h}|hyperpage}{146}
+\indexentry{particle\+System/\+A\+Rchain.\+h@{particle\+System/\+A\+Rchain.\+h}|hyperpage}{146}
+\indexentry{particle\+System/chain.\+h@{particle\+System/chain.\+h}|hyperpage}{147}
+\indexentry{particle\+System/\+G\+A\+R.\+h@{particle\+System/\+G\+A\+R.\+h}|hyperpage}{149}
+\indexentry{particle\+System/regularization.\+h@{particle\+System/regularization.\+h}|hyperpage}{150}
+\indexentry{particle\+System/regular\+State.\+h@{particle\+System/regular\+State.\+h}|hyperpage}{151}
+\indexentry{particle\+System/regu\+System.\+h@{particle\+System/regu\+System.\+h}|hyperpage}{153}
+\indexentry{R\+E\+A\+D\+M\+E.\+md@{R\+E\+A\+D\+M\+E.\+md}|hyperpage}{154}
+\indexentry{space\+X.\+h@{space\+X.\+h}|hyperpage}{154}
+\indexentry{space\+X.\+h@{space\+X.\+h}!A\+R\+\_\+chain@{A\+R\+\_\+chain}|hyperpage}{155}
+\indexentry{A\+R\+\_\+chain@{A\+R\+\_\+chain}!space\+X.\+h@{space\+X.\+h}|hyperpage}{155}
+\indexentry{space\+X.\+h@{space\+X.\+h}!Newtonian\+System@{Newtonian\+System}|hyperpage}{155}
+\indexentry{Newtonian\+System@{Newtonian\+System}!space\+X.\+h@{space\+X.\+h}|hyperpage}{155}
+\indexentry{space\+X.\+h@{space\+X.\+h}!Vel\+A\+Rchain@{Vel\+A\+Rchain}|hyperpage}{155}
+\indexentry{Vel\+A\+Rchain@{Vel\+A\+Rchain}!space\+X.\+h@{space\+X.\+h}|hyperpage}{155}
+\indexentry{space\+X.\+h@{space\+X.\+h}!Vel\+Dep\+System@{Vel\+Dep\+System}|hyperpage}{155}
+\indexentry{Vel\+Dep\+System@{Vel\+Dep\+System}!space\+X.\+h@{space\+X.\+h}|hyperpage}{155}
+\indexentry{test/main.\+cpp@{test/main.\+cpp}|hyperpage}{156}
+\indexentry{main.\+cpp@{main.\+cpp}!resolution\+Clock@{resolution\+Clock}|hyperpage}{156}
+\indexentry{resolution\+Clock@{resolution\+Clock}!main.\+cpp@{main.\+cpp}|hyperpage}{156}
+\indexentry{main.\+cpp@{main.\+cpp}!main@{main}|hyperpage}{156}
+\indexentry{main@{main}!main.\+cpp@{main.\+cpp}|hyperpage}{156}
+\indexentry{unit\+Test/test\+Compond.\+cpp@{unit\+Test/test\+Compond.\+cpp}|hyperpage}{157}
+\indexentry{test\+Compond.\+cpp@{test\+Compond.\+cpp}!resolution\+Clock@{resolution\+Clock}|hyperpage}{158}
+\indexentry{resolution\+Clock@{resolution\+Clock}!test\+Compond.\+cpp@{test\+Compond.\+cpp}|hyperpage}{158}
+\indexentry{test\+Compond.\+cpp@{test\+Compond.\+cpp}!main@{main}|hyperpage}{158}
+\indexentry{main@{main}!test\+Compond.\+cpp@{test\+Compond.\+cpp}|hyperpage}{158}
+\indexentry{unit\+Test/test\+Vector.\+cpp@{unit\+Test/test\+Vector.\+cpp}|hyperpage}{158}
+\indexentry{test\+Vector.\+cpp@{test\+Vector.\+cpp}!main@{main}|hyperpage}{158}
+\indexentry{main@{main}!test\+Vector.\+cpp@{test\+Vector.\+cpp}|hyperpage}{158}
+\indexentry{vector3.\+h@{vector3.\+h}|hyperpage}{159}
+\indexentry{vector3.\+h@{vector3.\+h}!vec3c@{vec3c}|hyperpage}{160}
+\indexentry{vec3c@{vec3c}!vector3.\+h@{vector3.\+h}|hyperpage}{160}
+\indexentry{vector3.\+h@{vector3.\+h}!vec3d@{vec3d}|hyperpage}{160}
+\indexentry{vec3d@{vec3d}!vector3.\+h@{vector3.\+h}|hyperpage}{160}
+\indexentry{vector3.\+h@{vector3.\+h}!vec3f@{vec3f}|hyperpage}{160}
+\indexentry{vec3f@{vec3f}!vector3.\+h@{vector3.\+h}|hyperpage}{160}
+\indexentry{vector3.\+h@{vector3.\+h}!vec3i@{vec3i}|hyperpage}{160}
+\indexentry{vec3i@{vec3i}!vector3.\+h@{vector3.\+h}|hyperpage}{160}
+\indexentry{vector3.\+h@{vector3.\+h}!distance@{distance}|hyperpage}{160}
+\indexentry{distance@{distance}!vector3.\+h@{vector3.\+h}|hyperpage}{160}
