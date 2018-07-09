@@ -20,35 +20,30 @@
  *   http://iopscience.iop.org/article/10.1086/301102/meta and
  *   https://link.springer.com/article/10.1023%2FA%3A1021149313347 .
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-class reguSystem : public particleSystem<EvolvedData>
+template<typename Interaction, typename Particles, typename Regularitor>
+class reguSystem : public particleSystem<Particles>
 {
 public:
-    typedef typename EvolvedData::Scalar      Scalar;
-    typedef typename EvolvedData::Vector      Vector;
-    typedef typename EvolvedData::VectorArray VectorArray;
-    typedef typename EvolvedData::ScalarArray ScalarArray;
-    typedef typename EvolvedData::PlainArray  PlainArray;
-    typedef typename EvolvedData::IndexArray  IndexArray;
-    using particleSystem<EvolvedData>::size;
-    using particleSystem<EvolvedData>::volume;
+    using Base = particleSystem<Particles>;
+    using particleSystem<Particles>::size;
+    using particleSystem<Particles>::volume;
 
-    /**  @brief Omega interface. Reference to dynState.omega*/
-    inline Scalar& omega(){ return this->dynState.omega; }
+    /**  @brief Omega interface. Reference to partc.omega*/
+    inline typename Base::Scalar& omega(){ return this->partc.omega(); }
     
-    /**  @brief Bindine energy interface. Reference to dynState.bindE*/
-    inline Scalar& bindE(){ return this->dynState.bindE; }
+    /**  @brief Bindine energy interface. Reference to partc.bindE*/
+    inline typename Base::Scalar& bindE(){ return this->partc.bindE(); }
     
     /** @brief Advance position one step with current velocity. */
-    void advancePos(Scalar timeStepSize);
+    void advancePos(typename Base::Scalar timeStepSize);
 
     /** @brief Advance velocity one step with current acceleration. */
-    void advanceVel(Scalar timeStepSize);
+    void advanceVel(typename Base::Scalar timeStepSize);
 
     /** @brief Interface to rescale the time.
      *  @note  Overload base class timeScale().
      */
-    Scalar timeScale(Scalar scale);
+    typename Base::Scalar timeScale(typename Base::Scalar scale);
     
     /** @brief After process after iteration*/
     void afterIterProcess();
@@ -63,20 +58,13 @@ public:
     {
         return sys.read(input);
     }
+    
 private:
-#ifdef KAHAN_SUMMATION
-    /**  @brief Co-evolved Data used by Kahan summation.
-     *
-     *   See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm .
-     */
-    EvolvedData roundoffErr;
-#endif
-
     /** @brief Velocity independent acceleration array*/
-    VectorArray velIndepAcc;
+    typename Base::VectorArray velIndepAcc;
 
     /** @brief Velocity dependent acceleration array*/
-    VectorArray velDepAcc;
+    typename Base::VectorArray velDepAcc;
 
     /** @brief Velocity dependent pair force functor*/
     Interaction velDepForce;
@@ -85,21 +73,14 @@ private:
     Regularitor regular;
 
 private:
-
-    /** @brief Advance regularization variable omega.*/
-    void advanceOmega(Scalar stepSize);
-
-    /** @brief Advance regularization variable bindE.*/
-    void advanceB(Scalar stepSize);
-
     /** @brief Advance velocity with current acceleration.*/
-    void kickVel(Scalar stepSize);
+    void kickVel(typename Base::Scalar stepSize);
 
     /** @brief Advance auxiliar velocity with current acceleration.*/
-    void kickAuxiVel(Scalar stepSize);
+    void kickAuxiVel(typename Base::Scalar stepSize);
 
     /** @brief Update velocity dependent acceleration with given velocity. Then update the total acceleration.*/
-    void updateAccWith(VectorArray& vel);
+    void updateAccWith(typename Base::VectorArray& vel);
 
     /** @brief Update velocity independent acceleration.*/
     void updateVelIndepAcc();
@@ -111,16 +92,12 @@ private:
   *  Advance position array and physical time one step with current integration step size and velocity.
   *  @param  timeStepSize Integration step size, will be transfered to physical time in the function.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::advancePos(Scalar timeStepSize)
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::advancePos(typename Base::Scalar timeStepSize)
 {
-    Scalar physicalTime = regular.getPhysicalPosTime(this->m, this->dynState, timeStepSize);
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.pos, this->dynState.vel, roundoffErr.pos, physicalTime);
-#else
-    advanceVariable(this->dynState.pos, this->dynState.vel, physicalTime);
-#endif
-    this->dynState.time += physicalTime;
+    Scalar physicalTime = regular.getPhysicalPosTime(this->partc, timeStepSize);
+    this->partc.advancePos(physicalTime);
+    this->partc.advanceTime(physicalTime);
 }
 
 /** @brief Advance velocity one step with current acceleration.
@@ -128,20 +105,22 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::advancePos(Scalar timeSt
  *  Advance velocity and auxiliary velocity array one step with current integration step size and accelerations.
  *  @param  timeStepSize Integration step size, will be transfered to physical time in the function.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::advanceVel(Scalar timeStepSize)
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::advanceVel(typename Base::Scalar timeStepSize)
 {
-    Scalar physicalTime = regular.getPhysicalVelTime(this->m, this->dynState, timeStepSize);
+    Scalar physicalTime = regular.getPhysicalVelTime(this->partc, timeStepSize);
     Scalar halfTime = 0.5 * physicalTime;
     updateVelIndepAcc();
+    
     updateAccWith(this->dynState.vel);
-    kickAuxiVel(halfTime);
+    this->partc.advanceAuxiVel(this->acc, halfTime);
     updateAccWith(this->dynState.auxiVel);
-    advanceB(physicalTime);
-    advanceOmega(physicalTime);
-    kickVel(physicalTime);
+    this->partc.advanceBindE(,physicalTime);
+    this->partc.advanceOmega(,physicalTime);
+    this->partc.advanceAuxiVel(this->acc, physicalTime);
     updateAccWith(this->dynState.vel);
-    kickAuxiVel(halfTime);
+    this->partc.advanceAuxiVel(this->acc, halfTime);
+
 }
 
 /** @brief Process data after one step iteration.
@@ -149,12 +128,11 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::advanceVel(Scalar timeSt
  *  Interface usded by ODE iterator. Synchronize auxiliary velocity and set round off error to zero
  *  if Kahan summation is used.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::afterIterProcess()
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::afterIterProcess()
 {
-    this->dynState.auxiVel = this->dynState.vel;
 #ifdef KAHAN_SUMMATION
-    roundoffErr.setZero();
+    this->partc.resetErr();
 #endif
 }
 
@@ -163,60 +141,27 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::afterIterProcess()
  *  Interace used by dynamic system. Transfer integration time to physical time.
  *  @return The phsyical time.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-typename EvolvedData::Scalar reguSystem<Interaction, EvolvedData, Regularitor>::timeScale(Scalar scale)
+template<typename Interaction, typename Particles, typename Regularitor>
+typename Base::Scalar reguSystem<Interaction, Particles, Regularitor>::timeScale(typename Base::Scalar scale)
 {
-    return regular.getPhysicalPosTime(this->m, this->dynState, scale);
+    return regular.getPhysicalPosTime(this->partc, scale);
 }
 
-/** @brief Advance velocity with current acceleration.
- *
- *  Advance the velocity with current total acceleration variable 'acc'.
- *  @param stepSize Integration step size.
- */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::kickVel(Scalar stepSize)
-{
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.vel, this->acc, roundoffErr.vel, stepSize);
-#else
-    advanceVariable(this->dynState.vel, this->acc, stepSize);
-#endif
-}
-
-/** @brief Advance auxiliar velocity with current acceleration.
- *
- *  Advance the auxiliar velocity with current total acceleration variable 'acc'.
- *  @param stepSize Integration step size.
- */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::kickAuxiVel(Scalar stepSize)
-{
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.auxiVel, this->acc, roundoffErr.auxiVel, stepSize);
-#else
-    advanceVariable(this->dynState.auxiVel, this->acc, stepSize);
-#endif
-}
 
 /** @brief Advance regularization variable omega.
  *
  *  Advance omega with velocity independent acceleration and auxiliar velocity with physical time step size.
  *  @param stepSize Physical time step.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::advanceOmega(typename Base::Scalar stepSize)
 {
     Scalar dOmega = 0;
 
     for(size_t i = 0 ; i < size() ; ++i)
         dOmega += (this->velIndepAcc[i] * this->dynState.auxiVel[i]) * (this->m[i]);
 
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.omega, dOmega * stepSize, roundoffErr.omega);
-#else
-    this->dynState.omega += dOmega * stepSize;
-#endif
+    this->partc.advanceOmega( dOmega * stepSize);
 }
 
 /** @brief Advance regularization variable bindE.
@@ -224,27 +169,23 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::advanceOmega(Scalar step
  *  Advance bindE with velocity dependent acceleration and auxiliar velocity with physical time step size.
  *  @param stepSize Physical time step.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::advanceB(Scalar stepSize)
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::advanceB(typename Base::Scalar stepSize)
 {
     Scalar dE = 0;
 
     for(size_t i = 0 ; i < size() ; ++i)
         dE -= (this->velDepAcc[i] * this->dynState.auxiVel[i]) * (this->m[i]);
 
-#ifdef KAHAN_SUMMATION
-    KahanAdvance(this->dynState.bindE, dE * stepSize, roundoffErr.bindE);
-#else
-    this->dynState.bindE += dE * stepSize;
-#endif
+    this->partc.advanceBindE(dE * stepSize);
 }
 
 /** @brief Update velocity independent acceleration.
  *
  *  Update velocity independent acceleration 'velIndepAcc' with Newtonian interaction.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::updateVelIndepAcc()
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::updateVelIndepAcc()
 {
     Vector dr(0.0, 0.0, 0.0);
     Scalar inv_r  = 1;
@@ -269,8 +210,8 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::updateVelIndepAcc()
  *  Update the velocity dependent accelaration variable 'velDepAcc' with given velocity and velocity dependent pair
  *  force 'velDepForce'. Then update the total acceleration 'acc' by adding 'velIndepAcc' and 'velDepAcc'.
  */
-template<typename Interaction, typename EvolvedData, typename Regularitor>
-void reguSystem<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArray& velocity)
+template<typename Interaction, typename Particles, typename Regularitor>
+void reguSystem<Interaction, Particles, Regularitor>::updateAccWith(typename Base::VectorArray& velocity)
 {
     memset(&(velDepAcc[0]), 0, sizeof(Vector)*size());
     Vector dr;
@@ -294,18 +235,13 @@ void reguSystem<Interaction, EvolvedData, Regularitor>::updateAccWith(VectorArra
 
 /*==============================Specialization================================*/
 /**  @brief Partial specialization of reguSystem for velocity independent system. */
-template<typename EvolvedData, typename Regularitor>
-class reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor> : public particleSystem<EvolvedData>
+template<typename Particles, typename Regularitor>
+class reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor> : public particleSystem<Particles>
 {
 public:
-    typedef typename EvolvedData::Scalar      Scalar;
-    typedef typename EvolvedData::Vector      Vector;
-    typedef typename EvolvedData::VectorArray VectorArray;
-    typedef typename EvolvedData::ScalarArray ScalarArray;
-    typedef typename EvolvedData::PlainArray  PlainArray;
-    typedef typename EvolvedData::IndexArray  IndexArray;
-    using particleSystem<EvolvedData>::size;
-    using particleSystem<EvolvedData>::volume;
+    
+    using particleSystem<Particles>::size;
+    using particleSystem<Particles>::volume;
     
     /**  @brief Omega interface. Reference to dynState.omega*/
     inline Scalar& omega(){ return this->dynState.omega; }
@@ -337,13 +273,14 @@ public:
     {
         return sys.read(input);
     }
+    
 private:
 #ifdef KAHAN_SUMMATION
     /**  @brief Co-evolved Data used by Kahan summation.
      *
      *   See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm .
      */
-    EvolvedData  roundoffErr;
+    Particles  roundoffErr;
 #endif
     
     /** @brief Regularization interface.*/
@@ -364,8 +301,8 @@ private:
  *  Advance position array and physical time one step with current integration step size and velocity.
  *  @param  timeStepSize Integration step size, will be transfered to physical time in the function.
  */
-template<typename EvolvedData, typename Regularitor>
-void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::advancePos(Scalar timeStepSize)
+template<typename Particles, typename Regularitor>
+void reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor>::advancePos(Scalar timeStepSize)
 {
     Scalar physicalTime = regular.getPhysicalPosTime(this->m, this->dynState, timeStepSize);
 #ifdef KAHAN_SUMMATION
@@ -381,8 +318,8 @@ void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, 
  *  Advance velocity array one step with current integration step size and accelerations.
  *  @param  timeStepSize Integration step size, will be transfered to physical time in the function.
  */
-template<typename EvolvedData, typename Regularitor>
-void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::advanceVel(Scalar timeStepSize)
+template<typename Particles, typename Regularitor>
+void reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor>::advanceVel(Scalar timeStepSize)
 {
     Scalar physicalTime = regular.getPhysicalVelTime(this->m, this->dynState, timeStepSize);
     updateVelIndepAcc();
@@ -400,8 +337,8 @@ void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, 
  *  Interface usded by ODE iterator. Synchronize auxiliary velocity and set round off error to zero
  *  if Kahan summation is used.
  */
-template<typename EvolvedData, typename Regularitor>
-void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::afterIterProcess()
+template<typename Particles, typename Regularitor>
+void reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor>::afterIterProcess()
 {
 #ifdef KAHAN_SUMMATION
     roundoffErr.setZero();
@@ -413,8 +350,8 @@ void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, 
  *  Interace used by dynamic system. Transfer integration time to physical time.
  *  @return The phsyical time.
  */
-template<typename EvolvedData, typename Regularitor>
-typename EvolvedData::Scalar reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::timeScale(
+template<typename Particles, typename Regularitor>
+typename Particles::Scalar reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor>::timeScale(
     Scalar scale)
 {
     return regular.getPhysicalPosTime(this->m, this->dynState, scale);
@@ -425,8 +362,8 @@ typename EvolvedData::Scalar reguSystem<interact::Newtonian<typename EvolvedData
  *  Advance omega with velocity independent acceleration and auxiliar velocity with physical time step size.
  *  @param stepSize Physical time step.
  */
-template<typename EvolvedData, typename Regularitor>
-void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::advanceOmega(Scalar stepSize)
+template<typename Particles, typename Regularitor>
+void reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor>::advanceOmega(Scalar stepSize)
 {
     Scalar dOmega = 0;
 
@@ -444,8 +381,8 @@ void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, 
  *
  *  Update velocity independent acceleration 'acc' with Newtonian interaction.
  */
-template<typename EvolvedData, typename Regularitor>
-void reguSystem<interact::Newtonian<typename EvolvedData::Scalar>, EvolvedData, Regularitor>::updateVelIndepAcc()
+template<typename Particles, typename Regularitor>
+void reguSystem<interact::Newtonian<typename Particles::Scalar>, Particles, Regularitor>::updateVelIndepAcc()
 {
     Vector dr(0.0, 0.0, 0.0);
     Scalar inv_r  = 1;

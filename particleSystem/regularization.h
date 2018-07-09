@@ -19,11 +19,11 @@ template<typename DynamicState>
 class logH
 {
 public:
-    typedef typename DynamicState::Scalar Scalar;
-    constexpr static size_t size()
-    {
-        return DynamicState::size();
-    }
+    using Scalar      = DynamicState::Scalar;
+    using Vector      = DynamicState::Vector;
+    using VectorArray = DynamicState::VectorArray;
+    using ScalarArray = DynamicState::ScalarArray;
+    using IntArray    = DynamicState::IntArray;
 
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
@@ -32,9 +32,9 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    Scalar getPhysicalPosTime(std::array<Scalar, size()>& mass, DynamicState& dyn, Scalar stepSize)
+    Scalar getPhysicalPosTime(DynamicState& dyn, Scalar stepSize)
     {
-        return stepSize / (dyn.bindE + getKineticEnergy(mass, dyn.vel));
+        return stepSize / (dyn.bindE() + getKineticEnergy(dyn.mass(), dyn.vel()));
     }
 
     /** @brief Calculate the physical time for velocity advance from integration step size
@@ -44,9 +44,9 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    Scalar getPhysicalVelTime(std::array<Scalar, size()>& mass, DynamicState& dyn, Scalar stepSize)
+    Scalar getPhysicalVelTime(DynamicState& dyn, Scalar stepSize)
     {
-        return stepSize / (-getPotentialEnergy(mass, dyn.pos));
+        return stepSize / (-getPotentialEnergy(dyn.mass(), dyn.pos()));
     }
 };
 
@@ -58,11 +58,11 @@ template<typename DynamicState>
 class TTL
 {
 public:
-    typedef typename DynamicState::Scalar Scalar;
-    constexpr static size_t size()
-    {
-        return DynamicState::size();
-    }
+    using Scalar      = DynamicState::Scalar;
+    using Vector      = DynamicState::Vector;
+    using VectorArray = DynamicState::VectorArray;
+    using ScalarArray = DynamicState::ScalarArray;
+    using IntArray    = DynamicState::IntArray;
 
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
@@ -71,9 +71,9 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    Scalar getPhysicalPosTime(std::array<Scalar, size()>& mass, DynamicState& dyn, Scalar stepSize)
+    Scalar getPhysicalPosTime(DynamicState& dyn, Scalar stepSize)
     {
-        return stepSize / dyn.omega;
+        return stepSize / dyn.omega();
     }
 
     /** @brief Calculate the physical time for velocity advance from integration step size
@@ -83,9 +83,9 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    Scalar getPhysicalVelTime(std::array<Scalar, size()>& mass, DynamicState& dyn, Scalar stepSize)
+    Scalar getPhysicalVelTime(DynamicState& dyn, Scalar stepSize)
     {
-        return stepSize / dyn.getOmega(mass);
+        return stepSize / dyn.capitalOmega();
     }
 };
 
@@ -97,11 +97,11 @@ template<typename DynamicState>
 class NoRegu
 {
 public:
-    typedef typename DynamicState::Scalar Scalar;
-    constexpr static size_t size()
-    {
-        return DynamicState::size();
-    }
+    using Scalar      = DynamicState::Scalar;
+    using Vector      = DynamicState::Vector;
+    using VectorArray = DynamicState::VectorArray;
+    using ScalarArray = DynamicState::ScalarArray;
+    using IntArray    = DynamicState::IntArray;
 
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
@@ -109,7 +109,7 @@ public:
      *                  See example class in dynamicState.h.
      *  @param stepSize Integration step size.
      */
-    Scalar getPhysicalPosTime(std::array<Scalar, size()>& mass, DynamicState& dyn, Scalar stepSize)
+    Scalar getPhysicalPosTime(DynamicState& dyn, Scalar stepSize)
     {
         return stepSize;
     }
@@ -120,7 +120,7 @@ public:
      *                  See example class in dynamicState.h.
      *  @param stepSize Integration step size.
      */
-    Scalar getPhysicalVelTime(std::array<Scalar, size()>& mass, DynamicState& dyn, Scalar stepSize)
+    Scalar getPhysicalVelTime(DynamicState& dyn, Scalar stepSize)
     {
         return stepSize;
     }

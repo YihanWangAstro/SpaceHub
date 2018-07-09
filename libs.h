@@ -86,17 +86,20 @@ void KahanAdvance(Scalar& var, const Scalar increase, Scalar& err)
     var = sum;
 }
 
-/** @brief Normal Summation of two Arrays
- *
- *  @param var      Array of variable needs evolution.
- *  @param increase Array of inreament.
- *  @param dt       Step size of advance.
- */
-template<typename Scalar, size_t N>
-void advanceVariable(std::array<vec3<Scalar>, N>& var, const std::array<vec3<Scalar>, N>& add, Scalar dt)
+template<typename Scalar>
+inline void advanceScalar(Scalar& var, Scalar increase)
 {
-    for(size_t i = 0 ; i < N; ++i)
-        var[i] += add[i] * dt;
+    var += increase;
+}
+
+template<typename Scalar, typename Vector1, typename Vector2>
+inline void advanceVector(Vector1& var, const Vector2& increase, Scalar stepSize )
+{
+    size_t size = var.size();
+    for(size_t i = 0 ; i < size; i++)
+    {
+        var[i] += increase[i] * stepSize;
+    }
 }
 
 /** @brief Move variables to central mass coordinates

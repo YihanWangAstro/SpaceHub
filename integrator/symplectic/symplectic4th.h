@@ -12,11 +12,12 @@
 template <typename ParticSys>
 class symplectic4th
 {
-    //////////////////////////////////Interface/////////////////////////////////////
 public:
+    using Scalar = typename ParticSys::Scalar;
+    
     /** @brief Order of the integrator*/
     static const int order{4};
-    void integrate(ParticSys& particles, double stepLength);
+    void integrate(ParticSys& particles, Scalar stepLength);
 };
 
 /** @brief Interface to integrate particle system
@@ -26,14 +27,14 @@ public:
  *  @param stepLength Step size for integration.
  */
 template <typename ParticSys>
-void symplectic4th<ParticSys>::integrate(ParticSys& particles, double stepLength)
+void symplectic4th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength)
 {
-    particles.advancePos(6.7560359597983000E-1 * stepLength);
-    particles.advanceVel(1.3512071919596600E0 * stepLength);
-    particles.advancePos(-1.7560359597983000E-1 * stepLength);
-    particles.advanceVel(-1.7024143839193200E0 * stepLength);
-    particles.advancePos(-1.7560359597983000E-1 * stepLength);
-    particles.advanceVel(1.3512071919596600E0 * stepLength);
-    particles.advancePos(6.7560359597983000E-1 * stepLength);
+    particles.drift(6.7560359597983000E-1 * stepLength);
+    particles.kick(1.3512071919596600E0 * stepLength);
+    particles.drift(-1.7560359597983000E-1 * stepLength);
+    particles.kick(-1.7024143839193200E0 * stepLength);
+    particles.drift(-1.7560359597983000E-1 * stepLength);
+    particles.kick(1.3512071919596600E0 * stepLength);
+    particles.drift(6.7560359597983000E-1 * stepLength);
 }
 #endif

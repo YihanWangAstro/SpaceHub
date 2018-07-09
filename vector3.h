@@ -10,6 +10,7 @@
 #define GENVECT_H
 #include <math.h>
 #include <iostream>
+
 /** @brief Self 3D vector class */
 template<typename T>
 struct vec3

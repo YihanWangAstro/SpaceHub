@@ -1,7 +1,8 @@
 #ifndef SPACEX_H
 #define SPACEX_H
 #include "dynamicSystem.h"
-#include "dynamicState.h"
+#include "particles.h"
+#include "particleSystem.h"
 #include "integrator/symplectic/symplectic2th.h"
 #include "integrator/symplectic/symplectic4th.h"
 #include "integrator/symplectic/symplectic6th.h"
@@ -9,13 +10,13 @@
 #include "integrator/symplectic/symplectic10th.h"
 #include "ODEiterator/BSIterator.h"
 #include "ODEiterator/constIterator.h"
-#include "particleSystem/reguSystem.h"
-#include "particleSystem/ARchain.h"
-#include "particleSystem/GAR.h"
-#include "particleSystem/regularState.h"
-#include "particleSystem/regularization.h"
+//#include "particleSystem/reguSystem.h"
+//#include "particleSystem/ARchain.h"
+//#include "particleSystem/GAR.h"
+//#include "particleSystem/regularState.h"
+//#include "particleSystem/regularization.h"
 #include "interaction/interaction.h"
-
+/*
 template <
     size_t                            N,
     template<typename> class          Regularitor = logH,
@@ -52,5 +53,5 @@ template <
     template<typename, size_t> class  EvolvedData = GAR
     >
 using VelARchain = ARchain<Interaction<Scalar>, EvolvedData<Scalar, N>, Regularitor<EvolvedData<Scalar, N>>>;
-
+*/
 #endif

@@ -8,10 +8,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef GENPARTICLESYSTEM_H
 #define GENPARTICLESYSTEM_H
-#include "vector3.h"
-#include "libs.h"
-#include "errhand.h"
-#include <array>
 #include <fstream>
 #include <cstring>
 #include <iomanip>
@@ -21,115 +17,78 @@
  *   Base particles system class. Other particle system can inherit this class. Considering the performance, we don't
  *   set virtual function.
  */
-template <typename EvolvedData>
+template <typename Particles, typename Interaction>
 class particleSystem
 {
 public:
-
-    typedef typename EvolvedData::Scalar            Scalar;
-    typedef typename EvolvedData::Vector            Vector;
-    typedef typename EvolvedData::VectorArray       VectorArray;
-    typedef typename EvolvedData::ScalarArray       ScalarArray;
-    typedef typename EvolvedData::PlainArray        PlainArray;
-    typedef std::array<size_t, EvolvedData::size()> IndexArray;
-
-    /**  @brief Physical time scalar interface. Reference to dynState.time*/
-    inline Scalar& time(){ return dynState.time; }
+    /* Typedef */
+    template<typename T, size_t S>
+    using Container   = typename Particles::template Container<T, S>;
     
-    /**  @brief Position array interface. Reference to dynState.pos*/
-    inline VectorArray& pos(){ return dynState.pos; }
+    using Scalar      = typename Particles::Scalar;
     
-    /**  @brief Velocity array interface. Reference to dynState.vel*/
-    inline VectorArray& vel(){ return dynState.vel; }
+    using Vector      = typename Particles::Vector;
     
-    /**  @brief Mass array interface. Reference to m.*/
-    inline ScalarArray& mass(){ return m; }
+    using VectorArray = typename Particles::VectorArray;
     
-    /**  @brief Radius array interface. Reference to r.*/
-    inline ScalarArray& radius(){ return rad; }
+    using ScalarArray = typename Particles::ScalarArray;
     
-    /**  @brief Particle type array interface. Reference to t.*/
-    inline IndexArray& type(){ return tp; }
+    using IntArray    = typename Particles::IntArray;
     
-    /**  @brief Position vector interface. Reference to dynState.pos[i]*/
-    inline Vector& pos(size_t i){ return dynState.pos[i]; }
+    using SizeArray   = typename Particles::SizeArray;
     
-    /**  @brief Velocity vecotr interface. Reference to dynState.vel[i]*/
-    inline Vector& vel(size_t i){ return dynState.vel[i]; }
+    using ActiveScalarArray = typename Particles::ActiveScalarArray;
+    /* Typedef */
     
-    /**  @brief Mass interface. Reference to m.*/
-    inline Scalar& mass(size_t i){ return m[i]; }
+    constexpr static size_t ArraySize{Particles::arraySize};
     
-    /**  @brief Radius interface. Reference to r.*/
-    inline Scalar& radius(size_t i){ return rad[i]; }
-    
-    /**  @brief Particle type interface. Reference to t.*/
-    inline size_t& type(size_t i){ return tp[i]; }
-    
-    /**  @brief Physical time scalar const interface. Reference to dynState.time*/
-    inline const Scalar& time() const { return dynState.time; }
-    
-    /**  @brief Position array const interface. Reference to dynState.pos*/
-    inline const VectorArray& pos() const { return dynState.pos; }
-    
-    /**  @brief Velocity array const interface. Reference to dynState.vel*/
-    inline const VectorArray& vel() const { return dynState.vel; }
-    
-    /**  @brief Mass array const interface. Reference to m.*/
-    inline const ScalarArray& mass() const { return m; }
-    
-    /**  @brief Radius array const interface. Reference to r.*/
-    inline const ScalarArray& radius() const { return rad; }
-    
-    /**  @brief Particle type array const interface. Reference to t.*/
-    inline const IndexArray& type() const { return tp; }
-    
-    /**  @brief Position vector const interface. Reference to dynState.pos[i]*/
-    inline const Vector& pos(size_t i) const { return dynState.pos[i]; }
-    
-    /**  @brief Velocity vecotr const interface. Reference to dynState.vel[i]*/
-    inline const Vector& vel(size_t i) const { return dynState.vel[i]; }
-    
-    /**  @brief Mass const interface. Reference to m.*/
-    inline const  Scalar& mass(size_t i) const { return m[i]; }
-    
-    /**  @brief Radius const interface. Reference to r.*/
-    inline const Scalar& radius(size_t i) const { return rad[i]; }
-    
-    /**  @brief Particle type const interface. Reference to t.*/
-    inline const size_t& type(size_t i) const { return tp[i]; }
-
     /** @brief Get the number of the particles.
      *  @return The particle number.
      */
-    constexpr static size_t size()
+    inline size_t particleNumber()
     {
-        return EvolvedData::size();
-    }
-
-    /** @brief Get the total dynamic scalar number.
-     *  @return The dynamic scalar number.
-     */
-    constexpr static size_t volume()
-    {
-        return EvolvedData::volume();
-    }
-
-    /** @brief Transfer evolved data to a plain array.
-     *  @param arr The destination plain array.
-     */
-    void flatten(PlainArray& arr)
-    {
-        dynState.flatten(arr);
+        return partc.particleNumber();
     }
     
-    /** @brief Load data from a plain array.
-     *  @param arr The plain array data.
-     */
-    void loadFlatten(PlainArray& arr)
-    {
-         dynState.loadFlatten(arr);
-    }
+    /**  @brief Physical time scalar const interface. Reference to state.time*/
+    inline const Scalar& time() const { return partc.time(); }
+    
+    /**  @brief Position array const interface. Reference to state.pos*/
+    inline const VectorArray& pos() const { return partc.pos(); }
+    
+    /**  @brief Velocity array const interface. Reference to state.vel*/
+    inline const VectorArray& vel() const { return partc.vel(); }
+    
+    /**  @brief Mass array const interface. Reference to attribute.mass.*/
+    inline const ScalarArray& mass() const { return partc.mass(); }
+    
+    /**  @brief Radius array const interface. Reference to attribute.radius.*/
+    inline const ScalarArray& radius() const { return partc.radius(); }
+    
+    /**  @brief Particle type array const interface. Reference to attribute.type.*/
+    inline const IntArray& type() const { return partc.type(); }
+    
+    /**  @brief Particle id array const interface. Reference to attribute.type.*/
+    inline const IntArray& idn() const { return partc.idn(); }
+    
+    /**  @brief Position vector const interface. Reference to state.pos[i]*/
+    inline const Vector& pos(size_t i) const { return partc.pos(i); }
+    
+    /**  @brief Velocity vecotr const interface. Reference to state.vel[i]*/
+    inline const Vector& vel(size_t i) const { return partc.vel(i); }
+    
+    /**  @brief Mass const interface. Reference to attribute.mass[i].*/
+    inline const Scalar& mass(size_t i) const { return partc.mass(i); }
+    
+    /**  @brief Radius const interface. Reference to attribute.radius[i].*/
+    inline const Scalar& radius(size_t i) const { return partc.radius(i); }
+    
+    /**  @brief Particle type const interface. Reference to attribute.type[i].*/
+    inline const int& type(size_t i) const { return partc.type(i); }
+    
+    /**  @brief Particle id const interface. Reference to attribute.type[i].*/
+    inline const int& idn(size_t i) const { return partc.idn(i); }
+
 
     /** @brief Interface to rescale the time.
      *
@@ -142,83 +101,68 @@ public:
         return scale;
     }
     
+    /** @brief Advance position one step with current velocity. */
+    void drift(Scalar stepSize)
+    {
+        partc.advancePos(partc.vel(), stepSize);
+        partc.advanceTime(stepSize);
+    }
+    
+    /** @brief Advance velocity one step with current acceleration. */
+    void kick(Scalar stepSize)
+    {
+        act.zeroTotalAcc();
+        
+        act.calInnerVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        
+        act.calInnerVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        
+        act.calOuterVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        
+        act.calOuterVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        
+        partc.advanceVel(act.totalAcc(), stepSize);
+    }
+    
     /** @brief Preprocess before iteration*/
-    void preIterProcess(){}
+    void preIterProcess() {}
     
     /** @brief After process after iteration*/
-    void afterIterProcess(){}
-    
-    /** @brief Output data to standard c++ ostream. */
-    std::ostream& write(std::ostream&)const;
-    
-    /** @brief Input data from standard c++ istream.*/
-    std::istream& read (std::istream&);
+    void afterIterProcess() {}
     
     /** @brief Virtualize default destructor.*/
     virtual ~particleSystem() {}
     
     /** @brief Overload operator << */
-    friend std::ostream& operator<<(std::ostream& output, const particleSystem& sys)
+    friend std::ostream& operator<<(std::ostream& os, const particleSystem& sys)
     {
-        return sys.write(output);
+        return os << sys.partc;
     }
     /** @brief Input from istream */
-    friend std::istream& operator>>(std::istream& input, particleSystem& sys)
+    friend std::istream& operator>>(std::istream& is, particleSystem& sys)
     {
-        return sys.read(input);
+        return is >> sys.partc;
+    }
+    
+    /** @brief Input variables with plain scalar array.*/
+    friend ActiveScalarArray& operator>>(ActiveScalarArray& data, particleSystem& sys)
+    {
+        return data >> sys.partc;
+    }
+    
+    /** @brief Output variables to plain scalar array.*/
+    friend ActiveScalarArray& operator<<(ActiveScalarArray& data, const particleSystem& sys)
+    {
+        return data << sys.partc;
     }
     
 protected:
-    /**  @brief Evolved variables class*/
-    EvolvedData dynState;
+    /**  @brief Particle class*/
+    Particles partc;
     
-    /**  @brief Acceleration array used to update velocity.*/
-    VectorArray acc;
-    
-    /**  @brief Mass array.*/
-    ScalarArray m;
-    
-    /**  @brief Radius array.*/
-    ScalarArray rad;
-    
-    /**  @brief Particle type array.*/
-    IndexArray tp;
+    /**  @brief Interaction class*/
+    Interaction act;
 };
 
-/** @brief Input data from standard c++ istream.
- *
- *  Implement of CRTP '>>' method.
- */
-template <typename EvolvedData>
-std::istream& particleSystem<EvolvedData>::read(std::istream& input)
-{
-    input >> dynState.time;
-    size_t id;
 
-    for(size_t i = 0 ; i < size() ; ++i)
-        input >> id >> tp[i] >> m[i] >> rad[i] >> dynState.pos[i] >> dynState.vel[i];
-
-    memset(&(this->acc[0]), 0, sizeof(Vector)*size());
-    dynState.moveToCentralMassCoords(m);
-    dynState.initAddiVariable(m);
-    return input;
-}
-
-/** @brief Output data to standard c++ ostream.
- *
- *  Implement of CRTP '<<' method.
- */
-template <typename EvolvedData>
-std::ostream& particleSystem<EvolvedData>::write(std::ostream& output) const
-{
-    output << "#" << size() << " " << time() << "\r\n";
-
-    for(size_t i = 0 ; i < size() ; ++i)
-    {
-        output << i << " " << tp[i] << " " << m[i] << " " << rad[i]
-                    << " " << dynState.pos[i]  << " " << dynState.vel[i]  << "\r\n";
-    }
-
-    return output;
-}
 #endif

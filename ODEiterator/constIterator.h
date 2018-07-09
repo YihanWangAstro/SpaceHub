@@ -16,7 +16,7 @@ template <typename ParticSys, typename Integrator>
 class constIterator
 {
 public:
-    typedef typename ParticSys::Scalar Scalar;
+    using Scalar =  typename ParticSys::Scalar;
     
     /** @brief interface to iterate particle system for one step
      *  @param particles  Particle system needs evolution.
@@ -24,11 +24,13 @@ public:
      *  @param stepLength Macro step length for iteration(Here, the step length of the integrator).
      *  @return step length for next iteration.
      */
-    Scalar iterate(ParticSys& particles, Integrator& integrator, Scalar stepLength)
+    Scalar iterate(ParticSys& particles, Scalar stepLength)
     {
         integrator.integrate(particles, stepLength);
         return stepLength;
     }
+private:
+    Integrator integrator;
 };
 
 #endif

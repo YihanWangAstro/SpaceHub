@@ -27,7 +27,7 @@
 /**
  *  @brief A wrapper to make particle system, integrator and ODE iterator work together.
 */
-template<typename ParticSys, typename Integrator, typename ODEiterator>
+template<typename ParticSys, typename ODEiterator>
 class dynamicSystem
 {
 public:
@@ -38,12 +38,12 @@ public:
 public:
     /** @brief Macro step size for ODE iterator*/
     double stepLength{0.0};
-
+    
+    /** @brief Steps*/
+    int steps{0};
+    
     /** @brief Particle system*/
     ParticSys particles;
-
-    /** @brief Integrator*/
-    Integrator integrator;
 
     /** @brief ODE Iterator*/
     ODEiterator iterator;
@@ -58,12 +58,13 @@ private:
  *   iterate the integrator to convergence by its own implement. The step length will also
  *   be updated by its own implement.
  */
-template<typename ParticSys, typename Integrator, typename ODEiterator>
-inline void dynamicSystem<ParticSys, Integrator, ODEiterator>::advanceOneStep()
+template<typename ParticSys, typename ODEiterator>
+inline void dynamicSystem<ParticSys, ODEiterator>::advanceOneStep()
 {
     particles.preIterProcess();
-    stepLength = iterator.iterate(particles, integrator, stepLength);
+    stepLength = iterator.iterate(particles, stepLength);
     particles.afterIterProcess();
+    steps++;
 }
 
 /**  @brief Calculate the initial step length of the particle system
@@ -72,13 +73,14 @@ inline void dynamicSystem<ParticSys, Integrator, ODEiterator>::advanceOneStep()
  *   step length automatically.
  *
  */
-template<typename ParticSys, typename Integrator, typename ODEiterator>
-void dynamicSystem<ParticSys, Integrator, ODEiterator>::getInitStepLength()
+template<typename ParticSys, typename ODEiterator>
+void dynamicSystem<ParticSys, ODEiterator>::getInitStepLength()
 {
     if(stepLength == 0.0)
     {
         stepLength = 0.1 * YEAR * particles.timeScale(1);
     }
+    steps = 0;
 }
 
 
@@ -94,8 +96,8 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::getInitStepLength()
  *   @exception If the partcile number in the header is inconsisitent with the size of
  *              particles, this function will throw an exception.
  */
-template<typename ParticSys, typename Integrator, typename ODEiterator>
-void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* initFilePath)
+template<typename ParticSys, typename ODEiterator>
+void dynamicSystem<ParticSys, ODEiterator>::loadText(char const* initFilePath)
 {
     std::ifstream inFile(initFilePath);
 
@@ -105,13 +107,13 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* ini
         size_t num;
         inFile >> head >> num;
 
-        if(head == '#' && num == particles.size())
+        if(head == '#' && num == particles.particleNumber())
         {
             inFile >> particles;
         }
         else
         {
-            std::cout << num << ' ' <<particles.size() << '\n';
+            std::cout << num << ' ' <<particles.particleNumber() << '\n';
             throw errhand("Particle number dismatch or wrong initial file header format!", __FILE__, __LINE__);
         }
     }
@@ -123,8 +125,8 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::loadText(char const* ini
 }
 
 /**  @brief Set the step length*/
-template<typename ParticSys, typename Integrator, typename ODEiterator>
-void dynamicSystem<ParticSys, Integrator, ODEiterator>::setStepLength(double stepSize)
+template<typename ParticSys, typename ODEiterator>
+void dynamicSystem<ParticSys, ODEiterator>::setStepLength(double stepSize)
 {
     stepLength = stepSize;
 }
@@ -133,6 +135,6 @@ void dynamicSystem<ParticSys, Integrator, ODEiterator>::setStepLength(double ste
 template<typename ParticSys,
          template<typename> class Integrator,
          template<typename, typename> class ODEiterator>
-using spaceX = dynamicSystem<ParticSys, Integrator<ParticSys>, ODEiterator<ParticSys, Integrator<ParticSys>>>;
+using spaceX = dynamicSystem<ParticSys, ODEiterator<ParticSys, Integrator<ParticSys>>>;
 #endif
 
