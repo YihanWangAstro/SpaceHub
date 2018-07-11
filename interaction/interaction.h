@@ -50,122 +50,132 @@ public:
     const VectorArray& acc() {std::cout << "unaccessible data!" << "\r\n"; }
     
     const Vector& acc(size_t i) {std::cout << "unaccessible data!" << "\r\n"; }
+    
+    constexpr static bool isVelDep{false};
 };
 
     
-template<typename InVelIndep, typename InVelDep, typename OutVelIndep, typename OutVelDep>
+template<typename VelIndep, typename VelDep, typename ExtVelIndep, typename ExtVelDep>
 class Interaction
 {
 public:
     /* Typedef */
     template<typename T, size_t S>
-    using Container   = typename InVelIndep::template Container<T, S>;
+    using Container   = typename VelIndep::template Container<T, S>;
     
-    using Scalar      = typename InVelIndep::Scalar;
+    using Scalar      = typename VelIndep::Scalar;
     
-    using Vector      = typename InVelIndep::Vector;
+    using Vector      = typename VelIndep::Vector;
     
-    using VectorArray = typename InVelIndep::VectorArray;
+    using VectorArray = typename VelIndep::VectorArray;
     
-    using ScalarArray = typename InVelIndep::ScalarArray;
+    using ScalarArray = typename VelIndep::ScalarArray;
     
-    using IntArray    = typename InVelIndep::IntArray;
+    using IntArray    = typename VelIndep::IntArray;
     
-    using SizeArray   = typename InVelIndep::SizeArray;
+    using SizeArray   = typename VelIndep::SizeArray;
     
-    constexpr static size_t arraySize{InVelIndep::arraySize};
+    constexpr static size_t arraySize{VelIndep::arraySize};
     /* Typedef */
     
-    void calInnerVelIndepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
+    constexpr static bool isVelDep{ VelDep::isVelDep || ExtVelDep::isVelDep };
+    
+    void calcuVelIndepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
     {
-        iVelIndepAcc(mass, pos, vel);
-        iVelIndepAcc.addTotal(acc);
+        vel_indep_(mass, pos, vel);
     }
     
-    void calInnerVelDepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
+    void calcuVelDepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
     {
-        iVelDepAcc(mass, pos, vel);
-        iVelDepAcc.addTotal(acc);
+        vel_dep_(mass, pos, vel);
     }
     
-    void calOuterVelIndepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
+    void calcuExtVelIndepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
     {
-        oVelIndepAcc(mass, pos, vel);
-        oVelIndepAcc.addTotal(acc);
+        ext_vel_indep_(mass, pos, vel);
     }
     
-    void calOuterVelDepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel )
+    void calcuExtVelDepAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel )
     {
-        oVelDepAcc(mass, pos, vel);
-        oVelDepAcc.addTotal(acc);
+        ext_vel_dep_(mass, pos, vel);
     }
     
     const VectorArray& totalAcc()
     {
-        return acc;
+        return acc_;
     }
     
     const Vector& totalAcc(size_t i)
     {
-        return acc[i];
+        return acc_[i];
     }
     
-    const VectorArray& innerVelIndepAcc()
+    const VectorArray& velIndepAcc()
     {
-        return iVelIndepAcc.acc();
+        return vel_indep_.acc();
     }
     
-    const VectorArray& innerVelDepAcc()
+    const VectorArray& velDepAcc()
     {
-        return iVelDepAcc.acc();
+        return vel_dep_.acc();
     }
     
-    const VectorArray& outerVelIndepAcc()
+    const VectorArray& extVelIndepAcc()
     {
-        return oVelIndepAcc.acc();
+        return ext_vel_indep_.acc();
     }
     
-    const VectorArray& outerVelDepAcc()
+    const VectorArray& extVelDepAcc()
     {
-        return oVelDepAcc.acc();
+        return ext_vel_dep_.acc();
     }
     
-    const Vector& innerVelIndepAcc(size_t i)
+    const Vector& velIndepAcc(size_t i)
     {
-        return iVelIndepAcc.acc(i);
+        return vel_indep_.acc(i);
     }
     
-    const Vector& innerVelDepAcc(size_t i)
+    const Vector& velDepAcc(size_t i)
     {
-        return iVelDepAcc.acc(i);
+        return vel_dep_.acc(i);
     }
     
-    const Vector& outerVelIndepAcc(size_t i)
+    const Vector& extVelIndepAcc(size_t i)
     {
-        return oVelIndepAcc.acc(i);
+        return ext_vel_indep_.acc(i);
     }
     
-    const Vector& outerVelDepAcc(size_t i)
+    const Vector& extVelDepAcc(size_t i)
     {
-        return oVelDepAcc.acc(i);
+        return ext_vel_dep_.acc(i);
     }
     
     void zeroTotalAcc()
     {
-        for(size_t i = 0 ; i < acc.size() ; ++i)
-            acc[i].setZero();
+        for(size_t i = 0 ; i < acc_.size() ; ++i)
+            acc_[i].setZero();
     }
     
+    void calcuTotalAcc()
+    {
+        acc_ = vel_indep_.acc();
+        
+        vel_dep_.addTotal(acc_);
+        
+        ext_vel_indep_.addTotal(acc_);
+        
+        ext_vel_dep_.addTotal(acc_);
+    }
 private:
-    VectorArray acc;
+    VectorArray acc_;
     
-    InVelIndep  iVelIndepAcc;
+    VelIndep    vel_indep_;
     
-    InVelDep    iVelDepAcc;
+    VelDep      vel_dep_;
     
-    OutVelIndep oVelIndepAcc;
+    ExtVelIndep ext_vel_indep_;
     
-    OutVelDep   oVelDepAcc;
+    ExtVelDep   ext_vel_dep_;
 };
 
 template<typename Dtype, size_t ArraySize>
@@ -193,6 +203,8 @@ public:
     constexpr static size_t arraySize{Base::arraySize};
     /* Typedef */
     
+    constexpr static bool isVelDep{false};
+    
     void operator()(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
     {
         Vector dr(0.0, 0.0, 0.0);
@@ -200,7 +212,7 @@ public:
         Scalar inv_r3 = 1;
         size_t size = mass.size();
         
-        memset(&(newtonAcc[0]), 0, sizeof(Vector)*size);
+        memset(&(newton_acc_[0]), 0, sizeof(Vector)*size);
         
         for(size_t i = 0 ; i < size ; ++i)
         {
@@ -209,8 +221,8 @@ public:
                 dr     = pos[j] - pos[i];
                 inv_r  = dr.reNorm();
                 inv_r3 = inv_r * inv_r * inv_r;
-                newtonAcc[i] += dr * (inv_r3 * mass[j]);
-                newtonAcc[j] -= dr * (inv_r3 * mass[i]);
+                newton_acc_[i] += dr * (inv_r3 * mass[j]);
+                newton_acc_[j] -= dr * (inv_r3 * mass[i]);
             }
         }
     }
@@ -219,21 +231,15 @@ public:
     {
         for(size_t i = 0 ; i < totAcc.size() ;++i)
         {
-            totAcc[i] += newtonAcc[i];
+            totAcc[i] += newton_acc_[i];
         }
     }
         
-    const VectorArray& acc()
-    {
-        return newtonAcc;
-    }
+    const VectorArray& acc() { return newton_acc_; }
     
-    const Vector& acc(size_t i)
-    {
-        return newtonAcc[i];
-    }
+    const Vector& acc(size_t i) { return newton_acc_[i]; }
 private:
-    VectorArray newtonAcc;
+    VectorArray newton_acc_;
 };
     
 /** @brief Post newtonian pair interaction functor(c++ std11)*/

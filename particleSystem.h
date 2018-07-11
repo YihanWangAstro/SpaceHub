@@ -40,7 +40,7 @@ public:
     using ActiveScalarArray = typename Particles::ActiveScalarArray;
     /* Typedef */
     
-    constexpr static size_t ArraySize{Particles::arraySize};
+    constexpr static size_t arraySize{Particles::arraySize};
     
     /** @brief Get the number of the particles.
      *  @return The particle number.
@@ -113,15 +113,10 @@ public:
     {
         act.zeroTotalAcc();
         
-        act.calInnerVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuExtVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
         
-        act.calInnerVelDepAcc(partc.mass(), partc.pos(), partc.vel());
-        
-        act.calOuterVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
-        
-        act.calOuterVelDepAcc(partc.mass(), partc.pos(), partc.vel());
-        
-        partc.advanceVel(act.totalAcc(), stepSize);
+        advanceVels<Interaction::isVelDep>(stepSize);
     }
     
     /** @brief Preprocess before iteration*/
@@ -162,6 +157,38 @@ protected:
     
     /**  @brief Interaction class*/
     Interaction act;
+    
+private:
+    template<bool isVelDep>
+    inline typename std::enable_if<isVelDep==false>::type
+    advanceVels(Scalar stepSize)
+    {
+        act.calcuTotalAcc();
+        partc.advanceVel(act.totalAcc(), stepSize);
+    }
+    
+    template<bool isVelDep>
+    inline typename std::enable_if<isVelDep==true>::type
+    advanceVels(Scalar stepSize)
+    {
+        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        
+        act.calcuTotalAcc();
+        partc.advanceAuxiVel(act.totalAcc(), stepSize*0.5);
+        
+        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
+        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
+        
+        act.calcuTotalAcc();
+        partc.advanceVel(act.totalAcc(), stepSize);
+        
+        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        
+        act.calcuTotalAcc();
+        partc.advanceAuxiVel(act.totalAcc(), stepSize*0.5);
+    }
 };
 
 

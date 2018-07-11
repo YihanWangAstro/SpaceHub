@@ -6,6 +6,7 @@
 using namespace std::chrono;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> resolutionClock;
 
+using scalar = double;
 int main(int argc, char**argv)
 {
     //std::cout << std::scientific << std::setprecision(16);// << nbody.particles;
@@ -16,12 +17,13 @@ int main(int argc, char**argv)
     //spaceX<NewtonianSystem<2>, symplectic2th, BSIterator> nbody;
     //using type  = typeSet::type<double,2>;
     
-    using particle = particles<double,2>;
-    using force = interact::NewtonGrav<double,2>;
-    using no = interact::Empty<double,2>;
+    using particle = ReguParticles<scalar,2>;
+    using force = interact::NewtonGrav<scalar,2>;
+    using no = interact::Empty<scalar,2>;
     using interaction = interact::Interaction<force,no,no,no>;
     
-    using ps = particleSystem<particle, interaction>;
+    using regu = logH<particle>;
+    using ps = ReguSystem<particle, interaction, regu>;
     
     using integ = symplectic2th<ps>;
     using it = BSIterator<ps,integ>;
@@ -32,11 +34,11 @@ int main(int argc, char**argv)
     
     ds nbody;
     
-    nbody.loadText("kepler0.init");
+    nbody.loadText("kepler.init");
   
-    nbody.setStepLength(0.001*YEAR);
+    nbody.setStepLength(0.01*YEAR);
     
-    //nbody.iterator.setRelativeError(1e-15);
+   // nbody.iterator.setRelativeError(1e-6);
 
     double timeLimit = 1000*YEAR;
     double dt = 1*YEAR;
@@ -62,7 +64,7 @@ int main(int argc, char**argv)
     {
         nbody.advanceOneStep();
         //std::cout << nbody.particles.time << '\n';
-        if(nbody.particles.time() > tout)
+        /*if(nbody.particles.time() > tout)
         {
             os  << nbody.particles;
             eos << nbody.particles.time()/YEAR << ' '
@@ -72,7 +74,7 @@ int main(int argc, char**argv)
             << nbody.stepLength << "\r\n";
                 //<< nbody.iterator.iterDepth << "\r\n";
             tout += dt;
-        }
+        }*/
     }
    // std::cout << nbody.steps << '\n';
     now           = high_resolution_clock::now();

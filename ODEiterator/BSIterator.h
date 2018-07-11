@@ -43,7 +43,7 @@ public:
         absoluteError = absError;
     }
     
-public:
+private:
     /** @brief The Maximum iteration depth*/
     static const size_t MaxDepth{8};
     
