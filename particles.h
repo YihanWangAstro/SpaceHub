@@ -201,10 +201,10 @@ public:
     
 protected:
     /** @brief Position array of the particles. Element is 3D vector.*/
-    DynVectorArray pos_;
+    VectorArray pos_;
     
     /** @brief Velocity array of the particles. Element is 3D vector.*/
-    DynVectorArray vel_;
+    VectorArray vel_;
     
     /** @brief Mass array of the particles. Element is Scalar.*/
     ScalarArray mass_;
@@ -219,7 +219,7 @@ protected:
     IntArray idn_;
     
     /** @brief The physical time of the dynamic system*/
-    DynScalar time_;
+    Scalar time_;
     
     /** @brief The total mass of the system*/
     Scalar totalMass_;

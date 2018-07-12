@@ -46,7 +46,7 @@ public:
     inline void advanceOmega(const VectorArray& velIndepAcc, const VectorArray& vel, Scalar stepSize)
     {
         size_t size = this->particleNumber();
-        Scalar dOmega{0};
+        Scalar dOmega = 0;
         
         for(size_t i = 0 ; i < size ; ++i)
             dOmega += (velIndepAcc[i] * vel[i]) * (this->mass_[i]);
@@ -62,7 +62,7 @@ public:
     inline void advanceBindE(const VectorArray& velDepAcc, const VectorArray& vel, Scalar stepSize)
     {
         size_t particleNum = this->partc.particleNumber();
-        Scalar dBindE{0};
+        Scalar dBindE = 0;
         
         for(size_t i = 0 ; i < particleNum ; ++i)
             dBindE -= (velDepAcc[i] * vel[i]) * (this->mass_[i]);

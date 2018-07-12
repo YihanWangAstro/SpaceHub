@@ -86,8 +86,8 @@ void KahanAdvance(Scalar& var, const Scalar increase, Scalar& err)
     var = sum;
 }
 
-template<typename Scalar>
-inline void advanceScalar(Scalar& var, Scalar increase)
+template<typename Scalar1,typename Scalar2>
+inline void advanceScalar(Scalar1& var, Scalar2 increase)
 {
     var += increase;
 }

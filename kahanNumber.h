@@ -16,9 +16,13 @@ struct kahan
 {
 public:
     using value_type = T;
+    
     T real, err;
+    
     kahan() {};
-    kahan(T r) : real(r) {};
+    
+    kahan(T r) : real(r), err(0) {};
+    
     kahan(const kahan& k) : real(k.real), err(k.err){};
     
     inline const kahan& operator=( const kahan& hs)
@@ -32,32 +36,16 @@ public:
         return real;
     }
     
+    inline operator T() const
+    {
+        return real;
+    }
+    
     inline void zeroErr()
     {
         err = 0;
     }
     
-    /** @brief Addition by wise */
-    friend inline kahan operator+(const kahan& lhs, const kahan& rhs)
-    {
-        return kahan(lhs.real + rhs.real);
-    }
-    /** @brief Subtraction by wise */
-    friend inline kahan operator-(const kahan& lhs, const kahan& rhs)
-    {
-        return kahan(lhs.real - rhs.real);
-    }
-    /** @brief Multiply by wise */
-    friend inline kahan operator*(const kahan& lhs, const kahan& rhs)
-    {
-        return kahan(lhs.real * rhs.real);
-    }
-    /** @brief Divition by wise */
-    friend inline kahan operator/(const kahan& lhs, const kahan& rhs)
-    {
-        return kahan(lhs.real / rhs.real);
-    }
-    /** @brief Opposite vector */
     friend inline kahan operator-(const kahan& hs)
     {
         return kahan(-hs.real);
@@ -67,7 +55,9 @@ public:
     {
         T add = rhs.real - lhs.err;
         T sum = lhs.real + add;
+        
         lhs.err = (sum - lhs.real) - add;
+            
         lhs.real = sum;
         return lhs;
     }
@@ -75,7 +65,9 @@ public:
     {
         T add = -rhs.real - lhs.err;
         T sum = lhs.real + add;
+        
         lhs.err = (sum - lhs.real) - add;
+        
         lhs.real = sum;
         return lhs;
     }
@@ -91,36 +83,6 @@ public:
         return lhs;
     }
     
-    friend inline bool operator==(const kahan& lhs, const kahan& rhs)
-    {
-        return lhs.real == rhs.real;
-    }
-    
-    friend inline bool operator!=(const kahan& lhs, const kahan& rhs)
-    {
-        return lhs.real != rhs.real;
-    }
-    
-    friend inline bool operator>=(const kahan& lhs, const kahan& rhs)
-    {
-        return lhs.real >= rhs.real;
-    }
-    
-    friend inline bool operator<=(const kahan& lhs, const kahan& rhs)
-    {
-        return lhs.real <= rhs.real;
-    }
-    
-    friend inline bool operator>(const kahan& lhs, const kahan& rhs)
-    {
-        return lhs.real > rhs.real;
-    }
-    
-    friend inline bool operator<(const kahan& lhs, const kahan& rhs)
-    {
-        return lhs.real < rhs.real;
-    }
-    
     /** @brief Output to ostream */
     friend std::ostream& operator<<(std::ostream& output, const kahan& v)
     {
@@ -134,6 +96,6 @@ public:
         return input;
     }
 };
-
+    
 }
 #endif /* kahanNumber_h */

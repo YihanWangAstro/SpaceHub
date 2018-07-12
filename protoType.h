@@ -46,7 +46,7 @@ namespace SpaceH
         template<typename T, size_t S>
         using Container      = ArrayWrapper<T, S>;
         
-        using Scalar         = get_value_type<Dtype>::type;
+        using Scalar         = Dtype;
     
         using Vector         = vec3<Scalar>;
     
@@ -57,14 +57,6 @@ namespace SpaceH
         using IntArray       = Container<int, Size>;
     
         using SizeArray      = Container<size_t, Size>;
-        
-        using DynScalar      = Dtype;
-        
-        using DynVector      = vec3<DynScalar>;
-        
-        using DynVectorArray = Container<DynVector, Size>;
-        
-        using DynScalarArray = Container<DynScalar, Size>;
     };
 }
 

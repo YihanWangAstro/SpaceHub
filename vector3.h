@@ -36,22 +36,22 @@ public:
         return vec3(x / v.x, y / v.y, z / v.z);
     }
     /** @brief Add scalar by wise */
-    inline vec3 operator+(const double c) const
+    inline vec3 operator+(const T c) const
     {
         return vec3(x + c, y + c, z + c);
     }
     /** @brief Subtract scalar by wise */
-    inline vec3 operator-(const double c) const
+    inline vec3 operator-(const T c) const
     {
         return vec3(x - c, y - c, z - c);
     }
     /** @brief Multiply scalar by wise */
-    inline vec3 operator*(const double c) const
+    inline vec3 operator*(const T c) const
     {
         return vec3(x * c, y * c, z * c);
     }
     /** @brief Divide scalar by wise */
-    inline vec3 operator/(const double c) const
+    inline vec3 operator/(const T c) const
     {
         return vec3(x / c, y / c, z / c);
     }
@@ -85,22 +85,22 @@ public:
         x /= v.x, y /= v.y, z /= v.z;
         return *this;
     }
-    inline const vec3& operator+=(const double c)
+    inline const vec3& operator+=(const T c)
     {
         x += c, y += c, z += c;
         return *this;
     }
-    inline const vec3& operator-=(const double c)
+    inline const vec3& operator-=(const T c)
     {
         x -= c, y -= c, z -= c;
         return *this;
     }
-    inline const vec3& operator*=(const double c)
+    inline const vec3& operator*=(const T c)
     {
         x *= c, y *= c, z *= c;
         return *this;
     }
-    inline const vec3& operator/=(const double c)
+    inline const vec3& operator/=(const T c)
     {
         x /= c, y /= c, z /= c;
         return *this;
@@ -111,22 +111,22 @@ public:
         return *this;
     }
     /** @brief Inner product */
-    inline double operator*(const vec3& v) const
+    inline T operator*(const vec3& v) const
     {
         return x * v.x + y * v.y + z * v.z;
     }
     /** @brief Calculate the norm */
-    inline double norm() const
+    inline T norm() const
     {
         return sqrt(x * x + y * y + z * z);
     }
     /** @brief Calcualte the square of the norm */
-    inline double normSquare() const
+    inline T normSquare() const
     {
         return (x * x + y * y + z * z);
     }
     /** @brief Calculate the inverse of the norm */
-    inline double reNorm() const
+    inline T reNorm() const
     {
         return 1.0 / sqrt(x * x + y * y + z * z);
     }
@@ -134,15 +134,15 @@ public:
     {
         x = y = z = 0;
     }
-    friend vec3 operator+(const double c, const vec3& v)
+    friend vec3 operator+(const T c, const vec3& v)
     {
         return vec3(v.x + c, v.y + c, v.z + c);
     }
-    friend vec3 operator-(const double c, const vec3& v)
+    friend vec3 operator-(const T c, const vec3& v)
     {
         return vec3(c - v.x, c - v.y, c - v.z);
     }
-    friend vec3 operator*(const double c, const vec3& v)
+    friend vec3 operator*(const T c, const vec3& v)
     {
         return vec3(v.x * c, v.y * c, v.z * c);
     }
