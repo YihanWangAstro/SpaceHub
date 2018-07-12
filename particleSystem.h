@@ -22,25 +22,27 @@ class particleSystem
 {
 public:
     /* Typedef */
+    using type = typename Particles::type;
+    
     template<typename T, size_t S>
-    using Container   = typename Particles::template Container<T, S>;
+    using Container   = typename type::template Container<T, S>;
     
-    using Scalar      = typename Particles::Scalar;
+    using Scalar      = typename type::Scalar;
     
-    using Vector      = typename Particles::Vector;
+    using Vector      = typename type::Vector;
     
-    using VectorArray = typename Particles::VectorArray;
+    using VectorArray = typename type::VectorArray;
     
-    using ScalarArray = typename Particles::ScalarArray;
+    using ScalarArray = typename type::ScalarArray;
     
-    using IntArray    = typename Particles::IntArray;
+    using IntArray    = typename type::IntArray;
     
-    using SizeArray   = typename Particles::SizeArray;
+    using SizeArray   = typename type::SizeArray;
     
     using ActiveScalarArray = typename Particles::ActiveScalarArray;
     /* Typedef */
     
-    constexpr static size_t arraySize{Particles::arraySize};
+    constexpr static size_t arraySize{type::arraySize};
     
     /** @brief Get the number of the particles.
      *  @return The particle number.
@@ -66,7 +68,7 @@ public:
     inline const ScalarArray& radius() const { return partc.radius(); }
     
     /**  @brief Particle type array const interface. Reference to attribute.type.*/
-    inline const IntArray& type() const { return partc.type(); }
+    inline const IntArray& kind() const { return partc.type(); }
     
     /**  @brief Particle id array const interface. Reference to attribute.type.*/
     inline const IntArray& idn() const { return partc.idn(); }
@@ -84,7 +86,7 @@ public:
     inline const Scalar& radius(size_t i) const { return partc.radius(i); }
     
     /**  @brief Particle type const interface. Reference to attribute.type[i].*/
-    inline const int& type(size_t i) const { return partc.type(i); }
+    inline const int& kind(size_t i) const { return partc.type(i); }
     
     /**  @brief Particle id const interface. Reference to attribute.type[i].*/
     inline const int& idn(size_t i) const { return partc.idn(i); }
@@ -159,6 +161,7 @@ protected:
     Interaction act;
     
 private:
+    /** @brief SFINAE version of kick() of velocity independent force */
     template<bool isVelDep>
     inline typename std::enable_if<isVelDep==false>::type
     advanceVels(Scalar stepSize)
@@ -167,6 +170,7 @@ private:
         partc.advanceVel(act.totalAcc(), stepSize);
     }
     
+    /** @brief SFINAE version of kick() of velocity dependent force */
     template<bool isVelDep>
     inline typename std::enable_if<isVelDep==true>::type
     advanceVels(Scalar stepSize)

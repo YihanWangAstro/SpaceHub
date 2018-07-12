@@ -19,27 +19,18 @@ constexpr double INV_C4 = INV_C3 * INV_C;
 constexpr double INV_C5 = INV_C4 * INV_C;
     
 template<typename Dtype, size_t ArraySize>
-struct Empty : public type::ProtoType<Dtype, ArraySize>
+struct Empty
 {
-    using Base = type::ProtoType<Dtype, ArraySize>;
-    
     /* Typedef */
-    template<typename T, size_t S>
-    using Container   = typename Base::template Container<T, S>;
+    using type = SpaceH::ProtoType<Dtype, ArraySize>;
     
-    using Scalar      = typename Base::Scalar;
+    using Scalar = typename type::Scalar;
     
-    using Vector      = typename Base::Vector;
+    using Vector = typename type::Vector;
     
-    using VectorArray = typename Base::VectorArray;
+    using VectorArray = typename type::VectorArray;
     
-    using ScalarArray = typename Base::ScalarArray;
-    
-    using IntArray    = typename Base::IntArray;
-    
-    using SizeArray   = typename Base::SizeArray;
-    
-    constexpr static size_t arraySize{Base::arraySize};
+    using ScalarArray = typename type::ScalarArray;
     /* Typedef */
     
 public:
@@ -60,22 +51,15 @@ class Interaction
 {
 public:
     /* Typedef */
-    template<typename T, size_t S>
-    using Container   = typename VelIndep::template Container<T, S>;
+    using type = typename VelIndep::type;
     
-    using Scalar      = typename VelIndep::Scalar;
+    using Scalar = typename type::Scalar;
     
-    using Vector      = typename VelIndep::Vector;
+    using Vector = typename type::Vector;
     
-    using VectorArray = typename VelIndep::VectorArray;
+    using VectorArray = typename type::VectorArray;
     
-    using ScalarArray = typename VelIndep::ScalarArray;
-    
-    using IntArray    = typename VelIndep::IntArray;
-    
-    using SizeArray   = typename VelIndep::SizeArray;
-    
-    constexpr static size_t arraySize{VelIndep::arraySize};
+    using ScalarArray = typename type::ScalarArray;
     /* Typedef */
     
     constexpr static bool isVelDep{ VelDep::isVelDep || ExtVelDep::isVelDep };
@@ -179,28 +163,19 @@ private:
 };
 
 template<typename Dtype, size_t ArraySize>
-class NewtonGrav : public type::ProtoType<Dtype, ArraySize>
+class NewtonGrav
 {
 public:
     /* Typedef */
-    using Base = type::ProtoType<Dtype, ArraySize>;
+    using type = SpaceH::ProtoType<Dtype, ArraySize>;
     
-    template<typename T, size_t S>
-    using Container   = typename Base::template Container<T, S>;
+    using Scalar = typename type::Scalar;
     
-    using Scalar      = typename Base::Scalar;
+    using Vector = typename type::Vector;
     
-    using Vector      = typename Base::Vector;
+    using VectorArray = typename type::VectorArray;
     
-    using VectorArray = typename Base::VectorArray;
-    
-    using ScalarArray = typename Base::ScalarArray;
-    
-    using IntArray    = typename Base::IntArray;
-    
-    using SizeArray   = typename Base::SizeArray;
-    
-    constexpr static size_t arraySize{Base::arraySize};
+    using ScalarArray = typename type::ScalarArray;
     /* Typedef */
     
     constexpr static bool isVelDep{false};

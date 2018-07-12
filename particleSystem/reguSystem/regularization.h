@@ -20,23 +20,11 @@ class logH
 {
 public:
     /* Typedef */
-    template<typename T, size_t S>
-    using Container   = typename Particles::template Container<T, S>;
+    using type   = typename Particles::type;
     
-    using Scalar      = typename Particles::Scalar;
-    
-    using Vector      = typename Particles::Vector;
-    
-    using VectorArray = typename Particles::VectorArray;
-    
-    using ScalarArray = typename Particles::ScalarArray;
-    
-    using IntArray    = typename Particles::IntArray;
-    
-    using SizeArray   = typename Particles::SizeArray;
+    using Scalar = typename type::Scalar;
     /* Typedef */
-    
-    constexpr static size_t arraySize{Particles::arraySize};
+
 
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
@@ -72,23 +60,10 @@ class TTL
 {
 public:
     /* Typedef */
-    template<typename T, size_t S>
-    using Container   = typename Particles::template Container<T, S>;
+    using type   = typename Particles::type;
     
-    using Scalar      = typename Particles::Scalar;
-    
-    using Vector      = typename Particles::Vector;
-    
-    using VectorArray = typename Particles::VectorArray;
-    
-    using ScalarArray = typename Particles::ScalarArray;
-    
-    using IntArray    = typename Particles::IntArray;
-    
-    using SizeArray   = typename Particles::SizeArray;
+    using Scalar = typename type::Scalar;
     /* Typedef */
-    
-    constexpr static size_t arraySize{Particles::arraySize};
 
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.
@@ -124,23 +99,10 @@ class NoRegu
 {
 public:
     /* Typedef */
-    template<typename T, size_t S>
-    using Container   = typename Particles::template Container<T, S>;
+    using type   = typename Particles::type;
     
-    using Scalar      = typename Particles::Scalar;
-    
-    using Vector      = typename Particles::Vector;
-    
-    using VectorArray = typename Particles::VectorArray;
-    
-    using ScalarArray = typename Particles::ScalarArray;
-    
-    using IntArray    = typename Particles::IntArray;
-    
-    using SizeArray   = typename Particles::SizeArray;
+    using Scalar = typename type::Scalar;
     /* Typedef */
-    
-    constexpr static size_t arraySize{Particles::arraySize};
 
     /** @brief Calculate the physical time for position advance from integration step size
      *  @param mass     Array of particle mass.

@@ -8,29 +8,27 @@
  *
  */
 template<typename Dtype, size_t ArraySize>
-class particles : public type::ProtoType<Dtype, ArraySize>
+class particles
 {
 public:
     /* Typedef */
-    using Base = type::ProtoType<Dtype, ArraySize>;
+    using type = SpaceH::ProtoType<Dtype, ArraySize>;
     
     template<typename T, size_t S>
-    using Container   = typename Base::template Container<T, S>;
+    using Container = typename type::template Container<T, S>;
     
-    using Scalar      = typename Base::Scalar;
+    using Scalar = typename type::Scalar;
     
-    using Vector      = typename Base::Vector;
+    using Vector = typename type::Vector;
     
-    using VectorArray = typename Base::VectorArray;
+    using VectorArray = typename type::VectorArray;
     
-    using ScalarArray = typename Base::ScalarArray;
+    using ScalarArray = typename type::ScalarArray;
     
-    using IntArray    = typename Base::IntArray;
-    
-    using SizeArray   = typename Base::SizeArray;
+    using IntArray = typename type::IntArray;
     /* Typedef */
     
-    constexpr static size_t activeScalar{6*Base::arraySize + 1};
+    constexpr static size_t activeScalar{6*type::arraySize + 1};
     
     using ActiveScalarArray = Container<Scalar, activeScalar>;
     
@@ -58,7 +56,7 @@ public:
     inline const ScalarArray& radius() const { return radius_; }
     
     /**  @brief Particle type array const interface. Reference to attribute.type.*/
-    inline const IntArray& type() const { return type_; }
+    inline const IntArray& kind() const { return type_; }
     
     /**  @brief Particle id array const interface. Reference to attribute.type.*/
     inline const IntArray& idn() const { return idn_; }
@@ -76,7 +74,7 @@ public:
     inline const Scalar& radius(size_t i) const { return radius_[i]; }
     
     /**  @brief Particle type const interface. Reference to attribute.type[i].*/
-    inline const int& type(size_t i) const { return type_[i]; }
+    inline const int& kind(size_t i) const { return type_[i]; }
     
     /**  @brief Particle id const interface. Reference to attribute.type[i].*/
     inline const int& idn(size_t i) const { return idn_[i]; }
@@ -203,10 +201,10 @@ public:
     
 protected:
     /** @brief Position array of the particles. Element is 3D vector.*/
-    VectorArray pos_;
+    DynVectorArray pos_;
     
     /** @brief Velocity array of the particles. Element is 3D vector.*/
-    VectorArray vel_;
+    DynVectorArray vel_;
     
     /** @brief Mass array of the particles. Element is Scalar.*/
     ScalarArray mass_;
@@ -221,7 +219,7 @@ protected:
     IntArray idn_;
     
     /** @brief The physical time of the dynamic system*/
-    Scalar time_;
+    DynScalar time_;
     
     /** @brief The total mass of the system*/
     Scalar totalMass_;

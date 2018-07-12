@@ -16,7 +16,8 @@ template <typename ParticSys, typename Integrator>
 class constIterator
 {
 public:
-    using Scalar =  typename ParticSys::Scalar;
+    using type = typename ParticSys::type;
+    using Scalar = typename type::Scalar;
     
     /** @brief interface to iterate particle system for one step
      *  @param particles  Particle system needs evolution.

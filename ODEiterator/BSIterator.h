@@ -15,13 +15,14 @@
 template <typename ParticSys, typename Integrator>
 class BSIterator
 {
-    
 public:
+    using type   = typename ParticSys::type;
+    using Scalar = typename type::Scalar;
+    
     using ActiveScalarArray = typename ParticSys::ActiveScalarArray;
-    using Scalar            = typename ParticSys::Scalar;
     
     template<typename T, size_t S>
-    using Container = typename ParticSys::template Container<T, S>;
+    using Container = typename type::template Container<T, S>;
 
     /** @brief Constructor for initializing cost, nSteps, fmin and CC*/
     BSIterator();
@@ -144,8 +145,7 @@ BSIterator<ParticSys, Integrator>::BSIterator()
  *  @return The next macro integration step length.
  */
 template <typename ParticSys, typename Integrator>
-typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys& particles,
-        Scalar stepLength)
+typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::iterate(ParticSys& particles, Scalar stepLength)
 {
     Scalar error  = 0;
     Scalar H      = stepLength;
@@ -251,7 +251,7 @@ void BSIterator<ParticSys, Integrator>::extrapolate(size_t k)
  *  @param k The kth row of extrapolation table.
  */
 template <typename ParticSys, typename Integrator>
-typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getError(size_t k) const
+typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::getError(size_t k) const
 {
     if(k != 0)
     {
@@ -282,7 +282,7 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getError(size_t k)
  *  @return The new iteration integration step length coefficient.
  */
 template <typename ParticSys, typename Integrator>
-typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getTimeStepCoef(Scalar error, size_t k)
+typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::getTimeStepCoef(Scalar error, size_t k)
 {
     if(error != 0)
         return max(fmin[k] / s4, min( s1 * pow(s2 / error, 1.0 / (2 * k + 1)), 1.0 / fmin[k]));
@@ -296,7 +296,7 @@ typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::getTimeStepCoef(Sc
  *  @return The new iteration step length.
  */
 template <typename ParticSys, typename Integrator>
-typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::prepareForNewIteration(size_t k, bool lastRejection)
+typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::prepareForNewIteration(size_t k, bool lastRejection)
 {
     Scalar newH = 0;
 

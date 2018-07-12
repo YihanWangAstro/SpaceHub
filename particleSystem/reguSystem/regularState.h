@@ -15,26 +15,22 @@ public:
     /* Typedef */
     using Base = particles<Dtype, ArraySize>;
     
+    using typename Base::type;
+    
     template<typename T, size_t S>
-    using Container   = typename Base::template Container<T, S>;
+    using Container = typename type::template Container<T, S>;
     
-    using Scalar      = typename Base::Scalar;
+    using Scalar = typename type::Scalar;
     
-    using Vector      = typename Base::Vector;
+    using Vector = typename type::Vector;
     
-    using VectorArray = typename Base::VectorArray;
-    
-    using ScalarArray = typename Base::ScalarArray;
-    
-    using IntArray    = typename Base::IntArray;
-    
-    using SizeArray   = typename Base::SizeArray;
+    using VectorArray = typename type::VectorArray;
     /* Typedef */
 
-    
-    constexpr static size_t activeScalar{6*Base::arraySize + 3};
+    constexpr static size_t activeScalar{6*type::arraySize + 3};
     
     using ActiveScalarArray = Container<Scalar, activeScalar>;
+    
 
     /**  @brief Omega scalar const interface. Reference to state.time*/
     inline const Scalar& omega() const { return omega_; }

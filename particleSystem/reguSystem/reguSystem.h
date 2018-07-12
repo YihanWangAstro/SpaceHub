@@ -24,29 +24,26 @@ public:
     /* Typedef */
     using Base = particleSystem<Particles, Interaction>;
     
-    template<typename T, size_t S>
-    using Container   = typename Base::template Container<T, S>;
+    using typename Base::type;
     
-    using Scalar      = typename Base::Scalar;
+    using typename Base::ActiveScalarArray;
     
-    using Vector      = typename Base::Vector;
+    using Scalar = typename type::Scalar;
     
-    using VectorArray = typename Base::VectorArray;
+    using Vector = typename type::Vector;
     
-    using ScalarArray = typename Base::ScalarArray;
-    
-    using IntArray    = typename Base::IntArray;
-    
-    using SizeArray   = typename Base::SizeArray;
-    
-    using ActiveScalarArray = typename Base::ActiveScalarArray;
+    using VectorArray = typename type::VectorArray;
     /* Typedef */
     
+    using Base::act;
+    
+    using Base::partc;
+    
     /**  @brief Omega interface. Reference to partc.omega*/
-    inline Scalar& omega(){ return this->partc.omega(); }
+    inline Scalar& omega(){ return partc.omega(); }
     
     /**  @brief Bindine energy interface. Reference to partc.bindE*/
-    inline Scalar& bindE(){ return this->partc.bindE(); }
+    inline Scalar& bindE(){ return partc.bindE(); }
 
     /**  @brief Advance position one step with current velocity.
      *
@@ -55,10 +52,10 @@ public:
      */
     inline void drift(Scalar stepSize)
     {
-        Scalar physicalTime = regular.getPhysicalPosTime(this->partc, stepSize);
+        Scalar physicalTime = regular.getPhysicalPosTime(partc, stepSize);
         
-        this->partc.advancePos(this->partc.vel(), physicalTime);
-        this->partc.advanceTime(physicalTime);
+        partc.advancePos(partc.vel(), physicalTime);
+        partc.advanceTime(physicalTime);
     }
     
     /** @brief Advance velocity one step with current acceleration.
@@ -68,12 +65,12 @@ public:
      */
     inline void kick(Scalar stepSize)
     {
-        Scalar physicalTime = regular.getPhysicalVelTime(this->partc, stepSize);
+        Scalar physicalTime = regular.getPhysicalVelTime(partc, stepSize);
         
         this->act.zeroTotalAcc();
         
-        this->act.calcuVelIndepAcc(this->partc.mass(), this->partc.pos(), this->partc.vel());
-        this->act.calcuExtVelIndepAcc(this->partc.mass(), this->partc.pos(), this->partc.vel());
+        this->act.calcuVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        this->act.calcuExtVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
         
         advanceVels<Interaction::isVelDep>(physicalTime);
     }
@@ -85,7 +82,7 @@ public:
      */
     Scalar timeScale(Scalar scale)
     {
-        return regular.getPhysicalPosTime(this->partc, scale);
+        return regular.getPhysicalPosTime(partc, scale);
     }
 
 private:
@@ -93,24 +90,26 @@ private:
     Regularitor regular;
     
 private:
+    /** @brief SFINAE version of kick() of velocity independent force */
     template<bool isVelDep>
     inline typename std::enable_if<isVelDep==false>::type
     advanceVels(Scalar stepSize)
     {
-        this->act.calcuTotalAcc();
-        this->partc.advanceOmega(this->act.velIndepAcc(), this->partc.vel(), 0.5*stepSize);
-        this->partc.advanceVel(this->act.totalAcc(), stepSize);
-        this->partc.advanceOmega(this->act.velIndepAcc(), this->partc.vel(), 0.5*stepSize);
+        act.calcuTotalAcc();
+        partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
+        partc.advanceVel(act.totalAcc(), stepSize);
+        partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
     }
     
+    /** @brief SFINAE version of kick() of velocity dependent force */
     template<bool isVelDep>
     inline typename std::enable_if<isVelDep==true>::type
     advanceVels(Scalar stepSize)
     {
         advanceAuxiVel(stepSize*0.5);
         advanceVel(stepSize);
-        this->partc.advanceOmega(this->act.velIndepAcc(), this->partc.auxiVel(), stepSize);
-        this->partc.advanceBindE(this->act.velDepAcc(),   this->partc.auxiVel(), stepSize);
+        partc.advanceOmega(act.velIndepAcc(), partc.auxiVel(), stepSize);
+        partc.advanceBindE(act.velDepAcc(),   partc.auxiVel(), stepSize);
         advanceAuxiVel(stepSize*0.5);
     }
     
@@ -121,11 +120,11 @@ private:
      */
     inline void advanceVel(Scalar stepSize)
     {
-        this->act.calcuVelDepAcc(this->partc.mass(), this->partc.pos(), this->partc.auxiVel());
-        this->act.calcuExtVelDepAcc(this->partc.mass(), this->partc.pos(), this->partc.auxiVel());
+        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
+        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
         
-        this->act.calcuTotalAcc();
-        this->partc.advanceVel(this->act.totalAcc(), stepSize);
+        act.calcuTotalAcc();
+        partc.advanceVel(act.totalAcc(), stepSize);
     }
     
     /** @brief Advance auxilary velocity one step with current acceleration.
@@ -135,11 +134,11 @@ private:
      */
     inline void advanceAuxiVel(Scalar stepSize)
     {
-        this->act.calcuVelDepAcc(this->partc.mass(), this->partc.pos(), this->partc.vel());
-        this->act.calcuExtVelDepAcc(this->partc.mass(), this->partc.pos(), this->partc.vel());
+        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.vel());
         
-        this->act.calcuTotalAcc();
-        this->partc.advanceAuxiVel(this->act.totalAcc(), stepSize);
+        act.calcuTotalAcc();
+        partc.advanceAuxiVel(act.totalAcc(), stepSize);
     }
 };
 

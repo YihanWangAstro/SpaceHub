@@ -13,7 +13,9 @@ template <typename ParticSys>
 class symplectic10th
 {
 public:
-    using Scalar = typename ParticSys::Scalar;
+    using type = typename ParticSys::type;
+    using Scalar = typename type::Scalar;
+    
     /** @brief Order of the integrator*/
     static const int order{10};
     void integrate(ParticSys& particles, Scalar stepLength);

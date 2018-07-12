@@ -13,7 +13,7 @@
 #include <array>
 #include <vector>
 
-namespace type
+namespace SpaceH
 {
     constexpr size_t DYNAMICAL = 0;
     
@@ -23,25 +23,48 @@ namespace type
     template<typename T>
     struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};
     
+    template<typename T>
+    struct get_value_type
+    {
+    private:
+        /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
+        template<typename U>
+        static typename U::value_type check(typename U::value_type);
+        
+        /*If U doesn't have member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
+        template<typename U>
+        static U check(U);
+    public:
+        using type = decltype(check<T>(0));
+    };
+    
     template<typename Dtype, size_t Size>
     struct ProtoType
     {
         constexpr static size_t arraySize{Size};
         
         template<typename T, size_t S>
-        using Container   = ArrayWrapper<T, S>;
+        using Container      = ArrayWrapper<T, S>;
         
-        using Scalar      = Dtype;
+        using Scalar         = get_value_type<Dtype>::type;
     
-        using Vector      = vec3<Scalar>;
+        using Vector         = vec3<Scalar>;
     
-        using VectorArray = Container<Vector, Size>;
+        using VectorArray    = Container<Vector, Size>;
     
-        using ScalarArray = Container<Scalar, Size>;
+        using ScalarArray    = Container<Scalar, Size>;
     
-        using IntArray    = Container<int, Size>;
+        using IntArray       = Container<int, Size>;
     
-        using SizeArray   = Container<size_t, Size>;
+        using SizeArray      = Container<size_t, Size>;
+        
+        using DynScalar      = Dtype;
+        
+        using DynVector      = vec3<DynScalar>;
+        
+        using DynVectorArray = Container<DynVector, Size>;
+        
+        using DynScalarArray = Container<DynScalar, Size>;
     };
 }
 
