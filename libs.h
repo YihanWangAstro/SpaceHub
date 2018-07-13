@@ -35,13 +35,13 @@ inline const T abs(const T& x)
 }
 
 /** @brief Self swap()*/
-template <class T>
+/*template <class T>
 void swap(T& a, T& b)
 {
     T tmp(std::move(a));
     a = std::move(b);
     b = std::move(tmp);
-}
+}*/
 
 template<typename Scalar1,typename Scalar2>
 inline void advanceScalar(Scalar1& var, Scalar2 increase)
@@ -64,12 +64,14 @@ inline void advanceVector(Vector1& var, const Vector2& increase, Scalar stepSize
  *  @param mass   Array of mass.
  *  @param phyVar Array of variables need to be moved.
  */
-template<typename Scalar, size_t N>
-void MoveToCentralMassCoordinate(const std::array<Scalar, N>& mass, std::array<vec3<Scalar>, N>& phyVar)
+template<typename ScalarArray, typename VectorArray>
+void moveToCMCoord(const ScalarArray& mass, VectorArray& phyVar)
 {
-    vec3<Scalar> centralMassVar(0.0, 0.0, 0.0);
-    Scalar totalMass = 0;
+    typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
+    typename ScalarArray::value_type totalMass = 0;
 
+    const size_t N = mass.size();
+    
     for(size_t i = 0 ; i < N ; ++i)
     {
         totalMass += mass[i];
@@ -148,7 +150,8 @@ inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array
 template<typename T>
 void print(T& var)
 {
-    for(size_t i = 0 ; i < var.size(); ++i )
+    const size_t size = var.size();
+    for(size_t i = 0 ; i < size; ++i )
         std::cout << var[i] << ' ';
 
     std::cout << '\n';

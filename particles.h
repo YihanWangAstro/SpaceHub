@@ -85,7 +85,7 @@ public:
      */
     inline void advanceTime(Scalar dt)
     {
-        advanceScalar(time_, dt);
+        SpaceH::advanceScalar(time_, dt);
     }
     
     /** @brief Advance the position array with internal velocity array.
@@ -93,7 +93,7 @@ public:
      */
     inline void advancePos(Scalar stepSize)
     {
-        advanceVector(pos_, vel_, stepSize);
+        SpaceH::advanceVector(pos_, vel_, stepSize);
     }
     
     /** @brief Advance the  velocity array with given acceleration array.

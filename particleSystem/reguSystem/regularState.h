@@ -51,7 +51,7 @@ public:
         for(size_t i = 0 ; i < size ; ++i)
             dOmega += (velIndepAcc[i] * vel[i]) * (this->mass_[i]);
         
-        advanceScalar(omega_, dOmega*stepSize);
+        SpaceH::advanceScalar(omega_, dOmega*stepSize);
     }
     
     /** @brief Advance the bindE.
@@ -67,7 +67,7 @@ public:
         for(size_t i = 0 ; i < particleNum ; ++i)
             dBindE -= (velDepAcc[i] * vel[i]) * (this->mass_[i]);
         
-        advanceScalar(bindE_, dBindE*stepSize);
+        SpaceH::advanceScalar(bindE_, dBindE*stepSize);
     }
     
     /** @brief Input(Initialize) variables with istream.*/

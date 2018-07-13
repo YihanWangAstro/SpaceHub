@@ -263,9 +263,9 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::getError(siz
 
         for(size_t i = 0 ; i < size; ++i)
         {
-            error = abs(extrapTab[topk][i] - extrapTab[subk][i])
-                    / (min(abs(extrapTab[topk][i]), abs(extrapTab[subk][i]) ) * this->relativeError + this->absoluteError);
-            maxError = max(maxError, error);
+            error = SpaceH::abs(extrapTab[topk][i] - extrapTab[subk][i])
+                    / (SpaceH::min(SpaceH::abs(extrapTab[topk][i]), SpaceH::abs(extrapTab[subk][i]) ) * this->relativeError + this->absoluteError);
+            maxError = SpaceH::max(maxError, error);
         }
 
         return maxError;

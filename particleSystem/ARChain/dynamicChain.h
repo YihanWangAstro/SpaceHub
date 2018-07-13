@@ -24,11 +24,12 @@ public:
     
     using IndexArray = typename type::IndexArray;
     
-    using ActiveScalarArray = typename type::ActiveScalarArray;
+    using ActiveScalarArray = typename Base::ActiveScalarArray;
     /* Typedef */
     
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::CHAIN};
     
+    using Base::mass_;
     using Base::pos_;
     using Base::vel_;
     
@@ -56,8 +57,9 @@ public:
      */
     inline void advancePos(Scalar stepSize)
     {
-        advanceVector(chain_pos_, chain_vel_, stepSize);
+        SpaceH::advanceVector(chain_pos_, chain_vel_, stepSize);
         SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
+        SpaceH::moveToCMCoord(mass_, pos_);
     }
     
     /** @brief Advance the  velocity array with given acceleration array.
@@ -66,15 +68,16 @@ public:
      */
     inline void advanceVel(const VectorArray& acc, Scalar stepSize)
     {
-        size_t chain_num = this->particleNumber() - 1;
+        const size_t chain_num = this->particleNumber() - 1;
         
-        Vector chain_acc[chain_num] = {0};
+        VectorArray chain_acc = acc;
         
         for(size_t i = 0 ; i < chain_num; ++i)
             chain_acc[i] = acc[ch_index_[i + 1]] - acc[ch_index_[i]];
         
-        advanceVector(vel_, chain_acc, stepSize);
+        SpaceH::advanceVector(chain_vel_, chain_acc, stepSize);
         SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);
+        SpaceH::moveToCMCoord(mass_, vel_);
     }
     
     /** @brief Input(Initialize) variables with istream.*/
@@ -98,12 +101,16 @@ public:
             partc.totalMass_ += partc.mass_[i];
         }
         
+        SpaceH::moveToCMCoord(partc.mass_,partc.pos_);
+        SpaceH::moveToCMCoord(partc.mass_,partc.vel_);
+        
         partc.omega_ = partc.getCapitalOmega();
         partc.bindE_ = -getTotalEnergy(partc.mass(), partc.pos(), partc.vel());
         
         SpaceH::chain::getChainIndex(partc.pos_,  partc.ch_index_);
         SpaceH::chain::synChain(partc.pos_, partc.chain_pos_, partc.ch_index_);
         SpaceH::chain::synChain(partc.vel_, partc.chain_vel_, partc.ch_index_);
+        
         return is;
     }
     
@@ -131,8 +138,10 @@ public:
         partc.omega_ = data[d_loc++];
         partc.bindE_ = data[d_loc];
         
-        SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);
-        SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
+        SpaceH::chain::synCartesian(partc.chain_vel_, partc.vel_, partc.ch_index_);
+        SpaceH::chain::synCartesian(partc.chain_pos_, partc.pos_, partc.ch_index_);
+        SpaceH::moveToCMCoord(partc.mass_,partc.pos_);
+        SpaceH::moveToCMCoord(partc.mass_,partc.vel_);
         
         return data;
     }

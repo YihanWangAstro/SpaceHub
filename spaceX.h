@@ -8,6 +8,11 @@
 #include "particleSystem/reguSystem/regularization.h"
 #include "particleSystem/reguSystem/reguSystem.h"
 #include "particleSystem/reguSystem/regularState.h"
+
+//#include "particleSystem/ARchain/ARchain.h"
+#include "particleSystem/ARChain/chain.h"
+#include "particleSystem/ARChain/dynamicChain.h"
+
 #include "integrator/symplectic/symplectic2th.h"
 #include "integrator/symplectic/symplectic4th.h"
 #include "integrator/symplectic/symplectic6th.h"

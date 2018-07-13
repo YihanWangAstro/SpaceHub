@@ -30,9 +30,10 @@ template <typename VectorArray, typename IndexArray>
     {
         using Scalar = typename VectorArray::value_type::value_type;
         
-        size_t N = pos.size();
+        const size_t N = pos.size();
         
-        std::array<Node<Scalar>, N*(N - 1) / 2 > AdjMatrix;
+        std::vector<Node<Scalar>> AdjMatrix;
+        AdjMatrix.resize(N*(N - 1) / 2);
         
         createAdjMartix(pos, AdjMatrix);
         
@@ -177,6 +178,8 @@ void createChainIndex(NodeArray& AdjMatrix, IndexArray& chainIndex)
 template <typename IndexArray>
 bool IsDiff(const IndexArray& Index1, const IndexArray& Index2)
 {
+    const size_t N = Index1.size();
+    
     if(Index1[0] == Index2[0])
     {
         for(int i = 1 ; i < N; ++i)
@@ -219,7 +222,7 @@ void updateChain(VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex
     size_t oldtail = 0;
     size_t size    = pos.size() - 1;
     
-    typename pos::value_type newPos[size];
+    typename VectorArray::value_type newPos[size];
     
     for(size_t i = 0 ; i < size; i++)
     {
@@ -255,9 +258,10 @@ void updateChain(VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex
 template <typename VectorArray, typename IndexArray>
 void synChain(VectorArray& data, VectorArray& chainData, IndexArray& chainIndex)
 {
+    const size_t N = data.size();
+    
     chainData[N - 1].setZero();
     
-    size_t N = data.size();
     for(int i = 0 ; i < N - 1; ++i)
         chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
 }
@@ -272,9 +276,10 @@ void synChain(VectorArray& data, VectorArray& chainData, IndexArray& chainIndex)
 template <typename VectorArray, typename IndexArray>
 void synCartesian(VectorArray& chainData, VectorArray& data, IndexArray& chainIndex)
 {
+    const size_t N = data.size();
+    
     data[chainIndex[0]].setZero();
 
-    size_t N = data.size();
     for(int i = 1 ; i < N ; ++i)
         data[chainIndex[i]] = data[chainIndex[i - 1]] + chainData[i - 1];
 }
