@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -O2 -Wall -mavx -DKAHAN_SUMMATION
+CXXFLAGS = -std=c++11 -O3 -mtune=native -Wall -mavx2
 SRCS = main.cpp\
 	
 

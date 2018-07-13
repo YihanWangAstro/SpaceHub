@@ -1,6 +1,11 @@
 #ifndef CHAIN_H
 #define CHAIN_H
-#include <vector>
+#include<vector>
+#include<array>
+namespace SpaceH
+{
+    
+
 namespace chain
 {
 /** @brief Struture to store the relative distance and index of two particles.*/
@@ -13,9 +18,6 @@ struct Node
     bool   available; /**< State of node. If this node can be chained.*/
 };
 
-template <typename Scalar, size_t N>
-using NodeArray = std::array<Node<Scalar>, N>;
-
 /** @brief Calculate the mapping index from Cartesian coordinate to chain coordinate.
  *
  *  Find the mapping index from Cartesian coordinate to chain coordinate. The chain is formed by
@@ -23,17 +25,23 @@ using NodeArray = std::array<Node<Scalar>, N>;
  *  @param pos        The array of particle position, used to calculate the distance of particle pairs.
  *  @param chainIndex The maping index needs to be calculated as a return value.
  */
-template <typename Scalar, size_t N>
-void getChainIndex(const VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex)
-{
-    std::array < Node<Scalar>, N*(N - 1) / 2 > AdjMatrix;
-    createAdjMartix(pos, AdjMatrix);
-    std::sort(AdjMatrix.begin(), AdjMatrix.end(), [&](const Node<Scalar>& Ni, const Node<Scalar>& Nj)
+template <typename VectorArray, typename IndexArray>
+    void getChainIndex(const VectorArray& pos,  IndexArray& chainIndex)
     {
-        return (Ni.Rij < Nj.Rij);
-    });
-    createChainIndex(AdjMatrix, chainIndex);
-}
+        using Scalar = typename VectorArray::value_type::value_type;
+        
+        size_t N = pos.size();
+        
+        std::array<Node<Scalar>, N*(N - 1) / 2 > AdjMatrix;
+        
+        createAdjMartix(pos, AdjMatrix);
+        
+        std::sort(AdjMatrix.begin(), AdjMatrix.end(), [&](const Node<Scalar>& Ni, const Node<Scalar>& Nj)
+                  {
+                      return (Ni.Rij < Nj.Rij);
+                  });
+        createChainIndex(AdjMatrix, chainIndex);
+    }
 
 /** @brief Create the adjoint matrix for particle pairs.
  *
@@ -41,16 +49,17 @@ void getChainIndex(const VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex
  *  @param pos        The array of particle position, used to calculate the distance of particle pairs.
  *  @param AdjMatrix  The adjoint matrix needs to be calculated as a return value.
  */
-template <typename Scalar, size_t N>
-void createAdjMartix(const VectorArray<Scalar, N>& pos, NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix )
+template <typename VectorArray, typename NodeArray>
+void createAdjMartix(const VectorArray& pos, NodeArray& AdjMatrix )
 {
+    size_t N = pos.size();
     size_t k = 0;
 
     for(size_t i = 0 ; i < N ; ++i )
     {
         for(size_t j = i + 1 ; j < N ; ++j)
         {
-            AdjMatrix[k].Rij       = distance(pos[i], pos[j]);
+            AdjMatrix[k].Rij       = (pos[i] - pos[j]).norm();
             AdjMatrix[k].i         = i;
             AdjMatrix[k].j         = j;
             AdjMatrix[k].available = true;
@@ -65,11 +74,12 @@ void createAdjMartix(const VectorArray<Scalar, N>& pos, NodeArray < Scalar, N * 
  *  @param AdjMatrix  The adjoint matrix.
  *  @param chainIndex The maping index needs to be calculated as a return value.
  */
-template <typename Scalar, size_t N>
-void createChainIndex(NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix, IndexArray<N>& chainIndex)
+template <typename NodeArray, typename IndexArray>
+void createChainIndex(NodeArray& AdjMatrix, IndexArray& chainIndex)
 {
+    size_t N = chainIndex.size();
     size_t chainedNumber = 0;
-    size_t AdjSize       = N * (N - 1) / 2;
+    size_t AdjSize = N * (N - 1) / 2;
     std::vector<size_t> Index;
     Index.reserve(N);
     Index.push_back(AdjMatrix[0].i);
@@ -164,8 +174,8 @@ void createChainIndex(NodeArray < Scalar, N * (N - 1) / 2 > & AdjMatrix, IndexAr
  *  @return boolean
  *  @note  [2,4,5,3,1] is identical to [1,3,5,4,2]
  */
-template <size_t N>
-bool IsDiff(const IndexArray<N>& Index1, const IndexArray<N>& Index2)
+template <typename IndexArray>
+bool IsDiff(const IndexArray& Index1, const IndexArray& Index2)
 {
     if(Index1[0] == Index2[0])
     {
@@ -199,16 +209,18 @@ bool IsDiff(const IndexArray<N>& Index1, const IndexArray<N>& Index2)
  *  @param chainIndex The old chain index mapping.
  *  @param newIndex   The new chain index mapping.
  */
-template <typename Scalar, size_t N>
-void updateChain(VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex, IndexArray<N>& newIndex)
+template <typename VectorArray, typename IndexArray>
+void updateChain(VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex)
 {
-    std::array<vec3<Scalar>, N> newPos;
+    
     size_t head    = 0;
     size_t tail    = 0;
     size_t oldhead = 0;
     size_t oldtail = 0;
-    size_t size    = N - 1;
-
+    size_t size    = pos.size() - 1;
+    
+    typename pos::value_type newPos[size];
+    
     for(size_t i = 0 ; i < size; i++)
     {
         head    = newIndex[i];
@@ -240,11 +252,12 @@ void updateChain(VectorArray<Scalar, N>& pos,  IndexArray<N>& chainIndex, IndexA
  *  @param chainIndex Chain index mapping.
  *  @note This function should be a inverse transformation of synCartesian().
  */
-template <typename Scalar, size_t N>
-void synChain(VectorArray<Scalar, N>& data, VectorArray<Scalar, N>& chainData, IndexArray<N>& chainIndex)
+template <typename VectorArray, typename IndexArray>
+void synChain(VectorArray& data, VectorArray& chainData, IndexArray& chainIndex)
 {
     chainData[N - 1].setZero();
-
+    
+    size_t N = data.size();
     for(int i = 0 ; i < N - 1; ++i)
         chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
 }
@@ -256,13 +269,15 @@ void synChain(VectorArray<Scalar, N>& data, VectorArray<Scalar, N>& chainData, I
  *  @param chainIndex Chain index mapping.
  *  @note This function should be a inverse transformation of synChain().
  */
-template <typename Scalar, size_t N>
-void synCartesian(VectorArray<Scalar, N>& chainData, VectorArray<Scalar, N>& data, IndexArray<N>& chainIndex)
+template <typename VectorArray, typename IndexArray>
+void synCartesian(VectorArray& chainData, VectorArray& data, IndexArray& chainIndex)
 {
     data[chainIndex[0]].setZero();
 
+    size_t N = data.size();
     for(int i = 1 ; i < N ; ++i)
         data[chainIndex[i]] = data[chainIndex[i - 1]] + chainData[i - 1];
+}
 }
 }
 #endif

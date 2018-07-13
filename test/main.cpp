@@ -7,7 +7,7 @@ using namespace std::chrono;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> resolutionClock;
 
 using scalar = SpaceH::kahan<double>;
-const size_t N = 3;
+const size_t N = 2;
 int main(int argc, char**argv)
 {
     //std::cout << std::scientific << std::setprecision(16);// << nbody.particles;
@@ -17,11 +17,13 @@ int main(int argc, char**argv)
     //spaceX<VelDepSystem<2,PN1th,TTL>, symplectic2th, BSIterator> nbody;
     //spaceX<NewtonianSystem<2>, symplectic2th, BSIterator> nbody;
     //using type  = typeSet::type<double,2>;
+    using type = SpaceH::ProtoType<scalar,N>;
     
     using particle = ReguParticles<scalar,N>;
-    using force = interact::NewtonGrav<scalar,N>;
-    using no = interact::Empty<scalar,N>;
-    using interaction = interact::Interaction<force,no,no,no>;
+    using f = SpaceH::NewtonForce<scalar,N>;
+    using force = SpaceH::VelIndepForce< f,scalar,N>;
+    using no = SpaceH::EmptyForce<scalar,N>;
+    using interaction = SpaceH::Interaction<force,no,no,no>;
     
     using regu = logH<particle>;
     using ps = ReguSystem<particle, interaction, regu>;
@@ -35,13 +37,13 @@ int main(int argc, char**argv)
     
     ds nbody;
     
-    nbody.loadText("kepler2.init");
+    nbody.loadText("kepler0.init");
   
     nbody.setStepLength(0.01*YEAR);
     
    // nbody.iterator.setRelativeError(1e-6);
 
-    double timeLimit = 10*YEAR;
+    double timeLimit = 1000*YEAR;
     double dt = 0.01*YEAR;
     double tout = 0;
 
@@ -65,7 +67,7 @@ int main(int argc, char**argv)
     {
         nbody.advanceOneStep();
         //std::cout << nbody.particles.time << '\n';
-        if(nbody.particles.time() > tout)
+        /*if(nbody.particles.time() > tout)
         {
             os  << nbody.particles;
             eos << nbody.particles.time()/YEAR << ' '
@@ -75,7 +77,7 @@ int main(int argc, char**argv)
             << nbody.stepLength << "\r\n";
                 //<< nbody.iterator.iterDepth << "\r\n";
             tout += dt;
-        }
+        }*/
     }
    // std::cout << nbody.steps << '\n';
     now           = high_resolution_clock::now();

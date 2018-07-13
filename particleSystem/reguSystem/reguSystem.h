@@ -54,7 +54,7 @@ public:
     {
         Scalar physicalTime = regular.getPhysicalPosTime(partc, stepSize);
         
-        partc.advancePos(partc.vel(), physicalTime);
+        partc.advancePos(physicalTime);
         partc.advanceTime(physicalTime);
     }
     
@@ -69,8 +69,8 @@ public:
         
         this->act.zeroTotalAcc();
         
-        this->act.calcuVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
-        this->act.calcuExtVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        this->act.calcuVelIndepAcc(partc);
+        this->act.calcuExtVelIndepAcc(partc);
         
         advanceVels<Interaction::isVelDep>(physicalTime);
     }
@@ -107,7 +107,7 @@ private:
     advanceVels(Scalar stepSize)
     {
         advanceAuxiVel(stepSize*0.5);
-        advanceVel(stepSize);
+        advanceRrealVel(stepSize);
         partc.advanceOmega(act.velIndepAcc(), partc.auxiVel(), stepSize);
         partc.advanceBindE(act.velDepAcc(),   partc.auxiVel(), stepSize);
         advanceAuxiVel(stepSize*0.5);
@@ -118,10 +118,10 @@ private:
      *  Advance velocity array one step with current integration step size and accelerations.
      *  @param  stepSize Integration step size, will be transfered to physical time in the function.
      */
-    inline void advanceVel(Scalar stepSize)
+    inline void advanceRrealVel(Scalar stepSize)
     {
-        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
-        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
+        act.calcuAuxiVelDepAcc(partc);
+        act.calcuExtAuxiVelDepAcc(partc);
         
         act.calcuTotalAcc();
         partc.advanceVel(act.totalAcc(), stepSize);
@@ -134,8 +134,8 @@ private:
      */
     inline void advanceAuxiVel(Scalar stepSize)
     {
-        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.vel());
-        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuVelDepAcc(partc);
+        act.calcuExtVelDepAcc(partc);
         
         act.calcuTotalAcc();
         partc.advanceAuxiVel(act.totalAcc(), stepSize);

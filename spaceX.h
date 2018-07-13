@@ -3,6 +3,7 @@
 #include "dynamicSystem.h"
 #include "particles.h"
 #include "kahanNumber.h"
+
 #include "particleSystem.h"
 #include "particleSystem/reguSystem/regularization.h"
 #include "particleSystem/reguSystem/reguSystem.h"
@@ -20,6 +21,7 @@
 //#include "particleSystem/regularState.h"
 //#include "particleSystem/regularization.h"
 #include "interaction/interaction.h"
+#include "interaction/forces.h"
 /*
 template <
     size_t                            N,

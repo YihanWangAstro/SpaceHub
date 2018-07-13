@@ -24,9 +24,6 @@ public:
     /* Typedef */
     using type = typename Particles::type;
     
-    template<typename T, size_t S>
-    using Container   = typename type::template Container<T, S>;
-    
     using Scalar      = typename type::Scalar;
     
     using Vector      = typename type::Vector;
@@ -36,8 +33,6 @@ public:
     using ScalarArray = typename type::ScalarArray;
     
     using IntArray    = typename type::IntArray;
-    
-    using SizeArray   = typename type::SizeArray;
     
     using ActiveScalarArray = typename Particles::ActiveScalarArray;
     /* Typedef */
@@ -106,7 +101,7 @@ public:
     /** @brief Advance position one step with current velocity. */
     void drift(Scalar stepSize)
     {
-        partc.advancePos(partc.vel(), stepSize);
+        partc.advancePos(stepSize);
         partc.advanceTime(stepSize);
     }
     
@@ -115,8 +110,8 @@ public:
     {
         act.zeroTotalAcc();
         
-        act.calcuVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
-        act.calcuExtVelIndepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuVelIndepAcc(partc);
+        act.calcuExtVelIndepAcc(partc);
         
         advanceVels<Interaction::isVelDep>(stepSize);
     }
@@ -175,20 +170,20 @@ private:
     inline typename std::enable_if<isVelDep==true>::type
     advanceVels(Scalar stepSize)
     {
-        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.vel());
-        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuVelDepAcc(partc);
+        act.calcuExtVelDepAcc(partc);
         
         act.calcuTotalAcc();
         partc.advanceAuxiVel(act.totalAcc(), stepSize*0.5);
         
-        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
-        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.auxiVel());
+        act.calcuAuxiVelDepAcc(partc);
+        act.calcuExtAuxiVelDepAcc(partc);
         
         act.calcuTotalAcc();
         partc.advanceVel(act.totalAcc(), stepSize);
         
-        act.calcuVelDepAcc(partc.mass(), partc.pos(), partc.vel());
-        act.calcuExtVelDepAcc(partc.mass(), partc.pos(), partc.vel());
+        act.calcuVelDepAcc(partc);
+        act.calcuExtVelDepAcc(partc);
         
         act.calcuTotalAcc();
         partc.advanceAuxiVel(act.totalAcc(), stepSize*0.5);

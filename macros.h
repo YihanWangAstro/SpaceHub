@@ -15,10 +15,5 @@ constexpr double V_UNIT    = 6.54589713446219E-2;
 constexpr double C         = 299792.458 / V_UNIT;
 constexpr double KM        = 3.2407557442395564e-14;
 
-enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
-enum       EVENTTYPE      { TDE, MERGE, ESCAPE, DISRUPTED, UNEVENTFUL, HVS };
-enum class INTEGRATORTYPE { DKDLEAPFROG, KDKLEAPFROG, SYM4, PEFRL, SYM6, SYM8, SYM10 };
-enum class SYSTEMTYPE     { PLAIN, CHAIN };
-enum class REGUTYPE       { LOGH, TTL, NONE };
-enum class ITERTYPE       { BSITER, SEQITER };
+
 #endif

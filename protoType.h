@@ -57,7 +57,17 @@ namespace SpaceH
         using IntArray       = Container<int, Size>;
     
         using SizeArray      = Container<size_t, Size>;
+        
+        using IndexArray     = SizeArray;
     };
-}
+    
+    enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
+    enum       EVENTTYPE      { TDE, MERGE, ESCAPE, DISRUPTED, UNEVENTFUL, HVS };
+    enum class INTEGRATORTYPE { DKDLEAPFROG, KDKLEAPFROG, SYM4, PEFRL, SYM6, SYM8, SYM10 };
+    enum class SYSTEMTYPE     { PLAIN, CHAIN };
+    enum class REGUTYPE       { LOGH, TTL, NONE };
+    enum class ITERTYPE       { BSITER, SEQITER };
+    enum class DATASTRUCT     { PLAIN=0, CHAIN };
+}//end namespace SpaceH
 
 #endif /* protoType_h */

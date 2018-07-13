@@ -10,7 +10,11 @@
 #define KAHANNUMBER_h
 namespace SpaceH
 {
-/** @brief Kahan number */
+/** @brief Kahan number
+ *
+ *  A way to reduce the round off error when adding a small number to a big one.
+ *  See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm
+ */
 template<typename T>
 struct kahan
 {
@@ -97,5 +101,5 @@ public:
     }
 };
     
-}
+}//end namespace SpaceH
 #endif /* kahanNumber_h */

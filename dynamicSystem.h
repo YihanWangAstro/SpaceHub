@@ -31,13 +31,16 @@ template<typename ParticSys, typename ODEiterator>
 class dynamicSystem
 {
 public:
+    using type = typename ParticSys::type;
+    using Scalar = typename type::Scalar;
+    
     void advanceOneStep();
     void loadText(char const* initFilePath);
-    void setStepLength(double);
+    void setStepLength(Scalar);
     virtual ~dynamicSystem() {} /**< @brief Default destructor, virtualize for inherent class*/
 public:
     /** @brief Macro step size for ODE iterator*/
-    double stepLength{0.0};
+    Scalar stepLength{0.0};
     
     /** @brief Steps*/
     int steps{0};
@@ -126,7 +129,7 @@ void dynamicSystem<ParticSys, ODEiterator>::loadText(char const* initFilePath)
 
 /**  @brief Set the step length*/
 template<typename ParticSys, typename ODEiterator>
-void dynamicSystem<ParticSys, ODEiterator>::setStepLength(double stepSize)
+void dynamicSystem<ParticSys, ODEiterator>::setStepLength(Scalar stepSize)
 {
     stepLength = stepSize;
 }

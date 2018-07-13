@@ -16,7 +16,10 @@ template<typename T>
 struct vec3
 {
 public:
-    T x, y, z;
+    using value_type = T;
+    T  x;
+    T  y;
+    T  z;
     vec3() : x(0), y(0), z(0) {};
     vec3(T vx, T vy, T vz) : x(vx), y(vy), z(vz) {};
     vec3(const vec3& v) : x(v.x), y(v.y), z(v.z) {};

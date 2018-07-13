@@ -285,7 +285,7 @@ template <typename ParticSys, typename Integrator>
 typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::getTimeStepCoef(Scalar error, size_t k)
 {
     if(error != 0)
-        return max(fmin[k] / s4, min( s1 * pow(s2 / error, 1.0 / (2 * k + 1)), 1.0 / fmin[k]));
+        return SpaceH::max(fmin[k] / s4, SpaceH::min( s1 * pow(s2 / error, 1.0 / (2 * k + 1)), 1.0 / fmin[k]));
     else
         return 1.0 / fmin[k];
 }
@@ -302,49 +302,49 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::prepareForNe
 
     if(k == iterDepth - 1)
     {
-        iterDepth = min(MaxDepth - 1, max(2, k) );
+        iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k) );
         newH      = macroStepLength[iterDepth];
 
         if(work[k - 1] < 0.8 * work[k] && k >= 2)
         {
-            iterDepth = min(MaxDepth - 1, max(2, k - 1) );
+            iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k - 1) );
             newH      = macroStepLength[iterDepth];
         }
         else if(work[k] < 0.9 * work[k - 1] || iterDepth <= 2)
         {
-            iterDepth = min(MaxDepth - 1, max(2, k + 1) );
+            iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k + 1) );
             newH      = macroStepLength[iterDepth - 1] * cost[iterDepth] / static_cast<Scalar>(cost[iterDepth - 1]);
         }
     }
     else if(k == iterDepth)
     {
-        iterDepth = min(MaxDepth - 1, max(2, k) );
+        iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k) );
         newH      = macroStepLength[iterDepth];
 
         if(work[k - 1] < 0.8 * work[k])
         {
-            iterDepth = min(MaxDepth - 1, max(2, k - 1) );
+            iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k - 1) );
             newH      = macroStepLength[iterDepth];
         }
         else if(!lastRejection && work[k] < 0.9 * work[k - 1] )
         {
-            iterDepth = min(MaxDepth - 1, max(2, k + 1) );
+            iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k + 1) );
             newH      = macroStepLength[iterDepth - 1] * cost[iterDepth] / static_cast<Scalar>(cost[iterDepth - 1]);
         }
     }
     else if(k == iterDepth + 1)
     {
-        iterDepth = min(MaxDepth - 1, max(2, k - 1) );
+        iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k - 1) );
         newH      = macroStepLength[iterDepth];
 
         if(work[k - 2] < 0.8 * work[k - 1] )
         {
-            iterDepth = min(MaxDepth - 1, max(2, k - 2) );
+            iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k - 2) );
             newH      = macroStepLength[iterDepth];
         }
         else if(!lastRejection && work[k] < 0.9 * work[k - 1] )
         {
-            iterDepth = min(MaxDepth - 1, max(2, k) );
+            iterDepth = SpaceH::min(MaxDepth - 1, SpaceH::max(2, k) );
             newH      = macroStepLength[iterDepth - 1] * cost[iterDepth] / static_cast<Scalar>(cost[iterDepth - 1]);
         }
     }

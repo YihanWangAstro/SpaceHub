@@ -28,6 +28,7 @@ public:
     using IntArray = typename type::IntArray;
     /* Typedef */
     
+    constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::PLAIN};
     constexpr static size_t activeScalar{6*type::arraySize + 1};
     
     using ActiveScalarArray = Container<Scalar, activeScalar>;
@@ -89,11 +90,10 @@ public:
     
     /** @brief Advance the position array with internal velocity array.
      *  @param stepSize The advance step size.
-     *  @param vel      The velocity array to advance position array.
      */
-    inline void advancePos(const VectorArray& vel, Scalar stepSize)
+    inline void advancePos(Scalar stepSize)
     {
-        advanceVector(pos_, vel, stepSize);
+        advanceVector(pos_, vel_, stepSize);
     }
     
     /** @brief Advance the  velocity array with given acceleration array.
