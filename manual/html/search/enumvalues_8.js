@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['neutronstar',['NEUTRONSTAR',['../macros_8h.html#a92ca6bcf127150701bb5d04fcf62128faf0cbc6f9466fe57ec98b405bb6cbfeca',1,'macros.h']]],
-  ['none',['NONE',['../macros_8h.html#a92ca6bcf127150701bb5d04fcf62128fac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'NONE():&#160;macros.h'],['../macros_8h.html#a18c0a01b9412ec23d5b3811434d15234ab50339a10e1de285ac99d4c3990b8693',1,'NONE():&#160;macros.h']]]
+  ['neutronstar',['NEUTRONSTAR',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385a5fefeb288bcbd250bc9a221a268cca70',1,'SpaceH']]],
+  ['none',['NONE',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385a5f9a11cf0e89bd48050fa58999d9d768',1,'SpaceH::NONE()'],['../namespace_space_h.html#aa37f0eac3914f44e134093455721a7a2ab50339a10e1de285ac99d4c3990b8693',1,'SpaceH::NONE()']]]
 ];

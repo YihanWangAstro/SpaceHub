@@ -5,18 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>spacex: Class Members</title>
+<title>spacehub: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">spacex
+   <div id="projectname">spacehub
    </div>
   </td>
  </tr>
@@ -54,22 +46,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('functions_o.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,50 +64,68 @@ $(document).ready(function(){initNavTree('functions_o.html','');});
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_o"></a>- o -</h3><ul>
-<li>omega
-: <a class="el" href="class_g_a_r.html#a702f19b87d8754ac66914985d7c8229e">GAR&lt; DataType, N &gt;</a>
-, <a class="el" href="classregu_dynamics.html#afef2a874c21e951765e50a497a411eae">reguDynamics&lt; DataType, N &gt;</a>
+<li>omega()
+: <a class="el" href="class_regu_particles.html#a37f2c43c286421538d591eb73ba74d84">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="class_regu_system.html#aec2d17af65cb81385adfd77eba8122c0">ReguSystem&lt; Particles, Interaction, Regularitor &gt;</a>
+</li>
+<li>omega_
+: <a class="el" href="class_regu_particles.html#af0e55e9a4da62a33b5408473cdf2924b">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+</li>
+<li>operator T()
+: <a class="el" href="struct_space_h_1_1kahan.html#ac818dc8e06b0df33793f3a166dcacdd7">SpaceH::kahan&lt; T &gt;</a>
 </li>
 <li>operator()()
-: <a class="el" href="class_newtonian.html#a13f6ce2d08ba777301542e001eab5f9b">Newtonian&lt; Scalar &gt;</a>
-, <a class="el" href="class_p_n1th.html#a1ed48e417256ef44bf6faa3e7c433b7e">PN1th&lt; Scalar &gt;</a>
+: <a class="el" href="struct_space_h_1_1_newton_force.html#abef48bbbed814919f3269f9210864380">SpaceH::NewtonForce&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="class_space_h_1_1_post_newtonian.html#a525a7fc48794effd7513bf56b929bf43">SpaceH::PostNewtonian&lt; Scalar &gt;</a>
 </li>
 <li>operator*()
-: <a class="el" href="structvec3.html#a0f446233cd7b3fe50bc3d773c85177d5">vec3&lt; T &gt;</a>
+: <a class="el" href="structvec3.html#a769b2eeb0c298c38d62cf06ea50534d7">vec3&lt; T &gt;</a>
 </li>
-<li>operator*=()
-: <a class="el" href="structvec3.html#a401db8071cae874abdd0bc04846ee27f">vec3&lt; T &gt;</a>
+<li>operator*=
+: <a class="el" href="struct_space_h_1_1kahan.html#a23bc801f60370bf8a564989c7cf5da03">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#a7989a4ee0a46d2ec4286795ab6852636">vec3&lt; T &gt;</a>
 </li>
 <li>operator+()
 : <a class="el" href="structvec3.html#a255037f59863e54390e388dd07e7ee8f">vec3&lt; T &gt;</a>
 </li>
-<li>operator+=()
-: <a class="el" href="structvec3.html#a5d12f7aba42eea6253a4ada5ce73b7d8">vec3&lt; T &gt;</a>
+<li>operator+=
+: <a class="el" href="struct_space_h_1_1kahan.html#a8183a5443769b1b64ab323558a4700fd">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#a5d12f7aba42eea6253a4ada5ce73b7d8">vec3&lt; T &gt;</a>
 </li>
-<li>operator-()
-: <a class="el" href="structvec3.html#a9ee0d5d83bd70141b9424928d0ea9c98">vec3&lt; T &gt;</a>
+<li>operator-
+: <a class="el" href="struct_space_h_1_1kahan.html#ab77d95a6c784d0d3aeb9c07c11cf4492">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#a62ca43535073d9711fe179e26a412e32">vec3&lt; T &gt;</a>
 </li>
-<li>operator-=()
-: <a class="el" href="structvec3.html#a6302bef90ffb5d572b9d452d902266c5">vec3&lt; T &gt;</a>
+<li>operator-=
+: <a class="el" href="struct_space_h_1_1kahan.html#ac0214cfa7da4475dd8f209f071c26dd8">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#a6302bef90ffb5d572b9d452d902266c5">vec3&lt; T &gt;</a>
 </li>
 <li>operator/()
 : <a class="el" href="structvec3.html#ad2f8afc304554e7b5d7331030e8bc91d">vec3&lt; T &gt;</a>
 </li>
-<li>operator/=()
-: <a class="el" href="structvec3.html#ae6d5d20d8b6b4ae286c51b0cb10e5bd0">vec3&lt; T &gt;</a>
+<li>operator/=
+: <a class="el" href="struct_space_h_1_1kahan.html#a3092bcb332eb3a793d58e34a8a82ff1e">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#a7641a7bd40a69bad917f423017d8efa6">vec3&lt; T &gt;</a>
 </li>
 <li>operator&lt;&lt;
-: <a class="el" href="structvec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf">vec3&lt; T &gt;</a>
+: <a class="el" href="class_chain_particles.html#a799603ffacb8907da0647d0c3579e153">ChainParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="classparticles.html#ad63b4422bc47e18c1398e1f69656f66e">particles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="classparticle_system.html#a58e2c35978a7eb211e7206a05855b331">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_regu_particles.html#a256c22773e7b75dd7a3f0cb7e7bd11d8">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="struct_space_h_1_1kahan.html#a5f74f934a96e15e37de4023571d648a6">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf">vec3&lt; T &gt;</a>
 </li>
 <li>operator=()
-: <a class="el" href="class_a_rchain.html#a7bcc783f99cad1e9113d2b505544aba1">ARchain&lt; Interaction, EvolvedData, Regularitor &gt;</a>
-, <a class="el" href="class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html#a577ecdf4e934627257a0824d59404831">ARchain&lt; Newtonian&lt; typename EvolvedData::Scalar &gt;, EvolvedData, Regularitor &gt;</a>
-, <a class="el" href="classparticle_system.html#a95f991ac50fde37e7c57dd6feca1e358">particleSystem&lt; Derived, EvolvedData &gt;</a>
-, <a class="el" href="classregu_system.html#a894081d40cb90418f791ab52e3c64d5f">reguSystem&lt; Interaction, EvolvedData, Regularitor &gt;</a>
+: <a class="el" href="struct_space_h_1_1kahan.html#ac37afdaf89b9767870b8b67a7e62ab4b">SpaceH::kahan&lt; T &gt;</a>
 , <a class="el" href="structvec3.html#ad2cd7d64d02aa394c736ccc7054e5411">vec3&lt; T &gt;</a>
 </li>
 <li>operator&gt;&gt;
-: <a class="el" href="structvec3.html#a72f92578884bd68e0747871acd8545fd">vec3&lt; T &gt;</a>
+: <a class="el" href="class_chain_particles.html#ae3c157a969ae50fc4d8e480741ee4843">ChainParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="classparticles.html#a76cf6d70e3bd56bf748fbbde009dd88e">particles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="classparticle_system.html#a7c8a355dd7f5c30b6f54c341bf672d10">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_regu_particles.html#a1ec220ae353e794a79706f013f251130">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="struct_space_h_1_1kahan.html#a53c2b4bd3238b250075cb76fa4548f19">SpaceH::kahan&lt; T &gt;</a>
+, <a class="el" href="structvec3.html#a72f92578884bd68e0747871acd8545fd">vec3&lt; T &gt;</a>
 </li>
 <li>operator^()
 : <a class="el" href="structvec3.html#a6469fdfd7c378f5f30e299bc2e1e776a">vec3&lt; T &gt;</a>
@@ -145,14 +139,11 @@ $(document).ready(function(){initNavTree('functions_o.html','');});
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 </body>
 </html>

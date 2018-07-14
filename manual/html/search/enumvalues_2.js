@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['disrupted',['DISRUPTED',['../macros_8h.html#a2fa81e6b6c454b5af4167c40dbe1befeab7b3d1c86c14d0a4ccda70a6c9359b68',1,'macros.h']]],
-  ['dkdleapfrog',['DKDLEAPFROG',['../macros_8h.html#afcd93ec8e55504bc6f591c2388af9b77a5d82b3eb512207067d1909606ceb6d31',1,'macros.h']]]
+  ['disrupted',['DISRUPTED',['../namespace_space_h.html#aa577debdabfe522d60698d6e25318eb6a970c17214b08e5ec8deab2ae6ac109d4',1,'SpaceH']]],
+  ['dkdleapfrog',['DKDLEAPFROG',['../namespace_space_h.html#a4829efb7299b62ce2f122e27bb720db6a5d82b3eb512207067d1909606ceb6d31',1,'SpaceH']]]
 ];

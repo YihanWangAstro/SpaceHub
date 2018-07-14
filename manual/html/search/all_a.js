@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['kahanadvance',['KahanAdvance',['../libs_8h.html#a302acdc31259a4e500089d4f8b0d920c',1,'KahanAdvance(std::array&lt; vec3&lt; Scalar &gt;, N &gt; &amp;var, const std::array&lt; vec3&lt; Scalar &gt;, N &gt; &amp;increase, std::array&lt; vec3&lt; Scalar &gt;, N &gt; &amp;err, Scalar dt):&#160;libs.h'],['../libs_8h.html#aba4a2b07b8c6c7e9028bd87846e89148',1,'KahanAdvance(Scalar &amp;var, const Scalar increase, Scalar &amp;err):&#160;libs.h']]],
-  ['kdkleapfrog',['KDKLEAPFROG',['../macros_8h.html#afcd93ec8e55504bc6f591c2388af9b77a9a3a2cb30e865b2578a7fd8e8f0bd50c',1,'macros.h']]],
-  ['kickauxivel',['kickAuxiVel',['../class_a_rchain.html#a53838a7890cee54c69786bda87dd6cd9',1,'ARchain::kickAuxiVel()'],['../classregu_system.html#a53e1d725a1df2b65029f622a17364b1e',1,'reguSystem::kickAuxiVel()']]],
-  ['kickvel',['kickVel',['../class_a_rchain.html#a0b073cd82321047d7fafda59cef998ef',1,'ARchain::kickVel()'],['../classregu_system.html#a16cf42c1efb79a8ed5f9fecad7ad13dc',1,'reguSystem::kickVel()']]],
+  ['kahan',['kahan',['../struct_space_h_1_1kahan.html',1,'SpaceH::kahan&lt; T &gt;'],['../struct_space_h_1_1kahan.html#a97b3bd761defb5ed56ec1693822a23aa',1,'SpaceH::kahan::kahan()'],['../struct_space_h_1_1kahan.html#a0ba659734c4a20fbb307cfb26b871585',1,'SpaceH::kahan::kahan(T r)'],['../struct_space_h_1_1kahan.html#a52479b2b99e2fc5174552eee059c70ea',1,'SpaceH::kahan::kahan(const kahan &amp;k)']]],
+  ['kahannumber_2eh',['kahanNumber.h',['../kahan_number_8h.html',1,'']]],
+  ['kdkleapfrog',['KDKLEAPFROG',['../namespace_space_h.html#a4829efb7299b62ce2f122e27bb720db6a9a3a2cb30e865b2578a7fd8e8f0bd50c',1,'SpaceH']]],
+  ['kick',['kick',['../class_a_rchain.html#a2def151c2de7790ebb1696dddac623e3',1,'ARchain::kick()'],['../class_regu_system.html#aec4eb60d2fe97652cef662db9e8b730f',1,'ReguSystem::kick()'],['../classparticle_system.html#abda10b9f9dc5ea55a2d9fdf7f9d76d8d',1,'particleSystem::kick()']]],
+  ['kind',['kind',['../classparticles.html#a64f8ee4ddc337e0f05fd41088cf07f00',1,'particles::kind() const'],['../classparticles.html#abe61f1f99b1ea75e9b87927d1012a1f2',1,'particles::kind(size_t i) const'],['../classparticle_system.html#a5b41ae458724a13976117216fdf63b19',1,'particleSystem::kind() const'],['../classparticle_system.html#ad406c7bb71f92b27d918b0b36c0f9e93',1,'particleSystem::kind(size_t i) const']]],
   ['km',['KM',['../macros_8h.html#af2446191e3c663714960070fd9ccccde',1,'macros.h']]]
 ];

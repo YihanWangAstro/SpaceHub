@@ -26,8 +26,6 @@ public:
     
     using typename Base::type;
     
-    using typename Base::ActiveScalarArray;
-    
     using Scalar = typename type::Scalar;
     
     using Vector = typename type::Vector;

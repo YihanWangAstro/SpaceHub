@@ -1,4 +1,4 @@
-\hypertarget{classconst_iterator}{}\subsection{const\+Iterator$<$ Partic\+Sys, Integrator $>$ Class Template Reference}
+\hypertarget{classconst_iterator}{}\section{const\+Iterator$<$ Partic\+Sys, Integrator $>$ Class Template Reference}
 \label{classconst_iterator}\index{const\+Iterator$<$ Partic\+Sys, Integrator $>$@{const\+Iterator$<$ Partic\+Sys, Integrator $>$}}
 
 
@@ -9,19 +9,21 @@ Most common iterator.
 
 {\ttfamily \#include $<$const\+Iterator.\+h$>$}
 
-\subsubsection*{Public Types}
+\subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef Partic\+Sys\+::\+Scalar \mbox{\hyperlink{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}{Scalar}}
-\begin{DoxyCompactList}\small\item\em interface to iterate particle system for one step \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
+using \mbox{\hyperlink{classconst_iterator_aa4809910ddae08b6ffd78046ee05061e}{type}} = typename Partic\+Sys\+::type
 \item 
-\mbox{\hyperlink{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}{Scalar}} \mbox{\hyperlink{classconst_iterator_ac38af18a50fbb2aea54656f089911a48}{iterate}} (Partic\+Sys \&particles, Integrator \&integrator, \mbox{\hyperlink{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}{Scalar}} step\+Length)
+using \mbox{\hyperlink{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}{Scalar}} = typename type\+::\+Scalar
 \end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}{Scalar}} \mbox{\hyperlink{classconst_iterator_af7cdfe1f6ab00dab9942645d5306ea32}{iterate}} (Partic\+Sys \&\mbox{\hyperlink{classparticles}{particles}}, \mbox{\hyperlink{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}{Scalar}} step\+Length)
+\begin{DoxyCompactList}\small\item\em interface to iterate particle system for one step \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsubsection{Detailed Description}
+\subsection{Detailed Description}
 \subsubsection*{template$<$typename Partic\+Sys, typename Integrator$>$\newline
 class const\+Iterator$<$ Partic\+Sys, Integrator $>$}
 
@@ -29,13 +31,30 @@ Most common iterator.
 
 Constant iterator keep the step length constant and integrate the particle system for one step. 
 
-\subsubsection{Member Typedef Documentation}
-\mbox{\Hypertarget{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}\label{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}} 
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}\label{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}} 
 \index{const\+Iterator@{const\+Iterator}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!const\+Iterator@{const\+Iterator}}
-\paragraph{\texorpdfstring{Scalar}{Scalar}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-typedef Partic\+Sys\+::\+Scalar \mbox{\hyperlink{classconst_iterator}{const\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}{Scalar}}}
+using \mbox{\hyperlink{classconst_iterator}{const\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{classconst_iterator_aa4809910ddae08b6ffd78046ee05061e}\label{classconst_iterator_aa4809910ddae08b6ffd78046ee05061e}} 
+\index{const\+Iterator@{const\+Iterator}!type@{type}}
+\index{type@{type}!const\+Iterator@{const\+Iterator}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{classconst_iterator}{const\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{classconst_iterator_aa4809910ddae08b6ffd78046ee05061e}{type}} =  typename Partic\+Sys\+::type}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classconst_iterator_af7cdfe1f6ab00dab9942645d5306ea32}\label{classconst_iterator_af7cdfe1f6ab00dab9942645d5306ea32}} 
+\index{const\+Iterator@{const\+Iterator}!iterate@{iterate}}
+\index{iterate@{iterate}!const\+Iterator@{const\+Iterator}}
+\subsubsection{\texorpdfstring{iterate()}{iterate()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}{Scalar}} \mbox{\hyperlink{classconst_iterator}{const\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{classconst_iterator_a524fa9110f25e60075d8ec02e5f5bb71}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -53,16 +72,6 @@ interface to iterate particle system for one step
 \begin{DoxyReturn}{Returns}
 step length for next iteration. 
 \end{DoxyReturn}
-
-
-\subsubsection{Member Function Documentation}
-\mbox{\Hypertarget{classconst_iterator_ac38af18a50fbb2aea54656f089911a48}\label{classconst_iterator_ac38af18a50fbb2aea54656f089911a48}} 
-\index{const\+Iterator@{const\+Iterator}!iterate@{iterate}}
-\index{iterate@{iterate}!const\+Iterator@{const\+Iterator}}
-\paragraph{\texorpdfstring{iterate()}{iterate()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}{Scalar}} \mbox{\hyperlink{classconst_iterator}{const\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{Integrator \&}]{integrator,  }\item[{\mbox{\hyperlink{classconst_iterator_a7cdf84749facbb55a6a2674646f92f52}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

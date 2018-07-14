@@ -1,4 +1,4 @@
-\hypertarget{classsymplectic8th}{}\subsection{symplectic8th$<$ Partic\+Sys $>$ Class Template Reference}
+\hypertarget{classsymplectic8th}{}\section{symplectic8th$<$ Partic\+Sys $>$ Class Template Reference}
 \label{classsymplectic8th}\index{symplectic8th$<$ Partic\+Sys $>$@{symplectic8th$<$ Partic\+Sys $>$}}
 
 
@@ -9,31 +9,55 @@ Eighth order symplectic integrator.
 
 {\ttfamily \#include $<$symplectic8th.\+h$>$}
 
-\subsubsection*{Public Member Functions}
+\subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classsymplectic8th_ab00fe2604c1471a27c2e6301c3820343}{integrate}} (Partic\+Sys \&particles, double step\+Length)
+using \mbox{\hyperlink{classsymplectic8th_a9e02e91dadeed454d5e3986f83c489fa}{type}} = typename Partic\+Sys\+::type
+\item 
+using \mbox{\hyperlink{classsymplectic8th_a3a85c2b58a75f2da56a6989a73a001b8}{Scalar}} = typename type\+::\+Scalar
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsymplectic8th_a6d3406699e9edfe9fe0791821b719fe0}{integrate}} (Partic\+Sys \&\mbox{\hyperlink{classparticles}{particles}}, \mbox{\hyperlink{classsymplectic8th_a3a85c2b58a75f2da56a6989a73a001b8}{Scalar}} step\+Length)
 \begin{DoxyCompactList}\small\item\em Interface to integrate particle system. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsubsection*{Static Public Attributes}
+\subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static const int \mbox{\hyperlink{classsymplectic8th_a5f80ae81362e3542cb9ed7653f1b20d6}{order}} \{8\}
 \begin{DoxyCompactList}\small\item\em Order of the integrator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsubsection{Detailed Description}
+\subsection{Detailed Description}
 \subsubsection*{template$<$typename Partic\+Sys$>$\newline
 class symplectic8th$<$ Partic\+Sys $>$}
 
 Eighth order symplectic integrator. 
 
-\subsubsection{Member Function Documentation}
-\mbox{\Hypertarget{classsymplectic8th_ab00fe2604c1471a27c2e6301c3820343}\label{classsymplectic8th_ab00fe2604c1471a27c2e6301c3820343}} 
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classsymplectic8th_a3a85c2b58a75f2da56a6989a73a001b8}\label{classsymplectic8th_a3a85c2b58a75f2da56a6989a73a001b8}} 
+\index{symplectic8th@{symplectic8th}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!symplectic8th@{symplectic8th}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{classsymplectic8th}{symplectic8th}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{classsymplectic8th_a3a85c2b58a75f2da56a6989a73a001b8}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{classsymplectic8th_a9e02e91dadeed454d5e3986f83c489fa}\label{classsymplectic8th_a9e02e91dadeed454d5e3986f83c489fa}} 
+\index{symplectic8th@{symplectic8th}!type@{type}}
+\index{type@{type}!symplectic8th@{symplectic8th}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{classsymplectic8th}{symplectic8th}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{classsymplectic8th_a9e02e91dadeed454d5e3986f83c489fa}{type}} =  typename Partic\+Sys\+::type}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsymplectic8th_a6d3406699e9edfe9fe0791821b719fe0}\label{classsymplectic8th_a6d3406699e9edfe9fe0791821b719fe0}} 
 \index{symplectic8th@{symplectic8th}!integrate@{integrate}}
 \index{integrate@{integrate}!symplectic8th@{symplectic8th}}
-\paragraph{\texorpdfstring{integrate()}{integrate()}}
+\subsubsection{\texorpdfstring{integrate()}{integrate()}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
-void \mbox{\hyperlink{classsymplectic8th}{symplectic8th}}$<$ Partic\+Sys $>$\+::integrate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{double}]{step\+Length }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classsymplectic8th}{symplectic8th}}$<$ Partic\+Sys $>$\+::integrate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{classsymplectic8th_a3a85c2b58a75f2da56a6989a73a001b8}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})}
 
 
 
@@ -48,11 +72,11 @@ This function integrate the particle system for one step with D\+KD leapfrog sec
 \end{DoxyParams}
 
 
-\subsubsection{Member Data Documentation}
+\subsection{Member Data Documentation}
 \mbox{\Hypertarget{classsymplectic8th_a5f80ae81362e3542cb9ed7653f1b20d6}\label{classsymplectic8th_a5f80ae81362e3542cb9ed7653f1b20d6}} 
 \index{symplectic8th@{symplectic8th}!order@{order}}
 \index{order@{order}!symplectic8th@{symplectic8th}}
-\paragraph{\texorpdfstring{order}{order}}
+\subsubsection{\texorpdfstring{order}{order}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
 const int \mbox{\hyperlink{classsymplectic8th}{symplectic8th}}$<$ Partic\+Sys $>$\+::order \{8\}\hspace{0.3cm}{\ttfamily [static]}}
 

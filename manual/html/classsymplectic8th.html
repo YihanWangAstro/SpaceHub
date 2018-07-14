@@ -5,18 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>spacex: symplectic8th&lt; ParticSys &gt; Class Template Reference</title>
+<title>spacehub: symplectic8th&lt; ParticSys &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -29,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">spacex
+   <div id="projectname">spacehub
    </div>
   </td>
  </tr>
@@ -53,23 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classsymplectic8th.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -84,8 +59,10 @@ $(document).ready(function(){initNavTree('classsymplectic8th.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classsymplectic8th-members.html">List of all members</a>  </div>
@@ -99,11 +76,18 @@ $(document).ready(function(){initNavTree('classsymplectic8th.html','');});
 
 <p><code>#include &lt;<a class="el" href="symplectic8th_8h_source.html">symplectic8th.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a9e02e91dadeed454d5e3986f83c489fa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsymplectic8th.html#a9e02e91dadeed454d5e3986f83c489fa">type</a> = typename ParticSys::type</td></tr>
+<tr class="separator:a9e02e91dadeed454d5e3986f83c489fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a85c2b58a75f2da56a6989a73a001b8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsymplectic8th.html#a3a85c2b58a75f2da56a6989a73a001b8">Scalar</a> = typename type::Scalar</td></tr>
+<tr class="separator:a3a85c2b58a75f2da56a6989a73a001b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab00fe2604c1471a27c2e6301c3820343"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsymplectic8th.html#ab00fe2604c1471a27c2e6301c3820343">integrate</a> (ParticSys &amp;particles, double stepLength)</td></tr>
-<tr class="memdesc:ab00fe2604c1471a27c2e6301c3820343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to integrate particle system.  <a href="#ab00fe2604c1471a27c2e6301c3820343">More...</a><br /></td></tr>
-<tr class="separator:ab00fe2604c1471a27c2e6301c3820343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d3406699e9edfe9fe0791821b719fe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsymplectic8th.html#a6d3406699e9edfe9fe0791821b719fe0">integrate</a> (ParticSys &amp;<a class="el" href="classparticles.html">particles</a>, <a class="el" href="classsymplectic8th.html#a3a85c2b58a75f2da56a6989a73a001b8">Scalar</a> stepLength)</td></tr>
+<tr class="memdesc:a6d3406699e9edfe9fe0791821b719fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to integrate particle system.  <a href="#a6d3406699e9edfe9fe0791821b719fe0">More...</a><br /></td></tr>
+<tr class="separator:a6d3406699e9edfe9fe0791821b719fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -116,9 +100,42 @@ Static Public Attributes</h2></td></tr>
 class symplectic8th&lt; ParticSys &gt;</h3>
 
 <p>Eighth order symplectic integrator. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab00fe2604c1471a27c2e6301c3820343"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab00fe2604c1471a27c2e6301c3820343">&#9670;&nbsp;</a></span>integrate()</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a3a85c2b58a75f2da56a6989a73a001b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a85c2b58a75f2da56a6989a73a001b8">&#9670;&nbsp;</a></span>Scalar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsymplectic8th.html">symplectic8th</a>&lt; ParticSys &gt;::<a class="el" href="classsymplectic8th.html#a3a85c2b58a75f2da56a6989a73a001b8">Scalar</a> =  typename type::Scalar</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e02e91dadeed454d5e3986f83c489fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e02e91dadeed454d5e3986f83c489fa">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classsymplectic8th.html">symplectic8th</a>&lt; ParticSys &gt;::<a class="el" href="classsymplectic8th.html#a9e02e91dadeed454d5e3986f83c489fa">type</a> =  typename ParticSys::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6d3406699e9edfe9fe0791821b719fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d3406699e9edfe9fe0791821b719fe0">&#9670;&nbsp;</a></span>integrate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +151,7 @@ template&lt;typename ParticSys &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype"><a class="el" href="classsymplectic8th.html#a3a85c2b58a75f2da56a6989a73a001b8">Scalar</a>&#160;</td>
           <td class="paramname"><em>stepLength</em>&#160;</td>
         </tr>
         <tr>
@@ -187,15 +204,11 @@ template&lt;typename ParticSys &gt; </div>
 <li>integrator/symplectic/<a class="el" href="symplectic8th_8h_source.html">symplectic8th.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="classsymplectic8th.html">symplectic8th</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
 </body>
 </html>

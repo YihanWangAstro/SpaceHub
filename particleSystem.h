@@ -34,7 +34,7 @@ public:
     
     using IntArray    = typename type::IntArray;
     
-    using ActiveScalarArray = typename Particles::ActiveScalarArray;
+    using DynScalarArray = typename type::DynScalarArray;
     /* Typedef */
     
     constexpr static size_t arraySize{type::arraySize};
@@ -137,15 +137,15 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend ActiveScalarArray& operator>>(ActiveScalarArray& data, particleSystem& sys)
+    friend void operator>>(DynScalarArray& data, particleSystem& sys)
     {
-        return data >> sys.partc;
+        data >> sys.partc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend ActiveScalarArray& operator<<(ActiveScalarArray& data, const particleSystem& sys)
+    friend void operator<<(DynScalarArray& data, const particleSystem& sys)
     {
-        return data << sys.partc;
+        data << sys.partc;
     }
     
 protected:

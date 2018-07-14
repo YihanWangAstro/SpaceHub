@@ -63,13 +63,6 @@ public:
     calcuVelIndepAcc(const Particles& partc)
     {
         vel_indep_.calcuAcc(partc.mass(), partc.pos(), partc.chainPos(), partc.chainIndex());
-        /*std::cout << "chain:";
-        SpaceH::print(partc.chainPos());
-        std::cout << '\n';
-        
-        std::cout << "Cartesin:";
-        SpaceH::print(partc.pos());
-        std::cout << '\n';*/
     }
     
     template<typename Particles>

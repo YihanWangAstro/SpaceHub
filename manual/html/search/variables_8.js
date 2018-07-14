@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['j',['j',['../structchain_1_1_node.html#aa41c0c59d6cdd4263a72b9e5284aa3d9',1,'chain::Node']]]
+  ['j',['j',['../struct_space_h_1_1chain_1_1_node.html#a7e0bcb5270769de3d49ee981241b027c',1,'SpaceH::chain::Node']]]
 ];

@@ -1,71 +1,29 @@
-\hypertarget{interaction_8h}{}\subsection{interaction/interaction.h File Reference}
+\hypertarget{interaction_8h}{}\section{interaction/interaction.h File Reference}
 \label{interaction_8h}\index{interaction/interaction.\+h@{interaction/interaction.\+h}}
-{\ttfamily \#include \char`\"{}../macros.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}../vector3.\+h\char`\"{}}\newline
-Include dependency graph for interaction.\+h\+:\nopagebreak
+{\ttfamily \#include \char`\"{}../proto\+Type.\+h\char`\"{}}\newline
+Include dependency graph for interaction.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=257pt]{interaction_8h__incl}
+\includegraphics[width=284pt]{interaction_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=263pt]{interaction_8h__dep__incl}
+\includegraphics[width=199pt]{interaction_8h__dep__incl}
 \end{center}
 \end{figure}
-\subsubsection*{Classes}
+\subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_p_n1th}{P\+N1th$<$ Scalar $>$}}
-\begin{DoxyCompactList}\small\item\em Post newtonian pair interaction functor(c++ std11) \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_newtonian}{Newtonian$<$ Scalar $>$}}
-\begin{DoxyCompactList}\small\item\em Marker of None velocity dependent force functor(c++ std11) \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-constexpr double \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}} = 1 / \mbox{\hyperlink{macros_8h_ac6f5ace5be51101e94c2d282d7c5cc89}{C}}
-\item 
-constexpr double \mbox{\hyperlink{interaction_8h_a2f311c5ca39cd4fef2a82553c35f3e9c}{I\+N\+V\+\_\+\+C2}} = \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}
-\item 
-constexpr double \mbox{\hyperlink{interaction_8h_a603ddfbe953a9786d479257a4a5d492a}{I\+N\+V\+\_\+\+C3}} = \mbox{\hyperlink{interaction_8h_a2f311c5ca39cd4fef2a82553c35f3e9c}{I\+N\+V\+\_\+\+C2}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}
-\item 
-constexpr double \mbox{\hyperlink{interaction_8h_ab25c4cc2d8572230a769eb9b71a70936}{I\+N\+V\+\_\+\+C4}} = \mbox{\hyperlink{interaction_8h_a603ddfbe953a9786d479257a4a5d492a}{I\+N\+V\+\_\+\+C3}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}
-\item 
-constexpr double \mbox{\hyperlink{interaction_8h_a63f6a14a79f039e04907729224b5a129}{I\+N\+V\+\_\+\+C5}} = \mbox{\hyperlink{interaction_8h_ab25c4cc2d8572230a769eb9b71a70936}{I\+N\+V\+\_\+\+C4}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}
+class \mbox{\hyperlink{class_space_h_1_1_interaction}{Space\+H\+::\+Interaction$<$ Vel\+Indep, Vel\+Dep, Ext\+Vel\+Indep, Ext\+Vel\+Dep $>$}}
 \end{DoxyCompactItemize}
-
-
-\subsubsection{Variable Documentation}
-\mbox{\Hypertarget{interaction_8h_ae54320a954d3d97843f2cbccd967decc}\label{interaction_8h_ae54320a954d3d97843f2cbccd967decc}} 
-\index{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+C@{I\+N\+V\+\_\+C}}
-\index{I\+N\+V\+\_\+C@{I\+N\+V\+\_\+C}!interaction.\+h@{interaction.\+h}}
-\paragraph{\texorpdfstring{I\+N\+V\+\_\+C}{INV\_C}}
-{\footnotesize\ttfamily constexpr double I\+N\+V\+\_\+C = 1 / \mbox{\hyperlink{macros_8h_ac6f5ace5be51101e94c2d282d7c5cc89}{C}}}
-
-\mbox{\Hypertarget{interaction_8h_a2f311c5ca39cd4fef2a82553c35f3e9c}\label{interaction_8h_a2f311c5ca39cd4fef2a82553c35f3e9c}} 
-\index{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C2@{I\+N\+V\+\_\+\+C2}}
-\index{I\+N\+V\+\_\+\+C2@{I\+N\+V\+\_\+\+C2}!interaction.\+h@{interaction.\+h}}
-\paragraph{\texorpdfstring{I\+N\+V\+\_\+\+C2}{INV\_C2}}
-{\footnotesize\ttfamily constexpr double I\+N\+V\+\_\+\+C2 = \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}}
-
-\mbox{\Hypertarget{interaction_8h_a603ddfbe953a9786d479257a4a5d492a}\label{interaction_8h_a603ddfbe953a9786d479257a4a5d492a}} 
-\index{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C3@{I\+N\+V\+\_\+\+C3}}
-\index{I\+N\+V\+\_\+\+C3@{I\+N\+V\+\_\+\+C3}!interaction.\+h@{interaction.\+h}}
-\paragraph{\texorpdfstring{I\+N\+V\+\_\+\+C3}{INV\_C3}}
-{\footnotesize\ttfamily constexpr double I\+N\+V\+\_\+\+C3 = \mbox{\hyperlink{interaction_8h_a2f311c5ca39cd4fef2a82553c35f3e9c}{I\+N\+V\+\_\+\+C2}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}}
-
-\mbox{\Hypertarget{interaction_8h_ab25c4cc2d8572230a769eb9b71a70936}\label{interaction_8h_ab25c4cc2d8572230a769eb9b71a70936}} 
-\index{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C4@{I\+N\+V\+\_\+\+C4}}
-\index{I\+N\+V\+\_\+\+C4@{I\+N\+V\+\_\+\+C4}!interaction.\+h@{interaction.\+h}}
-\paragraph{\texorpdfstring{I\+N\+V\+\_\+\+C4}{INV\_C4}}
-{\footnotesize\ttfamily constexpr double I\+N\+V\+\_\+\+C4 = \mbox{\hyperlink{interaction_8h_a603ddfbe953a9786d479257a4a5d492a}{I\+N\+V\+\_\+\+C3}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}}
-
-\mbox{\Hypertarget{interaction_8h_a63f6a14a79f039e04907729224b5a129}\label{interaction_8h_a63f6a14a79f039e04907729224b5a129}} 
-\index{interaction.\+h@{interaction.\+h}!I\+N\+V\+\_\+\+C5@{I\+N\+V\+\_\+\+C5}}
-\index{I\+N\+V\+\_\+\+C5@{I\+N\+V\+\_\+\+C5}!interaction.\+h@{interaction.\+h}}
-\paragraph{\texorpdfstring{I\+N\+V\+\_\+\+C5}{INV\_C5}}
-{\footnotesize\ttfamily constexpr double I\+N\+V\+\_\+\+C5 = \mbox{\hyperlink{interaction_8h_ab25c4cc2d8572230a769eb9b71a70936}{I\+N\+V\+\_\+\+C4}} $\ast$ \mbox{\hyperlink{interaction_8h_ae54320a954d3d97843f2cbccd967decc}{I\+N\+V\+\_\+C}}}
-
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\end{DoxyCompactItemize}

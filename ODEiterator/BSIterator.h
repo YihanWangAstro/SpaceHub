@@ -17,9 +17,10 @@ class BSIterator
 {
 public:
     using type   = typename ParticSys::type;
+    
     using Scalar = typename type::Scalar;
     
-    using ActiveScalarArray = typename ParticSys::ActiveScalarArray;
+    using DynScalarArray = typename type::DynScalarArray;
     
     template<typename T, size_t S>
     using Container = typename type::template Container<T, S>;
@@ -52,7 +53,7 @@ private:
     ParticSys localSystem;
     
     /** @brief Extrapolation table.*/
-    Container < ActiveScalarArray, (MaxDepth + 1)* (MaxDepth + 2) / 2 > extrapTab;
+    Container < DynScalarArray, (MaxDepth + 1)* (MaxDepth + 2) / 2 > extrapTab;
     
     /** @brief Extrapolation coefficient.*/
     Container < Scalar, (MaxDepth + 1)* (MaxDepth + 2) / 2 > CC;
@@ -93,6 +94,9 @@ private:
     /** @brief Current iteraation depth.*/
     size_t iterDepth{7};
     
+    /** @brief Total volume of extrapolation table(in scalar).*/
+    size_t extrapTabVolume_{0};
+    
 private:
     /** @brief Internal integrator */
     Integrator integrator;
@@ -102,6 +106,9 @@ private:
     
     /** @brief Extrapolate the kth row to the right end.*/
     void extrapolate(size_t k);
+    
+    /** @brief Check/resize the extrapolation table volume.*/
+    void checkExtrapVolume();
     
     /** @brief Calculate the error of the k row of the extrapolation table.*/
     Scalar getError(size_t k) const;
@@ -137,6 +144,7 @@ BSIterator<ParticSys, Integrator>::BSIterator()
         }
     }
 }
+
 
 /** @brief Interface of ODE iterator
  *  @param particles Particle system need iteration.
@@ -174,12 +182,13 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::iterate(Part
             
             extrapTab[k * (k + 1) / 2] << localSystem;//copyDataToExtrapTab;
             
+            checkExtrapVolume();
+            
             extrapolate(k);
             error = getError(k);
             macroStepLength[k] = H * getTimeStepCoef(error, k);
             work[k] = cost[k] / macroStepLength[k];
-            //if(iterDepth!=7)
-            //std::cout << cost[k] << " "<< k << " " << iterDepth << " " << error << " " << H << "\r\n";
+            
             if(k == iterDepth - 1 || k == iterDepth || k == iterDepth + 1)
             {
                 if(error <= 1)
@@ -232,6 +241,12 @@ void BSIterator<ParticSys, Integrator>::extrapolate(size_t k)
         size_t pn   = (k - 1) * k / 2;
         size_t size = extrapTab[n].size();
 
+        
+        /*for(size_t j = 1 ; j <= k; ++j)
+        {
+            extrapTab[n + j].resize(size);
+        }*/
+    
         for(size_t j = 0 ; j < k; ++j)
         {
             size_t now  = n + j;
@@ -351,4 +366,21 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::prepareForNe
 
     return newH;
 }
+/** @brief Check/resize the extrapolation table.*/
+template <typename ParticSys, typename Integrator>
+void BSIterator<ParticSys, Integrator>::checkExtrapVolume()
+{
+    size_t tab_size = extrapTab.size();
+    size_t array_size = extrapTab[0].size();
+    
+    if( extrapTabVolume_ < tab_size * array_size )
+    {
+        for(size_t i = 1 ; i < tab_size ; i++)
+        {
+            extrapTab[i].resize(array_size);
+        }
+        extrapTabVolume_ = tab_size * array_size;
+    }
+}
+
 #endif

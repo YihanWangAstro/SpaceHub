@@ -6,7 +6,7 @@
 using namespace std::chrono;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> resolutionClock;
 
-using scalar = double;//SpaceH::kahan<double>;
+using scalar = SpaceH::kahan<double>;
 const size_t N = 3;
 int main(int argc, char**argv)
 {
@@ -19,12 +19,13 @@ int main(int argc, char**argv)
     //using type  = typeSet::type<double,2>;
     using type = SpaceH::ProtoType<scalar,N>;
     
-    using particle = ChainParticles<scalar,N>;
+    
     using f = SpaceH::NewtonForce<scalar,N>;
     using force = SpaceH::VelIndepForce< f,scalar,N>;
     using no = SpaceH::EmptyForce<scalar,N>;
     using interaction = SpaceH::Interaction<force,no,no,no>;
     
+    using particle = ReguParticles<scalar,N,interaction::isVelDep>;
     using regu = logH<particle>;
     using ps = ReguSystem<particle, interaction, regu>;
     
@@ -43,7 +44,7 @@ int main(int argc, char**argv)
     
    // nbody.iterator.setRelativeError(1e-6);
 
-    double timeLimit = 30*YEAR;
+    double timeLimit = 50*YEAR;
     double dt = 0.01*YEAR;
     double tout = 0;
 
@@ -54,7 +55,7 @@ int main(int argc, char**argv)
     os  << std::scientific << std::setprecision(16);
     eos << std::scientific << std::setprecision(16);
     
-    std::cout <<nbody.particles;
+    //std::cout <<nbody.particles;
     
    // nbody.advanceOneStep();
     
@@ -65,6 +66,7 @@ int main(int argc, char**argv)
     {
         std::cout << nbody.particles.array()[i] << ' ';
     }*/
+    
     
     //nbody.advanceOneStep();
     for(; nbody.particles.time() < timeLimit;)

@@ -1,4 +1,4 @@
-\hypertarget{class_b_s_iterator}{}\subsection{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$ Class Template Reference}
+\hypertarget{class_b_s_iterator}{}\section{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$ Class Template Reference}
 \label{class_b_s_iterator}\index{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$@{B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}}
 
 
@@ -9,108 +9,73 @@ Bulirsch-\/\+Stoer extrapolation algorithm.
 
 {\ttfamily \#include $<$B\+S\+Iterator.\+h$>$}
 
-\subsubsection*{Public Types}
+\subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef Partic\+Sys\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}
+using \mbox{\hyperlink{class_b_s_iterator_a19530085797de211565a566f581f20ca}{type}} = typename Partic\+Sys\+::type
 \item 
-{\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\using \mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}} = std\+::array$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, N $>$
+using \mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} = typename type\+::\+Scalar
+\item 
+using \mbox{\hyperlink{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}{Active\+Scalar\+Array}} = typename Partic\+Sys\+::\+Active\+Scalar\+Array
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t S$>$ }\\using \mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}} = typename type\+::template \mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}}$<$ T, S $>$
 \end{DoxyCompactItemize}
-\subsubsection*{Public Member Functions}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_b_s_iterator_a144fb5c55fcd7bc873e73f4d06276fb2}{B\+S\+Iterator}} ()
 \begin{DoxyCompactList}\small\item\em Constructor for initializing cost, n\+Steps, fmin and CC. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a5520642ecbd454fb1f4d9ece18dc4e3f}{iterate}} (Partic\+Sys \&particles, Integrator \&integrator, \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} step\+Length)
+\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a47c558caa06982900eac316e10b50d4d}{iterate}} (Partic\+Sys \&\mbox{\hyperlink{classparticles}{particles}}, \mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} step\+Length)
 \begin{DoxyCompactList}\small\item\em Interface of O\+DE iterator. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}{set\+Relative\+Error}} (\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} rel\+Error)
+void \mbox{\hyperlink{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}{set\+Relative\+Error}} (\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} rel\+Error)
 \begin{DoxyCompactList}\small\item\em Set the local relative error. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_b_s_iterator_a57603539823be271c2229d0951b7d957}{set\+Absolute\+Error}} (\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} abs\+Error)
+void \mbox{\hyperlink{class_b_s_iterator_a57603539823be271c2229d0951b7d957}{set\+Absolute\+Error}} (\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} abs\+Error)
 \begin{DoxyCompactList}\small\item\em Set the local absolute error. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{class_b_s_iterator_a95c268219a8321af35a628db4e22bec4}{copy\+Data\+To\+Extrap\+Tab}} (size\+\_\+t k)
-\begin{DoxyCompactList}\small\item\em Copy the current results of localsystem as a plain array to the first column of extrapolation talbe. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_b_s_iterator_a42976d786ffe422a86cc5a7b0a077609}{check\+Rejection}} (\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} error, size\+\_\+t k) const
-\begin{DoxyCompactList}\small\item\em Check the rejection criteria for current iteration. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_b_s_iterator_ac1edf158e3dd05ed15afd5d0f31c121a}{extrapolate}} (size\+\_\+t k)
-\begin{DoxyCompactList}\small\item\em Extrapolate the kth row to the right end. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a9f50e084f8650e4d7fea3535a0547139}{get\+Error}} (size\+\_\+t k) const
-\begin{DoxyCompactList}\small\item\em Calculate the error of the k row of the extrapolation table. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a9d06a0d0c9e458ea96952b0514adece9}{get\+Time\+Step\+Coef}} (\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} error, size\+\_\+t order)
-\begin{DoxyCompactList}\small\item\em Calculate the new iteration integration step coefficient. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a738a558ddfacd9959c9438862001d7e8}{prepare\+For\+New\+Iteration}} (size\+\_\+t k, bool last\+Rejection)
-\begin{DoxyCompactList}\small\item\em Calculate the new iteration integration step and new iteration depth for next iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Partic\+Sys \mbox{\hyperlink{class_b_s_iterator_a9d6fc5f237246465161ea86854985395}{local\+System}}
-\begin{DoxyCompactList}\small\item\em The local partical system used to iterate. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, Partic\+Sys\+::volume()$>$,(\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1) $\ast$(\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+2)/2 $>$ \mbox{\hyperlink{class_b_s_iterator_aa501e973f342248fc445d59a5166ccc9}{extrap\+Tab}}
-\begin{DoxyCompactList}\small\item\em Extrapolation table. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}},(\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1) $\ast$(\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+2)/2 $>$ \mbox{\hyperlink{class_b_s_iterator_a28f6cc2fd6bfd554f85225492f4210b7}{CC}}
-\begin{DoxyCompactList}\small\item\em Extrapolation coefficient. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1 $>$ \mbox{\hyperlink{class_b_s_iterator_a96c58777cbefe7d02e160317621fc0b9}{macro\+Step\+Length}}
-\begin{DoxyCompactList}\small\item\em Macro step length for different iteration depth. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1 $>$ \mbox{\hyperlink{class_b_s_iterator_ac2a338d6c3e5014d529666032d34c987}{work}}
-\begin{DoxyCompactList}\small\item\em The work(calculation quantities) per integration length of each iteration depth. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1 $>$ \mbox{\hyperlink{class_b_s_iterator_a05bf5c727d23e47349683cda1a08ed13}{fmin}}
-\begin{DoxyCompactList}\small\item\em The minimal coeffient of integration step estimation. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ size\+\_\+t, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1 $>$ \mbox{\hyperlink{class_b_s_iterator_a53f435811c23c0ae1713df13197fc9c9}{cost}}
-\begin{DoxyCompactList}\small\item\em The work(calculation quantities) of each iteration depth. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ size\+\_\+t, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}}+1 $>$ \mbox{\hyperlink{class_b_s_iterator_a9c4c8c17a759cdff694e0bd62ed249bd}{n\+Steps}}
-\begin{DoxyCompactList}\small\item\em Steps of integration of each iteration depth. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a8948aa04b0ec390d43eb3d1f0a2efb03}{absolute\+Error}} \{1e-\/15\}
-\begin{DoxyCompactList}\small\item\em Local absolute error. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_abce71b7bac10363f7772dc848f8722b6}{relative\+Error}} \{1e-\/15\}
-\begin{DoxyCompactList}\small\item\em Local relative error. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a942f85e00c28ef1990d1dfbed69c9e13}{s1}} \{0.\+94\}
-\begin{DoxyCompactList}\small\item\em Coefficient of new step length estimation. See \char`\"{}\+Numerical recipes\char`\"{} on page 926. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_ad1cdde25df6bca7a456c1908be54065f}{s2}} \{0.\+95\}
-\begin{DoxyCompactList}\small\item\em Coefficient of new step length estimation. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a10ea0bb96f7971e9c477daef1fda6e16}{s3}} \{0.\+02\}
-\begin{DoxyCompactList}\small\item\em Coefficient of new step length estimation. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a5b3bbb2d988a5d91030060508e3b4f66}{s4}} \{4.\+0\}
-\begin{DoxyCompactList}\small\item\em Coefficient of new step length estimation. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{class_b_s_iterator_aa073f847cc5855f727c8f326f539a5f0}{iter\+Depth}} \{7\}
-\begin{DoxyCompactList}\small\item\em Current iteraation depth. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsubsection*{Static Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static const size\+\_\+t \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} \{8\}
-\begin{DoxyCompactList}\small\item\em The Maximum iteration depth. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsubsection{Detailed Description}
+\subsection{Detailed Description}
 \subsubsection*{template$<$typename Partic\+Sys, typename Integrator$>$\newline
 class B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}
 
 Bulirsch-\/\+Stoer extrapolation algorithm. 
 
-\subsubsection{Member Typedef Documentation}
-\mbox{\Hypertarget{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}\label{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}} 
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}\label{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}} 
+\index{B\+S\+Iterator@{B\+S\+Iterator}!Active\+Scalar\+Array@{Active\+Scalar\+Array}}
+\index{Active\+Scalar\+Array@{Active\+Scalar\+Array}!B\+S\+Iterator@{B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Active\+Scalar\+Array}{ActiveScalarArray}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}{Active\+Scalar\+Array}} =  typename Partic\+Sys\+::\+Active\+Scalar\+Array}
+
+\mbox{\Hypertarget{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}\label{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}} 
+\index{B\+S\+Iterator@{B\+S\+Iterator}!Container@{Container}}
+\index{Container@{Container}!B\+S\+Iterator@{B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Container}{Container}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+template$<$typename T , size\+\_\+t S$>$ \\
+using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}} =  typename type\+::template \mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}}$<$T, S$>$}
+
+\mbox{\Hypertarget{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}\label{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{Scalar}{Scalar}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-typedef Partic\+Sys\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}}
+using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} =  typename type\+::\+Scalar}
 
-\mbox{\Hypertarget{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}\label{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!scalar\+Array@{scalar\+Array}}
-\index{scalar\+Array@{scalar\+Array}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{scalar\+Array}{scalarArray}}
+\mbox{\Hypertarget{class_b_s_iterator_a19530085797de211565a566f581f20ca}\label{class_b_s_iterator_a19530085797de211565a566f581f20ca}} 
+\index{B\+S\+Iterator@{B\+S\+Iterator}!type@{type}}
+\index{type@{type}!B\+S\+Iterator@{B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-template$<$typename Scalar , size\+\_\+t N$>$ \\
-using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}} =  std\+::array$<$\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, N$>$}
+using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a19530085797de211565a566f581f20ca}{type}} =  typename Partic\+Sys\+::type}
 
 
 
-\subsubsection{Constructor \& Destructor Documentation}
+\subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_b_s_iterator_a144fb5c55fcd7bc873e73f4d06276fb2}\label{class_b_s_iterator_a144fb5c55fcd7bc873e73f4d06276fb2}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!B\+S\+Iterator@{B\+S\+Iterator}}
 \index{B\+S\+Iterator@{B\+S\+Iterator}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{B\+S\+Iterator()}{BSIterator()}}
+\subsubsection{\texorpdfstring{B\+S\+Iterator()}{BSIterator()}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
 \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
@@ -120,117 +85,13 @@ Constructor for initializing cost, n\+Steps, fmin and CC.
 
 
 
-\subsubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_b_s_iterator_a42976d786ffe422a86cc5a7b0a077609}\label{class_b_s_iterator_a42976d786ffe422a86cc5a7b0a077609}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!check\+Rejection@{check\+Rejection}}
-\index{check\+Rejection@{check\+Rejection}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{check\+Rejection()}{checkRejection()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-bool \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::check\+Rejection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}}]{error,  }\item[{size\+\_\+t}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Check the rejection criteria for current iteration. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em k} & The kth iteration depth. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-If current iteration is rejected. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_iterator_a95c268219a8321af35a628db4e22bec4}\label{class_b_s_iterator_a95c268219a8321af35a628db4e22bec4}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!copy\+Data\+To\+Extrap\+Tab@{copy\+Data\+To\+Extrap\+Tab}}
-\index{copy\+Data\+To\+Extrap\+Tab@{copy\+Data\+To\+Extrap\+Tab}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{copy\+Data\+To\+Extrap\+Tab()}{copyDataToExtrapTab()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::copy\+Data\+To\+Extrap\+Tab (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Copy the current results of localsystem as a plain array to the first column of extrapolation talbe. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em k} & The kth row of extrapolation table. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_b_s_iterator_ac1edf158e3dd05ed15afd5d0f31c121a}\label{class_b_s_iterator_ac1edf158e3dd05ed15afd5d0f31c121a}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!extrapolate@{extrapolate}}
-\index{extrapolate@{extrapolate}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{extrapolate()}{extrapolate()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::extrapolate (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Extrapolate the kth row to the right end. 
-
-Extrapolate the k-\/th row to the right end.
-
-
-\begin{DoxyParams}{Parameters}
-{\em k} & The kth row of extrapolation table. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_b_s_iterator_a9f50e084f8650e4d7fea3535a0547139}\label{class_b_s_iterator_a9f50e084f8650e4d7fea3535a0547139}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!get\+Error@{get\+Error}}
-\index{get\+Error@{get\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{get\+Error()}{getError()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-Partic\+Sys\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::get\+Error (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Calculate the error of the k row of the extrapolation table. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em k} & The kth row of extrapolation table. \\
-\hline
-\end{DoxyParams}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=254pt]{class_b_s_iterator_a9f50e084f8650e4d7fea3535a0547139_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_b_s_iterator_a9d06a0d0c9e458ea96952b0514adece9}\label{class_b_s_iterator_a9d06a0d0c9e458ea96952b0514adece9}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!get\+Time\+Step\+Coef@{get\+Time\+Step\+Coef}}
-\index{get\+Time\+Step\+Coef@{get\+Time\+Step\+Coef}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{get\+Time\+Step\+Coef()}{getTimeStepCoef()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-Partic\+Sys\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::get\+Time\+Step\+Coef (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}}]{error,  }\item[{size\+\_\+t}]{order }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Calculate the new iteration integration step coefficient. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em error} & The error of the k-\/th row of extrapolation table. \\
-\hline
-{\em order} & The order of the error in k-\/th row of extrapolation table. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The new iteration integration step length coefficient. 
-\end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=295pt]{class_b_s_iterator_a9d06a0d0c9e458ea96952b0514adece9_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_b_s_iterator_a5520642ecbd454fb1f4d9ece18dc4e3f}\label{class_b_s_iterator_a5520642ecbd454fb1f4d9ece18dc4e3f}} 
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_s_iterator_a47c558caa06982900eac316e10b50d4d}\label{class_b_s_iterator_a47c558caa06982900eac316e10b50d4d}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!iterate@{iterate}}
 \index{iterate@{iterate}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{iterate()}{iterate()}}
+\subsubsection{\texorpdfstring{iterate()}{iterate()}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-Partic\+Sys\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{Integrator \&}]{integrator,  }\item[{\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})}
+Partic\+Sys\+::type\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})}
 
 
 
@@ -251,40 +112,12 @@ B\+Siterator will force use the internal mid-\/point integrator as the basic int
 \begin{DoxyReturn}{Returns}
 The next macro integration step length. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_b_s_iterator_a738a558ddfacd9959c9438862001d7e8}\label{class_b_s_iterator_a738a558ddfacd9959c9438862001d7e8}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!prepare\+For\+New\+Iteration@{prepare\+For\+New\+Iteration}}
-\index{prepare\+For\+New\+Iteration@{prepare\+For\+New\+Iteration}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{prepare\+For\+New\+Iteration()}{prepareForNewIteration()}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-Partic\+Sys\+::\+Scalar \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::prepare\+For\+New\+Iteration (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{k,  }\item[{bool}]{last\+Rejection }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Calculate the new iteration integration step and new iteration depth for next iteration. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em k} & The k-\/th iteration depth. \\
-\hline
-{\em last\+Rejection} & The rejection status of last trail of iteration. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The new iteration step length. 
-\end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=287pt]{class_b_s_iterator_a738a558ddfacd9959c9438862001d7e8_cgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_b_s_iterator_a57603539823be271c2229d0951b7d957}\label{class_b_s_iterator_a57603539823be271c2229d0951b7d957}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!set\+Absolute\+Error@{set\+Absolute\+Error}}
 \index{set\+Absolute\+Error@{set\+Absolute\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{set\+Absolute\+Error()}{setAbsoluteError()}}
+\subsubsection{\texorpdfstring{set\+Absolute\+Error()}{setAbsoluteError()}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Absolute\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}}]{abs\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Absolute\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}}}]{abs\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -293,192 +126,13 @@ Set the local absolute error.
 \mbox{\Hypertarget{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}\label{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!set\+Relative\+Error@{set\+Relative\+Error}}
 \index{set\+Relative\+Error@{set\+Relative\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{set\+Relative\+Error()}{setRelativeError()}}
+\subsubsection{\texorpdfstring{set\+Relative\+Error()}{setRelativeError()}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Relative\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}}]{rel\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Relative\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}}}]{rel\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Set the local relative error. 
-
-
-
-\subsubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_b_s_iterator_a8948aa04b0ec390d43eb3d1f0a2efb03}\label{class_b_s_iterator_a8948aa04b0ec390d43eb3d1f0a2efb03}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!absolute\+Error@{absolute\+Error}}
-\index{absolute\+Error@{absolute\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{absolute\+Error}{absoluteError}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::absolute\+Error \{1e-\/15\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Local absolute error. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a28f6cc2fd6bfd554f85225492f4210b7}\label{class_b_s_iterator_a28f6cc2fd6bfd554f85225492f4210b7}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!CC@{CC}}
-\index{CC@{CC}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{CC}{CC}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, (\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1)$\ast$ (\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 2) / 2 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::CC\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Extrapolation coefficient. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a53f435811c23c0ae1713df13197fc9c9}\label{class_b_s_iterator_a53f435811c23c0ae1713df13197fc9c9}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!cost@{cost}}
-\index{cost@{cost}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{cost}{cost}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ size\+\_\+t, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::cost\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The work(calculation quantities) of each iteration depth. 
-
-\mbox{\Hypertarget{class_b_s_iterator_aa501e973f342248fc445d59a5166ccc9}\label{class_b_s_iterator_aa501e973f342248fc445d59a5166ccc9}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!extrap\+Tab@{extrap\+Tab}}
-\index{extrap\+Tab@{extrap\+Tab}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{extrap\+Tab}{extrapTab}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, Partic\+Sys\+::volume()$>$, (\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1)$\ast$ (\mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 2) / 2 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::extrap\+Tab\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Extrapolation table. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a05bf5c727d23e47349683cda1a08ed13}\label{class_b_s_iterator_a05bf5c727d23e47349683cda1a08ed13}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!fmin@{fmin}}
-\index{fmin@{fmin}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{fmin}{fmin}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::fmin\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The minimal coeffient of integration step estimation. 
-
-\mbox{\Hypertarget{class_b_s_iterator_aa073f847cc5855f727c8f326f539a5f0}\label{class_b_s_iterator_aa073f847cc5855f727c8f326f539a5f0}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!iter\+Depth@{iter\+Depth}}
-\index{iter\+Depth@{iter\+Depth}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{iter\+Depth}{iterDepth}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-size\+\_\+t \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iter\+Depth \{7\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Current iteraation depth. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a9d6fc5f237246465161ea86854985395}\label{class_b_s_iterator_a9d6fc5f237246465161ea86854985395}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!local\+System@{local\+System}}
-\index{local\+System@{local\+System}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{local\+System}{localSystem}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-Partic\+Sys \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::local\+System\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The local partical system used to iterate. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a96c58777cbefe7d02e160317621fc0b9}\label{class_b_s_iterator_a96c58777cbefe7d02e160317621fc0b9}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!macro\+Step\+Length@{macro\+Step\+Length}}
-\index{macro\+Step\+Length@{macro\+Step\+Length}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{macro\+Step\+Length}{macroStepLength}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::macro\+Step\+Length\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Macro step length for different iteration depth. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}\label{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!Max\+Depth@{Max\+Depth}}
-\index{Max\+Depth@{Max\+Depth}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{Max\+Depth}{MaxDepth}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-const size\+\_\+t \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::Max\+Depth \{8\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
-The Maximum iteration depth. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a9c4c8c17a759cdff694e0bd62ed249bd}\label{class_b_s_iterator_a9c4c8c17a759cdff694e0bd62ed249bd}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!n\+Steps@{n\+Steps}}
-\index{n\+Steps@{n\+Steps}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{n\+Steps}{nSteps}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ size\+\_\+t, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::n\+Steps\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Steps of integration of each iteration depth. 
-
-\mbox{\Hypertarget{class_b_s_iterator_abce71b7bac10363f7772dc848f8722b6}\label{class_b_s_iterator_abce71b7bac10363f7772dc848f8722b6}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!relative\+Error@{relative\+Error}}
-\index{relative\+Error@{relative\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{relative\+Error}{relativeError}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::relative\+Error \{1e-\/15\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Local relative error. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a942f85e00c28ef1990d1dfbed69c9e13}\label{class_b_s_iterator_a942f85e00c28ef1990d1dfbed69c9e13}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!s1@{s1}}
-\index{s1@{s1}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{s1}{s1}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::s1 \{0.\+94\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Coefficient of new step length estimation. See \char`\"{}\+Numerical recipes\char`\"{} on page 926. 
-
-\mbox{\Hypertarget{class_b_s_iterator_ad1cdde25df6bca7a456c1908be54065f}\label{class_b_s_iterator_ad1cdde25df6bca7a456c1908be54065f}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!s2@{s2}}
-\index{s2@{s2}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{s2}{s2}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::s2 \{0.\+95\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Coefficient of new step length estimation. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a10ea0bb96f7971e9c477daef1fda6e16}\label{class_b_s_iterator_a10ea0bb96f7971e9c477daef1fda6e16}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!s3@{s3}}
-\index{s3@{s3}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{s3}{s3}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::s3 \{0.\+02\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Coefficient of new step length estimation. 
-
-\mbox{\Hypertarget{class_b_s_iterator_a5b3bbb2d988a5d91030060508e3b4f66}\label{class_b_s_iterator_a5b3bbb2d988a5d91030060508e3b4f66}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!s4@{s4}}
-\index{s4@{s4}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{s4}{s4}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}} \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::s4 \{4.\+0\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Coefficient of new step length estimation. 
-
-\mbox{\Hypertarget{class_b_s_iterator_ac2a338d6c3e5014d529666032d34c987}\label{class_b_s_iterator_ac2a338d6c3e5014d529666032d34c987}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!work@{work}}
-\index{work@{work}!B\+S\+Iterator@{B\+S\+Iterator}}
-\paragraph{\texorpdfstring{work}{work}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-\mbox{\hyperlink{class_b_s_iterator_ab0aa7c10b56500273af05dcd85fd8389}{scalar\+Array}}$<$ \mbox{\hyperlink{class_b_s_iterator_a7857f8ff9032955ea4dcc22cd18ca7a1}{Scalar}}, \mbox{\hyperlink{class_b_s_iterator_a39409b9a12d4854d101ce59a0efc0f74}{Max\+Depth}} + 1 $>$ \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::work\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The work(calculation quantities) per integration length of each iteration depth. 
 
 
 

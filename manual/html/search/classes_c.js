@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vec3',['vec3',['../structvec3.html',1,'']]]
+  ['reguparticles',['ReguParticles',['../class_regu_particles.html',1,'']]],
+  ['regusystem',['ReguSystem',['../class_regu_system.html',1,'']]]
 ];

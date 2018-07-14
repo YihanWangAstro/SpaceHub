@@ -1,4 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classparticle_system.html" title="particleSystem\&lt; ARchain\l\&lt; Newtonian\&lt; EvolvedData\l::Scalar \&gt;, EvolvedData,\l Regularitor \&gt;, EvolvedData \&gt;" alt="" coords="5,5,202,71"/>
-<area shape="rect" id="node2" href="$class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4.html" title="Partial specilization of template ARchain. " alt="" coords="250,5,420,71"/>
+<area shape="rect" id="node2" href="$struct_space_h_1_1_array_wrapper_3_01_t_00_01_d_y_n_a_m_i_c_a_l_01_4.html" title="SpaceH::ArrayWrapper\l\&lt; T, DYNAMICAL \&gt;" alt="" coords="111,5,270,44"/>
 </map>

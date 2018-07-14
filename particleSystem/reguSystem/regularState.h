@@ -8,30 +8,24 @@
  *  A simple extension of class dynamics in dynamicState.h. Used for regularization system. See detail
  *  in https://academic.oup.com/mnras/article/372/1/219/974304 .
  */
-template<typename Dtype, size_t ArraySize>
-class ReguParticles : public particles<Dtype, ArraySize>
+template<typename Dtype, size_t ArraySize, bool IsVelDep>
+class ReguParticles : public Particles<Dtype, ArraySize, IsVelDep>
 {
 public:
     /* Typedef */
-    using Base = particles<Dtype, ArraySize>;
+    using Base = Particles<Dtype, ArraySize, IsVelDep>;
     
     using typename Base::type;
-    
-    template<typename T, size_t S>
-    using Container = typename type::template Container<T, S>;
     
     using Scalar = typename type::Scalar;
     
     using Vector = typename type::Vector;
     
     using VectorArray = typename type::VectorArray;
+    
+    using DynScalarArray = typename type::DynScalarArray;
     /* Typedef */
-
-    constexpr static size_t activeScalar{6*type::arraySize + 3};
     
-    using ActiveScalarArray = Container<Scalar, activeScalar>;
-    
-
     /**  @brief Omega scalar const interface. Reference to state.time*/
     inline const Scalar& omega() const { return omega_; }
     
@@ -73,82 +67,36 @@ public:
     /** @brief Input(Initialize) variables with istream.*/
     friend std::istream& operator>>(std::istream& is, ReguParticles& partc)
     {
-        size_t particleNum = partc.particleNumber();
-        
-        is >> partc.time_;
-        
-        partc.totalMass_ = 0;
-        
-        for(size_t i = 0 ; i < particleNum ; ++i)
-        {
-            is >> partc.idn_[i]
-            >> partc.type_[i]
-            >> partc.mass_[i]
-            >> partc.radius_[i]
-            >> partc.pos_[i]
-            >> partc.vel_[i];
-            
-            partc.totalMass_ += partc.mass_[i];
-        }
-        
+        is >> static_cast<Base&>(partc);
+    
         partc.omega_ = partc.getCapitalOmega();
         partc.bindE_ = -getTotalEnergy(partc.mass(), partc.pos(), partc.vel());
+        
         return is;
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend ActiveScalarArray& operator>>(ActiveScalarArray& data, ReguParticles& partc)
+    friend size_t operator>>(DynScalarArray& data, ReguParticles& partc)
     {
-        size_t particleNum = partc.particleNumber();
-        size_t d_loc = 0;
-        //for locality, split into two loops
-        for(size_t i = 0; i < particleNum; ++i)
-        {
-            partc.pos_[i].x = data[d_loc++];
-            partc.pos_[i].y = data[d_loc++];
-            partc.pos_[i].z = data[d_loc++];
-        }
+        size_t loc = data >> static_cast<Base&>(partc);
         
-        for(size_t i = 0 ; i < particleNum; ++i)
-        {
-            partc.vel_[i].x = data[d_loc++];
-            partc.vel_[i].y = data[d_loc++];
-            partc.vel_[i].z = data[d_loc++];
-        }
+        partc.omega_ = data[loc++];
+        partc.bindE_ = data[loc++];
         
-        partc.time_  = data[d_loc++];
-        partc.omega_ = data[d_loc++];
-        partc.bindE_ = data[d_loc];
-        
-        return data;
+        return loc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend ActiveScalarArray& operator<<(ActiveScalarArray& data, const ReguParticles& partc)
+    friend size_t operator<<(DynScalarArray& data, const ReguParticles& partc)
     {
-        size_t particleNum = partc.particleNumber();
+        size_t loc = data << static_cast<const Base&>(partc);
         
-        size_t d_loc = 0;
-        //for locality, split into two loops
-        for(size_t i = 0; i < particleNum; ++i)
-        {
-            data[d_loc++] = partc.pos_[i].x;
-            data[d_loc++] = partc.pos_[i].y;
-            data[d_loc++] = partc.pos_[i].z;
-        }
+        data.reserve(loc + 2);
         
-        for(size_t i = 0 ; i < particleNum; ++i)
-        {
-            data[d_loc++] = partc.vel_[i].x;
-            data[d_loc++] = partc.vel_[i].y;
-            data[d_loc++] = partc.vel_[i].z;
-        }
+        data.emplace_back(partc.omega_);
+        data.emplace_back(partc.bindE_);
         
-        data[d_loc++] = partc.time_;
-        data[d_loc++] = partc.omega_;
-        data[d_loc]   = partc.bindE_;
-        
-        return data;
+        return data.size();
     }
     
 protected:

@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['operator_2a',['operator*',['../structvec3.html#a8e5a34109d722a0e43d027e496eebc98',1,'vec3']]],
-  ['operator_2b',['operator+',['../structvec3.html#a5a4f97c459eb49bb2e18ed9f0e486114',1,'vec3']]],
-  ['operator_2d',['operator-',['../structvec3.html#a3daa3a334acdaef0cebfb9cb8b7c2992',1,'vec3']]],
-  ['operator_3c_3c',['operator&lt;&lt;',['../structvec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf',1,'vec3']]],
-  ['operator_3e_3e',['operator&gt;&gt;',['../structvec3.html#a72f92578884bd68e0747871acd8545fd',1,'vec3']]]
+  ['operator_2a',['operator*',['../structvec3.html#a4f0b2685679a321b6c43a7406719c3a5',1,'vec3']]],
+  ['operator_2a_3d',['operator*=',['../struct_space_h_1_1kahan.html#a23bc801f60370bf8a564989c7cf5da03',1,'SpaceH::kahan']]],
+  ['operator_2b',['operator+',['../structvec3.html#a04165a00cae4ce5d2f5e142cc177a720',1,'vec3']]],
+  ['operator_2b_3d',['operator+=',['../struct_space_h_1_1kahan.html#a8183a5443769b1b64ab323558a4700fd',1,'SpaceH::kahan']]],
+  ['operator_2d',['operator-',['../struct_space_h_1_1kahan.html#ab77d95a6c784d0d3aeb9c07c11cf4492',1,'SpaceH::kahan::operator-()'],['../structvec3.html#a6252e85a538cca25b99107166be778b1',1,'vec3::operator-()']]],
+  ['operator_2d_3d',['operator-=',['../struct_space_h_1_1kahan.html#ac0214cfa7da4475dd8f209f071c26dd8',1,'SpaceH::kahan']]],
+  ['operator_2f_3d',['operator/=',['../struct_space_h_1_1kahan.html#a3092bcb332eb3a793d58e34a8a82ff1e',1,'SpaceH::kahan']]],
+  ['operator_3c_3c',['operator&lt;&lt;',['../struct_space_h_1_1kahan.html#a5f74f934a96e15e37de4023571d648a6',1,'SpaceH::kahan::operator&lt;&lt;()'],['../classparticles.html#ad63b4422bc47e18c1398e1f69656f66e',1,'particles::operator&lt;&lt;()'],['../classparticles.html#a4ea2cae8268f24456db3fcb615e36c29',1,'particles::operator&lt;&lt;()'],['../class_chain_particles.html#a799603ffacb8907da0647d0c3579e153',1,'ChainParticles::operator&lt;&lt;()'],['../class_regu_particles.html#a256c22773e7b75dd7a3f0cb7e7bd11d8',1,'ReguParticles::operator&lt;&lt;()'],['../classparticle_system.html#a58e2c35978a7eb211e7206a05855b331',1,'particleSystem::operator&lt;&lt;()'],['../classparticle_system.html#a2516759aad9a8eb2bfeb0ceabbf3c071',1,'particleSystem::operator&lt;&lt;()'],['../structvec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf',1,'vec3::operator&lt;&lt;()']]],
+  ['operator_3e_3e',['operator&gt;&gt;',['../struct_space_h_1_1kahan.html#a53c2b4bd3238b250075cb76fa4548f19',1,'SpaceH::kahan::operator&gt;&gt;()'],['../classparticles.html#a76cf6d70e3bd56bf748fbbde009dd88e',1,'particles::operator&gt;&gt;()'],['../classparticles.html#ae3639692fea4ca2a3f9d017c8f0f8dc2',1,'particles::operator&gt;&gt;()'],['../class_chain_particles.html#ae3c157a969ae50fc4d8e480741ee4843',1,'ChainParticles::operator&gt;&gt;()'],['../class_chain_particles.html#acf4c95f1f88af51e525f105a282ab2ca',1,'ChainParticles::operator&gt;&gt;()'],['../class_regu_particles.html#a9a189bff31e696428cec5810b545f050',1,'ReguParticles::operator&gt;&gt;()'],['../class_regu_particles.html#a1ec220ae353e794a79706f013f251130',1,'ReguParticles::operator&gt;&gt;()'],['../classparticle_system.html#a7c8a355dd7f5c30b6f54c341bf672d10',1,'particleSystem::operator&gt;&gt;()'],['../classparticle_system.html#affbb0c2390b4b7179ea658e1de2a247e',1,'particleSystem::operator&gt;&gt;()'],['../structvec3.html#a72f92578884bd68e0747871acd8545fd',1,'vec3::operator&gt;&gt;()']]]
 ];

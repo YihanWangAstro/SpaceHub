@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['neutronstar',['NEUTRONSTAR',['../macros_8h.html#a92ca6bcf127150701bb5d04fcf62128faf0cbc6f9466fe57ec98b405bb6cbfeca',1,'macros.h']]],
+  ['n',['N',['../main_8cpp.html#adf99ea743b5dadbe8dc48388c0d7fa94',1,'main.cpp']]],
+  ['neutronstar',['NEUTRONSTAR',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385a5fefeb288bcbd250bc9a221a268cca70',1,'SpaceH']]],
   ['newline',['NEWLINE',['../errhand_8h.html#a806511f4930171733227c99101dc0606',1,'errhand.h']]],
-  ['newtonian',['Newtonian',['../class_newtonian.html',1,'']]],
-  ['newtoniansystem',['NewtonianSystem',['../space_x_8h.html#a04ff37e2b6eb34044a8d158f3c9032ab',1,'spaceX.h']]],
-  ['node',['Node',['../structchain_1_1_node.html',1,'chain']]],
-  ['nodearray',['NodeArray',['../namespacechain.html#a3a021b84403e03113e1dcd61ba304963',1,'chain']]],
-  ['none',['NONE',['../macros_8h.html#a92ca6bcf127150701bb5d04fcf62128fac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'NONE():&#160;macros.h'],['../macros_8h.html#a18c0a01b9412ec23d5b3811434d15234ab50339a10e1de285ac99d4c3990b8693',1,'NONE():&#160;macros.h']]],
+  ['newtonforce',['NewtonForce',['../struct_space_h_1_1_newton_force.html',1,'SpaceH']]],
+  ['node',['Node',['../struct_space_h_1_1chain_1_1_node.html',1,'SpaceH::chain']]],
+  ['none',['NONE',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385a5f9a11cf0e89bd48050fa58999d9d768',1,'SpaceH::NONE()'],['../namespace_space_h.html#aa37f0eac3914f44e134093455721a7a2ab50339a10e1de285ac99d4c3990b8693',1,'SpaceH::NONE()']]],
   ['noregu',['NoRegu',['../class_no_regu.html',1,'']]],
-  ['norm',['norm',['../structvec3.html#a4cd4c90ed137753d0b6a2e83bb0170f7',1,'vec3']]],
-  ['normsquare',['normSquare',['../structvec3.html#a2441867c3e439981a865affd7cbcc09c',1,'vec3']]],
-  ['notice',['NOTICE',['../namespace_n_o_t_i_c_e.html',1,'']]],
-  ['nsteps',['nSteps',['../class_b_s_iterator.html#a9c4c8c17a759cdff694e0bd62ed249bd',1,'BSIterator']]]
+  ['norm',['norm',['../structvec3.html#a1bde56ffdf0b5915f9b2e75b56db63e8',1,'vec3']]],
+  ['normsquare',['normSquare',['../structvec3.html#ab08eac50c74f6630a05a7fafed13dccc',1,'vec3']]],
+  ['notice',['NOTICE',['../namespace_n_o_t_i_c_e.html',1,'']]]
 ];

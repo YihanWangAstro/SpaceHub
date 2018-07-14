@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_p_n1th.html" title="Post newtonian pair interaction functor(c++ std11) " alt="" coords="5,5,124,31"/>
+<area shape="rect" id="node1" href="$struct_space_h_1_1_force.html" title="SpaceH::Force\&lt; PairForce,\l Dtype, ArraySize \&gt;" alt="" coords="5,103,189,141"/>
+<area shape="rect" id="node2" href="$struct_space_h_1_1_ext_vel_dep_force.html" title="SpaceH::ExtVelDepForce\l\&lt; PairForce, Dtype, ArraySize \&gt;" alt="" coords="237,5,445,44"/>
+<area shape="rect" id="node3" href="$struct_space_h_1_1_ext_vel_indep_force.html" title="SpaceH::ExtVelIndepForce\l\&lt; PairForce, Dtype, ArraySize \&gt;" alt="" coords="237,68,445,107"/>
+<area shape="rect" id="node4" href="$struct_space_h_1_1_vel_dep_force.html" title="SpaceH::VelDepForce\l\&lt; PairForce, Dtype,\l ArraySize \&gt;" alt="" coords="264,131,418,183"/>
+<area shape="rect" id="node5" href="$struct_space_h_1_1_vel_indep_force.html" title="SpaceH::VelIndepForce\l\&lt; PairForce, Dtype, ArraySize \&gt;" alt="" coords="237,207,445,245"/>
 </map>

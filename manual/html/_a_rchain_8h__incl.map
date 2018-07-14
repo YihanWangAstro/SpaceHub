@@ -1,8 +1,6 @@
-<map id="particleSystem/ARchain.h" name="particleSystem/ARchain.h">
-<area shape="rect" id="node2" href="$particle_system_8h.html" title="../particleSystem.h" alt="" coords="325,79,456,104"/>
-<area shape="rect" id="node6" href="$libs_8h.html" title="libs.h" alt="" coords="139,152,191,177"/>
-<area shape="rect" id="node14" href="$chain_8h.html" title="chain.h" alt="" coords="69,79,133,104"/>
-<area shape="rect" id="node3" href="$vector3_8h.html" title="vector3.h" alt="" coords="159,225,235,251"/>
-<area shape="rect" id="node7" href="$errhand_8h.html" title="errhand.h" alt="" coords="448,152,527,177"/>
-<area shape="rect" id="node10" href="$macros_8h.html" title="macros.h" alt="" coords="301,225,378,251"/>
+<map id="particleSystem/ARChain/ARchain.h" name="particleSystem/ARChain/ARchain.h">
+<area shape="rect" id="node2" href="$particle_system_8h.html" title="../../particleSystem.h" alt="" coords="57,92,199,117"/>
+<area shape="rect" id="node6" href="$libs_8h.html" title="../../libs.h" alt="" coords="273,92,348,117"/>
+<area shape="rect" id="node10" href="$chain_8h.html" title="chain.h" alt="" coords="371,92,436,117"/>
+<area shape="rect" id="node7" href="$vector3_8h.html" title="vector3.h" alt="" coords="272,165,348,191"/>
 </map>

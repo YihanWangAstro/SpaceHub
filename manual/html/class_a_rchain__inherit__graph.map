@@ -1,3 +1,4 @@
-<map id="ARchain&lt; Interaction, EvolvedData, Regularitor &gt;" name="ARchain&lt; Interaction, EvolvedData, Regularitor &gt;">
-<area shape="rect" id="node2" href="$classparticle_system.html" title="particleSystem\&lt; ARchain\l\&lt; Interaction, EvolvedData,\l Regularitor \&gt;, EvolvedData \&gt;" alt="" coords="5,5,202,57"/>
+<map id="ARchain&lt; Particles, Interaction, Regularitor &gt;" name="ARchain&lt; Particles, Interaction, Regularitor &gt;">
+<area shape="rect" id="node2" href="$class_regu_system.html" title="Regularized particle System. " alt="" coords="7,92,179,131"/>
+<area shape="rect" id="node3" href="$classparticle_system.html" title="Base class of particle System. " alt="" coords="5,5,180,44"/>
 </map>

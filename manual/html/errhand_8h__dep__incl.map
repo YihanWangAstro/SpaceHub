@@ -1,8 +1,5 @@
 <map id="errhand.h" name="errhand.h">
 <area shape="rect" id="node2" href="$dynamic_system_8h.html" title="dynamicSystem.h" alt="" coords="5,79,132,104"/>
-<area shape="rect" id="node5" href="$particle_system_8h.html" title="particleSystem.h" alt="" coords="155,79,275,104"/>
-<area shape="rect" id="node3" href="$space_x_8h.html" title="spaceX.h" alt="" coords="154,225,231,251"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="test/main.cpp" alt="" coords="142,299,243,324"/>
-<area shape="rect" id="node6" href="$_a_rchain_8h.html" title="particleSystem/ARchain.h" alt="" coords="106,152,280,177"/>
-<area shape="rect" id="node7" href="$regu_system_8h.html" title="particleSystem/reguSystem.h" alt="" coords="303,152,498,177"/>
+<area shape="rect" id="node3" href="$space_x_8h.html" title="spaceX.h" alt="" coords="30,152,107,177"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="test/main.cpp" alt="" coords="18,225,119,251"/>
 </map>

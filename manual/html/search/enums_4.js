@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systemtype',['SYSTEMTYPE',['../macros_8h.html#aafe358b2adcf2f0bf703ab2582b0a053',1,'macros.h']]]
+  ['regutype',['REGUTYPE',['../namespace_space_h.html#aa37f0eac3914f44e134093455721a7a2',1,'SpaceH']]]
 ];

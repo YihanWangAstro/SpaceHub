@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['binde',['bindE',['../class_g_a_r.html#a10f49216d9cacb2b21bd053a2ddb997c',1,'GAR::bindE()'],['../classregu_dynamics.html#a7e2b804745638810d38ed547487c26f2',1,'reguDynamics::bindE()']]]
+  ['binde_5f',['bindE_',['../class_regu_particles.html#ab79c5acbf7b477a155db36974d3286aa',1,'ReguParticles']]]
 ];

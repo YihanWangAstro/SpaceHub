@@ -3,19 +3,18 @@
 #define PARTICLES_H
 #include "protoType.h"
 #include "libs.h"
+
+
 /**
- *  @brief Class of dynamical variable.
+ *  @brief Basic velocity independent particles group.
  *
  */
 template<typename Dtype, size_t ArraySize>
-class particles
+class VelIndepParticles
 {
 public:
     /* Typedef */
     using type = SpaceH::ProtoType<Dtype, ArraySize>;
-    
-    template<typename T, size_t S>
-    using Container = typename type::template Container<T, S>;
     
     using Scalar = typename type::Scalar;
     
@@ -26,12 +25,11 @@ public:
     using ScalarArray = typename type::ScalarArray;
     
     using IntArray = typename type::IntArray;
+    
+    using DynScalarArray = typename type::DynScalarArray;
     /* Typedef */
     
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::PLAIN};
-    constexpr static size_t activeScalar{6*type::arraySize + 1};
-    
-    using ActiveScalarArray = Container<Scalar, activeScalar>;
     
     /** @brief Get the number of the particles.
      *  @return The particle number.
@@ -41,43 +39,43 @@ public:
         return pos_.size();
     }
     
-    /**  @brief Physical time scalar const interface. Reference to state.time*/
+    /**  @brief Physical time scalar const interface. Reference to time_*/
     inline const Scalar& time() const { return time_; }
     
-    /**  @brief Position array const interface. Reference to state.pos*/
+    /**  @brief Position array const interface. Reference to pos_*/
     inline const VectorArray& pos() const { return pos_; }
     
-    /**  @brief Velocity array const interface. Reference to state.vel*/
+    /**  @brief Velocity array const interface. Reference to vel_*/
     inline const VectorArray& vel() const { return vel_; }
     
-    /**  @brief Mass array const interface. Reference to attribute.mass.*/
+    /**  @brief Mass array const interface. Reference to mass_*/
     inline const ScalarArray& mass() const { return mass_; }
     
-    /**  @brief Radius array const interface. Reference to attribute.radius.*/
+    /**  @brief Radius array const interface. Reference to radius_*/
     inline const ScalarArray& radius() const { return radius_; }
     
-    /**  @brief Particle type array const interface. Reference to attribute.type.*/
+    /**  @brief Particle type array const interface. Reference to type_.*/
     inline const IntArray& kind() const { return type_; }
     
-    /**  @brief Particle id array const interface. Reference to attribute.type.*/
+    /**  @brief Particle id array const interface. Reference to type_.*/
     inline const IntArray& idn() const { return idn_; }
     
-    /**  @brief Position vector const interface. Reference to state.pos[i]*/
+    /**  @brief Position vector const interface. Reference to pos_[i]*/
     inline const Vector& pos(size_t i) const { return pos_[i]; }
     
-    /**  @brief Velocity vecotr const interface. Reference to state.vel[i]*/
+    /**  @brief Velocity vecotr const interface. Reference to vel_[i]*/
     inline const Vector& vel(size_t i) const { return vel_[i]; }
     
-    /**  @brief Mass const interface. Reference to attribute.mass[i].*/
+    /**  @brief Mass const interface. Reference to mass_[i].*/
     inline const Scalar& mass(size_t i) const { return mass_[i]; }
     
-    /**  @brief Radius const interface. Reference to attribute.radius[i].*/
+    /**  @brief Radius const interface. Reference to radius_[i].*/
     inline const Scalar& radius(size_t i) const { return radius_[i]; }
     
-    /**  @brief Particle type const interface. Reference to attribute.type[i].*/
+    /**  @brief Particle type const interface. Reference to type_[i].*/
     inline const int& kind(size_t i) const { return type_[i]; }
     
-    /**  @brief Particle id const interface. Reference to attribute.type[i].*/
+    /**  @brief Particle id const interface. Reference to type_[i].*/
     inline const int& idn(size_t i) const { return idn_[i]; }
     
     /** @brief Advance the time.
@@ -106,7 +104,7 @@ public:
     }
 
     /** @brief Input(Initialize) variables with istream.*/
-    friend std::istream& operator>>(std::istream& is, particles& partc)
+    friend std::istream& operator>>(std::istream& is, VelIndepParticles& partc)
     {
         size_t particleNum = partc.particleNumber();
         
@@ -125,11 +123,15 @@ public:
             
             partc.totalMass_ += partc.mass_[i];
         }
+        
+        SpaceH::moveToCMCoord(partc.mass_,partc.pos_);
+        SpaceH::moveToCMCoord(partc.mass_,partc.vel_);
+        
         return is;
     }
     
     /** @brief Output variables to ostream.*/
-    friend std::ostream& operator<<(std::ostream& os, const particles& partc)
+    friend std::ostream& operator<<(std::ostream& os, const VelIndepParticles& partc)
     {
         size_t particleNum = partc.particleNumber();
         
@@ -149,54 +151,56 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend ActiveScalarArray& operator>>(ActiveScalarArray& data, particles& partc)
+    friend size_t operator>>(DynScalarArray& data, VelIndepParticles& partc)
     {
         size_t particleNum = partc.particleNumber();
-        size_t d_loc = 0;
+        size_t loc = 0;
         //for locality, split into two loops
         for(size_t i = 0; i < particleNum; ++i)
         {
-            partc.pos_[i].x = data[d_loc++];
-            partc.pos_[i].y = data[d_loc++];
-            partc.pos_[i].z = data[d_loc++];
+            partc.pos_[i].x = data[loc++];
+            partc.pos_[i].y = data[loc++];
+            partc.pos_[i].z = data[loc++];
         }
         
         for(size_t i = 0 ; i < particleNum; ++i)
         {
-            partc.vel_[i].x = data[d_loc++];
-            partc.vel_[i].y = data[d_loc++];
-            partc.vel_[i].z = data[d_loc++];
+            partc.vel_[i].x = data[loc++];
+            partc.vel_[i].y = data[loc++];
+            partc.vel_[i].z = data[loc++];
         }
         
-        partc.time_ = data[d_loc];
+        partc.time_ = data[loc++];
         
-        return data;
+        return loc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend ActiveScalarArray& operator<<(ActiveScalarArray& data, const particles& partc)
+    friend size_t operator<<(DynScalarArray& data, const VelIndepParticles& partc)
     {
         size_t particleNum = partc.particleNumber();
         
-        size_t d_loc = 0;
+        data.clear();
+        data.reserve(particleNum*6 + 1);
+        
         //for locality, split into two loops
         for(size_t i = 0; i < particleNum; ++i)
         {
-            data[d_loc++] = partc.pos_[i].x;
-            data[d_loc++] = partc.pos_[i].y;
-            data[d_loc++] = partc.pos_[i].z;
+            data.emplace_back(partc.pos_[i].x);
+            data.emplace_back(partc.pos_[i].y);
+            data.emplace_back(partc.pos_[i].z);
         }
         
         for(size_t i = 0 ; i < particleNum; ++i)
         {
-            data[d_loc++] = partc.vel_[i].x;
-            data[d_loc++] = partc.vel_[i].y;
-            data[d_loc++] = partc.vel_[i].z;
+            data.emplace_back(partc.vel_[i].x);
+            data.emplace_back(partc.vel_[i].y);
+            data.emplace_back(partc.vel_[i].z);
         }
         
-        data[d_loc] = partc.time_;
+        data.emplace_back(partc.time_);
 
-        return data;
+        return data.size();
     }
     
 protected:
@@ -224,5 +228,106 @@ protected:
     /** @brief The total mass of the system*/
     Scalar totalMass_;
 };
+
+/**
+ *  @brief Basic velocity dependent particles group.
+ *
+ */
+template<typename Dtype, size_t ArraySize>
+class VelDepParticles : public VelIndepParticles<Dtype, ArraySize>
+{
+public:
+    /* Typedef */
+    using Base = VelIndepParticles<Dtype, ArraySize>;
+    
+    using typename Base::type;
+    
+    using Scalar = typename type::Scalar;
+    
+    using Vector = typename type::Vector;
+    
+    using VectorArray = typename type::VectorArray;
+    
+    using DynScalarArray = typename type::DynScalarArray;
+    /* Typedef */
+    
+    constexpr static size_t activeScalar{Base::activeScalar + 3 * type::arraySize };
+                                          
+    /**  @brief Auxiliary velocity array const interface. Reference to auxi_vel_*/
+    inline const VectorArray& auxiVel() const { return auxi_vel_; }
+    
+    /**  @brief Auxiliary velocity vecotr const interface. Reference to auxi_vel_[i] */
+    inline const Vector& auxiVel(size_t i) const { return auxi_vel_[i]; }
+    
+    /** @brief Advance the auxiliary velocity array with given acceleration array.
+     *  @param stepSize The advance step size.
+     *  @param acc      The acceleration array.
+     */
+    inline void advanceAuxiVel(const VectorArray& acc, Scalar stepSize)
+    {
+        advanceVector(auxi_vel_, acc, stepSize);
+    }
+    
+    /** @brief Input(Initialize) variables with istream.*/
+    friend std::istream& operator>>(std::istream& is, VelDepParticles& partc)
+    {
+        is >> static_cast<Base&>(partc);
+        
+        partc.auxi_vel = partc.vel_;
+        return is;
+    }
+    
+    /** @brief Input variables with plain scalar array.*/
+    friend size_t operator>>(DynScalarArray& data, VelDepParticles& partc)
+    {
+        size_t loc = data >> static_cast<Base&>(partc);
+        
+        size_t particleNum = partc.particleNumber();
+    
+        for(size_t i = 0 ; i < particleNum; ++i)
+        {
+            partc.auxi_vel_[i].x = data[loc++];
+            partc.auxi_vel_[i].y = data[loc++];
+            partc.auxi_vel_[i].z = data[loc++];
+        }
+        
+        return loc;
+    }
+    
+    /** @brief Output variables to plain scalar array.*/
+    friend size_t operator<<(DynScalarArray& data, const VelDepParticles& partc)
+    {
+        size_t loc = data << static_cast<const Base&>(partc);
+        
+        size_t particleNum = partc.particleNumber();
+        
+        data.reserve(loc + particleNum*3 );
+        
+        for(size_t i = 0 ; i < particleNum; ++i)
+        {
+            data.emplace_back(partc.auxi_vel_[i].x);
+            data.emplace_back(partc.auxi_vel_[i].y);
+            data.emplace_back(partc.auxi_vel_[i].z);
+        }
+        
+        return data.size();
+    }
+private:
+    /** @brief Auxiliary velocity array of the particles. Element is 3D vector.*/
+    VectorArray auxi_vel_;
+};
+
+template<typename Dtype, size_t ArraySize, bool IsVelDep>
+struct Particles : public VelIndepParticles<Dtype, ArraySize>
+{
+    constexpr static bool isVelDep{false};
+};
+
+template<typename Dtype, size_t ArraySize>
+struct Particles<Dtype, ArraySize, true> : public VelDepParticles<Dtype, ArraySize>
+{
+    constexpr static bool isVelDep{true};
+};
+
 #endif
 

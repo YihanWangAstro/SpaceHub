@@ -15,10 +15,19 @@
 
 namespace SpaceH
 {
+    struct EmptyClass
+    {
+        
+    };
+    
     constexpr size_t DYNAMICAL = 0;
     
     template<typename T, size_t S>
-    struct ArrayWrapper : public std::array<T,S> {};
+    struct ArrayWrapper : public std::array<T,S>
+    {
+        void reserve(size_t new_cap){};
+        void resize(size_t new_size){};
+    };
     
     template<typename T>
     struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};
@@ -59,6 +68,8 @@ namespace SpaceH
         using SizeArray      = Container<size_t, Size>;
         
         using IndexArray     = SizeArray;
+        
+        using DynScalarArray = Container<Scalar, DYNAMICAL>;
     };
     
     enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
