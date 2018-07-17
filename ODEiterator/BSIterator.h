@@ -20,7 +20,7 @@ public:
     
     using Scalar = typename type::Scalar;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     
     template<typename T, size_t S>
     using Container = typename type::template Container<T, S>;
@@ -53,7 +53,7 @@ private:
     ParticSys localSystem;
     
     /** @brief Extrapolation table.*/
-    Container < DynScalarArray, (MaxDepth + 1)* (MaxDepth + 2) / 2 > extrapTab;
+    Container < ScalarBuffer, (MaxDepth + 1)* (MaxDepth + 2) / 2 > extrapTab;
     
     /** @brief Extrapolation coefficient.*/
     Container < Scalar, (MaxDepth + 1)* (MaxDepth + 2) / 2 > CC;
@@ -135,7 +135,7 @@ BSIterator<ParticSys, Integrator>::BSIterator()
         nSteps[i] = 2 * i;
         cost[i]   = cost[i - 1] + nSteps[i];
         
-        fmin[i] = pow(s3, 1.0 / (2*i + 1));
+        fmin[i] = pow(s3, static_cast<Scalar>(1.0 / (2*i + 1)) );
         
         for(size_t j = 0 ; j < i; ++j)
         {
@@ -143,6 +143,9 @@ BSIterator<ParticSys, Integrator>::BSIterator()
             CC[i * (i + 1) / 2 + j] = 1.0 / (ratio * ratio - 1);
         }
     }
+    
+    absoluteError = std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+    relativeError = std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
 }
 
 
@@ -273,17 +276,26 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::getError(siz
         size_t topk     = k * (k + 1) / 2 + k;
         size_t subk     = topk - 1;
         size_t size     = extrapTab[topk].size();
-        Scalar maxError = 0;
+        //Scalar maxError = 0;
         Scalar error    = 0;
 
         for(size_t i = 0 ; i < size; ++i)
         {
+            Scalar scale = (SpaceH::max(SpaceH::abs(extrapTab[topk][i]), SpaceH::abs(extrapTab[subk][i]) ) * this->relativeError + this->absoluteError);
+            Scalar d = extrapTab[topk][i] - extrapTab[subk][i];
+            error +=  (d*d)/(scale*scale);
+        }
+        return sqrt(error/size);
+        
+        /*for(size_t i = 0 ; i < size; ++i)
+        {
             error = SpaceH::abs(extrapTab[topk][i] - extrapTab[subk][i])
                     / (SpaceH::min(SpaceH::abs(extrapTab[topk][i]), SpaceH::abs(extrapTab[subk][i]) ) * this->relativeError + this->absoluteError);
             maxError = SpaceH::max(maxError, error);
+            error +=  (d*d)/(scale*scale);
         }
-
-        return maxError;
+        
+        return maxError;*/
     }
     else
     {

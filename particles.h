@@ -7,7 +7,8 @@
 
 /**
  *  @brief Basic velocity independent particles group.
- *
+ *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
+ *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
  */
 template<typename Dtype, size_t ArraySize>
 class VelIndepParticles
@@ -26,7 +27,7 @@ public:
     
     using IntArray = typename type::IntArray;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::PLAIN};
@@ -151,7 +152,7 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(DynScalarArray& data, VelIndepParticles& partc)
+    friend size_t operator>>(const ScalarBuffer& data, VelIndepParticles& partc)
     {
         size_t particleNum = partc.particleNumber();
         size_t loc = 0;
@@ -176,7 +177,7 @@ public:
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(DynScalarArray& data, const VelIndepParticles& partc)
+    friend size_t operator<<(ScalarBuffer& data, const VelIndepParticles& partc)
     {
         size_t particleNum = partc.particleNumber();
         
@@ -231,7 +232,8 @@ protected:
 
 /**
  *  @brief Basic velocity dependent particles group.
- *
+ *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
+ *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
  */
 template<typename Dtype, size_t ArraySize>
 class VelDepParticles : public VelIndepParticles<Dtype, ArraySize>
@@ -248,10 +250,8 @@ public:
     
     using VectorArray = typename type::VectorArray;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
-    
-    constexpr static size_t activeScalar{Base::activeScalar + 3 * type::arraySize };
                                           
     /**  @brief Auxiliary velocity array const interface. Reference to auxi_vel_*/
     inline const VectorArray& auxiVel() const { return auxi_vel_; }
@@ -268,17 +268,23 @@ public:
         advanceVector(auxi_vel_, acc, stepSize);
     }
     
+    /**  @brief synchronize auxiVel_ with vel_ */
+    inline void synAuxiVelwithVel()
+    {
+        auxi_vel_ = this->vel_;
+    }
+    
     /** @brief Input(Initialize) variables with istream.*/
     friend std::istream& operator>>(std::istream& is, VelDepParticles& partc)
     {
         is >> static_cast<Base&>(partc);
         
-        partc.auxi_vel = partc.vel_;
+        partc.auxi_vel_ = partc.vel_;
         return is;
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(DynScalarArray& data, VelDepParticles& partc)
+    friend size_t operator>>(const ScalarBuffer& data, VelDepParticles& partc)
     {
         size_t loc = data >> static_cast<Base&>(partc);
         
@@ -295,7 +301,7 @@ public:
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(DynScalarArray& data, const VelDepParticles& partc)
+    friend size_t operator<<(ScalarBuffer& data, const VelDepParticles& partc)
     {
         size_t loc = data << static_cast<const Base&>(partc);
         
@@ -312,11 +318,17 @@ public:
         
         return data.size();
     }
-private:
+protected:
     /** @brief Auxiliary velocity array of the particles. Element is 3D vector.*/
     VectorArray auxi_vel_;
 };
 
+/**
+ *  @brief Basic particles group, wrapper on VelIndepParticles and VelDepParticles.
+ *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
+ *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
+ *  @tparam IsVelDep Template parameters to determine if the particles are velocity dependent.
+ */
 template<typename Dtype, size_t ArraySize, bool IsVelDep>
 struct Particles : public VelIndepParticles<Dtype, ArraySize>
 {

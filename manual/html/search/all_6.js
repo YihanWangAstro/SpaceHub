@@ -5,7 +5,7 @@ var searchData=
   ['get_5fline',['get_line',['../classerrhand.html#a258f97d84476b21efc38827cda3e5889',1,'errhand']]],
   ['get_5fmsg',['get_msg',['../classerrhand.html#a524dfc6821f703329d8801dd3298f33f',1,'errhand']]],
   ['get_5fvalue_5ftype',['get_value_type',['../struct_space_h_1_1get__value__type.html',1,'SpaceH']]],
-  ['getcapitalomega',['getCapitalOmega',['../class_regu_particles.html#a0332596c07339d879a93acccbee3cac3',1,'ReguParticles']]],
+  ['getcapitalomega',['getCapitalOmega',['../class_regu_particles.html#aee55f0e2663334407455761a49abd087',1,'ReguParticles']]],
   ['getchainindex',['getChainIndex',['../namespace_space_h_1_1chain.html#a9f1ed51f097bc8cf691a87b97639dde9',1,'SpaceH::chain']]],
   ['getkineticenergy',['getKineticEnergy',['../namespace_space_h.html#a4b0ebb47dda5ff4c231a7c889ac55c89',1,'SpaceH']]],
   ['getphysicalpostime',['getPhysicalPosTime',['../classlog_h.html#a000fc113a586407aa8dd8fbac34b614a',1,'logH::getPhysicalPosTime()'],['../class_t_t_l.html#a0b0f528b376e0ddffef5e7847562ac37',1,'TTL::getPhysicalPosTime()'],['../class_no_regu.html#aeae8b6811fa8b50e0d8cdbd2ae9a0d9c',1,'NoRegu::getPhysicalPosTime()']]],

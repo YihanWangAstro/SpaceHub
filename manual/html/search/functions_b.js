@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['omega',['omega',['../class_regu_particles.html#a37f2c43c286421538d591eb73ba74d84',1,'ReguParticles::omega()'],['../class_regu_system.html#aec2d17af65cb81385adfd77eba8122c0',1,'ReguSystem::omega()']]],
+  ['omega',['omega',['../class_regu_particles.html#a25cb4d03608826aa5adc943d58cb5b49',1,'ReguParticles::omega()'],['../class_regu_system.html#aec2d17af65cb81385adfd77eba8122c0',1,'ReguSystem::omega()']]],
   ['operator_20t',['operator T',['../struct_space_h_1_1kahan.html#ac818dc8e06b0df33793f3a166dcacdd7',1,'SpaceH::kahan::operator T()'],['../struct_space_h_1_1kahan.html#aac0531dd242d8da70ecd34789bc29282',1,'SpaceH::kahan::operator T() const']]],
   ['operator_28_29',['operator()',['../struct_space_h_1_1_newton_force.html#abef48bbbed814919f3269f9210864380',1,'SpaceH::NewtonForce::operator()()'],['../class_space_h_1_1_post_newtonian.html#a525a7fc48794effd7513bf56b929bf43',1,'SpaceH::PostNewtonian::operator()()']]],
   ['operator_2a',['operator*',['../structvec3.html#a769b2eeb0c298c38d62cf06ea50534d7',1,'vec3::operator*(const T c) const'],['../structvec3.html#a339b8432cc6f88eb9da83c6075f1f5af',1,'vec3::operator*(const vec3 &amp;v) const']]],

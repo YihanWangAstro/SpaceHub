@@ -75,25 +75,28 @@ $(function() {
 : <a class="el" href="struct_space_h_1_1_empty_force.html#a6aed735e5443a08ad6e70ae6bcd74bf8">SpaceH::EmptyForce&lt; Dtype, ArraySize &gt;</a>
 , <a class="el" href="struct_space_h_1_1_force.html#afd2f38849b94a2befd70a1e356655641">SpaceH::Force&lt; PairForce, Dtype, ArraySize &gt;</a>
 </li>
+<li>advanceAuxiVel()
+: <a class="el" href="class_vel_dep_particles.html#a01ef2a76b8cb3b53eb92e41104a3df6f">VelDepParticles&lt; Dtype, ArraySize &gt;</a>
+</li>
 <li>advanceBindE()
-: <a class="el" href="class_regu_particles.html#ae9c29d591afe631a6f7f640fb6b19f82">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#a139cfcfd227ca7eb98fa602ff0665607">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>advanceOmega()
-: <a class="el" href="class_regu_particles.html#ad8a0667cc9830c670a24872b7c8d4a08">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#a441b0c766baaa1c8861ac778b5702dc7">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>advanceOneStep()
 : <a class="el" href="classdynamic_system.html#a7a4032c043dd0286007f4d7c542d3f95">dynamicSystem&lt; ParticSys, ODEiterator &gt;</a>
 </li>
 <li>advancePos()
-: <a class="el" href="class_chain_particles.html#a6dac41b524d3d0528ce1e2f3fb8a98a9">ChainParticles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticles.html#aba80bb0aa2f0c0aa9c6f14e12527b555">particles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#a76124f26a1e37892cd38f533edcbb8e8">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#aff530f9e2dbd6dc053e251caa07464ad">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>advanceTime()
-: <a class="el" href="classparticles.html#a1d8e3660ebc35d0e422942aa05621cb9">particles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_particles.html#a024d302cca3027451619a9346ecc24a4">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>advanceVel()
-: <a class="el" href="class_chain_particles.html#ac39657650c4520102bbf50546904fae3">ChainParticles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticles.html#a7d515e6e655de14cdfbf6e943992ebfb">particles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#aa09b6bf7f9efbe1da4de3d106581b3a6">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#adb74d0445c84c0b705c25a8c50f6bc00">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>afterIterProcess()
 : <a class="el" href="classparticle_system.html#a12fa297e1f6674847c2b90761f30d336">particleSystem&lt; Particles, Interaction &gt;</a>
@@ -101,12 +104,15 @@ $(function() {
 <li>autoShow()
 : <a class="el" href="class_progress_bar.html#abcd6f66c18eb0dca5fa42ebfff03a11e">ProgressBar</a>
 </li>
+<li>auxiVel()
+: <a class="el" href="class_vel_dep_particles.html#a3faade86a7d8f0f55d92410e479c5736">VelDepParticles&lt; Dtype, ArraySize &gt;</a>
+</li>
 </ul>
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>bindE()
-: <a class="el" href="class_regu_particles.html#a979b6e2891cecfe0b2f6bd97e90f3307">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#a26a53ea58c9e25c565021b0b1dbde0e7">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 , <a class="el" href="class_regu_system.html#a6bf4ceaf04e7f86c737c2586a8657ff6">ReguSystem&lt; Particles, Interaction, Regularitor &gt;</a>
 </li>
 <li>BSIterator()
@@ -145,13 +151,13 @@ $(function() {
 : <a class="el" href="class_space_h_1_1_interaction.html#a89ebbf351411c3b9526c9890e4ff823c">SpaceH::Interaction&lt; VelIndep, VelDep, ExtVelIndep, ExtVelDep &gt;</a>
 </li>
 <li>chainIndex()
-: <a class="el" href="class_chain_particles.html#ae83c7d6bd4c34c04c3bf6fc2702e50d4">ChainParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#a0ad298c834406f31f95df62694d51869">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>chainPos()
-: <a class="el" href="class_chain_particles.html#a3bb3c870d69d5769b37bf8b905470832">ChainParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#a77765235a45fd13ce74d69d1a1db1770">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>chainVel()
-: <a class="el" href="class_chain_particles.html#a6a42408a25c7f75674943a60fc7b4471">ChainParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#a81b2a3bd3f972dd11486beaafa6efc72">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>check()
 : <a class="el" href="structdtype.html#a70fa7f25bb22166e7788e045e62f6a64">dtype&lt; T &gt;</a>
@@ -191,7 +197,7 @@ $(function() {
 : <a class="el" href="classerrhand.html#a524dfc6821f703329d8801dd3298f33f">errhand</a>
 </li>
 <li>getCapitalOmega()
-: <a class="el" href="class_regu_particles.html#a0332596c07339d879a93acccbee3cac3">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#aee55f0e2663334407455761a49abd087">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>getPhysicalPosTime()
 : <a class="el" href="classlog_h.html#a000fc113a586407aa8dd8fbac34b614a">logH&lt; Particles &gt;</a>
@@ -211,8 +217,8 @@ $(function() {
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>idn()
-: <a class="el" href="classparticles.html#a5edbd588217cd1a7deb2010bf8f3e1fe">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a1d809808c2eaeeaa2e58b8fcf0aa5789">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a551d6833ec7b1f42a0d2c6b8ad0b3ddb">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a9ab4c300244e1085dcfc73713354060c">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>integrate()
 : <a class="el" href="classsymplectic10th.html#aaa762c854968f135a0a6b01c908c7636">symplectic10th&lt; ParticSys &gt;</a>
@@ -242,8 +248,8 @@ $(function() {
 , <a class="el" href="class_regu_system.html#aec4eb60d2fe97652cef662db9e8b730f">ReguSystem&lt; Particles, Interaction, Regularitor &gt;</a>
 </li>
 <li>kind()
-: <a class="el" href="classparticles.html#abe61f1f99b1ea75e9b87927d1012a1f2">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a5b41ae458724a13976117216fdf63b19">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#ad406c7bb71f92b27d918b0b36c0f9e93">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a81ca7cfb6c53e5d29c3afc24ff25877d">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 </ul>
 
@@ -257,8 +263,8 @@ $(function() {
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>mass()
-: <a class="el" href="classparticles.html#a3da22fd5985987373cf7d5355320374a">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a8adc16a716e231f9840dd7f7e063f656">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a8adc16a716e231f9840dd7f7e063f656">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#ab2b7a9718d112bc2713448f9055a0833">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 </ul>
 
@@ -275,7 +281,7 @@ $(function() {
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>omega()
-: <a class="el" href="class_regu_particles.html#a37f2c43c286421538d591eb73ba74d84">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#a25cb4d03608826aa5adc943d58cb5b49">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 , <a class="el" href="class_regu_system.html#aec2d17af65cb81385adfd77eba8122c0">ReguSystem&lt; Particles, Interaction, Regularitor &gt;</a>
 </li>
 <li>operator T()
@@ -321,12 +327,12 @@ $(function() {
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>particleNumber()
-: <a class="el" href="classparticles.html#ad164b86b435051fc2f452d07715d0af7">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a859f7ca9a229b8b934ba1de2607b878a">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a859f7ca9a229b8b934ba1de2607b878a">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a9fa71261c95ee53974352a31cd8ffd41">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>pos()
-: <a class="el" href="classparticles.html#a5a92ff9c5826ad7e4622f36665bc48a6">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a7a4b29e872ff56670d6ad553df57b22b">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a7a4b29e872ff56670d6ad553df57b22b">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a7a48693c77efda8b2ec9d264603e58d8">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>preIterProcess()
 : <a class="el" href="classparticle_system.html#a14ee76644ab1bacc3ed4a66e4fff0fb1">particleSystem&lt; Particles, Interaction &gt;</a>
@@ -335,21 +341,27 @@ $(function() {
 : <a class="el" href="classerrhand.html#a5b4d8a74f1d0c6842526dc8b54e38dc2">errhand</a>
 </li>
 <li>ProgressBar()
-: <a class="el" href="class_progress_bar.html#a5270a8af4a346e459736ea540b01ac85">ProgressBar</a>
+: <a class="el" href="class_progress_bar.html#a38a019ce3e526ef355433232c389b171">ProgressBar</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>radius()
-: <a class="el" href="classparticles.html#a2f307a8b96534016614d4665ddfbe547">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a1986f65f13b773a51b19eba1ccd6c46a">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#aed99ea79678f0233119ebc28d2b9822d">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a99dc089a06437f5f382c2fb9aaf10859">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>reNorm()
 : <a class="el" href="structvec3.html#a8539e3e4fbf555f6bd464fdc75fdfd56">vec3&lt; T &gt;</a>
 </li>
+<li>reserve()
+: <a class="el" href="struct_space_h_1_1_array_wrapper.html#a0b6c9b3a863b31b77f67a61afdd3f6f1">SpaceH::ArrayWrapper&lt; T, S &gt;</a>
+</li>
 <li>reset()
 : <a class="el" href="class_progress_bar.html#ac071fa5489c8a86ab174d150dfe1f195">ProgressBar</a>
+</li>
+<li>resize()
+: <a class="el" href="struct_space_h_1_1_array_wrapper.html#a5198ec13cd7200e87bd786bcc1692884">SpaceH::ArrayWrapper&lt; T, S &gt;</a>
 </li>
 </ul>
 
@@ -377,8 +389,8 @@ $(function() {
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>time()
-: <a class="el" href="classparticles.html#a4b70f028165f9cb6bd510c824bd16cc1">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a25bf169b4acd1ede1dd03a218d5f105c">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a25bf169b4acd1ede1dd03a218d5f105c">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a7c2968d7757eb6b3dc59259fadcf661c">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>timeScale()
 : <a class="el" href="classparticle_system.html#a803227b33f7c25f28fb0575cf798d1a8">particleSystem&lt; Particles, Interaction &gt;</a>
@@ -398,11 +410,11 @@ $(function() {
 : <a class="el" href="structvec3.html#afb7342872bc442bf0da6a7da1671e77e">vec3&lt; T &gt;</a>
 </li>
 <li>vel()
-: <a class="el" href="classparticles.html#ab6116d23f77eb1e10c0b755f3f273c8b">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a2557b0120e0e892da7e8903551784157">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a4609f37fb9055bc71f14dbf6738017ba">particleSystem&lt; Particles, Interaction &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a5774853214c5f32f34def508962a1267">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>velDepAcc()
-: <a class="el" href="class_space_h_1_1_interaction.html#a4f4cf3f4d89514e15bf5f31bdf141a1d">SpaceH::Interaction&lt; VelIndep, VelDep, ExtVelIndep, ExtVelDep &gt;</a>
+: <a class="el" href="class_space_h_1_1_interaction.html#a87ecd610557033d30958f4eb420b8f88">SpaceH::Interaction&lt; VelIndep, VelDep, ExtVelIndep, ExtVelDep &gt;</a>
 </li>
 <li>velIndepAcc()
 : <a class="el" href="class_space_h_1_1_interaction.html#a5b5da26af45601a300ec9e0ad7fa2141">SpaceH::Interaction&lt; VelIndep, VelDep, ExtVelIndep, ExtVelDep &gt;</a>

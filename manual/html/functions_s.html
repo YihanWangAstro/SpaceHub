@@ -67,15 +67,13 @@ $(function() {
 <li>Scalar
 : <a class="el" href="class_a_rchain.html#a048c8855064f452c7d6d061531a084ed">ARchain&lt; Particles, Interaction, Regularitor &gt;</a>
 , <a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">BSIterator&lt; ParticSys, Integrator &gt;</a>
-, <a class="el" href="class_chain_particles.html#a8577996f80f6ce431a17aa176ca2bc55">ChainParticles&lt; Dtype, ArraySize &gt;</a>
 , <a class="el" href="classconst_iterator.html#a524fa9110f25e60075d8ec02e5f5bb71">constIterator&lt; ParticSys, Integrator &gt;</a>
 , <a class="el" href="classdicho_iterator.html#a292e986136313822f21b1b60d9cbb95d">dichoIterator&lt; ParticSys, Integrator &gt;</a>
 , <a class="el" href="classdynamic_system.html#a6eb7b06a4ee5721a1ee0855a854c3431">dynamicSystem&lt; ParticSys, ODEiterator &gt;</a>
 , <a class="el" href="classlog_h.html#a2235c75eff5d2e299c8ce4b2c02f8801">logH&lt; Particles &gt;</a>
 , <a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">NoRegu&lt; Particles &gt;</a>
-, <a class="el" href="classparticles.html#a57a6b6582045a4b20742b99c513e9f63">particles&lt; Dtype, ArraySize &gt;</a>
 , <a class="el" href="classparticle_system.html#a3938954186247e3eab01cc75fcc62b40">particleSystem&lt; Particles, Interaction &gt;</a>
-, <a class="el" href="class_regu_particles.html#a5fec1366f64091b94e277b408d1e8f0f">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="class_regu_particles.html#a91ab46dc1c711536776a28520485b5e4">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 , <a class="el" href="class_regu_system.html#afa2cfdbfed4cc8fa879ca715c78ff240">ReguSystem&lt; Particles, Interaction, Regularitor &gt;</a>
 , <a class="el" href="struct_space_h_1_1_empty_force.html#a708ead350efe0aa6f7bf1c0909ee6f28">SpaceH::EmptyForce&lt; Dtype, ArraySize &gt;</a>
 , <a class="el" href="class_space_h_1_1_interaction.html#a6ff49274a9233d682fdd75b70ac4d9dc">SpaceH::Interaction&lt; VelIndep, VelDep, ExtVelIndep, ExtVelDep &gt;</a>
@@ -89,10 +87,12 @@ $(function() {
 , <a class="el" href="classsymplectic6th.html#a1059d63d55058db7c6ab5b71e097f3ee">symplectic6th&lt; ParticSys &gt;</a>
 , <a class="el" href="classsymplectic8th.html#a3a85c2b58a75f2da56a6989a73a001b8">symplectic8th&lt; ParticSys &gt;</a>
 , <a class="el" href="class_t_t_l.html#a8d541e387362cebeb59841d22d78f2b4">TTL&lt; Particles &gt;</a>
+, <a class="el" href="class_vel_dep_particles.html#a6b347abd885de56bb37aa1222a99f76e">VelDepParticles&lt; Dtype, ArraySize &gt;</a>
+, <a class="el" href="class_vel_indep_chain_particles.html#a0a945beff437274ce5ae8f7d182da8fe">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#a5d275b22f0d759f360ddd80e78f4b466">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>ScalarArray
-: <a class="el" href="classparticles.html#ac88daa0d493d17c5ca2fe3a1d3fe4779">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#a7f143d2466bd0f78d79cccd3493a756b">particleSystem&lt; Particles, Interaction &gt;</a>
+: <a class="el" href="classparticle_system.html#a7f143d2466bd0f78d79cccd3493a756b">particleSystem&lt; Particles, Interaction &gt;</a>
 , <a class="el" href="struct_space_h_1_1_empty_force.html#afdeb66410650cdb1e2e3b1e1fd79540c">SpaceH::EmptyForce&lt; Dtype, ArraySize &gt;</a>
 , <a class="el" href="struct_space_h_1_1_ext_vel_dep_force.html#ae5500aa4dd43a7cb1920b9b5c963f7f8">SpaceH::ExtVelDepForce&lt; PairForce, Dtype, ArraySize &gt;</a>
 , <a class="el" href="struct_space_h_1_1_ext_vel_indep_force.html#a46f61dcdc449c0374cf15d4c0bb76a61">SpaceH::ExtVelIndepForce&lt; PairForce, Dtype, ArraySize &gt;</a>
@@ -101,6 +101,7 @@ $(function() {
 , <a class="el" href="struct_space_h_1_1_proto_type.html#a09ef91dc8a37a044c403f5a833044725">SpaceH::ProtoType&lt; Dtype, Size &gt;</a>
 , <a class="el" href="struct_space_h_1_1_vel_dep_force.html#ae4efbb88779fc063293b7853184378ac">SpaceH::VelDepForce&lt; PairForce, Dtype, ArraySize &gt;</a>
 , <a class="el" href="struct_space_h_1_1_vel_indep_force.html#a05d04af454b5217024f5fff45d7e4d32">SpaceH::VelIndepForce&lt; PairForce, Dtype, ArraySize &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#abd6e6b0ffbbab4ebc078efd77f6a365a">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>setAbsoluteError()
 : <a class="el" href="class_b_s_iterator.html#a57603539823be271c2229d0951b7d957">BSIterator&lt; ParticSys, Integrator &gt;</a>

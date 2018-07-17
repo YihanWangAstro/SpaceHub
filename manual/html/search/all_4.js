@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['emptyclass',['EmptyClass',['../struct_space_h_1_1_empty_class.html',1,'SpaceH']]],
   ['emptyforce',['EmptyForce',['../struct_space_h_1_1_empty_force.html',1,'SpaceH']]],
   ['eraseline',['EraseLine',['../namespace_n_o_t_i_c_e.html#a46fcf4944d7c1d3cc4d821297b0e4bf8',1,'NOTICE']]],
   ['err',['err',['../struct_space_h_1_1kahan.html#abd8853c83c20e2eb13b602032a55bd2a',1,'SpaceH::kahan']]],

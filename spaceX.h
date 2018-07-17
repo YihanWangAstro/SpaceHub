@@ -20,13 +20,10 @@
 #include "integrator/symplectic/symplectic10th.h"
 #include "ODEiterator/BSIterator.h"
 #include "ODEiterator/constIterator.h"
-//#include "particleSystem/reguSystem.h"
-//#include "particleSystem/ARchain.h"
-//#include "particleSystem/GAR.h"
-//#include "particleSystem/regularState.h"
-//#include "particleSystem/regularization.h"
+
 #include "interaction/interaction.h"
 #include "interaction/forces.h"
+#include "interaction/postNewtonian.h"
 /*
 template <
     size_t                            N,

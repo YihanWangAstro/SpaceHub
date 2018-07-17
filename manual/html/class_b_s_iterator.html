@@ -81,8 +81,8 @@ Public Types</h2></td></tr>
 <tr class="separator:a19530085797de211565a566f581f20ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44773ad0f46d97005c8e21fa7c155c6f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">Scalar</a> = typename type::Scalar</td></tr>
 <tr class="separator:a44773ad0f46d97005c8e21fa7c155c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af31c4a9064840d867fb41f3b4a7b2a6e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#af31c4a9064840d867fb41f3b4a7b2a6e">ActiveScalarArray</a> = typename ParticSys::ActiveScalarArray</td></tr>
-<tr class="separator:af31c4a9064840d867fb41f3b4a7b2a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a340a2f29d147d137a7459886736dd6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a9a340a2f29d147d137a7459886736dd6">DynScalarArray</a> = typename type::DynScalarArray</td></tr>
+<tr class="separator:a9a340a2f29d147d137a7459886736dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb5a9b8f7ff3746a15007780c9a7b87"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t S&gt; </td></tr>
 <tr class="memitem:a1cb5a9b8f7ff3746a15007780c9a7b87"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a1cb5a9b8f7ff3746a15007780c9a7b87">Container</a> = typename type::template <a class="el" href="class_b_s_iterator.html#a1cb5a9b8f7ff3746a15007780c9a7b87">Container</a>&lt; T, S &gt;</td></tr>
 <tr class="separator:a1cb5a9b8f7ff3746a15007780c9a7b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,7 +92,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a144fb5c55fcd7bc873e73f4d06276fb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a144fb5c55fcd7bc873e73f4d06276fb2">BSIterator</a> ()</td></tr>
 <tr class="memdesc:a144fb5c55fcd7bc873e73f4d06276fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for initializing cost, nSteps, fmin and CC.  <a href="#a144fb5c55fcd7bc873e73f4d06276fb2">More...</a><br /></td></tr>
 <tr class="separator:a144fb5c55fcd7bc873e73f4d06276fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47c558caa06982900eac316e10b50d4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a47c558caa06982900eac316e10b50d4d">iterate</a> (ParticSys &amp;<a class="el" href="classparticles.html">particles</a>, <a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">Scalar</a> stepLength)</td></tr>
+<tr class="memitem:a47c558caa06982900eac316e10b50d4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#a47c558caa06982900eac316e10b50d4d">iterate</a> (ParticSys &amp;particles, <a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">Scalar</a> stepLength)</td></tr>
 <tr class="memdesc:a47c558caa06982900eac316e10b50d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface of ODE iterator.  <a href="#a47c558caa06982900eac316e10b50d4d">More...</a><br /></td></tr>
 <tr class="separator:a47c558caa06982900eac316e10b50d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9b6cc673e297135646699d581fcdc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_iterator.html#ada9b6cc673e297135646699d581fcdc7">setRelativeError</a> (<a class="el" href="class_b_s_iterator.html#a44773ad0f46d97005c8e21fa7c155c6f">Scalar</a> relError)</td></tr>
@@ -107,23 +107,9 @@ Public Member Functions</h2></td></tr>
 class BSIterator&lt; ParticSys, Integrator &gt;</h3>
 
 <p>Bulirsch-Stoer extrapolation algorithm. </p>
+
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00016">16</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="af31c4a9064840d867fb41f3b4a7b2a6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af31c4a9064840d867fb41f3b4a7b2a6e">&#9670;&nbsp;</a></span>ActiveScalarArray</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ParticSys , typename Integrator &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="class_b_s_iterator.html">BSIterator</a>&lt; ParticSys, Integrator &gt;::<a class="el" href="class_b_s_iterator.html#af31c4a9064840d867fb41f3b4a7b2a6e">ActiveScalarArray</a> =  typename ParticSys::ActiveScalarArray</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1cb5a9b8f7ff3746a15007780c9a7b87"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1cb5a9b8f7ff3746a15007780c9a7b87">&#9670;&nbsp;</a></span>Container</h2>
 
@@ -139,6 +125,26 @@ template&lt;typename T , size_t S&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00026">26</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
+
+</div>
+</div>
+<a id="a9a340a2f29d147d137a7459886736dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a340a2f29d147d137a7459886736dd6">&#9670;&nbsp;</a></span>DynScalarArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys , typename Integrator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="class_b_s_iterator.html">BSIterator</a>&lt; ParticSys, Integrator &gt;::<a class="el" href="class_b_s_iterator.html#a9a340a2f29d147d137a7459886736dd6">DynScalarArray</a> =  typename type::DynScalarArray</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00023">23</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
 
 </div>
 </div>
@@ -156,6 +162,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00021">21</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
+
 </div>
 </div>
 <a id="a19530085797de211565a566f581f20ca"></a>
@@ -171,6 +179,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00019">19</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
 
 </div>
 </div>
@@ -193,6 +203,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructor for initializing cost, nSteps, fmin and CC. </p>
+
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00125">125</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
 
 </div>
 </div>
@@ -237,6 +249,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The next macro integration step length. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00156">156</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
+
 </div>
 </div>
 <a id="a57603539823be271c2229d0951b7d957"></a>
@@ -267,6 +281,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 
 <p>Set the local absolute error. </p>
 
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00043">43</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
+
 </div>
 </div>
 <a id="ada9b6cc673e297135646699d581fcdc7"></a>
@@ -296,6 +312,8 @@ template&lt;typename ParticSys , typename Integrator &gt; </div>
 </div><div class="memdoc">
 
 <p>Set the local relative error. </p>
+
+<p class="definition">Definition at line <a class="el" href="_b_s_iterator_8h_source.html#l00037">37</a> of file <a class="el" href="_b_s_iterator_8h_source.html">BSIterator.h</a>.</p>
 
 </div>
 </div>

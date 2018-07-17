@@ -26,7 +26,7 @@ public:
     
     using IndexArray = typename type::IndexArray;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::CHAIN};
@@ -62,6 +62,8 @@ public:
         SpaceH::advanceVector(chain_pos_, chain_vel_, stepSize);
         SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
         SpaceH::moveToCMCoord(mass_, pos_);
+        //SpaceH::advanceVector(pos_, vel_, stepSize);
+        
     }
     
     /** @brief Advance the  velocity array with given acceleration array.
@@ -72,7 +74,10 @@ public:
     {
         const size_t chain_num = this->particleNumber() - 1;
         
-        VectorArray chain_acc = acc;
+        VectorArray chain_acc;
+        
+        chain_acc.resize(chain_num + 1);
+        chain_acc[chain_num].setZero();
         
         for(size_t i = 0 ; i < chain_num; ++i)
             chain_acc[i] = acc[ch_index_[i + 1]] - acc[ch_index_[i]];
@@ -80,6 +85,7 @@ public:
         SpaceH::advanceVector(chain_vel_, chain_acc, stepSize);
         SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);
         SpaceH::moveToCMCoord(mass_, vel_);
+        //SpaceH::advanceVector(vel_, acc, stepSize);
     }
     
     /** @brief Input(Initialize) variables with istream.*/
@@ -95,20 +101,20 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(DynScalarArray& data, VelIndepChainParticles& partc)
+    friend size_t operator>>(const ScalarBuffer& data, VelIndepChainParticles& partc)
     {
         size_t loc = data >> static_cast<Base&>(partc);
         
-        size_t particleNum = partc.particleNumber();
+        size_t chain_num = partc.particleNumber() - 1;
         
-        for(size_t i = 0 ; i < particleNum; ++i)
+        for(size_t i = 0 ; i < chain_num ; ++i)
         {
             partc.chain_pos_[i].x = data[loc++];
             partc.chain_pos_[i].y = data[loc++];
             partc.chain_pos_[i].z = data[loc++];
         }
         
-        for(size_t i = 0 ; i < particleNum; ++i)
+        for(size_t i = 0 ; i < chain_num ; ++i)
         {
             partc.chain_vel_[i].x = data[loc++];
             partc.chain_vel_[i].y = data[loc++];
@@ -119,23 +125,23 @@ public:
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(DynScalarArray& data, const VelIndepChainParticles& partc)
+    friend size_t operator<<(ScalarBuffer& data, const VelIndepChainParticles& partc)
     {
         size_t loc = data << static_cast<const Base&>(partc);
         
-        size_t particleNum = partc.particleNumber();
+        size_t chain_num  = partc.particleNumber() - 1;
         
-        data.reserve(loc + particleNum*6);
+        data.reserve(loc + chain_num * 6);
         
         //for locality, split into two loops
-        for(size_t i = 0; i < particleNum; ++i)
+        for(size_t i = 0; i < chain_num ; ++i)
         {
             data.emplace_back(partc.chain_pos_[i].x);
             data.emplace_back(partc.chain_pos_[i].y);
             data.emplace_back(partc.chain_pos_[i].z);
         }
         
-        for(size_t i = 0 ; i < particleNum; ++i)
+        for(size_t i = 0 ; i < chain_num ; ++i)
         {
             data.emplace_back(partc.chain_vel_[i].x);
             data.emplace_back(partc.chain_vel_[i].y);
@@ -160,6 +166,7 @@ protected:
 template<typename Dtype, size_t ArraySize, bool IsVelDep>
 class VelDepChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsVelDep>
 {
+public:
     /* Typedef */
     using Base = VelIndepChainParticles<Dtype, ArraySize, IsVelDep>;
     
@@ -171,10 +178,12 @@ class VelDepChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsV
     
     using VectorArray = typename type::VectorArray;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
     using Base::mass_;
+    using Base::vel_;
+    using Base::chain_vel_;
     using Base::ch_index_;
     using Base::auxi_vel_;
     
@@ -192,7 +201,9 @@ class VelDepChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsV
     {
         const size_t chain_num = this->particleNumber() - 1;
         
-        VectorArray chain_acc = acc;
+        VectorArray chain_acc;
+        chain_acc.resize(chain_num + 1);
+        chain_acc[chain_num].setZero();
         
         for(size_t i = 0 ; i < chain_num; ++i)
             chain_acc[i] = acc[ch_index_[i + 1]] - acc[ch_index_[i]];
@@ -200,6 +211,14 @@ class VelDepChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsV
         SpaceH::advanceVector(chain_auxi_vel_, chain_acc, stepSize);
         SpaceH::chain::synCartesian(chain_auxi_vel_, auxi_vel_, ch_index_);
         SpaceH::moveToCMCoord(mass_, auxi_vel_);
+        //SpaceH::advanceVector(auxi_vel_, acc, stepSize);
+    }
+    
+    /**  @brief synchronize auxiVel_ with vel_ */
+    inline void synAuxiVelwithVel()
+    {
+        auxi_vel_ = vel_;
+        chain_auxi_vel_ = chain_vel_;
     }
     
     /** @brief Input(Initialize) variables with istream.*/
@@ -207,37 +226,38 @@ class VelDepChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsV
     {
         is >> static_cast<Base&>(partc);
         
-        SpaceH::chain::synChain(partc.auxi_vel_, partc.chain_auxi_vel_, partc.ch_index_);
+        partc.chain_auxi_vel_ = partc.chain_vel_;
+        //SpaceH::chain::synChain(partc.auxi_vel_, partc.chain_auxi_vel_, partc.ch_index_);
         return is;
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(DynScalarArray& data, VelDepChainParticles & partc)
+    friend size_t operator>>(ScalarBuffer& data, VelDepChainParticles & partc)
     {
         size_t loc = data >> static_cast<Base&>(partc);
         
-        size_t particleNum = partc.particleNumber();
+        size_t chain_num = partc.particleNumber() - 1;
         
-        for(size_t i = 0 ; i < particleNum; ++i)
+        for(size_t i = 0 ; i < chain_num; ++i)
         {
             partc.chain_auxi_vel_[i].x = data[loc++];
             partc.chain_auxi_vel_[i].y = data[loc++];
             partc.chain_auxi_vel_[i].z = data[loc++];
         }
-        
+
         return loc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(DynScalarArray& data, const VelDepChainParticles & partc)
+    friend size_t operator<<(ScalarBuffer& data, const VelDepChainParticles & partc)
     {
         size_t loc = data << static_cast<const Base&>(partc);
         
-        size_t particleNum = partc.particleNumber();
+        size_t chain_num = partc.particleNumber() - 1;
         
-        data.reserve(loc + particleNum*3);
+        data.reserve(loc + chain_num*3);
         
-        for(size_t i = 0 ; i < particleNum; ++i)
+        for(size_t i = 0 ; i < chain_num; ++i)
         {
             data.emplace_back(partc.chain_auxi_vel_[i].x);
             data.emplace_back(partc.chain_auxi_vel_[i].y);

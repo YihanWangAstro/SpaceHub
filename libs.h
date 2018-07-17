@@ -43,6 +43,8 @@ void swap(T& a, T& b)
     b = std::move(tmp);
 }*/
 
+
+    
 template<typename Scalar1,typename Scalar2>
 inline void advanceScalar(Scalar1& var, Scalar2 increase)
 {
@@ -53,6 +55,7 @@ template<typename Scalar, typename Vector1, typename Vector2>
 inline void advanceVector(Vector1& var, const Vector2& increase, Scalar stepSize )
 {
     size_t size = var.size();
+    #pragma omp parallel for
     for(size_t i = 0 ; i < size; i++)
     {
         var[i] += increase[i] * stepSize;
@@ -72,6 +75,7 @@ void moveToCMCoord(const ScalarArray& mass, VectorArray& phyVar)
 
     const size_t N = mass.size();
     
+    #pragma omp parallel for
     for(size_t i = 0 ; i < N ; ++i)
     {
         totalMass += mass[i];
@@ -80,6 +84,7 @@ void moveToCMCoord(const ScalarArray& mass, VectorArray& phyVar)
 
     centralMassVar /= totalMass;
 
+    #pragma omp parallel for
     for(size_t i = 0 ; i < N ; ++i)
     {
         phyVar[i] -= centralMassVar;
@@ -97,8 +102,9 @@ double getKineticEnergy(const std::array<Scalar, N>& mass, const std::array<vec3
 {
     Scalar kineticEnergy = 0;
 
+    #pragma omp parallel for
     for(size_t i = 0 ;  i < N ; ++i)
-        kineticEnergy += 0.5 * mass[i] * vel[i].normSquare();
+        kineticEnergy += 0.5 * mass[i] * ( vel[i] * vel[i] );
 
     return kineticEnergy;
 }
@@ -114,6 +120,7 @@ double getPotentialEnergy(const std::array<Scalar, N>& mass, const std::array<ve
 {
     Scalar potentialEnergy = 0;
 
+    #pragma omp parallel for
     for(size_t i = 0 ;  i < N ; ++i)
         for(size_t j = i + 1; j < N; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
@@ -135,9 +142,10 @@ inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array
     Scalar potentialEnergy = 0;
     Scalar kineticEnergy   = 0;
 
+    #pragma omp parallel for
     for(size_t i = 0 ;  i < N ; ++i)
     {
-        kineticEnergy += 0.5 * mass[i] * vel[i].normSquare();
+        kineticEnergy += 0.5 * mass[i] * ( vel[i] * vel[i] );
 
         for(size_t j = i + 1; j < N; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
@@ -146,13 +154,21 @@ inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array
     return potentialEnergy + kineticEnergy;
 }
 
+    template<typename ScalarArray, typename VectorArray, typename Scalar>
+    inline Scalar getEnergyErr(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel, const Scalar bindE)
+    {
+        Scalar EK = getKineticEnergy(mass, vel);
+        Scalar EP = getPotentialEnergy(mass, pos);
+        return log(abs((EK + bindE)/EP));
+    }
+    
 /** @brief print an array. Used for debug*/
 template<typename T>
 void print(T& var)
 {
     const size_t size = var.size();
     for(size_t i = 0 ; i < size; ++i )
-        std::cout << var[i] << ' ';
+        std::cout << var[i] << '\n';
 
     std::cout << '\n';
 }

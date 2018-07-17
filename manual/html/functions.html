@@ -75,39 +75,34 @@ $(function() {
 : <a class="el" href="classparticle_system.html#a41e5c73bc46164302db25b5c5d28aedd">particleSystem&lt; Particles, Interaction &gt;</a>
 </li>
 <li>activeScalar
-: <a class="el" href="classparticles.html#ae1bbd3d94802cc0b3dc84b473a0115ab">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="class_regu_particles.html#ac34b8a4601e06934f47ea52225d19f2d">ReguParticles&lt; Dtype, ArraySize &gt;</a>
-</li>
-<li>ActiveScalarArray
-: <a class="el" href="class_b_s_iterator.html#af31c4a9064840d867fb41f3b4a7b2a6e">BSIterator&lt; ParticSys, Integrator &gt;</a>
-, <a class="el" href="class_chain_particles.html#a11fb0069737793ceb8a4f5dcee8a0d06">ChainParticles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticles.html#a1a7d26adb64aacc4201e6bbb9de64c47">particles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticle_system.html#adeaa416917733980026d138dfde2f7ab">particleSystem&lt; Particles, Interaction &gt;</a>
-, <a class="el" href="class_regu_particles.html#a2ef11cadbe4d55f8be18fd2af246a742">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_dep_particles.html#a5a6db2817ec1f38c80ec80586e00f03e">VelDepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>addTotal()
 : <a class="el" href="struct_space_h_1_1_empty_force.html#a6aed735e5443a08ad6e70ae6bcd74bf8">SpaceH::EmptyForce&lt; Dtype, ArraySize &gt;</a>
 , <a class="el" href="struct_space_h_1_1_force.html#afd2f38849b94a2befd70a1e356655641">SpaceH::Force&lt; PairForce, Dtype, ArraySize &gt;</a>
 </li>
+<li>advanceAuxiVel()
+: <a class="el" href="class_vel_dep_particles.html#a01ef2a76b8cb3b53eb92e41104a3df6f">VelDepParticles&lt; Dtype, ArraySize &gt;</a>
+</li>
 <li>advanceBindE()
-: <a class="el" href="class_regu_particles.html#ae9c29d591afe631a6f7f640fb6b19f82">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#a139cfcfd227ca7eb98fa602ff0665607">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>advanceOmega()
-: <a class="el" href="class_regu_particles.html#ad8a0667cc9830c670a24872b7c8d4a08">ReguParticles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_regu_particles.html#a441b0c766baaa1c8861ac778b5702dc7">ReguParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
 </li>
 <li>advanceOneStep()
 : <a class="el" href="classdynamic_system.html#a7a4032c043dd0286007f4d7c542d3f95">dynamicSystem&lt; ParticSys, ODEiterator &gt;</a>
 </li>
 <li>advancePos()
-: <a class="el" href="class_chain_particles.html#a6dac41b524d3d0528ce1e2f3fb8a98a9">ChainParticles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticles.html#aba80bb0aa2f0c0aa9c6f14e12527b555">particles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#a76124f26a1e37892cd38f533edcbb8e8">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#aff530f9e2dbd6dc053e251caa07464ad">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>advanceTime()
-: <a class="el" href="classparticles.html#a1d8e3660ebc35d0e422942aa05621cb9">particles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_particles.html#a024d302cca3027451619a9346ecc24a4">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>advanceVel()
-: <a class="el" href="class_chain_particles.html#ac39657650c4520102bbf50546904fae3">ChainParticles&lt; Dtype, ArraySize &gt;</a>
-, <a class="el" href="classparticles.html#a7d515e6e655de14cdfbf6e943992ebfb">particles&lt; Dtype, ArraySize &gt;</a>
+: <a class="el" href="class_vel_indep_chain_particles.html#aa09b6bf7f9efbe1da4de3d106581b3a6">VelIndepChainParticles&lt; Dtype, ArraySize, IsVelDep &gt;</a>
+, <a class="el" href="class_vel_indep_particles.html#adb74d0445c84c0b705c25a8c50f6bc00">VelIndepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>afterIterProcess()
 : <a class="el" href="classparticle_system.html#a12fa297e1f6674847c2b90761f30d336">particleSystem&lt; Particles, Interaction &gt;</a>
@@ -118,6 +113,9 @@ $(function() {
 </li>
 <li>autoShow()
 : <a class="el" href="class_progress_bar.html#abcd6f66c18eb0dca5fa42ebfff03a11e">ProgressBar</a>
+</li>
+<li>auxiVel()
+: <a class="el" href="class_vel_dep_particles.html#a90f7baf617b3419dac92fc4d0b6388e9">VelDepParticles&lt; Dtype, ArraySize &gt;</a>
 </li>
 <li>available
 : <a class="el" href="struct_space_h_1_1chain_1_1_node.html#a98b17b286eb6c281f087224d348070f6">SpaceH::chain::Node&lt; Scalar &gt;</a>

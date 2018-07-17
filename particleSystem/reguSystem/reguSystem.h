@@ -38,10 +38,10 @@ public:
     using Base::partc;
     
     /**  @brief Omega interface. Reference to partc.omega*/
-    inline Scalar& omega(){ return partc.omega(); }
+    inline const Scalar& omega(){ return partc.omega(); }
     
     /**  @brief Bindine energy interface. Reference to partc.bindE*/
-    inline Scalar& bindE(){ return partc.bindE(); }
+    inline const Scalar& bindE(){ return partc.bindE(); }
 
     /**  @brief Advance position one step with current velocity.
      *
@@ -94,9 +94,10 @@ private:
     advanceVels(Scalar stepSize)
     {
         act.calcuTotalAcc();
-        partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
-        partc.advanceVel(act.totalAcc(), stepSize);
-        partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
+        partc.advanceVel(act.totalAcc(), 0.5*stepSize);
+        partc.advanceOmega(act.velIndepAcc(), partc.vel(), stepSize);
+        partc.advanceVel(act.totalAcc(), 0.5*stepSize);
+        //partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
     }
     
     /** @brief SFINAE version of kick() of velocity dependent force */
@@ -105,9 +106,11 @@ private:
     advanceVels(Scalar stepSize)
     {
         advanceAuxiVel(stepSize*0.5);
-        advanceRrealVel(stepSize);
+        
         partc.advanceOmega(act.velIndepAcc(), partc.auxiVel(), stepSize);
+        advanceRrealVel(stepSize);
         partc.advanceBindE(act.velDepAcc(),   partc.auxiVel(), stepSize);
+        
         advanceAuxiVel(stepSize*0.5);
     }
     

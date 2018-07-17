@@ -6,14 +6,15 @@
 using namespace std::chrono;
 typedef std::chrono::time_point<std::chrono::high_resolution_clock> resolutionClock;
 
-using scalar = SpaceH::kahan<double>;
-const size_t N = 3;
+using scalar = double;//SpaceH::kahan<double>;
+//using scalar = SpaceH::kahan<double>;
+const size_t N = 2;
 int main(int argc, char**argv)
 {
     std::cout << std::scientific << std::setprecision(16);// << nbody.particles;
     resolutionClock start;
     resolutionClock now;
-    start         = high_resolution_clock::now();
+    
     //spaceX<VelDepSystem<2,PN1th,TTL>, symplectic2th, BSIterator> nbody;
     //spaceX<NewtonianSystem<2>, symplectic2th, BSIterator> nbody;
     //using type  = typeSet::type<double,2>;
@@ -21,13 +22,15 @@ int main(int argc, char**argv)
     
     
     using f = SpaceH::NewtonForce<scalar,N>;
+    using PNf = SpaceH::PostNewtonianForce<scalar,N,true,false,false>;
     using force = SpaceH::VelIndepForce< f,scalar,N>;
+    using PNforce = SpaceH::VelDepForce< PNf,scalar,N>;
     using no = SpaceH::EmptyForce<scalar,N>;
-    using interaction = SpaceH::Interaction<force,no,no,no>;
+    using interaction = SpaceH::Interaction<force,PNforce,no,no>;
     
-    using particle = ReguParticles<scalar,N,interaction::isVelDep>;
+    using particle = ChainParticles<scalar,N,interaction::isVelDep>;
     using regu = logH<particle>;
-    using ps = ReguSystem<particle, interaction, regu>;
+    using ps = ReguSystem<particle, interaction,regu>;
     
     using integ = symplectic2th<ps>;
     using it = BSIterator<ps,integ>;
@@ -38,14 +41,14 @@ int main(int argc, char**argv)
     
     ds nbody;
     
-    nbody.loadText("kepler2.init");
+    nbody.loadText("kepler.init");
   
-    nbody.setStepLength(0.01*YEAR);
+    nbody.setStepLength(0.001*YEAR);
     
    // nbody.iterator.setRelativeError(1e-6);
 
-    double timeLimit = 50*YEAR;
-    double dt = 0.01*YEAR;
+    double timeLimit = 500*YEAR;
+    double dt = 0.05*YEAR;
     double tout = 0;
 
     std::ofstream os("out.dat");
@@ -55,6 +58,10 @@ int main(int argc, char**argv)
     os  << std::scientific << std::setprecision(16);
     eos << std::scientific << std::setprecision(16);
     
+    /*typename type::ScalarBuffer mapp;
+    mapp << nbody.particles;
+    SpaceH::print(mapp);
+    std::cout << mapp.size() << '\n';*/
     //std::cout <<nbody.particles;
     
    // nbody.advanceOneStep();
@@ -67,7 +74,7 @@ int main(int argc, char**argv)
         std::cout << nbody.particles.array()[i] << ' ';
     }*/
     
-    
+    start         = high_resolution_clock::now();
     //nbody.advanceOneStep();
     for(; nbody.particles.time() < timeLimit;)
     {
@@ -78,9 +85,10 @@ int main(int argc, char**argv)
             os  << nbody.particles;
             eos << nbody.particles.time()/YEAR << ' '
                 << getTotalEnergy(nbody.particles.mass(), nbody.particles.pos(), nbody.particles.vel()) << ' '
-                << getPotentialEnergy(nbody.particles.mass(), nbody.particles.pos()) << ' '
-                << getKineticEnergy(nbody.particles.mass(), nbody.particles.vel()) << ' '
-            << nbody.stepLength << "\r\n";
+                << nbody.particles.omega() << ' '
+                << nbody.particles.bindE() << ' '
+                << nbody.stepLength <<' '
+                << SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE()) <<"\r\n";
                 //<< nbody.iterator.iterDepth << "\r\n";
             tout += dt;
         }

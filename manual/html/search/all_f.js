@@ -1,9 +1,10 @@
 var searchData=
 [
   ['partc',['partc',['../classparticle_system.html#a48cb24fbd9d72503a5e464a02760e814',1,'particleSystem']]],
-  ['particlenumber',['particleNumber',['../classparticles.html#ad164b86b435051fc2f452d07715d0af7',1,'particles::particleNumber()'],['../classparticle_system.html#a859f7ca9a229b8b934ba1de2607b878a',1,'particleSystem::particleNumber()']]],
-  ['particles',['particles',['../classparticles.html',1,'particles&lt; Dtype, ArraySize &gt;'],['../classdynamic_system.html#a809657c0ef63741a7e3d6f32bc87bfe3',1,'dynamicSystem::particles()']]],
+  ['particlenumber',['particleNumber',['../class_vel_indep_particles.html#a9fa71261c95ee53974352a31cd8ffd41',1,'VelIndepParticles::particleNumber()'],['../classparticle_system.html#a859f7ca9a229b8b934ba1de2607b878a',1,'particleSystem::particleNumber()']]],
+  ['particles',['Particles',['../struct_particles.html',1,'Particles&lt; Dtype, ArraySize, IsVelDep &gt;'],['../classdynamic_system.html#a809657c0ef63741a7e3d6f32bc87bfe3',1,'dynamicSystem::particles()']]],
   ['particles_2eh',['particles.h',['../particles_8h.html',1,'']]],
+  ['particles_3c_20dtype_2c_20arraysize_2c_20true_20_3e',['Particles&lt; Dtype, ArraySize, true &gt;',['../struct_particles_3_01_dtype_00_01_array_size_00_01true_01_4.html',1,'']]],
   ['particlesystem',['particleSystem',['../classparticle_system.html',1,'']]],
   ['particlesystem_2eh',['particleSystem.h',['../particle_system_8h.html',1,'']]],
   ['partictype',['PARTICTYPE',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385',1,'SpaceH']]],
@@ -13,8 +14,8 @@ var searchData=
   ['plain',['PLAIN',['../namespace_space_h.html#a0af19f79a6498e99dbda772053d44a72af62eb0bf5e5c72e80983fbbac1cb70e5',1,'SpaceH::PLAIN()'],['../namespace_space_h.html#a4782f089179a3c269891f02482b072dfaf62eb0bf5e5c72e80983fbbac1cb70e5',1,'SpaceH::PLAIN()']]],
   ['plainarray',['PlainArray',['../classdicho_iterator.html#ab5b708b3b8a8fbd975c55231052d2547',1,'dichoIterator']]],
   ['point',['POINT',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385ab7288e9167a9a146ca1662a47c0e8767',1,'SpaceH']]],
-  ['pos',['pos',['../classparticles.html#a746aa73a995101af269d0a64c76319a2',1,'particles::pos() const'],['../classparticles.html#a5a92ff9c5826ad7e4622f36665bc48a6',1,'particles::pos(size_t i) const'],['../classparticle_system.html#a7a4b29e872ff56670d6ad553df57b22b',1,'particleSystem::pos() const'],['../classparticle_system.html#ae18ea167d5145d52067ae6661a416c4c',1,'particleSystem::pos(size_t i) const']]],
-  ['pos_5f',['pos_',['../classparticles.html#a99e8c11e0b53e2447478bca11625fbd7',1,'particles']]],
+  ['pos',['pos',['../class_vel_indep_particles.html#a3abad5914571496cf4c956647b2bafa8',1,'VelIndepParticles::pos() const'],['../class_vel_indep_particles.html#a7a48693c77efda8b2ec9d264603e58d8',1,'VelIndepParticles::pos(size_t i) const'],['../classparticle_system.html#a7a4b29e872ff56670d6ad553df57b22b',1,'particleSystem::pos() const'],['../classparticle_system.html#ae18ea167d5145d52067ae6661a416c4c',1,'particleSystem::pos(size_t i) const']]],
+  ['pos_5f',['pos_',['../class_vel_indep_particles.html#aff576cd5ee9f773e84d9b7473df8f647',1,'VelIndepParticles']]],
   ['postnewtonian',['PostNewtonian',['../class_space_h_1_1_post_newtonian.html',1,'SpaceH']]],
   ['preiterprocess',['preIterProcess',['../classparticle_system.html#a14ee76644ab1bacc3ed4a66e4fff0fb1',1,'particleSystem']]],
   ['print',['print',['../namespace_space_h.html#aca20ae1567cce0e06232b3fe82eb7827',1,'SpaceH']]],

@@ -213,7 +213,7 @@ bool IsDiff(const IndexArray& Index1, const IndexArray& Index2)
  *  @param newIndex   The new chain index mapping.
  */
 template <typename VectorArray, typename IndexArray>
-void updateChain(VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex)
+void updateChain(const VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex)
 {
     
     size_t head    = 0;
@@ -256,7 +256,7 @@ void updateChain(VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex
  *  @note This function should be a inverse transformation of synCartesian().
  */
 template <typename VectorArray, typename IndexArray>
-void synChain(VectorArray& data, VectorArray& chainData, IndexArray& chainIndex)
+void synChain(const VectorArray& data, VectorArray& chainData, const IndexArray& chainIndex)
 {
     const size_t N = data.size();
     
@@ -274,7 +274,7 @@ void synChain(VectorArray& data, VectorArray& chainData, IndexArray& chainIndex)
  *  @note This function should be a inverse transformation of synChain().
  */
 template <typename VectorArray, typename IndexArray>
-void synCartesian(VectorArray& chainData, VectorArray& data, IndexArray& chainIndex)
+void synCartesian(const VectorArray& chainData, VectorArray& data, const IndexArray& chainIndex)
 {
     const size_t N = data.size();
     

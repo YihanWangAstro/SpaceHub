@@ -16,7 +16,7 @@ using \mbox{\hyperlink{class_b_s_iterator_a19530085797de211565a566f581f20ca}{typ
 \item 
 using \mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} = typename type\+::\+Scalar
 \item 
-using \mbox{\hyperlink{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}{Active\+Scalar\+Array}} = typename Partic\+Sys\+::\+Active\+Scalar\+Array
+using \mbox{\hyperlink{class_b_s_iterator_a9a340a2f29d147d137a7459886736dd6}{Dyn\+Scalar\+Array}} = typename type\+::\+Dyn\+Scalar\+Array
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t S$>$ }\\using \mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}} = typename type\+::template \mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}}$<$ T, S $>$
 \end{DoxyCompactItemize}
@@ -25,7 +25,7 @@ using \mbox{\hyperlink{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}{Act
 \item 
 \mbox{\hyperlink{class_b_s_iterator_a144fb5c55fcd7bc873e73f4d06276fb2}{B\+S\+Iterator}} ()
 \begin{DoxyCompactList}\small\item\em Constructor for initializing cost, n\+Steps, fmin and CC. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a47c558caa06982900eac316e10b50d4d}{iterate}} (Partic\+Sys \&\mbox{\hyperlink{classparticles}{particles}}, \mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} step\+Length)
+\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} \mbox{\hyperlink{class_b_s_iterator_a47c558caa06982900eac316e10b50d4d}{iterate}} (Partic\+Sys \&particles, \mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} step\+Length)
 \begin{DoxyCompactList}\small\item\em Interface of O\+DE iterator. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}{set\+Relative\+Error}} (\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} rel\+Error)
 \begin{DoxyCompactList}\small\item\em Set the local relative error. \end{DoxyCompactList}\item 
@@ -39,14 +39,11 @@ class B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}
 
 Bulirsch-\/\+Stoer extrapolation algorithm. 
 
-\subsection{Member Typedef Documentation}
-\mbox{\Hypertarget{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}\label{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}} 
-\index{B\+S\+Iterator@{B\+S\+Iterator}!Active\+Scalar\+Array@{Active\+Scalar\+Array}}
-\index{Active\+Scalar\+Array@{Active\+Scalar\+Array}!B\+S\+Iterator@{B\+S\+Iterator}}
-\subsubsection{\texorpdfstring{Active\+Scalar\+Array}{ActiveScalarArray}}
-{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
-using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_af31c4a9064840d867fb41f3b4a7b2a6e}{Active\+Scalar\+Array}} =  typename Partic\+Sys\+::\+Active\+Scalar\+Array}
+Definition at line 16 of file B\+S\+Iterator.\+h.
 
+
+
+\subsection{Member Typedef Documentation}
 \mbox{\Hypertarget{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}\label{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!Container@{Container}}
 \index{Container@{Container}!B\+S\+Iterator@{B\+S\+Iterator}}
@@ -55,6 +52,21 @@ using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Inte
 template$<$typename T , size\+\_\+t S$>$ \\
 using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}} =  typename type\+::template \mbox{\hyperlink{class_b_s_iterator_a1cb5a9b8f7ff3746a15007780c9a7b87}{Container}}$<$T, S$>$}
 
+
+
+Definition at line 26 of file B\+S\+Iterator.\+h.
+
+\mbox{\Hypertarget{class_b_s_iterator_a9a340a2f29d147d137a7459886736dd6}\label{class_b_s_iterator_a9a340a2f29d147d137a7459886736dd6}} 
+\index{B\+S\+Iterator@{B\+S\+Iterator}!Dyn\+Scalar\+Array@{Dyn\+Scalar\+Array}}
+\index{Dyn\+Scalar\+Array@{Dyn\+Scalar\+Array}!B\+S\+Iterator@{B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Dyn\+Scalar\+Array}{DynScalarArray}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a9a340a2f29d147d137a7459886736dd6}{Dyn\+Scalar\+Array}} =  typename type\+::\+Dyn\+Scalar\+Array}
+
+
+
+Definition at line 23 of file B\+S\+Iterator.\+h.
+
 \mbox{\Hypertarget{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}\label{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!Scalar@{Scalar}}
 \index{Scalar@{Scalar}!B\+S\+Iterator@{B\+S\+Iterator}}
@@ -62,12 +74,20 @@ using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Inte
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
 using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a44773ad0f46d97005c8e21fa7c155c6f}{Scalar}} =  typename type\+::\+Scalar}
 
+
+
+Definition at line 21 of file B\+S\+Iterator.\+h.
+
 \mbox{\Hypertarget{class_b_s_iterator_a19530085797de211565a566f581f20ca}\label{class_b_s_iterator_a19530085797de211565a566f581f20ca}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!type@{type}}
 \index{type@{type}!B\+S\+Iterator@{B\+S\+Iterator}}
 \subsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
 using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_b_s_iterator_a19530085797de211565a566f581f20ca}{type}} =  typename Partic\+Sys\+::type}
+
+
+
+Definition at line 19 of file B\+S\+Iterator.\+h.
 
 
 
@@ -82,6 +102,10 @@ using \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Inte
 
 
 Constructor for initializing cost, n\+Steps, fmin and CC. 
+
+
+
+Definition at line 125 of file B\+S\+Iterator.\+h.
 
 
 
@@ -112,6 +136,10 @@ B\+Siterator will force use the internal mid-\/point integrator as the basic int
 \begin{DoxyReturn}{Returns}
 The next macro integration step length. 
 \end{DoxyReturn}
+
+
+Definition at line 156 of file B\+S\+Iterator.\+h.
+
 \mbox{\Hypertarget{class_b_s_iterator_a57603539823be271c2229d0951b7d957}\label{class_b_s_iterator_a57603539823be271c2229d0951b7d957}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!set\+Absolute\+Error@{set\+Absolute\+Error}}
 \index{set\+Absolute\+Error@{set\+Absolute\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
@@ -123,6 +151,10 @@ void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integ
 
 Set the local absolute error. 
 
+
+
+Definition at line 43 of file B\+S\+Iterator.\+h.
+
 \mbox{\Hypertarget{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}\label{class_b_s_iterator_ada9b6cc673e297135646699d581fcdc7}} 
 \index{B\+S\+Iterator@{B\+S\+Iterator}!set\+Relative\+Error@{set\+Relative\+Error}}
 \index{set\+Relative\+Error@{set\+Relative\+Error}!B\+S\+Iterator@{B\+S\+Iterator}}
@@ -133,6 +165,10 @@ void \mbox{\hyperlink{class_b_s_iterator}{B\+S\+Iterator}}$<$ Partic\+Sys, Integ
 
 
 Set the local relative error. 
+
+
+
+Definition at line 37 of file B\+S\+Iterator.\+h.
 
 
 

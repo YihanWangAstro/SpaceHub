@@ -69,7 +69,7 @@ namespace SpaceH
         
         using IndexArray     = SizeArray;
         
-        using DynScalarArray = Container<Scalar, DYNAMICAL>;
+        using ScalarBuffer = Container<Scalar, DYNAMICAL>;
     };
     
     enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };

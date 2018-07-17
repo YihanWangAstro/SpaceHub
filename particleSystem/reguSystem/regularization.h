@@ -33,7 +33,7 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    inline Scalar getPhysicalPosTime(Particles& partc, Scalar stepSize)
+    inline Scalar getPhysicalPosTime(const Particles& partc, Scalar stepSize)
     {
         return stepSize / (partc.bindE() + getKineticEnergy(partc.mass(), partc.vel()));
     }
@@ -45,7 +45,7 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    inline Scalar getPhysicalVelTime(Particles& partc, Scalar stepSize)
+    inline Scalar getPhysicalVelTime(const Particles& partc, Scalar stepSize)
     {
         return stepSize / (-getPotentialEnergy(partc.mass(), partc.pos()));
     }
@@ -72,7 +72,7 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    inline Scalar getPhysicalPosTime(Particles& partc, Scalar stepSize)
+    inline Scalar getPhysicalPosTime(const Particles& partc, Scalar stepSize)
     {
         return stepSize / partc.omega();
     }
@@ -84,9 +84,9 @@ public:
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
-    inline Scalar getPhysicalVelTime(Particles& partc, Scalar stepSize)
+    inline Scalar getPhysicalVelTime(const Particles& partc, Scalar stepSize)
     {
-        return stepSize / partc.capitalOmega();
+        return stepSize / partc.getCapitalOmega();
     }
 };
 
@@ -110,7 +110,7 @@ public:
      *                  See example class in dynamicState.h.
      *  @param stepSize Integration step size.
      */
-    inline Scalar getPhysicalPosTime(Particles& partc, Scalar stepSize)
+    inline Scalar getPhysicalPosTime(const Particles& partc, Scalar stepSize)
     {
         return stepSize;
     }
@@ -121,7 +121,7 @@ public:
      *                  See example class in dynamicState.h.
      *  @param stepSize Integration step size.
      */
-    inline Scalar getPhysicalVelTime(Particles& partc, Scalar stepSize)
+    inline Scalar getPhysicalVelTime(const Particles& partc, Scalar stepSize)
     {
         return stepSize;
     }

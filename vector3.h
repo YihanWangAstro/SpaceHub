@@ -123,11 +123,6 @@ public:
     {
         return sqrt(x * x + y * y + z * z);
     }
-    /** @brief Calcualte the square of the norm */
-    inline T normSquare() const
-    {
-        return (x * x + y * y + z * z);
-    }
     /** @brief Calculate the inverse of the norm */
     inline T reNorm() const
     {

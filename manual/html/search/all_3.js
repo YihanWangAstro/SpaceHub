@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['datastruct',['dataStruct',['../classparticles.html#aa22397f7d90ec1ff63a9a8488d68c8f1',1,'particles::dataStruct()'],['../class_chain_particles.html#a42a04b9acd57c9618f8a6636750aacff',1,'ChainParticles::dataStruct()'],['../namespace_space_h.html#a4782f089179a3c269891f02482b072df',1,'SpaceH::DATASTRUCT()']]],
+  ['datastruct',['dataStruct',['../class_vel_indep_particles.html#a6d357b21c216a2b079b1927c18de0b8f',1,'VelIndepParticles::dataStruct()'],['../class_vel_indep_chain_particles.html#a58396033a881431db18207bf280892ea',1,'VelIndepChainParticles::dataStruct()'],['../namespace_space_h.html#a4782f089179a3c269891f02482b072df',1,'SpaceH::DATASTRUCT()']]],
   ['day',['DAY',['../macros_8h.html#a0ced9b377c4551eb7679ab5376390585',1,'macros.h']]],
   ['dichoiterator',['dichoIterator',['../classdicho_iterator.html',1,'']]],
   ['dichotomy_2eh',['dichotomy.h',['../dichotomy_8h.html',1,'']]],
@@ -12,5 +12,6 @@ var searchData=
   ['dynamical',['DYNAMICAL',['../namespace_space_h.html#a3e55b9bc2a9e10c08ce8121bce11244a',1,'SpaceH']]],
   ['dynamicchain_2eh',['dynamicChain.h',['../dynamic_chain_8h.html',1,'']]],
   ['dynamicsystem',['dynamicSystem',['../classdynamic_system.html',1,'']]],
-  ['dynamicsystem_2eh',['dynamicSystem.h',['../dynamic_system_8h.html',1,'']]]
+  ['dynamicsystem_2eh',['dynamicSystem.h',['../dynamic_system_8h.html',1,'']]],
+  ['dynscalararray',['DynScalarArray',['../class_b_s_iterator.html#a9a340a2f29d147d137a7459886736dd6',1,'BSIterator::DynScalarArray()'],['../class_vel_indep_particles.html#a6bba8ac3f941a144214037a27ccaa119',1,'VelIndepParticles::DynScalarArray()'],['../class_vel_dep_particles.html#a7b95dc56c836ef3353326deae9f18662',1,'VelDepParticles::DynScalarArray()'],['../class_vel_indep_chain_particles.html#a904d5f59968e5fa9d900b9931cf5aa36',1,'VelIndepChainParticles::DynScalarArray()'],['../class_regu_particles.html#abaa96fd6cb4ad1fca4a6c726480a0681',1,'ReguParticles::DynScalarArray()'],['../classparticle_system.html#a768fe562ed8dcc0973f3d422708835bf',1,'particleSystem::DynScalarArray()'],['../struct_space_h_1_1_proto_type.html#a8f3813f576517856e0ed74af9e5ffcb4',1,'SpaceH::ProtoType::DynScalarArray()']]]
 ];

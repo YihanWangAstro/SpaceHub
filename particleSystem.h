@@ -34,7 +34,7 @@ public:
     
     using IntArray    = typename type::IntArray;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
     constexpr static size_t arraySize{type::arraySize};
@@ -120,7 +120,10 @@ public:
     void preIterProcess() {}
     
     /** @brief After process after iteration*/
-    void afterIterProcess() {}
+    void afterIterProcess()
+    {
+        synData<Particles::isVelDep>();
+    }
     
     /** @brief Virtualize default destructor.*/
     virtual ~particleSystem() {}
@@ -137,13 +140,13 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend void operator>>(DynScalarArray& data, particleSystem& sys)
+    friend void operator>>(const ScalarBuffer& data, particleSystem& sys)
     {
         data >> sys.partc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend void operator<<(DynScalarArray& data, const particleSystem& sys)
+    friend void operator<<(ScalarBuffer& data, const particleSystem& sys)
     {
         data << sys.partc;
     }
@@ -156,6 +159,19 @@ protected:
     Interaction act;
     
 private:
+    /** @brief SFINAE version of synchronize auxivelocity of velocity independent particles */
+    template<bool isVelDep>
+    inline typename std::enable_if<isVelDep==false>::type
+    synData(){}
+    
+    /** @brief SFINAE version of synchronize auxivelocity of velocity dependent particles */
+    template<bool isVelDep>
+    inline typename std::enable_if<isVelDep==true>::type
+    synData()
+    {
+        partc.synAuxiVelwithVel();
+    }
+    
     /** @brief SFINAE version of kick() of velocity independent force */
     template<bool isVelDep>
     inline typename std::enable_if<isVelDep==false>::type

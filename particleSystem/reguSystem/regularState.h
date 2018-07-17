@@ -23,7 +23,7 @@ public:
     
     using VectorArray = typename type::VectorArray;
     
-    using DynScalarArray = typename type::DynScalarArray;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
     /**  @brief Omega scalar const interface. Reference to state.time*/
@@ -32,18 +32,23 @@ public:
     /**  @brief BindE scalar const interface. Reference to state.time*/
     inline const Scalar& bindE() const { return bindE_; }
     
+    inline Scalar getCapitalOmega() const
+    {
+        return -getPotentialEnergy(this->mass(), this->pos());
+    }
+    
     /** @brief Advance the Omega.
      *  @param velIndepAcc Velocity independent acceleration array.
      *  @param vel         Velocity array.
      *  @param stepSize    Time stepSize.
      */
-    inline void advanceOmega(const VectorArray& velIndepAcc, const VectorArray& vel, Scalar stepSize)
+    inline void advanceOmega(const VectorArray& velIndepAcc, const VectorArray& velocity, Scalar stepSize)
     {
         size_t size = this->particleNumber();
         Scalar dOmega = 0;
         
         for(size_t i = 0 ; i < size ; ++i)
-            dOmega += (velIndepAcc[i] * vel[i]) * (this->mass_[i]);
+            dOmega += (velIndepAcc[i] * velocity[i]) * (this->mass_[i]);
         
         SpaceH::advanceScalar(omega_, dOmega*stepSize);
     }
@@ -53,13 +58,13 @@ public:
      *  @param vel       Velocity array.
      *  @param stepSize  Time stepSize.
      */
-    inline void advanceBindE(const VectorArray& velDepAcc, const VectorArray& vel, Scalar stepSize)
+    inline void advanceBindE(const VectorArray& velDepAcc, const VectorArray& velocity, Scalar stepSize)
     {
-        size_t particleNum = this->partc.particleNumber();
+        size_t particleNum = this->particleNumber();
         Scalar dBindE = 0;
         
         for(size_t i = 0 ; i < particleNum ; ++i)
-            dBindE -= (velDepAcc[i] * vel[i]) * (this->mass_[i]);
+            dBindE -= (velDepAcc[i] * velocity[i]) * (this->mass_[i]);
         
         SpaceH::advanceScalar(bindE_, dBindE*stepSize);
     }
@@ -76,7 +81,7 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(DynScalarArray& data, ReguParticles& partc)
+    friend size_t operator>>(const ScalarBuffer& data, ReguParticles& partc)
     {
         size_t loc = data >> static_cast<Base&>(partc);
         
@@ -87,7 +92,7 @@ public:
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(DynScalarArray& data, const ReguParticles& partc)
+    friend size_t operator<<(ScalarBuffer& data, const ReguParticles& partc)
     {
         size_t loc = data << static_cast<const Base&>(partc);
         
@@ -107,10 +112,7 @@ protected:
     /** @brief Calculate the regularized variable Omega.
      *  @return The value of capital omega.
      */
-    Scalar getCapitalOmega()
-    {
-        return -getPotentialEnergy(this->mass(), this->pos());
-    }
+    
 };
 #endif
 

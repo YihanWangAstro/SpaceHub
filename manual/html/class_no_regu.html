@@ -77,17 +77,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:acdfb043f122617376d117cadd040e220"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#acdfb043f122617376d117cadd040e220">type</a> = typename Particles::type</td></tr>
+<tr class="memitem:acdfb043f122617376d117cadd040e220"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#acdfb043f122617376d117cadd040e220">type</a> = typename <a class="el" href="class_vel_indep_particles.html#a0c62b43c2f0a50565e5e06587fddee18">Particles::type</a></td></tr>
 <tr class="separator:acdfb043f122617376d117cadd040e220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6597c7ec828f8630895903da9251be4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> = typename type::Scalar</td></tr>
 <tr class="separator:af6597c7ec828f8630895903da9251be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeae8b6811fa8b50e0d8cdbd2ae9a0d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#aeae8b6811fa8b50e0d8cdbd2ae9a0d9c">getPhysicalPosTime</a> (Particles &amp;partc, <a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> stepSize)</td></tr>
+<tr class="memitem:aeae8b6811fa8b50e0d8cdbd2ae9a0d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#aeae8b6811fa8b50e0d8cdbd2ae9a0d9c">getPhysicalPosTime</a> (<a class="el" href="struct_particles.html">Particles</a> &amp;partc, <a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> stepSize)</td></tr>
 <tr class="memdesc:aeae8b6811fa8b50e0d8cdbd2ae9a0d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the physical time for position advance from integration step size.  <a href="#aeae8b6811fa8b50e0d8cdbd2ae9a0d9c">More...</a><br /></td></tr>
 <tr class="separator:aeae8b6811fa8b50e0d8cdbd2ae9a0d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef38cba8fa164bf3dfda2518f770d286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#aef38cba8fa164bf3dfda2518f770d286">getPhysicalVelTime</a> (Particles &amp;partc, <a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> stepSize)</td></tr>
+<tr class="memitem:aef38cba8fa164bf3dfda2518f770d286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_no_regu.html#aef38cba8fa164bf3dfda2518f770d286">getPhysicalVelTime</a> (<a class="el" href="struct_particles.html">Particles</a> &amp;partc, <a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> stepSize)</td></tr>
 <tr class="memdesc:aef38cba8fa164bf3dfda2518f770d286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the physical time for velocity advance from integration step size.  <a href="#aef38cba8fa164bf3dfda2518f770d286">More...</a><br /></td></tr>
 <tr class="separator:aef38cba8fa164bf3dfda2518f770d286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -97,6 +97,8 @@ class NoRegu&lt; Particles &gt;</h3>
 
 <p>Ordinary algorithmatic regularization interface. </p>
 <p>No regularization. </p>
+
+<p class="definition">Definition at line <a class="el" href="regularization_8h_source.html#l00098">98</a> of file <a class="el" href="regularization_8h_source.html">regularization.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="af6597c7ec828f8630895903da9251be4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af6597c7ec828f8630895903da9251be4">&#9670;&nbsp;</a></span>Scalar</h2>
@@ -107,10 +109,12 @@ class NoRegu&lt; Particles &gt;</h3>
 template&lt;typename Particles &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="class_no_regu.html">NoRegu</a>&lt; Particles &gt;::<a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> =  typename type::Scalar</td>
+          <td class="memname">using <a class="el" href="class_no_regu.html">NoRegu</a>&lt; <a class="el" href="struct_particles.html">Particles</a> &gt;::<a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> =  typename type::Scalar</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="regularization_8h_source.html#l00104">104</a> of file <a class="el" href="regularization_8h_source.html">regularization.h</a>.</p>
 
 </div>
 </div>
@@ -123,10 +127,12 @@ template&lt;typename Particles &gt; </div>
 template&lt;typename Particles &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="class_no_regu.html">NoRegu</a>&lt; Particles &gt;::<a class="el" href="class_no_regu.html#acdfb043f122617376d117cadd040e220">type</a> =  typename Particles::type</td>
+          <td class="memname">using <a class="el" href="class_no_regu.html">NoRegu</a>&lt; <a class="el" href="struct_particles.html">Particles</a> &gt;::<a class="el" href="class_no_regu.html#acdfb043f122617376d117cadd040e220">type</a> =  typename <a class="el" href="class_vel_indep_particles.html#a0c62b43c2f0a50565e5e06587fddee18">Particles::type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="regularization_8h_source.html#l00102">102</a> of file <a class="el" href="regularization_8h_source.html">regularization.h</a>.</p>
 
 </div>
 </div>
@@ -143,9 +149,9 @@ template&lt;typename Particles &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> <a class="el" href="class_no_regu.html">NoRegu</a>&lt; Particles &gt;::getPhysicalPosTime </td>
+          <td class="memname"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> <a class="el" href="class_no_regu.html">NoRegu</a>&lt; <a class="el" href="struct_particles.html">Particles</a> &gt;::getPhysicalPosTime </td>
           <td>(</td>
-          <td class="paramtype">Particles &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_particles.html">Particles</a> &amp;&#160;</td>
           <td class="paramname"><em>partc</em>, </td>
         </tr>
         <tr>
@@ -177,6 +183,8 @@ template&lt;typename Particles &gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="regularization_8h_source.html#l00113">113</a> of file <a class="el" href="regularization_8h_source.html">regularization.h</a>.</p>
+
 </div>
 </div>
 <a id="aef38cba8fa164bf3dfda2518f770d286"></a>
@@ -191,9 +199,9 @@ template&lt;typename Particles &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> <a class="el" href="class_no_regu.html">NoRegu</a>&lt; Particles &gt;::getPhysicalVelTime </td>
+          <td class="memname"><a class="el" href="class_no_regu.html#af6597c7ec828f8630895903da9251be4">Scalar</a> <a class="el" href="class_no_regu.html">NoRegu</a>&lt; <a class="el" href="struct_particles.html">Particles</a> &gt;::getPhysicalVelTime </td>
           <td>(</td>
-          <td class="paramtype">Particles &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_particles.html">Particles</a> &amp;&#160;</td>
           <td class="paramname"><em>partc</em>, </td>
         </tr>
         <tr>
@@ -224,6 +232,8 @@ template&lt;typename Particles &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="regularization_8h_source.html#l00124">124</a> of file <a class="el" href="regularization_8h_source.html">regularization.h</a>.</p>
 
 </div>
 </div>
