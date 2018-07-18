@@ -2,6 +2,7 @@
 #define CHAIN_H
 #include<vector>
 #include<array>
+#include<algorithm>
 namespace SpaceH
 {
     
