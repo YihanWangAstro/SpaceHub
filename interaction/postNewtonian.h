@@ -31,6 +31,7 @@ constexpr double INV_C5 = INV_C4 * INV_C;
         
         using Vector = typename type::Vector;
         /* Typedef */
+        
         inline void operator()(Vector& acc1, Vector& acc2,
                                const Scalar m1, const Scalar m2,
                                const Vector& p1, const Vector& p2,

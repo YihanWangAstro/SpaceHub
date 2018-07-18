@@ -28,7 +28,7 @@ int main()
     
     kh a = 0;
     //using kh = double;
-    /*
+    
     size_t N = 10000000;
     kh sum = 1;
     for(kh i = 1; i < N ; i = i + 1)
@@ -41,7 +41,7 @@ int main()
     auto runtime  = double(duration.count()) * milliseconds::period::num / milliseconds::period::den;
     
     std::cout << sum << "\n";
-    std::cout << runtime << std::endl;*/
+    std::cout << runtime << std::endl;
     
     
     return 0;

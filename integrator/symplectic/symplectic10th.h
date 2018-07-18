@@ -29,7 +29,7 @@ public:
  */
 template <typename ParticSys>
 void symplectic10th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength)
-{
+{   /*unroll loop manually*/
     particles.drift(3.0610967201933609e-01 * stepLength);
     particles.kick(6.1221934403867218e-01 * stepLength);
     particles.drift(-9.4012698954724694e-02 * stepLength);

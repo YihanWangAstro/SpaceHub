@@ -61,9 +61,7 @@ public:
             const size_t size = acc.size();
             
             for(size_t i = 0 ; i < size; ++i)
-            {
                 acc[i] += this_acc_[i];
-            }
         }
         
         const VectorArray& acc() { return this_acc_; }
@@ -312,9 +310,62 @@ public:
         
         using Vector = typename type::Vector;
         /* Typedef */
+        
         inline void operator()(Vector& acc1, Vector& acc2, const Scalar m1, const Scalar m2, const Vector& pos1, const Vector& pos2, const Vector& dr)
         {
             Scalar inv_r  = dr.reNorm();
+            Scalar inv_r3 = inv_r * inv_r * inv_r;
+            acc1 += dr * (inv_r3 * m2);
+            acc2 -= dr * (inv_r3 * m1);
+        }
+    };
+    
+    template<typename T>
+    inline T KarmackFastInverseSquareRoot(T x)
+    {
+        return 1/sqrt(x);
+    }
+    
+    template<>
+    inline float KarmackFastInverseSquareRoot<float>(float x)
+    {
+        float xhalf = 0.5f*x;
+        int i = *(int*)&x;
+        //i = 0x5f3759df - (i >> 1);
+        i = 0x5f375a86 - (i >> 1);
+        x = *(float*)&i;
+        x = x*(1.5f - xhalf*x*x);
+        //x = x*(1.5f - xhalf*x*x);
+        return x;
+    }
+    
+    template<>
+    inline double KarmackFastInverseSquareRoot<double>(double x)
+    {
+        double xhalf = 0.5f*x;
+        long long i = *(long long*)&x;
+        i = 0x5fe6eb50c7aa19f9 - (i >> 1);
+        x = *(double*)&i;
+        x = x*(1.5f - xhalf*x*x);
+        //x = x*(1.5f - xhalf*x*x);
+        return x;
+    }
+    
+    template<typename Dtype, size_t ArraySize>
+    struct KarmackNewtonian
+    {
+        /* Typedef */
+        using type = SpaceH::ProtoType<Dtype, ArraySize>;
+        
+        using Scalar = typename type::Scalar;
+        
+        using Vector = typename type::Vector;
+        /* Typedef */
+        
+        inline void operator()(Vector& acc1, Vector& acc2, const Scalar m1, const Scalar m2, const Vector& pos1, const Vector& pos2, const Vector& dr)
+        {
+            Scalar r2  = dr*dr;
+            Scalar inv_r = KarmackFastInverseSquareRoot<typename SpaceH::get_value_type<Scalar>::type>(r2);
             Scalar inv_r3 = inv_r * inv_r * inv_r;
             acc1 += dr * (inv_r3 * m2);
             acc2 -= dr * (inv_r3 * m1);

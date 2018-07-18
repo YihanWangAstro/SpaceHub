@@ -27,7 +27,6 @@ public:
     
     using ScalarArray = typename type::ScalarArray;
     
-    
     constexpr static bool isVelDep{ VelDep::isVelDep || ExtVelDep::isVelDep };
     
     const VectorArray& totalAcc() { return acc_; }
