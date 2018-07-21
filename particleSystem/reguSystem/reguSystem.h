@@ -10,7 +10,8 @@
 #define REGULARIZEDSYSTEM_H
 #include "../../particleSystem.h"
 
-
+namespace SpaceH
+{
 /**  @brief Regularized particle System.
  *
  *   Regularied particle system. See details in https://link.springer.com/article/10.1023%2FA%3A1008368322547 ,
@@ -18,20 +19,21 @@
  *   https://link.springer.com/article/10.1023%2FA%3A1021149313347 .
  */
 template <typename Particles, typename Interaction, typename Regularitor>
-class ReguSystem : public particleSystem<Particles, Interaction>
+class ReguSystem : public ParticleSystem<Particles, Interaction>
 {
 public:
     /* Typedef */
-    using Base = particleSystem<Particles, Interaction>;
-    
+    using Base = ParticleSystem<Particles, Interaction>;
     using typename Base::type;
-    
-    using Scalar = typename type::Scalar;
-    
-    using Vector = typename type::Vector;
-    
+    using Scalar      = typename type::Scalar;
+    using Vector      = typename type::Vector;
     using VectorArray = typename type::VectorArray;
     /* Typedef */
+    
+    /*Template parameter check*/
+    CHECK_TYPE(Particles, Interaction)
+    CHECK_TYPE(Particles, Regularitor)
+    /*Template parameter check*/
     
     using Base::act;
     
@@ -142,6 +144,6 @@ private:
         partc.advanceAuxiVel(act.totalAcc(), stepSize);
     }
 };
-
+}
 #endif
 

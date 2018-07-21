@@ -55,36 +55,72 @@ template<typename Scalar, typename Vector1, typename Vector2>
 inline void advanceVector(Vector1& var, const Vector2& increase, Scalar stepSize )
 {
     size_t size = var.size();
-    #pragma omp parallel for
+
     for(size_t i = 0 ; i < size; i++)
     {
         var[i] += increase[i] * stepSize;
     }
 }
 
+    /** @brief Move variables to centr
+     
+     al mass coordinates
+     *
+     *  @param mass   Array of mass.
+     *  @param phyVar Array of variables need to be moved.
+     */
+    template<typename ScalarArray, typename VectorArray>
+    typename VectorArray::value_type calcuCMCoord(const ScalarArray& mass, VectorArray& phyVar)
+    {
+        typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
+        typename ScalarArray::value_type totalMass = 0;
+        
+        const size_t N = mass.size();
+        
+        for(size_t i = 0 ; i < N ; ++i)
+        {
+            totalMass += mass[i];
+            centralMassVar += phyVar[i] * mass[i];
+        }
+        
+        centralMassVar /= totalMass;
+        
+        return centralMassVar;
+    }
+    
+    /** @brief Move variables to central mass coordinates
+     *
+     *  @param mass      Array of mass.
+     *  @param phyVar    Array of variables need to be moved.
+     *  @param totalMass The totalMass of the system
+     */
+    template<typename ScalarArray, typename VectorArray, typename Scalar> 
+    typename VectorArray::value_type calcuCMCoord(const ScalarArray& mass, VectorArray& phyVar, const Scalar totalMass)
+    {
+        typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
+        
+        const size_t N = mass.size();
+        
+        for(size_t i = 0 ; i < N ; ++i)
+        {
+            centralMassVar += phyVar[i] * mass[i];
+        }
+        
+        centralMassVar /= totalMass;
+        
+        return centralMassVar;
+    }
+    
 /** @brief Move variables to central mass coordinates
  *
  *  @param mass   Array of mass.
  *  @param phyVar Array of variables need to be moved.
  */
-template<typename ScalarArray, typename VectorArray>
-void moveToCMCoord(const ScalarArray& mass, VectorArray& phyVar)
+template<typename VectorArray>
+    void moveToCMCoord(VectorArray& phyVar, const typename VectorArray::value_type& centralMassVar )
 {
-    typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
-    typename ScalarArray::value_type totalMass = 0;
-
-    const size_t N = mass.size();
+    const size_t N = phyVar.size();
     
-    #pragma omp parallel for
-    for(size_t i = 0 ; i < N ; ++i)
-    {
-        totalMass += mass[i];
-        centralMassVar += phyVar[i] * mass[i];
-    }
-
-    centralMassVar /= totalMass;
-
-    #pragma omp parallel for
     for(size_t i = 0 ; i < N ; ++i)
     {
         phyVar[i] -= centralMassVar;
@@ -102,7 +138,6 @@ double getKineticEnergy(const std::array<Scalar, N>& mass, const std::array<vec3
 {
     Scalar kineticEnergy = 0;
 
-    #pragma omp parallel for
     for(size_t i = 0 ;  i < N ; ++i)
         kineticEnergy += 0.5 * mass[i] * ( vel[i] * vel[i] );
 
@@ -120,7 +155,6 @@ double getPotentialEnergy(const std::array<Scalar, N>& mass, const std::array<ve
 {
     Scalar potentialEnergy = 0;
 
-    #pragma omp parallel for
     for(size_t i = 0 ;  i < N ; ++i)
         for(size_t j = i + 1; j < N; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
@@ -142,7 +176,6 @@ inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array
     Scalar potentialEnergy = 0;
     Scalar kineticEnergy   = 0;
 
-    #pragma omp parallel for
     for(size_t i = 0 ;  i < N ; ++i)
     {
         kineticEnergy += 0.5 * mass[i] * ( vel[i] * vel[i] );

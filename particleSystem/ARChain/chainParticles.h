@@ -4,7 +4,9 @@
 #include "../../particles.h"
 #include "chain.h"
 
-
+namespace SpaceH
+{
+    
 /**
  *  @brief Class of dynamical variable.
  *
@@ -15,22 +17,21 @@ class VelIndepChainParticles : public ReguParticles<Dtype, ArraySize, IsVelDep>
 public:
     /* Typedef */
     using Base = ReguParticles<Dtype, ArraySize, IsVelDep>;
-    
     using typename Base::type;
-    
-    using Scalar = typename type::Scalar;
-    
-    using Vector = typename type::Vector;
-    
-    using VectorArray = typename type::VectorArray;
-    
-    using IndexArray = typename type::IndexArray;
-    
+    using Scalar       = typename type::Scalar;
+    using Vector       = typename type::Vector;
+    using VectorArray  = typename type::VectorArray;
+    using IndexArray   = typename type::IndexArray;
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
+    /*Template parameter check*/
+    CHECK_POD(Dtype)
+    /*Template parameter check*/
+    
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::CHAIN};
     
+    using Base::totalMass_;
     using Base::mass_;
     using Base::pos_;
     using Base::vel_;
@@ -61,8 +62,11 @@ public:
     {
         SpaceH::advanceVector(chain_pos_, chain_vel_, stepSize);
         SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
-        SpaceH::moveToCMCoord(mass_, pos_);
+        
         //SpaceH::advanceVector(pos_, vel_, stepSize);
+        Vector CMPos = SpaceH::calcuCMCoord(mass_, pos_, totalMass_);
+        SpaceH::moveToCMCoord(pos_, CMPos);
+        
         
     }
     
@@ -77,15 +81,25 @@ public:
         VectorArray chain_acc;
         
         chain_acc.resize(chain_num + 1);
-        chain_acc[chain_num].setZero();
         
         for(size_t i = 0 ; i < chain_num; ++i)
             chain_acc[i] = acc[ch_index_[i + 1]] - acc[ch_index_[i]];
         
+        chain_acc[chain_num].setZero();
+        
         SpaceH::advanceVector(chain_vel_, chain_acc, stepSize);
         SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);
-        SpaceH::moveToCMCoord(mass_, vel_);
+        
         //SpaceH::advanceVector(vel_, acc, stepSize);
+        Vector CMVel = SpaceH::calcuCMCoord(mass_, vel_, totalMass_);
+        SpaceH::moveToCMCoord(vel_, CMVel);
+        
+    }
+    
+    /* Update the way to connect the chain if needed*/
+    void updateChain()
+    {
+        
     }
     
     /** @brief Input(Initialize) variables with istream.*/
@@ -181,6 +195,11 @@ public:
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
+    /*Template parameter check*/
+    CHECK_POD(Dtype)
+    /*Template parameter check*/
+    
+    using Base::totalMass_;
     using Base::mass_;
     using Base::vel_;
     using Base::chain_vel_;
@@ -203,15 +222,21 @@ public:
         
         VectorArray chain_acc;
         chain_acc.resize(chain_num + 1);
-        chain_acc[chain_num].setZero();
+        
         
         for(size_t i = 0 ; i < chain_num; ++i)
             chain_acc[i] = acc[ch_index_[i + 1]] - acc[ch_index_[i]];
         
+        chain_acc[chain_num].setZero();
+        
         SpaceH::advanceVector(chain_auxi_vel_, chain_acc, stepSize);
         SpaceH::chain::synCartesian(chain_auxi_vel_, auxi_vel_, ch_index_);
-        SpaceH::moveToCMCoord(mass_, auxi_vel_);
+        
         //SpaceH::advanceVector(auxi_vel_, acc, stepSize);
+        
+        Vector CMVel = SpaceH::calcuCMCoord(mass_, auxi_vel_, totalMass_);
+        SpaceH::moveToCMCoord(auxi_vel_, CMVel);
+        
     }
     
     /**  @brief synchronize auxiVel_ with vel_ */
@@ -271,11 +296,12 @@ private:
     /** @brief Chained velocity array of the particles. Element is 3D vector.*/
     VectorArray chain_auxi_vel_;
 };
-
-template<typename Dtype, size_t ArraySize, bool IsVelDep>
-class ChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsVelDep> {};
-
-template<typename Dtype, size_t ArraySize>
-class ChainParticles<Dtype, ArraySize, true> : public VelDepChainParticles<Dtype, ArraySize, true> {};
+    
+    template<typename Dtype, size_t ArraySize, bool IsVelDep>
+    class ChainParticles : public VelIndepChainParticles<Dtype, ArraySize, IsVelDep> {};
+    
+    template<typename Dtype, size_t ArraySize>
+    class ChainParticles<Dtype, ArraySize, true> : public VelDepChainParticles<Dtype, ArraySize, true> {};
+}
 #endif
 

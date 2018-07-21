@@ -2,6 +2,8 @@
 #define REGULARSTATE_H
 #include "../../particles.h"
 
+namespace SpaceH
+{
 /**
  *  @brief Class of dynamical system with regularization variables.
  *
@@ -14,17 +16,16 @@ class ReguParticles : public Particles<Dtype, ArraySize, IsVelDep>
 public:
     /* Typedef */
     using Base = Particles<Dtype, ArraySize, IsVelDep>;
-    
     using typename Base::type;
-    
-    using Scalar = typename type::Scalar;
-    
-    using Vector = typename type::Vector;
-    
-    using VectorArray = typename type::VectorArray;
-    
+    using Scalar       = typename type::Scalar;
+    using Vector       = typename type::Vector;
+    using VectorArray  = typename type::VectorArray;
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
+    
+    /*Template parameter check*/
+    CHECK_POD(Dtype)
+    /*Template parameter check*/
     
     /**  @brief Omega scalar const interface. Reference to state.time*/
     inline const Scalar& omega() const { return omega_; }
@@ -32,6 +33,9 @@ public:
     /**  @brief BindE scalar const interface. Reference to state.time*/
     inline const Scalar& bindE() const { return bindE_; }
     
+    /** @brief Calculate the regularized variable Omega.
+     *  @return The value of capital omega.
+     */
     inline Scalar getCapitalOmega() const
     {
         return -getPotentialEnergy(this->mass(), this->pos());
@@ -108,11 +112,7 @@ protected:
     Scalar omega_;
     
     Scalar bindE_;
-    
-    /** @brief Calculate the regularized variable Omega.
-     *  @return The value of capital omega.
-     */
-    
 };
+}
 #endif
 

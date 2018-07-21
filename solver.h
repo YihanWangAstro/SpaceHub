@@ -24,20 +24,25 @@
 #include <float.h>
 #include <fstream>
 
+namespace SpaceH
+{
+
 /**
  *  @brief A wrapper to make particle system, integrator and ODE iterator work together.
 */
 template<typename ParticSys, typename ODEiterator>
-class dynamicSystem
+class Solver
 {
 public:
+    /* Typedef */
     using type = typename ParticSys::type;
     using Scalar = typename type::Scalar;
+    /* Typedef */
     
     void advanceOneStep();
     void loadText(char const* initFilePath);
     void setStepLength(Scalar);
-    virtual ~dynamicSystem() {} /**< @brief Default destructor, virtualize for inherent class*/
+    virtual ~Solver() {} /**< @brief Default destructor, virtualize for inherent class*/
 public:
     /** @brief Macro step size for ODE iterator*/
     Scalar stepLength{0.0};
@@ -62,7 +67,7 @@ private:
  *   be updated by its own implement.
  */
 template<typename ParticSys, typename ODEiterator>
-inline void dynamicSystem<ParticSys, ODEiterator>::advanceOneStep()
+inline void Solver<ParticSys, ODEiterator>::advanceOneStep()
 {
     particles.preIterProcess();
     stepLength = iterator.iterate(particles, stepLength);
@@ -77,7 +82,7 @@ inline void dynamicSystem<ParticSys, ODEiterator>::advanceOneStep()
  *
  */
 template<typename ParticSys, typename ODEiterator>
-void dynamicSystem<ParticSys, ODEiterator>::getInitStepLength()
+void Solver<ParticSys, ODEiterator>::getInitStepLength()
 {
     if(stepLength == 0.0)
     {
@@ -100,7 +105,7 @@ void dynamicSystem<ParticSys, ODEiterator>::getInitStepLength()
  *              particles, this function will throw an exception.
  */
 template<typename ParticSys, typename ODEiterator>
-void dynamicSystem<ParticSys, ODEiterator>::loadText(char const* initFilePath)
+void Solver<ParticSys, ODEiterator>::loadText(char const* initFilePath)
 {
     std::ifstream inFile(initFilePath);
 
@@ -129,15 +134,10 @@ void dynamicSystem<ParticSys, ODEiterator>::loadText(char const* initFilePath)
 
 /**  @brief Set the step length*/
 template<typename ParticSys, typename ODEiterator>
-void dynamicSystem<ParticSys, ODEiterator>::setStepLength(Scalar stepSize)
+void Solver<ParticSys, ODEiterator>::setStepLength(Scalar stepSize)
 {
     stepLength = stepSize;
 }
-
-/**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
-template<typename ParticSys,
-         template<typename> class Integrator,
-         template<typename, typename> class ODEiterator>
-using spaceX = dynamicSystem<ParticSys, ODEiterator<ParticSys, Integrator<ParticSys>>>;
+}
 #endif
 

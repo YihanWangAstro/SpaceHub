@@ -10,21 +10,32 @@
 #ifndef BSITERATOR_H
 #define BSITERATOR_H
 #include "../libs.h"
-
+namespace SpaceH
+{
 /** @brief Bulirsch-Stoer extrapolation algorithm*/
 template <typename ParticSys, typename Integrator>
 class BSIterator
 {
 public:
+    /* Typedef */
     using type   = typename ParticSys::type;
-    
     using Scalar = typename type::Scalar;
-    
     using ScalarBuffer = typename type::ScalarBuffer;
     
     template<typename T, size_t S>
     using Container = typename type::template Container<T, S>;
-
+    /* Typedef */
+    
+    /*Template parameter check*/
+    static_assert(std::is_same< typename ParticSys::type, typename Integrator::type>::value,
+                  "Template arg 'ParticSys' and 'Integrator' must have the same type set!");
+    CREATE_METHOD_CHECK(drift)
+    static_assert(HAS_METHOD(ParticSys, drift, Scalar), "Template arg 'PartcSys' must have method 'drift(Scalar)' !!!");
+    CREATE_METHOD_CHECK(kick)
+    static_assert(HAS_METHOD(ParticSys, kick,  Scalar), "Template arg 'PartcSys' must have method 'kick(Scalar)' !!!");
+    /*Template parameter check*/
+    
+    
     /** @brief Constructor for initializing cost, nSteps, fmin and CC*/
     BSIterator();
     
@@ -170,7 +181,7 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::iterate(Part
             localSystem = particles;
             h = H / nSteps[k];
             
-            /*for(size_t i = 0 ; i < nSteps[k]; i++)
+           /* for(size_t i = 0 ; i < nSteps[k]; i++)
                 integrator.integrate(localSystem,h);*/
             
             localSystem.drift(0.5 * h);
@@ -394,5 +405,5 @@ void BSIterator<ParticSys, Integrator>::checkExtrapVolume()
         extrapTabVolume_ = tab_size * array_size;
     }
 }
-
+}
 #endif

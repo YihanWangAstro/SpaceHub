@@ -9,25 +9,23 @@
 #ifndef INTERACTION_H
 #define INTERACTION_H
 #include "../protoType.h"
-
+#include "force.h"
 namespace SpaceH
 {
 
-template<typename VelIndep, typename VelDep, typename ExtVelIndep, typename ExtVelDep>
-class Interaction
+template<typename VelIndep, typename VelDep = void, typename ExtVelIndep = void, typename ExtVelDep = void>
+class Interactions
 {
 public:
-    using type = typename VelIndep::type;
-    
-    using Scalar = typename type::Scalar;
-    
-    using Vector = typename type::Vector;
-    
+    /* Typedef */
+    using type        = typename VelIndep::type;
+    using Scalar      = typename type::Scalar;
+    using Vector      = typename type::Vector;
     using VectorArray = typename type::VectorArray;
-    
     using ScalarArray = typename type::ScalarArray;
+    /* Typedef */
     
-    constexpr static bool isVelDep{ VelDep::isVelDep || ExtVelDep::isVelDep };
+    constexpr static bool isVelDep{ !std::is_void<VelDep>::value | !std::is_void<ExtVelDep>::value };
     
     const VectorArray& totalAcc() { return acc_; }
     
@@ -130,13 +128,13 @@ public:
 private:
     VectorArray acc_;
     
-    VelIndep    vel_indep_;
+    SpaceH::VelIndepForce<VelIndep, Scalar, type::arraySize>       vel_indep_;
     
-    VelDep      vel_dep_;
+    SpaceH::VelDepForce<VelDep, Scalar, type::arraySize>           vel_dep_;
     
-    ExtVelIndep ext_vel_indep_;
+    SpaceH::ExtVelIndepForce<ExtVelIndep, Scalar, type::arraySize> ext_vel_indep_;
     
-    ExtVelDep   ext_vel_dep_;
+    SpaceH::ExtVelDepForce<ExtVelDep, Scalar, type::arraySize>     ext_vel_dep_;
 };
 
     

@@ -15,18 +15,20 @@
 
 namespace SpaceH
 {
-    struct EmptyClass
-    {
-        
-    };
+    struct EmptyClass{};
     
     constexpr size_t DYNAMICAL = 0;
     
     template<typename T, size_t S>
     struct ArrayWrapper : public std::array<T,S>
     {
-        void reserve(size_t new_cap){};
-        void resize(size_t new_size){};
+        inline void clear(){};
+        inline void reserve(size_t new_cap)
+        {
+            static_assert(new_cap > S, "Fixed size array cannot be allocated!");
+        };
+        inline void resize(size_t new_size){};
+        //inline void
     };
     
     template<typename T>
@@ -50,34 +52,29 @@ namespace SpaceH
     template<typename Dtype, size_t Size>
     struct ProtoType
     {
+        /*Template parameter check*/
+        static_assert(std::is_trivial<Dtype>::value, "Template arg 'Dtype' must be a POD type!");
+        /*Template parameter check*/
+        
         constexpr static size_t arraySize{Size};
         
         template<typename T, size_t S>
         using Container      = ArrayWrapper<T, S>;
-        
         using Scalar         = Dtype;
-    
         using Vector         = vec3<Scalar>;
-    
         using VectorArray    = Container<Vector, Size>;
-    
         using ScalarArray    = Container<Scalar, Size>;
-    
         using IntArray       = Container<int, Size>;
-    
         using SizeArray      = Container<size_t, Size>;
-        
         using IndexArray     = SizeArray;
-        
-        using ScalarBuffer = Container<Scalar, DYNAMICAL>;
+        using ScalarBuffer   = Container<Scalar, DYNAMICAL>;
     };
     
     enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
-    enum       EVENTTYPE      { TDE, MERGE, ESCAPE, DISRUPTED, UNEVENTFUL, HVS };
+    /*enum       EVENTTYPE      { TDE, MERGE, ESCAPE, DISRUPTED, UNEVENTFUL, HVS };
     enum class INTEGRATORTYPE { DKDLEAPFROG, KDKLEAPFROG, SYM4, PEFRL, SYM6, SYM8, SYM10 };
     enum class SYSTEMTYPE     { PLAIN, CHAIN };
-    enum class REGUTYPE       { LOGH, TTL, NONE };
-    enum class ITERTYPE       { BSITER, SEQITER };
+    enum class ITERTYPE       { BSITER, SEQITER };*/
     enum class DATASTRUCT     { PLAIN=0, CHAIN };
 }//end namespace SpaceH
 

@@ -12,30 +12,30 @@
 #include <cstring>
 #include <iomanip>
 
+namespace SpaceH
+{
 /**  @brief Base class of particle System.
  *
  *   Base particles system class. Other particle system can inherit this class. Considering the performance, we don't
  *   set virtual function.
  */
 template <typename Particles, typename Interaction>
-class particleSystem
+class ParticleSystem
 {
 public:
     /* Typedef */
-    using type = typename Particles::type;
-    
-    using Scalar      = typename type::Scalar;
-    
-    using Vector      = typename type::Vector;
-    
-    using VectorArray = typename type::VectorArray;
-    
-    using ScalarArray = typename type::ScalarArray;
-    
-    using IntArray    = typename type::IntArray;
-    
+    using type         = typename Particles::type;
+    using Scalar       = typename type::Scalar;
+    using Vector       = typename type::Vector;
+    using VectorArray  = typename type::VectorArray;
+    using ScalarArray  = typename type::ScalarArray;
+    using IntArray     = typename type::IntArray;
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
+    
+    /*Template parameter check*/
+    CHECK_TYPE(Particles, Interaction)
+    /*Template parameter check*/
     
     constexpr static size_t arraySize{type::arraySize};
     
@@ -44,6 +44,7 @@ public:
      */
     inline size_t particleNumber()
     {
+        partc.sssss();
         return partc.particleNumber();
     }
     
@@ -126,27 +127,27 @@ public:
     }
     
     /** @brief Virtualize default destructor.*/
-    virtual ~particleSystem() {}
+    virtual ~ParticleSystem() {}
     
     /** @brief Overload operator << */
-    friend std::ostream& operator<<(std::ostream& os, const particleSystem& sys)
+    friend std::ostream& operator<<(std::ostream& os, const ParticleSystem& sys)
     {
         return os << sys.partc;
     }
     /** @brief Input from istream */
-    friend std::istream& operator>>(std::istream& is, particleSystem& sys)
+    friend std::istream& operator>>(std::istream& is, ParticleSystem& sys)
     {
         return is >> sys.partc;
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend void operator>>(const ScalarBuffer& data, particleSystem& sys)
+    friend void operator>>(const ScalarBuffer& data, ParticleSystem& sys)
     {
         data >> sys.partc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend void operator<<(ScalarBuffer& data, const particleSystem& sys)
+    friend void operator<<(ScalarBuffer& data, const ParticleSystem& sys)
     {
         data << sys.partc;
     }
@@ -205,6 +206,6 @@ private:
         partc.advanceAuxiVel(act.totalAcc(), stepSize*0.5);
     }
 };
-
+}
 
 #endif

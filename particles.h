@@ -3,8 +3,10 @@
 #define PARTICLES_H
 #include "protoType.h"
 #include "libs.h"
-
-
+#include "devTools.h"
+namespace SpaceH
+{
+    
 /**
  *  @brief Basic velocity independent particles group.
  *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
@@ -15,20 +17,18 @@ class VelIndepParticles
 {
 public:
     /* Typedef */
-    using type = SpaceH::ProtoType<Dtype, ArraySize>;
-    
-    using Scalar = typename type::Scalar;
-    
-    using Vector = typename type::Vector;
-    
-    using VectorArray = typename type::VectorArray;
-    
-    using ScalarArray = typename type::ScalarArray;
-    
-    using IntArray = typename type::IntArray;
-    
+    using type         = SpaceH::ProtoType<Dtype, ArraySize>;
+    using Scalar       = typename type::Scalar;
+    using Vector       = typename type::Vector;
+    using VectorArray  = typename type::VectorArray;
+    using ScalarArray  = typename type::ScalarArray;
+    using IntArray     = typename type::IntArray;
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
+    
+    /*Template parameter check*/
+    CHECK_POD(Dtype)
+    /*Template parameter check*/
     
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::PLAIN};
     
@@ -101,7 +101,7 @@ public:
      */
     inline void advanceVel(const VectorArray& acc, Scalar stepSize)
     {
-        advanceVector(vel_, acc, stepSize);
+        SpaceH::advanceVector(vel_, acc, stepSize);
     }
 
     /** @brief Input(Initialize) variables with istream.*/
@@ -125,8 +125,11 @@ public:
             partc.totalMass_ += partc.mass_[i];
         }
         
-        SpaceH::moveToCMCoord(partc.mass_,partc.pos_);
-        SpaceH::moveToCMCoord(partc.mass_,partc.vel_);
+        Vector CMPos = SpaceH::calcuCMCoord(partc.mass_, partc.pos_, partc.totalMass_);
+        Vector CMVel = SpaceH::calcuCMCoord(partc.mass_, partc.vel_, partc.totalMass_);
+        
+        SpaceH::moveToCMCoord(partc.pos_, CMPos);
+        SpaceH::moveToCMCoord(partc.vel_, CMVel);
         
         return is;
     }
@@ -252,7 +255,11 @@ public:
     
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
-                                          
+    
+    /*Template parameter check*/
+    CHECK_POD(Dtype)
+    /*Template parameter check*/
+    
     /**  @brief Auxiliary velocity array const interface. Reference to auxi_vel_*/
     inline const VectorArray& auxiVel() const { return auxi_vel_; }
     
@@ -322,24 +329,24 @@ protected:
     /** @brief Auxiliary velocity array of the particles. Element is 3D vector.*/
     VectorArray auxi_vel_;
 };
-
-/**
- *  @brief Basic particles group, wrapper on VelIndepParticles and VelDepParticles.
- *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
- *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
- *  @tparam IsVelDep Template parameters to determine if the particles are velocity dependent.
- */
-template<typename Dtype, size_t ArraySize, bool IsVelDep>
-struct Particles : public VelIndepParticles<Dtype, ArraySize>
-{
-    constexpr static bool isVelDep{false};
-};
-
-template<typename Dtype, size_t ArraySize>
-struct Particles<Dtype, ArraySize, true> : public VelDepParticles<Dtype, ArraySize>
-{
-    constexpr static bool isVelDep{true};
-};
-
+    
+    /**
+     *  @brief Basic particles group, wrapper on VelIndepParticles and VelDepParticles.
+     *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
+     *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
+     *  @tparam IsVelDep Template parameters to determine if the particles are velocity dependent.
+     */
+    template<typename Dtype, size_t ArraySize, bool IsVelDep>
+    struct Particles : public VelIndepParticles<Dtype, ArraySize>
+    {
+        constexpr static bool isVelDep{false};
+    };
+    
+    template<typename Dtype, size_t ArraySize>
+    struct Particles<Dtype, ArraySize, true> : public VelDepParticles<Dtype, ArraySize>
+    {
+        constexpr static bool isVelDep{true};
+    };
+}
 #endif
 

@@ -10,26 +10,25 @@
 #define REGULARIZATION_H
 #include "../../libs.h"
 
+namespace SpaceH
+{
 /**  @brief logH extention algorithmatic regularization interface
   *
   *  See detials in https://link.springer.com/article/10.1023%2FA%3A1008368322547 and
   *                 http://iopscience.iop.org/article/10.1086/301102/meta .
  */
 template<typename Particles>
-class logH
+class LogH
 {
 public:
     /* Typedef */
     using type   = typename Particles::type;
-    
     using Scalar = typename type::Scalar;
     /* Typedef */
 
-
     /** @brief Calculate the physical time for position advance from integration step size
-     *  @param mass     Array of particle mass.
-     *  @param dyn      Dynamic system contains position, velocity and regularization variables.
-     *                  See example class in dynamicState.h.
+     *  @param partc    Dynamic system contains position, velocity and regularization variables.
+     *                  See example class in particles.h.
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
@@ -39,9 +38,8 @@ public:
     }
 
     /** @brief Calculate the physical time for velocity advance from integration step size
-     *  @param mass     Array of particle mass.
-     *  @param dyn      Dynamic system contains position, velocity and regularization variables.
-     *                  See example class in dynamicState.h.
+     *  @param partc    Dynamic system contains position, velocity and regularization variables.
+     *                  See example class in particles.h.
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
@@ -61,14 +59,12 @@ class TTL
 public:
     /* Typedef */
     using type   = typename Particles::type;
-    
     using Scalar = typename type::Scalar;
     /* Typedef */
 
     /** @brief Calculate the physical time for position advance from integration step size
-     *  @param mass     Array of particle mass.
-     *  @param dyn      Dynamic system contains position, velocity and regularization variables.
-     *                  See example class in dynamicState.h.
+     *  @param partc    Dynamic system contains position, velocity and regularization variables.
+     *                  See example class in particles.h.
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
@@ -78,9 +74,8 @@ public:
     }
 
     /** @brief Calculate the physical time for velocity advance from integration step size
-     *  @param mass     Array of particle mass.
-     *  @param dyn      Dynamic system contains position, velocity and regularization variables.
-     *                  See example class in dynamicState.h.
+     *  @param partc    Dynamic system contains position, velocity and regularization variables.
+     *                  See example class in particles.h.
      *  @param stepSize Integration step size. This could not be the physical time. Look
      *                  references for details in class despriction.
      */
@@ -100,14 +95,12 @@ class NoRegu
 public:
     /* Typedef */
     using type   = typename Particles::type;
-    
     using Scalar = typename type::Scalar;
     /* Typedef */
 
     /** @brief Calculate the physical time for position advance from integration step size
-     *  @param mass     Array of particle mass.
-     *  @param dyn      Dynamic system contains position, velocity and regularization variables.
-     *                  See example class in dynamicState.h.
+     *  @param partc    Dynamic system contains position, velocity and regularization variables.
+     *                  See example class in particles.h.
      *  @param stepSize Integration step size.
      */
     inline Scalar getPhysicalPosTime(const Particles& partc, Scalar stepSize)
@@ -116,9 +109,8 @@ public:
     }
 
     /** @brief Calculate the physical time for velocity advance from integration step size
-     *  @param mass     Array of particle mass.
-     *  @param dyn      Dynamic system contains position, velocity and regularization variables.
-     *                  See example class in dynamicState.h.
+     *  @param partc    Dynamic system contains position, velocity and regularization variables.
+     *                  See example class in particles.h.
      *  @param stepSize Integration step size.
      */
     inline Scalar getPhysicalVelTime(const Particles& partc, Scalar stepSize)
@@ -126,5 +118,6 @@ public:
         return stepSize;
     }
 };
+}
 #endif
 

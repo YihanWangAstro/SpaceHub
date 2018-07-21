@@ -16,8 +16,18 @@ template <typename ParticSys, typename Integrator>
 class constIterator
 {
 public:
-    using type = typename ParticSys::type;
+    /* Typedef */
+    using type   = typename ParticSys::type;
     using Scalar = typename type::Scalar;
+    /* Typedef */
+    
+    /*Template parameter check*/
+    static_assert(std::is_same< typename ParticSys::type, typename Integrator::type>::value,
+                  "Template arg 'ParticSys' and 'Integrator' must have the same type set!");
+    CREATE_METHOD_CHECK(integrate)
+    static_assert(HAS_METHOD(Integrator, integrate,  ParticSys&, Scalar),
+                  "Template arg 'Integrator' must have method 'integrate(ParticSys&, Scalar)' !!!");
+    /*Template parameter check*/
     
     /** @brief interface to iterate particle system for one step
      *  @param particles  Particle system needs evolution.
