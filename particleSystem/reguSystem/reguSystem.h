@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:chainSystem.h                                                                                              //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//  The main class of this n-body code. This class includes                                                           //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef REGULARIZEDSYSTEM_H
 #define REGULARIZEDSYSTEM_H
 #include "../../particleSystem.h"

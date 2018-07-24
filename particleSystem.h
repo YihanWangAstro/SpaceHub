@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:particleSystem.h                                                                                           //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//  The main class of this n-body code. This class includes                                                           //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef GENPARTICLESYSTEM_H
 #define GENPARTICLESYSTEM_H
 #include <fstream>
@@ -31,6 +24,7 @@ public:
     using ScalarArray  = typename type::ScalarArray;
     using IntArray     = typename type::IntArray;
     using ScalarBuffer = typename type::ScalarBuffer;
+    using ParticleType = Particles;
     /* Typedef */
     
     /*Template parameter check*/
@@ -44,8 +38,23 @@ public:
      */
     inline size_t particleNumber()
     {
-        partc.sssss();
         return partc.particleNumber();
+    }
+    
+    /** @brief Resize all containers if they are dynamical
+     *  @param New size of container.
+     */
+    void resize(size_t new_siz)
+    {
+        partc.resize(new_siz);
+    }
+    
+    /** @brief Reserve space for all containers if they are dynamical
+     *  @param New capacity of container.
+     */
+    void reserve(size_t new_cap)
+    {
+        partc.reserve(new_cap);
     }
     
     /**  @brief Physical time scalar const interface. Reference to state.time*/
@@ -63,9 +72,6 @@ public:
     /**  @brief Radius array const interface. Reference to attribute.radius.*/
     inline const ScalarArray& radius() const { return partc.radius(); }
     
-    /**  @brief Particle type array const interface. Reference to attribute.type.*/
-    inline const IntArray& kind() const { return partc.type(); }
-    
     /**  @brief Particle id array const interface. Reference to attribute.type.*/
     inline const IntArray& idn() const { return partc.idn(); }
     
@@ -80,9 +86,6 @@ public:
     
     /**  @brief Radius const interface. Reference to attribute.radius[i].*/
     inline const Scalar& radius(size_t i) const { return partc.radius(i); }
-    
-    /**  @brief Particle type const interface. Reference to attribute.type[i].*/
-    inline const int& kind(size_t i) const { return partc.type(i); }
     
     /**  @brief Particle id const interface. Reference to attribute.type[i].*/
     inline const int& idn(size_t i) const { return partc.idn(i); }
@@ -141,15 +144,16 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend void operator>>(const ScalarBuffer& data, ParticleSystem& sys)
+    size_t read(const ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD)
     {
-        data >> sys.partc;
+        return partc.read(data, IO_flag);
     }
     
+    
     /** @brief Output variables to plain scalar array.*/
-    friend void operator<<(ScalarBuffer& data, const ParticleSystem& sys)
+    size_t write(ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD) const
     {
-        data << sys.partc;
+        return partc.write(data, IO_flag);
     }
     
 protected:

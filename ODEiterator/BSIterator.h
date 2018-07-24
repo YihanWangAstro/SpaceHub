@@ -1,12 +1,4 @@
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:constIterator.h                                                                                            //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifndef BSITERATOR_H
 #define BSITERATOR_H
 #include "../libs.h"
@@ -27,12 +19,7 @@ public:
     /* Typedef */
     
     /*Template parameter check*/
-    static_assert(std::is_same< typename ParticSys::type, typename Integrator::type>::value,
-                  "Template arg 'ParticSys' and 'Integrator' must have the same type set!");
-    CREATE_METHOD_CHECK(drift)
-    static_assert(HAS_METHOD(ParticSys, drift, Scalar), "Template arg 'PartcSys' must have method 'drift(Scalar)' !!!");
-    CREATE_METHOD_CHECK(kick)
-    static_assert(HAS_METHOD(ParticSys, kick,  Scalar), "Template arg 'PartcSys' must have method 'kick(Scalar)' !!!");
+    CHECK_TYPE(ParticSys, Integrator)
     /*Template parameter check*/
     
     
@@ -193,8 +180,7 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::iterate(Part
             localSystem.kick(h);
             localSystem.drift(0.5 * h);
             
-            
-            extrapTab[k * (k + 1) / 2] << localSystem;//copyDataToExtrapTab;
+            localSystem.write(extrapTab[k * (k + 1) / 2], NbodyIO::ACTIVE);//copyDataToExtrapTab;
             
             checkExtrapVolume();
             
@@ -209,7 +195,7 @@ typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::iterate(Part
                 {
                     reject = false;
                     H = prepareForNewIteration(k, reject);
-                    extrapTab[k * (k + 1) / 2 + k] >> localSystem;
+                    localSystem.read(extrapTab[k * (k + 1) / 2 + k], NbodyIO::ACTIVE);
                     particles = localSystem;
                     return H;
                 }

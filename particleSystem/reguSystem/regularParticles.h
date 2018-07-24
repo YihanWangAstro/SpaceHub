@@ -24,8 +24,9 @@ public:
     /* Typedef */
     
     /*Template parameter check*/
-    CHECK_POD(Dtype)
+    
     /*Template parameter check*/
+    
     
     /**  @brief Omega scalar const interface. Reference to state.time*/
     inline const Scalar& omega() const { return omega_; }
@@ -85,25 +86,30 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(const ScalarBuffer& data, ReguParticles& partc)
+    size_t read(const ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD)
     {
-        size_t loc = data >> static_cast<Base&>(partc);
+        size_t loc = static_cast<Base&>(*this).read(data, IO_flag);
         
-        partc.omega_ = data[loc++];
-        partc.bindE_ = data[loc++];
+        if(IO_flag == NbodyIO::ACTIVE)
+        {
+            omega_ = data[loc++];
+            bindE_ = data[loc++];
+        }
         
         return loc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(ScalarBuffer& data, const ReguParticles& partc)
+    size_t write(ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD) const
     {
-        size_t loc = data << static_cast<const Base&>(partc);
+        size_t loc = static_cast<const Base&>(*this).write(data, IO_flag);
         
-        data.reserve(loc + 2);
-        
-        data.emplace_back(partc.omega_);
-        data.emplace_back(partc.bindE_);
+        if(IO_flag == NbodyIO::ACTIVE)
+        {
+            data.reserve(loc + 2);
+            data.emplace_back(omega_);
+            data.emplace_back(bindE_);
+        }
         
         return data.size();
     }

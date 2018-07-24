@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:intercation.h                                                                                              //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef FORCES_H
 #define FORCES_H
 #include "../protoType.h"
@@ -32,6 +25,11 @@ namespace SpaceH
         
         const Vector& acc(size_t i) { return this_acc_[i]; }
         
+        void checkArraySize(size_t size)
+        {
+            this_acc_.resize(size);
+        }
+        
     protected:
         VectorArray this_acc_;
         Forcefunc   force_;
@@ -49,10 +47,11 @@ namespace SpaceH
         using VectorArray = typename type::VectorArray;
         using IndexArray  = typename type::IndexArray;
         /* Typedef */
-        
+        using Base::checkArraySize;
         void calcuAcc(const ScalarArray& mass, const VectorArray& pos)
         {
             const size_t size = mass.size();
+            checkArraySize(size);
             
             for(size_t i = 0 ; i < size; ++i)
                 Base::this_acc_[i].setZero();
@@ -65,6 +64,7 @@ namespace SpaceH
         void calcuAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& chainPos, const IndexArray& chainInd)
         {
             const size_t size = mass.size();
+            checkArraySize(size);
             
             for(size_t i = 0 ; i < size; ++i)
                 Base::this_acc_[i].setZero();
@@ -113,10 +113,12 @@ namespace SpaceH
         using ScalarArray = typename type::ScalarArray;
         using VectorArray = typename type::VectorArray;
         /* Typedef */
+        using Base::checkArraySize;
         
         void calcuAcc(const ScalarArray& mass, const VectorArray& pos)
         {
             const size_t size = mass.size();
+            checkArraySize(size);
             
             for(size_t i = 0 ; i < size; ++i)
                 Base::this_acc_[i].setZero();
@@ -151,10 +153,12 @@ namespace SpaceH
         using VectorArray = typename type::VectorArray;
         using IndexArray  = typename type::IndexArray;
         /* Typedef */
+        using Base::checkArraySize;
         
         void calcuAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
         {
             const size_t size = mass.size();
+            checkArraySize(size);
             
             for(size_t i = 0 ; i < size; ++i)
                 Base::this_acc_[i].setZero();
@@ -170,6 +174,7 @@ namespace SpaceH
                         const VectorArray& chainPos, const VectorArray& chainVel, const IndexArray& chainInd)
         {
             const size_t size = mass.size();
+            checkArraySize(size);
             
             for(size_t i = 0 ; i < size; ++i)
                 Base::this_acc_[i].setZero();
@@ -225,10 +230,12 @@ namespace SpaceH
         using ScalarArray = typename type::ScalarArray;
         using VectorArray = typename type::VectorArray;
         /* Typedef */
+        using Base::checkArraySize;
         
         void calcuAcc(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
         {
             const size_t size = mass.size();
+            checkArraySize(size);
             
             for(size_t i = 0 ; i < size; ++i)
                 Base::this_acc_[i].setZero();

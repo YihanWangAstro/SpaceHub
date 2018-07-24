@@ -3,6 +3,10 @@
 #include "solver.h"
 #include "particles.h"
 #include "kahanNumber.h"
+#include "macros.h"
+
+
+#include "tools/timer.h"
 
 #include "particleSystem.h"
 #include "particleSystem/reguSystem/regularization.h"
@@ -42,7 +46,7 @@ namespace SpaceH
         <
             typename BasicF::type::Scalar,
             BasicF::type::arraySize,
-            !std::is_void<VelForce>::value | !std::is_void<ExtVelForce>::value
+            !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
         >,
     
         SpaceH::Interactions
@@ -56,7 +60,7 @@ namespace SpaceH
             <
                 typename BasicF::type::Scalar,
                 BasicF::type::arraySize,
-                !std::is_void<VelForce>::value | !std::is_void<ExtVelForce>::value
+                !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
             >
         >
     >;
@@ -75,7 +79,7 @@ namespace SpaceH
         <
             typename BasicF::type::Scalar,
             BasicF::type::arraySize,
-            !std::is_void<VelForce>::value | !std::is_void<ExtVelForce>::value
+            !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
         >,
     
         SpaceH::Interactions
@@ -89,7 +93,7 @@ namespace SpaceH
             <
                 typename BasicF::type::Scalar,
                 BasicF::type::arraySize,
-                !std::is_void<VelForce>::value | !std::is_void<ExtVelForce>::value
+                !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
             >
         >
     >;
@@ -101,13 +105,13 @@ namespace SpaceH
         typename ExtPosForce = void,
         typename ExtVelForce = void
     >
-    using SimpleSys = SpaceH::ParticleSystem
+    using Simple = SpaceH::ParticleSystem
     <
         SpaceH::Particles
         <
             typename BasicF::type::Scalar,
             BasicF::type::arraySize,
-            !std::is_void<VelForce>::value | !std::is_void<ExtVelForce>::value
+            !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
         >,
     
         SpaceH::Interactions

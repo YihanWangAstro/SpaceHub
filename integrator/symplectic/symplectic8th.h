@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:integrator.h                                                                                               //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef SYMPLECTIC_8TH_INTEGRATOR_H
 #define SYMPLECTIC_8TH_INTEGRATOR_H
 /** @brief Eighth order symplectic integrator */

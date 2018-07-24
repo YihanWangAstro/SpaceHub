@@ -20,7 +20,7 @@
  */
 #ifndef DYNAMICSYSTEM_H
 #define DYNAMICSYSTEM_H
-#include "errhand.h"
+#include "devTools.h"
 #include <float.h>
 #include <fstream>
 
@@ -37,6 +37,7 @@ public:
     /* Typedef */
     using type = typename ParticSys::type;
     using Scalar = typename type::Scalar;
+    using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
     
     void advanceOneStep();
@@ -86,7 +87,7 @@ void Solver<ParticSys, ODEiterator>::getInitStepLength()
 {
     if(stepLength == 0.0)
     {
-        stepLength = 0.1 * YEAR * particles.timeScale(1);
+        stepLength = 0.1  * particles.timeScale(1);
     }
     steps = 0;
 }
@@ -111,22 +112,17 @@ void Solver<ParticSys, ODEiterator>::loadText(char const* initFilePath)
 
     if(inFile.is_open())
     {
-        char   head;
-        size_t num;
-        inFile >> head >> num;
-
-        if(head == '#' && num == particles.particleNumber())
+        char header;
+        inFile >> header;
+        if(header == '#')
         {
             inFile >> particles;
         }
         else
-        {
-            std::cout << num << ' ' <<particles.particleNumber() << '\n';
-            throw errhand("Particle number dismatch or wrong initial file header format!", __FILE__, __LINE__);
-        }
+            SpaceH::errMsg("Input file header should begin with '#'.", __FILE__, __LINE__);
     }
     else
-        throw errhand("Fail to open the initial condition file!", __FILE__, __LINE__);
+        SpaceH::errMsg("Fail to open the initial condition file!", __FILE__, __LINE__);
 
     inFile.close();
     getInitStepLength();
@@ -138,6 +134,8 @@ void Solver<ParticSys, ODEiterator>::setStepLength(Scalar stepSize)
 {
     stepLength = stepSize;
 }
+    
+    
 }
 #endif
 

@@ -26,15 +26,38 @@ public:
     /* Typedef */
     
     /*Template parameter check*/
-    CHECK_POD(Dtype)
+    
     /*Template parameter check*/
     
     constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::CHAIN};
     
+    using Base::particleNumber;
     using Base::totalMass_;
     using Base::mass_;
     using Base::pos_;
     using Base::vel_;
+    
+    /** @brief Resize all containers if they are dynamical
+     *  @param New size of container.
+     */
+    void resize(size_t new_siz)
+    {
+        static_cast<Base&>(*this).resize(new_siz);
+        chain_pos_.resize(new_siz);
+        chain_vel_.resize(new_siz);
+        ch_index_.resize(new_siz);
+    }
+    
+    /** @brief Reserve space for all containers if they are dynamical
+     *  @param New capacity of container.
+     */
+    void reserve(size_t new_cap)
+    {
+        static_cast<Base&>(*this).reserve(new_cap);
+        chain_pos_.reserve(new_cap);
+        chain_vel_.reserve(new_cap);
+        ch_index_.reserve(new_cap);
+    }
     
     /**  @brief Position array const interface. Reference to pos_*/
     inline const VectorArray& chainPos() const { return chain_pos_; }
@@ -107,6 +130,15 @@ public:
     {
         is >> static_cast<Base&>(partc);
         
+        /*  @note Due to the downcast here, this class has to maintain the size of the additional Arraies by itself.*/
+        if(type::arraySize == SpaceH::DYNAMICAL)
+        {
+            size_t num = partc.idn_.size();
+            partc.chain_pos_.resize(num);
+            partc.chain_vel_.resize(num);
+            partc.ch_index_.resize(num);
+        }
+        
         SpaceH::chain::getChainIndex(partc.pos_,  partc.ch_index_);
         SpaceH::chain::synChain(partc.pos_, partc.chain_pos_, partc.ch_index_);
         SpaceH::chain::synChain(partc.vel_, partc.chain_vel_, partc.ch_index_);
@@ -115,54 +147,58 @@ public:
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(const ScalarBuffer& data, VelIndepChainParticles& partc)
+    size_t read(const ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD)
     {
-        size_t loc = data >> static_cast<Base&>(partc);
+        size_t loc = static_cast<Base&>(*this).read(data, IO_flag);
         
-        size_t chain_num = partc.particleNumber() - 1;
-        
-        for(size_t i = 0 ; i < chain_num ; ++i)
+        if(IO_flag == NbodyIO::ACTIVE)
         {
-            partc.chain_pos_[i].x = data[loc++];
-            partc.chain_pos_[i].y = data[loc++];
-            partc.chain_pos_[i].z = data[loc++];
-        }
+            size_t chain_num = particleNumber() - 1;
         
-        for(size_t i = 0 ; i < chain_num ; ++i)
-        {
-            partc.chain_vel_[i].x = data[loc++];
-            partc.chain_vel_[i].y = data[loc++];
-            partc.chain_vel_[i].z = data[loc++];
-        }
+            for(size_t i = 0 ; i < chain_num ; ++i)
+            {
+                chain_pos_[i].x = data[loc++];
+                chain_pos_[i].y = data[loc++];
+                chain_pos_[i].z = data[loc++];
+            }
         
+            for(size_t i = 0 ; i < chain_num ; ++i)
+            {
+                chain_vel_[i].x = data[loc++];
+                chain_vel_[i].y = data[loc++];
+                chain_vel_[i].z = data[loc++];
+            }
+        }
         return loc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(ScalarBuffer& data, const VelIndepChainParticles& partc)
+    size_t write(ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD) const
     {
-        size_t loc = data << static_cast<const Base&>(partc);
+        size_t loc = static_cast<const Base&>(*this).write(data, IO_flag);
         
-        size_t chain_num  = partc.particleNumber() - 1;
-        
-        data.reserve(loc + chain_num * 6);
-        
-        //for locality, split into two loops
-        for(size_t i = 0; i < chain_num ; ++i)
+        if(IO_flag == NbodyIO::ACTIVE)
         {
-            data.emplace_back(partc.chain_pos_[i].x);
-            data.emplace_back(partc.chain_pos_[i].y);
-            data.emplace_back(partc.chain_pos_[i].z);
+            size_t chain_num  = particleNumber() - 1;
+            
+            data.reserve(loc + chain_num * 6);
+            
+            //for locality, split into two loops
+            for(size_t i = 0; i < chain_num ; ++i)
+            {
+                data.emplace_back(chain_pos_[i].x);
+                data.emplace_back(chain_pos_[i].y);
+                data.emplace_back(chain_pos_[i].z);
+            }
+            
+            for(size_t i = 0 ; i < chain_num ; ++i)
+            {
+                data.emplace_back(chain_vel_[i].x);
+                data.emplace_back(chain_vel_[i].y);
+                data.emplace_back(chain_vel_[i].z);
+            }
         }
-        
-        for(size_t i = 0 ; i < chain_num ; ++i)
-        {
-            data.emplace_back(partc.chain_vel_[i].x);
-            data.emplace_back(partc.chain_vel_[i].y);
-            data.emplace_back(partc.chain_vel_[i].z);
-        }
-        
-        return data.size();
+            return data.size();
     }
 
 protected:
@@ -196,15 +232,34 @@ public:
     /* Typedef */
     
     /*Template parameter check*/
-    CHECK_POD(Dtype)
+   
     /*Template parameter check*/
     
+    using Base::particleNumber;
     using Base::totalMass_;
     using Base::mass_;
     using Base::vel_;
     using Base::chain_vel_;
     using Base::ch_index_;
     using Base::auxi_vel_;
+    
+    /** @brief Resize all containers if they are dynamical
+     *  @param New size of container.
+     */
+    void resize(size_t new_siz)
+    {
+        static_cast<Base&>(*this).resize(new_siz);
+        chain_auxi_vel_.resize(new_siz);
+    }
+    
+    /** @brief Reserve space for all containers if they are dynamical
+     *  @param New capacity of container.
+     */
+    void reserve(size_t new_cap)
+    {
+        static_cast<Base&>(*this).reserve(new_cap);
+        chain_auxi_vel_.reserve(new_cap);
+    }
     
     /**  @brief Velocity array const interface. Reference to vel_*/
     inline const VectorArray& chainAuxiVel() const { return chain_auxi_vel_; }
@@ -251,44 +306,48 @@ public:
     {
         is >> static_cast<Base&>(partc);
         
-        partc.chain_auxi_vel_ = partc.chain_vel_;
-        //SpaceH::chain::synChain(partc.auxi_vel_, partc.chain_auxi_vel_, partc.ch_index_);
+        partc.chain_auxi_vel_ = partc.chain_vel_;//assign here automatically resize the chain_auxi_vel_
+
         return is;
     }
     
     /** @brief Input variables with plain scalar array.*/
-    friend size_t operator>>(ScalarBuffer& data, VelDepChainParticles & partc)
+    size_t read(const ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD)
     {
-        size_t loc = data >> static_cast<Base&>(partc);
+        size_t loc = static_cast<Base&>(*this).read(data, IO_flag);
         
-        size_t chain_num = partc.particleNumber() - 1;
-        
-        for(size_t i = 0 ; i < chain_num; ++i)
+        if(IO_flag == NbodyIO::ACTIVE)
         {
-            partc.chain_auxi_vel_[i].x = data[loc++];
-            partc.chain_auxi_vel_[i].y = data[loc++];
-            partc.chain_auxi_vel_[i].z = data[loc++];
+            size_t chain_num = particleNumber() - 1;
+        
+            for(size_t i = 0 ; i < chain_num; ++i)
+            {
+                chain_auxi_vel_[i].x = data[loc++];
+                chain_auxi_vel_[i].y = data[loc++];
+                chain_auxi_vel_[i].z = data[loc++];
+            }
         }
-
         return loc;
     }
     
     /** @brief Output variables to plain scalar array.*/
-    friend size_t operator<<(ScalarBuffer& data, const VelDepChainParticles & partc)
+    size_t write(ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD) const
     {
-        size_t loc = data << static_cast<const Base&>(partc);
+        size_t loc = static_cast<const Base&>(*this).write(data, IO_flag);
         
-        size_t chain_num = partc.particleNumber() - 1;
-        
-        data.reserve(loc + chain_num*3);
-        
-        for(size_t i = 0 ; i < chain_num; ++i)
+        if(IO_flag == NbodyIO::ACTIVE)
         {
-            data.emplace_back(partc.chain_auxi_vel_[i].x);
-            data.emplace_back(partc.chain_auxi_vel_[i].y);
-            data.emplace_back(partc.chain_auxi_vel_[i].z);
-        }
+            size_t chain_num = particleNumber() - 1;
         
+            data.reserve(loc + chain_num*3);
+        
+            for(size_t i = 0 ; i < chain_num; ++i)
+            {
+                data.emplace_back(chain_auxi_vel_[i].x);
+                data.emplace_back(chain_auxi_vel_[i].y);
+                data.emplace_back(chain_auxi_vel_[i].z);
+            }
+        }
         return data.size();
     }
     

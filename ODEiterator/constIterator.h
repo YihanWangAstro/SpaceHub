@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:constIterator.h                                                                                            //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef CONSTITERATOR_H
 #define CONSTITERATOR_H
 /** @brief Most common iterator
@@ -22,11 +15,7 @@ public:
     /* Typedef */
     
     /*Template parameter check*/
-    static_assert(std::is_same< typename ParticSys::type, typename Integrator::type>::value,
-                  "Template arg 'ParticSys' and 'Integrator' must have the same type set!");
-    CREATE_METHOD_CHECK(integrate)
-    static_assert(HAS_METHOD(Integrator, integrate,  ParticSys&, Scalar),
-                  "Template arg 'Integrator' must have method 'integrate(ParticSys&, Scalar)' !!!");
+    CHECK_TYPE(ParticSys, Integrator)
     /*Template parameter check*/
     
     /** @brief interface to iterate particle system for one step

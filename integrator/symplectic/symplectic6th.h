@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:integrator.h                                                                                               //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef SYMPLECTIC_6TH_INTEGRATOR_H
 #define SYMPLECTIC_6TH_INTEGRATOR_H
 /** @brief Sixth order symplectic integrator */

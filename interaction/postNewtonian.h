@@ -1,14 +1,8 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:size_tercation.h                                                                                              //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef POSTNEWTONIAN_H
 #define POSTNEWTONIAN_H
 #include "../protoType.h"
+#include "../macros.h"
 namespace SpaceH
 {
     

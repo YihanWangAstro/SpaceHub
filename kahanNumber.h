@@ -1,10 +1,4 @@
-//
-//  kahanNumber.h
-//  SpaceHub
-//
-//  Created by 王艺涵 on 7/11/18.
-//  Copyright © 2018 YihanWang. All rights reserved.
-//
+
 
 #ifndef KAHANNUMBER_h
 #define KAHANNUMBER_h
@@ -100,6 +94,7 @@ public:
         return input;
     }
 };
-    
+    using precise_d = kahan<double>;
+    using precise_f = kahan<float>;
 }//end namespace SpaceH
 #endif /* kahanNumber_h */

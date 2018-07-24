@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:integrator.h                                                                                               //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef SYMPLECTIC_4TH_INTEGRATOR_H
 #define SYMPLECTIC_4TH_INTEGRATOR_H
 /** @brief Fourth order symplectic integrator */

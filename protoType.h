@@ -1,10 +1,4 @@
-//
-//  protoType.h
-//  SpaceHub
-//
-//  Created by 王艺涵 on 7/6/18.
-//  Copyright © 2018 YihanWang. All rights reserved.
-//
+
 
 #ifndef PROTOTYPE_h
 #define PROTOTYPE_h
@@ -31,6 +25,8 @@ namespace SpaceH
         //inline void
     };
     
+    
+    
     template<typename T>
     struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};
     
@@ -52,10 +48,6 @@ namespace SpaceH
     template<typename Dtype, size_t Size>
     struct ProtoType
     {
-        /*Template parameter check*/
-        static_assert(std::is_trivial<Dtype>::value, "Template arg 'Dtype' must be a POD type!");
-        /*Template parameter check*/
-        
         constexpr static size_t arraySize{Size};
         
         template<typename T, size_t S>
@@ -70,11 +62,13 @@ namespace SpaceH
         using ScalarBuffer   = Container<Scalar, DYNAMICAL>;
     };
     
+    
     enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
     /*enum       EVENTTYPE      { TDE, MERGE, ESCAPE, DISRUPTED, UNEVENTFUL, HVS };
     enum class INTEGRATORTYPE { DKDLEAPFROG, KDKLEAPFROG, SYM4, PEFRL, SYM6, SYM8, SYM10 };
     enum class SYSTEMTYPE     { PLAIN, CHAIN };
     enum class ITERTYPE       { BSITER, SEQITER };*/
+    enum class NbodyIO {STD, ACTIVE};
     enum class DATASTRUCT     { PLAIN=0, CHAIN };
 }//end namespace SpaceH
 

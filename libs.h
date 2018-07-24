@@ -1,11 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Filename:libs.h                                                                                                     //
-//Author:Yihan Wang                                                                                                   //
-//                                                                                                                    //
-//                                                                                                                    //
-//Description:                                                                                                        //
-//                                                                                                                    //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef LIBS_H
 #define LIBS_H
 #include "vector3.h"
@@ -45,14 +38,14 @@ void swap(T& a, T& b)
 
 
     
-template<typename Scalar1,typename Scalar2>
+template<typename Scalar1, typename Scalar2>
 inline void advanceScalar(Scalar1& var, Scalar2 increase)
 {
     var += increase;
 }
 
-template<typename Scalar, typename Vector1, typename Vector2>
-inline void advanceVector(Vector1& var, const Vector2& increase, Scalar stepSize )
+template<typename Scalar, typename VectorArray>
+inline void advanceVector(VectorArray& var, const VectorArray& increase, Scalar stepSize )
 {
     size_t size = var.size();
 
@@ -133,12 +126,14 @@ template<typename VectorArray>
  *  @param  vel           Array of velocity.
  *  @return The kinetic energy.
  */
-template<typename Scalar, size_t N>
-double getKineticEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& vel)
+template<typename ScalarArray, typename VectorArray>
+double getKineticEnergy(const ScalarArray& mass, const VectorArray& vel)
 {
-    Scalar kineticEnergy = 0;
+    typename ScalarArray::value_type kineticEnergy = 0;
 
-    for(size_t i = 0 ;  i < N ; ++i)
+    size_t size = mass.size();
+    
+    for(size_t i = 0 ;  i < size ; ++i)
         kineticEnergy += 0.5 * mass[i] * ( vel[i] * vel[i] );
 
     return kineticEnergy;
@@ -150,13 +145,15 @@ double getKineticEnergy(const std::array<Scalar, N>& mass, const std::array<vec3
  *  @param  pos             Array of position.
  *  @return The potential energy.
  */
-template<typename Scalar, size_t N>
-double getPotentialEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& pos)
+template<typename ScalarArray, typename VectorArray>
+double getPotentialEnergy(const ScalarArray& mass, const VectorArray& pos)
 {
-    Scalar potentialEnergy = 0;
+    typename ScalarArray::value_type potentialEnergy = 0;
 
-    for(size_t i = 0 ;  i < N ; ++i)
-        for(size_t j = i + 1; j < N; ++j)
+    size_t size = mass.size();
+    
+    for(size_t i = 0 ;  i < size ; ++i)
+        for(size_t j = i + 1; j < size; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
 
     return potentialEnergy;
@@ -169,18 +166,19 @@ double getPotentialEnergy(const std::array<Scalar, N>& mass, const std::array<ve
  *  @param  vel             Array of velocity.
  *  @return The total energy.
  */
-template<typename Scalar, size_t N>
-inline double getTotalEnergy(const std::array<Scalar, N>& mass, const std::array<vec3<Scalar>, N>& pos,
-                             const std::array<vec3<Scalar>, N>& vel)
+template<typename ScalarArray, typename VectorArray>
+inline double getTotalEnergy(const ScalarArray& mass, const VectorArray& pos,
+                             const VectorArray& vel)
 {
-    Scalar potentialEnergy = 0;
-    Scalar kineticEnergy   = 0;
-
-    for(size_t i = 0 ;  i < N ; ++i)
+    typename ScalarArray::value_type potentialEnergy = 0;
+    typename ScalarArray::value_type kineticEnergy   = 0;
+    size_t size = mass.size();
+    
+    for(size_t i = 0 ;  i < size ; ++i)
     {
         kineticEnergy += 0.5 * mass[i] * ( vel[i] * vel[i] );
 
-        for(size_t j = i + 1; j < N; ++j)
+        for(size_t j = i + 1; j < size; ++j)
             potentialEnergy -= mass[i] * mass[j] / distance(pos[i], pos[j]);
     }
 
