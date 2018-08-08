@@ -23,8 +23,8 @@ public:
     
     void afterIterProcess()
     {
-        Base::afterIterProcess();
         this->partc.updateChain();
+        Base::afterIterProcess();
     }
 };
     

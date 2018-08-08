@@ -4,50 +4,72 @@
 
 
 #include "../spaceHub.h"
+#include <fstream>
+#include "proto.h"
 namespace SpaceH
 {
     template
     <
-        typename dtype,
-        size_t N,
-        template<typename,size_t>class Force,
-        template <typename, typename, typename, typename, template<typename> class> Method
+        typename BasicF,
+        typename VelForce = void,
+        typename ExtPosForce = void,
+        typename ExtVelForce = void,
+        template
+        <
+            typename,
+            typename = void,
+            typename = void,
+            typename = void,
+            template<typename> class Regularitor = SpaceH::LogH
+        > class Algorithm = ARchain,
+        template<typename, typename> class ODEiterator = SpaceH::BSIterator,
+        template<typename> class           Integrator  = SpaceH::symplectic2th
     >
-    void SimpleTest(RunArgs& args)
+    void SimpleRun(RunArgs& args)
     {
-        using Grav    = Force<dtype,N>;
-        using System  = Method<Force>;
+
+        using System  = Algorithm<BasicF, VelForce, ExtPosForce, ExtVelForce>;
+        using dtype   = typename BasicF::type::Scalar;
         
-        SpaceH::Nbody<System> nbody;
+        SpaceH::Nbody<System, ODEiterator, Integrator> nbody;
         
-        nbody1.loadText(args.path.c_str());
+        nbody.loadText(args.path.c_str());
         
+        //nbody.setStepLength(0.0001*YEAR);
         dtype end_time = args.endTime;
         dtype output_time = end_time / args.outputDensity;
         dtype output_point = 0;
         
-        std::ofstream out_file(args.prefix + args.runName + ".dat");
-        std::ofstream err_file(args.prefix + args.runName + ".err");
-        std::ofstream log_file(args.prefix + args.runName + ".log");
+        std::ofstream out_file(args.prefix + args.name + ".dat");
+        std::ofstream err_file(args.prefix + args.name + ".err");
+        std::ofstream log_file(args.prefix + args.name + ".log");
         
-        SpaceH::Timer clock;
+        out_file << std::scientific << std::setprecision(16);
+        err_file << std::scientific << std::setprecision(16);
+        log_file << std::scientific << std::setprecision(16);
         
-        clock.start();
+        SpaceH::Progress bar(end_time);
         
+        bar.start();
+        dtype E0 = SpaceH::getTotalEnergy(nbody.particles.mass(), nbody.particles.pos(), nbody.particles.vel());
         for( ;nbody.particles.time() < end_time; )
         {
             nbody.advanceOneStep();
+            
             if(nbody.particles.time() > output_point)
             {
                 out_file << nbody.particles;
                 err_file << nbody.particles.time()/YEAR << ' '
-                         << SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE())
+                         //<< SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE())
+                << SpaceH::abs((SpaceH::getTotalEnergy(nbody.particles.mass(), nbody.particles.pos(), nbody.particles.vel()) - E0)/E0)
+                << ' ' << nbody.iterator.getRejRate() 
                          << "\r\n";
-                output_point += out_time;
+                output_point += output_time;
             }
+            bar.autoShow(static_cast<float>(nbody.particles.time()));
         }
         
-        log_file << clock.getTime();
+        log_file << bar.getTime();
         
         out_file.close();
         err_file.close();

@@ -22,10 +22,8 @@ namespace SpaceH
             static_assert(new_cap > S, "Fixed size array cannot be allocated!");
         };
         inline void resize(size_t new_size){};
-        //inline void
+        
     };
-    
-    
     
     template<typename T>
     struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};

@@ -127,7 +127,7 @@ template<typename VectorArray>
  *  @return The kinetic energy.
  */
 template<typename ScalarArray, typename VectorArray>
-double getKineticEnergy(const ScalarArray& mass, const VectorArray& vel)
+typename ScalarArray::value_type getKineticEnergy(const ScalarArray& mass, const VectorArray& vel)
 {
     typename ScalarArray::value_type kineticEnergy = 0;
 
@@ -139,6 +139,87 @@ double getKineticEnergy(const ScalarArray& mass, const VectorArray& vel)
     return kineticEnergy;
 }
 
+    /** @brief Calculate the minimal fall free time of two particles
+     *
+     *  @param  mass mass array of particle.
+     *  @param  pos position array of particle.
+     *  @return The minimal fall free time of the two particles
+     */
+    template<typename ScalarArray, typename VectorArray>
+    inline typename ScalarArray::value_type minfallFreeTime(const ScalarArray& mass, const VectorArray& pos)
+    {
+        size_t size = mass.size();
+        typename ScalarArray::value_type r = 0;
+        typename ScalarArray::value_type min_fall_free = 0;
+        typename ScalarArray::value_type fall_free = 0;
+        
+        for(size_t i = 0 ; i < size; i++)
+        {
+            for(size_t j = i + 1 ; j < size; j++)
+            {
+                r = (pos[i] - pos[j]).norm();
+                fall_free  = pow(r, 1.5)/(mass[i] + mass[j]);
+                min_fall_free = min_fall_free ==0 ?  fall_free : SpaceH::min(min_fall_free, fall_free);
+            }
+        }
+        
+        return 0.1*min_fall_free;
+    }
+    
+    template<typename VectorArray>
+    bool isAllZero(const VectorArray& array)
+    {
+        size_t size = array.size();
+        for(size_t i = 0 ; i < size; i++)
+        {
+            if(array[i].norm() > 0)
+                return false;
+        }
+        return true;
+    }
+    
+    /** @brief Calculate the minimal fall free time of two particles
+     *
+     *  @param  mass mass array of particle.
+     *  @param  pos position array of particle.
+     *  @param  vel velocity array of particle.
+     *  @return The minimal fall free time of the two particles
+     */
+    template<typename ScalarArray, typename VectorArray>
+    inline typename ScalarArray::value_type minAccdot(const ScalarArray& mass, const VectorArray& pos, const VectorArray& vel)
+    {
+        size_t size = mass.size();
+        typename VectorArray::value_type acc;
+        typename VectorArray::value_type adot;
+        typename VectorArray::value_type dr;
+        typename VectorArray::value_type dv;
+        
+        typename ScalarArray::value_type r = 0;
+        typename ScalarArray::value_type min_ds = 0;
+        typename ScalarArray::value_type ds = 0;
+        
+        for(size_t i = 0 ; i < size; i++)
+        {
+            adot.setZero();
+            acc.setZero();
+            for(size_t j = 0 ; j < size; j++)
+            {
+                if(i != j)
+                {
+                    dr = pos[i] - pos[j];
+                    dv = vel[i] - vel[j];
+                    r  = dr.norm();
+                    acc += dr/(r*r*r)*mass[j];
+                    adot += ( dv/(r*r*r) + dr*(3*(dv*dr)/(r*r*r*r*r)) )*mass[j];
+                }
+            }
+            ds = acc.norm() / adot.norm();
+            min_ds = min_ds == 0 ? ds : SpaceH::min(min_ds, ds);
+        }
+        
+        return min_ds;
+    }
+    
 /** @brief Calculate the potential energy of particles
  *
  *  @param  mass            Array of mass.
@@ -146,7 +227,7 @@ double getKineticEnergy(const ScalarArray& mass, const VectorArray& vel)
  *  @return The potential energy.
  */
 template<typename ScalarArray, typename VectorArray>
-double getPotentialEnergy(const ScalarArray& mass, const VectorArray& pos)
+typename ScalarArray::value_type getPotentialEnergy(const ScalarArray& mass, const VectorArray& pos)
 {
     typename ScalarArray::value_type potentialEnergy = 0;
 
@@ -167,7 +248,7 @@ double getPotentialEnergy(const ScalarArray& mass, const VectorArray& pos)
  *  @return The total energy.
  */
 template<typename ScalarArray, typename VectorArray>
-inline double getTotalEnergy(const ScalarArray& mass, const VectorArray& pos,
+inline typename ScalarArray::value_type getTotalEnergy(const ScalarArray& mass, const VectorArray& pos,
                              const VectorArray& vel)
 {
     typename ScalarArray::value_type potentialEnergy = 0;

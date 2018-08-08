@@ -73,9 +73,9 @@ public:
      *  Interace used by dynamic system. Transfer integration time to physical time.
      *  @return The phsyical time.
      */
-    Scalar timeScale(Scalar scale)
+    Scalar timeScale()
     {
-        return regular.getPhysicalPosTime(partc, scale);
+        return Base::timeScale() * regular.getPhysicalPosTime(partc, 1);
     }
 
 private:

@@ -24,6 +24,7 @@
 #include <float.h>
 #include <fstream>
 
+#include "macros.h"
 namespace SpaceH
 {
 
@@ -87,7 +88,8 @@ void Solver<ParticSys, ODEiterator>::getInitStepLength()
 {
     if(stepLength == 0.0)
     {
-        stepLength = 0.1  * particles.timeScale(1);
+        std::cout << "dyn T=" << 0.1*particles.timeScale()/YEAR << '\n';
+        stepLength =  0.01*particles.timeScale();
     }
     steps = 0;
 }

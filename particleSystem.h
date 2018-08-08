@@ -97,9 +97,12 @@ public:
      *  physical time) to physical time.
      *  @return The phsyical time.
      */
-    Scalar timeScale(Scalar scale)
+    Scalar timeScale()
     {
-        return scale;
+        if(isAllZero(partc.vel()))
+            return SpaceH::minfallFreeTime(partc.mass(), partc.pos());
+        else
+            return SpaceH::minAccdot(partc.mass(), partc.pos(), partc.vel());
     }
     
     /** @brief Advance position one step with current velocity. */

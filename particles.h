@@ -184,16 +184,16 @@ namespace SpaceH
         {
             size_t particleNum = partc.particleNumber();
             
-            os << "#" << particleNum << " " << partc.time_ << "\r\n";
+            os << "#" << particleNum << " " << partc.time() << "\r\n";
             
             for(size_t i = 0 ; i < particleNum ; ++i)
             {
-                os << partc.idn_[i]    << " "
+                os << partc.idn(i)    << " "
                 << i   << " "
-                << partc.mass_[i]   << " "
-                << partc.radius_[i] << " "
-                << partc.pos_[i]    << " "
-                << partc.vel_[i]    << "\r\n";
+                << partc.mass(i)   << " "
+                << partc.radius(i) << " "
+                << partc.pos(i)    << " "
+                << partc.vel(i)    << "\r\n";
             }
             
             return os;
@@ -412,9 +412,6 @@ namespace SpaceH
         /** @brief Auxiliary velocity array of the particles. Element is 3D vector.*/
         VectorArray auxi_vel_;
     };
-        
-        
-
     
     /**
      *  @brief Basic particles group, wrapper on VelIndepParticles and VelDepParticles.

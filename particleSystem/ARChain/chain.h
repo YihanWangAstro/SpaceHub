@@ -177,7 +177,7 @@ void createChainIndex(NodeArray& AdjMatrix, IndexArray& chainIndex)
  *  @note  [2,4,5,3,1] is identical to [1,3,5,4,2]
  */
 template <typename IndexArray>
-bool IsDiff(const IndexArray& Index1, const IndexArray& Index2)
+bool isDiff(const IndexArray& Index1, const IndexArray& Index2)
 {
     const size_t N = Index1.size();
     
@@ -214,7 +214,7 @@ bool IsDiff(const IndexArray& Index1, const IndexArray& Index2)
  *  @param newIndex   The new chain index mapping.
  */
 template <typename VectorArray, typename IndexArray>
-void updateChain(const VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex)
+void updateChain(VectorArray& pos,  IndexArray& chainIndex, IndexArray& newIndex)
 {
     
     size_t head    = 0;

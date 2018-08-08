@@ -94,7 +94,8 @@ public:
         return input;
     }
 };
-    using precise_d = kahan<double>;
-    using precise_f = kahan<float>;
+    using precise_ld = kahan<long double>;
+    using precise_d  = kahan<double>;
+    using precise_f  = kahan<float>;
 }//end namespace SpaceH
 #endif /* kahanNumber_h */
