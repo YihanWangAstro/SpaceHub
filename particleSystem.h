@@ -57,37 +57,43 @@ public:
         partc.reserve(new_cap);
     }
     
-    /**  @brief Physical time scalar const interface. Reference to state.time*/
+    /**  @brief Physical time scalar const interface. Reference to partc.time*/
     inline const Scalar& time() const { return partc.time(); }
     
-    /**  @brief Position array const interface. Reference to state.pos*/
+    /**  @brief Position array const interface. Reference to partc.pos*/
     inline const VectorArray& pos() const { return partc.pos(); }
     
-    /**  @brief Velocity array const interface. Reference to state.vel*/
+    /**  @brief Velocity array const interface. Reference to partc.vel*/
     inline const VectorArray& vel() const { return partc.vel(); }
     
-    /**  @brief Mass array const interface. Reference to attribute.mass.*/
+    /**  @brief Acceleration array const interface. Reference to partc.pos*/
+    inline const VectorArray& acc() const { return act.totalAcc(); }
+    
+    /**  @brief Mass array const interface. Reference to partc.mass.*/
     inline const ScalarArray& mass() const { return partc.mass(); }
     
-    /**  @brief Radius array const interface. Reference to attribute.radius.*/
+    /**  @brief Radius array const interface. Reference to partc.radius.*/
     inline const ScalarArray& radius() const { return partc.radius(); }
     
-    /**  @brief Particle id array const interface. Reference to attribute.type.*/
+    /**  @brief Particle id array const interface. Reference to partc.type.*/
     inline const IntArray& idn() const { return partc.idn(); }
     
-    /**  @brief Position vector const interface. Reference to state.pos[i]*/
+    /**  @brief Position vector const interface. Reference to partc.pos[i]*/
     inline const Vector& pos(size_t i) const { return partc.pos(i); }
     
-    /**  @brief Velocity vecotr const interface. Reference to state.vel[i]*/
+    /**  @brief Velocity vecotr const interface. Reference to partc.vel[i]*/
     inline const Vector& vel(size_t i) const { return partc.vel(i); }
     
-    /**  @brief Mass const interface. Reference to attribute.mass[i].*/
+    /**  @brief Acceleration vecotr const interface. Reference to partc.vel[i]*/
+    inline const Vector& acc(size_t i) const { return act.totalAcc(i); }
+    
+    /**  @brief Mass const interface. Reference to partc.mass[i].*/
     inline const Scalar& mass(size_t i) const { return partc.mass(i); }
     
-    /**  @brief Radius const interface. Reference to attribute.radius[i].*/
+    /**  @brief Radius const interface. Reference to partc.radius[i].*/
     inline const Scalar& radius(size_t i) const { return partc.radius(i); }
     
-    /**  @brief Particle id const interface. Reference to attribute.type[i].*/
+    /**  @brief Particle id const interface. Reference to partc.type[i].*/
     inline const int& idn(size_t i) const { return partc.idn(i); }
 
 
@@ -121,6 +127,21 @@ public:
         act.calcuExtVelIndepAcc(partc);
         
         advanceVels<Interaction::isVelDep>(stepSize);
+    }
+    
+    /** @brief Evaluate acceleration with current velocity and position without any advance
+     *  @note Used in non-symplectic method for function evaluation
+     */
+    void accEvaluation()
+    {
+        act.zeroTotalAcc();
+        
+        act.calcuVelIndepAcc(partc);
+        act.calcuExtVelIndepAcc(partc);
+        act.calcuVelDepAcc(partc);
+        act.calcuExtVelDepAcc(partc);
+        
+        act.calcuTotalAcc();
     }
     
     /** @brief Preprocess before iteration*/
