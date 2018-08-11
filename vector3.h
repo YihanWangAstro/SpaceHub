@@ -120,6 +120,11 @@ public:
     {
         return sqrt(x * x + y * y + z * z);
     }
+    /** @brief Calculate the norm */
+    inline T norm2() const
+    {
+        return (x * x + y * y + z * z);
+    }
     /** @brief Calculate the inverse of the norm */
     inline T reNorm() const
     {

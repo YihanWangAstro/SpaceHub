@@ -24,7 +24,7 @@ public:
      *  @param stepLength Macro step length for iteration(Here, the step length of the integrator).
      *  @return step length for next iteration.
      */
-    Scalar iterate(ParticSys& particles, Integrator& integrator, Scalar stepLength);
+    Scalar iterate(ParticSys& particles, Scalar stepLength);
     
     /** @brief Set the local relative error*/
     void setRelativeError(Scalar relError)
