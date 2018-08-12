@@ -111,14 +111,14 @@ public:
             return SpaceH::minAccdot(partc.mass(), partc.pos(), partc.vel());
     }
     
-    /** @brief Advance position one step with current velocity. */
+    /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
     void drift(Scalar stepSize)
     {
         partc.advancePos(stepSize);
         partc.advanceTime(stepSize);
     }
     
-    /** @brief Advance velocity one step with current acceleration. */
+    /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
     void kick(Scalar stepSize)
     {
         act.zeroTotalAcc();
@@ -129,10 +129,43 @@ public:
         advanceVels<Interaction::isVelDep>(stepSize);
     }
     
+    inline void advanceTime(Scalar dt)
+    {
+        partc.advanceTime(dt);
+    }
+    
+    /** @brief Advance the position array with internal velocity array.
+     *  @param stepSize The advance step size.
+     */
+    inline void advancePos(Scalar stepSize)
+    {
+        partc.advancePos(stepSize);
+        
+    }
+    
+    /** @brief Advance the position array with given velocity array.
+     *  @param vel The given velocity array.
+     *  @param stepSize The advance step size.
+     */
+    inline void advancePos(const VectorArray& vel, Scalar stepSize)
+    {
+        partc.advancePos(vel, stepSize);
+        
+    }
+    
+    /** @brief Advance the  velocity array with given acceleration array.
+     *  @param stepSize The advance step size.
+     *  @param acc      The acceleration array.
+     */
+    inline void advanceVel(const VectorArray& acc, Scalar stepSize)
+    {
+        partc.advanceVel(acc, stepSize);
+    }
+    
     /** @brief Evaluate acceleration with current velocity and position without any advance
      *  @note Used in non-symplectic method for function evaluation
      */
-    void accEvaluation()
+    void evaluateAcc()
     {
         act.zeroTotalAcc();
         

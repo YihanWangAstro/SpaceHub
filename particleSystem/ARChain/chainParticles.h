@@ -90,6 +90,19 @@ namespace SpaceH
             SpaceH::moveToCMCoord(pos_, CMPos);
         }
         
+        /** @brief Advance the position array with given velocity array.
+         *  @param stepSize The advance step size.
+         *  @param vel      The velocity array.
+         */
+        inline void advancePos(const VectorArray& vel, Scalar stepSize)
+        {
+            SpaceH::advanceVector(pos_, vel, stepSize);
+            Vector CMPos = SpaceH::calcuCMCoord(mass_, pos_, totalMass_);
+            SpaceH::moveToCMCoord(pos_, CMPos);
+            
+            SpaceH::chain::synChain(pos_, chain_pos_, ch_index_);
+        }
+        
         /** @brief Advance the  velocity array with given acceleration array.
          *  @param stepSize The advance step size.
          *  @param acc      The acceleration array.

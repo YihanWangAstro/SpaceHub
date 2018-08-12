@@ -124,6 +124,15 @@ namespace SpaceH
             SpaceH::advanceVector(pos_, vel_, stepSize);
         }
         
+        /** @brief Advance the position array with given velocity array.
+         *  @param vel The given velocity array.
+         *  @param stepSize The advance step size.
+         */
+        inline void advancePos(const VectorArray& vel, Scalar stepSize)
+        {
+            SpaceH::advanceVector(pos_, vel, stepSize);
+        }
+        
         /** @brief Advance the  velocity array with given acceleration array.
          *  @param stepSize The advance step size.
          *  @param acc      The acceleration array.
