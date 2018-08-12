@@ -22,8 +22,12 @@
 #include "integrator/symplectic/symplectic6th.h"
 #include "integrator/symplectic/symplectic8th.h"
 #include "integrator/symplectic/symplectic10th.h"
+
+#include "integrator/Gauss-Dadau.h"
+
 #include "ODEiterator/BSIterator_implnew.h"
 #include "ODEiterator/constIterator.h"
+#include "ODEiterator/IAS15.h"
 
 #include "interaction/interaction.h"
 #include "interaction/force.h"
@@ -120,7 +124,6 @@ namespace SpaceH
             BasicF, VelForce, ExtPosForce, ExtVelForce
         >
     >;
-    
     
     /**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
     template

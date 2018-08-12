@@ -10,15 +10,15 @@ namespace SpaceH
         constexpr double maxStepCof = 1.74867862159014;// = pow(0.02,1/7)
     }
     
-    /** @brief Gauss RADAU iterator
+    /** @brief IAS15 iterator see details in https://arxiv.org/abs/1409.4779 .
      *
      */
     template <typename ParticSys, typename Integrator>
-    class IAS15
+    class IAS15Iterator
     {
     public:
         /* Typedef */
-        using type         = typename ParticSys::type
+        using type         = typename ParticSys::type;
         using Scalar       = typename type::Scalar;
         using Vector       = typename type::Vector;
         using VectorArray  = typename type::VectorArray;
@@ -40,33 +40,33 @@ namespace SpaceH
          */
         Scalar iterate(ParticSys& particles, Scalar stepLength)
         {
-            checkTabVolume(particles.particleNumber());
             Scalar iterH = stepLength;
-            RadauTab iterBTab = BTab0 = integrator_.getBTab();
+            RadauTab iterBTab = integrator_.getBTab();
+            RadauTab BTab0 = iterBTab;
+            
+            integrator_.template checkTabVolume<ParticSys::arraySize>(particles.particleNumber());
             for(size_t k = 0; k < max_iter_; ++k)
             {
-                localSystem_ = particles;
-                //integrator.setBTab(iterBTab);
-                integrator_.integrate(localSystem_, iterH);//advance system with Gauss-Radau method and update all coresponding B values in interpolation.
-                
+                integrator_.calcuBTab(particles, iterH);
                 if(isConvergent(iterBTab, integrator_.getBTab(), localSystem_.acc()))
                 {
-                    Scaclar error = calcuBError(integrator_.getBTab(), localSystem_.acc());
+                    Scalar error = calcuBError(integrator_.getBTab(), localSystem_.acc());
                     iterH *= optimalStepCoef(error);
                     if(error < 1)
                     {
-                        particles = localSystem_;
+                        integrator_.evaluateSystemAt(particles, iterH, Integrator::finalPoint);
                         return iterH;
                     }
-                    else//current stepSize is too large, restart the iteration with smaller iterH that been determined by current error.
+                    else//current stepSize is too large, restart the iteration with smaller iterH that has been determined by current error.
                     {
-                        integrator.setBTab(BTab0);
+                        integrator_.setBTab(BTab0);
                         k = 0;
                     }
                 }
                 iterBTab = integrator_.getBTab();
             }
             SpaceH::errMsg("IAS15: iteration exceed the max iteration depth!", __FILE__, __LINE__);
+            return 0;
         }
         
         void setRelativeError(Scalar rel_tol)
@@ -80,18 +80,7 @@ namespace SpaceH
         }
         
     private:
-        
-        void checkTabVolume(size_t particleNum)
-        {
-            if(particleNum_ < particleNum)
-            {
-                BTab_.resize(particleNum);
-                GTab_.resize(particleNum);
-                particleNum_ = particleNum;
-            }
-        }
-        
-        bool isConvergent(RadauTab& BTab, RadauTab& newBTab, VectorArray& acc)
+        bool isConvergent(const RadauTab& BTab, const RadauTab& newBTab, const VectorArray& acc)
         {
             size_t size = acc.size();
             Scalar msr_err = 0;
@@ -101,7 +90,7 @@ namespace SpaceH
             return sqrt(msr_err/size/3) < relativeError_;
         }
         
-        Scalar calcuBError(RadauTab& BTab, VectorArray& acc)
+        Scalar calcuBError(const RadauTab& BTab, const VectorArray& acc)
         {
             size_t size = acc.size();
             Scalar msr_err = 0;
@@ -130,7 +119,7 @@ namespace SpaceH
         
         size_t particleNum_{ParticSys::arraySize};
         
-        constexpr static size_t max_iter_ = 12；
+        constexpr static size_t max_iter_ = 12;
     };
 
 }

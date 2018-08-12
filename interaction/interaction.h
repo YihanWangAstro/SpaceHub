@@ -20,25 +20,25 @@ public:
     
     constexpr static bool isVelDep{ !std::is_void<VelDep>::value | !std::is_void<ExtVelDep>::value };
     
-    const VectorArray& totalAcc() { return acc_; }
+    const VectorArray& totalAcc() const { return acc_; }
     
-    const VectorArray& velIndepAcc() { return vel_indep_.acc(); }
+    const VectorArray& velIndepAcc() const { return vel_indep_.acc(); }
     
-    const VectorArray& velDepAcc() { return vel_dep_.acc(); }
+    const VectorArray& velDepAcc() const { return vel_dep_.acc(); }
     
-    const VectorArray& extVelIndepAcc() { return ext_vel_indep_.acc(); }
+    const VectorArray& extVelIndepAcc() const { return ext_vel_indep_.acc(); }
     
-    const VectorArray& extVelDepAcc() { return ext_vel_dep_.acc(); }
+    const VectorArray& extVelDepAcc() const { return ext_vel_dep_.acc(); }
     
-    const Vector& totalAcc(size_t i) { return acc_[i]; }
+    const Vector& totalAcc(size_t i) const { return acc_[i]; }
     
-    const Vector& velIndepAcc(size_t i) { return vel_indep_.acc(i); }
+    const Vector& velIndepAcc(size_t i) const { return vel_indep_.acc(i); }
     
-    const Vector& velDepAcc(size_t i) { return vel_dep_.acc(i); }
+    const Vector& velDepAcc(size_t i) const { return vel_dep_.acc(i); }
     
-    const Vector& extVelIndepAcc(size_t i) { return ext_vel_indep_.acc(i); }
+    const Vector& extVelIndepAcc(size_t i) const { return ext_vel_indep_.acc(i); }
     
-    const Vector& extVelDepAcc(size_t i) { return ext_vel_dep_.acc(i); }
+    const Vector& extVelDepAcc(size_t i) const { return ext_vel_dep_.acc(i); }
     
     
     template<typename Particles>

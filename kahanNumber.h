@@ -25,7 +25,7 @@ public:
     
     inline const kahan& operator=( const kahan& hs)
     {
-        real = hs.real, err = 0;
+        real = hs.real, err = hs.err;
         return *this;
     }
     

@@ -1,7 +1,7 @@
 
-#ifndef IAS15_H
-#define IAS15_H
-#include "../../devTools.h"
+#ifndef GAUSSDADAU_H
+#define GAUSSDADAU_H
+#include "../devTools.h"
 namespace SpaceH
 {
     namespace Radau
@@ -22,7 +22,7 @@ namespace SpaceH
             {8.85320946839095768e-01, 3.91896589456036559e-01, 2.31302839760153783e-01, 1.53582936827273253e-01, 1.08776152840200480e-01, 8.02515055216670714e-02, 6.08985761603187542e-02, 4.71754369689804109e-02},
             {9.77520613561287502e-01, 4.77773274968617989e-01, 3.11355483260339461e-01, 2.28267302274238665e-01, 1.78508794700074913e-01, 1.45413355434419272e-01, 1.21838187792222094e-01, 1.04211922575117272e-01},
             {1,                       5.00000000000000000e-01, 3.33333333333333315e-01, 2.50000000000000000e-01, 2.00000000000000011e-01, 1.66666666666666657e-01, 1.42857142857142849e-01, 1.25000000000000000e-01}
-        }
+        };
         
         constexpr double PC[8][9] =
         {
@@ -34,7 +34,7 @@ namespace SpaceH
             {8.85320946839095768e-01, 3.91896589456036559e-01, 1.15651419880076892e-01, 5.11943122757577487e-02, 2.71940382100501199e-02, 1.60503011043334129e-02, 1.01497626933864590e-02, 6.73934813842577262e-03, 4.64060028054731274e-03},
             {9.77520613561287502e-01, 4.77773274968617989e-01, 1.55677741630169730e-01, 7.60891007580795503e-02, 4.46271986750187283e-02, 2.90826710868838552e-02, 2.03063646320370168e-02, 1.48874175107310391e-02, 1.13188113884477790e-02},
             {1,                       5.00000000000000000e-01, 1.66666666666666657e-01, 8.33333333333333287e-02, 5.00000000000000028e-02, 3.33333333333333329e-02, 2.38095238095238082e-02, 1.78571428571428562e-02, 1.38888888888888881e-02}
-        }
+        };
         
         /*constexpr double r[28] =
          {
@@ -111,7 +111,8 @@ namespace SpaceH
             }
         }
     }
-    /** @brief Second order symplectic integrator */
+    
+    /** @brief Gauss-Dadau integrator */
     template <typename ParticSys>
     class GaussDadau
     {
@@ -126,7 +127,7 @@ namespace SpaceH
         using Container = typename type::template Container<T, S>;
         
         using RadauArray = Container<Vector,7>;
-        using RadauTab = Contanier<RadauArray, ParticSys::arraySize>;
+        using RadauTab   = Container<RadauArray, ParticSys::arraySize>;
         /* Typedef */
         
         /*Template parameter check*/
@@ -134,27 +135,41 @@ namespace SpaceH
         
         /** @brief Order of the integrator*/
         static const int order{15};
+        static const size_t finalPoint{7};
         
         /** @brief Interface to integrate particle system
          *
-         *  This function integrate the particle system for one step with DKD leapfrog second order symplectic algorithm.
+         *  This function integrate the particle system for one step with Gauss-Radau stepping.
          *  @param particles  Particle system need to be integrated.
          *  @param stepLength Step size for integration.
          */
         void integrate(ParticSys& particles, Scalar stepLength)
         {
-            //particles.evaluateAcc();//
-            for(size_t i = 0 ; i < 7; ++i)
+            checkTabVolume<ParticSys::arraySize>(particles.particleNumber());
+            calcuBTab(particles, stepLength);
+            evaluateSystemAt(particles, stepLength, finalPoint);
+        }
+        
+        void calcuBTab(const ParticSys& particles, Scalar stepLength)
+        {
+            for(size_t i = 0 ; i < finalPoint; ++i)
             {
                 localSystem_ = particles;
-                evaluateLocalSystemAt(stepLength, i);
+                evaluateSystemAt(localSystem_, stepLength, i);
                 calcuGTab(particles.acc(), localSystem_.acc(), i);
             }
             Radau::transG2B(Gtab_, Btab_);
-            
-            localSystem_ = particles;
-            evaluateLocalSystemAt(stepLength, 7);
-            particles = localSystem_;
+        }
+        
+        void evaluateSystemAt(ParticSys& particleSys, Scalar stepLength, size_t index)
+        {
+            VectorArray dpos;
+            VectorArray dvel;
+            evaluateVelIncrement(dvel, particleSys.acc(), index);
+            evaluatePosIncrement(dpos, particleSys.vel(), particleSys.acc(), stepLength, index);
+            particleSys.advanceVel(dvel, stepLength);
+            particleSys.advancePos(dpos, stepLength);
+            particleSys.evaluateAcc();
         }
         
         inline void setBTab(RadauTab& iterBTab)
@@ -167,23 +182,38 @@ namespace SpaceH
             return Btab_;
         }
         
-    private:
-        void evaluateLocalSystemAt(Scalar stepLength, size_t index)
-        {
-            VectorArray dpos;
-            VectorArray dvel;
-            evaluateVelIncrement(dvel, localSystem.acc(), index);
-            evaluatePosIncrement(dpos, localSystem.vel(), localSystem.acc(), stepLength, index);
-            localSystem.advanceVel(dvel, stepLength);
-            localSystem.advancePos(dpos, stepLength);
-            localSystem.evaluateAcc();
-        }
+        template<size_t isDYNAMICAL>
+        typename std::enable_if<isDYNAMICAL != SpaceH::DYNAMICAL>::type
+        checkTabVolume(size_t particleNum){}
         
-        void evaluatePosIncrement(VectorArray& dpos, VectorArray& vel, VectorArray& acc, Scalar stepLength, size_t iter)
+        template<size_t isDYNAMICAL>
+        typename std::enable_if<isDYNAMICAL == SpaceH::DYNAMICAL>::type
+        checkTabVolume(size_t particleNum)
+        {
+            if(particleNum > particleNumber_)
+            {
+                Btab_.resize(particleNum);
+                Gtab_.resize(particleNum);
+                for(size_t i = 0 ; i < particleNum; ++i)//once particle number changes, old b Value should be droped away.
+                {
+                    Btab_[i][0].setZero();
+                    Btab_[i][1].setZero();
+                    Btab_[i][2].setZero();
+                    Btab_[i][3].setZero();
+                    Btab_[i][4].setZero();
+                    Btab_[i][5].setZero();
+                    Btab_[i][6].setZero();
+                }
+                particleNumber_ = particleNum;
+            }
+        }
+    private:
+        void evaluatePosIncrement(VectorArray& dpos, const VectorArray& vel, const VectorArray& acc, Scalar stepLength, size_t iter)
         {
             using namespace Radau;
             size_t size = vel.size();
             dpos.resize(size);
+            
             for(size_t i = 0 ; i < size; ++i)
             {
                 dpos[i] = vel[i]   *  PC[iter][0] + (acc[i]  *  PC[iter][1] + Btab_[i][0]*PC[iter][2] + Btab_[i][1]*PC[iter][3] + Btab_[i][2]*PC[iter][4]
@@ -191,11 +221,11 @@ namespace SpaceH
             }
         }
         
-        void evaluateVelIncrement(VectorArray& dvel, VectorArray& acc, size_t iter)
+        void evaluateVelIncrement(VectorArray& dvel, const VectorArray& acc, size_t iter)
         {
             using namespace Radau;
             size_t size = acc.size();
-            devel.resize(size);
+            dvel.resize(size);
             for(size_t i = 0 ; i < size; ++i)
             {
                 dvel[i] = acc[i]   *  VC[iter][0] + Btab_[i][0]*VC[iter][1] + Btab_[i][1]*VC[iter][2] + Btab_[i][2]*VC[iter][3]
@@ -203,25 +233,25 @@ namespace SpaceH
             }
         }
         
-        void calcuGTab(VectorArray& a0, VectorArray& a, size_t iter)
+        void calcuGTab(const VectorArray& a0, const VectorArray& a, size_t iter)
         {
-            size_t size  = a0.size();
+            size_t size   = a0.size();
             size_t offset = iter*(iter+1)/2 + 1;
             for(size_t i = 0 ; i < size; ++i)
             {
-                GTab_[i][iter] = (a[i] - a0[i])*Radau::gg[offset - 1];
+                Gtab_[i][iter] = (a[i] - a0[i])*Radau::gg[offset - 1];
                 
                 for(size_t j = 0 ; j < iter; ++j)
-                    GTab_[i][iter] -= GTab_[i][j]*Radau::gg[j + offset];
+                    Gtab_[i][iter] -= Gtab_[i][j]*Radau::gg[j + offset];
             }
         }
+        
     private:
         RadauTab Btab_;
         RadauTab Gtab_;
         ParticSys localSystem_;
+        size_t particleNumber_{ParticSys::arraySize};
     };
     
-    
-
 }
 #endif

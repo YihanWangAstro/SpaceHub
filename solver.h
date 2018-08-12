@@ -92,6 +92,7 @@ void Solver<ParticSys, ODEiterator>::getInitStepLength()
         stepLength =  0.01*particles.timeScale();
     }
     steps = 0;
+    particles.evaluateAcc();
 }
 
 
