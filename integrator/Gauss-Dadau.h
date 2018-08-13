@@ -36,7 +36,7 @@ namespace SpaceH
             {1.00000000000000000e+00, 5.00000000000000000e-01, 1.66666666666666667e-01, 8.33333333333333333e-02, 5.00000000000000000e-02, 3.33333333333333333e-02, 2.38095238095238095e-02, 1.78571428571428571e-02, 1.38888888888888889e-02}
         };
         
-        constexpr double r[28] =
+        /*constexpr double r[28] =
          {
              1.77738089140780001e+01,
              5.54813671853721662e+00, 8.06593864838188709e+00,
@@ -45,18 +45,7 @@ namespace SpaceH
              1.36200781606246958e+00, 1.47504021756041165e+00, 1.80515358014025139e+00, 2.62064492638703525e+00, 5.34597689987110987e+00,
              1.12953387533678987e+00, 1.20618766605844559e+00, 1.41827826373473910e+00, 1.87724249618680995e+00, 2.95711601729045588e+00, 6.61766201370242155e+00,
              1.02299632982348675e+00, 1.08547219393864239e+00, 1.25426462228187776e+00, 1.60026654949081622e+00, 2.32359830021969444e+00, 4.10997577834455837e+00, 1.08460261902368476e+01
-         };
-        
-        constexpr double rr[28] =
-        {
-            5.62625605369221488e-02,
-            1.80240691736892361e-01, 1.23978131199970212e-01,
-            3.52624717113169617e-01, 2.96362156576247468e-01, 1.72384025376277256e-01,
-            5.47153626330555420e-01, 4.90891065793633272e-01, 3.66912934593663059e-01, 1.94528909217385804e-01,
-            7.34210177215410487e-01, 6.77947616678488338e-01, 5.53969485478518125e-01, 3.81585460102240870e-01, 1.87056550884855066e-01,
-            8.85320946839095790e-01, 8.29058386302173642e-01, 7.05080255102203429e-01, 5.32696229725926174e-01, 3.38167320508540370e-01, 1.51110769623685304e-01,
-            9.77520613561287499e-01, 9.21258053024365350e-01, 7.97279921824395138e-01, 6.24895896448117882e-01, 4.30366987230732079e-01, 2.43310436345877013e-01, 9.21996667221917088e-02
-        };
+         };*/
         
         /*coef for computing g(derived from r)*/
         constexpr double gg[28] =
@@ -72,22 +61,12 @@ namespace SpaceH
         
         constexpr double c[21] =
         {
-            -5.62625605369221488e-02, 1.01408028300636298e-02, -3.57589772925161718e-03, 1.95656540994722109e-03, -1.43653023637089149e-03, 1.27179030902686775e-03,
-            -2.36503252273814524e-01, 9.35376952594620670e-02, -5.47553868890686898e-02, 4.21585277212687057e-02, -3.87603579159067693e-02,
-            -5.89127969386984196e-01, 4.15881200082306890e-01, -3.60099596502056807e-01, 3.60962243452845999e-01,
-            -1.13628159571753962e+00, 1.25015071184069093e+00, -1.46688420840042699e+00,
-            -1.87049177293294999e+00, 2.90613625930842900e+00,
+             1.27179030902686775e-03, -1.43653023637089149e-03,  1.95656540994722109e-03, -3.57589772925161718e-03,  1.01408028300636298e-02, -5.62625605369221488e-02,
+            -3.87603579159067693e-02,  4.21585277212687057e-02, -5.47553868890686898e-02,  9.35376952594620670e-02, -2.36503252273814524e-01,
+             3.60962243452845999e-01, -3.60099596502056807e-01,  4.15881200082306890e-01, -5.89127969386984196e-01,
+            -1.46688420840042699e+00,  1.25015071184069093e+00, -1.13628159571753962e+00,
+             2.90613625930842900e+00, -1.87049177293294999e+00,
             -2.75581271977204567e+00
-        };
-        
-        constexpr double d[21] =
-        {
-            5.62625605369221488e-02, 3.16547571817082972e-03, 1.78097769221743430e-04, 1.00202365223291294e-05, 5.63764163931820866e-07, 3.17188154017613769e-08,
-            2.36503252273814524e-01, 4.57929855060279223e-02, 8.43185715352570177e-03, 1.52978400250046594e-03, 2.76293090982647678e-04,
-            5.89127969386984196e-01, 2.53534069054569267e-01, 9.78342365324440105e-02, 3.60285539837364582e-02,
-            1.13628159571753962e+00, 8.75254664684091077e-01, 5.76733000277078744e-01,
-            1.87049177293294999e+00, 2.24858876076915948e+00,
-            2.75581271977204567e+00
         };
         
         template<typename RadauTab>
@@ -96,29 +75,13 @@ namespace SpaceH
             size_t size = G.size();
             for(size_t i = 0 ; i < size; ++i)
             {
-                B[i][0] = c[5] *G[i][6] + c[4] *G[i][5] + c[3] *G[i][4] + c[2] *G[i][3] + c[1]*G[i][2] + c[0]*G[i][1] + G[i][0];
-                B[i][1] = c[10]*G[i][6] + c[9] *G[i][5] + c[8] *G[i][4] + c[7] *G[i][3] + c[6]*G[i][2] +      G[i][1];
-                B[i][2] = c[14]*G[i][6] + c[13]*G[i][5] + c[12]*G[i][4] + c[11]*G[i][3] +      G[i][2];
-                B[i][3] = c[17]*G[i][6] + c[16]*G[i][5] + c[15]*G[i][4] +       G[i][3];
-                B[i][4] = c[19]*G[i][6] + c[18]*G[i][5] +       G[i][4];
+                B[i][0] = c[0] *G[i][6] + c[1] *G[i][5] + c[2] *G[i][4] + c[3] *G[i][3] + c[4] *G[i][2] + c[5]*G[i][1] + G[i][0];
+                B[i][1] = c[6] *G[i][6] + c[7] *G[i][5] + c[8] *G[i][4] + c[9] *G[i][3] + c[10]*G[i][2] +      G[i][1];
+                B[i][2] = c[11]*G[i][6] + c[12]*G[i][5] + c[13]*G[i][4] + c[14]*G[i][3] +       G[i][2];
+                B[i][3] = c[15]*G[i][6] + c[16]*G[i][5] + c[17]*G[i][4] +       G[i][3];
+                B[i][4] = c[18]*G[i][6] + c[19]*G[i][5] +       G[i][4];
                 B[i][5] = c[20]*G[i][6] +       G[i][5];
                 B[i][6] =       G[i][6];
-            }
-        }
-        
-        template<typename RadauTab>
-        void transB2G(const RadauTab& B, RadauTab& G)
-        {
-            size_t size = B.size();
-            for(size_t i = 0 ; i < size; ++i)
-            {
-                G[i][0] = B[i][0] + d[0]*B[i][1] + d[1]*B[i][2] + d[2] *B[i][3] + d[3] *B[i][4] + d[4] *B[i][5] + d[5] *B[i][6];
-                G[i][1] =                B[i][1] + d[6]*B[i][2] + d[7] *B[i][3] + d[8] *B[i][4] + d[9] *B[i][5] + d[10]*B[i][6];
-                G[i][2] =                               B[i][2] + d[11]*B[i][3] + d[12]*B[i][4] + d[13]*B[i][5] + d[14]*B[i][6];
-                G[i][3] =                                               B[i][3] + d[15]*B[i][4] + d[16]*B[i][5] + d[17]*B[i][6];
-                G[i][4] =                                                               B[i][4] + d[18]*B[i][5] + d[19]*B[i][6];
-                G[i][5] =                                                                               B[i][5] + d[20]*B[i][6];
-                G[i][6] =                                                                                               B[i][6];
             }
         }
     }
@@ -185,16 +148,6 @@ namespace SpaceH
             particleSys.evaluateAcc();
         }
         
-        inline const VectorArray& getLocalAcc() const
-        {
-            return localSystem_.acc();
-        }
-        
-        inline void setBTab(RadauTab& iterBTab)
-        {
-            Btab_ = iterBTab;
-        }
-        
         inline const RadauTab& getBTab() const
         {
             return Btab_;
@@ -229,21 +182,16 @@ namespace SpaceH
         {
             Scalar Q2 = Q1*Q1;
             Scalar Q3 = Q2*Q1;
-            Scalar Q4 = Q3*Q1;
-            Scalar Q5 = Q4*Q1;
-            Scalar Q6 = Q5*Q1;
-            Scalar Q7 = Q6*Q1;
+            Scalar Q4 = Q2*Q2;
+            Scalar Q5 = Q3*Q2;
+            Scalar Q6 = Q3*Q3;
+            Scalar Q7 = Q4*Q3;
             size_t size = Btab_.size();
             RadauArray dB;
             for(size_t i = 0 ; i < size; ++i)
             {
-                dB[0] = Btab_[i][0] - oldBtab_[i][0];
-                dB[1] = Btab_[i][1] - oldBtab_[i][1];
-                dB[2] = Btab_[i][2] - oldBtab_[i][2];
-                dB[3] = Btab_[i][3] - oldBtab_[i][3];
-                dB[4] = Btab_[i][4] - oldBtab_[i][4];
-                dB[5] = Btab_[i][5] - oldBtab_[i][5];
-                dB[6] = Btab_[i][6] - oldBtab_[i][6];
+                for(size_t j = 0 ; j < 7; ++j)
+                    dB[j] = Btab_[i][j] - oldBtab_[i][j];
                 
                 oldBtab_[i][0] = Q1*( 7*Btab_[i][6] +  6*Btab_[i][5] +  5*Btab_[i][4] +  4*Btab_[i][3] +  3*Btab_[i][2] +  2*Btab_[i][1] +  Btab_[i][0]);
                 oldBtab_[i][1] = Q2*(21*Btab_[i][6] + 15*Btab_[i][5] + 10*Btab_[i][4] +  6*Btab_[i][3] +  3*Btab_[i][2] +    Btab_[i][1]);
@@ -253,13 +201,8 @@ namespace SpaceH
                 oldBtab_[i][5] = Q6*( 7*Btab_[i][6] +    Btab_[i][5]);
                 oldBtab_[i][6] = Q7*    Btab_[i][6];
                 
-                Btab_[i][0] = oldBtab_[i][0] + dB[0];
-                Btab_[i][1] = oldBtab_[i][1] + dB[1];
-                Btab_[i][2] = oldBtab_[i][2] + dB[2];
-                Btab_[i][3] = oldBtab_[i][3] + dB[3];
-                Btab_[i][4] = oldBtab_[i][4] + dB[4];
-                Btab_[i][5] = oldBtab_[i][5] + dB[5];
-                Btab_[i][6] = oldBtab_[i][6] + dB[6];
+                for(size_t j = 0 ; j < 7; ++j)
+                    Btab_[i][j] = oldBtab_[i][j] + dB[j];
             }
         }
     private:
@@ -273,16 +216,6 @@ namespace SpaceH
             {
                 dpos[i] = vel[i]   *  PC[iter][0] + (acc[i]  *  PC[iter][1] + Btab_[i][0]*PC[iter][2] + Btab_[i][1]*PC[iter][3] + Btab_[i][2]*PC[iter][4]
                         + Btab_[i][3]*PC[iter][5] + Btab_[i][4]*PC[iter][6] + Btab_[i][5]*PC[iter][7] + Btab_[i][6]*PC[iter][8])*stepLength;
-               /* dpos[i]  = Btab_[i][6]*PC[iter][8];
-                dpos[i] += Btab_[i][5]*PC[iter][7];
-                dpos[i] += Btab_[i][4]*PC[iter][6];
-                dpos[i] += Btab_[i][3]*PC[iter][5];
-                dpos[i] += Btab_[i][2]*PC[iter][4];
-                dpos[i] += Btab_[i][1]*PC[iter][3];
-                dpos[i] += Btab_[i][0]*PC[iter][2];
-                dpos[i] += acc[i]     *PC[iter][1];
-                dpos[i] *= stepLength;
-                dpos[i] += vel[i]     *PC[iter][0];*/
             }
         }
         
@@ -295,14 +228,6 @@ namespace SpaceH
             {
                 dvel[i] = acc[i]   *  VC[iter][0] + Btab_[i][0]*VC[iter][1] + Btab_[i][1]*VC[iter][2] + Btab_[i][2]*VC[iter][3]
                         + Btab_[i][3]*VC[iter][4] + Btab_[i][4]*VC[iter][5] + Btab_[i][5]*VC[iter][6] + Btab_[i][6]*VC[iter][7];
-               /* dvel[i]  = Btab_[i][6]*VC[iter][7];
-                dvel[i] += Btab_[i][5]*VC[iter][6];
-                dvel[i] += Btab_[i][4]*VC[iter][5];
-                dvel[i] += Btab_[i][3]*VC[iter][4];
-                dvel[i] += Btab_[i][2]*VC[iter][3];
-                dvel[i] += Btab_[i][1]*VC[iter][2];
-                dvel[i] += Btab_[i][0]*VC[iter][1];
-                dvel[i] += acc[i]     *VC[iter][0];*/
             }
         }
         
@@ -316,32 +241,15 @@ namespace SpaceH
                 
                 for(size_t j = 0 ; j < iter; ++j)
                     Gtab_[i][iter] -= Gtab_[i][j]*Radau::gg[j + offset];
-                
-                /*Gtab_[i][iter] = (a[i] - a0[i])*Radau::r[offset - 1];
-                
-                for(size_t j = 0 ; j < iter; ++j)
-                    Gtab_[i][iter] = (Gtab_[i][iter] - Gtab_[i][j])*Radau::r[j + offset];*/
-                
-                /*Gtab_[i][iter] = (a[i] - a0[i])/Radau::rr[offset - 1];
-                 
-                 for(size_t j = 0 ; j < iter; ++j)
-                 Gtab_[i][iter] = (Gtab_[i][iter] - Gtab_[i][j])/Radau::rr[j + offset];*/
-                
-                /*Gtab_[i][iter].setZero();
-    
-                for(int j = iter - 1 ; j >= 0; --j)
-                    Gtab_[i][iter] -= Gtab_[i][j]*Radau::gg[j + offset];
-                
-                Gtab_[i][iter] += (a[i] - a0[i])*Radau::gg[offset - 1];*/
             }
         }
         
     private:
-        RadauTab oldBtab_;
-        RadauTab Btab_;
-        RadauTab Gtab_;
+        RadauTab  oldBtab_;
+        RadauTab  Btab_;
+        RadauTab  Gtab_;
         ParticSys localSystem_;
-        size_t particleNumber_{ParticSys::arraySize};
+        size_t    particleNumber_{ParticSys::arraySize};
     };
     
 }

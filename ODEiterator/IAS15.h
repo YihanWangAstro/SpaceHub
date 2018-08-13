@@ -47,7 +47,7 @@ namespace SpaceH
             Scalar iterH      = stepLength;
             RadauTab iterBTab = integrator_.getBTab();//get the b value of the last step.
 
-            //std::cout << '\n';
+            resetLastDeltaB();
             for(size_t k = 0; k < max_iter_; ++k)
             {
                 integrator_.calcuBTab(particles, iterH);
@@ -59,18 +59,19 @@ namespace SpaceH
                     
                     if(error < 1)
                     {
+                        std::cout << "acept:" << error << ' ' << k << ' ' << iterH << '\n';
                         integrator_.evaluateSystemAt(particles, iterH, Integrator::finalPoint);
-                        iterH *= stepQ;
                         integrator_.predictNewB(stepQ);
+                        iterH *= stepQ;
                         return iterH;
                     }
                     else//current stepSize is too large, restart the iteration with smaller iterH that has been determined by current error.
                     {
+                        //std::cout << "reject:" << error << ' ' << k << ' ' << iterH << '\n';
                         iterH *= stepQ;
                         integrator_.predictNewB(stepQ);
                         k = 0;
                     }
-                    
                 }
                 iterBTab = integrator_.getBTab();
             }
@@ -107,7 +108,7 @@ namespace SpaceH
             else
             {
                 last_delta_b = maxdb;
-                return maxdb/maxa < relativeError_;
+                return maxdb/maxa < convergent_limit_;
             }
             /*Scalar msr_err = 0;
             for(size_t i = 0 ; i < size ; ++i)
@@ -126,7 +127,7 @@ namespace SpaceH
                 maxb = SpaceH::max(maxb, BTab[i][6].abs().max_component());
                 maxa = SpaceH::max(maxa, acc[i].abs().max_component());
             }
-            return maxb/maxa/convergent_limit_;
+            return maxb/maxa/relativeError_;
             /*Scalar msr_err = 0;
              for(size_t i = 0 ; i < size ; ++i)
              msr_err  += (BTab[i][6]/(acc[i]+absoluteError_)).norm2();
@@ -139,7 +140,7 @@ namespace SpaceH
             if(error == 0)
                 return Radau::maxStepCof;
             else
-                return SpaceH::min(pow(0.95/error, 1.0/7), Radau::maxStepCof);
+                return SpaceH::min(pow(0.55/error, 1.0/7), Radau::maxStepCof);
         }
         
         inline void resetLastDeltaB()
@@ -149,15 +150,15 @@ namespace SpaceH
     private:
         Integrator integrator_;
         
-        Scalar relativeError_{1e-16};
+        Scalar relativeError_{1e-9};
         
-        Scalar convergent_limit_{1e-9};
+        Scalar convergent_limit_{1e-16};
         
         Scalar last_delta_b{Radau::maxFloat};
         
         size_t particleNum_{ParticSys::arraySize};
         
-        constexpr static size_t max_iter_ = 20;
+        constexpr static size_t max_iter_ = 12;
     };
 
 }
