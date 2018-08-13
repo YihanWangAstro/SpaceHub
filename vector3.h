@@ -125,6 +125,13 @@ public:
     {
         return (x * x + y * y + z * z);
     }
+    
+    inline T max_component()
+    {
+        T max = (x > y ? x : y);
+        return max > z ? max : z;
+    }
+    
     /** @brief Calculate the inverse of the norm */
     inline T reNorm() const
     {

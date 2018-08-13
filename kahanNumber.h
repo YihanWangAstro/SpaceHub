@@ -2,6 +2,7 @@
 
 #ifndef KAHANNUMBER_h
 #define KAHANNUMBER_h
+#include "libs.h"
 namespace SpaceH
 {
 /** @brief Kahan number
@@ -54,7 +55,10 @@ public:
         T add = rhs.real - lhs.err;
         T sum = lhs.real + add;
         
-        lhs.err = (sum - lhs.real) - add;
+        if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
+            lhs.err = (sum - lhs.real) - add;
+        else
+            lhs.err = (sum - add) - lhs.real;
             
         lhs.real = sum;
         return lhs;
@@ -64,7 +68,10 @@ public:
         T add = -rhs.real - lhs.err;
         T sum = lhs.real + add;
         
-        lhs.err = (sum - lhs.real) - add;
+        if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
+            lhs.err = (sum - lhs.real) - add;
+        else
+            lhs.err = (sum - add) - lhs.real;
         
         lhs.real = sum;
         return lhs;

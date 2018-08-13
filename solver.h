@@ -88,8 +88,8 @@ void Solver<ParticSys, ODEiterator>::getInitStepLength()
 {
     if(stepLength == 0.0)
     {
-        //std::cout << "dyn T=" << 0.1*particles.timeScale()/YEAR << '\n';
-        stepLength =  0.01*particles.timeScale();
+        stepLength =  0.001*particles.timeScale();
+        //std::cout << "dyn T=" << stepLength/YEAR << '\n';
     }
     steps = 0;
     particles.evaluateAcc();

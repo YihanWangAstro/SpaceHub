@@ -24,7 +24,7 @@ inline const T2 max(const T1& x, const T2& y)
 template<class T>
 inline const T abs(const T& x)
 {
-    return x > -x ? x : -x;
+    return x > 0 ? x : -x;
 }
 
 /** @brief Self swap()*/
@@ -273,17 +273,7 @@ inline typename ScalarArray::value_type getTotalEnergy(const ScalarArray& mass, 
         Scalar EP = getPotentialEnergy(mass, pos);
         return log(abs((EK + bindE)/EP));
     }
-    
-/** @brief print an array. Used for debug*/
-template<typename T>
-void print(T& var)
-{
-    const size_t size = var.size();
-    for(size_t i = 0 ; i < size; ++i )
-        std::cout << var[i] << '\n';
 
-    std::cout << '\n';
-}
     
 }//end namespace SpaceH
 #endif

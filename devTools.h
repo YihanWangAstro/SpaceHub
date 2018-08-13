@@ -12,6 +12,39 @@ namespace SpaceH
         exit(0);
     }
     
+    template<typename RadauTab>
+    void showTab(const RadauTab& tab)
+    {
+        size_t size = tab.size();
+        for(size_t i = 0 ; i < size; ++i)
+        {
+            std::cout << tab[i][0] << ' ' << tab[i][1] << ' ' << tab[i][2] << ' ' << tab[i][3] << ' ' << tab[i][4] << ' ' << tab[i][5] << ' ' << tab[i][6] << '\n';
+        }
+        std::cout << '\n';
+    }
+    
+    template<typename RadauTab>
+    void showTabDiff(const RadauTab& tab1, const RadauTab& tab2)
+    {
+        size_t size = tab1.size();
+        for(size_t i = 0 ; i < size; ++i)
+        {
+            std::cout << tab1[i][6] - tab2[i][6] << '\n';
+        }
+        std::cout << '\n';
+    }
+    
+    /** @brief print an array. Used for debug*/
+    template<typename T>
+    void print(T& var)
+    {
+        const size_t size = var.size();
+        for(size_t i = 0 ; i < size; ++i )
+            std::cout << var[i] << '\n';
+        
+        std::cout << '\n';
+    }
+    
     /** @brief Macros used to check if a class has a specific method.  */
     #define CREATE_METHOD_CHECK(NAME)                                                                   \
                                                                                                         \

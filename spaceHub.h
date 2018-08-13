@@ -110,7 +110,7 @@ namespace SpaceH
         typename ExtPosForce = void,
         typename ExtVelForce = void
     >
-    using Simple = SpaceH::ParticleSystem
+    using Basic = SpaceH::ParticleSystem
     <
         SpaceH::Particles
         <
