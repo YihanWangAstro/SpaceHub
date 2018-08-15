@@ -46,8 +46,8 @@ namespace SpaceH
     template<typename Dtype>
     class Random
     {
-        Random() : gen(rd()), Dist(0,1) {}
     public:
+        Random() : gen(rd()), Dist(0,1) {}
         std::random_device rd;// non-deterministic generator
         std::mt19937 gen;
         std::uniform_real_distribution<Dtype> Dist;
