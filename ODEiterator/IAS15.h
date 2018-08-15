@@ -47,19 +47,19 @@ namespace SpaceH
             Scalar iterH      = stepLength;
             RadauTab iterBTab = integrator_.getBTab();//get the b value of the last step.
 
-            resetLastDeltaB();
+            resetLastConvergence();
             for(size_t k = 0; k < max_iter_; ++k)
             {
                 integrator_.calcuBTab(particles, iterH);
         
-                if(isConvergent(iterBTab, integrator_.getBTab(), particles.acc(), k))
+                if(isConvergent(iterBTab, integrator_.getBTab(), integrator_.localAcc()))
                 {
-                    Scalar error = calcuBError(integrator_.getBTab(), particles.acc());
+                    Scalar error = calcuBError(integrator_.getBTab(), integrator_.localAcc());
                     Scalar stepQ = optimalStepCoef(error);
                     
                     if(error < 1)
                     {
-                        std::cout << "acept:" << error << ' ' << k << ' ' << iterH << '\n';
+                        //std::cout << "acept:" << error << ' ' << k << ' ' << iterH << '\n';
                         integrator_.evaluateSystemAt(particles, iterH, Integrator::finalPoint);
                         integrator_.predictNewB(stepQ);
                         iterH *= stepQ;
@@ -90,49 +90,46 @@ namespace SpaceH
         }
         
     private:
-        bool isConvergent(const RadauTab& BTab, const RadauTab& newBTab, const VectorArray& acc, size_t iter)
+        bool isConvergent(const RadauTab& BTab, const RadauTab& newBTab, const VectorArray& acc)
         {
             size_t size = acc.size();
-            Scalar maxdb = 0;
-            Scalar maxa  = 0;
+            
+            Scalar diff = 0;
+            Scalar scale  = 0;
             for(size_t i = 0 ; i < size ; ++i)
             {
-                maxdb = SpaceH::max(maxdb, (BTab[i][6] - newBTab[i][6]).abs().max_component());
-                maxa  = SpaceH::max(maxa,  acc[i].abs().max_component());
+                diff  = SpaceH::max(diff, (BTab[i][6] - newBTab[i][6]).abs().max_component());
+                scale = SpaceH::max(scale,  acc[i].abs().max_component());
             }
-            if(maxdb >= last_delta_b)//begin to oscillate
+            
+            Scalar convergence = diff/scale;
+            
+            if(convergence  >= last_convergence_)//begin to oscillate
             {
-                resetLastDeltaB();
+                resetLastConvergence();
                 return true;
             }
             else
             {
-                last_delta_b = maxdb;
-                return maxdb/maxa < convergent_limit_;
+                last_convergence_ = convergence;
+                return convergence < convergent_limit_;
             }
-            /*Scalar msr_err = 0;
-            for(size_t i = 0 ; i < size ; ++i)
-                msr_err += ((BTab[i][6] - newBTab[i][6])/(acc[i]+absoluteError_)).norm2();
-
-            return sqrt(msr_err/size/3) < relativeError_;*/
         }
         
         Scalar calcuBError(const RadauTab& BTab, const VectorArray& acc)
         {
             size_t size = acc.size();
-            Scalar maxb = 0;
-            Scalar maxa = 0;
+            Scalar diff  = 0;
+            Scalar scale = 0;
             for(size_t i = 0 ; i < size ; ++i)
             {
-                maxb = SpaceH::max(maxb, BTab[i][6].abs().max_component());
-                maxa = SpaceH::max(maxa, acc[i].abs().max_component());
+                //if(vel[i].norm()*dt < pos[i].norm()*1e-8)
+                  //  continue;
+                
+                diff = SpaceH::max(diff, BTab[i][6].abs().max_component());
+                scale = SpaceH::max(scale, acc[i].abs().max_component());
             }
-            return maxb/maxa/relativeError_;
-            /*Scalar msr_err = 0;
-             for(size_t i = 0 ; i < size ; ++i)
-             msr_err  += (BTab[i][6]/(acc[i]+absoluteError_)).norm2();
-             
-             return sqrt(msr_err/size/3)/convergent_limit_;*/
+            return diff/(scale*relativeError_);
         }
         
         inline Scalar optimalStepCoef(Scalar error)
@@ -140,12 +137,12 @@ namespace SpaceH
             if(error == 0)
                 return Radau::maxStepCof;
             else
-                return SpaceH::min(pow(0.55/error, 1.0/7), Radau::maxStepCof);
+                return SpaceH::max(Radau::minStepCof ,SpaceH::min(pow(0.55/error, 1.0/7), Radau::maxStepCof));
         }
         
-        inline void resetLastDeltaB()
+        inline void resetLastConvergence()
         {
-            last_delta_b = Radau::maxFloat;
+            last_convergence_ = Radau::maxFloat;
         }
     private:
         Integrator integrator_;
@@ -154,7 +151,7 @@ namespace SpaceH
         
         Scalar convergent_limit_{1e-16};
         
-        Scalar last_delta_b{Radau::maxFloat};
+        Scalar last_convergence_{Radau::maxFloat};
         
         size_t particleNum_{ParticSys::arraySize};
         

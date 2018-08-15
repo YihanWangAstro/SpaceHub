@@ -21,9 +21,9 @@ namespace SpaceH
                 acc[i] += this_acc_[i];
         }
         
-        const VectorArray& acc() { return this_acc_; }
+        const VectorArray& acc() const { return this_acc_; }
         
-        const Vector& acc(size_t i) { return this_acc_[i]; }
+        const Vector& acc(size_t i)  const { return this_acc_[i]; }
         
         void checkArraySize(size_t size)
         {

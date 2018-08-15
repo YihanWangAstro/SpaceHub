@@ -26,7 +26,7 @@ public:
     
     inline const kahan& operator=( const kahan& hs)
     {
-        real = hs.real, err = hs.err;
+        real = hs.real, err = 0;
         return *this;
     }
     
@@ -55,27 +55,29 @@ public:
         T add = rhs.real - lhs.err;
         T sum = lhs.real + add;
         
-        if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
+       /* if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
             lhs.err = (sum - lhs.real) - add;
         else
-            lhs.err = (sum - add) - lhs.real;
-            
+            lhs.err = (sum - add) - lhs.real;*/
+        lhs.err  = (sum - lhs.real) - add;
         lhs.real = sum;
         return lhs;
     }
+    
     friend inline const kahan& operator-=(kahan& lhs, const kahan& rhs)
     {
         T add = -rhs.real - lhs.err;
         T sum = lhs.real + add;
         
-        if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
-            lhs.err = (sum - lhs.real) - add;
-        else
-            lhs.err = (sum - add) - lhs.real;
-        
+       // if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
+       //     lhs.err = (sum - lhs.real) - add;
+       // else
+       //     lhs.err = (sum - add) - lhs.real;
+        lhs.err  = (sum - lhs.real) - add;
         lhs.real = sum;
         return lhs;
     }
+    
     friend inline const kahan& operator/=(kahan& lhs, const kahan& rhs)
     {
         lhs.real /= rhs.real;

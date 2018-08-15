@@ -5,12 +5,14 @@
 #include "../macros.h"
 namespace SpaceH
 {
-    
-constexpr double INV_C  = 1 / C;
-constexpr double INV_C2 = INV_C * INV_C;
-constexpr double INV_C3 = INV_C2 * INV_C;
-constexpr double INV_C4 = INV_C3 * INV_C;
-constexpr double INV_C5 = INV_C4 * INV_C;
+    namespace Const
+    {
+        constexpr double INV_C  = 1 / C;
+        constexpr double INV_C2 = INV_C * INV_C;
+        constexpr double INV_C3 = INV_C2 * INV_C;
+        constexpr double INV_C4 = INV_C3 * INV_C;
+        constexpr double INV_C5 = INV_C4 * INV_C;
+    }
     
     template<typename Dtype, size_t ArraySize>
     struct NewtonForce
@@ -119,17 +121,17 @@ constexpr double INV_C5 = INV_C4 * INV_C;
             Scalar inv_r  = dr.reNorm();
             Scalar inv_r2 = inv_r * inv_r;
             Vector n12(dr * (-inv_r) );
-            Scalar nv1    = n12 * v1;
-            Scalar nv2    = n12 * v2;
+            Scalar nv1    = dot(n12, v1);
+            Scalar nv2    = dot(n12, v2);
             Scalar A1 = 0.0, B1 = 0.0;
             
             A1 = ( (5.0 * m1 + 4.0 * m2) * inv_r + (1.5 * nv2 * nv2 - v1 * v1 + 4.0 * (v1 * v2) - 2.0 *
-                                                    (v2 * v2))) * m2 * inv_r2 * INV_C2;
-            B1 = (4.0 * nv1 - 3.0 * nv2) * m2 * inv_r2 * INV_C2;
+                                                    (v2 * v2))) * m2 * inv_r2 * Const::INV_C2;
+            B1 = (4.0 * nv1 - 3.0 * nv2) * m2 * inv_r2 * Const::INV_C2;
             acc1 += n12 * A1 - dv * B1;
             A1 = ( (5.0 * m2 + 4.0 * m1) * inv_r + (1.5 * nv1 * nv1 - v2 * v2 + 4.0 * (v2 * v1) - 2.0 *
-                                                    (v1 * v1))) * m1 * inv_r2 * INV_C2;
-            B1 = (-4.0 * nv2 + 3.0 * nv1) * m1 * inv_r2 * INV_C2;
+                                                    (v1 * v1))) * m1 * inv_r2 * Const::INV_C2;
+            B1 = (-4.0 * nv2 + 3.0 * nv1) * m1 * inv_r2 * Const::INV_C2;
             acc2 -= n12 * A1 - dv * B1;
         }
         
@@ -148,14 +150,14 @@ constexpr double INV_C5 = INV_C4 * INV_C;
             Scalar inv_r  = dr.reNorm();
             Scalar inv_r2 = inv_r*inv_r;
             Vector n12(dr * (-inv_r));
-            Scalar nv1    = n12*v1;
-            Scalar nv2    = n12*v2;
+            Scalar nv1    = dot(n12, v1);
+            Scalar nv2    = dot(n12, v2);
             Scalar nv1s   = nv1*nv1;
             Scalar nv2s   = nv2*nv2;
-            Scalar v1s    = v1*v1;
-            Scalar v2s    = v2*v2;
-            Scalar v12    = v1*v2;
-            Scalar C2     = inv_r2*INV_C4;
+            Scalar v1s    = dot(v1, v1);
+            Scalar v2s    = dot(v2, v2);
+            Scalar v12    = dot(v1, v2);
+            Scalar C2     = inv_r2*Const::INV_C4;
             Scalar A2 = 0.0, B2 = 0.0;
             
             A2 = (-2.0*v2s*v2s + (4.0*v2s - 2.0*v12)*v12 + (1.5*v1s + 4.5*v2s - 6.0*v12 - 1.875*nv2s)*nv2s
@@ -191,9 +193,9 @@ constexpr double INV_C5 = INV_C4 * INV_C;
         {
             Scalar inv_r  = dr.reNorm();
             Vector n12(dr * (-inv_r));
-            Scalar nv12   = n12 * (v1 -v2);
-            Scalar dvs    = dv * dv;
-            Scalar C3     = 0.8*inv_r*inv_r*inv_r*INV_C5*m1*m2;
+            Scalar nv12   = dot(n12, (v1 -v2));
+            Scalar dvs    = dot(dv, dv);
+            Scalar C3     = 0.8*inv_r*inv_r*inv_r*Const::INV_C5*m1*m2;
             Scalar A25 = 0.0,  B25 = 0.0;
             
             A25 = nv12*(3.0*dvs + (52.0/3.0*m2- 6.0*m1)*inv_r)*C3;

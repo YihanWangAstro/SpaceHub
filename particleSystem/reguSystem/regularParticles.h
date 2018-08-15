@@ -53,7 +53,7 @@ public:
         Scalar dOmega = 0;
         
         for(size_t i = 0 ; i < size ; ++i)
-            dOmega += (velIndepAcc[i] * velocity[i]) * (this->mass_[i]);
+            dOmega += dot(velIndepAcc[i], velocity[i]) * (this->mass_[i]);
         
         SpaceH::advanceScalar(omega_, dOmega*stepSize);
     }

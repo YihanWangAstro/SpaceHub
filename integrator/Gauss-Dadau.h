@@ -153,6 +153,11 @@ namespace SpaceH
             return Btab_;
         }
         
+        inline const VectorArray& localAcc() const
+        {
+            return localSystem_.acc();
+        }
+        
         template<size_t isDYNAMICAL>
         typename std::enable_if<isDYNAMICAL != SpaceH::DYNAMICAL>::type
         checkTabVolume(size_t particleNum){}
@@ -202,7 +207,7 @@ namespace SpaceH
                 oldBtab_[i][6] = Q7*    Btab_[i][6];
                 
                 for(size_t j = 0 ; j < 7; ++j)
-                    Btab_[i][j] = oldBtab_[i][j] + dB[j];
+                   Btab_[i][j] = oldBtab_[i][j] + dB[j];
             }
         }
     private:

@@ -3,10 +3,10 @@
 #ifndef PROTOTYPE_h
 #define PROTOTYPE_h
 
-#include "vector3.h"
+#include "vector/vector3.h"
 #include <array>
 #include <vector>
-
+#include <random>
 namespace SpaceH
 {
     struct EmptyClass{};
@@ -28,21 +28,6 @@ namespace SpaceH
     template<typename T>
     struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};
     
-    template<typename T>
-    struct get_value_type
-    {
-    private:
-        /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
-        template<typename U>
-        static typename U::value_type check(typename U::value_type);
-        
-        /*If U doesn't have member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
-        template<typename U>
-        static U check(U);
-    public:
-        using type = decltype(check<T>(0));
-    };
-    
     template<typename Dtype, size_t Size>
     struct ProtoType
     {
@@ -62,10 +47,6 @@ namespace SpaceH
     
     
     enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
-    /*enum       EVENTTYPE      { TDE, MERGE, ESCAPE, DISRUPTED, UNEVENTFUL, HVS };
-    enum class INTEGRATORTYPE { DKDLEAPFROG, KDKLEAPFROG, SYM4, PEFRL, SYM6, SYM8, SYM10 };
-    enum class SYSTEMTYPE     { PLAIN, CHAIN };
-    enum class ITERTYPE       { BSITER, SEQITER };*/
     enum class NbodyIO {STD, ACTIVE};
     enum class DATASTRUCT     { PLAIN=0, CHAIN };
 }//end namespace SpaceH

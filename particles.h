@@ -162,17 +162,22 @@ namespace SpaceH
             }
             
             is >> partc.time_;
-            
+            partc.time_ *= Unit::YEAR;
             partc.totalMass_ = 0;
     
             for(size_t i = 0 ; i < num ; ++i)
             {
                 is >> partc.idn_[i]
-                >> partc.mass_[i]
-                >> partc.radius_[i]
                 >> partc.pos_[i]
-                >> partc.vel_[i];
+                >> partc.vel_[i]
+                >> partc.mass_[i]
+                >> partc.radius_[i];
                 
+                partc.pos_[i]    *= Unit::AU;
+                partc.vel_[i]    *= Unit::KMS;
+                partc.mass_[i]   *= Unit::M_SOLAR;
+                partc.radius_[i] *= Unit::AU;
+    
                 partc.totalMass_ += partc.mass_[i];
             }
             
@@ -193,16 +198,15 @@ namespace SpaceH
         {
             size_t particleNum = partc.particleNumber();
             
-            os << "#" << particleNum << " " << partc.time() << "\r\n";
+            os << '#' << particleNum << ' ' << partc.time()/Unit::YEAR << "\r\n";
             
             for(size_t i = 0 ; i < particleNum ; ++i)
             {
-                os << partc.idn(i)    << " "
-                << i   << " "
-                << partc.mass(i)   << " "
-                << partc.radius(i) << " "
-                << partc.pos(i)    << " "
-                << partc.vel(i)    << "\r\n";
+                os<< partc.idn(i)              << ' '
+                << partc.pos(i)/Unit::AU       << ' '
+                << partc.vel(i)/Unit::KMS      << ' '
+                << partc.mass(i)/Unit::M_SOLAR << ' '
+                << partc.radius(i)/Unit::AU    << "\r\n";
             }
             
             return os;
