@@ -4,8 +4,8 @@
 namespace SpaceH
 {
 #ifdef __AVX__
-    #pragma message("Using AVX on vector3d") 
-    #include <immintrin.h>
+#pragma message("Using AVX on vector3d")
+#include <immintrin.h>
     /** @brief Specilization of vector3d */
     template<>
     struct vec3<double>
