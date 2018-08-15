@@ -2,6 +2,11 @@
 #ifndef OWNMATH_H
 #define OWNMATH_H
 #include "devTools.h"
+
+#ifdef __AVX__
+#pragma message("Using AVX on vector3d")
+#include <x86intrin.h>
+
 #include <random>
 namespace SpaceH
 {
