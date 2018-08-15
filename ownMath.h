@@ -2,6 +2,7 @@
 #ifndef OWNMATH_H
 #define OWNMATH_H
 #include "devTools.h"
+#include <random>
 namespace SpaceH
 {
     template<typename Dtype>
