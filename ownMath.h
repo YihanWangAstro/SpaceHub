@@ -46,11 +46,10 @@ namespace SpaceH
     template<typename Dtype>
     class Random
     {
-    private:
+    public:
         std::random_device rd;// non-deterministic generator
         std::mt19937 gen{rd()};
         std::uniform_real_distribution<Dtype> Dist{0,1};
-    public:
         inline Dtype operator()(){ return Dist(gen);}
     };
     
