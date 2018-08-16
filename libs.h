@@ -237,6 +237,34 @@ namespace SpaceH
         return potentialEnergy;
     }
     
+    /** @brief Calculate the potential energy of particles
+     *
+     *  @param  mass            Array of mass.
+     *  @param  pos             Array of position.
+     *  @param  chpos           Array of chain position.
+     *  @param  chind           Array of chain index.
+     *  @return The potential energy.
+     */
+    template<typename ScalarArray, typename VectorArray, typename IndexArray>
+    typename ScalarArray::value_type getPotentialEnergy(const ScalarArray& mass, const VectorArray& pos, const VectorArray& chainPos, const IndexArray& chainInd)
+    {
+        typename ScalarArray::value_type potentialEnergy = 0;
+        
+        size_t size = mass.size();
+        
+        for(size_t i = 0 ; i < size - 1; ++i)
+            potentialEnergy -= mass[chainInd[i]] * mass[chainInd[i + 1]]/chainPos[i].norm();
+            
+        for(size_t i = 0 ; i < size - 2; ++i)
+            potentialEnergy -=  mass[chainInd[i]] * mass[chainInd[i + 2]]/(chainPos[i] + chainPos[i + 1]).norm();
+        
+        for(size_t i = 0 ; i < size ; ++i)
+            for(size_t j = i + 3 ; j < size; ++j)
+                potentialEnergy -= mass[chainInd[i]] * mass[chainInd[j]]/distance(pos[chainInd[j]], pos[chainInd[i]]);
+                             
+        return potentialEnergy;
+    }
+    
     /** @brief Calculate the total(potential + kinetic) energy of particles
      *
      *  @param  mass            Array of mass.

@@ -3,6 +3,7 @@
 #define GENVECT_H
 #include <math.h>
 #include <iostream>
+//#pragma G++ optimize("O3")
 namespace SpaceH
 {
     /** @brief Self 3D vector class */
@@ -70,7 +71,7 @@ namespace SpaceH
         /** @brief Absolute value by wise */
         inline vec3 abs() const
         {
-            return vec3(x > -x ? x : -x, y > -y ? y : -y, z > -z ? z : -z);
+            return vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z);
         }
         inline const vec3& operator+=(const vec3& v)
         {
@@ -199,5 +200,6 @@ namespace SpaceH
     using vec3b  = vec3<bool>;
 }
 #include "vector3d.h"//Specilization of vec3<double> with AVX;
+#include "vector3pd.h"//Specilization of vec3<precise_d> with AVX;
 #endif
 

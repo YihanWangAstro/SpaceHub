@@ -55,11 +55,11 @@ public:
         T add = rhs.real - lhs.err;
         T sum = lhs.real + add;
         
-       /* if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
+        if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
             lhs.err = (sum - lhs.real) - add;
         else
-            lhs.err = (sum - add) - lhs.real;*/
-        lhs.err  = (sum - lhs.real) - add;
+            lhs.err = (sum - add) - lhs.real;
+        //lhs.err  = (sum - lhs.real) - add;
         lhs.real = sum;
         return lhs;
     }
@@ -69,11 +69,11 @@ public:
         T add = -rhs.real - lhs.err;
         T sum = lhs.real + add;
         
-       // if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
-       //     lhs.err = (sum - lhs.real) - add;
-       // else
-       //     lhs.err = (sum - add) - lhs.real;
-        lhs.err  = (sum - lhs.real) - add;
+        if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
+            lhs.err = (sum - lhs.real) - add;
+        else
+            lhs.err = (sum - add) - lhs.real;
+        //lhs.err  = (sum - lhs.real) - add;
         lhs.real = sum;
         return lhs;
     }

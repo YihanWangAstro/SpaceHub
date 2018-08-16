@@ -21,7 +21,6 @@ namespace SpaceH
             static_assert(new_cap > S, "Fixed size array cannot be allocated!");
         };
         inline void resize(size_t new_size){};
-        
     };
     
     template<typename T>
@@ -46,7 +45,7 @@ namespace SpaceH
     
     
     enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
-    enum class NbodyIO {STD, ACTIVE};
+    enum class NbodyIO        {STD, ACTIVE};
     enum class DATASTRUCT     { PLAIN=0, CHAIN };
 }//end namespace SpaceH
 

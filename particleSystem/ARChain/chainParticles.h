@@ -83,9 +83,10 @@ namespace SpaceH
         inline void advancePos(Scalar stepSize)
         {
             SpaceH::advanceVector(chain_pos_, chain_vel_, stepSize);
-            SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
+            
             
             //SpaceH::advanceVector(pos_, vel_, stepSize);
+            SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
             Vector CMPos = SpaceH::calcuCMCoord(mass_, pos_, totalMass_);
             SpaceH::moveToCMCoord(pos_, CMPos);
         }
@@ -121,9 +122,10 @@ namespace SpaceH
             chain_acc[chain_num].setZero();
             
             SpaceH::advanceVector(chain_vel_, chain_acc, stepSize);
-            SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);
+            
             
             //SpaceH::advanceVector(vel_, acc, stepSize);
+            SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);
             Vector CMVel = SpaceH::calcuCMCoord(mass_, vel_, totalMass_);
             SpaceH::moveToCMCoord(vel_, CMVel);
         }

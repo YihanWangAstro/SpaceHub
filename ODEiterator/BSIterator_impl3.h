@@ -72,6 +72,9 @@ namespace SpaceH
         /** @brief Steps of integration of each iteration depth.*/
         Container < size_t, MaxDepth + 1 > sub_steps_;
         
+        /** @brief Local absolute error*/
+        Scalar absoluteError_{0};
+        
         /** @brief Local relative error*/
         Scalar relativeError_{1e-15};
         
@@ -87,6 +90,29 @@ namespace SpaceH
         /** @brief Total iteration number*/
         size_t iter_num_{0};
         
+        ScalarBuffer initState_;
+        
+        void fillFirstColumn(size_t row)
+        {
+            size_t center = at(row, 0);
+            localSystem.write(extrapTab[center], NbodyIO::ACTIVE);//copyDataToExtrapTab;
+            size_t size = initState_.size();
+            for(size_t i = 0 ; i < size; ++i)
+            {
+                extrapTab[center][i] -= initState_[i];
+            }
+        }
+        
+        void loadResult(ParticSys& particles, size_t iter)
+        {
+            size_t center = at(iter, iter);
+            size_t size = initState_.size();
+            for(size_t i = 0 ; i < size; ++i)
+            {
+                initState_[i] += extrapTab[center][i];
+            }
+            particles.read(initState_, NbodyIO::ACTIVE);
+        }
     private:
         /** @brief Internal integrator */
         Integrator integrator;
@@ -169,9 +195,9 @@ namespace SpaceH
         }
         
         absoluteError_ = 0;//1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
-        relativeError_ = 10*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+        relativeError_ = 40*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
     }
-    
+
     template <typename ParticSys, typename Integrator>
     void BSIterator<ParticSys, Integrator>::evolveLocalSys(size_t iter, Scalar macroStepSize)
     {
@@ -200,13 +226,15 @@ namespace SpaceH
         Scalar error     = 0;
         Scalar iter_H    = stepLength;
         
+        localSystem.write(initState_, NbodyIO::ACTIVE);
+        
         for(;;)
         {
             iter_num_ ++;
             
             localSystem = particles;
             evolveLocalSys(0, iter_H);
-            localSystem.write(extrapTab[0], NbodyIO::ACTIVE);//copyDataToExtrapTab;
+            fillFirstColumn(0);
             
             checkExtrapVolume();
             
@@ -215,7 +243,7 @@ namespace SpaceH
                 localSystem = particles;
                 evolveLocalSys(iter, iter_H);
                 
-                localSystem.write(extrapTab[at(iter,0)], NbodyIO::ACTIVE);//copyDataToExtrapTab;
+                fillFirstColumn(iter);
                 
                 extrapolate(iter);
                 
@@ -241,8 +269,7 @@ namespace SpaceH
                     {
                         DEBUG_MSG(true, "accept");
                         iter_H = prepareNextIteration(iter);
-                        localSystem.read(extrapTab[at(iter,iter)], NbodyIO::ACTIVE);
-                        particles = localSystem;
+                        loadResult(particles, iter);
                         return iter_H;
                     }
                     else if(divergedInOrderWindow(error, iter))
@@ -292,6 +319,7 @@ namespace SpaceH
             size_t up      = last_row + j;
             
             for(size_t i = 0 ; i < size ; ++i)
+                //extrapTab[right][i] = extrapTab[current][i] * (extrap_coef_[right] + 1)  - extrapTab[up][i] * extrap_coef_[right];
                 extrapTab[right][i] = extrapTab[current][i] + (extrapTab[current][i] - extrapTab[up][i]) * extrap_coef_[right];
         }
     }
@@ -309,11 +337,11 @@ namespace SpaceH
         
         for(size_t i = 0 ; i < size; ++i)
         {
-            Scalar scale = (SpaceH::max(SpaceH::abs(extrapTab[center][i]), SpaceH::abs(extrapTab[left][i]) ) * relativeError_ + absoluteError_);
-            Scalar d     = extrapTab[center][i] - extrapTab[left][i];
-            max_err      = SpaceH::max(1.0*max_err, SpaceH::abs(d/scale));
+            Scalar d     = SpaceH::abs(extrapTab[center][i] - extrapTab[left][i]);
+            Scalar scale = SpaceH::max(d, SpaceH::abs(initState_[i]));
+            max_err      = SpaceH::max(1.0*max_err, d/scale);
         }
-        return max_err;
+        return max_err/relativeError_;
     }
     
     /** @brief Calculate the new iteration integration step coefficient
@@ -380,7 +408,7 @@ namespace SpaceH
                     optimal_iter_ = allowedRange(optimal_iter_ + 1);
                 }
                 return optimal_H_[optimal_iter_];
-                
+                  
             default:
                 SpaceH::errMsg("unexpected iteration index!",__FILE__, __LINE__);
                 exit(0);

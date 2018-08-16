@@ -1,11 +1,14 @@
 
 #ifndef GENVECT3D_H
 #define GENVECT3D_H
-namespace SpaceH
-{
+
 #ifdef __AVX__
 #pragma message("Using AVX on vector3d")
+//#pragma G++ optimize("O3")
 #include <x86intrin.h>
+namespace SpaceH
+{
+
     /** @brief Specilization of vector3d */
     template<>
     struct vec3<double>
@@ -73,7 +76,7 @@ namespace SpaceH
         /** @brief Absolute value by wise */
         inline vec3 abs() const
         {
-            return vec3(x > -x ? x : -x, y > -y ? y : -y, z > -z ? z : -z);
+            return vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z);
         }
         inline const vec3& operator+=(const vec3& v)
         {
@@ -200,7 +203,8 @@ namespace SpaceH
     {
         return vec3<double>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
     }
-#endif
+
 }
+#endif
 #endif
 

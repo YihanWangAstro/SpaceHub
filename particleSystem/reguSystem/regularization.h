@@ -38,7 +38,7 @@ public:
      */
     inline Scalar getPhysicalVelTime(const Particles& partc, Scalar stepSize)
     {
-        return stepSize / (-getPotentialEnergy(partc.mass(), partc.pos()));
+        return stepSize / -getPotentialEnergy(partc.mass(), partc.pos());
     }
 };
 

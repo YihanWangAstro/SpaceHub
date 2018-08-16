@@ -46,7 +46,7 @@ namespace SpaceH
         /** @brief Get the number of the particles.
          *  @return The particle number.
          */
-        inline size_t particleNumber() const
+        constexpr inline size_t particleNumber() const
         {
             return pos_.size();
         }

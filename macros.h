@@ -29,10 +29,14 @@ namespace SpaceH
         constexpr double M_SOLAR   = 1;
         constexpr double YEAR      = 2*Const::PI;
         
-        constexpr double GYR       = 1e9*YEAR;
+        constexpr double KYR       = 1e3*YEAR;
         constexpr double MYR       = 1e6*YEAR;
+        constexpr double GYR       = 1e9*YEAR;
         constexpr double MONTH     = YEAR / 12;
         constexpr double DAY       = YEAR / 365.25636042;
+        constexpr double HOUR      = DAY / 24;
+        constexpr double MINUTE    = HOUR / 60;
+        constexpr double SECOND    = MINUTE /60;
         constexpr double HUBBLETIME= 14.7*GYR;
         
         constexpr double KM        = 1 / 149597870.7;
@@ -50,6 +54,8 @@ namespace SpaceH
         
         constexpr double V_UNIT    = 2.9784651272402163E1;
         constexpr double KMS       = 1 / V_UNIT;
+        
+        constexpr double DEG       = Const::PI/180;
     }
     
     namespace Const

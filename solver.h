@@ -120,14 +120,20 @@ void Solver<ParticSys, ODEiterator>::loadText(char const* initFilePath)
         if(header == '#')
         {
             inFile >> particles;
+            inFile.close();
         }
         else
+        {
+            inFile.close();
             SpaceH::errMsg("Input file header should begin with '#'.", __FILE__, __LINE__);
+        }
     }
     else
+    {
+        inFile.close();
         SpaceH::errMsg("Fail to open the initial condition file!", __FILE__, __LINE__);
+    }
 
-    inFile.close();
     getInitStepLength();
 }
 
@@ -137,7 +143,6 @@ void Solver<ParticSys, ODEiterator>::setStepLength(Scalar stepSize)
 {
     stepLength = stepSize;
 }
-    
     
 }
 #endif

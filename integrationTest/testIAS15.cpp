@@ -55,14 +55,14 @@ int main(int argc, char**argv)
     
     
     
-    //nbody.loadText("solar_earth.init");
-    nbody.loadText("circular.init");
+    nbody.loadText("solar_earth.init");
+    //nbody.loadText("circular.init");
     //nbody.loadText("elliptic.init");
     
    // nbody.iterator.setRelativeError(1e-6);
 
     double timeLimit = 1000*SpaceH::Unit::YEAR;
-    double dt = 0.01*SpaceH::Unit::YEAR;
+    double dt = 0.1*SpaceH::Unit::YEAR;
     double tout = 0;
 
     std::ofstream os("out.dat");
