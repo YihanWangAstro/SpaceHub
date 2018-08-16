@@ -36,8 +36,8 @@ void SimpleTest(RunArgs& args)
     nbody1.
     
 }*/
-using scalar = double;//SpaceH::precise_d;
-//using scalar = SpaceH::precise_d;
+//using scalar = double;//SpaceH::precise_d;
+using scalar = SpaceH::precise_d;
 const size_t N = 2;//SpaceH::DYNAMICAL;
 int main(int argc, char**argv)
 {
@@ -47,21 +47,21 @@ int main(int argc, char**argv)
     using force = SpaceH::NewtonForce<scalar,N>;
     using PNf = SpaceH::PostNewtonianForce<scalar,N,true,false,false>;
     
-    using sys = SpaceH::Basic<force>;
-    //using sys = SpaceH::ARchain<force>;
-    //SpaceH::Nbody<sys> nbody;
+    //using sys = SpaceH::Basic<force>;
+    using sys = SpaceH::ARchain<force>;
+    SpaceH::Nbody<sys> nbody;
     //SpaceH::Nbody<sys, SpaceH::IAS15, SpaceH::GaussDadau> nbody;
-    SpaceH::Nbody<sys, SpaceH::constIterator, SpaceH::symplectic2th> nbody;
+    //SpaceH::Nbody<sys, SpaceH::constIterator, SpaceH::symplectic2th> nbody;
     
     
     
     //nbody.loadText("solar_earth.init");
     nbody.loadText("circular.init");
-  
+    //nbody.loadText("elliptic.init");
     
    // nbody.iterator.setRelativeError(1e-6);
 
-    double timeLimit = 1000000*SpaceH::Unit::YEAR;
+    double timeLimit = 1000*SpaceH::Unit::YEAR;
     double dt = 0.01*SpaceH::Unit::YEAR;
     double tout = 0;
 
@@ -81,7 +81,7 @@ int main(int argc, char**argv)
     {
         nbody.advanceOneStep();
        // std::cout << nbody.particles.time() << '\n';
-        /*if(nbody.particles.time() > tout)
+        if(nbody.particles.time() > tout)
         {
             os  << nbody.particles;
             eos << nbody.particles.time()/SpaceH::Unit::YEAR << ' '
@@ -92,7 +92,7 @@ int main(int argc, char**argv)
                 //<< SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE()) <<"\r\n";
                 << "\r\n";
             tout += dt;
-        }*/
+        }
     }
     //std::cout << nbody.steps << '\n';
     

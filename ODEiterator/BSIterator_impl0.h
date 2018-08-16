@@ -155,8 +155,8 @@ namespace SpaceH
             }
         }
         
-        absoluteError = 5*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
-        relativeError = 5*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+        absoluteError = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+        relativeError = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
     }
     
     

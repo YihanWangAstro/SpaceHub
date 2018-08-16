@@ -37,12 +37,6 @@ namespace SpaceH
             relativeError_ = relError;
         }
         
-        /** @brief Set the local absolute error*/
-        void setAbsoluteError(Scalar absError)
-        {
-            absoluteError_ = absError;
-        }
-        
         Scalar getRejRate()
         {
             return static_cast<float> (rej_num_)/iter_num_;
@@ -77,9 +71,6 @@ namespace SpaceH
         
         /** @brief Steps of integration of each iteration depth.*/
         Container < size_t, MaxDepth + 1 > sub_steps_;
-        
-        /** @brief Local absolute error*/
-        Scalar absoluteError_{1e-15};
         
         /** @brief Local relative error*/
         Scalar relativeError_{1e-15};
@@ -116,7 +107,7 @@ namespace SpaceH
         Scalar calcuIdealStepCoef(Scalar error, size_t k);
         
         /** @brief Prepare the next iteration.*/
-        Scalar prepareNextIteration(size_t iter, bool last_rejected);
+        Scalar prepareNextIteration(size_t iter);
         
         /** @brief Evolve the local system*/
         void evolveLocalSys(size_t iter, Scalar step);
@@ -125,7 +116,7 @@ namespace SpaceH
         inline Scalar stepSizeReduction(size_t iter)
         {
             if(iter == optimal_iter_ - 1)
-                return optimal_H_[iter];
+                return optimal_H_[iter]*static_cast<Scalar>(work_[iter+1]) / static_cast<Scalar>(work_[iter]);
             else
                 return optimal_H_[optimal_iter_];
         }
@@ -147,36 +138,38 @@ namespace SpaceH
         {
             return SpaceH::max(stepsize_limiter[k] / 4, SpaceH::min(1.0*H, 1.0/stepsize_limiter[k]) );
         }
+        
+        inline size_t at(size_t i, size_t j) const
+        {
+            return i*(i+1)/2 + j;
+        }
     };
     
     /** @brief Constructor for initializing cost, nSteps, fmin and CC*/
     template <typename ParticSys, typename Integrator>
     BSIterator<ParticSys, Integrator>::BSIterator()
     {
-        Scalar ratio        = 1;
-        stepsize_limiter[0] = 0.02;
-        sub_steps_[0]       = 1;
-        work_[0]            = 1;
-        extrap_coef_[0]     = 1;
-        err_expon_[0]       = 1;
-        extrap_coef_[0]     = 1;
-        for(size_t i = 1 ; i < MaxDepth + 1; ++i)
+        for(size_t i = 0 ; i < MaxDepth + 1; ++i)
         {
-            sub_steps_[i] = 2*i;
-            work_[i]  = work_[i - 1] + sub_steps_[i];
-            err_expon_[i] = static_cast<Scalar>(1.0 / (2*i - 1));
+            sub_steps_[i] = 2*(i+1);
+            
+            if(i == 0)
+                work_[i] = 1 + sub_steps_[i];
+            else
+                work_[i]  = work_[i - 1] + sub_steps_[i];
+            
+            err_expon_[i] = static_cast<Scalar>(1.0 / (2*i + 1));
             stepsize_limiter[i] = pow(0.02, err_expon_[i]);
             
             for(size_t j = 1 ; j <= i; ++j)
             {
-                ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[i - j]);
-                extrap_coef_[i * (i + 1) / 2 + j] = 1.0 / (ratio * ratio - 1);
+                Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[i - j]);
+                extrap_coef_[at(i,j)] = 1.0 / (ratio * ratio - 1);
             }
         }
         
-        absoluteError_ = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
-        relativeError_ = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
-        
+        absoluteError_ = 0;//1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+        relativeError_ = 10*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
     }
 
     template <typename ParticSys, typename Integrator>
@@ -185,14 +178,14 @@ namespace SpaceH
         size_t steps = sub_steps_[iter];
         Scalar h = macroStepSize / steps;
         
-        localSystem.drift(0.5 * h);
+        localSystem.kick(0.5 * h);
         for(size_t i = 1 ; i < steps; i++)
         {
-            localSystem.kick(h);
             localSystem.drift(h);
+            localSystem.kick(h);
         }
-        localSystem.kick(h);
-        localSystem.drift(0.5 * h);
+        localSystem.drift(h);
+        localSystem.kick(0.5 * h);
     }
     
     /** @brief Interface of ODE iterator
@@ -206,11 +199,9 @@ namespace SpaceH
     {
         Scalar error     = 0;
         Scalar iter_H    = stepLength;
-        bool last_rejected = false;
         
         for(;;)
         {
-            //std::cout << '\n' << "H ="<<iter_H <<"\r\n";
             iter_num_ ++;
             
             localSystem = particles;
@@ -224,7 +215,7 @@ namespace SpaceH
                 localSystem = particles;
                 evolveLocalSys(iter, iter_H);
                 
-                localSystem.write(extrapTab[iter * (iter + 1) / 2], NbodyIO::ACTIVE);//copyDataToExtrapTab;
+                localSystem.write(extrapTab[at(iter,0)], NbodyIO::ACTIVE);//copyDataToExtrapTab;
                 
                 extrapolate(iter);
                 
@@ -236,31 +227,29 @@ namespace SpaceH
                 
                 work_per_len_[iter] = work_[iter] / step_cof;
                 
-                DEBUG_MSG( true       ,
+                DEBUG_MSG( true      ,
                           "iter="     , iter,
                           "optimal="  , optimal_iter_,
                           "err="      , error,
                           "work="     , work_per_len_[iter],
-                          "Step Cof =", calcuIdealStepCoef(error, iter),
+                          "Step Cof =", step_cof,
                           "StepLen =" , iter_H);
                 
                 if(isInConvergenceWindow(iter))
                 {
                     if(error < 1.0)
                     {
-                        last_rejected = false;
-                        
-                        iter_H = prepareNextIteration(iter, last_rejected);
-                        localSystem.read(extrapTab[iter * (iter + 1) / 2 + iter], NbodyIO::ACTIVE);
+                        DEBUG_MSG(true, "accept");
+                        iter_H = prepareNextIteration(iter);
+                        localSystem.read(extrapTab[at(iter,iter)], NbodyIO::ACTIVE);
                         particles = localSystem;
                         return iter_H;
                     }
                     else if(divergedInOrderWindow(error, iter))
                     {
+                        DEBUG_MSG(true, "reject");
                         rej_num_ ++;
-                        //iter_H = prepareNextIteration(iter, true);
                         iter_H = stepSizeReduction(iter);
-                        last_rejected = true;
                         break;
                     }
                 }
@@ -278,9 +267,9 @@ namespace SpaceH
         Scalar r = 1;
         
         if(iter == optimal_iter_ - 1)
-            r = static_cast<Scalar>(sub_steps_[iter + 1] * sub_steps_[iter + 2]) / static_cast<Scalar>(sub_steps_[1] * sub_steps_[1]);
+            r = static_cast<Scalar>(sub_steps_[iter + 1] * sub_steps_[iter + 2]) / static_cast<Scalar>(sub_steps_[0] * sub_steps_[0]);
         else if(iter == optimal_iter_)
-            r = static_cast<Scalar>(sub_steps_[iter + 1]) / static_cast<Scalar>(sub_steps_[1]);
+            r = static_cast<Scalar>(sub_steps_[iter + 1]) / static_cast<Scalar>(sub_steps_[0]);
         else
             return  error > 1.0;;//k == iterDepth+1 and error >1 reject directly
         
@@ -293,18 +282,17 @@ namespace SpaceH
     template <typename ParticSys, typename Integrator>
     void BSIterator<ParticSys, Integrator>::extrapolate(size_t k)
     {
-        size_t n    = k * (k + 1) / 2;
-        size_t pn   = (k - 1) * k / 2;
-        size_t size = extrapTab[n].size();
-        
+        size_t curr_row = k * (k + 1) / 2;
+        size_t last_row = (k - 1) * k / 2;
+        size_t size = extrapTab[curr_row].size();
         for(size_t j = 0 ; j < k; ++j)
         {
-            size_t now  = n + j;
-            size_t next = now + 1;
-            size_t last = pn + j;
+            size_t current = curr_row + j;
+            size_t right   = current  + 1;
+            size_t up      = last_row + j;
             
             for(size_t i = 0 ; i < size ; ++i)
-                extrapTab[next][i] = extrapTab[now][i] + (extrapTab[now][i] - extrapTab[last][i]) * extrap_coef_[next];
+                extrapTab[right][i] = extrapTab[current][i] + (extrapTab[current][i] - extrapTab[up][i]) * extrap_coef_[right];
         }
     }
     
@@ -314,23 +302,18 @@ namespace SpaceH
     template <typename ParticSys, typename Integrator>
     typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::calcuError(size_t k) const
     {
-        if(k != 0)
+        size_t center  = at(k,k);
+        size_t left    = center - 1;
+        size_t size    = extrapTab[center].size();
+        Scalar max_err = 0;
+        
+        for(size_t i = 0 ; i < size; ++i)
         {
-            size_t topk     = k * (k + 1) / 2 + k;
-            size_t subk     = topk - 1;
-            size_t size     = extrapTab[topk].size();
-            Scalar max_err  = 0;
-            
-            for(size_t i = 0 ; i < size; ++i)
-            {
-                Scalar scale = (SpaceH::max(SpaceH::abs(extrapTab[topk][i]), SpaceH::abs(extrapTab[subk][i]) ) * relativeError_ + absoluteError_);
-                Scalar d     = extrapTab[topk][i] - extrapTab[subk][i];
-                max_err      = SpaceH::max(1.0*max_err, SpaceH::abs(d/scale));
-            }
-            return max_err;
+            Scalar scale = (SpaceH::max(SpaceH::abs(extrapTab[center][i]), SpaceH::abs(extrapTab[left][i]) ) * relativeError_ + absoluteError_);
+            Scalar d     = extrapTab[center][i] - extrapTab[left][i];
+            max_err      = SpaceH::max(1.0*max_err, SpaceH::abs(d/scale));
         }
-        else
-            return 1e10;
+        return max_err;
     }
     
     /** @brief Calculate the new iteration integration step coefficient
@@ -342,7 +325,7 @@ namespace SpaceH
     typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::calcuIdealStepCoef(Scalar error, size_t k)
     {
         if(error != 0)
-            return SpaceH::max(stepsize_limiter[k] / 4, SpaceH::min( 0.54*pow(0.95 / error, err_expon_[k]), 1.0/stepsize_limiter[k] ) );
+            return SpaceH::max(stepsize_limiter[k] / 4, SpaceH::min( 0.60*pow(0.95 / error, err_expon_[k]), 1.0/stepsize_limiter[k] ) );
         else
             return  1.0 / stepsize_limiter[k];
     }
@@ -353,7 +336,7 @@ namespace SpaceH
      *  @return The new iteration step length.
      */
     template <typename ParticSys, typename Integrator>
-    typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::prepareNextIteration(size_t iter, bool last_rejected)
+    typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::prepareNextIteration(size_t iter)
     {
         switch (static_cast<int>(iter - optimal_iter_))
         {
@@ -376,7 +359,7 @@ namespace SpaceH
                     optimal_iter_ = allowedRange(optimal_iter_ - 1);
                     return optimal_H_[optimal_iter_];//order decrease
                 }
-                else if(!last_rejected && work_per_len_[iter] < 0.9 * work_per_len_[iter - 1])
+                else if(work_per_len_[iter] < 0.9 * work_per_len_[iter - 1])
                 {
                     optimal_iter_ = allowedRange(optimal_iter_ + 1);
                     return optimal_H_[iter] * static_cast<Scalar>(work_[iter+1]) / static_cast<Scalar>(work_[iter]);//order increase
@@ -392,12 +375,12 @@ namespace SpaceH
                 {
                     optimal_iter_ = allowedRange(optimal_iter_ - 1);
                 }
-                if(!last_rejected && work_per_len_[iter] < 0.9 * work_per_len_[optimal_iter_] )
+                if(work_per_len_[iter] < 0.9 * work_per_len_[optimal_iter_] )
                 {
                     optimal_iter_ = allowedRange(optimal_iter_ + 1);
                 }
                 return optimal_H_[optimal_iter_];
-                
+                  
             default:
                 SpaceH::errMsg("unexpected iteration index!",__FILE__, __LINE__);
                 exit(0);

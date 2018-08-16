@@ -149,6 +149,13 @@ namespace SpaceH
             P2.pos += newCMPos, P2.vel += newCMVel;
         }
         
+        void moveOrbitTo(const Particle<Scalar>& P)
+        {
+            moveToCentreMassCoord();
+            P1.pos += P.pos, P1.vel += P.vel;
+            P2.pos += P.pos, P2.vel += P.vel;
+        }
+        
         void moveToCentreMassCoord()
         {
             Vector CMP = getCentreMassPos();
@@ -185,7 +192,7 @@ namespace SpaceH
         
         inline const Particle<Dtype>& primary() const
         {
-            if(P1.mass > P2.mass)
+            if(P1.mass >= P2.mass)
                 return P1;
             else
                 return P2;
@@ -227,7 +234,11 @@ namespace SpaceH
         
         void randomPhase(Scalar pastTime = -Unit::HUBBLETIME, Scalar futureTime = Unit::HUBBLETIME)
         {
-            Scalar M = Orbits::getRandomMeanAnomaly(e_, pastTime/T_, futureTime/T_);
+            Scalar M = 0;
+            if(e_< 1 && futureTime-pastTime > T_)
+                M = Orbits::getRandomMeanAnomaly(e_, -SpaceH::Const::PI, SpaceH::Const::PI);
+            else
+                M = Orbits::getRandomMeanAnomaly(e_, pastTime/T_, futureTime/T_);
             Scalar E = Orbits::getEccentricAnomaly(M, e_);
             trueAnomaly_ = Orbits::getTrueAnomaly(E, e_);
             createOrbit(P1.mass, P2.mass);

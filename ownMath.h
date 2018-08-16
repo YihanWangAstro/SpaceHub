@@ -6,6 +6,7 @@
 #ifdef __AVX__
 #pragma message("Using AVX on vector3d")
 #include <x86intrin.h>
+#endif
 
 #include <random>
 namespace SpaceH
@@ -48,10 +49,6 @@ namespace SpaceH
         }
         return 0.5*(up+low);
     }
-#ifdef __AVX__
-#pragma message("Using AVX on random number generator!")
-#include <immintrin.h>
-#endif
     template<typename Dtype>
     class Random
     {

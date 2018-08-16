@@ -3,6 +3,15 @@
 #include<iostream>
 namespace SpaceH
 {
+    template <typename Arg, typename... Args>
+    void print(std::ostream& out, Arg&& arg, Args&&... args)
+    {
+        out << std::forward<Arg>(arg);
+        using expander = int[];
+        (void)expander{0, (void(out << ' ' << std::forward<Args>(args)),0)...};
+        out << '\n';
+    }
+    
     void errMsg(const char* msg, const char* file, size_t line)
     {
         std::cout << " An error occurred: " << '\n';
@@ -12,9 +21,10 @@ namespace SpaceH
         exit(0);
     }
     
+
     /** @brief print an array. Used for debug*/
     template<typename T>
-    void print(T& var)
+    void printArray(T& var)
     {
         const size_t size = var.size();
         for(size_t i = 0 ; i < size; ++i )
@@ -37,6 +47,13 @@ namespace SpaceH
     public:
         using type = decltype(check<T>(0));
     };
+    
+    /** @brief Macros used to output debuf info.  */
+    #ifdef DEBUG
+    #define DEBUG_MSG(cond,...) ( cond ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )
+    #else
+    #define DEBUG_MSG(cond,...)
+    #endif
     
     /** @brief Macros used to check if a class has a specific method.  */
     #define CREATE_METHOD_CHECK(NAME)                                                                   \

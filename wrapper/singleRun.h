@@ -59,7 +59,7 @@ namespace SpaceH
             if(nbody.particles.time() > output_point)
             {
                 out_file << nbody.particles;
-                err_file << nbody.particles.time()/YEAR << ' '
+                err_file << nbody.particles.time()/SpaceH::Unit::YEAR << ' '
                          //<< SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE())
                 << SpaceH::abs((SpaceH::getTotalEnergy(nbody.particles.mass(), nbody.particles.pos(), nbody.particles.vel()) - E0)/E0)
                 << ' ' << nbody.iterator.getRejRate() 
