@@ -8,45 +8,45 @@
 
 namespace SpaceH
 {
-    struct EmptyClass{};
-    
-    constexpr size_t DYNAMICAL = 0;
-    
+struct EmptyClass {};
+
+constexpr size_t DYNAMICAL = 0;
+
+template<typename T, size_t S>
+struct ArrayWrapper : public std::array<T,S>
+{
+    inline void clear() {};
+    inline void reserve(size_t new_cap)
+    {
+        static_assert(new_cap > S, "Fixed size array cannot be allocated!");
+    };
+    inline void resize(size_t new_size) {};
+};
+
+template<typename T>
+struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};
+
+template<typename Dtype, size_t Size>
+struct ProtoType
+{
+    constexpr static size_t arraySize{Size};
+
     template<typename T, size_t S>
-    struct ArrayWrapper : public std::array<T,S>
-    {
-        inline void clear(){};
-        inline void reserve(size_t new_cap)
-        {
-            static_assert(new_cap > S, "Fixed size array cannot be allocated!");
-        };
-        inline void resize(size_t new_size){};
-    };
-    
-    template<typename T>
-    struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {};
-    
-    template<typename Dtype, size_t Size>
-    struct ProtoType
-    {
-        constexpr static size_t arraySize{Size};
-        
-        template<typename T, size_t S>
-        using Container      = ArrayWrapper<T, S>;
-        using Scalar         = Dtype;
-        using Vector         = vec3<Scalar>;
-        using VectorArray    = Container<Vector, Size>;
-        using ScalarArray    = Container<Scalar, Size>;
-        using IntArray       = Container<int, Size>;
-        using SizeArray      = Container<size_t, Size>;
-        using IndexArray     = SizeArray;
-        using ScalarBuffer   = Container<Scalar, DYNAMICAL>;
-    };
-    
-    
-    enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
-    enum class NbodyIO        {STD, ACTIVE};
-    enum class DATASTRUCT     { PLAIN=0, CHAIN };
+    using Container      = ArrayWrapper<T, S>;
+    using Scalar         = Dtype;
+    using Vector         = vec3<Scalar>;
+    using VectorArray    = Container<Vector, Size>;
+    using ScalarArray    = Container<Scalar, Size>;
+    using IntArray       = Container<int, Size>;
+    using SizeArray      = Container<size_t, Size>;
+    using IndexArray     = SizeArray;
+    using ScalarBuffer   = Container<Scalar, DYNAMICAL>;
+};
+
+
+enum       PARTICTYPE     { NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0 };
+enum class NbodyIO        {STD, ACTIVE};
+enum class DATASTRUCT     { PLAIN=0, CHAIN };
 }//end namespace SpaceH
 
 #endif /* protoType_h */

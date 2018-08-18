@@ -40,7 +40,7 @@ public:
     using Scalar = typename type::Scalar;
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
-    
+
     void advanceOneStep();
     void loadText(char const* initFilePath);
     void setStepLength(Scalar);
@@ -48,10 +48,10 @@ public:
 public:
     /** @brief Macro step size for ODE iterator*/
     Scalar stepLength{0.0};
-    
+
     /** @brief Steps*/
     int steps{0};
-    
+
     /** @brief Particle system*/
     ParticSys particles;
 
@@ -143,7 +143,7 @@ void Solver<ParticSys, ODEiterator>::setStepLength(Scalar stepSize)
 {
     stepLength = stepSize;
 }
-    
+
 }
 #endif
 

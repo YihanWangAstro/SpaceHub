@@ -1,7 +1,7 @@
 
 #ifndef REGULARIZATION_H
 #define REGULARIZATION_H
-#include "../../libs.h"
+#include "../../coreComputation.h"
 
 namespace SpaceH
 {
@@ -38,7 +38,22 @@ public:
      */
     inline Scalar getPhysicalVelTime(const Particles& partc, Scalar stepSize)
     {
-        return stepSize / -getPotentialEnergy(partc.mass(), partc.pos());
+        return stepSize / getPotEng<Particles>(partc);
+    }
+    
+private:
+    template<typename Partic_>
+    inline typename std::enable_if<Partic_::dataStruct == SpaceH::DATASTRUCT::PLAIN, Scalar>::type
+    getPotEng(const Partic_& partc)
+    {
+        return -getPotentialEnergy(partc.mass(), partc.pos());
+    }
+    
+    template<typename Partic_>
+    inline typename std::enable_if<Partic_::dataStruct == SpaceH::DATASTRUCT::CHAIN, Scalar>::type
+    getPotEng(const Partic_& partc)
+    {
+       return  -getPotentialEnergy(partc.mass(), partc.pos(), partc.chainPos(), partc.chainIndex());
     }
 };
 

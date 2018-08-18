@@ -24,9 +24,7 @@ public:
     /* Typedef */
     
     /*Template parameter check*/
-    
     /*Template parameter check*/
-    
     
     /**  @brief Omega scalar const interface. Reference to state.time*/
     inline const Scalar& omega() const { return omega_; }
@@ -69,7 +67,7 @@ public:
         Scalar dBindE = 0;
         
         for(size_t i = 0 ; i < particleNum ; ++i)
-            dBindE -= (velDepAcc[i] * velocity[i]) * (this->mass_[i]);
+            dBindE -= dot(velDepAcc[i], velocity[i]) * this->mass_[i];
         
         SpaceH::advanceScalar(bindE_, dBindE*stepSize);
     }

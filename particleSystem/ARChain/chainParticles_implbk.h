@@ -5,7 +5,6 @@
 
 namespace SpaceH
 {
-    
     /**
      *  @brief Class of dynamical variable.
      *
@@ -84,7 +83,6 @@ namespace SpaceH
         {
             SpaceH::advanceVector(chain_pos_, chain_vel_, stepSize);
             
-            
             //SpaceH::advanceVector(pos_, vel_, stepSize);
             SpaceH::chain::synCartesian(chain_pos_, pos_, ch_index_);
             Vector CMPos = SpaceH::calcuCMCoord(mass_, pos_, totalMass_);
@@ -122,7 +120,6 @@ namespace SpaceH
             chain_acc[chain_num].setZero();
             
             SpaceH::advanceVector(chain_vel_, chain_acc, stepSize);
-            
             
             //SpaceH::advanceVector(vel_, acc, stepSize);
             SpaceH::chain::synCartesian(chain_vel_, vel_, ch_index_);

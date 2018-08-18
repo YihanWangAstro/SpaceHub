@@ -125,12 +125,12 @@ namespace SpaceH
             Scalar nv2    = dot(n12, v2);
             Scalar A1 = 0.0, B1 = 0.0;
             
-            A1 = ( (5.0 * m1 + 4.0 * m2) * inv_r + (1.5 * nv2 * nv2 - v1 * v1 + 4.0 * (v1 * v2) - 2.0 *
-                                                    (v2 * v2))) * m2 * inv_r2 * Const::INV_C2;
+            A1 = ( (5.0 * m1 + 4.0 * m2) * inv_r + (1.5 * nv2 * nv2 - dot(v1, v1) + 4.0 * dot(v1, v2) - 2.0 *
+                                                    dot(v2, v2))) * m2 * inv_r2 * Const::INV_C2;
             B1 = (4.0 * nv1 - 3.0 * nv2) * m2 * inv_r2 * Const::INV_C2;
             acc1 += n12 * A1 - dv * B1;
-            A1 = ( (5.0 * m2 + 4.0 * m1) * inv_r + (1.5 * nv1 * nv1 - v2 * v2 + 4.0 * (v2 * v1) - 2.0 *
-                                                    (v1 * v1))) * m1 * inv_r2 * Const::INV_C2;
+            A1 = ( (5.0 * m2 + 4.0 * m1) * inv_r + (1.5 * nv1 * nv1 - dot(v2, v2) + 4.0 * dot(v2, v1) - 2.0 *
+                                                    dot(v1, v1))) * m1 * inv_r2 * Const::INV_C2;
             B1 = (-4.0 * nv2 + 3.0 * nv1) * m1 * inv_r2 * Const::INV_C2;
             acc2 -= n12 * A1 - dv * B1;
         }

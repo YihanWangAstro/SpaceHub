@@ -5,7 +5,6 @@
 #include "kahanNumber.h"
 #include "macros.h"
 
-
 #include "tools/timer.h"
 
 #include "particleSystem.h"
@@ -25,7 +24,7 @@
 
 #include "integrator/Gauss-Dadau.h"
 
-#include "ODEiterator/BSIterator_impl3.h"
+#include "ODEiterator/BSIterator.h"
 #include "ODEiterator/constIterator.h"
 #include "ODEiterator/IAS15.h"
 

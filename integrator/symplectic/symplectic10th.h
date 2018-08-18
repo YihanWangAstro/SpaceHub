@@ -10,10 +10,10 @@ public:
     using type   = typename ParticSys::type;
     using Scalar = typename type::Scalar;
     /* Typedef */
-    
+
     /*Template parameter check*/
     /*Template parameter check*/
-    
+
     /** @brief Order of the integrator*/
     static const int order{10};
     void integrate(ParticSys& particles, Scalar stepLength);
@@ -27,7 +27,8 @@ public:
  */
 template <typename ParticSys>
 void symplectic10th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength)
-{   /*unroll loop manually*/
+{
+    /*unroll loop manually*/
     particles.drift(3.0610967201933609e-01 * stepLength);
     particles.kick(6.1221934403867218e-01 * stepLength);
     particles.drift(-9.4012698954724694e-02 * stepLength);

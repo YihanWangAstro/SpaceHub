@@ -75,7 +75,7 @@ public:
      */
     Scalar timeScale()
     {
-        return Base::timeScale() * regular.getPhysicalPosTime(partc, 1);
+        return Base::timeScale() / regular.getPhysicalPosTime(partc, 1);
     }
 
 private:
@@ -88,11 +88,15 @@ private:
     inline typename std::enable_if<isVelDep==false>::type
     advanceVels(Scalar stepSize)
     {
-        act.calcuTotalAcc();
+        /*act.calcuTotalAcc();
         partc.advanceVel(act.totalAcc(), 0.5*stepSize);
         partc.advanceOmega(act.velIndepAcc(), partc.vel(), stepSize);
-        partc.advanceVel(act.totalAcc(), 0.5*stepSize);
+        partc.advanceVel(act.totalAcc(), 0.5*stepSize);*/
         //partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
+        act.calcuTotalAcc();
+        partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
+        partc.advanceVel(act.totalAcc(), stepSize);
+        partc.advanceOmega(act.velIndepAcc(), partc.vel(), 0.5*stepSize);
     }
     
     /** @brief SFINAE version of kick() of velocity dependent force */
@@ -103,10 +107,20 @@ private:
         advanceAuxiVel(stepSize*0.5);
         
         partc.advanceOmega(act.velIndepAcc(), partc.auxiVel(), stepSize);
-        advanceRrealVel(stepSize);
-        partc.advanceBindE(act.velDepAcc(),   partc.auxiVel(), stepSize);
+        advanceRealVel(stepSize);
+        partc.advanceBindE(act.velDepAcc(),   partc.auxiVel(), stepSize);//need refinement with auxi access
         
         advanceAuxiVel(stepSize*0.5);
+        
+        /*partc.advanceOmega(act.velIndepAcc(), partc.auxiVel(), 0.5*stepSize);
+        advanceAuxiVel(stepSize*0.5);
+        VectorArray auxiVelDepAcc = act.velDepAcc();
+        
+        advanceRealVel(stepSize);
+        partc.advanceBindE(auxiVelDepAcc, partc.auxiVel(), stepSize);
+        
+        advanceAuxiVel(stepSize*0.5);
+        partc.advanceOmega(act.velIndepAcc(), partc.auxiVel(), 0.5*stepSize);*/
     }
     
     /** @brief Advance real velocity one step with current acceleration.
@@ -114,7 +128,7 @@ private:
      *  Advance velocity array one step with current integration step size and accelerations.
      *  @param  stepSize Integration step size, will be transfered to physical time in the function.
      */
-    inline void advanceRrealVel(Scalar stepSize)
+    inline void advanceRealVel(Scalar stepSize)
     {
         act.calcuAuxiVelDepAcc(partc);
         act.calcuExtAuxiVelDepAcc(partc);

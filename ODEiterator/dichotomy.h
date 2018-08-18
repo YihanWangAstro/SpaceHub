@@ -13,11 +13,11 @@ public:
     typedef typename ParticSys::Scalar     Scalar;
     typedef typename ParticSys::PlainArray PlainArray;
     /* Typedef */
-    
+
     /*Template parameter check*/
     CHECK_TYPE(ParticSys, Integrator)
     /*Template parameter check*/
-    
+
     /** @brief interface to iterate particle system for one step
      *  @param particles  Particle system needs evolution.
      *  @param integrator Integrator to integrate the particle system.
@@ -25,35 +25,35 @@ public:
      *  @return step length for next iteration.
      */
     Scalar iterate(ParticSys& particles, Scalar stepLength);
-    
+
     /** @brief Set the local relative error*/
     void setRelativeError(Scalar relError)
     {
         relativeError = relError;
     }
-    
+
     /** @brief Set the local absolute error*/
     void setAbsoluteError(Scalar absError)
     {
         absoluteError = absError;
     }
-    
+
 private:
     /** @brief The local partical system used to iterate.*/
     ParticSys localSystem1;
-    
+
     /** @brief The local partical system used to iterate.*/
     ParticSys localSystem2;
-    
+
     /** @brief The local partical system used to iterate.*/
     ParticSys localSystem3;
-    
+
     /** @brief Local absolute error*/
     Scalar absoluteError{1e-15};
-    
+
     /** @brief Local relative error*/
     Scalar relativeError{1e-15};
-    
+
     /** @brief Calculate the error of two integration results*/
     Scalar getError(PlainArray& array1, PlainArray& array2) const;
 };
@@ -63,15 +63,15 @@ typename ParticSys::Scalar dichoIterator<ParticSys, Integrator>::iterate(ParticS
 {
     localSystem1 = particles;
     localSystem2 = particles;
-    
+
     integrator.integrate(localSystem1, stepLength);
     stepLength *= 0.5;
     integrator.integrate(localSystem2, stepLength);
     localSystem3 = localSystem2;
     integrator.integrate(localSystem2, stepLength);
-    
+
     Scalar err = getError(localSystem1.array(), localSystem2.array());
-    
+
     if(err >= 1)
     {
         for(; getError(localSystem1.array(), localSystem2.array()) > 1 ; )
@@ -95,8 +95,8 @@ typename ParticSys::Scalar dichoIterator<ParticSys, Integrator>::iterate(ParticS
             integrator.integrate(localSystem1, stepLength);
         }
     }
-    
-    
+
+
     return stepLength;
 }
 
@@ -106,13 +106,13 @@ typename ParticSys::Scalar dichoIterator<ParticSys, Integrator>::getError(PlainA
     size_t size = array1.size();
     Scalar maxError = 0;
     Scalar error    = 0;
-    
+
     for(size_t i = 0 ; i < size; ++i)
     {
         error = abs(array1[i] - array2[i]) / (min(abs(array1[i]), array2[i]) ) * this->relativeError + this->absoluteError);
         maxError = max(maxError, error);
     }
-    
+
     return maxError;
 }
 #endif

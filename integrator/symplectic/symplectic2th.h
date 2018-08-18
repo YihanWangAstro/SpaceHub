@@ -13,10 +13,10 @@ public:
     using type   = typename ParticSys::type;
     using Scalar = typename type::Scalar;
     /* Typedef */
-    
+
     /*Template parameter check*/
     /*Template parameter check*/
-    
+
     /** @brief Order of the integrator*/
     static const int order{2};
     void integrate(ParticSys& particles, Scalar stepLength);

@@ -2,7 +2,7 @@
 
 #ifndef KAHANNUMBER_h
 #define KAHANNUMBER_h
-#include "libs.h"
+#include "coreComputation.h"
 namespace SpaceH
 {
 /** @brief Kahan number
@@ -15,46 +15,46 @@ struct kahan
 {
 public:
     using value_type = T;
-    
+
     T real, err;
-    
+
     kahan() {};
-    
+
     kahan(T r) : real(r), err(0) {};
-    
-    kahan(const kahan& k) : real(k.real), err(k.err){};
-    
+
+    kahan(const kahan& k) : real(k.real), err(k.err) {};
+
     inline const kahan& operator=( const kahan& hs)
     {
         real = hs.real, err = 0;
         return *this;
     }
-    
+
     inline operator T()
     {
         return real;
     }
-    
+
     inline operator T() const
     {
         return real;
     }
-    
+
     inline void zeroErr()
     {
         err = 0;
     }
-    
+
     friend inline kahan operator-(const kahan& hs)
     {
         return kahan(-hs.real);
     }
-    
+
     friend inline const kahan& operator+=(kahan& lhs, const kahan& rhs)
     {
         T add = rhs.real - lhs.err;
         T sum = lhs.real + add;
-        
+
         if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
             lhs.err = (sum - lhs.real) - add;
         else
@@ -63,12 +63,12 @@ public:
         lhs.real = sum;
         return lhs;
     }
-    
+
     friend inline const kahan& operator-=(kahan& lhs, const kahan& rhs)
     {
         T add = -rhs.real - lhs.err;
         T sum = lhs.real + add;
-        
+
         if(SpaceH::abs(rhs.real) < SpaceH::abs(lhs.real))
             lhs.err = (sum - lhs.real) - add;
         else
@@ -77,19 +77,19 @@ public:
         lhs.real = sum;
         return lhs;
     }
-    
+
     friend inline const kahan& operator/=(kahan& lhs, const kahan& rhs)
     {
         lhs.real /= rhs.real;
         return lhs;
     }
-    
+
     friend inline const kahan& operator*=(kahan& lhs, const kahan& rhs)
     {
         lhs.real *= rhs.real;
         return lhs;
     }
-    
+
     /** @brief Output to ostream */
     friend std::ostream& operator<<(std::ostream& output, const kahan& v)
     {
@@ -103,8 +103,8 @@ public:
         return input;
     }
 };
-    using precise_ld = kahan<long double>;
-    using precise_d  = kahan<double>;
-    using precise_f  = kahan<float>;
+using precise_ld = kahan<long double>;
+using precise_d  = kahan<double>;
+using precise_f  = kahan<float>;
 }//end namespace SpaceH
 #endif /* kahanNumber_h */

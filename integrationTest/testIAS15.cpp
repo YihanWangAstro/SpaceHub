@@ -45,7 +45,7 @@ int main(int argc, char**argv)
     
     //using f = SpaceH::KarmackNewtonian<scalar,N>;
     using force = SpaceH::NewtonForce<scalar,N>;
-    using PNf = SpaceH::PostNewtonianForce<scalar,N,true,false,false>;
+    using PN = SpaceH::PostNewtonianForce<scalar,N,true,false,false>;
     
     //using sys = SpaceH::Basic<force>;
     using sys = SpaceH::ARchain<force>;
@@ -55,14 +55,15 @@ int main(int argc, char**argv)
     
     
     
-    nbody.loadText("solar_earth.init");
-    //nbody.loadText("circular.init");
-    //nbody.loadText("elliptic.init");
+   // nbody.loadText("solar_earth.init");
+    nbody.loadText("circular.init");
+   // nbody.loadText("elliptic.init");
+    //nbody.loadText("Kozai.init");
     
    // nbody.iterator.setRelativeError(1e-6);
 
     double timeLimit = 1000*SpaceH::Unit::YEAR;
-    double dt = 0.1*SpaceH::Unit::YEAR;
+    double dt = 0.001*SpaceH::Unit::YEAR;
     double tout = 0;
 
     std::ofstream os("out.dat");
@@ -85,11 +86,11 @@ int main(int argc, char**argv)
         {
             os  << nbody.particles;
             eos << nbody.particles.time()/SpaceH::Unit::YEAR << ' '
-                << getTotalEnergy(nbody.particles.mass(), nbody.particles.pos(), nbody.particles.vel()) << ' '
+                //<< getTotalEnergy(nbody.particles.mass(), nbody.particles.pos(), nbody.particles.vel()) << ' '
                 //<< nbody.particles.omega() << ' '
                 //<< nbody.particles.bindE() << ' '
                 //<< nbody.stepLength <<' '
-                //<< SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE()) <<"\r\n";
+                << SpaceH::getEnergyErr(nbody.particles.mass(),nbody.particles.pos(),nbody.particles.vel(),nbody.particles.bindE())
                 << "\r\n";
             tout += dt;
         }
