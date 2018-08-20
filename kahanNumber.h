@@ -2,7 +2,7 @@
 
 #ifndef KAHANNUMBER_h
 #define KAHANNUMBER_h
-#include "coreComputation.h"
+#include "ownMath.h"
 namespace SpaceH
 {
 /** @brief Kahan number

@@ -1,6 +1,8 @@
 #ifndef BSITERATOR_H
 #define BSITERATOR_H
 #include "../coreComputation.h"
+#include "../ownMath.h"
+
 namespace SpaceH
 {
 /** @brief Bulirsch-Stoer extrapolation algorithm*/
@@ -155,8 +157,8 @@ BSIterator<ParticSys, Integrator>::BSIterator()
         }
     }
 
-    absoluteError = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
-    relativeError = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+    absoluteError = 1*SpaceH::epsilon<Scalar>::value;
+    relativeError = 1*SpaceH::epsilon<Scalar>::value;
 }
 
 

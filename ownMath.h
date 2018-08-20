@@ -3,65 +3,93 @@
 #define OWNMATH_H
 #include "devTools.h"
 
-#ifdef __AVX__
-#pragma message("Using AVX on vector3d")
-#include <x86intrin.h>
-#endif
-
 #include <random>
 namespace SpaceH
 {
-template<typename Dtype>
-struct epsilon
-{
-    using value_type = typename SpaceH::get_value_type<Dtype>::type;
-    constexpr static value_type value = std::numeric_limits<value_type>::epsilon();
-};
-
-template<typename Dtype>
-struct max_value
-{
-    using value_type = typename SpaceH::get_value_type<Dtype>::type;
-    constexpr static value_type value = std::numeric_limits<value_type>::max();
-};
-
-template<typename Dtype>
-struct big_value
-{
-    using value_type = typename SpaceH::get_value_type<Dtype>::type;
-    constexpr static value_type value = 0.1*std::numeric_limits<value_type>::max();
-};
-
-template<typename Fun>
-decltype(std::declval<Fun>()(0)) root_dichotom(Fun f)
-{
-    using Scalar = decltype(f(0));
-    Scalar up = SpaceH::big_value<Scalar>::value;
-    Scalar low = -up;
-
-    for( ; fabs((up-low)/up) > SpaceH::epsilon<Scalar>::value; )
+    /** @brief Self min()*/
+    template<typename T1, typename T2>
+    inline const T2 min(const T1& x, const T2& y)
     {
-        Scalar mid = 0.5*(up + low);
-        if(f(mid)>0)
-            up = mid;
-        else
-            low = mid;
+        return x > y ? y : x;
     }
-    return 0.5*(up+low);
-}
-template<typename Dtype>
-class Random
-{
-public:
-    Random() : gen(rd()), Dist(0,1) {}
-    std::random_device rd;// non-deterministic generator
-    std::mt19937 gen;
-    std::uniform_real_distribution<Dtype> Dist;
-    inline Dtype operator()()
+    
+    /** @brief Self max()*/
+    template<typename T1, typename T2>
+    inline const T2 max(const T1& x, const T2& y)
     {
-        return Dist(gen);
+        return y > x ? y : x;
     }
-};
-Random<double> uniform;
+    
+    /** @brief Self abs()*/
+    template<class T>
+    inline const T abs(const T& x)
+    {
+        return x > 0 ? x : -x;
+    }
+    
+    template<typename T>
+    inline constexpr T stepfunction(T x)
+    {
+        return static_cast<T>(x > 0);
+    }
+    
+    template<typename T>
+    inline constexpr T sign(T x)
+    {
+        return -1 + 2*static_cast<T>(x > 0);
+    }
+    
+    template<typename Dtype>
+    struct epsilon
+    {
+        using value_type = typename SpaceH::get_value_type<Dtype>::type;
+        constexpr static value_type value = std::numeric_limits<value_type>::epsilon();
+    };
+    
+    template<typename Dtype>
+    struct max_value
+    {
+        using value_type = typename SpaceH::get_value_type<Dtype>::type;
+        constexpr static value_type value = std::numeric_limits<value_type>::max();
+    };
+    
+    template<typename Dtype>
+    struct big_value
+    {
+        using value_type = typename SpaceH::get_value_type<Dtype>::type;
+        constexpr static value_type value = 0.1*std::numeric_limits<value_type>::max();
+    };
+    
+    template<typename Fun>
+    decltype(std::declval<Fun>()(0)) root_dichotom(Fun f)
+    {
+        using Scalar = decltype(f(0));
+        Scalar up = SpaceH::big_value<Scalar>::value;
+        Scalar low = -up;
+        
+        for( ;fabs((up-low)/up) > SpaceH::epsilon<Scalar>::value; )
+        {
+            Scalar mid = 0.5*(up + low);
+            if(f(mid)>0)
+                up = mid;
+            else
+                low = mid;
+        }
+        return 0.5*(up+low);
+    }
+    template<typename Dtype>
+    class Random
+    {
+    public:
+        Random() : gen(rd()), Dist(0,1) {}
+        std::random_device rd;// non-deterministic generator
+        std::mt19937 gen;
+        std::uniform_real_distribution<Dtype> Dist;
+        inline Dtype operator()()
+        {
+            return Dist(gen);
+        }
+    };
+    Random<double> uniform;
 }
 #endif

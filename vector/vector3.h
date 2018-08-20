@@ -21,6 +21,8 @@ public:
     T  z;
 
     vec3() : x(0), y(0), z(0) {};
+    vec3(T scalar) : x(scalar), y(scalar), z(scalar) {};
+    vec3(typename T::value_type scalar) : x(scalar), y(scalar), z(scalar) {};
     vec3(T vx, T vy, T vz) : x(vx), y(vy), z(vz) {};
     vec3(const vec3& v) : x(v.x), y(v.y), z(v.z) {};
     /** @brief Addition by wise */
@@ -42,26 +44,6 @@ public:
     inline vec3 operator/(const vec3& v) const
     {
         return vec3(x / v.x, y / v.y, z / v.z);
-    }
-    /** @brief Add scalar by wise */
-    inline vec3 operator+(const T c) const
-    {
-        return vec3(x + c, y + c, z + c);
-    }
-    /** @brief Subtract scalar by wise */
-    inline vec3 operator-(const T c) const
-    {
-        return vec3(x - c, y - c, z - c);
-    }
-    /** @brief Multiply scalar by wise */
-    inline vec3 operator*(const T c) const
-    {
-        return vec3(x * c, y * c, z * c);
-    }
-    /** @brief Divide scalar by wise */
-    inline vec3 operator/(const T c) const
-    {
-        return vec3(x / c, y / c, z / c);
     }
     /** @brief Opposite vector */
     inline vec3 operator-() const
@@ -91,26 +73,6 @@ public:
     inline const vec3& operator/=(const vec3& v)
     {
         x /= v.x, y /= v.y, z /= v.z;
-        return *this;
-    }
-    inline const vec3& operator+=(const T c)
-    {
-        x += c, y += c, z += c;
-        return *this;
-    }
-    inline const vec3& operator-=(const T c)
-    {
-        x -= c, y -= c, z -= c;
-        return *this;
-    }
-    inline const vec3& operator*=(const T c)
-    {
-        x *= c, y *= c, z *= c;
-        return *this;
-    }
-    inline const vec3& operator/=(const T c)
-    {
-        x /= c, y /= c, z /= c;
         return *this;
     }
     inline const vec3& operator=(const vec3& v)
@@ -143,22 +105,6 @@ public:
     inline void setZero()
     {
         x = y = z = 0;
-    }
-    friend vec3 operator+(const T c, const vec3& v)
-    {
-        return vec3(v.x + c, v.y + c, v.z + c);
-    }
-    friend vec3 operator-(const T c, const vec3& v)
-    {
-        return vec3(c - v.x, c - v.y, c - v.z);
-    }
-    friend vec3 operator*(const T c, const vec3& v)
-    {
-        return vec3(v.x * c, v.y * c, v.z * c);
-    }
-    friend vec3 operator/(const T c, const vec3& v)
-    {
-        return vec3(c/v.x, c/v.y, c/v.z);
     }
     /** @brief Output to ostream */
     friend std::ostream& operator<<(std::ostream& output, const vec3& v)

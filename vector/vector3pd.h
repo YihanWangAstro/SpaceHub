@@ -2,8 +2,8 @@
 #ifndef GENVECT3PD_H
 #define GENVECT3PD_H
 
-#ifdef __AVX2__
-#pragma message("Using AVX on vectorpd")
+#ifdef __AVX512F__
+#pragma message("Using AVX512 on vectorpd")
 #include <x86intrin.h>
 #include "../kahanNumber.h"
 

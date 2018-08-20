@@ -2,6 +2,8 @@
 #define BSITERATOR_H
 #include "../coreComputation.h"
 #include "../devTools.h"
+#include "../ownMath.h"
+
 namespace SpaceH
 {
 
@@ -193,8 +195,8 @@ BSIterator<ParticSys, Integrator>::BSIterator()
         }
     }
 
-    absoluteError_ = 1*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
-    relativeError_ = 5*std::numeric_limits<typename SpaceH::get_value_type<Scalar>::type>::epsilon();
+    absoluteError_ = 1*SpaceH::epsilon<Scalar>::value;
+    relativeError_ = 5*SpaceH::epsilon<Scalar>::value;
 }
 
 template <typename ParticSys, typename Integrator>

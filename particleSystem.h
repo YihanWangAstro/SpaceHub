@@ -135,7 +135,7 @@ public:
         return partc.idn(i);
     }
 
-
+    
     /** @brief Interface to rescale the time.
      *
      *  Interace used by dynamic system. Transfer integration time(For some system, integration time is different from
@@ -179,7 +179,6 @@ public:
     inline void advancePos(Scalar stepSize)
     {
         partc.advancePos(stepSize);
-
     }
 
     /** @brief Advance the position array with given velocity array.
@@ -189,7 +188,6 @@ public:
     inline void advancePos(const VectorArray& vel, Scalar stepSize)
     {
         partc.advancePos(vel, stepSize);
-
     }
 
     /** @brief Advance the  velocity array with given acceleration array.
@@ -216,6 +214,24 @@ public:
         act.calcuTotalAcc();
     }
 
+    /** @brief Calculate the potential energy of the system*/
+    inline Scalar potentialEnergy()
+    {
+        return SpaceH::getPotentialEnergy(partc.mass(), partc.pos());
+    }
+    
+    /** @brief Calculate the kinetic energy of the system*/
+    inline Scalar kineticEnergy()
+    {
+        return SpaceH::getKineticEnergy(partc.mass(), partc.vel());
+    }
+    
+    /** @brief Calculate the total energy of the system*/
+    inline Scalar totalEnergy()
+    {
+        return potentialEnergy() + kineticEnergy();
+    }
+    
     /** @brief Preprocess before iteration*/
     void preIterProcess() {}
 

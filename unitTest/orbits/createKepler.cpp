@@ -50,13 +50,13 @@ int main()
     }
     
     {
-        Scalar e = 0.6;
+        Scalar e = 0.5;
         Scalar p = fabs(1-e*e)* Unit::AU;
-        KObt orbit1(Unit::M_SOLAR, Unit::M_EARTH, p, e, 0, 0, 0);
+        KObt orbit1(1*Unit::M_SOLAR, Unit::M_EARTH, p, e, 0, 0, 0);
         
         e = 0.01;
         p = 0.001 * fabs(1-e*e) * Unit::AU;
-        KObt orbit2(Unit::M_EARTH, Unit::M_EARTH, p, e, 0, 0, 0);
+        KObt orbit2(Unit::M_EARTH, Unit::M_EARTH, p, e, 0, 0.5*Const::PI, 0);
 
         orbit2.moveOrbitTo(orbit1.secondary());
         

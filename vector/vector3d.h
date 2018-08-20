@@ -29,6 +29,7 @@ public:
 
     vec3(): mmvalue(_mm256_setzero_pd()) {};
     vec3(double vx, double vy, double vz) : mmvalue(_mm256_set_pd(0.0, vz, vy, vx)) {};
+    vec3(double scalar) : mmvalue(_mm256_set1_pd(scalar)) {};
     vec3(__m256d v) : mmvalue(v) {};
     vec3(const vec3& v) : mmvalue(v.mmvalue) {};
     /** @brief Addition by wise */
@@ -50,26 +51,6 @@ public:
     inline vec3 operator/(const vec3& v) const
     {
         return vec3(_mm256_div_pd(mmvalue, v.mmvalue));
-    }
-    /** @brief Add scalar by wise */
-    inline vec3 operator+(const double c) const
-    {
-        return vec3(_mm256_add_pd(mmvalue, _mm256_set1_pd(c)));
-    }
-    /** @brief Subtract scalar by wise */
-    inline vec3 operator-(const double c) const
-    {
-        return vec3(_mm256_sub_pd(mmvalue, _mm256_set1_pd(c)));
-    }
-    /** @brief Multiply scalar by wise */
-    inline vec3 operator*(const double c) const
-    {
-        return vec3(_mm256_mul_pd(mmvalue, _mm256_set1_pd(c)));
-    }
-    /** @brief Divide scalar by wise */
-    inline vec3 operator/(const double c) const
-    {
-        return vec3(_mm256_div_pd(mmvalue, _mm256_set1_pd(c)));
     }
     /** @brief Opposite vector */
     inline vec3 operator-() const
@@ -103,26 +84,6 @@ public:
         mmvalue = _mm256_div_pd(mmvalue, v.mmvalue);
         return *this;
     }
-    inline const vec3& operator+=(const double c)
-    {
-        mmvalue = _mm256_add_pd(mmvalue, _mm256_set1_pd(c));
-        return *this;
-    }
-    inline const vec3& operator-=(const double c)
-    {
-        mmvalue = _mm256_sub_pd(mmvalue, _mm256_set1_pd(c));
-        return *this;
-    }
-    inline const vec3& operator*=(const double c)
-    {
-        mmvalue = _mm256_mul_pd(mmvalue, _mm256_set1_pd(c));
-        return *this;
-    }
-    inline const vec3& operator/=(const double c)
-    {
-        mmvalue = _mm256_div_pd(mmvalue, _mm256_set1_pd(c));
-        return *this;
-    }
     inline const vec3& operator=(const vec3& v)
     {
         mmvalue = v.mmvalue;
@@ -146,7 +107,6 @@ public:
         double max = (x > y ? x : y);
         return max > z ? max : z;
     }
-
     /** @brief Calculate the inverse of the norm */
     inline double reNorm() const
     {
@@ -156,22 +116,6 @@ public:
     inline void setZero()
     {
         mmvalue = _mm256_setzero_pd();
-    }
-    friend vec3 operator+(const double c, const vec3& v)
-    {
-        return vec3(_mm256_add_pd(_mm256_set1_pd(c), v.mmvalue));
-    }
-    friend vec3 operator-(const double c, const vec3& v)
-    {
-        return vec3(_mm256_sub_pd(_mm256_set1_pd(c), v.mmvalue));
-    }
-    friend vec3 operator*(const double c, const vec3& v)
-    {
-        return vec3(_mm256_mul_pd(_mm256_set1_pd(c), v.mmvalue));
-    }
-    friend vec3 operator/(const double c, const vec3& v)
-    {
-        return vec3(_mm256_div_pd(_mm256_set1_pd(c), v.mmvalue));
     }
     /** @brief Output to ostream */
     friend std::ostream& operator<<(std::ostream& output, const vec3& v)
