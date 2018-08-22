@@ -1,0 +1,8 @@
+<map id="SpaceH::vec3::vec3" name="SpaceH::vec3::vec3">
+<area shape="rect" id="node2" href="$struct_space_h_1_1vec3.html#a439dd37afaf3c046cd58b370b9d70b80" title="Addition by wise. " alt="" coords="193,5,362,31"/>
+<area shape="rect" id="node3" href="$struct_space_h_1_1vec3.html#a8af5f368ccbf70d24d528592acfc6278" title="Subtraction by wise. " alt="" coords="195,55,361,80"/>
+<area shape="rect" id="node4" href="$struct_space_h_1_1vec3.html#a5399298171d5e12e7b76ade00ab7d67d" title="Product by wise. " alt="" coords="195,104,361,129"/>
+<area shape="rect" id="node5" href="$struct_space_h_1_1vec3.html#ab9d46a10bb578ff6939ed9280cb12df8" title="Divition by wise. " alt="" coords="195,153,360,179"/>
+<area shape="rect" id="node6" href="$struct_space_h_1_1vec3.html#af82905f49546b9aa03799dcd87bdff0c" title="Absolute value by wise. " alt="" coords="211,203,344,228"/>
+<area shape="rect" id="node7" href="$struct_space_h_1_1vec3.html#a7733c9e0651122a67a0fdda34415985c" title="SpaceH::vec3::unit" alt="" coords="211,252,344,277"/>
+</map>

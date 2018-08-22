@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>spacehub: test/main.cpp File Reference</title>
+<title>My Project: integrationTest/main.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">spacehub
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_1a8de6b629e289243a7db09a46f68c35.html">integrationTest</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,15 +73,14 @@ $(function() {
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="space_x_8h_source.html">../spaceX.h</a>&quot;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="single_run_8h_source.html">../wrapper/singleRun.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="err_curve_8h_source.html">../wrapper/errCurve.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#test_2main_8cpp" alt=""/></div>
-<map name="test_2main_8cpp" id="test_2main_8cpp">
+<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#integration_test_2main_8cpp" alt=""/></div>
+<map name="integration_test_2main_8cpp" id="integration_test_2main_8cpp">
 <area shape="rect" id="node2" href="space_x_8h.html" title="../spaceX.h" alt="" coords="1194,79,1282,104"/>
 <area shape="rect" id="node3" href="dynamic_system_8h.html" title="dynamicSystem.h" alt="" coords="2227,159,2354,184"/>
 <area shape="rect" id="node11" href="particles_8h.html" title="particles.h" alt="" coords="403,245,485,271"/>
@@ -108,15 +107,11 @@ Include dependency graph for main.cpp:</div>
 <area shape="rect" id="node13" href="vector3_8h.html" title="vector3.h" alt="" coords="1206,399,1282,424"/>
 </map>
 </div>
-</div>
-<p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a969d015f81ed11dbfedaf9ac490afdcf"><td class="memItemLeft" align="right" valign="top">typedef std::chrono::time_point&lt; std::chrono::high_resolution_clock &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a969d015f81ed11dbfedaf9ac490afdcf">resolutionClock</a></td></tr>
-<tr class="separator:a969d015f81ed11dbfedaf9ac490afdcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a62f5c6f96443f50859843873d1bc8b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1a62f5c6f96443f50859843873d1bc8b">scalar</a> = <a class="el" href="struct_space_h_1_1kahan.html">SpaceH::kahan</a>&lt; double &gt;</td></tr>
-<tr class="separator:a1a62f5c6f96443f50859843873d1bc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af786f233400a63a2d45bfcb709ffbfb3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af786f233400a63a2d45bfcb709ffbfb3">scalar</a> = <a class="el" href="namespace_space_h.html#a50a1e263353add842b5f87190a4f9254">SpaceH::precise_d</a></td></tr>
+<tr class="separator:af786f233400a63a2d45bfcb709ffbfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -125,39 +120,23 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:adf99ea743b5dadbe8dc48388c0d7fa94"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#adf99ea743b5dadbe8dc48388c0d7fa94">N</a> = 3</td></tr>
+<tr class="memitem:aa5684e2000f8f36e7c5d0115edb4dc1e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa5684e2000f8f36e7c5d0115edb4dc1e">files</a> [] ={&quot;circular&quot;,&quot;elliptic&quot;,&quot;solar_earth&quot;,&quot;Kozai&quot;}</td></tr>
+<tr class="separator:aa5684e2000f8f36e7c5d0115edb4dc1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf99ea743b5dadbe8dc48388c0d7fa94"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#adf99ea743b5dadbe8dc48388c0d7fa94">N</a> = <a class="el" href="namespace_space_h.html#a3e55b9bc2a9e10c08ce8121bce11244a">SpaceH::DYNAMICAL</a></td></tr>
 <tr class="separator:adf99ea743b5dadbe8dc48388c0d7fa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a969d015f81ed11dbfedaf9ac490afdcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a969d015f81ed11dbfedaf9ac490afdcf">&#9670;&nbsp;</a></span>resolutionClock</h2>
+<a id="af786f233400a63a2d45bfcb709ffbfb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af786f233400a63a2d45bfcb709ffbfb3">&#9670;&nbsp;</a></span>scalar</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::chrono::time_point&lt;std::chrono::high_resolution_clock&gt; <a class="el" href="main_8cpp.html#a969d015f81ed11dbfedaf9ac490afdcf">resolutionClock</a></td>
+          <td class="memname">using <a class="el" href="main_8cpp.html#af786f233400a63a2d45bfcb709ffbfb3">scalar</a> =  <a class="el" href="namespace_space_h.html#a50a1e263353add842b5f87190a4f9254">SpaceH::precise_d</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00007">7</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a1a62f5c6f96443f50859843873d1bc8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a62f5c6f96443f50859843873d1bc8b">&#9670;&nbsp;</a></span>scalar</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="main_8cpp.html#a1a62f5c6f96443f50859843873d1bc8b">scalar</a> =  <a class="el" href="struct_space_h_1_1kahan.html">SpaceH::kahan</a>&lt;double&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00009">9</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -188,23 +167,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00011">11</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png" border="0" usemap="#main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" alt=""/></div>
-<map name="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" id="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph">
-<area shape="rect" id="node2" href="classdynamic_system.html#a3ff4342241733e94edce17c1a79a90a8" title="Load particle system initial condition from file. " alt="" coords="112,5,284,31"/>
-<area shape="rect" id="node3" href="namespace_space_h.html#afcd42842d483ee8bdc23081de14b515c" title="Calculate the total(potential + kinetic) energy of particles. " alt="" coords="115,55,281,80"/>
-<area shape="rect" id="node5" href="namespace_space_h.html#ac749af71ba4e3334b9240de25f7369cc" title="Calculate the potential energy of particles. " alt="" coords="104,104,292,129"/>
-<area shape="rect" id="node6" href="namespace_space_h.html#a4b0ebb47dda5ff4c231a7c889ac55c89" title="Calculate the kinetic energy of particles. " alt="" coords="110,153,286,179"/>
-<area shape="rect" id="node4" href="vector3_8h.html#ab34b7bf3459e88f9ad682f32e13f07a6" title="Calculate the Euclid distance of two vectors. " alt="" coords="340,80,411,105"/>
-</map>
-</div>
-
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aa5684e2000f8f36e7c5d0115edb4dc1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5684e2000f8f36e7c5d0115edb4dc1e">&#9670;&nbsp;</a></span>files</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string files[] ={&quot;circular&quot;,&quot;elliptic&quot;,&quot;solar_earth&quot;,&quot;Kozai&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adf99ea743b5dadbe8dc48388c0d7fa94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf99ea743b5dadbe8dc48388c0d7fa94">&#9670;&nbsp;</a></span>N</h2>
 
@@ -212,12 +191,10 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const size_t N = 3</td>
+          <td class="memname">const size_t N = <a class="el" href="namespace_space_h.html#a3e55b9bc2a9e10c08ce8121bce11244a">SpaceH::DYNAMICAL</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00010">10</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>

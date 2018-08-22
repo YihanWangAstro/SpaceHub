@@ -1,0 +1,243 @@
+\hypertarget{class_space_h_1_1_gauss_dadau}{}\section{SpaceH\+:\+:Gauss\+Dadau$<$ Partic\+Sys $>$ Class Template Reference}
+\label{class_space_h_1_1_gauss_dadau}\index{Space\+H\+::\+Gauss\+Dadau$<$ Partic\+Sys $>$@{Space\+H\+::\+Gauss\+Dadau$<$ Partic\+Sys $>$}}
+
+
+Gauss-\/\+Dadau integrator.  
+
+
+
+
+{\ttfamily \#include $<$Gauss-\/\+Dadau.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}{type}} = typename Partic\+Sys\+::type
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}} = typename type\+::\+Scalar
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a2019bc4c1ee812f59a32f9273c84f5be}{Vector}} = typename type\+::\+Vector
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a69e00c49f96f4ffeeb767bb7222834da}{Vector\+Array}} = typename type\+::\+Vector\+Array
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t S$>$ }\\using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}} = typename type\+::template \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}}$<$ T, S $>$
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_abe198802fcc0899c1f4d472ac989b845}{Radau\+Array}} = \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}}$<$ \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a2019bc4c1ee812f59a32f9273c84f5be}{Vector}}, 7 $>$
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_aa191c67a1447ce70b7ec2dae6b061176}{Radau\+Tab}} = \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}}$<$ \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_abe198802fcc0899c1f4d472ac989b845}{Radau\+Array}}, Partic\+Sys\+::array\+Size $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a5ce29f965ea0376d9fb3fddf116926b1}{integrate}} (Partic\+Sys \&particles, \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}} step\+Length)
+\begin{DoxyCompactList}\small\item\em Interface to integrate particle system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ac7089493b28c3c3ed67dc875e172b40c}{calcu\+B\+Tab}} (const Partic\+Sys \&particles, \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}} step\+Length)
+\item 
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a135095dd4f33570045a327dec46e6840}{evaluate\+System\+At}} (Partic\+Sys \&particle\+Sys, \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}} step\+Length, size\+\_\+t index)
+\item 
+const \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_aa191c67a1447ce70b7ec2dae6b061176}{Radau\+Tab}} \& \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_acd80e3ae759660e91227ff4c83da01f1}{get\+B\+Tab}} () const
+\item 
+const \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a69e00c49f96f4ffeeb767bb7222834da}{Vector\+Array}} \& \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a9e89b65584577e684033159d85aa1a9f}{local\+Acc}} () const
+\item 
+{\footnotesize template$<$size\+\_\+t is\+D\+Y\+N\+A\+M\+I\+C\+AL$>$ }\\std\+::enable\+\_\+if$<$ is\+D\+Y\+N\+A\+M\+I\+C\+AL !=\mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}} $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}{type}} \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a0e5f1df629baf9e5dfdfa052544c68ff}{check\+Tab\+Volume}} (size\+\_\+t particle\+Num)
+\item 
+{\footnotesize template$<$size\+\_\+t is\+D\+Y\+N\+A\+M\+I\+C\+AL$>$ }\\std\+::enable\+\_\+if$<$ is\+D\+Y\+N\+A\+M\+I\+C\+AL==\mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}} $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}{type}} \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_acd04be9569a1426f923714b6086598a5}{check\+Tab\+Volume}} (size\+\_\+t particle\+Num)
+\item 
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a7669fef19d9982793fc4f4bbd49ad650}{predict\+NewB}} (\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}} Q1)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_aa306d2c64787f9a38901bdddc791c938}{order}} \{15\}
+\begin{DoxyCompactList}\small\item\em Order of the integrator. \end{DoxyCompactList}\item 
+static const size\+\_\+t \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ac671afa9ebffbf85891ba283076d04f1}{final\+Point}} \{7\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys$>$\newline
+class Space\+H\+::\+Gauss\+Dadau$<$ Partic\+Sys $>$}
+
+Gauss-\/\+Dadau integrator. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}\label{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!Container@{Container}}
+\index{Container@{Container}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{Container}{Container}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+template$<$typename T , size\+\_\+t S$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}} =  typename type\+::template \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}}$<$T, S$>$}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_abe198802fcc0899c1f4d472ac989b845}\label{class_space_h_1_1_gauss_dadau_abe198802fcc0899c1f4d472ac989b845}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!Radau\+Array@{Radau\+Array}}
+\index{Radau\+Array@{Radau\+Array}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{Radau\+Array}{RadauArray}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_abe198802fcc0899c1f4d472ac989b845}{Radau\+Array}} =  \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}}$<$\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a2019bc4c1ee812f59a32f9273c84f5be}{Vector}},7$>$}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_aa191c67a1447ce70b7ec2dae6b061176}\label{class_space_h_1_1_gauss_dadau_aa191c67a1447ce70b7ec2dae6b061176}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!Radau\+Tab@{Radau\+Tab}}
+\index{Radau\+Tab@{Radau\+Tab}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{Radau\+Tab}{RadauTab}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_aa191c67a1447ce70b7ec2dae6b061176}{Radau\+Tab}} =  \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_adccd45f5653523a6ae7bb0da0c244b5d}{Container}}$<$\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_abe198802fcc0899c1f4d472ac989b845}{Radau\+Array}}, Partic\+Sys\+::array\+Size$>$}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}\label{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}\label{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!type@{type}}
+\index{type@{type}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}{type}} =  typename Partic\+Sys\+::type}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a2019bc4c1ee812f59a32f9273c84f5be}\label{class_space_h_1_1_gauss_dadau_a2019bc4c1ee812f59a32f9273c84f5be}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!Vector@{Vector}}
+\index{Vector@{Vector}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a2019bc4c1ee812f59a32f9273c84f5be}{Vector}} =  typename type\+::\+Vector}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a69e00c49f96f4ffeeb767bb7222834da}\label{class_space_h_1_1_gauss_dadau_a69e00c49f96f4ffeeb767bb7222834da}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!Vector\+Array@{Vector\+Array}}
+\index{Vector\+Array@{Vector\+Array}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a69e00c49f96f4ffeeb767bb7222834da}{Vector\+Array}} =  typename type\+::\+Vector\+Array}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_ac7089493b28c3c3ed67dc875e172b40c}\label{class_space_h_1_1_gauss_dadau_ac7089493b28c3c3ed67dc875e172b40c}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!calcu\+B\+Tab@{calcu\+B\+Tab}}
+\index{calcu\+B\+Tab@{calcu\+B\+Tab}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{calcu\+B\+Tab()}{calcuBTab()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::calcu\+B\+Tab (\begin{DoxyParamCaption}\item[{const Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_gauss_dadau_ac7089493b28c3c3ed67dc875e172b40c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{class_space_h_1_1_gauss_dadau_ac7089493b28c3c3ed67dc875e172b40c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a0e5f1df629baf9e5dfdfa052544c68ff}\label{class_space_h_1_1_gauss_dadau_a0e5f1df629baf9e5dfdfa052544c68ff}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!check\+Tab\+Volume@{check\+Tab\+Volume}}
+\index{check\+Tab\+Volume@{check\+Tab\+Volume}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{check\+Tab\+Volume()}{checkTabVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+template$<$size\+\_\+t is\+D\+Y\+N\+A\+M\+I\+C\+AL$>$ \\
+std\+::enable\+\_\+if$<$is\+D\+Y\+N\+A\+M\+I\+C\+AL != \mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}}$>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}{type}} \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::check\+Tab\+Volume (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{particle\+Num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_acd04be9569a1426f923714b6086598a5}\label{class_space_h_1_1_gauss_dadau_acd04be9569a1426f923714b6086598a5}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!check\+Tab\+Volume@{check\+Tab\+Volume}}
+\index{check\+Tab\+Volume@{check\+Tab\+Volume}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{check\+Tab\+Volume()}{checkTabVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+template$<$size\+\_\+t is\+D\+Y\+N\+A\+M\+I\+C\+AL$>$ \\
+std\+::enable\+\_\+if$<$is\+D\+Y\+N\+A\+M\+I\+C\+AL == \mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}}$>$\+::\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a780629d19a82feeab959cd68c8a5f8a3}{type}} \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::check\+Tab\+Volume (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{particle\+Num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a135095dd4f33570045a327dec46e6840}\label{class_space_h_1_1_gauss_dadau_a135095dd4f33570045a327dec46e6840}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!evaluate\+System\+At@{evaluate\+System\+At}}
+\index{evaluate\+System\+At@{evaluate\+System\+At}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{evaluate\+System\+At()}{evaluateSystemAt()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::evaluate\+System\+At (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particle\+Sys,  }\item[{\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}}}]{step\+Length,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_gauss_dadau_a135095dd4f33570045a327dec46e6840_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_acd80e3ae759660e91227ff4c83da01f1}\label{class_space_h_1_1_gauss_dadau_acd80e3ae759660e91227ff4c83da01f1}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!get\+B\+Tab@{get\+B\+Tab}}
+\index{get\+B\+Tab@{get\+B\+Tab}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{get\+B\+Tab()}{getBTab()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_aa191c67a1447ce70b7ec2dae6b061176}{Radau\+Tab}}\& \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::get\+B\+Tab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a5ce29f965ea0376d9fb3fddf116926b1}\label{class_space_h_1_1_gauss_dadau_a5ce29f965ea0376d9fb3fddf116926b1}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!integrate@{integrate}}
+\index{integrate@{integrate}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{integrate()}{integrate()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::integrate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Interface to integrate particle system. 
+
+This function integrate the particle system for one step with Gauss-\/\+Radau stepping. 
+\begin{DoxyParams}{Parameters}
+{\em particles} & \mbox{\hyperlink{struct_space_h_1_1_particle}{Particle}} system need to be integrated. \\
+\hline
+{\em step\+Length} & Step size for integration. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_gauss_dadau_a5ce29f965ea0376d9fb3fddf116926b1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a9e89b65584577e684033159d85aa1a9f}\label{class_space_h_1_1_gauss_dadau_a9e89b65584577e684033159d85aa1a9f}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!local\+Acc@{local\+Acc}}
+\index{local\+Acc@{local\+Acc}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{local\+Acc()}{localAcc()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const \mbox{\hyperlink{class_space_h_1_1_gauss_dadau_a69e00c49f96f4ffeeb767bb7222834da}{Vector\+Array}}\& \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::local\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_a7669fef19d9982793fc4f4bbd49ad650}\label{class_space_h_1_1_gauss_dadau_a7669fef19d9982793fc4f4bbd49ad650}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!predict\+NewB@{predict\+NewB}}
+\index{predict\+NewB@{predict\+NewB}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{predict\+New\+B()}{predictNewB()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::predict\+NewB (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_space_h_1_1_gauss_dadau_ace42540e9fb47d7f1d1f00622bbd1ccb}{Scalar}}}]{Q1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_ac671afa9ebffbf85891ba283076d04f1}\label{class_space_h_1_1_gauss_dadau_ac671afa9ebffbf85891ba283076d04f1}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!final\+Point@{final\+Point}}
+\index{final\+Point@{final\+Point}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{final\+Point}{finalPoint}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const size\+\_\+t \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::final\+Point \{7\}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_gauss_dadau_aa306d2c64787f9a38901bdddc791c938}\label{class_space_h_1_1_gauss_dadau_aa306d2c64787f9a38901bdddc791c938}} 
+\index{Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}!order@{order}}
+\index{order@{order}!Space\+H\+::\+Gauss\+Dadau@{Space\+H\+::\+Gauss\+Dadau}}
+\subsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const int \mbox{\hyperlink{class_space_h_1_1_gauss_dadau}{Space\+H\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::order \{15\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Order of the integrator. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+integrator/\mbox{\hyperlink{_gauss-_dadau_8h}{Gauss-\/\+Dadau.\+h}}\end{DoxyCompactItemize}

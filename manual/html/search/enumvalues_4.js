@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hvs',['HVS',['../namespace_space_h.html#aa577debdabfe522d60698d6e25318eb6a176bc8574e7405c5edd2d3fcc4c837d7',1,'SpaceH']]]
+  ['plain',['PLAIN',['../namespace_space_h.html#a4782f089179a3c269891f02482b072dfaf62eb0bf5e5c72e80983fbbac1cb70e5',1,'SpaceH']]],
+  ['point',['POINT',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385ab7288e9167a9a146ca1662a47c0e8767',1,'SpaceH']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['binde',['bindE',['../class_regu_particles.html#a26a53ea58c9e25c565021b0b1dbde0e7',1,'ReguParticles::bindE()'],['../class_regu_system.html#a6bf4ceaf04e7f86c737c2586a8657ff6',1,'ReguSystem::bindE()']]],
-  ['bsiterator',['BSIterator',['../class_b_s_iterator.html#a144fb5c55fcd7bc873e73f4d06276fb2',1,'BSIterator']]]
+  ['b',['b',['../struct_space_h_1_1_kepler.html#ab4c26acf95e92f8e0310bfd965b77562',1,'SpaceH::Kepler']]],
+  ['binde',['bindE',['../class_space_h_1_1_regu_particles.html#af0f897b60e335bdecaf64588a2d4cefa',1,'SpaceH::ReguParticles::bindE()'],['../class_space_h_1_1_regu_system.html#a86d3f6978e184f6cdd91a70eda2b5789',1,'SpaceH::ReguSystem::bindE()']]],
+  ['bsiterator',['BSIterator',['../class_space_h_1_1_b_s_iterator.html#aef64ddf4540fa44e7c408e0ed7caabb2',1,'SpaceH::BSIterator::BSIterator()'],['../class_space_h_1_1_b_s_iterator.html#aef64ddf4540fa44e7c408e0ed7caabb2',1,'SpaceH::BSIterator::BSIterator()']]]
 ];

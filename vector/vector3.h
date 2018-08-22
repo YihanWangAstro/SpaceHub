@@ -3,7 +3,6 @@
 #define GENVECT_H
 #include <math.h>
 #include <iostream>
-//#pragma G++ optimize("O3")
 namespace SpaceH
 {
 /** @brief Self 3D vector class */
@@ -21,9 +20,13 @@ public:
     T  z;
 
     vec3() : x(0), y(0), z(0) {};
+    
     vec3(T scalar) : x(scalar), y(scalar), z(scalar) {};
+    
     vec3(typename T::value_type scalar) : x(scalar), y(scalar), z(scalar) {};
+    
     vec3(T vx, T vy, T vz) : x(vx), y(vy), z(vz) {};
+    
     vec3(const vec3& v) : x(v.x), y(v.y), z(v.z) {};
     /** @brief Addition by wise */
     inline vec3 operator+(const vec3& v) const
@@ -54,6 +57,11 @@ public:
     inline vec3 abs() const
     {
         return vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z);
+    }
+    inline vec3 unit()
+    {
+        T norm = sqrt(x * x + y * y + z * z);
+        return vec3(x/norm, y/norm, z/norm);
     }
     inline const vec3& operator+=(const vec3& v)
     {
@@ -90,13 +98,11 @@ public:
     {
         return (x * x + y * y + z * z);
     }
-
     inline T max_component()
     {
         T max = (x > y ? x : y);
         return max > z ? max : z;
     }
-
     /** @brief Calculate the inverse of the norm */
     inline T reNorm() const
     {

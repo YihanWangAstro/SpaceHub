@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>spacehub: particleSystem/ARChain/chain.h File Reference</title>
+<title>My Project: particleSystem/ARChain/chain.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">spacehub
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -75,6 +75,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for chain.h:</div>
 <div class="dyncontent">
@@ -121,22 +122,22 @@ Functions</h2></td></tr>
 <tr class="memitem:a65d906373401066033d8e4a6ad581cce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#a65d906373401066033d8e4a6ad581cce">SpaceH::chain::createChainIndex</a> (NodeArray &amp;AdjMatrix, IndexArray &amp;chainIndex)</td></tr>
 <tr class="memdesc:a65d906373401066033d8e4a6ad581cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create mapping index from adjoint matrix.  <a href="namespace_space_h_1_1chain.html#a65d906373401066033d8e4a6ad581cce">More...</a><br /></td></tr>
 <tr class="separator:a65d906373401066033d8e4a6ad581cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa803c64286cebe61f72646f946d2dcb4"><td class="memTemplParams" colspan="2">template&lt;typename IndexArray &gt; </td></tr>
-<tr class="memitem:aa803c64286cebe61f72646f946d2dcb4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#aa803c64286cebe61f72646f946d2dcb4">SpaceH::chain::IsDiff</a> (const IndexArray &amp;Index1, const IndexArray &amp;Index2)</td></tr>
-<tr class="memdesc:aa803c64286cebe61f72646f946d2dcb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two mapping indexes are the same.  <a href="namespace_space_h_1_1chain.html#aa803c64286cebe61f72646f946d2dcb4">More...</a><br /></td></tr>
-<tr class="separator:aa803c64286cebe61f72646f946d2dcb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab54ce920a542c01625ee7d6c625cc5c4"><td class="memTemplParams" colspan="2">template&lt;typename IndexArray &gt; </td></tr>
+<tr class="memitem:ab54ce920a542c01625ee7d6c625cc5c4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#ab54ce920a542c01625ee7d6c625cc5c4">SpaceH::chain::isDiff</a> (const IndexArray &amp;Index1, const IndexArray &amp;Index2)</td></tr>
+<tr class="memdesc:ab54ce920a542c01625ee7d6c625cc5c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two mapping indexes are the same.  <a href="namespace_space_h_1_1chain.html#ab54ce920a542c01625ee7d6c625cc5c4">More...</a><br /></td></tr>
+<tr class="separator:ab54ce920a542c01625ee7d6c625cc5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a631ad6a37f246a0db64e5879825a6878"><td class="memTemplParams" colspan="2">template&lt;typename VectorArray , typename IndexArray &gt; </td></tr>
 <tr class="memitem:a631ad6a37f246a0db64e5879825a6878"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#a631ad6a37f246a0db64e5879825a6878">SpaceH::chain::updateChain</a> (VectorArray &amp;pos, IndexArray &amp;chainIndex, IndexArray &amp;newIndex)</td></tr>
 <tr class="memdesc:a631ad6a37f246a0db64e5879825a6878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the position chain.  <a href="namespace_space_h_1_1chain.html#a631ad6a37f246a0db64e5879825a6878">More...</a><br /></td></tr>
 <tr class="separator:a631ad6a37f246a0db64e5879825a6878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c61b8eea438f8668a7128b23f5584a"><td class="memTemplParams" colspan="2">template&lt;typename VectorArray , typename IndexArray &gt; </td></tr>
-<tr class="memitem:a81c61b8eea438f8668a7128b23f5584a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#a81c61b8eea438f8668a7128b23f5584a">SpaceH::chain::synChain</a> (VectorArray &amp;data, VectorArray &amp;chainData, IndexArray &amp;chainIndex)</td></tr>
-<tr class="memdesc:a81c61b8eea438f8668a7128b23f5584a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulate the chain data from Cartesian data and chain index mapping.  <a href="namespace_space_h_1_1chain.html#a81c61b8eea438f8668a7128b23f5584a">More...</a><br /></td></tr>
-<tr class="separator:a81c61b8eea438f8668a7128b23f5584a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17b8a7579bccd9fb756436a9f497c651"><td class="memTemplParams" colspan="2">template&lt;typename VectorArray , typename IndexArray &gt; </td></tr>
-<tr class="memitem:a17b8a7579bccd9fb756436a9f497c651"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#a17b8a7579bccd9fb756436a9f497c651">SpaceH::chain::synCartesian</a> (VectorArray &amp;chainData, VectorArray &amp;data, IndexArray &amp;chainIndex)</td></tr>
-<tr class="memdesc:a17b8a7579bccd9fb756436a9f497c651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulate the Cartesian data from chain data and chain index mapping.  <a href="namespace_space_h_1_1chain.html#a17b8a7579bccd9fb756436a9f497c651">More...</a><br /></td></tr>
-<tr class="separator:a17b8a7579bccd9fb756436a9f497c651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a218de9c738267dd3efceebfda0a90a43"><td class="memTemplParams" colspan="2">template&lt;typename VectorArray , typename IndexArray &gt; </td></tr>
+<tr class="memitem:a218de9c738267dd3efceebfda0a90a43"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#a218de9c738267dd3efceebfda0a90a43">SpaceH::chain::synChain</a> (const VectorArray &amp;data, VectorArray &amp;chainData, const IndexArray &amp;chainIndex)</td></tr>
+<tr class="memdesc:a218de9c738267dd3efceebfda0a90a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulate the chain data from Cartesian data and chain index mapping.  <a href="namespace_space_h_1_1chain.html#a218de9c738267dd3efceebfda0a90a43">More...</a><br /></td></tr>
+<tr class="separator:a218de9c738267dd3efceebfda0a90a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba7809b40a52959d0566753b1c2eaee"><td class="memTemplParams" colspan="2">template&lt;typename VectorArray , typename IndexArray &gt; </td></tr>
+<tr class="memitem:a1ba7809b40a52959d0566753b1c2eaee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_space_h_1_1chain.html#a1ba7809b40a52959d0566753b1c2eaee">SpaceH::chain::synCartesian</a> (const VectorArray &amp;chainData, VectorArray &amp;data, const IndexArray &amp;chainIndex)</td></tr>
+<tr class="memdesc:a1ba7809b40a52959d0566753b1c2eaee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calulate the Cartesian data from chain data and chain index mapping.  <a href="namespace_space_h_1_1chain.html#a1ba7809b40a52959d0566753b1c2eaee">More...</a><br /></td></tr>
+<tr class="separator:a1ba7809b40a52959d0566753b1c2eaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,0 +1,94 @@
+\hypertarget{class_space_h_1_1_t_t_l}{}\section{SpaceH\+:\+:T\+TL$<$ Particles $>$ Class Template Reference}
+\label{class_space_h_1_1_t_t_l}\index{Space\+H\+::\+T\+T\+L$<$ Particles $>$@{Space\+H\+::\+T\+T\+L$<$ Particles $>$}}
+
+
+Time Transform Leapfrog algorithmatic regularization interface.  
+
+
+
+
+{\ttfamily \#include $<$regularization.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_t_t_l_a51de608711eb738bb6f80447759c15f0}{type}} = typename \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_a09aa167b5fb1b203ab021220601ed74c}{Particles\+::type}}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} = typename type\+::\+Scalar
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_t_t_l_a98eae0c137d47ead0c1483521443b5d7}{get\+Physical\+Pos\+Time}} (const \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} \&partc, \mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate the physical time for position advance from integration step size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_t_t_l_aa98edc3ecfab76e612b9e77f64c08865}{get\+Physical\+Vel\+Time}} (const \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} \&partc, \mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate the physical time for velocity advance from integration step size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Particles$>$\newline
+class Space\+H\+::\+T\+T\+L$<$ Particles $>$}
+
+Time Transform Leapfrog algorithmatic regularization interface. 
+
+See detials in \href{https://link.springer.com/article/10.1023%2FA%3A1021149313347}{\tt https\+://link.\+springer.\+com/article/10.\+1023\%2\+F\+A\%3\+A1021149313347} . 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}\label{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}} 
+\index{Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_t_t_l}{Space\+H\+::\+T\+TL}}$<$ \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} $>$\+::\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{class_space_h_1_1_t_t_l_a51de608711eb738bb6f80447759c15f0}\label{class_space_h_1_1_t_t_l_a51de608711eb738bb6f80447759c15f0}} 
+\index{Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}!type@{type}}
+\index{type@{type}!Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_t_t_l}{Space\+H\+::\+T\+TL}}$<$ \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} $>$\+::\mbox{\hyperlink{class_space_h_1_1_t_t_l_a51de608711eb738bb6f80447759c15f0}{type}} =  typename \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_a09aa167b5fb1b203ab021220601ed74c}{Particles\+::type}}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_t_t_l_a98eae0c137d47ead0c1483521443b5d7}\label{class_space_h_1_1_t_t_l_a98eae0c137d47ead0c1483521443b5d7}} 
+\index{Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}}
+\index{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}}
+\subsubsection{\texorpdfstring{get\+Physical\+Pos\+Time()}{getPhysicalPosTime()}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_t_t_l}{Space\+H\+::\+T\+TL}}$<$ \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} $>$\+::get\+Physical\+Pos\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} \&}]{partc,  }\item[{\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the physical time for position advance from integration step size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em partc} & Dynamic system contains position, velocity and regularization variables. See example class in \mbox{\hyperlink{particles_8h}{particles.\+h}}. \\
+\hline
+{\em step\+Size} & Integration step size. This could not be the physical time. Look references for details in class despriction. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_space_h_1_1_t_t_l_aa98edc3ecfab76e612b9e77f64c08865}\label{class_space_h_1_1_t_t_l_aa98edc3ecfab76e612b9e77f64c08865}} 
+\index{Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}}
+\index{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!Space\+H\+::\+T\+TL@{Space\+H\+::\+T\+TL}}
+\subsubsection{\texorpdfstring{get\+Physical\+Vel\+Time()}{getPhysicalVelTime()}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_t_t_l}{Space\+H\+::\+T\+TL}}$<$ \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} $>$\+::get\+Physical\+Vel\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}} \&}]{partc,  }\item[{\mbox{\hyperlink{class_space_h_1_1_t_t_l_a8d0bb489470e6da1bcaf70a9eb38d96d}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the physical time for velocity advance from integration step size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em partc} & Dynamic system contains position, velocity and regularization variables. See example class in \mbox{\hyperlink{particles_8h}{particles.\+h}}. \\
+\hline
+{\em step\+Size} & Integration step size. This could not be the physical time. Look references for details in class despriction. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle\+System/regu\+System/\mbox{\hyperlink{regularization_8h}{regularization.\+h}}\end{DoxyCompactItemize}

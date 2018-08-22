@@ -1,0 +1,173 @@
+\hypertarget{namespace_space_h_1_1_orbits}{}\section{SpaceH\+:\+:Orbits Namespace Reference}
+\label{namespace_space_h_1_1_orbits}\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_orbits_1_1_param}{Param}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_a678a54bbf3a8637d6437b4b8b4a39d97}{myacos}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} x)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\Vector \mbox{\hyperlink{namespace_space_h_1_1_orbits_a67c6c20142cd8a4bd9690741c61314da}{calcu\+Eccentricity}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m1, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m2, const Vector \&pos1, const Vector \&pos2, const Vector \&vel1, const Vector \&vel2)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_ad5dd14dac8365a426bc0ff7452318835}{calcu\+Semi\+Major\+Axis}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m1, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m2, const Vector \&pos1, const Vector \&pos2, const Vector \&vel1, const Vector \&vel2)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1_orbits_a5e8b37a1237e17770907f5c2adbb53d6}{to\+Oribt\+Parameters}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m1, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m2, const Vector \&pos1, const Vector \&pos2, const Vector \&vel1, const Vector \&vel2, \mbox{\hyperlink{struct_space_h_1_1_orbits_1_1_param}{Param}}$<$ \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} $>$ \&params)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1_orbits_ab06b7e85a786928255938378f9a97e26}{euler\+Rotate}} (Vector \&v, const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} phi, const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} theta, const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} psi)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_ab0a6bf4bbce5725fa15cc6250057817c}{get\+Random\+Mean\+Anomaly}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} e, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Mmin, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Mmax)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_a43d1a07ed25eaf775f3a83d7000a2596}{get\+True\+Anomaly}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} E, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} e)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_a729783768420346b170d79aa5e196841}{get\+Eccentric\+Anomaly}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} M, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} e)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_a67c6c20142cd8a4bd9690741c61314da}\label{namespace_space_h_1_1_orbits_a67c6c20142cd8a4bd9690741c61314da}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!calcu\+Eccentricity@{calcu\+Eccentricity}}
+\index{calcu\+Eccentricity@{calcu\+Eccentricity}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{calcu\+Eccentricity()}{calcuEccentricity()}}
+{\footnotesize\ttfamily template$<$typename Vector , typename Scalar $>$ \\
+Vector Space\+H\+::\+Orbits\+::calcu\+Eccentricity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{m1,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{m2,  }\item[{const Vector \&}]{pos1,  }\item[{const Vector \&}]{pos2,  }\item[{const Vector \&}]{vel1,  }\item[{const Vector \&}]{vel2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a67c6c20142cd8a4bd9690741c61314da_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_ad5dd14dac8365a426bc0ff7452318835}\label{namespace_space_h_1_1_orbits_ad5dd14dac8365a426bc0ff7452318835}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!calcu\+Semi\+Major\+Axis@{calcu\+Semi\+Major\+Axis}}
+\index{calcu\+Semi\+Major\+Axis@{calcu\+Semi\+Major\+Axis}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{calcu\+Semi\+Major\+Axis()}{calcuSemiMajorAxis()}}
+{\footnotesize\ttfamily template$<$typename Vector , typename Scalar $>$ \\
+\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Space\+H\+::\+Orbits\+::calcu\+Semi\+Major\+Axis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{m1,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{m2,  }\item[{const Vector \&}]{pos1,  }\item[{const Vector \&}]{pos2,  }\item[{const Vector \&}]{vel1,  }\item[{const Vector \&}]{vel2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_ab06b7e85a786928255938378f9a97e26}\label{namespace_space_h_1_1_orbits_ab06b7e85a786928255938378f9a97e26}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!euler\+Rotate@{euler\+Rotate}}
+\index{euler\+Rotate@{euler\+Rotate}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{euler\+Rotate()}{eulerRotate()}}
+{\footnotesize\ttfamily template$<$typename Vector , typename Scalar $>$ \\
+void Space\+H\+::\+Orbits\+::euler\+Rotate (\begin{DoxyParamCaption}\item[{Vector \&}]{v,  }\item[{const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{phi,  }\item[{const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{theta,  }\item[{const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{psi }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_a729783768420346b170d79aa5e196841}\label{namespace_space_h_1_1_orbits_a729783768420346b170d79aa5e196841}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!get\+Eccentric\+Anomaly@{get\+Eccentric\+Anomaly}}
+\index{get\+Eccentric\+Anomaly@{get\+Eccentric\+Anomaly}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{get\+Eccentric\+Anomaly()}{getEccentricAnomaly()}}
+{\footnotesize\ttfamily template$<$typename Scalar $>$ \\
+\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Space\+H\+::\+Orbits\+::get\+Eccentric\+Anomaly (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{M,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{e }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a729783768420346b170d79aa5e196841_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a729783768420346b170d79aa5e196841_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_ab0a6bf4bbce5725fa15cc6250057817c}\label{namespace_space_h_1_1_orbits_ab0a6bf4bbce5725fa15cc6250057817c}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!get\+Random\+Mean\+Anomaly@{get\+Random\+Mean\+Anomaly}}
+\index{get\+Random\+Mean\+Anomaly@{get\+Random\+Mean\+Anomaly}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{get\+Random\+Mean\+Anomaly()}{getRandomMeanAnomaly()}}
+{\footnotesize\ttfamily template$<$typename Scalar $>$ \\
+\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Space\+H\+::\+Orbits\+::get\+Random\+Mean\+Anomaly (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{e,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{Mmin,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{Mmax }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{namespace_space_h_1_1_orbits_ab0a6bf4bbce5725fa15cc6250057817c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_ab0a6bf4bbce5725fa15cc6250057817c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_a43d1a07ed25eaf775f3a83d7000a2596}\label{namespace_space_h_1_1_orbits_a43d1a07ed25eaf775f3a83d7000a2596}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!get\+True\+Anomaly@{get\+True\+Anomaly}}
+\index{get\+True\+Anomaly@{get\+True\+Anomaly}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{get\+True\+Anomaly()}{getTrueAnomaly()}}
+{\footnotesize\ttfamily template$<$typename Scalar $>$ \\
+\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Space\+H\+::\+Orbits\+::get\+True\+Anomaly (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{E,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{e }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a43d1a07ed25eaf775f3a83d7000a2596_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a43d1a07ed25eaf775f3a83d7000a2596_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_a678a54bbf3a8637d6437b4b8b4a39d97}\label{namespace_space_h_1_1_orbits_a678a54bbf3a8637d6437b4b8b4a39d97}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!myacos@{myacos}}
+\index{myacos@{myacos}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{myacos()}{myacos()}}
+{\footnotesize\ttfamily template$<$typename Scalar $>$ \\
+\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Space\+H\+::\+Orbits\+::myacos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{namespace_space_h_1_1_orbits_a678a54bbf3a8637d6437b4b8b4a39d97_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a678a54bbf3a8637d6437b4b8b4a39d97_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1_orbits_a5e8b37a1237e17770907f5c2adbb53d6}\label{namespace_space_h_1_1_orbits_a5e8b37a1237e17770907f5c2adbb53d6}} 
+\index{Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}!to\+Oribt\+Parameters@{to\+Oribt\+Parameters}}
+\index{to\+Oribt\+Parameters@{to\+Oribt\+Parameters}!Space\+H\+::\+Orbits@{Space\+H\+::\+Orbits}}
+\subsubsection{\texorpdfstring{to\+Oribt\+Parameters()}{toOribtParameters()}}
+{\footnotesize\ttfamily template$<$typename Vector , typename Scalar $>$ \\
+void Space\+H\+::\+Orbits\+::to\+Oribt\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{m1,  }\item[{\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}}]{m2,  }\item[{const Vector \&}]{pos1,  }\item[{const Vector \&}]{pos2,  }\item[{const Vector \&}]{vel1,  }\item[{const Vector \&}]{vel2,  }\item[{\mbox{\hyperlink{struct_space_h_1_1_orbits_1_1_param}{Param}}$<$ \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} $>$ \&}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1_orbits_a5e8b37a1237e17770907f5c2adbb53d6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{namespace_space_h_1_1_orbits_a5e8b37a1237e17770907f5c2adbb53d6_icgraph}
+\end{center}
+\end{figure}

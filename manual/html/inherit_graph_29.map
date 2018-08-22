@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_vel_indep_particles.html" title="Basic velocity independent particles group. " alt="" coords="5,100,141,139"/>
+<area shape="rect" id="node2" href="$struct_particles.html" title="Basic particles group, wrapper on VelIndepParticles and VelDepParticles. " alt="" coords="189,68,376,107"/>
+<area shape="rect" id="node9" href="$class_vel_dep_particles.html" title="Basic velocity dependent particles group. " alt="" coords="200,131,365,169"/>
+<area shape="rect" id="node3" href="$class_regu_particles.html" title="Class of dynamical system with regularization variables. " alt="" coords="440,68,595,107"/>
+<area shape="rect" id="node4" href="$class_vel_indep_chain_particles.html" title="Class of dynamical variable. " alt="" coords="659,68,863,107"/>
+<area shape="rect" id="node5" href="$class_chain_particles.html" title="ChainParticles\&lt; Dtype,\l ArraySize, IsVelDep \&gt;" alt="" coords="935,5,1092,44"/>
+<area shape="rect" id="node6" href="$class_vel_dep_chain_particles.html" title="VelDepChainParticles\l\&lt; Dtype, ArraySize, IsVelDep \&gt;" alt="" coords="911,68,1116,107"/>
+<area shape="rect" id="node7" href="$class_vel_dep_chain_particles.html" title="VelDepChainParticles\l\&lt; Dtype, ArraySize, true \&gt;" alt="" coords="927,131,1101,169"/>
+<area shape="rect" id="node8" href="$class_chain_particles_3_01_dtype_00_01_array_size_00_01true_01_4.html" title="ChainParticles\&lt; Dtype,\l ArraySize, true \&gt;" alt="" coords="1164,131,1321,169"/>
+<area shape="rect" id="node10" href="$struct_particles_3_01_dtype_00_01_array_size_00_01true_01_4.html" title="Particles\&lt; Dtype, ArraySize,\l true \&gt;" alt="" coords="424,131,611,169"/>
+</map>

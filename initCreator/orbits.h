@@ -101,13 +101,13 @@ namespace SpaceH
                 {
                     params.Omega = SpaceH::sign(N.y) * myacos(N.x/n);
                     params.omega = 0;
-                    Vector peri = cross(L, N);
-                    params.nu = -SpaceH::sign(dot(N,dr)) * myacos(dot(peri/peri.norm(), dr/r));
+                    Vector peri  = cross(L, N);
+                    params.nu    = -SpaceH::sign(dot(N,dr)) * myacos(dot(peri/peri.norm(), dr/r));
                 }
                 else
                 {
                     params.Omega = params.omega = 0;
-                    params.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0,0,0), dr/r));
+                    params.nu    = SpaceH::sign(dr.y) * acos(dot(Vector(1.0,0,0), dr/r));
                 }
             }
         }
@@ -213,7 +213,7 @@ namespace SpaceH
         
         inline const Scalar e() const { return param.e; }
         
-        inline const Scalar trueAnomaly() const { return param.nu; }
+        inline const Scalar nu() const { return param.nu; }
         
         inline const Scalar phi() const { return param.Omega; }
         

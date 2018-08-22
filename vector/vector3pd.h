@@ -18,18 +18,13 @@ public:
     using value_type = precise_d;
     /* Typedef */
 
-    union
-    {
-        struct
-        {
-            precise_d x, y, z;
-        };
-        __m512d  mmvalue;
-    } __attribute__((aligned(32)));
+    
+    vec3<double> __attribute__((aligned(32))) real;
+    vec3<double> __attribute__((aligned(32))) err;
 
-    vec3(): mmvalue(_mm512_setzero_pd()) {};
+    vec3() : {};
     vec3(double vx, double vy, double vz) : mmvalue(_mm512_set_pd(vx, 0, vy, 0, vz, 0, 0, 0.0)) {};
-    vec3(__m512d v) : mmvalue(v) {};
+    vec3(__m256d v) : mmvalue(v) {};
     vec3(const vec3& v) : mmvalue(v.mmvalue) {};
     /** @brief Addition by wise */
     inline vec3 operator+(const vec3& v) const

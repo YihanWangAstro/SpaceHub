@@ -1,7 +1,7 @@
 #include "../spaceHub.h"
 #include <iostream>
 
-//using scalar = double;//SpaceH::precise_d;
+//using scalar = double;
 using scalar = SpaceH::precise_d;
 const size_t N = 3;//SpaceH::DYNAMICAL;
 int main(int argc, char**argv)
@@ -9,7 +9,7 @@ int main(int argc, char**argv)
     
     //using f = SpaceH::KarmackNewtonian<scalar,N>;
     using force = SpaceH::NewtonForce<scalar,N>;
-    using PN = SpaceH::PostNewtonianForce<scalar,N,true,false,false>;
+    //using PN = SpaceH::PostNewtonianForce<scalar,N,true,false,false>;
     
     //using sys = SpaceH::Basic<force>;
     using sys = SpaceH::ARchain<force>;
@@ -18,44 +18,37 @@ int main(int argc, char**argv)
     //SpaceH::Nbody<sys, SpaceH::constIterator, SpaceH::GaussDadau> nbody;
     //SpaceH::Nbody<sys, SpaceH::constIterator, SpaceH::symplectic2th> nbody;
     
-    
-    
     //nbody.setStepLength(0.01*SpaceH::Unit::YEAR);
-   //nbody.loadText("solar_earth.init");
-   // nbody.loadText("circular.init");
-   // nbody.loadText("elliptic.init");
+    //nbody.loadText("solar_earth.init");
+    //nbody.loadText("circular.init");
+    //nbody.loadText("elliptic.init");
       nbody.loadText("Kozai.init");
     
-   // nbody.iterator.setRelativeError(1e-6);
+    //nbody.iterator.setRelativeError(1e-6);
 
-    double timeLimit = 100*SpaceH::Unit::YEAR;
-    double dt = 0.001*SpaceH::Unit::YEAR;
-    double tout = 0;
+    scalar timeLimit = 100*SpaceH::Unit::YEAR;
+    scalar dt = 0.0005*SpaceH::Unit::YEAR;
+    scalar tout = 0;
 
     std::ofstream os("out.dat");
     std::ofstream eos("out.err");
-    os.sync_with_stdio(false);
-    eos.sync_with_stdio(false);
+
     os  << std::scientific << std::setprecision(16);
     eos << std::scientific << std::setprecision(16);
     std::cout << std::scientific << std::setprecision(16);
     std::ios_base::sync_with_stdio(false);
+    
     SpaceH::Timer clock;
     
     clock.start();
-    
-    for(; nbody.particles.time() < timeLimit;)
+    for(; nbody.particles.time() < timeLimit ;)
     {
         nbody.advanceOneStep();
         if(nbody.particles.time() > tout)
         {
             os  << nbody.particles;
             eos << nbody.particles.time()/SpaceH::Unit::YEAR << ' '
-                << nbody.particles.totalEnergy() << ' '
-                //<< nbody.particles.omega() << ' '
-                //<< nbody.particles.bindE() << ' '
-                //<< nbody.stepLength <<' '
-                << "\r\n";
+                << nbody.particles.totalEnergy() << "\r\n";
             tout += dt;
         }
     }

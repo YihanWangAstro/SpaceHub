@@ -1,0 +1,313 @@
+\hypertarget{class_space_h_1_1_regu_particles}{}\section{SpaceH\+:\+:Regu\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$ Class Template Reference}
+\label{class_space_h_1_1_regu_particles}\index{Space\+H\+::\+Regu\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$@{Space\+H\+::\+Regu\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$}}
+
+
+Class of dynamical system with regularization variables.  
+
+
+
+
+{\ttfamily \#include $<$regular\+Particles.\+h$>$}
+
+
+
+Inheritance diagram for SpaceH\+:\+:Regu\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for SpaceH\+:\+:Regu\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_space_h_1_1_regu_particles__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles_a1d863fa181a9871459539c11d18d5f10}{Base}} = \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles_ae2831b4f4434150ac51be629012d383d}{Scalar}} = typename type\+::\+Scalar
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles_aefe83926ebdcf1f06d980d02a44fe486}{Vector}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a316b81f4660b2b4fab14a8e1f23b6089}{type\+::\+Vector}}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles_aef5ee8d2bab734a42f9b79f96ebf05ca}{Vector\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a622b8e122b33bb4966a02299fb7b82d6}{type\+::\+Vector\+Array}}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles_a49987a2ea42df368ebbf75200efc5439}{Scalar\+Buffer}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a62c491884996da10377d348a5aabad86}{type\+::\+Scalar\+Buffer}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \& \mbox{\hyperlink{class_space_h_1_1_regu_particles_a70cead0da9ed17befb6580ca6e6bc11c}{omega}} () const
+\begin{DoxyCompactList}\small\item\em Omega scalar const interface. Reference to state.\+time. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \& \mbox{\hyperlink{class_space_h_1_1_regu_particles_af0f897b60e335bdecaf64588a2d4cefa}{bindE}} () const
+\begin{DoxyCompactList}\small\item\em BindE scalar const interface. Reference to state.\+time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_regu_particles_a4f9e99c1492db8dbcfa232f285227cb6}{get\+Capital\+Omega}} () const
+\begin{DoxyCompactList}\small\item\em Calculate the regularized variable Omega. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_space_h_1_1_regu_particles_a5248a79d323188ef82e35defd0ffacf7}{advance\+Omega}} (const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&vel\+Indep\+Acc, const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&velocity, \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance the Omega. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_space_h_1_1_regu_particles_af84c5b59251cc1c412124a6127aa5a98}{advance\+BindE}} (const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&vel\+Dep\+Acc, const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&velocity, \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance the bindE. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_space_h_1_1_regu_particles_a639789e55a57427963b49a95c4e66c86}{read}} (const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_abca40159a816385790d5a6fd19c1dc6d}{Scalar\+Buffer}} \&data, const \mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59}{Nbody\+IO}} I\+O\+\_\+flag=\mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59ac6ce23be5d350ce18a665427d2d950f7}{Nbody\+I\+O\+::\+S\+TD}})
+\begin{DoxyCompactList}\small\item\em Input variables with plain scalar array. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_space_h_1_1_regu_particles_a5e6f99ab289e48790db7599fac59aa5a}{write}} (\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_abca40159a816385790d5a6fd19c1dc6d}{Scalar\+Buffer}} \&data, const \mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59}{Nbody\+IO}} I\+O\+\_\+flag=\mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59ac6ce23be5d350ce18a665427d2d950f7}{Nbody\+I\+O\+::\+S\+TD}}) const
+\begin{DoxyCompactList}\small\item\em Output variables to plain scalar array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_regu_particles_a7e9eaabdd5e20d9ea16a56c22929273a}{omega\+\_\+}}
+\item 
+\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_regu_particles_af708a170d51c845813d8f8ef01a3ac79}{bind\+E\+\_\+}}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{class_space_h_1_1_regu_particles_a9a189bff31e696428cec5810b545f050}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Regu\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Input(\+Initialize) variables with istream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Dtype, size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$\newline
+class Space\+H\+::\+Regu\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$}
+
+Class of dynamical system with regularization variables. 
+
+A simple extension of class dynamics in dynamic\+State.\+h. Used for regularization system. See detail in \href{https://academic.oup.com/mnras/article/372/1/219/974304}{\tt https\+://academic.\+oup.\+com/mnras/article/372/1/219/974304} . 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a1d863fa181a9871459539c11d18d5f10}\label{class_space_h_1_1_regu_particles_a1d863fa181a9871459539c11d18d5f10}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!Base@{Base}}
+\index{Base@{Base}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_space_h_1_1_regu_particles_a1d863fa181a9871459539c11d18d5f10}{Base}} =  \mbox{\hyperlink{struct_space_h_1_1_particles}{Particles}}$<$Dtype, Array\+Size, Is\+Vel\+Dep$>$}
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_ae2831b4f4434150ac51be629012d383d}\label{class_space_h_1_1_regu_particles_ae2831b4f4434150ac51be629012d383d}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a49987a2ea42df368ebbf75200efc5439}\label{class_space_h_1_1_regu_particles_a49987a2ea42df368ebbf75200efc5439}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!Scalar\+Buffer@{Scalar\+Buffer}}
+\index{Scalar\+Buffer@{Scalar\+Buffer}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{Scalar\+Buffer}{ScalarBuffer}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_abca40159a816385790d5a6fd19c1dc6d}{Scalar\+Buffer}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a62c491884996da10377d348a5aabad86}{type\+::\+Scalar\+Buffer}}}
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_aefe83926ebdcf1f06d980d02a44fe486}\label{class_space_h_1_1_regu_particles_aefe83926ebdcf1f06d980d02a44fe486}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!Vector@{Vector}}
+\index{Vector@{Vector}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_a61bbcfdb0dc7f99f3c68af69a755c935}{Vector}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a316b81f4660b2b4fab14a8e1f23b6089}{type\+::\+Vector}}}
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_aef5ee8d2bab734a42f9b79f96ebf05ca}\label{class_space_h_1_1_regu_particles_aef5ee8d2bab734a42f9b79f96ebf05ca}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!Vector\+Array@{Vector\+Array}}
+\index{Vector\+Array@{Vector\+Array}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a622b8e122b33bb4966a02299fb7b82d6}{type\+::\+Vector\+Array}}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_af84c5b59251cc1c412124a6127aa5a98}\label{class_space_h_1_1_regu_particles_af84c5b59251cc1c412124a6127aa5a98}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!advance\+BindE@{advance\+BindE}}
+\index{advance\+BindE@{advance\+BindE}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Bind\+E()}{advanceBindE()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::advance\+BindE (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&}]{vel\+Dep\+Acc,  }\item[{const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&}]{velocity,  }\item[{\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the bindE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vel\+Dep\+Acc} & Velocity dependent acceleration array. \\
+\hline
+{\em vel} & Velocity array. \\
+\hline
+{\em step\+Size} & Time step\+Size. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_af84c5b59251cc1c412124a6127aa5a98_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a5248a79d323188ef82e35defd0ffacf7}\label{class_space_h_1_1_regu_particles_a5248a79d323188ef82e35defd0ffacf7}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!advance\+Omega@{advance\+Omega}}
+\index{advance\+Omega@{advance\+Omega}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Omega()}{advanceOmega()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::advance\+Omega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&}]{vel\+Indep\+Acc,  }\item[{const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aa9983058940249df8b00fa800e8cbad2}{Vector\+Array}} \&}]{velocity,  }\item[{\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the Omega. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vel\+Indep\+Acc} & Velocity independent acceleration array. \\
+\hline
+{\em vel} & Velocity array. \\
+\hline
+{\em step\+Size} & Time step\+Size. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_a5248a79d323188ef82e35defd0ffacf7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_af0f897b60e335bdecaf64588a2d4cefa}\label{class_space_h_1_1_regu_particles_af0f897b60e335bdecaf64588a2d4cefa}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!bindE@{bindE}}
+\index{bindE@{bindE}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{bind\+E()}{bindE()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}}\& \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::bindE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+BindE scalar const interface. Reference to state.\+time. 
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a4f9e99c1492db8dbcfa232f285227cb6}\label{class_space_h_1_1_regu_particles_a4f9e99c1492db8dbcfa232f285227cb6}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!get\+Capital\+Omega@{get\+Capital\+Omega}}
+\index{get\+Capital\+Omega@{get\+Capital\+Omega}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{get\+Capital\+Omega()}{getCapitalOmega()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::get\+Capital\+Omega (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the regularized variable Omega. 
+
+\begin{DoxyReturn}{Returns}
+The value of capital omega. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_a4f9e99c1492db8dbcfa232f285227cb6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a70cead0da9ed17befb6580ca6e6bc11c}\label{class_space_h_1_1_regu_particles_a70cead0da9ed17befb6580ca6e6bc11c}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!omega@{omega}}
+\index{omega@{omega}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{omega()}{omega()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}}\& \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::omega (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Omega scalar const interface. Reference to state.\+time. 
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a639789e55a57427963b49a95c4e66c86}\label{class_space_h_1_1_regu_particles_a639789e55a57427963b49a95c4e66c86}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!read@{read}}
+\index{read@{read}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+size\+\_\+t \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::read (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_abca40159a816385790d5a6fd19c1dc6d}{Scalar\+Buffer}} \&}]{data,  }\item[{const \mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59}{Nbody\+IO}}}]{I\+O\+\_\+flag = {\ttfamily \mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59ac6ce23be5d350ce18a665427d2d950f7}{Nbody\+I\+O\+::\+S\+TD}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Input variables with plain scalar array. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_a639789e55a57427963b49a95c4e66c86_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_a639789e55a57427963b49a95c4e66c86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a5e6f99ab289e48790db7599fac59aa5a}\label{class_space_h_1_1_regu_particles_a5e6f99ab289e48790db7599fac59aa5a}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!write@{write}}
+\index{write@{write}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+size\+\_\+t \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_abca40159a816385790d5a6fd19c1dc6d}{Scalar\+Buffer}} \&}]{data,  }\item[{const \mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59}{Nbody\+IO}}}]{I\+O\+\_\+flag = {\ttfamily \mbox{\hyperlink{namespace_space_h_a296a8bae763a754564bfdce216e31b59ac6ce23be5d350ce18a665427d2d950f7}{Nbody\+I\+O\+::\+S\+TD}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Output variables to plain scalar array. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_a5e6f99ab289e48790db7599fac59aa5a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_space_h_1_1_regu_particles_a5e6f99ab289e48790db7599fac59aa5a_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a9a189bff31e696428cec5810b545f050}\label{class_space_h_1_1_regu_particles_a9a189bff31e696428cec5810b545f050}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_space_h_1_1_regu_particles}{Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input(\+Initialize) variables with istream. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_af708a170d51c845813d8f8ef01a3ac79}\label{class_space_h_1_1_regu_particles_af708a170d51c845813d8f8ef01a3ac79}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!bind\+E\+\_\+@{bind\+E\+\_\+}}
+\index{bind\+E\+\_\+@{bind\+E\+\_\+}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{bind\+E\+\_\+}{bindE\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::bind\+E\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_regu_particles_a7e9eaabdd5e20d9ea16a56c22929273a}\label{class_space_h_1_1_regu_particles_a7e9eaabdd5e20d9ea16a56c22929273a}} 
+\index{Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}!omega\+\_\+@{omega\+\_\+}}
+\index{omega\+\_\+@{omega\+\_\+}!Space\+H\+::\+Regu\+Particles@{Space\+H\+::\+Regu\+Particles}}
+\subsubsection{\texorpdfstring{omega\+\_\+}{omega\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+\mbox{\hyperlink{class_space_h_1_1_vel_indep_particles_aeb47d8131b30ed790320ff634f0d6af1}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::omega\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle\+System/regu\+System/\mbox{\hyperlink{regular_particles_8h}{regular\+Particles.\+h}}\end{DoxyCompactItemize}

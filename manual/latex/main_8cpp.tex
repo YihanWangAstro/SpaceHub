@@ -1,8 +1,7 @@
-\hypertarget{main_8cpp}{}\section{test/main.cpp File Reference}
-\label{main_8cpp}\index{test/main.\+cpp@{test/main.\+cpp}}
-{\ttfamily \#include \char`\"{}../space\+X.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$chrono$>$}\newline
-{\ttfamily \#include $<$fstream$>$}\newline
+\hypertarget{main_8cpp}{}\section{integration\+Test/main.cpp File Reference}
+\label{main_8cpp}\index{integration\+Test/main.\+cpp@{integration\+Test/main.\+cpp}}
+{\ttfamily \#include \char`\"{}../wrapper/single\+Run.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../wrapper/err\+Curve.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 Include dependency graph for main.\+cpp\+:\nopagebreak
 \begin{figure}[H]
@@ -14,9 +13,7 @@ Include dependency graph for main.\+cpp\+:\nopagebreak
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::high\+\_\+resolution\+\_\+clock $>$ \mbox{\hyperlink{main_8cpp_a969d015f81ed11dbfedaf9ac490afdcf}{resolution\+Clock}}
-\item 
-using \mbox{\hyperlink{main_8cpp_a1a62f5c6f96443f50859843873d1bc8b}{scalar}} = \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ double $>$
+using \mbox{\hyperlink{main_8cpp_af786f233400a63a2d45bfcb709ffbfb3}{scalar}} = \mbox{\hyperlink{namespace_space_h_a50a1e263353add842b5f87190a4f9254}{Space\+H\+::precise\+\_\+d}}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -26,30 +23,18 @@ int \mbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int ar
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const size\+\_\+t \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} = 3
+std\+::string \mbox{\hyperlink{main_8cpp_aa5684e2000f8f36e7c5d0115edb4dc1e}{files}} \mbox{[}$\,$\mbox{]} =\{\char`\"{}circular\char`\"{},\char`\"{}elliptic\char`\"{},\char`\"{}solar\+\_\+earth\char`\"{},\char`\"{}Kozai\char`\"{}\}
+\item 
+const size\+\_\+t \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} = \mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}}
 \end{DoxyCompactItemize}
 
 
 \subsection{Typedef Documentation}
-\mbox{\Hypertarget{main_8cpp_a969d015f81ed11dbfedaf9ac490afdcf}\label{main_8cpp_a969d015f81ed11dbfedaf9ac490afdcf}} 
-\index{main.\+cpp@{main.\+cpp}!resolution\+Clock@{resolution\+Clock}}
-\index{resolution\+Clock@{resolution\+Clock}!main.\+cpp@{main.\+cpp}}
-\subsubsection{\texorpdfstring{resolution\+Clock}{resolutionClock}}
-{\footnotesize\ttfamily typedef std\+::chrono\+::time\+\_\+point$<$std\+::chrono\+::high\+\_\+resolution\+\_\+clock$>$ \mbox{\hyperlink{main_8cpp_a969d015f81ed11dbfedaf9ac490afdcf}{resolution\+Clock}}}
-
-
-
-Definition at line 7 of file main.\+cpp.
-
-\mbox{\Hypertarget{main_8cpp_a1a62f5c6f96443f50859843873d1bc8b}\label{main_8cpp_a1a62f5c6f96443f50859843873d1bc8b}} 
+\mbox{\Hypertarget{main_8cpp_af786f233400a63a2d45bfcb709ffbfb3}\label{main_8cpp_af786f233400a63a2d45bfcb709ffbfb3}} 
 \index{main.\+cpp@{main.\+cpp}!scalar@{scalar}}
 \index{scalar@{scalar}!main.\+cpp@{main.\+cpp}}
 \subsubsection{\texorpdfstring{scalar}{scalar}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{main_8cpp_a1a62f5c6f96443f50859843873d1bc8b}{scalar}} =  \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$double$>$}
-
-
-
-Definition at line 9 of file main.\+cpp.
+{\footnotesize\ttfamily using \mbox{\hyperlink{main_8cpp_af786f233400a63a2d45bfcb709ffbfb3}{scalar}} =  \mbox{\hyperlink{namespace_space_h_a50a1e263353add842b5f87190a4f9254}{Space\+H\+::precise\+\_\+d}}}
 
 
 
@@ -62,25 +47,16 @@ Definition at line 9 of file main.\+cpp.
 
 
 
-Definition at line 11 of file main.\+cpp.
-
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
-\end{center}
-\end{figure}
-
-
 \subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_aa5684e2000f8f36e7c5d0115edb4dc1e}\label{main_8cpp_aa5684e2000f8f36e7c5d0115edb4dc1e}} 
+\index{main.\+cpp@{main.\+cpp}!files@{files}}
+\index{files@{files}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{files}{files}}
+{\footnotesize\ttfamily std\+::string files\mbox{[}$\,$\mbox{]} =\{\char`\"{}circular\char`\"{},\char`\"{}elliptic\char`\"{},\char`\"{}solar\+\_\+earth\char`\"{},\char`\"{}Kozai\char`\"{}\}}
+
 \mbox{\Hypertarget{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}\label{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}} 
 \index{main.\+cpp@{main.\+cpp}!N@{N}}
 \index{N@{N}!main.\+cpp@{main.\+cpp}}
 \subsubsection{\texorpdfstring{N}{N}}
-{\footnotesize\ttfamily const size\+\_\+t N = 3}
-
-
-
-Definition at line 10 of file main.\+cpp.
+{\footnotesize\ttfamily const size\+\_\+t N = \mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}}}
 

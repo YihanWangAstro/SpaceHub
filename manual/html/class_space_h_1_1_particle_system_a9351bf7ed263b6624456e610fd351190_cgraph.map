@@ -1,0 +1,10 @@
+<map id="SpaceH::ParticleSystem::totalEnergy" name="SpaceH::ParticleSystem::totalEnergy">
+<area shape="rect" id="node2" href="$class_space_h_1_1_particle_system.html#a3b8fcc8922c6c32d888e0493d5058ae4" title="Calculate the potential energy of the system. " alt="" coords="218,61,384,100"/>
+<area shape="rect" id="node7" href="$class_space_h_1_1_particle_system.html#acf2ffbad4476dae3f259a60338d80288" title="Calculate the kinetic energy of the system. " alt="" coords="218,136,384,175"/>
+<area shape="rect" id="node3" href="$namespace_space_h.html#aecd56c4b16c8c9e47d4083c52db1640a" title="Calculate the potential energy of particles. " alt="" coords="441,5,630,31"/>
+<area shape="rect" id="node5" href="$class_space_h_1_1_vel_indep_particles.html#a9d8196bf1fe404e6c50ae20a11398076" title="Mass array const interface. Reference to mass_. " alt="" coords="446,104,625,143"/>
+<area shape="rect" id="node6" href="$class_space_h_1_1_vel_indep_particles.html#a12ffb071816842a3d31eb11d49ab5b55" title="Position array const interface. Reference to pos_. " alt="" coords="432,55,640,80"/>
+<area shape="rect" id="node4" href="$namespace_space_h.html#a889a97546c28125c77c00557ab96b496" title="Calculate the Euclid distance of two vectors. " alt="" coords="688,5,813,31"/>
+<area shape="rect" id="node8" href="$namespace_space_h.html#a18a2979505e69ee2cf1806f782ed436e" title="Calculate the kinetic energy of particles. " alt="" coords="447,167,624,192"/>
+<area shape="rect" id="node9" href="$class_space_h_1_1_vel_indep_particles.html#a3c096b30a541cd468d6fe5f9d138b3e5" title="Velocity array const interface. Reference to vel_. " alt="" coords="434,216,637,241"/>
+</map>

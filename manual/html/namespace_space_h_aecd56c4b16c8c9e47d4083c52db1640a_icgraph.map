@@ -1,0 +1,8 @@
+<map id="SpaceH::getPotentialEnergy" name="SpaceH::getPotentialEnergy">
+<area shape="rect" id="node2" href="$namespace_space_h.html#af674a32e51a168974fbb76585ba803d9" title="Calculate the energy error approximately for regularized system. " alt="" coords="250,5,405,31"/>
+<area shape="rect" id="node3" href="$class_space_h_1_1_particle_system.html#a3b8fcc8922c6c32d888e0493d5058ae4" title="Calculate the potential energy of the system. " alt="" coords="245,55,410,93"/>
+<area shape="rect" id="node5" href="$class_space_h_1_1_a_rchain_system.html#adf6a2220ead064e01251a74ecbd7eb41" title="Calculate the potential energy of the system. " alt="" coords="242,117,413,156"/>
+<area shape="rect" id="node7" href="$class_space_h_1_1_regu_particles.html#a4f9e99c1492db8dbcfa232f285227cb6" title="Calculate the regularized variable Omega. " alt="" coords="248,180,407,219"/>
+<area shape="rect" id="node4" href="$class_space_h_1_1_particle_system.html#a9351bf7ed263b6624456e610fd351190" title="Calculate the total energy of the system. " alt="" coords="464,55,629,93"/>
+<area shape="rect" id="node6" href="$class_space_h_1_1_a_rchain_system.html#a069b5ae075413b26fa177df689bf044d" title="Calculate the total energy of the system. " alt="" coords="461,117,632,156"/>
+</map>

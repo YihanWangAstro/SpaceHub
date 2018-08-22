@@ -6,14 +6,17 @@
 #include "devTools.h"
 namespace SpaceH
 {
-template<typename T>
+template<typename Vector, typename Scalar>
 struct ParticleStruct_
 {
-    typename T::Vector pos;
-    typename T::Vector vel;
-    typename T::Scalar mass;
-    typename T::Scalar radius;
-    constexpr const static size_t size{8};
+    Vector &pos;
+    Vector &vel;
+    Scalar &mass;
+    Scalar &radius;
+    int    &idn;
+    ParticleStruct_() = delete;
+    ParticleStruct_(Vector& p, Vector& v, Scalar& m, Scalar& r, int& i)
+    : pos(p), vel(v), mass(m), radius(r), idn(i) {}
 };
 
 /**
@@ -34,7 +37,7 @@ public:
     using ScalarArray  = typename type::ScalarArray;
     using IntArray     = typename type::IntArray;
     using ScalarBuffer = typename type::ScalarBuffer;
-    using ParticleStruct = ParticleStruct_<type>;
+    using ParticleStruct = ParticleStruct_<Vector,Scalar>;
     /* Typedef */
 
     /*Template parameter check*/
@@ -75,6 +78,11 @@ public:
         idn_.reserve(new_cap);
     }
 
+    ParticleStruct operator[](size_t i)
+    {
+        return ParticleStruct(pos_[i], vel_[i], mass_[i], radius_[i], idn_[i]);
+    }
+    
     /**  @brief Physical time scalar const interface. Reference to time_*/
     inline const Scalar& time() const
     {
@@ -349,15 +357,10 @@ class VelDepParticles : public VelIndepParticles<Dtype, ArraySize>
 public:
     /* Typedef */
     using Base = VelIndepParticles<Dtype, ArraySize>;
-
     using typename Base::type;
-
     using Scalar = typename type::Scalar;
-
     using Vector = typename type::Vector;
-
     using VectorArray = typename type::VectorArray;
-
     using ScalarBuffer = typename type::ScalarBuffer;
     /* Typedef */
 

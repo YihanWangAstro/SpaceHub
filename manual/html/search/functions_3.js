@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['distance',['distance',['../vector3_8h.html#ab34b7bf3459e88f9ad682f32e13f07a6',1,'vector3.h']]],
-  ['drift',['drift',['../class_regu_system.html#aa7566794cc669e07eff8f42cfafee6c2',1,'ReguSystem::drift()'],['../classparticle_system.html#a3f88bac7a0941910cbffe4ec6b1f32ec',1,'particleSystem::drift()']]]
+  ['distance',['distance',['../namespace_space_h.html#a889a97546c28125c77c00557ab96b496',1,'SpaceH']]],
+  ['dot',['dot',['../namespace_space_h.html#a8a469adb735b3a1d5c15b4a97278ad51',1,'SpaceH']]],
+  ['drift',['drift',['../class_space_h_1_1_regu_system.html#a96230f1b7cda19c0605e1148252ec7ae',1,'SpaceH::ReguSystem::drift()'],['../class_space_h_1_1_particle_system.html#a9a0a562d544beab2b7ac4c964d641cea',1,'SpaceH::ParticleSystem::drift()']]]
 ];

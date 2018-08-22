@@ -1,0 +1,429 @@
+\hypertarget{class_vel_indep_chain_particles}{}\section{Vel\+Indep\+Chain\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$ Class Template Reference}
+\label{class_vel_indep_chain_particles}\index{Vel\+Indep\+Chain\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$@{Vel\+Indep\+Chain\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$}}
+
+
+Class of dynamical variable.  
+
+
+
+
+{\ttfamily \#include $<$dynamic\+Chain.\+h$>$}
+
+
+
+Inheritance diagram for Vel\+Indep\+Chain\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_chain_particles__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vel\+Indep\+Chain\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_vel_indep_chain_particles__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_vel_indep_chain_particles_a4db664b33c58724109eb23bc24dd893c}{Base}} = \mbox{\hyperlink{class_regu_particles}{Regu\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$
+\item 
+using \mbox{\hyperlink{class_vel_indep_chain_particles_a0a945beff437274ce5ae8f7d182da8fe}{Scalar}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_af3c8245d83d9db64749882920de5c274}{type\+::\+Scalar}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_chain_particles_aad309dbb10b07c76d1453f0f659cbde2}{Vector}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a316b81f4660b2b4fab14a8e1f23b6089}{type\+::\+Vector}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_chain_particles_a5558cddeaa7eab94920bdfbeffaa432b}{Vector\+Array}} = typename type\+::\+Vector\+Array
+\item 
+using \mbox{\hyperlink{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}{Index\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a276a37c81faf08681b57e8082f3f6c1b}{type\+::\+Index\+Array}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_chain_particles_a904d5f59968e5fa9d900b9931cf5aa36}{Dyn\+Scalar\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a8f3813f576517856e0ed74af9e5ffcb4}{type\+::\+Dyn\+Scalar\+Array}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \& \mbox{\hyperlink{class_vel_indep_chain_particles_a77765235a45fd13ce74d69d1a1db1770}{chain\+Pos}} () const
+\begin{DoxyCompactList}\small\item\em Position array const interface. Reference to pos\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \& \mbox{\hyperlink{class_vel_indep_chain_particles_a22672cce6930aec1555f1f0662d0f52a}{chain\+Vel}} () const
+\begin{DoxyCompactList}\small\item\em Velocity array const interface. Reference to vel\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}{Index\+Array}} \& \mbox{\hyperlink{class_vel_indep_chain_particles_a0ad298c834406f31f95df62694d51869}{chain\+Index}} () const
+\begin{DoxyCompactList}\small\item\em Index array const interface. Reference to ch\+\_\+index\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} \& \mbox{\hyperlink{class_vel_indep_chain_particles_a245e69b858810e26e5ed61746694382e}{chain\+Pos}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Position vector const interface. Reference to pos\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} \& \mbox{\hyperlink{class_vel_indep_chain_particles_a81b2a3bd3f972dd11486beaafa6efc72}{chain\+Vel}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Velocity vecotr const interface. Reference to vel\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const size\+\_\+t \mbox{\hyperlink{class_vel_indep_chain_particles_ad2cec742c8fa63849b9ff5b8876f879a}{chain\+Index}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Index const interface. Reference to ch\+\_\+index\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vel_indep_chain_particles_a76124f26a1e37892cd38f533edcbb8e8}{advance\+Pos}} (\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance the position array with internal velocity array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vel_indep_chain_particles_aa09b6bf7f9efbe1da4de3d106581b3a6}{advance\+Vel}} (const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \&acc, \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance the velocity array with given acceleration array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{namespace_space_h_a4782f089179a3c269891f02482b072df}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+CT}} \mbox{\hyperlink{class_vel_indep_chain_particles_a58396033a881431db18207bf280892ea}{data\+Struct}} \{\mbox{\hyperlink{namespace_space_h_a0af19f79a6498e99dbda772053d44a72a014d2cf3cdc3af6f4f92c09190860e33}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+C\+T\+::\+C\+H\+A\+IN}}\}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_chain_particles_a8e2defc6dcb9986dbc9c8c62215331aa}{chain\+\_\+pos\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Chained position array of the particles. Element is 3D vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_chain_particles_a96ed0f2a5fcfb290dfafb42f08131e2f}{chain\+\_\+vel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Chained velocity array of the particles. Element is 3D vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}{Index\+Array}} \mbox{\hyperlink{class_vel_indep_chain_particles_a8f10bc65c3e0de542db29178824522cb}{ch\+\_\+index\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Index array from Cartesian coordinates to chain coordinates Element is 3D vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{class_vel_indep_chain_particles_a87208692311239cfefd6d58ea4ce39ce}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Input(\+Initialize) variables with istream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_vel_indep_chain_particles_a14ddc76e4a83ec2a17c39487668ea348}{operator$>$$>$}} (\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&data, \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Input variables with plain scalar array. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_vel_indep_chain_particles_a2bd1a832e8f46ef461776d62d90965c4}{operator$<$$<$}} (\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&data, const \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Output variables to plain scalar array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Dtype, size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$\newline
+class Vel\+Indep\+Chain\+Particles$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$}
+
+Class of dynamical variable. 
+
+Definition at line 13 of file dynamic\+Chain.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a4db664b33c58724109eb23bc24dd893c}\label{class_vel_indep_chain_particles_a4db664b33c58724109eb23bc24dd893c}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!Base@{Base}}
+\index{Base@{Base}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_vel_indep_chain_particles_a4db664b33c58724109eb23bc24dd893c}{Base}} =  \mbox{\hyperlink{class_regu_particles}{Regu\+Particles}}$<$Dtype, Array\+Size, Is\+Vel\+Dep$>$}
+
+
+
+Definition at line 17 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a904d5f59968e5fa9d900b9931cf5aa36}\label{class_vel_indep_chain_particles_a904d5f59968e5fa9d900b9931cf5aa36}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!Dyn\+Scalar\+Array@{Dyn\+Scalar\+Array}}
+\index{Dyn\+Scalar\+Array@{Dyn\+Scalar\+Array}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{Dyn\+Scalar\+Array}{DynScalarArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a8f3813f576517856e0ed74af9e5ffcb4}{type\+::\+Dyn\+Scalar\+Array}}}
+
+
+
+Definition at line 29 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}\label{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!Index\+Array@{Index\+Array}}
+\index{Index\+Array@{Index\+Array}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{Index\+Array}{IndexArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}{Index\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a276a37c81faf08681b57e8082f3f6c1b}{type\+::\+Index\+Array}}}
+
+
+
+Definition at line 27 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a0a945beff437274ce5ae8f7d182da8fe}\label{class_vel_indep_chain_particles_a0a945beff437274ce5ae8f7d182da8fe}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_af3c8245d83d9db64749882920de5c274}{type\+::\+Scalar}}}
+
+
+
+Definition at line 21 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_aad309dbb10b07c76d1453f0f659cbde2}\label{class_vel_indep_chain_particles_aad309dbb10b07c76d1453f0f659cbde2}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!Vector@{Vector}}
+\index{Vector@{Vector}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a316b81f4660b2b4fab14a8e1f23b6089}{type\+::\+Vector}}}
+
+
+
+Definition at line 23 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a5558cddeaa7eab94920bdfbeffaa432b}\label{class_vel_indep_chain_particles_a5558cddeaa7eab94920bdfbeffaa432b}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!Vector\+Array@{Vector\+Array}}
+\index{Vector\+Array@{Vector\+Array}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+using \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} =  typename type\+::\+Vector\+Array}
+
+
+
+Definition at line 25 of file dynamic\+Chain.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a76124f26a1e37892cd38f533edcbb8e8}\label{class_vel_indep_chain_particles_a76124f26a1e37892cd38f533edcbb8e8}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!advance\+Pos@{advance\+Pos}}
+\index{advance\+Pos@{advance\+Pos}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Pos()}{advancePos()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+void \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::advance\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the position array with internal velocity array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & The advance step size. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file dynamic\+Chain.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_chain_particles_a76124f26a1e37892cd38f533edcbb8e8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_chain_particles_aa09b6bf7f9efbe1da4de3d106581b3a6}\label{class_vel_indep_chain_particles_aa09b6bf7f9efbe1da4de3d106581b3a6}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!advance\+Vel@{advance\+Vel}}
+\index{advance\+Vel@{advance\+Vel}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Vel()}{advanceVel()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+void \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::advance\+Vel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \&}]{acc,  }\item[{\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the velocity array with given acceleration array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & The advance step size. \\
+\hline
+{\em acc} & The acceleration array. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file dynamic\+Chain.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_chain_particles_aa09b6bf7f9efbe1da4de3d106581b3a6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a0ad298c834406f31f95df62694d51869}\label{class_vel_indep_chain_particles_a0ad298c834406f31f95df62694d51869}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+Index@{chain\+Index}}
+\index{chain\+Index@{chain\+Index}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+Index()}{chainIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}{Index\+Array}}\& \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Index array const interface. Reference to ch\+\_\+index\+\_\+. 
+
+
+
+Definition at line 45 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_ad2cec742c8fa63849b9ff5b8876f879a}\label{class_vel_indep_chain_particles_ad2cec742c8fa63849b9ff5b8876f879a}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+Index@{chain\+Index}}
+\index{chain\+Index@{chain\+Index}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+Index()}{chainIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const size\+\_\+t \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+Index (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Index const interface. Reference to ch\+\_\+index\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 54 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a77765235a45fd13ce74d69d1a1db1770}\label{class_vel_indep_chain_particles_a77765235a45fd13ce74d69d1a1db1770}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+Pos@{chain\+Pos}}
+\index{chain\+Pos@{chain\+Pos}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+Pos()}{chainPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}}\& \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Position array const interface. Reference to pos\+\_\+. 
+
+
+
+Definition at line 39 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a245e69b858810e26e5ed61746694382e}\label{class_vel_indep_chain_particles_a245e69b858810e26e5ed61746694382e}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+Pos@{chain\+Pos}}
+\index{chain\+Pos@{chain\+Pos}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+Pos()}{chainPos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}}\& \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+Pos (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Position vector const interface. Reference to pos\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 48 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a22672cce6930aec1555f1f0662d0f52a}\label{class_vel_indep_chain_particles_a22672cce6930aec1555f1f0662d0f52a}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+Vel@{chain\+Vel}}
+\index{chain\+Vel@{chain\+Vel}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+Vel()}{chainVel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}}\& \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+Vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Velocity array const interface. Reference to vel\+\_\+. 
+
+
+
+Definition at line 42 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a81b2a3bd3f972dd11486beaafa6efc72}\label{class_vel_indep_chain_particles_a81b2a3bd3f972dd11486beaafa6efc72}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+Vel@{chain\+Vel}}
+\index{chain\+Vel@{chain\+Vel}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+Vel()}{chainVel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}}\& \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+Vel (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Velocity vecotr const interface. Reference to vel\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 51 of file dynamic\+Chain.\+h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a2bd1a832e8f46ef461776d62d90965c4}\label{class_vel_indep_chain_particles_a2bd1a832e8f46ef461776d62d90965c4}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+size\+\_\+t operator$<$$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&}]{data,  }\item[{const \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output variables to plain scalar array. 
+
+
+
+Definition at line 122 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a87208692311239cfefd6d58ea4ce39ce}\label{class_vel_indep_chain_particles_a87208692311239cfefd6d58ea4ce39ce}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input(\+Initialize) variables with istream. 
+
+
+
+Definition at line 86 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a14ddc76e4a83ec2a17c39487668ea348}\label{class_vel_indep_chain_particles_a14ddc76e4a83ec2a17c39487668ea348}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+size\+\_\+t operator$>$$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&}]{data,  }\item[{\mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input variables with plain scalar array. 
+
+
+
+Definition at line 98 of file dynamic\+Chain.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a8f10bc65c3e0de542db29178824522cb}\label{class_vel_indep_chain_particles_a8f10bc65c3e0de542db29178824522cb}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!ch\+\_\+index\+\_\+@{ch\+\_\+index\+\_\+}}
+\index{ch\+\_\+index\+\_\+@{ch\+\_\+index\+\_\+}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{ch\+\_\+index\+\_\+}{ch\_index\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+\mbox{\hyperlink{class_vel_indep_chain_particles_a691749351fb710d16619ef6cc43bb1e6}{Index\+Array}} \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::ch\+\_\+index\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Index array from Cartesian coordinates to chain coordinates Element is 3D vector. 
+
+
+
+Definition at line 156 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a8e2defc6dcb9986dbc9c8c62215331aa}\label{class_vel_indep_chain_particles_a8e2defc6dcb9986dbc9c8c62215331aa}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+\_\+pos\+\_\+@{chain\+\_\+pos\+\_\+}}
+\index{chain\+\_\+pos\+\_\+@{chain\+\_\+pos\+\_\+}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+\_\+pos\+\_\+}{chain\_pos\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+\_\+pos\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Chained position array of the particles. Element is 3D vector. 
+
+
+
+Definition at line 150 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a96ed0f2a5fcfb290dfafb42f08131e2f}\label{class_vel_indep_chain_particles_a96ed0f2a5fcfb290dfafb42f08131e2f}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!chain\+\_\+vel\+\_\+@{chain\+\_\+vel\+\_\+}}
+\index{chain\+\_\+vel\+\_\+@{chain\+\_\+vel\+\_\+}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{chain\+\_\+vel\+\_\+}{chain\_vel\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::chain\+\_\+vel\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Chained velocity array of the particles. Element is 3D vector. 
+
+
+
+Definition at line 153 of file dynamic\+Chain.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_chain_particles_a58396033a881431db18207bf280892ea}\label{class_vel_indep_chain_particles_a58396033a881431db18207bf280892ea}} 
+\index{Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}!data\+Struct@{data\+Struct}}
+\index{data\+Struct@{data\+Struct}!Vel\+Indep\+Chain\+Particles@{Vel\+Indep\+Chain\+Particles}}
+\subsubsection{\texorpdfstring{data\+Struct}{dataStruct}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size, bool Is\+Vel\+Dep$>$ \\
+constexpr \mbox{\hyperlink{namespace_space_h_a4782f089179a3c269891f02482b072df}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+CT}} \mbox{\hyperlink{class_vel_indep_chain_particles}{Vel\+Indep\+Chain\+Particles}}$<$ Dtype, Array\+Size, Is\+Vel\+Dep $>$\+::data\+Struct \{\mbox{\hyperlink{namespace_space_h_a0af19f79a6498e99dbda772053d44a72a014d2cf3cdc3af6f4f92c09190860e33}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+C\+T\+::\+C\+H\+A\+IN}}\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 32 of file dynamic\+Chain.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle\+System/\+A\+R\+Chain/\mbox{\hyperlink{dynamic_chain_8h}{dynamic\+Chain.\+h}}\end{DoxyCompactItemize}

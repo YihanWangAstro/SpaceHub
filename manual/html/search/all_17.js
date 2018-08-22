@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['y',['y',['../structvec3.html#a77c2f238c0b2b7895304f5ca64b8d770',1,'vec3']]],
-  ['year',['YEAR',['../macros_8h.html#a11d8e3074f42ead7031e5d743826d7c5',1,'macros.h']]]
+  ['y',['y',['../struct_space_h_1_1vec3.html#a28ae016a54c1d0929b16a4b80a7b286f',1,'SpaceH::vec3']]],
+  ['year',['YEAR',['../namespace_space_h_1_1_unit.html#a386ecd4744a86ce94e14270b1305fc62',1,'SpaceH::Unit']]],
+  ['ymax',['ymax',['../struct_space_h_1_1_oc_tree_1_1_coord.html#ae4fbed83cac15bf8aeeb4a54f21ef829',1,'SpaceH::OcTree::Coord']]],
+  ['ymin',['ymin',['../struct_space_h_1_1_oc_tree_1_1_coord.html#a094b49bff80734585def902f87973f15',1,'SpaceH::OcTree::Coord']]]
 ];

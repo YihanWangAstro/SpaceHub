@@ -1,0 +1,212 @@
+\hypertarget{struct_space_h_1_1kahan}{}\section{SpaceH\+:\+:kahan$<$ T $>$ Struct Template Reference}
+\label{struct_space_h_1_1kahan}\index{Space\+H\+::kahan$<$ T $>$@{Space\+H\+::kahan$<$ T $>$}}
+
+
+Kahan number.  
+
+
+
+
+{\ttfamily \#include $<$kahan\+Number.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_space_h_1_1kahan_ae2e0e0627b003662802b12bf6b02f551}{value\+\_\+type}} = T
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_space_h_1_1kahan_a97b3bd761defb5ed56ec1693822a23aa}{kahan}} ()
+\item 
+\mbox{\hyperlink{struct_space_h_1_1kahan_a0ba659734c4a20fbb307cfb26b871585}{kahan}} (T r)
+\item 
+\mbox{\hyperlink{struct_space_h_1_1kahan_a52479b2b99e2fc5174552eee059c70ea}{kahan}} (const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&k)
+\item 
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \& \mbox{\hyperlink{struct_space_h_1_1kahan_ac37afdaf89b9767870b8b67a7e62ab4b}{operator=}} (const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&hs)
+\item 
+\mbox{\hyperlink{struct_space_h_1_1kahan_ac818dc8e06b0df33793f3a166dcacdd7}{operator T}} ()
+\item 
+\mbox{\hyperlink{struct_space_h_1_1kahan_aac0531dd242d8da70ecd34789bc29282}{operator T}} () const
+\item 
+void \mbox{\hyperlink{struct_space_h_1_1kahan_a2e4b2e324e738455f7ff545137993a4a}{zero\+Err}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{struct_space_h_1_1kahan_a34f95db4f173e2136fb49e679b6816be}{real}}
+\item 
+T \mbox{\hyperlink{struct_space_h_1_1kahan_abd8853c83c20e2eb13b602032a55bd2a}{err}}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \mbox{\hyperlink{struct_space_h_1_1kahan_ab77d95a6c784d0d3aeb9c07c11cf4492}{operator-\/}} (const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&hs)
+\item 
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \& \mbox{\hyperlink{struct_space_h_1_1kahan_a8183a5443769b1b64ab323558a4700fd}{operator+=}} (\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&lhs, const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&rhs)
+\item 
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \& \mbox{\hyperlink{struct_space_h_1_1kahan_ac0214cfa7da4475dd8f209f071c26dd8}{operator-\/=}} (\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&lhs, const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&rhs)
+\item 
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \& \mbox{\hyperlink{struct_space_h_1_1kahan_a3092bcb332eb3a793d58e34a8a82ff1e}{operator/=}} (\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&lhs, const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&rhs)
+\item 
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \& \mbox{\hyperlink{struct_space_h_1_1kahan_a23bc801f60370bf8a564989c7cf5da03}{operator$\ast$=}} (\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&lhs, const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&rhs)
+\item 
+std\+::ostream \& \mbox{\hyperlink{struct_space_h_1_1kahan_a5f74f934a96e15e37de4023571d648a6}{operator$<$$<$}} (std\+::ostream \&output, const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&v)
+\begin{DoxyCompactList}\small\item\em Output to ostream. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{struct_space_h_1_1kahan_a53c2b4bd3238b250075cb76fa4548f19}{operator$>$$>$}} (std\+::istream \&input, \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} \&v)
+\begin{DoxyCompactList}\small\item\em Input from istream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct Space\+H\+::kahan$<$ T $>$}
+
+Kahan number. 
+
+A way to reduce the round off error when adding a small number to a big one. See details in \href{https://en.wikipedia.org/wiki/Kahan_summation_algorithm}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Kahan\+\_\+summation\+\_\+algorithm} 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{struct_space_h_1_1kahan_ae2e0e0627b003662802b12bf6b02f551}\label{struct_space_h_1_1kahan_ae2e0e0627b003662802b12bf6b02f551}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{value\+\_\+type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::\mbox{\hyperlink{struct_space_h_1_1kahan_ae2e0e0627b003662802b12bf6b02f551}{value\+\_\+type}} =  T}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a97b3bd761defb5ed56ec1693822a23aa}\label{struct_space_h_1_1kahan_a97b3bd761defb5ed56ec1693822a23aa}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!kahan@{kahan}}
+\index{kahan@{kahan}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{kahan()}{kahan()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a0ba659734c4a20fbb307cfb26b871585}\label{struct_space_h_1_1kahan_a0ba659734c4a20fbb307cfb26b871585}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!kahan@{kahan}}
+\index{kahan@{kahan}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{kahan()}{kahan()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} (\begin{DoxyParamCaption}\item[{T}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a52479b2b99e2fc5174552eee059c70ea}\label{struct_space_h_1_1kahan_a52479b2b99e2fc5174552eee059c70ea}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!kahan@{kahan}}
+\index{kahan@{kahan}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{kahan()}{kahan()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_space_h_1_1kahan_ac818dc8e06b0df33793f3a166dcacdd7}\label{struct_space_h_1_1kahan_ac818dc8e06b0df33793f3a166dcacdd7}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator T@{operator T}}
+\index{operator T@{operator T}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator T()}{operator T()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::operator T (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_aac0531dd242d8da70ecd34789bc29282}\label{struct_space_h_1_1kahan_aac0531dd242d8da70ecd34789bc29282}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator T@{operator T}}
+\index{operator T@{operator T}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator T()}{operator T()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::operator T (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_ac37afdaf89b9767870b8b67a7e62ab4b}\label{struct_space_h_1_1kahan_ac37afdaf89b9767870b8b67a7e62ab4b}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator=@{operator=}}
+\index{operator=@{operator=}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}\& \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{hs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a2e4b2e324e738455f7ff545137993a4a}\label{struct_space_h_1_1kahan_a2e4b2e324e738455f7ff545137993a4a}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!zero\+Err@{zero\+Err}}
+\index{zero\+Err@{zero\+Err}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{zero\+Err()}{zeroErr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::zero\+Err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a23bc801f60370bf8a564989c7cf5da03}\label{struct_space_h_1_1kahan_a23bc801f60370bf8a564989c7cf5da03}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator$\ast$=}{operator*=}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}\& operator$\ast$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a8183a5443769b1b64ab323558a4700fd}\label{struct_space_h_1_1kahan_a8183a5443769b1b64ab323558a4700fd}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator+=}{operator+=}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}\& operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_ab77d95a6c784d0d3aeb9c07c11cf4492}\label{struct_space_h_1_1kahan_ab77d95a6c784d0d3aeb9c07c11cf4492}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{hs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_ac0214cfa7da4475dd8f209f071c26dd8}\label{struct_space_h_1_1kahan_ac0214cfa7da4475dd8f209f071c26dd8}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator-\/=}{operator-=}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}\& operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a3092bcb332eb3a793d58e34a8a82ff1e}\label{struct_space_h_1_1kahan_a3092bcb332eb3a793d58e34a8a82ff1e}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator/=}{operator/=}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}\& operator/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a5f74f934a96e15e37de4023571d648a6}\label{struct_space_h_1_1kahan_a5f74f934a96e15e37de4023571d648a6}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output,  }\item[{const \mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output to ostream. 
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a53c2b4bd3238b250075cb76fa4548f19}\label{struct_space_h_1_1kahan_a53c2b4bd3238b250075cb76fa4548f19}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input,  }\item[{\mbox{\hyperlink{struct_space_h_1_1kahan}{kahan}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input from istream. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_space_h_1_1kahan_abd8853c83c20e2eb13b602032a55bd2a}\label{struct_space_h_1_1kahan_abd8853c83c20e2eb13b602032a55bd2a}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!err@{err}}
+\index{err@{err}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{err}{err}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::err}
+
+\mbox{\Hypertarget{struct_space_h_1_1kahan_a34f95db4f173e2136fb49e679b6816be}\label{struct_space_h_1_1kahan_a34f95db4f173e2136fb49e679b6816be}} 
+\index{Space\+H\+::kahan@{Space\+H\+::kahan}!real@{real}}
+\index{real@{real}!Space\+H\+::kahan@{Space\+H\+::kahan}}
+\subsubsection{\texorpdfstring{real}{real}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{struct_space_h_1_1kahan}{Space\+H\+::kahan}}$<$ T $>$\+::real}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{kahan_number_8h}{kahan\+Number.\+h}}\end{DoxyCompactItemize}

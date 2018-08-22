@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errhand_2eh',['errhand.h',['../errhand_8h.html',1,'']]]
+  ['errcurve_2eh',['errCurve.h',['../err_curve_8h.html',1,'']]]
 ];

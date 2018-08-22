@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kdkleapfrog',['KDKLEAPFROG',['../namespace_space_h.html#a4829efb7299b62ce2f122e27bb720db6a9a3a2cb30e865b2578a7fd8e8f0bd50c',1,'SpaceH']]]
+  ['star',['STAR',['../namespace_space_h.html#a5d46b61fb1db52e69e41f33f443c3385a4734f1829ea94173cc7b287c89c0dcd2',1,'SpaceH']]],
+  ['std',['STD',['../namespace_space_h.html#a296a8bae763a754564bfdce216e31b59ac6ce23be5d350ce18a665427d2d950f7',1,'SpaceH']]]
 ];

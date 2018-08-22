@@ -1,0 +1,5 @@
+<map id="SpaceH::Kepler::moveOrbitTo" name="SpaceH::Kepler::moveOrbitTo">
+<area shape="rect" id="node2" href="$struct_space_h_1_1_kepler.html#a695ab24623b4bd6dbcba8fc388090ace" title="SpaceH::Kepler::moveToCentre\lMassCoord" alt="" coords="251,37,460,76"/>
+<area shape="rect" id="node3" href="$struct_space_h_1_1_kepler.html#a0db141671a25e3f20b1f784256658fb1" title="SpaceH::Kepler::getCentre\lMassPos" alt="" coords="508,5,689,44"/>
+<area shape="rect" id="node4" href="$struct_space_h_1_1_kepler.html#ab3c523b35f5d0c4f25fdf3bf46830c08" title="SpaceH::Kepler::getCentre\lMassVel" alt="" coords="508,68,689,107"/>
+</map>

@@ -135,7 +135,6 @@ public:
         return partc.idn(i);
     }
 
-    
     /** @brief Interface to rescale the time.
      *
      *  Interace used by dynamic system. Transfer integration time(For some system, integration time is different from
@@ -260,7 +259,6 @@ public:
     {
         return partc.read(data, IO_flag);
     }
-
 
     /** @brief Output variables to plain scalar array.*/
     size_t write(ScalarBuffer& data, const NbodyIO IO_flag = NbodyIO::STD) const

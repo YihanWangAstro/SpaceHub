@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eventtype',['EVENTTYPE',['../namespace_space_h.html#aa577debdabfe522d60698d6e25318eb6',1,'SpaceH']]]
+  ['nbodyio',['NbodyIO',['../namespace_space_h.html#a296a8bae763a754564bfdce216e31b59',1,'SpaceH']]]
 ];

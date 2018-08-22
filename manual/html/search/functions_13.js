@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7edynamicsystem',['~dynamicSystem',['../classdynamic_system.html#a239af38fcf35f3fe32d5ae5e183e4cca',1,'dynamicSystem']]],
-  ['_7eparticlesystem',['~particleSystem',['../classparticle_system.html#a56d066b7151be7bdb05f64349d44581e',1,'particleSystem']]]
+  ['zeroerr',['zeroErr',['../struct_space_h_1_1kahan.html#a2e4b2e324e738455f7ff545137993a4a',1,'SpaceH::kahan']]],
+  ['zerototalacc',['zeroTotalAcc',['../class_space_h_1_1_interactions.html#aa92db94c7328bdec6eb1729749589b5a',1,'SpaceH::Interactions']]]
 ];

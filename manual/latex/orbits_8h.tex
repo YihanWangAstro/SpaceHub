@@ -1,0 +1,57 @@
+\hypertarget{orbits_8h}{}\section{init\+Creator/orbits.h File Reference}
+\label{orbits_8h}\index{init\+Creator/orbits.\+h@{init\+Creator/orbits.\+h}}
+{\ttfamily \#include \char`\"{}../proto\+Type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../own\+Math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../macros.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for orbits.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{orbits_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{orbits_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_orbits_1_1_param}{Space\+H\+::\+Orbits\+::\+Param$<$ Scalar $>$}}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_particle}{Space\+H\+::\+Particle$<$ Dtype $>$}}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_kepler}{Space\+H\+::\+Kepler$<$ Dtype $>$}}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\item 
+ \mbox{\hyperlink{namespace_space_h_1_1_orbits}{Space\+H\+::\+Orbits}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_a678a54bbf3a8637d6437b4b8b4a39d97}{Space\+H\+::\+Orbits\+::myacos}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} x)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\Vector \mbox{\hyperlink{namespace_space_h_1_1_orbits_a67c6c20142cd8a4bd9690741c61314da}{Space\+H\+::\+Orbits\+::calcu\+Eccentricity}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m1, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m2, const Vector \&pos1, const Vector \&pos2, const Vector \&vel1, const Vector \&vel2)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_ad5dd14dac8365a426bc0ff7452318835}{Space\+H\+::\+Orbits\+::calcu\+Semi\+Major\+Axis}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m1, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m2, const Vector \&pos1, const Vector \&pos2, const Vector \&vel1, const Vector \&vel2)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1_orbits_a5e8b37a1237e17770907f5c2adbb53d6}{Space\+H\+::\+Orbits\+::to\+Oribt\+Parameters}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m1, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} m2, const Vector \&pos1, const Vector \&pos2, const Vector \&vel1, const Vector \&vel2, Param$<$ \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} $>$ \&params)
+\item 
+{\footnotesize template$<$typename Vector , typename Scalar $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1_orbits_ab06b7e85a786928255938378f9a97e26}{Space\+H\+::\+Orbits\+::euler\+Rotate}} (Vector \&v, const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} phi, const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} theta, const \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} psi)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_ab0a6bf4bbce5725fa15cc6250057817c}{Space\+H\+::\+Orbits\+::get\+Random\+Mean\+Anomaly}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} e, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Mmin, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} Mmax)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_a43d1a07ed25eaf775f3a83d7000a2596}{Space\+H\+::\+Orbits\+::get\+True\+Anomaly}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} E, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} e)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} \mbox{\hyperlink{namespace_space_h_1_1_orbits_a729783768420346b170d79aa5e196841}{Space\+H\+::\+Orbits\+::get\+Eccentric\+Anomaly}} (\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} M, \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} e)
+\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\hypertarget{test_orbit_8cpp}{}\section{unit\+Test/orbits/test\+Orbit.cpp File Reference}
+\label{test_orbit_8cpp}\index{unit\+Test/orbits/test\+Orbit.\+cpp@{unit\+Test/orbits/test\+Orbit.\+cpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}../../init\+Creator/orbits.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../init\+Creator/\+Init\+File\+Creator.\+h\char`\"{}}\newline
+Include dependency graph for test\+Orbit.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test_orbit_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} = double
+\item 
+using \mbox{\hyperlink{test_orbit_8cpp_aaf78952f89a07717d391752c1d8448ec}{particle}} = \mbox{\hyperlink{struct_space_h_1_1_particle}{Space\+H\+::\+Particle}}$<$ \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} $>$
+\item 
+using \mbox{\hyperlink{test_orbit_8cpp_a6cc36902ba5bfbeb7034bc200c6b92e9}{Creator}} = \mbox{\hyperlink{class_space_h_1_1_init_creator}{Space\+H\+::\+Init\+Creator}}$<$ \mbox{\hyperlink{create_kepler_8cpp_a9f244cfcdff9a4f5537271d4a79728dc}{particle}} $>$
+\item 
+using \mbox{\hyperlink{test_orbit_8cpp_a01583f0d32214c3b1c409c0b51bdfd25}{K\+Obt}} = \mbox{\hyperlink{struct_space_h_1_1_kepler}{Space\+H\+::\+Kepler}}$<$ \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} $>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{test_orbit_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr size\+\_\+t \mbox{\hyperlink{test_orbit_8cpp_ad8331653910a5a034f8238e6a8fbb9b1}{N}} = 5000
+\item 
+constexpr size\+\_\+t \mbox{\hyperlink{test_orbit_8cpp_a556c4c57567ffd7e8cf5f85d6dd74277}{orbits\+Num}} = 10
+\item 
+constexpr size\+\_\+t \mbox{\hyperlink{test_orbit_8cpp_a69d449f237309dbbff8d33e7b61e1418}{interval}} = \mbox{\hyperlink{test_orbit_8cpp_ad8331653910a5a034f8238e6a8fbb9b1}{N}}/\mbox{\hyperlink{test_orbit_8cpp_a556c4c57567ffd7e8cf5f85d6dd74277}{orbits\+Num}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{test_orbit_8cpp_a6cc36902ba5bfbeb7034bc200c6b92e9}\label{test_orbit_8cpp_a6cc36902ba5bfbeb7034bc200c6b92e9}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!Creator@{Creator}}
+\index{Creator@{Creator}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{Creator}{Creator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{create_kepler_8cpp_a95701d9caa1a51a65c80df37c86f1ede}{Creator}} =  \mbox{\hyperlink{class_space_h_1_1_init_creator}{Space\+H\+::\+Init\+Creator}}$<$\mbox{\hyperlink{create_kepler_8cpp_a9f244cfcdff9a4f5537271d4a79728dc}{particle}}$>$}
+
+\mbox{\Hypertarget{test_orbit_8cpp_a01583f0d32214c3b1c409c0b51bdfd25}\label{test_orbit_8cpp_a01583f0d32214c3b1c409c0b51bdfd25}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!K\+Obt@{K\+Obt}}
+\index{K\+Obt@{K\+Obt}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{K\+Obt}{KObt}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{create_kepler_8cpp_aea15e7cb378a07bc6e1cb6751abbed20}{K\+Obt}} =  \mbox{\hyperlink{struct_space_h_1_1_kepler}{Space\+H\+::\+Kepler}}$<$\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}$>$}
+
+\mbox{\Hypertarget{test_orbit_8cpp_aaf78952f89a07717d391752c1d8448ec}\label{test_orbit_8cpp_aaf78952f89a07717d391752c1d8448ec}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!particle@{particle}}
+\index{particle@{particle}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{particle}{particle}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{create_kepler_8cpp_a9f244cfcdff9a4f5537271d4a79728dc}{particle}} =  \mbox{\hyperlink{struct_space_h_1_1_particle}{Space\+H\+::\+Particle}}$<$\mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}}$>$}
+
+\mbox{\Hypertarget{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}\label{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{create_kepler_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Scalar}} =  double}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{test_orbit_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{test_orbit_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!main@{main}}
+\index{main@{main}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test_orbit_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{test_orbit_8cpp_a69d449f237309dbbff8d33e7b61e1418}\label{test_orbit_8cpp_a69d449f237309dbbff8d33e7b61e1418}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!interval@{interval}}
+\index{interval@{interval}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily constexpr size\+\_\+t interval = \mbox{\hyperlink{test_orbit_8cpp_ad8331653910a5a034f8238e6a8fbb9b1}{N}}/\mbox{\hyperlink{test_orbit_8cpp_a556c4c57567ffd7e8cf5f85d6dd74277}{orbits\+Num}}}
+
+\mbox{\Hypertarget{test_orbit_8cpp_ad8331653910a5a034f8238e6a8fbb9b1}\label{test_orbit_8cpp_ad8331653910a5a034f8238e6a8fbb9b1}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!N@{N}}
+\index{N@{N}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily constexpr size\+\_\+t N = 5000}
+
+\mbox{\Hypertarget{test_orbit_8cpp_a556c4c57567ffd7e8cf5f85d6dd74277}\label{test_orbit_8cpp_a556c4c57567ffd7e8cf5f85d6dd74277}} 
+\index{test\+Orbit.\+cpp@{test\+Orbit.\+cpp}!orbits\+Num@{orbits\+Num}}
+\index{orbits\+Num@{orbits\+Num}!test\+Orbit.\+cpp@{test\+Orbit.\+cpp}}
+\subsubsection{\texorpdfstring{orbits\+Num}{orbitsNum}}
+{\footnotesize\ttfamily constexpr size\+\_\+t orbits\+Num = 10}
+
