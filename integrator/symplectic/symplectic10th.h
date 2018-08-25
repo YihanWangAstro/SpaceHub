@@ -1,10 +1,10 @@
 
 #ifndef SYMPLECTIC_10TH_INTEGRATOR_H
 #define SYMPLECTIC_10TH_INTEGRATOR_H
+
 /** @brief Eighth order symplectic integrator */
-template <typename ParticSys>
-class symplectic10th
-{
+template<typename ParticSys>
+class symplectic10th {
 public:
     /* Typedef */
     using type   = typename ParticSys::type;
@@ -16,7 +16,8 @@ public:
 
     /** @brief Order of the integrator*/
     static const int order{10};
-    void integrate(ParticSys& particles, Scalar stepLength);
+
+    void integrate(ParticSys &particles, Scalar stepLength);
 };
 
 /** @brief Interface to integrate particle system
@@ -25,9 +26,8 @@ public:
  *  @param particles  Particle system need to be integrated.
  *  @param stepLength Step size for integration.
  */
-template <typename ParticSys>
-void symplectic10th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength)
-{
+template<typename ParticSys>
+void symplectic10th<ParticSys>::integrate(ParticSys &particles, Scalar stepLength) {
     /*unroll loop manually*/
     particles.drift(3.0610967201933609e-01 * stepLength);
     particles.kick(6.1221934403867218e-01 * stepLength);
@@ -56,7 +56,7 @@ void symplectic10th<ParticSys>::integrate(ParticSys& particles, Scalar stepLengt
     particles.drift(4.3160892192959932e-01 * stepLength);
     particles.kick(7.4779545632272060e-01 * stepLength);
     particles.drift(5.5434862753225678e-02 * stepLength);
-    particles.kick(-6.3692573081626924e-01* stepLength);
+    particles.kick(-6.3692573081626924e-01 * stepLength);
     particles.drift(-1.9288621063874828e-01 * stepLength);
     particles.kick(2.5115330953877268e-01 * stepLength);
     particles.drift(3.3904387248169282e-01 * stepLength);
@@ -93,4 +93,5 @@ void symplectic10th<ParticSys>::integrate(ParticSys& particles, Scalar stepLengt
     particles.kick(6.1221934403867218e-01 * stepLength);
     particles.drift(3.0610967201933609e-01 * stepLength);
 }
+
 #endif

@@ -4,7 +4,7 @@
 
 #ifdef __AVX__
 #pragma message("Using AVX on vector3d")
-//#pragma G++ optimize("O3")
+
 #include <x86intrin.h>
 namespace SpaceH
 {

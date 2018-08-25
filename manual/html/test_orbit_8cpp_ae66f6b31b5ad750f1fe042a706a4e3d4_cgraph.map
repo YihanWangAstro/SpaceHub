@@ -7,7 +7,7 @@
 <area shape="rect" id="node12" href="$class_space_h_1_1_init_creator.html#a6cf46010b11b3b7ad19f1d37e2cb1cb4" title="SpaceH::InitCreator\l::writeToFile" alt="" coords="138,265,277,304"/>
 <area shape="rect" id="node4" href="$namespace_space_h_1_1_orbits.html#ab0a6bf4bbce5725fa15cc6250057817c" title="SpaceH::Orbits::getRandom\lMeanAnomaly" alt="" coords="374,125,562,164"/>
 <area shape="rect" id="node6" href="$namespace_space_h_1_1_orbits.html#a729783768420346b170d79aa5e196841" title="SpaceH::Orbits::getEccentric\lAnomaly" alt="" coords="372,13,564,52"/>
-<area shape="rect" id="node8" href="$namespace_space_h_1_1_orbits.html#a43d1a07ed25eaf775f3a83d7000a2596" title="SpaceH::Orbits::getTrueAnomaly" alt="" coords="360,76,576,101"/>
+<area shape="rect" id="node8" href="$namespace_space_h_1_1_orbits.html#a43d1a07ed25eaf775f3a83d7000a2596" title="SpaceH::Orbits::calcuTrueAnomaly" alt="" coords="360,76,576,101"/>
 <area shape="rect" id="node5" href="$namespace_space_h.html#af7bd0f1f17522b3122fa19f037a12ccc" title="SpaceH::errMsg" alt="" coords="646,104,763,129"/>
 <area shape="rect" id="node7" href="$namespace_space_h.html#a90388dcbf862ea6a3bf4fb5563e4b236" title="SpaceH::root_dichotom" alt="" coords="624,20,785,45"/>
 <area shape="rect" id="node13" href="$class_space_h_1_1_init_creator.html#ad6dde97c265c5336f5d9e16b36dfad5c" title="SpaceH::InitCreator\l::particleNumber" alt="" coords="399,208,537,247"/>

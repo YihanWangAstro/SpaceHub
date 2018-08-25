@@ -1,59 +1,74 @@
 #ifndef DEVTOOLS_h
 #define DEVTOOLS_h
-#include<iostream>
-namespace SpaceH
-{
-    
-template <typename Arg, typename... Args>
-void print(std::ostream& out, Arg&& arg, Args&&... args)
-{
-    out << std::forward<Arg>(arg);
-    using expander = int[];
-    (void)expander{0, (void(out << ' ' << std::forward<Args>(args)),0)...};
-    out << '\n';
-}
 
-void errMsg(const char* msg, const char* file, size_t line)
-{
-    std::cout << "An error occurred:" << '\n';
-    std::cout << "  Message >>>"      << msg  << '\n';
-    std::cout << "  File    >>>"      << file << '\n';
-    std::cout << "  Line    >>>"      << line << std::endl;
-    exit(0);
-}
+#include<iostream>
+
+namespace SpaceH {
+    /**
+     *
+     * @tparam Arg
+     * @tparam Args
+     * @param out
+     * @param arg
+     * @param args
+     */
+    template<typename Arg, typename... Args>
+    void print(std::ostream &out, Arg &&arg, Args &&... args) {
+        out << std::forward<Arg>(arg);
+        using expander = int[];
+        (void) expander{0, (void(out << ' ' << std::forward<Args>(args)), 0)...};
+        out << '\n';
+    }
+
+/**
+ *
+ * @param msg
+ * @param file
+ * @param line
+ */
+    void errMsg(const char *msg, const char *file, size_t line) {
+        std::cout << "An error occurred:" << '\n';
+        std::cout << "  Message >>>" << msg << '\n';
+        std::cout << "  File    >>>" << file << '\n';
+        std::cout << "  Line    >>>" << line << std::endl;
+        exit(0);
+    }
 
 
 /** @brief print an array. Used for debug*/
-template<typename T>
-void printArray(T& var)
-{
-    const size_t size = var.size();
-    for(size_t i = 0 ; i < size; ++i )
-        std::cout << var[i] << '\n';
+    template<typename T>
+    void printArray(T &var) {
+        const size_t size = var.size();
+        for (size_t i = 0; i < size; ++i)
+            std::cout << var[i] << '\n';
 
-    std::cout << '\n';
-}
+        std::cout << '\n';
+    }
 
-template<typename T>
-struct get_value_type
-{
-private:
-    /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
-    template<typename U>
-    static typename U::value_type check(typename U::value_type);
+/**
+ *
+ * @tparam T
+ */
+    template<typename T>
+    struct get_value_type {
+    private:
+        /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
+        template<typename U>
+        static typename U::value_type check(typename U::value_type);
 
-    /*If U doesn't have member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
-    template<typename U>
-    static U check(U);
-public:
-    using type = decltype(check<T>(0));
-};
+        /*If U doesn't have member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
+        template<typename U>
+        static U check(U);
+
+    public:
+        using type = decltype(check<T>(0));
+    };
 
 /** @brief Macros used to output debuf info.  */
 #ifdef DEBUG
 #define DEBUG_MSG(cond,...) ( cond ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )
 #else
-#define DEBUG_MSG(cond,...)
+#define DEBUG_MSG(cond, ...)
 #endif
 
 /** @brief Macros used to check if a class has a specific method.  */
@@ -130,7 +145,7 @@ public:
             "Template argument '" # CLASS  "' must have static member '"  # MB  "'. ");
 
 /** @brief Macros used to static_assert if two class have the same base type set*/
-#define CHECK_TYPE(T1,T2)                                                                           \
+#define CHECK_TYPE(T1, T2)                                                                           \
             static_assert(std::is_same< typename T1::type, typename T2::type>::value,               \
             "Template argument '" #T1 "' and '" #T2 "' must have the same type of the type member(SpaceH::ProtoType<...>)");
 

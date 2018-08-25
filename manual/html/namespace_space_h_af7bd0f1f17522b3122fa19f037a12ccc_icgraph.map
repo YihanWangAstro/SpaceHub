@@ -1,7 +1,7 @@
 <map id="SpaceH::errMsg" name="SpaceH::errMsg">
 <area shape="rect" id="node2" href="$class_space_h_1_1_init_creator.html#a6cf46010b11b3b7ad19f1d37e2cb1cb4" title="SpaceH::InitCreator\l::writeToFile" alt="" coords="210,5,348,44"/>
 <area shape="rect" id="node4" href="$namespace_space_h_1_1_orbits.html#ab0a6bf4bbce5725fa15cc6250057817c" title="SpaceH::Orbits::getRandom\lMeanAnomaly" alt="" coords="185,68,373,107"/>
-<area shape="rect" id="node8" href="$namespace_space_h_1_1_orbits.html#a43d1a07ed25eaf775f3a83d7000a2596" title="SpaceH::Orbits::getTrueAnomaly" alt="" coords="171,131,387,156"/>
+<area shape="rect" id="node8" href="$namespace_space_h_1_1_orbits.html#a43d1a07ed25eaf775f3a83d7000a2596" title="SpaceH::Orbits::calcuTrueAnomaly" alt="" coords="171,131,387,156"/>
 <area shape="rect" id="node9" href="$namespace_space_h_1_1_orbits.html#a729783768420346b170d79aa5e196841" title="SpaceH::Orbits::getEccentric\lAnomaly" alt="" coords="183,180,375,219"/>
 <area shape="rect" id="node10" href="$class_space_h_1_1_i_a_s15.html#a60d1a4d8ab5124bf3adc12624f1d7954" title="interface to iterate particle system for one step " alt="" coords="201,243,358,268"/>
 <area shape="rect" id="node11" href="$namespace_space_h_1_1_oc_tree.html#af27f1253cb5f80c85149b2ccbc2b6f0b" title="SpaceH::OcTree::splitOct" alt="" coords="193,292,365,317"/>

@@ -24,7 +24,7 @@
 
 #include "integrator/Gauss-Dadau.h"
 
-#include "ODEiterator/BSIterator.h"
+#include "ODEiterator/BSIterator_impl0.h"
 #include "ODEiterator/constIterator.h"
 #include "ODEiterator/IAS15.h"
 
@@ -35,7 +35,7 @@
 //#include "wrapper/singleRun.h"
 namespace SpaceH
 {
-    
+
     template
     <
         typename BasicF,
@@ -52,12 +52,12 @@ namespace SpaceH
             BasicF::type::arraySize,
             !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
         >,
-    
+
         SpaceH::Interactions
         <
             BasicF, VelForce, ExtPosForce, ExtVelForce
         >,
-    
+
         Regularitor
         <
             SpaceH::ChainParticles
@@ -68,7 +68,7 @@ namespace SpaceH
             >
         >
     >;
-    
+
     template
     <
         typename BasicF,
@@ -85,12 +85,12 @@ namespace SpaceH
             BasicF::type::arraySize,
             !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
         >,
-    
+
         SpaceH::Interactions
         <
             BasicF, VelForce, ExtPosForce, ExtVelForce
         >,
-    
+
         Regularitor
         <
             SpaceH::ReguParticles
@@ -101,7 +101,7 @@ namespace SpaceH
             >
         >
     >;
-    
+
     template
     <
         typename BasicF,
@@ -117,13 +117,13 @@ namespace SpaceH
             BasicF::type::arraySize,
             !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
         >,
-    
+
         SpaceH::Interactions
         <
             BasicF, VelForce, ExtPosForce, ExtVelForce
         >
     >;
-    
+
     /**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
     template
     <
@@ -134,7 +134,7 @@ namespace SpaceH
     using Nbody = SpaceH::Solver
     <
         ParticSys,
-    
+
         ODEiterator
         <
             ParticSys,

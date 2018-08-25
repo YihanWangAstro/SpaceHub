@@ -1,4 +1,4 @@
-<map id="SpaceH::Orbits::getEccentricAnomaly" name="SpaceH::Orbits::getEccentricAnomaly">
+<map id="SpaceH::Orbits::getEccentricAnomaly" name="SpaceH::Orbits::calcuEccentricAnomaly">
 <area shape="rect" id="node2" href="$struct_space_h_1_1_kepler.html#a99435c19c0e7c815f067666e374a13e4" title="SpaceH::Kepler::Kepler" alt="" coords="268,5,429,31"/>
 <area shape="rect" id="node3" href="$struct_space_h_1_1_kepler.html#a7a21a6bad2fda19e9d93e023c8879c42" title="SpaceH::Kepler::randomPhase" alt="" coords="246,55,451,80"/>
 <area shape="rect" id="node4" href="$test_orbit_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="499,55,549,80"/>

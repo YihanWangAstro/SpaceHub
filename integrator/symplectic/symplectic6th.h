@@ -1,10 +1,10 @@
 
 #ifndef SYMPLECTIC_6TH_INTEGRATOR_H
 #define SYMPLECTIC_6TH_INTEGRATOR_H
+
 /** @brief Sixth order symplectic integrator */
-template <typename ParticSys>
-class symplectic6th
-{
+template<typename ParticSys>
+class symplectic6th {
 public:
     /* Typedef */
     using type   = typename ParticSys::type;
@@ -16,7 +16,8 @@ public:
 
     /** @brief Order of the integrator*/
     static const int order{6};
-    void integrate(ParticSys& particles, Scalar stepLength);
+
+    void integrate(ParticSys &particles, Scalar stepLength);
 };
 
 /** @brief Interface to integrate particle system
@@ -25,9 +26,8 @@ public:
  *  @param particles  Particle system need to be integrated.
  *  @param stepLength Step size for integration.
  */
-template <typename ParticSys>
-void symplectic6th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength)
-{
+template<typename ParticSys>
+void symplectic6th<ParticSys>::integrate(ParticSys &particles, Scalar stepLength) {
     /*unroll loop manually*/
     particles.drift(3.9225680523877998E-1 * stepLength);
     particles.kick(7.8451361047755996E-1 * stepLength);
@@ -45,4 +45,5 @@ void symplectic6th<ParticSys>::integrate(ParticSys& particles, Scalar stepLength
     particles.kick(7.8451361047755996E-1 * stepLength);
     particles.drift(3.9225680523877998E-1 * stepLength);
 }
+
 #endif
