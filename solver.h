@@ -100,7 +100,7 @@ namespace SpaceH {
             }
         }
 
-        virtual ~Solver() {} /**< @brief Default destructor, virtualize for inherent class*/
+        virtual ~Solver() = default; /**< @brief Default destructor, virtualize for inherent class*/
     public:
         /** @brief Macro step size for ODE iterator*/
         Scalar stepLength{0.0};

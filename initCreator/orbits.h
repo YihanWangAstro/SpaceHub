@@ -157,15 +157,22 @@ namespace SpaceH {
         void eulerRotate(Vector &v, const Scalar phi, const Scalar theta, const Scalar psi) {
             Vector tmp(0.0, 0.0, 0.0);
 
-            tmp.x = v.x * (cos(phi) * cos(psi) - sin(phi) * cos(theta) * sin(psi))
-                    - v.y * (cos(phi) * sin(psi) + sin(phi) * cos(theta) * cos(psi))
-                    + v.z * (sin(phi) * sin(theta));
+            Scalar cos_phi   = cos(phi);
+            Scalar sin_phi   = sin(phi);
+            Scalar cos_psi   = cos(psi);
+            Scalar sin_psi   = sin(psi);
+            Scalar cos_theta = cos(theta);
+            Scalar sin_theta = sin(theta);
 
-            tmp.y = v.x * (sin(phi) * cos(psi) + cos(phi) * cos(theta) * sin(psi))
-                    - v.y * (sin(phi) * sin(psi) - cos(phi) * cos(theta) * cos(psi))
-                    - v.z * (cos(phi) * sin(theta));
+            tmp.x =   v.x * (cos_phi * cos_psi - sin_phi * cos_theta * sin_psi)
+                    - v.y * (cos_phi * sin_psi + sin_phi * cos_theta * cos_psi)
+                    + v.z * (sin_phi * sin_theta);
 
-            tmp.z = v.x * sin(theta) * sin(psi) + v.y * sin(theta) * cos(psi) + v.z * cos(theta);
+            tmp.y =   v.x * (sin_phi * cos_psi + cos_phi * cos_theta * sin_psi)
+                    - v.y * (sin_phi * sin_psi - cos_phi * cos_theta * cos_psi)
+                    - v.z * (cos_phi * sin_theta);
+
+            tmp.z = v.x * sin_theta * sin_psi + v.y * sin_theta * cos_psi + v.z * cos_theta;
 
             v = tmp;
         };
@@ -320,9 +327,9 @@ namespace SpaceH {
                Scalar trueAnomaly = Const::PI) {
             calcuOrbitalParameter(m1, m2, p, e);
             param.Omega = phi;
-            param.i = inclination;
+            param.i     = inclination;
             param.omega = psi;
-            param.nu = trueAnomaly;
+            param.nu    = trueAnomaly;
             createOrbit(m1, m2);
         }
 

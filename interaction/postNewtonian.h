@@ -20,7 +20,7 @@ namespace SpaceH {
      * @tparam ArraySize
      */
     template<typename Dtype, size_t ArraySize>
-    struct NewtonForce {
+    struct NewtonianForce {
         /* Typedef */
         using type = SpaceH::ProtoType<Dtype, ArraySize>;
         using Scalar = typename type::Scalar;

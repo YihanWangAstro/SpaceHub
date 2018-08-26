@@ -6,6 +6,7 @@
 #include "macros.h"
 
 #include "tools/timer.h"
+#include "callbacks.h"
 
 #include "particleSystem.h"
 #include "particleSystem/reguSystem/regularization.h"

@@ -52,17 +52,9 @@ namespace SpaceH {
         using VectorArray    = Container<Vector, Size>;
         using ScalarArray    = Container<Scalar, Size>;
         using ScalarBuffer   = Container<Scalar, DYNAMICAL>;
-
-        /*using Scalar__       = Dtype;
-        using Vector__       = vec3<Scalar__>;
-        using VectorArray__  = Container<Vector__, Size>;
-        using ScalarArray__  = Container<Scalar__, Size>;
-        using ScalarBuffer__ = Container<Scalar__, DYNAMICAL>;*/
-
         using IntArray       = Container<int, Size>;
         using SizeArray      = Container<size_t, Size>;
         using IndexArray     = SizeArray;
-
     };
 
     enum PARTICTYPE {
