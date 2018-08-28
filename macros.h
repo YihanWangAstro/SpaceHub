@@ -42,6 +42,15 @@ namespace SpaceH
         constexpr double KMS       = 1 / V_UNIT;
         
         constexpr double DEG       = Const::PI/180;
+
+        struct Fmt {
+            double L;
+            double M;
+            double T;
+            double V;
+        };
+        constexpr Fmt STD_UNIT = {AU, M_SOLAR, YEAR, KMS};
+        constexpr Fmt UNITY_UNIT = {1.0, 1.0, 1.0, 1.0};
     }
 
     namespace Const
@@ -49,5 +58,7 @@ namespace SpaceH
         constexpr double G         = 1;
         constexpr double C         = 299792.458 * Unit::KMS ;
     }
+
+
 }
 #endif

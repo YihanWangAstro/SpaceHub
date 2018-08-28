@@ -131,7 +131,7 @@ namespace SpaceH {
             return (x * x + y * y + z * z);
         }
 
-        inline value_type max_component() {
+        inline value_type max_component() const {
             value_type max = (x > y ? x : y);
             return max > z ? max : z;
         }

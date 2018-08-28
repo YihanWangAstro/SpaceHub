@@ -26,8 +26,8 @@ int main(int argc, char **argv) {
     //nbody.loadText("Kozai.init");
 
     simulation::RunArgs args;
-    args.endTime = 1000 * Unit::YEAR;
-    args.registerPreOption(CallBack::DefaultWriter<sys>("out.dat", args.endTime));
+    args.endTime = 50000 * Unit::YEAR;
+    //args.registerPreOption(CallBack::DefaultWriter<sys>("out.dat", args.endTime));
     args.registerPostOption(CallBack::ShowProgressBar<sys>(args.endTime));
 
     nbody.run(args);

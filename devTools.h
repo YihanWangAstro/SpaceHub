@@ -38,9 +38,8 @@ namespace SpaceH {
 /** @brief print an array. Used for debug*/
     template<typename T>
     void printArray(T &var) {
-        const size_t size = var.size();
-        for (size_t i = 0; i < size; ++i)
-            std::cout << var[i] << '\n';
+        for (const auto & v : var)
+            std::cout << v << '\n';
 
         std::cout << '\n';
     }
@@ -145,7 +144,7 @@ namespace SpaceH {
             "Template argument '" # CLASS  "' must have static member '"  # MB  "'. ");
 
 /** @brief Macros used to static_assert if two class have the same base type set*/
-#define CHECK_TYPE(T1, T2)                                                                           \
+#define CHECK_TYPE(T1, T2)                                                                          \
             static_assert(std::is_same< typename T1::type, typename T2::type>::value,               \
             "Template argument '" #T1 "' and '" #T2 "' must have the same type of the type member(SpaceH::ProtoType<...>)");
 

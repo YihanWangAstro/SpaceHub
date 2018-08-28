@@ -63,6 +63,9 @@ namespace SpaceH {
     enum class NbodyIO {
         STD, ACTIVE
     };
+    enum class IO_flag {
+        STD, EVOLVED
+    };
     enum class DATASTRUCT {
         PLAIN = 0, CHAIN
     };

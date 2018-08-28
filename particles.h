@@ -8,19 +8,6 @@
 #include "devTools.h"
 
 namespace SpaceH {
-    template<typename Vector, typename Scalar>
-    struct ParticleStruct_ {
-        Vector &pos;
-        Vector &vel;
-        Scalar &mass;
-        Scalar &radius;
-        int &idn;
-
-        ParticleStruct_() = delete;
-
-        ParticleStruct_(Vector &p, Vector &v, Scalar &m, Scalar &r, int &i)
-                : pos(p), vel(v), mass(m), radius(r), idn(i) {}
-    };
 
 /**
  *  @brief Basic velocity independent particles group.
@@ -39,7 +26,6 @@ namespace SpaceH {
         using ScalarArray  = typename type::ScalarArray;
         using IntArray     = typename type::IntArray;
         using ScalarBuffer = typename type::ScalarBuffer;
-        using ParticleStruct = ParticleStruct_<Vector, Scalar>;
         /* Typedef */
 
         /*Template parameter check*/
@@ -200,12 +186,8 @@ namespace SpaceH {
             if (!is.good())
                 SpaceH::errMsg("Insufficent input data in initial file!", __FILE__, __LINE__);
 
-            Vector CMPos = SpaceH::calcuCMCoord(partc.mass_, partc.pos_, partc.totalMass_);
-            Vector CMVel = SpaceH::calcuCMCoord(partc.mass_, partc.vel_, partc.totalMass_);
-
-            SpaceH::moveToCMCoord(partc.pos_, CMPos);
-            SpaceH::moveToCMCoord(partc.vel_, CMVel);
-
+            SpaceH::moveToCoM(partc.mass_, partc.pos_, partc.totalMass_);
+            SpaceH::moveToCoM(partc.mass_, partc.vel_, partc.totalMass_);
             return is;
         }
 
@@ -229,29 +211,28 @@ namespace SpaceH {
 
         /** @brief Input variables with plain scalar array.*/
         size_t read(const ScalarBuffer &data, const NbodyIO IO_flag = NbodyIO::STD) {
-            size_t particleNum = particleNumber();
             size_t loc = 0;
 
             time_ = data[loc++];
             //for locality, split into separate loops
-            for (size_t i = 0; i < particleNum; ++i) {
-                pos_[i].x = data[loc++];
-                pos_[i].y = data[loc++];
-                pos_[i].z = data[loc++];
+            for (auto& p : pos_) {
+                p.x = data[loc++];
+                p.y = data[loc++];
+                p.z = data[loc++];
             }
 
-            for (size_t i = 0; i < particleNum; ++i) {
-                vel_[i].x = data[loc++];
-                vel_[i].y = data[loc++];
-                vel_[i].z = data[loc++];
+            for (auto& v: vel_) {
+                v.x = data[loc++];
+                v.y = data[loc++];
+                v.z = data[loc++];
             }
 
             if (IO_flag == NbodyIO::STD) {
-                for (size_t i = 0; i < particleNum; ++i)
-                    mass_[i] = data[loc++];
+                for (auto& m : mass_)
+                    m = data[loc++];
 
-                for (size_t i = 0; i < particleNum; ++i)
-                    radius_[i] = data[loc++];
+                for (auto& r : radius_)
+                    r = data[loc++];
             }
             return loc;
         }
@@ -265,26 +246,26 @@ namespace SpaceH {
 
             data.emplace_back(time_);
             //for locality, split into two loops
-            for (size_t i = 0; i < particleNum; ++i) {
-                data.emplace_back(pos_[i].x);
-                data.emplace_back(pos_[i].y);
-                data.emplace_back(pos_[i].z);
+            for (const auto& p : pos_) {
+                data.emplace_back(p.x);
+                data.emplace_back(p.y);
+                data.emplace_back(p.z);
             }
 
-            for (size_t i = 0; i < particleNum; ++i) {
-                data.emplace_back(vel_[i].x);
-                data.emplace_back(vel_[i].y);
-                data.emplace_back(vel_[i].z);
+            for (const auto& v : vel_) {
+                data.emplace_back(v.x);
+                data.emplace_back(v.y);
+                data.emplace_back(v.z);
             }
 
             if (IO_flag == NbodyIO::STD) {
                 data.reserve(particleNum * 8 + 1);
 
-                for (size_t i = 0; i < particleNum; ++i)
-                    data.emplace_back(mass_[i]);
+                for (const auto& m : mass_)
+                    data.emplace_back(m);
 
-                for (size_t i = 0; i < particleNum; ++i)
-                    data.emplace_back(radius_[i]);
+                for (const auto& r : radius_)
+                    data.emplace_back(r);
             }
             return data.size();
         }
@@ -386,12 +367,10 @@ namespace SpaceH {
             size_t loc = static_cast<Base &>(*this).read(data, IO_flag);
 
             if (IO_flag == NbodyIO::ACTIVE) {
-                size_t particleNum = particleNumber();
-
-                for (size_t i = 0; i < particleNum; ++i) {
-                    auxi_vel_[i].x = data[loc++];
-                    auxi_vel_[i].y = data[loc++];
-                    auxi_vel_[i].z = data[loc++];
+                for (auto & v : auxi_vel_) {
+                    v.x = data[loc++];
+                    v.y = data[loc++];
+                    v.z = data[loc++];
                 }
             }
             return loc;
@@ -406,10 +385,10 @@ namespace SpaceH {
 
                 data.reserve(loc + particleNum * 3);
 
-                for (size_t i = 0; i < particleNum; ++i) {
-                    data.emplace_back(auxi_vel_[i].x);
-                    data.emplace_back(auxi_vel_[i].y);
-                    data.emplace_back(auxi_vel_[i].z);
+                for (const auto& v : auxi_vel_) {
+                    data.emplace_back(v.x);
+                    data.emplace_back(v.y);
+                    data.emplace_back(v.z);
                 }
             }
             return data.size();

@@ -27,6 +27,21 @@ namespace SpaceH {
             var[i] += increase[i] * stepSize;
         }
     }
+    /**
+     * @brief Return the summation of an array. The element of the array need to suppot one parameter initialization
+     * with '0' and operator '+='.
+     * @tparam Array
+     * @param array
+     * @return
+     */
+    template <typename Array>
+    inline typename  Array::value_type sumArray(Array& array) {
+        typename  Array::value_type total = 0;
+        for(auto & a : array) {
+            total += a;
+        }
+        return total;
+    }
 
     /** @brief Move variables to centr
      
@@ -80,9 +95,55 @@ namespace SpaceH {
     void moveToCMCoord(VectorArray &phyVar, const typename VectorArray::value_type &centralMassVar) {
         const size_t N = phyVar.size();
 
-        for (size_t i = 0; i < N; ++i)
-            phyVar[i] -= centralMassVar;
+        for (auto& var : phyVar)
+            var -= centralMassVar;
+    }
 
+    /** @brief Move variables to central mass coordinates
+     *
+     *  @param mass   Array of mass.
+     *  @param phyVar Array of variables need to be moved.
+     *  @param totalMass The totalMass of the system
+     */
+    template<typename ScalarArray, typename VectorArray, typename Scalar>
+    void moveToCoM(const ScalarArray &mass, VectorArray &phyVar, const Scalar totalMass) {
+        typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
+
+        const size_t N = mass.size();
+
+        for (size_t i = 0; i < N; ++i)
+            centralMassVar += phyVar[i] * mass[i];
+
+        centralMassVar /= totalMass;
+
+        for (auto& var : phyVar)
+            var -= centralMassVar;
+    }
+
+    /** @brief Move variables to central mass coordinates
+     *
+     *  @param mass   Array of mass.
+     *  @param phyVar Array of variables need to be moved.
+     *  @param totalMass The totalMass of the system
+     */
+    template<typename ScalarArray, typename VectorArray>
+    void moveToCoM(const ScalarArray &mass, VectorArray &phyVar) {
+        using Vector = typename VectorArray::value_type;
+        using Scalar = typename Vector ::value_type;
+
+        Vector centralMassVar(0.0, 0.0, 0.0);
+        Scalar totalMass = 0;
+
+        const size_t N = mass.size();
+        for (size_t i = 0; i < N; ++i) {
+            centralMassVar += phyVar[i] * mass[i];
+            totalMass += mass[i];
+        }
+
+        centralMassVar /= totalMass;
+
+        for (auto& var : phyVar)
+            var -= centralMassVar;
     }
 
     /** @brief Calculate the kinetic energy of particles
@@ -134,9 +195,8 @@ namespace SpaceH {
      */
     template<typename VectorArray>
     bool isAllZero(const VectorArray &array) {
-        size_t size = array.size();
-        for (size_t i = 0; i < size; i++) {
-            if (array[i].norm() > 0)
+        for (auto& a : array) {
+            if (a.norm() > 0)
                 return false;
         }
         return true;

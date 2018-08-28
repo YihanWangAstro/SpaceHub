@@ -166,15 +166,8 @@ namespace SpaceH {
         std::ifstream inFile(initFilePath);
 
         if (inFile.is_open()) {
-            char header;
-            inFile >> header;
-            if (header == '#') {
-                inFile >> particles;
-                inFile.close();
-            } else {
-                inFile.close();
-                SpaceH::errMsg("Input file header should begin with '#'.", __FILE__, __LINE__);
-            }
+            inFile >> particles;
+            inFile.close();
         } else {
             inFile.close();
             SpaceH::errMsg("Fail to open the initial condition file!", __FILE__, __LINE__);
@@ -182,7 +175,6 @@ namespace SpaceH {
 
         getInitStepLength();
     }
-
 }
 #endif
 
