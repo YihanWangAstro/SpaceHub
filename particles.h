@@ -4,19 +4,17 @@
 
 #include "macros.h"
 #include "protoType.h"
-#include "coreComputation.h"
 #include "devTools.h"
 
 namespace SpaceH {
 
 /**
- *  @brief Basic velocity independent particles group.
+ *  @brief Basic particles group, wrapper on VelIndepParticles and VelDepParticles.
  *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
  *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
  */
-
     template<typename Dtype, size_t ArraySize>
-    class VelIndepParticles {
+    class Particles {
     public:
         /* Typedef */
         using type         = SpaceH::ProtoType<Dtype, ArraySize>;
@@ -29,390 +27,179 @@ namespace SpaceH {
         /* Typedef */
 
         /*Template parameter check*/
-
         /*Template parameter check*/
 
-        constexpr static SpaceH::DATASTRUCT dataStruct{SpaceH::DATASTRUCT::PLAIN};
+        constexpr static size_t arraySize{type::arraySize};
 
         /** @brief Get the number of the particles.
          *  @return The particle number.
          */
         constexpr inline size_t particleNumber() const {
-            return pos_.size();
+            return idn.size();
         }
 
         /** @brief Resize all containers if they are dynamical
          *  @param new_siz New size of container.
          */
         void resize(size_t new_siz) {
-            pos_.resize(new_siz);
-            vel_.resize(new_siz);
-            mass_.resize(new_siz);
-            radius_.resize(new_siz);
-            idn_.resize(new_siz);
+            pos.resize(new_siz);
+            vel.resize(new_siz);
+            mass.resize(new_siz);
+            radius.resize(new_siz);
+            idn.resize(new_siz);
         }
 
         /** @brief Reserve space for all containers if they are dynamical
          *  @param New capacity of container.
          */
         void reserve(size_t new_cap) {
-            pos_.reserve(new_cap);
-            vel_.reserve(new_cap);
-            mass_.reserve(new_cap);
-            radius_.reserve(new_cap);
-            idn_.reserve(new_cap);
+            pos.reserve(new_cap);
+            vel.reserve(new_cap);
+            mass.reserve(new_cap);
+            radius.reserve(new_cap);
+            idn.reserve(new_cap);
         }
 
-        /**  @brief Physical time scalar const interface. Reference to time_*/
-        inline const Scalar &time() const {
-            return time_;
-        }
-
-        /**  @brief Position array const interface. Reference to pos_*/
-        inline const VectorArray &pos() const {
-            return pos_;
-        }
-
-        /**  @brief Velocity array const interface. Reference to vel_*/
-        inline const VectorArray &vel() const {
-            return vel_;
-        }
-
-        /**  @brief Mass array const interface. Reference to mass_*/
-        inline const ScalarArray &mass() const {
-            return mass_;
-        }
-
-        /**  @brief Radius array const interface. Reference to radius_*/
-        inline const ScalarArray &radius() const {
-            return radius_;
-        }
-
-        /**  @brief Particle id array const interface. Reference to type_.*/
-        inline const IntArray &idn() const {
-            return idn_;
-        }
-
-        /**  @brief Position vector const interface. Reference to pos_[i]*/
-        inline const Vector &pos(size_t i) const {
-            return pos_[i];
-        }
-
-        /**  @brief Velocity vecotr const interface. Reference to vel_[i]*/
-        inline const Vector &vel(size_t i) const {
-            return vel_[i];
-        }
-
-        /**  @brief Mass const interface. Reference to mass_[i].*/
-        inline const Scalar &mass(size_t i) const {
-            return mass_[i];
-        }
-
-        /**  @brief Radius const interface. Reference to radius_[i].*/
-        inline const Scalar &radius(size_t i) const {
-            return radius_[i];
-        }
-
-        /**  @brief Particle id const interface. Reference to type_[i].*/
-        inline const int &idn(size_t i) const {
-            return idn_[i];
-        }
-
-        /** @brief Advance the time.
-         *  @param dt Time increament.
+        /**
+         * @brief Input variables from a IO stream
+         * @param is
+         * @param fmt
+         * @param flag
+         * @return
          */
-        inline void advanceTime(Scalar dt) {
-            SpaceH::advanceScalar(time_, dt);
-        }
+        size_t read(std::istream &is, const Unit::Fmt &fmt = Unit::UNITY_UNIT, IO_flag flag = IO_flag::STD) {
+            is >> time, time *= fmt.T;
 
-        /** @brief Advance the position array with internal velocity array.
-         *  @param stepSize The advance step size.
-         */
-        inline void advancePos(Scalar stepSize) {
-            SpaceH::advanceVector(pos_, vel_, stepSize);
-        }
+            size_t particleNum = particleNumber();
+            for (size_t loc = 0; loc < size ; loc++) {
+                is >> pos[loc], pos[loc] *= fmt.L;
+                is >> vel[loc], vel[loc] *= fmt.V;
 
-        /** @brief Advance the position array with given velocity array.
-         *  @param vel The given velocity array.
-         *  @param stepSize The advance step size.
-         */
-        inline void advancePos(const VectorArray &vel, Scalar stepSize) {
-            SpaceH::advanceVector(pos_, vel, stepSize);
-        }
-
-        /** @brief Advance the  velocity array with given acceleration array.
-         *  @param stepSize The advance step size.
-         *  @param acc      The acceleration array.
-         */
-        inline void advanceVel(const VectorArray &acc, Scalar stepSize) {
-            SpaceH::advanceVector(vel_, acc, stepSize);
-        }
-
-        /** @brief Input(Initialize) variables with istream.*/
-        friend std::istream &operator>>(std::istream &is, VelIndepParticles &partc) {
-            size_t num;
-
-            is >> num;
-
-            if (num != partc.particleNumber()) {
-                if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
-                    partc.resize(num);
-                } else {
-                    SpaceH::errMsg(
-                            "You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!",
-                            __FILE__, __LINE__);
+                if (flag == IO_Flag::STD) {
+                    is >> mass[loc], mass[loc] *= fmt.M;
+                    is >> radius[loc], radius[loc] *= fmt.L;
+                    is >> idn[loc];
                 }
             }
-
-            is >> partc.time_;
-            partc.time_ *= Unit::YEAR;
-            partc.totalMass_ = 0;
-
-            for (size_t i = 0; i < num; ++i) {
-                is >> partc.idn_[i]
-                   >> partc.pos_[i]
-                   >> partc.vel_[i]
-                   >> partc.mass_[i]
-                   >> partc.radius_[i];
-
-                partc.pos_[i] *= Unit::AU;
-                partc.vel_[i] *= Unit::KMS;
-                partc.mass_[i] *= Unit::M_SOLAR;
-                partc.radius_[i] *= Unit::AU;
-
-                partc.totalMass_ += partc.mass_[i];
-            }
-
             if (!is.good())
                 SpaceH::errMsg("Insufficent input data in initial file!", __FILE__, __LINE__);
-
-            SpaceH::moveToCoM(partc.mass_, partc.pos_, partc.totalMass_);
-            SpaceH::moveToCoM(partc.mass_, partc.vel_, partc.totalMass_);
-            return is;
+            return particleNum;
         }
 
-        /** @brief Output variables to ostream.*/
-        template<typename PartSys>
-        friend std::ostream &operator<<(std::ostream &os, const PartSys &partc) {
-            size_t particleNum = partc.particleNumber();
+        /**
+         * @brief Write variables to a IO stream.
+         * @param os
+         * @param fmt
+         * @param flag
+         * @return
+         */
+        size_t write(std::ostream &os, const Unit::Fmt &fmt = Unit::UNITY_UNIT, IO_flag flag = IO_flag::STD) const {
+            os << ' ' << time / fmt.T << "\r\n";
 
-            os << '#' << particleNum << ' ' << partc.time() / Unit::YEAR << "\r\n";
-
+            size_t particleNum = particleNumber();
             for (size_t i = 0; i < particleNum; ++i) {
-                os << partc.idn(i) << ' '
-                   << partc.pos(i) / Unit::AU << ' '
-                   << partc.vel(i) / Unit::KMS << ' '
-                   << partc.mass(i) / Unit::M_SOLAR << ' '
-                   << partc.radius(i) / Unit::AU << "\r\n";
-            }
 
-            return os;
+                os << ' ' << pos[i] / fmt.L << ' ' << vel[i] / fmt.V;
+
+                if (flag == IO_flag::STD) {
+                    os << ' ' << mass[i] / fmt.M
+                       << ' ' << radius[i] / fmt.L
+                       << ' ' << idn[i];
+                }
+                os << "\r\n";
+            }
         }
 
-        /** @brief Input variables with plain scalar array.*/
-        size_t read(const ScalarBuffer &data, const NbodyIO IO_flag = NbodyIO::STD) {
-            size_t loc = 0;
+        /**
+         * @brief Input variables from a plain scalar buffer.
+         * @param data
+         * @param IO_flag
+         * @return
+         */
+        size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
 
-            time_ = data[loc++];
+            size_t loc = 0;
             //for locality, split into separate loops
-            for (auto& p : pos_) {
+            for (auto &p : pos) {
                 p.x = data[loc++];
                 p.y = data[loc++];
                 p.z = data[loc++];
             }
-
-            for (auto& v: vel_) {
+            for (auto &v: vel) {
                 v.x = data[loc++];
                 v.y = data[loc++];
                 v.z = data[loc++];
             }
 
-            if (IO_flag == NbodyIO::STD) {
-                for (auto& m : mass_)
+            if (flag == IO_flag::STD) {
+                for (auto &m : mass)
                     m = data[loc++];
-
-                for (auto& r : radius_)
+                for (auto &r : radius)
                     r = data[loc++];
+                for (auto &i : idn)
+                    i = data[loc++];
             }
+
+            time = data[loc++];
             return loc;
         }
 
-        /** @brief Output variables to plain scalar array.*/
-        size_t write(ScalarBuffer &data, const NbodyIO IO_flag = NbodyIO::STD) const {
+        /**
+         * @brief Write variables to plain scalar buffer.
+         * @param data
+         * @param IO_flag
+         * @return
+         */
+        size_t write(ScalarBuffer &data, const IO_flag flag = IO_flag::STD) const {
             size_t particleNum = particleNumber();
 
             data.clear();
             data.reserve(particleNum * 6 + 1);
 
-            data.emplace_back(time_);
             //for locality, split into two loops
-            for (const auto& p : pos_) {
+            for (const auto &p : pos) {
                 data.emplace_back(p.x);
                 data.emplace_back(p.y);
                 data.emplace_back(p.z);
             }
-
-            for (const auto& v : vel_) {
+            for (const auto &v : vel) {
                 data.emplace_back(v.x);
                 data.emplace_back(v.y);
                 data.emplace_back(v.z);
             }
 
-            if (IO_flag == NbodyIO::STD) {
+            if (flag == IO_flag::STD) {
                 data.reserve(particleNum * 8 + 1);
-
-                for (const auto& m : mass_)
+                for (const auto &m : mass)
                     data.emplace_back(m);
-
-                for (const auto& r : radius_)
+                for (const auto &r : radius)
                     data.emplace_back(r);
+                for (const auto &i : idn)
+                    data.emplace_back(i);
             }
+
+            data.emplace_back(time);
             return data.size();
         }
 
-    protected:
+    public:
         /** @brief Position array of the particles. Element is 3D vector.*/
-        VectorArray pos_;
+        VectorArray pos;
 
         /** @brief Velocity array of the particles. Element is 3D vector.*/
-        VectorArray vel_;
+        VectorArray vel;
 
         /** @brief Mass array of the particles. Element is Scalar.*/
-        ScalarArray mass_;
+        ScalarArray mass;
 
         /** @brief Radius array of the particles. Element is Scalar.*/
-        ScalarArray radius_;
+        ScalarArray radius;
 
         /** @brief Id Array of the particles. Element is int.*/
-        IntArray idn_;
+        IntArray idn;
 
         /** @brief The physical time of the dynamic system*/
-        Scalar time_;
-
-        /** @brief The total mass of the system*/
-        Scalar totalMass_;
-    };
-
-/**
- *  @brief Basic velocity dependent particles group.
- *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
- *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
- */
-    template<typename Dtype, size_t ArraySize>
-    class VelDepParticles : public VelIndepParticles<Dtype, ArraySize> {
-    public:
-        /* Typedef */
-        using Base = VelIndepParticles<Dtype, ArraySize>;
-        using typename Base::type;
-        using Scalar = typename type::Scalar;
-        using Vector = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
-        /* Typedef */
-
-        /*Template parameter check*/
-        /*Template parameter check*/
-
-        using Base::particleNumber;
-
-        /** @brief Resize all containers if they are dynamical
-         *  @param New size of container.
-         */
-        void resize(size_t new_siz) {
-            static_cast<Base &>(*this).resize(new_siz);
-            auxi_vel_.resize(new_siz);
-        }
-
-        /** @brief Reserve space for all containers if they are dynamical
-         *  @param New capacity of container.
-         */
-        void reserve(size_t new_cap) {
-            static_cast<Base &>(*this).reserve(new_cap);
-            auxi_vel_.reserve(new_cap);
-        }
-
-        /**  @brief Auxiliary velocity array const interface. Reference to auxi_vel_*/
-        inline const VectorArray &auxiVel() const {
-            return auxi_vel_;
-        }
-
-        /**  @brief Auxiliary velocity vecotr const interface. Reference to auxi_vel_[i] */
-        inline const Vector &auxiVel(size_t i) const {
-            return auxi_vel_[i];
-        }
-
-        /** @brief Advance the auxiliary velocity array with given acceleration array.
-         *  @param stepSize The advance step size.
-         *  @param acc      The acceleration array.
-         */
-        inline void advanceAuxiVel(const VectorArray &acc, Scalar stepSize) {
-            advanceVector(auxi_vel_, acc, stepSize);
-        }
-
-        /**  @brief synchronize auxiVel_ with vel_ */
-        inline void synAuxiVelwithVel() {
-            auxi_vel_ = this->vel_;
-        }
-
-        /** @brief Input(Initialize) variables with istream.*/
-        friend std::istream &operator>>(std::istream &is, VelDepParticles &partc) {
-            is >> static_cast<Base &>(partc);
-
-            partc.auxi_vel_ = partc.vel();
-            return is;
-        }
-
-        /** @brief Input variables with plain scalar array.*/
-        size_t read(const ScalarBuffer &data, const NbodyIO IO_flag = NbodyIO::STD) {
-            size_t loc = static_cast<Base &>(*this).read(data, IO_flag);
-
-            if (IO_flag == NbodyIO::ACTIVE) {
-                for (auto & v : auxi_vel_) {
-                    v.x = data[loc++];
-                    v.y = data[loc++];
-                    v.z = data[loc++];
-                }
-            }
-            return loc;
-        }
-
-        /** @brief Output variables to plain scalar array.*/
-        size_t write(ScalarBuffer &data, const NbodyIO IO_flag = NbodyIO::STD) const {
-            size_t loc = static_cast<const Base &>(*this).write(data, IO_flag);
-
-            if (IO_flag == NbodyIO::ACTIVE) {
-                size_t particleNum = particleNumber();
-
-                data.reserve(loc + particleNum * 3);
-
-                for (const auto& v : auxi_vel_) {
-                    data.emplace_back(v.x);
-                    data.emplace_back(v.y);
-                    data.emplace_back(v.z);
-                }
-            }
-            return data.size();
-        }
-
-    protected:
-        /** @brief Auxiliary velocity array of the particles. Element is 3D vector.*/
-        VectorArray auxi_vel_;
-    };
-
-/**
- *  @brief Basic particles group, wrapper on VelIndepParticles and VelDepParticles.
- *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
- *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
- *  @tparam IsVelDep Template parameters to determine if the particles are velocity dependent.
- */
-    template<typename Dtype, size_t ArraySize, bool IsVelDep>
-    struct Particles : public VelIndepParticles<Dtype, ArraySize> {
-        constexpr static bool isVelDep{false};
-    };
-
-    template<typename Dtype, size_t ArraySize>
-    struct Particles<Dtype, ArraySize, true> : public VelDepParticles<Dtype, ArraySize> {
-        constexpr static bool isVelDep{true};
+        Scalar time;
     };
 }
 #endif

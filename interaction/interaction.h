@@ -3,9 +3,51 @@
 #define INTERACTION_H
 
 #include "../protoType.h"
-#include "force.h"
 
 namespace SpaceH {
+
+    /**
+     * Acceleration evaluator. This class is created on purpose that each new force manages its own acceleration array.
+     * @tparam Forcefunc Callable object to provide the method of acceleration evaluation.
+     * @tparam Dtype     Scalar type.
+     * @tparam ArraySize Array size.
+     */
+    template<typename Forcefunc, typename Dtype, size_t ArraySize>
+    struct AccEvaluator {
+        /* Typedef */
+        using type = SpaceH::ProtoType<Dtype, ArraySize>;
+        using Vector = typename type::Vector;
+        using VectorArray = typename type::VectorArray;
+        /* Typedef */
+
+        void addAccTo(VectorArray &acc) {
+            const size_t size = acc.size();
+
+            for (size_t i = 0; i < size; ++i)
+                acc[i] += this_acc_[i];
+        }
+
+        const VectorArray &acc() const { return this_acc_; }
+
+        const Vector &acc(size_t i) const { return this_acc_[i]; }
+
+        void resize(size_t size) {
+            this_acc_.resize(size);
+        }
+
+        void reserve(size_t size) {
+            this_acc_.reserve(size);
+        }
+
+        template<typename ParticleSystem>
+        inline void evaluateAcc(const ParticleSystem &partc) {
+            acc_evaluator_(partc, this_acc_);
+        }
+
+    private:
+        VectorArray this_acc_;
+        Forcefunc acc_evaluator_;
+    };
 
     template<typename VelIndep, typename VelDep = void, typename ExtVelIndep = void, typename ExtVelDep = void>
     class Interactions {
@@ -18,209 +60,109 @@ namespace SpaceH {
         using ScalarArray = typename type::ScalarArray;
         /* Typedef */
 
+        /*Template parameter check*/
+        /*Template parameter check*/
         constexpr static bool isVelDep{!std::is_void<VelDep>::value | !std::is_void<ExtVelDep>::value};
 
-        /**
-         *
-         * @return
-         */
-        const VectorArray &totalAcc() const { return acc_; }
+        inline const VectorArray &totalAcc() const { return acc_; }
 
-        /**
-         *
-         * @return
-         */
-        const VectorArray &velIndepAcc() const { return vel_indep_.acc(); }
+        inline const VectorArray &velIndepAcc() const { return vel_indep_.acc(); }
 
-        /**
-         *
-         * @return
-         */
-        const VectorArray &velDepAcc() const { return vel_dep_.acc(); }
+        inline const VectorArray &velDepAcc() const { return vel_dep_.acc(); }
 
-        /**
-         *
-         * @return
-         */
-        const VectorArray &extVelIndepAcc() const { return ext_vel_indep_.acc(); }
+        inline const VectorArray &extVelIndepAcc() const { return ext_vel_indep_.acc(); }
 
-        /**
-         *
-         * @return
-         */
-        const VectorArray &extVelDepAcc() const { return ext_vel_dep_.acc(); }
+        inline const VectorArray &extVelDepAcc() const { return ext_vel_dep_.acc(); }
 
-        /**
-         *
-         * @param i
-         * @return
-         */
-        const Vector &totalAcc(size_t i) const { return acc_[i]; }
+        inline const Vector &totalAcc(size_t i) const { return acc_[i]; }
 
-        /**
-         *
-         * @param i
-         * @return
-         */
-        const Vector &velIndepAcc(size_t i) const { return vel_indep_.acc(i); }
+        inline const Vector &velIndepAcc(size_t i) const { return vel_indep_.acc(i); }
 
-        /**
-         *
-         * @param i
-         * @return
-         */
-        const Vector &velDepAcc(size_t i) const { return vel_dep_.acc(i); }
+        inline const Vector &velDepAcc(size_t i) const { return vel_dep_.acc(i); }
 
-        /**
-         *
-         * @param i
-         * @return
-         */
-        const Vector &extVelIndepAcc(size_t i) const { return ext_vel_indep_.acc(i); }
+        inline const Vector &extVelIndepAcc(size_t i) const { return ext_vel_indep_.acc(i); }
 
-        /**
-         *
-         * @param i
-         * @return
-         */
-        const Vector &extVelDepAcc(size_t i) const { return ext_vel_dep_.acc(i); }
+        inline const Vector &extVelDepAcc(size_t i) const { return ext_vel_dep_.acc(i); }
 
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         * @return
-         */
-        template<typename Particles>
-        inline typename std::enable_if<Particles::dataStruct == SpaceH::DATASTRUCT::PLAIN>::type
-        calcuVelIndepAcc(const Particles &partc) {
-            vel_indep_.calcuAcc(partc.mass(), partc.pos());
+        inline void calcuVelIndepAcc(const Particles &partc) {
+            vel_indep_.evaluateAcc(partc);
         }
 
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         * @return
-         */
-        template<typename Particles>
-        inline typename std::enable_if<Particles::dataStruct == SpaceH::DATASTRUCT::CHAIN>::type
-        calcuVelIndepAcc(const Particles &partc) {
-            vel_indep_.calcuAcc(partc.mass(), partc.pos(), partc.chainPos(), partc.chainIndex());
+        inline void calcuVelDepAcc(const Particles &partc) {
+            if constexpr (!std::is_void<VelDep>::value) {
+                vel_dep_.evaluateAcc(partc);
+            }
         }
 
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         * @return
-         */
-        template<typename Particles>
-        inline typename std::enable_if<Particles::dataStruct == SpaceH::DATASTRUCT::PLAIN>::type
-        calcuVelDepAcc(const Particles &partc) {
-            vel_dep_.calcuAcc(partc.mass(), partc.pos(), partc.vel());
+        inline void calcuExtVelIndepAcc(const Particles &partc) {
+            if constexpr (!std::is_void<ExtVelIndep>::value) {
+                ext_vel_indep_.evaluateAcc(partc);
+            }
         }
 
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         * @return
-         */
-        template<typename Particles>
-        inline typename std::enable_if<Particles::dataStruct == SpaceH::DATASTRUCT::CHAIN>::type
-        calcuVelDepAcc(const Particles &partc) {
-            vel_dep_.calcuAcc(partc.mass(), partc.pos(), partc.vel(), partc.chainPos(), partc.chainVel(),
-                              partc.chainIndex());
+        inline void calcuExtVelDepAcc(const Particles &partc) {
+            if constexpr (!std::is_void<ExtVelDep>::value) {
+                ext_vel_dep_.evaluateAcc(partc);
+            }
         }
 
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         * @return
-         */
-        template<typename Particles>
-        inline typename std::enable_if<Particles::dataStruct == SpaceH::DATASTRUCT::PLAIN>::type
-        calcuAuxiVelDepAcc(const Particles &partc) {
-            vel_dep_.calcuAcc(partc.mass(), partc.pos(), partc.auxiVel());
-        }
-
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         * @return
-         */
-        template<typename Particles>
-        inline typename std::enable_if<Particles::dataStruct == SpaceH::DATASTRUCT::CHAIN>::type
-        calcuAuxiVelDepAcc(const Particles &partc) {
-            vel_dep_.calcuAcc(partc.mass(), partc.pos(), partc.auxiVel(), partc.chainPos(), partc.chainAuxiVel(),
-                              partc.chainIndex());
-        }
-
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         */
-        template<typename Particles>
-        void calcuExtVelIndepAcc(const Particles &partc) {
-            ext_vel_indep_.calcuAcc(partc.mass(), partc.pos());
-        }
-
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         */
-        template<typename Particles>
-        void calcuExtVelDepAcc(const Particles &partc) {
-            ext_vel_dep_.calcuAcc(partc.mass(), partc.pos(), partc.vel());
-        }
-
-        /**
-         *
-         * @tparam Particles
-         * @param partc
-         */
-        template<typename Particles>
-        void calcuExtAuxiVelDepAcc(const Particles &partc) {
-            ext_vel_dep_.calcuAcc(partc.mass(), partc.pos(), partc.auxiVel());
-        }
-
-        /**
-         *
-         */
         void zeroTotalAcc() {
-            size_t size = acc_.size();
-            for (size_t i = 0; i < size; ++i)
-                acc_[i].setZero();
+            for (auto &a : acc_)
+                a.setZero();
         }
 
-        /**
-         *
-         */
-        void calcuTotalAcc() {
+        void sumTotalAcc() {
             acc_ = vel_indep_.acc();
-            vel_dep_.addTotal(acc_);
-            ext_vel_indep_.addTotal(acc_);
-            ext_vel_dep_.addTotal(acc_);
+
+            if constexpr (!std::is_void<VelDep>::value) {
+                vel_dep_.addAccTo(acc_);
+            }
+            if constexpr (!std::is_void<ExtVelIndep>::value) {
+                ext_vel_indep_.addAccTo(acc_);
+            }
+            if constexpr (!std::is_void<ExtVelDep>::value) {
+                ext_vel_dep_.addAccTo(acc_);
+            }
         }
 
+        void resize(size_t new_siz) {
+            vel_indep_.resize(new_siz);
+
+            if constexpr (!std::is_void<VelDep>::value) {
+                vel_dep_.resize(new_siz);
+            }
+            if constexpr (!std::is_void<ExtVelIndep>::value) {
+                ext_vel_indep_.resize(new_siz);
+            }
+            if constexpr (!std::is_void<ExtVelDep>::value) {
+                ext_vel_dep_.resize(new_siz);
+            }
+        }
+
+        void reserve(size_t new_siz) {
+            vel_indep_.reserve(new_siz);
+
+            if constexpr (!std::is_void<VelDep>::value) {
+                vel_dep_.reserve(new_siz);
+            }
+            if constexpr (!std::is_void<ExtVelIndep>::value) {
+                ext_vel_indep_.reserve(new_siz);
+            }
+            if constexpr (!std::is_void<ExtVelDep>::value) {
+                ext_vel_dep_.reserve(new_siz);
+            }
+        }
     private:
         VectorArray acc_;
 
-        SpaceH::VelIndepForce<VelIndep, Scalar, type::arraySize> vel_indep_;
+        AccEvaluator<VelIndep, Scalar, type::arraySize> vel_indep_;
 
-        SpaceH::VelDepForce<VelDep, Scalar, type::arraySize> vel_dep_;
+        AccEvaluator<VelDep, Scalar, type::arraySize> vel_dep_;
 
-        SpaceH::ExtVelIndepForce<ExtVelIndep, Scalar, type::arraySize> ext_vel_indep_;
+        AccEvaluator<ExtVelIndep, Scalar, type::arraySize> ext_vel_indep_;
 
-        SpaceH::ExtVelDepForce<ExtVelDep, Scalar, type::arraySize> ext_vel_dep_;
+        AccEvaluator<ExtVelDep, Scalar, type::arraySize> ext_vel_dep_;
     };
-
-
 }
 
 #endif
