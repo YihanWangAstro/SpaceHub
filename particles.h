@@ -71,11 +71,11 @@ namespace SpaceH {
             is >> time, time *= fmt.T;
 
             size_t particleNum = particleNumber();
-            for (size_t loc = 0; loc < size ; loc++) {
+            for (size_t loc = 0; loc < particleNum ; loc++) {
                 is >> pos[loc], pos[loc] *= fmt.L;
                 is >> vel[loc], vel[loc] *= fmt.V;
 
-                if (flag == IO_Flag::STD) {
+                if (flag == IO_flag::STD) {
                     is >> mass[loc], mass[loc] *= fmt.M;
                     is >> radius[loc], radius[loc] *= fmt.L;
                     is >> idn[loc];
@@ -125,7 +125,7 @@ namespace SpaceH {
                 p.y = data[loc++];
                 p.z = data[loc++];
             }
-            for (auto &v: vel) {
+            for (auto &v : vel) {
                 v.x = data[loc++];
                 v.y = data[loc++];
                 v.z = data[loc++];

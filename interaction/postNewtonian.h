@@ -1,4 +1,6 @@
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
 #ifndef POSTNEWTONIAN_H
 #define POSTNEWTONIAN_H
 
@@ -50,7 +52,7 @@ namespace SpaceH {
         using type    = typename Particles::type;
         using Scalar  = typename type::Scalar;
         using Vector  = typename type::Vector;
-        using Buildin = typename  SpaceH::get_value_type<Scalar>::type
+        using Buildin = typename  SpaceH::get_value_type<Scalar>::type;
         /* Typedef */
 
         inline void operator()(const Particles& partc, Vector& acc) {
@@ -140,3 +142,5 @@ namespace SpaceH {
 }
 
 #endif
+
+#pragma clang diagnostic pop

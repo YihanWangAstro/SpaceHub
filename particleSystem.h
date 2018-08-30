@@ -4,6 +4,8 @@
 
 #include "coreComputation.h"
 #include "devTools.h"
+#include "macros.h"
+#include "protoType.h"
 
 namespace SpaceH {
 /**  @brief Base class of particle System.
@@ -152,7 +154,7 @@ namespace SpaceH {
             Although, branch prediction somewhat alleviate this overhead, I would suspect the instructions of
             unrelevant branch that generated at compile time may affect the efficency of CPU pipline.*/
             if constexpr (!Interaction::isVelDep){
-                act.calcuTotalAcc();
+                act.sumTotalAcc();
                 SpaceH::advanceVector(partc.vel, act.totalAcc(), stepSize);
             }else {
                 Vector v0 = partc.vel;
@@ -160,7 +162,7 @@ namespace SpaceH {
                 act.calcuExtVelDepAcc(partc);
                 act.sumTotalAcc();
                 SpaceH::advanceVector(partc.vel, act.totalAcc(), 0.5*stepSize);
-                for(size_t  i = 0 ; i < Max_Iter; ++i) {
+                for(size_t  i = 0 ; i < 10; ++i) {
                     Vector v_half = partc.vel;
                     act.calcuVelDepAcc(partc);
                     act.calcuExtVelDepAcc(partc);
@@ -251,14 +253,14 @@ namespace SpaceH {
         friend std::istream &operator>>(std::istream &is, ParticleSystem &sys) {
             size_t num = sys.readHeader(is);
 
-            if constexpr (sys::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (sys.arraySize == SpaceH::DYNAMICAL) {
                 sys.resize(num);
             }
-            if (num == sys::particleNumber()) {
+            if (num == sys.particleNumber()) {
                 sys.partc.read(is, SpaceH::Unit::STD_UNIT);
-                total_mass = SpaceH::sumArray(partc.mass);
-                SpaceH::moveToCoM(partc.mass, partc.pos, total_mass);
-                SpaceH::moveToCoM(partc.mass, partc.vel, total_mass);
+                sys.total_mass = SpaceH::sumArray(sys.mass());
+                SpaceH::moveToCoM(sys.mass(), sys.pos(), sys.total_mass);
+                SpaceH::moveToCoM(sys.mass(), sys.vel(), sys.total_mass);
             } else {
                 SpaceH::errMsg(
                         "You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!",
@@ -273,7 +275,7 @@ namespace SpaceH {
         }
 
         /** @brief Output variables to plain scalar array.*/
-        size_t write(ScalarBuffer &data, const IO_flag IO_flag = IO_flag::STD) const {
+        size_t write(ScalarBuffer &data, const IO_flag flag = IO_flag::STD) const {
             return partc.write(data, flag);
         }
 
@@ -309,7 +311,7 @@ namespace SpaceH {
             size_t size = particleNumber();
             Scalar max_dv = 0;
             for(size_t i = 0 ; i < size; ++i) {
-                Scalar dv = SpaceH::max(max_value, ((v1[i] - v2[i])/v2[i]).abs().max_component());
+                Scalar dv = SpaceH::max(max_dv, ((v1[i] - v2[i])/v2[i]).abs().max_component());
             }
             return max_dv < SpaceH::epsilon<Scalar>::value;
         }
