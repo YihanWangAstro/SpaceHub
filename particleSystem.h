@@ -60,68 +60,27 @@ namespace SpaceH {
 
         /**  @brief Physical time scalar const interface. Reference to partc.time*/
         inline const Scalar &time() const {
-            return partc.time;
+            return partc.time();
         }
 
-        /**  @brief Position array const interface. Reference to partc.pos*/
-        inline const VectorArray &pos() const {
-            return partc.pos;
-        }
+        /** @brief interface adapter to inherit the interface of the data member
+         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create five interfaces, they are:
+         *
+         *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
+         *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
+         *  3. void set_NEWNAME (const TYPE &X) { MEMBER.set_NAME(X);};
+         *  4. void set_NEWNAME (size_t i, typename TYPE::value_type &X) { MEMBER.set_NAME(i, X);};
+         *  5. void swap_NEWNAME (TYPE &X) { MEMBER.swap_NAME(X)};
+         *
+         *  See macros definition in 'devTools.h'
+         */
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, partc, pos,    pos);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, partc, vel,    vel);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(ScalarArray, partc, mass,   mass);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(ScalarArray, partc, radius, radius);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(IntArray,    partc, idn,    idn);
 
-        /**  @brief Velocity array const interface. Reference to partc.vel*/
-        inline const VectorArray &vel() const {
-            return partc.vel;
-        }
-
-        /**  @brief Acceleration array const interface. Reference to partc.pos*/
-        inline const VectorArray &acc() const {
-            return act.totalAcc();
-        }
-
-        /**  @brief Mass array const interface. Reference to partc.mass.*/
-        inline const ScalarArray &mass() const {
-            return partc.mass;
-        }
-
-        /**  @brief Radius array const interface. Reference to partc.radius.*/
-        inline const ScalarArray &radius() const {
-            return partc.radius;
-        }
-
-        /**  @brief Particle id array const interface. Reference to partc.type.*/
-        inline const IntArray &idn() const {
-            return partc.idn;
-        }
-
-        /**  @brief Position vector const interface. Reference to partc.pos[i]*/
-        inline const Vector &pos(size_t i) const {
-            return partc.pos[i];
-        }
-
-        /**  @brief Velocity vecotr const interface. Reference to partc.vel[i]*/
-        inline const Vector &vel(size_t i) const {
-            return partc.vel[i];
-        }
-
-        /**  @brief Acceleration vecotr const interface. Reference to partc.vel[i]*/
-        inline const Vector &acc(size_t i) const {
-            return act.totalAcc(i);
-        }
-
-        /**  @brief Mass const interface. Reference to partc.mass[i].*/
-        inline const Scalar &mass(size_t i) const {
-            return partc.mass[i];
-        }
-
-        /**  @brief Radius const interface. Reference to partc.radius[i].*/
-        inline const Scalar &radius(size_t i) const {
-            return partc.radius[i];
-        }
-
-        /**  @brief Particle id const interface. Reference to partc.type[i].*/
-        inline const int &idn(size_t i) const {
-            return partc.idn[i];
-        }
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, act, totalAcc, acc);
 
         /** @brief Interface to rescale the time.
          *
@@ -138,8 +97,8 @@ namespace SpaceH {
 
         /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
         void drift(Scalar stepSize) {
-            SpaceH::advanceVector(partc.pos, partc.vel, stepSize);
-            partc.Time += stepSize;
+            partc.advanceVel(stepSize);
+            partc.advanceTime(stepSize);
         }
 
         /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
@@ -155,36 +114,36 @@ namespace SpaceH {
             unrelevant branch that generated at compile time may affect the efficency of CPU pipline.*/
             if constexpr (!Interaction::isVelDep){
                 act.sumTotalAcc();
-                SpaceH::advanceVector(partc.vel, act.totalAcc(), stepSize);
+                partc.advenceVel(act.totalAcc(), stepSize);
             }else {
-                Vector v0 = partc.vel;
+                Vector v0 = partc.vel();
                 act.calcuVelDepAcc(partc);
                 act.calcuExtVelDepAcc(partc);
                 act.sumTotalAcc();
-                SpaceH::advanceVector(partc.vel, act.totalAcc(), 0.5*stepSize);
+                partc.advenceVel(act.totalAcc(), 0.5*stepSize);
                 for(size_t  i = 0 ; i < 10; ++i) {
-                    Vector v_half = partc.vel;
+                    Vector v_half = partc.vel();
                     act.calcuVelDepAcc(partc);
                     act.calcuExtVelDepAcc(partc);
                     act.sumTotalAcc();
-                    partc.vel = v0;
-                    SpaceH::advanceVector(partc.vel, act.totalAcc(), 0.5*stepSize);
+                    partc.setVel(v0);
+                    partc.advenceVel(act.totalAcc(), 0.5*stepSize);
                     if(isConvergent(v_half, partc.vel))
                         break;
                 }
-                SpaceH::advanceVector(partc.vel, act.totalAcc(), 0.5*stepSize);
+                partc.advenceVel(act.totalAcc(), 0.5*stepSize);
             }
         }
 
         inline void advanceTime(Scalar dt) {
-            partc.time += dt;
+            partc.advenceTime(dt);
         }
 
         /** @brief Advance the position array with internal velocity array.
          *  @param stepSize The advance step size.
          */
         inline void advancePos(Scalar stepSize) {
-            SpaceH::advanceVector(partc.pos, partc.vel, stepSize);
+            partc.advancePos(stepSize);
         }
 
         /** @brief Advance the position array with given velocity array.
@@ -192,7 +151,7 @@ namespace SpaceH {
          *  @param stepSize The advance step size.
          */
         inline void advancePos(const VectorArray &vel, Scalar stepSize) {
-            SpaceH::advanceVector(partc.pos, vel, stepSize);
+            partc.advancePos(vel,stepSize);
         }
 
         /** @brief Advance the  velocity array with given acceleration array.
@@ -200,7 +159,7 @@ namespace SpaceH {
          *  @param acc      The acceleration array.
          */
         inline void advanceVel(const VectorArray &acc, Scalar stepSize) {
-            SpaceH::advanceVector(partc.vel, acc, stepSize);
+            partc.advanceVel(acc,stepSize);
         }
 
         /** @brief Evaluate acceleration with current velocity and position without any advance
@@ -220,12 +179,12 @@ namespace SpaceH {
 
         /** @brief Calculate the potential energy of the system*/
         inline Scalar potentialEnergy() const {
-            return SpaceH::getPotentialEnergy(partc.mass, partc.pos);
+            return SpaceH::getPotentialEnergy(partc.mass(), partc.pos());
         }
 
         /** @brief Calculate the kinetic energy of the system*/
         inline Scalar kineticEnergy() const {
-            return SpaceH::getKineticEnergy(partc.mass, partc.vel);
+            return SpaceH::getKineticEnergy(partc.mass(), partc.vel());
         }
 
         /** @brief Calculate the total energy of the system*/

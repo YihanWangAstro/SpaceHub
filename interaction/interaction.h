@@ -3,6 +3,7 @@
 #define INTERACTION_H
 
 #include "../protoType.h"
+#include "../devTools.h"
 
 namespace SpaceH {
 
@@ -27,9 +28,20 @@ namespace SpaceH {
                 acc[i] += this_acc_[i];
         }
 
-        const VectorArray &acc() const { return this_acc_; }
-
-        const Vector &acc(size_t i) const { return this_acc_[i]; }
+        /** Automaticlly create interfaces for data
+         *  The macros takes three parameters (TYPE, NAME, MEMBER). The first arg is the type of the array, the second
+         *  arg is the name of the interface and the third arg is the private member that the interface connected. Each
+         *  macros create five interfaces, they are :
+         *
+         *  1. const TYPE &NAME () const { return MEMBER;};
+         *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
+         *  3. void set_NAME (const TYPE &X) { MEMBER = X;};
+         *  4. void set_NAME (size_t i, typename TYPE::value_type &X) { MEMBER[i] = X;};
+         *  5. void swap_NAME (TYPE &X) { std::swap(X, MEMBER);};
+         *
+         *  See macros definition in 'devTools.h'
+         */
+        SPACEHUB_INTERFACES_FOR_ARRAY(VectorArray, acc, this_acc_);
 
         void resize(size_t size) {
             this_acc_.resize(size);
@@ -64,25 +76,37 @@ namespace SpaceH {
         /*Template parameter check*/
         constexpr static bool isVelDep{!std::is_void<VelDep>::value | !std::is_void<ExtVelDep>::value};
 
-        inline const VectorArray &totalAcc() const { return acc_; }
+        /** Automaticlly create interfaces for data
+         *  The macros takes three parameters (TYPE, NAME, MEMBER). The first arg is the type of the array, the second
+         *  arg is the name of the interface and the third arg is the private member that the interface connected. Each
+         *  macros create five interfaces, they are :
+         *
+         *  1. const TYPE &NAME () const { return MEMBER;};
+         *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
+         *  3. void set_NAME (const TYPE &X) { MEMBER = X;};
+         *  4. void set_NAME (size_t i, typename TYPE::value_type &X) { MEMBER[i] = X;};
+         *  5. void swap_NAME (TYPE &X) { std::swap(X, MEMBER);};
+         *
+         *  See macros definition in 'devTools.h'
+         */
+        SPACEHUB_INTERFACES_FOR_ARRAY(VectorArray, totalAcc, acc_);
 
-        inline const VectorArray &velIndepAcc() const { return vel_indep_.acc(); }
+        /** @brief Interface adapter to inherit the interface of the data member
+         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create five interfaces, they are:
+         *
+         *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
+         *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
+         *  3. void set_NEWNAME (const TYPE &X) { MEMBER.set_NAME(X);};
+         *  4. void set_NEWNAME (size_t i, typename TYPE::value_type &X) { MEMBER.set_NAME(i, X);};
+         *  5. void swap_NEWNAME (TYPE &X) { MEMBER.swap_NAME(X)};
+         *
+         *  See macros definition in 'devTools.h'
+         */
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, vel_indep_,     acc, velIndepAcc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, vel_dep_,       acc, velDepAcc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, ext_vel_indep_, acc, extVelIndepAcc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, ext_vel_dep_,   acc, extVelDepAcc);
 
-        inline const VectorArray &velDepAcc() const { return vel_dep_.acc(); }
-
-        inline const VectorArray &extVelIndepAcc() const { return ext_vel_indep_.acc(); }
-
-        inline const VectorArray &extVelDepAcc() const { return ext_vel_dep_.acc(); }
-
-        inline const Vector &totalAcc(size_t i) const { return acc_[i]; }
-
-        inline const Vector &velIndepAcc(size_t i) const { return vel_indep_.acc(i); }
-
-        inline const Vector &velDepAcc(size_t i) const { return vel_dep_.acc(i); }
-
-        inline const Vector &extVelIndepAcc(size_t i) const { return ext_vel_indep_.acc(i); }
-
-        inline const Vector &extVelDepAcc(size_t i) const { return ext_vel_dep_.acc(i); }
 
         inline void calcuVelIndepAcc(const Particles &partc) {
             vel_indep_.evaluateAcc(partc);

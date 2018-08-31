@@ -38,7 +38,7 @@ namespace SpaceH {
 /** @brief print an array. Used for debug*/
     template<typename T>
     void printArray(T &var) {
-        for (const auto & v : var)
+        for (const auto &v : var)
             std::cout << v << '\n';
 
         std::cout << '\n';
@@ -69,6 +69,22 @@ namespace SpaceH {
 #else
 #define DEBUG_MSG(cond, ...)
 #endif
+
+/** @brief Standard interfaces for private data array in SpaceHub project*/
+#define SPACEHUB_INTERFACES_FOR_ARRAY(TYPE, NAME, MEMBER)                                                \
+inline const TYPE & NAME () const { return MEMBER;};                                                     \
+inline const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};                     \
+inline void set_##NAME (const TYPE& X) { MEMBER = X;};                                                   \
+inline void set_##NAME (size_t i, typename TYPE::value_type & X) { MEMBER[i] = X;};                      \
+inline void swap_##NAME (TYPE& X) { std::swap(X, MEMBER);};
+
+/** @brief Standard interfaces adapter in SpaceHub project*/
+#define SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(TYPE, MEMBER, NAME, NEWNAME)                               \
+inline const TYPE & NEWNAME () const { return MEMBER.NAME();};                                           \
+inline const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};             \
+inline void set_##NEWNAME (const TYPE& X) { MEMBER.set_##NAME(X);};                                      \
+inline void set_##NEWNAME (size_t i, typename TYPE::value_type & X) { MEMBER.set_##NAME(i, X);};         \
+inline void swap_##NEWNAME (TYPE& X) { MEMBER.swap_##NAME(X);};
 
 /** @brief Macros used to check if a class has a specific method.  */
 #define CREATE_METHOD_CHECK(NAME)                                                                   \
