@@ -27,7 +27,7 @@ namespace SpaceH {
  * @param line
  */
     void errMsg(const char *msg, const char *file, size_t line) {
-        std::cout << "An error occurred:" << '\n';
+        std::cout << "An error occurred:\n";
         std::cout << "  Message >>>" << msg << '\n';
         std::cout << "  File    >>>" << file << '\n';
         std::cout << "  Line    >>>" << line << std::endl;
@@ -70,21 +70,63 @@ namespace SpaceH {
 #define DEBUG_MSG(cond, ...)
 #endif
 
-/** @brief Standard interfaces for private data array in SpaceHub project*/
-#define SPACEHUB_INTERFACES_FOR_ARRAY(TYPE, NAME, MEMBER)                                                \
-inline const TYPE & NAME () const { return MEMBER;};                                                     \
-inline const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};                     \
-inline void set_##NAME (const TYPE& X) { MEMBER = X;};                                                   \
-inline void set_##NAME (size_t i, typename TYPE::value_type & X) { MEMBER[i] = X;};                      \
-inline void swap_##NAME (TYPE& X) { std::swap(X, MEMBER);};
+/** @brief Standard interfaces for private data scalar in SpaceHub project*/
+#define SPACEHUB_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                               \
+                                                                                                         \
+inline const TYPE & NAME () const {                                                                      \
+    return MEMBER;                                                                                       \
+};                                                                                                       \
+inline void set_##NAME (const TYPE& scalar) {                                                            \
+    MEMBER = scalar;                                                                                     \
+};                                                                                                       \
 
-/** @brief Standard interfaces adapter in SpaceHub project*/
-#define SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(TYPE, MEMBER, NAME, NEWNAME)                               \
-inline const TYPE & NEWNAME () const { return MEMBER.NAME();};                                           \
-inline const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};             \
-inline void set_##NEWNAME (const TYPE& X) { MEMBER.set_##NAME(X);};                                      \
-inline void set_##NEWNAME (size_t i, typename TYPE::value_type & X) { MEMBER.set_##NAME(i, X);};         \
-inline void swap_##NEWNAME (TYPE& X) { MEMBER.swap_##NAME(X);};
+/** @brief Standard scalar interfaces adapter in SpaceHub project*/
+#define SPACEHUB_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                              \
+                                                                                                         \
+inline const TYPE & NEWNAME () const {                                                                   \
+    return MEMBER.NAME();                                                                                \
+};                                                                                                       \
+inline void set_##NEWNAME (const TYPE& scalar) {                                                         \
+    MEMBER.set_##NAME(scalar);                                                                           \
+};                                                                                                       \
+
+/** @brief Standard interfaces for private data array in SpaceHub project*/
+#define SPACEHUB_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                \
+                                                                                                         \
+inline const TYPE & NAME () const {                                                                      \
+    return MEMBER;                                                                                       \
+};                                                                                                       \
+inline const typename TYPE::value_type & NAME (size_t i) const {                                         \
+    return MEMBER[i];                                                                                    \
+};                                                                                                       \
+inline void set_##NAME (const TYPE& array) {                                                             \
+    MEMBER = array;                                                                                      \
+};                                                                                                       \
+inline void set_##NAME (size_t i, const typename TYPE::value_type &value) {                              \
+    MEMBER[i] = value;                                                                                   \
+};                                                                                                       \
+inline void swap_##NAME (TYPE& array) {                                                                  \
+    std::swap(array, MEMBER);                                                                            \
+};
+
+/** @brief Standard array interfaces adapter in SpaceHub project*/
+#define SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(NEWNAME, TYPE, MEMBER, NAME)                               \
+                                                                                                         \
+inline const TYPE & NEWNAME () const {                                                                   \
+    return MEMBER.NAME();                                                                                \
+};                                                                                                       \
+inline const typename TYPE::value_type & NEWNAME (size_t i) const {                                      \
+    return MEMBER.NAME(i);                                                                               \
+};                                                                                                       \
+inline void set_##NEWNAME (const TYPE& array) {                                                          \
+    MEMBER.set_##NAME(array);                                                                            \
+};                                                                                                       \
+inline void set_##NEWNAME (size_t i, const typename TYPE::value_type &value) {                           \
+    MEMBER.set_##NAME(i, value);                                                                         \
+};                                                                                                       \
+inline void swap_##NEWNAME (TYPE& array) {                                                               \
+    MEMBER.swap_##NAME(array);                                                                           \
+};
 
 /** @brief Macros used to check if a class has a specific method.  */
 #define CREATE_METHOD_CHECK(NAME)                                                                   \

@@ -52,9 +52,7 @@ namespace SpaceH {
         }
 
         /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (TYPE, NAME, MEMBER). The first arg is the type of the array, the second
-         *  arg is the name of the interface and the third arg is the private member that the interface connected. Each
-         *  macros create five interfaces, they are :
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create five interfaces, they are :
          *
          *  1. const TYPE &NAME () const { return MEMBER;};
          *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
@@ -62,13 +60,13 @@ namespace SpaceH {
          *  4. void set_NAME (size_t i, typename TYPE::value_type &X) { MEMBER[i] = X;};
          *  5. void swap_NAME (TYPE &X) { std::swap(X, MEMBER);};
          *
-         *  See macros definition in 'devTools.h'
+         *  See macros definition in 'devTools.h'.
          */
-        SPACEHUB_INTERFACES_FOR_ARRAY(VectorArray, pos,    pos_);
-        SPACEHUB_INTERFACES_FOR_ARRAY(VectorArray, vel,    vel_);
-        SPACEHUB_INTERFACES_FOR_ARRAY(ScalarArray, mass,   mass_);
-        SPACEHUB_INTERFACES_FOR_ARRAY(ScalarArray, radius, radius_);
-        SPACEHUB_INTERFACES_FOR_ARRAY(IntArray,    idn,    idn_);
+        SPACEHUB_INTERFACES_FOR_ARRAY(pos,    VectorArray, pos_   );
+        SPACEHUB_INTERFACES_FOR_ARRAY(vel,    VectorArray, vel_   );
+        SPACEHUB_INTERFACES_FOR_ARRAY(mass,   ScalarArray, mass_  );
+        SPACEHUB_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
+        SPACEHUB_INTERFACES_FOR_ARRAY(idn,    IntArray,    idn_   );
 
         /** @brief Advance the position array with internal velocity array.
          *  @param stepSize The advance step size.
@@ -153,9 +151,7 @@ namespace SpaceH {
 
             size_t particleNum = particleNumber();
             for (size_t i = 0; i < particleNum; ++i) {
-
                 os << ' ' << pos_[i] / fmt.L << ' ' << vel_[i] / fmt.V;
-
                 if (flag == IO_flag::STD) {
                     os << ' ' << mass_[i] / fmt.M
                        << ' ' << radius_[i] / fmt.L
@@ -194,7 +190,6 @@ namespace SpaceH {
                 for (auto &i : idn_)
                     i = data[loc++];
             }
-
             time_ = data[loc++];
             return loc;
         }

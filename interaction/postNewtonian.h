@@ -64,7 +64,7 @@ namespace SpaceH {
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 1; j < size; ++j) {
                     Vector dr = partc.pos(j) - partc.pos(i);
-                    Scalar re_r = KarmackFastInverseSquareRoot<Buildin>(dr.norm2())
+                    Scalar re_r = KarmackFastInverseSquareRoot<Buildin>(dr.norm2());
                     Scalar re_r3 = re_r * re_r * re_r;
                     acc[i] += dr * (re_r3 * partc.mass(j));
                     acc[j] -= dr * (re_r3 * partc.mass(i));

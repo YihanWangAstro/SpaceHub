@@ -29,9 +29,7 @@ namespace SpaceH {
         }
 
         /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (TYPE, NAME, MEMBER). The first arg is the type of the array, the second
-         *  arg is the name of the interface and the third arg is the private member that the interface connected. Each
-         *  macros create five interfaces, they are :
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create five interfaces, they are :
          *
          *  1. const TYPE &NAME () const { return MEMBER;};
          *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
@@ -41,7 +39,7 @@ namespace SpaceH {
          *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_FOR_ARRAY(VectorArray, acc, this_acc_);
+        SPACEHUB_INTERFACES_FOR_ARRAY(acc, VectorArray, this_acc_);
 
         void resize(size_t size) {
             this_acc_.resize(size);
@@ -51,21 +49,21 @@ namespace SpaceH {
             this_acc_.reserve(size);
         }
 
-        template<typename ParticleSystem>
-        inline void evaluateAcc(const ParticleSystem &partc) {
-            acc_evaluator_(partc, this_acc_);
+        template<typename Particles>
+        inline void evaluateAcc(const Particles &partc) {
+            acc_callback_(partc, this_acc_);
         }
 
     private:
         VectorArray this_acc_;
-        Forcefunc acc_evaluator_;
+        Forcefunc acc_callback_;
     };
 
-    template<typename VelIndep, typename VelDep = void, typename ExtVelIndep = void, typename ExtVelDep = void>
+    template<typename PairVelIndep, typename PairVelDep = void, typename ExtVelIndep = void, typename ExtVelDep = void>
     class Interactions {
     public:
         /* Typedef */
-        using type        = typename VelIndep::type;
+        using type        = typename PairVelIndep::type;
         using Scalar      = typename type::Scalar;
         using Vector      = typename type::Vector;
         using VectorArray = typename type::VectorArray;
@@ -74,12 +72,10 @@ namespace SpaceH {
 
         /*Template parameter check*/
         /*Template parameter check*/
-        constexpr static bool isVelDep{!std::is_void<VelDep>::value | !std::is_void<ExtVelDep>::value};
+        constexpr static bool isVelDep{!std::is_void<PairVelDep>::value | !std::is_void<ExtVelDep>::value};
 
         /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (TYPE, NAME, MEMBER). The first arg is the type of the array, the second
-         *  arg is the name of the interface and the third arg is the private member that the interface connected. Each
-         *  macros create five interfaces, they are :
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create five interfaces, they are :
          *
          *  1. const TYPE &NAME () const { return MEMBER;};
          *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
@@ -89,10 +85,10 @@ namespace SpaceH {
          *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_FOR_ARRAY(VectorArray, totalAcc, acc_);
+        SPACEHUB_INTERFACES_FOR_ARRAY(acc, VectorArray, acc_)
 
         /** @brief Interface adapter to inherit the interface of the data member
-         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create five interfaces, they are:
+         *  The macros take four args (NEWNAME, TYPE, MEMBER, NAME). Each macros create five interfaces, they are:
          *
          *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
          *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
@@ -102,44 +98,89 @@ namespace SpaceH {
          *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, vel_indep_,     acc, velIndepAcc);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, vel_dep_,       acc, velDepAcc);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, ext_vel_indep_, acc, extVelIndepAcc);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, ext_vel_dep_,   acc, extVelDepAcc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(pairVelIndepAcc, VectorArray, pair_vel_indep_, acc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(pairVelDepAcc,   VectorArray, pair_vel_dep_,   acc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(extVelIndepAcc,  VectorArray, ext_vel_indep_,  acc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(extVelDepAcc,    VectorArray, ext_vel_dep_,    acc);
 
-
-        inline void calcuVelIndepAcc(const Particles &partc) {
-            vel_indep_.evaluateAcc(partc);
-        }
-
-        inline void calcuVelDepAcc(const Particles &partc) {
-            if constexpr (!std::is_void<VelDep>::value) {
-                vel_dep_.evaluateAcc(partc);
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         */
+        template<typename Particles>
+        inline void calcuPairVelIndepAcc(const Particles &partc) {
+            if constexpr (!std::is_void<PairVelIndep>::value) {
+                pair_vel_indep_.evaluateAcc(partc);
             }
         }
-
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         */
+        template<typename Particles>
+        inline void calcuPairVelDepAcc(const Particles &partc) {
+            if constexpr (!std::is_void<PairVelDep>::value) {
+                pair_vel_dep_.evaluateAcc(partc);
+            }
+        }
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         */
+        template<typename Particles>
         inline void calcuExtVelIndepAcc(const Particles &partc) {
             if constexpr (!std::is_void<ExtVelIndep>::value) {
                 ext_vel_indep_.evaluateAcc(partc);
             }
         }
-
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         */
+        template<typename Particles>
         inline void calcuExtVelDepAcc(const Particles &partc) {
             if constexpr (!std::is_void<ExtVelDep>::value) {
                 ext_vel_dep_.evaluateAcc(partc);
             }
         }
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         */
+        template<typename Particles>
+        inline void calcuVelIndepAcc(const Particles &partc) {
+            calcuPairVelIndepAcc(partc);
+            calcuExtVelIndepAcc(partc);
+        }
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         */
+        template<typename Particles>
+        inline void calcuVelDepAcc(const Particles &partc) {
+            calcuPairVelDepAcc(partc);
+            calcuExtVelDepAcc(partc);
+        }
 
-        void zeroTotalAcc() {
+        inline void zeroTotalAcc() {
             for (auto &a : acc_)
                 a.setZero();
         }
 
         void sumTotalAcc() {
-            acc_ = vel_indep_.acc();
-
-            if constexpr (!std::is_void<VelDep>::value) {
-                vel_dep_.addAccTo(acc_);
+            if constexpr  (!std::is_void<PairVelIndep>::value) {
+                acc_ = pair_vel_indep_.acc();
+            } else {
+                zeroTotalAcc();
+            }
+            if constexpr (!std::is_void<PairVelDep>::value) {
+                pair_vel_dep_.addAccTo(acc_);
             }
             if constexpr (!std::is_void<ExtVelIndep>::value) {
                 ext_vel_indep_.addAccTo(acc_);
@@ -150,10 +191,11 @@ namespace SpaceH {
         }
 
         void resize(size_t new_siz) {
-            vel_indep_.resize(new_siz);
-
-            if constexpr (!std::is_void<VelDep>::value) {
-                vel_dep_.resize(new_siz);
+            if constexpr (!std::is_void<PairVelIndep>::value) {
+                pair_vel_indep_.resize(new_siz);
+            }
+            if constexpr (!std::is_void<PairVelDep>::value) {
+                pair_vel_dep_.resize(new_siz);
             }
             if constexpr (!std::is_void<ExtVelIndep>::value) {
                 ext_vel_indep_.resize(new_siz);
@@ -164,10 +206,11 @@ namespace SpaceH {
         }
 
         void reserve(size_t new_siz) {
-            vel_indep_.reserve(new_siz);
-
-            if constexpr (!std::is_void<VelDep>::value) {
-                vel_dep_.reserve(new_siz);
+            if constexpr (!std::is_void<PairVelIndep>::value) {
+                pair_vel_indep_.reserve(new_siz);
+            }
+            if constexpr (!std::is_void<PairVelDep>::value) {
+                pair_vel_dep_.reserve(new_siz);
             }
             if constexpr (!std::is_void<ExtVelIndep>::value) {
                 ext_vel_indep_.reserve(new_siz);
@@ -179,13 +222,13 @@ namespace SpaceH {
     private:
         VectorArray acc_;
 
-        AccEvaluator<VelIndep, Scalar, type::arraySize> vel_indep_;
+        AccEvaluator<PairVelIndep, Scalar, type::arraySize> pair_vel_indep_;
 
-        AccEvaluator<VelDep, Scalar, type::arraySize> vel_dep_;
+        AccEvaluator<PairVelDep,   Scalar, type::arraySize> pair_vel_dep_;
 
-        AccEvaluator<ExtVelIndep, Scalar, type::arraySize> ext_vel_indep_;
+        AccEvaluator<ExtVelIndep,  Scalar, type::arraySize> ext_vel_indep_;
 
-        AccEvaluator<ExtVelDep, Scalar, type::arraySize> ext_vel_dep_;
+        AccEvaluator<ExtVelDep,    Scalar, type::arraySize> ext_vel_dep_;
     };
 }
 

@@ -74,13 +74,12 @@ namespace SpaceH {
          *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, partc, pos,    pos);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, partc, vel,    vel);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(ScalarArray, partc, mass,   mass);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(ScalarArray, partc, radius, radius);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(IntArray,    partc, idn,    idn);
-
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(VectorArray, act, totalAcc, acc);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(pos,    VectorArray, partc, pos   );
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IntArray,    partc, idn   );
+        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
 
         /** @brief Interface to rescale the time.
          *
@@ -106,7 +105,6 @@ namespace SpaceH {
             act.zeroTotalAcc();
 
             act.calcuVelIndepAcc(partc);
-            act.calcuExtVelIndepAcc(partc);
 
             /*after long time struggling, decide to use 'constexpr if' in c++17 to improve readability. The price is low
             version compiler will treat this as normal 'if' such that unrelavent brach will be checked at runtime.
@@ -114,24 +112,14 @@ namespace SpaceH {
             unrelevant branch that generated at compile time may affect the efficency of CPU pipline.*/
             if constexpr (!Interaction::isVelDep){
                 act.sumTotalAcc();
-                partc.advenceVel(act.totalAcc(), stepSize);
+                partc.advenceVel(act.acc(), stepSize);
             }else {
                 Vector v0 = partc.vel();
                 act.calcuVelDepAcc(partc);
-                act.calcuExtVelDepAcc(partc);
                 act.sumTotalAcc();
-                partc.advenceVel(act.totalAcc(), 0.5*stepSize);
-                for(size_t  i = 0 ; i < 10; ++i) {
-                    Vector v_half = partc.vel();
-                    act.calcuVelDepAcc(partc);
-                    act.calcuExtVelDepAcc(partc);
-                    act.sumTotalAcc();
-                    partc.setVel(v0);
-                    partc.advenceVel(act.totalAcc(), 0.5*stepSize);
-                    if(isConvergent(v_half, partc.vel))
-                        break;
-                }
-                partc.advenceVel(act.totalAcc(), 0.5*stepSize);
+                partc.advenceVel(act.acc(), 0.5*stepSize);
+                iterateVeltoConvergent(v0, 0.5*stepSize);
+                partc.advenceVel(act.acc(), 0.5*stepSize);
             }
         }
 
@@ -169,9 +157,7 @@ namespace SpaceH {
         const VectorArray& evaluateAcc() {
             act.zeroTotalAcc();
             act.calcuVelIndepAcc(partc);
-            act.calcuExtVelIndepAcc(partc);
             act.calcuVelDepAcc(partc);
-            act.calcuExtVelDepAcc(partc);
             act.sumTotalAcc();
 
             return act.totalAcc();
@@ -273,6 +259,19 @@ namespace SpaceH {
                 Scalar dv = SpaceH::max(max_dv, ((v1[i] - v2[i])/v2[i]).abs().max_component());
             }
             return max_dv < SpaceH::epsilon<Scalar>::value;
+        }
+
+    protected:
+        void iterateVeltoConvergent(const VectorArray &v0, Scalar stepSize) {
+            for(size_t  i = 0 ; i < 10; ++i) {
+                Vector v_new = partc.vel();
+                act.calcuVelDepAcc(partc);
+                act.sumTotalAcc();
+                partc.set_vel(v0);
+                partc.advenceVel(act.acc(), stepSize);
+                if(isConvergent(v_new, partc.vel()))
+                    return;
+            }
         }
     };
 }

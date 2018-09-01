@@ -9,9 +9,9 @@
 #include "callbacks.h"
 
 #include "particleSystem.h"
-#include "particleSystem/reguSystem/regularization.h"
-#include "particleSystem/reguSystem/reguSystem.h"
-#include "particleSystem/reguSystem/regularParticles.h"
+#include "particleSystem/regularization.h"
+#include "particleSystem/reguSystem.h"
+#include "particleSystem/GARSystem.h"
 
 #include "particleSystem/ARChain/ARchainSystem.h"
 #include "particleSystem/ARChain/chain.h"
