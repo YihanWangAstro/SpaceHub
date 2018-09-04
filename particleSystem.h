@@ -25,6 +25,7 @@ namespace SpaceH {
         using ScalarArray  = typename type::ScalarArray;
         using IntArray     = typename type::IntArray;
         using ScalarBuffer = typename type::ScalarBuffer;
+        using State        = typename type::State;
         using ParticleType = Particles;
         /* Typedef */
 
@@ -64,22 +65,18 @@ namespace SpaceH {
         }
 
         /** @brief interface adapter to inherit the interface of the data member
-         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create five interfaces, they are:
+         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create two interfaces, they are:
          *
          *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
          *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
-         *  3. void set_NEWNAME (const TYPE &X) { MEMBER.set_NAME(X);};
-         *  4. void set_NEWNAME (size_t i, typename TYPE::value_type &X) { MEMBER.set_NAME(i, X);};
-         *  5. void swap_NEWNAME (TYPE &X) { MEMBER.swap_NAME(X)};
-         *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(pos,    VectorArray, partc, pos   );
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IntArray,    partc, idn   );
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(pos,    VectorArray, partc, pos   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IntArray,    partc, idn   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
 
         /** @brief Interface to rescale the time.
          *
@@ -88,10 +85,10 @@ namespace SpaceH {
          *  @return The phsyical time.
          */
         Scalar timeScale() {
-            if (isAllZero(partc.vel))
-                return SpaceH::minfallFreeTime(partc.mass, partc.pos);
+            if (isAllZero(partc.vel()))
+                return SpaceH::minfallFreeTime(partc.mass(), partc.pos());
             else
-                return SpaceH::minAccdot(partc.mass, partc.pos, partc.vel);
+                return SpaceH::minAccdot(partc.mass(), partc.pos(), partc.vel());
         }
 
         /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
@@ -114,7 +111,7 @@ namespace SpaceH {
                 act.sumTotalAcc();
                 partc.advenceVel(act.acc(), stepSize);
             }else {
-                Vector v0 = partc.vel();
+                State v0 = partc.vel_state();
                 act.calcuVelDepAcc(partc);
                 act.sumTotalAcc();
                 partc.advenceVel(act.acc(), 0.5*stepSize);
@@ -252,7 +249,7 @@ namespace SpaceH {
             }
         }
 
-        bool isConvergent(Vector& v1, Vector& v2) {
+        bool isConvergent(const VectorArray & v1, const VectorArray & v2) {
             size_t size = particleNumber();
             Scalar max_dv = 0;
             for(size_t i = 0 ; i < size; ++i) {
@@ -262,14 +259,14 @@ namespace SpaceH {
         }
 
     protected:
-        void iterateVeltoConvergent(const VectorArray &v0, Scalar stepSize) {
+        void iterateVeltoConvergent(const State &v0, Scalar stepSize) {
             for(size_t  i = 0 ; i < 10; ++i) {
-                Vector v_new = partc.vel();
+                State v_new = partc.vel_state();
                 act.calcuVelDepAcc(partc);
                 act.sumTotalAcc();
-                partc.set_vel(v0);
+                partc.set_vel_state(v0);
                 partc.advenceVel(act.acc(), stepSize);
-                if(isConvergent(v_new, partc.vel()))
+                if(isConvergent(v_new.raw(), partc.vel_state().raw()))
                     return;
             }
         }

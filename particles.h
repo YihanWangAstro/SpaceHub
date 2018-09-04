@@ -9,22 +9,98 @@
 
 namespace SpaceH {
 
-/**
- *  @brief Basic particles group with SoA memory laylout.
- *  @tparam Dtype Type of scalar. e.g., float, double, kahanNumber...
- *  @tparam ArraySize The size of the arrays in whole system. SpaceH::DYNAMICAL for dynamical array.
- */
-    template<typename Dtype, size_t ArraySize>
+    template<typename TypeClass>
+    class SimpleState {
+    public:
+        /* Typedef */
+        using type        = TypeClass;
+        using Vector      = typename type::Vector;
+        using Scalar      = typename type::Scalar;
+        using VectorArray = typename type::VectorArray;
+        /* Typedef */
+
+        /**
+         * @brief Evolve state with given increament in Cartesian coordinates.
+         * @param increament
+         * @param stepSize
+         */
+        inline void advance(const VectorArray &increament, Scalar stepSize) {
+            SpaceH::advanceVector(data, increament, stepSize);
+        }
+
+        /**
+         * @brief Evolve state with given increament in real evolving coordinates(usually from the .raw() of the same
+         * State type.).
+         * @param increament
+         * @param stepSize
+         */
+        inline void advance_raw(const VectorArray &increament, Scalar stepSize) {
+            SpaceH::advanceVector(data, increament, stepSize);
+        }
+
+        inline void resize(size_t new_siz) {
+            data.resize(new_siz);
+        }
+
+        inline void reserve(size_t new_cap) {
+            data.reserve(new_cap);
+        }
+
+        /**
+         * @brief interface for cartesian access.
+         * @param i The index.
+         * @return Coordinate vector in Cartesian coordinates.
+         */
+        inline Vector &operator[](size_t i) {
+            return data[i];
+        }
+
+        inline const Vector &operator[](size_t i) const {
+            return data[i];
+        }
+
+        /**
+         * @brief Interface for Vector array in cartesian coordinates
+         * @return
+         */
+        inline VectorArray &cartesian() {
+            return data;
+        }
+
+        /**
+         * @brief Interface for Vector array that really evolves in possible equation of motion.
+         * Here is the vector array in cartesian coordinates.
+         * @return
+         */
+        inline VectorArray &raw() {
+            return data;
+        }
+
+        /*interfaces to maintain internal states.*/
+        inline void updateInternalState() {}
+        inline void synCartesian() {}
+        inline void synInternal() {}
+        inline void createInternalState() {}
+    private:
+        VectorArray data;
+    };
+
+ /**
+  * @brief Basic particles group with SoA memory laylout.
+  * @tparam TypeClass Type class that define all the basic types.
+  */
+    template<typename TypeClass>
     class Particles {
     public:
         /* Typedef */
-        using type         = SpaceH::ProtoType<Dtype, ArraySize>;
+        using type         = TypeClass;
         using Scalar       = typename type::Scalar;
         using Vector       = typename type::Vector;
         using VectorArray  = typename type::VectorArray;
         using ScalarArray  = typename type::ScalarArray;
         using IntArray     = typename type::IntArray;
         using ScalarBuffer = typename type::ScalarBuffer;
+        using State        = SimpleState<VectorArray>;
         /* Typedef */
 
         /*Template parameter check*/
@@ -52,45 +128,69 @@ namespace SpaceH {
         }
 
         /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create five interfaces, they are :
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create two interfaces, they are :
          *
          *  1. const TYPE &NAME () const { return MEMBER;};
          *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
-         *  3. void set_NAME (const TYPE &X) { MEMBER = X;};
-         *  4. void set_NAME (size_t i, typename TYPE::value_type &X) { MEMBER[i] = X;};
-         *  5. void swap_NAME (TYPE &X) { std::swap(X, MEMBER);};
-         *
          *  See macros definition in 'devTools.h'.
          */
-        SPACEHUB_INTERFACES_FOR_ARRAY(pos,    VectorArray, pos_   );
-        SPACEHUB_INTERFACES_FOR_ARRAY(vel,    VectorArray, vel_   );
-        SPACEHUB_INTERFACES_FOR_ARRAY(mass,   ScalarArray, mass_  );
-        SPACEHUB_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
-        SPACEHUB_INTERFACES_FOR_ARRAY(idn,    IntArray,    idn_   );
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(pos, VectorArray, pos_.cartesian());
 
-        /** @brief Advance the position array with internal velocity array.
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(vel, VectorArray, vel_.cartesian());
+
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(mass, ScalarArray, mass_);
+
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
+
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IntArray, idn_);
+
+        /** Automaticlly create interfaces for data
+        *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create one read interface :
+        *  1. const TYPE &NAME () const { return MEMBER;};
+        *  See macros definition in 'devTools.h'.
+        */
+        SPACEHUB_READ_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
+
+        SPACEHUB_READ_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
+
+        /** Automaticlly create interfaces for data
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create two interfaces :
+         *
+         *  1. void set_NAME (const TYPE& scalar) { MEMBER = scalar;};
+         *  2. void swap_NAME (TYPE& scalar) { std::swap(MEMBER, scalar); }
+         *  See macros definition in 'devTools.h'.
+         */
+        SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
+
+        SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
+
+        /** @brief Advance the position array with internal velocity array in real evolving coordinates.
          *  @param stepSize The advance step size.
          */
         inline void advancePos(Scalar stepSize) {
-            SpaceH::advanceVector(pos_, vel_, stepSize);
+            pos_.advance_raw(vel_.raw(), stepSize);
         }
 
-        /** @brief Advance the position array with given velocity array.
+        /** @brief Advance the position array with given velocity array in cartesian coordinates.
          *  @param vel The given velocity array.
          *  @param stepSize The advance step size.
          */
         inline void advancePos(const VectorArray &vel, Scalar stepSize) {
-            SpaceH::advanceVector(pos_, vel, stepSize);
+            pos_.advance(vel, stepSize);
         }
 
-        /** @brief Advance the  velocity array with given acceleration array.
+        /** @brief Advance the  velocity array with given acceleration array in cartesian coordinates.
          *  @param stepSize The advance step size.
          *  @param acc      The acceleration array.
          */
         inline void advanceVel(const VectorArray &acc, Scalar stepSize) {
-            SpaceH::advanceVector(vel_, acc, stepSize);
+            vel_.advance(acc, stepSize);
         }
 
+        void update() {
+            pos_.updateInternalState();
+            vel_.updateInternalState();
+        }
         /** @brief Resize all containers if they are dynamical
          *  @param new_siz New size of container.
          */
@@ -136,6 +236,8 @@ namespace SpaceH {
             }
             if (!is.good())
                 SpaceH::errMsg("Insufficent input data in initial file!", __FILE__, __LINE__);
+            pos_.createInternalState();
+            vel_.createInternalState();
             return particleNum;
         }
 
@@ -171,17 +273,18 @@ namespace SpaceH {
 
             size_t loc = 0;
             //for locality, split into separate loops
-            for (auto &p : pos_) {
+            for (auto &p : pos_.raw()) {
                 p.x = data[loc++];
                 p.y = data[loc++];
                 p.z = data[loc++];
             }
-            for (auto &v : vel_) {
+            pos_.synCartesian();
+            for (auto &v : vel_.raw()) {
                 v.x = data[loc++];
                 v.y = data[loc++];
                 v.z = data[loc++];
             }
-
+            vel_.synCartesian();
             if (flag == IO_flag::STD) {
                 for (auto &m : mass_)
                     m = data[loc++];
@@ -207,12 +310,12 @@ namespace SpaceH {
             data.reserve(particleNum * 6 + 1);
 
             //for locality, split into two loops
-            for (const auto &p : pos_) {
+            for (const auto &p : pos_.raw()) {
                 data.emplace_back(p.x);
                 data.emplace_back(p.y);
                 data.emplace_back(p.z);
             }
-            for (const auto &v : vel_) {
+            for (const auto &v : vel_.raw()) {
                 data.emplace_back(v.x);
                 data.emplace_back(v.y);
                 data.emplace_back(v.z);
@@ -234,10 +337,10 @@ namespace SpaceH {
 
     private:
         /** @brief Position array of the particles. Element is 3D vector.*/
-        VectorArray pos_;
+        State pos_;
 
         /** @brief Velocity array of the particles. Element is 3D vector.*/
-        VectorArray vel_;
+        State vel_;
 
         /** @brief Mass array of the particles. Element is Scalar.*/
         ScalarArray mass_;

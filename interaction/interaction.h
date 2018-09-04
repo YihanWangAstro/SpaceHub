@@ -13,10 +13,10 @@ namespace SpaceH {
      * @tparam Dtype     Scalar type.
      * @tparam ArraySize Array size.
      */
-    template<typename Forcefunc, typename Dtype, size_t ArraySize>
+    template<typename Forcefunc, typename TypeClass>
     struct AccEvaluator {
         /* Typedef */
-        using type = SpaceH::ProtoType<Dtype, ArraySize>;
+        using type = TypeClass;
         using Vector = typename type::Vector;
         using VectorArray = typename type::VectorArray;
         /* Typedef */
@@ -29,17 +29,13 @@ namespace SpaceH {
         }
 
         /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create five interfaces, they are :
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create two interfaces, they are :
          *
          *  1. const TYPE &NAME () const { return MEMBER;};
          *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
-         *  3. void set_NAME (const TYPE &X) { MEMBER = X;};
-         *  4. void set_NAME (size_t i, typename TYPE::value_type &X) { MEMBER[i] = X;};
-         *  5. void swap_NAME (TYPE &X) { std::swap(X, MEMBER);};
-         *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_FOR_ARRAY(acc, VectorArray, this_acc_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(acc, VectorArray, this_acc_);
 
         void resize(size_t size) {
             this_acc_.resize(size);
@@ -75,33 +71,26 @@ namespace SpaceH {
         constexpr static bool isVelDep{!std::is_void<PairVelDep>::value | !std::is_void<ExtVelDep>::value};
 
         /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create five interfaces, they are :
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create two interfaces, they are :
          *
          *  1. const TYPE &NAME () const { return MEMBER;};
          *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
-         *  3. void set_NAME (const TYPE &X) { MEMBER = X;};
-         *  4. void set_NAME (size_t i, typename TYPE::value_type &X) { MEMBER[i] = X;};
-         *  5. void swap_NAME (TYPE &X) { std::swap(X, MEMBER);};
-         *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_FOR_ARRAY(acc, VectorArray, acc_)
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(acc, VectorArray, acc_);
 
         /** @brief Interface adapter to inherit the interface of the data member
-         *  The macros take four args (NEWNAME, TYPE, MEMBER, NAME). Each macros create five interfaces, they are:
+         *  The macros take four args (NEWNAME, TYPE, MEMBER, NAME). Each macros create two interfaces, they are:
          *
          *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
          *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
-         *  3. void set_NEWNAME (const TYPE &X) { MEMBER.set_NAME(X);};
-         *  4. void set_NEWNAME (size_t i, typename TYPE::value_type &X) { MEMBER.set_NAME(i, X);};
-         *  5. void swap_NEWNAME (TYPE &X) { MEMBER.swap_NAME(X)};
          *
          *  See macros definition in 'devTools.h'
          */
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(pairVelIndepAcc, VectorArray, pair_vel_indep_, acc);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(pairVelDepAcc,   VectorArray, pair_vel_dep_,   acc);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(extVelIndepAcc,  VectorArray, ext_vel_indep_,  acc);
-        SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(extVelDepAcc,    VectorArray, ext_vel_dep_,    acc);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(pairVelIndepAcc, VectorArray, pair_vel_indep_, acc);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(pairVelDepAcc,   VectorArray, pair_vel_dep_,   acc);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(extVelIndepAcc,  VectorArray, ext_vel_indep_,  acc);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(extVelDepAcc,    VectorArray, ext_vel_dep_,    acc);
 
         /**
          *

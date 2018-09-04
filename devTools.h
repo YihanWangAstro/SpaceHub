@@ -70,35 +70,50 @@ namespace SpaceH {
 #define DEBUG_MSG(cond, ...)
 #endif
 
-/** @brief Standard interfaces for private data scalar in SpaceHub project*/
-#define SPACEHUB_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                               \
+/** @brief Standard read interfaces for private data scalar in SpaceHub project*/
+#define SPACEHUB_READ_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                          \
                                                                                                          \
 inline const TYPE & NAME () const {                                                                      \
     return MEMBER;                                                                                       \
-};                                                                                                       \
+};
+
+/** @brief Standard write interfaces for private data scalar in SpaceHub project*/
+#define SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                         \
 inline void set_##NAME (const TYPE& scalar) {                                                            \
     MEMBER = scalar;                                                                                     \
 };                                                                                                       \
+inline void swap_##NAME (TYPE& scalar) {                                                                 \
+    std::swap(MEMBER, scalar);                                                                           \
+}
 
-/** @brief Standard scalar interfaces adapter in SpaceHub project*/
-#define SPACEHUB_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                              \
+/** @brief Standard scalar read interfaces adapter in SpaceHub project*/
+#define SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                         \
                                                                                                          \
 inline const TYPE & NEWNAME () const {                                                                   \
     return MEMBER.NAME();                                                                                \
-};                                                                                                       \
+};
+
+/** @brief Standard scalar write interfaces adapter in SpaceHub project*/
+#define SPACEHUB_WRITE_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                         \
 inline void set_##NEWNAME (const TYPE& scalar) {                                                         \
     MEMBER.set_##NAME(scalar);                                                                           \
 };                                                                                                       \
+inline void swap_##NEWNAME (TYPE& scalar) {                                                              \
+    MEMBER.swap_##NAME(scalar);                                                                          \
+};
 
-/** @brief Standard interfaces for private data array in SpaceHub project*/
-#define SPACEHUB_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                \
+/** @brief Standard read interfaces for private data array in SpaceHub project*/
+#define SPACEHUB_READ_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                           \
                                                                                                          \
 inline const TYPE & NAME () const {                                                                      \
     return MEMBER;                                                                                       \
 };                                                                                                       \
 inline const typename TYPE::value_type & NAME (size_t i) const {                                         \
     return MEMBER[i];                                                                                    \
-};                                                                                                       \
+};
+
+/** @brief Standard write interfaces for private data array in SpaceHub project*/
+#define SPACEHUB_WRITE_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                          \
 inline void set_##NAME (const TYPE& array) {                                                             \
     MEMBER = array;                                                                                      \
 };                                                                                                       \
@@ -109,15 +124,18 @@ inline void swap_##NAME (TYPE& array) {                                         
     std::swap(array, MEMBER);                                                                            \
 };
 
-/** @brief Standard array interfaces adapter in SpaceHub project*/
-#define SPACEHUB_INTERFACES_ADAPTER_FOR_ARRAY(NEWNAME, TYPE, MEMBER, NAME)                               \
+/** @brief Standard read array interfaces adapter in SpaceHub project*/
+#define SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(NEWNAME, TYPE, MEMBER, NAME)                          \
                                                                                                          \
 inline const TYPE & NEWNAME () const {                                                                   \
     return MEMBER.NAME();                                                                                \
 };                                                                                                       \
 inline const typename TYPE::value_type & NEWNAME (size_t i) const {                                      \
     return MEMBER.NAME(i);                                                                               \
-};                                                                                                       \
+};
+
+/** @brief Standard write array interfaces adapter in SpaceHub project*/
+#define SPACEHUB_WRITE_INTERFACES_ADAPTER_FOR_ARRAY(NEWNAME, TYPE, MEMBER, NAME)                         \
 inline void set_##NEWNAME (const TYPE& array) {                                                          \
     MEMBER.set_##NAME(array);                                                                            \
 };                                                                                                       \
