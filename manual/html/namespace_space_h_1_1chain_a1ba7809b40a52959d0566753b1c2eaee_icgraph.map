@@ -1,4 +1,4 @@
-<map id="SpaceH::chain::synCartesian" name="SpaceH::chain::synCartesian">
+<map id="SpaceH::chain_::synCartesian" name="SpaceH::chain_::synCartesian">
 <area shape="rect" id="node2" href="$class_space_h_1_1_vel_indep_chain_particles.html#a647d4861878b28d79b6aab00de12ab8d" title="Advance the position array with internal velocity array. " alt="" coords="247,5,461,44"/>
 <area shape="rect" id="node3" href="$class_space_h_1_1_vel_indep_chain_particles.html#ae5253fbb69161c625f878de540618eb7" title="Advance the velocity array with given acceleration array. " alt="" coords="247,68,461,107"/>
 <area shape="rect" id="node4" href="$class_space_h_1_1_vel_indep_chain_particles.html#a60778581313c992696314625eb2b30cf" title="Input variables with plain scalar array. " alt="" coords="247,131,461,169"/>

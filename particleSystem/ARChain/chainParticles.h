@@ -131,7 +131,7 @@ namespace SpaceH {
             SpaceH::moveToCMCoord(cartesian_vel_, CMVel);
         }
 
-        /* Update the way to connect the chain if needed*/
+        /* Update the way to connect the chain_ if needed*/
         void updateChain() {
             IndexArray new_index = ch_index_;
             SpaceH::chain::getChainIndex(cartesian_pos_, new_index);

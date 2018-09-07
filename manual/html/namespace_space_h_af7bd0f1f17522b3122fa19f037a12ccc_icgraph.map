@@ -1,4 +1,4 @@
-<map id="SpaceH::errMsg" name="SpaceH::errMsg">
+<map id="SpaceH::errMsg" name="SpaceH::ERR_MSG">
 <area shape="rect" id="node2" href="$class_space_h_1_1_init_creator.html#a6cf46010b11b3b7ad19f1d37e2cb1cb4" title="SpaceH::InitCreator\l::writeToFile" alt="" coords="210,5,348,44"/>
 <area shape="rect" id="node4" href="$namespace_space_h_1_1_orbits.html#ab0a6bf4bbce5725fa15cc6250057817c" title="SpaceH::Orbits::getRandom\lMeanAnomaly" alt="" coords="185,68,373,107"/>
 <area shape="rect" id="node8" href="$namespace_space_h_1_1_orbits.html#a43d1a07ed25eaf775f3a83d7000a2596" title="SpaceH::Orbits::calcuTrueAnomaly" alt="" coords="171,131,387,156"/>

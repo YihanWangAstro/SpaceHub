@@ -1,6 +1,6 @@
 <map id="SpaceH::VelIndepChainParticles::read" name="SpaceH::VelIndepChainParticles::read">
 <area shape="rect" id="node2" href="$class_space_h_1_1_regu_particles.html#a639789e55a57427963b49a95c4e66c86" title="Input variables with plain scalar array. " alt="" coords="284,5,444,44"/>
-<area shape="rect" id="node5" href="$namespace_space_h_1_1chain.html#a1ba7809b40a52959d0566753b1c2eaee" title="Calulate the Cartesian data from chain data and chain index mapping. " alt="" coords="267,68,461,93"/>
+<area shape="rect" id="node5" href="$namespace_space_h_1_1chain.html#a1ba7809b40a52959d0566753b1c2eaee" title="Calulate the Cartesian data from chain_ data and chain_ index mapping. " alt="" coords="267,68,461,93"/>
 <area shape="rect" id="node6" href="$namespace_space_h.html#a808af685980ae1a1ff5ea83e47f4073c" title="Move variables to centr. " alt="" coords="282,117,446,143"/>
 <area shape="rect" id="node7" href="$namespace_space_h.html#afb4e29bf684f5b98b6022db70cab0321" title="Move variables to central mass coordinates. " alt="" coords="274,167,454,192"/>
 <area shape="rect" id="node3" href="$class_space_h_1_1_vel_indep_particles.html#a46af27fe0ad3ef6789ead80cbe9cf1e9" title="Input variables with plain scalar array. " alt="" coords="509,5,688,44"/>

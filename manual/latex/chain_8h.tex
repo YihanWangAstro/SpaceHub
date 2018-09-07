@@ -1,9 +1,9 @@
-\hypertarget{chain_8h}{}\section{particle\+System/\+A\+R\+Chain/chain.h File Reference}
-\label{chain_8h}\index{particle\+System/\+A\+R\+Chain/chain.\+h@{particle\+System/\+A\+R\+Chain/chain.\+h}}
+\hypertarget{chain_8h}{}\section{particle\+System/\+A\+R\+Chain/chain_.h File Reference}
+\label{chain_8h}\index{particle\+System/\+A\+R\+Chain/chain_.\+h@{particle\+System/\+A\+R\+Chain/chain_.\+h}}
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$array$>$}\newline
 {\ttfamily \#include $<$algorithm$>$}\newline
-Include dependency graph for chain.\+h\+:\nopagebreak
+Include dependency graph for chain_.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,29 +20,29 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct_space_h_1_1chain_1_1_node}{Space\+H\+::chain\+::\+Node$<$ Scalar $>$}}
+struct \mbox{\hyperlink{struct_space_h_1_1chain_1_1_node}{Space\+H\+::chain_\+::\+Node$<$ Scalar $>$}}
 \begin{DoxyCompactList}\small\item\em Struture to store the relative distance and index of two particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \mbox{\hyperlink{namespace_space_h}{SpaceH}}
 \item 
- \mbox{\hyperlink{namespace_space_h_1_1chain}{Space\+H\+::chain}}
+ \mbox{\hyperlink{namespace_space_h_1_1chain}{Space\+H\+::chain_}}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9}{Space\+H\+::chain\+::get\+Chain\+Index}} (const Vector\+Array \&pos, Index\+Array \&chain\+Index)
-\begin{DoxyCompactList}\small\item\em Calculate the mapping index from Cartesian coordinate to chain coordinate. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Vector\+Array , typename Node\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a8d2f8c8026f24294d16309c4f2e11fdb}{Space\+H\+::chain\+::create\+Adj\+Martix}} (const Vector\+Array \&pos, Node\+Array \&Adj\+Matrix)
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9}{Space\+H\+::chain_\+::get\+Chain\+Index}} (const Vector\+Array \&pos, Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Calculate the mapping index from Cartesian coordinate to chain_ coordinate. \end{DoxyCompactList}\item
+{\footnotesize template$<$typename Vector\+Array , typename Node\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a8d2f8c8026f24294d16309c4f2e11fdb}{Space\+H\+::chain_\+::create\+Adj\+Martix}} (const Vector\+Array \&pos, Node\+Array \&Adj\+Matrix)
 \begin{DoxyCompactList}\small\item\em Create the adjoint matrix for particle pairs. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Node\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a65d906373401066033d8e4a6ad581cce}{Space\+H\+::chain\+::create\+Chain\+Index}} (Node\+Array \&Adj\+Matrix, Index\+Array \&chain\+Index)
+{\footnotesize template$<$typename Node\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a65d906373401066033d8e4a6ad581cce}{Space\+H\+::chain_\+::create\+Chain\+Index}} (Node\+Array \&Adj\+Matrix, Index\+Array \&chain_\+Index)
 \begin{DoxyCompactList}\small\item\em Create mapping index from adjoint matrix. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Index\+Array $>$ }\\bool \mbox{\hyperlink{namespace_space_h_1_1chain_ab54ce920a542c01625ee7d6c625cc5c4}{Space\+H\+::chain\+::is\+Diff}} (const Index\+Array \&Index1, const Index\+Array \&Index2)
+{\footnotesize template$<$typename Index\+Array $>$ }\\bool \mbox{\hyperlink{namespace_space_h_1_1chain_ab54ce920a542c01625ee7d6c625cc5c4}{Space\+H\+::chain_\+::is\+Diff}} (const Index\+Array \&Index1, const Index\+Array \&Index2)
 \begin{DoxyCompactList}\small\item\em Check if two mapping indexes are the same. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a631ad6a37f246a0db64e5879825a6878}{Space\+H\+::chain\+::update\+Chain}} (Vector\+Array \&pos, Index\+Array \&chain\+Index, Index\+Array \&new\+Index)
-\begin{DoxyCompactList}\small\item\em Update the position chain. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43}{Space\+H\+::chain\+::syn\+Chain}} (const Vector\+Array \&data, Vector\+Array \&chain\+Data, const Index\+Array \&chain\+Index)
-\begin{DoxyCompactList}\small\item\em Calulate the chain data from Cartesian data and chain index mapping. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee}{Space\+H\+::chain\+::syn\+Cartesian}} (const Vector\+Array \&chain\+Data, Vector\+Array \&data, const Index\+Array \&chain\+Index)
-\begin{DoxyCompactList}\small\item\em Calulate the Cartesian data from chain data and chain index mapping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a631ad6a37f246a0db64e5879825a6878}{Space\+H\+::chain_\+::update\+Chain}} (Vector\+Array \&pos, Index\+Array \&chain_\+Index, Index\+Array \&new\+Index)
+\begin{DoxyCompactList}\small\item\em Update the position chain_. \end{DoxyCompactList}\item
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43}{Space\+H\+::chain_\+::syn\+Chain}} (const Vector\+Array \&data, Vector\+Array \&chain_\+Data, const Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Calulate the chain_ data from Cartesian data and chain_ index mapping. \end{DoxyCompactList}\item
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee}{Space\+H\+::chain_\+::syn\+Cartesian}} (const Vector\+Array \&chain_\+Data, Vector\+Array \&data, const Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Calulate the Cartesian data from chain_ data and chain_ index mapping. \end{DoxyCompactList}\end{DoxyCompactItemize}

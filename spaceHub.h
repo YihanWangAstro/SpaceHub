@@ -1,5 +1,6 @@
 #ifndef SPACEX_H
 #define SPACEX_H
+
 #include "solver.h"
 #include "particles.h"
 #include "kahanNumber.h"
@@ -13,9 +14,8 @@
 #include "particleSystem/reguSystem.h"
 #include "particleSystem/GARSystem.h"
 
-#include "particleSystem/ARChain/ARchainSystem.h"
-#include "particleSystem/ARChain/chain.h"
-#include "particleSystem/ARChain/chainParticles.h"
+#include "particleSystem/chain.h"
+#include "particleSystem/chainParticles.h"
 
 #include "integrator/symplectic/symplectic2th.h"
 #include "integrator/symplectic/symplectic4th.h"
@@ -34,113 +34,64 @@
 #include "interaction/postNewtonian.h"
 
 //#include "wrapper/singleRun.h"
-namespace SpaceH
-{
+namespace SpaceH {
 
-    template
-    <
-        typename BasicF,
-        typename VelForce = void,
-        typename ExtPosForce = void,
-        typename ExtVelForce = void,
-        template<typename> class Regularitor = SpaceH::LogH
+    using DEFAULT_TYPE_CLASS = SpaceH::ProtoType<kahan<double>, SpaceH::DYNAMICAL>;
+
+    template<
+            typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,
+            typename VelForce    = void,
+            typename ExtPosForce = void,
+            typename ExtVelForce = void,
+            template<typename> class Regularitor = SpaceH::LogH
     >
-    using ARchain = SpaceH::ARchainSystem
-    <
-        SpaceH::ChainParticles
-        <
-            typename BasicF::type::Scalar,
-            BasicF::type::arraySize,
-            !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
-        >,
+    using ARchain = SpaceH::GARSystem<
+            SpaceH::ChainParticles<typename BasicF::type>,
 
-        SpaceH::Interactions
-        <
-            BasicF, VelForce, ExtPosForce, ExtVelForce
-        >,
+            SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
 
-        Regularitor
-        <
-            SpaceH::ChainParticles
-            <
-                typename BasicF::type::Scalar,
-                BasicF::type::arraySize,
-                !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
-            >
-        >
+            Regularitor<typename BasicF::type>
     >;
 
-    template
-    <
-        typename BasicF,
-        typename VelForce = void,
-        typename ExtPosForce = void,
-        typename ExtVelForce = void,
-        template<typename> class Regularitor = SpaceH::LogH
+    template<
+            typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,
+            typename VelForce    = void,
+            typename ExtPosForce = void,
+            typename ExtVelForce = void,
+            template<typename> class Regularitor = SpaceH::LogH
     >
-    using GAR = SpaceH::ReguSystem
-    <
-        SpaceH::ReguParticles
-        <
-            typename BasicF::type::Scalar,
-            BasicF::type::arraySize,
-            !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
-        >,
+    using GAR = SpaceH::GARSystem<
+            SpaceH::Particles<typename BasicF::type>,
 
-        SpaceH::Interactions
-        <
-            BasicF, VelForce, ExtPosForce, ExtVelForce
-        >,
+            SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
 
-        Regularitor
-        <
-            SpaceH::ReguParticles
-            <
-                typename BasicF::type::Scalar,
-                BasicF::type::arraySize,
-                !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
-            >
-        >
+            Regularitor<typename BasicF::type>
     >;
 
-    template
-    <
-        typename BasicF,
-        typename VelForce = void,
-        typename ExtPosForce = void,
-        typename ExtVelForce = void
+    template<
+            typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,
+            typename VelForce    = void,
+            typename ExtPosForce = void,
+            typename ExtVelForce = void
     >
-    using Basic = SpaceH::ParticleSystem
-    <
-        SpaceH::Particles
-        <
-            typename BasicF::type::Scalar,
-            BasicF::type::arraySize,
-            !std::is_void<VelForce>::value || !std::is_void<ExtVelForce>::value
-        >,
+    using Basic = SpaceH::GARSystem<
+            SpaceH::Particles<typename BasicF::type>,
 
-        SpaceH::Interactions
-        <
-            BasicF, VelForce, ExtPosForce, ExtVelForce
-        >
+            SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
+
+            SpaceH::NoRegu<typename BasicF::type>
     >;
 
     /**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
-    template
-    <
-        typename                           ParticSys,
-        template<typename, typename> class ODEiterator = SpaceH::BSIterator,
-        template<typename> class           Integrator  = SpaceH::symplectic2th
+    template<
+            typename ParticSys,
+            template<typename, typename> class ODEiterator = SpaceH::BSIterator,
+            template<typename> class Integrator  = SpaceH::symplectic2th
     >
-    using Nbody = SpaceH::Solver
-    <
-        ParticSys,
-
-        ODEiterator
-        <
+    using Nbody = SpaceH::Solver<
             ParticSys,
-            Integrator<ParticSys>
-        >
+
+            ODEiterator<ParticSys, Integrator<ParticSys> >
     >;
 }
 #endif

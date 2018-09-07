@@ -3,6 +3,7 @@
 
 #include "../coreComputation.h"
 #include "../ownMath.h"
+#include "../protoType.h"
 
 namespace SpaceH {
 /** @brief Bulirsch-Stoer extrapolation algorithm*/
@@ -186,7 +187,7 @@ namespace SpaceH {
                 localSystem.kick(h);
                 localSystem.drift(0.5 * h);
 
-                localSystem.write(extrapTab[k * (k + 1) / 2], NbodyIO::ACTIVE);//copyDataToExtrapTab;
+                localSystem.write(extrapTab[k * (k + 1) / 2], IO_flag::EVOLVED);//copyDataToExtrapTab;
 
                 checkExtrapVolume();
 
@@ -201,7 +202,7 @@ namespace SpaceH {
 
                         reject = false;
                         H = prepareForNewIteration(k, reject);
-                        localSystem.read(extrapTab[k * (k + 1) / 2 + k], NbodyIO::ACTIVE);
+                        localSystem.read(extrapTab[k * (k + 1) / 2 + k], IO_flag::EVOLVED);
                         particles = localSystem;
                         return H;
                     } else if (checkRejection(error, k)) {

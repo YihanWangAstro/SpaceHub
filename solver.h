@@ -52,11 +52,11 @@ namespace SpaceH {
         }
 
         void registerPreOption(Callback&& fun) {
-            preOpts.emplace_back(fun);
+            preOpts.emplace_back(std::move(fun));
         }
 
         void registerPostOption(Callback&& fun) {
-            postOpts.emplace_back(fun);
+            postOpts.emplace_back(std::move(fun));
         }
 
     private:
@@ -92,13 +92,13 @@ namespace SpaceH {
 
         void run(const RunArgs &arg) {
             Scalar end_time = arg.endTime;
-            DEBUG_MSG(true, end_time);
             for (; particles.time() < end_time;) {
                 arg.preOption(particles);
                 advanceOneStep();
                 arg.postOption(particles);
             }
         }
+
 
         virtual ~Solver() = default; /**< @brief Default destructor, virtualize for inherent class*/
     public:
@@ -142,7 +142,7 @@ namespace SpaceH {
     void Solver<ParticSys, ODEiterator>::getInitStepLength() {
         if (stepLength == 0.0) {
             stepLength = 0.1 * particles.timeScale();
-            //std::cout << "dyn T=" << stepLength/YEAR << '\n';
+            DEBUG_MSG(true,"Time scale =", stepLength/Unit::YEAR, "yr");
         }
         steps = 0;
         particles.evaluateAcc();
@@ -170,7 +170,7 @@ namespace SpaceH {
             inFile.close();
         } else {
             inFile.close();
-            SpaceH::errMsg("Fail to open the initial condition file!", __FILE__, __LINE__);
+            ERR_MSG("Fail to open the initial condition file!");
         }
 
         getInitStepLength();

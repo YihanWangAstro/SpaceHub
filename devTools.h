@@ -26,13 +26,12 @@ namespace SpaceH {
  * @param file
  * @param line
  */
-    void errMsg(const char *msg, const char *file, size_t line) {
-        std::cout << "An error occurred:\n";
-        std::cout << "  Message >>>" << msg << '\n';
-        std::cout << "  File    >>>" << file << '\n';
-        std::cout << "  Line    >>>" << line << std::endl;
-        exit(0);
-    }
+
+#define ERR_MSG(...) {                                          \
+	SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
+	SpaceH::print(std::cout, __VA_ARGS__ );                     \
+	exit(0);                                                    \
+}
 
 
 /** @brief print an array. Used for debug*/
@@ -93,8 +92,16 @@ inline const TYPE & NEWNAME () const {                                          
     return MEMBER.NAME();                                                                                \
 };
 
+
+/** @brief Standard scalar read interfaces adapter in SpaceHub project*/
+#define SPACEHUB_READ_INTERFACES_ADAPTER_FOR_BUILDIN(NEWNAME, TYPE, MEMBER, NAME)                        \
+                                                                                                         \
+inline const TYPE & NEWNAME () const {                                                                   \
+    return MEMBER.NAME();                                                                                \
+};
+
 /** @brief Standard scalar write interfaces adapter in SpaceHub project*/
-#define SPACEHUB_WRITE_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                         \
+#define SPACEHUB_WRITE_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                        \
 inline void set_##NEWNAME (const TYPE& scalar) {                                                         \
     MEMBER.set_##NAME(scalar);                                                                           \
 };                                                                                                       \

@@ -1,6 +1,6 @@
 <map id="SpaceH::VelIndepChainParticles::advancePos" name="SpaceH::VelIndepChainParticles::advancePos">
 <area shape="rect" id="node2" href="$namespace_space_h.html#a9f1a1d6fedf93c0324cc5993a5694e96" title="Advance a vector with a given vector with a specific stepSize. " alt="" coords="282,5,446,31"/>
-<area shape="rect" id="node3" href="$namespace_space_h_1_1chain.html#a1ba7809b40a52959d0566753b1c2eaee" title="Calulate the Cartesian data from chain data and chain index mapping. " alt="" coords="267,55,461,80"/>
+<area shape="rect" id="node3" href="$namespace_space_h_1_1chain.html#a1ba7809b40a52959d0566753b1c2eaee" title="Calulate the Cartesian data from chain_ data and chain_ index mapping. " alt="" coords="267,55,461,80"/>
 <area shape="rect" id="node4" href="$namespace_space_h.html#a808af685980ae1a1ff5ea83e47f4073c" title="Move variables to centr. " alt="" coords="282,104,446,129"/>
 <area shape="rect" id="node5" href="$namespace_space_h.html#afb4e29bf684f5b98b6022db70cab0321" title="Move variables to central mass coordinates. " alt="" coords="274,153,454,179"/>
 </map>

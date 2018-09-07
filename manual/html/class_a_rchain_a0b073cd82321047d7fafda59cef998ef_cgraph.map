@@ -1,6 +1,6 @@
 <map id="ARchain::kickVel" name="ARchain::kickVel">
 <area shape="rect" id="node2" href="$libs_8h.html#a302acdc31259a4e500089d4f8b0d920c" title="Kahan Summation for Array. " alt="" coords="222,5,334,31"/>
 <area shape="rect" id="node3" href="$libs_8h.html#afb99ac76cfb0aeb281fba1279f0d87b4" title="Normal Summation of two Arrays. " alt="" coords="218,55,338,80"/>
-<area shape="rect" id="node4" href="$namespacechain.html#ae85619534182ce257fc47857a9c133e4" title="Calulate the Cartesian data from chain data and chain index mapping. " alt="" coords="209,104,347,129"/>
+<area shape="rect" id="node4" href="$namespacechain.html#ae85619534182ce257fc47857a9c133e4" title="Calulate the Cartesian data from chain_ data and chain_ index mapping. " alt="" coords="209,104,347,129"/>
 <area shape="rect" id="node5" href="$libs_8h.html#a8b40ec671b4a583da975da94f7e7993e" title="Move variables to central mass coordinates. " alt="" coords="174,153,382,179"/>
 </map>

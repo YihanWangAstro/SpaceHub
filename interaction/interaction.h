@@ -16,8 +16,8 @@ namespace SpaceH {
     template<typename Forcefunc, typename TypeClass>
     struct AccEvaluator {
         /* Typedef */
-        using type = TypeClass;
-        using Vector = typename type::Vector;
+        using type        = TypeClass;
+        using Vector      = typename type::Vector;
         using VectorArray = typename type::VectorArray;
         /* Typedef */
 
@@ -55,6 +55,28 @@ namespace SpaceH {
         Forcefunc acc_callback_;
     };
 
+    template<typename TypeClass>
+    struct AccEvaluator<void, TypeClass> {
+        /* Typedef */
+        using type        = TypeClass;
+        using Vector      = typename type::Vector;
+        using VectorArray = typename type::VectorArray;
+        /* Typedef */
+
+       /* const VectorArray& acc() const {
+            //ERR_MSG("You are trying to access the acceleration of 'void' type force!");
+        }*/
+
+        void addAccTo(VectorArray &acc) {}
+
+        void resize(size_t size) {}
+
+        void reserve(size_t size) {}
+
+        template<typename Particles>
+        inline void evaluateAcc(const Particles &partc) {}
+    };
+
     template<typename PairVelIndep, typename PairVelDep = void, typename ExtVelIndep = void, typename ExtVelDep = void>
     class Interactions {
     public:
@@ -68,7 +90,7 @@ namespace SpaceH {
 
         /*Template parameter check*/
         /*Template parameter check*/
-        constexpr static bool isVelDep{!std::is_void<PairVelDep>::value | !std::is_void<ExtVelDep>::value};
+        constexpr static bool isVelDep{(!std::is_void<PairVelDep>::value) | (!std::is_void<ExtVelDep>::value)};
 
         /** Automaticlly create interfaces for data
          *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create two interfaces, they are :
@@ -211,13 +233,13 @@ namespace SpaceH {
     private:
         VectorArray acc_;
 
-        AccEvaluator<PairVelIndep, Scalar, type::arraySize> pair_vel_indep_;
+        AccEvaluator<PairVelIndep, type> pair_vel_indep_;
 
-        AccEvaluator<PairVelDep,   Scalar, type::arraySize> pair_vel_dep_;
+        AccEvaluator<PairVelDep,   type> pair_vel_dep_;
 
-        AccEvaluator<ExtVelIndep,  Scalar, type::arraySize> ext_vel_indep_;
+        AccEvaluator<ExtVelIndep,  type> ext_vel_indep_;
 
-        AccEvaluator<ExtVelDep,    Scalar, type::arraySize> ext_vel_dep_;
+        AccEvaluator<ExtVelDep,    type> ext_vel_dep_;
     };
 }
 

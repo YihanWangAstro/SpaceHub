@@ -4,6 +4,7 @@
 #include "../coreComputation.h"
 #include "../devTools.h"
 #include "../ownMath.h"
+#include "../protoType.h"
 
 namespace SpaceH {
 
@@ -101,7 +102,7 @@ namespace SpaceH {
 
         void fillFirstColumn(size_t row) {
             size_t center = at(row, 0);
-            localSystem.write(extrapTab[center], NbodyIO::ACTIVE);//copyDataToExtrapTab;
+            localSystem.write(extrapTab[center], IO_flag::EVOLVED);//copyDataToExtrapTab;
             size_t size = initState_.size();
 
             for (size_t i = 0; i < size; ++i)
@@ -115,7 +116,7 @@ namespace SpaceH {
             for (size_t i = 0; i < size; ++i)
                 initState_[i] += extrapTab[center][i];
 
-            particles.read(initState_, NbodyIO::ACTIVE);
+            particles.read(initState_, IO_flag::EVOLVED);
         }
 
     private:
@@ -232,7 +233,9 @@ namespace SpaceH {
 
         DEBUG_MSG(false, "init StepLen=", iter_H);
 
-        particles.write(initState_, NbodyIO::ACTIVE);
+        particles.write(initState_, IO_flag::EVOLVED);
+
+        //SpaceH::printArray(initState_);
 
         for (;;) {
             iter_num_++;
@@ -252,7 +255,7 @@ namespace SpaceH {
                 optimal_H_[iter] = iter_H * step_cof;
                 work_per_len_[iter] = work_[iter] / step_cof;
 
-                DEBUG_MSG(false,
+                DEBUG_MSG(true,
                           "iter=", iter,
                           "optimal=", ideal_iter_,
                           "err=", error,
@@ -262,12 +265,12 @@ namespace SpaceH {
 
                 if (isInConvergenceWindow(iter)) {
                     if (error < 1.0) {
-                        DEBUG_MSG(false, "accept");
+                        DEBUG_MSG(true, "accept");
                         iter_H = prepareNextIteration(iter);
                         loadResult(particles, iter);
                         return iter_H;
                     } else if (divergedInOrderWindow(error, iter)) {
-                        DEBUG_MSG(false, "reject");
+                        DEBUG_MSG(true, "reject");
                         rej_num_++;
                         iter_H = stepSizeReduction(iter);
                         break;
@@ -390,7 +393,7 @@ namespace SpaceH {
                 return optimal_H_[ideal_iter_];
 
             default:
-                SpaceH::errMsg("unexpected iteration index!", __FILE__, __LINE__);
+                ERR_MSG("unexpected iteration index!");
                 exit(0);
         }
     }

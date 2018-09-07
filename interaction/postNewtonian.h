@@ -1,6 +1,5 @@
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++17-extensions"
+
 #ifndef POSTNEWTONIAN_H
 #define POSTNEWTONIAN_H
 
@@ -19,15 +18,17 @@ namespace SpaceH {
     }
 
 
-    template<typename Particles>
+    template<typename TypeClass>
     struct NewtonianForce {
         /* Typedef */
-        using type = typename Particles::type;
-        using Scalar = typename type::Scalar;
-        using Vector = typename type::Vector;
+        using type        = TypeClass;
+        using Scalar      = typename type::Scalar;
+        using Vector      = typename type::Vector;
+        using VectorArray = typename type::VectorArray;
         /* Typedef */
 
-        inline void operator()(const Particles& partc, Vector& acc) {
+        template <typename Particles>
+        inline void operator()(const Particles& partc, VectorArray & acc) {
 
             for (auto& a : acc)
                 a.setZero();
@@ -46,16 +47,18 @@ namespace SpaceH {
     };
 
 
-    template<typename Particles>
+    template<typename TypeClass>
     struct KarmackNewtonian {
         /* Typedef */
-        using type    = typename Particles::type;
+        using type    = typename TypeClass::type;
         using Scalar  = typename type::Scalar;
         using Vector  = typename type::Vector;
+        using VectorArray = typename type::VectorArray;
         using Buildin = typename  SpaceH::get_value_type<Scalar>::type;
         /* Typedef */
 
-        inline void operator()(const Particles& partc, Vector& acc) {
+        template<typename Particles>
+        inline void operator()(const Particles& partc, VectorArray & acc) {
 
             for (auto& a : acc)
                 a.setZero();
@@ -76,21 +79,23 @@ namespace SpaceH {
 
     /**
      *
-     * @tparam Particles
+     * @tparam TypeClass
      * @tparam First
      * @tparam Second
      * @tparam Radiative
      */
-    template<typename Particles, bool First = true, bool Second = false, bool Radiative = false>
+    template<typename TypeClass, bool First = true, bool Second = false, bool Radiative = false>
     class PostNewtonianForce {
     public:
         /* Typedef */
-        using type   = typename Particles::type;
-        using Scalar = typename type::Scalar;
-        using Vector = typename type::Vector;
+        using type        = typename TypeClass::type;
+        using Scalar      = typename type::Scalar;
+        using Vector      = typename type::Vector;
+        using VectorArray = typename type::VectorArray;
         /* Typedef */
 
-        inline void operator()(const Particles& partc, Vector& acc) {
+        template <typename  Particles>
+        inline void operator()(const Particles& partc, VectorArray & acc) {
 
             for (auto &a : acc)
                 a.setZero();
@@ -106,7 +111,8 @@ namespace SpaceH {
             }
         }
     private:
-        inline void FirstOrder(const Particles& partc, Vector& acc) {
+        template <typename  Particles>
+        inline void FirstOrder(const Particles& partc, VectorArray & acc) {
             size_t size = partc.particleNumber();
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 1; j < size; ++j) {
@@ -117,7 +123,8 @@ namespace SpaceH {
             }
         }
 
-        inline void SecondOrder(const Particles& partc, Vector& acc) {
+        template <typename  Particles>
+        inline void SecondOrder(const Particles& partc, VectorArray & acc) {
             size_t size = partc.particleNumber();
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 1; j < size; ++j) {
@@ -128,7 +135,8 @@ namespace SpaceH {
             }
         }
 
-        inline void RadiativeOrder(const Particles& partc, Vector& acc) {
+        template <typename  Particles>
+        inline void RadiativeOrder(const Particles& partc, VectorArray & acc) {
             size_t size = partc.particleNumber();
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 1; j < size; ++j) {
@@ -142,5 +150,3 @@ namespace SpaceH {
 }
 
 #endif
-
-#pragma clang diagnostic pop

@@ -69,7 +69,7 @@ namespace SpaceH {
                 }
                 iterBTab = integrator_.getBTab();
             }
-            SpaceH::errMsg("IAS15: iteration exceed the max iteration depth!", __FILE__, __LINE__);
+            ERR_MSG("IAS15: iteration exceed the max iteration depth!");
             return 0;
         }
 

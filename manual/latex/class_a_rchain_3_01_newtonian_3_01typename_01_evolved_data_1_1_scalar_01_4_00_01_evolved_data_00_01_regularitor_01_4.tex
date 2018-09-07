@@ -72,14 +72,14 @@ void \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data
 void \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a2b11ca856564416ed6727c716ed284a8}{update\+Vel\+Indep\+Acc}} ()
 \begin{DoxyCompactList}\small\item\em Update velocity independent acceleration. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_acbe31e9aa918e4f80a2763e16f0bb7bc}{update\+Chain}} ()
-\begin{DoxyCompactList}\small\item\em Update the chain data based on current Cartesian coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update the chain_ data based on current Cartesian coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Evolved\+Data \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a39576accb53257bdb1b55e6d21acdf0f}{chain}}
-\begin{DoxyCompactList}\small\item\em Evolved variables in chain coordinates. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0072f8585c3e6ba8d64cb81be90fb376}{Index\+Array}} \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6a8ef156105e2f80dc143606d4ba10c9}{chain\+Index}}
-\begin{DoxyCompactList}\small\item\em Mapping index from Cartesian coordinates to chain coordinates. \end{DoxyCompactList}\item 
+Evolved\+Data \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a39576accb53257bdb1b55e6d21acdf0f}{chain_}}
+\begin{DoxyCompactList}\small\item\em Evolved variables in chain_ coordinates. \end{DoxyCompactList}\item
+\mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0072f8585c3e6ba8d64cb81be90fb376}{Index\+Array}} \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6a8ef156105e2f80dc143606d4ba10c9}{chain_\+Index}}
+\begin{DoxyCompactList}\small\item\em Mapping index from Cartesian coordinates to chain_ coordinates. \end{DoxyCompactList}\item
 \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a1ff7d2e64f488df9edae2ad796945bbd}{Vector\+Array}} \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_af0862cdda12b7ba2ba5d5d098d008398}{vel\+Indep\+Acc}}
 \begin{DoxyCompactList}\small\item\em Velocity independent acceleration array in Cartesian coordiantes. \end{DoxyCompactList}\item 
 Regularitor \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6e5a31aa07620ab9f3503ebc412ff969}{regular}}
@@ -156,7 +156,7 @@ Advance omega with velocity independent acceleration and velocity with physical 
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
-Update the omega in chain, which will be processed by the integrator. 
+Update the omega in chain_, which will be processed by the integrator.
 \end{DoxyNote}
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -176,9 +176,9 @@ void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newt
 
 Advance position one step with current velocity. 
 
-Advance chain position one step with current velocity.
+Advance chain_ position one step with current velocity.
 
-Advance chain position array and physical time one step with current integration step size and velocity. 
+Advance chain_ position array and physical time one step with current integration step size and velocity.
 \begin{DoxyParams}{Parameters}
 {\em time\+Step\+Size} & Integration step size, will be transfered to physical time in the function. \\
 \hline
@@ -201,9 +201,9 @@ void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newt
 
 Advance velocity one step with current acceleration. 
 
-Advance chain velocity one step with current acceleration.
+Advance chain_ velocity one step with current acceleration.
 
-Advance chain velocity one step with current integration step size and accelerations. 
+Advance chain_ velocity one step with current integration step size and accelerations.
 \begin{DoxyParams}{Parameters}
 {\em time\+Step\+Size} & Integration step size, will be transfered to physical time in the function. \\
 \hline
@@ -243,7 +243,7 @@ Load data from a plain array.
 \begin{DoxyNote}{Note}
 Overload base class \mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a8e7bc5b32dbd7a0c9c3541f17fa54e28}{load()}}.
 \end{DoxyNote}
-Interface usded by integrator and O\+DE iterator. Load data from a plain array processed by itegrator and iterator to chain data. Then synchrosize Cartesian data and update the chain. Derived class could overload this function to additional process.
+Interface usded by integrator and O\+DE iterator. Load data from a plain array processed by itegrator and iterator to chain_ data. Then synchrosize Cartesian data and update the chain_. Derived class could overload this function to additional process.
 
 
 \begin{DoxyParams}{Parameters}
@@ -332,11 +332,11 @@ void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newt
 
 
 
-Update the chain data based on current Cartesian coordinates. 
+Update the chain_ data based on current Cartesian coordinates.
 
-Update chain index and chain.
+Update chain_ index and chain_.
 
-Due to the evolution, the relative position of particles may vary with time. This function update the chain index and chain if needed. Here is the call graph for this function\+:\nopagebreak
+Due to the evolution, the relative position of particles may vary with time. This function update the chain_ index and chain_ if needed. Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -354,30 +354,30 @@ void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newt
 
 Update velocity independent acceleration. 
 
-Update velocity independent acceleration \textquotesingle{}vel\+Indep\+Acc\textquotesingle{} based on \mbox{\hyperlink{class_newtonian}{Newtonian}} interaction with chain data. Then calculate the corresponding chain acceleration. 
+Update velocity independent acceleration \textquotesingle{}vel\+Indep\+Acc\textquotesingle{} based on \mbox{\hyperlink{class_newtonian}{Newtonian}} interaction with chain_ data. Then calculate the corresponding chain_ acceleration.
 
 \subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a39576accb53257bdb1b55e6d21acdf0f}\label{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a39576accb53257bdb1b55e6d21acdf0f}} 
-\index{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!chain@{chain}}
-\index{chain@{chain}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\paragraph{\texorpdfstring{chain}{chain}}
+\index{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!chain_@{chain_}}
+\index{chain_@{chain_}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
+\paragraph{\texorpdfstring{chain_}{chain_}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
-Evolved\+Data \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::chain\hspace{0.3cm}{\ttfamily [private]}}
+Evolved\+Data \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::chain_\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Evolved variables in chain coordinates. 
+Evolved variables in chain_ coordinates.
 
 \mbox{\Hypertarget{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6a8ef156105e2f80dc143606d4ba10c9}\label{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6a8ef156105e2f80dc143606d4ba10c9}} 
-\index{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!chain\+Index@{chain\+Index}}
-\index{chain\+Index@{chain\+Index}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
-\paragraph{\texorpdfstring{chain\+Index}{chainIndex}}
+\index{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!chain_\+Index@{chain_\+Index}}
+\index{chain_\+Index@{chain_\+Index}!A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}}
+\paragraph{\texorpdfstring{chain_\+Index}{chainIndex}}
 {\footnotesize\ttfamily template$<$typename Evolved\+Data , typename Regularitor $>$ \\
-\mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0072f8585c3e6ba8d64cb81be90fb376}{Index\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::chain\+Index\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\hyperlink{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a0072f8585c3e6ba8d64cb81be90fb376}{Index\+Array}} \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{class_newtonian}{Newtonian}}$<$ typename \mbox{\hyperlink{class_a_rchain_a707e42a79e4744424a34c9007e84ee07}{Evolved\+Data\+::\+Scalar}} $>$, Evolved\+Data, Regularitor $>$\+::chain_\+Index\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Mapping index from Cartesian coordinates to chain coordinates. 
+Mapping index from Cartesian coordinates to chain_ coordinates.
 
 \mbox{\Hypertarget{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6e5a31aa07620ab9f3503ebc412ff969}\label{class_a_rchain_3_01_newtonian_3_01typename_01_evolved_data_1_1_scalar_01_4_00_01_evolved_data_00_01_regularitor_01_4_a6e5a31aa07620ab9f3503ebc412ff969}} 
 \index{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$@{A\+Rchain$<$ Newtonian$<$ typename Evolved\+Data\+::\+Scalar $>$, Evolved\+Data, Regularitor $>$}!regular@{regular}}

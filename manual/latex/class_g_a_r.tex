@@ -33,10 +33,10 @@ void \mbox{\hyperlink{class_g_a_r_a3c59ee9bf8aae928644fa2beabbffa7c}{set\+Zero}}
 \begin{DoxyCompactList}\small\item\em Calculate the regularization variable omega. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_a_r_a31b5ad2527cc52d1422fa11e2d93fbc6}{init\+Addi\+Variable}} (\mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}} \&mass)
 \begin{DoxyCompactList}\small\item\em Initialize extra user defined variables. Interface required for other class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_a_r_a18041ac48dc47e6ada3e8a33893b1200}{to\+Chain}} (\mbox{\hyperlink{class_g_a_r}{G\+AR}} \&chain\+Data, \mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&index)
-\begin{DoxyCompactList}\small\item\em Transfer Cartesian coordinate regularization system to chain regularization system. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_a_r_a2a282218e90ffb1a367da364b70e54a3}{to\+Cartesian}} (\mbox{\hyperlink{class_g_a_r}{G\+AR}} \&cartesian, \mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&index)
-\begin{DoxyCompactList}\small\item\em Transfer chain coordinate regularization system to Cartesian regularization system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_a_r_a18041ac48dc47e6ada3e8a33893b1200}{to\+Chain}} (\mbox{\hyperlink{class_g_a_r}{G\+AR}} \&chain_\+Data, \mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&index)
+\begin{DoxyCompactList}\small\item\em Transfer Cartesian coordinate regularization system to chain_ regularization system. \end{DoxyCompactList}\item
+void \mbox{\hyperlink{class_g_a_r_a2a282218e90ffb1a367da364b70e54a3}{to\+Cartesian}} (\mbox{\hyperlink{class_g_a_r}{G\+AR}} \&cartesian_, \mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&index)
+\begin{DoxyCompactList}\small\item\em Transfer chain_ coordinate regularization system to Cartesian regularization system. \end{DoxyCompactList}\item
 void \mbox{\hyperlink{class_g_a_r_a373d938047a04b051683ee93198b1832}{move\+To\+Central\+Mass\+Coords}} (\mbox{\hyperlink{class_g_a_r_a0b446684ae922457a3bf86c904085d8a}{Scalar\+Array}} \&mass)
 \begin{DoxyCompactList}\small\item\em Move particles to central mass coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Static Public Member Functions}
@@ -240,17 +240,17 @@ The particle number.
 \index{to\+Cartesian@{to\+Cartesian}!G\+AR@{G\+AR}}
 \paragraph{\texorpdfstring{to\+Cartesian()}{toCartesian()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
-void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::to\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$ \&}]{cartesian,  }\item[{\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::to\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$ \&}]{cartesian_,  }\item[{\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Transfer chain coordinate regularization system to Cartesian regularization system. 
+Transfer chain_ coordinate regularization system to Cartesian regularization system.
 
-Coordinate transformation. From chain to Cartesian. See details in \href{https://link.springer.com/article/10.1007%2FBF00695714}{\tt https\+://link.\+springer.\+com/article/10.\+1007\%2\+F\+B\+F00695714} . 
+Coordinate transformation. From chain_ to Cartesian. See details in \href{https://link.springer.com/article/10.1007%2FBF00695714}{\tt https\+://link.\+springer.\+com/article/10.\+1007\%2\+F\+B\+F00695714} .
 \begin{DoxyParams}{Parameters}
-{\em cartesian} & The destination regularization system in Cartesian coordinates. \\
+{\em cartesian_} & The destination regularization system in Cartesian coordinates. \\
 \hline
-{\em index} & The maping index between Cartesian coordinates and chain coordinates. \\
+{\em index} & The maping index between Cartesian coordinates and chain_ coordinates. \\
 \hline
 \end{DoxyParams}
 Here is the call graph for this function\+:\nopagebreak
@@ -265,17 +265,17 @@ Here is the call graph for this function\+:\nopagebreak
 \index{to\+Chain@{to\+Chain}!G\+AR@{G\+AR}}
 \paragraph{\texorpdfstring{to\+Chain()}{toChain()}}
 {\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
-void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::to\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$ \&}]{chain\+Data,  }\item[{\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$\+::to\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_a_r}{G\+AR}}$<$ Data\+Type, N $>$ \&}]{chain_\+Data,  }\item[{\mbox{\hyperlink{class_g_a_r_aaf033049c0cd8f0f86a82b9595086fa5}{Index\+Array}} \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Transfer Cartesian coordinate regularization system to chain regularization system. 
+Transfer Cartesian coordinate regularization system to chain_ regularization system.
 
-Coordinate transformation. From Cartesian to chain. See details in \href{https://link.springer.com/article/10.1007%2FBF00695714}{\tt https\+://link.\+springer.\+com/article/10.\+1007\%2\+F\+B\+F00695714} . 
+Coordinate transformation. From Cartesian to chain_. See details in \href{https://link.springer.com/article/10.1007%2FBF00695714}{\tt https\+://link.\+springer.\+com/article/10.\+1007\%2\+F\+B\+F00695714} .
 \begin{DoxyParams}{Parameters}
-{\em chain\+Data} & The destination regularization system in chain coordinates. \\
+{\em chain_\+Data} & The destination regularization system in chain_ coordinates. \\
 \hline
-{\em index} & The maping index between Cartesian coordinates and chain coordinates. \\
+{\em index} & The maping index between Cartesian coordinates and chain_ coordinates. \\
 \hline
 \end{DoxyParams}
 Here is the call graph for this function\+:\nopagebreak

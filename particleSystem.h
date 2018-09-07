@@ -25,7 +25,7 @@ namespace SpaceH {
         using ScalarArray  = typename type::ScalarArray;
         using IntArray     = typename type::IntArray;
         using ScalarBuffer = typename type::ScalarBuffer;
-        using State        = typename type::State;
+        using State        = typename Particles::State;
         using ParticleType = Particles;
         /* Typedef */
 
@@ -59,11 +59,6 @@ namespace SpaceH {
             act.reserve(new_cap);
         }
 
-        /**  @brief Physical time scalar const interface. Reference to partc.time*/
-        inline const Scalar &time() const {
-            return partc.time();
-        }
-
         /** @brief interface adapter to inherit the interface of the data member
          *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create two interfaces, they are:
          *
@@ -76,6 +71,7 @@ namespace SpaceH {
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IntArray,    partc, idn   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(time,  Scalar,      partc, time  );
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
 
         /** @brief Interface to rescale the time.
@@ -93,7 +89,7 @@ namespace SpaceH {
 
         /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
         void drift(Scalar stepSize) {
-            partc.advanceVel(stepSize);
+            partc.advancePos(stepSize);
             partc.advanceTime(stepSize);
         }
 
@@ -157,7 +153,7 @@ namespace SpaceH {
             act.calcuVelDepAcc(partc);
             act.sumTotalAcc();
 
-            return act.totalAcc();
+            return act.acc();
         }
 
         /** @brief Calculate the potential energy of the system*/
@@ -179,7 +175,9 @@ namespace SpaceH {
         void preIterProcess() {}
 
         /** @brief After process after iteration*/
-        void afterIterProcess() {}
+        void afterIterProcess() {
+            partc.update();
+        }
 
         /** @brief Virtualize default destructor.*/
         virtual ~ParticleSystem() {}
@@ -195,18 +193,15 @@ namespace SpaceH {
         friend std::istream &operator>>(std::istream &is, ParticleSystem &sys) {
             size_t num = sys.readHeader(is);
 
-            if constexpr (sys.arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (ParticleSystem::arraySize == SpaceH::DYNAMICAL) {
                 sys.resize(num);
             }
             if (num == sys.particleNumber()) {
                 sys.partc.read(is, SpaceH::Unit::STD_UNIT);
                 sys.total_mass = SpaceH::sumArray(sys.mass());
-                SpaceH::moveToCoM(sys.mass(), sys.pos(), sys.total_mass);
-                SpaceH::moveToCoM(sys.mass(), sys.vel(), sys.total_mass);
+                sys.partc.moveToCoM(sys.total_mass);
             } else {
-                SpaceH::errMsg(
-                        "You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!",
-                        __FILE__, __LINE__);
+                ERR_MSG("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
             }
             return is;
         }
@@ -232,7 +227,7 @@ namespace SpaceH {
         Scalar total_mass;
 
     private:
-        void writeHeader(std::ostream &os) {
+        void writeHeader(std::ostream &os) const {
             os << '#' << partc.particleNumber();
         }
 
@@ -245,7 +240,7 @@ namespace SpaceH {
                 is  >> particleNum;
                 return particleNum;
             } else {
-                SpaceH::errMsg("Input file header should begin with '#'.", __FILE__, __LINE__);
+                ERR_MSG("Input file header should begin with '#'.");
             }
         }
 

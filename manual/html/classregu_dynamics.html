@@ -129,10 +129,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa42158ddf3c5385aa89988b9bb80ff29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize extra user defined variables. Interface required for other class.  <a href="#aa42158ddf3c5385aa89988b9bb80ff29">More...</a><br /></td></tr>
 <tr class="separator:aa42158ddf3c5385aa89988b9bb80ff29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae4e77bbbb00f0bdddb396047f1c0fc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregu_dynamics.html#aae4e77bbbb00f0bdddb396047f1c0fc2">toChain</a> (<a class="el" href="classregu_dynamics.html">reguDynamics</a> &amp;chainData, <a class="el" href="classregu_dynamics.html#a2c9fa7372e4a11be9d85728b4a0e455f">IndexArray</a> &amp;index)</td></tr>
-<tr class="memdesc:aae4e77bbbb00f0bdddb396047f1c0fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer Cartesian coordinate regularization system to chain regularization system.  <a href="#aae4e77bbbb00f0bdddb396047f1c0fc2">More...</a><br /></td></tr>
+<tr class="memdesc:aae4e77bbbb00f0bdddb396047f1c0fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer Cartesian coordinate regularization system to chain_ regularization system.  <a href="#aae4e77bbbb00f0bdddb396047f1c0fc2">More...</a><br /></td></tr>
 <tr class="separator:aae4e77bbbb00f0bdddb396047f1c0fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dd8d377588308a02396ca6d06945859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregu_dynamics.html#a3dd8d377588308a02396ca6d06945859">toCartesian</a> (<a class="el" href="classregu_dynamics.html">reguDynamics</a> &amp;cartesian, <a class="el" href="classregu_dynamics.html#a2c9fa7372e4a11be9d85728b4a0e455f">IndexArray</a> &amp;index)</td></tr>
-<tr class="memdesc:a3dd8d377588308a02396ca6d06945859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer chain coordinate regularization system to Cartesian regularization system.  <a href="#a3dd8d377588308a02396ca6d06945859">More...</a><br /></td></tr>
+<tr class="memitem:a3dd8d377588308a02396ca6d06945859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregu_dynamics.html#a3dd8d377588308a02396ca6d06945859">toCartesian</a> (<a class="el" href="classregu_dynamics.html">reguDynamics</a> &amp;cartesian_, <a class="el" href="classregu_dynamics.html#a2c9fa7372e4a11be9d85728b4a0e455f">IndexArray</a> &amp;index)</td></tr>
+<tr class="memdesc:a3dd8d377588308a02396ca6d06945859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer chain_ coordinate regularization system to Cartesian regularization system.  <a href="#a3dd8d377588308a02396ca6d06945859">More...</a><br /></td></tr>
 <tr class="separator:a3dd8d377588308a02396ca6d06945859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb57f1775922d615b8e506eaf79a1bc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregu_dynamics.html#adb57f1775922d615b8e506eaf79a1bc0">moveToCentralMassCoords</a> (<a class="el" href="classregu_dynamics.html#a34b4b77ea3e49e1cdef584ec8bd281dc">ScalarArray</a> &amp;mass)</td></tr>
 <tr class="memdesc:adb57f1775922d615b8e506eaf79a1bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move particles to central mass coordinates.  <a href="#adb57f1775922d615b8e506eaf79a1bc0">More...</a><br /></td></tr>
@@ -510,7 +510,7 @@ template&lt;typename DataType , size_t N&gt; </div>
           <td class="memname">void <a class="el" href="classregu_dynamics.html">reguDynamics</a>&lt; DataType, N &gt;::toCartesian </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classregu_dynamics.html">reguDynamics</a>&lt; DataType, N &gt; &amp;&#160;</td>
-          <td class="paramname"><em>cartesian</em>, </td>
+          <td class="paramname"><em>cartesian_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -531,11 +531,11 @@ template&lt;typename DataType , size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Transfer chain coordinate regularization system to Cartesian regularization system. </p>
-<p>Coordinate transformation. From chain to Cartesian. See details in <a href="https://link.springer.com/article/10.1007%2FBF00695714">https://link.springer.com/article/10.1007%2FBF00695714</a> . </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Transfer chain_ coordinate regularization system to Cartesian regularization system. </p>
+<p>Coordinate transformation. From chain_ to Cartesian. See details in <a href="https://link.springer.com/article/10.1007%2FBF00695714">https://link.springer.com/article/10.1007%2FBF00695714</a> . </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cartesian</td><td>The destination regularization system in Cartesian coordinates. </td></tr>
-    <tr><td class="paramname">index</td><td>The maping index between Cartesian coordinates and chain coordinates. </td></tr>
+    <tr><td class="paramname">cartesian_</td><td>The destination regularization system in Cartesian coordinates. </td></tr>
+    <tr><td class="paramname">index</td><td>The maping index between Cartesian coordinates and chain_ coordinates. </td></tr>
   </table>
   </dd>
 </dl>
@@ -544,7 +544,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classregu_dynamics_a3dd8d377588308a02396ca6d06945859_cgraph.png" border="0" usemap="#classregu_dynamics_a3dd8d377588308a02396ca6d06945859_cgraph" alt=""/></div>
 <map name="classregu_dynamics_a3dd8d377588308a02396ca6d06945859_cgraph" id="classregu_dynamics_a3dd8d377588308a02396ca6d06945859_cgraph">
-<area shape="rect" id="node2" href="namespacechain.html#ae85619534182ce257fc47857a9c133e4" title="Calulate the Cartesian data from chain data and chain index mapping. " alt="" coords="235,5,374,31"/>
+<area shape="rect" id="node2" href="namespacechain.html#ae85619534182ce257fc47857a9c133e4" title="Calulate the Cartesian data from chain_ data and chain_ index mapping. " alt="" coords="235,5,374,31"/>
 </map>
 </div>
 
@@ -586,11 +586,11 @@ template&lt;typename DataType , size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Transfer Cartesian coordinate regularization system to chain regularization system. </p>
-<p>Coordinate transformation. From Cartesian to chain. See details in <a href="https://link.springer.com/article/10.1007%2FBF00695714">https://link.springer.com/article/10.1007%2FBF00695714</a> . </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Transfer Cartesian coordinate regularization system to chain_ regularization system. </p>
+<p>Coordinate transformation. From Cartesian to chain_. See details in <a href="https://link.springer.com/article/10.1007%2FBF00695714">https://link.springer.com/article/10.1007%2FBF00695714</a> . </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">chainData</td><td>The destination regularization system in chain coordinates. </td></tr>
-    <tr><td class="paramname">index</td><td>The maping index between Cartesian coordinates and chain coordinates. </td></tr>
+    <tr><td class="paramname">chainData</td><td>The destination regularization system in chain_ coordinates. </td></tr>
+    <tr><td class="paramname">index</td><td>The maping index between Cartesian coordinates and chain_ coordinates. </td></tr>
   </table>
   </dd>
 </dl>
@@ -599,7 +599,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classregu_dynamics_aae4e77bbbb00f0bdddb396047f1c0fc2_cgraph.png" border="0" usemap="#classregu_dynamics_aae4e77bbbb00f0bdddb396047f1c0fc2_cgraph" alt=""/></div>
 <map name="classregu_dynamics_aae4e77bbbb00f0bdddb396047f1c0fc2_cgraph" id="classregu_dynamics_aae4e77bbbb00f0bdddb396047f1c0fc2_cgraph">
-<area shape="rect" id="node2" href="namespacechain.html#abdcb44461ef66afb82d42ff5a441ed5c" title="Calulate the chain data from Cartesian data and chain index mapping. " alt="" coords="213,5,329,31"/>
+<area shape="rect" id="node2" href="namespacechain.html#abdcb44461ef66afb82d42ff5a441ed5c" title="Calulate the chain_ data from Cartesian data and chain_ index mapping. " alt="" coords="213,5,329,31"/>
 </map>
 </div>
 

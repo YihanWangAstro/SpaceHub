@@ -3,7 +3,7 @@
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \mbox{\hyperlink{namespace_space_h_1_1chain}{chain}}
+ \mbox{\hyperlink{namespace_space_h_1_1chain}{chain_}}
 \item 
  \mbox{\hyperlink{namespace_space_h_1_1_const}{Const}}
 \item 
@@ -19,7 +19,7 @@
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_space_h_1_1_a_rchain_system}{A\+Rchain\+System}}
-\begin{DoxyCompactList}\small\item\em Algorithmatic Regularization chain System. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Algorithmatic Regularization chain_ System. \end{DoxyCompactList}\item
 struct \mbox{\hyperlink{struct_space_h_1_1_array_wrapper}{Array\+Wrapper}}
 \item 
 struct \mbox{\hyperlink{struct_space_h_1_1_array_wrapper_3_01_t_00_01_d_y_n_a_m_i_c_a_l_01_4}{Array\+Wrapper$<$ T, D\+Y\+N\+A\+M\+I\+C\+A\+L $>$}}
@@ -194,7 +194,7 @@ enum \mbox{\hyperlink{namespace_space_h_a4782f089179a3c269891f02482b072df}{D\+A\
 \begin{DoxyCompactList}\small\item\em Calculate the minimal fall free time of two particles. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Scalar\+Array , typename Vector\+Array $>$ }\\Scalar\+Array\+::value\+\_\+type \mbox{\hyperlink{namespace_space_h_aecd56c4b16c8c9e47d4083c52db1640a}{get\+Potential\+Energy}} (const Scalar\+Array \&mass, const Vector\+Array \&pos)
 \begin{DoxyCompactList}\small\item\em Calculate the potential energy of particles. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Scalar\+Array , typename Vector\+Array , typename Index\+Array $>$ }\\Scalar\+Array\+::value\+\_\+type \mbox{\hyperlink{namespace_space_h_a8796203b0c912b1137302096c8539cda}{get\+Potential\+Energy}} (const Scalar\+Array \&mass, const Vector\+Array \&pos, const Vector\+Array \&chain\+Pos, const Index\+Array \&chain\+Ind)
+{\footnotesize template$<$typename Scalar\+Array , typename Vector\+Array , typename Index\+Array $>$ }\\Scalar\+Array\+::value\+\_\+type \mbox{\hyperlink{namespace_space_h_a8796203b0c912b1137302096c8539cda}{get\+Potential\+Energy}} (const Scalar\+Array \&mass, const Vector\+Array \&pos, const Vector\+Array \&chain_\+Pos, const Index\+Array \&chain_\+Ind)
 \begin{DoxyCompactList}\small\item\em Calculate the potential energy of particles. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Scalar\+Array , typename Vector\+Array $>$ }\\Scalar\+Array\+::value\+\_\+type \mbox{\hyperlink{namespace_space_h_aad574495853114033bac0925f29ced20}{get\+Total\+Energy}} (const Scalar\+Array \&mass, const Vector\+Array \&pos, const Vector\+Array \&vel)
 \begin{DoxyCompactList}\small\item\em Calculate the total(potential + kinetic) energy of particles. \end{DoxyCompactList}\item 
@@ -589,7 +589,7 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{namespace_space_h_af7bd0f1f17522b3122fa19f037a12ccc}\label{namespace_space_h_af7bd0f1f17522b3122fa19f037a12ccc}} 
 \index{SpaceH@{SpaceH}!err\+Msg@{err\+Msg}}
 \index{err\+Msg@{err\+Msg}!SpaceH@{SpaceH}}
-\subsubsection{\texorpdfstring{err\+Msg()}{errMsg()}}
+\subsubsection{\texorpdfstring{err\+Msg()}{ERR_MSG()}}
 {\footnotesize\ttfamily void Space\+H\+::err\+Msg (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg,  }\item[{const char $\ast$}]{file,  }\item[{size\+\_\+t}]{line }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -704,7 +704,7 @@ Here is the caller graph for this function\+:
 \index{get\+Potential\+Energy@{get\+Potential\+Energy}!SpaceH@{SpaceH}}
 \subsubsection{\texorpdfstring{get\+Potential\+Energy()}{getPotentialEnergy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename Scalar\+Array , typename Vector\+Array , typename Index\+Array $>$ \\
-Scalar\+Array\+::value\+\_\+type Space\+H\+::get\+Potential\+Energy (\begin{DoxyParamCaption}\item[{const Scalar\+Array \&}]{mass,  }\item[{const Vector\+Array \&}]{pos,  }\item[{const Vector\+Array \&}]{chain\+Pos,  }\item[{const Index\+Array \&}]{chain\+Ind }\end{DoxyParamCaption})}
+Scalar\+Array\+::value\+\_\+type Space\+H\+::get\+Potential\+Energy (\begin{DoxyParamCaption}\item[{const Scalar\+Array \&}]{mass,  }\item[{const Vector\+Array \&}]{pos,  }\item[{const Vector\+Array \&}]{chain_\+Pos,  }\item[{const Index\+Array \&}]{chain_\+Ind }\end{DoxyParamCaption})}
 
 
 
@@ -716,9 +716,9 @@ Calculate the potential energy of particles.
 \hline
 {\em pos} & Array of position. \\
 \hline
-{\em chpos} & Array of chain position. \\
+{\em chpos} & Array of chain_ position. \\
 \hline
-{\em chind} & Array of chain index. \\
+{\em chind} & Array of chain_ index. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
