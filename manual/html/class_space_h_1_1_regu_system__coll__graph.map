@@ -1,6 +1,0 @@
-<map id="SpaceH::ReguSystem&lt; Particles, Interaction, Regularitor &gt;" name="SpaceH::ReguSystem&lt; Particles, Interaction, Regularitor &gt;">
-<area shape="rect" id="node2" href="$class_space_h_1_1_particle_system.html" title="Base class of particle System. " alt="" coords="21,421,186,460"/>
-<area shape="rect" id="node3" href="$struct_space_h_1_1_particles.html" title="Basic particles group, wrapper on VelIndepParticles and VelDepParticles. " alt="" coords="5,321,202,360"/>
-<area shape="rect" id="node4" href="$class_space_h_1_1_vel_indep_particles.html" title="Basic velocity independent particles group. " alt="" coords="14,233,193,272"/>
-<area shape="rect" id="node5" href="$struct_space_h_1_1_array_wrapper.html" title="SpaceH::ArrayWrapper\l\&lt; T, S \&gt;" alt="" coords="24,80,183,119"/>
-</map>

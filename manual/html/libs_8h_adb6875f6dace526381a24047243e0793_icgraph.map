@@ -1,5 +1,0 @@
-<map id="min" name="min">
-<area shape="rect" id="node2" href="$class_b_s_iterator.html#a9f50e084f8650e4d7fea3535a0547139" title="Calculate the error of the k row of the extrapolation table. " alt="" coords="124,5,261,31"/>
-<area shape="rect" id="node3" href="$class_b_s_iterator.html#a9d06a0d0c9e458ea96952b0514adece9" title="Calculate the new iteration integration step coefficient. " alt="" coords="96,55,288,80"/>
-<area shape="rect" id="node4" href="$class_b_s_iterator.html#a738a558ddfacd9959c9438862001d7e8" title="Calculate the new iteration integration step and new iteration depth for next iteration. " alt="" coords="101,104,283,143"/>
-</map>

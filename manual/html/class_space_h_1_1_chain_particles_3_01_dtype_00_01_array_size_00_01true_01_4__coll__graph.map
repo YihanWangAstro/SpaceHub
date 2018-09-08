@@ -1,8 +1,0 @@
-<map id="SpaceH::ChainParticles&lt; Dtype, ArraySize, true &gt;" name="SpaceH::ChainParticles&lt; Dtype, ArraySize, true &gt;">
-<area shape="rect" id="node2" href="$class_space_h_1_1_vel_dep_chain_particles.html" title="SpaceH::VelDepChainParticles\l\&lt; Dtype, ArraySize, true \&gt;" alt="" coords="10,585,215,624"/>
-<area shape="rect" id="node3" href="$class_space_h_1_1_vel_indep_chain_particles.html" title="Class of dynamical variable. " alt="" coords="5,497,219,536"/>
-<area shape="rect" id="node4" href="$class_space_h_1_1_regu_particles.html" title="Class of dynamical system with regularization variables. " alt="" coords="10,409,215,448"/>
-<area shape="rect" id="node5" href="$struct_space_h_1_1_particles.html" title="Basic particles group, wrapper on VelIndepParticles and VelDepParticles. " alt="" coords="14,321,211,360"/>
-<area shape="rect" id="node6" href="$class_space_h_1_1_vel_indep_particles.html" title="Basic velocity independent particles group. " alt="" coords="23,233,202,272"/>
-<area shape="rect" id="node7" href="$struct_space_h_1_1_array_wrapper.html" title="SpaceH::ArrayWrapper\l\&lt; T, S \&gt;" alt="" coords="33,80,192,119"/>
-</map>

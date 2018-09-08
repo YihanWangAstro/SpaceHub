@@ -1,7 +1,0 @@
-<map id="SpaceH::getKineticEnergy" name="SpaceH::getKineticEnergy">
-<area shape="rect" id="node2" href="$namespace_space_h.html#af674a32e51a168974fbb76585ba803d9" title="Calculate the energy error approximately for regularized system. " alt="" coords="245,5,399,31"/>
-<area shape="rect" id="node3" href="$class_space_h_1_1_particle_system.html#acf2ffbad4476dae3f259a60338d80288" title="Calculate the kinetic energy of the system. " alt="" coords="240,55,405,93"/>
-<area shape="rect" id="node6" href="$class_space_h_1_1_log_h.html#a57e53ea3152d08ebb3153bd42a71e3a8" title="Calculate the physical time for position advance from integration step size. " alt="" coords="230,117,414,156"/>
-<area shape="rect" id="node4" href="$class_space_h_1_1_particle_system.html#a9351bf7ed263b6624456e610fd351190" title="Calculate the total energy of the system. " alt="" coords="465,24,630,63"/>
-<area shape="rect" id="node5" href="$class_space_h_1_1_a_rchain_system.html#a069b5ae075413b26fa177df689bf044d" title="Calculate the total energy of the system. " alt="" coords="462,87,633,125"/>
-</map>

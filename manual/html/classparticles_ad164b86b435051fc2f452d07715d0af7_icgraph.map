@@ -1,6 +1,0 @@
-<map id="particles::particleNumber" name="particles::particleNumber">
-<area shape="rect" id="node2" href="$classdynamic_system.html#a3ff4342241733e94edce17c1a79a90a8" title="Load particle system initial condition from file. " alt="" coords="239,5,411,31"/>
-<area shape="rect" id="node4" href="$class_chain_particles.html#ac39657650c4520102bbf50546904fae3" title="Advance the velocity array with given acceleration array. " alt="" coords="233,55,417,80"/>
-<area shape="rect" id="node5" href="$class_regu_particles.html#ad8a0667cc9830c670a24872b7c8d4a08" title="Advance the Omega. " alt="" coords="222,104,428,129"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="476,5,526,31"/>
-</map>

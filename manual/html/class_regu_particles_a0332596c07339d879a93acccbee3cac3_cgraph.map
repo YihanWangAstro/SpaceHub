@@ -1,6 +1,0 @@
-<map id="ReguParticles::getCapitalOmega" name="ReguParticles::getCapitalOmega">
-<area shape="rect" id="node2" href="$namespace_space_h.html#ac749af71ba4e3334b9240de25f7369cc" title="Calculate the potential energy of particles. " alt="" coords="225,5,414,31"/>
-<area shape="rect" id="node4" href="$classparticles.html#a3da22fd5985987373cf7d5355320374a" title="Mass array const interface. Reference to attribute.mass. " alt="" coords="264,55,375,80"/>
-<area shape="rect" id="node5" href="$classparticles.html#a746aa73a995101af269d0a64c76319a2" title="Position array const interface. Reference to state.pos. " alt="" coords="270,104,369,129"/>
-<area shape="rect" id="node3" href="$vector3_8h.html#ab34b7bf3459e88f9ad682f32e13f07a6" title="Calculate the Euclid distance of two vectors. " alt="" coords="462,5,533,31"/>
-</map>

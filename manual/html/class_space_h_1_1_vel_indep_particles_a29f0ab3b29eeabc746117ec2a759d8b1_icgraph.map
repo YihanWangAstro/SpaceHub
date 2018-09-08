@@ -1,7 +1,0 @@
-<map id="SpaceH::VelIndepParticles::write" name="SpaceH::VelIndepParticles::write">
-<area shape="rect" id="node2" href="$class_space_h_1_1_vel_dep_particles.html#acc81391b5d6d8344769eaee9b2b5096c" title="Output variables to plain scalar array. " alt="" coords="233,5,403,44"/>
-<area shape="rect" id="node3" href="$class_space_h_1_1_particle_system.html#af662bb9620680baa12c67f8901c42f90" title="Output variables to plain scalar array. " alt="" coords="235,68,400,107"/>
-<area shape="rect" id="node4" href="$class_space_h_1_1_regu_particles.html#a5e6f99ab289e48790db7599fac59aa5a" title="Output variables to plain scalar array. " alt="" coords="238,131,397,169"/>
-<area shape="rect" id="node5" href="$class_space_h_1_1_vel_indep_chain_particles.html#aa67fcd1ff597b37aa49020eec198fd0c" title="Output variables to plain scalar array. " alt="" coords="451,96,665,135"/>
-<area shape="rect" id="node6" href="$class_space_h_1_1_vel_dep_chain_particles.html#a469e7b3374c6a0067ebaa81a66d9b7d2" title="Output variables to plain scalar array. " alt="" coords="455,159,660,211"/>
-</map>

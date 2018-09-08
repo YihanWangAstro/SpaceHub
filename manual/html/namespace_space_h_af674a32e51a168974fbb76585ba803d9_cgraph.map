@@ -1,6 +1,0 @@
-<map id="SpaceH::getEnergyErr" name="SpaceH::getEnergyErr">
-<area shape="rect" id="node2" href="$namespace_space_h.html#a18a2979505e69ee2cf1806f782ed436e" title="Calculate the kinetic energy of particles. " alt="" coords="214,5,391,31"/>
-<area shape="rect" id="node3" href="$namespace_space_h.html#aecd56c4b16c8c9e47d4083c52db1640a" title="Calculate the potential energy of particles. " alt="" coords="208,55,397,80"/>
-<area shape="rect" id="node5" href="$namespace_space_h.html#a90bc8cc5a4fc9c2a7353f9bfe7d5684d" title="Self abs() " alt="" coords="254,104,351,129"/>
-<area shape="rect" id="node4" href="$namespace_space_h.html#a889a97546c28125c77c00557ab96b496" title="Calculate the Euclid distance of two vectors. " alt="" coords="445,55,571,80"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="SpaceH::ARchainSystem::potentialEnergy" name="SpaceH::ARchainSystem::potentialEnergy">
-<area shape="rect" id="node2" href="$namespace_space_h.html#aecd56c4b16c8c9e47d4083c52db1640a" title="Calculate the potential energy of particles. " alt="" coords="234,5,423,31"/>
-<area shape="rect" id="node4" href="$class_space_h_1_1_vel_indep_particles.html#a9d8196bf1fe404e6c50ae20a11398076" title="Mass array const interface. Reference to mass_. " alt="" coords="239,55,418,93"/>
-<area shape="rect" id="node5" href="$class_space_h_1_1_vel_indep_particles.html#a12ffb071816842a3d31eb11d49ab5b55" title="Position array const interface. Reference to pos_. " alt="" coords="224,117,432,143"/>
-<area shape="rect" id="node3" href="$namespace_space_h.html#a889a97546c28125c77c00557ab96b496" title="Calculate the Euclid distance of two vectors. " alt="" coords="480,5,606,31"/>
-</map>

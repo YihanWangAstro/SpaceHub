@@ -1,6 +1,0 @@
-<map id="ChainParticles::advanceVel" name="ChainParticles::advanceVel">
-<area shape="rect" id="node2" href="$classparticles.html#ad164b86b435051fc2f452d07715d0af7" title="Get the number of the particles. " alt="" coords="249,5,418,31"/>
-<area shape="rect" id="node3" href="$namespace_space_h.html#a573416cfe3e99029ccff24e58786493f" title="SpaceH::advanceVector" alt="" coords="251,55,416,80"/>
-<area shape="rect" id="node4" href="$namespace_space_h_1_1chain.html#a17b8a7579bccd9fb756436a9f497c651" title="Calulate the Cartesian data from chain_ data and chain_ index mapping. " alt="" coords="237,104,430,129"/>
-<area shape="rect" id="node5" href="$namespace_space_h.html#a11f3427e513907a532a8a56be0911384" title="Move variables to central mass coordinates. " alt="" coords="244,153,424,179"/>
-</map>
