@@ -1,0 +1,58 @@
+\hypertarget{space_hub_8h}{}\section{space\+Hub.\+h File Reference}
+\label{space_hub_8h}\index{space\+Hub.\+h@{space\+Hub.\+h}}
+{\ttfamily \#include \char`\"{}solver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particles.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kahan\+Number.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}macros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tools/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/regu\+System/regularization.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/regu\+System/regu\+System.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/regu\+System/regular\+Particles.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/\+A\+R\+Chain/\+A\+Rchain\+System.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/\+A\+R\+Chain/chain_.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle\+System/\+A\+R\+Chain/chain_\+Particles.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic2th.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic4th.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic6th.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic8th.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic10th.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/\+Gauss-\/\+Dadau.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+D\+Eiterator/\+B\+S\+Iterator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+D\+Eiterator/const\+Iterator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+D\+Eiterator/\+I\+A\+S15.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interaction/interaction.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interaction/force.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interaction/post\+Newtonian.\+h\char`\"{}}\newline
+Include dependency graph for space\+Hub.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_hub_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_hub_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename BasicF , typename Vel\+Force  = void, typename Ext\+Pos\+Force  = void, typename Ext\+Vel\+Force  = void, template$<$ typename $>$ class Regularitor = Space\+H\+::\+LogH$>$ }\\using \mbox{\hyperlink{namespace_space_h_abc1e09cc3d2e2a92798269be7035b23d}{Space\+H\+::\+A\+Rchain}} = \mbox{\hyperlink{class_space_h_1_1_a_rchain_system}{Space\+H\+::\+A\+Rchain\+System}}$<$ \mbox{\hyperlink{class_space_h_1_1_chain_particles}{Space\+H\+::\+Chain\+Particles}}$<$ typename \mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Basic\+F\+::type\+::\+Scalar}}, Basic\+F\+::type\+::array\+Size, !std\+::is\+\_\+void$<$ Vel\+Force $>$\+::value$\vert$$\vert$!std\+::is\+\_\+void$<$ Ext\+Vel\+Force $>$\+::value $>$, \mbox{\hyperlink{class_space_h_1_1_interactions}{Space\+H\+::\+Interactions}}$<$ BasicF, Vel\+Force, Ext\+Pos\+Force, Ext\+Vel\+Force $>$, Regularitor$<$ \mbox{\hyperlink{class_space_h_1_1_chain_particles}{Space\+H\+::\+Chain\+Particles}}$<$ typename \mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Basic\+F\+::type\+::\+Scalar}}, Basic\+F\+::type\+::array\+Size, !std\+::is\+\_\+void$<$ Vel\+Force $>$\+::value$\vert$$\vert$!std\+::is\+\_\+void$<$ Ext\+Vel\+Force $>$\+::value $>$ $>$ $>$
+\item 
+{\footnotesize template$<$typename BasicF , typename Vel\+Force  = void, typename Ext\+Pos\+Force  = void, typename Ext\+Vel\+Force  = void, template$<$ typename $>$ class Regularitor = Space\+H\+::\+LogH$>$ }\\using \mbox{\hyperlink{namespace_space_h_aef202602b44977a819cbb122be45493e}{Space\+H\+::\+G\+AR}} = \mbox{\hyperlink{class_space_h_1_1_regu_system}{Space\+H\+::\+Regu\+System}}$<$ \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ typename \mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Basic\+F\+::type\+::\+Scalar}}, Basic\+F\+::type\+::array\+Size, !std\+::is\+\_\+void$<$ Vel\+Force $>$\+::value$\vert$$\vert$!std\+::is\+\_\+void$<$ Ext\+Vel\+Force $>$\+::value $>$, \mbox{\hyperlink{class_space_h_1_1_interactions}{Space\+H\+::\+Interactions}}$<$ BasicF, Vel\+Force, Ext\+Pos\+Force, Ext\+Vel\+Force $>$, Regularitor$<$ \mbox{\hyperlink{class_space_h_1_1_regu_particles}{Space\+H\+::\+Regu\+Particles}}$<$ typename \mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Basic\+F\+::type\+::\+Scalar}}, Basic\+F\+::type\+::array\+Size, !std\+::is\+\_\+void$<$ Vel\+Force $>$\+::value$\vert$$\vert$!std\+::is\+\_\+void$<$ Ext\+Vel\+Force $>$\+::value $>$ $>$ $>$
+\item 
+{\footnotesize template$<$typename BasicF , typename Vel\+Force  = void, typename Ext\+Pos\+Force  = void, typename Ext\+Vel\+Force  = void$>$ }\\using \mbox{\hyperlink{namespace_space_h_a927de8f6d7d1be27a19583aa477b8d98}{Space\+H\+::\+Basic}} = \mbox{\hyperlink{class_space_h_1_1_particle_system}{Space\+H\+::\+Particle\+System}}$<$ \mbox{\hyperlink{struct_space_h_1_1_particles}{Space\+H\+::\+Particles}}$<$ typename \mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Basic\+F\+::type\+::\+Scalar}}, Basic\+F\+::type\+::array\+Size, !std\+::is\+\_\+void$<$ Vel\+Force $>$\+::value$\vert$$\vert$!std\+::is\+\_\+void$<$ Ext\+Vel\+Force $>$\+::value $>$, \mbox{\hyperlink{class_space_h_1_1_interactions}{Space\+H\+::\+Interactions}}$<$ BasicF, Vel\+Force, Ext\+Pos\+Force, Ext\+Vel\+Force $>$ $>$
+\item 
+{\footnotesize template$<$typename Partic\+Sys , template$<$ typename, typename $>$ class O\+D\+Eiterator = Space\+H\+::\+B\+S\+Iterator, template$<$ typename $>$ class Integrator = Space\+H\+::symplectic2th$>$ }\\using \mbox{\hyperlink{namespace_space_h_a5c39e7434c2e77ea66e868463e99dcbc}{Space\+H\+::\+Nbody}} = \mbox{\hyperlink{class_space_h_1_1_solver}{Space\+H\+::\+Solver}}$<$ Partic\+Sys, O\+D\+Eiterator$<$ Partic\+Sys, Integrator$<$ Partic\+Sys $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em Alias of template name, linking the particle system, integrator and O\+DE iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}

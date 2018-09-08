@@ -1,0 +1,132 @@
+\hypertarget{classlog_h}{}\section{logH$<$ Particles $>$ Class Template Reference}
+\label{classlog_h}\index{log\+H$<$ Particles $>$@{log\+H$<$ Particles $>$}}
+
+
+\mbox{\hyperlink{classlog_h}{logH}} extention algorithmatic regularization interface  
+
+
+
+
+{\ttfamily \#include $<$regularization.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classlog_h_aa902eaf1133d9ef2cd15713d81619240}{type}} = typename \mbox{\hyperlink{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}{Particles\+::type}}
+\item 
+using \mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} = typename type\+::\+Scalar
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} \mbox{\hyperlink{classlog_h_a000fc113a586407aa8dd8fbac34b614a}{get\+Physical\+Pos\+Time}} (\mbox{\hyperlink{struct_particles}{Particles}} \&partc, \mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate the physical time for position advance from integration step size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} \mbox{\hyperlink{classlog_h_a36f5b226fde188b50bf9df1451c75199}{get\+Physical\+Vel\+Time}} (\mbox{\hyperlink{struct_particles}{Particles}} \&partc, \mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Calculate the physical time for velocity advance from integration step size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Particles$>$\newline
+class log\+H$<$ Particles $>$}
+
+\mbox{\hyperlink{classlog_h}{logH}} extention algorithmatic regularization interface 
+
+See detials in \href{https://link.springer.com/article/10.1023%2FA%3A1008368322547}{\tt https\+://link.\+springer.\+com/article/10.\+1023\%2\+F\+A\%3\+A1008368322547} and \href{http://iopscience.iop.org/article/10.1086/301102/meta}{\tt http\+://iopscience.\+iop.\+org/article/10.\+1086/301102/meta} . 
+
+Definition at line 19 of file regularization.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}\label{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}} 
+\index{logH@{logH}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!logH@{logH}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+using \mbox{\hyperlink{classlog_h}{logH}}$<$ \mbox{\hyperlink{struct_particles}{Particles}} $>$\+::\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} =  typename type\+::\+Scalar}
+
+
+
+Definition at line 25 of file regularization.\+h.
+
+\mbox{\Hypertarget{classlog_h_aa902eaf1133d9ef2cd15713d81619240}\label{classlog_h_aa902eaf1133d9ef2cd15713d81619240}} 
+\index{logH@{logH}!type@{type}}
+\index{type@{type}!logH@{logH}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+using \mbox{\hyperlink{classlog_h}{logH}}$<$ \mbox{\hyperlink{struct_particles}{Particles}} $>$\+::\mbox{\hyperlink{classlog_h_aa902eaf1133d9ef2cd15713d81619240}{type}} =  typename \mbox{\hyperlink{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}{Particles\+::type}}}
+
+
+
+Definition at line 23 of file regularization.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classlog_h_a000fc113a586407aa8dd8fbac34b614a}\label{classlog_h_a000fc113a586407aa8dd8fbac34b614a}} 
+\index{logH@{logH}!get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}}
+\index{get\+Physical\+Pos\+Time@{get\+Physical\+Pos\+Time}!logH@{logH}}
+\subsubsection{\texorpdfstring{get\+Physical\+Pos\+Time()}{getPhysicalPosTime()}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} \mbox{\hyperlink{classlog_h}{logH}}$<$ \mbox{\hyperlink{struct_particles}{Particles}} $>$\+::get\+Physical\+Pos\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particles}{Particles}} \&}]{partc,  }\item[{\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the physical time for position advance from integration step size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mass} & Array of particle mass. \\
+\hline
+{\em dyn} & Dynamic system contains position, velocity and regularization variables. See example class in dynamic\+State.\+h. \\
+\hline
+{\em step\+Size} & Integration step size. This could not be the physical time. Look references for details in class despriction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file regularization.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlog_h_a000fc113a586407aa8dd8fbac34b614a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classlog_h_a36f5b226fde188b50bf9df1451c75199}\label{classlog_h_a36f5b226fde188b50bf9df1451c75199}} 
+\index{logH@{logH}!get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}}
+\index{get\+Physical\+Vel\+Time@{get\+Physical\+Vel\+Time}!logH@{logH}}
+\subsubsection{\texorpdfstring{get\+Physical\+Vel\+Time()}{getPhysicalVelTime()}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}} \mbox{\hyperlink{classlog_h}{logH}}$<$ \mbox{\hyperlink{struct_particles}{Particles}} $>$\+::get\+Physical\+Vel\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particles}{Particles}} \&}]{partc,  }\item[{\mbox{\hyperlink{classlog_h_a2235c75eff5d2e299c8ce4b2c02f8801}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the physical time for velocity advance from integration step size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mass} & Array of particle mass. \\
+\hline
+{\em dyn} & Dynamic system contains position, velocity and regularization variables. See example class in dynamic\+State.\+h. \\
+\hline
+{\em step\+Size} & Integration step size. This could not be the physical time. Look references for details in class despriction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file regularization.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlog_h_a36f5b226fde188b50bf9df1451c75199_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle\+System/regu\+System/\mbox{\hyperlink{regularization_8h}{regularization.\+h}}\end{DoxyCompactItemize}

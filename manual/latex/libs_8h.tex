@@ -1,0 +1,45 @@
+\hypertarget{libs_8h}{}\section{libs.\+h File Reference}
+\label{libs_8h}\index{libs.\+h@{libs.\+h}}
+{\ttfamily \#include \char`\"{}vector3.\+h\char`\"{}}\newline
+Include dependency graph for libs.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{libs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libs_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\const T2 \mbox{\hyperlink{namespace_space_h_a2fac2c0f208348efc355314a88754b4a}{Space\+H\+::min}} (const T1 \&x, const T2 \&y)
+\begin{DoxyCompactList}\small\item\em Self \mbox{\hyperlink{namespace_space_h_a2fac2c0f208348efc355314a88754b4a}{min()}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\const T2 \mbox{\hyperlink{namespace_space_h_aacd80a06ba9a8b2381301a3917d79cbe}{Space\+H\+::max}} (const T1 \&x, const T2 \&y)
+\begin{DoxyCompactList}\small\item\em Self \mbox{\hyperlink{namespace_space_h_aacd80a06ba9a8b2381301a3917d79cbe}{max()}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\const T \mbox{\hyperlink{namespace_space_h_a90bc8cc5a4fc9c2a7353f9bfe7d5684d}{Space\+H\+::abs}} (const T \&x)
+\begin{DoxyCompactList}\small\item\em Self \mbox{\hyperlink{namespace_space_h_a90bc8cc5a4fc9c2a7353f9bfe7d5684d}{abs()}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Scalar1 , typename Scalar2 $>$ }\\void \mbox{\hyperlink{namespace_space_h_a15f1fd0977da382828652627f5dbcdb9}{Space\+H\+::advance\+Scalar}} (Scalar1 \&var, Scalar2 increase)
+\begin{DoxyCompactList}\small\item\em Self swap() \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Scalar , typename Vector1 , typename Vector2 $>$ }\\void \mbox{\hyperlink{namespace_space_h_a573416cfe3e99029ccff24e58786493f}{Space\+H\+::advance\+Vector}} (Vector1 \&var, const Vector2 \&increase, Scalar step\+Size)
+\item 
+{\footnotesize template$<$typename Scalar\+Array , typename Vector\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_a11f3427e513907a532a8a56be0911384}{Space\+H\+::move\+To\+C\+M\+Coord}} (const Scalar\+Array \&mass, Vector\+Array \&phy\+Var)
+\begin{DoxyCompactList}\small\item\em Move variables to central mass coordinates. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\double \mbox{\hyperlink{namespace_space_h_a4b0ebb47dda5ff4c231a7c889ac55c89}{Space\+H\+::get\+Kinetic\+Energy}} (const std\+::array$<$ Scalar, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&mass, const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&vel)
+\begin{DoxyCompactList}\small\item\em Calculate the kinetic energy of particles. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\double \mbox{\hyperlink{namespace_space_h_ac749af71ba4e3334b9240de25f7369cc}{Space\+H\+::get\+Potential\+Energy}} (const std\+::array$<$ Scalar, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&mass, const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&pos)
+\begin{DoxyCompactList}\small\item\em Calculate the potential energy of particles. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Scalar , size\+\_\+t N$>$ }\\double \mbox{\hyperlink{namespace_space_h_afcd42842d483ee8bdc23081de14b515c}{Space\+H\+::get\+Total\+Energy}} (const std\+::array$<$ Scalar, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&mass, const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&pos, const std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ Scalar $>$, \mbox{\hyperlink{main_8cpp_adf99ea743b5dadbe8dc48388c0d7fa94}{N}} $>$ \&vel)
+\begin{DoxyCompactList}\small\item\em Calculate the total(potential + kinetic) energy of particles. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespace_space_h_aca20ae1567cce0e06232b3fe82eb7827}{Space\+H\+::print}} (T \&var)
+\begin{DoxyCompactList}\small\item\em print an array. Used for debug \end{DoxyCompactList}\end{DoxyCompactItemize}

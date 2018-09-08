@@ -1,0 +1,6 @@
+<map id="reguDynamics::initAddiVariable" name="reguDynamics::initAddiVariable">
+<area shape="rect" id="node2" href="$libs_8h.html#ace908a4ccc8a98941316b09215fd0f59" title="Calculate the total(potential + kinetic) energy of particles. " alt="" coords="495,5,605,31"/>
+<area shape="rect" id="node4" href="$classregu_dynamics.html#a0fe3b4f9a468687ec1f004120b347ddd" title="Calculate the regularization variable omega. " alt="" coords="259,55,435,80"/>
+<area shape="rect" id="node3" href="$vector3_8h.html#ab34b7bf3459e88f9ad682f32e13f07a6" title="Calculate the Euclid distance of two vectors. " alt="" coords="665,31,736,56"/>
+<area shape="rect" id="node5" href="$libs_8h.html#af1cca4f74ad20e3811105e322490f03b" title="Calculate the potential energy of particles. " alt="" coords="483,55,617,80"/>
+</map>

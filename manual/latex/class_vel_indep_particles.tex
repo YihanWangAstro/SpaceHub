@@ -1,0 +1,782 @@
+\hypertarget{class_vel_indep_particles}{}\section{Vel\+Indep\+Particles$<$ Dtype, Array\+Size $>$ Class Template Reference}
+\label{class_vel_indep_particles}\index{Vel\+Indep\+Particles$<$ Dtype, Array\+Size $>$@{Vel\+Indep\+Particles$<$ Dtype, Array\+Size $>$}}
+
+
+Basic velocity independent particles group.  
+
+
+
+
+{\ttfamily \#include $<$particles.\+h$>$}
+
+
+
+Inheritance diagram for Vel\+Indep\+Particles$<$ Dtype, Array\+Size $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_particles__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vel\+Indep\+Particles$<$ Dtype, Array\+Size $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_vel_indep_particles__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}{type}} = \mbox{\hyperlink{struct_space_h_1_1_proto_type}{Space\+H\+::\+Proto\+Type}}$<$ Dtype, Array\+Size $>$
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_af3c8245d83d9db64749882920de5c274}{type\+::\+Scalar}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a316b81f4660b2b4fab14a8e1f23b6089}{type\+::\+Vector}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a622b8e122b33bb4966a02299fb7b82d6}{type\+::\+Vector\+Array}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a09ef91dc8a37a044c403f5a833044725}{type\+::\+Scalar\+Array}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_ad9105b93d029a9d231bc31ddcfd7dbd9}{type\+::\+Int\+Array}}
+\item 
+using \mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} = typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a8f3813f576517856e0ed74af9e5ffcb4}{type\+::\+Dyn\+Scalar\+Array}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{class_vel_indep_particles_a9fa71261c95ee53974352a31cd8ffd41}{particle\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \& \mbox{\hyperlink{class_vel_indep_particles_a7c2968d7757eb6b3dc59259fadcf661c}{time}} () const
+\begin{DoxyCompactList}\small\item\em Physical time scalar const interface. Reference to time\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \& \mbox{\hyperlink{class_vel_indep_particles_a3abad5914571496cf4c956647b2bafa8}{pos}} () const
+\begin{DoxyCompactList}\small\item\em Position array const interface. Reference to pos\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \& \mbox{\hyperlink{class_vel_indep_particles_a5774853214c5f32f34def508962a1267}{vel}} () const
+\begin{DoxyCompactList}\small\item\em Velocity array const interface. Reference to vel\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} \& \mbox{\hyperlink{class_vel_indep_particles_ab2b7a9718d112bc2713448f9055a0833}{mass}} () const
+\begin{DoxyCompactList}\small\item\em Mass array const interface. Reference to mass\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} \& \mbox{\hyperlink{class_vel_indep_particles_a764cb67485dbd51be3509177df6c355a}{radius}} () const
+\begin{DoxyCompactList}\small\item\em Radius array const interface. Reference to radius\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} \& \mbox{\hyperlink{class_vel_indep_particles_a81ca7cfb6c53e5d29c3afc24ff25877d}{kind}} () const
+\begin{DoxyCompactList}\small\item\em Particle type array const interface. Reference to type\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} \& \mbox{\hyperlink{class_vel_indep_particles_a5b43130b3d3a94f5e2336e4e0ca78cf4}{idn}} () const
+\begin{DoxyCompactList}\small\item\em Particle id array const interface. Reference to type\+\_\+. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} \& \mbox{\hyperlink{class_vel_indep_particles_a7a48693c77efda8b2ec9d264603e58d8}{pos}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Position vector const interface. Reference to pos\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} \& \mbox{\hyperlink{class_vel_indep_particles_ae5dd02185d239bb0fa5eeeae5a2aec6f}{vel}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Velocity vecotr const interface. Reference to vel\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \& \mbox{\hyperlink{class_vel_indep_particles_a5c9b3e93851ab043136e09abcfbff926}{mass}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Mass const interface. Reference to mass\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \& \mbox{\hyperlink{class_vel_indep_particles_a99dc089a06437f5f382c2fb9aaf10859}{radius}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Radius const interface. Reference to radius\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_vel_indep_particles_abc89cea5ae508c4edaf4d7a62256e355}{kind}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Particle type const interface. Reference to type\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+const int \& \mbox{\hyperlink{class_vel_indep_particles_a9ab4c300244e1085dcfc73713354060c}{idn}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Particle id const interface. Reference to type\+\_\+\mbox{[}i\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vel_indep_particles_a024d302cca3027451619a9346ecc24a4}{advance\+Time}} (\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} dt)
+\begin{DoxyCompactList}\small\item\em Advance the time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vel_indep_particles_aff530f9e2dbd6dc053e251caa07464ad}{advance\+Pos}} (\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance the position array with internal velocity array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vel_indep_particles_adb74d0445c84c0b705c25a8c50f6bc00}{advance\+Vel}} (const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \&acc, \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance the velocity array with given acceleration array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{namespace_space_h_a4782f089179a3c269891f02482b072df}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+CT}} \mbox{\hyperlink{class_vel_indep_particles_a6d357b21c216a2b079b1927c18de0b8f}{data\+Struct}} \{\mbox{\hyperlink{namespace_space_h_a0af19f79a6498e99dbda772053d44a72af62eb0bf5e5c72e80983fbbac1cb70e5}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+C\+T\+::\+P\+L\+A\+IN}}\}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_particles_aff576cd5ee9f773e84d9b7473df8f647}{pos\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Position array of the particles. Element is 3D vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_particles_a48906984e10585a234f763885ce728a6}{vel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Velocity array of the particles. Element is 3D vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} \mbox{\hyperlink{class_vel_indep_particles_a68671eca04638e42f30c79291f89e1e4}{mass\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Mass array of the particles. Element is Scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} \mbox{\hyperlink{class_vel_indep_particles_adf3e6c9acf2f864523a5efb634275093}{radius\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Radius array of the particles. Element is Scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} \mbox{\hyperlink{class_vel_indep_particles_a97dbd52da7443243bf74de22bb8cde96}{type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Type Array of the particles. Element is int. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} \mbox{\hyperlink{class_vel_indep_particles_aeccde2c19380b79eb6be4f28d6077526}{idn\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Id Array of the particles. Element is int. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \mbox{\hyperlink{class_vel_indep_particles_a8140d67141a80312c882b8fd5368e75a}{time\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The physical time of the dynamic system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \mbox{\hyperlink{class_vel_indep_particles_ac1bc885b0b3434f604776880cb551a17}{total\+Mass\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The total mass of the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \mbox{\hyperlink{class_vel_indep_particles_a26d445a8934430c0634f60e387853724}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Input(\+Initialize) variables with istream. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_vel_indep_particles_afdcedfff1e424d7973f15783cc3f05cf}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Output variables to ostream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_vel_indep_particles_a1d6b6d70a1740a4887fe85aa75084d7f}{operator$>$$>$}} (\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&data, \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Input variables with plain scalar array. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_vel_indep_particles_a0aabea652baadd76eec861b55d2b0857}{operator$<$$<$}} (\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&data, const \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}} \&partc)
+\begin{DoxyCompactList}\small\item\em Output variables to plain scalar array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Dtype, size\+\_\+t Array\+Size$>$\newline
+class Vel\+Indep\+Particles$<$ Dtype, Array\+Size $>$}
+
+Basic velocity independent particles group. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Dtype} & Type of scalar. e.\+g., float, double, kahan\+Number... \\
+\hline
+{\em Array\+Size} & The size of the arraies in whole system. \mbox{\hyperlink{namespace_space_h_a3e55b9bc2a9e10c08ce8121bce11244a}{Space\+H\+::\+D\+Y\+N\+A\+M\+I\+C\+AL}} for dynamical array. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 14 of file particles.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}\label{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!Dyn\+Scalar\+Array@{Dyn\+Scalar\+Array}}
+\index{Dyn\+Scalar\+Array@{Dyn\+Scalar\+Array}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{Dyn\+Scalar\+Array}{DynScalarArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a8f3813f576517856e0ed74af9e5ffcb4}{type\+::\+Dyn\+Scalar\+Array}}}
+
+
+
+Definition at line 30 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}\label{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!Int\+Array@{Int\+Array}}
+\index{Int\+Array@{Int\+Array}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{Int\+Array}{IntArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_ad9105b93d029a9d231bc31ddcfd7dbd9}{type\+::\+Int\+Array}}}
+
+
+
+Definition at line 28 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}\label{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_af3c8245d83d9db64749882920de5c274}{type\+::\+Scalar}}}
+
+
+
+Definition at line 20 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}\label{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!Scalar\+Array@{Scalar\+Array}}
+\index{Scalar\+Array@{Scalar\+Array}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a09ef91dc8a37a044c403f5a833044725}{type\+::\+Scalar\+Array}}}
+
+
+
+Definition at line 26 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}\label{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!type@{type}}
+\index{type@{type}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}{type}} =  \mbox{\hyperlink{struct_space_h_1_1_proto_type}{Space\+H\+::\+Proto\+Type}}$<$Dtype, Array\+Size$>$}
+
+
+
+Definition at line 18 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}\label{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!Vector@{Vector}}
+\index{Vector@{Vector}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a316b81f4660b2b4fab14a8e1f23b6089}{type\+::\+Vector}}}
+
+
+
+Definition at line 22 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}\label{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!Vector\+Array@{Vector\+Array}}
+\index{Vector\+Array@{Vector\+Array}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+using \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} =  typename \mbox{\hyperlink{struct_space_h_1_1_proto_type_a622b8e122b33bb4966a02299fb7b82d6}{type\+::\+Vector\+Array}}}
+
+
+
+Definition at line 24 of file particles.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vel_indep_particles_aff530f9e2dbd6dc053e251caa07464ad}\label{class_vel_indep_particles_aff530f9e2dbd6dc053e251caa07464ad}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!advance\+Pos@{advance\+Pos}}
+\index{advance\+Pos@{advance\+Pos}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Pos()}{advancePos()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+void \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::advance\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the position array with internal velocity array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & The advance step size. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 93 of file particles.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_vel_indep_particles_aff530f9e2dbd6dc053e251caa07464ad_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{class_vel_indep_particles_aff530f9e2dbd6dc053e251caa07464ad_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a024d302cca3027451619a9346ecc24a4}\label{class_vel_indep_particles_a024d302cca3027451619a9346ecc24a4}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!advance\+Time@{advance\+Time}}
+\index{advance\+Time@{advance\+Time}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Time()}{advanceTime()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+void \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::advance\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time increament. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file particles.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_vel_indep_particles_a024d302cca3027451619a9346ecc24a4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{class_vel_indep_particles_a024d302cca3027451619a9346ecc24a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_adb74d0445c84c0b705c25a8c50f6bc00}\label{class_vel_indep_particles_adb74d0445c84c0b705c25a8c50f6bc00}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!advance\+Vel@{advance\+Vel}}
+\index{advance\+Vel@{advance\+Vel}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{advance\+Vel()}{advanceVel()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+void \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::advance\+Vel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \&}]{acc,  }\item[{\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the velocity array with given acceleration array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & The advance step size. \\
+\hline
+{\em acc} & The acceleration array. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file particles.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_vel_indep_particles_adb74d0445c84c0b705c25a8c50f6bc00_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a5b43130b3d3a94f5e2336e4e0ca78cf4}\label{class_vel_indep_particles_a5b43130b3d3a94f5e2336e4e0ca78cf4}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!idn@{idn}}
+\index{idn@{idn}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{idn()}{idn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Particle id array const interface. Reference to type\+\_\+. 
+
+
+
+Definition at line 62 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{class_vel_indep_particles_a5b43130b3d3a94f5e2336e4e0ca78cf4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a9ab4c300244e1085dcfc73713354060c}\label{class_vel_indep_particles_a9ab4c300244e1085dcfc73713354060c}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!idn@{idn}}
+\index{idn@{idn}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{idn()}{idn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const int\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::idn (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Particle id const interface. Reference to type\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 80 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a81ca7cfb6c53e5d29c3afc24ff25877d}\label{class_vel_indep_particles_a81ca7cfb6c53e5d29c3afc24ff25877d}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!kind@{kind}}
+\index{kind@{kind}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{kind()}{kind()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::kind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Particle type array const interface. Reference to type\+\_\+. 
+
+
+
+Definition at line 59 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_abc89cea5ae508c4edaf4d7a62256e355}\label{class_vel_indep_particles_abc89cea5ae508c4edaf4d7a62256e355}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!kind@{kind}}
+\index{kind@{kind}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{kind()}{kind()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const int\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::kind (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Particle type const interface. Reference to type\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 77 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_ab2b7a9718d112bc2713448f9055a0833}\label{class_vel_indep_particles_ab2b7a9718d112bc2713448f9055a0833}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!mass@{mass}}
+\index{mass@{mass}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{mass()}{mass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mass array const interface. Reference to mass\+\_\+. 
+
+
+
+Definition at line 53 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_particles_ab2b7a9718d112bc2713448f9055a0833_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a5c9b3e93851ab043136e09abcfbff926}\label{class_vel_indep_particles_a5c9b3e93851ab043136e09abcfbff926}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!mass@{mass}}
+\index{mass@{mass}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{mass()}{mass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::mass (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mass const interface. Reference to mass\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 71 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a9fa71261c95ee53974352a31cd8ffd41}\label{class_vel_indep_particles_a9fa71261c95ee53974352a31cd8ffd41}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!particle\+Number@{particle\+Number}}
+\index{particle\+Number@{particle\+Number}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{particle\+Number()}{particleNumber()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+size\+\_\+t \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::particle\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of the particles. 
+
+\begin{DoxyReturn}{Returns}
+The particle number. 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_particles_a9fa71261c95ee53974352a31cd8ffd41_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a3abad5914571496cf4c956647b2bafa8}\label{class_vel_indep_particles_a3abad5914571496cf4c956647b2bafa8}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!pos@{pos}}
+\index{pos@{pos}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{pos()}{pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Position array const interface. Reference to pos\+\_\+. 
+
+
+
+Definition at line 47 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_particles_a3abad5914571496cf4c956647b2bafa8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a7a48693c77efda8b2ec9d264603e58d8}\label{class_vel_indep_particles_a7a48693c77efda8b2ec9d264603e58d8}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!pos@{pos}}
+\index{pos@{pos}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{pos()}{pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::pos (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Position vector const interface. Reference to pos\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 65 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a764cb67485dbd51be3509177df6c355a}\label{class_vel_indep_particles_a764cb67485dbd51be3509177df6c355a}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!radius@{radius}}
+\index{radius@{radius}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{radius()}{radius()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Radius array const interface. Reference to radius\+\_\+. 
+
+
+
+Definition at line 56 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{class_vel_indep_particles_a764cb67485dbd51be3509177df6c355a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a99dc089a06437f5f382c2fb9aaf10859}\label{class_vel_indep_particles_a99dc089a06437f5f382c2fb9aaf10859}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!radius@{radius}}
+\index{radius@{radius}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{radius()}{radius()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::radius (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Radius const interface. Reference to radius\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 74 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a7c2968d7757eb6b3dc59259fadcf661c}\label{class_vel_indep_particles_a7c2968d7757eb6b3dc59259fadcf661c}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!time@{time}}
+\index{time@{time}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{time()}{time()}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Physical time scalar const interface. Reference to time\+\_\+. 
+
+
+
+Definition at line 44 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_vel_indep_particles_a7c2968d7757eb6b3dc59259fadcf661c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_a5774853214c5f32f34def508962a1267}\label{class_vel_indep_particles_a5774853214c5f32f34def508962a1267}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!vel@{vel}}
+\index{vel@{vel}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{vel()}{vel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Velocity array const interface. Reference to vel\+\_\+. 
+
+
+
+Definition at line 50 of file particles.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_vel_indep_particles_a5774853214c5f32f34def508962a1267_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vel_indep_particles_ae5dd02185d239bb0fa5eeeae5a2aec6f}\label{class_vel_indep_particles_ae5dd02185d239bb0fa5eeeae5a2aec6f}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!vel@{vel}}
+\index{vel@{vel}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{vel()}{vel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+const \mbox{\hyperlink{class_vel_indep_particles_aa7e03da81f44941c06abf43ec2180079}{Vector}}\& \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::vel (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Velocity vecotr const interface. Reference to vel\+\_\+\mbox{[}i\mbox{]}. 
+
+
+
+Definition at line 68 of file particles.\+h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_vel_indep_particles_afdcedfff1e424d7973f15783cc3f05cf}\label{class_vel_indep_particles_afdcedfff1e424d7973f15783cc3f05cf}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output variables to ostream. 
+
+
+
+Definition at line 135 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a0aabea652baadd76eec861b55d2b0857}\label{class_vel_indep_particles_a0aabea652baadd76eec861b55d2b0857}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+size\+\_\+t operator$<$$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&}]{data,  }\item[{const \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output variables to plain scalar array. 
+
+
+
+Definition at line 180 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a26d445a8934430c0634f60e387853724}\label{class_vel_indep_particles_a26d445a8934430c0634f60e387853724}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input(\+Initialize) variables with istream. 
+
+
+
+Definition at line 108 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a1d6b6d70a1740a4887fe85aa75084d7f}\label{class_vel_indep_particles_a1d6b6d70a1740a4887fe85aa75084d7f}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+size\+\_\+t operator$>$$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vel_indep_particles_a6bba8ac3f941a144214037a27ccaa119}{Dyn\+Scalar\+Array}} \&}]{data,  }\item[{\mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$ \&}]{partc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input variables with plain scalar array. 
+
+
+
+Definition at line 155 of file particles.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_vel_indep_particles_a6d357b21c216a2b079b1927c18de0b8f}\label{class_vel_indep_particles_a6d357b21c216a2b079b1927c18de0b8f}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!data\+Struct@{data\+Struct}}
+\index{data\+Struct@{data\+Struct}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{data\+Struct}{dataStruct}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+constexpr \mbox{\hyperlink{namespace_space_h_a4782f089179a3c269891f02482b072df}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+CT}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::data\+Struct \{\mbox{\hyperlink{namespace_space_h_a0af19f79a6498e99dbda772053d44a72af62eb0bf5e5c72e80983fbbac1cb70e5}{Space\+H\+::\+D\+A\+T\+A\+S\+T\+R\+U\+C\+T\+::\+P\+L\+A\+IN}}\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 33 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_aeccde2c19380b79eb6be4f28d6077526}\label{class_vel_indep_particles_aeccde2c19380b79eb6be4f28d6077526}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!idn\+\_\+@{idn\+\_\+}}
+\index{idn\+\_\+@{idn\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{idn\+\_\+}{idn\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::idn\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Id Array of the particles. Element is int. 
+
+
+
+Definition at line 224 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a68671eca04638e42f30c79291f89e1e4}\label{class_vel_indep_particles_a68671eca04638e42f30c79291f89e1e4}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!mass\+\_\+@{mass\+\_\+}}
+\index{mass\+\_\+@{mass\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{mass\+\_\+}{mass\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::mass\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mass array of the particles. Element is Scalar. 
+
+
+
+Definition at line 215 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_aff576cd5ee9f773e84d9b7473df8f647}\label{class_vel_indep_particles_aff576cd5ee9f773e84d9b7473df8f647}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!pos\+\_\+@{pos\+\_\+}}
+\index{pos\+\_\+@{pos\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{pos\+\_\+}{pos\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::pos\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Position array of the particles. Element is 3D vector. 
+
+
+
+Definition at line 209 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_adf3e6c9acf2f864523a5efb634275093}\label{class_vel_indep_particles_adf3e6c9acf2f864523a5efb634275093}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!radius\+\_\+@{radius\+\_\+}}
+\index{radius\+\_\+@{radius\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{radius\+\_\+}{radius\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_abd6e6b0ffbbab4ebc078efd77f6a365a}{Scalar\+Array}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::radius\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Radius array of the particles. Element is Scalar. 
+
+
+
+Definition at line 218 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a8140d67141a80312c882b8fd5368e75a}\label{class_vel_indep_particles_a8140d67141a80312c882b8fd5368e75a}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!time\+\_\+@{time\+\_\+}}
+\index{time\+\_\+@{time\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{time\+\_\+}{time\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::time\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The physical time of the dynamic system. 
+
+
+
+Definition at line 227 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_ac1bc885b0b3434f604776880cb551a17}\label{class_vel_indep_particles_ac1bc885b0b3434f604776880cb551a17}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!total\+Mass\+\_\+@{total\+Mass\+\_\+}}
+\index{total\+Mass\+\_\+@{total\+Mass\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{total\+Mass\+\_\+}{totalMass\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a5d275b22f0d759f360ddd80e78f4b466}{Scalar}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::total\+Mass\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The total mass of the system. 
+
+
+
+Definition at line 230 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a97dbd52da7443243bf74de22bb8cde96}\label{class_vel_indep_particles_a97dbd52da7443243bf74de22bb8cde96}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!type\+\_\+@{type\+\_\+}}
+\index{type\+\_\+@{type\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{type\+\_\+}{type\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a5e4f20d435c71a5f4179143206258a81}{Int\+Array}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::type\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Type Array of the particles. Element is int. 
+
+
+
+Definition at line 221 of file particles.\+h.
+
+\mbox{\Hypertarget{class_vel_indep_particles_a48906984e10585a234f763885ce728a6}\label{class_vel_indep_particles_a48906984e10585a234f763885ce728a6}} 
+\index{Vel\+Indep\+Particles@{Vel\+Indep\+Particles}!vel\+\_\+@{vel\+\_\+}}
+\index{vel\+\_\+@{vel\+\_\+}!Vel\+Indep\+Particles@{Vel\+Indep\+Particles}}
+\subsubsection{\texorpdfstring{vel\+\_\+}{vel\_}}
+{\footnotesize\ttfamily template$<$typename Dtype , size\+\_\+t Array\+Size$>$ \\
+\mbox{\hyperlink{class_vel_indep_particles_a27580f65b6523bfb6900520af2e44708}{Vector\+Array}} \mbox{\hyperlink{class_vel_indep_particles}{Vel\+Indep\+Particles}}$<$ Dtype, Array\+Size $>$\+::vel\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Velocity array of the particles. Element is 3D vector. 
+
+
+
+Definition at line 212 of file particles.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{particles_8h}{particles.\+h}}\end{DoxyCompactItemize}

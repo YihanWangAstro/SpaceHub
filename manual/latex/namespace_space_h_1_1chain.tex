@@ -1,0 +1,232 @@
+\hypertarget{namespace_space_h_1_1chain}{}\section{SpaceH\+:\+:chain_ Namespace Reference}
+\label{namespace_space_h_1_1chain}\index{Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1chain_1_1_node}{Node}}
+\begin{DoxyCompactList}\small\item\em Struture to store the relative distance and index of two particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9}{get\+Chain\+Index}} (const Vector\+Array \&pos, Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Calculate the mapping index from Cartesian coordinate to chain_ coordinate. \end{DoxyCompactList}\item
+{\footnotesize template$<$typename Vector\+Array , typename Node\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a8d2f8c8026f24294d16309c4f2e11fdb}{create\+Adj\+Martix}} (const Vector\+Array \&pos, Node\+Array \&Adj\+Matrix)
+\begin{DoxyCompactList}\small\item\em Create the adjoint matrix for particle pairs. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Node\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a65d906373401066033d8e4a6ad581cce}{create\+Chain\+Index}} (Node\+Array \&Adj\+Matrix, Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Create mapping index from adjoint matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Index\+Array $>$ }\\bool \mbox{\hyperlink{namespace_space_h_1_1chain_ab54ce920a542c01625ee7d6c625cc5c4}{is\+Diff}} (const Index\+Array \&Index1, const Index\+Array \&Index2)
+\begin{DoxyCompactList}\small\item\em Check if two mapping indexes are the same. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a631ad6a37f246a0db64e5879825a6878}{update\+Chain}} (Vector\+Array \&pos, Index\+Array \&chain_\+Index, Index\+Array \&new\+Index)
+\begin{DoxyCompactList}\small\item\em Update the position chain_. \end{DoxyCompactList}\item
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43}{syn\+Chain}} (const Vector\+Array \&data, Vector\+Array \&chain_\+Data, const Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Calulate the chain_ data from Cartesian data and chain_ index mapping. \end{DoxyCompactList}\item
+{\footnotesize template$<$typename Vector\+Array , typename Index\+Array $>$ }\\void \mbox{\hyperlink{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee}{syn\+Cartesian}} (const Vector\+Array \&chain_\+Data, Vector\+Array \&data, const Index\+Array \&chain_\+Index)
+\begin{DoxyCompactList}\small\item\em Calulate the Cartesian data from chain_ data and chain_ index mapping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_a8d2f8c8026f24294d16309c4f2e11fdb}\label{namespace_space_h_1_1chain_a8d2f8c8026f24294d16309c4f2e11fdb}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!create\+Adj\+Martix@{create\+Adj\+Martix}}
+\index{create\+Adj\+Martix@{create\+Adj\+Martix}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{create\+Adj\+Martix()}{createAdjMartix()}}
+{\footnotesize\ttfamily template$<$typename Vector\+Array , typename Node\+Array $>$ \\
+void Space\+H\+::chain_\+::create\+Adj\+Martix (\begin{DoxyParamCaption}\item[{const Vector\+Array \&}]{pos,  }\item[{Node\+Array \&}]{Adj\+Matrix }\end{DoxyParamCaption})}
+
+
+
+Create the adjoint matrix for particle pairs. 
+
+Create the adjoint matrix(distance of particle pairs organized by index-\/index matrix). 
+\begin{DoxyParams}{Parameters}
+{\em pos} & The array of particle position, used to calculate the distance of particle pairs. \\
+\hline
+{\em Adj\+Matrix} & The adjoint matrix needs to be calculated as a return value. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a8d2f8c8026f24294d16309c4f2e11fdb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_a65d906373401066033d8e4a6ad581cce}\label{namespace_space_h_1_1chain_a65d906373401066033d8e4a6ad581cce}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!create\+Chain\+Index@{create\+Chain\+Index}}
+\index{create\+Chain\+Index@{create\+Chain\+Index}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{create\+Chain\+Index()}{createChainIndex()}}
+{\footnotesize\ttfamily template$<$typename Node\+Array , typename Index\+Array $>$ \\
+void Space\+H\+::chain_\+::create\+Chain\+Index (\begin{DoxyParamCaption}\item[{Node\+Array \&}]{Adj\+Matrix,  }\item[{Index\+Array \&}]{chain_\+Index }\end{DoxyParamCaption})}
+
+
+
+Create mapping index from adjoint matrix. 
+
+Create mapping index from sorted elements of adjoint matrix and connect them to a chain_ consequently.
+\begin{DoxyParams}{Parameters}
+{\em Adj\+Matrix} & The adjoint matrix. \\
+\hline
+{\em chain_\+Index} & The maping index needs to be calculated as a return value. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a65d906373401066033d8e4a6ad581cce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9}\label{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!get\+Chain\+Index@{get\+Chain\+Index}}
+\index{get\+Chain\+Index@{get\+Chain\+Index}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{get\+Chain\+Index()}{getChainIndex()}}
+{\footnotesize\ttfamily template$<$typename Vector\+Array , typename Index\+Array $>$ \\
+void Space\+H\+::chain_\+::get\+Chain\+Index (\begin{DoxyParamCaption}\item[{const Vector\+Array \&}]{pos,  }\item[{Index\+Array \&}]{chain_\+Index }\end{DoxyParamCaption})}
+
+
+
+Calculate the mapping index from Cartesian coordinate to chain_ coordinate.
+
+Find the mapping index from Cartesian coordinate to chain_ coordinate. The chain_ is formed by connecting the nearest particle pairs consequently.
+\begin{DoxyParams}{Parameters}
+{\em pos} & The array of particle position, used to calculate the distance of particle pairs. \\
+\hline
+{\em chain_\+Index} & The maping index needs to be calculated as a return value. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a9f1ed51f097bc8cf691a87b97639dde9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_ab54ce920a542c01625ee7d6c625cc5c4}\label{namespace_space_h_1_1chain_ab54ce920a542c01625ee7d6c625cc5c4}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!is\+Diff@{is\+Diff}}
+\index{is\+Diff@{is\+Diff}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{is\+Diff()}{isDiff()}}
+{\footnotesize\ttfamily template$<$typename Index\+Array $>$ \\
+bool Space\+H\+::chain_\+::is\+Diff (\begin{DoxyParamCaption}\item[{const Index\+Array \&}]{Index1,  }\item[{const Index\+Array \&}]{Index2 }\end{DoxyParamCaption})}
+
+
+
+Check if two mapping indexes are the same. 
+
+Checking the identity of two chain_ index mappings.
+\begin{DoxyParams}{Parameters}
+{\em Index1} & The first index array. \\
+\hline
+{\em Index2} & The second index array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+\mbox{[}2,4,5,3,1\mbox{]} is identical to \mbox{[}1,3,5,4,2\mbox{]} 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_ab54ce920a542c01625ee7d6c625cc5c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee}\label{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!syn\+Cartesian@{syn\+Cartesian}}
+\index{syn\+Cartesian@{syn\+Cartesian}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{syn\+Cartesian()}{synCartesian()}}
+{\footnotesize\ttfamily template$<$typename Vector\+Array , typename Index\+Array $>$ \\
+void Space\+H\+::chain_\+::syn\+Cartesian (\begin{DoxyParamCaption}\item[{const Vector\+Array \&}]{chain_\+Data,  }\item[{Vector\+Array \&}]{data,  }\item[{const Index\+Array \&}]{chain_\+Index }\end{DoxyParamCaption})}
+
+
+
+Calulate the Cartesian data from chain_ data and chain_ index mapping.
+
+
+\begin{DoxyParams}{Parameters}
+{\em chain_\+Data} & Data in chain_ coordinates. \\
+\hline
+{\em data} & Data need to be calculated in Cartesian coordinates. \\
+\hline
+{\em chain_\+Index} & Chain index mapping. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function should be a inverse transformation of \mbox{\hyperlink{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43}{syn\+Chain()}}. 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43}\label{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!syn\+Chain@{syn\+Chain}}
+\index{syn\+Chain@{syn\+Chain}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{syn\+Chain()}{synChain()}}
+{\footnotesize\ttfamily template$<$typename Vector\+Array , typename Index\+Array $>$ \\
+void Space\+H\+::chain_\+::syn\+Chain (\begin{DoxyParamCaption}\item[{const Vector\+Array \&}]{data,  }\item[{Vector\+Array \&}]{chain_\+Data,  }\item[{const Index\+Array \&}]{chain_\+Index }\end{DoxyParamCaption})}
+
+
+
+Calulate the chain_ data from Cartesian data and chain_ index mapping.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Data in Cartesian coordinates. \\
+\hline
+{\em chain_\+Data} & Data need to be calculated in chain_ coordinates. \\
+\hline
+{\em chain_\+Index} & Chain index mapping. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function should be a inverse transformation of \mbox{\hyperlink{namespace_space_h_1_1chain_a1ba7809b40a52959d0566753b1c2eaee}{syn\+Cartesian()}}. 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a218de9c738267dd3efceebfda0a90a43_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_space_h_1_1chain_a631ad6a37f246a0db64e5879825a6878}\label{namespace_space_h_1_1chain_a631ad6a37f246a0db64e5879825a6878}} 
+\index{Space\+H\+::chain_@{Space\+H\+::chain_}!update\+Chain@{update\+Chain}}
+\index{update\+Chain@{update\+Chain}!Space\+H\+::chain_@{Space\+H\+::chain_}}
+\subsubsection{\texorpdfstring{update\+Chain()}{updateChain()}}
+{\footnotesize\ttfamily template$<$typename Vector\+Array , typename Index\+Array $>$ \\
+void Space\+H\+::chain_\+::update\+Chain (\begin{DoxyParamCaption}\item[{Vector\+Array \&}]{pos,  }\item[{Index\+Array \&}]{chain_\+Index,  }\item[{Index\+Array \&}]{new\+Index }\end{DoxyParamCaption})}
+
+
+
+Update the position chain_.
+
+Update the position chain_. Due to the evolution, the chain_ index mapping could change with time, this function is used to update the position chain_ with old chain_ data.
+\begin{DoxyParams}{Parameters}
+{\em pos} & The old chain_ position array needs update. \\
+\hline
+{\em chain_\+Index} & The old chain_ index mapping. \\
+\hline
+{\em new\+Index} & The new chain_ index mapping. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_space_h_1_1chain_a631ad6a37f246a0db64e5879825a6878_icgraph}
+\end{center}
+\end{figure}

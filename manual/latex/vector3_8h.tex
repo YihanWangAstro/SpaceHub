@@ -1,0 +1,54 @@
+\hypertarget{vector3_8h}{}\section{vector/vector3.h File Reference}
+\label{vector3_8h}\index{vector/vector3.\+h@{vector/vector3.\+h}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}vector3d.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector3pd.\+h\char`\"{}}\newline
+Include dependency graph for vector3.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{vector3_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector3_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1vec3}{Space\+H\+::vec3$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Self 3D vector class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_space_h_a0c8b216d20ae8dce524bf2a14974a9e0}{Space\+H\+::vec3ld}} = vec3$<$ long double $>$
+\item 
+using \mbox{\hyperlink{namespace_space_h_a40a777c164ba1950a91c16ceb2f6b49b}{Space\+H\+::vec3d}} = vec3$<$ double $>$
+\item 
+using \mbox{\hyperlink{namespace_space_h_adeaed06a5c38dda2c6abb109b613b55c}{Space\+H\+::vec3f}} = vec3$<$ float $>$
+\item 
+using \mbox{\hyperlink{namespace_space_h_a696554c861c967a8a06e500ab6582fab}{Space\+H\+::vec3i}} = vec3$<$ int $>$
+\item 
+using \mbox{\hyperlink{namespace_space_h_a71ddf63ddf9cb9eacec4736fcc26069e}{Space\+H\+::vec3c}} = vec3$<$ char $>$
+\item 
+using \mbox{\hyperlink{namespace_space_h_a44ff82d7f587f8dfd3c71a7e0f7059b1}{Space\+H\+::vec3b}} = vec3$<$ bool $>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespace_space_h_a889a97546c28125c77c00557ab96b496}{Space\+H\+::distance}} (const vec3$<$ T $>$ \&v1, const vec3$<$ T $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Calculate the Euclid distance of two vectors. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespace_space_h_a8a469adb735b3a1d5c15b4a97278ad51}{Space\+H\+::dot}} (const vec3$<$ T $>$ \&v1, const vec3$<$ T $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Calculate the inner product of two vectors. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\vec3$<$ T $>$ \mbox{\hyperlink{namespace_space_h_a727e2b0f9ab708eae35574e22b3ef329}{Space\+H\+::cross}} (const vec3$<$ T $>$ \&v1, const vec3$<$ T $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Calculate the cross product of two vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,33 @@
+<map id="spaceHub.h" name="spaceHub.h">
+<area shape="rect" id="node2" href="$solver_8h.html" title="solver.h" alt="" coords="1305,85,1373,111"/>
+<area shape="rect" id="node7" href="$macros_8h.html" title="macros.h" alt="" coords="1077,172,1153,197"/>
+<area shape="rect" id="node8" href="$particles_8h.html" title="particles.h" alt="" coords="542,172,624,197"/>
+<area shape="rect" id="node19" href="$kahan_number_8h.html" title="kahanNumber.h" alt="" coords="5,259,121,284"/>
+<area shape="rect" id="node20" href="$timer_8h.html" title="tools/timer.h" alt="" coords="1738,85,1831,111"/>
+<area shape="rect" id="node24" href="$particle_system_8h.html" title="particleSystem.h" alt="" coords="1530,259,1650,284"/>
+<area shape="rect" id="node27" href="$regularization_8h.html" title="particleSystem/reguSystem\l/regularization.h" alt="" coords="63,165,247,204"/>
+<area shape="rect" id="node28" href="$regu_system_8h.html" title="particleSystem/reguSystem\l/reguSystem.h" alt="" coords="1498,165,1682,204"/>
+<area shape="rect" id="node29" href="$regular_particles_8h.html" title="particleSystem/reguSystem\l/regularParticles.h" alt="" coords="313,79,496,117"/>
+<area shape="rect" id="node30" href="$_a_rchain_system_8h.html" title="particleSystem/ARChain\l/ARchainSystem.h" alt="" coords="1497,79,1663,117"/>
+<area shape="rect" id="node31" href="$chain_8h.html" title="particleSystem/ARChain\l/chain_.h" alt="" coords="665,165,831,204"/>
+<area shape="rect" id="node33" href="$chain_particles_8h.html" title="particleSystem/ARChain\l/chainParticles.h" alt="" coords="571,79,737,117"/>
+<area shape="rect" id="node34" href="$symplectic2th_8h.html" title="integrator/symplectic\l/symplectic2th.h" alt="" coords="1362,252,1506,291"/>
+<area shape="rect" id="node35" href="$symplectic4th_8h.html" title="integrator/symplectic\l/symplectic4th.h" alt="" coords="1855,79,1999,117"/>
+<area shape="rect" id="node36" href="$symplectic6th_8h.html" title="integrator/symplectic\l/symplectic6th.h" alt="" coords="2023,79,2167,117"/>
+<area shape="rect" id="node37" href="$symplectic8th_8h.html" title="integrator/symplectic\l/symplectic8th.h" alt="" coords="2191,79,2335,117"/>
+<area shape="rect" id="node38" href="$symplectic10th_8h.html" title="integrator/symplectic\l/symplectic10th.h" alt="" coords="2359,79,2503,117"/>
+<area shape="rect" id="node39" href="$_gauss-_dadau_8h.html" title="integrator/Gauss&#45;Dadau.h" alt="" coords="442,259,617,284"/>
+<area shape="rect" id="node40" href="$_b_s_iterator_8h.html" title="ODEiterator/BSIterator.h" alt="" coords="271,172,437,197"/>
+<area shape="rect" id="node41" href="$const_iterator_8h.html" title="ODEiterator/constIterator.h" alt="" coords="2526,85,2706,111"/>
+<area shape="rect" id="node42" href="$_i_a_s15_8h.html" title="ODEiterator/IAS15.h" alt="" coords="2730,85,2873,111"/>
+<area shape="rect" id="node43" href="$interaction_8h.html" title="interaction/interaction.h" alt="" coords="862,85,1021,111"/>
+<area shape="rect" id="node44" href="$force_8h.html" title="force.h" alt="" coords="855,172,917,197"/>
+<area shape="rect" id="node45" href="$post_newtonian_8h.html" title="interaction/postNewtonian.h" alt="" coords="1045,85,1231,111"/>
+<area shape="rect" id="node3" href="$dev_tools_8h.html" title="devTools.h" alt="" coords="613,412,698,437"/>
+<area shape="rect" id="node9" href="$proto_type_8h.html" title="protoType.h" alt="" coords="904,259,996,284"/>
+<area shape="rect" id="node16" href="$core_computation_8h.html" title="coreComputation.h" alt="" coords="183,259,317,284"/>
+<area shape="rect" id="node10" href="$vector3_8h.html" title="vector/vector3.h" alt="" coords="1280,339,1396,364"/>
+<area shape="rect" id="node12" href="$vector3d_8h.html" title="vector3d.h" alt="" coords="1296,412,1380,437"/>
+<area shape="rect" id="node13" href="$vector3pd_8h.html" title="vector3pd.h" alt="" coords="1403,412,1494,437"/>
+<area shape="rect" id="node17" href="$own_math_8h.html" title="ownMath.h" alt="" coords="244,339,330,364"/>
+</map>

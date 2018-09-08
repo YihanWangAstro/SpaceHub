@@ -1,0 +1,248 @@
+\hypertarget{class_space_h_1_1_b_s_iterator}{}\section{SpaceH\+:\+:B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$ Class Template Reference}
+\label{class_space_h_1_1_b_s_iterator}\index{Space\+H\+::\+B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$@{Space\+H\+::\+B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}}
+
+
+Bulirsch-\/\+Stoer extrapolation algorithm.  
+
+
+
+
+{\ttfamily \#include $<$B\+S\+Iterator.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}{type}} = typename Partic\+Sys\+::type
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} = typename type\+::\+Scalar
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}{Scalar\+Buffer}} = typename type\+::\+Scalar\+Buffer
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t S$>$ }\\using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}} = typename type\+::template \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}}$<$ T, S $>$
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}{type}} = typename Partic\+Sys\+::type
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} = typename type\+::\+Scalar
+\item 
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}{Scalar\+Buffer}} = typename type\+::\+Scalar\+Buffer
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t S$>$ }\\using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}} = typename type\+::template \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}}$<$ T, S $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_aef64ddf4540fa44e7c408e0ed7caabb2}{B\+S\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for initializing work\+\_\+, n\+Steps, fmin and CC. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a5ddc9dbcdecb554d58952c3b002e6b5e}{iterate}} (Partic\+Sys \&particles, \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} step\+Length)
+\begin{DoxyCompactList}\small\item\em Interface of O\+DE iterator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a8ac161c12bba12277bb9c881b692f60a}{set\+Relative\+Error}} (\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} rel\+Error)
+\begin{DoxyCompactList}\small\item\em Set the local relative error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a86345cb32e6cb2da0437a3697866501f}{get\+Rej\+Rate}} ()
+\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_aef64ddf4540fa44e7c408e0ed7caabb2}{B\+S\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for initializing cost, n\+Steps, fmin and CC. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_afd196cc621849edd195622dfb5f83719}{iterate}} (Partic\+Sys \&particles, \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} step\+Length)
+\begin{DoxyCompactList}\small\item\em Interface of O\+DE iterator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a8ac161c12bba12277bb9c881b692f60a}{set\+Relative\+Error}} (\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} rel\+Error)
+\begin{DoxyCompactList}\small\item\em Set the local relative error. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a632afee18728553ba785f7b9468833e7}{set\+Absolute\+Error}} (\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} abs\+Error)
+\begin{DoxyCompactList}\small\item\em Set the local absolute error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a86345cb32e6cb2da0437a3697866501f}{get\+Rej\+Rate}} ()
+\item 
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_aac17462f691d6e8c1adee5d14f066e75}{get\+Efficiency}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys, typename Integrator$>$\newline
+class Space\+H\+::\+B\+S\+Iterator$<$ Partic\+Sys, Integrator $>$}
+
+Bulirsch-\/\+Stoer extrapolation algorithm. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}\label{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!Container@{Container}}
+\index{Container@{Container}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Container}{Container}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+template$<$typename T , size\+\_\+t S$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}} =  typename type\+::template \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}}$<$T, S$>$}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}\label{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!Container@{Container}}
+\index{Container@{Container}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Container}{Container}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+template$<$typename T , size\+\_\+t S$>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}} =  typename type\+::template \mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a6f704f5db07202710306e6e334c99e2f}{Container}}$<$T, S$>$}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}\label{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}\label{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} =  typename type\+::\+Scalar}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}\label{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!Scalar\+Buffer@{Scalar\+Buffer}}
+\index{Scalar\+Buffer@{Scalar\+Buffer}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Scalar\+Buffer}{ScalarBuffer}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}{Scalar\+Buffer}} =  typename type\+::\+Scalar\+Buffer}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}\label{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!Scalar\+Buffer@{Scalar\+Buffer}}
+\index{Scalar\+Buffer@{Scalar\+Buffer}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{Scalar\+Buffer}{ScalarBuffer}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a3c3609d40e0ac4268760adeb1f0514de}{Scalar\+Buffer}} =  typename type\+::\+Scalar\+Buffer}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}\label{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!type@{type}}
+\index{type@{type}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{type}{type}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}{type}} =  typename Partic\+Sys\+::type}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}\label{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!type@{type}}
+\index{type@{type}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{type}{type}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+using \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a659e97efd0fe41f3993663d0ec9b75e7}{type}} =  typename Partic\+Sys\+::type}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_aef64ddf4540fa44e7c408e0ed7caabb2}\label{class_space_h_1_1_b_s_iterator_aef64ddf4540fa44e7c408e0ed7caabb2}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!B\+S\+Iterator@{B\+S\+Iterator}}
+\index{B\+S\+Iterator@{B\+S\+Iterator}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{B\+S\+Iterator()}{BSIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{B\+S\+Iterator}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for initializing work\+\_\+, n\+Steps, fmin and CC. 
+
+Constructor for initializing cost, n\+Steps, fmin and CC. \mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_aef64ddf4540fa44e7c408e0ed7caabb2}\label{class_space_h_1_1_b_s_iterator_aef64ddf4540fa44e7c408e0ed7caabb2}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!B\+S\+Iterator@{B\+S\+Iterator}}
+\index{B\+S\+Iterator@{B\+S\+Iterator}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{B\+S\+Iterator()}{BSIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::\mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{B\+S\+Iterator}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for initializing cost, n\+Steps, fmin and CC. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_aac17462f691d6e8c1adee5d14f066e75}\label{class_space_h_1_1_b_s_iterator_aac17462f691d6e8c1adee5d14f066e75}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!get\+Efficiency@{get\+Efficiency}}
+\index{get\+Efficiency@{get\+Efficiency}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{get\+Efficiency()}{getEfficiency()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::get\+Efficiency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a86345cb32e6cb2da0437a3697866501f}\label{class_space_h_1_1_b_s_iterator_a86345cb32e6cb2da0437a3697866501f}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!get\+Rej\+Rate@{get\+Rej\+Rate}}
+\index{get\+Rej\+Rate@{get\+Rej\+Rate}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{get\+Rej\+Rate()}{getRejRate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::get\+Rej\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a86345cb32e6cb2da0437a3697866501f}\label{class_space_h_1_1_b_s_iterator_a86345cb32e6cb2da0437a3697866501f}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!get\+Rej\+Rate@{get\+Rej\+Rate}}
+\index{get\+Rej\+Rate@{get\+Rej\+Rate}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{get\+Rej\+Rate()}{getRejRate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::get\+Rej\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_afd196cc621849edd195622dfb5f83719}\label{class_space_h_1_1_b_s_iterator_afd196cc621849edd195622dfb5f83719}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!iterate@{iterate}}
+\index{iterate@{iterate}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{iterate()}{iterate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})}
+
+
+
+Interface of O\+DE iterator. 
+
+\begin{DoxyNote}{Note}
+B\+Siterator will force use the internal mid-\/point integrator as the basic integrator. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a5ddc9dbcdecb554d58952c3b002e6b5e}\label{class_space_h_1_1_b_s_iterator_a5ddc9dbcdecb554d58952c3b002e6b5e}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!iterate@{iterate}}
+\index{iterate@{iterate}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{iterate()}{iterate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+\mbox{\hyperlink{test_orbit_8cpp_a8c2981f3f834be9448a6ab06c28748eb}{Partic\+Sys\+::type\+::\+Scalar}} \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}}}]{step\+Length }\end{DoxyParamCaption})}
+
+
+
+Interface of O\+DE iterator. 
+
+\begin{DoxyNote}{Note}
+B\+Siterator will force use the internal mid-\/point integrator as the basic integrator.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & \mbox{\hyperlink{struct_space_h_1_1_particle}{Particle}} system need iteration. \\
+\hline
+{\em integrator} & Basica integrator used to evolve, but here BS iterator will force use internal mid-\/point integrator. \\
+\hline
+{\em step\+Length} & Macro integration step length. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The next macro integration step length. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a632afee18728553ba785f7b9468833e7}\label{class_space_h_1_1_b_s_iterator_a632afee18728553ba785f7b9468833e7}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!set\+Absolute\+Error@{set\+Absolute\+Error}}
+\index{set\+Absolute\+Error@{set\+Absolute\+Error}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{set\+Absolute\+Error()}{setAbsoluteError()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Absolute\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}}}]{abs\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the local absolute error. 
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a8ac161c12bba12277bb9c881b692f60a}\label{class_space_h_1_1_b_s_iterator_a8ac161c12bba12277bb9c881b692f60a}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!set\+Relative\+Error@{set\+Relative\+Error}}
+\index{set\+Relative\+Error@{set\+Relative\+Error}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{set\+Relative\+Error()}{setRelativeError()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Relative\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}}}]{rel\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the local relative error. 
+
+\mbox{\Hypertarget{class_space_h_1_1_b_s_iterator_a8ac161c12bba12277bb9c881b692f60a}\label{class_space_h_1_1_b_s_iterator_a8ac161c12bba12277bb9c881b692f60a}} 
+\index{Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}!set\+Relative\+Error@{set\+Relative\+Error}}
+\index{set\+Relative\+Error@{set\+Relative\+Error}!Space\+H\+::\+B\+S\+Iterator@{Space\+H\+::\+B\+S\+Iterator}}
+\subsubsection{\texorpdfstring{set\+Relative\+Error()}{setRelativeError()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+void \mbox{\hyperlink{class_space_h_1_1_b_s_iterator}{Space\+H\+::\+B\+S\+Iterator}}$<$ Partic\+Sys, Integrator $>$\+::set\+Relative\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_space_h_1_1_b_s_iterator_a89993409583b3022709bdfd84ea8149d}{Scalar}}}]{rel\+Error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the local relative error. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+D\+Eiterator/\mbox{\hyperlink{_b_s_iterator_8h}{B\+S\+Iterator.\+h}}\item 
+O\+D\+Eiterator/\mbox{\hyperlink{_b_s_iterator__impl0_8h}{B\+S\+Iterator\+\_\+impl0.\+h}}\end{DoxyCompactItemize}

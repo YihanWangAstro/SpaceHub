@@ -1,0 +1,194 @@
+\hypertarget{class_a_rchain}{}\section{A\+Rchain$<$ Particles, Interaction, Regularitor $>$ Class Template Reference}
+\label{class_a_rchain}\index{A\+Rchain$<$ Particles, Interaction, Regularitor $>$@{A\+Rchain$<$ Particles, Interaction, Regularitor $>$}}
+
+
+Algorithmatic Regularization chain_ System.
+
+
+
+
+{\ttfamily \#include $<$A\+Rchain.\+h$>$}
+
+
+
+Inheritance diagram for A\+Rchain$<$ Particles, Interaction, Regularitor $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_a_rchain__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for A\+Rchain$<$ Particles, Interaction, Regularitor $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_a_rchain__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_a_rchain_a59c554d5529dc8d1558eb263699bfa24}{Base}} = \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction $>$
+\item 
+using \mbox{\hyperlink{class_a_rchain_a048c8855064f452c7d6d061531a084ed}{Scalar}} = typename type\+::\+Scalar
+\item 
+using \mbox{\hyperlink{class_a_rchain_a985f967708536cea258613bcc1147c78}{Vector}} = typename type\+::\+Vector
+\item 
+using \mbox{\hyperlink{class_a_rchain_a94de7c4b88207f08c7b517736385d9f2}{Vector\+Array}} = typename type\+::\+Vector\+Array
+\item 
+using \mbox{\hyperlink{class_a_rchain_a7919ed2c8b419f26da20a3bd43ba5fcd}{type}} = typename \mbox{\hyperlink{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}{Particles\+::type}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_rchain_a2def151c2de7790ebb1696dddac623e3}{kick}} (\mbox{\hyperlink{class_a_rchain_a048c8855064f452c7d6d061531a084ed}{Scalar}} step\+Size)
+\begin{DoxyCompactList}\small\item\em Advance velocity one step with current acceleration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Interaction \mbox{\hyperlink{class_a_rchain_a41e5c73bc46164302db25b5c5d28aedd}{act}}
+\begin{DoxyCompactList}\small\item\em Interaction class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_particles}{Particles}} \mbox{\hyperlink{class_a_rchain_a48cb24fbd9d72503a5e464a02760e814}{partc}}
+\begin{DoxyCompactList}\small\item\em Particle class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Particles, typename Interaction, typename Regularitor$>$\newline
+class A\+Rchain$<$ Particles, Interaction, Regularitor $>$}
+
+Algorithmatic Regularization chain_ System.
+
+See details in \href{https://arxiv.org/abs/0709.3367}{\tt https\+://arxiv.\+org/abs/0709.\+3367} . 
+
+Definition at line 15 of file A\+Rchain.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_a_rchain_a59c554d5529dc8d1558eb263699bfa24}\label{class_a_rchain_a59c554d5529dc8d1558eb263699bfa24}} 
+\index{A\+Rchain@{A\+Rchain}!Base@{Base}}
+\index{Base@{Base}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+using \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a59c554d5529dc8d1558eb263699bfa24}{Base}} =  \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$\mbox{\hyperlink{struct_particles}{Particles}}, Interaction$>$}
+
+
+
+Definition at line 19 of file A\+Rchain.\+h.
+
+\mbox{\Hypertarget{class_a_rchain_a048c8855064f452c7d6d061531a084ed}\label{class_a_rchain_a048c8855064f452c7d6d061531a084ed}} 
+\index{A\+Rchain@{A\+Rchain}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+using \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a048c8855064f452c7d6d061531a084ed}{Scalar}} =  typename type\+::\+Scalar}
+
+
+
+Definition at line 25 of file A\+Rchain.\+h.
+
+\mbox{\Hypertarget{class_a_rchain_a7919ed2c8b419f26da20a3bd43ba5fcd}\label{class_a_rchain_a7919ed2c8b419f26da20a3bd43ba5fcd}} 
+\index{A\+Rchain@{A\+Rchain}!type@{type}}
+\index{type@{type}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+using \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction $>$\+::\mbox{\hyperlink{classparticle_system_a7919ed2c8b419f26da20a3bd43ba5fcd}{type}} =  typename \mbox{\hyperlink{class_vel_indep_particles_a0c62b43c2f0a50565e5e06587fddee18}{Particles\+::type}}}
+
+
+
+Definition at line 25 of file particle\+System.\+h.
+
+\mbox{\Hypertarget{class_a_rchain_a985f967708536cea258613bcc1147c78}\label{class_a_rchain_a985f967708536cea258613bcc1147c78}} 
+\index{A\+Rchain@{A\+Rchain}!Vector@{Vector}}
+\index{Vector@{Vector}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+using \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a985f967708536cea258613bcc1147c78}{Vector}} =  typename type\+::\+Vector}
+
+
+
+Definition at line 27 of file A\+Rchain.\+h.
+
+\mbox{\Hypertarget{class_a_rchain_a94de7c4b88207f08c7b517736385d9f2}\label{class_a_rchain_a94de7c4b88207f08c7b517736385d9f2}} 
+\index{A\+Rchain@{A\+Rchain}!Vector\+Array@{Vector\+Array}}
+\index{Vector\+Array@{Vector\+Array}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{Vector\+Array}{VectorArray}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+using \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction, Regularitor $>$\+::\mbox{\hyperlink{class_a_rchain_a94de7c4b88207f08c7b517736385d9f2}{Vector\+Array}} =  typename type\+::\+Vector\+Array}
+
+
+
+Definition at line 29 of file A\+Rchain.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_rchain_a2def151c2de7790ebb1696dddac623e3}\label{class_a_rchain_a2def151c2de7790ebb1696dddac623e3}} 
+\index{A\+Rchain@{A\+Rchain}!kick@{kick}}
+\index{kick@{kick}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{kick()}{kick()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+void \mbox{\hyperlink{class_a_rchain}{A\+Rchain}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction, Regularitor $>$\+::kick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_rchain_a048c8855064f452c7d6d061531a084ed}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance velocity one step with current acceleration. 
+
+Advance velocity array one step with current integration step size and accelerations. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & Integration step size, will be transfered to physical time in the function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file A\+Rchain.\+h.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_a_rchain_a2def151c2de7790ebb1696dddac623e3_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_a_rchain_a41e5c73bc46164302db25b5c5d28aedd}\label{class_a_rchain_a41e5c73bc46164302db25b5c5d28aedd}} 
+\index{A\+Rchain@{A\+Rchain}!act@{act}}
+\index{act@{act}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{act}{act}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+Interaction \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction $>$\+::act}
+
+
+
+Interaction class. 
+
+
+
+Definition at line 156 of file particle\+System.\+h.
+
+\mbox{\Hypertarget{class_a_rchain_a48cb24fbd9d72503a5e464a02760e814}\label{class_a_rchain_a48cb24fbd9d72503a5e464a02760e814}} 
+\index{A\+Rchain@{A\+Rchain}!partc@{partc}}
+\index{partc@{partc}!A\+Rchain@{A\+Rchain}}
+\subsubsection{\texorpdfstring{partc}{partc}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interaction , typename Regularitor $>$ \\
+\mbox{\hyperlink{struct_particles}{Particles}} \mbox{\hyperlink{classparticle_system}{particle\+System}}$<$ \mbox{\hyperlink{struct_particles}{Particles}}, Interaction $>$\+::partc}
+
+
+
+Particle class. 
+
+
+
+Definition at line 153 of file particle\+System.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle\+System/\+A\+R\+Chain/\mbox{\hyperlink{_a_rchain_8h}{A\+Rchain.\+h}}\end{DoxyCompactItemize}

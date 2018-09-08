@@ -1,0 +1,213 @@
+\hypertarget{classdynamics}{}\subsection{dynamics$<$ Data\+Type, N $>$ Class Template Reference}
+\label{classdynamics}\index{dynamics$<$ Data\+Type, N $>$@{dynamics$<$ Data\+Type, N $>$}}
+
+
+Class of dynamical variable.  
+
+
+
+
+{\ttfamily \#include $<$dynamic\+State.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Data\+Type \mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}
+\item 
+typedef \mbox{\hyperlink{structvec3}{vec3}}$<$ \mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}} $>$ \mbox{\hyperlink{classdynamics_a9ba7c016128ac3a2eb51f7bcfbf90243}{Vector}}
+\item 
+typedef std\+::array$<$ \mbox{\hyperlink{structvec3}{vec3}}$<$ \mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}} $>$, N $>$ \mbox{\hyperlink{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}{Vector\+Array}}
+\item 
+typedef std\+::array$<$ \mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}, N $>$ \mbox{\hyperlink{classdynamics_ac31f831ea1577092662dafd2daba0f48}{Scalar\+Array}}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ \mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}, \mbox{\hyperlink{classdynamics_ada4a2418d86de3072e1a238a95e6bdb2}{volume}}()$>$ \& \mbox{\hyperlink{classdynamics_add2d27f86c6f415999e9e7dd05cc8025}{array}} ()
+\begin{DoxyCompactList}\small\item\em Transfer this class to a plain array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdynamics_a4f6f246917f12269d3bd4a428bd40752}{init\+Addi\+Variable}} (\mbox{\hyperlink{classdynamics_ac31f831ea1577092662dafd2daba0f48}{Scalar\+Array}} \&mass)
+\begin{DoxyCompactList}\small\item\em Initialize extra user defined variables. Interface required for other class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdynamics_a4dc0dd48fd48ef5cfc0128faaeb22b32}{set\+Zero}} ()
+\begin{DoxyCompactList}\small\item\em Set all data to be zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdynamics_a414656e44a6981327ae59af4deea9b8c}{size}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of the particles. \end{DoxyCompactList}\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classdynamics_ada4a2418d86de3072e1a238a95e6bdb2}{volume}} ()
+\begin{DoxyCompactList}\small\item\em Get the total data number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}{Vector\+Array}} \mbox{\hyperlink{classdynamics_a79f983dcbf7107058280f798ab419b69}{pos}}
+\begin{DoxyCompactList}\small\item\em Array of position of the particles. Element is 3D vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}{Vector\+Array}} \mbox{\hyperlink{classdynamics_a211067eb96b01c17d2fc73d1fc65d595}{vel}}
+\begin{DoxyCompactList}\small\item\em Array of velocity of the particles. Element is 3D vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}} \mbox{\hyperlink{classdynamics_a95cb1723922c4224bf5d1118eed46c0c}{time}} \{0.\+0\}
+\begin{DoxyCompactList}\small\item\em The physical time of the dynamic system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$typename Data\+Type, size\+\_\+t N$>$\newline
+class dynamics$<$ Data\+Type, N $>$}
+
+Class of dynamical variable. 
+
+All variables in this class are physical quantities need to be evolved. If you want to create you own dynamic state, make sure remove constant quantities away from the class. The interface \mbox{\hyperlink{classdynamics_add2d27f86c6f415999e9e7dd05cc8025}{array()}} can be used to operate the data in the class as a plain array(for evolution). Extra constant physical quantities waste the calculation. 
+
+\subsubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classdynamics_a444c7534e86115117798563cb0e43cde}\label{classdynamics_a444c7534e86115117798563cb0e43cde}} 
+\index{dynamics@{dynamics}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+typedef Data\+Type \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}}
+
+\mbox{\Hypertarget{classdynamics_ac31f831ea1577092662dafd2daba0f48}\label{classdynamics_ac31f831ea1577092662dafd2daba0f48}} 
+\index{dynamics@{dynamics}!Scalar\+Array@{Scalar\+Array}}
+\index{Scalar\+Array@{Scalar\+Array}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{Scalar\+Array}{ScalarArray}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+typedef std\+::array$<$\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}, N$>$ \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classdynamics_ac31f831ea1577092662dafd2daba0f48}{Scalar\+Array}}}
+
+\mbox{\Hypertarget{classdynamics_a9ba7c016128ac3a2eb51f7bcfbf90243}\label{classdynamics_a9ba7c016128ac3a2eb51f7bcfbf90243}} 
+\index{dynamics@{dynamics}!Vector@{Vector}}
+\index{Vector@{Vector}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+typedef \mbox{\hyperlink{structvec3}{vec3}}$<$\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}$>$ \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classdynamics_a9ba7c016128ac3a2eb51f7bcfbf90243}{Vector}}}
+
+\mbox{\Hypertarget{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}\label{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}} 
+\index{dynamics@{dynamics}!Vector\+Array@{Vector\+Array}}
+\index{Vector\+Array@{Vector\+Array}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{Vector\+Array}{VectorArray}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+typedef std\+::array$<$\mbox{\hyperlink{structvec3}{vec3}}$<$\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}$>$, N$>$ \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::\mbox{\hyperlink{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}{Vector\+Array}}}
+
+
+
+\subsubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamics_add2d27f86c6f415999e9e7dd05cc8025}\label{classdynamics_add2d27f86c6f415999e9e7dd05cc8025}} 
+\index{dynamics@{dynamics}!array@{array}}
+\index{array@{array}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{array()}{array()}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+std\+::array$<$\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}}, \mbox{\hyperlink{classdynamics_ada4a2418d86de3072e1a238a95e6bdb2}{volume}}()$>$\& \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Transfer this class to a plain array. 
+
+\begin{DoxyReturn}{Returns}
+The reference of head of this class, reinterpret as a plain array. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdynamics_a4f6f246917f12269d3bd4a428bd40752}\label{classdynamics_a4f6f246917f12269d3bd4a428bd40752}} 
+\index{dynamics@{dynamics}!init\+Addi\+Variable@{init\+Addi\+Variable}}
+\index{init\+Addi\+Variable@{init\+Addi\+Variable}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{init\+Addi\+Variable()}{initAddiVariable()}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::init\+Addi\+Variable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdynamics_ac31f831ea1577092662dafd2daba0f48}{Scalar\+Array}} \&}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize extra user defined variables. Interface required for other class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mass} & The mass of particles, might be required for initialization. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classdynamics_a4dc0dd48fd48ef5cfc0128faaeb22b32}\label{classdynamics_a4dc0dd48fd48ef5cfc0128faaeb22b32}} 
+\index{dynamics@{dynamics}!set\+Zero@{set\+Zero}}
+\index{set\+Zero@{set\+Zero}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{set\+Zero()}{setZero()}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+void \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::set\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set all data to be zero. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classdynamics_a4dc0dd48fd48ef5cfc0128faaeb22b32_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classdynamics_a414656e44a6981327ae59af4deea9b8c}\label{classdynamics_a414656e44a6981327ae59af4deea9b8c}} 
+\index{dynamics@{dynamics}!size@{size}}
+\index{size@{size}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the number of the particles. 
+
+\begin{DoxyReturn}{Returns}
+The particle number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classdynamics_ada4a2418d86de3072e1a238a95e6bdb2}\label{classdynamics_ada4a2418d86de3072e1a238a95e6bdb2}} 
+\index{dynamics@{dynamics}!volume@{volume}}
+\index{volume@{volume}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{volume()}{volume()}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the total data number. 
+
+\begin{DoxyReturn}{Returns}
+The data number. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classdynamics_ada4a2418d86de3072e1a238a95e6bdb2_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsubsection{Member Data Documentation}
+\mbox{\Hypertarget{classdynamics_a79f983dcbf7107058280f798ab419b69}\label{classdynamics_a79f983dcbf7107058280f798ab419b69}} 
+\index{dynamics@{dynamics}!pos@{pos}}
+\index{pos@{pos}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}{Vector\+Array}} \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::pos}
+
+
+
+Array of position of the particles. Element is 3D vector. 
+
+\mbox{\Hypertarget{classdynamics_a95cb1723922c4224bf5d1118eed46c0c}\label{classdynamics_a95cb1723922c4224bf5d1118eed46c0c}} 
+\index{dynamics@{dynamics}!time@{time}}
+\index{time@{time}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classdynamics_a444c7534e86115117798563cb0e43cde}{Scalar}} \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::time \{0.\+0\}}
+
+
+
+The physical time of the dynamic system. 
+
+\mbox{\Hypertarget{classdynamics_a211067eb96b01c17d2fc73d1fc65d595}\label{classdynamics_a211067eb96b01c17d2fc73d1fc65d595}} 
+\index{dynamics@{dynamics}!vel@{vel}}
+\index{vel@{vel}!dynamics@{dynamics}}
+\paragraph{\texorpdfstring{vel}{vel}}
+{\footnotesize\ttfamily template$<$typename Data\+Type , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classdynamics_a41e25703d6668a66d96a1db3dc5df03b}{Vector\+Array}} \mbox{\hyperlink{classdynamics}{dynamics}}$<$ Data\+Type, N $>$\+::vel}
+
+
+
+Array of velocity of the particles. Element is 3D vector. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dynamic_state_8h}{dynamic\+State.\+h}}\end{DoxyCompactItemize}

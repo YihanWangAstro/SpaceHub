@@ -1,0 +1,271 @@
+
+#ifndef GENPARTICLESYSTEM_H
+#define GENPARTICLESYSTEM_H
+
+#include "coreComputation.h"
+#include "devTools.h"
+#include "macros.h"
+#include "protoType.h"
+
+namespace SpaceH {
+/**  @brief Base class of particle System.
+ *
+ *   Base particles system class. Other particle system can inherit this class. Considering the performance, we don't
+ *   set virtual function, derived class may hide the base class function name. Therefore, be careful about downcast.
+ *   Further test will be performed to virtualize non-hot functions.
+ */
+    template<typename Particles, typename Interaction>
+    class ParticleSystem {
+    public:
+        /* Typedef */
+        using type         = typename Particles::type;
+        using Scalar       = typename type::Scalar;
+        using Vector       = typename type::Vector;
+        using VectorArray  = typename type::VectorArray;
+        using ScalarArray  = typename type::ScalarArray;
+        using IntArray     = typename type::IntArray;
+        using ScalarBuffer = typename type::ScalarBuffer;
+        using State        = typename Particles::State;
+        using ParticleType = Particles;
+        /* Typedef */
+
+        /*Template parameter check*/
+        CHECK_TYPE(Particles, Interaction);
+        /*Template parameter check*/
+
+        constexpr static bool isVelDep{Interaction::isVelDep};
+        constexpr static size_t arraySize{type::arraySize};
+
+        /** @brief Get the number of the particles.
+         *  @return The particle number.
+         */
+        inline size_t particleNumber() const {
+            return partc.particleNumber();
+        }
+
+        /** @brief Resize all containers if they are dynamical
+         *  @param New size of container.
+         */
+        void resize(size_t new_siz) {
+            partc.resize(new_siz);
+            act.resize(new_siz);
+        }
+
+        /** @brief Reserve space for all containers if they are dynamical
+         *  @param New capacity of container.
+         */
+        void reserve(size_t new_cap) {
+            partc.reserve(new_cap);
+            act.reserve(new_cap);
+        }
+
+        /** @brief interface adapter to inherit the interface of the data member
+         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create two interfaces, they are:
+         *
+         *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
+         *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
+         *  See macros definition in 'devTools.h'
+         */
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(pos,    VectorArray, partc, pos   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IntArray,    partc, idn   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(time,  Scalar,      partc, time  );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
+
+        /** @brief Interface to rescale the time.
+         *
+         *  Interace used by dynamic system. Transfer integration time(For some system, integration time is different from
+         *  physical time) to physical time.
+         *  @return The phsyical time.
+         */
+        Scalar timeScale() {
+            if (isAllZero(partc.vel()))
+                return SpaceH::minfallFreeTime(partc.mass(), partc.pos());
+            else
+                return SpaceH::minAccdot(partc.mass(), partc.pos(), partc.vel());
+        }
+
+        /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
+        void drift(Scalar stepSize) {
+            partc.advancePos(stepSize);
+            partc.advanceTime(stepSize);
+        }
+
+        /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
+        void kick(Scalar stepSize) {
+            act.zeroTotalAcc();
+
+            act.calcuVelIndepAcc(partc);
+
+            /*after long time struggling, decide to use 'constexpr if' in c++17 to improve readability. The price is low
+            version compiler will treat this as normal 'if' such that unrelavent brach will be checked at runtime.
+            Although, branch prediction somewhat alleviate this overhead, I would suspect the instructions of
+            unrelevant branch that generated at compile time may affect the efficency of CPU pipline.*/
+            if constexpr (!Interaction::isVelDep){
+                act.sumTotalAcc();
+                partc.advenceVel(act.acc(), stepSize);
+            }else {
+                State v0 = partc.vel_state();
+                act.calcuVelDepAcc(partc);
+                act.sumTotalAcc();
+                partc.advenceVel(act.acc(), 0.5*stepSize);
+                iterateVeltoConvergent(v0, 0.5*stepSize);
+                partc.advenceVel(act.acc(), 0.5*stepSize);
+            }
+        }
+
+        inline void advanceTime(Scalar dt) {
+            partc.advenceTime(dt);
+        }
+
+        /** @brief Advance the position array with internal velocity array.
+         *  @param stepSize The advance step size.
+         */
+        inline void advancePos(Scalar stepSize) {
+            partc.advancePos(stepSize);
+        }
+
+        /** @brief Advance the position array with given velocity array.
+         *  @param vel The given velocity array.
+         *  @param stepSize The advance step size.
+         */
+        inline void advancePos(const VectorArray &vel, Scalar stepSize) {
+            partc.advancePos(vel,stepSize);
+        }
+
+        /** @brief Advance the  velocity array with given acceleration array.
+         *  @param stepSize The advance step size.
+         *  @param acc      The acceleration array.
+         */
+        inline void advanceVel(const VectorArray &acc, Scalar stepSize) {
+            partc.advanceVel(acc,stepSize);
+        }
+
+        /** @brief Evaluate acceleration with current velocity and position without any advance
+         *  @return The acceleration after evaluation.
+         *  @note Used in non-symplectic method for function evaluation
+         */
+        const VectorArray& evaluateAcc() {
+            act.zeroTotalAcc();
+            act.calcuVelIndepAcc(partc);
+            act.calcuVelDepAcc(partc);
+            act.sumTotalAcc();
+
+            return act.acc();
+        }
+
+        /** @brief Calculate the potential energy of the system*/
+        inline Scalar potentialEnergy() const {
+            return SpaceH::getPotentialEnergy(partc.mass(), partc.pos());
+        }
+
+        /** @brief Calculate the kinetic energy of the system*/
+        inline Scalar kineticEnergy() const {
+            return SpaceH::getKineticEnergy(partc.mass(), partc.vel());
+        }
+
+        /** @brief Calculate the total energy of the system*/
+        inline Scalar totalEnergy() const {
+            return potentialEnergy() + kineticEnergy();
+        }
+
+        /** @brief Preprocess before iteration*/
+        void preIterProcess() {}
+
+        /** @brief After process after iteration*/
+        void afterIterProcess() {
+            partc.update();
+        }
+
+        /** @brief Virtualize default destructor.*/
+        virtual ~ParticleSystem() {}
+
+        /** @brief Overload operator << */
+        friend std::ostream &operator<<(std::ostream &os, const ParticleSystem &sys) {
+            sys.writeHeader(os);
+            sys.partc.write(os, SpaceH::Unit::STD_UNIT);
+            return os;
+        }
+
+        /** @brief Input from istream */
+        friend std::istream &operator>>(std::istream &is, ParticleSystem &sys) {
+            size_t num = sys.readHeader(is);
+
+            if constexpr (ParticleSystem::arraySize == SpaceH::DYNAMICAL) {
+                sys.resize(num);
+            }
+            if (num == sys.particleNumber()) {
+                sys.partc.read(is, SpaceH::Unit::STD_UNIT);
+                sys.total_mass = SpaceH::sumArray(sys.mass());
+                sys.partc.moveToCoM(sys.total_mass);
+            } else {
+                ERR_MSG("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
+            }
+            return is;
+        }
+
+        /** @brief Input variables with plain scalar array.*/
+        size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
+            return partc.read(data, flag);
+        }
+
+        /** @brief Output variables to plain scalar array.*/
+        size_t write(ScalarBuffer &data, const IO_flag flag = IO_flag::STD) const {
+            return partc.write(data, flag);
+        }
+
+    protected:
+        /**  @brief Particle class*/
+        Particles partc;
+
+        /**  @brief Interaction class*/
+        Interaction act;
+
+        /**  @brief total mass of particles*/
+        Scalar total_mass;
+
+    private:
+        void writeHeader(std::ostream &os) const {
+            os << '#' << partc.particleNumber();
+        }
+
+        size_t readHeader(std::istream &is) {
+            char tag;
+            is >> tag;
+
+            if (tag == '#') {
+                size_t particleNum;
+                is  >> particleNum;
+                return particleNum;
+            } else {
+                ERR_MSG("Input file header should begin with '#'.");
+            }
+        }
+
+        bool isConvergent(const VectorArray & v1, const VectorArray & v2) {
+            size_t size = particleNumber();
+            Scalar max_dv = 0;
+            for(size_t i = 0 ; i < size; ++i) {
+                Scalar dv = SpaceH::max(max_dv, ((v1[i] - v2[i])/v2[i]).abs().max_component());
+            }
+            return max_dv < SpaceH::epsilon<Scalar>::value;
+        }
+
+    protected:
+        void iterateVeltoConvergent(const State &v0, Scalar stepSize) {
+            for(size_t  i = 0 ; i < 10; ++i) {
+                State v_new = partc.vel_state();
+                act.calcuVelDepAcc(partc);
+                act.sumTotalAcc();
+                partc.set_vel_state(v0);
+                partc.advenceVel(act.acc(), stepSize);
+                if(isConvergent(v_new.raw(), partc.vel_state().raw()))
+                    return;
+            }
+        }
+    };
+}
+
+#endif

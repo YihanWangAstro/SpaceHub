@@ -1,0 +1,228 @@
+\hypertarget{classdynamic_system}{}\section{dynamic\+System$<$ Partic\+Sys, O\+D\+Eiterator $>$ Class Template Reference}
+\label{classdynamic_system}\index{dynamic\+System$<$ Partic\+Sys, O\+D\+Eiterator $>$@{dynamic\+System$<$ Partic\+Sys, O\+D\+Eiterator $>$}}
+
+
+A wrapper to make particle system, integrator and O\+DE iterator work together.  
+
+
+
+
+{\ttfamily \#include $<$dynamic\+System.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classdynamic_system_a518990ebef8f3f6257e6ef0e49fe013e}{type}} = typename Partic\+Sys\+::type
+\item 
+using \mbox{\hyperlink{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}{Scalar}} = typename type\+::\+Scalar
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdynamic_system_a7a4032c043dd0286007f4d7c542d3f95}{advance\+One\+Step}} ()
+\begin{DoxyCompactList}\small\item\em Advance the particle system for one step. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdynamic_system_a3ff4342241733e94edce17c1a79a90a8}{load\+Text}} (char const $\ast$init\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Load particle system initial condition from file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdynamic_system_a0392d5b36a03692d65616f3b40168948}{set\+Step\+Length}} (\mbox{\hyperlink{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}{Scalar}})
+\begin{DoxyCompactList}\small\item\em Set the step length. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdynamic_system_a239af38fcf35f3fe32d5ae5e183e4cca}{$\sim$dynamic\+System}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor, virtualize for inherent class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}{Scalar}} \mbox{\hyperlink{classdynamic_system_a3f0e5b7ef17b728c723c67aefa9dbada}{step\+Length}} \{0.\+0\}
+\begin{DoxyCompactList}\small\item\em Macro step size for O\+DE iterator. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classdynamic_system_ae9821e179896e6cddbbcc4e706552c57}{steps}} \{0\}
+\begin{DoxyCompactList}\small\item\em Steps. \end{DoxyCompactList}\item 
+Partic\+Sys \mbox{\hyperlink{classdynamic_system_a809657c0ef63741a7e3d6f32bc87bfe3}{particles}}
+\begin{DoxyCompactList}\small\item\em Particle system. \end{DoxyCompactList}\item 
+O\+D\+Eiterator \mbox{\hyperlink{classdynamic_system_a0a13a11664ce5761ab4296b1b0421f99}{iterator}}
+\begin{DoxyCompactList}\small\item\em O\+DE Iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys, typename O\+D\+Eiterator$>$\newline
+class dynamic\+System$<$ Partic\+Sys, O\+D\+Eiterator $>$}
+
+A wrapper to make particle system, integrator and O\+DE iterator work together. 
+
+Definition at line 31 of file dynamic\+System.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}\label{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}} 
+\index{dynamic\+System@{dynamic\+System}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+using \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::\mbox{\hyperlink{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}{Scalar}} =  typename type\+::\+Scalar}
+
+
+
+Definition at line 35 of file dynamic\+System.\+h.
+
+\mbox{\Hypertarget{classdynamic_system_a518990ebef8f3f6257e6ef0e49fe013e}\label{classdynamic_system_a518990ebef8f3f6257e6ef0e49fe013e}} 
+\index{dynamic\+System@{dynamic\+System}!type@{type}}
+\index{type@{type}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+using \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::\mbox{\hyperlink{classdynamic_system_a518990ebef8f3f6257e6ef0e49fe013e}{type}} =  typename Partic\+Sys\+::type}
+
+
+
+Definition at line 34 of file dynamic\+System.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdynamic_system_a239af38fcf35f3fe32d5ae5e183e4cca}\label{classdynamic_system_a239af38fcf35f3fe32d5ae5e183e4cca}} 
+\index{dynamic\+System@{dynamic\+System}!````~dynamic\+System@{$\sim$dynamic\+System}}
+\index{````~dynamic\+System@{$\sim$dynamic\+System}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{$\sim$dynamic\+System()}{~dynamicSystem()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+virtual \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::$\sim$\mbox{\hyperlink{classdynamic_system}{dynamic\+System}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Default destructor, virtualize for inherent class. 
+
+
+
+Definition at line 40 of file dynamic\+System.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdynamic_system_a7a4032c043dd0286007f4d7c542d3f95}\label{classdynamic_system_a7a4032c043dd0286007f4d7c542d3f95}} 
+\index{dynamic\+System@{dynamic\+System}!advance\+One\+Step@{advance\+One\+Step}}
+\index{advance\+One\+Step@{advance\+One\+Step}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{advance\+One\+Step()}{advanceOneStep()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+void \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::advance\+One\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Advance the particle system for one step. 
+
+Advance the particle system with current steplength step\+Length. The O\+DE iterator iterate the integrator to convergence by its own implement. The step length will also be updated by its own implement. 
+
+Definition at line 65 of file dynamic\+System.\+h.
+
+\mbox{\Hypertarget{classdynamic_system_a3ff4342241733e94edce17c1a79a90a8}\label{classdynamic_system_a3ff4342241733e94edce17c1a79a90a8}} 
+\index{dynamic\+System@{dynamic\+System}!load\+Text@{load\+Text}}
+\index{load\+Text@{load\+Text}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{load\+Text()}{loadText()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+void \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::load\+Text (\begin{DoxyParamCaption}\item[{char const $\ast$}]{init\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Load particle system initial condition from file. 
+
+This function will read and check the initial file header (begin with \textquotesingle{}\#\textquotesingle{}) and the particle number after the \textquotesingle{}\#\textquotesingle{}. Pass the rest information to particles by operator \textquotesingle{}$>$$>$\textquotesingle{}. The way to load the initial condition depend on the implemet of the particles. If the initial condition read successfully. This function will call get\+Init\+Step\+Length() to set the initial step length.
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+File\+Path} & The relative path of initial conditions file \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em If} & the partcile number in the header is inconsisitent with the size of particles, this function will throw an exception. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 103 of file dynamic\+System.\+h.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{classdynamic_system_a3ff4342241733e94edce17c1a79a90a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classdynamic_system_a0392d5b36a03692d65616f3b40168948}\label{classdynamic_system_a0392d5b36a03692d65616f3b40168948}} 
+\index{dynamic\+System@{dynamic\+System}!set\+Step\+Length@{set\+Step\+Length}}
+\index{set\+Step\+Length@{set\+Step\+Length}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{set\+Step\+Length()}{setStepLength()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+void \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::set\+Step\+Length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}{Scalar}}}]{step\+Size }\end{DoxyParamCaption})}
+
+
+
+Set the step length. 
+
+
+
+Definition at line 132 of file dynamic\+System.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classdynamic_system_a0a13a11664ce5761ab4296b1b0421f99}\label{classdynamic_system_a0a13a11664ce5761ab4296b1b0421f99}} 
+\index{dynamic\+System@{dynamic\+System}!iterator@{iterator}}
+\index{iterator@{iterator}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+O\+D\+Eiterator \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::iterator}
+
+
+
+O\+DE Iterator. 
+
+
+
+Definition at line 52 of file dynamic\+System.\+h.
+
+\mbox{\Hypertarget{classdynamic_system_a809657c0ef63741a7e3d6f32bc87bfe3}\label{classdynamic_system_a809657c0ef63741a7e3d6f32bc87bfe3}} 
+\index{dynamic\+System@{dynamic\+System}!particles@{particles}}
+\index{particles@{particles}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{particles}{particles}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+Partic\+Sys \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::particles}
+
+
+
+Particle system. 
+
+
+
+Definition at line 49 of file dynamic\+System.\+h.
+
+\mbox{\Hypertarget{classdynamic_system_a3f0e5b7ef17b728c723c67aefa9dbada}\label{classdynamic_system_a3f0e5b7ef17b728c723c67aefa9dbada}} 
+\index{dynamic\+System@{dynamic\+System}!step\+Length@{step\+Length}}
+\index{step\+Length@{step\+Length}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{step\+Length}{stepLength}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+\mbox{\hyperlink{classdynamic_system_a6eb7b06a4ee5721a1ee0855a854c3431}{Scalar}} \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::step\+Length \{0.\+0\}}
+
+
+
+Macro step size for O\+DE iterator. 
+
+
+
+Definition at line 43 of file dynamic\+System.\+h.
+
+\mbox{\Hypertarget{classdynamic_system_ae9821e179896e6cddbbcc4e706552c57}\label{classdynamic_system_ae9821e179896e6cddbbcc4e706552c57}} 
+\index{dynamic\+System@{dynamic\+System}!steps@{steps}}
+\index{steps@{steps}!dynamic\+System@{dynamic\+System}}
+\subsubsection{\texorpdfstring{steps}{steps}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename O\+D\+Eiterator $>$ \\
+int \mbox{\hyperlink{classdynamic_system}{dynamic\+System}}$<$ Partic\+Sys, O\+D\+Eiterator $>$\+::steps \{0\}}
+
+
+
+Steps. 
+
+
+
+Definition at line 46 of file dynamic\+System.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dynamic_system_8h}{dynamic\+System.\+h}}\end{DoxyCompactItemize}
