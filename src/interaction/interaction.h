@@ -2,8 +2,8 @@
 #ifndef INTERACTION_H
 #define INTERACTION_H
 
-#include "src/type_class.h"
-#include "src/dev_tools.h"
+#include "../type_class.h"
+#include "../dev_tools.h"
 
 namespace SpaceH {
 

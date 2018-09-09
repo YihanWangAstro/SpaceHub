@@ -3,9 +3,9 @@
 #define CHAINPARTICLES_H
 
 #include "../macros.h"
-#include "src/type_class.h"
-#include "src/dev_tools.h"
-#include "src/core_computation.h"
+#include "../type_class.h"
+#include "../dev_tools.h"
+#include "../core_computation.h"
 #include "chain.h"
 
 namespace SpaceH {

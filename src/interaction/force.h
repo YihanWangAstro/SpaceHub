@@ -2,7 +2,7 @@
 #ifndef FORCES_H
 #define FORCES_H
 
-#include "src/type_class.h"
+#include "../type_class.h"
 
 namespace SpaceH {
     /**

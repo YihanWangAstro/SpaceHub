@@ -25,7 +25,7 @@
 
 #include "integrator/Gauss-Dadau.h"
 
-#include "ode_iterator/BSIterator.h"
+#include "ode_iterator/BSIterator_impl0.h"
 #include "ode_iterator/const_iterator.h"
 #include "ode_iterator/IAS15.h"
 
