@@ -1,3 +1,3 @@
 # SpaceHub
 
-SpaceHub is a developing software for multi-purposes of N-body simulation. 
+SpaceHub is a developing software for precise few-body and large scale N-body simulations. 
