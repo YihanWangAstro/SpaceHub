@@ -21,7 +21,8 @@ link_directories(./googletest/googlemock/include)
 set(SOURCE_FILES
         #test/regression_test/simple_test.cpp
         test/unit_test/main.cpp
-        test/unit_test/3d_vector.cpp)
+        test/unit_test/3d_vector.cpp
+        test/unit_test/simple_math.cpp)
 
 add_executable(SpaceHub ${SOURCE_FILES})
 target_link_libraries(SpaceHub gtest gtest_main)

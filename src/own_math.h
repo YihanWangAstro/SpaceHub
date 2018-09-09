@@ -1,9 +1,8 @@
 
-#ifndef OWNMATH_H
-#define OWNMATH_H
+#ifndef OWN_MATH_H
+#define OWN_MATH_H
 
 #include "dev_tools.h"
-
 #include <random>
 
 namespace SpaceH {
@@ -141,7 +140,5 @@ namespace SpaceH {
             return low + (high - low)*Dist(gen);
         }
     };
-
-    Random<double> uniform;
 }
 #endif

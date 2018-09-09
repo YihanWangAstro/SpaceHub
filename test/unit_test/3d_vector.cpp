@@ -4,7 +4,6 @@
 #include "own_math.h"
 
 namespace UnitTest {
-
     template<typename T>
     void vector_init() {
         SpaceH::vec3<T> v;
@@ -16,10 +15,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_construct() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for(size_t i = 0 ; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x,y,z);
             EXPECT_EQ(x, v.x);
             EXPECT_EQ(y, v.y);
@@ -27,7 +27,7 @@ namespace UnitTest {
         }
 
         for(size_t i = 0 ; i < N; ++i) {
-            T s = SpaceH::uniform(-high, high);
+            T s = uniform(-high, high);
             SpaceH::vec3<T> v(s);
             EXPECT_EQ(s, v.x);
             EXPECT_EQ(s, v.y);
@@ -35,9 +35,9 @@ namespace UnitTest {
         }
 
         for(size_t i = 0 ; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x,y,z);
             SpaceH::vec3<T> v2(v);
             EXPECT_EQ(x, v2.x);
@@ -49,10 +49,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_negative() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x, y, z);
             SpaceH::vec3<T> nv = -v;
             EXPECT_EQ(-x, nv.x);
@@ -64,10 +65,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_abs() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x, y, z);
             SpaceH::vec3<T> abv = v.abs();
             EXPECT_EQ(fabs(x), abv.x);
@@ -79,10 +81,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_norm() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x, y, z);
             T norm = v.norm();
             ASSERT_EQ(sqrt(x*x + y*y + z*z), norm);
@@ -92,10 +95,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_norm2() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x, y, z);
             T norm2 = v.norm2();
             ASSERT_EQ(x*x + y*y + z*z, norm2);
@@ -105,10 +109,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_reNorm() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x, y, z);
             T rnorm = v.reNorm();
             ASSERT_EQ(1/sqrt(x*x + y*y + z*z), rnorm);
@@ -118,10 +123,11 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_setzero() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::uniform(-high, high);
-            T y = SpaceH::uniform(-high, high);
-            T z = SpaceH::uniform(-high, high);
+            T x = uniform(-high, high);
+            T y = uniform(-high, high);
+            T z = uniform(-high, high);
             SpaceH::vec3<T> v(x, y, z);
             v.setZero();
             EXPECT_EQ(0, v.x);
@@ -133,14 +139,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_add() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             SpaceH::vec3<T> v3 = v1 + v2;
@@ -153,14 +160,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_sub() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             SpaceH::vec3<T> v3 = v1 - v2;
@@ -173,14 +181,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_mul() {
         T high = sqrt(SpaceH::big_value<T>::value);
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             SpaceH::vec3<T> v3 = v1 * v2;
@@ -193,14 +202,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_div() {
         T high = SpaceH::big_value<T>::value;
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             SpaceH::vec3<T> v3 = v1 / v2;
@@ -213,14 +223,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_dot() {
         T high = sqrt(SpaceH::big_value<T>::value);
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             T product = dot(v1,v2);
@@ -231,14 +242,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_cross() {
         T high = sqrt(SpaceH::big_value<T>::value);
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             SpaceH::vec3<T> v3 = cross(v1,v2);
@@ -251,14 +263,15 @@ namespace UnitTest {
     template<size_t N, typename T>
     void vector_dist() {
         T high = sqrt(SpaceH::big_value<T>::value);
+        SpaceH::Random<T> uniform;
         SpaceH::vec3<T> v1,v2;
         for(size_t i = 0 ; i < N; ++i) {
-            T x1 = SpaceH::uniform(-high, high);
-            T y1 = SpaceH::uniform(-high, high);
-            T z1 = SpaceH::uniform(-high, high);
-            T x2 = SpaceH::uniform(-high, high);
-            T y2 = SpaceH::uniform(-high, high);
-            T z2 = SpaceH::uniform(-high, high);
+            T x1 = uniform(-high, high);
+            T y1 = uniform(-high, high);
+            T z1 = uniform(-high, high);
+            T x2 = uniform(-high, high);
+            T y2 = uniform(-high, high);
+            T z2 = uniform(-high, high);
             SpaceH::vec3<T> v1(x1,y1,z1);
             SpaceH::vec3<T> v2(x2,y2,z2);
             T dist = distance(v1,v2);
@@ -271,7 +284,6 @@ TEST(VectorTest, Initialization) {
     UnitTest::vector_init<double>();
     UnitTest::vector_init<float>();
     UnitTest::vector_init<long double>();
-    UnitTest::vector_init<SpaceH::precise_ld>();
     UnitTest::vector_init<SpaceH::precise_d>();
     UnitTest::vector_init<SpaceH::precise_f>();
 }

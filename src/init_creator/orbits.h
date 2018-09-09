@@ -187,8 +187,9 @@ namespace SpaceH {
          */
         template<typename Scalar>
         Scalar getRandomMeanAnomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
+            SpaceH::Random<T> uniform;
             if (e >= 0)
-                return SpaceH::uniform() * (Mmax - Mmin) + Mmin;
+                return uniform() * (Mmax - Mmin) + Mmin;
             else {
                 SpaceH::ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
@@ -302,10 +303,11 @@ namespace SpaceH {
          * @param e
          */
         Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e) {
+            SpaceH::Random<T> uniform;
             calcuOrbitalParameter(m1, m2, p, e);
-            param.Omega = SpaceH::uniform() * 2 * Const::PI - Const::PI;
+            param.Omega = uniform() * 2 * Const::PI - Const::PI;
             param.i     = acos(SpaceH::uniform() * 2 - 1);
-            param.omega = SpaceH::uniform() * 2 * Const::PI - Const::PI;
+            param.omega = uniform() * 2 * Const::PI - Const::PI;
             Scalar M    = Orbits::getRandomMeanAnomaly(e, -Unit::HUBBLETIME / T_, Unit::HUBBLETIME / T_);
             Scalar E    = Orbits::calcuEccentricAnomaly(M, param.e);
             param.nu    = Orbits::calcuTrueAnomaly(E, param.e);
@@ -421,7 +423,8 @@ namespace SpaceH {
          *
          */
         void randomPhi() {
-            param.Omega = SpaceH::uniform() * 2 * Const::PI - Const::PI;
+            SpaceH::Random<T> uniform;
+            param.Omega = uniform() * 2 * Const::PI - Const::PI;
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -429,7 +432,8 @@ namespace SpaceH {
          *
          */
         void randomTheta() {
-            param.i = acos(SpaceH::uniform() * 2 - 1);
+            SpaceH::Random<T> uniform;
+            param.i = acos(uniform() * 2 - 1);
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -437,7 +441,8 @@ namespace SpaceH {
          *
          */
         void randomPsi() {
-            param.omega = SpaceH::uniform() * 2 * Const::PI - Const::PI;
+            SpaceH::Random<T> uniform;
+            param.omega = uniform() * 2 * Const::PI - Const::PI;
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -445,9 +450,10 @@ namespace SpaceH {
          *
          */
         void randomAngles() {
-            param.Omega = SpaceH::uniform() * 2 * Const::PI - Const::PI;
-            param.i = acos(SpaceH::uniform() * 2 - 1);
-            param.omega = SpaceH::uniform() * 2 * Const::PI - Const::PI;
+            SpaceH::Random<T> uniform;
+            param.Omega = uniform() * 2 * Const::PI - Const::PI;
+            param.i = acos(uniform() * 2 - 1);
+            param.omega = uniform() * 2 * Const::PI - Const::PI;
             createOrbit(P1.mass, P2.mass);
         }
 
