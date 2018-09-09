@@ -11,9 +11,9 @@ int main(int argc, char **argv) {
     using force = NewtonianForce<type>;
     //using PN = PostNewtonianForce<type,true,false,false>;
 
-   // using sys = Basic<force>;
-    using sys =  GAR<force>;
-    //using sys = ARchain <force>;
+    //using sys = Basic<force>;
+    //using sys =  GAR<force>;
+    using sys = ARchain <force>;
     using simulation = Nbody<sys>;
     //using simulation = Nbody<sys, IAS15, GaussDadau>;
     //using simulation = Nbody<sys, const_iterator, GaussDadau>;

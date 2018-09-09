@@ -3,9 +3,9 @@
 #ifndef POSTNEWTONIAN_H
 #define POSTNEWTONIAN_H
 
-#include "src/type_class.h"
+#include "../type_class.h"
 #include "../macros.h"
-#include "src/own_math.h"
+#include "../own_math.h"
 
 namespace SpaceH {
 

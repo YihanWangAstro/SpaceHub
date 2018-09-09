@@ -2,8 +2,8 @@
 #ifndef REGULARIZATION_H
 #define REGULARIZATION_H
 
-#include "src/core_computation.h"
-#include "src/dev_tools.h"
+#include "../core_computation.h"
+#include "../dev_tools.h"
 
 namespace SpaceH {
 

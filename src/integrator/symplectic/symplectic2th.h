@@ -2,8 +2,6 @@
 #ifndef SYMPLECTIC_2TH_INTEGRATOR_H
 #define SYMPLECTIC_2TH_INTEGRATOR_H
 
-#include "src/dev_tools.h"
-
 namespace SpaceH {
     /** @brief Second order symplectic integrator */
     template<typename ParticSys>

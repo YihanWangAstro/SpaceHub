@@ -3,8 +3,8 @@
 #define GARPARTICLESYSTEM_H
 
 #include "regu_system.h"
-#include "src/core_computation.h"
-#include "src/dev_tools.h"
+#include "../core_computation.h"
+#include "../dev_tools.h"
 
 namespace SpaceH {
 /**  @brief General midpoint method class of particle System. Used in velocity dependent interaction system to create

@@ -137,8 +137,8 @@ namespace SpaceH {
         std::mt19937 gen;
         std::uniform_real_distribution<Dtype> Dist;
 
-        inline Dtype operator()() {
-            return Dist(gen);
+        inline Dtype operator()(Dtype low = 0, Dtype high = 1) {
+            return low + (high - low)*Dist(gen);
         }
     };
 

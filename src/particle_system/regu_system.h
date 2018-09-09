@@ -2,9 +2,9 @@
 #ifndef REGUPARTICLESYSTEM_H
 #define REGUPARTICLESYSTEM_H
 
-#include "src/particle_system.h"
-#include "src/core_computation.h"
-#include "src/dev_tools.h"
+#include "../particle_system.h"
+#include "../core_computation.h"
+#include "../dev_tools.h"
 
 namespace SpaceH {
 
