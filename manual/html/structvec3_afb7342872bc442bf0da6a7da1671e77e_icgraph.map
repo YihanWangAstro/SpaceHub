@@ -1,8 +1,0 @@
-<map id="vec3::vec3" name="vec3::vec3">
-<area shape="rect" id="node2" href="$structvec3.html#a255037f59863e54390e388dd07e7ee8f" title="Addition by wise. " alt="" coords="138,5,253,31"/>
-<area shape="rect" id="node3" href="$structvec3.html#a62ca43535073d9711fe179e26a412e32" title="Subtraction by wise. " alt="" coords="140,55,251,80"/>
-<area shape="rect" id="node4" href="$structvec3.html#ad2f8afc304554e7b5d7331030e8bc91d" title="Divition by wise. " alt="" coords="140,104,251,129"/>
-<area shape="rect" id="node5" href="$structvec3.html#a0f446233cd7b3fe50bc3d773c85177d5" title="Multiply scalar by wise. " alt="" coords="140,153,251,179"/>
-<area shape="rect" id="node6" href="$structvec3.html#a6469fdfd7c378f5f30e299bc2e1e776a" title="Cross product. " alt="" coords="139,203,252,228"/>
-<area shape="rect" id="node7" href="$structvec3.html#abf0d30ac0a81beeacd36ddc86ec6ee83" title="Absolute value by wise. " alt="" coords="156,252,235,277"/>
-</map>

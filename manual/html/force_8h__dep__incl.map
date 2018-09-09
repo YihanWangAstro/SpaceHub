@@ -1,8 +1,0 @@
-<map id="interaction/force.h" name="interaction/force.h">
-<area shape="rect" id="node2" href="$interaction_8h.html" title="interaction/interaction.h" alt="" coords="103,79,262,104"/>
-<area shape="rect" id="node3" href="$space_hub_8h.html" title="spaceHub.h" alt="" coords="195,152,287,177"/>
-<area shape="rect" id="node4" href="$single_run_8h.html" title="wrapper/singleRun.h" alt="" coords="5,225,149,251"/>
-<area shape="rect" id="node6" href="$err_curve_8h.html" title="wrapper/errCurve.h" alt="" coords="173,225,309,251"/>
-<area shape="rect" id="node7" href="$test_i_a_s15_8cpp.html" title="integrationTest/testIAS15.cpp" alt="" coords="333,225,528,251"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="integrationTest/main.cpp" alt="" coords="76,299,241,324"/>
-</map>

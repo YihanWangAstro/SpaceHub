@@ -1,7 +1,0 @@
-<map id="interaction/postNewtonian.h" name="interaction/postNewtonian.h">
-<area shape="rect" id="node2" href="$space_hub_8h.html" title="spaceHub.h" alt="" coords="195,79,287,104"/>
-<area shape="rect" id="node3" href="$single_run_8h.html" title="wrapper/singleRun.h" alt="" coords="5,152,149,177"/>
-<area shape="rect" id="node5" href="$err_curve_8h.html" title="wrapper/errCurve.h" alt="" coords="173,152,309,177"/>
-<area shape="rect" id="node6" href="$test_i_a_s15_8cpp.html" title="integrationTest/testIAS15.cpp" alt="" coords="333,152,528,177"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title="integrationTest/main.cpp" alt="" coords="76,225,241,251"/>
-</map>

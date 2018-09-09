@@ -1,7 +1,0 @@
-<map id="SpaceH::VelIndepChainParticles::advancePos" name="SpaceH::VelIndepChainParticles::advancePos">
-<area shape="rect" id="node2" href="$namespace_space_h.html#a9f1a1d6fedf93c0324cc5993a5694e96" title="Advance a vector with a given vector with a specific stepSize. " alt="" coords="304,5,469,31"/>
-<area shape="rect" id="node3" href="$class_space_h_1_1_vel_indep_chain_particles.html#aadbc08f6cf8da3e46eb8d6c619e30c2f" title="Velocity array const interface. Reference to state.vel. " alt="" coords="267,55,506,80"/>
-<area shape="rect" id="node4" href="$namespace_space_h.html#a808af685980ae1a1ff5ea83e47f4073c" title="Move variables to centr. " alt="" coords="304,104,469,129"/>
-<area shape="rect" id="node5" href="$namespace_space_h.html#afb4e29bf684f5b98b6022db70cab0321" title="Move variables to central mass coordinates. " alt="" coords="297,153,477,179"/>
-<area shape="rect" id="node6" href="$namespace_space_h_1_1chain.html#a218de9c738267dd3efceebfda0a90a43" title="Calulate the chain_ data from Cartesian data and chain_ index mapping. " alt="" coords="301,203,472,228"/>
-</map>

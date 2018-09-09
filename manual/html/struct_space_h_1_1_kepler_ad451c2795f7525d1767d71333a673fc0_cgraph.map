@@ -1,7 +1,0 @@
-<map id="SpaceH::Kepler::Kepler" name="SpaceH::Kepler::Kepler">
-<area shape="rect" id="node2" href="$struct_space_h_1_1_kepler.html#a7355f57b679ccf074aecb26c2eaad7f5" title="SpaceH::Kepler::p" alt="" coords="225,5,355,31"/>
-<area shape="rect" id="node3" href="$struct_space_h_1_1_kepler.html#a17a4205719ad64fe7a3b05f86cab7486" title="SpaceH::Kepler::e" alt="" coords="225,55,355,80"/>
-<area shape="rect" id="node4" href="$struct_space_h_1_1_kepler.html#a9c646058e884c4e759039e504c4616c2" title="SpaceH::Kepler::phi" alt="" coords="220,104,360,129"/>
-<area shape="rect" id="node5" href="$struct_space_h_1_1_kepler.html#a54cb1ca091a25449bd298c3dfdd21f6b" title="SpaceH::Kepler::theta" alt="" coords="214,153,366,179"/>
-<area shape="rect" id="node6" href="$struct_space_h_1_1_kepler.html#a053b7309d6296ff35c16a0fd4450e3d5" title="SpaceH::Kepler::psi" alt="" coords="220,203,359,228"/>
-</map>

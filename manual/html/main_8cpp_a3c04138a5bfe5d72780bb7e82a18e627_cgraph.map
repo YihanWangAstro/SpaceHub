@@ -1,7 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node2" href="$classdynamic_system.html#a3ff4342241733e94edce17c1a79a90a8" title="Load particle system initial condition from file. " alt="" coords="112,5,284,31"/>
-<area shape="rect" id="node3" href="$namespace_space_h.html#afcd42842d483ee8bdc23081de14b515c" title="Calculate the total(potential + kinetic) energy of particles. " alt="" coords="115,55,281,80"/>
-<area shape="rect" id="node5" href="$namespace_space_h.html#ac749af71ba4e3334b9240de25f7369cc" title="Calculate the potential energy of particles. " alt="" coords="104,104,292,129"/>
-<area shape="rect" id="node6" href="$namespace_space_h.html#a4b0ebb47dda5ff4c231a7c889ac55c89" title="Calculate the kinetic energy of particles. " alt="" coords="110,153,286,179"/>
-<area shape="rect" id="node4" href="$vector3_8h.html#ab34b7bf3459e88f9ad682f32e13f07a6" title="Calculate the Euclid distance of two vectors. " alt="" coords="340,80,411,105"/>
-</map>
