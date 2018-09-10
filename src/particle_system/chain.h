@@ -137,7 +137,8 @@ namespace SpaceH {
             using Scalar = typename VectorArray::value_type::value_type;
 
             const size_t N = pos.size();
-            chainIndex.resize(pos.size());
+            if(chainIndex.size() != N)
+                chainIndex.resize(pos.size());
             std::vector<Node<Scalar>> AdjMatrix;
             AdjMatrix.resize(N * (N - 1) / 2);
 

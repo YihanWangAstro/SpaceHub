@@ -129,15 +129,35 @@ namespace SpaceH {
 
     template<typename Dtype>
     class Random {
-    public:
+    private:
         Random() : gen(rd()), Dist(0, 1) {}
-
-        std::random_device rd;// non-deterministic generator
+        Random(const Random&) = default;
+        std::random_device rd;
         std::mt19937 gen;
         std::uniform_real_distribution<Dtype> Dist;
+    public:
+        inline static Dtype uniform(Dtype low = 0, Dtype high = 1) {
+            static Random instance;
+            return low + (high - low)*instance.Dist(instance.gen);
+        }
+    };
 
-        inline Dtype operator()(Dtype low = 0, Dtype high = 1) {
-            return low + (high - low)*Dist(gen);
+    template<typename Vector>
+    class RandomVector {
+    private:
+        using Scalar = typename Vector::value_type;
+        RandomVector() : gen(rd()), Dist(0, 1) {}
+        RandomVector(const RandomVector&) = default;
+        std::random_device rd;
+        std::mt19937 gen;
+        std::uniform_real_distribution<Scalar> Dist;
+    public:
+        inline static Vector uniform(Scalar low = 0, Scalar high = 1) {
+            static RandomVector instance;
+            Scalar x = low + (high - low)*instance.Dist(instance.gen);
+            Scalar y = low + (high - low)*instance.Dist(instance.gen);
+            Scalar z = low + (high - low)*instance.Dist(instance.gen);
+            return Vector(x,y,z);
         }
     };
 }

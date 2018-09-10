@@ -10,7 +10,7 @@
 
 namespace SpaceH {
 
-    template <typename TypeClass>
+    template<typename TypeClass>
     class ChainCoord {
     public:
         /* Typedef */
@@ -19,41 +19,51 @@ namespace SpaceH {
         using ScalarArray  = typename type::ScalarArray;
         using IndexArray   = typename type::IndexArray;
         using Scalar       = typename type::Scalar;
+
         /* Typedef */
         void resize(size_t new_siz) {
             cartesian_.resize(new_siz);
             chain_.resize(new_siz);
         }
+
         void reserve(size_t new_cap) {
             cartesian_.reserve(new_cap);
             chain_.resize(new_cap);
         }
-        void advanceCartesian(const VectorArray& cartesian_inc, const IndexArray& index , Scalar stepSize) {
+
+        void advanceCartesian(const VectorArray &cartesian_inc, const IndexArray &index, Scalar stepSize) {
             const size_t size = cartesian_inc.size();
             VectorArray chain_inc;
             chain_inc.resize(size);
             SpaceH::chain::synChain(cartesian_inc, chain_inc, index);
             advanceChain(chain_inc, index, stepSize);
         }
-        void advanceChain(const VectorArray& increament, const IndexArray & index, Scalar stepSize) {
-            SpaceH::advanceVector(chain_,increament,stepSize);
+
+        void advanceChain(const VectorArray &increament, const IndexArray &index, Scalar stepSize) {
+            SpaceH::advanceVector(chain_, increament, stepSize);
             synCartesian(index);
         }
-        void synChain(const IndexArray& index) {
+
+        void synChain(const IndexArray &index) {
             SpaceH::chain::synChain(cartesian_, chain_, index);
         }
-        void synCartesian(const IndexArray& index) {
+
+        void synCartesian(const IndexArray &index) {
             SpaceH::chain::synCartesian(chain_, cartesian_, index);
         }
-        void createChainIndex(IndexArray& index) {
+
+        void createChainIndex(IndexArray &index) {
             SpaceH::chain::getChainIndex(cartesian_, index);
         }
-        const VectorArray & cartesian() {
+
+        const VectorArray &cartesian() {
             return cartesian_;
         }
-        const VectorArray & raw() {
+
+        const VectorArray &raw() {
             return chain_;
         }
+
         VectorArray cartesian_;
         VectorArray chain_;
     };
@@ -122,7 +132,7 @@ namespace SpaceH {
 
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
 
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IntArray, idn_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IndexArray, idn_);
 
         /** Automaticlly create interfaces for data
         *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create one read interface :
@@ -171,30 +181,39 @@ namespace SpaceH {
          *  @param new_siz New size of container.
          */
         void resize(size_t new_siz) {
-            pos_.resize(new_siz);
-            vel_.resize(new_siz);
-            mass_.resize(new_siz);
-            chain_index_.resize(new_siz);
-            radius_.resize(new_siz);
-            idn_.resize(new_siz);
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+                pos_.resize(new_siz);
+                vel_.resize(new_siz);
+                mass_.resize(new_siz);
+                chain_index_.resize(new_siz);
+                radius_.resize(new_siz);
+                idn_.resize(new_siz);
+            } else {
+                ERR_MSG("Fixed particles number! Cannot be resized!")
+            }
         }
 
         /** @brief Reserve space for all containers if they are dynamical
          *  @param New capacity of container.
          */
         void reserve(size_t new_cap) {
-            pos_.reserve(new_cap);
-            vel_.reserve(new_cap);
-            mass_.reserve(new_cap);
-            chain_index_.reserve(new_cap);
-            radius_.reserve(new_cap);
-            idn_.reserve(new_cap);
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+                pos_.reserve(new_cap);
+                vel_.reserve(new_cap);
+                mass_.reserve(new_cap);
+                chain_index_.reserve(new_cap);
+                radius_.reserve(new_cap);
+                idn_.reserve(new_cap);
+            } else {
+                ERR_MSG("Fixed particles number! Cannot be reserved!")
+            }
         }
 
         void moveToCoM() {
             SpaceH::moveToCoM(mass_, pos_.cartesian_);
             SpaceH::moveToCoM(mass_, vel_.cartesian_);
         }
+
         void moveToCoM(Scalar total_mass) {
             SpaceH::moveToCoM(mass_, pos_.cartesian_, total_mass);
             SpaceH::moveToCoM(mass_, vel_.cartesian_, total_mass);
@@ -210,6 +229,7 @@ namespace SpaceH {
                 chain_index_ = new_index;
             }
         }
+
         /**
          * @brief Input variables from an IO stream
          * @param is The input IO stream.
@@ -231,10 +251,12 @@ namespace SpaceH {
                     is >> idn_[loc];
                 }
             }
-            if (!is.good())
-                ERR_MSG("Insufficent input data in initial file!");
+            if (!is.good()) ERR_MSG("Insufficent input data in initial file!");
 
-            pos_.createChainIndex(chain_index_);
+            if (!chained) {
+                pos_.createChainIndex(chain_index_);
+                chained = true;
+            }
             pos_.synChain(chain_index_);
             vel_.synChain(chain_index_);
             return particleNum;
@@ -271,9 +293,11 @@ namespace SpaceH {
          * @return
          */
         size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
-
             size_t loc = 0;
             if (flag == IO_flag::EVOLVED) {
+                if (!chained) ERR_MSG(
+                        "Chain Index hasn't been constructed by the positions in the Cartesian coordinates."
+                        "Cannot read from raw chain data directly");
                 //for locality, split into separate loops
                 for (auto &p : pos_.chain_) {
                     p.x = data[loc++];
@@ -293,6 +317,12 @@ namespace SpaceH {
                     p.y = data[loc++];
                     p.z = data[loc++];
                 }
+
+                if (!chained) {
+                    pos_.createChainIndex(chain_index_);
+                    chained = true;
+                }
+
                 pos_.synChain(chain_index_);
                 for (auto &v : vel_.cartesian_) {
                     v.x = data[loc++];
@@ -305,7 +335,7 @@ namespace SpaceH {
                 for (auto &r : radius_)
                     r = data[loc++];
                 for (auto &i : idn_)
-                    i = data[loc++];
+                    i = static_cast<size_t >(data[loc++]);
             }
             time_ = data[loc++];
             return loc;
@@ -321,9 +351,9 @@ namespace SpaceH {
             size_t particleNum = particleNumber();
 
             data.clear();
-            data.reserve(particleNum * 6 + 1);
 
             if (flag == IO_flag::EVOLVED) {
+                data.reserve(particleNum * 6 + 1);
                 //for locality, split into two loops
                 for (const auto &p : pos_.chain_) {
                     data.emplace_back(p.x);
@@ -352,7 +382,7 @@ namespace SpaceH {
                 for (const auto &r : radius_)
                     data.emplace_back(r);
                 for (const auto &i : idn_)
-                    data.emplace_back(i);
+                    data.emplace_back(static_cast<Scalar>(i));
             }
 
             data.emplace_back(time_);
@@ -380,6 +410,8 @@ namespace SpaceH {
 
         /** @brief The physical time of the dynamic system*/
         Scalar time_;
+
+        bool chained{false};
     };
 }
 #endif

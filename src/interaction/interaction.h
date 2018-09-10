@@ -38,11 +38,19 @@ namespace SpaceH {
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(acc, VectorArray, this_acc_);
 
         void resize(size_t size) {
-            this_acc_.resize(size);
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+                this_acc_.resize(size);
+            } else {
+                ERR_MSG("Fixed particles number! Cannot be resized!");
+            }
         }
 
         void reserve(size_t size) {
-            this_acc_.reserve(size);
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+                this_acc_.reserve(size);
+            } else {
+                ERR_MSG("Fixed particles number! Cannot be reserved!");
+            }
         }
 
         template<typename Particles>

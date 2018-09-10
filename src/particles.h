@@ -41,7 +41,7 @@ namespace SpaceH {
         using Vector       = typename type::Vector;
         using VectorArray  = typename type::VectorArray;
         using ScalarArray  = typename type::ScalarArray;
-        using IntArray     = typename type::IntArray;
+        using IndexArray   = typename type::IndexArray;
         using ScalarBuffer = typename type::ScalarBuffer;
         using State        = SimpleState<TypeClass>;
         /* Typedef */
@@ -85,7 +85,7 @@ namespace SpaceH {
 
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
 
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IntArray, idn_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IndexArray, idn_);
 
         /** Automaticlly create interfaces for data
         *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create one read interface :
@@ -134,22 +134,30 @@ namespace SpaceH {
          *  @param new_siz New size of container.
          */
         void resize(size_t new_siz) {
-            pos_.resize(new_siz);
-            vel_.resize(new_siz);
-            mass_.resize(new_siz);
-            radius_.resize(new_siz);
-            idn_.resize(new_siz);
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+                pos_.resize(new_siz);
+                vel_.resize(new_siz);
+                mass_.resize(new_siz);
+                radius_.resize(new_siz);
+                idn_.resize(new_siz);
+            } else {
+                ERR_MSG("Fixed particles number! Cannot be resized!")
+            }
         }
 
         /** @brief Reserve space for all containers if they are dynamical
          *  @param New capacity of container.
          */
         void reserve(size_t new_cap) {
-            pos_.reserve(new_cap);
-            vel_.reserve(new_cap);
-            mass_.reserve(new_cap);
-            radius_.reserve(new_cap);
-            idn_.reserve(new_cap);
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+                pos_.reserve(new_cap);
+                vel_.reserve(new_cap);
+                mass_.reserve(new_cap);
+                radius_.reserve(new_cap);
+                idn_.reserve(new_cap);
+            } else {
+                ERR_MSG("Fixed particles number! Cannot be reserved!")
+            }
         }
 
         /**
@@ -205,6 +213,8 @@ namespace SpaceH {
          * @param data
          * @param flag
          * @return
+         * @note If the array size is dynamical, set the particle number with `resize()` before
+         * reading data from the buffer.
          */
         size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
 
@@ -226,7 +236,7 @@ namespace SpaceH {
                 for (auto &r : radius_)
                     r = data[loc++];
                 for (auto &i : idn_)
-                    i = data[loc++];
+                    i = static_cast<size_t>(data[loc++]);
             }
             time_ = data[loc++];
             return loc;
@@ -263,7 +273,7 @@ namespace SpaceH {
                 for (const auto &r : radius_)
                     data.emplace_back(r);
                 for (const auto &i : idn_)
-                    data.emplace_back(i);
+                    data.emplace_back(static_cast<Scalar>(i));
             }
 
             data.emplace_back(time_);
@@ -292,7 +302,7 @@ namespace SpaceH {
         ScalarArray radius_;
 
         /** @brief Id Array of the particles. Element is int.*/
-        IntArray idn_;
+        IndexArray idn_;
 
         /** @brief The physical time of the dynamic system*/
         Scalar time_;

@@ -22,9 +22,10 @@ namespace SpaceH {
      */
     template<typename T, size_t S>
     struct ArrayWrapper : public std::array<T, S> {
-        inline void clear() {};
-        inline void reserve(size_t new_cap) {};
-        inline void resize(size_t new_size) {};
+        //inline void clear() {};
+        inline void reserve(size_t new_cap) {ERR_MSG("cannot resize fixed length array!");};
+        inline void resize(size_t new_size) {ERR_MSG("cannot reserve fixed length array!");};
+        inline size_t capacity() const { return S;};
     };
 
     /**
