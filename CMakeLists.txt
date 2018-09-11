@@ -55,13 +55,15 @@ set(TMP_HEADER_FILES
         src/vector/vector3pd.h)
 
 set(SOURCE_FILES
-        #test/regression_test/simple_test.cpp
         test/unit_test/main.cpp
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
         test/unit_test/test_particle.cpp
         test/unit_test/test_chain_particle.cpp)
+set(REGRESSION_TEST
+        test/regression_test/simple_test.cpp)
+add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})
+target_link_libraries(SpaceHub_unit_test gtest gtest_main)
+target_link_libraries(SpaceHub_unit_test gmock gmock_main)
 
-add_executable(SpaceHub_test ${SOURCE_FILES} ${TMP_HEADER_FILES})
-target_link_libraries(SpaceHub_test gtest gtest_main)
-target_link_libraries(SpaceHub_test gmock gmock_main)
+add_executable(SpaceHub_reg_test ${TMP_HEADER_FILES} ${REGRESSION_TEST})

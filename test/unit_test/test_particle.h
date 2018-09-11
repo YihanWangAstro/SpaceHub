@@ -115,7 +115,7 @@ namespace UnitTest {
 
     template<typename Particles, size_t particle_num>
     void test_particle_std_read(const ParticleTestInput<particle_num, typename Particles::Scalar> &input) {
-        auto partc = new Particles;
+        std::unique_ptr<Particles> partc{new Particles};
 
         if constexpr (Particles::type::arraySize == SpaceH::DYNAMICAL)
             partc->resize(particle_num);
@@ -133,12 +133,11 @@ namespace UnitTest {
             ASSERT_EQ(input.radius[i], partc->radius(i));
             ASSERT_EQ(input.idn[i], partc->idn(i));
         }
-        delete partc;
     }
 
     template<typename Particles, size_t particle_num>
     void test_particle_act_read(const ParticleTestInput<particle_num, typename Particles::Scalar> &input) {
-        auto partc = new Particles;
+        std::unique_ptr<Particles> partc{new Particles};
 
         if constexpr (Particles::type::arraySize == SpaceH::DYNAMICAL)
             partc->resize(particle_num);
@@ -154,12 +153,11 @@ namespace UnitTest {
             ASSERT_EQ(input.vel[i].y, partc->vel(i).y);
             ASSERT_EQ(input.vel[i].z, partc->vel(i).z);
         }
-        delete partc;
     }
 
     template<typename Particles, size_t particle_num>
     void test_particle_std_write(const ParticleTestInput<particle_num, typename Particles::Scalar> &input) {
-        auto partc = new Particles;
+        std::unique_ptr<Particles> partc{new Particles};
 
         if constexpr (Particles::type::arraySize == SpaceH::DYNAMICAL)
             partc->resize(particle_num);
@@ -174,12 +172,11 @@ namespace UnitTest {
         for (size_t i = 0; i < particle_num; ++i) {
             ASSERT_EQ(input.stdbuff[i], out[i]);
         }
-        delete partc;
     }
 
     template<typename Particles, size_t particle_num>
     void test_particle_act_write(const ParticleTestInput<particle_num, typename Particles::Scalar> &input) {
-        auto partc = new Particles;
+        std::unique_ptr<Particles> partc{new Particles};
         if constexpr (Particles::type::arraySize == SpaceH::DYNAMICAL)
             partc->resize(particle_num);
 
@@ -191,7 +188,6 @@ namespace UnitTest {
         for (size_t i = 0; i < particle_num; ++i) {
             ASSERT_EQ(input.actbuff[i], out[i]);
         }
-        delete partc;
     }
 }
 #endif

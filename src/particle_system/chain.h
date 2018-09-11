@@ -12,6 +12,9 @@ namespace SpaceH {
 /** @brief Struture to store the relative distance and index of two particles.*/
         template<typename Scalar>
         struct Node {
+            Node(Scalar d, size_t ix, size_t jx, bool a) :
+            Rij(d), i(ix), j(jx), available(a){}
+            Node() = default;
             Scalar Rij; /**< Relative distance of two particles.*/
             size_t i; /**< Particle index.*/
             size_t j; /**< Particle index.*/
@@ -26,16 +29,12 @@ namespace SpaceH {
  */
         template<typename VectorArray, typename NodeArray>
         void createAdjMartix(const VectorArray &pos, NodeArray &AdjMatrix) {
+            using Scalar = typename VectorArray::value_type::value_type;
             size_t N = pos.size();
             size_t k = 0;
-
             for (size_t i = 0; i < N; ++i) {
                 for (size_t j = i + 1; j < N; ++j) {
-                    AdjMatrix[k].Rij = (pos[i] - pos[j]).norm();
-                    AdjMatrix[k].i = i;
-                    AdjMatrix[k].j = j;
-                    AdjMatrix[k].available = true;
-                    k++;
+                    AdjMatrix[k++] = Node<Scalar>(distance(pos[i],pos[j]), i, j, true);
                 }
             }
         }
@@ -53,8 +52,8 @@ namespace SpaceH {
             size_t AdjSize = N * (N - 1) / 2;
             std::vector<size_t> Index;
             Index.reserve(N);
-            Index.push_back(AdjMatrix[0].i);
-            Index.push_back(AdjMatrix[0].j);
+            Index.emplace_back(AdjMatrix[0].i);
+            Index.emplace_back(AdjMatrix[0].j);
             AdjMatrix[0].available = false;
             chainedNumber++;
 
@@ -78,7 +77,7 @@ namespace SpaceH {
                         continue;
                     } else if (AdjMatrix[k].i == tail) {
                         if (Index.end() == std::find(Index.begin(), Index.end(), AdjMatrix[k].j)) {
-                            Index.push_back(AdjMatrix[k].j);
+                            Index.emplace_back(AdjMatrix[k].j);
                             chainedNumber++;
 
                             if (chainedNumber < N)
@@ -106,7 +105,7 @@ namespace SpaceH {
                         continue;
                     } else if (AdjMatrix[k].j == tail) {
                         if (Index.end() == std::find(Index.begin(), Index.end(), AdjMatrix[k].i)) {
-                            Index.push_back(AdjMatrix[k].i);
+                            Index.emplace_back(AdjMatrix[k].i);
                             chainedNumber++;
 
                             if (chainedNumber < N)
@@ -137,8 +136,9 @@ namespace SpaceH {
             using Scalar = typename VectorArray::value_type::value_type;
 
             const size_t N = pos.size();
-            if(chainIndex.size() != N)
+            if(chainIndex.size() != N) {
                 chainIndex.resize(pos.size());
+            }
             std::vector<Node<Scalar>> AdjMatrix;
             AdjMatrix.resize(N * (N - 1) / 2);
 
@@ -191,27 +191,20 @@ namespace SpaceH {
  */
         template<typename VectorArray, typename IndexArray>
         void updateChain(VectorArray &pos, IndexArray &chainIndex, IndexArray &newIndex) {
-
-            size_t head = 0;
-            size_t tail = 0;
-            size_t oldhead = 0;
-            size_t oldtail = 0;
             size_t size = pos.size() - 1;
-
             typename VectorArray::value_type newPos[size];
-
             for (size_t i = 0; i < size; i++) {
-                head = newIndex[i];
-                tail = newIndex[i + 1];
-                oldhead = std::find(chainIndex.begin(), chainIndex.end(), head) - chainIndex.begin();
-                oldtail = std::find(chainIndex.begin(), chainIndex.end(), tail) - chainIndex.begin();
+                size_t head = newIndex[i];
+                size_t tail = newIndex[i + 1];
+                size_t old_head = std::find(chainIndex.begin(), chainIndex.end(), head) - chainIndex.begin();
+                size_t old_tail = std::find(chainIndex.begin(), chainIndex.end(), tail) - chainIndex.begin();
                 newPos[i].setZero();
 
-                if (oldhead < oldtail) {
-                    for (size_t j = oldhead; j < oldtail; ++j)
+                if (old_head < old_tail) {
+                    for (size_t j = old_head; j < old_tail; ++j)
                         newPos[i] += pos[j];
                 } else {
-                    for (size_t j = oldtail; j < oldhead; ++j)
+                    for (size_t j = old_tail; j < old_head; ++j)
                         newPos[i] -= pos[j];
                 }
             }
@@ -230,8 +223,8 @@ namespace SpaceH {
         template<typename VectorArray, typename IndexArray>
         void synChain(const VectorArray &data, VectorArray &chainData, const IndexArray &chainIndex) {
             const size_t N = data.size();
-            //chainData[N - 1].setZero();
-            chainData[N-1] = data[chainIndex[0]];
+            chainData[N - 1].setZero();
+            //chainData[N-1] = data[chainIndex[0]];
             for (int i = 0; i < N - 1; ++i)
                 chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
         }
@@ -247,8 +240,8 @@ namespace SpaceH {
         void synCartesian(const VectorArray &chainData, VectorArray &data, const IndexArray &chainIndex) {
             const size_t N = data.size();
 
-            //data[chainIndex[0]].setZero();
-            data[chainIndex[0]] = chainData[N-1];
+            data[chainIndex[0]].setZero();
+            //data[chainIndex[0]] = chainData[N-1];
             for (int i = 1; i < N; ++i)
                 data[chainIndex[i]] = data[chainIndex[i - 1]] + chainData[i - 1];
         }

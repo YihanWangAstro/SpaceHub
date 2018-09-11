@@ -10,9 +10,11 @@
 
 namespace SpaceH {
 
-    template<typename TypeClass>
+    template<typename TypeClass>//not good design, try to optimize it
     class ChainCoord {
     public:
+        template <typename T>
+        friend class ChainParticles;
         /* Typedef */
         using type         = TypeClass;
         using VectorArray  = typename type::VectorArray;
@@ -31,31 +33,6 @@ namespace SpaceH {
             chain_.resize(new_cap);
         }
 
-        void advanceCartesian(const VectorArray &cartesian_inc, const IndexArray &index, Scalar stepSize) {
-            const size_t size = cartesian_inc.size();
-            VectorArray chain_inc;
-            chain_inc.resize(size);
-            SpaceH::chain::synChain(cartesian_inc, chain_inc, index);
-            advanceChain(chain_inc, index, stepSize);
-        }
-
-        void advanceChain(const VectorArray &increament, const IndexArray &index, Scalar stepSize) {
-            SpaceH::advanceVector(chain_, increament, stepSize);
-            synCartesian(index);
-        }
-
-        void synChain(const IndexArray &index) {
-            SpaceH::chain::synChain(cartesian_, chain_, index);
-        }
-
-        void synCartesian(const IndexArray &index) {
-            SpaceH::chain::synCartesian(chain_, cartesian_, index);
-        }
-
-        void createChainIndex(IndexArray &index) {
-            SpaceH::chain::getChainIndex(cartesian_, index);
-        }
-
         const VectorArray &cartesian() {
             return cartesian_;
         }
@@ -64,8 +41,42 @@ namespace SpaceH {
             return chain_;
         }
 
+    private:
+        void advanceCartesian(const VectorArray &cartesian_inc, Scalar stepSize) {
+            const size_t size = cartesian_inc.size();
+            VectorArray chain_inc;
+            if constexpr (type::arraySize == SpaceH::DYNAMICAL)
+                chain_inc.resize(size);
+            SpaceH::chain::synChain(cartesian_inc, chain_inc, *index_);
+            advanceChain(chain_inc, stepSize);
+        }
+
+        void advanceChain(const VectorArray &increament, Scalar stepSize) {
+            SpaceH::advanceVector(chain_, increament, stepSize);
+            synCartesian();
+        }
+
+        void synChain() {
+            SpaceH::chain::synChain(cartesian_, chain_, *index_);
+        }
+
+        void synCartesian() {
+            SpaceH::chain::synCartesian(chain_, cartesian_, *index_);
+            SpaceH::moveToCoM(*mass_, cartesian_);
+        }
+
+        void createChainIndex(IndexArray& index) {
+            SpaceH::chain::getChainIndex(cartesian_, index);
+        }
+
+        void set_mass_index(const ScalarArray* mass, const IndexArray *index) {
+            mass_  = mass;
+            index_ = index;
+        }
         VectorArray cartesian_;
         VectorArray chain_;
+        const ScalarArray *mass_{nullptr};
+        const IndexArray  *index_{nullptr};
     };
 
     /**
@@ -89,6 +100,11 @@ namespace SpaceH {
 
         /*Template parameter check*/
         /*Template parameter check*/
+
+        ChainParticles() {
+            pos_.set_mass_index(&mass_, &chain_index_);
+            vel_.set_mass_index(&mass_, &chain_index_);
+        }
 
         constexpr static size_t arraySize{type::arraySize};
 
@@ -158,7 +174,7 @@ namespace SpaceH {
          *  @param stepSize The advance step size.
          */
         inline void advancePos(Scalar stepSize) {
-            pos_.advanceChain(vel_.chain_, chain_index_, stepSize);
+            pos_.advanceChain(vel_.chain_, stepSize);
         }
 
         /** @brief Advance the position array with given velocity array in cartesian coordinates.
@@ -174,7 +190,7 @@ namespace SpaceH {
          *  @param acc      The acceleration array.
          */
         inline void advanceVel(const VectorArray &acc, Scalar stepSize) {
-            vel_.advanceCartesian(acc, chain_index_, stepSize);
+            vel_.advanceCartesian(acc, stepSize);
         }
 
         /** @brief Resize all containers if they are dynamical
@@ -257,8 +273,8 @@ namespace SpaceH {
                 pos_.createChainIndex(chain_index_);
                 chained = true;
             }
-            pos_.synChain(chain_index_);
-            vel_.synChain(chain_index_);
+            pos_.synChain();
+            vel_.synChain();
             return particleNum;
         }
 
@@ -304,13 +320,13 @@ namespace SpaceH {
                     p.y = data[loc++];
                     p.z = data[loc++];
                 }
-                pos_.synCartesian(chain_index_);
+                pos_.synCartesian();
                 for (auto &v : vel_.chain_) {
                     v.x = data[loc++];
                     v.y = data[loc++];
                     v.z = data[loc++];
                 }
-                vel_.synCartesian(chain_index_);
+                vel_.synCartesian();
             } else if (flag == IO_flag::STD) {
                 for (auto &p : pos_.cartesian_) {
                     p.x = data[loc++];
@@ -323,13 +339,13 @@ namespace SpaceH {
                     chained = true;
                 }
 
-                pos_.synChain(chain_index_);
+                pos_.synChain();
                 for (auto &v : vel_.cartesian_) {
                     v.x = data[loc++];
                     v.y = data[loc++];
                     v.z = data[loc++];
                 }
-                vel_.synChain(chain_index_);
+                vel_.synChain();
                 for (auto &m : mass_)
                     m = data[loc++];
                 for (auto &r : radius_)

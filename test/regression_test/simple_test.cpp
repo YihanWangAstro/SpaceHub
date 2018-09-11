@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 
 
     simulation::RunArgs args;
-    args.endTime = 1000* Unit::YEAR;
+    args.endTime = 3000* Unit::YEAR;
 
     args.registerPreOption(CallBack::DefaultWriter<sys>("circular.dat", args.endTime));
     args.registerPreOption(CallBack::EnergyWriter<sys>("circular.eng", args.endTime));

@@ -34,6 +34,8 @@ namespace SpaceH {
         CHECK_TYPE(Particles, Interaction);
         /*Template parameter check*/
 
+        GAR_system(){}
+
         /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
         void kick(Scalar stepSize) {
             Scalar physicalTime = regular.getPhysicalVelTime(partc, stepSize);
