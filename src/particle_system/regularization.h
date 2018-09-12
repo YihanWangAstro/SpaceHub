@@ -39,7 +39,7 @@ namespace SpaceH {
          * @return
          */
         template <typename Particles>
-        inline Scalar capitalOmega(Particles &partc) {
+        inline Scalar capitalOmega(const Particles &partc) {
             return -getPotentialEnergy(partc.mass(), partc.pos());
         }
 
@@ -48,7 +48,7 @@ namespace SpaceH {
          * @param partc
          */
         template <typename Particles>
-        void init(Particles &partc) {
+        void init(const Particles &partc) {
             omega_ = capitalOmega(partc);
             bindE_ = -getTotalEnergy(partc.mass(), partc.pos(), partc.vel());
         }

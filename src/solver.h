@@ -121,7 +121,7 @@ namespace SpaceH {
     template<typename ParticSys, typename ODEiterator>
     void Solver<ParticSys, ODEiterator>::getInitStepLength() {
         if (stepLength == 0.0) {
-            stepLength = 0.1 * particles.timeScale();
+            stepLength = 0.01 * particles.timeScale();
             DEBUG_MSG(true,"Time scale =", stepLength/Unit::YEAR, "yr");
         }
         steps = 0;

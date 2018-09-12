@@ -150,6 +150,12 @@ namespace SpaceH {
 
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IndexArray, idn_);
 
+        inline const Vector& chain_ref_pos(size_t i) const {return pos_.cartesian_[chain_index_[i]];};
+        inline const Vector& chain_ref_vel(size_t i) const {return vel_.cartesian_[chain_index_[i]];};
+        inline Scalar chain_ref_mass(size_t i) const {return mass_[chain_index_[i]];};
+        inline Scalar chain_ref_radius(size_t i) const {return radius_[chain_index_[i]];};
+        inline size_t chain_ref_idn(size_t i) const {return idn_[chain_index_[i]];};
+
         /** Automaticlly create interfaces for data
         *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create one read interface :
         *  1. const TYPE &NAME () const { return MEMBER;};
@@ -275,6 +281,7 @@ namespace SpaceH {
             }
             pos_.synChain();
             vel_.synChain();
+
             return particleNum;
         }
 

@@ -198,8 +198,7 @@ namespace SpaceH {
             }
             if (num == sys.particleNumber()) {
                 sys.partc.read(is, SpaceH::Unit::STD_UNIT);
-                sys.total_mass = SpaceH::sumArray(sys.mass());
-                sys.partc.moveToCoM(sys.total_mass);
+                sys.partc.moveToCoM();
             } else {
                 ERR_MSG("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
             }
@@ -222,9 +221,6 @@ namespace SpaceH {
 
         /**  @brief Interaction class*/
         Interaction act;
-
-        /**  @brief total mass of particles*/
-        Scalar total_mass;
 
     private:
         void writeHeader(std::ostream &os) const {

@@ -45,10 +45,10 @@ namespace SpaceH {
 
             if constexpr (!Interaction::isVelDep) {
                 act.sumTotalAcc();
-                partc.advanceVel(act.acc(), 0.5*physicalTime);
-                regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), physicalTime);
-                partc.advanceVel(act.acc(), 0.5*physicalTime);
-                //regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), 0.5*physicalTime);
+                //partc.advanceVel(act.acc(), 0.5*physicalTime);
+                regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), 0.5*physicalTime);
+                partc.advanceVel(act.acc(), physicalTime);
+                regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), 0.5*physicalTime);
             } else {
                 act.calcuVelDepAcc(partc);//evaluate velocity dependent acc with velocity
                 act.sumTotalAcc();

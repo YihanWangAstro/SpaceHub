@@ -46,6 +46,46 @@ namespace SpaceH {
         }
     };
 
+    template<typename TypeClass>
+    struct NewtonianChainForce {
+        /* Typedef */
+        using type        = TypeClass;
+        using Scalar      = typename type::Scalar;
+        using Vector      = typename type::Vector;
+        using VectorArray = typename type::VectorArray;
+        /* Typedef */
+
+        template <typename Particles>
+        inline void operator()(const Particles& partc, VectorArray & acc) {
+
+            for (auto& a : acc)
+                a.setZero();
+
+            auto force = [&](Vector&acc_i, Vector&acc_j, Scalar m_i, Scalar m_j, const Vector& dr) {
+                Scalar re_r = dr.reNorm();
+                Scalar re_r3 = re_r * re_r * re_r;
+                acc_i += dr * (re_r3 * m_j);
+                acc_j -= dr * (re_r3 * m_i);
+            };
+
+            size_t size = partc.particleNumber();
+            for(size_t i = 0 ; i < size - 1; ++i)
+                force(acc[partc.chain_index(i)], acc[partc.chain_index(i+1)],
+                        partc.chain_ref_mass(i), partc.chain_ref_mass(i+1),
+                        partc.chain_pos(i));
+
+            for(size_t i = 0 ; i < size - 2; ++i)
+                force(acc[partc.chain_index(i)], acc[partc.chain_index(i+2)],
+                      partc.chain_ref_mass(i), partc.chain_ref_mass(i+2),
+                      partc.chain_pos(i) + partc.chain_pos(i+1));
+
+            for(size_t i = 0 ; i < size ; ++i)
+                for(size_t j = i + 3 ; j < size; ++j)
+                    force(acc[partc.chain_index(i)], acc[partc.chain_index(j)],
+                          partc.chain_ref_mass(i), partc.chain_ref_mass(j),
+                          partc.chain_ref_pos(j) - partc.chain_ref_pos(i));
+        }
+    };
 
     template<typename TypeClass>
     struct KarmackNewtonian {

@@ -1,14 +1,15 @@
 #include "../../src/spaceHub.h"
 #include <iomanip>
 using namespace SpaceH;
-//using scalar = double;
-using scalar = precise_d;
-const size_t N = 2;//SpaceH::DYNAMICAL;
+using scalar = double;
+//using scalar = precise_d;
+const size_t N = 3;//SpaceH::DYNAMICAL;
 using type = SpaceH::TypeClass<scalar, N>;
 int main(int argc, char **argv) {
 
     //using f = KarmackNewtonian<type>;
-    using force = NewtonianForce<type>;
+    //using force = NewtonianForce<type>;
+    using force = NewtonianChainForce<type>;
     //using PN = PostNewtonianForce<type,true,false,false>;
 
     //using sys = Basic<force>;
@@ -22,15 +23,15 @@ int main(int argc, char **argv) {
     simulation nbody;
 
     //nbody.loadText("solar_earth.init");
-    nbody.loadText("circular.init");
+    //nbody.loadText("circular.init");
     //nbody.loadText("elliptic.init");
-    //nbody.loadText("Kozai.init");
+    nbody.loadText("Kozai.init");
     std::cout << std::setprecision(16);
 
 
 
     simulation::RunArgs args;
-    args.endTime = 3000* Unit::YEAR;
+    args.endTime = 10* Unit::YEAR;
 
     args.registerPreOption(CallBack::DefaultWriter<sys>("circular.dat", args.endTime));
     args.registerPreOption(CallBack::EnergyWriter<sys>("circular.eng", args.endTime));

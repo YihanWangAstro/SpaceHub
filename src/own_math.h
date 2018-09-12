@@ -19,11 +19,16 @@ namespace SpaceH {
     }
 
     /** @brief Self abs()*/
-    template<class T>
+    template<typename T>
     inline const T abs(const T &x) {
         return x > 0 ? x : -x;
     }
 
+    template <typename T>
+    inline T in_range(T low, T x, T high) {
+        T tmp = low > x ? low : x;
+        return tmp > high ? high : tmp;
+    }
     /**
      *
      * @tparam T
