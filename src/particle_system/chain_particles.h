@@ -62,7 +62,7 @@ namespace SpaceH {
 
         void synCartesian() {
             SpaceH::chain::synCartesian(chain_, cartesian_, *index_);
-            SpaceH::moveToCoM(*mass_, cartesian_);
+            //SpaceH::moveToCoM(*mass_, cartesian_);
         }
 
         void createChainIndex(IndexArray& index) {

@@ -17,6 +17,7 @@ namespace SpaceH {
         using Scalar = typename ParticleSys::Scalar;
         using Callback = std::function<void (ParticleSys &)>;
 
+        std::string file;
         Scalar endTime{0};
 
         void preOption(ParticleSys &partc_sys) const {
@@ -59,7 +60,7 @@ namespace SpaceH {
 
         void advanceOneStep();
 
-        void loadText(char const *initFilePath);
+
 
         /**  @brief Set the step length*/
         inline void setStepLength(Scalar step_size) {
@@ -71,6 +72,7 @@ namespace SpaceH {
         }
 
         void run(const RunArgs &arg) {
+            loadText(arg.file.c_str());
             Scalar end_time = arg.endTime;
             for (; particles.time() < end_time;) {
                 arg.preOption(particles);
@@ -95,6 +97,7 @@ namespace SpaceH {
         ODEiterator iterator;
 
     private:
+        void loadText(char const *initFilePath);
         void getInitStepLength();
     };
 

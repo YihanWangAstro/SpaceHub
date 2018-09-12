@@ -223,8 +223,8 @@ namespace SpaceH {
         template<typename VectorArray, typename IndexArray>
         void synChain(const VectorArray &data, VectorArray &chainData, const IndexArray &chainIndex) {
             const size_t N = data.size();
-            chainData[N - 1].setZero();
-            //chainData[N-1] = data[chainIndex[0]];
+            //chainData[N - 1].setZero();
+            chainData[N-1] = data[chainIndex[0]];
             for (int i = 0; i < N - 1; ++i)
                 chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
         }
@@ -240,8 +240,8 @@ namespace SpaceH {
         void synCartesian(const VectorArray &chainData, VectorArray &data, const IndexArray &chainIndex) {
             const size_t N = data.size();
 
-            data[chainIndex[0]].setZero();
-            //data[chainIndex[0]] = chainData[N-1];
+            //data[chainIndex[0]].setZero();
+            data[chainIndex[0]] = chainData[N-1];
             for (int i = 1; i < N; ++i)
                 data[chainIndex[i]] = data[chainIndex[i - 1]] + chainData[i - 1];
         }

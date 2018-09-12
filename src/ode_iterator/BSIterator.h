@@ -8,7 +8,7 @@
 
 namespace SpaceH {
 
-    template<typename TypeClass, size_t MaxDepth>
+    template<typename TypeClass, size_t MaxIter>
     class BStab {
     public:
         /* Typedef */
@@ -39,19 +39,19 @@ namespace SpaceH {
         }
 
         BStab() {
-            for (size_t i = 0; i < MaxDepth; ++i) {
-                sub_steps_[i] = 2 * (i + 1);
-
-                if (i == 0)
-                    work_[i] = 1 + sub_steps_[i];
-                else
-                    work_[i] = work_[i - 1] + sub_steps_[i];
-
+            for (size_t i = 0; i < MaxIter; ++i) {
+                if(i == 0) {
+                    sub_steps_[i] = 1;
+                    work_[i]      = 2;
+                } else {
+                    sub_steps_[i] = 2 * i;
+                    work_[i]      = work_[i - 1] + sub_steps_[i] + 1;
+                }
                 err_expon_[i] = static_cast<Scalar>(1.0 / (2 * i + 1));
                 limiter_[i]   = pow(0.02, err_expon_[i]);
 
-                for (size_t j = 1; j <= i; ++j) {
-                    Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[i - j]);
+                for (size_t j = 0; j < i; ++j) {
+                    Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[i - j - 1]);
                     extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1);
                 }
             }
@@ -62,19 +62,19 @@ namespace SpaceH {
         }
 
         /** @brief Extrapolation coefficient.*/
-        Container<Scalar, MaxDepth * (MaxDepth + 1) / 2> extrap_coef_;
+        Container<Scalar, MaxIter * (MaxIter + 1) / 2> extrap_coef_;
 
         /** @brief The exponent of error estimate at column k.*/
-        Container<Scalar, MaxDepth> err_expon_;
+        Container<Scalar, MaxIter> err_expon_;
 
         /** @brief The minimal coeffient of integration step estimation.*/
-        Container<Scalar, MaxDepth> limiter_;
+        Container<Scalar, MaxIter> limiter_;
 
         /** @brief The work(computation resource) per step size of each iteration depth.*/
-        Container<size_t, MaxDepth> work_;
+        Container<size_t, MaxIter> work_;
 
         /** @brief Steps of integration of each iteration depth.*/
-        Container<size_t, MaxDepth> sub_steps_;
+        Container<size_t, MaxIter> sub_steps_;
     };
 
 /** @brief Bulirsch-Stoer extrapolation algorithm*/
@@ -131,7 +131,7 @@ namespace SpaceH {
         Container<ScalarBuffer, (MaxDepth + 1) * (MaxDepth + 2) / 2> extrapTab;
 
         /** @brief The optimal step size array.*/
-        Container<Scalar, MaxDepth + 1> optimal_H_;
+        Container<Scalar, MaxDepth + 1> optimal_step_coef_;
 
         /** @brief The work(computation resource) needed to converge at column k.*/
         Container<Scalar, MaxDepth + 1> work_per_len_;
@@ -140,7 +140,7 @@ namespace SpaceH {
         Scalar absoluteError_{1 * SpaceH::epsilon<Scalar>::value};
 
         /** @brief Local relative error*/
-        Scalar relativeError_{500 * SpaceH::epsilon<Scalar>::value};
+        Scalar relativeError_{50 * SpaceH::epsilon<Scalar>::value};
 
         /** @brief Current iteraation depth.*/
         size_t ideal_iter_{7};
@@ -159,20 +159,21 @@ namespace SpaceH {
         void fillFirstColumn(size_t row) {
             size_t center = at(row, 0);
             localSystem.write(extrapTab[center], IO_flag::EVOLVED);//copyDataToExtrapTab;
-            size_t size = initState_.size();
+            /*size_t size = initState_.size();
 
             for (size_t i = 0; i < size; ++i)
-                extrapTab[center][i] -= initState_[i];
+                extrapTab[center][i] -= initState_[i];*/
         }
 
         void loadResult(ParticSys &particles, size_t iter) {
             size_t center = at(iter, iter);
-            size_t size = initState_.size();
+            /*size_t size = initState_.size();
 
             for (size_t i = 0; i < size; ++i)
                 initState_[i] += extrapTab[center][i];
 
-            particles.read(initState_, IO_flag::EVOLVED);
+            particles.read(initState_, IO_flag::EVOLVED);*/
+            particles.read(extrapTab[center], IO_flag::EVOLVED);
         }
 
     private:
@@ -203,9 +204,9 @@ namespace SpaceH {
         /** @brief step size reductio after rejection.*/
         inline Scalar stepSizeReduction(size_t iter) {
             if (iter == ideal_iter_ - 1)
-                return optimal_H_[iter] * static_cast<Scalar>(BS.work(iter + 1)) / static_cast<Scalar>(BS.work(iter));
+                return optimal_step_coef_[iter] * static_cast<Scalar>(BS.work(iter + 1)) / static_cast<Scalar>(BS.work(iter));
             else
-                return optimal_H_[ideal_iter_];
+                return optimal_step_coef_[ideal_iter_];
         }
 
         /** @brief check if current iteration can converge in current order window*/
@@ -215,7 +216,11 @@ namespace SpaceH {
 
         /** @brief return convergence column in allowed range*/
         inline size_t allowedRange(size_t i) {
-            return SpaceH::min(MaxDepth - 1, SpaceH::max(2, i));
+            return  SpaceH::in_range(static_cast<size_t>(2), i, static_cast<size_t>(MaxDepth - 1));
+        }
+
+        inline Scalar stepLimiter(Scalar step_coef) {
+            return SpaceH::in_range(static_cast<Scalar>(BS.limiter(ideal_iter_)/4), step_coef, static_cast<Scalar>(1.0/BS.limiter(ideal_iter_)));
         }
 
         inline size_t at(size_t i, size_t j) const {
@@ -275,28 +280,27 @@ namespace SpaceH {
                 fillFirstColumn(iter);
                 extrapolate(iter);
                 error = calcuError(iter);
-                Scalar step_cof = calcuIdealStepCoef(error, iter);
-                optimal_H_[iter] = iter_H * step_cof;
-                work_per_len_[iter] = BS.work(iter) / step_cof;
+                optimal_step_coef_[iter] = calcuIdealStepCoef(error, iter);
+                work_per_len_[iter] = BS.work(iter) / optimal_step_coef_[iter];
 
                 DEBUG_MSG(true,
                           "iter=", iter,
                           "optimal=", ideal_iter_,
                           "err=", error,
                           "work=", work_per_len_[iter],
-                          "Step Cof =", step_cof,
+                          "Step Cof =", optimal_step_coef_[iter],
                           "StepLen =", iter_H);
 
                 if (isInConvergenceWindow(iter)) {
                     if (error < 1.0) {
                         DEBUG_MSG(true, "accept");
-                        iter_H = prepareNextIteration(iter);
+                        iter_H *= stepLimiter(prepareNextIteration(iter));
                         loadResult(particles, iter);
                         return iter_H;
                     } else if (divergedInOrderWindow(error, iter)) {
                         DEBUG_MSG(true, "reject");
                         rej_num_++;
-                        iter_H = stepSizeReduction(iter);
+                        iter_H *= stepLimiter(stepSizeReduction(iter));
                         break;
                     }
                 }
@@ -337,7 +341,7 @@ namespace SpaceH {
             size_t up = last_row + j;
 
             for (size_t i = 0; i < size; ++i)
-                extrapTab[right][i] = (extrapTab[current][i] - extrapTab[up][i]) * BS.coef(right)
+                extrapTab[right][i] = (extrapTab[current][i] - extrapTab[up][i]) * BS.coef(current)
                                     +  extrapTab[current][i];
         }
     }
@@ -354,8 +358,8 @@ namespace SpaceH {
 
         for (size_t i = 0; i < size; ++i) {
             Scalar d = SpaceH::abs(extrapTab[center][i] - extrapTab[left][i]);
-            Scalar scale = SpaceH::max(SpaceH::abs(extrapTab[left][i]   + initState_[i]),
-                                       SpaceH::abs(extrapTab[center][i] + initState_[i]));
+            Scalar scale = SpaceH::max(SpaceH::abs(extrapTab[left][i]   ),
+                                       SpaceH::abs(extrapTab[center][i]));
             max_err = SpaceH::max(1.0 * max_err, d / scale);
             DEBUG_MSG(false, i, max_err, d, scale, extrapTab[center][i], extrapTab[left][i], initState_[i]);
         }
@@ -369,11 +373,13 @@ namespace SpaceH {
  */
     template<typename ParticSys, typename Integrator>
     typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::calcuIdealStepCoef(Scalar error, size_t k) {
-        if (error != 0)
-            return SpaceH::max(BS.limiter(k) / 4,
-                               SpaceH::min(0.9 * pow(0.90 / error, BS.expon(k)), 1.0 / BS.limiter(k)));
-        else
+        if (error != 0) {
+            return 0.9 * pow(0.90 / error, BS.expon(k));
+        } else {
             return 1.0 / BS.limiter(k);
+        }
+            /*return SpaceH::max(BS.limiter(k) / 4,
+                               SpaceH::min(0.9 * pow(0.90 / error, BS.expon(k)), 1.0 / BS.limiter(k)));*/
     }
 
 /** @brief Calculate the new iteration depth for next iteration.
@@ -388,22 +394,22 @@ namespace SpaceH {
                 //ideal_iter_ <= 2 here to avoid none calculated work_per_len[1-1=0]
                 if (work_per_len_[iter] < 0.9 * work_per_len_[iter - 1] || ideal_iter_ <= 2)
                 {
-                    return optimal_H_[iter] * static_cast<Scalar>(BS.work(iter + 1)) / static_cast<Scalar>(BS.work(iter));
+                    return optimal_step_coef_[iter] * static_cast<Scalar>(BS.work(iter + 1)) / static_cast<Scalar>(BS.work(iter));
                 } else {
                     ideal_iter_ = allowedRange(ideal_iter_ - 1);
-                    return optimal_H_[ideal_iter_];//reduce order
+                    return optimal_step_coef_[ideal_iter_];//reduce order
                 }
 
             case 0:
 
                 if (work_per_len_[iter - 1] < 0.8 * work_per_len_[iter]) {
                     ideal_iter_ = allowedRange(ideal_iter_ - 1);
-                    return optimal_H_[ideal_iter_];
+                    return optimal_step_coef_[ideal_iter_];
                 } else if (work_per_len_[iter] < 0.9 * work_per_len_[iter - 1]) {
                     ideal_iter_ = allowedRange(ideal_iter_ + 1);
-                    return optimal_H_[iter] * static_cast<Scalar>(BS.work(iter + 1)) / static_cast<Scalar>(BS.work(iter));
+                    return optimal_step_coef_[iter] * static_cast<Scalar>(BS.work(iter + 1)) / static_cast<Scalar>(BS.work(iter));
                 } else {
-                    return optimal_H_[ideal_iter_];//keep order
+                    return optimal_step_coef_[ideal_iter_];//keep order
                 }
 
             case 1:
@@ -414,7 +420,7 @@ namespace SpaceH {
                 if (work_per_len_[iter] < 0.9 * work_per_len_[ideal_iter_]) {
                     ideal_iter_ = allowedRange(ideal_iter_ + 1);
                 }
-                return optimal_H_[ideal_iter_];
+                return optimal_step_coef_[ideal_iter_];
 
             default:
                 ERR_MSG("unexpected iteration index!");
