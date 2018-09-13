@@ -4,6 +4,7 @@
 #include "dev_tools.h"
 #include <fstream>
 #include <vector>
+#include <functional>
 #include "macros.h"
 
 namespace SpaceH {

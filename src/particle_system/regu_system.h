@@ -114,7 +114,6 @@ namespace SpaceH {
             size_t loc = static_cast<const Base &>(*this).write(data, flag);
             if constexpr (Regularitor::nonTrivial) {
                 if (flag == IO_flag::EVOLVED ) {
-                    data.reserve(loc + 2);
                     data.emplace_back(regular.omega());
                     data.emplace_back(regular.bindE());
                 }

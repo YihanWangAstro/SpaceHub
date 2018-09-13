@@ -8,7 +8,7 @@
 #include "tools/timer.h"
 #include <fstream>
 #include <iomanip>
-
+#include <memory>
 namespace SpaceH {
 
     namespace CallBack {
