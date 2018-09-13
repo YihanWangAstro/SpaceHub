@@ -56,7 +56,7 @@ namespace SpaceH {
         using type = typename ParticSys::type;
         using Scalar = typename type::Scalar;
         using ScalarBuffer = typename type::ScalarBuffer;
-        using RunArgs = RunArgs<ParticSys>;
+        using RunArgs = SpaceH::RunArgs<ParticSys>;
         /* Typedef */
 
         void advanceOneStep();
