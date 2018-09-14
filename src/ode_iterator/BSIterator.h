@@ -361,7 +361,7 @@ namespace SpaceH {
             Scalar scale = SpaceH::max(SpaceH::abs(extrapTab[left][i]   ),
                                        SpaceH::abs(extrapTab[center][i]));
             max_err = SpaceH::max(1.0 * max_err, d / scale);
-            DEBUG_MSG(false, i, max_err, d, scale, extrapTab[center][i], extrapTab[left][i], initState_[i]);
+            DEBUG_MSG(true, i, max_err/relativeError_, d, scale, extrapTab[center][i], extrapTab[left][i], initState_[i]);
         }
         return max_err / relativeError_;
     }

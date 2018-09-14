@@ -65,7 +65,7 @@ namespace SpaceH {
                 act.sumTotalAcc();
                 //partc.advenceVel(act.acc(), 0.5*physicalTime);
                 regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), 0.5*physicalTime);
-                partc.advenceVel(act.acc(), physicalTime);
+                partc.advanceVel(act.acc(), physicalTime);
                 regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), 0.5*physicalTime);
             } else {
                 act.calcuVelDepAcc(partc);

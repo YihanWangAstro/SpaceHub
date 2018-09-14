@@ -246,8 +246,8 @@ namespace SpaceH {
             SpaceH::chain::getChainIndex(pos_.cartesian_, new_index);
 
             if (SpaceH::chain::isDiff(new_index, chain_index_)) {
-                SpaceH::chain::updateChain(pos_.cartesian_, chain_index_, new_index);
-                SpaceH::chain::updateChain(vel_.cartesian_, chain_index_, new_index);
+                SpaceH::chain::updateChain(pos_.chain_, chain_index_, new_index);
+                SpaceH::chain::updateChain(vel_.chain_, chain_index_, new_index);
                 chain_index_ = new_index;
             }
         }
@@ -276,6 +276,7 @@ namespace SpaceH {
             if (!is.good()) ERR_MSG("Insufficent input data in initial file!");
 
             if (!chained) {
+                moveToCoM();
                 pos_.createChainIndex(chain_index_);
                 chained = true;
             }

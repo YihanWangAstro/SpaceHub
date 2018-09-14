@@ -13,7 +13,7 @@ namespace SpaceH {
 
     namespace CallBack {
 
-        template<typename ParticleSys>
+        template<typename ParticleSys, bool Immediate = false>
         class DefaultWriter {
         public:
             using Scalar = typename ParticleSys::Scalar;
@@ -32,6 +32,9 @@ namespace SpaceH {
             inline void operator()(ParticleSys &partc) {
                 if (partc.time() >= write_time_) {
                     (*os) << partc;
+                    if constexpr (Immediate) {
+                        (*os) << std::endl;
+                    }
                     write_time_ += write_interval_;
                 }
             }
@@ -43,7 +46,7 @@ namespace SpaceH {
             size_t step_{0};
         };
 
-        template<typename ParticleSys>
+        template<typename ParticleSys, bool Immediate = false>
         class EnergyWriter {
         public:
             using Scalar = typename ParticleSys::Scalar;
@@ -64,6 +67,9 @@ namespace SpaceH {
                     (*os) << partc.time()/Unit::YEAR << ' '
                           << SpaceH::getTotalEnergy(partc.mass(),partc.pos(),partc.vel()) << ' '
                           << partc.omega() << ' ' << partc.bindE() << "\r\n";
+                    if constexpr (Immediate) {
+                        (*os) << std::endl;
+                    }
                     write_time_ += write_interval_;
                 }
             }

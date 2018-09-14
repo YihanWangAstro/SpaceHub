@@ -23,7 +23,7 @@ namespace SpaceH {
         using Vector       = typename type::Vector;
         using VectorArray  = typename type::VectorArray;
         using ScalarArray  = typename type::ScalarArray;
-        using IntArray     = typename type::IntArray;
+        using IndexArray   = typename type::IndexArray;
         using ScalarBuffer = typename type::ScalarBuffer;
         using State        = typename Particles::State;
         using ParticleType = Particles;
@@ -70,7 +70,7 @@ namespace SpaceH {
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IntArray,    partc, idn   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IndexArray,  partc, idn   );
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(time,  Scalar,      partc, time  );
         SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
 
@@ -96,7 +96,6 @@ namespace SpaceH {
         /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
         void kick(Scalar stepSize) {
             act.zeroTotalAcc();
-
             act.calcuVelIndepAcc(partc);
 
             /*after long time struggling, decide to use 'constexpr if' in c++17 to improve readability. The price is low
@@ -168,7 +167,7 @@ namespace SpaceH {
 
         /** @brief Calculate the total energy of the system*/
         inline Scalar totalEnergy() const {
-            return potentialEnergy() + kineticEnergy();
+            return SpaceH::getTotalEnergy(partc.mass(), partc.pos(), partc.vel());
         }
 
         /** @brief Preprocess before iteration*/

@@ -3,7 +3,7 @@
 using namespace SpaceH;
 //using scalar = double;
 using scalar = precise_d;
-const size_t N = 2;//SpaceH::DYNAMICAL;
+const size_t N = 3;//SpaceH::DYNAMICAL;
 using type = SpaceH::TypeClass<scalar, N>;
 int main(int argc, char **argv) {
 
@@ -28,10 +28,10 @@ int main(int argc, char **argv) {
 
     simulation::RunArgs args;
     //args.file = "solar_earth.init";
-    args.file = "circular.init";
+    //args.file = "circular.init";
     //args.file = "elliptic.init";
-    //args.file = "Kozai.init";
-    args.endTime = 1000* Unit::YEAR;
+    args.file = "Kozai.init";
+    args.endTime = 30* Unit::YEAR;
 
     args.registerPreOption(CallBack::DefaultWriter<sys>("circular.dat", args.endTime));
     args.registerPreOption(CallBack::EnergyWriter<sys>("circular.eng", args.endTime));

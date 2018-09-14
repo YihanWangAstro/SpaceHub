@@ -193,6 +193,13 @@ namespace SpaceH {
         void updateChain(VectorArray &pos, IndexArray &chainIndex, IndexArray &newIndex) {
             size_t size = pos.size() - 1;
             typename VectorArray::value_type newPos[size];
+
+            size_t head0 = std::find(chainIndex.begin(), chainIndex.end(), newIndex[0]) - chainIndex.begin();
+            typename VectorArray::value_type headPos = pos[size];
+            for (int i = 0; i < head0; ++i)
+                headPos += pos[i];
+            pos[size] = headPos;
+
             for (size_t i = 0; i < size; i++) {
                 size_t head = newIndex[i];
                 size_t tail = newIndex[i + 1];
