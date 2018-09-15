@@ -125,6 +125,7 @@ namespace SpaceH {
         template <typename Particles>
         inline Scalar getPhysicalVelTime(const Particles &partc, Scalar stepSize) {
             return stepSize / -getPotentialEnergy(partc.mass(), partc.pos());
+            //return stepSize/-getPotentialEnergy(partc.mass(), partc.pos(), partc.chain_pos(), partc.chain_index());
         }
 
         /*private:

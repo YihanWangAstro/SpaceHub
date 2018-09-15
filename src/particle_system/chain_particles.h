@@ -341,25 +341,24 @@ namespace SpaceH {
                     p.y = data[loc++];
                     p.z = data[loc++];
                 }
-
                 if (!chained) {
                     pos_.createChainIndex(chain_index_);
                     chained = true;
                 }
-
-                pos_.synChain();
                 for (auto &v : vel_.cartesian_) {
                     v.x = data[loc++];
                     v.y = data[loc++];
                     v.z = data[loc++];
                 }
-                vel_.synChain();
                 for (auto &m : mass_)
                     m = data[loc++];
                 for (auto &r : radius_)
                     r = data[loc++];
                 for (auto &i : idn_)
                     i = static_cast<size_t >(data[loc++]);
+
+                pos_.synChain();
+                vel_.synChain();
             }
             time_ = data[loc++];
             return loc;

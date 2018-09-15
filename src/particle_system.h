@@ -214,6 +214,12 @@ namespace SpaceH {
             return partc.write(data, flag);
         }
 
+        Vector posCoM() {
+            return SpaceH::calcuCMCoord(partc.mass(), partc.pos());
+        }
+        Vector velCoM() {
+            return SpaceH::calcuCMCoord(partc.mass(), partc.vel());
+        }
     protected:
         /**  @brief Particle class*/
         Particles partc;

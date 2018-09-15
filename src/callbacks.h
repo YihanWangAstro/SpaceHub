@@ -82,6 +82,42 @@ namespace SpaceH {
             size_t step_{0};
         };
 
+        template<typename ParticleSys, bool Immediate = false>
+        class CoMWriter {
+        public:
+            using Scalar = typename ParticleSys::Scalar;
+
+            CoMWriter(const char *path, Scalar end_time, size_t output_num = 5000)
+                    : write_interval_(end_time / output_num){
+
+                os = std::make_shared<std::ofstream>(path);
+                if (os->is_open()) {
+                    (*os) << std::scientific << std::setprecision(16);
+                } else {
+                    ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                }
+            }
+
+            inline void operator()(ParticleSys &partc) {
+                if (partc.time() >= write_time_) {
+                    (*os) << partc.time()/Unit::YEAR << ' '
+                          << partc.posCoM() << ' '
+                          << partc.velCoM() << "\r\n";
+                    if constexpr (Immediate) {
+                        (*os) << std::endl;
+                    }
+                    write_time_ += write_interval_;
+                }
+            }
+
+        private:
+            std::shared_ptr<std::ofstream> os;
+            std::shared_ptr<std::ofstream> os_eng;
+            Scalar write_time_{0};
+            Scalar write_interval_{0};
+            size_t step_{0};
+        };
+
         template<typename ParticleSys>
         class ShowProgressBar{
         public:
