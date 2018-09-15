@@ -3,8 +3,8 @@
 
 #include <iomanip>
 #include <fstream>
-#include "dev_tools.h"
-#include "type_class.h"
+#include "../dev_tools.h"
+#include "../type_class.h"
 
 namespace SpaceH {
     template<typename Particle>
@@ -33,10 +33,10 @@ namespace SpaceH {
                 outFile << ' ' << size << ' ' << time << "\r\n";
 
                 for (size_t i = 0; i < size; ++i) {
-                    outFile << i << ' ' << particles_[i] << "\r\n";
+                    outFile << particles_[i] << ' ' << i << "\r\n";
                 }
             } else
-                SpaceH::ERR_MSG("Fail to open the initial file to write the Particle Data!", __FILE__, __LINE__);
+                ERR_MSG("Fail to open the initial file to write the Particle Data!", __FILE__, __LINE__);
 
             outFile.close();
         }

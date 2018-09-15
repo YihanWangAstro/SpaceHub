@@ -1,8 +1,8 @@
 #ifndef ORBITS_H
 #define ORBITS_H
 
-#include "src/type_class.h"
-#include "src/own_math.h"
+#include "../type_class.h"
+#include "../own_math.h"
 #include "../macros.h"
 #include <math.h>
 
@@ -187,11 +187,10 @@ namespace SpaceH {
          */
         template<typename Scalar>
         Scalar getRandomMeanAnomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
-            SpaceH::Random<T> uniform;
             if (e >= 0)
-                return uniform() * (Mmax - Mmin) + Mmin;
+                return Random<Scalar>::uniform() * (Mmax - Mmin) + Mmin;
             else {
-                SpaceH::ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
+                ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
             }
         }
@@ -212,7 +211,7 @@ namespace SpaceH {
             else if (fabs(e - 1) < SpaceH::epsilon<Scalar>::value)
                 return 2 * atan(0.5 * E);
             else {
-                SpaceH::ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
+                ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
             }
         }
@@ -234,7 +233,7 @@ namespace SpaceH {
             else if (fabs(e - 1) < SpaceH::epsilon<Scalar>::value)
                 return SpaceH::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
             else {
-                SpaceH::ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
+                ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
             }
         }
@@ -244,10 +243,10 @@ namespace SpaceH {
      *
      * @tparam Dtype
      */
-    template<typename Dtype>
+    template<typename TypeClass>
     struct Particle {
         /* Typedef */
-        using type   = SpaceH::ProtoType<Dtype, SpaceH::DYNAMICAL>;
+        using type   = TypeClass;
         using Scalar = typename type::Scalar;
         using Vector = typename type::Vector;
         /* Typedef */
@@ -268,13 +267,13 @@ namespace SpaceH {
      *
      * @tparam Dtype
      */
-    template<typename Dtype>
+    template<typename Particle>
     struct Kepler {
         /* Typedef */
-        using type   = SpaceH::ProtoType<Dtype, SpaceH::DYNAMICAL>;
+        using type   = typename Particle::type;
         using Scalar = typename type::Scalar;
         using Vector = typename type::Vector;
-
+        using ParticleType = Particle;
         /* Typedef */
 
         inline const Scalar a() const { return param.a; }
@@ -303,11 +302,11 @@ namespace SpaceH {
          * @param e
          */
         Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e) {
-            SpaceH::Random<T> uniform;
+
             calcuOrbitalParameter(m1, m2, p, e);
-            param.Omega = uniform() * 2 * Const::PI - Const::PI;
-            param.i     = acos(SpaceH::uniform() * 2 - 1);
-            param.omega = uniform() * 2 * Const::PI - Const::PI;
+            param.Omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
+            param.i     = acos(Random<Scalar>::uniform() * 2 - 1);
+            param.omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
             Scalar M    = Orbits::getRandomMeanAnomaly(e, -Unit::HUBBLETIME / T_, Unit::HUBBLETIME / T_);
             Scalar E    = Orbits::calcuEccentricAnomaly(M, param.e);
             param.nu    = Orbits::calcuTrueAnomaly(E, param.e);
@@ -350,7 +349,7 @@ namespace SpaceH {
          *
          * @param P
          */
-        void moveOrbitTo(const Particle<Scalar> &P) {
+        void moveOrbitTo(const Particle &P) {
             moveToCentreMassCoord();
             P1.pos += P.pos, P1.vel += P.vel;
             P2.pos += P.pos, P2.vel += P.vel;
@@ -401,7 +400,7 @@ namespace SpaceH {
          *
          * @return
          */
-        inline const Particle<Dtype> &primary() const {
+        inline Particle &primary() {
             if (P1.mass >= P2.mass)
                 return P1;
             else
@@ -412,7 +411,7 @@ namespace SpaceH {
          *
          * @return
          */
-        inline const Particle<Dtype> &secondary() const {
+        inline Particle &secondary() {
             if (P1.mass < P2.mass)
                 return P1;
             else
@@ -423,8 +422,7 @@ namespace SpaceH {
          *
          */
         void randomPhi() {
-            SpaceH::Random<T> uniform;
-            param.Omega = uniform() * 2 * Const::PI - Const::PI;
+            param.Omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -432,8 +430,7 @@ namespace SpaceH {
          *
          */
         void randomTheta() {
-            SpaceH::Random<T> uniform;
-            param.i = acos(uniform() * 2 - 1);
+            param.i = acos(Random<Scalar>::uniform() * 2 - 1);
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -441,8 +438,7 @@ namespace SpaceH {
          *
          */
         void randomPsi() {
-            SpaceH::Random<T> uniform;
-            param.omega = uniform() * 2 * Const::PI - Const::PI;
+            param.omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -450,10 +446,9 @@ namespace SpaceH {
          *
          */
         void randomAngles() {
-            SpaceH::Random<T> uniform;
-            param.Omega = uniform() * 2 * Const::PI - Const::PI;
-            param.i = acos(uniform() * 2 - 1);
-            param.omega = uniform() * 2 * Const::PI - Const::PI;
+            param.Omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
+            param.i = acos(Random<Scalar>::uniform() * 2 - 1);
+            param.omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
             createOrbit(P1.mass, P2.mass);
         }
 
@@ -505,9 +500,9 @@ namespace SpaceH {
          */
         void checkParameter(Scalar p, Scalar e) {
             if (p < 0)
-                SpaceH::ERR_MSG("semi-latus rectum cannot be negative", __FILE__, __LINE__);
+                ERR_MSG("semi-latus rectum cannot be negative", __FILE__, __LINE__);
             if (e < 0)
-                SpaceH::ERR_MSG("Eccentrcity cannot be negative!", __FILE__, __LINE__);
+                ERR_MSG("Eccentrcity cannot be negative!", __FILE__, __LINE__);
         }
 
         /**
@@ -535,8 +530,8 @@ namespace SpaceH {
         }
 
     private:
-        Particle<Dtype> P1;
-        Particle<Dtype> P2;
+        Particle P1;
+        Particle P2;
         Orbits::Param<Scalar> param;
         Scalar b_;
         Scalar T_;
