@@ -45,7 +45,7 @@ namespace SpaceH {
      * @tparam Dtype
      * @tparam Size
      */
-    template<typename Dtype, size_t Size>
+    template<typename Dtype, size_t Size = SpaceH::DYNAMICAL>
     struct TypeClass {
         constexpr static size_t arraySize{Size};
 

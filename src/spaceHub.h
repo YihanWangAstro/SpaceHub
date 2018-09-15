@@ -33,6 +33,8 @@
 #include "interaction/force.h"
 #include "interaction/post_newtonian.h"
 
+#include "init_creator/orbits.h"
+#include "init_creator/init_file_creator.h"
 //#include "wrapper/singleRun.h"
 namespace SpaceH {
 
