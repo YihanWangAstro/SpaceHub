@@ -249,6 +249,8 @@ namespace SpaceH {
                 SpaceH::chain::updateChain(pos_.chain_, chain_index_, new_index);
                 SpaceH::chain::updateChain(vel_.chain_, chain_index_, new_index);
                 chain_index_ = new_index;
+                pos_.synCartesian();
+                vel_.synCartesian();
             }
         }
 

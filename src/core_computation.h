@@ -132,7 +132,7 @@ namespace SpaceH {
         using Scalar = typename Vector ::value_type;
 
         Vector centralMassVar(0.0, 0.0, 0.0);
-        Scalar totalMass = 0;
+        Scalar totalMass{0};
 
         const size_t N = mass.size();
         for (size_t i = 0; i < N; ++i) {
@@ -222,7 +222,6 @@ namespace SpaceH {
 
         Scalar r = 0;
         Scalar min_ds = 0;
-        Scalar ds = 0;
 
         for (size_t i = 0; i < size; i++) {
             adot.setZero();
@@ -236,7 +235,7 @@ namespace SpaceH {
                     adot += (dv / (r * r * r) + dr * (3 * dot(dv, dr) / (r * r * r * r * r))) * mass[j];
                 }
             }
-            ds = acc.norm() / adot.norm();
+            Scalar ds = acc.norm() / adot.norm();
             min_ds = min_ds == 0 ? ds : SpaceH::min(min_ds, ds);
         }
 

@@ -137,7 +137,7 @@ namespace SpaceH {
         Container<Scalar, MaxDepth + 1> work_per_len_;
 
         /** @brief Local absolute error*/
-        Scalar absoluteError_{1 * SpaceH::epsilon<Scalar>::value};
+        Scalar absoluteError_{50 * SpaceH::epsilon<Scalar>::value};
 
         /** @brief Local relative error*/
         Scalar relativeError_{50 * SpaceH::epsilon<Scalar>::value};
@@ -177,9 +177,6 @@ namespace SpaceH {
         }
 
     private:
-        /** @brief Internal integrator */
-        Integrator integrator;
-
         /** @brief Check the rejection criteria for current iteration.*/
         bool divergedInOrderWindow(Scalar error, size_t iter) const;
 
@@ -259,7 +256,6 @@ namespace SpaceH {
     template<typename ParticSys, typename Integrator>
     typename ParticSys::type::Scalar
     BSIterator<ParticSys, Integrator>::iterate(ParticSys &particles, Scalar stepLength) {
-        Scalar error = 0;
         Scalar iter_H = stepLength;
 
         DEBUG_MSG(false, "init StepLen=", iter_H);
@@ -279,7 +275,7 @@ namespace SpaceH {
 
                 fillFirstColumn(iter);
                 extrapolate(iter);
-                error = calcuError(iter);
+                Scalar error = calcuError(iter);
                 optimal_step_coef_[iter] = calcuIdealStepCoef(error, iter);
                 work_per_len_[iter] = BS.work(iter) / optimal_step_coef_[iter];
 
@@ -337,12 +333,11 @@ namespace SpaceH {
         size_t size = extrapTab[curr_row].size();
         for (size_t j = 0; j < k; ++j) {
             size_t current = curr_row + j;//
-            size_t right = current + 1;
-            size_t up = last_row + j;
+            size_t right   = current  + 1;
+            size_t up      = last_row + j;
 
             for (size_t i = 0; i < size; ++i)
-                extrapTab[right][i] = (extrapTab[current][i] - extrapTab[up][i]) * BS.coef(current)
-                                    +  extrapTab[current][i];
+                extrapTab[right][i] = extrapTab[current][i] + (extrapTab[current][i] - extrapTab[up][i]) * BS.coef(current);
         }
     }
 
@@ -357,9 +352,9 @@ namespace SpaceH {
         Scalar max_err = 0;
 
         for (size_t i = 0; i < size; ++i) {
-            Scalar d = SpaceH::abs(extrapTab[center][i] - extrapTab[left][i]);
-            Scalar scale = SpaceH::max(SpaceH::abs(extrapTab[left][i]   ),
-                                       SpaceH::abs(extrapTab[center][i]));
+            Scalar d     = SpaceH::abs(extrapTab[center][i] - extrapTab[left][i]);
+            Scalar scale = SpaceH::min(SpaceH::abs(extrapTab[left][i]   ),
+                                       SpaceH::abs(extrapTab[center][i])) + absoluteError_;
             max_err = SpaceH::max(1.0 * max_err, d / scale);
             DEBUG_MSG(false, i, max_err/relativeError_, d, scale, extrapTab[center][i], extrapTab[left][i], initState_[i]);
         }

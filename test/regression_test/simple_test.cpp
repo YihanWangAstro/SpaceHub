@@ -3,12 +3,12 @@
 using namespace SpaceH;
 //using scalar = double;
 using scalar = precise_d;
-const size_t N = 2;//SpaceH::DYNAMICAL;
+const size_t N = 3;//SpaceH::DYNAMICAL;
 using type = SpaceH::TypeClass<scalar, N>;
 int main(int argc, char **argv) {
 
     //using f = KarmackNewtonian<type>;
-    //using force = NewtonianForce<type>;
+   // using force = NewtonianForce<type>;
     using force = NewtonianChainForce<type>;
     //using PN = PostNewtonianForce<type,true,false,false>;
 
@@ -29,9 +29,9 @@ int main(int argc, char **argv) {
     simulation::RunArgs args;
     //args.file = "solar_earth.init";
     //args.file = "circular.init";
-    args.file = "elliptic.init";
-    //args.file = "Kozai.init";
-    args.endTime = 2000* Unit::YEAR;
+    //args.file = "elliptic.init";
+    args.file = "Kozai.init";
+    args.endTime = 50000* Unit::YEAR;
 
     args.registerPreOption(CallBack::DefaultWriter<sys>("circular.dat", args.endTime,100000));
     args.registerPreOption(CallBack::EnergyWriter<sys>("circular.eng", args.endTime,100000));

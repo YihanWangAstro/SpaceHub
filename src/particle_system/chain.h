@@ -199,6 +199,7 @@ namespace SpaceH {
             for (int i = 0; i < head0; ++i)
                 headPos += pos[i];
             pos[size] = headPos;
+            //pos[size].setZero();
 
             for (size_t i = 0; i < size; i++) {
                 size_t head = newIndex[i];

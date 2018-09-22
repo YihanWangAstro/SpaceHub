@@ -66,6 +66,7 @@ namespace SpaceH {
                 if (partc.time() >= write_time_) {
                     (*os) << partc.time()/Unit::YEAR << ' '
                           << SpaceH::getTotalEnergy(partc.mass(),partc.pos(),partc.vel()) << ' '
+                          << SpaceH::getEnergyErr(partc.mass(), partc.pos(), partc.vel(), partc.bindE()) << ' '
                           << partc.omega() << ' ' << partc.bindE() << "\r\n";
                     if constexpr (Immediate) {
                         (*os) << std::endl;
