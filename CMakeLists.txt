@@ -41,7 +41,7 @@ set(TMP_HEADER_FILES
         src/interaction/interaction.h
         src/interaction/post_newtonian.h
         src/ode_iterator/BSIterator.h
-        src/ode_iterator/BSIterator_implnew.h
+        src/ode_iterator/BSIterator_impl0.h
         src/ode_iterator/const_iterator.h
         src/ode_iterator/IAS15.h
         src/particle_system/chain.h
