@@ -69,6 +69,19 @@ namespace SpaceH {
 #define DEBUG_MSG(cond, ...)
 #endif
 
+#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                             \
+    using type         = typename CLASS::type;                                                           \
+    using Scalar       = typename type::Scalar;                                                          \
+    using Vector       = typename type::Vector;                                                          \
+    using VectorArray  = typename type::VectorArray;                                                     \
+    using ScalarArray  = typename type::ScalarArray;                                                     \
+    using IndexArray   = typename type::IndexArray;                                                      \
+    using ScalarBuffer = typename type::ScalarBuffer;                                                    \
+    using SizeArray    = typename type::SizeArray;                                                       \
+    template<typename T, size_t S>                                                                       \
+    using Container    = typename type::template Container<T, S>;                                        \
+    constexpr static size_t array_size{type::array_size}
+
 /** @brief Standard read interfaces for private data scalar in SpaceHub project*/
 #define SPACEHUB_READ_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                          \
                                                                                                          \

@@ -15,7 +15,7 @@ namespace SpaceH {
     template<typename ParticleSys>
     class RunArgs {
     public:
-        using Scalar = typename ParticleSys::Scalar;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
         using Callback = std::function<void (ParticleSys &)>;
 
         std::string file;

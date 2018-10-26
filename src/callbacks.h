@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iomanip>
 #include <memory>
+
 namespace SpaceH {
 
     namespace CallBack {
@@ -19,7 +20,7 @@ namespace SpaceH {
             using Scalar = typename ParticleSys::Scalar;
 
             DefaultWriter(const char *path, Scalar end_time, size_t output_num = 5000)
-                    : write_interval_(end_time / output_num){
+                    : write_interval_(end_time / output_num) {
 
                 os = std::make_shared<std::ofstream>(path);
                 if (os->is_open()) {
@@ -52,7 +53,7 @@ namespace SpaceH {
             using Scalar = typename ParticleSys::Scalar;
 
             EnergyWriter(const char *path, Scalar end_time, size_t output_num = 5000)
-                    : write_interval_(end_time / output_num){
+                    : write_interval_(end_time / output_num) {
 
                 os = std::make_shared<std::ofstream>(path);
                 if (os->is_open()) {
@@ -64,8 +65,8 @@ namespace SpaceH {
 
             inline void operator()(ParticleSys &partc) {
                 if (partc.time() >= write_time_) {
-                    (*os) << partc.time()/Unit::YEAR << ' '
-                          << SpaceH::getTotalEnergy(partc.mass(),partc.pos(),partc.vel()) << ' '
+                    (*os) << partc.time() / Unit::YEAR << ' '
+                          << SpaceH::getTotalEnergy(partc.mass(), partc.pos(), partc.vel()) << ' '
                           << SpaceH::getEnergyErr(partc.mass(), partc.pos(), partc.vel(), partc.bindE()) << ' '
                           << partc.omega() << ' ' << partc.bindE() << "\r\n";
                     if constexpr (Immediate) {
@@ -89,7 +90,7 @@ namespace SpaceH {
             using Scalar = typename ParticleSys::Scalar;
 
             CoMWriter(const char *path, Scalar end_time, size_t output_num = 5000)
-                    : write_interval_(end_time / output_num){
+                    : write_interval_(end_time / output_num) {
 
                 os = std::make_shared<std::ofstream>(path);
                 if (os->is_open()) {
@@ -101,7 +102,7 @@ namespace SpaceH {
 
             inline void operator()(ParticleSys &partc) {
                 if (partc.time() >= write_time_) {
-                    (*os) << partc.time()/Unit::YEAR << ' '
+                    (*os) << partc.time() / Unit::YEAR << ' '
                           << partc.posCoM() << ' '
                           << partc.velCoM() << "\r\n";
                     if constexpr (Immediate) {
@@ -120,16 +121,18 @@ namespace SpaceH {
         };
 
         template<typename ParticleSys>
-        class ShowProgressBar{
+        class ShowProgressBar {
         public:
             using Scalar = typename ParticleSys::Scalar;
+
             explicit ShowProgressBar(Scalar end_time) : bar(end_time) {}
 
             inline void operator()(ParticleSys &partc) {
                 bar.autoShow(partc.time());
             }
+
         private:
-          Progress bar;
+            Progress bar;
         };
 
     }
