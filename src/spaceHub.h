@@ -30,7 +30,7 @@
 #include "ode_iterator/IAS15.h"
 
 #include "interaction/interaction.h"
-#include "interaction/force.h"
+//#include "interaction/force.h"
 #include "interaction/post_newtonian.h"
 
 #include "init_creator/orbits.h"
@@ -45,14 +45,15 @@ namespace SpaceH {
             typename VelForce    = void,
             typename ExtPosForce = void,
             typename ExtVelForce = void,
-            template<typename> class Regularitor = SpaceH::LogH
+            template<typename>
+            class Regularitor    = SpaceH::LogH
     >
     using ARchain = SpaceH::GAR_system<
-            SpaceH::ChainParticles<typename BasicF::type>,
+            SpaceH::ChainParticles<typename BasicF::Types>,
 
             SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
 
-            Regularitor<typename BasicF::type>
+            Regularitor<typename BasicF::Types>
     >;
 
     template<
@@ -60,14 +61,15 @@ namespace SpaceH {
             typename VelForce    = void,
             typename ExtPosForce = void,
             typename ExtVelForce = void,
-            template<typename> class Regularitor = SpaceH::LogH
+            template<typename> class
+            Regularitor          = SpaceH::LogH
     >
     using GAR = SpaceH::GAR_system<
-            SpaceH::Particles<typename BasicF::type>,
+            SpaceH::Particles<typename BasicF::Types>,
 
             SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
 
-            Regularitor<typename BasicF::type>
+            Regularitor<typename BasicF::Types>
     >;
 
     template<
@@ -77,18 +79,20 @@ namespace SpaceH {
             typename ExtVelForce = void
     >
     using Basic = SpaceH::GAR_system<
-            SpaceH::Particles<typename BasicF::type>,
+            SpaceH::Particles<typename BasicF::Types>,
 
             SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
 
-            SpaceH::NoRegu<typename BasicF::type>
+            SpaceH::NoRegu<typename BasicF::Types>
     >;
 
     /**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
     template<
             typename ParticSys,
-            template<typename, typename> class ODEiterator = SpaceH::BSIterator,
-            template<typename> class Integrator  = SpaceH::symplectic2th
+            template<typename, typename>
+            class ODEiterator = SpaceH::BSIterator,
+            template<typename>
+            class Integrator  = SpaceH::symplectic2th
     >
     using Nbody = SpaceH::Solver<
             ParticSys,

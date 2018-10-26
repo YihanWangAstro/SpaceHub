@@ -19,11 +19,7 @@ namespace SpaceH {
     class IAS15 {
     public:
         /* Typedef */
-        using type         = typename ParticSys::type;
-        using Scalar       = typename type::Scalar;
-        using Vector       = typename type::Vector;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
         using RadauArray   = typename Integrator::RadauArray;
         using RadauTab     = typename Integrator::RadauTab;
         /* Typedef */
@@ -69,7 +65,7 @@ namespace SpaceH {
                 }
                 iterBTab = integrator_.getBTab();
             }
-            ERR_MSG("IAS15: iteration exceed the max iteration depth!");
+            SPACEHUB_ERR_MSG("IAS15: iteration exceed the max iteration depth!");
             return 0;
         }
 

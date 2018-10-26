@@ -1,14 +1,13 @@
 
 #ifndef SYMPLECTIC_4TH_INTEGRATOR_H
 #define SYMPLECTIC_4TH_INTEGRATOR_H
-
+#include "../../dev_tools.h"
 /** @brief Fourth order symplectic integrator */
 template<typename ParticSys>
 class symplectic4th {
 public:
     /* Typedef */
-    using type   = typename ParticSys::type;
-    using Scalar = typename type::Scalar;
+    SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
     /* Typedef */
 
     /*Template parameter check*/

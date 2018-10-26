@@ -15,10 +15,7 @@ namespace SpaceH {
     class Regularization {
     public:
         /* Typedef */
-        using type        = TypeClass;
-        using Scalar      = typename type::Scalar;
-        using VectorArray = typename type::VectorArray;
-        using ScalarArray = typename type::ScalarArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
         /** Automaticlly create interfaces for data
@@ -100,8 +97,7 @@ namespace SpaceH {
     public:
         /* Typedef */
         using Base   = Regularization<TypeClass>;
-        using type   = typename Base::type;
-        using Scalar = typename type::Scalar;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Base);
         /* Typedef */
         using Base::bindE;
 
@@ -150,8 +146,7 @@ namespace SpaceH {
     public:
         /* Typedef */
         using Base   = Regularization<TypeClass>;
-        using type   = typename Base::type;
-        using Scalar = typename type::Scalar;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Base);
         /* Typedef */
 
         using Base::omega;
@@ -190,11 +185,8 @@ namespace SpaceH {
     class NoRegu : public Regularization<TypeClass> {
     public:
         /* Typedef */
-        using Base        = Regularization<TypeClass>;
-        using type        = typename Base::type;
-        using Scalar      = typename type::Scalar;
-        using VectorArray = typename type::VectorArray;
-        using ScalarArray = typename type::ScalarArray;
+        using Base = Regularization<TypeClass>;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Base);
         /* Typedef */
 
         static constexpr bool nonTrivial{false};

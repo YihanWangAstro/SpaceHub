@@ -13,10 +13,7 @@ namespace SpaceH {
     class SimpleState : public TypeClass::VectorArray {
     public:
         /* Typedef */
-        using type         = TypeClass;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using Scalar       = typename type::Scalar;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
         const VectorArray & cartesian() {
             return *this;
@@ -36,20 +33,12 @@ namespace SpaceH {
     class Particles {
     public:
         /* Typedef */
-        using type         = TypeClass;
-        using Scalar       = typename type::Scalar;
-        using Vector       = typename type::Vector;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using IndexArray   = typename type::IndexArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
-        using State        = SimpleState<TypeClass>;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        using State = SimpleState<TypeClass>;
         /* Typedef */
 
         /*Template parameter check*/
         /*Template parameter check*/
-
-        constexpr static size_t arraySize{type::arraySize};
 
         /** @brief Get the number of the particles.
          *  @return The particle number.
@@ -134,14 +123,14 @@ namespace SpaceH {
          *  @param new_siz New size of container.
          */
         void resize(size_t new_siz) {
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 pos_.resize(new_siz);
                 vel_.resize(new_siz);
                 mass_.resize(new_siz);
                 radius_.resize(new_siz);
                 idn_.resize(new_siz);
             } else {
-                ERR_MSG("Fixed particles number! Cannot be resized!")
+                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be resized!")
             }
         }
 
@@ -149,14 +138,14 @@ namespace SpaceH {
          *  @param New capacity of container.
          */
         void reserve(size_t new_cap) {
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 pos_.reserve(new_cap);
                 vel_.reserve(new_cap);
                 mass_.reserve(new_cap);
                 radius_.reserve(new_cap);
                 idn_.reserve(new_cap);
             } else {
-                ERR_MSG("Fixed particles number! Cannot be reserved!")
+                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be reserved!")
             }
         }
 
@@ -182,7 +171,7 @@ namespace SpaceH {
                 }
             }
             if (!is.good())
-                ERR_MSG("Insufficent input data in initial file!");
+                SPACEHUB_ERR_MSG("Insufficent input data in initial file!");
             return particleNum;
         }
 

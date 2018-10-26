@@ -53,9 +53,7 @@ namespace SpaceH {
     class Solver {
     public:
         /* Typedef */
-        using type = typename ParticSys::type;
-        using Scalar = typename type::Scalar;
-        using ScalarBuffer = typename type::ScalarBuffer;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
         using RunArgs = SpaceH::RunArgs<ParticSys>;
         /* Typedef */
 
@@ -154,7 +152,7 @@ namespace SpaceH {
             inFile.close();
         } else {
             inFile.close();
-            ERR_MSG("Fail to open the initial condition file!");
+            SPACEHUB_ERR_MSG("Fail to open the initial condition file!");
         }
 
         getInitStepLength();

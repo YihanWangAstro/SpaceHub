@@ -21,15 +21,10 @@ namespace SpaceH {
     class RegularizedSystem : public ParticleSystem<Particles, Interaction> {
     public:
         /* Typedef */
-        using Base         = ParticleSystem<Particles, Interaction>;
-        using type         = typename Base::type;
-        using Scalar       = typename type::Scalar;
-        using Vector       = typename type::Vector;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
         using State        = typename Particles::State;
         using ParticleType = Particles;
+        using Base         = ParticleSystem<Particles, Interaction>;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Base);
         /* Typedef */
 
         using Base::partc;

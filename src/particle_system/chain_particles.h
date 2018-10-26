@@ -16,12 +16,7 @@ namespace SpaceH {
         template <typename T>
         friend class ChainParticles;
         /* Typedef */
-        using type         = TypeClass;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using IndexArray   = typename type::IndexArray;
-        using Scalar       = typename type::Scalar;
-
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
         void resize(size_t new_siz) {
             cartesian_.resize(new_siz);
@@ -45,7 +40,7 @@ namespace SpaceH {
         void advanceCartesian(const VectorArray &cartesian_inc, Scalar stepSize) {
             const size_t size = cartesian_inc.size();
             VectorArray chain_inc;
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL)
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL)
                 chain_inc.resize(size);
             SpaceH::chain::synChain(cartesian_inc, chain_inc, *index_);
             advanceChain(chain_inc, stepSize);
@@ -87,14 +82,7 @@ namespace SpaceH {
     class ChainParticles {
     public:
         /* Typedef */
-        using type         = TypeClass;
-        using Scalar       = typename type::Scalar;
-        using Vector       = typename type::Vector;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using IntArray     = typename type::IntArray;
-        using IndexArray   = typename type::IndexArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         using State        = ChainCoord<TypeClass>;
         /* Typedef */
 
@@ -105,8 +93,6 @@ namespace SpaceH {
             pos_.set_mass_index(&mass_, &chain_index_);
             vel_.set_mass_index(&mass_, &chain_index_);
         }
-
-        constexpr static size_t arraySize{type::arraySize};
 
         /** @brief Get the number of the particles.
          *  @return The particle number.
@@ -203,7 +189,7 @@ namespace SpaceH {
          *  @param new_siz New size of container.
          */
         void resize(size_t new_siz) {
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 pos_.resize(new_siz);
                 vel_.resize(new_siz);
                 mass_.resize(new_siz);
@@ -211,7 +197,7 @@ namespace SpaceH {
                 radius_.resize(new_siz);
                 idn_.resize(new_siz);
             } else {
-                ERR_MSG("Fixed particles number! Cannot be resized!")
+                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be resized!")
             }
         }
 
@@ -219,7 +205,7 @@ namespace SpaceH {
          *  @param New capacity of container.
          */
         void reserve(size_t new_cap) {
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 pos_.reserve(new_cap);
                 vel_.reserve(new_cap);
                 mass_.reserve(new_cap);
@@ -227,7 +213,7 @@ namespace SpaceH {
                 radius_.reserve(new_cap);
                 idn_.reserve(new_cap);
             } else {
-                ERR_MSG("Fixed particles number! Cannot be reserved!")
+                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be reserved!")
             }
         }
 
@@ -275,7 +261,7 @@ namespace SpaceH {
                     is >> idn_[loc];
                 }
             }
-            if (!is.good()) ERR_MSG("Insufficent input data in initial file!");
+            if (!is.good()) SPACEHUB_ERR_MSG("Insufficent input data in initial file!");
 
             if (!chained) {
                 moveToCoM();
@@ -321,7 +307,7 @@ namespace SpaceH {
         size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
             size_t loc = 0;
             if (flag == IO_flag::EVOLVED) {
-                if (!chained) ERR_MSG(
+                if (!chained) SPACEHUB_ERR_MSG(
                         "Chain Index hasn't been constructed by the positions in the Cartesian coordinates."
                         "Cannot read from raw chain data directly");
                 //for locality, split into separate loops

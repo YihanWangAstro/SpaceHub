@@ -92,14 +92,7 @@ namespace SpaceH
     {
     public:
         /* Typedef */
-        using type        = typename ParticSys::type;
-        using Scalar      = typename type::Scalar;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
-
-        template<typename T, size_t S>
-        using Container = typename type::template Container<T, S>;
-
+        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
         using RadauArray = Container<Vector,7>;
         using RadauTab   = Container<RadauArray, ParticSys::arraySize>;
         /* Typedef */

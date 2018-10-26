@@ -17,7 +17,7 @@ namespace SpaceH {
         template<typename ParticleSys, bool Immediate = false>
         class DefaultWriter {
         public:
-            using Scalar = typename ParticleSys::Scalar;
+            SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
 
             DefaultWriter(const char *path, Scalar end_time, size_t output_num = 5000)
                     : write_interval_(end_time / output_num) {
@@ -26,7 +26,7 @@ namespace SpaceH {
                 if (os->is_open()) {
                     (*os) << std::scientific << std::setprecision(16);
                 } else {
-                    ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                    SPACEHUB_ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
                 }
             }
 
@@ -50,7 +50,7 @@ namespace SpaceH {
         template<typename ParticleSys, bool Immediate = false>
         class EnergyWriter {
         public:
-            using Scalar = typename ParticleSys::Scalar;
+            SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
 
             EnergyWriter(const char *path, Scalar end_time, size_t output_num = 5000)
                     : write_interval_(end_time / output_num) {
@@ -59,7 +59,7 @@ namespace SpaceH {
                 if (os->is_open()) {
                     (*os) << std::scientific << std::setprecision(16);
                 } else {
-                    ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                    SPACEHUB_ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
                 }
             }
 
@@ -87,7 +87,7 @@ namespace SpaceH {
         template<typename ParticleSys, bool Immediate = false>
         class CoMWriter {
         public:
-            using Scalar = typename ParticleSys::Scalar;
+            SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
 
             CoMWriter(const char *path, Scalar end_time, size_t output_num = 5000)
                     : write_interval_(end_time / output_num) {
@@ -96,7 +96,7 @@ namespace SpaceH {
                 if (os->is_open()) {
                     (*os) << std::scientific << std::setprecision(16);
                 } else {
-                    ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                    SPACEHUB_ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
                 }
             }
 
@@ -123,7 +123,7 @@ namespace SpaceH {
         template<typename ParticleSys>
         class ShowProgressBar {
         public:
-            using Scalar = typename ParticleSys::Scalar;
+            SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
 
             explicit ShowProgressBar(Scalar end_time) : bar(end_time) {}
 

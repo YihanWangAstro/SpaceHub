@@ -11,12 +11,7 @@ namespace SpaceH {
     class BSIterator {
     public:
         /* Typedef */
-        using type   = typename ParticSys::type;
-        using Scalar = typename type::Scalar;
-        using ScalarBuffer = typename type::ScalarBuffer;
-
-        template<typename T, size_t S>
-        using Container = typename type::template Container<T, S>;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
         /* Typedef */
 
         /*Template parameter check*/

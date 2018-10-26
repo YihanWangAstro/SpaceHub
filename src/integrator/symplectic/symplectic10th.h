@@ -2,13 +2,13 @@
 #ifndef SYMPLECTIC_10TH_INTEGRATOR_H
 #define SYMPLECTIC_10TH_INTEGRATOR_H
 
+#include "../../dev_tools.h"
 /** @brief Eighth order symplectic integrator */
 template<typename ParticSys>
 class symplectic10th {
 public:
     /* Typedef */
-    using type   = typename ParticSys::type;
-    using Scalar = typename type::Scalar;
+    SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
     /* Typedef */
 
     /*Template parameter check*/

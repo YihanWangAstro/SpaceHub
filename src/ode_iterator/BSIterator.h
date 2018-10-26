@@ -12,11 +12,7 @@ namespace SpaceH {
     class BStab {
     public:
         /* Typedef */
-        using type         = TypeClass;
-        using Scalar       = typename type::Scalar;
-
-        template<typename T, size_t S>
-        using Container = typename type::template Container<T, S>;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
         inline Scalar expon(size_t i) const {
@@ -84,12 +80,7 @@ namespace SpaceH {
 
     public:
         /* Typedef */
-        using type   = typename ParticSys::type;
-        using Scalar = typename type::Scalar;
-        using ScalarBuffer = typename type::ScalarBuffer;
-
-        template<typename T, size_t S>
-        using Container = typename type::template Container<T, S>;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
         /* Typedef */
 
         /*Template parameter check*/
@@ -125,7 +116,7 @@ namespace SpaceH {
         ParticSys localSystem;
 
         /** @brief The constat coef for BS extrapolation*/
-        BStab<type, MaxDepth + 1> BS;
+        BStab<Types, MaxDepth + 1> BS;
 
         /** @brief Extrapolation table.*/
         Container<ScalarBuffer, (MaxDepth + 1) * (MaxDepth + 2) / 2> extrapTab;
@@ -254,7 +245,7 @@ namespace SpaceH {
      * @return             The next macro integration step length.
      */
     template<typename ParticSys, typename Integrator>
-    typename ParticSys::type::Scalar
+    typename ParticSys::Scalar
     BSIterator<ParticSys, Integrator>::iterate(ParticSys &particles, Scalar stepLength) {
         Scalar iter_H = stepLength;
 
@@ -345,7 +336,7 @@ namespace SpaceH {
  *  @param k The kth row of extrapolation table.
  */
     template<typename ParticSys, typename Integrator>
-    typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::calcuError(size_t k) const {
+    typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::calcuError(size_t k) const {
         size_t center = at(k, k);
         size_t left = center - 1;
         size_t size = extrapTab[center].size();
@@ -367,7 +358,7 @@ namespace SpaceH {
  *  @return The new iteration integration step length coefficient.
  */
     template<typename ParticSys, typename Integrator>
-    typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::calcuIdealStepCoef(Scalar error, size_t k) {
+    typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::calcuIdealStepCoef(Scalar error, size_t k) {
         if (error != 0) {
             return 0.9 * pow(0.90 / error, BS.expon(k));
         } else {
@@ -383,7 +374,7 @@ namespace SpaceH {
  *  @return The new iteration step length.
  */
     template<typename ParticSys, typename Integrator>
-    typename ParticSys::type::Scalar BSIterator<ParticSys, Integrator>::prepareNextIteration(size_t iter) {
+    typename ParticSys::Scalar BSIterator<ParticSys, Integrator>::prepareNextIteration(size_t iter) {
         switch (static_cast<int>(iter - ideal_iter_)) {
             case -1:
                 //ideal_iter_ <= 2 here to avoid none calculated work_per_len[1-1=0]
@@ -418,7 +409,7 @@ namespace SpaceH {
                 return optimal_step_coef_[ideal_iter_];
 
             default:
-                ERR_MSG("unexpected iteration index!");
+                SPACEHUB_ERR_MSG("unexpected iteration index!");
         }
     }
 

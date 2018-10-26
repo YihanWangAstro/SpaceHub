@@ -27,7 +27,7 @@ namespace SpaceH {
  * @param line
  */
 
-#define ERR_MSG(...) {                                          \
+#define SPACEHUB_ERR_MSG(...) {                                 \
 	SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
 	SpaceH::print(std::cout, __VA_ARGS__ );                     \
 	exit(0);                                                    \
@@ -62,6 +62,27 @@ namespace SpaceH {
         using type = decltype(check<T>(0));
     };
 
+    template<typename T>
+    struct get_types {
+    private:
+        template<typename U, typename V = bool>
+        struct has_types : std::false_type {};
+
+        template<typename U>
+        struct has_types<U, typename std::enable_if<!std::is_same<typename U::Types, void>::value, bool>::type> : std::true_type {};
+
+        /*If U has member::Types, check<T>() will match this function. See details on SFINAE. */
+        template<typename X>
+        static typename std::enable_if<has_types<X>::value, typename X::Types>::type check();
+
+        /*If U doesn't have member::Types, check<T>() will match this function. See details on SFINAE. */
+        template<typename X>
+        static typename std::enable_if<!has_types<X>::value, X>::type check();
+
+    public:
+        using Types = decltype(check<T>());
+    };
+
 /** @brief Macros used to output debuf info.  */
 #ifdef DEBUG
 #define DEBUG_MSG(cond,...) ( cond ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )
@@ -69,19 +90,29 @@ namespace SpaceH {
 #define DEBUG_MSG(cond, ...)
 #endif
 
-#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                             \
-    using type         = typename CLASS::type;                                                           \
-    using Scalar       = typename type::Scalar;                                                          \
-    using Vector       = typename type::Vector;                                                          \
-    using VectorArray  = typename type::VectorArray;                                                     \
-    using ScalarArray  = typename type::ScalarArray;                                                     \
-    using IndexArray   = typename type::IndexArray;                                                      \
-    using ScalarBuffer = typename type::ScalarBuffer;                                                    \
-    using SizeArray    = typename type::SizeArray;                                                       \
-    template<typename T, size_t S>                                                                       \
-    using Container    = typename type::template Container<T, S>;                                        \
-    constexpr static size_t array_size{type::array_size}
+#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                              \
+    using Types        = typename SpaceH::get_types<CLASS>::Types;                                        \
+    using Scalar       = typename CLASS::Scalar;                                                          \
+    using Vector       = typename CLASS::Vector;                                                          \
+    using VectorArray  = typename CLASS::VectorArray;                                                     \
+    using ScalarArray  = typename CLASS::ScalarArray;                                                     \
+    using IndexArray   = typename CLASS::IndexArray;                                                      \
+    using ScalarBuffer = typename CLASS::ScalarBuffer;                                                    \
+    using SizeArray    = typename CLASS::SizeArray;                                                       \
+    template<typename T, size_t S>                                                                        \
+    using Container    = typename CLASS::template Container<T, S>;                                        \
 
+#define SPACEHUB_USING_TYPE_SYSTEM(CLASS)                                                                 \
+    using Types        = CLASS;                                                                           \
+    using Scalar       = typename CLASS::Scalar;                                                          \
+    using Vector       = typename CLASS::Vector;                                                          \
+    using VectorArray  = typename CLASS::VectorArray;                                                     \
+    using ScalarArray  = typename CLASS::ScalarArray;                                                     \
+    using IndexArray   = typename CLASS::IndexArray;                                                      \
+    using ScalarBuffer = typename CLASS::ScalarBuffer;                                                    \
+    using SizeArray    = typename CLASS::SizeArray;                                                       \
+    template<typename T, size_t S>                                                                        \
+    using Container    = typename CLASS::template Container<T, S>;                                        \
 /** @brief Standard read interfaces for private data scalar in SpaceHub project*/
 #define SPACEHUB_READ_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                          \
                                                                                                          \
@@ -241,7 +272,7 @@ inline void swap_##NEWNAME (TYPE& array) {                                      
 
 /** @brief Macros used to static_assert if two class have the same base type set*/
 #define CHECK_TYPE(T1, T2)                                                                          \
-            static_assert(std::is_same< typename T1::type, typename T2::type>::value,               \
+            static_assert(std::is_same< typename T1::Types, typename T2::Types>::value,               \
             "Template argument '" #T1 "' and '" #T2 "' must have the same type of the type member(SpaceH::ProtoType<...>)");
 
 

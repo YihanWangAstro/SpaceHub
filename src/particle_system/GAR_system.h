@@ -15,15 +15,10 @@ namespace SpaceH {
     class GAR_system : public RegularizedSystem<Particles, Interaction, Regularitor> {
     public:
         /* Typedef */
-        using Base         = RegularizedSystem<Particles, Interaction, Regularitor>;
-        using type         = typename Base::type;
-        using Scalar       = typename type::Scalar;
-        using Vector       = typename type::Vector;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
         using State        = typename Particles::State;
         using ParticleType = Particles;
+        using Base         = RegularizedSystem<Particles, Interaction, Regularitor>;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
         /* Typedef */
 
         using Base::partc;

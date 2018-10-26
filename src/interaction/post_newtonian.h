@@ -21,10 +21,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct NewtonianForce {
         /* Typedef */
-        using type        = TypeClass;
-        using Scalar      = typename type::Scalar;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
         template <typename Particles>
@@ -49,10 +46,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct NewtonianChainForce {
         /* Typedef */
-        using type        = TypeClass;
-        using Scalar      = typename type::Scalar;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
         template <typename Particles>
@@ -90,10 +84,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct KarmackNewtonian {
         /* Typedef */
-        using type    = typename TypeClass::type;
-        using Scalar  = typename type::Scalar;
-        using Vector  = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         using Buildin = typename  SpaceH::get_value_type<Scalar>::type;
         /* Typedef */
 
@@ -128,10 +119,7 @@ namespace SpaceH {
     class PostNewtonianForce {
     public:
         /* Typedef */
-        using type        = typename TypeClass::type;
-        using Scalar      = typename type::Scalar;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
         template <typename  Particles>

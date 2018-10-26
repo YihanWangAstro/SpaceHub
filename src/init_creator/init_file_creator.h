@@ -11,12 +11,7 @@ namespace SpaceH {
     class InitCreator {
     public:
         /* Typedef */
-        using type   = typename Particle::type;
-        using Scalar = typename type::Scalar;
-        using Vector = typename type::Vector;
-
-        template<typename T, size_t S>
-        using Container = typename type::template Container<T, S>;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Particle);
         /* Typedef */
 
         /**
@@ -36,7 +31,7 @@ namespace SpaceH {
                     outFile << particles_[i] << ' ' << i << "\r\n";
                 }
             } else
-                ERR_MSG("Fail to open the initial file to write the Particle Data!", __FILE__, __LINE__);
+                SPACEHUB_ERR_MSG("Fail to open the initial file to write the Particle Data!", __FILE__, __LINE__);
 
             outFile.close();
         }

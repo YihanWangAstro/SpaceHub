@@ -18,13 +18,7 @@ namespace SpaceH {
     class ParticleSystem {
     public:
         /* Typedef */
-        using type         = typename Particles::type;
-        using Scalar       = typename type::Scalar;
-        using Vector       = typename type::Vector;
-        using VectorArray  = typename type::VectorArray;
-        using ScalarArray  = typename type::ScalarArray;
-        using IndexArray   = typename type::IndexArray;
-        using ScalarBuffer = typename type::ScalarBuffer;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
         using State        = typename Particles::State;
         using ParticleType = Particles;
         /* Typedef */
@@ -34,7 +28,6 @@ namespace SpaceH {
         /*Template parameter check*/
 
         constexpr static bool isVelDep{Interaction::isVelDep};
-        constexpr static size_t arraySize{type::arraySize};
 
         /** @brief Get the number of the particles.
          *  @return The particle number.
@@ -192,14 +185,14 @@ namespace SpaceH {
         friend std::istream &operator>>(std::istream &is, ParticleSystem &sys) {
             size_t num = sys.readHeader(is);
 
-            if constexpr (ParticleSystem::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (ParticleSystem::Types::array_size == SpaceH::DYNAMICAL) {
                 sys.resize(num);
             }
             if (num == sys.particleNumber()) {
                 sys.partc.read(is, SpaceH::Unit::STD_UNIT);
                 sys.partc.moveToCoM();
             } else {
-                ERR_MSG("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
+                SPACEHUB_ERR_MSG("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
             }
             return is;
         }
@@ -241,7 +234,7 @@ namespace SpaceH {
                 is  >> particleNum;
                 return particleNum;
             } else {
-                ERR_MSG("Input file header should begin with '#'.");
+                SPACEHUB_ERR_MSG("Input file header should begin with '#'.");
             }
         }
 

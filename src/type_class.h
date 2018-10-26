@@ -24,10 +24,10 @@ namespace SpaceH {
     struct ArrayWrapper : public std::array<T, S> {
         //inline void clear() {};
         inline void reserve(size_t new_cap) {
-            ERR_MSG("cannot reserve fixed length array!");
+            SPACEHUB_ERR_MSG("cannot reserve fixed length array!");
         };
         inline void resize(size_t new_size) {
-            ERR_MSG("cannot resize fixed length array!");
+            SPACEHUB_ERR_MSG("cannot resize fixed length array!");
         };
         inline size_t capacity() const { return S;};
     };
@@ -47,7 +47,7 @@ namespace SpaceH {
      */
     template<typename Dtype, size_t Size = SpaceH::DYNAMICAL>
     struct TypeClass {
-        constexpr static size_t arraySize{Size};
+        constexpr static size_t array_size{Size};
 
         template<typename T, size_t S>
         using Container      = ArrayWrapper<T, S>;

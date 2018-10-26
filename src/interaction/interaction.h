@@ -16,9 +16,7 @@ namespace SpaceH {
     template<typename Forcefunc, typename TypeClass>
     struct AccEvaluator {
         /* Typedef */
-        using type        = TypeClass;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
         void addAccTo(VectorArray &acc) {
@@ -38,18 +36,18 @@ namespace SpaceH {
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(acc, VectorArray, this_acc_);
 
         void resize(size_t size) {
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 this_acc_.resize(size);
             } else {
-                ERR_MSG("Fixed particles number! Cannot be resized!");
+                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be resized!");
             }
         }
 
         void reserve(size_t size) {
-            if constexpr (type::arraySize == SpaceH::DYNAMICAL) {
+            if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 this_acc_.reserve(size);
             } else {
-                ERR_MSG("Fixed particles number! Cannot be reserved!");
+                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be reserved!");
             }
         }
 
@@ -66,9 +64,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct AccEvaluator<void, TypeClass> {
         /* Typedef */
-        using type        = TypeClass;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
+        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
         /* Typedef */
 
        /* const VectorArray& acc() const {
@@ -89,11 +85,7 @@ namespace SpaceH {
     class Interactions {
     public:
         /* Typedef */
-        using type        = typename PairVelIndep::type;
-        using Scalar      = typename type::Scalar;
-        using Vector      = typename type::Vector;
-        using VectorArray = typename type::VectorArray;
-        using ScalarArray = typename type::ScalarArray;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(PairVelIndep);
         /* Typedef */
 
         /*Template parameter check*/
@@ -241,13 +233,13 @@ namespace SpaceH {
     private:
         VectorArray acc_;
 
-        AccEvaluator<PairVelIndep, type> pair_vel_indep_;
+        AccEvaluator<PairVelIndep, Types> pair_vel_indep_;
 
-        AccEvaluator<PairVelDep,   type> pair_vel_dep_;
+        AccEvaluator<PairVelDep,   Types> pair_vel_dep_;
 
-        AccEvaluator<ExtVelIndep,  type> ext_vel_indep_;
+        AccEvaluator<ExtVelIndep,  Types> ext_vel_indep_;
 
-        AccEvaluator<ExtVelDep,    type> ext_vel_dep_;
+        AccEvaluator<ExtVelDep,    Types> ext_vel_dep_;
     };
 }
 
