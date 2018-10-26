@@ -12,7 +12,7 @@ namespace SpaceH {
     class BStab {
     public:
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         inline Scalar expon(size_t i) const {

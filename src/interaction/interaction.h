@@ -16,7 +16,7 @@ namespace SpaceH {
     template<typename Forcefunc, typename TypeClass>
     struct AccEvaluator {
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         void addAccTo(VectorArray &acc) {
@@ -64,7 +64,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct AccEvaluator<void, TypeClass> {
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
        /* const VectorArray& acc() const {

@@ -15,7 +15,7 @@ namespace SpaceH {
     class Regularization {
     public:
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         /** Automaticlly create interfaces for data

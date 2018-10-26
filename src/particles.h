@@ -13,7 +13,7 @@ namespace SpaceH {
     class SimpleState : public TypeClass::VectorArray {
     public:
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
         const VectorArray & cartesian() {
             return *this;
@@ -33,7 +33,7 @@ namespace SpaceH {
     class Particles {
     public:
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         using State = SimpleState<TypeClass>;
         /* Typedef */
 

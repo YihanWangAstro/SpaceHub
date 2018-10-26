@@ -21,7 +21,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct NewtonianForce {
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         template <typename Particles>
@@ -46,7 +46,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct NewtonianChainForce {
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         template <typename Particles>
@@ -84,7 +84,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct KarmackNewtonian {
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         using Buildin = typename  SpaceH::get_value_type<Scalar>::type;
         /* Typedef */
 
@@ -119,7 +119,7 @@ namespace SpaceH {
     class PostNewtonianForce {
     public:
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         template <typename  Particles>

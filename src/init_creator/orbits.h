@@ -246,7 +246,7 @@ namespace SpaceH {
     template<typename TypeClass>
     struct Particle {
         /* Typedef */
-        SPACEHUB_USING_TYPE_SYSTEM(TypeClass);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeClass);
         /* Typedef */
 
         Vector pos;
