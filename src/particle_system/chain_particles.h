@@ -121,19 +121,12 @@ namespace SpaceH {
          *  See macros definition in 'devTools.h'.
          */
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(pos, VectorArray, pos_.cartesian_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(vel, VectorArray, vel_.cartesian_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(chain_pos, VectorArray, pos_.chain_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(chain_vel, VectorArray, vel_.chain_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(chain_index, IndexArray, chain_index_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(mass, ScalarArray, mass_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
-
         SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IndexArray, idn_);
 
         inline const Vector& chain_ref_pos(size_t i) const {return pos_.cartesian_[chain_index_[i]];};
@@ -148,7 +141,6 @@ namespace SpaceH {
         *  See macros definition in 'devTools.h'.
         */
         SPACEHUB_READ_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
-
         SPACEHUB_READ_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
 
         /** Automaticlly create interfaces for data
@@ -159,7 +151,6 @@ namespace SpaceH {
          *  See macros definition in 'devTools.h'.
          */
         SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
-
         SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
 
         /** @brief Advance the position array with internal velocity array in real evolving coordinates.

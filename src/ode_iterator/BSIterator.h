@@ -76,8 +76,6 @@ namespace SpaceH {
 /** @brief Bulirsch-Stoer extrapolation algorithm*/
     template<typename ParticSys, typename Integrator>
     class BSIterator {
-    private:
-
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);

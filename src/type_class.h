@@ -10,16 +10,8 @@ namespace SpaceH {
     struct EmptyClass {
     };
 
-    /**
-     *
-     */
     constexpr size_t DYNAMICAL = 0;
 
-    /**
-     *
-     * @tparam T
-     * @tparam S
-     */
     template<typename T, size_t S>
     struct ArrayWrapper : public std::array<T, S> {
         //inline void clear() {};
@@ -32,19 +24,10 @@ namespace SpaceH {
         inline size_t capacity() const { return S;};
     };
 
-    /**
-     *
-     * @tparam T
-     */
     template<typename T>
     struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {
     };
 
-    /**
-     *
-     * @tparam Dtype
-     * @tparam Size
-     */
     template<typename Dtype, size_t Size = SpaceH::DYNAMICAL>
     struct TypeClass {
         constexpr static size_t array_size{Size};

@@ -37,6 +37,37 @@ namespace SpaceH {
         using State = SimpleState<TypeClass>;
         /* Typedef */
 
+        /** Automaticlly create interfaces for data
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create two interfaces, they are :
+         *
+         *  1. const TYPE &NAME () const { return MEMBER;};
+         *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
+         *  See macros definition in 'devTools.h'.
+         */
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(pos,    VectorArray, pos_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(vel,    VectorArray, vel_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(mass,   ScalarArray, mass_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
+        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn,    IndexArray,  idn_);
+
+        /** Automaticlly create interfaces for data
+        *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create one read interface :
+        *  1. const TYPE &NAME () const { return MEMBER;};
+        *  See macros definition in 'devTools.h'.
+        */
+        SPACEHUB_READ_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
+        SPACEHUB_READ_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
+
+        /** Automaticlly create interfaces for data
+         *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create two interfaces :
+         *
+         *  1. void set_NAME (const TYPE& scalar) { MEMBER = scalar;};
+         *  2. void swap_NAME (TYPE& scalar) { std::swap(MEMBER, scalar); }
+         *  See macros definition in 'devTools.h'.
+         */
+        SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
+        SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
+
         /*Template parameter check*/
         /*Template parameter check*/
 
@@ -58,43 +89,6 @@ namespace SpaceH {
         inline void advanceTime(Scalar dt) {
             time_ += dt;
         }
-
-        /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (NAME, TYPE, MEMBER). Each macros create two interfaces, they are :
-         *
-         *  1. const TYPE &NAME () const { return MEMBER;};
-         *  2. const typename TYPE::value_type & NAME (size_t i) const { return MEMBER[i];};
-         *  See macros definition in 'devTools.h'.
-         */
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(pos, VectorArray, pos_);
-
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(vel, VectorArray, vel_);
-
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(mass, ScalarArray, mass_);
-
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(radius, ScalarArray, radius_);
-
-        SPACEHUB_READ_INTERFACES_FOR_ARRAY(idn, IndexArray, idn_);
-
-        /** Automaticlly create interfaces for data
-        *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create one read interface :
-        *  1. const TYPE &NAME () const { return MEMBER;};
-        *  See macros definition in 'devTools.h'.
-        */
-        SPACEHUB_READ_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
-
-        SPACEHUB_READ_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
-
-        /** Automaticlly create interfaces for data
-         *  The macros takes three parameters (NAME, TYPE, MEMBER). This macros create two interfaces :
-         *
-         *  1. void set_NAME (const TYPE& scalar) { MEMBER = scalar;};
-         *  2. void swap_NAME (TYPE& scalar) { std::swap(MEMBER, scalar); }
-         *  See macros definition in 'devTools.h'.
-         */
-        SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(pos_state, State, pos_);
-
-        SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(vel_state, State, vel_);
 
         /** @brief Advance the position array with internal velocity array in real evolving coordinates.
          *  @param stepSize The advance step size.

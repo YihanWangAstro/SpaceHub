@@ -13,12 +13,12 @@ namespace SpaceH {
         out << '\n';
     }
 
+
 #define SPACEHUB_ERR_MSG(...) {                                 \
 	SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
 	SpaceH::print(std::cout, __VA_ARGS__ );                     \
 	exit(0);                                                    \
 }
-
 
 /** @brief print an array. Used for debug*/
     template<typename T>
@@ -48,6 +48,21 @@ namespace SpaceH {
         using type = decltype(check<T>(0));
     };
 
+/** @brief Macros used to output debuf info.  */
+#ifdef DEBUG
+#define DEBUG_MSG(EXPR,...) (EXPR ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )
+#else
+#define DEBUG_MSG(EXPR, ...)
+#endif
+
+#define COMPILE_TIME_ASSERT(EXPR, MSG) static_assert(EXPR,MSG);
+
+#ifdef DEBUG
+#define DEBUG_MODE_ASSERT(EXPR,MSG) ((EXPR) ? void(0) : (SPACEHUB_ERR_MSG(MSG)))
+#else
+#define DEBUG_MODE_ASSERT(EXPR,MSG)
+#endif
+
     template<typename T>
     struct get_types {
     private:
@@ -68,13 +83,6 @@ namespace SpaceH {
     public:
         using Types = decltype(check<T>());
     };
-
-/** @brief Macros used to output debuf info.  */
-#ifdef DEBUG
-#define DEBUG_MSG(cond,...) ( cond ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )
-#else
-#define DEBUG_MSG(cond, ...)
-#endif
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                              \
     using Types        = typename SpaceH::get_types<CLASS>::Types;                                        \

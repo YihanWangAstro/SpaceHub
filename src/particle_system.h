@@ -23,6 +23,21 @@ namespace SpaceH {
         using ParticleType = Particles;
         /* Typedef */
 
+        /** @brief interface adapter to inherit the interface of the data member
+         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create two interfaces, they are:
+         *
+         *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
+         *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
+         *  See macros definition in 'devTools.h'
+         */
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(pos,    VectorArray, partc, pos   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IndexArray,  partc, idn   );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(time,  Scalar,      partc, time  );
+        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
+
         /*Template parameter check*/
         CHECK_TYPE(Particles, Interaction);
         /*Template parameter check*/
@@ -52,20 +67,7 @@ namespace SpaceH {
             act.reserve(new_cap);
         }
 
-        /** @brief interface adapter to inherit the interface of the data member
-         *  The macros take four args (TYPE, MEMBER, NAME, NEWNAME). Each macros create two interfaces, they are:
-         *
-         *  1. const TYPE &NEWNAME () const { return MEMBER.NAME();};
-         *  2. const typename TYPE::value_type & NEWNAME (size_t i) const { return MEMBER.NAME(i);};
-         *  See macros definition in 'devTools.h'
-         */
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(pos,    VectorArray, partc, pos   );
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(vel,    VectorArray, partc, vel   );
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(mass,   ScalarArray, partc, mass  );
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(radius, ScalarArray, partc, radius);
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(idn,    IndexArray,  partc, idn   );
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(time,  Scalar,      partc, time  );
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(acc,    VectorArray, act,   acc   );
+
 
         /** @brief Interface to rescale the time.
          *
