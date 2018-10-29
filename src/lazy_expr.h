@@ -4,235 +4,183 @@
 
 #include "dev_tools.h"
 #include "stddef.h"
-#include <iostream>
+#include <math.h>
 
 namespace SpaceH {
     namespace Lazy {
 
-        /*
-        CREATE_METHOD_CHECK(evaluate);
-
-        template<typename Expr>
-        inline constexpr typename std::enable_if<HAS_METHOD(Expr, evaluate, size_t), typename Expr::value_type>::type
-        generic_evaluate(const Expr &expr, size_t i) {
-            return expr.evaluate(i);
+        template<typename Lhs, typename Rhs>
+        constexpr size_t constexpr_size(){
+            if constexpr (INDEXABLE(Lhs)){
+                return Lhs::size;
+            } else if (INDEXABLE(Rhs)){
+                return Rhs::size;
+            } else {
+                return 1;
+            }
         }
 
-        template<typename Expr>
-        inline constexpr typename std::enable_if<!HAS_METHOD(Expr, evaluate, size_t), Expr>::type
-        generic_evaluate(const Expr &expr, size_t i) {
+        template<typename Lhs, typename Rhs>
+        constexpr bool constexpr_size_eq(){
+            if constexpr (INDEXABLE(Lhs) && INDEXABLE(Rhs)){
+                return Lhs::size == Rhs::size;
+            } else {
+                return true;
+            }
+        }
+
+        template<typename T>
+        inline constexpr typename std::enable_if<INDEXABLE(T), typename T::value_type>::type
+        expr_at(const T &expr, size_t i) {
+            return expr[i];
+        }
+
+        template<typename T>
+        inline constexpr typename std::enable_if<!INDEXABLE(T), T>::type
+        expr_at(const T &expr, size_t i) {
             return expr;
         }
 
-        template<typename Uni>
-        struct Neg_Expression {
-        private:
-            const Uni &uni_;
-        public:
-            using value_type = typename Uni::value_type;
-
-            explicit Neg_Expression(const Uni &uni) : uni_(uni) {}
-
-            inline constexpr value_type evaluate(size_t i) const {
-                return -generic_evaluate(uni_, i);
-            }
-        };
-
-        template<typename Lhs, typename Rhs>
-        struct Add_Expression {
-        private:
-            const Lhs &lhs_;
-            const Rhs &rhs_;
-        public:
-            using value_type = typename get_value_type<Lhs>::type;
-
-            Add_Expression(const Lhs &lhs, const Rhs &rhs) : lhs_(lhs), rhs_(rhs) {}
-
-            inline constexpr value_type evaluate(size_t i) const {
-                return generic_evaluate(lhs_, i) + generic_evaluate(rhs_, i);
-            }
-        };
-
-        template<typename Lhs, typename Rhs>
-        struct Sub_Expression {
-        private:
-            const Lhs &lhs_;
-            const Rhs &rhs_;
-        public:
-            using value_type = typename get_value_type<Lhs>::type;
-
-            Sub_Expression(const Lhs &lhs, const Rhs &rhs) : lhs_(lhs), rhs_(rhs) {}
-
-            inline constexpr value_type evaluate(size_t i) const {
-                return generic_evaluate(lhs_, i) - generic_evaluate(rhs_, i);
-            }
-        };
-
-        template<typename Lhs, typename Rhs>
-        struct Mul_Expression {
-        private:
-            const Lhs &lhs_;
-            const Rhs &rhs_;
-        public:
-            using value_type = typename get_value_type<Lhs>::type;
-
-            Mul_Expression(const Lhs &lhs, const Rhs &rhs) : lhs_(lhs), rhs_(rhs) {}
-
-            inline constexpr value_type evaluate(size_t i) const {
-                return generic_evaluate(lhs_, i) * generic_evaluate(rhs_, i);
-            }
-        };
-
-        template<typename Lhs, typename Rhs>
-        struct Div_Expression {
-        private:
-            const Lhs &lhs_;
-            const Rhs &rhs_;
-        public:
-            using value_type = typename get_value_type<Lhs>::type;
-
-            Div_Expression(const Lhs &lhs, const Rhs &rhs) : lhs_(lhs), rhs_(rhs) {}
-
-            inline constexpr value_type evaluate(size_t i) const {
-                return generic_evaluate(lhs_, i) / generic_evaluate(rhs_, i);
-            }
-        };
-
-        template<typename Uni>
-        inline Neg_Expression<Uni>
-        operator-(const Uni &uni) {
-            return Neg_Expression<Uni>(uni);
-        }
-
-        template<typename Lhs, typename Rhs>
-        inline constexpr Add_Expression<Lhs, Rhs>
-        operator+(const Lhs &lhs, const Rhs &rhs) {
-            return Add_Expression<Lhs, Rhs>(lhs, rhs);
-        }
-
-        template<typename Lhs, typename Rhs>
-        inline constexpr Sub_Expression<Lhs, Rhs>
-        operator-(const Lhs &lhs, const Rhs &rhs) {
-            return Sub_Expression<Lhs, Rhs>(lhs, rhs);
-        }
-
-        template<typename Lhs, typename Rhs>
-        inline constexpr Mul_Expression<Lhs, Rhs>
-        operator*(const Lhs &lhs, const Rhs &rhs) {
-            return Mul_Expression<Lhs, Rhs>(lhs, rhs);
-        }
-
-        template<typename Lhs, typename Rhs>
-        inline constexpr Div_Expression<Lhs, Rhs>
-        operator/(const Lhs &lhs, const Rhs &rhs) {
-            return Div_Expression<Lhs, Rhs>(lhs, rhs);
-        }*/
-
         template<typename Derived>
         struct Expr {
-            constexpr Derived &cast() {
-                return *static_cast<Derived *>(this);
+            inline const Derived &cast() const {
+                return *static_cast<const Derived *>(this);
             }
         };
 
-        template<typename Op, typename Lhs, typename Rhs>
-        struct Binary_Expr : public Expr<Binary_Expr<Op, Lhs, Rhs>> {
+        template<typename T>
+        std::ostream &operator<<(std::ostream &output, const Expr<T> &var) {
+            const T& expr = var.cast();
+            const size_t len = expr.size;
+            for (size_t i = 0; i < len; ++i) {
+                output << expr[i] << " ";
+            }
+            return output;
+        }
+
+        template<typename T>
+        std::istream &operator>>(std::istream &input, Expr<T> &var) {
+            const T& expr = var.cast();
+            const size_t len = expr.size;
+            for (size_t i = 0; i < len; ++i) {
+                input >> expr[i];
+            }
+            return input;
+        }
+
+        template<typename Operator, typename Unary>
+        struct Unary_Expr : public Expr<Unary_Expr<Operator, Unary>> {
         private:
+            const Operator &opt_;
+            const Unary &unary_;
+        public:
+            static constexpr size_t size{Unary::size};
+            using value_type = typename Unary::value_type;
+
+            Unary_Expr(const Operator &opt, const Unary &unary) : opt_(opt), unary_(unary) {}
+
+            inline constexpr value_type operator[](size_t i) const {
+                return opt_(expr_at(unary_, i));
+            }
+        };
+
+        template<typename Operator, typename Lhs, typename Rhs>
+        struct Binary_Expr : public Expr<Binary_Expr<Operator, Lhs, Rhs>> {
+            static_assert(constexpr_size_eq<Lhs, Rhs>(), "unequality of array size!");
+        private:
+            const Operator &opt_;
             const Lhs &lhs_;
             const Rhs &rhs_;
         public:
-            using value_type = typename get_value_type<Lhs>::type;
+            static constexpr size_t size{constexpr_size<Lhs, Rhs>()};
+            using value_type = typename Lhs::value_type;
 
-            Binary_Expr(const Lhs &lhs, const Rhs &rhs) : lhs_(lhs), rhs_(rhs) {}
+            Binary_Expr(const Operator &opt, const Lhs &lhs, const Rhs &rhs) : opt_(opt), lhs_(lhs), rhs_(rhs) {}
 
-            inline constexpr value_type evaluate(size_t i) {
-                return Op::operation(lhs_.evaluate(i), rhs_.evaluate(i));
+            inline constexpr value_type operator[](size_t i) const {
+                return opt_(expr_at(lhs_, i), expr_at(rhs_, i));
             }
         };
 
-#define CREATE_BINARY_OPERATION(NAME, FUN, EXPR)                                                                       \
-        template <typename T>                                                                                          \
-        struct Op_##NAME {                                                                                             \
-            inline constexpr static T operation(T lhs, T rhs){                                                         \
-                return EXPR ;                                                                                          \
-            }                                                                                                          \
-        };                                                                                                             \
-                                                                                                                       \
-        template<typename Lhs, typename Rhs>                                                                           \
-        inline constexpr Binary_Expr<Op_##NAME<typename get_value_type<Lhs>::type>, Lhs, Rhs>                          \
-        FUN(const Expr<Lhs> &lhs, const Expr<Rhs> &rhs) {                                                              \
-            return Binary_Expr<Op_##NAME<typename get_value_type<Lhs>::type>, Lhs, Rhs>(lhs.cast(), rhs.cast());       \
-        }                                                                                                              \
+#define EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(NAME, FUNC, EXPR)                                                           \
+        template<typename UNIQUE_NAME(TMP)>                                                                            \
+        const NAME& FUNC(const Expr<UNIQUE_NAME(TMP)> &rhs_expr) {                                                     \
+            const UNIQUE_NAME(TMP) &rhs = rhs_expr.cast();                                                             \
+            const size_t UNIQUE_NAME(len) = rhs.size;                                                                  \
+            for (size_t i = 0; i < UNIQUE_NAME(len); ++i) {                                                            \
+                EXPR;                                                                                                  \
+             }                                                                                                         \
+            return *this;                                                                                              \
+        }
 
-
-        CREATE_BINARY_OPERATION(Add, operator+, lhs + rhs);
-
-        CREATE_BINARY_OPERATION(Sub, operator-, lhs - rhs);
-
-        CREATE_BINARY_OPERATION(Mul, operator*, lhs * rhs);
-
-        CREATE_BINARY_OPERATION(Div, operator/, lhs / rhs);
-
-        CREATE_BINARY_OPERATION(Pow, pow, pow(lhs, rhs));
-
-        CREATE_BINARY_OPERATION(Exp, exp, exp(lhs, rhs));
-
-        template<typename Op, typename Unary>
-        struct Unary_Expr : public Expr<Unary_Expr<Op, Unary>> {
-        private:
-            const Unary &unary_;
-        public:
-            using value_type = typename get_value_type<Unary>::type;
-
-            explicit Unary_Expr(const Unary &unary) : unary_(unary) {}
-
-            inline constexpr value_type evaluate(size_t i) {
-                return Op::operation(unary_.evaluate(i));
-            }
-        };
-
-#define CREATE_UNARY_OPERATION(NAME, FUN, EXPR)                                                                        \
-        template <typename T>                                                                                          \
-        struct Op_##NAME {                                                                                             \
-            inline constexpr static T operation(T unary){                                                              \
-                return EXPR ;                                                                                          \
-            }                                                                                                          \
-        };                                                                                                             \
+#define EXPR_CREATE_UNARY_OPERATION(FUNC, EXPR)                                                                        \
+        auto UNIQUE_NAME(OP) = [](const auto& unary ) -> decltype(EXPR) {return (EXPR);};                              \
                                                                                                                        \
         template<typename Unary>                                                                                       \
-        inline constexpr Unary_Expr<Op_##NAME<typename get_value_type<Unary>::type>, Unary>                            \
-        FUN(const Expr<Unary> &unary) {                                                                                \
-            return Unary_Expr<Op_##NAME<typename get_value_type<Unary>::type>, Unary>(unary.cast());                   \
+        inline constexpr Unary_Expr<decltype(UNIQUE_NAME(OP)), Unary>                                                  \
+        FUNC(const Expr<Unary> &unary) {                                                                               \
+            return Unary_Expr<decltype(UNIQUE_NAME(OP)), Unary>(UNIQUE_NAME(OP), unary.cast());                        \
         }                                                                                                              \
 
+#define EXPR_FILTER(TYPE, ...) typename std::enable_if<!IS_BASE_OF(Expr<TYPE>,TYPE), __VA_ARGS__>::type
 
-        CREATE_UNARY_OPERATION(Pos, operator+, unary);
+#define EXPR_CREATE_BINARY_OPERATION(FUNC, EXPR)                                                                       \
+        auto UNIQUE_NAME(OP) =[](const auto &lhs, const auto &rhs)-> decltype(EXPR) {return (EXPR);};                  \
+                                                                                                                       \
+        template<typename Lhs, typename Rhs>                                                                           \
+        inline constexpr EXPR_FILTER(Lhs, Binary_Expr<decltype(UNIQUE_NAME(OP)), Lhs, Rhs>)                            \
+        FUNC(const Lhs &lhs, const Expr<Rhs> &rhs) {                                                                   \
+            return Binary_Expr<decltype(UNIQUE_NAME(OP)), Lhs, Rhs>(UNIQUE_NAME(OP), lhs, rhs.cast());                 \
+        }                                                                                                              \
+                                                                                                                       \
+        template<typename Lhs, typename Rhs>                                                                           \
+        inline constexpr EXPR_FILTER(Rhs, Binary_Expr<decltype(UNIQUE_NAME(OP)), Lhs, Rhs>)                            \
+        FUNC(const Expr<Lhs> &lhs, const Rhs &rhs) {                                                                   \
+            return Binary_Expr<decltype(UNIQUE_NAME(OP)), Lhs, Rhs>(UNIQUE_NAME(OP), lhs.cast(), rhs);                 \
+        }                                                                                                              \
+                                                                                                                       \
+        template<typename Lhs, typename Rhs>                                                                           \
+        inline constexpr Binary_Expr<decltype(UNIQUE_NAME(OP)), Lhs, Rhs>                                              \
+        FUNC(const Expr<Lhs> &lhs, const Expr<Rhs> &rhs) {                                                             \
+            return Binary_Expr<decltype(UNIQUE_NAME(OP)), Lhs, Rhs>(UNIQUE_NAME(OP), lhs.cast(), rhs.cast());          \
+        }                                                                                                              \
 
-        CREATE_UNARY_OPERATION(Neg, operator-, unary);
+        EXPR_CREATE_BINARY_OPERATION(operator+, lhs + rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator-, lhs - rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator*, lhs * rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator/, lhs / rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator%, lhs % rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator==, lhs == rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator!=, lhs != rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator<, lhs < rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator>, lhs > rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator<=, lhs <= rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator>=, lhs >= rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator&&, lhs && rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator||, lhs || rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator&, lhs & rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator^, lhs ^ rhs);
+        EXPR_CREATE_BINARY_OPERATION(operator|, lhs | rhs);
+        EXPR_CREATE_BINARY_OPERATION(pow, pow(lhs, rhs));
+        EXPR_CREATE_BINARY_OPERATION(exp, exp(lhs, rhs));
 
-        CREATE_UNARY_OPERATION(Abs, abs, unary > 0 ? unary : -unary);
-
-        CREATE_UNARY_OPERATION(Log, log, log(unary));
-
-        CREATE_UNARY_OPERATION(Log10, log10, log10(unary));
-
-        CREATE_UNARY_OPERATION(Sin, sin, sin(unary));
-
-        CREATE_UNARY_OPERATION(Cos, cos, cos(unary));
-
-        CREATE_UNARY_OPERATION(Tan, tan, tan(unary));
-
-        CREATE_UNARY_OPERATION(Asin, asin, asin(unary));
-
-        CREATE_UNARY_OPERATION(Acos, acos, acos(unary));
-
-        CREATE_UNARY_OPERATION(Atan, atan, atan(unary));
-
-        CREATE_UNARY_OPERATION(Sinh, sinh, sinh(unary));
-
-        CREATE_UNARY_OPERATION(Cosh, cosh, cosh(unary));
-
-        CREATE_UNARY_OPERATION(Tanh, tanh, tanh(unary));
+        EXPR_CREATE_UNARY_OPERATION(operator+, unary);
+        EXPR_CREATE_UNARY_OPERATION(operator-, -unary);
+        EXPR_CREATE_UNARY_OPERATION(operator*, *unary);
+        EXPR_CREATE_UNARY_OPERATION(operator!, !unary);
+        EXPR_CREATE_UNARY_OPERATION(operator~, ~unary);
+        EXPR_CREATE_UNARY_OPERATION(abs, unary > 0 ? unary : -unary);
+        EXPR_CREATE_UNARY_OPERATION(log, log(unary));
+        EXPR_CREATE_UNARY_OPERATION(log10, log10(unary));
+        EXPR_CREATE_UNARY_OPERATION(sin, sin(unary));
+        EXPR_CREATE_UNARY_OPERATION(cos, cos(unary));
+        EXPR_CREATE_UNARY_OPERATION(tan, tan(unary));
+        EXPR_CREATE_UNARY_OPERATION(asin, asin(unary));
+        EXPR_CREATE_UNARY_OPERATION(acos, acos(unary));
+        EXPR_CREATE_UNARY_OPERATION(atan, atan(unary));
+        EXPR_CREATE_UNARY_OPERATION(sinh, sinh(unary));
+        EXPR_CREATE_UNARY_OPERATION(cosh, cosh(unary));
+        EXPR_CREATE_UNARY_OPERATION(tanh, tanh(unary));
     }
 }
 #endif //SPACEHUB_LAZY_EXPRESSION_H

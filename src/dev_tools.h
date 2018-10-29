@@ -13,6 +13,10 @@ namespace SpaceH {
         out << '\n';
     }
 
+#define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
+#define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
+#define MACRO_CAT_II(P, REST) REST
+#define UNIQUE_NAME(BASE) MACRO_CAT(BASE, __LINE__)
 
 #define SPACEHUB_ERR_MSG(...) {                                 \
 	SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
@@ -47,6 +51,9 @@ namespace SpaceH {
     public:
         using type = decltype(check<T>(0));
     };
+
+#define ELEMENT_TYPE(TYPE) typename get_value_type<TYPE>::type
+
 
 /** @brief Macros used to output debuf info.  */
 #ifdef DEBUG
@@ -261,6 +268,23 @@ inline void swap_##NEWNAME (TYPE& array) {                                      
 
 #define CHECK_POD(DATA)                                                                             \
             static_assert(std::is_trivial<DATA>::value, "Template arg '" #DATA "' must be a POD type!");
+
+    template<typename T, typename... Args>
+    struct is_indexable
+    {
+        template<typename U>
+        constexpr static auto check(const void*)
+        ->decltype(std::declval<U>().operator[](std::declval<Args>()...), std::true_type());
+
+        template<typename U>
+        constexpr static std::false_type check(...);
+
+        static constexpr bool value = decltype(check<T>(nullptr))::value;
+    };
+
+#define INDEXABLE(TYPE) ((is_indexable<TYPE, size_t>::value)||(is_indexable<TYPE, int>::value))
+
+#define IS_BASE_OF(BASE, DERIVED) std::is_base_of<BASE,DERIVED>::value
 }//end namespace SpaceH
 
 #endif
