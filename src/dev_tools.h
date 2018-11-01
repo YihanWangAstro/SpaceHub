@@ -16,7 +16,7 @@ namespace SpaceH {
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
 #define MACRO_CAT_II(P, REST) REST
-#define UNIQUE_NAME(BASE) MACRO_CAT(BASE, __LINE__)
+#define UNIQ(BASE) MACRO_CAT(BASE, __LINE__)
 
 #define SPACEHUB_ERR_MSG(...) {                                 \
 	SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
@@ -282,9 +282,12 @@ inline void swap_##NEWNAME (TYPE& array) {                                      
         static constexpr bool value = decltype(check<T>(nullptr))::value;
     };
 
-#define INDEXABLE(TYPE) ((is_indexable<TYPE, size_t>::value)||(is_indexable<TYPE, int>::value))
+//#define INDEXABLE(TYPE) ((is_indexable<TYPE, size_t>::value)||(is_indexable<TYPE, int>::value))
 
-#define IS_BASE_OF(BASE, DERIVED) std::is_base_of<BASE,DERIVED>::value
+#define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE,DERIVED>::value)
+
+#define TYPE_OF_SELF std::remove_reference<decltype(*this)>::type
+#define REF_TYPE_OF_SELF decltype(*this)
 }//end namespace SpaceH
 
 #endif
