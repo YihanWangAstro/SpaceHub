@@ -39,13 +39,13 @@ namespace SpaceH {
         }
 
         template<typename T>
-        inline const typename std::enable_if<IS_EXPR(T), typename T::value_type>::type
+        inline const typename std::enable_if_t<IS_EXPR(T), typename T::value_type>
         eval_at(const T &expr, size_t i) {
             return expr.eval(i);
         }
 
         template<typename T>
-        inline const typename std::enable_if<!IS_EXPR(T), T>::type
+        inline const typename std::enable_if_t<!IS_EXPR(T), T>
         eval_at(const T &expr, size_t i) {
             return expr;
         }
@@ -126,7 +126,7 @@ namespace SpaceH {
             return Unary_Expr<decltype(UNIQ(OP)), Unary>(UNIQ(OP), unary.cast());                                      \
         }                                                                                                              \
 
-#define EXPR_FILTER(TYPE, ...) typename std::enable_if<!IS_EXPR(TYPE), __VA_ARGS__>::type
+#define EXPR_FILTER(TYPE, ...) typename std::enable_if_t<!IS_EXPR(TYPE), __VA_ARGS__>
 
 #define EXPR_CREATE_BINARY_OPERATION(FUNC, EXPR)                                                                       \
         auto UNIQ(OP) =[](const auto &lhs, const auto &rhs)-> decltype(EXPR) {return (EXPR);};                         \

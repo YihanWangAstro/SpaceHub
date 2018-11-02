@@ -29,6 +29,12 @@ namespace SpaceH {
                 }
             }
 
+            Larray(const Element &single) {
+                for (size_t i = 0; i < Len; ++i) {
+                    data_[i] = single;
+                }
+            }
+
             Larray(Larray &&src)
                     : data_(std::move(src.data_)) {}
 
