@@ -59,8 +59,6 @@ namespace SpaceH {
 
         void advanceOneStep();
 
-
-
         /**  @brief Set the step length*/
         inline void setStepLength(Scalar step_size) {
             stepLength = step_size;

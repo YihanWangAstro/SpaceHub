@@ -4,6 +4,8 @@
 
 #include "../dev_tools.h"
 #include "stddef.h"
+#include <thread>
+#include <vector>
 #include <math.h>
 
 namespace SpaceH {
@@ -18,58 +20,14 @@ namespace SpaceH {
             }
         };
 
-        template<typename Lhs, typename Rhs>
-        constexpr size_t constexpr_len(){
-            if (IS_EXPR(Lhs)){
-                return Lhs::len;
-            } else if (IS_EXPR(Rhs)){
-                return Rhs::len;
-            } else {
-                return 1;
-            }
+        template<bool IsExpr, typename T, typename ...Args>
+        inline const auto eval_at(std::enable_if_t<IsExpr, T> const &expr, Args &&...args){
+            return expr.eval(std::forward<Args>(args)...);
         }
 
-        template<typename Lhs, typename Rhs>
-        constexpr bool constexpr_len_eq(){
-            if (IS_EXPR(Lhs) && IS_EXPR(Rhs)){
-                return Lhs::len == Rhs::len;
-            } else {
-                return true;
-            }
-        }
-
-        template<typename T>
-        inline const typename std::enable_if_t<IS_EXPR(T), typename T::value_type>
-        eval_at(const T &expr, size_t i) {
-            return expr.eval(i);
-        }
-
-        template<typename T>
-        inline const typename std::enable_if_t<!IS_EXPR(T), T>
-        eval_at(const T &expr, size_t i) {
+        template<bool IsExpr, typename T, typename ...Args>
+        inline const auto eval_at(std::enable_if_t<!IsExpr, T> const & expr, Args &&...args){
             return expr;
-        }
-
-
-
-        template<typename T>
-        std::ostream &operator<<(std::ostream &output, const Expr<T> &var) {
-            const T& expr = var.cast();
-            const size_t len = expr.len;
-            for (size_t i = 0; i < len; ++i) {
-                output << expr.eval(i) << " ";
-            }
-            return output;
-        }
-
-        template<typename T>
-        std::istream &operator>>(std::istream &input, Expr<T> &var) {
-            const T& expr = var.cast();
-            const size_t len = expr.len;
-            for (size_t i = 0; i < len; ++i) {
-                input >> expr[i];
-            }
-            return input;
         }
 
         template<typename Operator, typename Unary>
@@ -78,44 +36,29 @@ namespace SpaceH {
             const Operator &opt_;
             const Unary &unary_;
         public:
-            static constexpr size_t len{Unary::len};
-            using value_type = typename Unary::value_type;
-
             Unary_Expr(const Operator &opt, const Unary &unary) : opt_(opt), unary_(unary) {}
 
-            inline const value_type eval(size_t i) const {
-                return opt_(eval_at(unary_, i));
+            template<typename ... Args>
+            inline auto eval(Args &&... args) const {
+                return opt_(eval_at<IS_EXPR(Unary), Unary, Args...>(unary_, std::forward<Args>(args)...));
             }
         };
 
         template<typename Operator, typename Lhs, typename Rhs>
         struct Binary_Expr : public Expr<Binary_Expr<Operator, Lhs, Rhs>> {
-            static_assert(constexpr_len_eq<Lhs, Rhs>(), "unequality of array size!");
         private:
             const Operator &opt_;
             const Lhs &lhs_;
             const Rhs &rhs_;
         public:
-            static constexpr size_t len{constexpr_len<Lhs, Rhs>()};
-            using value_type = typename Lhs::value_type;
-
             Binary_Expr(const Operator &opt, const Lhs &lhs, const Rhs &rhs) : opt_(opt), lhs_(lhs), rhs_(rhs) {}
 
-            inline const value_type eval(size_t i) const {
-                return opt_(eval_at(lhs_, i), eval_at(rhs_, i));
+            template<typename ... Args>
+            inline auto eval(Args &&... args) const {
+                return opt_(eval_at<IS_EXPR(Lhs), Lhs, Args...>(lhs_, std::forward<Args>(args)...),
+                            eval_at<IS_EXPR(Rhs), Rhs, Args...>(rhs_, std::forward<Args>(args)...));
             }
         };
-
-#define EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(FUNC, EXPR)                                                                 \
-        template<typename UNIQ(TMP)>                                                                                   \
-        auto FUNC(const Expr<UNIQ(TMP)> &rhs_expr)-> REF_TYPE_OF_SELF {                                                \
-            const UNIQ(TMP) &rhs = rhs_expr.cast();                                                                    \
-            const size_t UNIQ(len) = rhs.len;                                                                          \
-            for (size_t i = 0; i < UNIQ(len); ++i) {                                                                   \
-                EXPR;                                                                                                  \
-             }                                                                                                         \
-            return *this;                                                                                              \
-        }
 
 #define EXPR_CREATE_UNARY_OPERATION(FUNC, EXPR)                                                                        \
         auto UNIQ(OP) = [](const auto& unary ) -> decltype(EXPR) {return (EXPR);};                                     \
@@ -126,7 +69,7 @@ namespace SpaceH {
             return Unary_Expr<decltype(UNIQ(OP)), Unary>(UNIQ(OP), unary.cast());                                      \
         }                                                                                                              \
 
-#define EXPR_FILTER(TYPE, ...) typename std::enable_if_t<!IS_EXPR(TYPE), __VA_ARGS__>
+#define EXPR_FILTER(TYPE, ...) typename std::enable_if_t<!IS_EXPR(TYPE), ##__VA_ARGS__>
 
 #define EXPR_CREATE_BINARY_OPERATION(FUNC, EXPR)                                                                       \
         auto UNIQ(OP) =[](const auto &lhs, const auto &rhs)-> decltype(EXPR) {return (EXPR);};                         \
@@ -147,14 +90,7 @@ namespace SpaceH {
         inline constexpr Binary_Expr<decltype(UNIQ(OP)), Lhs, Rhs>                                                     \
         FUNC(const Expr<Lhs> &lhs, const Expr<Rhs> &rhs) {                                                             \
             return Binary_Expr<decltype(UNIQ(OP)), Lhs, Rhs>(UNIQ(OP), lhs.cast(), rhs.cast());                        \
-        }                                                                                                              \
-
-#define EXPR_CREATE_LINEAR_ASSIGN_OPERATORS                                                                            \
-        EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(operator=,  (*this).dst(i)  = rhs.eval(i));                                 \
-        EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(operator+=, (*this).dst(i) += rhs.eval(i));                                 \
-        EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(operator-=, (*this).dst(i) -= rhs.eval(i));                                 \
-        EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(operator*=, (*this).dst(i) *= rhs.eval(i));                                 \
-        EXPR_CREATE_LINEAR_ASSIGN_OPERATOR(operator/=, (*this).dst(i) /= rhs.eval(i));                                 \
+        }
 
         EXPR_CREATE_BINARY_OPERATION(operator+, lhs + rhs);
         EXPR_CREATE_BINARY_OPERATION(operator-, lhs - rhs);
@@ -192,6 +128,27 @@ namespace SpaceH {
         EXPR_CREATE_UNARY_OPERATION(sinh, sinh(unary));
         EXPR_CREATE_UNARY_OPERATION(cosh, cosh(unary));
         EXPR_CREATE_UNARY_OPERATION(tanh, tanh(unary));
+
+        auto MAX_THREAD_NUM = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
+
+        template<typename Lambda>
+        void multi_threads_loop(size_t total_len, size_t thread_num, Lambda &&task) {
+            auto len_pth = total_len / thread_num;
+            std::vector<std::thread> threads;
+            threads.reserve(thread_num);
+            for (size_t th_id = 0; th_id < thread_num; ++th_id) {
+                size_t begin = th_id * len_pth;
+                size_t end   = begin + len_pth;
+                if(end + len_pth > total_len)
+                    end = total_len;
+                threads.emplace_back(std::thread(std::forward<Lambda>(task), begin, end));
+            }
+
+            for (auto &thread : threads) {
+                if (thread.joinable())
+                    thread.join();
+            }
+        }
     }
 }
 #endif //SPACEHUB_LAZY_EXPRESSION_H
