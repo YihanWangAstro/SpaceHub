@@ -47,7 +47,7 @@ namespace SpaceH{
 
         class FileHolder {
         public:
-            FileHolder (std::shared_ptr<SynFile> synfile) : synfile_(std::move(synfile)) {}
+            FileHolder (std::shared_ptr<SynFile> synfile) : synfile_(synfile) {}
 
             template <typename ...Args>
             void write (char const *format, Args&&...args) {
