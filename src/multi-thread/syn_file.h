@@ -12,8 +12,10 @@ namespace SpaceH{
         public:
             SynFile (std::string file_name, std::string mode="w") {
                 file_ = fopen(file_name.c_str(), mode.c_str());
-                if(file_ == nullptr)
-                    throw "fail to open the file!\n";
+                if(file_ == nullptr){
+                    printf( "fail to open the file!\n");
+                    exit(0);
+                }
             }
             ~SynFile(){
                 if(file_ == nullptr)
@@ -21,15 +23,21 @@ namespace SpaceH{
             }
 
             template <typename ...Args>
-            void write (char const *format, Args...args) {
+            void write (char const *format, Args&&...args) {
                 std::lock_guard<std::mutex> lock(write_mutex_);
-                fprintf(file_, format, args...);
+                fprintf(file_, format, std::forward<Args>(args)...);
+                fflush(file_);
             }
 
             template <typename ...Args>
-            void read (char const *format, Args...args) {
+            bool read (char const *format, Args&&...args) {
                 std::lock_guard<std::mutex> lock(write_mutex_);
-                fscanf(file_, format, args...);
+                fscanf(file_, format, std::forward<Args>(args)...);
+                
+                if(feof(file_))
+                    return true;
+                else
+                    return false;
             }
 
         private:
@@ -42,13 +50,13 @@ namespace SpaceH{
             FileHolder (std::shared_ptr<SynFile> synfile) : synfile_(std::move(synfile)) {}
 
             template <typename ...Args>
-            void write (char const *format, Args...args) {
+            void write (char const *format, Args&&...args) {
                 synfile_->write(format, std::forward<Args>(args)...);
             }
 
             template <typename ...Args>
-            void read (char const *format, Args...args) {
-                synfile_->read(format, std::forward<Args>(args)...);
+            bool read (char const *format, Args&&...args) {
+                return synfile_->read(format, std::forward<Args>(args)...);
             }
         private:
             std::shared_ptr<SynFile> synfile_;
