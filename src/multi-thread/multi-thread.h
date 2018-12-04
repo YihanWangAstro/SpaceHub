@@ -37,6 +37,10 @@ namespace SpaceH {
                     exit(0);
                 }
             }
+            
+            ~LockedFile(){
+                file_.close();
+            }
 
             LockedFile(LockedFile &) = delete;
 
@@ -64,6 +68,10 @@ namespace SpaceH {
         private:
             std::shared_ptr<T> shared_obj_;
         };
+
+        SharedHolder<LockedFile> make_thread_safe_fstream(const char *file_name, std::ios_base::openmode mode){
+            return SharedHolder<LockedFile>(std::make_shared<LockedFile>(file_name,mode));
+        }
     }
 }
 
