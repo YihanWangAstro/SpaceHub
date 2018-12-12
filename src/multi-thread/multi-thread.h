@@ -62,6 +62,7 @@ namespace SpaceH {
             friend LockedFile& operator>>(LockedFile& is, std::tuple<Args...>&& tup){
                 std::lock_guard<std::mutex> lock(is.mutex_);
                 is.input(std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+                return is;
             }
 
         private:
