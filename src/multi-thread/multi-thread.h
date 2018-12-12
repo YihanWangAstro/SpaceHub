@@ -38,7 +38,7 @@ namespace SpaceH {
                     exit(0);
                 }
             }
-            
+
             ~LockedFile(){
                 file_.close();
             }
@@ -57,7 +57,7 @@ namespace SpaceH {
                 os.print(std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
                 return os;
             }
-            
+
             template<typename ...Args>
             friend LockedFile& operator>>(LockedFile& is, std::tuple<Args...>&& tup){
                 std::lock_guard<std::mutex> lock(is.mutex_);
@@ -83,7 +83,7 @@ namespace SpaceH {
         };
 
 #define PACK(...) std::forward_as_tuple(__VA_ARGS__)
-            
+
         template<typename T>
         class SharedHolder {
         public:
@@ -93,7 +93,7 @@ namespace SpaceH {
             auto execute(Args &&...args) {
                 return shared_obj_->execute(std::forward<Args>(args)...);
             }
-            
+
             template<typename ...Args>
             friend SharedHolder& operator<<(SharedHolder& os , std::tuple<Args...>&& tup){
                 *(os.shared_obj_) << std::forward<decltype(tup)>(tup);
@@ -106,7 +106,7 @@ namespace SpaceH {
                 return is;
             }
         private:
-            
+
         private:
             std::shared_ptr<T> shared_obj_;
         };

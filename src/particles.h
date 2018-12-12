@@ -290,6 +290,18 @@ namespace SpaceH {
         /** @brief The physical time of the dynamic system*/
         Scalar time_;
     };
+
+    template<typename ...Args>
+    class Particle{
+    private:
+        std::tuple<Args...> data_;
+    };
+
+    template<template<class, size_t> typename Container, size_t Size, typename ...Args>
+    class Particles_{
+    private:
+        std::tuple<Container<Args,Size>...> data_;
+    };
 }
 #endif
 
