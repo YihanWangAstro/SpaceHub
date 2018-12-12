@@ -50,33 +50,6 @@ namespace SpaceH {
                 std::lock_guard<std::mutex> lock(mutex_);
                 return func(file_, std::forward<Args>(args)...);
             }
-
-            template<typename ...Args>
-            friend LockedFile& operator<<(LockedFile& os, std::tuple<Args...>&& tup){
-                std::lock_guard<std::mutex> lock(os.mutex_);
-                os.print(std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
-                return os;
-            }
-
-            template<typename ...Args>
-            friend LockedFile& operator>>(LockedFile& is, std::tuple<Args...>&& tup){
-                std::lock_guard<std::mutex> lock(is.mutex_);
-                is.input(std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
-                return is;
-            }
-
-        private:
-            template<class Tup, size_t... I>
-            void print(const Tup& tup, std::index_sequence<I...>)
-            {
-                (..., (file_ << std::get<I>(tup)));
-            }
-
-            template<class Tup, size_t... I>
-            void input(const Tup& tup, std::index_sequence<I...>)
-            {
-                (..., (file_ >> std::get<I>(tup)));
-            }
         private:
             std::fstream file_;
             std::mutex mutex_;
@@ -87,26 +60,28 @@ namespace SpaceH {
         template<typename T>
         class SharedHolder {
         public:
-            SharedHolder(std::shared_ptr<T> shared_obj) : shared_obj_(shared_obj) {}
+            explicit SharedHolder(std::shared_ptr<T> shared_obj) : shared_obj_(std::move(shared_obj)) {}
 
             template<typename ...Args>
             auto execute(Args &&...args) {
                 return shared_obj_->execute(std::forward<Args>(args)...);
             }
 
-            template<typename ...Args>
-            friend SharedHolder& operator<<(SharedHolder& os , std::tuple<Args...>&& tup){
-                *(os.shared_obj_) << std::forward<decltype(tup)>(tup);
+            template<typename U>
+            friend SharedHolder &operator<<(SharedHolder &os, U &&tup) {
+                os.shared_obj_->execute(
+                        [](std::fstream &out, U &&data) { out << std::forward<decltype(data)>(data); },
+                        std::forward<decltype(tup)>(tup));
                 return os;
             }
 
-            template<typename ...Args>
-            friend SharedHolder& operator>>(SharedHolder& is , std::tuple<Args...>&& tup){
-                *(is.shared_obj_) >> std::forward<decltype(tup)>(tup);
+            template<typename U>
+            friend SharedHolder& operator>>(SharedHolder& is, U&& tup){
+                is.shared_obj_->execute(
+                        [](std::fstream &in, U &&data) { in << std::forward<decltype(data)>(data); },
+                        std::forward<decltype(tup)>(tup));
                 return is;
             }
-        private:
-
         private:
             std::shared_ptr<T> shared_obj_;
         };

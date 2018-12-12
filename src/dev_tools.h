@@ -12,6 +12,30 @@ namespace SpaceH {
         (void) expander{0, (void(out << std::forward<Args>(args)), 0)...};
     }
 
+    template<class Tup, size_t... I>
+    void print_tuple(std::ostream &out, const Tup&& tup, std::index_sequence<I...>)
+    {
+        (..., (out << std::get<I>(tup)));
+    }
+
+    template<class Tup, size_t... I>
+    void input_tuple(std::istream &in, const Tup&& tup, std::index_sequence<I...>)
+    {
+        (..., (in >> std::get<I>(tup)));
+    }
+
+    template<typename ...Args>
+    std::ostream& operator<<(std::ostream &out, std::tuple<Args...>&& tup){
+        SpaceH::print_tuple(out, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+        return out;
+    }
+
+    template<typename ...Args>
+    std::istream& operator>>(std::istream& in, std::tuple<Args...>&& tup){
+        SpaceH::input_tuple(in, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+        return in;
+    }
+
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
 #define MACRO_CAT_II(P, REST) REST
@@ -285,7 +309,7 @@ inline void swap_##NEWNAME (TYPE& array) {                                      
 
 #define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE,DERIVED>::value)
 #define TYPE_OF_SELF std::remove_reference<decltype(*this)>::type
-#define REF_TYPE_OF_SELF decltype(*this)
+
 }//end namespace SpaceH
 
 #endif
