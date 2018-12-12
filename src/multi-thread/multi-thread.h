@@ -10,6 +10,7 @@
 #include <mutex>
 #include <vector>
 #include <iostream>
+#include <tuple>
 
 namespace SpaceH {
     namespace MultiThread {
@@ -50,11 +51,38 @@ namespace SpaceH {
                 return func(file_, std::forward<Args>(args)...);
             }
 
+            template<typename ...Args>
+            friend LockedFile& operator<<(LockedFile& os, std::tuple<Args...>&& tup){
+                std::lock_guard<std::mutex> lock(os.mutex_);
+                os.print(std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+                return os;
+            }
+            
+            template<typename ...Args>
+            friend LockedFile& operator>>(LockedFile& is, std::tuple<Args...>&& tup){
+                std::lock_guard<std::mutex> lock(is.mutex_);
+                is.input(std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+            }
+
+        private:
+            template<class Tup, size_t... I>
+            void print(const Tup& tup, std::index_sequence<I...>)
+            {
+                (..., (file_ << std::get<I>(tup)));
+            }
+
+            template<class Tup, size_t... I>
+            void input(const Tup& tup, std::index_sequence<I...>)
+            {
+                (..., (file_ >> std::get<I>(tup)));
+            }
         private:
             std::fstream file_;
             std::mutex mutex_;
         };
 
+#define PACK(...) std::forward_as_tuple(__VA_ARGS__)
+            
         template<typename T>
         class SharedHolder {
         public:
@@ -64,13 +92,28 @@ namespace SpaceH {
             auto execute(Args &&...args) {
                 return shared_obj_->execute(std::forward<Args>(args)...);
             }
+            
+            template<typename ...Args>
+            friend SharedHolder& operator<<(SharedHolder& os , std::tuple<Args...>&& tup){
+                *(os.shared_obj_) << std::forward<decltype(tup)>(tup);
+                return os;
+            }
 
+            template<typename ...Args>
+            friend SharedHolder& operator>>(SharedHolder& is , std::tuple<Args...>&& tup){
+                *(is.shared_obj_) >> std::forward<decltype(tup)>(tup);
+                return is;
+            }
+        private:
+            
         private:
             std::shared_ptr<T> shared_obj_;
         };
 
-        SharedHolder<LockedFile> make_thread_safe_fstream(const char *file_name, std::ios_base::openmode mode){
-            return SharedHolder<LockedFile>(std::make_shared<LockedFile>(file_name,mode));
+        using ThreadSharedFile = SharedHolder<LockedFile>;
+
+        ThreadSharedFile make_thread_safe_fstream(const char *file_name, std::ios_base::openmode mode){
+            return ThreadSharedFile(std::make_shared<LockedFile>(file_name,mode));
         }
     }
 }

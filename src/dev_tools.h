@@ -9,8 +9,7 @@ namespace SpaceH {
     void print(std::ostream &out, Arg &&arg, Args &&... args) {
         out << std::forward<Arg>(arg);
         using expander = int[];
-        (void) expander{0, (void(out << ' ' << std::forward<Args>(args)), 0)...};
-        out << '\n';
+        (void) expander{0, (void(out << std::forward<Args>(args)), 0)...};
     }
 
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
