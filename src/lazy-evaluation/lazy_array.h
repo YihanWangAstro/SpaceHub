@@ -5,12 +5,12 @@
 #include "lazy_expr.h"
 #include <algorithm>
 #include "slice.h"
-#include "../multi-thread/thread_pool.h"
+#include "../multi-thread/multi-thread.h"
 
 
 namespace SpaceH {
     namespace Lazy {
-        ThreadPool POOL(4,10);
+
         template<typename T>
         constexpr bool leq_cache_line(size_t len = 1) {
             return sizeof(T) * len <= sizeof(double) * 4;
@@ -65,7 +65,7 @@ namespace SpaceH {
             template<typename U>
             Larray(const Expr<U> &expr) : data_(new T[Len]) {
                 const U &src = expr.cast();
-                multi_threads_loop(Len, MAX_THREAD_NUM, [&](size_t begin, size_t end){
+                multi_threads_loop(Len, MultiThread::auto_thread, [&](size_t begin, size_t end){
                     for(size_t i = begin; i < end;++i)
                         data_[i] = src.eval(i);
                 });
@@ -89,7 +89,7 @@ namespace SpaceH {
 
                 for(auto & r : results)
                     r.get();*/
-                multi_threads_loop(Len, MAX_THREAD_NUM, [&](size_t begin, size_t end){
+                multi_threads_loop(Len, MultiThread::auto_thread, [&](size_t begin, size_t end){
                     for(size_t i = begin; i < end; ++i)
                         data_[i] = rhs.eval(i);
                 });

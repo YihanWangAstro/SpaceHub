@@ -11,9 +11,30 @@
 #include <vector>
 #include <iostream>
 #include <tuple>
-
+#include "../dev_tools.h"
 namespace SpaceH {
     namespace MultiThread {
+
+        const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
+
+        template<typename Lambda>
+        void multi_threads_loop(size_t total_len,  size_t thread_num, Lambda &&task) {
+            auto len_pth = total_len / thread_num;
+            std::vector<std::thread> threads;
+            threads.reserve(thread_num);
+            for (size_t th_id = 0; th_id < thread_num; ++th_id) {
+                size_t begin = th_id * len_pth;
+                size_t end   = begin + len_pth;
+                if(end + len_pth > total_len)
+                    end = total_len;
+                threads.emplace_back(std::thread(std::forward<Lambda>(task), begin, end));
+            }
+
+            for (auto &thread : threads) {
+                if (thread.joinable())
+                    thread.join();
+            }
+        }
 
         template<typename Callable, typename ...Args>
         void multi_thread_run(size_t thread_num, Callable &&job, Args &&...args) {
@@ -29,68 +50,41 @@ namespace SpaceH {
             }
         }
 
-        class LockedFile {
+        class ConcurrentFile {
         public:
-            LockedFile(const char *file_name, std::ios_base::openmode mode) {
-                file_.open(file_name, mode);
-                if(!file_.is_open()){
+            ConcurrentFile(const char *file_name, std::ios_base::openmode mode) :
+                    file_(std::make_shared<std::fstream>(file_name, mode)), mutex_(std::make_shared<std::mutex>()) {
+                if (!file_->is_open()) {
                     std::cout << "Unable to open file: " << std::string(file_name) << "\n";
                     exit(0);
                 }
             }
 
-            ~LockedFile(){
-                file_.close();
-            }
-
-            LockedFile(LockedFile &) = delete;
+            ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode) :
+                ConcurrentFile(file_name.c_str(), mode) {}
 
             template<typename Callback, typename ...Args>
             auto execute(Callback &&func, Args &&...args) {
-                std::lock_guard<std::mutex> lock(mutex_);
-                return func(file_, std::forward<Args>(args)...);
-            }
-        private:
-            std::fstream file_;
-            std::mutex mutex_;
-        };
-
-#define PACK(...) std::forward_as_tuple(__VA_ARGS__)
-
-        template<typename T>
-        class SharedHolder {
-        public:
-            explicit SharedHolder(std::shared_ptr<T> shared_obj) : shared_obj_(std::move(shared_obj)) {}
-
-            template<typename ...Args>
-            auto execute(Args &&...args) {
-                return shared_obj_->execute(std::forward<Args>(args)...);
+                std::lock_guard<std::mutex> lock(*mutex_);
+                return func(*file_, std::forward<Args>(args)...);
             }
 
             template<typename U>
-            friend SharedHolder &operator<<(SharedHolder &os, U &&tup) {
-                os.shared_obj_->execute(
-                        [](std::fstream &out, U &&data) { out << std::forward<decltype(data)>(data); },
-                        std::forward<decltype(tup)>(tup));
-                return os;
+            friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup) {
+                std::lock_guard<std::mutex> lock(*(os.mutex_));
+                *(os.file_) << std::forward<decltype(tup)>(tup);
             }
 
             template<typename U>
-            friend SharedHolder& operator>>(SharedHolder& is, U&& tup){
-                is.shared_obj_->execute(
-                        [](std::fstream &in, U &&data) { in << std::forward<decltype(data)>(data); },
-                        std::forward<decltype(tup)>(tup));
-                return is;
+            friend ConcurrentFile &operator>>(ConcurrentFile &is, U &&tup) {
+                std::lock_guard<std::mutex> lock(*(is.mutex_));
+                *(is.file_) >> std::forward<decltype(tup)>(tup);
             }
+
         private:
-            std::shared_ptr<T> shared_obj_;
+            std::shared_ptr<std::fstream> file_;
+            std::shared_ptr<std::mutex> mutex_;
         };
-
-        using ThreadSharedFile = SharedHolder<LockedFile>;
-
-        ThreadSharedFile make_thread_safe_fstream(const char *file_name, std::ios_base::openmode mode){
-            return ThreadSharedFile(std::make_shared<LockedFile>(file_name,mode));
-        }
     }
 }
 

@@ -128,27 +128,6 @@ namespace SpaceH {
         EXPR_CREATE_UNARY_OPERATION(sinh, sinh(unary));
         EXPR_CREATE_UNARY_OPERATION(cosh, cosh(unary));
         EXPR_CREATE_UNARY_OPERATION(tanh, tanh(unary));
-
-        auto MAX_THREAD_NUM = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
-
-        template<typename Lambda>
-        void multi_threads_loop(size_t total_len, size_t thread_num, Lambda &&task) {
-            auto len_pth = total_len / thread_num;
-            std::vector<std::thread> threads;
-            threads.reserve(thread_num);
-            for (size_t th_id = 0; th_id < thread_num; ++th_id) {
-                size_t begin = th_id * len_pth;
-                size_t end   = begin + len_pth;
-                if(end + len_pth > total_len)
-                    end = total_len;
-                threads.emplace_back(std::thread(std::forward<Lambda>(task), begin, end));
-            }
-
-            for (auto &thread : threads) {
-                if (thread.joinable())
-                    thread.join();
-            }
-        }
     }
 }
 #endif //SPACEHUB_LAZY_EXPRESSION_H
