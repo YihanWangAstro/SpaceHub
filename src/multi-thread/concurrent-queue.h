@@ -20,6 +20,11 @@ namespace SpaceH {
                 cv_.notify_one();
             }
 
+            bool empty() {
+                std::lock_guard<std::mutex> lock(mutex_);
+                return deque_.empty();
+            }
+
             template<typename ...Args>
             void emplace_front(Args &&... args) {
                 {

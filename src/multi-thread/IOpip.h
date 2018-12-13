@@ -1,6 +1,7 @@
 #ifndef SPACEHUB_JOB_SYSTEM_H
 #define SPACEHUB_JOB_SYSTEM_H
 
+#include <thread>
 #include <atomic>
 #include <mutex>
 #include <condition_variable>
@@ -11,6 +12,36 @@ namespace SpaceH {
     namespace MultiThread {
 
         template<typename T>
+        class Opip {
+        public:
+            explicit Opip(const char *file_name) :
+                file_(file_name, std::fstream::out),
+                thread_(std::thread([&]{
+                    while(!stop_){
+                        file_ << pip_.pop_front();
+                    }
+                    while(!pip_.empty()){
+                        file_ << pip_.pop_front();
+                    }
+                })){}
+
+            ~Opip(){
+                stop_ = true;
+                if (thread_.joinable())
+                    thread_.join();
+            }
+            friend Opip& operator<<(Opip& out, T&& tup){
+                out.pip_.emplace_back(std::forward<T>(tup));
+            }
+        private:
+            ConcurrentDeque<T> pip_;
+            std::fstream file_;
+            std::atomic<bool> stop_{false};
+            std::thread thread_;
+        };
+
+
+        /*template<typename T>
         class IOpip {
         public:
             IOpip(const char *file_name, std::ios_base::openmode mode) :
@@ -65,7 +96,7 @@ namespace SpaceH {
             friend Opip& operator<<(Opip& out, T&& tup){
                 out.pip_->emplace_back(std::forward<T>(tup));
             }
-        };
+        };*/
     }
 }
 #endif //SPACEHUB_JOB_SYSTEM_H
