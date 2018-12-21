@@ -17,11 +17,9 @@ namespace SpaceH {
             explicit Opip(const char *file_name) :
                 file_(file_name, std::fstream::out),
                 thread_(std::thread([&]{
-                    while(!stop_){
-                        file_ << pip_.pop_front();
-                    }
-                    while(!pip_.empty()){
-                        file_ << pip_.pop_front();
+                    T data;
+                    while(pip_.pop_front(data)){
+                        file_ << data;
                     }
                 })){}
 
@@ -29,6 +27,10 @@ namespace SpaceH {
                 stop_ = true;
                 if (thread_.joinable())
                     thread_.join();
+
+                while(!pip_.empty()){
+                    file_ << pip_.pop_front();
+                }
             }
             friend Opip& operator<<(Opip& out, T&& tup){
                 out.pip_.emplace_back(std::forward<T>(tup));
@@ -36,7 +38,7 @@ namespace SpaceH {
         private:
             ConcurrentDeque<T> pip_;
             std::fstream file_;
-            std::atomic<bool> stop_{false};
+            std::atomic_bool stop_{false};
             std::thread thread_;
         };
 

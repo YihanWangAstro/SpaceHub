@@ -1,6 +1,7 @@
 #ifndef SPACEHUB_SAFE_QUEUE_H
 #define SPACEHUB_SAFE_QUEUE_H
 
+#include <atomic>
 #include <deque>
 #include <mutex>
 #include <condition_variable>
@@ -11,6 +12,10 @@ namespace SpaceH {
         template<typename T>
         class ConcurrentDeque {
         public:
+            ~ConcurrentDeque(){
+                stop();
+            }
+
             template<typename ...Args>
             void emplace_back(Args &&... args) {
                 {
@@ -25,6 +30,11 @@ namespace SpaceH {
                 return deque_.empty();
             }
 
+            void stop(){
+                stop_ = true;
+                cv_.notify_all();
+            }
+
             template<typename ...Args>
             void emplace_front(Args &&... args) {
                 {
@@ -34,7 +44,37 @@ namespace SpaceH {
                 cv_.notify_one();
             }
 
-            T pop_front() noexcept {
+            bool pop_front(T& data) noexcept{
+                std::unique_lock<std::mutex> lock(mutex_);
+                while (!stop_ && deque_.empty()) {
+                    cv_.wait(lock);
+                }
+
+                if(!deque_.empty()) {
+                    data = std::move(deque_.front());
+                    deque_.pop_front();
+                    return true;
+                } else {//stop_ == true
+                    return false;
+                }
+            }
+
+            bool pop_back(T& data) noexcept{
+                std::unique_lock<std::mutex> lock(mutex_);
+                while (!stop_ && deque_.empty()) {
+                    cv_.wait(lock);
+                }
+
+                if(!deque_.empty()) {
+                    data = std::move(deque_.back());
+                    deque_.pop_back();
+                    return true;
+                } else {//stop_ == true
+                    return false;
+                }
+            }
+
+            /*T pop_front() noexcept {
                 std::lock_guard<std::mutex> lock(mutex_);
                 while (deque_.empty()) {
                     cv_.wait(lock);
@@ -52,12 +92,13 @@ namespace SpaceH {
                 auto data = std::move(deque_.back());
                 deque_.pop_back();
                 return data;
-            }
+            }*/
 
         private:
             std::deque<T> deque_;
             std::mutex mutex_;
             std::condition_variable cv_;
+            std::atomic_bool stop_{false};
         };
     }
 }
