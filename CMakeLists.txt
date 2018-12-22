@@ -59,7 +59,7 @@ set(SOURCE_FILES
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
         test/unit_test/test_particle.cpp
-        test/unit_test/test_chain_particle.cpp src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/IOpip.h)
+        test/unit_test/test_chain_particle.cpp src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h)
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp)
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})

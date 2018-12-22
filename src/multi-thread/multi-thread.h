@@ -50,6 +50,11 @@ namespace SpaceH {
             }
         }
 
+        template <typename ...Args>
+        void auto_multi_thread(Args&&... args){
+            multi_thread_run(auto_thread, std::forward<Args>(args)...);
+        }
+
         class ConcurrentFile {
         public:
             ConcurrentFile(const char *file_name, std::ios_base::openmode mode) :

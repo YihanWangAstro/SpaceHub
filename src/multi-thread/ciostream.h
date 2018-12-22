@@ -1,18 +1,17 @@
 #ifndef SPACEHUB_JOB_SYSTEM_H
 #define SPACEHUB_JOB_SYSTEM_H
 
+#include <memory>
 #include <thread>
-#include <atomic>
 #include <mutex>
 #include <condition_variable>
 #include <fstream>
-#include <deque>
+#include <queue>
+#include "../dev_tools.h"
 
 namespace SpaceH {
     namespace MultiThread {
-
-
-
+        
         template<typename T>
         class Opip {
         public:
@@ -23,13 +22,13 @@ namespace SpaceH {
                             T data;
                             {
                                 std::unique_lock<std::mutex> lock(mutex_);
-                                cv_.wait(lock, [&] { return stop_ || !deque_.empty(); });
+                                cv_.wait(lock, [&] { return stop_ || !queue_.empty(); });
 
                                 if (stop_)
                                     return;
 
-                                data = std::move(deque_.front());
-                                deque_.pop_front();
+                                data = std::move(queue_.front());
+                                queue_.pop_front();
                             }
                             file_ << data;
                         }
@@ -45,9 +44,9 @@ namespace SpaceH {
                 if (thread_.joinable())
                     thread_.join();
 
-                while (!deque_.empty()) {
-                    file_ << deque_.front();
-                    deque_.pop_front();
+                while (!queue_.empty()) {
+                    file_ << queue_.front();
+                    queue_.pop_front();
                 }
 
             }
@@ -55,13 +54,13 @@ namespace SpaceH {
             friend void operator<<(Opip &out, T &&tup) {
                 {
                     std::lock_guard<std::mutex> lock(out.mutex_);
-                    out.deque_.emplace_back(std::forward<T>(tup));
+                    out.queue_.emplace_back(std::forward<T>(tup));
                 }
                 out.cv_.notify_one();
             }
 
         private:
-            std::deque<T> deque_;
+            std::queue<T> queue_;
             std::mutex mutex_;
             std::condition_variable cv_;
             std::fstream file_;
@@ -78,7 +77,7 @@ namespace SpaceH {
                         while(!file_.eof()){
                             {
                                 std::unique_lock<std::mutex> lock(mutex_);
-                                cv_load_.wait(lock, [&] { return  stop_ || deque_.empty(); });
+                                cv_load_.wait(lock, [&] { return  stop_ || queue_.empty(); });
 
                                 if(stop_)
                                     break;
@@ -86,7 +85,7 @@ namespace SpaceH {
                                 for(size_t i = 0 ; i < 100 && !file_.eof() ; ++i){
                                     T data;
                                     file_ >> data;
-                                    deque_.emplace_back(std::move(data));
+                                    queue_.emplace_back(std::move(data));
                                 }
                             }
                             cv_io_.notify_all();
@@ -94,7 +93,7 @@ namespace SpaceH {
 
                         {
                             std::lock_guard<std::mutex> lock(mutex_);
-                            eof_ = true;
+                            eoq_ = true;
                         }
                         cv_io_.notify_all();
                     })) {}
@@ -103,7 +102,7 @@ namespace SpaceH {
                 {
                     std::lock_guard<std::mutex> lock(mutex_);
                     stop_ = true;
-                    eof_ = true;
+                    eoq_ = true;
                 }
                 cv_io_.notify_all();
                 cv_load_.notify_one();
@@ -114,31 +113,58 @@ namespace SpaceH {
 
             friend bool operator>>(Ipip &in, T &&tup) {
                 std::unique_lock<std::mutex> lock(in.mutex_);
-                in.cv_io_.wait(lock, [&] { return in.eof_ || !in.deque_.empty(); });
+                in.cv_io_.wait(lock, [&] { return in.eoq_ || !in.queue_.empty(); });
 
-                if (in.eof_ && in.deque_.empty())
+                if (in.eoq_ && in.queue_.empty())
                     return false;
 
-                tup = std::move(in.deque_.front());
-                in.deque_.pop_front();
+                tup = std::move(in.queue_.front());
+                in.queue_.pop_front();
 
-                if(in.deque_.empty())
+                if(in.queue_.empty())
                     in.cv_load_.notify_one();
 
                 return true;
             }
 
         private:
-            std::deque<T> deque_;
+            std::queue<T> queue_;
             std::mutex mutex_;
             std::condition_variable cv_load_;
             std::condition_variable cv_io_;
             std::fstream file_;
             std::thread thread_;
             bool stop_{false};
-            bool eof_{false};
+            bool eoq_{false};
         };
 
+        template<typename T>
+        class COstream {
+        public:
+            explicit COstream(const char *file_name) : pip_ptr_(std::make_shared<Opip<T>>(file_name)){}
+
+            explicit COstream(std::string& file_name) : COstream(file_name.c_str()){}
+            
+            friend void operator<<(COstream &out, T &&tup) {
+                *(out.pip_ptr_) << std::forward<T>(tup);
+            }
+        private:
+            std::shared_ptr<Opip<T>> pip_ptr_;
+        };
+        
+        template <typename T>
+        class CIstream {
+        public:
+            explicit CIstream(const char *file_name) : pip_ptr_(std::make_shared<Ipip<T>>(file_name)){}
+
+            explicit CIstream(std::string& file_name) : CIstream(file_name.c_str()){}
+
+            friend void operator>>(CIstream &in, T &&tup) {
+                *(in.pip_ptr_) >> std::forward<T>(tup);
+            }
+        private:
+            std::shared_ptr<Ipip<T>> pip_ptr_;
+        };
     }
 }
 #endif //SPACEHUB_JOB_SYSTEM_H

@@ -44,37 +44,7 @@ namespace SpaceH {
                 cv_.notify_one();
             }
 
-            bool pop_front(T& data) noexcept{
-                std::unique_lock<std::mutex> lock(mutex_);
-                while (!stop_ && deque_.empty()) {
-                    cv_.wait(lock);
-                }
-
-                if(!deque_.empty()) {
-                    data = std::move(deque_.front());
-                    deque_.pop_front();
-                    return true;
-                } else {//stop_ == true
-                    return false;
-                }
-            }
-
-            bool pop_back(T& data) noexcept{
-                std::unique_lock<std::mutex> lock(mutex_);
-                while (!stop_ && deque_.empty()) {
-                    cv_.wait(lock);
-                }
-
-                if(!deque_.empty()) {
-                    data = std::move(deque_.back());
-                    deque_.pop_back();
-                    return true;
-                } else {//stop_ == true
-                    return false;
-                }
-            }
-
-            /*T pop_front() noexcept {
+            T pop_front() noexcept {
                 std::lock_guard<std::mutex> lock(mutex_);
                 while (deque_.empty()) {
                     cv_.wait(lock);
@@ -92,7 +62,7 @@ namespace SpaceH {
                 auto data = std::move(deque_.back());
                 deque_.pop_back();
                 return data;
-            }*/
+            }
 
         private:
             std::deque<T> deque_;
