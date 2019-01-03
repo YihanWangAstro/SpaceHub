@@ -3,9 +3,6 @@
 #define SPACEHUB_LAZY_EXPRESSION_H
 
 #include "../dev_tools.h"
-#include "stddef.h"
-#include <thread>
-#include <vector>
 #include <math.h>
 
 namespace SpaceH {

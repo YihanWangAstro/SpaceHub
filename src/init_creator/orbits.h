@@ -190,7 +190,7 @@ namespace SpaceH {
             if (e >= 0)
                 return Random<Scalar>::uniform() * (Mmax - Mmin) + Mmin;
             else {
-                SPACEHUB_ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
+                SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
             }
         }
@@ -211,7 +211,7 @@ namespace SpaceH {
             else if (fabs(e - 1) < SpaceH::epsilon<Scalar>::value)
                 return 2 * atan(0.5 * E);
             else {
-                SPACEHUB_ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
+                SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
             }
         }
@@ -233,7 +233,7 @@ namespace SpaceH {
             else if (fabs(e - 1) < SpaceH::epsilon<Scalar>::value)
                 return SpaceH::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
             else {
-                SPACEHUB_ERR_MSG("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
+                SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!", __FILE__, __LINE__);
                 return 0;
             }
         }
@@ -498,9 +498,9 @@ namespace SpaceH {
          */
         void checkParameter(Scalar p, Scalar e) {
             if (p < 0)
-                SPACEHUB_ERR_MSG("semi-latus rectum cannot be negative", __FILE__, __LINE__);
+                SPACEHUB_ABORT("semi-latus rectum cannot be negative", __FILE__, __LINE__);
             if (e < 0)
-                SPACEHUB_ERR_MSG("Eccentrcity cannot be negative!", __FILE__, __LINE__);
+                SPACEHUB_ABORT("Eccentrcity cannot be negative!", __FILE__, __LINE__);
         }
 
         /**

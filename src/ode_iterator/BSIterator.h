@@ -407,7 +407,7 @@ namespace SpaceH {
                 return optimal_step_coef_[ideal_iter_];
 
             default:
-                SPACEHUB_ERR_MSG("unexpected iteration index!");
+                SPACEHUB_ABORT("unexpected iteration index!");
         }
     }
 

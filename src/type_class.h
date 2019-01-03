@@ -7,56 +7,23 @@
 #include <vector>
 
 namespace SpaceH {
-    struct EmptyClass {
-    };
 
-    constexpr size_t DYNAMICAL = 0;
-
-    template<typename T, size_t S>
-    struct ArrayWrapper : public std::array<T, S> {
-        //inline void clear() {};
-        inline void reserve(size_t new_cap) {
-            SPACEHUB_ERR_MSG("cannot reserve fixed length array!");
-        };
-        inline void resize(size_t new_size) {
-            SPACEHUB_ERR_MSG("cannot resize fixed length array!");
-        };
-        inline size_t capacity() const { return S;};
-    };
-
-    template<typename T>
-    struct ArrayWrapper<T, DYNAMICAL> : public std::vector<T> {
-    };
-
-    template<typename Dtype, size_t Size = SpaceH::DYNAMICAL>
-    struct TypeClass {
-        constexpr static size_t array_size{Size};
+    template<typename Dtype, size_t Capacity>
+    struct TypeSystem {
+        constexpr static size_t capacity(){return Capacity;}
 
         template<typename T, size_t S>
-        using Container      = ArrayWrapper<T, S>;
+        using Array = std::array<T, S>;
 
-        using Scalar         = Dtype;
-        using Vector         = vec3<Scalar>;
-        using VectorArray    = Container<Vector, Size>;
-        using ScalarArray    = Container<Scalar, Size>;
-        using ScalarBuffer   = Container<Scalar, DYNAMICAL>;
-        using IntArray       = Container<int, Size>;
-        using SizeArray      = Container<size_t, Size>;
-        using IndexArray     = SizeArray;
+        template<typename T>
+        using DynArray = std::vector<T>;
+
+        using Scalar      = Dtype;
+        using ScalarArray = Array<Scalar, Capacity>;
+        using IntArray    = Array<int, Capacity>;
+        using IndexArray  = Array<size_t, Capacity>;
     };
 
-    enum PARTICTYPE {
-        NEUTRONSTAR, STAR, BLACKHOLE, POINT, NONE = 0
-    };
-    enum class NbodyIO {
-        STD, ACTIVE
-    };
-    enum class IO_flag {
-        STD, EVOLVED
-    };
-    enum class DATASTRUCT {
-        PLAIN = 0, CHAIN
-    };
 }//end namespace SpaceH
 
-#endif /* protoType_h */
+#endif

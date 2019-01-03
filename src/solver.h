@@ -150,7 +150,7 @@ namespace SpaceH {
             inFile.close();
         } else {
             inFile.close();
-            SPACEHUB_ERR_MSG("Fail to open the initial condition file!");
+            SPACEHUB_ABORT("Fail to open the initial condition file!");
         }
 
         getInitStepLength();

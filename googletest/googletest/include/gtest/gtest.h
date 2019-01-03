@@ -1960,7 +1960,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 //
 //   EXPECT_NE(Foo(), 5);
 //   EXPECT_EQ(a_pointer, NULL);
-//   ASSERT_LT(i, array_size);
+//   ASSERT_LT(i, capacity);
 //   ASSERT_GT(records.size(), 0) << "There is no record left.";
 
 #define EXPECT_EQ(val1, val2) \

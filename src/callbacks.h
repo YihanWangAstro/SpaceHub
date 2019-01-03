@@ -26,7 +26,7 @@ namespace SpaceH {
                 if (os->is_open()) {
                     (*os) << std::scientific << std::setprecision(16);
                 } else {
-                    SPACEHUB_ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                    SPACEHUB_ABORT(("Fail to open the file" + std::string(path)).c_str());
                 }
             }
 
@@ -59,7 +59,7 @@ namespace SpaceH {
                 if (os->is_open()) {
                     (*os) << std::scientific << std::setprecision(16);
                 } else {
-                    SPACEHUB_ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                    SPACEHUB_ABORT(("Fail to open the file" + std::string(path)).c_str());
                 }
             }
 
@@ -96,7 +96,7 @@ namespace SpaceH {
                 if (os->is_open()) {
                     (*os) << std::scientific << std::setprecision(16);
                 } else {
-                    SPACEHUB_ERR_MSG(("Fail to open the file" + std::string(path)).c_str());
+                    SPACEHUB_ABORT(("Fail to open the file" + std::string(path)).c_str());
                 }
             }
 

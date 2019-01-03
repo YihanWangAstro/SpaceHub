@@ -51,36 +51,6 @@ namespace SpaceH {
             return partc.particleNumber();
         }
 
-        /** @brief Resize all containers if they are dynamical
-         *  @param New size of container.
-         */
-        void resize(size_t new_siz) {
-            partc.resize(new_siz);
-            act.resize(new_siz);
-        }
-
-        /** @brief Reserve space for all containers if they are dynamical
-         *  @param New capacity of container.
-         */
-        void reserve(size_t new_cap) {
-            partc.reserve(new_cap);
-            act.reserve(new_cap);
-        }
-
-
-
-        /** @brief Interface to rescale the time.
-         *
-         *  Interace used by dynamic system. Transfer integration time(For some system, integration time is different from
-         *  physical time) to physical time.
-         *  @return The phsyical time.
-         */
-        Scalar timeScale() {
-            if (isAllZero(partc.vel()))
-                return SpaceH::minfallFreeTime(partc.mass(), partc.pos());
-            else
-                return SpaceH::minAccdot(partc.mass(), partc.pos(), partc.vel());
-        }
 
         /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
         void drift(Scalar stepSize) {
@@ -150,21 +120,6 @@ namespace SpaceH {
             return act.acc();
         }
 
-        /** @brief Calculate the potential energy of the system*/
-        inline Scalar potentialEnergy() const {
-            return SpaceH::getPotentialEnergy(partc.mass(), partc.pos());
-        }
-
-        /** @brief Calculate the kinetic energy of the system*/
-        inline Scalar kineticEnergy() const {
-            return SpaceH::getKineticEnergy(partc.mass(), partc.vel());
-        }
-
-        /** @brief Calculate the total energy of the system*/
-        inline Scalar totalEnergy() const {
-            return SpaceH::getTotalEnergy(partc.mass(), partc.pos(), partc.vel());
-        }
-
         /** @brief Preprocess before iteration*/
         void preIterProcess() {}
 
@@ -194,7 +149,7 @@ namespace SpaceH {
                 sys.partc.read(is, SpaceH::Unit::STD_UNIT);
                 sys.partc.moveToCoM();
             } else {
-                SPACEHUB_ERR_MSG("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
+                SPACEHUB_ABORT("You are using fixed particle number system, the particle number in initial file is not consistent with the system you are using!");
             }
             return is;
         }
@@ -236,7 +191,7 @@ namespace SpaceH {
                 is  >> particleNum;
                 return particleNum;
             } else {
-                SPACEHUB_ERR_MSG("Input file header should begin with '#'.");
+                SPACEHUB_ABORT("Input file header should begin with '#'.");
             }
         }
 

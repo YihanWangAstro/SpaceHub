@@ -9,7 +9,7 @@ namespace UnitTest {
     template<size_t particle_num, typename T>
     class ParticleTestInput {
     protected:
-        using type         = SpaceH::TypeClass<T, particle_num>;
+        using type         = SpaceH::TypeSystem<T, particle_num>;
         using Scalar       = typename type::Scalar;
         using Vector       = typename type::Vector;
         using ScalarBuffer = typename type::ScalarBuffer;

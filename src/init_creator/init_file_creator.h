@@ -31,7 +31,7 @@ namespace SpaceH {
                     outFile << particles_[i] << ' ' << i << "\r\n";
                 }
             } else
-                SPACEHUB_ERR_MSG("Fail to open the initial file to write the Particle Data!", __FILE__, __LINE__);
+                SPACEHUB_ABORT("Fail to open the initial file to write the Particle Data!", __FILE__, __LINE__);
 
             outFile.close();
         }

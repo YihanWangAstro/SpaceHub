@@ -4,7 +4,7 @@ using namespace SpaceH;
 //using scalar = double;
 using scalar = precise_d;
 const size_t N = 3;//SpaceH::DYNAMICAL;
-using type = SpaceH::TypeClass<scalar, N>;
+using type = SpaceH::TypeSystem<scalar, N>;
 int main(int argc, char **argv) {
 
     //using f = KarmackNewtonian<type>;

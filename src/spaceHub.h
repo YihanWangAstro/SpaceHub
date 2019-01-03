@@ -38,7 +38,7 @@
 //#include "wrapper/singleRun.h"
 namespace SpaceH {
 
-    using DEFAULT_TYPE_CLASS = SpaceH::TypeClass<kahan<double>, SpaceH::DYNAMICAL>;
+    using DEFAULT_TYPE_CLASS = SpaceH::TypeSystem<kahan<double>, SpaceH::DYNAMICAL>;
 
     template<
             typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,

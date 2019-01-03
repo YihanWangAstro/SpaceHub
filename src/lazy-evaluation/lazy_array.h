@@ -29,7 +29,7 @@ namespace SpaceH {
 
             template<size_t S>
             Larray(const T (&src)[S]) : data_(new T[Len]) {
-                COMPILE_TIME_ASSERT(S <= Len, "Size of initializer exceeds array size!");
+                COMPILE_TIME_ASSERT(S <= Len, "Capacity of initializer exceeds array size!");
                 std::copy(src, src + S, data_.get());
             }
 
@@ -132,7 +132,7 @@ namespace SpaceH {
 
             template<size_t S>
             Larray(const T (&src)[S]) {
-                COMPILE_TIME_ASSERT(S <= Len, "Size of initializer exceeds array size!");
+                COMPILE_TIME_ASSERT(S <= Len, "Capacity of initializer exceeds array size!");
                 std::copy(src, src + S, data_.get());
             }
 

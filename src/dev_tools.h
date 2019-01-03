@@ -39,41 +39,11 @@ namespace SpaceH {
 #define MACRO_CAT_II(P, REST) REST
 #define UNIQ(BASE) MACRO_CAT(BASE, __LINE__)
 
-#define SPACEHUB_ERR_MSG(...) {                                 \
+#define SPACEHUB_ABORT(...) {                                   \
     SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
     SpaceH::print(std::cout, __VA_ARGS__ );                     \
     exit(0);                                                    \
 }
-
-/** @brief print an array. Used for debug*/
-    template<typename T>
-    void printArray(T &var) {
-        for (const auto &v : var)
-            std::cout << v << '\n';
-
-        std::cout << '\n';
-    }
-
-/**
- *
- * @tparam T
- */
-    template<typename T>
-    struct get_value_type {
-    private:
-        /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
-        template<typename U>
-        static typename U::value_type check(typename U::value_type);
-
-        /*If U doesn't have member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
-        template<typename U>
-        static U check(U);
-
-    public:
-        using type = decltype(check<T>(0));
-    };
-
-#define ELEMENT_TYPE(TYPE) typename get_value_type<TYPE>::type
 
 #define PACK(...) std::forward_as_tuple(__VA_ARGS__)
 
@@ -87,46 +57,22 @@ namespace SpaceH {
 #define COMPILE_TIME_ASSERT(EXPR, MSG) static_assert(EXPR,MSG);
 
 #ifdef DEBUG
-#define DEBUG_MODE_ASSERT(EXPR,MSG) ((EXPR) ? void(0) : (SPACEHUB_ERR_MSG(MSG)))
+#define DEBUG_MODE_ASSERT(EXPR,MSG) ((EXPR) ? void(0) : (SPACEHUB_ABORT(MSG)))
 #else
 #define DEBUG_MODE_ASSERT(EXPR, MSG)
 #endif
 
-    template<typename T>
-    struct get_types {
-    private:
-        template<typename U, typename V = bool>
-        struct has_types : std::false_type {
-        };
-
-        template<typename U>
-        struct has_types<U, typename std::enable_if<!std::is_same<typename U::Types, void>::value, bool>::type>
-                : std::true_type {
-        };
-
-        /*If U has member::Types, check<T>() will match this function. See details on SFINAE. */
-        template<typename X>
-        static typename std::enable_if<has_types<X>::value, typename X::Types>::type check();
-
-        /*If U doesn't have member::Types, check<T>() will match this function. See details on SFINAE. */
-        template<typename X>
-        static typename std::enable_if<!has_types<X>::value, X>::type check();
-
-    public:
-        using Types = decltype(check<T>());
-    };
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
-    using Types        = typename SpaceH::get_types<CLASS>::Types;                                                     \
-    using Scalar       = typename CLASS::Scalar;                                                                       \
-    using Vector       = typename CLASS::Vector;                                                                       \
-    using VectorArray  = typename CLASS::VectorArray;                                                                  \
-    using ScalarArray  = typename CLASS::ScalarArray;                                                                  \
-    using IndexArray   = typename CLASS::IndexArray;                                                                   \
-    using ScalarBuffer = typename CLASS::ScalarBuffer;                                                                 \
-    using SizeArray    = typename CLASS::SizeArray;                                                                    \
+    constexpr static size_t capacity(){return CLASS::capacity();}                                                      \
+    using Scalar      = typename CLASS::Scalar;                                                                        \
+    using ScalarArray = typename CLASS::ScalarArray;                                                                   \
+    using IndexArray  = typename CLASS::IndexArray;                                                                    \
+    using IntArray    = typename CLASS::IntArray;                                                                      \
     template<typename T, size_t S>                                                                                     \
-    using Container    = typename CLASS::template Container<T, S>;
+    using Array       = typename CLASS::template Array<T, S>;                                                          \
+    template<typename T>                                                                                               \
+    using DynArray    = typename CLASS::template DynArray<T>;                                                          \
 
 /** @brief Standard read interfaces for private data scalar in SpaceHub project*/
 #define SPACEHUB_READ_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                                        \
@@ -188,6 +134,16 @@ inline void set_##NAME (size_t i, const typename TYPE::value_type &value) {     
 };                                                                                                                     \
 inline void swap_##NAME (TYPE& array) {                                                                                \
     std::swap(array, MEMBER);                                                                                          \
+};
+
+/** @brief Standard write/read interfaces for private data array in SpaceHub project*/
+#define SPACEHUB_REF_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                          \
+                                                                                                                       \
+inline TYPE & NAME () {                                                                                                \
+    return MEMBER;                                                                                                     \
+};                                                                                                                     \
+inline typename TYPE::value_type & NAME (size_t i) {                                                                   \
+    return MEMBER[i];                                                                                                  \
 };
 
 /** @brief Standard read array interfaces adapter in SpaceHub project*/

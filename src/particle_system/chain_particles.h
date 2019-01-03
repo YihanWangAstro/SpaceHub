@@ -188,7 +188,7 @@ namespace SpaceH {
                 radius_.resize(new_siz);
                 idn_.resize(new_siz);
             } else {
-                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be resized!")
+                SPACEHUB_ABORT("Fixed particles number! Cannot be resized!")
             }
         }
 
@@ -204,7 +204,7 @@ namespace SpaceH {
                 radius_.reserve(new_cap);
                 idn_.reserve(new_cap);
             } else {
-                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be reserved!")
+                SPACEHUB_ABORT("Fixed particles number! Cannot be reserved!")
             }
         }
 
@@ -252,7 +252,7 @@ namespace SpaceH {
                     is >> idn_[loc];
                 }
             }
-            if (!is.good()) SPACEHUB_ERR_MSG("Insufficent input data in initial file!");
+            if (!is.good()) SPACEHUB_ABORT("Insufficent input data in initial file!");
 
             if (!chained) {
                 moveToCoM();
@@ -298,7 +298,7 @@ namespace SpaceH {
         size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
             size_t loc = 0;
             if (flag == IO_flag::EVOLVED) {
-                if (!chained) SPACEHUB_ERR_MSG(
+                if (!chained) SPACEHUB_ABORT(
                         "Chain Index hasn't been constructed by the positions in the Cartesian coordinates."
                         "Cannot read from raw chain data directly");
                 //for locality, split into separate loops

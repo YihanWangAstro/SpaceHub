@@ -39,7 +39,7 @@ namespace SpaceH {
             if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 this_acc_.resize(size);
             } else {
-                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be resized!");
+                SPACEHUB_ABORT("Fixed particles number! Cannot be resized!");
             }
         }
 
@@ -47,7 +47,7 @@ namespace SpaceH {
             if constexpr (Types::array_size == SpaceH::DYNAMICAL) {
                 this_acc_.reserve(size);
             } else {
-                SPACEHUB_ERR_MSG("Fixed particles number! Cannot be reserved!");
+                SPACEHUB_ABORT("Fixed particles number! Cannot be reserved!");
             }
         }
 

@@ -14,7 +14,7 @@ namespace SpaceH {
     template<typename Forcefunc, typename Dtype, size_t ArraySize>
     struct Force {
         /* Typedef */
-        using type = SpaceH::TypeClass<Dtype, ArraySize>;
+        using type = SpaceH::TypeSystem<Dtype, ArraySize>;
         using Vector = typename type::Vector;
         using VectorArray = typename type::VectorArray;
         /* Typedef */
@@ -137,7 +137,7 @@ namespace SpaceH {
     template<typename Dtype, size_t ArraySize>
     struct VelIndepForce<void, Dtype, ArraySize> {
         /* Typedef */
-        using type        = SpaceH::TypeClass<Dtype, ArraySize>;
+        using type        = SpaceH::TypeSystem<Dtype, ArraySize>;
         using ScalarArray = typename type::ScalarArray;
         using VectorArray = typename type::VectorArray;
         using IndexArray  = typename type::IndexArray;
@@ -193,7 +193,7 @@ namespace SpaceH {
     template<typename Dtype, size_t ArraySize>
     struct ExtVelIndepForce<void, Dtype, ArraySize> {
         /* Typedef */
-        using type        = SpaceH::TypeClass<Dtype, ArraySize>;
+        using type        = SpaceH::TypeSystem<Dtype, ArraySize>;
         using ScalarArray = typename type::ScalarArray;
         using VectorArray = typename type::VectorArray;
 
@@ -293,7 +293,7 @@ namespace SpaceH {
     template<typename Dtype, size_t ArraySize>
     struct VelDepForce<void, Dtype, ArraySize> {
         /* Typedef */
-        using type        = SpaceH::TypeClass<Dtype, ArraySize>;
+        using type        = SpaceH::TypeSystem<Dtype, ArraySize>;
         using ScalarArray = typename type::ScalarArray;
         using VectorArray = typename type::VectorArray;
         using IndexArray  = typename type::IndexArray;
@@ -351,7 +351,7 @@ namespace SpaceH {
     template<typename Dtype, size_t ArraySize>
     struct ExtVelDepForce<void, Dtype, ArraySize> {
         /* Typedef */
-        using type        = SpaceH::TypeClass<Dtype, ArraySize>;
+        using type        = SpaceH::TypeSystem<Dtype, ArraySize>;
         using ScalarArray = typename type::ScalarArray;
         using VectorArray = typename type::VectorArray;
 
