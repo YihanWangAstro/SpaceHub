@@ -5,11 +5,26 @@
 #include <tuple>
 namespace SpaceH {
 
-    template<typename Arg, typename... Args>
+    /*template<typename Arg, typename... Args>
     void print(std::ostream &out, Arg &&arg, Args &&... args) {
         out << std::forward<Arg>(arg);
         using expander = int[];
         (void) expander{0, (void(out << std::forward<Args>(args)), 0)...};
+    }*/
+
+    template<typename... Args>
+    void print(std::ostream &out, Args &&... args) {
+        (..., (out << std::forward<Args>(args)));
+    }
+
+    template<typename... Args>
+    void input(std::istream &is, Args &&... args) {
+        (..., (is >> std::forward<Args>(args)));
+    }
+
+    template<typename Divider, typename... Args>
+    void printd(Divider&& divider, std::ostream &out, Args &&... args) {
+        (..., (out << std::forward<Args>(args) << std::forward<Divider>(divider)));
     }
 
     template<class Tup, size_t... I>
@@ -64,7 +79,7 @@ namespace SpaceH {
 
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
-    constexpr static size_t capacity(){return CLASS::capacity();}                                                      \
+    constexpr static size_t _capacity_{CLASS::_capacity_};                                                             \
     using Scalar      = typename CLASS::Scalar;                                                                        \
     using ScalarArray = typename CLASS::ScalarArray;                                                                   \
     using IndexArray  = typename CLASS::IndexArray;                                                                    \
@@ -137,7 +152,7 @@ inline void swap_##NAME (TYPE& array) {                                         
 };
 
 /** @brief Standard write/read interfaces for private data array in SpaceHub project*/
-#define SPACEHUB_REF_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                          \
+#define SPACEHUB_STD_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                          \
                                                                                                                        \
 inline TYPE & NAME () {                                                                                                \
     return MEMBER;                                                                                                     \

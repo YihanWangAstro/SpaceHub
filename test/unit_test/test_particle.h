@@ -75,43 +75,7 @@ namespace UnitTest {
         }
     };
 
-    template<typename Particles>
-    void test_particle_resize(size_t particle_num) {
-        Particles partc;
 
-        partc.resize(0);
-        EXPECT_EQ(0, partc.pos().size());
-        EXPECT_EQ(0, partc.vel().size());
-        EXPECT_EQ(0, partc.mass().size());
-        EXPECT_EQ(0, partc.radius().size());
-        EXPECT_EQ(0, partc.idn().size());
-
-        partc.resize(particle_num);
-        EXPECT_EQ(particle_num, partc.pos().size());
-        EXPECT_EQ(particle_num, partc.vel().size());
-        EXPECT_EQ(particle_num, partc.mass().size());
-        EXPECT_EQ(particle_num, partc.radius().size());
-        EXPECT_EQ(particle_num, partc.idn().size());
-    }
-
-    template<typename Particles>
-    void test_particle_reserve(size_t particle_num) {
-        Particles partc;
-
-        partc.reserve(0);
-        EXPECT_EQ(0, partc.pos().capacity());
-        EXPECT_EQ(0, partc.vel().capacity());
-        EXPECT_EQ(0, partc.mass().capacity());
-        EXPECT_EQ(0, partc.radius().capacity());
-        EXPECT_EQ(0, partc.idn().capacity());
-
-        partc.reserve(particle_num);
-        EXPECT_EQ(particle_num, partc.pos().capacity());
-        EXPECT_EQ(particle_num, partc.vel().capacity());
-        EXPECT_EQ(particle_num, partc.mass().capacity());
-        EXPECT_EQ(particle_num, partc.radius().capacity());
-        EXPECT_EQ(particle_num, partc.idn().capacity());
-    }
 
     template<typename Particles, size_t particle_num>
     void test_particle_std_read(const ParticleTestInput<particle_num, typename Particles::Scalar> &input) {
