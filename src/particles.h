@@ -6,7 +6,6 @@
 
 namespace SpaceH {
 
-
     template<typename TypeSystem>
     class BasicParticles {
     public:
@@ -52,8 +51,9 @@ namespace SpaceH {
         friend std::ostream &operator<<(std::ostream &os, BasicParticles const &ps) {
             size_t num = ps.number();
             for (size_t i = 0; i < num; ++i) {
-                SpaceH::printd(' ', os, ps.idn(i), ps.mass(i), ps.px(i), ps.py(i), ps.pz(i), ps.vx(i), ps.vy(i), ps.vz(i));
+                SpaceH::display(os, ps.idn(i), ps.mass(i), ps.px(i), ps.py(i), ps.pz(i), ps.vx(i), ps.vy(i), ps.vz(i));
             }
+            return os;
         }
 
         friend std::istream &operator>>(std::istream &is, BasicParticles &ps) {
@@ -61,6 +61,7 @@ namespace SpaceH {
             for (size_t i = 0; i < num; ++i) {
                 SpaceH::input(is, ps.idn(i), ps.mass(i), ps.px(i), ps.py(i), ps.pz(i), ps.vx(i), ps.vy(i), ps.vz(i));
             }
+            return is;
         }
 
     private:

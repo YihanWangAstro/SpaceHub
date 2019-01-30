@@ -6,7 +6,7 @@
 namespace UnitTest {
     template<typename T>
     void test_vector_init() {
-        SpaceH::vec3<T> v;
+        SpaceH::Vec3<T> v;
         EXPECT_EQ(0, v.x);
         EXPECT_EQ(0, v.y);
         EXPECT_EQ(0, v.z);
@@ -20,7 +20,7 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> v(x, y, z);
             EXPECT_EQ(x, v.x);
             EXPECT_EQ(y, v.y);
             EXPECT_EQ(z, v.z);
@@ -28,7 +28,7 @@ namespace UnitTest {
 
         for (size_t i = 0; i < N; ++i) {
             T s = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(s);
+            SpaceH::Vec3<T> v(s);
             EXPECT_EQ(s, v.x);
             EXPECT_EQ(s, v.y);
             EXPECT_EQ(s, v.z);
@@ -38,8 +38,8 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
-            SpaceH::vec3<T> v2(v);
+            SpaceH::Vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> v2(v);
             EXPECT_EQ(x, v2.x);
             EXPECT_EQ(y, v2.y);
             EXPECT_EQ(z, v2.z);
@@ -54,8 +54,8 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
-            SpaceH::vec3<T> nv = -v;
+            SpaceH::Vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> nv = -v;
             EXPECT_EQ(-x, nv.x);
             EXPECT_EQ(-y, nv.y);
             ASSERT_EQ(-z, nv.z);
@@ -70,8 +70,8 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
-            SpaceH::vec3<T> abv = v.abs();
+            SpaceH::Vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> abv = v.abs();
             EXPECT_EQ(fabs(x), abv.x);
             EXPECT_EQ(fabs(y), abv.y);
             ASSERT_EQ(fabs(z), abv.z);
@@ -86,7 +86,7 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> v(x, y, z);
             T norm = v.norm();
             ASSERT_EQ(sqrt(x * x + y * y + z * z), norm);
         }
@@ -100,7 +100,7 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> v(x, y, z);
             T norm2 = v.norm2();
             ASSERT_EQ(x * x + y * y + z * z, norm2);
         }
@@ -114,7 +114,7 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> v(x, y, z);
             T rnorm = v.reNorm();
             ASSERT_EQ(1 / sqrt(x * x + y * y + z * z), rnorm);
         }
@@ -128,7 +128,7 @@ namespace UnitTest {
             T x = SpaceH::Random<T>::uniform(-high, high);
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v(x, y, z);
+            SpaceH::Vec3<T> v(x, y, z);
             v.setZero();
             EXPECT_EQ(0, v.x);
             EXPECT_EQ(0, v.y);
@@ -147,9 +147,9 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
-            SpaceH::vec3<T> v3 = v1 + v2;
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v3 = v1 + v2;
             EXPECT_EQ(x1 + x2, v3.x);
             EXPECT_EQ(y1 + y2, v3.y);
             ASSERT_EQ(z1 + z2, v3.z);
@@ -167,9 +167,9 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
-            SpaceH::vec3<T> v3 = v1 - v2;
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v3 = v1 - v2;
             EXPECT_EQ(x1 - x2, v3.x);
             EXPECT_EQ(y1 - y2, v3.y);
             ASSERT_EQ(z1 - z2, v3.z);
@@ -187,9 +187,9 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
-            SpaceH::vec3<T> v3 = v1 * v2;
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v3 = v1 * v2;
             EXPECT_EQ(x1 * x2, v3.x);
             EXPECT_EQ(y1 * y2, v3.y);
             ASSERT_EQ(z1 * z2, v3.z);
@@ -207,9 +207,9 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
-            SpaceH::vec3<T> v3 = v1 / v2;
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v3 = v1 / v2;
             EXPECT_EQ(x1 / x2, v3.x);
             EXPECT_EQ(y1 / y2, v3.y);
             ASSERT_EQ(z1 / z2, v3.z);
@@ -227,8 +227,8 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
             T product = dot(v1, v2);
             ASSERT_EQ(product, x1 * x2 + y1 * y2 + z1 * z2);
         }
@@ -245,9 +245,9 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
-            SpaceH::vec3<T> v3 = cross(v1, v2);
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v3 = cross(v1, v2);
             EXPECT_EQ(v3.x, y1 * z2 - y2 * z1);
             EXPECT_EQ(v3.y, z1 * x2 - z2 * x1);
             ASSERT_EQ(v3.z, x1 * y2 - x2 * y1);
@@ -265,8 +265,8 @@ namespace UnitTest {
             T x2 = SpaceH::Random<T>::uniform(-high, high);
             T y2 = SpaceH::Random<T>::uniform(-high, high);
             T z2 = SpaceH::Random<T>::uniform(-high, high);
-            SpaceH::vec3<T> v1(x1, y1, z1);
-            SpaceH::vec3<T> v2(x2, y2, z2);
+            SpaceH::Vec3<T> v1(x1, y1, z1);
+            SpaceH::Vec3<T> v2(x2, y2, z2);
             T dist = distance(v1, v2);
             ASSERT_EQ(dist, sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2)));
         }

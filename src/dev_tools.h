@@ -1,7 +1,7 @@
 #ifndef DEVTOOLS_h
 #define DEVTOOLS_h
 
-#include<iostream>
+#include <iostream>
 #include <tuple>
 namespace SpaceH {
 
@@ -25,6 +25,11 @@ namespace SpaceH {
     template<typename Divider, typename... Args>
     void printd(Divider&& divider, std::ostream &out, Args &&... args) {
         (..., (out << std::forward<Args>(args) << std::forward<Divider>(divider)));
+    }
+
+    template<typename... Args>
+    void display(std::ostream &out, Args &&... args) {
+        (..., (out << std::forward<Args>(args) << ' '));
     }
 
     template<class Tup, size_t... I>

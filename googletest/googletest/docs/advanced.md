@@ -1494,7 +1494,7 @@ class MyTestCase : public testing::TestWithParam<int> {};
 
 TEST_P(MyTestCase, MyTest)
 {
-  std::cout << "Example Test Param: " << GetParam() << std::endl;
+  std::cout << "Example Test OrbitParam: " << GetParam() << std::endl;
 }
 
 INSTANTIATE_TEST_CASE_P(MyGroup, MyTestCase, testing::Range(0, 10),
