@@ -61,6 +61,11 @@ namespace SpaceH {
         constexpr static value_type value = std::numeric_limits<value_type>::epsilon();
     };
 
+    template <typename T>
+    inline bool iseq(T x, T y){
+        return fabs(x-y) < std::numeric_limits<T>::epsilon();
+    }
+
     /**
      *
      * @tparam Dtype
