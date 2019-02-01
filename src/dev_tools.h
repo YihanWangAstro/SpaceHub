@@ -54,15 +54,30 @@ namespace SpaceH {
         return in;
     }
 
+    template<typename T>
+    struct get_value_type {
+    private:
+        /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
+        template<typename U>
+        static typename U::value_type check(typename U::value_type);
+
+        /*If U doesn't have member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
+        template<typename U>
+        static U check(U);
+
+    public:
+        using type = decltype(check<T>(0));
+    };
+
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
 #define MACRO_CAT_II(P, REST) REST
 #define UNIQ(BASE) MACRO_CAT(BASE, __LINE__)
 
-#define SPACEHUB_ABORT(...) {                                   \
-    SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ ); \
-    SpaceH::print(std::cout, __VA_ARGS__ );                     \
-    exit(0);                                                    \
+#define SPACEHUB_ABORT(...) {                                           \
+    SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n"); \
+    SpaceH::print(std::cout, __VA_ARGS__ );                             \
+    exit(0);                                                            \
 }
 
 #define PACK(...) std::forward_as_tuple(__VA_ARGS__)

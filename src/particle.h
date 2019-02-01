@@ -14,6 +14,8 @@ namespace SpaceH {
         using Scalar = Real;
         using Vector = Vec3<Scalar>;
 
+        PointParticle() = default;
+
         PointParticle(size_t id, Scalar m, Vector const &p, Vector const &v)
             : pos(p), vel(v), mass(m), idn(id) {}
 
@@ -45,6 +47,8 @@ namespace SpaceH {
     public:
         using Scalar = Real;
         using Vector = Vec3<Scalar>;
+
+        InfniteSizeParticle() = default;
 
         InfniteSizeParticle(size_t id, Scalar m, Scalar r, Vector const &p, Vector const &v)
                 : pos(p), vel(v), mass(m), radius(r), idn(id) {}
