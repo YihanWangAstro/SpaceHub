@@ -302,7 +302,7 @@ namespace SpaceH::obt {
         Particle obj1_;
         Particle obj2_;
     };
-    
+
 
     template<typename Container>
     void create_particle_id(Container &particles) {

@@ -1,7 +1,7 @@
 #ifndef DYNAMICCHAIN_H
 #define DYNAMICCHAIN_H
 
-#include "../../particles.h"
+#include "point-particle.h"
 #include "chain.h"
 
 namespace SpaceH {

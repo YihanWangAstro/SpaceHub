@@ -25,7 +25,7 @@ set(TMP_HEADER_FILES
         src/macros.h
         src/own_math.h
         src/particle_system.h
-        src/particles.h
+        src/point-particle.h
         src/solver.h
         src/spaceHub.h
         src/type_class.h
@@ -57,7 +57,7 @@ set(SOURCE_FILES
         test/unit_test/main.cpp
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
-        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/EoM.h src/particle.h)
+        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/EoM.h)
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp)
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})
