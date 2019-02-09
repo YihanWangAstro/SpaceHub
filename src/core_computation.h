@@ -4,15 +4,8 @@
 
 #include "own_math.h"
 
-namespace SpaceH {
-    /** @brief Advance a Scalar with a given increment.
-     *  @param var Scalar need to be advanced.
-     *  @param increase Given increment.
-     */
-    template<typename Scalar1, typename Scalar2>
-    inline void advanceScalar(Scalar1 &var, Scalar2 increase) {
-        var += increase;
-    }
+namespace SpaceH::comp {
+
 
     /** @brief Advance a vector with a given vector with a specific stepSize.
      *  @param var Vector need to be advanced.

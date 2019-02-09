@@ -54,6 +54,16 @@ namespace SpaceH {
         return in;
     }
 
+    template<typename... Args>
+    void resize_all(size_t new_sz, Args &&... args) {
+        (..., (args.resize(new_sz)));
+    }
+
+    template<typename... Args>
+    void reserve_all(size_t new_cap, Args &&... args) {
+        (..., (args.reserve(new_cap)));
+    }
+
     template<typename T>
     struct get_value_type {
     private:
@@ -74,10 +84,10 @@ namespace SpaceH {
 #define MACRO_CAT_II(P, REST) REST
 #define UNIQ(BASE) MACRO_CAT(BASE, __LINE__)
 
-#define SPACEHUB_ABORT(...) {                                           \
-    SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n"); \
-    SpaceH::print(std::cout, __VA_ARGS__ );                             \
-    exit(0);                                                            \
+#define SPACEHUB_ABORT(...) {                                                                                          \
+    SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");                                                \
+    SpaceH::print(std::cout, __VA_ARGS__ );                                                                            \
+    exit(0);                                                                                                           \
 }
 
 #define PACK(...) std::forward_as_tuple(__VA_ARGS__)
@@ -99,15 +109,13 @@ namespace SpaceH {
 
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
-    constexpr static size_t _capacity_{CLASS::_capacity_};                                                             \
+    constexpr static size_t array_size{CLASS::array_size};                                                             \
     using Scalar      = typename CLASS::Scalar;                                                                        \
     using ScalarArray = typename CLASS::ScalarArray;                                                                   \
     using IndexArray  = typename CLASS::IndexArray;                                                                    \
     using IntArray    = typename CLASS::IntArray;                                                                      \
-    template<typename T, size_t S>                                                                                     \
-    using Array       = typename CLASS::template Array<T, S>;                                                          \
-    template<typename T>                                                                                               \
-    using DynArray    = typename CLASS::template DynArray<T>;                                                          \
+    using Vector      = typename CLASS::Vector;                                                                        \
+    using VectorArray = typename CLASS::VectorArray;
 
 /** @brief Standard read interfaces for private data scalar in SpaceHub project*/
 #define SPACEHUB_READ_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                                        \

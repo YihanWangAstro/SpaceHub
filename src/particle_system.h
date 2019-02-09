@@ -8,6 +8,59 @@
 #include "type_class.h"
 
 namespace SpaceH {
+
+
+    template<typename Particles, typename Acc, typename EoM>
+    class ParticleSystem {
+    public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
+
+        inline size_t number() {
+            return partc_.number();
+        }
+
+        void advanceTime(Scalar dt) {
+            partc_.time_ += dt;
+        }
+
+        void advancePos(Scalar stepSize) {
+            advancePos(partc_.vx, partc_.vy, partc_.vz, stepSize);
+        }
+
+        void advancePos(ScalarArray const &vx, ScalarArray const &vy, ScalarArray const &vz, Scalar stepSize) {
+            comp::advanceVector(partc_.px, partc_.vx, stepSize);
+            comp::advanceVector(partc_.py, partc_.vy, stepSize);
+            comp::advanceVector(partc_.pz, partc_.vz, stepSize);
+        }
+
+        void advanceVel(Scalar stepSize) {
+            advanceVel(acc_.ax, acc_.ay, acc_.az, stepSize);
+        }
+
+        void advanceVel(ScalarArray const &ax, ScalarArray const &ay, ScalarArray const &az, Scalar stepSize) {
+            comp::advanceVector(partc_.vx, ax, stepSize);
+            comp::advanceVector(partc_.vy, ay, stepSize);
+            comp::advanceVector(partc_.vz, az, stepSize);
+        }
+
+        void evaluateAcc() {
+            eom_.eval_acc(partc_, acc_);
+        }
+
+        void drift(Scalar stepSize) {
+            advanceTime(stepSize);
+            advancePos(stepSize);
+        }
+
+        void kick(Scalar stepSize) {
+
+        }
+    private:
+        Particles partc_;
+        Acc acc_;
+        EoM eom_;
+    };
+
 /**  @brief Base class of particle System.
  *
  *   Base particles system class. Other particle system can inherit this class. Considering the performance, we don't
