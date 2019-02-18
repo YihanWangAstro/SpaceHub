@@ -12,37 +12,6 @@
 #include "dev_tools.h"
 
 namespace SpaceH {
-    /*class ConfigReader : public std::unordered_map<std::string, double> {
-    public:
-        explicit ConfigReader(std::string const &file_name, char divider = '=', char commenter = '#') {
-            std::fstream file(file_name);
-            if (file.is_open()) {
-                std::string line;
-                while (std::getline(file, line)) {
-                    line.erase(std::remove_if(line.begin(), line.end(), isspace), line.end());
-
-                    if (line[0] == commenter || line.empty())
-                        continue;
-
-                    auto devider_pos = line.find(divider);
-                    auto key = line.substr(0, devider_pos);
-                    auto value = atof(line.substr(devider_pos + 1).c_str());
-                    (*this)[key] = value;
-                }
-            } else {
-                SPACEHUB_ABORT("Cannot open the configure file: ", file_name, "\r\n");
-            }
-        }
-
-        explicit ConfigReader(char const *file_name, char divider = '=', char commenter = '#')
-                : ConfigReader(std::string(file_name), divider, commenter) {};
-
-        friend std::ostream &operator<<(std::ostream &os, ConfigReader const &config) {
-            for (auto&[key, value] : config) {
-                SpaceH::print(os, key, '=', value, '\n');
-            }
-        }
-    };*/
 
     class ConfigReader {
     public:
@@ -56,10 +25,10 @@ namespace SpaceH {
                     if (line[0] == commenter || line.empty())
                         continue;
 
-                    auto devider_pos = line.find(divider);
-                    auto key = line.substr(0, devider_pos);
-                    auto value = line.substr(devider_pos + 1);
-                    map_[key] = value;
+                    auto split = line.find(divider);
+                    auto key = line.substr(0, split);
+                    auto val = line.substr(split + 1);
+                    map_[key] = val;
                 }
             } else {
                 SPACEHUB_ABORT("Cannot open the configure file: ", file_name, "\r\n");
@@ -69,8 +38,8 @@ namespace SpaceH {
         explicit ConfigReader(char const *file_name, char divider = '=', char commenter = '#')
                 : ConfigReader(std::string(file_name), divider, commenter) {};
 
-        template <typename T>
-        T get(std::string const& key) {
+        template<typename T>
+        T get(std::string const &key) {
             auto iskey = (map_.end() != map_.find(key));
             if (iskey) {
                 std::stringstream ss(map_[key]);
@@ -80,15 +49,7 @@ namespace SpaceH {
             } else {
                 SPACEHUB_ABORT("Invalid key for configure file!");
             }
-
         }
-        /*
-        auto operator[](std::string const& key) {
-            std::stringstream ss(map_[key]);
-            decltype( operator[](key)) value;
-            ss >> value;
-            return value;
-        }*/
 
         friend std::ostream &operator<<(std::ostream &os, ConfigReader const &config) {
             for (auto&[key, value] : config.map_) {

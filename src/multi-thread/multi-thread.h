@@ -89,6 +89,10 @@ namespace SpaceH::MultiThread {
         std::shared_ptr<std::fstream> file_;
         std::shared_ptr<std::mutex> mutex_;
     };
+
+    ConcurrentFile make_thread_safe_fstream(std::string const& name, std::ios_base::openmode mode){
+        return ConcurrentFile(name, mode);
+    }
 }
 
 #endif
