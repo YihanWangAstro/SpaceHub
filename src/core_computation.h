@@ -7,13 +7,29 @@
 namespace SpaceH::comp {
 
 
+    template <typename Array>
+    void array_set_zeros(Array &arry){
+        for(auto& a : arry){
+            a = 0;
+        }
+    }
+
+    template<typename Array>
+    inline void array_add(const Array &array1, const Array &array2, Array& array3) {
+        size_t size = array3.size();
+
+        for (size_t i = 0; i < size; i++) {
+            array3[i] = array1[i] + array2[i];
+        }
+    }
+
     /** @brief Advance a vector with a given vector with a specific stepSize.
      *  @param var Vector need to be advanced.
      *  @param increase Given vector.
      *  @param stepSize Given stepSize.
      */
-    template<typename Scalar, typename VectorArray>
-    inline void advanceVector(VectorArray &var, const VectorArray &increase, Scalar stepSize) {
+    template<typename Scalar, typename Array>
+    inline void array_advance(Array &var, const Array &increase, Scalar stepSize) {
         size_t size = var.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -28,7 +44,7 @@ namespace SpaceH::comp {
      * @return
      */
     template <typename Array>
-    inline typename  Array::value_type sumArray(Array& array) {
+    inline auto array_sum(Array &array) {
         typename  Array::value_type total = 0;
         for(auto & a : array) {
             total += a;
@@ -44,7 +60,7 @@ namespace SpaceH::comp {
      *  @param phyVar Array of variables need to be moved.
      */
     template<typename ScalarArray, typename VectorArray>
-    typename VectorArray::value_type calcuCMCoord(const ScalarArray &mass, VectorArray &phyVar) {
+    auto calcuCMCoord(const ScalarArray &mass, VectorArray &phyVar) {
         typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
         typename ScalarArray::value_type totalMass = 0;
 
@@ -66,8 +82,7 @@ namespace SpaceH::comp {
      *  @param totalMass The totalMass of the system
      */
     template<typename ScalarArray, typename VectorArray, typename Scalar>
-    typename VectorArray::value_type
-    calcuCMCoord(const ScalarArray &mass, VectorArray &phyVar, const Scalar totalMass) {
+    auto calcuCMCoord(const ScalarArray &mass, VectorArray &phyVar, const Scalar totalMass) {
         typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
 
         const size_t N = mass.size();
@@ -146,7 +161,7 @@ namespace SpaceH::comp {
      *  @return The kinetic energy.
      */
     template<typename ScalarArray, typename VectorArray>
-    typename ScalarArray::value_type getKineticEnergy(const ScalarArray &mass, const VectorArray &vel) {
+    auto getKineticEnergy(const ScalarArray &mass, const VectorArray &vel) {
         typename ScalarArray::value_type kineticEnergy = 0;
 
         size_t size = mass.size();
@@ -164,7 +179,7 @@ namespace SpaceH::comp {
      *  @return The minimal fall free time of the two particles
      */
     template<typename ScalarArray, typename VectorArray>
-    inline typename ScalarArray::value_type minfallFreeTime(const ScalarArray &mass, const VectorArray &pos) {
+    inline auto minfallFreeTime(const ScalarArray &mass, const VectorArray &pos) {
         size_t size = mass.size();
         typename ScalarArray::value_type r = 0;
         typename ScalarArray::value_type min_fall_free = 0;
@@ -203,8 +218,7 @@ namespace SpaceH::comp {
      *  @return The minimal fall free time of the two particles
      */
     template<typename ScalarArray, typename VectorArray>
-    inline typename ScalarArray::value_type
-    minAccdot(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel) {
+    inline auto minAccdot(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel) {
         using Vector = typename VectorArray::value_type;
         using Scalar = typename ScalarArray::value_type;
         size_t size = mass.size();
@@ -242,7 +256,7 @@ namespace SpaceH::comp {
      *  @return The potential energy.
      */
     template<typename ScalarArray, typename VectorArray>
-    typename ScalarArray::value_type getPotentialEnergy(const ScalarArray &mass, const VectorArray &pos) {
+    auto getPotentialEnergy(const ScalarArray &mass, const VectorArray &pos) {
         typename ScalarArray::value_type potentialEnergy = 0;
 
         size_t size = mass.size();
@@ -263,8 +277,7 @@ namespace SpaceH::comp {
      *  @return The potential energy.
      */
     template<typename ScalarArray, typename VectorArray, typename IndexArray>
-    typename ScalarArray::value_type
-    getPotentialEnergy(const ScalarArray &mass, const VectorArray &pos, const VectorArray &chainPos,
+    auto getPotentialEnergy(const ScalarArray &mass, const VectorArray &pos, const VectorArray &chainPos,
                        const IndexArray &chainInd) {
         typename ScalarArray::value_type potentialEnergy = 0;
 
@@ -291,8 +304,7 @@ namespace SpaceH::comp {
      *  @return The total energy.
      */
     template<typename ScalarArray, typename VectorArray>
-    inline typename ScalarArray::value_type
-    getTotalEnergy(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel) {
+    inline auto getTotalEnergy(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel) {
         typename ScalarArray::value_type potentialEnergy = 0;
         typename ScalarArray::value_type kineticEnergy = 0;
         size_t size = mass.size();

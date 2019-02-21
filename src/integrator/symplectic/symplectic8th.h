@@ -14,7 +14,7 @@ public:
     /*Template parameter check*/
 
     /** @brief Order of the integrator*/
-    static const int order{8};
+    static constexpr int order{8};
 
     void integrate(ParticSys &particles, Scalar stepLength);
 };

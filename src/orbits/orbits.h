@@ -71,7 +71,7 @@ namespace SpaceH::obt {
             return 2 * atan2(sqrt(1 + e) * sin(E * 0.5), sqrt(1 - e) * cos(0.5 * E));
         else if (e > 1)
             return 2 * atan2(sqrt(1 + e) * sinh(E * 0.5), sqrt(e - 1) * cosh(0.5 * E));
-        else if (fabs(e - 1) < SpaceH::epsilon<Scalar>::value)
+        else if (iseq(e, 1.0))
             return 2 * atan(0.5 * E);
         else {
             SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");

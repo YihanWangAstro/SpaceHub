@@ -15,7 +15,7 @@ namespace SpaceH {
         /*Template parameter check*/
 
         /** @brief Order of the integrator*/
-        static const int order{2};
+        static constexpr int order{2};
 
         void integrate(ParticSys &particles, Scalar stepLength);
     };

@@ -47,15 +47,10 @@ namespace SpaceH {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        SoAPointParticle() = default;
+        SoAPointParticle() = delete;
 
         template<typename Container>
         SoAPointParticle(Container const &partc, Scalar t) {
-            this->load(partc, t);
-        }
-
-        template<typename Container>
-        void load(Container const &partc, Scalar t = 0) {
             size_t input_num = partc.size();
 
             if constexpr(array_size == SpaceH::DYNAMICAL) {
