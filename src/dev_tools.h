@@ -22,14 +22,10 @@ namespace SpaceH {
         (..., (is >> std::forward<Args>(args)));
     }
 
-    template<typename Divider, typename... Args>
-    void printd(Divider&& divider, std::ostream &out, Args &&... args) {
-        (..., (out << std::forward<Args>(args) << std::forward<Divider>(divider)));
-    }
-
     template<typename... Args>
     void display(std::ostream &out, Args &&... args) {
         (..., (out << std::forward<Args>(args) << ' '));
+        out << '\n';
     }
 
     template<class Tup, size_t... I>

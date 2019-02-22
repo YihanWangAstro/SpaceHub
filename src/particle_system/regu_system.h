@@ -8,6 +8,54 @@
 
 namespace SpaceH {
 
+    enum class ReguType {
+        logH, TTL, none
+    };
+
+    template<typename Scalar, ReguType Type = ReguType::logH>
+    class Regularization {
+    public:
+        template<typename Particles>
+        Regularization(Particles const &partc) {
+            omega = capital_omega(partc);
+            bindE = -comp::get_total_energy(partc);
+        }
+
+        template<typename Particles>
+        inline Scalar get_physical_pos_time(Particles const &partc, Scalar stepSize) {
+            if constexpr (Type == ReguType::logH) {
+                return stepSize / (bindE + get_kinetic_energy(partc));
+            } else if (Type == ReguType::TTL) {
+                return stepSize / omega;
+            } else if (Type == ReguType::none) {
+                return stepSize;
+            } else {
+                SPACEHUB_ABORT("Undefined regularization type!");
+            }
+        }
+
+        template<typename Particles>
+        inline Scalar get_physical_vel_time(Particles const &partc, Scalar stepSize) {
+            if constexpr (Type == ReguType::logH) {
+                return stepSize / -get_potential_energy(partc);
+            } else if (Type == ReguType::TTL) {
+                return stepSize / capital_omega();
+            } else if (Type == ReguType::none) {
+                return stepSize;
+            } else {
+                SPACEHUB_ABORT("Undefined regularization type!");
+            }
+        }
+
+        Scalar omega;
+        Scalar bindE;
+    private:
+        template<typename Particles>
+        inline Scalar capital_omega(Particles const &partc) {
+            return -comp::get_potential_energy(partc);
+        }
+    };
+
     /**
      * @brief Regularized particle System.
      *
@@ -17,107 +65,66 @@ namespace SpaceH {
      * @tparam Particles
      * @tparam Interaction
      */
-    template<typename Particles, typename Interaction, typename Regularitor>
+    template<typename Particles, typename Interaction, ReguType ReguType>
     class RegularizedSystem : public ParticleSystem<Particles, Interaction> {
     public:
         /* Typedef */
-        using State        = typename Particles::State;
-        using ParticleType = Particles;
-        using Base         = ParticleSystem<Particles, Interaction>;
+        using Base = ParticleSystem<Particles, Interaction>;
         SPACEHUB_USING_TYPE_SYSTEM_OF(Base);
         /* Typedef */
 
-        using Base::partc;
-        using Base::act;
+        using Base::partc_;
+        using Base::eom_;
 
-        /*Template parameter check*/
-        CHECK_TYPE(Particles, Interaction);
-        CHECK_TYPE(Particles, Regularitor);
-        /*Template parameter check*/
-
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(omega, Scalar, regular, omega);
-        SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(bindE, Scalar, regular, bindE);
-
-        void advanceOmega(const VectorArray& velIndepAcc, const VectorArray& vel, const ScalarArray& mass, Scalar physicalTime){
-            regular.advanceOmegaO(velIndepAcc, vel, mass, physicalTime);
-        };
-        void advanceBindE(const VectorArray& velDepAcc, const VectorArray& vel, const ScalarArray& mass, Scalar physicalTime){
-            regular.advanceBindE(velDepAcc, vel, mass, physicalTime);
-        }
         /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
         void drift(Scalar stepSize) {
-            Scalar physicalTime = regular.getPhysicalPosTime(partc, stepSize);
+            Scalar physicalTime = regular_.get_physical_pos_time(partc_, stepSize);
             Base::drift(physicalTime);
         }
 
         /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
         void kick(Scalar stepSize) {
-            Scalar physicalTime = regular.getPhysicalVelTime(partc, stepSize);
+            Scalar physicalTime = regular_.get_physical_vel_time(partc_, stepSize);
 
-            act.zeroTotalAcc();
-            act.calcuVelIndepAcc(partc);
-            if constexpr (!Interaction::isVelDep){
-                act.sumTotalAcc();
-                partc.advenceVel(act.acc(), 0.5*physicalTime);
-                regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), physicalTime);
-                partc.advanceVel(act.acc(), 0.5*physicalTime);
+            if constexpr (Interaction::isVelDependent) {
+                eom_.eval_vel_indep_acc(partc_);
+
+                eom_.eval_vel_dep_acc(partc_);
+                eom_.sum_tot_acc();
+                comp::array_advance(eom_.auxi_vx, eom_.ax, 0.5 * physicalTime);
+                comp::array_advance(eom_.auxi_vy, eom_.ay, 0.5 * physicalTime);
+                comp::array_advance(eom_.auxi_vz, eom_.az, 0.5 * physicalTime);
+
+                eom_.eval_auxi_vel_dep_acc(partc_);
+                eom_.sum_tot_acc();
+                advance_vel(physicalTime);
+                advance_omega(partc_, eom_, physicalTime);
+                advance_bindE(partc_, eom_, physicalTime);
+
+                eom_.eval_vel_dep_acc(partc_);
+                eom_.sum_tot_acc();
+                comp::array_advance(eom_.auxi_vx, eom_.ax, 0.5 * physicalTime);
+                comp::array_advance(eom_.auxi_vy, eom_.ay, 0.5 * physicalTime);
+                comp::array_advance(eom_.auxi_vz, eom_.az, 0.5 * physicalTime);
             } else {
-                act.calcuVelDepAcc(partc);
-                act.sumTotalAcc();
-                State v0 = partc.vel_state();
-                partc.advenceVel(act.acc(), 0.5 * physicalTime);
-                Base::iterateVeltoConvergent(v0, 0.5 * physicalTime);
-                regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), physicalTime);
-                regular.advanceBindE(act.pairVelDepAcc(),   partc.vel(), partc.mass(), physicalTime);
-                partc.advenceVel(act.acc(), 0.5 * physicalTime);
+                eom_.eval_acc(partc_);
+                advance_vel(0.5 * physicalTime);
+                advance_omega(partc_, eom_, physicalTime);
+                advance_vel(0.5 * physicalTime);
             }
         }
 
-        /** @brief Interface to rescale the time.
-             *
-             *  Interace used by dynamic system. Transfer integration time to physical time.
-             *  @return The phsyical time.
-             */
-        Scalar timeScale() {
-            return Base::timeScale() / regular.getPhysicalPosTime(partc, 1);
+
+    private:
+        Scalar advance_omega(Particles const &partc, Interaction const &eom, Scalar stepSize) {
+
         }
 
-        /** @brief Input from istream */
-        friend std::istream &operator>>(std::istream &is, RegularizedSystem &sys) {
-            is >> static_cast<Base &>(sys);
-            if constexpr (Regularitor::nonTrivial) {
-                sys.regular.init(sys.partc);
-            }
-            return is;
+        Scalar advance_bindE(Particles const &partc, Interaction const &eom, Scalar stepSize) {
+
         }
 
-        /** @brief Input variables with plain scalar array.*/
-        size_t read(const ScalarBuffer &data, const IO_flag flag = IO_flag::STD) {
-            size_t loc = static_cast<Base &>(*this).read(data, flag);
-            if constexpr (Regularitor::nonTrivial) {
-                if (flag == IO_flag::EVOLVED ) {
-                    regular.set_omega(data[loc++]);
-                    regular.set_bindE(data[loc++]);
-                }
-            }
-            return loc;
-        }
-
-        /** @brief Output variables to plain scalar array.*/
-        size_t write(ScalarBuffer &data, const IO_flag flag = IO_flag::STD) const {
-            size_t loc = static_cast<const Base &>(*this).write(data, flag);
-            if constexpr (Regularitor::nonTrivial) {
-                if (flag == IO_flag::EVOLVED ) {
-                    data.emplace_back(regular.omega());
-                    data.emplace_back(regular.bindE());
-                }
-            }
-            return data.size();
-        }
-
-    protected:
-        /** @brief Regularization interface.*/
-        Regularitor regular;
+        Regularization<Scalar, ReguType> regular_;
     };
 }
 

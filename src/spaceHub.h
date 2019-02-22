@@ -10,7 +10,6 @@
 #include "callbacks.h"
 
 #include "particle_system.h"
-#include "particle_system/regularization.h"
 #include "particle_system/regu_system.h"
 #include "particle_system/GAR_system.h"
 

@@ -23,7 +23,7 @@ namespace SpaceH {
 
         using Base::partc;
         using Base::act;
-        using Base::regular;
+        using Base::regular_;
 
         /*Template parameter check*/
         CHECK_TYPE(Particles, Interaction);
@@ -31,7 +31,7 @@ namespace SpaceH {
 
         /** @brief Advance velocity one step with current acceleration. Used for symplectic integrator.*/
         void kick(Scalar stepSize) {
-            Scalar physicalTime = regular.getPhysicalVelTime(partc, stepSize);
+            Scalar physicalTime = regular_.getPhysicalVelTime(partc, stepSize);
 
             act.zeroTotalAcc();
             act.calcuVelIndepAcc(partc);//evaluate velocity independent acc
@@ -39,7 +39,7 @@ namespace SpaceH {
             if constexpr (!Interaction::isVelDep) {
                 act.sumTotalAcc();
                 partc.advanceVel(act.acc(), 0.5*physicalTime);
-                regular.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), physicalTime);
+                regular_.advanceOmega(act.pairVelIndepAcc(), partc.vel(), partc.mass(), physicalTime);
                 partc.advanceVel(act.acc(), 0.5*physicalTime);
             } else {
                 act.calcuVelDepAcc(partc);//evaluate velocity dependent acc with velocity
@@ -54,8 +54,8 @@ namespace SpaceH {
                 partc.swap_vel_state(auxi_vel);//swap vel and auxi_vel. after this line, everything is normal.
 
                 partc.advanceVel(act.acc(), physicalTime);//advance velocity with auxi_vel evaluated acc
-                regular.advanceOmega(act.pairVelIndepAcc(), auxi_vel.cartesian(), partc.mass(), physicalTime);
-                regular.advanceBindE(act.pairVelDepAcc(),   auxi_vel.cartesian(), partc.mass(), physicalTime);
+                regular_.advanceOmega(act.pairVelIndepAcc(), auxi_vel.cartesian(), partc.mass(), physicalTime);
+                regular_.advanceBindE(act.pairVelDepAcc(),   auxi_vel.cartesian(), partc.mass(), physicalTime);
 
                 act.calcuVelDepAcc(partc);
                 act.sumTotalAcc();

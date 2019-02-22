@@ -86,6 +86,10 @@ namespace SpaceH {
                 advance_vel(stepSize);
             }
         }
+
+        friend std::ostream&operator<<(std::ostream& os, ParticleSystem const & ps) {
+            os << ps.partc_;
+        }
     private:
         Particles partc_;
         Interaction eom_;

@@ -96,6 +96,11 @@ namespace SpaceH{
         }
 
         template<typename Particles>
+        void eval_auxi_vel_dep_acc(const Particles &partc) {
+
+        }
+
+        template<typename Particles>
         void sum_tot_acc() {
 
         }

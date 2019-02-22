@@ -47,7 +47,6 @@ set(TMP_HEADER_FILES
         src/particle_system/chain_particles.h
         src/particle_system/GAR_system.h
         src/particle_system/regu_system.h
-        src/particle_system/regularization.h
         src/tools/timer.h
         src/vector/vector3.h
         src/vector/vector3d.h
