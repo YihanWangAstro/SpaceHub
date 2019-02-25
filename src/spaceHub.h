@@ -9,12 +9,10 @@
 #include "tools/timer.h"
 #include "callbacks.h"
 
-#include "particle_system.h"
+#include "base-system.h"
 #include "particle_system/regu_system.h"
-#include "particle_system/GAR_system.h"
 
 #include "particle_system/chain.h"
-#include "particle_system/chain_particles.h"
 
 #include "integrator/symplectic/symplectic2th.h"
 #include "integrator/symplectic/symplectic4th.h"
@@ -32,71 +30,7 @@
 //#include "interaction/force.h"
 #include "interaction/post_newtonian.h"
 
-#include "init_creator/orbits.h"
+#include "orbits/orbits.h"
 
-//#include "wrapper/singleRun.h"
-namespace SpaceH {
 
-    using DEFAULT_TYPE_CLASS = SpaceH::TypeSystem<kahan<double>, SpaceH::DYNAMICAL>;
-
-    template<
-            typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,
-            typename VelForce    = void,
-            typename ExtPosForce = void,
-            typename ExtVelForce = void,
-            template<typename>
-            class Regularitor    = SpaceH::LogH
-    >
-    using ARchain = SpaceH::GAR_system<
-            SpaceH::ChainParticles<typename BasicF::Types>,
-
-            SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
-
-            Regularitor<typename BasicF::Types>
-    >;
-
-    template<
-            typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,
-            typename VelForce    = void,
-            typename ExtPosForce = void,
-            typename ExtVelForce = void,
-            template<typename> class
-            Regularitor          = SpaceH::LogH
-    >
-    using GAR = SpaceH::GAR_system<
-            SpaceH::Particles<typename BasicF::Types>,
-
-            SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
-
-            Regularitor<typename BasicF::Types>
-    >;
-
-    template<
-            typename BasicF      = SpaceH::NewtonianForce<DEFAULT_TYPE_CLASS>,
-            typename VelForce    = void,
-            typename ExtPosForce = void,
-            typename ExtVelForce = void
-    >
-    using Basic = SpaceH::GAR_system<
-            SpaceH::Particles<typename BasicF::Types>,
-
-            SpaceH::Interactions<BasicF, VelForce, ExtPosForce, ExtVelForce>,
-
-            SpaceH::NoRegu<typename BasicF::Types>
-    >;
-
-    /**  @brief Alias of template name, linking the particle system, integrator and ODE iterator*/
-    template<
-            typename ParticSys,
-            template<typename, typename>
-            class ODEiterator = SpaceH::BSIterator,
-            template<typename>
-            class Integrator  = SpaceH::symplectic2th
-    >
-    using Nbody = SpaceH::Solver<
-            ParticSys,
-
-            ODEiterator<ParticSys, Integrator<ParticSys> >
-    >;
-}
 #endif

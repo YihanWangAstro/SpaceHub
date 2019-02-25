@@ -4,7 +4,7 @@
 
 #include "own_math.h"
 
-namespace SpaceH::comp {
+namespace SpaceH::calcu {
 
 
     template <typename Array>
@@ -14,12 +14,30 @@ namespace SpaceH::comp {
         }
     }
 
-    template<typename Array>
-    inline void array_add(const Array &array1, const Array &array2, Array& array3) {
-        size_t size = array3.size();
+    template<typename Array, typename ...Args>
+    auto array_dot(Array const &a, Array const &b, Args const &...args) {
+        typename Array::value_type product{0};
+        size_t size = a.size();
+        for (size_t i = 0; i < size; ++i) {
+            product += a[i] * b[i] * (args[i] * ...);
+        }
+    }
+
+    template<typename Array, typename ...Args>
+    inline void array_add(Array &dst, Array const &a, Array const &b, Args const &...args) {
+        size_t size = dst.size();
 
         for (size_t i = 0; i < size; i++) {
-            array3[i] = array1[i] + array2[i];
+            dst[i] = a[i] + b[i] + (args[i] + ...);
+        }
+    }
+
+    template<typename Array, typename ...Args>
+    inline void array_mul(Array &dst, Array const &a, Array const &b, Args const &...args) {
+        size_t size = dst.size();
+
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = a[i] * b[i] * (args[i] + ...);
         }
     }
 
