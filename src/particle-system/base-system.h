@@ -39,22 +39,20 @@ namespace SpaceH {
 
         SPACEHUB_STD_ARRAY_INTERFACES(idn, partc_.idn());
 
-        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vx, (*auxi_vx_ptr));
+        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vx, auxi_vx_);
 
-        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vy, (*auxi_vy_ptr));
+        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vy, auxi_vy_);
 
-        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vz, (*auxi_vz_ptr));
+        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vz, auxi_vz_);
 
         BaseSystem() = delete;
 
         template<typename Container>
         BaseSystem(Container const &partc, Scalar t) : partc_(partc, t), action_(partc.size()) {
             if constexpr (Interaction::isVelDependent) {
-                auxi_vx_ptr = std::make_unique<ScalarArray>(vx());
-                auxi_vy_ptr = std::make_unique<ScalarArray>(vy());
-                auxi_vz_ptr = std::make_unique<ScalarArray>(vz());
-            } else {
-                auxi_vx_ptr = auxi_vy_ptr = auxi_vz_ptr = nullptr;
+                auxi_vx_ = vx();
+                auxi_vy_ = vy();
+                auxi_vz_ = vz();
             }
         }
 
@@ -127,9 +125,9 @@ namespace SpaceH {
     private:
         Particles partc_;
         Interaction action_;
-        std::unique_ptr<ScalarArray> auxi_vx_ptr;
-        std::unique_ptr<ScalarArray> auxi_vy_ptr;
-        std::unique_ptr<ScalarArray> auxi_vz_ptr;
+        ScalarArray auxi_vx_;
+        ScalarArray auxi_vy_;
+        ScalarArray auxi_vz_;
     };
 
 

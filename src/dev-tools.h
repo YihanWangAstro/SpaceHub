@@ -43,6 +43,16 @@ namespace SpaceH {
         return in;
     }
 
+    template<typename... Args>
+    void resize_all(size_t new_sz, Args &&... args) {
+        (..., (args.resize(new_sz)));
+    }
+
+    template<typename... Args>
+    void reserve_all(size_t new_cap, Args &&... args) {
+        (..., (args.reserve(new_cap)));
+    }
+
     template<typename T>
     struct get_value_type {
     private:
@@ -86,32 +96,17 @@ namespace SpaceH {
 #define DEBUG_MODE_ASSERT(EXPR, MSG)
 #endif
 
-constexpr size_t DYNAMICAL = 0;
-
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
-    constexpr static size_t array_size{CLASS::array_size};                                                             \
+    template<typename ...T>                                                                                            \
+    using Container   = typename CLASS::template Container<T...>;                                                      \
+                                                                                                                       \
     using Scalar      = typename CLASS::Scalar;                                                                        \
     using ScalarArray = typename CLASS::ScalarArray;                                                                   \
     using IndexArray  = typename CLASS::IndexArray;                                                                    \
     using IntArray    = typename CLASS::IntArray;                                                                      \
     using Vector      = typename CLASS::Vector;                                                                        \
     using VectorArray = typename CLASS::VectorArray;                                                                   \
-    template<typename ...Args>                                                                                         \
-    static void TYPE_SYSTEM_RESIZE(size_t new_sz, Args &&...args) {                                                    \
-        if constexpr (array_size == SpaceH::DYNAMICAL) {                                                               \
-            (..., (args.resize(new_sz)));                                                                              \
-        } else {                                                                                                       \
-            SPACEHUB_ABORT("Fixed size arrays are not allowed to resize!");                                            \
-        }                                                                                                              \
-    }                                                                                                                  \
-    template<typename ...Args>                                                                                         \
-    static void TYPE_SYSTEM_RESERVE(size_t new_cap, Args &&...args) {                                                  \
-        if constexpr (array_size == SpaceH::DYNAMICAL) {                                                               \
-            (..., (args.reserve(new_cap)));                                                                            \
-        } else {                                                                                                       \
-            SPACEHUB_ABORT("Fixed size arrays are not allowed to reserve!");                                           \
-        }                                                                                                              \
-    }                                                                                                                  \
+
 
 #define DECLARE_STD_SCALAR_INTERFACES(NAME, TYPE, DERIVED)                                                             \
                                                                                                                        \

@@ -8,22 +8,17 @@
 
 namespace SpaceH {
 
-    template<typename T, size_t S>
-    struct Array : public std::array<T, S> {};
-
-    template<typename T>
-    struct Array<T, DYNAMICAL> : public std::vector<T> {};
-
-    template<typename Real, size_t arraySize>
+    template<typename Real, template<class...> class TContainer = std::vector>
     struct TypeSystem {
-        constexpr static size_t array_size{arraySize};
+        template<typename ...T>
+        using Container = TContainer<T...>;
 
         using Scalar      = Real;
-        using ScalarArray = Array<Scalar, arraySize>;
-        using IntArray    = Array<int, arraySize>;
-        using IndexArray  = Array<size_t, arraySize>;
+        using ScalarArray = Container<Scalar>;
+        using IntArray    = Container<int>;
+        using IndexArray  = Container<size_t>;
         using Vector      = Vec3<Scalar>;
-        using VectorArray = Array<Vector, arraySize>;
+        using VectorArray = Container<Vector>;
     };
 }//end namespace SpaceH
 

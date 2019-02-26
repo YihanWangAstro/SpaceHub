@@ -39,7 +39,7 @@ namespace SpaceH {
         Vector pos;
         Vector vel;
         Scalar mass;
-        size_t idn{};
+        size_t idn;
     };
 
     template<typename TypeSystem>
@@ -62,32 +62,33 @@ namespace SpaceH {
         template<typename Container>
         SoAPointParticle(Container const &partc, Scalar t) {
             size_t input_num = partc.size();
-
-            if constexpr(array_size == SpaceH::DYNAMICAL) {
-                this->resize(input_num);
-            } else {
-                if (input_num > array_size) {
-                    SPACEHUB_ABORT("Input particle number exceeds the capacity!");
-                }
-            }
-
-            size_t i = 0;
+            this->reserve(input_num);
             for (auto &p : partc) {
-                std::tie(idn_[i], mass_[i], px_[i], py_[i], pz_[i], vx_[i], vy_[i], vz_[i]) = p.forward_as_tuple();
-                i++;
+                this->emplace_back(p);
             }
-
             active_num = input_num;
             time_ = t;
         }
 
+        template<typename Particle>
+        void emplace_back(Particle&& p) {
+            px_.emplace_back(p.pos.x);
+            px_.emplace_back(p.pos.y);
+            px_.emplace_back(p.pos.z);
+            px_.emplace_back(p.vel.x);
+            px_.emplace_back(p.vel.y);
+            px_.emplace_back(p.vel.z);
+            px_.emplace_back(p.mass);
+            px_.emplace_back(p.idn);
+        }
+
         void resize(size_t new_sz) {
-            TYPE_SYSTEM_RESIZE(new_sz, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
+            SpaceH::resize_all(new_sz, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
             active_num = new_sz;
         }
 
         void reserve(size_t new_cap) {
-            TYPE_SYSTEM_RESERVE(new_cap, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
+            SpaceH::reserve_all(new_cap, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
         }
 
         size_t number() {
