@@ -5,13 +5,6 @@
 #include <tuple>
 namespace SpaceH {
 
-    /*template<typename Arg, typename... Args>
-    void print(std::ostream &out, Arg &&arg, Args &&... args) {
-        out << std::forward<Arg>(arg);
-        using expander = int[];
-        (void) expander{0, (void(out << std::forward<Args>(args)), 0)...};
-    }*/
-
     template<typename... Args>
     void print(std::ostream &out, Args &&... args) {
         (..., (out << std::forward<Args>(args)));
@@ -48,16 +41,6 @@ namespace SpaceH {
     std::istream &operator>>(std::istream &in, std::tuple<Args...> &&tup) {
         SpaceH::input_tuple(in, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
         return in;
-    }
-
-    template<typename... Args>
-    void resize_all(size_t new_sz, Args &&... args) {
-        (..., (args.resize(new_sz)));
-    }
-
-    template<typename... Args>
-    void reserve_all(size_t new_cap, Args &&... args) {
-        (..., (args.reserve(new_cap)));
     }
 
     template<typename T>
@@ -103,6 +86,7 @@ namespace SpaceH {
 #define DEBUG_MODE_ASSERT(EXPR, MSG)
 #endif
 
+constexpr size_t DYNAMICAL = 0;
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
     constexpr static size_t array_size{CLASS::array_size};                                                             \
@@ -111,100 +95,120 @@ namespace SpaceH {
     using IndexArray  = typename CLASS::IndexArray;                                                                    \
     using IntArray    = typename CLASS::IntArray;                                                                      \
     using Vector      = typename CLASS::Vector;                                                                        \
-    using VectorArray = typename CLASS::VectorArray;
+    using VectorArray = typename CLASS::VectorArray;                                                                   \
+    template<typename ...Args>                                                                                         \
+    static void TYPE_SYSTEM_RESIZE(size_t new_sz, Args &&...args) {                                                    \
+        if constexpr (array_size == SpaceH::DYNAMICAL) {                                                               \
+            (..., (args.resize(new_sz)));                                                                              \
+        } else {                                                                                                       \
+            SPACEHUB_ABORT("Fixed size arrays are not allowed to resize!");                                            \
+        }                                                                                                              \
+    }                                                                                                                  \
+    template<typename ...Args>                                                                                         \
+    static void TYPE_SYSTEM_RESERVE(size_t new_cap, Args &&...args) {                                                  \
+        if constexpr (array_size == SpaceH::DYNAMICAL) {                                                               \
+            (..., (args.reserve(new_cap)));                                                                            \
+        } else {                                                                                                       \
+            SPACEHUB_ABORT("Fixed size arrays are not allowed to reserve!");                                           \
+        }                                                                                                              \
+    }                                                                                                                  \
 
-/** @brief Standard read interfaces for private data scalar in SpaceHub project*/
-#define SPACEHUB_READ_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                                        \
-                                                                                                                       \
-inline const TYPE & NAME () const {                                                                                    \
-    return MEMBER;                                                                                                     \
-};
-
-/** @brief Standard write interfaces for private data scalar in SpaceHub project*/
-#define SPACEHUB_WRITE_INTERFACES_FOR_SCALAR(NAME, TYPE, MEMBER)                                                       \
-inline void set_##NAME (const TYPE& scalar) {                                                                          \
-    MEMBER = scalar;                                                                                                   \
-};                                                                                                                     \
-inline void swap_##NAME (TYPE& scalar) {                                                                               \
-    std::swap(MEMBER, scalar);                                                                                         \
-}
-
-/** @brief Standard scalar read interfaces adapter in SpaceHub project*/
-#define SPACEHUB_READ_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                                       \
-                                                                                                                       \
-inline const TYPE & NEWNAME () const {                                                                                 \
-    return MEMBER.NAME();                                                                                              \
-};
-
-
-/** @brief Standard scalar read interfaces adapter in SpaceHub project*/
-#define SPACEHUB_READ_INTERFACES_ADAPTER_FOR_BUILDIN(NEWNAME, TYPE, MEMBER, NAME)                                      \
-                                                                                                                       \
-inline const TYPE & NEWNAME () const {                                                                                 \
-    return MEMBER.NAME();                                                                                              \
-};
-
-/** @brief Standard scalar write interfaces adapter in SpaceHub project*/
-#define SPACEHUB_WRITE_INTERFACES_ADAPTER_FOR_SCALAR(NEWNAME, TYPE, MEMBER, NAME)                                      \
-inline void set_##NEWNAME (const TYPE& scalar) {                                                                       \
-    MEMBER.set_##NAME(scalar);                                                                                         \
-};                                                                                                                     \
-inline void swap_##NEWNAME (TYPE& scalar) {                                                                            \
-    MEMBER.swap_##NAME(scalar);                                                                                        \
-};
-
-/** @brief Standard read interfaces for private data array in SpaceHub project*/
-#define SPACEHUB_READ_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                         \
-                                                                                                                       \
-inline const TYPE & NAME () const {                                                                                    \
-    return MEMBER;                                                                                                     \
-};                                                                                                                     \
-inline const typename TYPE::value_type & NAME (size_t i) const {                                                       \
-    return MEMBER[i];                                                                                                  \
-};
-
-/** @brief Standard write interfaces for private data array in SpaceHub project*/
-#define SPACEHUB_WRITE_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                        \
-inline void set_##NAME (const TYPE& array) {                                                                           \
-    MEMBER = array;                                                                                                    \
-};                                                                                                                     \
-inline void set_##NAME (size_t i, const typename TYPE::value_type &value) {                                            \
-    MEMBER[i] = value;                                                                                                 \
-};                                                                                                                     \
-inline void swap_##NAME (TYPE& array) {                                                                                \
-    std::swap(array, MEMBER);                                                                                          \
-};
-
-/** @brief Standard write/read interfaces for private data array in SpaceHub project*/
-#define SPACEHUB_STD_INTERFACES_FOR_ARRAY(NAME, TYPE, MEMBER)                                                          \
+#define DECLARE_STD_SCALAR_INTERFACES(NAME, TYPE, DERIVED)                                                             \
                                                                                                                        \
 inline TYPE & NAME () {                                                                                                \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};                                                                                                                     \
+inline TYPE const & NAME () const {                                                                                    \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};
+
+
+#define SPACEHUB_STD_SCALAR_INTERFACES(NAME, MEMBER)                                                                   \
+                                                                                                                       \
+inline auto & NAME () {                                                                                                \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-inline typename TYPE::value_type & NAME (size_t i) {                                                                   \
+inline auto const & NAME () const {                                                                                    \
+    return MEMBER;                                                                                                     \
+};
+
+#define SPACEHUB_CONDITIONAL_SCALAR_INTERFACES(NAME, MEMBER, COND, ERR)                                                \
+                                                                                                                       \
+inline auto & NAME () {                                                                                                \
+    if constexpr (COND) {                                                                                              \
+        return MEMBER;                                                                                                 \
+    } else {                                                                                                           \
+        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to variable");                               \
+    }                                                                                                                  \
+};                                                                                                                     \
+inline auto const & NAME () const {                                                                                    \
+    if constexpr (COND) {                                                                                              \
+        return MEMBER;                                                                                                 \
+    } else {                                                                                                           \
+        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to variable");                               \
+    }                                                                                                                  \
+};
+
+
+#define DECLARE_STD_ARRAY_INTERFACES(NAME, DERIVED)                                                                    \
+                                                                                                                       \
+inline auto & NAME () {                                                                                                \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};                                                                                                                     \
+inline auto & NAME (size_t i) {                                                                                        \
+    return static_cast<Derived*>(this)->impl_##NAME(i);                                                                \
+};                                                                                                                     \
+inline auto const & NAME () const {                                                                                    \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};                                                                                                                     \
+inline auto const & NAME (size_t i) const {                                                                            \
+    return static_cast<Derived*>(this)->impl_##NAME(i);                                                                \
+};
+
+#define SPACEHUB_STD_ARRAY_INTERFACES(NAME, MEMBER)                                                                    \
+                                                                                                                       \
+inline auto & NAME () {                                                                                                \
+    return MEMBER;                                                                                                     \
+};                                                                                                                     \
+inline auto & NAME (size_t i) {                                                                                        \
+    return MEMBER[i];                                                                                                  \
+};                                                                                                                     \
+inline auto const & NAME () const {                                                                                    \
+    return MEMBER;                                                                                                     \
+};                                                                                                                     \
+inline auto const & NAME (size_t i) const {                                                                            \
     return MEMBER[i];                                                                                                  \
 };
 
-/** @brief Standard read array interfaces adapter in SpaceHub project*/
-#define SPACEHUB_READ_INTERFACES_ADAPTER_FOR_ARRAY(NEWNAME, TYPE, MEMBER, NAME)                                        \
+#define SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(COND, NAME, MEMBER)                                                      \
                                                                                                                        \
-inline const TYPE & NEWNAME () const {                                                                                 \
-    return MEMBER.NAME();                                                                                              \
+inline auto & NAME () {                                                                                                \
+    if constexpr (COND) {                                                                                              \
+        return MEMBER;                                                                                                 \
+    } else {                                                                                                           \
+        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
+    }                                                                                                                  \
 };                                                                                                                     \
-inline const typename TYPE::value_type & NEWNAME (size_t i) const {                                                    \
-    return MEMBER.NAME(i);                                                                                             \
-};
-
-/** @brief Standard write array interfaces adapter in SpaceHub project*/
-#define SPACEHUB_WRITE_INTERFACES_ADAPTER_FOR_ARRAY(NEWNAME, TYPE, MEMBER, NAME)                                       \
-inline void set_##NEWNAME (const TYPE& array) {                                                                        \
-    MEMBER.set_##NAME(array);                                                                                          \
+inline auto & NAME (size_t i) {                                                                                        \
+    if constexpr (COND) {                                                                                              \
+        return MEMBER[i];                                                                                              \
+    } else {                                                                                                           \
+        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
+    }                                                                                                                  \
 };                                                                                                                     \
-inline void set_##NEWNAME (size_t i, const typename TYPE::value_type &value) {                                         \
-    MEMBER.set_##NAME(i, value);                                                                                       \
+inline auto const & NAME () const {                                                                                    \
+    if constexpr (COND) {                                                                                              \
+        return MEMBER;                                                                                                 \
+    } else {                                                                                                           \
+        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
+    }                                                                                                                  \
 };                                                                                                                     \
-inline void swap_##NEWNAME (TYPE& array) {                                                                             \
-    MEMBER.swap_##NAME(array);                                                                                         \
+inline auto const & NAME (size_t i) const {                                                                            \
+    if constexpr (COND) {                                                                                              \
+        return MEMBER[i];                                                                                              \
+    } else {                                                                                                           \
+        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
+    }                                                                                                                  \
 };
 
 /** @brief Macros used to check if a class has a specific method.  */

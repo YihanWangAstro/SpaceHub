@@ -3,7 +3,7 @@
 #ifndef KAHANNUMBER_h
 #define KAHANNUMBER_h
 
-#include "own_math.h"
+#include "own-math.h"
 
 namespace SpaceH {
 /** @brief Kahan number

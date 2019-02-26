@@ -2,8 +2,8 @@
 #ifndef IAS15ITERATOR_H
 #define IAS15ITERATOR_H
 
-#include "../dev_tools.h"
-#include "../own_math.h"
+#include "dev-tools.h"
+#include "own-math.h"
 namespace SpaceH {
 
     namespace Radau {

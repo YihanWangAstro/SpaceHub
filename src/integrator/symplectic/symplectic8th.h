@@ -1,7 +1,7 @@
 
 #ifndef SYMPLECTIC_8TH_INTEGRATOR_H
 #define SYMPLECTIC_8TH_INTEGRATOR_H
-#include "../../dev_tools.h"
+#include "dev-tools.h"
 /** @brief Eighth order symplectic integrator */
 template<typename ParticSys>
 class symplectic8th {

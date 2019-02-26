@@ -1,8 +1,8 @@
 
 #ifndef GAUSSDADAU_H
 #define GAUSSDADAU_H
-#include "../dev_tools.h"
-#include "../type_class.h"
+#include "dev-tools.h"
+#include "type-class.h"
 namespace SpaceH
 {
     namespace Radau

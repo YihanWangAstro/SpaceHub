@@ -2,9 +2,9 @@
 #ifndef PARTICLES_H
 #define PARTICLES_H
 
-#include "dev_tools.h"
+#include "dev-tools.h"
 #include "vector/vector3.h"
-#include "type_class.h"
+#include "type-class.h"
 
 namespace SpaceH {
 
@@ -39,13 +39,23 @@ namespace SpaceH {
         Vector pos;
         Vector vel;
         Scalar mass;
-        size_t idn;
+        size_t idn{};
     };
 
     template<typename TypeSystem>
     class SoAPointParticle {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+
+        SPACEHUB_STD_ARRAY_INTERFACES(px, px_);
+        SPACEHUB_STD_ARRAY_INTERFACES(py, py_);
+        SPACEHUB_STD_ARRAY_INTERFACES(pz, pz_);
+        SPACEHUB_STD_ARRAY_INTERFACES(vx, vx_);
+        SPACEHUB_STD_ARRAY_INTERFACES(vy, vy_);
+        SPACEHUB_STD_ARRAY_INTERFACES(vz, vz_);
+        SPACEHUB_STD_ARRAY_INTERFACES(mass, mass_);
+        SPACEHUB_STD_ARRAY_INTERFACES(idn, idn_);
+        SPACEHUB_STD_SCALAR_INTERFACES(time, time_);
 
         SoAPointParticle() = delete;
 
@@ -63,29 +73,21 @@ namespace SpaceH {
 
             size_t i = 0;
             for (auto &p : partc) {
-                std::tie(idn[i], mass[i], px[i], py[i], pz[i], vx[i], vy[i], vz[i]) = p.forward_as_tuple();
+                std::tie(idn_[i], mass_[i], px_[i], py_[i], pz_[i], vx_[i], vy_[i], vz_[i]) = p.forward_as_tuple();
                 i++;
             }
 
             active_num = input_num;
-            time = t;
+            time_ = t;
         }
 
         void resize(size_t new_sz) {
-            if constexpr (array_size == SpaceH::DYNAMICAL) {
-                SpaceH::resize_all(new_sz, px, py, pz, vx, vy, vz, mass, idn);
-                active_num = new_sz;
-            } else {
-                SPACEHUB_ABORT("Fixed size arrays are not allowed to resize!");
-            }
+            TYPE_SYSTEM_RESIZE(new_sz, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
+            active_num = new_sz;
         }
 
         void reserve(size_t new_cap) {
-            if constexpr (array_size == SpaceH::DYNAMICAL) {
-                SpaceH::reserve_all(new_cap, px, py, pz, vx, vy, vz, mass, idn);
-            } else {
-                SPACEHUB_ABORT("Fixed size arrays are not allowed to reserve!");
-            }
+            TYPE_SYSTEM_RESERVE(new_cap, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
         }
 
         size_t number() {
@@ -95,7 +97,7 @@ namespace SpaceH {
         friend std::ostream &operator<<(std::ostream &os, SoAPointParticle const &ps) {
             size_t num = ps.number();
             for (size_t i = 0; i < num; ++i) {
-                SpaceH::display(os, ps.idn[i], ps.mass[i], ps.px[i], ps.py[i], ps.pz[i], ps.vx[i], ps.vy[i], ps.vz[i]);
+                SpaceH::display(os, ps.idn_[i], ps.mass_[i], ps.px_[i], ps.py_[i], ps.pz_[i], ps.vx_[i], ps.vy_[i], ps.vz_[i]);
             }
             return os;
         }
@@ -103,21 +105,21 @@ namespace SpaceH {
         friend std::istream &operator>>(std::istream &is, SoAPointParticle &ps) {
             size_t num = ps.number();
             for (size_t i = 0; i < num; ++i) {
-                SpaceH::input(is, ps.idn[i], ps.mass[i], ps.px[i], ps.py[i], ps.pz[i], ps.vx[i], ps.vy[i], ps.vz[i]);
+                SpaceH::input(is, ps.idn_[i], ps.mass_[i], ps.px_[i], ps.py_[i], ps.pz_[i], ps.vx_[i], ps.vy_[i], ps.vz_[i]);
             }
             return is;
         }
 
-        ScalarArray px;
-        ScalarArray py;
-        ScalarArray pz;
-        ScalarArray vx;
-        ScalarArray vy;
-        ScalarArray vz;
-        ScalarArray mass;
-        IndexArray idn;
-        Scalar time;
     private:
+        ScalarArray px_;
+        ScalarArray py_;
+        ScalarArray pz_;
+        ScalarArray vx_;
+        ScalarArray vy_;
+        ScalarArray vz_;
+        ScalarArray mass_;
+        IndexArray idn_;
+        Scalar time_;
         size_t active_num{0};
     };
 

@@ -2,7 +2,7 @@
 #ifndef SPACEHUB_LAZY_EXPRESSION_H
 #define SPACEHUB_LAZY_EXPRESSION_H
 
-#include "../dev_tools.h"
+#include "dev-tools.h"
 #include <math.h>
 
 namespace SpaceH {

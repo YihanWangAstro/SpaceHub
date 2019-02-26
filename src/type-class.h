@@ -2,13 +2,11 @@
 #define TYPECLASS_H
 
 #include "vector/vector3.h"
-#include "dev_tools.h"
+#include "dev-tools.h"
 #include <array>
 #include <vector>
 
 namespace SpaceH {
-
-    constexpr size_t DYNAMICAL = 0;
 
     template<typename T, size_t S>
     struct Array : public std::array<T, S> {};

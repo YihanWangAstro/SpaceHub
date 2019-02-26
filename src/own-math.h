@@ -2,7 +2,7 @@
 #ifndef OWN_MATH_H
 #define OWN_MATH_H
 
-#include "dev_tools.h"
+#include "dev-tools.h"
 #include <random>
 
 namespace SpaceH {

@@ -1,9 +1,9 @@
 #ifndef BSITERATOR_H
 #define BSITERATOR_H
 
-#include "../core_computation.h"
-#include "../own_math.h"
-#include "../type_class.h"
+#include "core-computation.h"
+#include "own-math.h"
+#include "type-class.h"
 
 namespace SpaceH {
 /** @brief Bulirsch-Stoer extrapolation algorithm*/

@@ -1,7 +1,7 @@
 
 #ifndef SYMPLECTIC_6TH_INTEGRATOR_H
 #define SYMPLECTIC_6TH_INTEGRATOR_H
-#include "../../dev_tools.h"
+#include "dev-tools.h"
 /** @brief Sixth order symplectic integrator */
 template<typename ParticSys>
 class symplectic6th {

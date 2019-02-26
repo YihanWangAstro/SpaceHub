@@ -7,7 +7,7 @@
 #include <condition_variable>
 #include <fstream>
 #include <queue>
-#include "../dev_tools.h"
+#include "dev-tools.h"
 
 namespace SpaceH {
     namespace MultiThread {

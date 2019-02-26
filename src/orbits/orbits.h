@@ -1,8 +1,8 @@
 #ifndef ORBITS_H
 #define ORBITS_H
 
-#include "../type_class.h"
-#include "../own_math.h"
+#include "type-class.h"
+#include "own-math.h"
 #include "../macros.h"
 #include <math.h>
 

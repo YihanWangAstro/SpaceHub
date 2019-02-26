@@ -19,16 +19,16 @@ link_directories(./googletest/googlemock/include)
 
 set(TMP_HEADER_FILES
         src/callbacks.h
-        src/core_computation.h
-        src/dev_tools.h
-        src/kahan_number.h
+        src/core-computation.h
+        src/dev-tools.h
+        src/kahan-number.h
         src/macros.h
-        src/own_math.h
+        src/own-math.h
         src/particle_system/base-system.h
         src/point-particle.h
         src/solver.h
         src/spaceHub.h
-        src/type_class.h
+        src/type-class.h
         src/orbits/orbits.h
         src/integrator/symplectic/symplectic2th.h
         src/integrator/symplectic/symplectic4th.h
@@ -36,15 +36,12 @@ set(TMP_HEADER_FILES
         src/integrator/symplectic/symplectic8th.h
         src/integrator/symplectic/symplectic10th.h
         src/integrator/Gauss-Dadau.h
-        src/interaction/force.h
-        src/interaction/interaction.h
-        src/interaction/post_newtonian.h
         src/ode_iterator/BSIterator.h
         src/ode_iterator/BSIterator_impl0.h
         src/ode_iterator/const_iterator.h
         src/ode_iterator/IAS15.h
         src/particle_system/chain.h
-        src/particle_system/regu_system.h
+        src/particle_system/regu-system.h
         src/tools/timer.h
         src/vector/vector3.h
         src/vector/vector3d.h
@@ -54,7 +51,7 @@ set(SOURCE_FILES
         test/unit_test/main.cpp
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
-        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/EoM.h src/config-reader.h src/particle-system.h)
+        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/interaction.h src/config-reader.h src/particle-system.h src/interaction/newtonian.h src/particle_system/chain-system.h)
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp)
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})

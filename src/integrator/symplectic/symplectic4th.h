@@ -1,7 +1,7 @@
 
 #ifndef SYMPLECTIC_4TH_INTEGRATOR_H
 #define SYMPLECTIC_4TH_INTEGRATOR_H
-#include "../../dev_tools.h"
+#include "dev-tools.h"
 /** @brief Fourth order symplectic integrator */
 template<typename ParticSys>
 class symplectic4th {

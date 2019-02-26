@@ -3,14 +3,14 @@
 
 #include "solver.h"
 #include "point-particle.h"
-#include "kahan_number.h"
+#include "kahan-number.h"
 #include "macros.h"
 
 #include "tools/timer.h"
 #include "callbacks.h"
 
 #include "base-system.h"
-#include "particle_system/regu_system.h"
+#include "particle_system/regu-system.h"
 
 #include "particle_system/chain.h"
 
@@ -26,9 +26,6 @@
 #include "ode_iterator/const_iterator.h"
 #include "ode_iterator/IAS15.h"
 
-#include "interaction/interaction.h"
-//#include "interaction/force.h"
-#include "interaction/post_newtonian.h"
 
 #include "orbits/orbits.h"
 

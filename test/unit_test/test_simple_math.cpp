@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "vector3.h"
-#include "kahan_number.h"
-#include "own_math.h"
+#include "kahan-number.h"
+#include "own-math.h"
 
 
 namespace UnitTest {

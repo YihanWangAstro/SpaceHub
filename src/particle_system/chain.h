@@ -154,25 +154,25 @@ namespace SpaceH {
 /** @brief Check if two mapping indexes are the same.
  *
  *  Checking the identity of two chain index mappings.
- *  @param Index1  The first index array.
- *  @param Index2  The second index array.
+ *  @param index1  The first index array.
+ *  @param index2  The second index array.
  *  @return boolean
  *  @note  [2,4,5,3,1] is identical to [1,3,5,4,2]
  */
         template<typename IndexArray>
-        bool isDiff(const IndexArray &Index1, const IndexArray &Index2) {
-            const size_t N = Index1.size();
+        bool is_diff(const IndexArray &index1, const IndexArray &index2) {
+            const size_t size = index1.size();
 
-            if (Index1[0] == Index2[0]) {
-                for (int i = 1; i < N; ++i) {
-                    if (Index1[i] != Index2[i])
+            if (index1[0] == index2[0]) {
+                for (int i = 1; i < size; ++i) {
+                    if (index1[i] != index2[i])
                         return true;
                 }
 
                 return false;
-            } else if (Index1[0] == Index2[N - 1]) {
-                for (int i = 1; i < N; ++i) {
-                    if (Index1[i] != Index2[N - 1 - i])
+            } else if (index1[0] == index2[size - 1]) {
+                for (int i = 1; i < size; ++i) {
+                    if (index1[i] != index2[size - 1 - i])
                         return true;
                 }
 
@@ -185,73 +185,60 @@ namespace SpaceH {
  *
  *  Update the position chain. Due to the evolution, the chain index mapping could change with time,
  *  this function is used to update the position chain with old chain data.
- *  @param pos        The old chain position array needs update.
- *  @param chainIndex The old chain index mapping.
+ *  @param chain        The old chain position array needs update.
+ *  @param index The old chain index mapping.
  *  @param newIndex   The new chain index mapping.
  */
-        template<typename VectorArray, typename IndexArray>
-        void updateChain(VectorArray &pos, IndexArray &chainIndex, IndexArray &newIndex) {
-            size_t size = pos.size() - 1;
-            typename VectorArray::value_type newPos[size];
+        template<typename DataArray, typename IndexArray>
+        void update_chain(DataArray &chain, IndexArray &index, IndexArray &newIndex) {
+            size_t size = chain.size() - 1;
+            typename DataArray::value_type newPos[size];
 
-            size_t head0 = std::find(chainIndex.begin(), chainIndex.end(), newIndex[0]) - chainIndex.begin();
-            typename VectorArray::value_type headPos = pos[size];
+            size_t head0 = std::find(index.begin(), index.end(), newIndex[0]) - index.begin();
+            typename DataArray::value_type headPos = chain[size];
             for (int i = 0; i < head0; ++i)
-                headPos += pos[i];
-            pos[size] = headPos;
+                headPos += chain[i];
+            chain[size] = headPos;
             //pos[size].setZero();
 
             for (size_t i = 0; i < size; i++) {
                 size_t head = newIndex[i];
                 size_t tail = newIndex[i + 1];
-                size_t old_head = std::find(chainIndex.begin(), chainIndex.end(), head) - chainIndex.begin();
-                size_t old_tail = std::find(chainIndex.begin(), chainIndex.end(), tail) - chainIndex.begin();
-                newPos[i].setZero();
+                size_t old_head = std::find(index.begin(), index.end(), head) - index.begin();
+                size_t old_tail = std::find(index.begin(), index.end(), tail) - index.begin();
+                newPos[i] = 0;
 
                 if (old_head < old_tail) {
                     for (size_t j = old_head; j < old_tail; ++j)
-                        newPos[i] += pos[j];
+                        newPos[i] += chain[j];
                 } else {
                     for (size_t j = old_tail; j < old_head; ++j)
-                        newPos[i] -= pos[j];
+                        newPos[i] -= chain[j];
                 }
             }
 
             for (int i = 0; i < size; ++i)
-                pos[i] = newPos[i];
+                chain[i] = newPos[i];
         }
 
-/** @brief Calulate the chain data from Cartesian data and chain index mapping.
- *
- *  @param data       Data in Cartesian coordinates.
- *  @param chainData  Data need to be calculated in chain coordinates.
- *  @param chainIndex Chain index mapping.
- *  @note This function should be a inverse transformation of synCartesian().
- */
-        template<typename VectorArray, typename IndexArray>
-        void synChain(const VectorArray &data, VectorArray &chainData, const IndexArray &chainIndex) {
-            const size_t N = data.size();
-            //chainData[N - 1].setZero();
-            chainData[N-1] = data[chainIndex[0]];
-            for (int i = 0; i < N - 1; ++i)
-                chainData[i] = data[chainIndex[i + 1]] - data[chainIndex[i]];
+
+        template<typename DataArray, typename IndexArray>
+        void to_chain_coord(DataArray const &data, DataArray &chain, IndexArray const &index) {
+            const size_t size = data.size();
+            //chain[N - 1] = 0;
+            chain[size-1] = data[index[0]];
+            for (size_t i = 0; i < size - 1; ++i)
+                chain[i] = data[index[i + 1]] - data[index[i]];
         }
 
-/** @brief Calulate the Cartesian data from chain data and chain index mapping.
- *
- *  @param chainData  Data in chain coordinates.
- *  @param data       Data need to be calculated in Cartesian coordinates.
- *  @param chainIndex Chain index mapping.
- *  @note This function should be a inverse transformation of synChain().
- */
-        template<typename VectorArray, typename IndexArray>
-        void synCartesian(const VectorArray &chainData, VectorArray &data, const IndexArray &chainIndex) {
-            const size_t N = data.size();
+        template<typename DataArray, typename IndexArray>
+        void to_cartesian_coord(DataArray const &chain, DataArray &data, IndexArray const &index) {
+            const size_t size = data.size();
 
-            //data[chainIndex[0]].setZero();
-            data[chainIndex[0]] = chainData[N-1];
-            for (int i = 1; i < N; ++i)
-                data[chainIndex[i]] = data[chainIndex[i - 1]] + chainData[i - 1];
+            //data[index[0]] = 0;
+            data[index[0]] = chain[size-1];
+            for (size_t i = 1; i < size; ++i)
+                data[index[i]] = data[index[i - 1]] + chain[i - 1];
         }
     }
 }

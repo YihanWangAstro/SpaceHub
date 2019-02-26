@@ -3,8 +3,8 @@
 #define CALLBACKS_H
 
 #include "macros.h"
-#include "core_computation.h"
-#include "dev_tools.h"
+#include "core-computation.h"
+#include "dev-tools.h"
 #include "tools/timer.h"
 #include <fstream>
 #include <iomanip>

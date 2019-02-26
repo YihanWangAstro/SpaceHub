@@ -2,16 +2,21 @@
 #ifndef LIBS_H
 #define LIBS_H
 
-#include "own_math.h"
+#include "own-math.h"
 
 namespace SpaceH::calcu {
 
 
     template <typename Array>
-    void array_set_zeros(Array &arry){
+    void array_set_zero(Array &arry){
         for(auto& a : arry){
             a = 0;
         }
+    }
+
+    template<typename ...Args>
+    void set_arrays_zero(Args &...args){
+        (..., (array_set_zero(args)));
     }
 
     template<typename Array, typename ...Args>
