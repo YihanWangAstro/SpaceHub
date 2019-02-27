@@ -117,6 +117,11 @@ inline TYPE const & NAME () const {                                             
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
+#define DECLARE_READ_SCALAR_INTERFACES(NAME, TYPE, DERIVED)                                                            \
+                                                                                                                       \
+inline TYPE const & NAME () const {                                                                                    \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};
 
 #define SPACEHUB_STD_SCALAR_INTERFACES(NAME, MEMBER)                                                                   \
                                                                                                                        \
@@ -127,23 +132,11 @@ inline auto const & NAME () const {                                             
     return MEMBER;                                                                                                     \
 };
 
-#define SPACEHUB_CONDITIONAL_SCALAR_INTERFACES(NAME, MEMBER, COND, ERR)                                                \
+#define SPACEHUB_READ_SCALAR_INTERFACES(NAME, MEMBER)                                                                  \
                                                                                                                        \
-inline auto & NAME () {                                                                                                \
-    if constexpr (COND) {                                                                                              \
-        return MEMBER;                                                                                                 \
-    } else {                                                                                                           \
-        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to variable");                               \
-    }                                                                                                                  \
-};                                                                                                                     \
 inline auto const & NAME () const {                                                                                    \
-    if constexpr (COND) {                                                                                              \
-        return MEMBER;                                                                                                 \
-    } else {                                                                                                           \
-        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to variable");                               \
-    }                                                                                                                  \
+    return MEMBER;                                                                                                     \
 };
-
 
 #define DECLARE_STD_ARRAY_INTERFACES(NAME, DERIVED)                                                                    \
                                                                                                                        \
@@ -160,6 +153,16 @@ inline auto const & NAME (size_t i) const {                                     
     return static_cast<Derived*>(this)->impl_##NAME(i);                                                                \
 };
 
+#define DECLARE_READ_ARRAY_INTERFACES(NAME, DERIVED)                                                                   \
+                                                                                                                       \
+inline auto const & NAME () const {                                                                                    \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};                                                                                                                     \
+inline auto const & NAME (size_t i) const {                                                                            \
+    return static_cast<Derived*>(this)->impl_##NAME(i);                                                                \
+};
+
+
 #define SPACEHUB_STD_ARRAY_INTERFACES(NAME, MEMBER)                                                                    \
                                                                                                                        \
 inline auto & NAME () {                                                                                                \
@@ -175,35 +178,13 @@ inline auto const & NAME (size_t i) const {                                     
     return MEMBER[i];                                                                                                  \
 };
 
-#define SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(COND, NAME, MEMBER)                                                      \
+#define SPACEHUB_READ_ARRAY_INTERFACES(NAME, MEMBER)                                                                   \
                                                                                                                        \
-inline auto & NAME () {                                                                                                \
-    if constexpr (COND) {                                                                                              \
-        return MEMBER;                                                                                                 \
-    } else {                                                                                                           \
-        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
-    }                                                                                                                  \
-};                                                                                                                     \
-inline auto & NAME (size_t i) {                                                                                        \
-    if constexpr (COND) {                                                                                              \
-        return MEMBER[i];                                                                                              \
-    } else {                                                                                                           \
-        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
-    }                                                                                                                  \
-};                                                                                                                     \
 inline auto const & NAME () const {                                                                                    \
-    if constexpr (COND) {                                                                                              \
-        return MEMBER;                                                                                                 \
-    } else {                                                                                                           \
-        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
-    }                                                                                                                  \
+    return MEMBER;                                                                                                     \
 };                                                                                                                     \
 inline auto const & NAME (size_t i) const {                                                                            \
-    if constexpr (COND) {                                                                                              \
-        return MEMBER[i];                                                                                              \
-    } else {                                                                                                           \
-        SPACEHUB_ABORT("Condition: "#COND" is not satisfied to get access to the array");                              \
-    }                                                                                                                  \
+    return MEMBER[i];                                                                                                  \
 };
 
 /** @brief Macros used to check if a class has a specific method.  */

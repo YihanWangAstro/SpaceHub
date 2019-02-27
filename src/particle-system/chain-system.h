@@ -68,9 +68,9 @@ namespace SpaceH {
         }
 
         void impl_advance_pos(ScalarArray const &vx, ScalarArray const &vy, ScalarArray const &vz, Scalar stepSize) {
-            calcu::array_advance(px(), vx, stepSize);
-            calcu::array_advance(py(), vy, stepSize);
-            calcu::array_advance(pz(), vz, stepSize);
+            calc::array_advance(px(), vx, stepSize);
+            calc::array_advance(py(), vy, stepSize);
+            calc::array_advance(pz(), vz, stepSize);
         }
 
         void impl_advance_vel(Scalar stepSize) {
@@ -78,9 +78,9 @@ namespace SpaceH {
         }
 
         void impl_advance_vel(ScalarArray const &ax, ScalarArray const &ay, ScalarArray const &az, Scalar stepSize) {
-            calcu::array_advance(vx(), ax, stepSize);
-            calcu::array_advance(vy(), ay, stepSize);
-            calcu::array_advance(vz(), az, stepSize);
+            calc::array_advance(vx(), ax, stepSize);
+            calc::array_advance(vy(), ay, stepSize);
+            calc::array_advance(vz(), az, stepSize);
         }
 
         void impl_evaluate_acc() {
@@ -98,9 +98,9 @@ namespace SpaceH {
 
                 action_.eval_vel_dep_acc(*this);
                 action_.sum_tot_acc();
-                calcu::array_advance(auxi_vx(), ax(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vy(), ay(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vz(), az(), 0.5 * stepSize);
+                calc::array_advance(auxi_vx(), ax(), 0.5 * stepSize);
+                calc::array_advance(auxi_vy(), ay(), 0.5 * stepSize);
+                calc::array_advance(auxi_vz(), az(), 0.5 * stepSize);
 
                 action_.eval_auxi_vel_dep_acc(*this);
                 action_.sum_tot_acc();
@@ -108,9 +108,9 @@ namespace SpaceH {
 
                 action_.eval_vel_dep_acc(*this);
                 action_.sum_tot_acc();
-                calcu::array_advance(auxi_vx(), ax(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vy(), ay(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vz(), az(), 0.5 * stepSize);
+                calc::array_advance(auxi_vx(), ax(), 0.5 * stepSize);
+                calc::array_advance(auxi_vy(), ay(), 0.5 * stepSize);
+                calc::array_advance(auxi_vz(), az(), 0.5 * stepSize);
             } else {
                 action_.eval_acc(*this);
                 impl_advance_vel(stepSize);

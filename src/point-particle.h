@@ -39,7 +39,7 @@ namespace SpaceH {
         Vector pos;
         Vector vel;
         Scalar mass;
-        size_t idn;
+        size_t idn{0};
     };
 
     template<typename TypeSystem>
@@ -66,20 +66,20 @@ namespace SpaceH {
             for (auto &p : partc) {
                 this->emplace_back(p);
             }
-            active_num = input_num;
             time_ = t;
         }
 
         template<typename Particle>
         void emplace_back(Particle&& p) {
             px_.emplace_back(p.pos.x);
-            px_.emplace_back(p.pos.y);
-            px_.emplace_back(p.pos.z);
-            px_.emplace_back(p.vel.x);
-            px_.emplace_back(p.vel.y);
-            px_.emplace_back(p.vel.z);
-            px_.emplace_back(p.mass);
-            px_.emplace_back(p.idn);
+            py_.emplace_back(p.pos.y);
+            pz_.emplace_back(p.pos.z);
+            vx_.emplace_back(p.vel.x);
+            vy_.emplace_back(p.vel.y);
+            vz_.emplace_back(p.vel.z);
+            mass_.emplace_back(p.mass);
+            idn_.emplace_back(p.idn);
+            active_num++;
         }
 
         void resize(size_t new_sz) {

@@ -7,54 +7,32 @@
 #include "../macros.h"
 #include "type-class.h"
 #include "../particle-system.h"
+#include "../accelerations.h"
 #include <memory>
 
 namespace SpaceH {
 
-
-    template<typename Particles, typename Interaction>
-    class BaseSystem : ParticleSystem<BaseSystem<Particles, Interaction>> {
+    template<typename Particles, typename Interactions>
+    class BaseSystem : ParticleSystem<BaseSystem<Particles, Interactions>> {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
         SPACEHUB_STD_ARRAY_INTERFACES(px, partc_.px());
-
         SPACEHUB_STD_ARRAY_INTERFACES(py, partc_.py());
-
         SPACEHUB_STD_ARRAY_INTERFACES(pz, partc_.pz());
-
         SPACEHUB_STD_ARRAY_INTERFACES(vx, partc_.vx());
-
         SPACEHUB_STD_ARRAY_INTERFACES(vy, partc_.vy());
-
         SPACEHUB_STD_ARRAY_INTERFACES(vz, partc_.vz());
-
-        SPACEHUB_STD_ARRAY_INTERFACES(ax, action_.ax());
-
-        SPACEHUB_STD_ARRAY_INTERFACES(ay, action_.ay());
-
-        SPACEHUB_STD_ARRAY_INTERFACES(az, action_.az());
-
         SPACEHUB_STD_ARRAY_INTERFACES(mass, partc_.mass());
-
         SPACEHUB_STD_ARRAY_INTERFACES(idn, partc_.idn());
-
-        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vx, auxi_vx_);
-
-        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vy, auxi_vy_);
-
-        SPACEHUB_CONDITIONAL_ARRAY_INTERFACES(Interaction::isVelDependent, auxi_vz, auxi_vz_);
+        SPACEHUB_STD_ARRAY_INTERFACES(ax, acc_.ax());
+        SPACEHUB_STD_ARRAY_INTERFACES(ay, acc_.ay());
+        SPACEHUB_STD_ARRAY_INTERFACES(az, acc_.az());
 
         BaseSystem() = delete;
 
         template<typename Container>
-        BaseSystem(Container const &partc, Scalar t) : partc_(partc, t), action_(partc.size()) {
-            if constexpr (Interaction::isVelDependent) {
-                auxi_vx_ = vx();
-                auxi_vy_ = vy();
-                auxi_vz_ = vz();
-            }
-        }
+        BaseSystem(Container const &partc, Scalar t) : partc_(partc, t), acc_(partc.size()) {}
 
         size_t impl_number() {
             return partc_.number();
@@ -69,23 +47,23 @@ namespace SpaceH {
         }
 
         void impl_advance_pos(ScalarArray const &vx, ScalarArray const &vy, ScalarArray const &vz, Scalar stepSize) {
-            calcu::array_advance(px(), vx, stepSize);
-            calcu::array_advance(py(), vy, stepSize);
-            calcu::array_advance(pz(), vz, stepSize);
+            calc::array_advance(px(), vx, stepSize);
+            calc::array_advance(py(), vy, stepSize);
+            calc::array_advance(pz(), vz, stepSize);
         }
 
         void impl_advance_vel(Scalar stepSize) {
-            impl_advance_vel(action_.ax(), action_.ay(), action_.az(), stepSize);
+            impl_advance_vel(ax(), ay(), az(), stepSize);
         }
 
-        void impl_advance_vel(ScalarArray const &ax, ScalarArray const &ay, ScalarArray const &az, Scalar stepSize) {
-            calcu::array_advance(vx(), ax, stepSize);
-            calcu::array_advance(vy(), ay, stepSize);
-            calcu::array_advance(vz(), az, stepSize);
+        void impl_advance_vel(ScalarArray const &a_x, ScalarArray const &a_y, ScalarArray const &a_z, Scalar stepSize) {
+            calc::array_advance(vx(), a_x, stepSize);
+            calc::array_advance(vy(), a_y, stepSize);
+            calc::array_advance(vz(), a_z, stepSize);
         }
 
-        void impl_evaluate_acc() {
-            action_.eval_acc(*this);
+        void impl_evaluate_acc(ScalarArray &a_x, ScalarArray &a_y, ScalarArray &a_z) {
+            eom_.eval_acc(partc_, a_x, a_y, a_z);
         }
 
         void impl_drift(Scalar stepSize) {
@@ -94,26 +72,14 @@ namespace SpaceH {
         }
 
         void impl_kick(Scalar stepSize) {
-            if constexpr (Interaction::isVelDependent) {
-                action_.eval_vel_indep_acc(*this);
-
-                action_.eval_vel_dep_acc(*this);
-                action_.sum_tot_acc();
-                calcu::array_advance(auxi_vx(), ax(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vy(), ay(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vz(), az(), 0.5 * stepSize);
-
-                action_.eval_auxi_vel_dep_acc(*this);
-                action_.sum_tot_acc();
-                impl_advance_vel(stepSize);
-
-                action_.eval_vel_dep_acc(*this);
-                action_.sum_tot_acc();
-                calcu::array_advance(auxi_vx(), ax(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vy(), ay(), 0.5 * stepSize);
-                calcu::array_advance(auxi_vz(), az(), 0.5 * stepSize);
+            if constexpr (Interactions::isVelDependent) {
+                auto halfStep = 0.5 * stepSize;
+                eom_.eval_vel_indep_acc(partc_, acc_.vid_ax(), acc_.vid_ay(), acc_.vid_az());
+                kick_pseu_vel(halfStep);
+                kick_real_vel(stepSize);
+                kick_pseu_vel(halfStep);
             } else {
-                action_.eval_acc(*this);
+                eom_.eval_acc(partc_, ax(), ay(), az());
                 impl_advance_vel(stepSize);
             }
         }
@@ -123,11 +89,23 @@ namespace SpaceH {
         }
 
     private:
+        void kick_pseu_vel(Scalar stepSize){
+            eom_.eval_vel_dep_acc(partc_, acc_.vd_ax(), acc_.vd_ay(), acc_.vd_az());
+            sum_all_acc(acc_);
+            calc::array_advance(partc_.aux_vx(), ax(), stepSize);
+            calc::array_advance(partc_.aux_vy(), ay(), stepSize);
+            calc::array_advance(partc_.aux_vz(), az(), stepSize);
+        }
+
+        void kick_real_vel(Scalar stepSize){
+            eom_.eval_aux_vel_dep_acc(partc_, acc_.vd_ax(), acc_.vd_ay(), acc_.vd_az());
+            sum_all_acc(acc_);
+            impl_advance_vel(stepSize);
+        }
+
         Particles partc_;
-        Interaction action_;
-        ScalarArray auxi_vx_;
-        ScalarArray auxi_vy_;
-        ScalarArray auxi_vz_;
+        Interactions eom_;
+        Accelerations<ScalarArray, Interactions::isVelDependent> acc_;
     };
 
 

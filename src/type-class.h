@@ -13,12 +13,12 @@ namespace SpaceH {
         template<typename ...T>
         using Container = TContainer<T...>;
 
-        using Scalar      = Real;
-        using ScalarArray = Container<Scalar>;
-        using IntArray    = Container<int>;
-        using IndexArray  = Container<size_t>;
-        using Vector      = Vec3<Scalar>;
-        using VectorArray = Container<Vector>;
+        using Scalar   = Real;
+        using SArray   = Container<Scalar>;
+        using IArray   = Container<int>;
+        using IdxArray = Container<size_t>;
+        using Vector   = Vec3<Scalar>;
+        using VArray   = Container<Vector>;
     };
 }//end namespace SpaceH
 
