@@ -97,6 +97,7 @@ namespace SpaceH {
 
         friend std::ostream &operator<<(std::ostream &os, SoAPointParticle const &ps) {
             size_t num = ps.number();
+            os << ps.time_;
             for (size_t i = 0; i < num; ++i) {
                 SpaceH::display(os, ps.idn_[i], ps.mass_[i], ps.px_[i], ps.py_[i], ps.pz_[i], ps.vx_[i], ps.vy_[i], ps.vz_[i]);
             }
@@ -105,6 +106,7 @@ namespace SpaceH {
 
         friend std::istream &operator>>(std::istream &is, SoAPointParticle &ps) {
             size_t num = ps.number();
+            is >> ps.time_;
             for (size_t i = 0; i < num; ++i) {
                 SpaceH::input(is, ps.idn_[i], ps.mass_[i], ps.px_[i], ps.py_[i], ps.pz_[i], ps.vx_[i], ps.vy_[i], ps.vz_[i]);
             }

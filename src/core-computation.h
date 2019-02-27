@@ -7,6 +7,26 @@
 namespace SpaceH::calc {
 
 
+    template <typename ...Args>
+    auto add(Args && ...args){
+        return (... + args);
+    }
+
+    template <typename ...Args>
+    auto mul(Args && ...args){
+        return (... * args);
+    }
+
+    template <typename ...Args>
+    auto any(Args ...args){
+        return (... || args);
+    }
+
+    template <typename ...Args>
+    auto all(Args ...args){
+        return (... && args);
+    }
+
     template <typename Array>
     void array_set_zero(Array &arry){
         for(auto& a : arry){
@@ -75,152 +95,81 @@ namespace SpaceH::calc {
         return total;
     }
 
-    /** @brief Move variables to centr
-     
-     al mass coordinates
-     *
-     *  @param mass   Array of mass.
-     *  @param phyVar Array of variables need to be moved.
-     */
-    template<typename ScalarArray, typename VectorArray>
-    auto calcuCMCoord(const ScalarArray &mass, VectorArray &phyVar) {
-        typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
-        typename ScalarArray::value_type totalMass = 0;
 
-        const size_t N = mass.size();
+    template<typename Array1, typename Array2>
+    auto calc_com(Array1 const & mass, Array2 const & var) {
+        using T = typename Array2::value_type;
+        using Scalar = typename Array1::value_type;
 
-        for (size_t i = 0; i < N; ++i) {
-            totalMass += mass[i];
-            centralMassVar += phyVar[i] * mass[i];
-        }
+        T com_var{0};
+        Scalar tot_mass{0};
 
-        centralMassVar /= totalMass;
-        return centralMassVar;
-    }
-
-    /** @brief Move variables to central mass coordinates
-     *
-     *  @param mass   Array of mass.
-     *  @param phyVar Array of variables need to be moved.
-     *  @param totalMass The totalMass of the system
-     */
-    template<typename ScalarArray, typename VectorArray, typename Scalar>
-    auto calcuCMCoord(const ScalarArray &mass, VectorArray &phyVar, const Scalar totalMass) {
-        typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
-
-        const size_t N = mass.size();
-
-        for (size_t i = 0; i < N; ++i)
-            centralMassVar += phyVar[i] * mass[i];
-
-        centralMassVar /= totalMass;
-        return centralMassVar;
-    }
-
-    /** @brief Move variables to central mass coordinates
-     *
-     *  @param mass   Array of mass.
-     *  @param phyVar Array of variables need to be moved.
-     */
-    template<typename VectorArray>
-    void moveToCMCoord(VectorArray &phyVar, const typename VectorArray::value_type &centralMassVar) {
-        const size_t N = phyVar.size();
-
-        for (auto& var : phyVar)
-            var -= centralMassVar;
-    }
-
-    /** @brief Move variables to central mass coordinates
-     *
-     *  @param mass   Array of mass.
-     *  @param phyVar Array of variables need to be moved.
-     *  @param totalMass The totalMass of the system
-     */
-    template<typename ScalarArray, typename VectorArray, typename Scalar>
-    void moveToCoM(const ScalarArray &mass, VectorArray &phyVar, const Scalar totalMass) {
-        typename VectorArray::value_type centralMassVar(0.0, 0.0, 0.0);
-
-        const size_t N = mass.size();
-
-        for (size_t i = 0; i < N; ++i)
-            centralMassVar += phyVar[i] * mass[i];
-
-        centralMassVar /= totalMass;
-
-        for (auto& var : phyVar)
-            var -= centralMassVar;
-    }
-
-    /** @brief Move variables to central mass coordinates
-     *
-     *  @param mass   Array of mass.
-     *  @param phyVar Array of variables need to be moved.
-     *  @param totalMass The totalMass of the system
-     */
-    template<typename ScalarArray, typename VectorArray>
-    void moveToCoM(const ScalarArray &mass, VectorArray &phyVar) {
-        using Vector = typename VectorArray::value_type;
-        using Scalar = typename Vector ::value_type;
-
-        Vector centralMassVar(0.0, 0.0, 0.0);
-        Scalar totalMass{0};
-
-        const size_t N = mass.size();
-        for (size_t i = 0; i < N; ++i) {
-            centralMassVar += phyVar[i] * mass[i];
-            totalMass += mass[i];
-        }
-
-        centralMassVar /= totalMass;
-
-        for (auto& var : phyVar)
-            var -= centralMassVar;
-    }
-
-    template<typename Particles>
-    auto get_kinetic_energy(Particles const &partc) {
-        typename Particles::Scalar kineticEnergy{0};
-
-        size_t size = partc.number();
-
-        for (size_t i = 0; i < size; ++i)
-            kineticEnergy += 0.5 * partc.mass[i] * (partc.vx[i]*partc.vx[i] + partc.vy[i]*partc.vy[i] + partc.vz[i]*partc.vz[i]);
-
-        return kineticEnergy;
-    }
-
-    template<typename Particles>
-    auto get_potential_energy(Particles const&partc) {
-        typename Particles::Scalar potentialEnergy{0};
-
-        size_t size = partc.number();
-
-        for (size_t i = 0; i < size; ++i)
-            for (size_t j = i + 1; j < size; ++j){
-                auto dx = partc.px[i] - partc.px[j];
-                auto dy = partc.py[i] - partc.py[j];
-                auto dz = partc.pz[i] - partc.pz[j];
-                potentialEnergy -= partc.mass[i] * partc.mass[j] / sqrt(dx*dx + dy*dy + dz*dz);
-            }
-        return potentialEnergy;
-    }
-
-    template<typename Particles>
-    auto get_total_energy(Particles const &partc) {
-        typename Particles::Scalar potentialEnergy{0};
-        typename Particles::Scalar kineticEnergy{0};
-        size_t size = partc.number();
+        size_t const size = mass.size();
 
         for (size_t i = 0; i < size; ++i) {
-            kineticEnergy += 0.5 * partc.mass[i] * (partc.vx[i]*partc.vx[i] + partc.vy[i]*partc.vy[i] + partc.vz[i]*partc.vz[i]);
-            for (size_t j = i + 1; j < size; ++j){
-                auto dx = partc.px[i] - partc.px[j];
-                auto dy = partc.py[i] - partc.py[j];
-                auto dz = partc.pz[i] - partc.pz[j];
-                potentialEnergy -= partc.mass[i] * partc.mass[j] / sqrt(dx*dx + dy*dy + dz*dz);
+            com_var += var[i] * mass[i];
+            tot_mass += mass[i];
+        }
+        com_var /= tot_mass;
+        return com_var;
+    }
+
+    template<typename Array>
+    void move_to_com(Array &var, typename Array::value_type const &com_var) {
+        for (auto& v : var)
+            v -= com_var;
+    }
+
+    template<typename Array1, typename Array2>
+    void move_to_com(Array1 const & mass, Array2 & var) {
+        auto com_var = calc_com(mass, var);
+        move_to_com(var, com_var);
+    }
+
+    template<typename Particles>
+    auto calc_kinetic_energy(Particles const &ptc) {
+        typename Particles::Scalar k_eng{0};
+
+        size_t size = ptc.number();
+
+        for (size_t i = 0; i < size; ++i)
+            k_eng += 0.5 * ptc.mass(i) * (ptc.vx(i) * ptc.vx(i) + ptc.vy(i) * ptc.vy(i) + ptc.vz(i) * ptc.vz(i));
+
+        return k_eng;
+    }
+
+    template<typename Particles>
+    auto calc_potential_energy(Particles const &ptc) {
+        typename Particles::Scalar p_eng{0};
+
+        size_t size = ptc.number();
+
+        for (size_t i = 0; i < size; ++i)
+            for (size_t j = i + 1; j < size; ++j) {
+                auto dx = ptc.px(i) - ptc.px(j);
+                auto dy = ptc.py(i) - ptc.py(j);
+                auto dz = ptc.pz(i) - ptc.pz(j);
+                p_eng -= ptc.mass(i) * ptc.mass(j) / sqrt(dx * dx + dy * dy + dz * dz);
+            }
+        return p_eng;
+    }
+
+    template<typename Particles>
+    auto calc_total_energy(Particles const &ptc) {
+        typename Particles::Scalar p_eng{0};
+        typename Particles::Scalar k_eng{0};
+        size_t size = ptc.number();
+
+        for (size_t i = 0; i < size; ++i) {
+            k_eng += 0.5 * ptc.mass(i) * (ptc.vx(i) * ptc.vx(i) + ptc.vy(i) * ptc.vy(i) + ptc.vz(i) * ptc.vz(i));
+            for (size_t j = i + 1; j < size; ++j) {
+                auto dx = ptc.px(i) - ptc.px(j);
+                auto dy = ptc.py(i) - ptc.py(j);
+                auto dz = ptc.pz(i) - ptc.pz(j);
+                p_eng -= ptc.mass(i) * ptc.mass(j) / sqrt(dx * dx + dy * dy + dz * dz);
             }
         }
-        return potentialEnergy + kineticEnergy;
+        return p_eng + k_eng;
     }
 
 
@@ -301,39 +250,6 @@ namespace SpaceH::calc {
         return min_ds;
     }
 
-
-
-
-    /** @brief Calculate the potential energy of particles
-     *
-     *  @param  mass  Array of mass.
-     *  @param  pos   Array of position.
-     *  @param  chpos Array of chain position.
-     *  @param  chind Array of chain index.
-     *  @return The potential energy.
-     */
-    template<typename ScalarArray, typename VectorArray, typename IndexArray>
-    auto getPotentialEnergy(const ScalarArray &mass, const VectorArray &pos, const VectorArray &chainPos,
-                       const IndexArray &chainInd) {
-        typename ScalarArray::value_type potentialEnergy = 0;
-
-        size_t size = mass.size();
-
-        for (size_t i = 0; i < size - 1; ++i)
-            potentialEnergy -= mass[chainInd[i]] * mass[chainInd[i + 1]] / chainPos[i].norm();
-
-        for (size_t i = 0; i < size - 2; ++i)
-            potentialEnergy -= mass[chainInd[i]] * mass[chainInd[i + 2]] / (chainPos[i] + chainPos[i + 1]).norm();
-
-        for (size_t i = 0; i < size; ++i)
-            for (size_t j = i + 3; j < size; ++j)
-                potentialEnergy -= mass[chainInd[i]] * mass[chainInd[j]] / distance(pos[chainInd[j]], pos[chainInd[i]]);
-
-        return potentialEnergy;
-    }
-
-
-
     /** @brief Calculate the energy error approximately for regularized system.
      *
      *  @param  mass  Array of mass.
@@ -345,8 +261,8 @@ namespace SpaceH::calc {
     template<typename ScalarArray, typename VectorArray, typename Scalar>
     inline Scalar
     getEnergyErr(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel, const Scalar bindE) {
-        Scalar EK = get_kinetic_energy(mass, vel);
-        Scalar EP = get_potential_energy(mass, pos);
+        Scalar EK = calc_kinetic_energy(mass, vel);
+        Scalar EP = calc_potential_energy(mass, pos);
         return log(abs((EK + bindE) / EP));
     }
 

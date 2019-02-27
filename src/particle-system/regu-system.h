@@ -23,7 +23,7 @@ namespace SpaceH {
         template<typename Particles>
         explicit Regularization(Particles const &partc) {
             omega_ = capital_omega(partc);
-            bindE_ = -calc::get_total_energy(partc);
+            bindE_ = -calc::calc_total_energy(partc);
         }
 
         template<typename Particles>
@@ -55,7 +55,7 @@ namespace SpaceH {
     private:
         template<typename Particles>
         inline auto capital_omega(Particles const &partc) {
-            return -calc::get_potential_energy(partc);
+            return -calc::calc_potential_energy(partc);
         }
 
         Scalar omega_;
