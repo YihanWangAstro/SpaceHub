@@ -29,7 +29,7 @@ namespace SpaceH::calc {
     }
 
     template<typename Array, typename ...Args>
-    inline void array_add(Array &dst, Array const &a, Array const &b, Args const &...args) {
+    void array_add(Array &dst, Array const &a, Array const &b, Args const &...args) {
         size_t size = dst.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -38,7 +38,7 @@ namespace SpaceH::calc {
     }
 
     template<typename Array, typename ...Args>
-    inline void array_mul(Array &dst, Array const &a, Array const &b, Args const &...args) {
+    void array_mul(Array &dst, Array const &a, Array const &b, Args const &...args) {
         size_t size = dst.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -52,7 +52,7 @@ namespace SpaceH::calc {
      *  @param stepSize Given stepSize.
      */
     template<typename Scalar, typename Array>
-    inline void array_advance(Array &var, const Array &increase, Scalar stepSize) {
+    void array_advance(Array &var, const Array &increase, Scalar stepSize) {
         size_t size = var.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -67,7 +67,7 @@ namespace SpaceH::calc {
      * @return
      */
     template <typename Array>
-    inline auto array_sum(Array &array) {
+    auto array_sum(Array &array) {
         typename  Array::value_type total = 0;
         for(auto & a : array) {
             total += a;
