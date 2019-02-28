@@ -6,13 +6,13 @@
 namespace SpaceH {
 
     template<typename... Args>
-    void print(std::ostream &out, Args &&... args) {
-        (..., (out << std::forward<Args>(args)));
+    void print(std::ostream &os, Args &&... args) {
+        (os << ...<< std::forward<Args>(args));
     }
 
     template<typename... Args>
     void input(std::istream &is, Args &&... args) {
-        (..., (is >> std::forward<Args>(args)));
+        (is >> ... >> std::forward<Args>(args));
     }
 
     template<typename... Args>
@@ -52,6 +52,16 @@ namespace SpaceH {
     void reserve_all(size_t new_cap, Args &&... args) {
         (..., (args.reserve(new_cap)));
     }
+
+    template <bool opt, typename T>
+    struct compile_time_opt{
+        template <typename ...Args>
+        compile_time_opt(Args&&...args) : dat(std::forward<Args>(args)...){}
+        T dat;
+    };
+
+    template <typename T>
+    struct compile_time_opt<false,T>{};
 
     template<typename T>
     struct get_value_type {

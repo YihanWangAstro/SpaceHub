@@ -73,7 +73,7 @@ namespace SpaceH {
 
         void impl_kick(Scalar stepSize) {
             if constexpr (Interactions::isVelDependent) {
-                auto halfStep = 0.5 * stepSize;
+                Scalar halfStep = 0.5 * stepSize;
                 eom_.eval_vel_indep_acc(partc_, acc_.vid_ax(), acc_.vid_ay(), acc_.vid_az());
                 kick_pseu_vel(halfStep);
                 kick_real_vel(stepSize);
@@ -107,8 +107,6 @@ namespace SpaceH {
         Interactions eom_;
         Accelerations<ScalarArray, Interactions::isVelDependent> acc_;
     };
-
-
 }
 
 #endif

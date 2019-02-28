@@ -42,7 +42,7 @@ namespace SpaceH {
         size_t idn{0};
     };
 
-    template<typename TypeSystem>
+    template<typename TypeSystem, bool IsVelDep>
     class SoAPointParticle {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
@@ -120,6 +120,9 @@ namespace SpaceH {
         ScalarArray vx_;
         ScalarArray vy_;
         ScalarArray vz_;
+        compile_time_opt<IsVelDep, ScalarArray> aux_vx_;
+        compile_time_opt<IsVelDep, ScalarArray> aux_vy_;
+        compile_time_opt<IsVelDep, ScalarArray> aux_vz_;
         ScalarArray mass_;
         IndexArray idn_;
         Scalar time_;

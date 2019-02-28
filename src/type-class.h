@@ -8,6 +8,13 @@
 
 namespace SpaceH {
 
+    template<typename T>
+    struct {
+        T x;
+        T y;
+        T z;
+    };
+
     template<typename Real, template<class...> class TContainer = std::vector>
     struct TypeSystem {
         template<typename ...T>
@@ -19,6 +26,8 @@ namespace SpaceH {
         using IdxArray    = Container<size_t>;
         using Vector      = Vec3<Scalar>;
         using VArray      = Container<Vector>;
+        using xxxx = std::tuple<ScalarArray &, ScalarArray &, ScalarArray &>;
+        using xxxy = std::tuple<ScalarArray const &, ScalarArray const &, ScalarArray const &>;
     };
 }//end namespace SpaceH
 
