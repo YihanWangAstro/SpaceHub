@@ -10,50 +10,44 @@
 
 namespace SpaceH {
 
-    template<typename ScalarArray, bool IsVelDep>
+    template<typename Coord, bool IsVelDep>
     class Accelerations {
     public:
 
-        SPACEHUB_STD_ARRAY_INTERFACES(ax, ax_);
-        SPACEHUB_STD_ARRAY_INTERFACES(ay, ay_);
-        SPACEHUB_STD_ARRAY_INTERFACES(az, az_);
+        SPACEHUB_STD_SCALAR_INTERFACES(acc, acc_);
 
         Accelerations() = default;
 
-        explicit Accelerations(size_t size) : ax_(size), ay_(size), az_(size) {};
+        explicit Accelerations(size_t size) {
+            acc_.x.resize(size);
+            acc_.y.resize(size);
+            acc_.z.resize(size);
+        };
 
         void resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, ax_, ay_, az_);
+            SpaceH::resize_all(new_sz, acc_.x, acc_.y, acc_.z);
         }
 
         void reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, ax_, ay_, az_);
+            SpaceH::reserve_all(new_cap, acc_.x, acc_.y, acc_.z);
         }
 
         size_t number() {
-            return ax_.size();
+            return acc_.x.size();
         }
 
     private:
-        ScalarArray ax_;
-        ScalarArray ay_;
-        ScalarArray az_;
+        Coord acc_;
     };
 
 
-    template<typename ScalarArray>
-    class Accelerations<ScalarArray, true> {
+    template<typename Coord>
+    class Accelerations<Coord, true> {
     public:
 
-        SPACEHUB_STD_ARRAY_INTERFACES(ax, ax_);
-        SPACEHUB_STD_ARRAY_INTERFACES(ay, ay_);
-        SPACEHUB_STD_ARRAY_INTERFACES(az, az_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vd_ax, vd_ax_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vd_ay, vd_ay_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vd_az, vd_az_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vid_ax, vid_ax_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vid_ay, vid_ay_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vid_az, vid_az_);
+        SPACEHUB_STD_SCALAR_INTERFACES(acc, acc_);
+        SPACEHUB_STD_SCALAR_INTERFACES(v_dep_acc, v_dep_acc_);
+        SPACEHUB_STD_SCALAR_INTERFACES(v_indep_acc, v_indep_acc_);
 
         Accelerations() = default;
 
@@ -73,23 +67,9 @@ namespace SpaceH {
         }
 
     private:
-        ScalarArray ax_;
-        ScalarArray ay_;
-        ScalarArray az_;
-        ScalarArray vd_ax_;
-        ScalarArray vd_ay_;
-        ScalarArray vd_az_;
-        ScalarArray vid_ax_;
-        ScalarArray vid_ay_;
-        ScalarArray vid_az_;
+        Coord acc_;
+        Coord v_dep_acc_;
+        Coord v_indep_acc_;
     };
-
-
-    template<typename Acc>
-    void sum_all_acc(Acc &acc) {
-        calc::array_add(acc.ax(), acc.vid_ax(), acc.vd_ax());
-        calc::array_add(acc.ay(), acc.vid_ay(), acc.vd_ay());
-        calc::array_add(acc.az(), acc.vid_az(), acc.vd_az());
-    }
 }
 #endif //SPACEHUB_ACCELERATIONS_H

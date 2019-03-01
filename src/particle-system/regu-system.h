@@ -17,7 +17,6 @@ namespace SpaceH {
     class Regularization {
     public:
         SPACEHUB_STD_SCALAR_INTERFACES(omega, omega_);
-
         SPACEHUB_STD_SCALAR_INTERFACES(bindE, bindE_);
 
         template<typename Particles>
@@ -77,17 +76,12 @@ namespace SpaceH {
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-        SPACEHUB_STD_ARRAY_INTERFACES(px, ptc_.px());
-        SPACEHUB_STD_ARRAY_INTERFACES(py, ptc_.py());
-        SPACEHUB_STD_ARRAY_INTERFACES(pz, ptc_.pz());
-        SPACEHUB_STD_ARRAY_INTERFACES(vx, ptc_.vx());
-        SPACEHUB_STD_ARRAY_INTERFACES(vy, ptc_.vy());
-        SPACEHUB_STD_ARRAY_INTERFACES(vz, ptc_.vz());
         SPACEHUB_STD_ARRAY_INTERFACES(mass, ptc_.mass());
         SPACEHUB_STD_ARRAY_INTERFACES(idn, ptc_.idn());
-        SPACEHUB_STD_ARRAY_INTERFACES(ax, acc_.ax());
-        SPACEHUB_STD_ARRAY_INTERFACES(ay, acc_.ay());
-        SPACEHUB_STD_ARRAY_INTERFACES(az, acc_.az());
+        SPACEHUB_STD_SCALAR_INTERFACES(pos, ptc_.pos());
+        SPACEHUB_STD_SCALAR_INTERFACES(vel, ptc_.vel());
+        SPACEHUB_STD_SCALAR_INTERFACES(time, ptc_.time());
+        SPACEHUB_STD_SCALAR_INTERFACES(acc, acc_.acc());
 
         /* Typedef */
 
@@ -106,31 +100,31 @@ namespace SpaceH {
         }
 
         void impl_advance_pos(Scalar stepSize) {
-            impl_advance_pos(vx(), vy(), vz(), stepSize);
+            impl_advance_pos(vel(), stepSize);
         }
 
-        void impl_advance_pos(ScalarArray const &v_x, ScalarArray const &v_y, ScalarArray const &v_z, Scalar stepSize) {
+        void impl_advance_pos(Coord const& velocity, Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
-            pure_advance_pos(v_x, v_y, v_z, phyTime);
+            pure_advance_pos(velocity, phyTime);
         }
 
         void impl_advance_vel(Scalar stepSize) {
-            impl_advance_vel(ax(), ay(), az(), stepSize);
+            impl_advance_vel(acc(), stepSize);
         }
 
-        void impl_advance_vel(ScalarArray const &a_x, ScalarArray const &a_y, ScalarArray const &a_z, Scalar stepSize) {
+        void impl_advance_vel(Coord const &acceleration, Scalar stepSize) {
             Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
-            pure_advance_vel(a_x, a_y, a_z, phyTime);
+            pure_advance_vel(acceleration, phyTime);
         }
 
-        void impl_evaluate_acc(ScalarArray &a_x, ScalarArray &a_y, ScalarArray &a_z) {
-            eom_.eval_acc(ptc_, a_x, a_y, a_z);
+        void impl_evaluate_acc(Coord const &acceleration) {
+            eom_.eval_acc(ptc_, acceleration);
         }
 
         /** @brief Advance position one step with current velocity. Used for symplectic integrator.*/
         void impl_drift(Scalar stepSize) {
             auto phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
-            pure_advance_pos(vx(), vy(), vz(), phyTime);
+            pure_advance_pos(vel(), phyTime);
             ptc_.time() += phyTime;
         }
 
@@ -140,17 +134,17 @@ namespace SpaceH {
             auto halfTime = 0.5 * phyTime;
 
             if constexpr (Interactions::isVelDependent) {
-                eom_.eval_vel_indep_acc(ptc_, acc_.vid_ax(), acc_.vid_ay(), acc_.vid_az());
+                eom_.eval_vel_indep_acc(ptc_, acc_.v_indep_acc());
                 kick_pseu_vel(halfTime);
                 kick_real_vel(phyTime);
-                advance_omega(ptc_.aux_vx(), ptc_.aux_vy(), ptc_.aux_vz(), acc_.vid_ax(), acc_.vid_ay(), acc_.vid_az(), phyTime);
-                advance_bindE(ptc_.aux_vx(), ptc_.aux_vy(), ptc_.aux_vz(), phyTime);
+                advance_omega(ptc_.aux_vel(), acc_.v_indep_acc(), phyTime);
+                advance_bindE(ptc_.aux_vel(), phyTime);
                 kick_pseu_vel(halfTime);
             } else {
-                eom_.eval_acc(ptc_, ax(), ay(), az());
-                pure_advance_vel(ax(), ay(), az(), halfTime);
-                advance_omega(vx(), vy(), vz(), ax(), ay(), az(), phyTime);
-                pure_advance_vel(ax(), ay(), az(), halfTime);
+                eom_.eval_acc(ptc_, acc());
+                pure_advance_vel(acc(), halfTime);
+                advance_omega(vel(), acc(), phyTime);
+                pure_advance_vel(acc(), halfTime);
             }
         }
 
@@ -160,45 +154,38 @@ namespace SpaceH {
 
     private:
         void
-        advance_omega(ScalarArray const &v_x, ScalarArray const &v_y, ScalarArray const &v_z, ScalarArray const &d_x,
-                      ScalarArray const &d_y, ScalarArray const &d_z, Scalar stepSize) {
+        advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar stepSize) {
             auto prodx = calc::array_dot(mass(), v_x, d_x);
             auto prody = calc::array_dot(mass(), v_y, d_y);
             auto prodz = calc::array_dot(mass(), v_z, d_z);
             regu_.omega() += (prodx + prody + prodz) * stepSize;
         }
 
-        void advance_bindE(ScalarArray const &v_x, ScalarArray const &v_y, ScalarArray const &v_z, Scalar stepSize) {
+        void advance_bindE(Coord const &velocity, Scalar stepSize) {
             auto prodx = calc::array_dot(mass(), v_x, acc_.vd_ax());
             auto prody = calc::array_dot(mass(), v_y, acc_.vd_ay());
             auto prodz = calc::array_dot(mass(), v_z, acc_.vd_az());
             regu_.bindE() -= (prodx + prody + prodz) * stepSize;
         }
 
-        void pure_advance_pos(ScalarArray const &v_x, ScalarArray const &v_y, ScalarArray const &v_z, Scalar stepSize) {
-            calc::array_advance(px(), v_x, stepSize);
-            calc::array_advance(py(), v_y, stepSize);
-            calc::array_advance(pz(), v_z, stepSize);
+        void pure_advance_pos(Coord const& velocity, Scalar stepSize) {
+            calc::array_advance(pos(), velocity, stepSize);
         }
 
-        void pure_advance_vel(ScalarArray const &a_x, ScalarArray const &a_y, ScalarArray const &a_z, Scalar stepSize) {
-            calc::array_advance(vx(), a_x, stepSize);
-            calc::array_advance(vy(), a_y, stepSize);
-            calc::array_advance(vz(), a_z, stepSize);
+        void pure_advance_vel(Coord const& acceleration, Scalar stepSize) {
+            calc::array_advance(vel(), acceleration, stepSize);
         }
 
         void kick_pseu_vel(Scalar stepSize) {
-            eom_.eval_vel_dep_acc(ptc_, acc_.vd_ax(), acc_.vd_ay(), acc_.vd_az());
-            sum_all_acc(acc_);
-            calc::array_advance(ptc_.aux_vx(), ax(), stepSize);
-            calc::array_advance(ptc_.aux_vy(), ay(), stepSize);
-            calc::array_advance(ptc_.aux_vz(), az(), stepSize);
+            eom_.eval_vel_dep_acc(ptc_, acc_.v_dep_acc());
+            calc::array_add(acc(), acc_.v_indep_acc(), acc_.v_dep_acc());
+            calc::array_advance(ptc_.aux_vel(), acc(), stepSize);
         }
 
         void kick_real_vel(Scalar stepSize) {
-            eom_.eval_aux_vel_dep_acc(ptc_, acc_.vd_ax(), acc_.vd_ay(), acc_.vd_az());
-            sum_all_acc(acc_);
-            pure_advance_vel(ax(), ay(), az(), stepSize);
+            eom_.eval_aux_vel_dep_acc(ptc_, acc_.v_dep_acc());
+            calc::array_add(acc(), acc_.v_indep_acc(), acc_.v_dep_acc());
+            pure_advance_vel(acc(), stepSize);
         }
 
         Particles ptc_;

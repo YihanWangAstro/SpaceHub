@@ -18,8 +18,8 @@ namespace SpaceH{
         static constexpr bool isVelDependent{false};
 
         template<typename Particles>
-        void eval_acc(Particles const &partc, ScalarArray& ax, ScalarArray& ay, ScalarArray& az) {
-            static_cast<Derived*>(this)->impl_eval_acc(partc, ax, ay, az);
+        void eval_acc(Particles const &partc, Coord& acc) {
+            static_cast<Derived*>(this)->impl_eval_acc(partc, acc);
         }
     };
 
@@ -32,23 +32,23 @@ namespace SpaceH{
         static constexpr bool isVelDependent{true};
 
         template<typename Particles>
-        void eval_acc(Particles const &partc, ScalarArray& ax, ScalarArray& ay, ScalarArray& az) {
-            static_cast<Derived*>(this)->impl_eval_acc(partc, ax, ay, az);
+        void eval_acc(Particles const &partc, Coord& acc) {
+            static_cast<Derived*>(this)->impl_eval_acc(partc, acc);
         }
 
         template<typename Particles>
-        void eval_vel_indep_acc(Particles const &partc, ScalarArray& ax, ScalarArray& ay, ScalarArray& az) {
-            static_cast<Derived*>(this)->impl_eval_vel_indep_acc(partc, ax, ay, az);
+        void eval_vel_indep_acc(Particles const &partc, Coord& acc) {
+            static_cast<Derived*>(this)->impl_eval_vel_indep_acc(partc, acc);
         }
 
         template<typename Particles>
-        void eval_vel_dep_acc(Particles const &partc, ScalarArray& ax, ScalarArray& ay, ScalarArray& az) {
-            static_cast<Derived*>(this)->impl_eval_vel_dep_acc(partc, ax, ay, az);
+        void eval_vel_dep_acc(Particles const &partc, Coord& acc) {
+            static_cast<Derived*>(this)->impl_eval_vel_dep_acc(partc, acc);
         }
 
         template<typename Particles>
-        void eval_aux_vel_dep_acc(Particles const &partc, ScalarArray &ax, ScalarArray &ay, ScalarArray &az) {
-            static_cast<Derived*>(this)->impl_eval_aux_vel_dep_acc(partc, ax, ay, az);
+        void eval_aux_vel_dep_acc(Particles const &partc, Coord& acc) {
+            static_cast<Derived*>(this)->impl_eval_aux_vel_dep_acc(partc, acc);
         }
     };
 }

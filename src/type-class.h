@@ -8,8 +8,8 @@
 
 namespace SpaceH {
 
-    template<typename T>
-    struct {
+    template<typename T, size_t Dim = 3>
+    struct Coord{
         T x;
         T y;
         T z;
@@ -26,8 +26,7 @@ namespace SpaceH {
         using IdxArray    = Container<size_t>;
         using Vector      = Vec3<Scalar>;
         using VArray      = Container<Vector>;
-        using xxxx = std::tuple<ScalarArray &, ScalarArray &, ScalarArray &>;
-        using xxxy = std::tuple<ScalarArray const &, ScalarArray const &, ScalarArray const &>;
+        using Coord       = Coord<ScalarArray>;
     };
 }//end namespace SpaceH
 

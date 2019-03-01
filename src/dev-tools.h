@@ -116,6 +116,7 @@ namespace SpaceH {
     using IntArray    = typename CLASS::IntArray;                                                                      \
     using Vector      = typename CLASS::Vector;                                                                        \
     using VectorArray = typename CLASS::VectorArray;                                                                   \
+    using Coord       = typename CLASS::Coord
 
 
 #define DECLARE_STD_SCALAR_INTERFACES(NAME, TYPE, DERIVED)                                                             \

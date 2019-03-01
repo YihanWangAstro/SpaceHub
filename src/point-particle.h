@@ -47,15 +47,11 @@ namespace SpaceH {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        SPACEHUB_STD_ARRAY_INTERFACES(px, px_);
-        SPACEHUB_STD_ARRAY_INTERFACES(py, py_);
-        SPACEHUB_STD_ARRAY_INTERFACES(pz, pz_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vx, vx_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vy, vy_);
-        SPACEHUB_STD_ARRAY_INTERFACES(vz, vz_);
         SPACEHUB_STD_ARRAY_INTERFACES(mass, mass_);
         SPACEHUB_STD_ARRAY_INTERFACES(idn, idn_);
         SPACEHUB_STD_SCALAR_INTERFACES(time, time_);
+        SPACEHUB_STD_SCALAR_INTERFACES(pos, pos_);
+        SPACEHUB_STD_SCALAR_INTERFACES(vel, vel_);
 
         SoAPointParticle() = delete;
 
@@ -71,24 +67,24 @@ namespace SpaceH {
 
         template<typename Particle>
         void emplace_back(Particle&& p) {
-            px_.emplace_back(p.pos.x);
-            py_.emplace_back(p.pos.y);
-            pz_.emplace_back(p.pos.z);
-            vx_.emplace_back(p.vel.x);
-            vy_.emplace_back(p.vel.y);
-            vz_.emplace_back(p.vel.z);
+            pos_.x.emplace_back(p.pos.x);
+            pos_.y.emplace_back(p.pos.y);
+            pos_.z.emplace_back(p.pos.z);
+            vel_.x.emplace_back(p.vel.x);
+            vel_.y.emplace_back(p.vel.y);
+            vel_.z.emplace_back(p.vel.z);
             mass_.emplace_back(p.mass);
             idn_.emplace_back(p.idn);
             active_num++;
         }
 
         void resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
+            SpaceH::resize_all(new_sz, pos_.x, pos_.y, pos_.z, vel_.x, vel_.y, vel_.z, mass_, idn_);
             active_num = new_sz;
         }
 
         void reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, px_, py_, pz_, vx_, vy_, vz_, mass_, idn_);
+            SpaceH::reserve_all(new_cap, pos_.x, pos_.y, pos_.z, vel_.x, vel_.y, vel_.z, mass_, idn_);
         }
 
         size_t number() {
@@ -114,15 +110,8 @@ namespace SpaceH {
         }
 
     private:
-        ScalarArray px_;
-        ScalarArray py_;
-        ScalarArray pz_;
-        ScalarArray vx_;
-        ScalarArray vy_;
-        ScalarArray vz_;
-        compile_time_opt<IsVelDep, ScalarArray> aux_vx_;
-        compile_time_opt<IsVelDep, ScalarArray> aux_vy_;
-        compile_time_opt<IsVelDep, ScalarArray> aux_vz_;
+        Coord pos_;
+        Coord vel_;
         ScalarArray mass_;
         IndexArray idn_;
         Scalar time_;

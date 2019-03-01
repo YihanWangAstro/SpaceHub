@@ -79,6 +79,20 @@ namespace SpaceH::calc {
             var[i] += increase[i] * stepSize;
         }
     }
+
+    template<typename Coord, typename ...Args>
+    void coord_add(Coord &dst, Coord const &a, Coord const &b, Args const &...args) {
+        array_add(dst.x, a.x, b.x, std::forward<Args>(args.x)...);
+        array_add(dst.y, a.y, b.y, std::forward<Args>(args.y)...);
+        array_add(dst.z, a.z, b.z, std::forward<Args>(args.z)...);
+    }
+
+    template<typename Scalar, typename Coord>
+    void coord_advance(Coord &var, const Coord &increase, Scalar stepSize) {
+        array_advance(var.x, increase.x, stepSize);
+        array_advance(var.y, increase.y, stepSize);
+        array_advance(var.z, increase.z, stepSize);
+    }
     /**
      * @brief Return the summation of an array. The element of the array need to suppot one parameter initialization
      * with '0' and operator '+='.
