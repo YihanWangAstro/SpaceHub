@@ -15,7 +15,7 @@ namespace SpaceH{
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
 
-        static constexpr bool isVelDependent{false};
+        static constexpr bool is_vel_dep{false};
 
         template<typename Particles>
         void eval_acc(Particles const &partc, Coord& acc) {
@@ -29,7 +29,7 @@ namespace SpaceH{
         SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
 
 
-        static constexpr bool isVelDependent{true};
+        static constexpr bool is_vel_dep{true};
 
         template<typename Particles>
         void eval_acc(Particles const &partc, Coord& acc) {

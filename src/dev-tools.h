@@ -112,13 +112,43 @@ namespace SpaceH {
                                                                                                                        \
     using Scalar      = typename CLASS::Scalar;                                                                        \
     using ScalarArray = typename CLASS::ScalarArray;                                                                   \
-    using IndexArray  = typename CLASS::IndexArray;                                                                    \
+    using IdxArray    = typename CLASS::IdxArray;                                                                      \
     using IntArray    = typename CLASS::IntArray;                                                                      \
     using Vector      = typename CLASS::Vector;                                                                        \
     using VectorArray = typename CLASS::VectorArray;                                                                   \
     using Coord       = typename CLASS::Coord
 
+#define DECLARE_STD_INTERFACES(NAME, TYPE, DERIVED)                                                                    \
+                                                                                                                       \
+inline TYPE & NAME () {                                                                                                \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};                                                                                                                     \
+inline TYPE const & NAME () const {                                                                                    \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};
 
+#define DECLARE_READ_INTERFACES(NAME, TYPE, DERIVED)                                                                   \
+                                                                                                                       \
+inline TYPE const & NAME () const {                                                                                    \
+    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+};
+
+#define SPACEHUB_STD_INTERFACES(NAME, MEMBER)                                                                          \
+                                                                                                                       \
+inline auto & NAME () {                                                                                                \
+    return MEMBER;                                                                                                     \
+};                                                                                                                     \
+inline auto const & NAME () const {                                                                                    \
+    return MEMBER;                                                                                                     \
+};
+
+#define SPACEHUB_READ_INTERFACES(NAME, MEMBER)                                                                         \
+                                                                                                                       \
+inline auto const & NAME () const {                                                                                    \
+    return MEMBER;                                                                                                     \
+};
+
+/*
 #define DECLARE_STD_SCALAR_INTERFACES(NAME, TYPE, DERIVED)                                                             \
                                                                                                                        \
 inline TYPE & NAME () {                                                                                                \
@@ -196,7 +226,7 @@ inline auto const & NAME () const {                                             
 };                                                                                                                     \
 inline auto const & NAME (size_t i) const {                                                                            \
     return MEMBER[i];                                                                                                  \
-};
+};*/
 
 /** @brief Macros used to check if a class has a specific method.  */
 #define CREATE_METHOD_CHECK(NAME)                                                                                      \

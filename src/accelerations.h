@@ -14,7 +14,7 @@ namespace SpaceH {
     class Accelerations {
     public:
 
-        SPACEHUB_STD_SCALAR_INTERFACES(acc, acc_);
+        SPACEHUB_STD_INTERFACES(acc, acc_);
 
         Accelerations() = default;
 
@@ -25,11 +25,11 @@ namespace SpaceH {
         };
 
         void resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, acc_.x, acc_.y, acc_.z);
+            acc_.resize(new_sz);
         }
 
         void reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, acc_.x, acc_.y, acc_.z);
+            acc_.reserve(new_cap);
         }
 
         size_t number() {
@@ -45,31 +45,31 @@ namespace SpaceH {
     class Accelerations<Coord, true> {
     public:
 
-        SPACEHUB_STD_SCALAR_INTERFACES(acc, acc_);
-        SPACEHUB_STD_SCALAR_INTERFACES(v_dep_acc, v_dep_acc_);
-        SPACEHUB_STD_SCALAR_INTERFACES(v_indep_acc, v_indep_acc_);
+        SPACEHUB_STD_INTERFACES(acc, acc_);
+        SPACEHUB_STD_INTERFACES(vel_dep_acc, vel_dep_acc_);
+        SPACEHUB_STD_INTERFACES(vel_indep_acc, vel_indep_acc_);
 
         Accelerations() = default;
 
         explicit Accelerations(size_t size)
-            : ax_(size), ay_(size), az_(size), vd_ax_(size), vd_ay_(size), vd_az_(size), vid_ax_(size), vid_ay_(size), vid_az_(size) {}
+            : acc_(size), vel_dep_acc_(size), vel_indep_acc_(size) {}
 
         void resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, ax_, ay_, az_, vd_ax_, vd_ay_, vd_az_, vid_ax_, vid_ay_, vid_az_);
+            SpaceH::resize_all(new_sz, acc_, vel_dep_acc_, vel_indep_acc_);
         }
 
         void reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, ax_, ay_, az_, vd_ax_, vd_ay_, vd_az_, vid_ax_, vid_ay_, vid_az_);
+            SpaceH::reserve_all(new_cap, acc_, vel_dep_acc_, vel_indep_acc_);
         }
 
         size_t number() {
-            return ax_.size();
+            return acc_.x.size();
         }
 
     private:
         Coord acc_;
-        Coord v_dep_acc_;
-        Coord v_indep_acc_;
+        Coord vel_dep_acc_;
+        Coord vel_indep_acc_;
     };
 }
 #endif //SPACEHUB_ACCELERATIONS_H

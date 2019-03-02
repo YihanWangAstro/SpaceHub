@@ -13,27 +13,29 @@ namespace SpaceH{
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        using Base = Interactions<NewtonianGrav<TypeSystem>, false>;
-        using Base::ax;
-        using Base::ay;
-        using Base::az;
-
         template<typename Particles>
-        void impl_eval_acc(Particles const &partc) {
+        void impl_eval_acc(Particles const &partc, Coord &acc) {
             size_t num = partc.number();
+            auto const &px = partc.pos().x;
+            auto const &py = partc.pos().y;
+            auto const &pz = partc.pos().z;
+            auto const &m = partc.mass();
+
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
+
             for (size_t i = 0; i < num; ++i) {
                 for (size_t j = i + 1; j < num; ++j) {
-                    auto dx  = partc.px[j] - partc.px[i];
-                    auto dy  = partc.py[j] - partc.py[i];
-                    auto dz  = partc.pz[j] - partc.pz[i];
-                    auto r   = sqrt(dx * dx + dy * dy + dz * dz);
-                    auto rr3 = 1 / (r * r * r);
-                    ax[i] += dx * rr3 * partc.mass[j];
-                    ay[i] += dy * rr3 * partc.mass[j];
-                    az[i] += dz * rr3 * partc.mass[j];
-                    ax[j] -= dx * rr3 * partc.mass[i];
-                    ay[j] -= dy * rr3 * partc.mass[i];
-                    az[j] -= dz * rr3 * partc.mass[i];
+                    auto dx = px[j] - px[i];
+                    auto dy = py[j] - py[i];
+                    auto dz = pz[j] - pz[i];
+                    auto r = sqrt(dx * dx + dy * dy + dz * dz);
+                    auto rr3 = 1.0 / (r * r * r);
+                    acc.x[i] += dx * rr3 * m[j];
+                    acc.y[i] += dy * rr3 * m[j];
+                    acc.z[i] += dz * rr3 * m[j];
+                    acc.x[j] -= dx * rr3 * m[i];
+                    acc.y[j] -= dy * rr3 * m[i];
+                    acc.z[j] -= dz * rr3 * m[i];
                 }
             }
         }

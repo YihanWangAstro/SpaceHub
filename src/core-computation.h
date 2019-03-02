@@ -40,7 +40,7 @@ namespace SpaceH::calc {
     }
 
     template<typename Array, typename ...Args>
-    auto array_dot(Array const &a, Array const &b, Args const &...args) {
+    void array_dot(Array const &a, Array const &b, Args const &...args) {
         typename Array::value_type product{0};
         size_t size = a.size();
         for (size_t i = 0; i < size; ++i) {
@@ -78,6 +78,25 @@ namespace SpaceH::calc {
         for (size_t i = 0; i < size; i++) {
             var[i] += increase[i] * stepSize;
         }
+    }
+
+    template<typename Array, typename Coord>
+    void coord_dot(Array & dst, Coord const &a, Coord const &b) {
+        size_t size = dst.size();
+        for (size_t i = 0; i < size; ++i) {
+            dst[i] = a.x[i] * b.x[i]  + a.y[i] * b.y[i]  + a.z[i] * b.z[i];
+        }
+    }
+
+    template<typename Array, typename Coord>
+    auto coord_contract_to_scalar(Array & coef, Coord const &a, Coord const &b) {
+        size_t size = coef.size();
+        typename Array::Scalar sum{0};
+
+        for (size_t i = 0; i < size; ++i) {
+            sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*coef[i];
+        }
+        return sum;
     }
 
     template<typename Coord, typename ...Args>

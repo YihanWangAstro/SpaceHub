@@ -8,8 +8,44 @@
 
 namespace SpaceH {
 
-    template<typename T, size_t Dim = 3>
+    template<typename T>
     struct Coord{
+        explicit Coord(size_t count) : x(count), y(count), z(count) {}
+
+        Coord(Coord const & other) : x(other.x), y(other.y), z(other.z) {}
+
+        Coord(Coord&& other) noexcept: x(std::move(other.x)), y(std::move(other.x)), z(std::move(other.z)) {}
+
+        Coord& operator=(Coord const& other) {
+            x = other.x;
+            x = other.y;
+            x = other.z;
+        }
+
+        Coord& operator=(Coord && other) noexcept {
+            x = std::move(other.x);
+            x = std::move(other.y);
+            x = std::move(other.z);
+        }
+
+        void reserve(size_t new_cap){
+            x.reserve(new_cap);
+            y.reserve(new_cap);
+            z.reserve(new_cap);
+        }
+
+        void resize(size_t new_sz){
+            x.resize(new_sz);
+            y.resize(new_sz);
+            z.resize(new_sz);
+        }
+
+        void shrink_to_fit() {
+            x.shrink_to_fit();
+            y.shrink_to_fit();
+            z.shrink_to_fit();
+        }
+
         T x;
         T y;
         T z;
