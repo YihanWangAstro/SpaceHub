@@ -29,7 +29,7 @@ namespace SpaceH {
         template<typename Particles>
         inline auto eval_pos_phy_time(Particles const &partc, Scalar stepSize) {
             if constexpr (Type == ReguType::logH) {
-                return stepSize / (bindE_ + get_kinetic_energy(partc));
+                return stepSize / (bindE_ + calc::calc_kinetic_energy(partc));
             } else if (Type == ReguType::TTL) {
                 return stepSize / omega_;
             } else if (Type == ReguType::none) {
@@ -42,7 +42,7 @@ namespace SpaceH {
         template<typename Particles>
         inline auto eval_vel_phy_time(Particles const &partc, Scalar stepSize) {
             if constexpr (Type == ReguType::logH) {
-                return stepSize / -get_potential_energy(partc);
+                return stepSize / -calc::calc_potential_energy(partc);
             } else if (Type == ReguType::TTL) {
                 return stepSize / capital_omega();
             } else if (Type == ReguType::none) {
