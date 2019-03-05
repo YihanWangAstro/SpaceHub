@@ -18,11 +18,7 @@ namespace SpaceH {
 
         Accelerations() = default;
 
-        explicit Accelerations(size_t size) {
-            acc_.x.resize(size);
-            acc_.y.resize(size);
-            acc_.z.resize(size);
-        };
+        explicit Accelerations(size_t size) : acc_(size) {};
 
         void resize(size_t new_sz) {
             acc_.resize(new_sz);

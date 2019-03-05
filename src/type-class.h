@@ -10,6 +10,8 @@ namespace SpaceH {
 
     template<typename T>
     struct Coord{
+        using Scalar = typename T::value_type;
+
         explicit Coord(size_t count) : x(count), y(count), z(count) {}
 
         Coord(Coord const & other) : x(other.x), y(other.y), z(other.z) {}
@@ -38,6 +40,19 @@ namespace SpaceH {
             x.resize(new_sz);
             y.resize(new_sz);
             z.resize(new_sz);
+        }
+
+        template<typename Vector>
+        void emplace_back(Vector&& v){
+            x.emplace_back(std::forward<Scalar>(v.x));
+            y.emplace_back(std::forward<Scalar>(v.y));
+            z.emplace_back(std::forward<Scalar>(v.z));
+        }
+
+        void emplace_back(Scalar && xx, Scalar && yy, Scalar && zz){
+            x.emplace_back(std::forward<Scalar>(xx));
+            y.emplace_back(std::forward<Scalar>(yy));
+            z.emplace_back(std::forward<Scalar>(zz));
         }
 
         void shrink_to_fit() {

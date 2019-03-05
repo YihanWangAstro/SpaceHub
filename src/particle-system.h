@@ -16,7 +16,7 @@ namespace SpaceH {
         SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
 
         size_t number() {
-            static_cast<Derived *>(this)->impl_number();
+            return static_cast<Derived *>(this)->impl_number();
         }
 
         void advance_time(Scalar dt) {
