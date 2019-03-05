@@ -27,20 +27,20 @@ namespace SpaceH {
             static_cast<Derived *>(this)->impl_advance_pos(stepSize);
         }
 
-        void advance_pos(ScalarArray const &vx, ScalarArray const &vy, ScalarArray const &vz, Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_advance_pos(vx, vy, vz, stepSize);
+        void advance_pos(Coord const &velocity, Scalar stepSize) {
+            static_cast<Derived *>(this)->impl_advance_pos(velocity, stepSize);
         }
 
         void advance_vel(Scalar stepSize) {
             static_cast<Derived *>(this)->impl_advance_vel(stepSize);
         }
 
-        void advance_vel(ScalarArray const &ax, ScalarArray const &ay, ScalarArray const &az, Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_advance_vel(ax, ay, az, stepSize);
+        void advance_vel(Coord const &acceleration, Scalar stepSize) {
+            static_cast<Derived *>(this)->impl_advance_vel(acceleration, stepSize);
         }
 
-        void evaluate_acc(ScalarArray &ax, ScalarArray &ay, ScalarArray &az) {
-            static_cast<Derived *>(this)->impl_evaluate_acc(ax, ay, az);
+        void evaluate_acc(Coord &acceleration) {
+            static_cast<Derived *>(this)->impl_evaluate_acc(acceleration);
         }
 
         void drift(Scalar stepSize) {
