@@ -30,20 +30,12 @@ namespace SpaceH {
             static_cast<Derived *>(this)->impl_advance_time(dt);
         }
 
-        void advance_pos(Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_advance_pos(stepSize);
+        void advance_pos(Scalar stepSize, Coord const &velocity) {
+            static_cast<Derived *>(this)->impl_advance_pos(stepSize, velocity);
         }
 
-        void advance_pos(Coord const &velocity, Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_advance_pos(velocity, stepSize);
-        }
-
-        void advance_vel(Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_advance_vel(stepSize);
-        }
-
-        void advance_vel(Coord const &acceleration, Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_advance_vel(acceleration, stepSize);
+        void advance_vel(Scalar stepSize, Coord const &acceleration) {
+            static_cast<Derived *>(this)->impl_advance_vel(stepSize, acceleration);
         }
 
         void evaluate_acc(Coord &acceleration) {
