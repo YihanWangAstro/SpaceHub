@@ -2,7 +2,7 @@
 #define SPACEHUB_H
 
 #include "solver.h"
-#include "point-particle.h"
+#include "particle.h"
 #include "kahan-number.h"
 #include "macros.h"
 

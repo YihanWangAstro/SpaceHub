@@ -14,7 +14,7 @@ namespace SpaceH {
     class Accelerations {
     public:
 
-        SPACEHUB_STD_INTERFACES(acc, acc_);
+        SPACEHUB_STD_ACCESSOR(acc, acc_);
 
         Accelerations() = default;
 
@@ -41,9 +41,9 @@ namespace SpaceH {
     class Accelerations<Coord, true> {
     public:
 
-        SPACEHUB_STD_INTERFACES(acc, acc_);
-        SPACEHUB_STD_INTERFACES(vel_dep_acc, vel_dep_acc_);
-        SPACEHUB_STD_INTERFACES(vel_indep_acc, vel_indep_acc_);
+        SPACEHUB_STD_ACCESSOR(acc, acc_);
+        SPACEHUB_STD_ACCESSOR(vel_dep_acc, vel_dep_acc_);
+        SPACEHUB_STD_ACCESSOR(vel_indep_acc, vel_indep_acc_);
 
         Accelerations() = default;
 

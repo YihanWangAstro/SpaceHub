@@ -11,9 +11,16 @@
 namespace SpaceH {
 
     template<typename Derived>
-    class ParticleSystem {
+    class NoneSymplecticSystem {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
+
+        DECLARE_CRTP_ACCESSOR(mass, ScalarArray, Derived);
+        DECLARE_CRTP_ACCESSOR(idn, IdxArray, Derived);
+        DECLARE_CRTP_ACCESSOR(time, Scalar, Derived);
+        DECLARE_CRTP_ACCESSOR(pos, Coord, Derived);
+        DECLARE_CRTP_ACCESSOR(vel, Coord, Derived);
+        DECLARE_CRTP_ACCESSOR(acc, Coord, Derived);
 
         size_t number() {
             return static_cast<Derived *>(this)->impl_number();
@@ -43,6 +50,28 @@ namespace SpaceH {
             static_cast<Derived *>(this)->impl_evaluate_acc(acceleration);
         }
 
+    private:
+        NoneSymplecticSystem() = default;
+        friend Derived;
+    };
+
+
+    template<typename Derived>
+    class SymplecticSystem {
+    public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
+
+        DECLARE_CRTP_ACCESSOR(mass, ScalarArray, Derived);
+        DECLARE_CRTP_ACCESSOR(idn, IdxArray, Derived);
+        DECLARE_CRTP_ACCESSOR(time, Scalar, Derived);
+        DECLARE_CRTP_ACCESSOR(pos, Coord, Derived);
+        DECLARE_CRTP_ACCESSOR(vel, Coord, Derived);
+        DECLARE_CRTP_ACCESSOR(acc, Coord, Derived);
+
+        size_t number() {
+            return static_cast<Derived *>(this)->impl_number();
+        }
+
         void drift(Scalar stepSize) {
             static_cast<Derived *>(this)->impl_drift(stepSize);
         }
@@ -50,6 +79,10 @@ namespace SpaceH {
         void kick(Scalar stepSize) {
             static_cast<Derived *>(this)->impl_kick(stepSize);
         }
+
+    private:
+        SymplecticSystem() = default;
+        friend Derived;
     };
 }
 

@@ -16,9 +16,9 @@ namespace SpaceH {
     template<typename Scalar, ReguType Type = ReguType::logH>
     class Regularization {
     public:
-        SPACEHUB_STD_INTERFACES(omega, omega_);
+        SPACEHUB_STD_ACCESSOR(omega, omega_);
 
-        SPACEHUB_STD_INTERFACES(bindE, bindE_);
+        SPACEHUB_STD_ACCESSOR(bindE, bindE_);
 
         template<typename Particles>
         explicit Regularization(Particles const &partc) {
@@ -72,23 +72,22 @@ namespace SpaceH {
      * @tparam Interactions
      */
     template<typename Particles, typename Interactions, ReguType ReguType>
-    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, ReguType>> {
+    class RegularizedSystem : public NoneSymplecticSystem<RegularizedSystem<Particles, Interactions, ReguType>> {
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-        SPACEHUB_STD_INTERFACES(mass, ptc_.mass());
+        SPACEHUB_STD_ACCESSOR(mass, ptc_.mass());
 
-        SPACEHUB_STD_INTERFACES(idn, ptc_.idn());
+        SPACEHUB_STD_ACCESSOR(idn, ptc_.idn());
 
-        SPACEHUB_STD_INTERFACES(pos, ptc_.pos());
+        SPACEHUB_STD_ACCESSOR(pos, ptc_.pos());
 
-        SPACEHUB_STD_INTERFACES(vel, ptc_.vel());
+        SPACEHUB_STD_ACCESSOR(vel, ptc_.vel());
 
-        SPACEHUB_STD_INTERFACES(time, ptc_.time());
+        SPACEHUB_STD_ACCESSOR(time, ptc_.time());
 
-        SPACEHUB_STD_INTERFACES(acc, acc_.acc());
-
+        SPACEHUB_STD_ACCESSOR(acc, acc_.acc());
         /* Typedef */
 
         RegularizedSystem() = delete;

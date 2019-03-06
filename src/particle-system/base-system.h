@@ -2,10 +2,10 @@
 #ifndef GENPARTICLESYSTEM_H
 #define GENPARTICLESYSTEM_H
 
-#include "core-computation.h"
-#include "dev-tools.h"
+#include "../core-computation.h"
+#include "../dev-tools.h"
 #include "../macros.h"
-#include "type-class.h"
+#include "../type-class.h"
 #include "../particle-system.h"
 #include "../accelerations.h"
 #include <memory>
@@ -13,21 +13,21 @@
 namespace SpaceH {
 
     template<typename Particles, typename Interactions>
-    class BaseSystem : ParticleSystem<BaseSystem<Particles, Interactions>> {
+    class BaseSystem : NoneSymplecticSystem<BaseSystem<Particles, Interactions>> {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-        SPACEHUB_STD_INTERFACES(mass, ptc_.mass());
+        SPACEHUB_STD_ACCESSOR(mass, ptc_.mass());
 
-        SPACEHUB_STD_INTERFACES(idn, ptc_.idn());
+        SPACEHUB_STD_ACCESSOR(idn, ptc_.idn());
 
-        SPACEHUB_STD_INTERFACES(pos, ptc_.pos());
+        SPACEHUB_STD_ACCESSOR(pos, ptc_.pos());
 
-        SPACEHUB_STD_INTERFACES(vel, ptc_.vel());
+        SPACEHUB_STD_ACCESSOR(vel, ptc_.vel());
 
-        SPACEHUB_STD_INTERFACES(time, ptc_.time());
+        SPACEHUB_STD_ACCESSOR(time, ptc_.time());
 
-        SPACEHUB_STD_INTERFACES(acc, acc_.acc());
+        SPACEHUB_STD_ACCESSOR(acc, acc_.acc());
 
         BaseSystem() = delete;
 

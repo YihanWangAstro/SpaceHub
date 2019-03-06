@@ -118,7 +118,7 @@ namespace SpaceH {
     using VectorArray = typename CLASS::VectorArray;                                                                   \
     using Coord       = typename CLASS::Coord
 
-#define DECLARE_STD_INTERFACES(NAME, TYPE, DERIVED)                                                                    \
+#define DECLARE_CRTP_ACCESSOR(NAME, TYPE, DERIVED)                                                                     \
                                                                                                                        \
 inline TYPE & NAME () {                                                                                                \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
@@ -127,13 +127,13 @@ inline TYPE const & NAME () const {                                             
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
-#define DECLARE_READ_INTERFACES(NAME, TYPE, DERIVED)                                                                   \
+#define DECLARE_READ_ACCESSOR(NAME, TYPE, DERIVED)                                                                     \
                                                                                                                        \
 inline TYPE const & NAME () const {                                                                                    \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
-#define SPACEHUB_STD_INTERFACES(NAME, MEMBER)                                                                          \
+#define SPACEHUB_STD_ACCESSOR(NAME, MEMBER)                                                                            \
                                                                                                                        \
 inline auto & NAME () {                                                                                                \
     return MEMBER;                                                                                                     \
@@ -142,7 +142,7 @@ inline auto const & NAME () const {                                             
     return MEMBER;                                                                                                     \
 };
 
-#define SPACEHUB_READ_INTERFACES(NAME, MEMBER)                                                                         \
+#define SPACEHUB_READ_ACCESSOR(NAME, MEMBER)                                                                           \
                                                                                                                        \
 inline auto const & NAME () const {                                                                                    \
     return MEMBER;                                                                                                     \
