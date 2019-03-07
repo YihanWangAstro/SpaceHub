@@ -9,7 +9,7 @@
 #include "tools/timer.h"
 #include "callbacks.h"
 
-#include "base-system.h"
+#include "base-system.tpp"
 #include "particle_system/regu-system.h"
 
 #include "particle_system/chain.h"

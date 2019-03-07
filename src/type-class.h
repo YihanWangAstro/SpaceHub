@@ -12,6 +12,8 @@ namespace SpaceH {
     struct Coord{
         using Scalar = typename T::value_type;
 
+        Coord() = default;
+
         explicit Coord(size_t count) : x(count), y(count), z(count) {}
 
         Coord(Coord const & other) : x(other.x), y(other.y), z(other.z) {}

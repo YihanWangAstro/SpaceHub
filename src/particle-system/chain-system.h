@@ -10,7 +10,7 @@
 namespace SpaceH {
 
     template<typename Particles, typename Interactions>
-    class ChainSystem : public NoneSymplecticSystem<ChainSystem<Particles, Interactions>> {
+    class ChainSystem : public ParticleSystem<ChainSystem<Particles, Interactions>> {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 

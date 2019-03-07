@@ -3,7 +3,6 @@
 #define REGUPARTICLESYSTEM_H
 
 #include "../particle-system.h"
-#include "../accelerations.h"
 #include "core-computation.h"
 #include "dev-tools.h"
 #include <memory>
@@ -72,22 +71,20 @@ namespace SpaceH {
      * @tparam Interactions
      */
     template<typename Particles, typename Interactions, ReguType ReguType>
-    class RegularizedSystem : public NoneSymplecticSystem<RegularizedSystem<Particles, Interactions, ReguType>> {
+    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, ReguType>> {
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-        SPACEHUB_STD_ACCESSOR(mass, ptc_.mass());
+        SPACEHUB_STD_ACCESSOR(impl_mass, ptc_.mass());
 
-        SPACEHUB_STD_ACCESSOR(idn, ptc_.idn());
+        SPACEHUB_STD_ACCESSOR(impl_idn, ptc_.idn());
 
-        SPACEHUB_STD_ACCESSOR(pos, ptc_.pos());
+        SPACEHUB_STD_ACCESSOR(impl_pos, ptc_.pos());
 
-        SPACEHUB_STD_ACCESSOR(vel, ptc_.vel());
+        SPACEHUB_STD_ACCESSOR(impl_vel, ptc_.vel());
 
-        SPACEHUB_STD_ACCESSOR(time, ptc_.time());
-
-        SPACEHUB_STD_ACCESSOR(acc, acc_.acc());
+        SPACEHUB_STD_ACCESSOR(impl_time, ptc_.time());
         /* Typedef */
 
         RegularizedSystem() = delete;
@@ -98,23 +95,14 @@ namespace SpaceH {
         size_t impl_number() {
             return ptc_.number();
         }
-
         void impl_advance_time(Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
             ptc_.time() += phyTime;
         }
 
-        void impl_advance_pos(Scalar stepSize) {
-            impl_advance_pos(vel(), stepSize);
-        }
-
         void impl_advance_pos(Coord const &velocity, Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
             pure_advance_pos(velocity, phyTime);
-        }
-
-        void impl_advance_vel(Scalar stepSize) {
-            impl_advance_vel(acc(), stepSize);
         }
 
         void impl_advance_vel(Coord const &acceleration, Scalar stepSize) {
@@ -188,7 +176,6 @@ namespace SpaceH {
 
         Particles ptc_;
         Interactions eom_;
-        Accelerations<ScalarArray, Interactions::is_vel_dep> acc_;
         Regularization<Scalar, ReguType> regu_;
     };
 }
