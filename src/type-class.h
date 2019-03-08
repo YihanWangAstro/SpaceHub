@@ -32,6 +32,10 @@ namespace SpaceH {
             x = std::move(other.z);
         }
 
+        size_t size() {
+            return x.size();
+        }
+
         void reserve(size_t new_cap){
             x.reserve(new_cap);
             y.reserve(new_cap);
