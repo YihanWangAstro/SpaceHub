@@ -41,7 +41,7 @@ set(TMP_HEADER_FILES
         src/ode_iterator/const_iterator.h
         src/ode_iterator/IAS15.h
         src/particle-system/chain.h
-        src/particle-system/regu-system.h
+        src/particle-system/regu-system.tpp
         src/tools/timer.h
         src/vector/vector3.h
         src/vector/vector3d.h

@@ -16,9 +16,13 @@ namespace SpaceH {
         SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
 
         DECLARE_CRTP_ACCESSOR(mass, ScalarArray, Derived);
+
         DECLARE_CRTP_ACCESSOR(idn, IdxArray, Derived);
+
         DECLARE_CRTP_ACCESSOR(time, Scalar, Derived);
+
         DECLARE_CRTP_ACCESSOR(pos, Coord, Derived);
+
         DECLARE_CRTP_ACCESSOR(vel, Coord, Derived);
 
         size_t number() {
@@ -49,8 +53,20 @@ namespace SpaceH {
             static_cast<Derived *>(this)->impl_kick(stepSize);
         }
 
+        void pre_iter_process() {
+            static_cast<Derived *>(this)->impl_pre_iter_process();
+        }
+
+        void post_iter_process() {
+            static_cast<Derived *>(this)->impl_post_iter_process();
+        }
+
+        void impl_pre_iter_process() {}//default implementation
+
+        void impl_post_iter_process() {}//default implementation
     private:
         ParticleSystem() = default;
+
         friend Derived;
     };
 }

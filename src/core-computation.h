@@ -66,11 +66,6 @@ namespace SpaceH::calc {
         }
     }
 
-    /** @brief Advance a vector with a given vector with a specific stepSize.
-     *  @param var Vector need to be advanced.
-     *  @param increase Given vector.
-     *  @param stepSize Given stepSize.
-     */
     template<typename Scalar, typename Array>
     void array_advance(Array &var, const Array &increase, Scalar stepSize) {
         size_t size = var.size();
@@ -112,17 +107,11 @@ namespace SpaceH::calc {
         array_advance(var.y, increase.y, stepSize);
         array_advance(var.z, increase.z, stepSize);
     }
-    /**
-     * @brief Return the summation of an array. The element of the array need to suppot one parameter initialization
-     * with '0' and operator '+='.
-     * @tparam Array
-     * @param array
-     * @return
-     */
+
     template <typename Array>
-    auto array_sum(Array &array) {
+    auto array_sum(Array const &array) {
         typename  Array::value_type total = 0;
-        for(auto & a : array) {
+        for(auto const & a : array) {
             total += a;
         }
         return total;
@@ -147,6 +136,21 @@ namespace SpaceH::calc {
         return com_var;
     }
 
+    template<typename Array1, typename Array2>
+    auto calc_com(Array1 const & mass, Array2 const & var, typename Array1::value_type tot_mass) {
+        using T = typename Array2::value_type;
+
+        T com_var{0};
+
+        size_t const size = mass.size();
+
+        for (size_t i = 0; i < size; ++i) {
+            com_var += var[i] * mass[i];
+        }
+        com_var /= tot_mass;
+        return com_var;
+    }
+
     template<typename Array>
     void move_to_com(Array &var, typename Array::value_type const &com_var) {
         for (auto& v : var)
@@ -159,14 +163,24 @@ namespace SpaceH::calc {
         move_to_com(var, com_var);
     }
 
+    template <typename Coord, typename ScalarArray>
+    void coord_move_to_com(ScalarArray const & mass, Coord& var) {
+        auto tot_mass = array_sum(mass);
+        move_to_com(var.x, calc_com(mass, var.x, tot_mass));
+        move_to_com(var.y, calc_com(mass, var.y, tot_mass));
+        move_to_com(var.z, calc_com(mass, var.z, tot_mass));
+    }
+
     template<typename Particles>
     auto calc_kinetic_energy(Particles const &ptc) {
         typename Particles::Scalar k_eng{0};
 
         size_t size = ptc.number();
+        auto & m    = ptc.mass();
+        auto & v    = ptc.vel();
 
         for (size_t i = 0; i < size; ++i)
-            k_eng += 0.5 * ptc.mass(i) * (ptc.vx(i) * ptc.vx(i) + ptc.vy(i) * ptc.vy(i) + ptc.vz(i) * ptc.vz(i));
+            k_eng += 0.5 * ptc.m[i] * (v.x[i] * v.x[i] + v.y[i] * v.y[i] + v.z[i] * v.z[i]);
 
         return k_eng;
     }
@@ -176,13 +190,16 @@ namespace SpaceH::calc {
         typename Particles::Scalar p_eng{0};
 
         size_t size = ptc.number();
+        auto & m    = ptc.mass();
+        auto & v    = ptc.vel();
+        auto & p    = ptc.pos();
 
         for (size_t i = 0; i < size; ++i)
             for (size_t j = i + 1; j < size; ++j) {
-                auto dx = ptc.px(i) - ptc.px(j);
-                auto dy = ptc.py(i) - ptc.py(j);
-                auto dz = ptc.pz(i) - ptc.pz(j);
-                p_eng -= ptc.mass(i) * ptc.mass(j) / sqrt(dx * dx + dy * dy + dz * dz);
+                auto dx = p.x[i] - p.x[j];
+                auto dy = p.y[i] - p.y[j];
+                auto dz = p.z[i] - p.z[j];
+                p_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
             }
         return p_eng;
     }
@@ -192,14 +209,17 @@ namespace SpaceH::calc {
         typename Particles::Scalar p_eng{0};
         typename Particles::Scalar k_eng{0};
         size_t size = ptc.number();
+        auto & m    = ptc.mass();
+        auto & v    = ptc.vel();
+        auto & p    = ptc.pos();
 
         for (size_t i = 0; i < size; ++i) {
-            k_eng += 0.5 * ptc.mass(i) * (ptc.vx(i) * ptc.vx(i) + ptc.vy(i) * ptc.vy(i) + ptc.vz(i) * ptc.vz(i));
+            k_eng += 0.5 * m[i] * (v.x[i] * v.x[i] + v.y[i] * v.y[i] + v.z[i] * v.z[i]);
             for (size_t j = i + 1; j < size; ++j) {
-                auto dx = ptc.px(i) - ptc.px(j);
-                auto dy = ptc.py(i) - ptc.py(j);
-                auto dz = ptc.pz(i) - ptc.pz(j);
-                p_eng -= ptc.mass(i) * ptc.mass(j) / sqrt(dx * dx + dy * dy + dz * dz);
+                auto dx = p.x[i] - p.x[j];
+                auto dy = p.y[i] - p.y[j];
+                auto dz = p.z[i] - p.z[j];
+                p_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
             }
         }
         return p_eng + k_eng;
