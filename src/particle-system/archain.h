@@ -1,78 +1,18 @@
+//
+// Created by yihan on 3/8/19.
+//
 
-#ifndef REGUPARTICLESYSTEM_H
-#define REGUPARTICLESYSTEM_H
+#ifndef SPACEHUB_ARCHAIN_H
+#define SPACEHUB_ARCHAIN_H
 
-#include "../particle-system.h"
-#include "../core-computation.h"
-#include "../dev-tools.h"
+#include "regu-system.tpp"
+#include "chain.tpp"
 
 namespace SpaceH {
-    enum class ReguType {
-        logH, TTL, none
-    };
 
-    template<typename Scalar, ReguType Type = ReguType::logH>
-    class Regularization {
-    public:
-        SPACEHUB_STD_ACCESSOR(omega, omega_);
-
-        SPACEHUB_STD_ACCESSOR(bindE, bindE_);
-
-        template<typename Particles>
-        explicit Regularization(Particles const &partc) {
-            omega_ = capital_omega(partc);
-            bindE_ = -calc::calc_total_energy(partc);
-        }
-
-        template<typename Particles>
-        inline auto eval_pos_phy_time(Particles const &partc, Scalar stepSize) {
-            if constexpr (Type == ReguType::logH) {
-                return stepSize / (bindE_ + calc::calc_kinetic_energy(partc));
-            } else if (Type == ReguType::TTL) {
-                return stepSize / omega_;
-            } else if (Type == ReguType::none) {
-                return stepSize;
-            } else {
-                SPACEHUB_ABORT("Undefined regularization type!");
-            }
-        }
-
-        template<typename Particles>
-        inline auto eval_vel_phy_time(Particles const &partc, Scalar stepSize) {
-            if constexpr (Type == ReguType::logH) {
-                return stepSize / -calc::calc_potential_energy(partc);
-            } else if (Type == ReguType::TTL) {
-                return stepSize / capital_omega();
-            } else if (Type == ReguType::none) {
-                return stepSize;
-            } else {
-                SPACEHUB_ABORT("Undefined regularization type!");
-            }
-        }
-
-    private:
-        template<typename Particles>
-        inline auto capital_omega(Particles const &partc) {
-            return -calc::calc_potential_energy(partc);
-        }
-
-        Scalar omega_;
-        Scalar bindE_;
-    };
-
-    /**
-     * @brief Regularized particle System.
-     *
-     * Regularied particle system. See details in https://link.springer.com/article/10.1023%2FA%3A1008368322547 ,
-     * http://iopscience.iop.org/article/10.1086/301102/meta and
-     * https://link.springer.com/article/10.1023%2FA%3A1021149313347.
-     * @tparam Particles
-     * @tparam Interactions
-     */
     template<typename Particles, typename Interactions, ReguType ReguType>
-    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, ReguType>> {
+    class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Interactions, ReguType>> {
     public:
-        /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
         SPACEHUB_STD_ACCESSOR(impl_mass, ptc_.mass());
@@ -84,12 +24,20 @@ namespace SpaceH {
         SPACEHUB_STD_ACCESSOR(impl_vel, ptc_.vel());
 
         SPACEHUB_STD_ACCESSOR(impl_time, ptc_.time());
-        /* Typedef */
 
-        RegularizedSystem() = delete;
+        SPACEHUB_STD_ACCESSOR(chain_pos, chain_pos_);
+
+        SPACEHUB_STD_ACCESSOR(chain_vel, chain_vel_);
+
+        SPACEHUB_STD_ACCESSOR(index, index_);
+
+        ARchainSystem() = delete;
 
         template<typename Container>
-        RegularizedSystem(Container const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc) {
+        ARchainSystem(Container const &ptc, Scalar t) : ptc_(ptc, t), regu_(ptc), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , newtonian_acc_(ptc.size()),chain_acc_(ptc.size()){
+            chain::calc_chain_index(ptc_.pos(), index_);
+            chain::coord_calc_chain(ptc_.pos(), chain_pos(), index());
+            chain::coord_calc_chain(ptc_.vel(), chain_vel(), index());
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
             }
@@ -97,12 +45,14 @@ namespace SpaceH {
             if constexpr (Interactions::has_extra_vel_dep_acc) {
                 extra_vel_dep_acc_.resize(ptc.size());
                 aux_vel_ = ptc_.vel();
+                chain_aux_vel_ = chain_vel_;
             }
         }
 
         size_t impl_number() {
             return ptc_.number();
         }
+
         void impl_advance_time(Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
             ptc_.time() += phyTime;
@@ -110,27 +60,29 @@ namespace SpaceH {
 
         void impl_advance_pos(Coord const &velocity, Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
-            calc::array_advance(ptc_.pos(), velocity, stepSize);
+            chain::coord_calc_chain(velocity, chain_vel(), index());
+            chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phyTime);
         }
 
         void impl_advance_vel(Coord const &acceleration, Scalar stepSize) {
             Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
-            pure_advance_vel(acceleration, phyTime);
+            chain::coord_calc_chain(acceleration, chain_acc_, index());
+            chain_advance(ptc_.vel(), chain_vel(), chain_acc_, phyTime);
         }
 
-        void impl_evaluate_acc(Coord const &acceleration) {
-            eom_.eval_acc(ptc_, acceleration);
+        void impl_evaluate_acc(Coord &acceleration) {
+            eom_.eval_acc(*this, acceleration);
         }
 
         void impl_drift(Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
-            calc::coord_advance(ptc_.pos(), ptc_.vel(), stepSize);
             ptc_.time() += phyTime;
+            chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phyTime);
         }
 
         void impl_kick(Scalar stepSize) {
             Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
-            SCalar halfTime = 0.5 * phyTime;
+            Scalar halfTime = 0.5 * phyTime;
 
             eval_vel_indep_acc();
 
@@ -142,14 +94,14 @@ namespace SpaceH {
                 if constexpr (Interactions::has_extra_vel_indep_acc) {
                     calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
 
-                    calc::coord_advance(ptc_.vel(), acc_, halfTime);
+                    chain_advance(ptc_.vel(), chain_vel(), acc_, halfTime);
                     advance_omega(ptc_.vel(), newtonian_acc_, phyTime);
                     advance_bindE(ptc_.vel(), extra_vel_indep_acc_, phyTime);
-                    calc::coord_advance(ptc_.vel(), acc_, halfTime);
+                    chain_advance(ptc_.vel(), chain_vel(), acc_, halfTime);
                 } else {
-                    calc::coord_advance(ptc_.vel(), newtonian_acc_, halfTime);
+                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, halfTime);
                     advance_omega(ptc_.vel(), newtonian_acc_, phyTime);
-                    calc::coord_advance(ptc_.vel(), newtonian_acc_, halfTime);
+                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, halfTime);
                 }
             }
         }
@@ -157,14 +109,33 @@ namespace SpaceH {
         void impl_pre_iter_process() {
             if constexpr (Interactions::has_extra_vel_dep_acc) {
                 aux_vel_ = ptc_.vel();
+                chain_aux_vel_ = chain_vel_;
             }
         }
 
-        friend std::ostream &operator<<(std::ostream &os, RegularizedSystem const &ps) {
-            os << ps.ptc_;
+        void impl_post_iter_process() {
+            chain::calc_chain_index(ptc_.pos(), new_index_);
+            if(new_index_ != index_){
+                chain::update_chain(chain_pos_, index_, new_index_);
+                chain::coord_calc_cartesian(chain_pos_, ptc_.pos(), new_index_);
+                calc::coord_move_to_com(ptc_.mass(), ptc_.pos());
+                chain::update_chain(chain_vel_, index_, new_index_);
+                chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
+                calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
+                index_ = new_index_;
+            }
         }
 
+        friend std::ostream &operator<<(std::ostream &os, ARchainSystem const &ps) {
+            os << ps.ptc_;
+        }
     private:
+        void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {
+            calc::coord_advance(ch_var, ch_inc, stepSize);
+            chain::coord_calc_cartesian(ch_var, var, index());
+            calc::coord_move_to_com(ptc_.mass(), var);
+        }
+
         void eval_vel_indep_acc() {
             eom_.eval_newtonian_acc(ptc_, newtonian_acc_);
             if constexpr (Interactions::has_extra_vel_dep_acc) {
@@ -188,35 +159,44 @@ namespace SpaceH {
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
-            calc::coord_advance(aux_vel_, acc_, stepSize);
+            chain_advance(aux_vel_, chain_aux_vel_, acc_, stepSize);
         }
 
         void kick_real_vel(Scalar stepSize) {
             std::swap(aux_vel_, ptc_.vel());
+            std::swap(chain_aux_vel_, chain_vel());
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
             std::swap(aux_vel_, ptc_.vel());
+            std::swap(chain_aux_vel_, chain_vel());
 
             calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
-            calc::coord_advance(ptc_.vel(), acc_, stepSize);
+
+            chain_advance(ptc_.vel(), chain_vel(), acc_, stepSize);
 
             advance_omega(aux_vel_, newtonian_acc_, stepSize);
             advance_bindE(aux_vel_, extra_vel_dep_acc_, stepSize);
         }
 
+
         Particles ptc_;
         Interactions eom_;
         Regularization<Scalar, ReguType> regu_;
 
-        Coord aux_vel_{0};
+        Coord chain_pos_{0};
+        Coord chain_vel_{0};
         Coord acc_{0};
+        Coord chain_acc_{0};
+
         Coord newtonian_acc_{0};
         Coord extra_vel_indep_acc_{0};
         Coord extra_vel_dep_acc_{0};
-
+        Coord aux_vel_{0};
+        Coord chain_aux_vel_{0};
+        IdxArray index_{0};
+        IdxArray new_index_{0};
     };
 }
-
-#endif
+#endif //SPACEHUB_ARCHAIN_H

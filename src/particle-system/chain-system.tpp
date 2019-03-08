@@ -23,7 +23,7 @@ namespace SpaceH {
 
         SPACEHUB_STD_ACCESSOR(impl_pos, ptc_.pos());
 
-        SPACEHUB_STD_ACCESSOR(i mpl_vel, ptc_.vel());
+        SPACEHUB_STD_ACCESSOR(impl_vel, ptc_.vel());
 
         SPACEHUB_STD_ACCESSOR(impl_time, ptc_.time());
 

@@ -30,15 +30,11 @@ set(TMP_HEADER_FILES
         src/spaceHub.h
         src/type-class.h
         src/orbits/orbits.h
-        src/integrator/symplectic/symplectic2th.h
-        src/integrator/symplectic/symplectic4th.h
-        src/integrator/symplectic/symplectic6th.h
-        src/integrator/symplectic/symplectic8th.h
-        src/integrator/symplectic/symplectic10th.h
+        src/integrator/symplectic/symplectic-integrator.tpp
         src/integrator/Gauss-Dadau.h
         src/ode_iterator/BSIterator.h
         src/ode_iterator/BSIterator_impl0.h
-        src/ode_iterator/const_iterator.h
+        src/ode_iterator/const-iterator.tpp
         src/ode_iterator/IAS15.h
         src/particle-system/chain.tpp
         src/particle-system/regu-system.tpp
@@ -51,7 +47,7 @@ set(SOURCE_FILES
         test/unit_test/main.cpp
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
-        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/interaction.h src/config-reader.h src/particle-system.h src/interaction/newtonian.h src/particle-system/chain-system.tpp src/particle-system/chain/chain-particles.h)
+        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/interaction.h src/config-reader.h src/particle-system.h src/interaction/newtonian.h src/particle-system/chain-system.tpp  src/particle-system/archain.h src/integrator/symplectic/symplectic-integrator.h src/ode_iterator/ode-iterator.h)
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp)
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})

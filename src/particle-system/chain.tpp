@@ -97,36 +97,49 @@ namespace SpaceH::chain {
         create_index_from_dist_array(dist, index, pos.size());
     }
 
-    template<typename DataArray, typename IndexArray>
-    void update_chain(DataArray &chain, IndexArray &index, IndexArray &newIndex) {
-        size_t size = chain.size() - 1;
-        typename DataArray::value_type newPos[size];
+    template<typename Coord, typename IdxArray, typename T>
+    auto get_new_node(Coord &chain, IdxArray &idx, size_t head, size_t tail) -> typename Coord::Vector {
+        using Scalar = typename Coord::Scalar;
+        using Vector = typename Coord::Vector;
 
-        size_t head0 = std::find(index.begin(), index.end(), newIndex[0]) - index.begin();
-        typename DataArray::value_type headPos = chain[size];
-        for (int i = 0; i < head0; ++i)
-            headPos += chain[i];
-        chain[size] = headPos;
-        //pos[size].setZero();
+        Scalar sign{1};
 
-        for (size_t i = 0; i < size; i++) {
-            size_t head = newIndex[i];
-            size_t tail = newIndex[i + 1];
-            size_t old_head = std::find(index.begin(), index.end(), head) - index.begin();
-            size_t old_tail = std::find(index.begin(), index.end(), tail) - index.begin();
-            newPos[i] = 0;
-
-            if (old_head < old_tail) {
-                for (size_t j = old_head; j < old_tail; ++j)
-                    newPos[i] += chain[j];
-            } else {
-                for (size_t j = old_tail; j < old_head; ++j)
-                    newPos[i] -= chain[j];
-            }
+        if (head > tail) {
+            std::swap(head, tail);
+            sign = -1;
         }
 
-        for (int i = 0; i < size; ++i)
-            chain[i] = newPos[i];
+        auto connect = [](auto &array, auto first, auto last) -> auto {
+            auto new_d = array[first];
+            for (size_t j = first + 1; j < last; ++j)
+                new_d += chain[j];
+            return new_d;
+        }
+
+        return Vector(sign * connect(chain.x, head, tail), sign * connect(chain.y, head, tail), sign * connect(chain.z, head, tail))
+    }
+
+    template<typename Coord, typename IdxArray>
+    void update_chain(Coord &chain, IdxArray &idx, IdxArray &new_idx) {
+        using Vector = typename Coord::Vector;
+        size_t size = chain.size();
+
+        Coord new_chain;
+        new_chain.reserve(size);
+
+        auto get_idx = [&](auto var)->auto { return std::find(idx.begin(), idx.end(), var) - idx.begin(); };
+
+        Vector new_head = get_new_node(chain, idx, 0, get_idx(new_idx[0]));
+
+        new_chain.emplace_back(Vector(chain.x.back(), chain.y.back(), chain.z.back()) + new_head);
+
+        for (size_t i = 0; i < size - 1; ++i) {
+            auto first = get_idx(new_idx[i]);
+            auto last  = get_idx(new_idx[i + 1]);
+            new_chain.emplace_back(get_new_node(chain, idx, first, last));
+        }
+
+        chain = std::move(new_chain);
     }
 
 

@@ -11,6 +11,7 @@ namespace SpaceH {
     template<typename T>
     struct Coord{
         using Scalar = typename T::value_type;
+        using Vector = Vec3<Scalar>;
 
         Coord() = default;
 
