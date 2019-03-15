@@ -6,15 +6,25 @@
 #define SPACEHUB_NEWTONIAN_H
 
 #include "../interaction.h"
+#include "../dev-tools.h"
 
-namespace SpaceH{
-    template <typename TypeSystem>
-    class NewtonianGrav : Interactions<NewtonianGrav<TypeSystem>, false>{
+namespace SpaceH {
+    class NewtonianGrav : Interactions<NewtonianGrav, false, false> {
+    private:
+        CREATE_METHOD_CHECK(chain_pos);
+
+        CREATE_METHOD_CHECK(chain_vel);
+
+        CREATE_METHOD_CHECK(index);
+
     public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+        template<typename Particles>
+        void impl_eval_acc(Particles const &partc, typename Particles::Coord &acc) {
+            impl_eval_newtonian_acc(partc, acc);
+        }
 
         template<typename Particles>
-        void impl_eval_acc(Particles const &partc, Coord &acc) {
+        void impl_eval_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
             size_t num = partc.number();
             auto const &px = partc.pos().x;
             auto const &py = partc.pos().y;
@@ -23,21 +33,46 @@ namespace SpaceH{
 
             calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
-            for (size_t i = 0; i < num; ++i) {
-                for (size_t j = i + 1; j < num; ++j) {
-                    auto dx = px[j] - px[i];
-                    auto dy = py[j] - py[i];
-                    auto dz = pz[j] - pz[i];
-                    auto r = sqrt(dx * dx + dy * dy + dz * dz);
-                    auto rr3 = 1.0 / (r * r * r);
-                    acc.x[i] += dx * rr3 * m[j];
-                    acc.y[i] += dy * rr3 * m[j];
-                    acc.z[i] += dz * rr3 * m[j];
-                    acc.x[j] -= dx * rr3 * m[i];
-                    acc.y[j] -= dy * rr3 * m[i];
-                    acc.z[j] -= dz * rr3 * m[i];
+            auto grav = [&](auto dx, auto dy, auto dz, auto i, auto j) {
+                auto r = sqrt(dx * dx + dy * dy + dz * dz);
+                auto rr3 = 1.0 / (r * r * r);
+                acc.x[i] += dx * rr3 * m[j];
+                acc.y[i] += dy * rr3 * m[j];
+                acc.z[i] += dz * rr3 * m[j];
+                acc.x[j] -= dx * rr3 * m[i];
+                acc.y[j] -= dy * rr3 * m[i];
+                acc.z[j] -= dz * rr3 * m[i];
+            };
+
+            if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, chain_vel) &&
+                          HAS_METHOD(Particles, index)) {
+                auto const &ch_px = partc.chain_pos().x;
+                auto const &ch_py = partc.chain_pos().y;
+                auto const &ch_pz = partc.chain_pos().z;
+                auto const &ch_vx = partc.chain_vel().x;
+                auto const &ch_vy = partc.chain_vel().y;
+                auto const &ch_vz = partc.chain_vel().z;
+                auto const &idx = partc.index();
+
+                size_t size = partc.number();
+                for (size_t i = 0; i < size - 1; ++i)
+                    grav(ch_px[i], ch_py[i], ch_pz[i], idx[i], idx[i + 1]);
+
+                for (size_t i = 0; i < size - 2; ++i)
+                    grav(ch_px[i] + ch_px[i + 1], ch_py[i] + ch_py[i + 1], ch_pz[i] + ch_pz[i + 1], idx[i], idx[i + 2]);
+
+                for (size_t i = 0; i < size; ++i)
+                    for (size_t j = i + 3; j < size; ++j)
+                        grav(px[idx[j]] - px[idx[i]], py[idx[j]] - py[idx[i]], pz[idx[j]] - pz[idx[i]], idx[i], idx[j]);
+
+            } else {
+                for (size_t i = 0; i < num; ++i) {
+                    for (size_t j = i + 1; j < num; ++j) {
+                        grav(px[j] - px[i], py[j] - py[i], pz[j] - pz[i], i, j);
+                    }
                 }
             }
+
         }
     };
 }

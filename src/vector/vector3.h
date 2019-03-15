@@ -137,12 +137,8 @@ namespace SpaceH {
         }
 
         /** @brief Calculate the inverse of the norm */
-        inline value_type reNorm() const {
+        inline value_type re_norm() const {
             return 1.0 / sqrt(x * x + y * y + z * z);
-        }
-
-        inline void setZero() {
-            x = y = z = 0;
         }
 
         friend Vec3 operator+(const value_type c, const Vec3 &v) {

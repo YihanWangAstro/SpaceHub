@@ -163,7 +163,7 @@ inline auto const & NAME () const {                                             
         static constexpr bool value = decltype(check<T>(nullptr))::value;                                              \
     };
 
-#define HAS_METHOD(CLASS, METHOD, ...) has_method_##METHOD<CLASS, __VA_ARGS__>::value
+#define HAS_METHOD(CLASS, METHOD, ...) has_method_##METHOD<CLASS, ##__VA_ARGS__>::value
 
 /** @brief Macros used to check if a class has a member.  */
 #define CREATE_MEMBER_CHECK(MEMBER)                                                                                    \

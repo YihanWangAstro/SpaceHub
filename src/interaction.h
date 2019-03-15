@@ -13,28 +13,26 @@ namespace SpaceH{
     template <typename Derived, bool ExtVelDep, bool ExtVelIndep>
     class Interactions {
     public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
-
         static constexpr bool has_extra_vel_dep_acc{ExtVelDep};
         static constexpr bool has_extra_vel_indep_acc{ExtVelIndep};
 
         template<typename Particles>
-        void eval_acc(Particles const &partc, Coord& acc) {
+        void eval_acc(Particles const &partc, typename Particles::Coord& acc) {
             static_cast<Derived*>(this)->impl_eval_acc(partc, acc);
         }
 
         template<typename Particles>
-        void eval_newtonian_acc(Particles const &partc, Coord& acc) {
+        void eval_newtonian_acc(Particles const &partc, typename Particles::Coord& acc) {
             static_cast<Derived*>(this)->impl_eval_newtonian_acc(partc, acc);
         }
 
         template<typename Particles>
-        void eval_extra_vel_indep_acc(Particles const &partc, Coord& acc) {
+        void eval_extra_vel_indep_acc(Particles const &partc, typename Particles::Coord& acc) {
             static_cast<Derived*>(this)->impl_eval_extra_vel_indep_acc(partc, acc);
         }
 
         template<typename Particles>
-        void eval_extra_vel_dep_acc(Particles const &partc, Coord& acc) {
+        void eval_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord& acc) {
             static_cast<Derived*>(this)->impl_eval_extra_vel_dep_acc(partc, acc);
         }
     private:

@@ -115,7 +115,7 @@ namespace UnitTest {
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
             SpaceH::Vec3<T> v(x, y, z);
-            T rnorm = v.reNorm();
+            T rnorm = v.re_norm();
             ASSERT_EQ(1 / sqrt(x * x + y * y + z * z), rnorm);
         }
     }
@@ -129,7 +129,7 @@ namespace UnitTest {
             T y = SpaceH::Random<T>::uniform(-high, high);
             T z = SpaceH::Random<T>::uniform(-high, high);
             SpaceH::Vec3<T> v(x, y, z);
-            v.setZero();
+            v.set_zero();
             EXPECT_EQ(0, v.x);
             EXPECT_EQ(0, v.y);
             ASSERT_EQ(0, v.z);

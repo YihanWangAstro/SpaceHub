@@ -5,7 +5,6 @@
 #ifndef SPACEHUB_ODE_ITERATOR_H
 #define SPACEHUB_ODE_ITERATOR_H
 
-#include "../dev-tools.h"
 #include "../particle-system.h"
 
 namespace SpaceH::odeIterator{
