@@ -33,7 +33,7 @@ namespace SpaceH {
 
             calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
-            auto grav = [&](auto dx, auto dy, auto dz, auto i, auto j) {
+            auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
                 auto r = sqrt(dx * dx + dy * dy + dz * dz);
                 auto rr3 = 1.0 / (r * r * r);
                 acc.x[i] += dx * rr3 * m[j];
@@ -56,19 +56,19 @@ namespace SpaceH {
 
                 size_t size = partc.number();
                 for (size_t i = 0; i < size - 1; ++i)
-                    grav(ch_px[i], ch_py[i], ch_pz[i], idx[i], idx[i + 1]);
+                    force(ch_px[i], ch_py[i], ch_pz[i], idx[i], idx[i + 1]);
 
                 for (size_t i = 0; i < size - 2; ++i)
-                    grav(ch_px[i] + ch_px[i + 1], ch_py[i] + ch_py[i + 1], ch_pz[i] + ch_pz[i + 1], idx[i], idx[i + 2]);
+                    force(ch_px[i] + ch_px[i + 1], ch_py[i] + ch_py[i + 1], ch_pz[i] + ch_pz[i + 1], idx[i], idx[i + 2]);
 
                 for (size_t i = 0; i < size; ++i)
                     for (size_t j = i + 3; j < size; ++j)
-                        grav(px[idx[j]] - px[idx[i]], py[idx[j]] - py[idx[i]], pz[idx[j]] - pz[idx[i]], idx[i], idx[j]);
+                        force(px[idx[j]] - px[idx[i]], py[idx[j]] - py[idx[i]], pz[idx[j]] - pz[idx[i]], idx[i], idx[j]);
 
             } else {
                 for (size_t i = 0; i < num; ++i) {
                     for (size_t j = i + 1; j < num; ++j) {
-                        grav(px[j] - px[i], py[j] - py[i], pz[j] - pz[i], i, j);
+                        force(px[j] - px[i], py[j] - py[i], pz[j] - pz[i], i, j);
                     }
                 }
             }

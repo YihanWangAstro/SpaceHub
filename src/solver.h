@@ -27,12 +27,14 @@ namespace SpaceH {
             }
         }
 
-        void register_pre_option(Callback&& fun) {
-            pre_opts_.emplace_back(std::forward<Callback>(fun));
+        template<typename ...Args>
+        void set_pre_option(Callback&& func, Args&& ...args) {
+            pre_opts_.emplace_back(std::bind(std::forward<Callback>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
-        void register_post_option(Callback&& fun) {
-            post_opts_.emplace_back(std::forward<Callback>(fun));
+        template<typename ...Args>
+        void set_post_option(Callback&& func, Args&& ...args) {
+            post_opts_.emplace_back(std::bind(std::forward<Callback>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
     private:
@@ -51,14 +53,14 @@ namespace SpaceH {
         template<typename Container>
         Solver(Container const &partc, Scalar t) : particles_(partc, t){}
 
-        explicit Solver(ParticSys const& ptc) : particles_(ptc){}//more edit
+        explicit Solver(ParticSys const& ptc, Scalar t) : particles_(ptc, t){}//more edit
 
         template <typename RunArgs>
         void run(const RunArgs &arg) {
             step_size_ = arg.step_size;
 
             if(iseq(step_size_,0.0))
-                step_size_ = calc::calc_step_scale();
+                step_size_ = calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
             for (; particles_.time() < end_time;) {
@@ -74,14 +76,10 @@ namespace SpaceH {
             particles_.pre_iter_process();
             step_size_ = iterator_.iterate(particles_, step_size_);
             particles_.post_iter_process();
-            steps_++;
         }
 
         /** @brief Macro step size for ODE iterator*/
         Scalar step_size_{0.0};
-
-        /** @brief Steps*/
-        size_t steps_{0};
 
         /** @brief Particle system*/
         ParticSys particles_;
