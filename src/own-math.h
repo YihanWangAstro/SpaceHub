@@ -138,17 +138,51 @@ namespace SpaceH {
     }
 
     template<typename Dtype>
-    class Random {
+    class Uniform {
     private:
-        Random() : gen(rd()), Dist(0, 1) {}
-        Random(const Random&) = default;
+        Uniform() : gen(rd()), Dist(0, 1) {}
+        Uniform(const Uniform&) = default;
         std::random_device rd;
         std::mt19937 gen;
         std::uniform_real_distribution<Dtype> Dist;
     public:
-        inline static Dtype uniform(Dtype low = 0, Dtype high = 1) {
-            static Random instance;
+        inline static Dtype get(Dtype low = 0, Dtype high = 1) {
+            static Uniform instance;
             return low + (high - low)*instance.Dist(instance.gen);
+        }
+    };
+
+    template<typename Dtype>
+    class Normal {
+    private:
+        Normal() : gen(rd()), Dist(0, 1) {}
+        Normal(const Normal&) = default;
+        std::random_device rd;
+        std::mt19937 gen;
+        std::normal_distribution<Dtype> Dist;
+    public:
+        inline static Dtype get(Dtype mean = 0, Dtype sigma = 1) {
+            static Normal instance;
+            return mean + sigma*instance.Dist(instance.gen);
+        }
+    };
+
+    template<typename Dtype>
+    class Maxwell {
+    private:
+        Maxwell() : gen(rd()), Dist(0, 1) {}
+        Maxwell(const Maxwell&) = default;
+        std::random_device rd;
+        std::mt19937 gen;
+        std::normal_distribution<Dtype> Dist;
+    public:
+        inline static Dtype get(Dtype sigma = 1) {
+            static Maxwell instance;
+            auto x = instance.Dist(instance.gen);
+            auto y = instance.Dist(instance.gen);
+            auto z = instance.Dist(instance.gen);
+
+            return sigma*sqrt(x*x+y*y+z*z);
         }
     };
 

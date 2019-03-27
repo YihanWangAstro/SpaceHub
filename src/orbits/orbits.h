@@ -58,7 +58,7 @@ namespace SpaceH::obt {
     template<typename Scalar>
     Scalar get_random_mean_anomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
         if (e >= 0)
-            return Random<Scalar>::uniform() * (Mmax - Mmin) + Mmin;
+            return Uniform<Scalar>::get(Mmin, Mmax);
         else {
             SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");
             return 0;
@@ -178,15 +178,15 @@ namespace SpaceH::obt {
         }
 
         inline void shuffle_i() {
-            i = acos(Random<Scalar>::uniform() * 2 - 1);
+            i = acos(Uniform<Scalar>::get(-1, 1));
         }
 
         inline void shuffle_Omega() {
-            Omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
+            Omega = Uniform<Scalar>::get(-Const::PI, Const::PI);
         }
 
         inline void shuffle_omega() {
-            omega = Random<Scalar>::uniform() * 2 * Const::PI - Const::PI;
+            omega = Uniform<Scalar>::get(-Const::PI, Const::PI);
         }
 
         inline void shuffle_nu() {
