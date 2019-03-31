@@ -33,8 +33,8 @@ namespace SpaceH {
 
         ARchainSystem() = delete;
 
-        template<typename Container>
-        ARchainSystem(Container const &ptc, Scalar t) : ptc_(ptc, t), regu_(ptc), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , newtonian_acc_(ptc.size()),chain_acc_(ptc.size()){
+        template<typename STL>
+        ARchainSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), regu_(ptc), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , newtonian_acc_(ptc.size()),chain_acc_(ptc.size()){
             chain::calc_chain_index(ptc_.pos(), index_);
             chain::coord_calc_chain(ptc_.pos(), chain_pos(), index());
             chain::coord_calc_chain(ptc_.vel(), chain_vel(), index());

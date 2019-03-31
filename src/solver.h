@@ -2,6 +2,7 @@
 #define DYNAMICSYSTEM_H
 
 #include "dev-tools.h"
+#include "core-computation.h"
 #include <functional>
 
 namespace SpaceH {
@@ -50,8 +51,8 @@ namespace SpaceH {
         using RunArgs = SpaceH::RunArgs<ParticSys>;
         /* Typedef */
 
-        template<typename Container>
-        Solver(Container const &partc, Scalar t) : particles_(partc, t){}
+        template<typename STL>
+        Solver(STL const &partc, Scalar t) : particles_(partc, t){}
 
         explicit Solver(ParticSys const& ptc, Scalar t) : particles_(ptc, t){}//more edit
 

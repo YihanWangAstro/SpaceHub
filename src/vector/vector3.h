@@ -116,6 +116,11 @@ namespace SpaceH {
             return *this;
         }
 
+        inline Vec3 &operator=(const value_type s) {
+            x = y = z = s;
+            return *this;
+        }
+
         inline Vec3 &operator=(const Vec3 &v) {
             x = v.x, y = v.y, z = v.z;
             return *this;

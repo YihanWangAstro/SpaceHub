@@ -26,8 +26,8 @@ namespace SpaceH {
 
         SimpleSystem() = delete;
 
-        template<typename Container>
-        SimpleSystem(Container const &partc, Scalar t) : ptc_(partc, t), acc_(partc.size()) {
+        template<typename STL>
+        SimpleSystem(STL const &partc, Scalar t) : ptc_(partc, t), acc_(partc.size()) {
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(partc.size());
             }
@@ -89,7 +89,7 @@ namespace SpaceH {
         void eval_vel_indep_acc() {
             eom_.eval_newtonian_acc(ptc_, acc_);
             if constexpr (Interactions::has_extra_vel_dep_acc) {
-                eom_.eval_extra_vel_indep_acc(partc_, extra_vel_indep_acc_);
+                eom_.eval_extra_vel_indep_acc(ptc_, extra_vel_indep_acc_);
                 calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
         }

@@ -9,25 +9,25 @@
 namespace SpaceH {
 
     template<typename T>
-    struct Coord{
+    struct Coords{
         using Scalar = typename T::value_type;
         using Vector = Vec3<Scalar>;
 
-        Coord() = default;
+        Coords() = default;
 
-        explicit Coord(size_t count) : x(count), y(count), z(count) {}
+        explicit Coords(size_t count) : x(count), y(count), z(count) {}
 
-        Coord(Coord const & other) : x(other.x), y(other.y), z(other.z) {}
+        Coords(Coords const & other) : x(other.x), y(other.y), z(other.z) {}
 
-        Coord(Coord&& other) noexcept: x(std::move(other.x)), y(std::move(other.x)), z(std::move(other.z)) {}
+        Coords(Coords&& other) noexcept: x(std::move(other.x)), y(std::move(other.x)), z(std::move(other.z)) {}
 
-        Coord& operator=(Coord const& other) {
+        Coords& operator=(Coords const& other) {
             x = other.x;
             x = other.y;
             x = other.z;
         }
 
-        Coord& operator=(Coord && other) noexcept {
+        Coords& operator=(Coords && other) noexcept {
             x = std::move(other.x);
             x = std::move(other.y);
             x = std::move(other.z);
@@ -51,9 +51,9 @@ namespace SpaceH {
 
         template<typename Vector>
         void emplace_back(Vector&& v){
-            x.emplace_back(std::forward<Scalar>(v.x));
-            y.emplace_back(std::forward<Scalar>(v.y));
-            z.emplace_back(std::forward<Scalar>(v.z));
+            x.emplace_back(v.x);
+            y.emplace_back(v.y);
+            z.emplace_back(v.z);
         }
 
         void emplace_back(Scalar && xx, Scalar && yy, Scalar && zz){
@@ -74,7 +74,8 @@ namespace SpaceH {
     };
 
     template<typename Real, template<class...> class TContainer = std::vector>
-    struct TypeSystem {
+    struct Types {
+    public:
         template<typename ...T>
         using Container = TContainer<T...>;
 
@@ -83,8 +84,8 @@ namespace SpaceH {
         using IntArray    = Container<int>;
         using IdxArray    = Container<size_t>;
         using Vector      = Vec3<Scalar>;
-        using VArray      = Container<Vector>;
-        using Coord       = Coord<ScalarArray>;
+        using VectorArray = Container<Vector>;
+        using Coord       = Coords<ScalarArray>;
     };
 }//end namespace SpaceH
 

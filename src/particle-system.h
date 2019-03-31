@@ -5,7 +5,6 @@
 #ifndef SPACEHUB_PARTICLE_SYSTEM_H
 #define SPACEHUB_PARTICLE_SYSTEM_H
 
-
 #include "dev-tools.h"
 
 namespace SpaceH {

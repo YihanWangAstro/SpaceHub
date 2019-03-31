@@ -172,6 +172,11 @@ namespace SpaceH::calc {
     }
 
     template<typename Particles>
+    auto calc_step_scale(Particles const &ptc) {
+        return 1e-6;
+    }
+
+    template<typename Particles>
     auto calc_kinetic_energy(Particles const &ptc) {
         typename Particles::Scalar k_eng{0};
 

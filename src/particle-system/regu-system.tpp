@@ -88,8 +88,8 @@ namespace SpaceH {
 
         RegularizedSystem() = delete;
 
-        template<typename Container>
-        RegularizedSystem(Container const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc) {
+        template<typename STL>
+        RegularizedSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc) {
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
             }

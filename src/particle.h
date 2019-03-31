@@ -45,13 +45,11 @@ namespace SpaceH {
     template <typename Derived>
     class SoAParticles {
     public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
-
-        DECLARE_CRTP_ACCESSOR(mass, ScalarArray, Derived);
-        DECLARE_CRTP_ACCESSOR(idn, IdxArray, Derived);
-        DECLARE_CRTP_ACCESSOR(time, Scalar, Derived);
-        DECLARE_CRTP_ACCESSOR(pos, Coord, Derived);
-        DECLARE_CRTP_ACCESSOR(vel, Coord, Derived);
+        DECLARE_CRTP_ACCESSOR(mass, auto, Derived);
+        DECLARE_CRTP_ACCESSOR(idn, auto, Derived);
+        DECLARE_CRTP_ACCESSOR(time, auto, Derived);
+        DECLARE_CRTP_ACCESSOR(pos, auto, Derived);
+        DECLARE_CRTP_ACCESSOR(vel, auto, Derived);
 
         void resize(size_t new_sz) {
             static_cast<Derived*>(this)->impl_resize(new_sz);
@@ -94,8 +92,8 @@ namespace SpaceH {
 
         SoAPointParticle() = delete;
 
-        template<typename Container>
-        SoAPointParticle(Container const &partc, Scalar t) {
+        template<typename STL>
+        SoAPointParticle(STL const &partc, Scalar t) {
             size_t input_num = partc.size();
             this->reserve(input_num);
             for (auto &p : partc) {
