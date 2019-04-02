@@ -9,7 +9,7 @@
 #include "../dev-tools.h"
 
 namespace SpaceH {
-    class NewtonianGrav : Interactions<NewtonianGrav, false, false> {
+    class NewtonianGrav : public Interactions<NewtonianGrav, false, false> {
     private:
         CREATE_METHOD_CHECK(chain_pos);
 
@@ -26,10 +26,10 @@ namespace SpaceH {
         template<typename Particles>
         void impl_eval_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
             size_t num = partc.number();
-            auto const &px = partc.pos().x;
-            auto const &py = partc.pos().y;
-            auto const &pz = partc.pos().z;
-            auto const &m = partc.mass();
+            auto &px = partc.pos().x;
+            auto &py = partc.pos().y;
+            auto &pz = partc.pos().z;
+            auto &m = partc.mass();
 
             calc::set_arrays_zero(acc.x, acc.y, acc.z);
 

@@ -86,7 +86,7 @@ namespace SpaceH::calc {
     template<typename Array, typename Coord>
     auto coord_contract_to_scalar(Array & coef, Coord const &a, Coord const &b) {
         size_t size = coef.size();
-        typename Array::Scalar sum{0};
+        typename Coord::Scalar sum{0};
 
         for (size_t i = 0; i < size; ++i) {
             sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*coef[i];
@@ -173,7 +173,7 @@ namespace SpaceH::calc {
 
     template<typename Particles>
     auto calc_step_scale(Particles const &ptc) {
-        return 1e-6;
+        return 1e-3;
     }
 
     template<typename Particles>
@@ -185,7 +185,7 @@ namespace SpaceH::calc {
         auto & v    = ptc.vel();
 
         for (size_t i = 0; i < size; ++i)
-            k_eng += 0.5 * ptc.m[i] * (v.x[i] * v.x[i] + v.y[i] * v.y[i] + v.z[i] * v.z[i]);
+            k_eng += 0.5 * m[i] * (v.x[i] * v.x[i] + v.y[i] * v.y[i] + v.z[i] * v.z[i]);
 
         return k_eng;
     }

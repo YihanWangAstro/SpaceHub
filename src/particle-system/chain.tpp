@@ -24,14 +24,14 @@ namespace SpaceH::chain {
                 auto dx = pos.x[j] - pos.x[i];
                 auto dy = pos.y[j] - pos.y[i];
                 auto dz = pos.z[j] - pos.z[i];
-                vec.emplace_back(dx * dx + dy * dy + dz * dz, i, j, true);
+                vec.emplace_back(std::move(Node{dx * dx + dy * dy + dz * dz, i, j, true}));
             }
         }
     }
 
     template<typename T>
     bool not_in_list(std::list<T> &list, T var) {
-        return list.end() == std::find(list.begin(), list.end(), var)
+        return list.end() == std::find(list.begin(), list.end(), var);
     }
 
     template<typename InsertOpt>
@@ -48,18 +48,18 @@ namespace SpaceH::chain {
 
     bool try_add_to_chain(std::list<size_t> &list, size_t &head, size_t &tail, Node &n) {
         if (head == n.i) {
-            return try_insert(list, head, n.j, [&](size_t idx) { list.emplace_front(idx); });
+            return try_insert(list, head, n, n.j, [&](size_t idx) { list.emplace_front(idx); });
         } else if (head == n.j) {
-            return try_insert(list, head, n.i, [&](size_t idx) { list.emplace_front(idx); });
+            return try_insert(list, head, n, n.i, [&](size_t idx) { list.emplace_front(idx); });
         } else if (tail == n.i) {
-            return try_insert(list, tail, n.j, [&](size_t idx) { list.emplace_back(idx); });
+            return try_insert(list, tail, n, n.j, [&](size_t idx) { list.emplace_back(idx); });
         } else if (tail == n.j) {
-            return try_insert(list, tail, n.i, [&](size_t idx) { list.emplace_back(idx); });
+            return try_insert(list, tail, n, n.i, [&](size_t idx) { list.emplace_back(idx); });
         }
         return false;
     }
 
-    templace<typename IdxArray>
+    template<typename IdxArray>
     void create_index_from_dist_array(std::vector<Node> &dist, IdxArray &idx, size_t num) {
         auto head = dist[0].i;
         auto tail = dist[0].j;
@@ -72,7 +72,7 @@ namespace SpaceH::chain {
         size_t dist_size = dist.size();
         for (size_t k = 1; k < dist_size; ++k) {
             if (dist[k].avail) {
-                if (try_add_to_chain(idx_list, head, tail, disk[k])) {
+                if (try_add_to_chain(idx_list, head, tail, dist[k])) {
                     chained_num++;
                     if (chained_num == num) {
                         break;
@@ -97,7 +97,7 @@ namespace SpaceH::chain {
         create_index_from_dist_array(dist, index, pos.size());
     }
 
-    template<typename Coord, typename IdxArray, typename T>
+    template<typename Coord, typename IdxArray>
     auto get_new_node(Coord &chain, IdxArray &idx, size_t head, size_t tail) -> typename Coord::Vector {
         using Scalar = typename Coord::Scalar;
         using Vector = typename Coord::Vector;
@@ -112,11 +112,11 @@ namespace SpaceH::chain {
         auto connect = [](auto &array, auto first, auto last) -> auto {
             auto new_d = array[first];
             for (size_t j = first + 1; j < last; ++j)
-                new_d += chain[j];
+                new_d += array[j];
             return new_d;
-        }
+        };
 
-        return Vector(sign * connect(chain.x, head, tail), sign * connect(chain.y, head, tail), sign * connect(chain.z, head, tail))
+        return Vector(sign * connect(chain.x, head, tail), sign * connect(chain.y, head, tail), sign * connect(chain.z, head, tail));
     }
 
     template<typename Coord, typename IdxArray>

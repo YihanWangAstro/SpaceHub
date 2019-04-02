@@ -17,21 +17,21 @@ namespace SpaceH {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-        SPACEHUB_STD_ACCESSOR(impl_mass, ptc_.mass());
+        SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
-        SPACEHUB_STD_ACCESSOR(impl_idn, ptc_.idn());
+        SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
 
-        SPACEHUB_STD_ACCESSOR(impl_pos, ptc_.pos());
+        SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
 
-        SPACEHUB_STD_ACCESSOR(impl_vel, ptc_.vel());
+        SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
 
-        SPACEHUB_STD_ACCESSOR(impl_time, ptc_.time());
+        SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
 
-        SPACEHUB_STD_ACCESSOR(chain_pos, chain_pos_);
+        SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
 
-        SPACEHUB_STD_ACCESSOR(chain_vel, chain_vel_);
+        SPACEHUB_STD_ACCESSOR(auto, chain_vel, chain_vel_);
 
-        SPACEHUB_STD_ACCESSOR(index, index_);
+        SPACEHUB_STD_ACCESSOR(auto, index, index_);
 
         ChainSystem() = delete;
 
@@ -51,7 +51,7 @@ namespace SpaceH {
             }
         }
 
-        size_t impl_number() {
+        size_t impl_number() const {
             return ptc_.number();
         }
 
@@ -69,7 +69,7 @@ namespace SpaceH {
             chain_advance(ptc_.vel(), chain_vel(), chain_acc_, stepSize);
         }
 
-        void impl_evaluate_acc(Coord &acceleration) {
+        void impl_evaluate_acc(Coord &acceleration) const {
             eom_.eval_acc(*this, acceleration);
         }
 

@@ -13,7 +13,12 @@ int main(int argc, char **argv) {
     using force = NewtonianGrav;
     using particles = SoAPointParticle<type>;
 
-    using sys = SimpleSystem <particles, force>;
+    //using sys = SimpleSystem <particles, force>;
+
+    //using sys = RegularizedSystem <particles, force, ReguType::logH>;
+
+    using sys = ChainSystem <particles, force>;
+
     using iter = ConstOdeIterator<symplectic2th>;
 
     using simulation = Solver<sys,iter>;
@@ -24,14 +29,16 @@ int main(int argc, char **argv) {
 
     particles ls(init,0.0);
     simulation nbody{init,0};
-/*
+
     std::cout << std::setprecision(16);
 
     simulation::RunArgs args;
 
     args.end_time = 50000*Unit::YEAR;
-    args.step_size = 1*YEAR;
+    args.step_size = 1*Unit::YEAR;
 
-    nbody.run(args);*/
+    std::cout << "heng\n";
+    nbody.run(args);
+    std::cout << "ha\n";
     return 0;
 }

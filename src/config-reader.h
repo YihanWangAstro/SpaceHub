@@ -9,9 +9,39 @@
 #include <unordered_map>
 #include <algorithm>
 #include <sstream>
+#include <variant>
 #include "dev-tools.h"
 
 namespace SpaceH {
+
+    enum class ConfigDtype{
+        Integer,Float, String, Empty
+    };
+
+    auto classify_string(const std::string& s)
+    {
+        bool with_point{false};
+        auto it = s.begin();
+        while (it != s.end() && std::isdigit(*it)) {
+            if(*it == '.')
+                with_point = true;
+            ++it;
+        }
+
+        if(s.empty()){
+            return ConfigDtype::Empty;
+        } else {
+            if(it != s.end()){
+                return ConfigDtype::String;
+            } else {
+                if(with_point){
+                    return ConfigDtype::Float;
+                } else {
+                    return ConfigDtype::Integer;
+                }
+            }
+        }
+    }
 
     class ConfigReader {
     public:
@@ -51,6 +81,22 @@ namespace SpaceH {
             }
         }
 
+        std::variant<double,int,std::string> auto_get(std::string const &key) {
+            auto iskey = (map_.end() != map_.find(key));
+            if (iskey) {
+                auto type = classify_string(key);
+                if(type == ConfigDtype::Integer){
+                    return std::stoi(map_[key]);
+                } else if(type == ConfigDtype::Float){
+                    return std::stod(map_[key]);
+                } else {
+                    return map_[key];
+                }
+            } else {
+                SPACEHUB_ABORT("Invalid key for configure file!");
+            }
+        }
+
         friend std::ostream &operator<<(std::ostream &os, ConfigReader const &config) {
             for (auto&[key, value] : config.map_) {
                 SpaceH::print(os, key, '=', value, '\n');
@@ -60,6 +106,14 @@ namespace SpaceH {
     private:
         std::unordered_map<std::string, std::string> map_;
     };
+
+    template <typename ...Args>
+    auto config_map(ConfigReader & config, Args const & ...args) {
+        std::make_tuple(config.auto_get(args)...);
+    }
+
+#define CONFIG_MAPPING(FILE_NAME,...) ConfigReader config(FILE_NAME);                                                      \
+auto[__VA_ARGS__] = config_map(#__VA_ARGS__);
 
     template<typename ...Args>
     void read_command_line(int argc, char **argv, Args &&...args) {

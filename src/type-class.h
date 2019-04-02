@@ -33,7 +33,7 @@ namespace SpaceH {
             x = std::move(other.z);
         }
 
-        size_t size() {
+        size_t size() const {
             return x.size();
         }
 

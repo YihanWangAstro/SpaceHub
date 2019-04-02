@@ -107,8 +107,8 @@ namespace SpaceH {
 #endif
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
-    template<typename ...T>                                                                                            \
-    using Container   = typename CLASS::template Container<T...>;                                                      \
+    template<typename ..._T_>                                                                                          \
+    using Container   = typename CLASS::template Container<_T_...>;                                                    \
                                                                                                                        \
     using Scalar      = typename CLASS::Scalar;                                                                        \
     using ScalarArray = typename CLASS::ScalarArray;                                                                   \
@@ -118,13 +118,13 @@ namespace SpaceH {
     using VectorArray = typename CLASS::VectorArray;                                                                   \
     using Coord       = typename CLASS::Coord
 
-#define DECLARE_CRTP_ACCESSOR(NAME, TYPE, DERIVED)                                                                     \
+#define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                                                     \
                                                                                                                        \
 inline TYPE & NAME () {                                                                                                \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };                                                                                                                     \
 inline TYPE const & NAME () const {                                                                                    \
-    return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
+    return static_cast<Derived const*>(this)->impl_##NAME();                                                           \
 };
 
 #define DECLARE_READ_ACCESSOR(NAME, TYPE, DERIVED)                                                                     \
@@ -133,18 +133,18 @@ inline TYPE const & NAME () const {                                             
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
-#define SPACEHUB_STD_ACCESSOR(NAME, MEMBER)                                                                            \
+#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                      \
                                                                                                                        \
-inline auto & NAME () {                                                                                                \
+inline TYPE & NAME () {                                                                                                \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-inline auto const & NAME () const {                                                                                    \
+inline TYPE const & NAME () const {                                                                                    \
     return MEMBER;                                                                                                     \
 };
 
-#define SPACEHUB_READ_ACCESSOR(NAME, MEMBER)                                                                           \
+#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
                                                                                                                        \
-inline auto const & NAME () const {                                                                                    \
+inline TYPE const & NAME () const {                                                                                    \
     return MEMBER;                                                                                                     \
 };
 

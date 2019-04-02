@@ -45,11 +45,11 @@ namespace SpaceH {
     template <typename Derived>
     class SoAParticles {
     public:
-        DECLARE_CRTP_ACCESSOR(mass, auto, Derived);
-        DECLARE_CRTP_ACCESSOR(idn, auto, Derived);
-        DECLARE_CRTP_ACCESSOR(time, auto, Derived);
-        DECLARE_CRTP_ACCESSOR(pos, auto, Derived);
-        DECLARE_CRTP_ACCESSOR(vel, auto, Derived);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, time);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
         void resize(size_t new_sz) {
             static_cast<Derived*>(this)->impl_resize(new_sz);
@@ -59,8 +59,8 @@ namespace SpaceH {
             static_cast<Derived*>(this)->impl_reserve(new_cap);
         }
 
-        size_t number() {
-            return static_cast<Derived*>(this)->impl_number();
+        size_t number() const {
+            return static_cast<Derived const*>(this)->impl_number();
         }
 
         friend std::ostream &operator<<(std::ostream &os, SoAParticles const &ps) {
@@ -84,11 +84,11 @@ namespace SpaceH {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        SPACEHUB_STD_ACCESSOR(impl_mass, mass_);
-        SPACEHUB_STD_ACCESSOR(impl_idn, idn_);
-        SPACEHUB_STD_ACCESSOR(impl_time, time_);
-        SPACEHUB_STD_ACCESSOR(impl_pos, pos_);
-        SPACEHUB_STD_ACCESSOR(impl_vel, vel_);
+        SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
+        SPACEHUB_STD_ACCESSOR(auto, impl_idn, idn_);
+        SPACEHUB_STD_ACCESSOR(auto, impl_time, time_);
+        SPACEHUB_STD_ACCESSOR(auto, impl_pos, pos_);
+        SPACEHUB_STD_ACCESSOR(auto, impl_vel, vel_);
 
         SoAPointParticle() = delete;
 
@@ -115,7 +115,7 @@ namespace SpaceH {
             SpaceH::reserve_all(new_cap, pos_, vel_, mass_, idn_);
         }
 
-        size_t impl_number() {
+        size_t impl_number() const {
             return active_num;
         }
 

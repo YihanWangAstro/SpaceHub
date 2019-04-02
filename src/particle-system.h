@@ -12,42 +12,46 @@ namespace SpaceH {
     template<typename Derived>
     class ParticleSystem {
     public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(Derived);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
-        DECLARE_CRTP_ACCESSOR(mass, ScalarArray, Derived);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
 
-        DECLARE_CRTP_ACCESSOR(idn, IdxArray, Derived);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, time);
 
-        DECLARE_CRTP_ACCESSOR(time, Scalar, Derived);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
 
-        DECLARE_CRTP_ACCESSOR(pos, Coord, Derived);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
-        DECLARE_CRTP_ACCESSOR(vel, Coord, Derived);
-
-        size_t number() {
-            return static_cast<Derived *>(this)->impl_number();
+        size_t number() const {
+            return static_cast<Derived const*>(this)->impl_number();
         }
 
+        template<typename Scalar>
         void advance_time(Scalar dt) {
             static_cast<Derived *>(this)->impl_advance_time(dt);
         }
 
+        template<typename Coord, typename Scalar>
         void advance_pos(Scalar stepSize, Coord const &velocity) {
             static_cast<Derived *>(this)->impl_advance_pos(stepSize, velocity);
         }
 
+        template<typename Coord, typename Scalar>
         void advance_vel(Scalar stepSize, Coord const &acceleration) {
             static_cast<Derived *>(this)->impl_advance_vel(stepSize, acceleration);
         }
 
-        void evaluate_acc(Coord &acceleration) {
-            static_cast<Derived *>(this)->impl_evaluate_acc(acceleration);
+        template<typename Coord>
+        void evaluate_acc(Coord &acceleration) const {
+            static_cast<Derived const*>(this)->impl_evaluate_acc(acceleration);
         }
 
+        template<typename Scalar>
         void drift(Scalar stepSize) {
             static_cast<Derived *>(this)->impl_drift(stepSize);
         }
 
+        template<typename Scalar>
         void kick(Scalar stepSize) {
             static_cast<Derived *>(this)->impl_kick(stepSize);
         }

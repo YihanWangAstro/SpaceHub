@@ -14,9 +14,9 @@ namespace SpaceH {
     template<typename Scalar, ReguType Type = ReguType::logH>
     class Regularization {
     public:
-        SPACEHUB_STD_ACCESSOR(omega, omega_);
+        SPACEHUB_STD_ACCESSOR(auto, omega, omega_);
 
-        SPACEHUB_STD_ACCESSOR(bindE, bindE_);
+        SPACEHUB_STD_ACCESSOR(auto, bindE, bindE_);
 
         template<typename Particles>
         explicit Regularization(Particles const &partc) {
@@ -75,21 +75,21 @@ namespace SpaceH {
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-        SPACEHUB_STD_ACCESSOR(impl_mass, ptc_.mass());
+        SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
-        SPACEHUB_STD_ACCESSOR(impl_idn, ptc_.idn());
+        SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
 
-        SPACEHUB_STD_ACCESSOR(impl_pos, ptc_.pos());
+        SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
 
-        SPACEHUB_STD_ACCESSOR(impl_vel, ptc_.vel());
+        SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
 
-        SPACEHUB_STD_ACCESSOR(impl_time, ptc_.time());
+        SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
         /* Typedef */
 
         RegularizedSystem() = delete;
 
         template<typename STL>
-        RegularizedSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc) {
+        RegularizedSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
             }
@@ -100,7 +100,7 @@ namespace SpaceH {
             }
         }
 
-        size_t impl_number() {
+        size_t impl_number() const {
             return ptc_.number();
         }
         void impl_advance_time(Scalar stepSize) {
@@ -118,7 +118,7 @@ namespace SpaceH {
             pure_advance_vel(acceleration, phyTime);
         }
 
-        void impl_evaluate_acc(Coord const &acceleration) {
+        void impl_evaluate_acc(Coord const &acceleration) const {
             eom_.eval_acc(ptc_, acceleration);
         }
 
@@ -130,7 +130,8 @@ namespace SpaceH {
 
         void impl_kick(Scalar stepSize) {
             Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
-            SCalar halfTime = 0.5 * phyTime;
+            Scalar halfTime = 0.5 * phyTime;
+
 
             eval_vel_indep_acc();
 
