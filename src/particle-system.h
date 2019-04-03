@@ -63,12 +63,12 @@ namespace SpaceH {
         void post_iter_process() {
             static_cast<Derived *>(this)->impl_post_iter_process();
         }
+    private:
+        ParticleSystem() = default;
 
         void impl_pre_iter_process() {}//default implementation
 
         void impl_post_iter_process() {}//default implementation
-    private:
-        ParticleSystem() = default;
 
         friend Derived;
     };

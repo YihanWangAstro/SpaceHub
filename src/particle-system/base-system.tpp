@@ -12,17 +12,9 @@ namespace SpaceH {
     template<typename Particles, typename Interactions>
     class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Interactions>> {
     public:
+        friend class ParticleSystem<SimpleSystem<Particles, Interactions>>;
+
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
 
         SimpleSystem() = delete;
 
@@ -37,6 +29,17 @@ namespace SpaceH {
                 aux_vel_ = ptc_.vel();
             }
         }
+
+    private:
+        SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
 
         size_t impl_number() const {
             return ptc_.number();

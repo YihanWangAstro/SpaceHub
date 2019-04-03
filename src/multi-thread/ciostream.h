@@ -19,19 +19,25 @@ namespace SpaceH {
                     file_(file_name, std::fstream::out),
                     thread_(std::thread([&] {
                         while (true) {
-                            T data;
-                            {
-                                std::unique_lock<std::mutex> lock(mutex_);
-                                cv_.wait(lock, [&] { return stop_ || !queue_.empty(); });
+                            std::unique_lock<std::mutex> lock(mutex_, std::defer_lock);
+                            lock.lock();
+                            cv_.wait(lock, [&] { return stop_ || !queue_.empty(); });
 
-                                if (stop_)
-                                    return;
+                            if (stop_)
+                                return;
 
-                                data = std::move(queue_.front());
-                                queue_.pop_front();
-                            }
+                            T data = std::move(queue_.front());
+                            queue_.pop_front();
+                            lock.unlock();
+
                             file_ << data;
                         }
+
+                        while (!queue_.empty()) {
+                            file_ << queue_.front();
+                            queue_.pop_front();
+                        }
+
                     })) {}
 
             ~Opip() {
@@ -43,12 +49,6 @@ namespace SpaceH {
 
                 if (thread_.joinable())
                     thread_.join();
-
-                while (!queue_.empty()) {
-                    file_ << queue_.front();
-                    queue_.pop_front();
-                }
-
             }
 
             friend void operator<<(Opip &out, T &&tup) {
