@@ -50,7 +50,7 @@ namespace SpaceH::ArgsCallBack {
             if (!fstream_->is_open()) {
                 SPACEHUB_ABORT("Fail to open the file " + file_name);
             } else {
-                (*fstream_) <<   std::scientific << std::setprecision(16);
+                (*fstream_) << std::scientific << std::setprecision(16);
             }
         }
         template <typename ParticleSys>

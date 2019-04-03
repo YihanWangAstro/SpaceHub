@@ -23,12 +23,12 @@ namespace SpaceH {
                 : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
         friend std::ostream &operator<<(std::ostream &os, PointParticle const &particle) {
-            SpaceH::display(os, particle.idn, particle.mass, particle.pos, particle.vel);
+            SpaceH::display(os, particle.mass, particle.pos, particle.vel);
             return os;
         }
 
         friend std::istream &operator>>(std::istream &is, PointParticle &particle) {
-            SpaceH::input(is, particle.idn, particle.mass, particle.pos, particle.vel);
+            SpaceH::input(is, particle.mass, particle.pos, particle.vel);
             return is;
         }
 
@@ -71,9 +71,8 @@ namespace SpaceH {
         SoAParticles() = default;
         friend Derived;
     };
+
 #define SPACEHUB_PARTICLE_TYPE_CHECK(CTR, VAL) static_assert(std::is_base_of_v<typename CTR::value_type, VAL>, "Class can only be initialized by containers with its internal 'Particle' type!");
-
-
 }
 #endif
 

@@ -14,26 +14,6 @@ namespace SpaceH::obt {
     }
 
     template<typename Vector, typename Scalar>
-    Vector calcu_eccentricity(Scalar m1, Scalar m2, const Vector &pos1, const Vector &pos2, const Vector &vel1,
-                              const Vector &vel2) {
-        Vector dr = pos1 - pos2;
-        Vector dv = vel1 - vel2;
-        Scalar u = Const::G * (m1 + m2);
-        return (dr * (dv.norm2() - u * dr.reNorm()) - dv * dot(dr, dv)) / u;
-    }
-
-
-    template<typename Vector, typename Scalar>
-    Scalar calcu_semi_major_axis(Scalar m1, Scalar m2, const Vector &pos1, const Vector &pos2, const Vector &vel1,
-                                 const Vector &vel2) {
-        Vector dr = pos1 - pos2;
-        Vector dv = vel1 - vel2;
-        Scalar u = Const::G * (m1 + m2);
-        Scalar r = dr.norm();
-        return -u * r / (r * dv.norm2() - 2 * u);
-    }
-
-    template<typename Vector, typename Scalar>
     void euler_rotate(Vector &v, const Scalar phi, const Scalar theta, const Scalar psi) {
         Scalar sin_phi = sin(phi);
         Scalar cos_phi = cos(phi);
@@ -261,8 +241,8 @@ namespace SpaceH::obt {
         }
 
         template<typename Variant1, typename Variant2, typename Variant3, typename Variant4>
-        Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e, Variant1 i , Variant2 phi, Variant3 psi, Variant4 trueAnomaly)
-            : Kepler(OrbitParam<Scalar>(m1, m2, p, e, i, phi, psi, trueAnomaly)) {}
+        Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e, Variant1 i, Variant2 phi, Variant3 psi, Variant4 trueAnomaly)
+                : Kepler(OrbitParam<Scalar>(m1, m2, p, e, i, phi, psi, trueAnomaly)) {}
 
         Particle &first() {
             return obj1_;
@@ -304,23 +284,10 @@ namespace SpaceH::obt {
     };
 
 
-    template<typename Container>
-    void create_particle_id(Container &particles) {
-        size_t num = particles.size();
-        size_t i = 0;
-        for (auto &p : particles) {
-            p.idn = i++;
-        }
-    }
-
     template<typename Vector, typename Scalar>
-    void to_oribt_parameters(Scalar m1, Scalar m2, const Vector &pos1, const Vector &pos2, const Vector &vel1,
-                             const Vector &vel2, OrbitParam<Scalar> &params) {
-        Vector dr = pos1 - pos2;
-        Vector dv = vel1 - vel2;
+    void to_oribt_parameters(Scalar u, const Vector &dr, const Vector &dv, OrbitParam<Scalar> &params) {
         Vector L = cross(dr, dv);
         Vector N = cross(Vector(0, 0, 1.0), L);
-        Scalar u = Const::G * (m1 + m2);
         Scalar r = dr.norm();
         Scalar n = N.norm();
         Scalar l = L.norm();
@@ -358,6 +325,44 @@ namespace SpaceH::obt {
                 params.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
             }
         }
+    }
+
+    template<typename Vector, typename Scalar>
+    Vector calcu_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
+        return (dr * (norm2(dv) - u * re_norm(dr)) - dv * dot(dr, dv)) / u;
+    }
+
+    template<typename Particle>
+    auto calcu_eccentricity(Particle const &p1, Particle const &p2) {
+        return calcu_eccentricity(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+    }
+
+    template<typename Vector, typename Scalar>
+    Scalar calcu_semi_major_axis(Scalar u, Vector const &dr, Vector const &dv) {
+        Scalar r = norm(dr);
+        return -u * r / (r * norm2(dv) - 2 * u);
+    }
+
+    template<typename Particle>
+    auto calcu_semi_major_axis(Particle const &p1, Particle const &p2) {
+        return calcu_semi_major_axis(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+    }
+
+    template<typename Vector, typename Scalar>
+    auto calc_a_e(Scalar u, Vector const &dr, Vector const &dv) {
+        Scalar r = norm(dr);
+        Scalar v = norm(dv);
+        Scalar v2 = v * v;
+        Scalar vr = dot(dr, dv);
+        Scalar vdfs = v2 - u / r;
+        Scalar a = -u / (v2 - 2 * u / r);
+        Scalar e = norm((dr * vdfs - dv * vr) / u);
+        return std::make_tuple(a, e);
+    }
+
+    template<typename Particle>
+    auto calc_a_e(Particle const &p1, Particle const &p2) {
+        return calc_a_e(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 }
 #endif

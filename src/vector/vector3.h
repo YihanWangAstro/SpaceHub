@@ -187,6 +187,22 @@ namespace SpaceH {
         return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
     }
 
+    template<typename T>
+    inline T norm(const Vec3<T> &v) {
+        return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    }
+
+    template<typename T>
+    inline T re_norm(const Vec3<T> &v) {
+        return 1.0/sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    }
+
+    template<typename T>
+    inline T norm2(const Vec3<T> &v) {
+        return v.x * v.x + v.y * v.y + v.z * v.z;
+    }
+
+
 /** @brief Calculate the cross product of two vectors */
     template<typename T>
     inline Vec3<T> cross(const Vec3<T> &v1, const Vec3<T> &v2) {

@@ -4,6 +4,7 @@
 #include "macros.h"
 
 #include "particle/point-particle.tpp"
+#include "particle/finite-size.tpp"
 
 #include "solver.h"
 

@@ -70,12 +70,15 @@ namespace SpaceH {
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
         using RunArgs = SpaceH::RunArgs<ParticSys>;
+        using Particle = typename ParticSys::Particle;
+
+        SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
         /* Typedef */
 
         template<typename STL>
         Solver(STL const &partc, Scalar t) : particles_(partc, t){}
 
-        explicit Solver(ParticSys const& ptc, Scalar t) : particles_(ptc, t){}//more edit
+        explicit Solver(ParticSys const& ptc) : particles_(ptc){}//more edit
 
         template <typename RunArgs>
         void run(const RunArgs &arg) {
@@ -85,6 +88,7 @@ namespace SpaceH {
                 step_size_ = calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
+
             for (; particles_.time() < end_time;) {
                 if(arg.check_stop(particles_))
                     break;
