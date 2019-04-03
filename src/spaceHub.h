@@ -3,7 +3,7 @@
 
 #include "macros.h"
 
-#include "particle.h"
+#include "particle/point-particle.tpp"
 
 #include "solver.h"
 
@@ -18,4 +18,5 @@
 
 #include "ode_iterator/const-iterator.tpp"
 
+#include "args-callback/callbacks.h"
 #endif

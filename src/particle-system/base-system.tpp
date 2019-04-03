@@ -12,14 +12,15 @@ namespace SpaceH {
     template<typename Particles, typename Interactions>
     class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Interactions>> {
     public:
-        friend class ParticleSystem<SimpleSystem<Particles, Interactions>>;
-
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
+
+        using Particle = typename Particles::Particle;
 
         SimpleSystem() = delete;
 
         template<typename STL>
         SimpleSystem(STL const &partc, Scalar t) : ptc_(partc, t), acc_(partc.size()) {
+
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(partc.size());
             }
@@ -30,7 +31,14 @@ namespace SpaceH {
             }
         }
 
-    private:
+        friend std::ostream &operator<<(std::ostream &os, SimpleSystem const &ps) {
+            os << ps.ptc_;
+            return os;
+        }
+
+    protected:
+        friend class ParticleSystem<SimpleSystem<Particles, Interactions>>;
+
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
         SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
@@ -85,9 +93,6 @@ namespace SpaceH {
             }
         }
 
-        friend std::ostream &operator<<(std::ostream &os, SimpleSystem const &ps) {
-            os << ps.ptc_;
-        }
     private:
         void eval_vel_indep_acc() {
             eom_.eval_newtonian_acc(ptc_, acc_);

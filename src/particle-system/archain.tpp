@@ -15,6 +15,8 @@ namespace SpaceH {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
+        using Particle = typename Particles::Particle;
+
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
         SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
@@ -35,6 +37,7 @@ namespace SpaceH {
 
         template<typename STL>
         ARchainSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), regu_(ptc), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , newtonian_acc_(ptc.size()),chain_acc_(ptc.size()){
+
             chain::calc_chain_index(ptc_.pos(), index_);
             chain::coord_calc_chain(ptc_.pos(), chain_pos(), index());
             chain::coord_calc_chain(ptc_.vel(), chain_vel(), index());
@@ -128,6 +131,7 @@ namespace SpaceH {
 
         friend std::ostream &operator<<(std::ostream &os, ARchainSystem const &ps) {
             os << ps.ptc_;
+            return os;
         }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {

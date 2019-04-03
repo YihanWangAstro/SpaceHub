@@ -75,6 +75,8 @@ namespace SpaceH {
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
+        using Particle = typename Particles::Particle;
+
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
         SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
@@ -90,6 +92,7 @@ namespace SpaceH {
 
         template<typename STL>
         RegularizedSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
+
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
             }
@@ -163,6 +166,7 @@ namespace SpaceH {
 
         friend std::ostream &operator<<(std::ostream &os, RegularizedSystem const &ps) {
             os << ps.ptc_;
+            return os;
         }
 
     private:

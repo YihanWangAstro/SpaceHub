@@ -16,15 +16,11 @@ namespace SpaceH {
 
         PointParticle() = default;
 
-        PointParticle(size_t id, Scalar m, Vector const &p, Vector const &v)
-                : pos(p), vel(v), mass(m), idn(id) {}
+        PointParticle(Scalar m, Vector const &p, Vector const &v)
+                : pos(p), vel(v), mass(m) {}
 
-        PointParticle(size_t id, Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
-                : pos(px, py, pz), vel(vx, vy, vz), mass(m), idn(id) {}
-
-        auto forward_as_tuple() {
-            return std::tie(idn, mass, pos.x, pos.y, pos.z, vel.x, vel.y, vel.z);
-        }
+        PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
+                : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
         friend std::ostream &operator<<(std::ostream &os, PointParticle const &particle) {
             SpaceH::display(os, particle.idn, particle.mass, particle.pos, particle.vel);
@@ -39,7 +35,6 @@ namespace SpaceH {
         Vector pos;
         Vector vel;
         Scalar mass;
-        size_t idn{0};
     };
 
     template <typename Derived>
@@ -76,57 +71,9 @@ namespace SpaceH {
         SoAParticles() = default;
         friend Derived;
     };
+#define SPACEHUB_PARTICLE_TYPE_CHECK(CTR, VAL) static_assert(std::is_base_of_v<typename CTR::value_type, VAL>, "Class can only be initialized by containers with its internal 'Particle' type!");
 
 
-
-    template<typename TypeSystem>
-    class SoAPointParticle : public SoAParticles<SoAPointParticle<TypeSystem>> {
-    public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
-        SPACEHUB_STD_ACCESSOR(auto, impl_idn, idn_);
-        SPACEHUB_STD_ACCESSOR(auto, impl_time, time_);
-        SPACEHUB_STD_ACCESSOR(auto, impl_pos, pos_);
-        SPACEHUB_STD_ACCESSOR(auto, impl_vel, vel_);
-
-        SoAPointParticle() = delete;
-
-        template<typename STL>
-        SoAPointParticle(STL const &partc, Scalar t) {
-            size_t input_num = partc.size();
-            this->reserve(input_num);
-            for (auto &p : partc) {
-                pos_.emplace_back(p.pos);
-                vel_.emplace_back(p.vel);
-                mass_.emplace_back(p.mass);
-                idn_.emplace_back(p.idn);
-            }
-            time_ = t;
-            active_num = input_num;
-        }
-
-        void impl_resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, pos_, vel_, mass_, idn_);
-            active_num = new_sz;
-        }
-
-        void impl_reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, pos_, vel_, mass_, idn_);
-        }
-
-        size_t impl_number() const {
-            return active_num;
-        }
-
-    private:
-        Coord pos_;
-        Coord vel_;
-        ScalarArray mass_;
-        IdxArray idn_;
-        Scalar time_;
-        size_t active_num{0};
-    };
 }
 #endif
 

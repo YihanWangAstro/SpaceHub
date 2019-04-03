@@ -12,6 +12,7 @@ namespace SpaceH {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
         using Callback = std::function<void (ParticleSys &)>;
+        using StopCall = std::function<bool (ParticleSys &)>;
 
         Scalar step_size{0};
         Scalar end_time{0};
@@ -28,19 +29,39 @@ namespace SpaceH {
             }
         }
 
-        template<typename ...Args>
-        void set_pre_option(Callback&& func, Args&& ...args) {
-            pre_opts_.emplace_back(std::bind(std::forward<Callback>(func), std::placeholders::_1, std::forward<Args>(args)...));
+        bool check_stop(ParticleSys &partc_sys) const {
+            for (auto const &check : stop_cond_) {
+                if( check(partc_sys) )
+                    return true;
+            }
+            return false;
         }
 
-        template<typename ...Args>
-        void set_post_option(Callback&& func, Args&& ...args) {
-            post_opts_.emplace_back(std::bind(std::forward<Callback>(func), std::placeholders::_1, std::forward<Args>(args)...));
+        template<typename Func, typename ...Args>
+        void add_pre_step_option(Func &&func, Args &&...args) {
+            pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+        }
+
+        template<typename Func, typename ...Args>
+        void add_post_step_option(Func &&func, Args &&...args) {
+            post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+        }
+
+        template<typename Func, typename ...Args>
+        void add_stop_criteria(Func &&func, Args &&...args) {
+            stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+        }
+
+        template <typename Scalar>
+        void add_stop_criteria(Scalar end_){
+            end_time = end_;
         }
 
     private:
+
         std::vector<Callback> pre_opts_;
         std::vector<Callback> post_opts_;
+        std::vector<StopCall> stop_cond_;
     };
 
     template<typename ParticSys, typename ODEiterator>
@@ -65,6 +86,9 @@ namespace SpaceH {
 
             Scalar end_time = arg.end_time;
             for (; particles_.time() < end_time;) {
+                if(arg.check_stop(particles_))
+                    break;
+
                 arg.pre_option(particles_);
                 advance_one_step();
                 arg.post_option(particles_);

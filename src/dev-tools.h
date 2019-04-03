@@ -18,7 +18,6 @@ namespace SpaceH {
     template<typename... Args>
     void display(std::ostream &out, Args &&... args) {
         (..., (out << std::forward<Args>(args) << ' '));
-        out << '\n';
     }
 
     template<class Tup, size_t... I>
