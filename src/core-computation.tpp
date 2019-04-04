@@ -228,9 +228,9 @@ namespace SpaceH::calc {
     template<typename Particles>
     auto calc_step_scale(Particles const &ptc) {
         if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
-            return 0.1 * calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
+            return  calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
         } else {
-            return 0.1 * calc_fall_free_time(ptc.mass(), ptc.pos());
+            return calc_fall_free_time(ptc.mass(), ptc.pos());
         }
     }
 }//end namespace SpaceH

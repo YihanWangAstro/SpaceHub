@@ -1,12 +1,13 @@
 #ifndef ORBITS_H
 #define ORBITS_H
 
-#include "type-class.h"
-#include "own-math.h"
+#include "../type-class.h"
+#include "rand-generator.tpp"
+#include "../own-math.h"
 #include "../macros.h"
 #include <math.h>
 
-namespace SpaceH::obt {
+namespace SpaceH::Orbit {
 
     template<typename Scalar>
     inline Scalar myacos(Scalar x) {
@@ -38,7 +39,7 @@ namespace SpaceH::obt {
     template<typename Scalar>
     Scalar get_random_mean_anomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
         if (e >= 0)
-            return Uniform<Scalar>::get(Mmin, Mmax);
+            return Random::Uniform<Scalar>::get(Mmin, Mmax);
         else {
             SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");
             return 0;
@@ -158,22 +159,22 @@ namespace SpaceH::obt {
         }
 
         inline void shuffle_i() {
-            i = acos(Uniform<Scalar>::get(-1, 1));
+            i = acos(Random::Uniform<Scalar>::get(-1, 1));
         }
 
         inline void shuffle_Omega() {
-            Omega = Uniform<Scalar>::get(-Const::PI, Const::PI);
+            Omega = Random::Uniform<Scalar>::get(-Const::PI, Const::PI);
         }
 
         inline void shuffle_omega() {
-            omega = Uniform<Scalar>::get(-Const::PI, Const::PI);
+            omega = Random::Uniform<Scalar>::get(-Const::PI, Const::PI);
         }
 
         inline void shuffle_nu() {
             if (orbit_type == OrbitType::ellipse) {
-                Scalar M = obt::get_random_mean_anomaly(e, -Const::PI, Const::PI);
-                Scalar E = obt::calcu_eccentric_anomaly(M, e);
-                nu = obt::calcu_true_anomaly(E, e);
+                Scalar M = Orbit::get_random_mean_anomaly(e, -Const::PI, Const::PI);
+                Scalar E = Orbit::calcu_eccentric_anomaly(M, e);
+                nu = Orbit::calcu_true_anomaly(E, e);
             } else {
                 SPACEHUB_ABORT("Only elliptical orbit provides random anomaly method at this moment!");
             }
@@ -198,8 +199,8 @@ namespace SpaceH::obt {
         particle.pos = r * Vec3<Scalar>(cos_nu, sin_nu, 0);
         particle.vel = v * Vec3<Scalar>(-sin_nu, param.e + cos_nu, 0);
 
-        obt::euler_rotate(particle.pos, param.Omega, param.i, param.omega + Const::PI);
-        obt::euler_rotate(particle.vel, param.Omega, param.i, param.omega + Const::PI);
+        Orbit::euler_rotate(particle.pos, param.Omega, param.i, param.omega + Const::PI);
+        Orbit::euler_rotate(particle.vel, param.Omega, param.i, param.omega + Const::PI);
     }
 
     template<typename Particle>
@@ -236,8 +237,8 @@ namespace SpaceH::obt {
             obj2_.pos = r * Vector(cos_nu, sin_nu, 0);
             obj2_.vel = v * Vector(-sin_nu, param.e + cos_nu, 0);
 
-            obt::euler_rotate(obj2_.pos, param.Omega, param.i, param.omega + Const::PI);
-            obt::euler_rotate(obj2_.vel, param.Omega, param.i, param.omega + Const::PI);
+            Orbit::euler_rotate(obj2_.pos, param.Omega, param.i, param.omega + Const::PI);
+            Orbit::euler_rotate(obj2_.vel, param.Omega, param.i, param.omega + Const::PI);
         }
 
         template<typename Variant1, typename Variant2, typename Variant3, typename Variant4>

@@ -7,7 +7,7 @@
 
 #include "../../particle-system.h"
 
-namespace SpaceH::integrator{
+namespace SpaceH::Integrator{
 
     template<typename Derived, size_t Order>
     class SymIntegrator{

@@ -3,7 +3,6 @@
 #define OWN_MATH_H
 
 #include "dev-tools.h"
-#include <random>
 
 namespace SpaceH {
     /** @brief Self min()*/
@@ -136,73 +135,5 @@ namespace SpaceH {
         }
         return 0.5 * (up + low);
     }
-
-    template<typename Dtype>
-    class Uniform {
-    private:
-        Uniform() : gen(rd()), Dist(0, 1) {}
-        Uniform(const Uniform&) = default;
-        std::random_device rd;
-        std::mt19937 gen;
-        std::uniform_real_distribution<Dtype> Dist;
-    public:
-        inline static Dtype get(Dtype low = 0, Dtype high = 1) {
-            static Uniform instance;
-            return low + (high - low)*instance.Dist(instance.gen);
-        }
-    };
-
-    template<typename Dtype>
-    class Normal {
-    private:
-        Normal() : gen(rd()), Dist(0, 1) {}
-        Normal(const Normal&) = default;
-        std::random_device rd;
-        std::mt19937 gen;
-        std::normal_distribution<Dtype> Dist;
-    public:
-        inline static Dtype get(Dtype mean = 0, Dtype sigma = 1) {
-            static Normal instance;
-            return mean + sigma*instance.Dist(instance.gen);
-        }
-    };
-
-    template<typename Dtype>
-    class Maxwell {
-    private:
-        Maxwell() : gen(rd()), Dist(0, 1) {}
-        Maxwell(const Maxwell&) = default;
-        std::random_device rd;
-        std::mt19937 gen;
-        std::normal_distribution<Dtype> Dist;
-    public:
-        inline static Dtype get(Dtype sigma = 1) {
-            static Maxwell instance;
-            auto x = instance.Dist(instance.gen);
-            auto y = instance.Dist(instance.gen);
-            auto z = instance.Dist(instance.gen);
-
-            return sigma*sqrt(x*x+y*y+z*z);
-        }
-    };
-
-    template<typename Vector>
-    class RandomVector {
-    private:
-        using Scalar = typename Vector::value_type;
-        RandomVector() : gen(rd()), Dist(0, 1) {}
-        RandomVector(const RandomVector&) = default;
-        std::random_device rd;
-        std::mt19937 gen;
-        std::uniform_real_distribution<Scalar> Dist;
-    public:
-        inline static Vector uniform(Scalar low = 0, Scalar high = 1) {
-            static RandomVector instance;
-            Scalar x = low + (high - low)*instance.Dist(instance.gen);
-            Scalar y = low + (high - low)*instance.Dist(instance.gen);
-            Scalar z = low + (high - low)*instance.Dist(instance.gen);
-            return Vector(x,y,z);
-        }
-    };
 }
 #endif

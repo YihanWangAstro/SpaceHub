@@ -2,7 +2,7 @@
 #define DYNAMICSYSTEM_H
 
 #include "dev-tools.h"
-#include "core-computation.h"
+#include "core-computation.tpp"
 #include <functional>
 
 namespace SpaceH {
@@ -17,19 +17,25 @@ namespace SpaceH {
         Scalar step_size{0};
         Scalar end_time{0};
 
-        void pre_option(ParticleSys &partc_sys) const {
+        void pre_options(ParticleSys &partc_sys) const {
             for (auto const &opt : pre_opts_) {
                 opt(partc_sys);
             }
         }
 
-        void post_option(ParticleSys &partc_sys) const {
+        void post_options(ParticleSys &partc_sys) const {
             for (auto const &opt : post_opts_) {
                 opt(partc_sys);
             }
         }
 
-        bool check_stop(ParticleSys &partc_sys) const {
+        void stop_options(ParticleSys &partc_sys) const {
+            for (auto const &opt : stop_opts_) {
+                opt(partc_sys);
+            }
+        }
+
+        bool check_stops(ParticleSys &partc_sys) const {
             for (auto const &check : stop_cond_) {
                 if( check(partc_sys) )
                     return true;
@@ -48,19 +54,24 @@ namespace SpaceH {
         }
 
         template<typename Func, typename ...Args>
-        void add_stop_criteria(Func &&func, Args &&...args) {
+        void add_stop_point_option(Func &&func, Args &&...args) {
+            stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+        }
+
+        template<typename Func, typename ...Args>
+        void add_stop_condition(Func &&func, Args &&...args) {
             stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
         template <typename Scalar>
-        void add_stop_criteria(Scalar end_){
+        void add_stop_condition(Scalar end_){
             end_time = end_;
         }
 
     private:
-
         std::vector<Callback> pre_opts_;
         std::vector<Callback> post_opts_;
+        std::vector<Callback> stop_opts_;
         std::vector<StopCall> stop_cond_;
     };
 
@@ -85,18 +96,22 @@ namespace SpaceH {
             step_size_ = arg.step_size;
 
             if(iseq(step_size_,0.0))
-                step_size_ = calc::calc_step_scale(particles_);
+                step_size_ = 0.1 * calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
 
+            if(particles_.time() >= end_time)
+                SpaceH::print(std::cout, "Warning: The stop time is '<=' to the start time!");
+
             for (; particles_.time() < end_time;) {
-                if(arg.check_stop(particles_))
+                if(arg.check_stops(particles_))
                     break;
 
-                arg.pre_option(particles_);
+                arg.pre_options(particles_);
                 advance_one_step();
-                arg.post_option(particles_);
+                arg.post_options(particles_);
             }
+            arg.stop_options(particles_);
         }
 
         virtual ~Solver() = default; /**< @brief Default destructor, virtualize for inherent class*/

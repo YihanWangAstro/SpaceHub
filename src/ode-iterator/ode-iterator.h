@@ -7,13 +7,13 @@
 
 #include "../particle-system.h"
 
-namespace SpaceH::odeIterator{
+namespace SpaceH::OdeIterator{
     template <typename Derived>
     class OdeIterator{
     public:
         template <typename T>
-        auto iterate(ParticleSystem<T>& particles, typename T::Scalar macroStepSize) -> typename T::Scalar {
-            return static_cast<Derived*>(this)->impl_iterate(particles, macroStepSize);
+        auto iterate(ParticleSystem<T>& particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
+            return static_cast<Derived*>(this)->impl_iterate(particles, macro_step_size);
         }
     private:
         OdeIterator() = default;

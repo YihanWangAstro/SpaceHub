@@ -57,16 +57,6 @@ namespace SpaceH {
         size_t number() const {
             return static_cast<Derived const*>(this)->impl_number();
         }
-
-        friend std::ostream &operator<<(std::ostream &os, SoAParticles const &ps) {
-            size_t num = ps.number();
-            os << ps.time() << ' ';
-            for (size_t i = 0; i < num; ++i) {
-                SpaceH::display(os, ps.idn()[i], ps.mass()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
-            }
-            return os;
-        }
-
     private:
         SoAParticles() = default;
         friend Derived;

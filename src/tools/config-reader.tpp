@@ -12,7 +12,7 @@
 #include <variant>
 #include "dev-tools.h"
 
-namespace SpaceH {
+namespace SpaceH::Tools {
 
     enum class ConfigDtype{
         Integer,Float, String, Empty

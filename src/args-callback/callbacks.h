@@ -36,6 +36,18 @@ namespace SpaceH::ArgsCallBack {
             write_interval_{other.write_interval_},
             flush_immediate_{other.flush_immediate_} {}
 
+        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false){
+            write_time_ = start_;
+            end_time_ = end_;
+            write_interval_ = (end_ -start_)/snapshot_num;
+            flush_immediate_ = flush;
+        }
+
+        template <typename T>
+        friend BaseWriter&operator<<(BaseWriter& wtr, T const& d){
+            wtr.os << d;
+            return wtr;
+        }
     private:
         Ostream& os;
         double write_time_{0};
@@ -51,7 +63,7 @@ namespace SpaceH::ArgsCallBack {
             if (!fstream_->is_open()) {
                 SPACEHUB_ABORT("Fail to open the file " + file_name);
             } else {
-                (*fstream_) << std::scientific << std::setprecision(16);
+                (*fstream_) /*<< std::fixed*/ << std::setprecision(16);
             }
         }
         DefaultWriter(DefaultWriter const&) = default;
@@ -64,24 +76,19 @@ namespace SpaceH::ArgsCallBack {
         inline void operator()(ParticleSys &ptc) {
             writer_(ptc);
         }
+
+        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false){
+            writer_.reset_output_params(start_, end_, snapshot_num, flush);
+        }
+
+        template <typename T>
+        friend DefaultWriter&operator<<(DefaultWriter& wtr, T const& d){
+            wtr.writer_ << d;
+            return wtr;
+        }
     private:
         std::shared_ptr<std::ofstream> fstream_;
         BaseWriter<std::ofstream> writer_;
-    };
-
-    template<typename ParticleSys>
-    class ShowProgressBar {
-    public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
-
-        explicit ShowProgressBar(Scalar end_time) : bar(end_time) {}
-
-        inline void operator()(ParticleSys &partc) {
-            bar.autoShow(partc.time());
-        }
-
-    private:
-        Progress bar;
     };
 }
 #endif

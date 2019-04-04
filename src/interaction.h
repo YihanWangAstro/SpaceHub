@@ -6,7 +6,7 @@
 #define SPACEHUB_EOM_H
 
 #include "type-class.h"
-#include "core-computation.h"
+#include "core-computation.tpp"
 
 namespace SpaceH{
 

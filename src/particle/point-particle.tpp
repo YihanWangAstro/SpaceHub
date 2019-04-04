@@ -53,6 +53,14 @@ namespace SpaceH{
             return active_num;
         }
 
+        friend std::ostream &operator<<(std::ostream &os, SoAPointParticles const &ps) {
+            size_t num = ps.number();
+            os << ps.time() << ' ';
+            for (size_t i = 0; i < num; ++i) {
+                SpaceH::display(os, ps.idn()[i], ps.mass()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
+            }
+            return os;
+        }
     private:
         Coord pos_;
         Coord vel_;

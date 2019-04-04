@@ -2,7 +2,7 @@
 #ifndef GENPARTICLESYSTEM_H
 #define GENPARTICLESYSTEM_H
 
-#include "../core-computation.h"
+#include "core-computation.tpp"
 #include "../dev-tools.h"
 #include "../particle-system.h"
 
@@ -20,7 +20,6 @@ namespace SpaceH {
 
         template<typename STL>
         SimpleSystem(STL const &partc, Scalar t) : ptc_(partc, t), acc_(partc.size()) {
-
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(partc.size());
             }
@@ -34,6 +33,11 @@ namespace SpaceH {
         friend std::ostream &operator<<(std::ostream &os, SimpleSystem const &ps) {
             os << ps.ptc_;
             return os;
+        }
+
+        friend std::istream &operator>>(std::istream &is, SimpleSystem &ps) {
+            is >> ps.ptc_;
+            return is;
         }
 
     protected:
@@ -92,7 +96,6 @@ namespace SpaceH {
                 aux_vel_ = ptc_.vel();
             }
         }
-
     private:
         void eval_vel_indep_acc() {
             eom_.eval_newtonian_acc(ptc_, acc_);

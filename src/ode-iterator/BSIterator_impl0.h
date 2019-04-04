@@ -1,7 +1,7 @@
 #ifndef BSITERATOR_H
 #define BSITERATOR_H
 
-#include "core-computation.h"
+#include "core-computation.tpp"
 #include "own-math.h"
 #include "type-class.h"
 

@@ -3,8 +3,8 @@
 #include <iomanip>
 
 using namespace SpaceH;
-using namespace SpaceH::odeIterator;
-using namespace SpaceH::integrator;
+using namespace SpaceH::OdeIterator;
+using namespace SpaceH::Integrator;
 
 using scalar = double;
 using type = Types<scalar, std::vector>;
@@ -30,19 +30,20 @@ int main(int argc, char **argv) {
     using particle = typename simulation::Particle;
 
     std::vector<particle> init;
-    init.emplace_back(1,0, 0, 0, 0, 0, 0);
+    init.emplace_back(1, 0, 0, 0, 0, 0, 0);
     init.emplace_back(1e-3, 1, 0, 0, 0, 0, 0);
 
     simulation nbody{init, 0};
 
     simulation::RunArgs args;
 
-    //args.step_size = 1 * Unit::YEAR;
-
-    args.add_pre_step_option(ArgsCallBack::DefaultWriter("test.out", 0, 50000 * Unit::YEAR));
-    args.add_stop_criteria(1000 * Unit::YEAR);
+    args.step_size = 1 * Unit::YEAR;
+    auto wtr = ArgsCallBack::DefaultWriter(Tools::auto_name(), 0, 50000 * Unit::YEAR);
+    args.add_pre_step_option(wtr);
+    args.add_stop_condition(1000 * Unit::YEAR);
+    args.add_stop_point_option([&](auto &ptc) { wtr << "!" << ptc; });
 
     nbody.run(args);
-    std::cout << "ha\n";
+
     return 0;
 }

@@ -2,10 +2,10 @@
 // Created by yihan on 2/25/19.
 //
 
-#ifndef SPACEHUB_ARCHAIN_H
-#define SPACEHUB_ARCHAIN_H
+#ifndef SPACEHUB_CHAINSYSTEM_H
+#define SPACEHUB_CHAINSYSTEM_H
 
-#include "../core-computation.h"
+#include "core-computation.tpp"
 #include "../dev-tools.h"
 #include "../particle-system.h"
 #include "chain.tpp"
@@ -117,6 +117,10 @@ namespace SpaceH {
         friend std::ostream &operator<<(std::ostream &os, ChainSystem const &ps) {
             os << ps.ptc_;
             return os;
+        }
+        friend std::istream &operator>>(std::istream &is, ChainSystem &ps) {
+            is >> ps.ptc_;
+            return is;
         }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {

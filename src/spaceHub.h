@@ -17,7 +17,9 @@
 
 #include "integrator/symplectic/symplectic-integrator.tpp"
 
-#include "ode_iterator/const-iterator.tpp"
+#include "ode-iterator/const-iterator.tpp"
 
 #include "args-callback/callbacks.h"
+
+#include "tools/auto-name.tpp"
 #endif

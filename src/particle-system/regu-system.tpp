@@ -3,7 +3,7 @@
 #define REGUPARTICLESYSTEM_H
 
 #include "../particle-system.h"
-#include "../core-computation.h"
+#include "core-computation.tpp"
 #include "../dev-tools.h"
 
 namespace SpaceH {
@@ -173,6 +173,10 @@ namespace SpaceH {
         friend std::ostream &operator<<(std::ostream &os, RegularizedSystem const &ps) {
             os << ps.ptc_;
             return os;
+        }
+        friend std::istream &operator>>(std::istream &is, RegularizedSystem &ps) {
+            is >> ps.ptc_;
+            return is;
         }
 
     private:

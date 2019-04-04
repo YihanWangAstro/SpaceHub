@@ -133,6 +133,11 @@ namespace SpaceH {
             os << ps.ptc_;
             return os;
         }
+
+        friend std::istream &operator>>(std::istream &is, ARchainSystem &ps) {
+            is >> ps.ptc_;
+            return is;
+        }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {
             calc::coord_advance(ch_var, ch_inc, stepSize);
