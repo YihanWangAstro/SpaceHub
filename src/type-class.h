@@ -73,6 +73,14 @@ namespace SpaceH {
         T z;
     };
 
+    template <typename T>
+    inline auto distance(Coords<T> const& c, size_t i, size_t j){
+        auto dx = c.x[i] - c.x[j];
+        auto dy = c.y[i] - c.y[j];
+        auto dz = c.z[i] - c.z[j];
+        return sqrt(dx * dx + dy * dy + dz * dz);
+    }
+
     template<typename Real, template<class...> class TContainer = std::vector>
     struct Types {
     public:

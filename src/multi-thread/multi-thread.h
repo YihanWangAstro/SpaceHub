@@ -76,13 +76,15 @@ namespace SpaceH::MultiThread {
         template<typename U>
         friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup) {
             std::lock_guard<std::mutex> lock(*(os.mutex_));
-            *(os.file_) << std::forward<decltype(tup)>(tup);
+            *(os.file_) << std::forward<U>(tup);
+            return os;
         }
 
         template<typename U>
         friend ConcurrentFile &operator>>(ConcurrentFile &is, U &&tup) {
             std::lock_guard<std::mutex> lock(*(is.mutex_));
-            *(is.file_) >> std::forward<decltype(tup)>(tup);
+            *(is.file_) >> std::forward<U>(tup);
+            return is;
         }
 
     private:

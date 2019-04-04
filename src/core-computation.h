@@ -40,12 +40,13 @@ namespace SpaceH::calc {
     }
 
     template<typename Array, typename ...Args>
-    void array_dot(Array const &a, Array const &b, Args const &...args) {
+    auto array_dot(Array const &a, Array const &b, Args const &...args) {
         typename Array::value_type product{0};
         size_t size = a.size();
         for (size_t i = 0; i < size; ++i) {
             product += a[i] * b[i] * (args[i] * ...);
         }
+        return product;
     }
 
     template<typename Array, typename ...Args>
@@ -94,6 +95,28 @@ namespace SpaceH::calc {
         return sum;
     }
 
+    template<typename Scalar, typename Coord>
+    auto coord_contract_to_scalar(Scalar coef, Coord const &a, Coord const &b) {
+        size_t size = a.size();
+        Scalar sum{0};
+
+        for (size_t i = 0; i < size; ++i) {
+            sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*coef;
+        }
+        return sum;
+    }
+
+    template<typename Coord>
+    auto coord_contract_to_scalar(Coord const &a, Coord const &b) {
+        size_t size = a.size();
+        typename Coord::Scalar sum{0};
+
+        for (size_t i = 0; i < size; ++i) {
+            sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i]);
+        }
+        return sum;
+    }
+
     template<typename Coord, typename ...Args>
     void coord_add(Coord &dst, Coord const &a, Coord const &b, Args const &...args) {
         array_add(dst.x, a.x, b.x, std::forward<Args>(args.x)...);
@@ -117,38 +140,14 @@ namespace SpaceH::calc {
         return total;
     }
 
-
-    template<typename Array1, typename Array2>
-    auto calc_com(Array1 const & mass, Array2 const & var) {
-        using T = typename Array2::value_type;
-        using Scalar = typename Array1::value_type;
-
-        T com_var{0};
-        Scalar tot_mass{0};
-
-        size_t const size = mass.size();
-
-        for (size_t i = 0; i < size; ++i) {
-            com_var += var[i] * mass[i];
-            tot_mass += mass[i];
-        }
-        com_var /= tot_mass;
-        return com_var;
+    template<typename Array>
+    auto calc_com(Array const & mass, Array const & var) {
+        return array_dot(var, mass)/array_sum(mass);
     }
 
-    template<typename Array1, typename Array2>
-    auto calc_com(Array1 const & mass, Array2 const & var, typename Array1::value_type tot_mass) {
-        using T = typename Array2::value_type;
-
-        T com_var{0};
-
-        size_t const size = mass.size();
-
-        for (size_t i = 0; i < size; ++i) {
-            com_var += var[i] * mass[i];
-        }
-        com_var /= tot_mass;
-        return com_var;
+    template<typename Array>
+    auto calc_com(Array const & mass, Array const & var, typename Array::value_type tot_mass) {
+        return array_dot(var, mass)/tot_mass;
     }
 
     template<typename Array>
@@ -172,28 +171,13 @@ namespace SpaceH::calc {
     }
 
     template<typename Particles>
-    auto calc_step_scale(Particles const &ptc) {
-        return 1e-3;
-    }
-
-    template<typename Particles>
     auto calc_kinetic_energy(Particles const &ptc) {
-        typename Particles::Scalar k_eng{0};
-
-        size_t size = ptc.number();
-        auto & m    = ptc.mass();
-        auto & v    = ptc.vel();
-
-        for (size_t i = 0; i < size; ++i)
-            k_eng += 0.5 * m[i] * (v.x[i] * v.x[i] + v.y[i] * v.y[i] + v.z[i] * v.z[i]);
-
-        return k_eng;
+        return 0.5*coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
     }
 
     template<typename Particles>
     auto calc_potential_energy(Particles const &ptc) {
         typename Particles::Scalar p_eng{0};
-
         size_t size = ptc.number();
         auto & m    = ptc.mass();
         auto & v    = ptc.vel();
@@ -211,25 +195,8 @@ namespace SpaceH::calc {
 
     template<typename Particles>
     auto calc_total_energy(Particles const &ptc) {
-        typename Particles::Scalar p_eng{0};
-        typename Particles::Scalar k_eng{0};
-        size_t size = ptc.number();
-        auto & m    = ptc.mass();
-        auto & v    = ptc.vel();
-        auto & p    = ptc.pos();
-
-        for (size_t i = 0; i < size; ++i) {
-            k_eng += 0.5 * m[i] * (v.x[i] * v.x[i] + v.y[i] * v.y[i] + v.z[i] * v.z[i]);
-            for (size_t j = i + 1; j < size; ++j) {
-                auto dx = p.x[i] - p.x[j];
-                auto dy = p.y[i] - p.y[j];
-                auto dz = p.z[i] - p.z[j];
-                p_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
-            }
-        }
-        return p_eng + k_eng;
+        return calc_potential_energy(ptc) + calc_kinetic_energy(ptc);
     }
-
 
     /** @brief Calculate the minimal fall free time of two particles
      *
@@ -237,92 +204,34 @@ namespace SpaceH::calc {
      *  @param  pos  position array of particle.
      *  @return The minimal fall free time of the two particles
      */
-    template<typename ScalarArray, typename VectorArray>
-    inline auto minfallFreeTime(const ScalarArray &mass, const VectorArray &pos) {
+    template<typename ScalarArray, typename Coord>
+    inline auto calc_fall_free_time(const ScalarArray &mass, Coord const &pos) {
+        using Scalar = typename ScalarArray::value_type;
         size_t size = mass.size();
-        typename ScalarArray::value_type r = 0;
-        typename ScalarArray::value_type min_fall_free = 0;
-        typename ScalarArray::value_type fall_free = 0;
+        Scalar min_fall_free = 0;
 
         for (size_t i = 0; i < size; i++) {
             for (size_t j = i + 1; j < size; j++) {
-                r = (pos[i] - pos[j]).norm();
-                fall_free = pow(r, 1.5) / (mass[i] + mass[j]);
+                Scalar dx = pos.x[i] - pos.x[j];
+                Scalar dy = pos.y[i] - pos.y[j];
+                Scalar dz = pos.z[i] - pos.z[j];
+                Scalar r = sqrt(dx * dx + dy * dy + dz * dz);
+                Scalar fall_free = pow(r, 1.5) / (mass[i] + mass[j]);
                 min_fall_free = min_fall_free == 0 ? fall_free : SpaceH::min(min_fall_free, fall_free);
             }
         }
-
-        return 0.1 * min_fall_free;
+        return min_fall_free;
     }
 
-    /** @brief check if all elements in an vector array are zero vector
-     *
-     *  @param  array The array need to be checked.
-     *  @return The boolean result.
-     */
-    template<typename VectorArray>
-    bool isAllZero(const VectorArray &array) {
-        for (auto& a : array) {
-            if (a.norm() > 0)
-                return false;
+    CREATE_STATIC_MEMBER_CHECK(regu_type);
+
+    template<typename Particles>
+    auto calc_step_scale(Particles const &ptc) {
+        if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
+            return 0.1 * calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
+        } else {
+            return 0.1 * calc_fall_free_time(ptc.mass(), ptc.pos());
         }
-        return true;
     }
-
-    /** @brief Calculate the minimal fall free time of two particles
-     *
-     *  @param  mass mass array of particle.
-     *  @param  pos  position array of particle.
-     *  @param  vel  velocity array of particle.
-     *  @return The minimal fall free time of the two particles
-     */
-    template<typename ScalarArray, typename VectorArray>
-    inline auto minAccdot(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel) {
-        using Vector = typename VectorArray::value_type;
-        using Scalar = typename ScalarArray::value_type;
-        size_t size = mass.size();
-        Vector acc;
-        Vector adot;
-        Vector dr;
-        Vector dv;
-
-        Scalar r = 0;
-        Scalar min_ds = 0;
-
-        for (size_t i = 0; i < size; i++) {
-            adot.setZero();
-            acc.setZero();
-            for (size_t j = 0; j < size; j++) {
-                if (i != j) {
-                    dr = pos[i] - pos[j];
-                    dv = vel[i] - vel[j];
-                    r = dr.norm();
-                    acc += dr / (r * r * r) * mass[j];
-                    adot += (dv / (r * r * r) + dr * (3 * dot(dv, dr) / (r * r * r * r * r))) * mass[j];
-                }
-            }
-            Scalar ds = acc.norm() / adot.norm();
-            min_ds = min_ds == 0 ? ds : SpaceH::min(min_ds, ds);
-        }
-
-        return min_ds;
-    }
-
-    /** @brief Calculate the energy error approximately for regularized system.
-     *
-     *  @param  mass  Array of mass.
-     *  @param  pos   Array of position.
-     *  @param  vel   Array of velocity.
-     *  @param  bindE The binding energy of the regularized system.
-     *  @return The approximated energy error.
-     */
-    template<typename ScalarArray, typename VectorArray, typename Scalar>
-    inline Scalar
-    getEnergyErr(const ScalarArray &mass, const VectorArray &pos, const VectorArray &vel, const Scalar bindE) {
-        Scalar EK = calc_kinetic_energy(mass, vel);
-        Scalar EP = calc_potential_energy(mass, pos);
-        return log(abs((EK + bindE) / EP));
-    }
-
 }//end namespace SpaceH
 #endif

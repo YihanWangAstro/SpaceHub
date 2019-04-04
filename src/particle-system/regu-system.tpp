@@ -69,8 +69,8 @@ namespace SpaceH {
      * @tparam Particles
      * @tparam Interactions
      */
-    template<typename Particles, typename Interactions, ReguType ReguType>
-    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, ReguType>> {
+    template<typename Particles, typename Interactions, ReguType RegType>
+    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, RegType>> {
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
@@ -86,9 +86,15 @@ namespace SpaceH {
         SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
 
         SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
+
+        SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
+
+        SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
         /* Typedef */
 
         RegularizedSystem() = delete;
+
+        static constexpr ReguType regu_type{RegType};
 
         template<typename STL>
         RegularizedSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
@@ -213,7 +219,7 @@ namespace SpaceH {
 
         Particles ptc_;
         Interactions eom_;
-        Regularization<Scalar, ReguType> regu_;
+        Regularization<Scalar, RegType> regu_;
 
         Coord aux_vel_{0};
         Coord acc_{0};

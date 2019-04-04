@@ -141,15 +141,26 @@ namespace SpaceH {
         template<typename T>
         class COstream {
         public:
-            explicit COstream(const char *file_name) : pip_ptr_(std::make_shared<Opip<T>>(file_name)){}
+            explicit COstream(const char *file_name) : pip_ptr_(std::make_unique<Opip<T>>(file_name)){}
 
             explicit COstream(std::string& file_name) : COstream(file_name.c_str()){}
-            
-            friend void operator<<(COstream &out, T &&tup) {
-                *(out.pip_ptr_) << std::forward<T>(tup);
+
+            COstream(COstream const&) = delete;
+
+            COstream& operator=(COstream const & ) = delete;
+
+            COstream(COstream&& other) noexcept : pip_ptr_(std::move(other.pip_ptr_)) {}
+
+            COstream& operator=(COstream && other ) noexcept {
+                pip_ptr_ = std::move(other.pip_ptr_);
+                return *this;
+            }
+
+            friend void operator<<(COstream &out, T const &tup) {
+                *(out.pip_ptr_) << tup;
             }
         private:
-            std::shared_ptr<Opip<T>> pip_ptr_;
+            std::unique_ptr<Opip<T>> pip_ptr_;
         };
         
         template <typename T>

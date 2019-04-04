@@ -34,7 +34,8 @@ namespace SpaceH::ArgsCallBack {
             write_time_{other.write_time_},
             end_time_{other.end_time_},
             write_interval_{other.write_interval_},
-            flush_immediate_{other.flush_immediate_}{}
+            flush_immediate_{other.flush_immediate_} {}
+
     private:
         Ostream& os;
         double write_time_{0};
@@ -53,6 +54,12 @@ namespace SpaceH::ArgsCallBack {
                 (*fstream_) << std::scientific << std::setprecision(16);
             }
         }
+        DefaultWriter(DefaultWriter const&) = default;
+
+        DefaultWriter&operator=(DefaultWriter const&) = default;
+
+        DefaultWriter(DefaultWriter && other) noexcept : fstream_(std::move(other.fstream_)), writer_(std::move(other.writer_)) {}
+
         template <typename ParticleSys>
         inline void operator()(ParticleSys &ptc) {
             writer_(ptc);
