@@ -1,11 +1,12 @@
 #include "../../src/spaceHub.h"
 #include <vector>
+#include <array>
 #include <iomanip>
 
 using namespace SpaceH;
 using namespace SpaceH::OdeIterator;
 using namespace SpaceH::Integrator;
-
+using namespace Unit;
 using scalar = double;
 using type = Types<scalar, std::vector>;
 
@@ -29,20 +30,21 @@ int main(int argc, char **argv) {
 
     using particle = typename simulation::Particle;
 
-    std::vector<particle> init;
-    init.emplace_back(1, 0, 0, 0, 0, 0, 0);
-    init.emplace_back(1e-3, 1, 0, 0, 0, 0, 0);
+    particle sun{1*M_SOLAR}, earth{3.003e-6*M_SOLAR};
 
-    simulation nbody{init, 0};
+    auto ecc = 0.0167086;
+    auto p = Orbit::semi_latus_rectum(AU, ecc);
+    Orbit::set_particle_at(earth, Orbit::Kepler{sun.mass + earth.mass, p, ecc, 7.155*DEG, 174.9*DEG, 288.1*DEG, Orbit::thermal});
+    Orbit::move_to_com_coord(sun, earth);
+
+
 
     simulation::RunArgs args;
 
-    args.step_size = 1 * Unit::YEAR;
-    auto wtr = ArgsCallBack::DefaultWriter(Tools::auto_name(), 0, 50000 * Unit::YEAR);
-    args.add_pre_step_option(wtr);
+    args.add_pre_step_option(ArgsCallBack::DefaultWriter(Tools::auto_name(), 0, 1000 * YEAR));
     args.add_stop_condition(1000 * Unit::YEAR);
-    args.add_stop_point_option([&](auto &ptc) { wtr << "!" << ptc; });
 
+    simulation nbody{0, sun, earth};
     nbody.run(args);
 
     return 0;

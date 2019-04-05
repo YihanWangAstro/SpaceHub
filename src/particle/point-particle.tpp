@@ -24,7 +24,7 @@ namespace SpaceH{
         SoAPointParticles() = delete;
 
         template<typename STL>
-        SoAPointParticles(STL const &partc, Scalar t) {
+        SoAPointParticles( Scalar t, STL const &partc) {
             SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
 
             size_t input_num = partc.size();
@@ -39,6 +39,9 @@ namespace SpaceH{
             time_ = t;
             active_num = input_num;
         }
+
+        template<typename ...T>
+        SoAPointParticles(Scalar t, T const & ...p) :  SoAPointParticles(t, std::initializer_list<Particle>{p...}){}
 
         void impl_resize(size_t new_sz) {
             SpaceH::resize_all(new_sz, pos_, vel_, mass_, idn_);

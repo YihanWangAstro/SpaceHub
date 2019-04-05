@@ -97,7 +97,7 @@ namespace SpaceH {
         static constexpr ReguType regu_type{RegType};
 
         template<typename STL>
-        RegularizedSystem(STL const &ptc, Scalar t) : ptc_(ptc, t), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
+        RegularizedSystem(Scalar t, STL const &ptc) : ptc_(t, ptc), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
 
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
@@ -108,6 +108,9 @@ namespace SpaceH {
                 aux_vel_ = ptc_.vel();
             }
         }
+
+        template<typename ...T>
+        RegularizedSystem(Scalar t, T const & ...p) :  RegularizedSystem(t, std::initializer_list<Particle>{p...}){}
 
         size_t impl_number() const {
             return ptc_.number();

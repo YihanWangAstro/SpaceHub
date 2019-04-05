@@ -39,7 +39,7 @@ namespace SpaceH::Unit
     constexpr double V_UNIT    = 2.9784651272402163E1;
     constexpr double KMS       = 1 / V_UNIT;
 
-    constexpr double DEG       = Const::PI/180;
+    constexpr double DEG       = Const::PI/180.0;
 
     struct Fmt {
         double L;

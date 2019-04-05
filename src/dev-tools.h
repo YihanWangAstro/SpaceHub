@@ -42,6 +42,16 @@ namespace SpaceH {
         return in;
     }
 
+    template <typename STL, typename ...Args>
+    void emplace_back(STL& container, Args&&...args){
+        (container.emplace_back(std::forward<Args>(args)),...);
+    }
+
+    template <typename STL, typename ...Args>
+    void push_back(STL& container, Args&&...args){
+        (container.emplace_back(std::forward<Args>(args)),...);
+    }
+
     template<typename... Args>
     void resize_all(size_t new_sz, Args &&... args) {
         (..., (args.resize(new_sz)));

@@ -87,7 +87,10 @@ namespace SpaceH {
         /* Typedef */
 
         template<typename STL>
-        Solver(STL const &partc, Scalar t) : particles_(partc, t){}
+        Solver(Scalar t, STL const &partc) : particles_(t, partc){}
+
+        template<typename ...T>
+        Solver(Scalar t, T const & ...p) :  Solver(t, std::initializer_list<Particle>{p...}){}
 
         explicit Solver(ParticSys const& ptc) : particles_(ptc){}//more edit
 

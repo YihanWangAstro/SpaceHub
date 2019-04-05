@@ -16,10 +16,10 @@ namespace SpaceH {
 
         PointParticle() = default;
 
-        PointParticle(Scalar m, Vector const &p, Vector const &v)
+        explicit PointParticle(Scalar m, Vector p, Vector v)
                 : pos(p), vel(v), mass(m) {}
 
-        PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
+        explicit PointParticle(Scalar m, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx =0, Scalar vy =0, Scalar vz =0)
                 : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
         friend std::ostream &operator<<(std::ostream &os, PointParticle const &particle) {

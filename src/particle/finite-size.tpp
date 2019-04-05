@@ -19,10 +19,10 @@ namespace SpaceH{
 
             Particle() = default;
 
-            Particle(Scalar m, Scalar r, Vector const &p, Vector const &v)
+            Particle(Scalar m, Scalar r, Vector p, Vector v)
                     : PointParticle<Scalar>{m, p, v}, radius{r}  {}
 
-            Particle(Scalar m, Scalar r, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
+            Particle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0, Scalar vz = 0)
                     : PointParticle<Scalar>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
             friend std::ostream &operator<<(std::ostream &os, Particle const &particle) {
@@ -48,7 +48,7 @@ namespace SpaceH{
         SoAFiniteSizeParticles() = delete;
 
         template<typename STL>
-        SoAFiniteSizeParticles(STL const &partc, Scalar t) {
+        SoAFiniteSizeParticles(Scalar t, STL const &partc) {
             SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
 
             size_t input_num = partc.size();
@@ -64,6 +64,9 @@ namespace SpaceH{
             time_ = t;
             active_num = input_num;
         }
+
+        template<typename ...T>
+        SoAFiniteSizeParticles(Scalar t, T const & ...p) :  SoAFiniteSizeParticles(t, std::initializer_list<Particle>{p...}){}
 
         void impl_resize(size_t new_sz) {
             SpaceH::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);

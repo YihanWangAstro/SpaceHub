@@ -19,7 +19,7 @@ namespace SpaceH {
         SimpleSystem() = delete;
 
         template<typename STL>
-        SimpleSystem(STL const &partc, Scalar t) : ptc_(partc, t), acc_(partc.size()) {
+        SimpleSystem(Scalar t, STL const &partc) : ptc_(t, partc), acc_(partc.size()) {
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(partc.size());
             }
@@ -29,6 +29,9 @@ namespace SpaceH {
                 aux_vel_ = ptc_.vel();
             }
         }
+
+        template<typename ...T>
+        SimpleSystem(Scalar t, T const & ...p) :  SimpleSystem(t, std::initializer_list<Particle>{p...}){}
 
         friend std::ostream &operator<<(std::ostream &os, SimpleSystem const &ps) {
             os << ps.ptc_;

@@ -102,8 +102,7 @@ namespace SpaceH::Orbit {
         using Variant = std::variant<Real, RandomIndicator>;
     public:
         using Scalar = Real;
-        Scalar m1;
-        Scalar m2;
+        Scalar u;//gravitational parameter
         Scalar e;//eccentricity
         Scalar p;//semi-latus rectum
         Scalar i;//inclination
@@ -114,30 +113,41 @@ namespace SpaceH::Orbit {
 
         OrbitArgs() = delete;
 
-        OrbitArgs(Scalar _m1_, Scalar _m2_, Scalar _p_, Scalar _e_, Variant _inclination_, Variant _phi_, Variant _psi_, Variant _true_anomaly_) {
+        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant inclination, Variant LoAN, Variant AoP, Variant true_anomaly) {
             if (_p_ < 0) SPACEHUB_ABORT("Semi-latus rectum cannot be negative");
 
             orbit_type = classify_orbit(_e_);
 
             if (orbit_type == OrbitType::none) SPACEHUB_ABORT("Eccentrcity cannot be negative or NaN!");
 
-            m1 = _m1_;
-            m2 = _m2_;
+            u = tot_mass*Const::G;
             p = _p_;
             e = _e_;
 
-            auto alt_set = [](Scalar& dst, Scalar& src, auto& method){
-                if constexpr (std::holds_alternative<Scalar>(src)) {
-                    dst = src;
-                } else {
-                    method();
-                }
-            };
 
-            alt_set(i, _inclination_, this->shuffle_i);
-            alt_set(Omega, _phi_, this->shuffle_Omega);
-            alt_set(omega, _psi_, this->shuffle_omega);
-            alt_set(nu, _true_anomaly_, this->shuffle_nu);
+            if (std::holds_alternative<Scalar>(inclination)) {
+                i = std::get<Scalar>(inclination);
+            } else {
+                shuffle_i();
+            }
+
+            if (std::holds_alternative<Scalar>(LoAN)) {
+                Omega = std::get<Scalar>(LoAN);
+            } else {
+                shuffle_Omega();
+            }
+
+            if (std::holds_alternative<Scalar>(AoP)) {
+                omega = std::get<Scalar>(AoP);
+            } else {
+                shuffle_omega();
+            }
+
+            if (std::holds_alternative<Scalar>(true_anomaly)) {
+                nu = std::get<Scalar>(true_anomaly);
+            } else {
+                shuffle_nu();
+            }
         }
 
         inline void shuffle_i() {
@@ -168,110 +178,91 @@ namespace SpaceH::Orbit {
         }
     };
 
-    template<typename Particle, typename Scalar>
-    void place_at_orbit(Particle &particle, OrbitArgs<Scalar> const &param) {
-        using Vector = decltype(particle.pos);
-
-        Scalar u = (param.m1 + param.m2) * Const::G;
-
-        Scalar sin_nu = sin(param.nu);
-        Scalar cos_nu = cos(param.nu);
-
-        Scalar r = param.p / (1 + param.e * cos_nu);
-        Scalar v = sqrt(u / param.p);
-
-        particle.pos = r * Vector(cos_nu, sin_nu, 0);
-        particle.vel = v * Vector(-sin_nu, param.e + cos_nu, 0);
-
-        Orbit::euler_rotate(particle.pos, param.Omega, param.i, param.omega + Const::PI);
-        Orbit::euler_rotate(particle.vel, param.Omega, param.i, param.omega + Const::PI);
-    }
+    using Kepler = OrbitArgs<double>;
 
     template<typename Particle>
-    struct Kepler {
-        /* Typedef */
+    void set_particle_at(Particle &particle, Kepler const &args) {
+        using Vector = decltype(particle.pos);
+        using Scalar = decltype(particle.mass);
+
+        Scalar u = args.u;
+
+        Scalar sin_nu = sin(args.nu);
+        Scalar cos_nu = cos(args.nu);
+
+        Scalar r = args.p / (1 + args.e * cos_nu);
+        Scalar v = sqrt(u / args.p);
+
+        particle.pos = r * Vector(cos_nu, sin_nu, 0);
+        particle.vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
+
+        Orbit::euler_rotate(particle.pos, args.Omega, args.i, args.omega + Const::PI);
+        Orbit::euler_rotate(particle.vel, args.Omega, args.i, args.omega + Const::PI);
+    }
+
+    template<typename Particle, typename ...Args>
+    void set_particle_at(Particle &particle, Args&&...args) {
+        set_particle_at(particle, Kepler{std::forward<Args>(args)...});
+    }
+
+    template <typename ...Particle>
+    void move_to_com_coord(Particle &&...ptc){
+        auto tot_mass = (ptc.mass + ...);
+        auto cm_pos = ((ptc.mass*ptc.pos) + ...)/tot_mass;
+        auto cm_vel = ((ptc.mass*ptc.vel) + ...)/tot_mass;
+        ((ptc.pos -= cm_pos), ...);
+        ((ptc.vel -= cm_vel), ...);
+    }
+
+    template <typename Particles>
+    void move_to_com_coord(Particles& ptcs){
+        using Particle = typename Particles::value_type;
         using Scalar = typename Particle::Scalar;
         using Vector = typename Particle::Vector;
-        using ParticleType = Particle;
-    private:
-        using Variant = std::variant<Scalar, RandomIndicator>;
-    public:
-        /* Typedef */
 
-        Kepler() = delete;
+        Scalar tot_mass{0};
+        Vector cm_pos{0};
+        Vector cm_vel{0};
 
-        Kepler(OrbitArgs<Scalar> const &args) {
-            if (args.m1 >= args.m2) {
-                obj1_.mass = args.m1;
-                obj2_.mass = args.m2;
-            } else {
-                obj1_.mass = args.m2;
-                obj2_.mass = args.m1;
-            }
-
-            obj1_.pos = Vector(0.0, 0.0, 0.0);
-            obj1_.vel = Vector(0.0, 0.0, 0.0);
-
-            Scalar u = (args.m1 + args.m2) * Const::G;
-
-            Scalar sin_nu = sin(args.nu);
-            Scalar cos_nu = cos(args.nu);
-
-            Scalar r = args.p / (1 + args.e * cos_nu);
-            Scalar v = sqrt(u / args.p);
-
-            obj2_.pos = r * Vector(cos_nu, sin_nu, 0);
-            obj2_.vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
-
-            Orbit::euler_rotate(obj2_.pos, args.Omega, args.i, args.omega + Const::PI);
-            Orbit::euler_rotate(obj2_.vel, args.Omega, args.i, args.omega + Const::PI);
+        for(auto const&ptc : ptcs){
+            tot_mass += ptc.mass;
+            cm_pos += ptc.mass * ptc.pos;
+            cm_vel += ptc.mass * ptc.vel;
         }
 
-        Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e, Variant i, Variant phi, Variant psi, Variant trueAnomaly)
-                : Kepler(OrbitArgs<Scalar>(m1, m2, p, e, i, phi, psi, trueAnomaly)) {}
+        cm_pos /= tot_mass;
+        cm_vel /= tot_mass;
 
-        Particle &first() {
-            return obj1_;
+        for(auto &ptc : ptcs){
+            ptc.pos -= cm_pos;
+            ptc.vel -= cm_vel;
         }
+    }
 
-        Particle &second() {
-            return obj2_;
+    template <typename Vector, typename ...Particle>
+    void move_com_to(Vector const& cm_pos, Vector const& cm_vel, Particle&& ...ptc){
+        move_to_com_coord(std::forward<Particle>(ptc)...);
+        ((ptc.pos += cm_pos), ...);
+        ((ptc.vel += cm_vel), ...);
+    }
+
+    template <typename Vector, typename Particles>
+    void move_com_to(Vector const& cm_pos, Vector const& cm_vel, Particles & ptcs){
+        move_to_com_coord(ptcs);
+
+        for(auto &ptc : ptcs){
+            ptc.pos += cm_pos;
+            ptc.vel += cm_vel;
         }
+    }
 
-        void move_CoM_to(Particle const &partc) {
-            move_to_CM_coord();
-            obj1_.pos += partc.pos;
-            obj1_.vel += partc.vel;
-            obj2_.pos += partc.pos;
-            obj2_.vel += partc.vel;
-        }
-
-        void move_CoM_to(Vector const &CMpos, Vector const &CMvel) {
-            move_to_CM_coord();
-            obj1_.pos += CMpos;
-            obj1_.vel += CMvel;
-            obj2_.pos += CMpos;
-            obj2_.vel += CMvel;
-        }
-
-        void move_to_CM_coord() {
-            Scalar tot_mass = obj1_.mass + obj2_.mass;
-            Vector CMpos((obj1_.pos * obj1_.mass + obj2_.pos * obj2_.mass) / tot_mass);
-            Vector CMvel((obj1_.vel * obj1_.mass + obj2_.vel * obj2_.mass) / tot_mass);
-            obj1_.pos -= CMpos;
-            obj1_.vel -= CMvel;
-            obj2_.pos -= CMpos;
-            obj2_.vel -= CMvel;
-        }
-
-    private:
-        Particle obj1_;
-        Particle obj2_;
-    };
-
+    template <typename Scalar>
+    inline auto semi_latus_rectum(Scalar a, Scalar e){
+        return a*(1 - e * e);
+    }
 
     template<typename Vector, typename Scalar>
-    void coord_to_oribt_args(Scalar u, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &params) {
+    void coord_to_oribt_args(Scalar u, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
         Vector L = cross(dr, dv);
         Vector N = cross(Vector(0, 0, 1.0), L);
         Scalar r = norm(dr);
@@ -279,36 +270,39 @@ namespace SpaceH::Orbit {
         Scalar l = norm(L);
         Scalar rv = dot(dr, dv);
         Vector E = (dr * (norm2(dv) - u * re_norm(dr)) - dv * rv) / u;
-        params.e = norm(E);
 
-        if (!iseq(params.e, 1.0)) {
+        args.u = u;
+        args.e = norm(E);
+        args.orbit_type = classify_orbit(args.e);
+
+        if (args.orbit_type == OrbitType::parabola) {
             Scalar a = -u * r / (r * norm2(dv) - 2.0 * u);
-            params.p = a * (1.0 - params.e * params.e);
+            args.p = semi_latus_rectum(a, args.e);
         } else {
-            params.p = l * l / u;
+            args.p = l * l / u;
         }
 
-        params.i = acos(L.z / l);
+        args.i = acos(L.z / l);
 
-        if (params.e != 0) {
-            params.nu = SpaceH::sign(rv) * myacos(dot(E / params.e, dr / r));
+        if (args.e != 0) {
+            args.nu = SpaceH::sign(rv) * myacos(dot(E / args.e, dr / r));
 
             if (n != 0) {
-                params.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
-                params.omega = SpaceH::sign(E.z) * myacos(dot(E / params.e, N / n));
+                args.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
+                args.omega = SpaceH::sign(E.z) * myacos(dot(E / args.e, N / n));
             } else {
-                params.omega = -SpaceH::sign(E.y) * myacos(-E.x / params.e);
-                params.Omega = params.omega;
+                args.omega = -SpaceH::sign(E.y) * myacos(-E.x / args.e);
+                args.Omega = args.omega;
             }
         } else {
             if (n != 0) {
-                params.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
-                params.omega = 0;
+                args.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
+                args.omega = 0;
                 Vector peri = cross(L, N);
-                params.nu = -SpaceH::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
+                args.nu = -SpaceH::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
             } else {
-                params.Omega = params.omega = 0;
-                params.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
+                args.Omega = args.omega = 0;
+                args.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
             }
         }
     }

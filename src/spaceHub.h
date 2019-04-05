@@ -21,5 +21,7 @@
 
 #include "args-callback/callbacks.h"
 
+#include "orbits/orbits.h"
+
 #include "tools/auto-name.tpp"
 #endif
