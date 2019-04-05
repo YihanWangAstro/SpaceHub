@@ -52,16 +52,6 @@ namespace SpaceH {
         (..., (args.reserve(new_cap)));
     }
 
-    template <bool opt, typename T>
-    struct compile_time_opt{
-        template <typename ...Args>
-        compile_time_opt(Args&&...args) : dat(std::forward<Args>(args)...){}
-        T dat;
-    };
-
-    template <typename T>
-    struct compile_time_opt<false,T>{};
-
     template<typename T>
     struct get_value_type {
     private:
@@ -96,8 +86,6 @@ namespace SpaceH {
 #else
 #define DEBUG_MSG(EXPR, ...)
 #endif
-
-#define COMPILE_TIME_ASSERT(EXPR, MSG) static_assert(EXPR,MSG);
 
 #ifdef DEBUG
 #define DEBUG_MODE_ASSERT(EXPR,MSG) ((EXPR) ? void(0) : (SPACEHUB_ABORT(MSG)))

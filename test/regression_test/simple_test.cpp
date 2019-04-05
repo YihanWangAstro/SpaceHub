@@ -11,11 +11,11 @@ using type = Types<scalar, std::vector>;
 
 int main(int argc, char **argv) {
 
-    using force = NewtonianGrav;
+    using force = Interact::NewtonianGrav;
+
     using particles = SoAPointParticles<type>;
 
     //using particles = SoAFiniteSizeParticles<type>;
-
 
     using sys = SimpleSystem<particles, force>;
 

@@ -1,11 +1,11 @@
 #ifndef ORBITS_H
 #define ORBITS_H
 
-#include "../type-class.h"
-#include "rand-generator.tpp"
+#include "../rand-generator.tpp"
 #include "../own-math.h"
 #include "../macros.h"
 #include <math.h>
+#include <variant>
 
 namespace SpaceH::Orbit {
 
@@ -37,7 +37,7 @@ namespace SpaceH::Orbit {
     };
 
     template<typename Scalar>
-    Scalar get_random_mean_anomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
+    Scalar random_mean_anomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
         if (e >= 0)
             return Random::Uniform<Scalar>::get(Mmin, Mmax);
         else {
@@ -47,7 +47,7 @@ namespace SpaceH::Orbit {
     }
 
     template<typename Scalar>
-    Scalar calcu_true_anomaly(Scalar E, Scalar e) {
+    Scalar calc_true_anomaly(Scalar E, Scalar e) {
         if (0 <= e && e < 1)
             return 2 * atan2(sqrt(1 + e) * sin(E * 0.5), sqrt(1 - e) * cos(0.5 * E));
         else if (e > 1)
@@ -62,7 +62,7 @@ namespace SpaceH::Orbit {
 
 
     template<typename Scalar>
-    Scalar calcu_eccentric_anomaly(Scalar M, Scalar e) {
+    Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
         if (0 <= e && e < 1)//newton iteration may encounter stationary point
             return SpaceH::root_dichotom(
                     [&](Scalar x) -> Scalar { return x - e * sin(x) - M; });//find this function in ownMath.h
@@ -97,7 +97,10 @@ namespace SpaceH::Orbit {
     } thermal;
 
     template<typename Real>
-    struct OrbitParam {
+    struct OrbitArgs {
+    private:
+        using Variant = std::variant<Real, RandomIndicator>;
+    public:
         using Scalar = Real;
         Scalar m1;
         Scalar m2;
@@ -109,11 +112,9 @@ namespace SpaceH::Orbit {
         Scalar nu;//true anomaly
         OrbitType orbit_type;
 
-        OrbitParam() = delete;
+        OrbitArgs() = delete;
 
-        template<typename Variant1, typename Variant2, typename Variant3, typename Variant4>
-        OrbitParam(Scalar _m1_, Scalar _m2_, Scalar _p_, Scalar _e_, Variant1 _inclination_, Variant2 _phi_,
-                   Variant3 _psi_, Variant4 _trueAnomaly_) {
+        OrbitArgs(Scalar _m1_, Scalar _m2_, Scalar _p_, Scalar _e_, Variant _inclination_, Variant _phi_, Variant _psi_, Variant _true_anomaly_) {
             if (_p_ < 0) SPACEHUB_ABORT("Semi-latus rectum cannot be negative");
 
             orbit_type = classify_orbit(_e_);
@@ -125,37 +126,18 @@ namespace SpaceH::Orbit {
             p = _p_;
             e = _e_;
 
-            if constexpr (std::is_same_v<Variant1, Scalar>) {
-                i = _inclination_;
-            } else if (std::is_same_v<Variant1, RandomIndicator>) {
-                shuffle_i();
-            } else {
-                SPACEHUB_ABORT("Unexcepted type of inclination!");
-            }
+            auto alt_set = [](Scalar& dst, Scalar& src, auto& method){
+                if constexpr (std::holds_alternative<Scalar>(src)) {
+                    dst = src;
+                } else {
+                    method();
+                }
+            };
 
-            if constexpr (std::is_same_v<Variant2, Scalar>) {
-                Omega = _phi_;
-            } else if (std::is_same_v<Variant2, RandomIndicator>) {
-                shuffle_Omega();
-            } else {
-                SPACEHUB_ABORT("Unexcepted type of longitude of the ascending node!");
-            }
-
-            if constexpr (std::is_same_v<Variant3, Scalar>) {
-                omega = _psi_;
-            } else if (std::is_same_v<Variant3, RandomIndicator>) {
-                shuffle_omega();
-            } else {
-                SPACEHUB_ABORT("Unexcepted type of argument of periapsis!");
-            }
-
-            if constexpr (std::is_same_v<Variant4, Scalar>) {
-                nu = _trueAnomaly_;
-            } else if (std::is_same_v<Variant4, RandomIndicator>) {
-                shuffle_nu();
-            } else {
-                SPACEHUB_ABORT("Unexcepted type of true_anomaly!");
-            }
+            alt_set(i, _inclination_, this->shuffle_i);
+            alt_set(Omega, _phi_, this->shuffle_Omega);
+            alt_set(omega, _psi_, this->shuffle_omega);
+            alt_set(nu, _true_anomaly_, this->shuffle_nu);
         }
 
         inline void shuffle_i() {
@@ -172,22 +154,24 @@ namespace SpaceH::Orbit {
 
         inline void shuffle_nu() {
             if (orbit_type == OrbitType::ellipse) {
-                Scalar M = Orbit::get_random_mean_anomaly(e, -Const::PI, Const::PI);
-                Scalar E = Orbit::calcu_eccentric_anomaly(M, e);
-                nu = Orbit::calcu_true_anomaly(E, e);
+                Scalar M = Orbit::random_mean_anomaly(e, -Const::PI, Const::PI);
+                Scalar E = Orbit::calc_eccentric_anomaly(M, e);
+                nu = Orbit::calc_true_anomaly(E, e);
             } else {
                 SPACEHUB_ABORT("Only elliptical orbit provides random anomaly method at this moment!");
             }
         }
 
-        friend std::ostream &operator<<(std::ostream &os, OrbitParam const &obt) {
+        friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
             SpaceH::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
             return os;
         }
     };
 
     template<typename Particle, typename Scalar>
-    void place_at_orbit(Particle &particle, OrbitParam<Scalar> const &param) {
+    void place_at_orbit(Particle &particle, OrbitArgs<Scalar> const &param) {
+        using Vector = decltype(particle.pos);
+
         Scalar u = (param.m1 + param.m2) * Const::G;
 
         Scalar sin_nu = sin(param.nu);
@@ -196,8 +180,8 @@ namespace SpaceH::Orbit {
         Scalar r = param.p / (1 + param.e * cos_nu);
         Scalar v = sqrt(u / param.p);
 
-        particle.pos = r * Vec3<Scalar>(cos_nu, sin_nu, 0);
-        particle.vel = v * Vec3<Scalar>(-sin_nu, param.e + cos_nu, 0);
+        particle.pos = r * Vector(cos_nu, sin_nu, 0);
+        particle.vel = v * Vector(-sin_nu, param.e + cos_nu, 0);
 
         Orbit::euler_rotate(particle.pos, param.Omega, param.i, param.omega + Const::PI);
         Orbit::euler_rotate(particle.vel, param.Omega, param.i, param.omega + Const::PI);
@@ -209,41 +193,42 @@ namespace SpaceH::Orbit {
         using Scalar = typename Particle::Scalar;
         using Vector = typename Particle::Vector;
         using ParticleType = Particle;
-
+    private:
+        using Variant = std::variant<Scalar, RandomIndicator>;
+    public:
         /* Typedef */
 
         Kepler() = delete;
 
-        Kepler(OrbitParam<Scalar> const &param) {
-            if (param.m1 >= param.m2) {
-                obj1_.mass = param.m1;
-                obj2_.mass = param.m2;
+        Kepler(OrbitArgs<Scalar> const &args) {
+            if (args.m1 >= args.m2) {
+                obj1_.mass = args.m1;
+                obj2_.mass = args.m2;
             } else {
-                obj1_.mass = param.m2;
-                obj2_.mass = param.m1;
+                obj1_.mass = args.m2;
+                obj2_.mass = args.m1;
             }
 
             obj1_.pos = Vector(0.0, 0.0, 0.0);
             obj1_.vel = Vector(0.0, 0.0, 0.0);
 
-            Scalar u = (param.m1 + param.m2) * Const::G;
+            Scalar u = (args.m1 + args.m2) * Const::G;
 
-            Scalar sin_nu = sin(param.nu);
-            Scalar cos_nu = cos(param.nu);
+            Scalar sin_nu = sin(args.nu);
+            Scalar cos_nu = cos(args.nu);
 
-            Scalar r = param.p / (1 + param.e * cos_nu);
-            Scalar v = sqrt(u / param.p);
+            Scalar r = args.p / (1 + args.e * cos_nu);
+            Scalar v = sqrt(u / args.p);
 
             obj2_.pos = r * Vector(cos_nu, sin_nu, 0);
-            obj2_.vel = v * Vector(-sin_nu, param.e + cos_nu, 0);
+            obj2_.vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
 
-            Orbit::euler_rotate(obj2_.pos, param.Omega, param.i, param.omega + Const::PI);
-            Orbit::euler_rotate(obj2_.vel, param.Omega, param.i, param.omega + Const::PI);
+            Orbit::euler_rotate(obj2_.pos, args.Omega, args.i, args.omega + Const::PI);
+            Orbit::euler_rotate(obj2_.vel, args.Omega, args.i, args.omega + Const::PI);
         }
 
-        template<typename Variant1, typename Variant2, typename Variant3, typename Variant4>
-        Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e, Variant1 i, Variant2 phi, Variant3 psi, Variant4 trueAnomaly)
-                : Kepler(OrbitParam<Scalar>(m1, m2, p, e, i, phi, psi, trueAnomaly)) {}
+        Kepler(Scalar m1, Scalar m2, Scalar p, Scalar e, Variant i, Variant phi, Variant psi, Variant trueAnomaly)
+                : Kepler(OrbitArgs<Scalar>(m1, m2, p, e, i, phi, psi, trueAnomaly)) {}
 
         Particle &first() {
             return obj1_;
@@ -286,18 +271,18 @@ namespace SpaceH::Orbit {
 
 
     template<typename Vector, typename Scalar>
-    void to_oribt_parameters(Scalar u, const Vector &dr, const Vector &dv, OrbitParam<Scalar> &params) {
+    void coord_to_oribt_args(Scalar u, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &params) {
         Vector L = cross(dr, dv);
         Vector N = cross(Vector(0, 0, 1.0), L);
-        Scalar r = dr.norm();
-        Scalar n = N.norm();
-        Scalar l = L.norm();
+        Scalar r = norm(dr);
+        Scalar n = norm(N);
+        Scalar l = norm(L);
         Scalar rv = dot(dr, dv);
-        Vector E = (dr * (dv.norm2() - u * dr.reNorm()) - dv * rv) / u;
-        params.e = E.norm();
+        Vector E = (dr * (norm2(dv) - u * re_norm(dr)) - dv * rv) / u;
+        params.e = norm(E);
 
         if (!iseq(params.e, 1.0)) {
-            Scalar a = -u * r / (r * dv.norm2() - 2.0 * u);
+            Scalar a = -u * r / (r * norm2(dv) - 2.0 * u);
             params.p = a * (1.0 - params.e * params.e);
         } else {
             params.p = l * l / u;
@@ -320,7 +305,7 @@ namespace SpaceH::Orbit {
                 params.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
                 params.omega = 0;
                 Vector peri = cross(L, N);
-                params.nu = -SpaceH::sign(dot(N, dr)) * myacos(dot(peri / peri.norm(), dr / r));
+                params.nu = -SpaceH::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
             } else {
                 params.Omega = params.omega = 0;
                 params.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
@@ -329,24 +314,24 @@ namespace SpaceH::Orbit {
     }
 
     template<typename Vector, typename Scalar>
-    Vector calcu_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
+    Vector calc_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
         return (dr * (norm2(dv) - u * re_norm(dr)) - dv * dot(dr, dv)) / u;
     }
 
     template<typename Particle>
-    auto calcu_eccentricity(Particle const &p1, Particle const &p2) {
-        return calcu_eccentricity(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+    auto calc_eccentricity(Particle const &p1, Particle const &p2) {
+        return calc_eccentricity(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 
     template<typename Vector, typename Scalar>
-    Scalar calcu_semi_major_axis(Scalar u, Vector const &dr, Vector const &dv) {
+    Scalar calc_semi_major_axis(Scalar u, Vector const &dr, Vector const &dv) {
         Scalar r = norm(dr);
         return -u * r / (r * norm2(dv) - 2 * u);
     }
 
     template<typename Particle>
-    auto calcu_semi_major_axis(Particle const &p1, Particle const &p2) {
-        return calcu_semi_major_axis(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+    auto calc_semi_major_axis(Particle const &p1, Particle const &p2) {
+        return calc_semi_major_axis(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 
     template<typename Vector, typename Scalar>
