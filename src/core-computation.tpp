@@ -4,7 +4,7 @@
 
 #include "own-math.h"
 
-namespace SpaceH::calc {
+namespace SpaceH::Calc {
 
 
     template <typename ...Args>

@@ -52,9 +52,6 @@ namespace SpaceH {
             }
         }
 
-        template<typename ...T>
-        ARchainSystem(Scalar t, T const & ...p) :  ARchainSystem(t, std::initializer_list<Particle>{p...}){}
-
         size_t impl_number() const {
             return ptc_.number();
         }
@@ -98,7 +95,7 @@ namespace SpaceH {
                 kick_pseu_vel(halfTime);
             } else {
                 if constexpr (Interactions::has_extra_vel_indep_acc) {
-                    calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
+                    Calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
 
                     chain_advance(ptc_.vel(), chain_vel(), acc_, halfTime);
                     advance_omega(ptc_.vel(), newtonian_acc_, phyTime);
@@ -124,10 +121,10 @@ namespace SpaceH {
             if(new_index_ != index_){
                 chain::update_chain(chain_pos_, index_, new_index_);
                 chain::coord_calc_cartesian(chain_pos_, ptc_.pos(), new_index_);
-                calc::coord_move_to_com(ptc_.mass(), ptc_.pos());
+                Calc::coord_move_to_com(ptc_.mass(), ptc_.pos());
                 chain::update_chain(chain_vel_, index_, new_index_);
                 chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
-                calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
+                Calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
                 index_ = new_index_;
             }
         }
@@ -143,9 +140,9 @@ namespace SpaceH {
         }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {
-            calc::coord_advance(ch_var, ch_inc, stepSize);
+            Calc::coord_advance(ch_var, ch_inc, stepSize);
             chain::coord_calc_cartesian(ch_var, var, index());
-            calc::coord_move_to_com(ptc_.mass(), var);
+            Calc::coord_move_to_com(ptc_.mass(), var);
         }
 
         void eval_vel_indep_acc() {
@@ -156,20 +153,20 @@ namespace SpaceH {
         }
 
         void advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar stepSize) {
-            Scalar d_omega = calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_omega_dr);
+            Scalar d_omega = Calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_omega_dr);
             regu_.omega() += d_omega * stepSize;
         }
 
         void advance_bindE(Coord const &velocity, Coord const &d_bindE_dr, Scalar stepSize) {
-            Scalar d_bindE = -calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_bindE_dr);
+            Scalar d_bindE = -Calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_bindE_dr);
             regu_.bindE() += d_bindE * stepSize;
         }
 
         void kick_pseu_vel(Scalar stepSize) {
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
-            calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
+            Calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
             chain_advance(aux_vel_, chain_aux_vel_, acc_, stepSize);
         }
@@ -181,9 +178,9 @@ namespace SpaceH {
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
 
-            calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
+            Calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
 
             chain_advance(ptc_.vel(), chain_vel(), acc_, stepSize);

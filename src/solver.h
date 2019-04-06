@@ -90,7 +90,9 @@ namespace SpaceH {
         Solver(Scalar t, STL const &partc) : particles_(t, partc){}
 
         template<typename ...T>
-        Solver(Scalar t, T const & ...p) :  Solver(t, std::initializer_list<Particle>{p...}){}
+        Solver(Scalar t, T const & ...p) :  Solver(t, std::initializer_list<Particle>{p...}){
+            static_assert(Calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
+        }
 
         explicit Solver(ParticSys const& ptc) : particles_(ptc){}//more edit
 
@@ -99,7 +101,7 @@ namespace SpaceH {
             step_size_ = arg.step_size;
 
             if(iseq(step_size_,0.0))
-                step_size_ = 0.1 * calc::calc_step_scale(particles_);
+                step_size_ = 0.1 * Calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
 

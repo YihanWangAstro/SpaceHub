@@ -4,6 +4,7 @@
 #include "../rand-generator.tpp"
 #include "../own-math.h"
 #include "../macros.h"
+#include "../core-computation.tpp"
 #include <math.h>
 #include <variant>
 
@@ -60,7 +61,6 @@ namespace SpaceH::Orbit {
         }
     }
 
-
     template<typename Scalar>
     Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
         if (0 <= e && e < 1)//newton iteration may encounter stationary point
@@ -113,14 +113,15 @@ namespace SpaceH::Orbit {
 
         OrbitArgs() = delete;
 
-        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant inclination, Variant LoAN, Variant AoP, Variant true_anomaly) {
+        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant inclination, Variant LoAN, Variant AoP,
+                  Variant true_anomaly) {
             if (_p_ < 0) SPACEHUB_ABORT("Semi-latus rectum cannot be negative");
 
             orbit_type = classify_orbit(_e_);
 
             if (orbit_type == OrbitType::none) SPACEHUB_ABORT("Eccentrcity cannot be negative or NaN!");
 
-            u = tot_mass*Const::G;
+            u = tot_mass * Const::G;
             p = _p_;
             e = _e_;
 
@@ -180,87 +181,6 @@ namespace SpaceH::Orbit {
 
     using Kepler = OrbitArgs<double>;
 
-    template<typename Particle>
-    void set_particle_at(Particle &particle, Kepler const &args) {
-        using Vector = decltype(particle.pos);
-        using Scalar = decltype(particle.mass);
-
-        Scalar u = args.u;
-
-        Scalar sin_nu = sin(args.nu);
-        Scalar cos_nu = cos(args.nu);
-
-        Scalar r = args.p / (1 + args.e * cos_nu);
-        Scalar v = sqrt(u / args.p);
-
-        particle.pos = r * Vector(cos_nu, sin_nu, 0);
-        particle.vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
-
-        Orbit::euler_rotate(particle.pos, args.Omega, args.i, args.omega + Const::PI);
-        Orbit::euler_rotate(particle.vel, args.Omega, args.i, args.omega + Const::PI);
-    }
-
-    template<typename Particle, typename ...Args>
-    void set_particle_at(Particle &particle, Args&&...args) {
-        set_particle_at(particle, Kepler{std::forward<Args>(args)...});
-    }
-
-    template <typename ...Particle>
-    void move_to_com_coord(Particle &&...ptc){
-        auto tot_mass = (ptc.mass + ...);
-        auto cm_pos = ((ptc.mass*ptc.pos) + ...)/tot_mass;
-        auto cm_vel = ((ptc.mass*ptc.vel) + ...)/tot_mass;
-        ((ptc.pos -= cm_pos), ...);
-        ((ptc.vel -= cm_vel), ...);
-    }
-
-    template <typename Particles>
-    void move_to_com_coord(Particles& ptcs){
-        using Particle = typename Particles::value_type;
-        using Scalar = typename Particle::Scalar;
-        using Vector = typename Particle::Vector;
-
-        Scalar tot_mass{0};
-        Vector cm_pos{0};
-        Vector cm_vel{0};
-
-        for(auto const&ptc : ptcs){
-            tot_mass += ptc.mass;
-            cm_pos += ptc.mass * ptc.pos;
-            cm_vel += ptc.mass * ptc.vel;
-        }
-
-        cm_pos /= tot_mass;
-        cm_vel /= tot_mass;
-
-        for(auto &ptc : ptcs){
-            ptc.pos -= cm_pos;
-            ptc.vel -= cm_vel;
-        }
-    }
-
-    template <typename Vector, typename ...Particle>
-    void move_com_to(Vector const& cm_pos, Vector const& cm_vel, Particle&& ...ptc){
-        move_to_com_coord(std::forward<Particle>(ptc)...);
-        ((ptc.pos += cm_pos), ...);
-        ((ptc.vel += cm_vel), ...);
-    }
-
-    template <typename Vector, typename Particles>
-    void move_com_to(Vector const& cm_pos, Vector const& cm_vel, Particles & ptcs){
-        move_to_com_coord(ptcs);
-
-        for(auto &ptc : ptcs){
-            ptc.pos += cm_pos;
-            ptc.vel += cm_vel;
-        }
-    }
-
-    template <typename Scalar>
-    inline auto semi_latus_rectum(Scalar a, Scalar e){
-        return a*(1 - e * e);
-    }
-
     template<typename Vector, typename Scalar>
     void coord_to_oribt_args(Scalar u, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
         Vector L = cross(dr, dv);
@@ -305,6 +225,104 @@ namespace SpaceH::Orbit {
                 args.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
             }
         }
+    }
+
+    template<typename Vector, typename Scalar>
+    void oribt_args_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel) {
+        Scalar u = args.u;
+
+        Scalar sin_nu = sin(args.nu);
+        Scalar cos_nu = cos(args.nu);
+
+        Scalar r = args.p / (1 + args.e * cos_nu);
+        Scalar v = sqrt(u / args.p);
+
+        pos = r * Vector(cos_nu, sin_nu, 0);
+        vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
+
+        Orbit::euler_rotate(pos, args.Omega, args.i, args.omega + Const::PI);
+        Orbit::euler_rotate(vel, args.Omega, args.i, args.omega + Const::PI);
+    }
+
+    template<typename Particles>
+    void move_to_com_coord(Particles &ptcs) {
+        using Particle = typename Particles::value_type;
+        using Scalar = typename Particle::Scalar;
+        using Vector = typename Particle::Vector;
+
+        Scalar tot_mass{0};
+        Vector cm_pos{0};
+        Vector cm_vel{0};
+
+        for (auto const &ptc : ptcs) {
+            tot_mass += ptc.mass;
+            cm_pos += ptc.mass * ptc.pos;
+            cm_vel += ptc.mass * ptc.vel;
+        }
+
+        cm_pos /= tot_mass;
+        cm_vel /= tot_mass;
+
+        for (auto &ptc : ptcs) {
+            ptc.pos -= cm_pos;
+            ptc.vel -= cm_vel;
+        }
+    }
+
+    template<typename Particle, typename ...Args>
+    void move_to_com_coord(Particle &&ptc, Args &&...ptcs) {
+        if constexpr (sizeof...(Args) != 0) {
+            static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
+            auto tot_mass = (ptcs.mass + ... +ptc.mass);
+            auto cm_pos = ((ptcs.mass * ptcs.pos) + ... +(ptc.mass * ptc.pos)) / tot_mass;
+            auto cm_vel = ((ptcs.mass * ptcs.vel) + ... +(ptc.mass * ptc.vel)) / tot_mass;
+            ((ptc.pos -= cm_pos), ..., (ptcs.pos -= cm_pos));
+            ((ptc.vel -= cm_vel), ..., (ptcs.vel -= cm_vel));
+        }
+    }
+
+    template<typename Vector, typename Particles>
+    void move_particles(Vector const &cm_pos, Vector const &cm_vel, Particles &ptcs) {
+        move_to_com_coord(ptcs);
+
+        for (auto &ptc : ptcs) {
+            ptc.pos += cm_pos;
+            ptc.vel += cm_vel;
+        }
+    }
+
+    template<typename Vector, typename Particle, typename ...Args>
+    void move_particles(Vector const &cm_pos, Vector const &cm_vel, Particle &&ptc, Args &&...ptcs) {
+        if constexpr (sizeof...(Args) == 0) {
+            ptc.pos = cm_pos;
+            ptc.vel = cm_vel;
+        } else {
+            static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
+            move_to_com_coord(std::forward<Particle>(ptc), std::forward<Args>(ptcs)...);
+            ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
+            ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));
+        }
+    }
+
+    template<typename Particle, typename ...Args>
+    void move_particles(Kepler const &args, Particle &&ptc, Args &&...ptcs) {
+        using Vector = typename Particle::Vector;
+        Vector cm_pos, cm_vel;
+        oribt_args_to_coord(args, cm_pos, cm_vel);
+        move_particles(cm_pos, cm_vel, std::forward<Particle>(ptc), std::forward<Args>(ptcs)...);
+    }
+
+    template<typename Particles>
+    void move_particles(Kepler const &args, Particles &ptcs) {
+        using Vector = typename Particles::value_type::Vector;
+        Vector cm_pos, cm_vel;
+        oribt_args_to_coord(args, cm_pos, cm_vel);
+        move_particles(cm_pos, cm_vel, ptcs);
+    }
+
+    template<typename Scalar>
+    inline auto semi_latus_rectum(Scalar a, Scalar e) {
+        return a * (1 - e * e);
     }
 
     template<typename Vector, typename Scalar>

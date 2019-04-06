@@ -40,9 +40,6 @@ namespace SpaceH{
             active_num = input_num;
         }
 
-        template<typename ...T>
-        SoAPointParticles(Scalar t, T const & ...p) :  SoAPointParticles(t, std::initializer_list<Particle>{p...}){}
-
         void impl_resize(size_t new_sz) {
             SpaceH::resize_all(new_sz, pos_, vel_, mass_, idn_);
             active_num = new_sz;

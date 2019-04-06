@@ -31,7 +31,7 @@ namespace SpaceH::Interact {
             auto &pz = partc.pos().z;
             auto &m = partc.mass();
 
-            calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            Calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
                 auto r = sqrt(dx * dx + dy * dy + dz * dz);

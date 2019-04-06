@@ -30,14 +30,12 @@ int main(int argc, char **argv) {
 
     using particle = typename simulation::Particle;
 
-    particle sun{1*M_SOLAR}, earth{3.003e-6*M_SOLAR};
+    particle sun{1 * M_SOLAR}, earth{3.003e-6 * M_SOLAR};
 
     auto ecc = 0.0167086;
     auto p = Orbit::semi_latus_rectum(AU, ecc);
-    Orbit::set_particle_at(earth, Orbit::Kepler{sun.mass + earth.mass, p, ecc, 7.155*DEG, 174.9*DEG, 288.1*DEG, Orbit::thermal});
+    Orbit::move_particles(Orbit::Kepler{sun.mass + earth.mass, p, ecc, 7.155 * DEG, 174.9 * DEG, 288.1 * DEG, Orbit::thermal}, earth);
     Orbit::move_to_com_coord(sun, earth);
-
-
 
     simulation::RunArgs args;
 

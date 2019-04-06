@@ -30,9 +30,6 @@ namespace SpaceH {
             }
         }
 
-        template<typename ...T>
-        SimpleSystem(Scalar t, T const & ...p) :  SimpleSystem(t, std::initializer_list<Particle>{p...}){}
-
         friend std::ostream &operator<<(std::ostream &os, SimpleSystem const &ps) {
             os << ps.ptc_;
             return os;
@@ -65,11 +62,11 @@ namespace SpaceH {
         }
 
         void impl_advance_pos(Coord const &velocity, Scalar stepSize) {
-            calc::coord_advance(ptc_.pos(), velocity, stepSize);
+            Calc::coord_advance(ptc_.pos(), velocity, stepSize);
         }
 
         void impl_advance_vel(Coord const &acceleration, Scalar stepSize) {
-            calc::coord_advance(ptc_.vel(), acceleration, stepSize);
+            Calc::coord_advance(ptc_.vel(), acceleration, stepSize);
         }
 
         void impl_evaluate_acc(Coord &acceleration) const {
@@ -78,7 +75,7 @@ namespace SpaceH {
 
         void impl_drift(Scalar stepSize) {
             ptc_.time() += stepSize;
-            calc::coord_advance(ptc_.pos(), ptc_.vel(), stepSize);
+            Calc::coord_advance(ptc_.pos(), ptc_.vel(), stepSize);
         }
 
         void impl_kick(Scalar stepSize) {
@@ -90,7 +87,7 @@ namespace SpaceH {
                 kick_pseu_vel(halfStep);
             } else {
                 eom_.eval_acc(ptc_, acc_);
-                calc::coord_advance(ptc_.vel(), acc_, stepSize);
+                Calc::coord_advance(ptc_.vel(), acc_, stepSize);
             }
         }
 
@@ -104,22 +101,22 @@ namespace SpaceH {
             eom_.eval_newtonian_acc(ptc_, acc_);
             if constexpr (Interactions::has_extra_vel_dep_acc) {
                 eom_.eval_extra_vel_indep_acc(ptc_, extra_vel_indep_acc_);
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
         }
 
         void kick_pseu_vel(Scalar stepSize) {
             eom_.eval_extra_vel_dep_acc(ptc_, extra_vel_dep_acc_);
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
-            calc::coord_advance(aux_vel_, acc_, stepSize);
+            Calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            Calc::coord_advance(aux_vel_, acc_, stepSize);
         }
 
         void kick_real_vel(Scalar stepSize) {
             std::swap(aux_vel_, ptc_.vel());
             eom_.eval_extra_vel_dep_acc(ptc_, extra_vel_dep_acc_);
             std::swap(aux_vel_, ptc_.vel());
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
-            calc::coord_advance(ptc_.vel(), acc_, stepSize);
+            Calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            Calc::coord_advance(ptc_.vel(), acc_, stepSize);
         }
 
         Particles ptc_;

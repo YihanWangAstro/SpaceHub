@@ -54,9 +54,6 @@ namespace SpaceH {
             }
         }
 
-        template<typename ...T>
-        ChainSystem(Scalar t, T const & ...p) :  ChainSystem(t, std::initializer_list<Particle>{p...}){}
-
         size_t impl_number() const {
             return ptc_.number();
         }
@@ -109,10 +106,10 @@ namespace SpaceH {
             if(new_index_ != index_){
                 chain::update_chain(chain_pos_, index_, new_index_);
                 chain::coord_calc_cartesian(chain_pos_, ptc_.pos(), new_index_);
-                calc::coord_move_to_com(ptc_.mass(), ptc_.pos());
+                Calc::coord_move_to_com(ptc_.mass(), ptc_.pos());
                 chain::update_chain(chain_vel_, index_, new_index_);
                 chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
-                calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
+                Calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
                 index_ = new_index_;
             }
         }
@@ -127,21 +124,21 @@ namespace SpaceH {
         }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {
-            calc::coord_advance(ch_var, ch_inc, stepSize);
+            Calc::coord_advance(ch_var, ch_inc, stepSize);
             chain::coord_calc_cartesian(ch_var, var, index());
-            calc::coord_move_to_com(ptc_.mass(), var);
+            Calc::coord_move_to_com(ptc_.mass(), var);
         }
         void eval_vel_indep_acc() {
             eom_.eval_newtonian_acc(*this, acc_);
             if constexpr (Interactions::has_extra_vel_dep_acc) {
                 eom_.eval_extra_vel_indep_acc(*this, extra_vel_indep_acc_);
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
         }
 
         void kick_pseu_vel(Scalar stepSize) {
             eom_.eval_extra_vel_dep_acc(*this, extra_vel_dep_acc_);
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            Calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
             chain::coord_calc_chain(acc_, chain_acc_, index());
             chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, stepSize);
         }
@@ -153,7 +150,7 @@ namespace SpaceH {
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
 
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            Calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
             chain::coord_calc_chain(acc_, chain_acc_, index());
             chain_advance(ptc_.vel(), chain_vel_(), chain_acc_, stepSize);
         }
