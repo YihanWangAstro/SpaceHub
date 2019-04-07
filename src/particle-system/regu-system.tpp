@@ -3,7 +3,7 @@
 #define REGUPARTICLESYSTEM_H
 
 #include "../particle-system.h"
-#include "core-computation.tpp"
+#include "../core-computation.tpp"
 #include "../dev-tools.h"
 
 namespace SpaceH {
@@ -28,9 +28,9 @@ namespace SpaceH {
         inline auto eval_pos_phy_time(Particles const &partc, Scalar stepSize) {
             if constexpr (Type == ReguType::logH) {
                 return stepSize / (bindE_ + Calc::calc_kinetic_energy(partc));
-            } else if (Type == ReguType::TTL) {
+            } else if constexpr (Type == ReguType::TTL) {
                 return stepSize / omega_;
-            } else if (Type == ReguType::none) {
+            } else if constexpr (Type == ReguType::none) {
                 return stepSize;
             } else {
                 SPACEHUB_ABORT("Undefined regularization type!");
@@ -41,9 +41,9 @@ namespace SpaceH {
         inline auto eval_vel_phy_time(Particles const &partc, Scalar stepSize) {
             if constexpr (Type == ReguType::logH) {
                 return stepSize / -Calc::calc_potential_energy(partc);
-            } else if (Type == ReguType::TTL) {
+            } else if constexpr (Type == ReguType::TTL) {
                 return stepSize / capital_omega();
-            } else if (Type == ReguType::none) {
+            } else if constexpr (Type == ReguType::none) {
                 return stepSize;
             } else {
                 SPACEHUB_ABORT("Undefined regularization type!");
@@ -140,7 +140,6 @@ namespace SpaceH {
         void impl_kick(Scalar stepSize) {
             Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
             Scalar halfTime = 0.5 * phyTime;
-
 
             eval_vel_indep_acc();
 

@@ -101,7 +101,7 @@ namespace SpaceH {
             step_size_ = arg.step_size;
 
             if(iseq(step_size_,0.0))
-                step_size_ = 0.1 * Calc::calc_step_scale(particles_);
+                step_size_ = 0.01 * Calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
 

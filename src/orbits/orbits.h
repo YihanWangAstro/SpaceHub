@@ -244,80 +244,66 @@ namespace SpaceH::Orbit {
         Orbit::euler_rotate(vel, args.Omega, args.i, args.omega + Const::PI);
     }
 
-    template<typename Particles>
-    void move_to_com_coord(Particles &ptcs) {
-        using Particle = typename Particles::value_type;
-        using Scalar = typename Particle::Scalar;
-        using Vector = typename Particle::Vector;
-
-        Scalar tot_mass{0};
-        Vector cm_pos{0};
-        Vector cm_vel{0};
-
-        for (auto const &ptc : ptcs) {
-            tot_mass += ptc.mass;
-            cm_pos += ptc.mass * ptc.pos;
-            cm_vel += ptc.mass * ptc.vel;
-        }
-
-        cm_pos /= tot_mass;
-        cm_vel /= tot_mass;
-
-        for (auto &ptc : ptcs) {
-            ptc.pos -= cm_pos;
-            ptc.vel -= cm_vel;
-        }
-    }
-
     template<typename Particle, typename ...Args>
-    void move_to_com_coord(Particle &&ptc, Args &&...ptcs) {
+    void move_to_com_coord(Particle &ptc, Args &...ptcs) {
         if constexpr (sizeof...(Args) != 0) {
             static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
-            auto tot_mass = (ptcs.mass + ... +ptc.mass);
-            auto cm_pos = ((ptcs.mass * ptcs.pos) + ... +(ptc.mass * ptc.pos)) / tot_mass;
-            auto cm_vel = ((ptcs.mass * ptcs.vel) + ... +(ptc.mass * ptc.vel)) / tot_mass;
+            auto tot_mass = (ptcs.mass + ... + ptc.mass);
+            auto cm_pos = ((ptcs.mass * ptcs.pos) + ... + (ptc.mass * ptc.pos)) / tot_mass;
+            auto cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc.mass * ptc.vel)) / tot_mass;
             ((ptc.pos -= cm_pos), ..., (ptcs.pos -= cm_pos));
             ((ptc.vel -= cm_vel), ..., (ptcs.vel -= cm_vel));
-        }
-    }
+        } else if constexpr (is_container<Particle>::value) {
+            using sParticle = typename Particle::value_type;
+            using Scalar = typename sParticle::Scalar;
+            using Vector = typename sParticle::Vector;
 
-    template<typename Vector, typename Particles>
-    void move_particles(Vector const &cm_pos, Vector const &cm_vel, Particles &ptcs) {
-        move_to_com_coord(ptcs);
+            Scalar tot_mass{0};
+            Vector cm_pos{0};
+            Vector cm_vel{0};
 
-        for (auto &ptc : ptcs) {
-            ptc.pos += cm_pos;
-            ptc.vel += cm_vel;
+            for (auto const &p : ptc) {
+                tot_mass += p.mass;
+                cm_pos += p.mass * p.pos;
+                cm_vel += p.mass * p.vel;
+            }
+
+            cm_pos /= tot_mass;
+            cm_vel /= tot_mass;
+
+            for (auto &p : ptc) {
+                p.pos -= cm_pos;
+                p.vel -= cm_vel;
+            }
         }
     }
 
     template<typename Vector, typename Particle, typename ...Args>
-    void move_particles(Vector const &cm_pos, Vector const &cm_vel, Particle &&ptc, Args &&...ptcs) {
-        if constexpr (sizeof...(Args) == 0) {
-            ptc.pos = cm_pos;
-            ptc.vel = cm_vel;
-        } else {
+    void move_particles(Vector const &cm_pos, Vector const &cm_vel, Particle &ptc, Args &...ptcs) {
+        if constexpr (sizeof...(Args) != 0) {
             static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
-            move_to_com_coord(std::forward<Particle>(ptc), std::forward<Args>(ptcs)...);
+            move_to_com_coord(ptc, ptcs...);
             ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
             ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));
+
+        } else if constexpr (is_container<Particle>::value) {
+            move_to_com_coord(ptc);
+            for (auto &p : ptc) {
+                p.pos += cm_pos;
+                p.vel += cm_vel;
+            }
+        } else {
+            ptc.pos = cm_pos;
+            ptc.vel = cm_vel;
         }
     }
 
     template<typename Particle, typename ...Args>
-    void move_particles(Kepler const &args, Particle &&ptc, Args &&...ptcs) {
+    void move_particles(Kepler const &args, Particle &ptc, Args &...ptcs) {
         using Vector = typename Particle::Vector;
         Vector cm_pos, cm_vel;
         oribt_args_to_coord(args, cm_pos, cm_vel);
-        move_particles(cm_pos, cm_vel, std::forward<Particle>(ptc), std::forward<Args>(ptcs)...);
-    }
-
-    template<typename Particles>
-    void move_particles(Kepler const &args, Particles &ptcs) {
-        using Vector = typename Particles::value_type::Vector;
-        Vector cm_pos, cm_vel;
-        oribt_args_to_coord(args, cm_pos, cm_vel);
-        move_particles(cm_pos, cm_vel, ptcs);
+        move_particles(cm_pos, cm_vel, ptc, ptcs...);
     }
 
     template<typename Scalar>

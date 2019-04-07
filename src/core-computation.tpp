@@ -8,22 +8,22 @@ namespace SpaceH::Calc {
 
 
     template <typename ...Args>
-    auto add(Args && ...args){
+    constexpr auto add(Args && ...args){
         return (... + args);
     }
 
     template <typename ...Args>
-    auto mul(Args && ...args){
+    constexpr auto mul(Args && ...args){
         return (... * args);
     }
 
     template <typename ...Args>
-    auto any(Args ...args){
+    constexpr auto any(Args ...args){
         return (... || args);
     }
 
     template <typename ...Args>
-    auto all(Args ...args){
+    constexpr auto all(Args ...args){
         return (... && args);
     }
 
@@ -44,7 +44,7 @@ namespace SpaceH::Calc {
         typename Array::value_type product{0};
         size_t size = a.size();
         for (size_t i = 0; i < size; ++i) {
-            product += a[i] * b[i] * (args[i] * ...);
+            product += (args[i] * ... * (a[i]*b[i]));
         }
         return product;
     }
@@ -95,7 +95,7 @@ namespace SpaceH::Calc {
         return sum;
     }
 
-    template<typename Scalar, typename Coord>
+    /*template<typename Scalar, typename Coord>
     auto coord_contract_to_scalar(Scalar coef, Coord const &a, Coord const &b) {
         size_t size = a.size();
         Scalar sum{0};
@@ -104,7 +104,7 @@ namespace SpaceH::Calc {
             sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*coef;
         }
         return sum;
-    }
+    }*/
 
     template<typename Coord>
     auto coord_contract_to_scalar(Coord const &a, Coord const &b) {
@@ -208,7 +208,7 @@ namespace SpaceH::Calc {
     inline auto calc_fall_free_time(const ScalarArray &mass, Coord const &pos) {
         using Scalar = typename ScalarArray::value_type;
         size_t size = mass.size();
-        Scalar min_fall_free = 0;
+        Scalar min_fall_free = max_value<Scalar>::value;
 
         for (size_t i = 0; i < size; i++) {
             for (size_t j = i + 1; j < size; j++) {
@@ -216,11 +216,13 @@ namespace SpaceH::Calc {
                 Scalar dy = pos.y[i] - pos.y[j];
                 Scalar dz = pos.z[i] - pos.z[j];
                 Scalar r = sqrt(dx * dx + dy * dy + dz * dz);
-                Scalar fall_free = pow(r, 1.5) / (mass[i] + mass[j]);
-                min_fall_free = min_fall_free == 0 ? fall_free : SpaceH::min(min_fall_free, fall_free);
+                Scalar fall_free = pow(r, 1.5) / sqrt((mass[i] + mass[j]));
+
+                if(fall_free < min_fall_free)
+                    min_fall_free = fall_free;
             }
         }
-        return min_fall_free;
+        return min_fall_free*Const::PI*0.5/sqrt(2*Const::G);
     }
 
     CREATE_STATIC_MEMBER_CHECK(regu_type);
@@ -228,7 +230,7 @@ namespace SpaceH::Calc {
     template<typename Particles>
     auto calc_step_scale(Particles const &ptc) {
         if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
-            return  calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
+            return calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
         } else {
             return calc_fall_free_time(ptc.mass(), ptc.pos());
         }

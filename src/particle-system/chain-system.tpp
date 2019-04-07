@@ -5,7 +5,7 @@
 #ifndef SPACEHUB_CHAINSYSTEM_H
 #define SPACEHUB_CHAINSYSTEM_H
 
-#include "core-computation.tpp"
+#include "../core-computation.tpp"
 #include "../dev-tools.h"
 #include "../particle-system.h"
 #include "chain.tpp"

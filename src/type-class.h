@@ -25,12 +25,14 @@ namespace SpaceH {
             x = other.x;
             x = other.y;
             x = other.z;
+            return *this;
         }
 
         Coords& operator=(Coords && other) noexcept {
             x = std::move(other.x);
             x = std::move(other.y);
             x = std::move(other.z);
+            return *this;
         }
 
         size_t size() const {
