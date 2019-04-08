@@ -47,7 +47,7 @@ set(SOURCE_FILES
         test/unit_test/main.cpp
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
-        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/interaction.h src/tools/config-reader.tpp src/particle-system.h src/interaction/newtonian.h src/particle-system/chain-system.tpp src/particle-system/archain.tpp src/integrator/symplectic/symplectic-integrator.h src/ode-iterator/ode-iterator.h src/particle/point-particle.tpp src/particle/finite-size.tpp src/tools/auto-name.tpp src/rand-generator.tpp)
+        src/lazy-evaluation/lazy_expr.h src/lazy-evaluation/lazy_array.h src/lazy-evaluation/slice.h src/lazy-evaluation/mkl-array.h src/multi-thread/multi-thread.h src/multi-thread/thread_pool.h src/multi-thread/concurrent-queue.h src/multi-thread/ciostream.h src/interaction.h src/tools/config-reader.tpp src/particle-system.h src/interaction/newtonian.h src/particle-system/chain-system.tpp src/particle-system/archain.tpp src/integrator/symplectic/symplectic-integrator.h src/ode-iterator/ode-iterator.h src/particle/point-particle.tpp src/particle/finite-size.tpp src/tools/auto-name.tpp src/rand-generator.tpp src/interaction/tidal.h)
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp)
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})

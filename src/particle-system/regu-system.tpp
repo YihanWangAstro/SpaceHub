@@ -98,7 +98,6 @@ namespace SpaceH {
 
         template<typename STL>
         RegularizedSystem(Scalar t, STL const &ptc) : ptc_(t, ptc), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
-
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
             }
@@ -112,6 +111,7 @@ namespace SpaceH {
         size_t impl_number() const {
             return ptc_.number();
         }
+
         void impl_advance_time(Scalar stepSize) {
             Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
             ptc_.time() += phyTime;
@@ -229,7 +229,6 @@ namespace SpaceH {
         Coord newtonian_acc_{0};
         Coord extra_vel_indep_acc_{0};
         Coord extra_vel_dep_acc_{0};
-
     };
 }
 

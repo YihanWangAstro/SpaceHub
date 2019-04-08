@@ -7,35 +7,35 @@
 namespace SpaceH::Calc {
 
 
-    template <typename ...Args>
-    constexpr auto add(Args && ...args){
-        return (... + args);
+    template<typename ...Args>
+    constexpr auto add(Args &&...args) {
+        return (... +args);
     }
 
-    template <typename ...Args>
-    constexpr auto mul(Args && ...args){
-        return (... * args);
+    template<typename ...Args>
+    constexpr auto mul(Args &&...args) {
+        return (... *args);
     }
 
-    template <typename ...Args>
-    constexpr auto any(Args ...args){
+    template<typename ...Args>
+    constexpr auto any(Args ...args) {
         return (... || args);
     }
 
-    template <typename ...Args>
-    constexpr auto all(Args ...args){
+    template<typename ...Args>
+    constexpr auto all(Args ...args) {
         return (... && args);
     }
 
-    template <typename Array>
-    void array_set_zero(Array &arry){
-        for(auto& a : arry){
+    template<typename Array>
+    void array_set_zero(Array &arry) {
+        for (auto &a : arry) {
             a = 0;
         }
     }
 
     template<typename ...Args>
-    void set_arrays_zero(Args &...args){
+    void set_arrays_zero(Args &...args) {
         (..., (array_set_zero(args)));
     }
 
@@ -44,7 +44,7 @@ namespace SpaceH::Calc {
         typename Array::value_type product{0};
         size_t size = a.size();
         for (size_t i = 0; i < size; ++i) {
-            product += (args[i] * ... * (a[i]*b[i]));
+            product += (args[i] * ... *(a[i] * b[i]));
         }
         return product;
     }
@@ -77,20 +77,20 @@ namespace SpaceH::Calc {
     }
 
     template<typename Array, typename Coord>
-    void coord_dot(Array & dst, Coord const &a, Coord const &b) {
+    void coord_dot(Array &dst, Coord const &a, Coord const &b) {
         size_t size = dst.size();
         for (size_t i = 0; i < size; ++i) {
-            dst[i] = a.x[i] * b.x[i]  + a.y[i] * b.y[i]  + a.z[i] * b.z[i];
+            dst[i] = a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i];
         }
     }
 
     template<typename Array, typename Coord>
-    auto coord_contract_to_scalar(Array & coef, Coord const &a, Coord const &b) {
+    auto coord_contract_to_scalar(Array &coef, Coord const &a, Coord const &b) {
         size_t size = coef.size();
         typename Coord::Scalar sum{0};
 
         for (size_t i = 0; i < size; ++i) {
-            sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*coef[i];
+            sum += (a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i]) * coef[i];
         }
         return sum;
     }
@@ -112,7 +112,7 @@ namespace SpaceH::Calc {
         typename Coord::Scalar sum{0};
 
         for (size_t i = 0; i < size; ++i) {
-            sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i]);
+            sum += (a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i]);
         }
         return sum;
     }
@@ -131,39 +131,39 @@ namespace SpaceH::Calc {
         array_advance(var.z, increase.z, stepSize);
     }
 
-    template <typename Array>
+    template<typename Array>
     auto array_sum(Array const &array) {
-        typename  Array::value_type total = 0;
-        for(auto const & a : array) {
+        typename Array::value_type total = 0;
+        for (auto const &a : array) {
             total += a;
         }
         return total;
     }
 
     template<typename Array>
-    auto calc_com(Array const & mass, Array const & var) {
-        return array_dot(var, mass)/array_sum(mass);
+    auto calc_com(Array const &mass, Array const &var) {
+        return array_dot(var, mass) / array_sum(mass);
     }
 
     template<typename Array>
-    auto calc_com(Array const & mass, Array const & var, typename Array::value_type tot_mass) {
-        return array_dot(var, mass)/tot_mass;
+    auto calc_com(Array const &mass, Array const &var, typename Array::value_type tot_mass) {
+        return array_dot(var, mass) / tot_mass;
     }
 
     template<typename Array>
     void move_to_com(Array &var, typename Array::value_type const &com_var) {
-        for (auto& v : var)
+        for (auto &v : var)
             v -= com_var;
     }
 
     template<typename Array1, typename Array2>
-    void move_to_com(Array1 const & mass, Array2 & var) {
+    void move_to_com(Array1 const &mass, Array2 &var) {
         auto com_var = calc_com(mass, var);
         move_to_com(var, com_var);
     }
 
-    template <typename Coord, typename ScalarArray>
-    void coord_move_to_com(ScalarArray const & mass, Coord& var) {
+    template<typename Coord, typename ScalarArray>
+    void coord_move_to_com(ScalarArray const &mass, Coord &var) {
         auto tot_mass = array_sum(mass);
         move_to_com(var.x, calc_com(mass, var.x, tot_mass));
         move_to_com(var.y, calc_com(mass, var.y, tot_mass));
@@ -172,16 +172,16 @@ namespace SpaceH::Calc {
 
     template<typename Particles>
     auto calc_kinetic_energy(Particles const &ptc) {
-        return 0.5*coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
+        return 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
     }
 
     template<typename Particles>
     auto calc_potential_energy(Particles const &ptc) {
         typename Particles::Scalar p_eng{0};
         size_t size = ptc.number();
-        auto & m    = ptc.mass();
-        auto & v    = ptc.vel();
-        auto & p    = ptc.pos();
+        auto &m = ptc.mass();
+        auto &v = ptc.vel();
+        auto &p = ptc.pos();
 
         for (size_t i = 0; i < size; ++i)
             for (size_t j = i + 1; j < size; ++j) {
@@ -218,11 +218,11 @@ namespace SpaceH::Calc {
                 Scalar r = sqrt(dx * dx + dy * dy + dz * dz);
                 Scalar fall_free = pow(r, 1.5) / sqrt((mass[i] + mass[j]));
 
-                if(fall_free < min_fall_free)
+                if (fall_free < min_fall_free)
                     min_fall_free = fall_free;
             }
         }
-        return min_fall_free*Const::PI*0.5/sqrt(2*Const::G);
+        return min_fall_free * Const::PI * 0.5 / sqrt(2 * Const::G);
     }
 
     CREATE_STATIC_MEMBER_CHECK(regu_type);

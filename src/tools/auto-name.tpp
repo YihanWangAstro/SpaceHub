@@ -24,7 +24,7 @@ namespace SpaceH::Tools {
             auto name = prefix + oss.str();
 
             if (name == last_name) {
-                    return name + '(' +std::to_string(duplicate++) + ").dat";
+                    return name + '(' + std::to_string(duplicate++) + ").dat";
             } else {
                     duplicate = 1;
                     last_name = name;
