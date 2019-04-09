@@ -5,16 +5,14 @@
 #include "own-math.h"
 
 namespace SpaceH::Calc {
-
-
     template<typename ...Args>
     constexpr auto add(Args &&...args) {
-        return (... +args);
+        return (... + args);
     }
 
     template<typename ...Args>
     constexpr auto mul(Args &&...args) {
-        return (... *args);
+        return (... * args);
     }
 
     template<typename ...Args>
@@ -68,7 +66,7 @@ namespace SpaceH::Calc {
     }
 
     template<typename Scalar, typename Array>
-    void array_advance(Array &var, const Array &increase, Scalar stepSize) {
+    void array_advance(Array &var, Array const &increase, Scalar stepSize) {
         size_t size = var.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -205,7 +203,7 @@ namespace SpaceH::Calc {
      *  @return The minimal fall free time of the two particles
      */
     template<typename ScalarArray, typename Coord>
-    inline auto calc_fall_free_time(const ScalarArray &mass, Coord const &pos) {
+    inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &pos) {
         using Scalar = typename ScalarArray::value_type;
         size_t size = mass.size();
         Scalar min_fall_free = max_value<Scalar>::value;
@@ -216,7 +214,7 @@ namespace SpaceH::Calc {
                 Scalar dy = pos.y[i] - pos.y[j];
                 Scalar dz = pos.z[i] - pos.z[j];
                 Scalar r = sqrt(dx * dx + dy * dy + dz * dz);
-                Scalar fall_free = pow(r, 1.5) / sqrt((mass[i] + mass[j]));
+                Scalar fall_free = pow(r, 1.5) / sqrt(mass[i] + mass[j]);
 
                 if (fall_free < min_fall_free)
                     min_fall_free = fall_free;

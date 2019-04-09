@@ -56,55 +56,55 @@ namespace SpaceH {
             return ptc_.number();
         }
 
-        void impl_advance_time(Scalar stepSize) {
-            Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
-            ptc_.time() += phyTime;
+        void impl_advance_time(Scalar step_size) {
+            Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
+            ptc_.time() += phy_time;
         }
 
-        void impl_advance_pos(Coord const &velocity, Scalar stepSize) {
-            Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
+        void impl_advance_pos(Coord const &velocity, Scalar step_size) {
+            Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
             chain::coord_calc_chain(velocity, chain_vel(), index());
-            chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phyTime);
+            chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phy_time);
         }
 
-        void impl_advance_vel(Coord const &acceleration, Scalar stepSize) {
-            Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
+        void impl_advance_vel(Coord const &acceleration, Scalar step_size) {
+            Scalar phy_time = regu_.eval_vel_phy_time(ptc_, step_size);
             chain::coord_calc_chain(acceleration, chain_acc_, index());
-            chain_advance(ptc_.vel(), chain_vel(), chain_acc_, phyTime);
+            chain_advance(ptc_.vel(), chain_vel(), chain_acc_, phy_time);
         }
 
         void impl_evaluate_acc(Coord &acceleration) const {
             eom_.eval_acc(*this, acceleration);
         }
 
-        void impl_drift(Scalar stepSize) {
-            Scalar phyTime = regu_.eval_pos_phy_time(ptc_, stepSize);
-            ptc_.time() += phyTime;
-            chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phyTime);
+        void impl_drift(Scalar step_size) {
+            Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
+            ptc_.time() += phy_time;
+            chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phy_time);
         }
 
-        void impl_kick(Scalar stepSize) {
-            Scalar phyTime = regu_.eval_vel_phy_time(ptc_, stepSize);
-            Scalar halfTime = 0.5 * phyTime;
+        void impl_kick(Scalar step_size) {
+            Scalar phy_time = regu_.eval_vel_phy_time(ptc_, step_size);
+            Scalar half_time = 0.5 * phy_time;
 
             eval_vel_indep_acc();
 
             if constexpr (Interactions::has_extra_vel_dep_acc) {
-                kick_pseu_vel(halfTime);
-                kick_real_vel(phyTime);
-                kick_pseu_vel(halfTime);
+                kick_pseu_vel(half_time);
+                kick_real_vel(phy_time);
+                kick_pseu_vel(half_time);
             } else {
                 if constexpr (Interactions::has_extra_vel_indep_acc) {
                     Calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
 
-                    chain_advance(ptc_.vel(), chain_vel(), acc_, halfTime);
-                    advance_omega(ptc_.vel(), newtonian_acc_, phyTime);
-                    advance_bindE(ptc_.vel(), extra_vel_indep_acc_, phyTime);
-                    chain_advance(ptc_.vel(), chain_vel(), acc_, halfTime);
+                    chain_advance(ptc_.vel(), chain_vel(), acc_, half_time);
+                    advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
+                    advance_bindE(ptc_.vel(), extra_vel_indep_acc_, phy_time);
+                    chain_advance(ptc_.vel(), chain_vel(), acc_, half_time);
                 } else {
-                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, halfTime);
-                    advance_omega(ptc_.vel(), newtonian_acc_, phyTime);
-                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, halfTime);
+                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, half_time);
+                    advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
+                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, half_time);
                 }
             }
         }
@@ -139,8 +139,8 @@ namespace SpaceH {
             return is;
         }
     private:
-        void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar stepSize) {
-            Calc::coord_advance(ch_var, ch_inc, stepSize);
+        void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar step_size) {
+            Calc::coord_advance(ch_var, ch_inc, step_size);
             chain::coord_calc_cartesian(ch_var, var, index());
             Calc::coord_move_to_com(ptc_.mass(), var);
         }
@@ -152,26 +152,26 @@ namespace SpaceH {
             }
         }
 
-        void advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar stepSize) {
+        void advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar phy_time) {
             Scalar d_omega = Calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_omega_dr);
-            regu_.omega() += d_omega * stepSize;
+            regu_.omega() += d_omega * phy_time;
         }
 
-        void advance_bindE(Coord const &velocity, Coord const &d_bindE_dr, Scalar stepSize) {
+        void advance_bindE(Coord const &velocity, Coord const &d_bindE_dr, Scalar phy_time) {
             Scalar d_bindE = -Calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_bindE_dr);
-            regu_.bindE() += d_bindE * stepSize;
+            regu_.bindE() += d_bindE * phy_time;
         }
 
-        void kick_pseu_vel(Scalar stepSize) {
+        void kick_pseu_vel(Scalar phy_time) {
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
             Calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
-            chain_advance(aux_vel_, chain_aux_vel_, acc_, stepSize);
+            chain_advance(aux_vel_, chain_aux_vel_, acc_, phy_time);
         }
 
-        void kick_real_vel(Scalar stepSize) {
+        void kick_real_vel(Scalar phy_time) {
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
@@ -183,10 +183,10 @@ namespace SpaceH {
                 Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
 
-            chain_advance(ptc_.vel(), chain_vel(), acc_, stepSize);
+            chain_advance(ptc_.vel(), chain_vel(), acc_, phy_time);
 
-            advance_omega(aux_vel_, newtonian_acc_, stepSize);
-            advance_bindE(aux_vel_, extra_vel_dep_acc_, stepSize);
+            advance_omega(aux_vel_, newtonian_acc_, phy_time);
+            advance_bindE(aux_vel_, extra_vel_dep_acc_, phy_time);
         }
 
 

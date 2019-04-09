@@ -38,9 +38,13 @@ namespace SpaceH{
         };
 
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
+
         SPACEHUB_STD_ACCESSOR(auto, impl_idn, idn_);
+
         SPACEHUB_STD_ACCESSOR(auto, impl_time, time_);
+
         SPACEHUB_STD_ACCESSOR(auto, impl_pos, pos_);
+
         SPACEHUB_STD_ACCESSOR(auto, impl_vel, vel_);
 
         SPACEHUB_STD_ACCESSOR(auto, radius, radius_);

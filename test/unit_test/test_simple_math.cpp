@@ -2,7 +2,7 @@
 #include "vector3.h"
 #include "kahan-number.h"
 #include "own-math.h"
-
+#include "rand-generator.tpp"
 
 namespace UnitTest {
 
@@ -11,9 +11,9 @@ namespace UnitTest {
         T high = SpaceH::big_value<T>::value;
 
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::Uniform<T>::get(0, high);
+            T x = SpaceH::Random::Uniform<T>::get(0, high);
             ASSERT_EQ(1, SpaceH::sign(x));
-            x = SpaceH::Uniform<T>::get(-high, 0);
+            x = SpaceH::Random::Uniform<T>::get(-high, 0);
             ASSERT_EQ(-1, SpaceH::sign(x));
         }
         EXPECT_EQ(-1, SpaceH::sign(0));
@@ -24,9 +24,9 @@ namespace UnitTest {
         T high = SpaceH::big_value<T>::value;
 
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::Uniform<T>::get(0, high);
+            T x = SpaceH::Random::Uniform<T>::get(0, high);
             ASSERT_EQ(1, SpaceH::stepfunction(x));
-            x = SpaceH::Uniform<T>::get(-high, 0);
+            x = SpaceH::Random::Uniform<T>::get(-high, 0);
             ASSERT_EQ(0, SpaceH::stepfunction(x));
         }
         EXPECT_EQ(-1, SpaceH::sign(0));
@@ -37,7 +37,7 @@ namespace UnitTest {
         T high = SpaceH::big_value<T>::value;
 
         for (size_t i = 0; i < N; ++i) {
-            T x = SpaceH::Uniform<T>::get(-high, high);
+            T x = SpaceH::Random::Uniform<T>::get(-high, high);
             ASSERT_EQ(x, x + 0.5*SpaceH::epsilon<T>::value);
             ASSERT_EQ(x, x - 0.5*SpaceH::epsilon<T>::value);
         }

@@ -38,16 +38,6 @@ namespace SpaceH::Orbit {
     };
 
     template<typename Scalar>
-    Scalar random_mean_anomaly(Scalar e, Scalar Mmin, Scalar Mmax) {
-        if (e >= 0)
-            return Random::Uniform<Scalar>::get(Mmin, Mmax);
-        else {
-            SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");
-            return 0;
-        }
-    }
-
-    template<typename Scalar>
     Scalar calc_true_anomaly(Scalar E, Scalar e) {
         if (0 <= e && e < 1)
             return 2 * atan2(sqrt(1 + e) * sin(E * 0.5), sqrt(1 - e) * cos(0.5 * E));
@@ -125,7 +115,6 @@ namespace SpaceH::Orbit {
             p = _p_;
             e = _e_;
 
-
             if (std::holds_alternative<Scalar>(inclination)) {
                 i = std::get<Scalar>(inclination);
             } else {
@@ -165,7 +154,7 @@ namespace SpaceH::Orbit {
 
         inline void shuffle_nu() {
             if (orbit_type == OrbitType::ellipse) {
-                Scalar M = Orbit::random_mean_anomaly(e, -Const::PI, Const::PI);
+                Scalar M = Random::Uniform<Scalar>::get(-Const::PI, Const::PI);
                 Scalar E = Orbit::calc_eccentric_anomaly(M, e);
                 nu = Orbit::calc_true_anomaly(E, e);
             } else {
@@ -174,7 +163,7 @@ namespace SpaceH::Orbit {
         }
 
         friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
-            SpaceH::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
+            SpaceH::display(os, obt.u, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
             return os;
         }
     };
@@ -285,7 +274,6 @@ namespace SpaceH::Orbit {
             move_to_com_coord(ptc, ptcs...);
             ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
             ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));
-
         } else if constexpr (is_container<Particle>::value) {
             move_to_com_coord(ptc);
             for (auto &p : ptc) {

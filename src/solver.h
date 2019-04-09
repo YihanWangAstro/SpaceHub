@@ -11,8 +11,8 @@ namespace SpaceH {
     class RunArgs {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
-        using Callback = std::function<void (ParticleSys &)>;
-        using StopCall = std::function<bool (ParticleSys &)>;
+        using Callback = std::function<void(ParticleSys &)>;
+        using StopCall = std::function<bool(ParticleSys &)>;
 
         Scalar step_size{0};
         Scalar end_time{0};
@@ -37,7 +37,7 @@ namespace SpaceH {
 
         bool check_stops(ParticleSys &partc_sys) const {
             for (auto const &check : stop_cond_) {
-                if( check(partc_sys) )
+                if (check(partc_sys))
                     return true;
             }
             return false;
@@ -45,26 +45,30 @@ namespace SpaceH {
 
         template<typename Func, typename ...Args>
         void add_pre_step_option(Func &&func, Args &&...args) {
-            pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+            pre_opts_.emplace_back(
+                    std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
         template<typename Func, typename ...Args>
         void add_post_step_option(Func &&func, Args &&...args) {
-            post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+            post_opts_.emplace_back(
+                    std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
         template<typename Func, typename ...Args>
         void add_stop_point_option(Func &&func, Args &&...args) {
-            stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+            stop_opts_.emplace_back(
+                    std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
         template<typename Func, typename ...Args>
         void add_stop_condition(Func &&func, Args &&...args) {
-            stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+            stop_cond_.emplace_back(
+                    std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
-        template <typename Scalar>
-        void add_stop_condition(Scalar end_){
+        template<typename Scalar>
+        void add_stop_condition(Scalar end_) {
             end_time = end_;
         }
 
@@ -75,7 +79,7 @@ namespace SpaceH {
         std::vector<StopCall> stop_cond_;
     };
 
-    template<typename ParticSys, typename ODEiterator>
+    template<typename ParticSys, typename OdeIterator>
     class Solver {
     public:
         /* Typedef */
@@ -84,32 +88,32 @@ namespace SpaceH {
         using Particle = typename ParticSys::Particle;
 
         SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
+
         /* Typedef */
 
         template<typename STL>
-        Solver(Scalar t, STL const &partc) : particles_(t, partc){}
+        Solver(Scalar t, STL const &partc) : particles_(t, partc) {}
 
         template<typename ...T>
-        Solver(Scalar t, T const & ...p) :  Solver(t, std::initializer_list<Particle>{p...}){
+        explicit Solver(Scalar t, T const &...p) :  Solver(t, std::initializer_list<Particle>{p...}) {
             static_assert(Calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
         }
 
-        explicit Solver(ParticSys const& ptc) : particles_(ptc){}//more edit
+        explicit Solver(ParticSys const &ptc) : particles_(ptc) {}//more edit
 
-        template <typename RunArgs>
-        void run(const RunArgs &arg) {
+        void run(RunArgs const &arg) {
             step_size_ = arg.step_size;
 
-            if(iseq(step_size_,0.0))
+            if (iseq(step_size_, 0.0))
                 step_size_ = 0.01 * Calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
 
-            if(particles_.time() >= end_time)
+            if (particles_.time() >= end_time)
                 SpaceH::print(std::cout, "Warning: The stop time is '<=' to the start time!");
 
             for (; particles_.time() < end_time;) {
-                if(arg.check_stops(particles_))
+                if (arg.check_stops(particles_))
                     break;
 
                 arg.pre_options(particles_);
@@ -121,7 +125,7 @@ namespace SpaceH {
 
         virtual ~Solver() = default; /**< @brief Default destructor, virtualize for inherent class*/
     private:
-        void advance_one_step(){
+        void advance_one_step() {
             particles_.pre_iter_process();
             step_size_ = iterator_.iterate(particles_, step_size_);
             particles_.post_iter_process();
@@ -134,7 +138,7 @@ namespace SpaceH {
         ParticSys particles_;
 
         /** @brief ODE Iterator*/
-        ODEiterator iterator_;
+        OdeIterator iterator_;
     };
 
 }
