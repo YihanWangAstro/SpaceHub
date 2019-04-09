@@ -48,22 +48,22 @@ TEST(MathTest, Sign) {
     constexpr size_t sample_num = 1000000;
     UnitTest::test_math_sign<sample_num, double>();
     UnitTest::test_math_sign<sample_num, float>();
-    UnitTest::test_math_sign<sample_num, SpaceH::precise_d>();
-    UnitTest::test_math_sign<sample_num, SpaceH::precise_f>();
+    //UnitTest::test_math_sign<sample_num, SpaceH::precise_d>();
+    //UnitTest::test_math_sign<sample_num, SpaceH::precise_f>();
 }
 
 TEST(MathTest, Step) {
     constexpr size_t sample_num = 1000000;
     UnitTest::test_math_step<sample_num, double>();
     UnitTest::test_math_step<sample_num, float>();
-    UnitTest::test_math_step<sample_num, SpaceH::precise_d>();
-    UnitTest::test_math_step<sample_num, SpaceH::precise_f>();
+    //UnitTest::test_math_step<sample_num, SpaceH::precise_d>();
+    //UnitTest::test_math_step<sample_num, SpaceH::precise_f>();
 }
 
 TEST(MathTest, Epsilon) {
     constexpr size_t sample_num = 1000000;
     UnitTest::test_math_epsilon<sample_num, double>();
     UnitTest::test_math_epsilon<sample_num, float>();
-    UnitTest::test_math_epsilon<sample_num, SpaceH::precise_d>();
-    UnitTest::test_math_epsilon<sample_num, SpaceH::precise_f>();
+    //UnitTest::test_math_epsilon<sample_num, SpaceH::precise_d>();
+    //UnitTest::test_math_epsilon<sample_num, SpaceH::precise_f>();
 }

@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 
     //using sys = SimpleSystem<particles, force>;
 
-    //using sys = RegularizedSystem <particles, force, ReguType::logH>;
+   // using sys = RegularizedSystem <particles, force, ReguType::logH>;
 
     using sys = ChainSystem <particles, force>;
 
@@ -45,9 +45,9 @@ int main(int argc, char **argv) {
     //print(std::cout, sun,'\n',earth, '\n', moon,'\n',distance(sun.pos, earth.pos), '\n', distance(earth.pos, moon.pos));
     simulation::RunArgs args;
 
-    args.add_pre_step_option(ArgsCallBack::DefaultWriter("solar.dat", 0,  100 * YEAR));
+    args.add_pre_step_option(ArgsCallBack::DefaultWriter("solar.dat", 0,  10 * YEAR));
 
-    args.add_stop_condition(100 * YEAR);
+    args.add_stop_condition(100* YEAR);
 
     simulation nbody{0, sun, earth, moon};
 

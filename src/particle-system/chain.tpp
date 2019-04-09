@@ -5,7 +5,7 @@
 #include<list>
 #include<algorithm>
 
-namespace SpaceH::chain {
+namespace SpaceH::Chain {
 
 /** @brief Struture to store the relative distance and index of two particles.*/
     struct Node {
@@ -77,7 +77,7 @@ namespace SpaceH::chain {
                     if (chained_num == num) {
                         break;
                     } else {
-                        k = 0;
+                        k = 1;
                     }
                 }
             }
@@ -120,7 +120,7 @@ namespace SpaceH::chain {
     }
 
     template<typename Coord, typename IdxArray>
-    void update_chain(Coord &chain, IdxArray &idx, IdxArray &new_idx) {
+    void update_chain(Coord &chain, IdxArray const &idx, IdxArray const &new_idx) {
         using Vector = typename Coord::Vector;
         size_t size = chain.size();
 
@@ -129,15 +129,15 @@ namespace SpaceH::chain {
 
         auto get_idx = [&](auto var)->auto { return std::find(idx.begin(), idx.end(), var) - idx.begin(); };
 
-        Vector new_head = get_new_node(chain, idx, 0, get_idx(new_idx[0]));
-
-        new_chain.emplace_back(Vector(chain.x.back(), chain.y.back(), chain.z.back()) + new_head);
-
         for (size_t i = 0; i < size - 1; ++i) {
             auto first = get_idx(new_idx[i]);
             auto last  = get_idx(new_idx[i + 1]);
             new_chain.emplace_back(get_new_node(chain, idx, first, last));
         }
+
+        Vector new_head = get_new_node(chain, idx, 0, get_idx(new_idx[0]));
+
+        new_chain.emplace_back(Vector(chain.x.back(), chain.y.back(), chain.z.back()) + new_head);
 
         chain = std::move(new_chain);
     }

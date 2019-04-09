@@ -52,7 +52,7 @@ namespace SpaceH {
         }
 
         template<typename Vector>
-        void emplace_back(Vector&& v){
+        void emplace_back(Vector const& v){
             x.emplace_back(v.x);
             y.emplace_back(v.y);
             z.emplace_back(v.z);
@@ -68,6 +68,12 @@ namespace SpaceH {
             x.shrink_to_fit();
             y.shrink_to_fit();
             z.shrink_to_fit();
+        }
+
+        void clear() {
+            x.clear();
+            y.clear();
+            z.clear();
         }
 
         T x;

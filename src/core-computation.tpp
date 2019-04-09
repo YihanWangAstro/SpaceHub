@@ -163,9 +163,9 @@ namespace SpaceH::Calc {
     template<typename Coord, typename ScalarArray>
     void coord_move_to_com(ScalarArray const &mass, Coord &var) {
         auto tot_mass = array_sum(mass);
-        move_to_com(var.x, calc_com(mass, var.x, tot_mass));
-        move_to_com(var.y, calc_com(mass, var.y, tot_mass));
-        move_to_com(var.z, calc_com(mass, var.z, tot_mass));
+        move_to_com(var.x, array_dot(mass, var.x) / tot_mass);
+        move_to_com(var.y, array_dot(mass, var.y) / tot_mass);
+        move_to_com(var.z, array_dot(mass, var.z) / tot_mass);
     }
 
     template<typename Particles>
