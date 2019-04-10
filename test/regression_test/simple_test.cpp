@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 
     //using sys = ChainSystem <particles, force>;
 
-    using sys = ARchainSystem <particles, force, ReguType::logH>;
+    using sys = ARchainSystem <particles, force, ReguType::TTL>;
 
     using iter = ConstOdeIterator<symplectic2th>;
 
@@ -47,9 +47,15 @@ int main(int argc, char **argv) {
     //print(std::cout, sun,'\n',earth, '\n', moon,'\n',distance(sun.pos, earth.pos), '\n', distance(earth.pos, moon.pos));
     simulation::RunArgs args;
 
+    std::ofstream eng_file("solar.eng");
+
+    eng_file << std::setprecision(16);
+
     args.add_pre_step_option(ArgsCallBack::DefaultWriter("solar.dat", 0,  10 * YEAR));
 
-    args.add_stop_condition(100* YEAR);
+    args.add_pre_step_option([&](auto& ptc){eng_file << Calc::calc_total_energy(ptc) << '\n';});
+
+    args.add_stop_condition(10* YEAR);
 
     simulation nbody{0, sun, earth, moon};
 

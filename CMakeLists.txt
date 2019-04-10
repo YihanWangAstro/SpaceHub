@@ -32,8 +32,7 @@ set(TMP_HEADER_FILES
         src/orbits/orbits.h
         src/integrator/symplectic/symplectic-integrator.tpp
         src/integrator/Gauss-Dadau.h
-        src/ode-iterator/BSIterator.h
-        src/ode-iterator/BSIterator_impl0.h
+        src/ode-iterator/BS-iterator.h
         src/ode-iterator/const-iterator.tpp
         src/ode-iterator/IAS15.h
         src/particle-system/chain.tpp

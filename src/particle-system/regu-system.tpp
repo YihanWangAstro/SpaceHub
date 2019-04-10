@@ -42,7 +42,7 @@ namespace SpaceH {
             if constexpr (Type == ReguType::logH) {
                 return step_size / -Calc::calc_potential_energy(partc);
             } else if constexpr (Type == ReguType::TTL) {
-                return step_size / capital_omega();
+                return step_size / capital_omega(partc);
             } else if constexpr (Type == ReguType::none) {
                 return step_size;
             } else {

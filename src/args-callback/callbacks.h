@@ -11,6 +11,7 @@
 
 namespace SpaceH::ArgsCallBack {
 
+
     template <typename Ostream>
     class BaseWriter {
     public:
@@ -29,27 +30,28 @@ namespace SpaceH::ArgsCallBack {
             }
         }
 
-        BaseWriter(BaseWriter const& other) :
-            os{other.os},
-            write_time_{other.write_time_},
-            end_time_{other.end_time_},
-            write_interval_{other.write_interval_},
-            flush_immediate_{other.flush_immediate_} {}
+        BaseWriter(BaseWriter const &other) :
+                os{other.os},
+                write_time_{other.write_time_},
+                end_time_{other.end_time_},
+                write_interval_{other.write_interval_},
+                flush_immediate_{other.flush_immediate_} {}
 
-        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false){
+        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false) {
             write_time_ = start_;
             end_time_ = end_;
-            write_interval_ = (end_ -start_)/snapshot_num;
+            write_interval_ = (end_ - start_) / snapshot_num;
             flush_immediate_ = flush;
         }
 
-        template <typename T>
-        friend BaseWriter&operator<<(BaseWriter& wtr, T const& d){
+        template<typename T>
+        friend BaseWriter &operator<<(BaseWriter &wtr, T const &d) {
             wtr.os << d;
             return wtr;
         }
+
     private:
-        Ostream& os;
+        Ostream &os;
         double write_time_{0};
         double end_time_{0};
         double write_interval_{0};
@@ -59,7 +61,8 @@ namespace SpaceH::ArgsCallBack {
     class DefaultWriter {
     public:
         DefaultWriter(std::string const& file_name, double start_, double end_, size_t snapshot_num = 5000, bool flush = false) :
-            fstream_{std::make_shared<std::ofstream>(file_name)}, writer_{*fstream_, start_, end_, snapshot_num, flush} {
+                fstream_{std::make_shared<std::ofstream>(file_name)},
+                writer_{*fstream_, start_, end_, snapshot_num, flush} {
             if (!fstream_->is_open()) {
                 SPACEHUB_ABORT("Fail to open the file " + file_name);
             } else {

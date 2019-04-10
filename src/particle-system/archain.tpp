@@ -102,14 +102,12 @@ namespace SpaceH {
                 if constexpr (Interactions::has_extra_vel_indep_acc) {
                     Calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
                     Chain::coord_calc_chain(acc_, chain_acc_, index());
-
                     chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                     advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
                     advance_bindE(ptc_.vel(), extra_vel_indep_acc_, phy_time);
                     chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                 } else {
                     Chain::coord_calc_chain(newtonian_acc_, chain_acc_, index());
-
                     chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                     advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
                     chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
@@ -125,7 +123,7 @@ namespace SpaceH {
         }
 
         void impl_post_iter_process() {
-           /* Chain::calc_chain_index(ptc_.pos(), new_index_);
+            Chain::calc_chain_index(ptc_.pos(), new_index_);
             if(new_index_ != index_){
                 Chain::update_chain(chain_pos_, index_, new_index_);
                 Chain::coord_calc_cartesian(chain_pos_, ptc_.pos(), new_index_);
@@ -134,7 +132,7 @@ namespace SpaceH {
                 Chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
                 Calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
                 index_ = new_index_;
-            }*/
+            }
         }
 
         friend std::ostream &operator<<(std::ostream &os, ARchainSystem const &ps) {
@@ -186,7 +184,6 @@ namespace SpaceH {
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
-
             Calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
@@ -194,7 +191,6 @@ namespace SpaceH {
 
             Chain::coord_calc_chain(acc_, chain_acc_, index());
             chain_advance(ptc_.vel(), chain_vel(), chain_acc_, phy_time);
-
             advance_omega(aux_vel_, newtonian_acc_, phy_time);
             advance_bindE(aux_vel_, extra_vel_dep_acc_, phy_time);
         }
