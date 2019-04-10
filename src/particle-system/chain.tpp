@@ -98,7 +98,7 @@ namespace SpaceH::Chain {
     }
 
     template<typename Coord, typename IdxArray>
-    auto get_new_node(Coord &chain, IdxArray &idx, size_t head, size_t tail) -> typename Coord::Vector {
+    auto get_new_node(Coord &chain, size_t head, size_t tail) -> typename Coord::Vector {
         using Scalar = typename Coord::Scalar;
         using Vector = typename Coord::Vector;
 
@@ -132,10 +132,10 @@ namespace SpaceH::Chain {
         for (size_t i = 0; i < size - 1; ++i) {
             auto first = get_idx(new_idx[i]);
             auto last  = get_idx(new_idx[i + 1]);
-            new_chain.emplace_back(get_new_node(chain, idx, first, last));
+            new_chain.emplace_back(get_new_node(chain, first, last));
         }
 
-        Vector new_head = get_new_node(chain, idx, 0, get_idx(new_idx[0]));
+        Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
 
         new_chain.emplace_back(Vector(chain.x.back(), chain.y.back(), chain.z.back()) + new_head);
 
