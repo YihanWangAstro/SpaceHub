@@ -90,6 +90,12 @@ namespace SpaceH {
 
 #define PACK(...) std::forward_as_tuple(__VA_ARGS__)
 
+#ifdef DEBUG
+#define DEBUG_MODE(BLOCK) BLOCK
+#else
+#define DEBUG_MODE(BLOCK)
+#endif
+
 /** @brief Macros used to output debuf info.  */
 #ifdef DEBUG
 #define DEBUG_MSG(EXPR,...) (EXPR ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )

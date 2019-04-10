@@ -23,15 +23,15 @@ namespace SpaceH {
 
         Coords& operator=(Coords const& other) {
             x = other.x;
-            x = other.y;
-            x = other.z;
+            y = other.y;
+            z = other.z;
             return *this;
         }
 
         Coords& operator=(Coords && other) noexcept {
             x = std::move(other.x);
-            x = std::move(other.y);
-            x = std::move(other.z);
+            y = std::move(other.y);
+            z = std::move(other.z);
             return *this;
         }
 

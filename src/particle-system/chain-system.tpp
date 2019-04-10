@@ -105,11 +105,13 @@ namespace SpaceH {
             Chain::calc_chain_index(ptc_.pos(), new_index_);
             if(new_index_ != index_){
                 Chain::update_chain(chain_pos_, index_, new_index_);
-                Chain::update_chain(chain_vel_, index_, new_index_);
                 Chain::coord_calc_cartesian(chain_pos_, ptc_.pos(), new_index_);
-                Chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
                 Calc::coord_move_to_com(ptc_.mass(), ptc_.pos());
+
+                Chain::update_chain(chain_vel_, index_, new_index_);
+                Chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
                 Calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
+
                 index_ = new_index_;
             }
         }

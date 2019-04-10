@@ -10,8 +10,8 @@
 
 namespace SpaceH {
 
-    template<typename Particles, typename Interactions, ReguType ReguType>
-    class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Interactions, ReguType>> {
+    template<typename Particles, typename Interactions, ReguType RegType>
+    class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Interactions, RegType>> {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
@@ -33,10 +33,16 @@ namespace SpaceH {
 
         SPACEHUB_STD_ACCESSOR(auto, index, index_);
 
+        SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
+
+        SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
+
         ARchainSystem() = delete;
 
+        static constexpr ReguType regu_type{RegType};
+
         template<typename STL>
-        ARchainSystem(Scalar t, STL const &ptc) : ptc_(t, ptc), regu_(ptc), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , newtonian_acc_(ptc.size()),chain_acc_(ptc.size()){
+        ARchainSystem(Scalar t, STL const &ptc) : ptc_(t, ptc), regu_(ptc_), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , newtonian_acc_(ptc.size()),chain_acc_(ptc.size()){
 
             Chain::calc_chain_index(ptc_.pos(), index_);
             Chain::coord_calc_chain(ptc_.pos(), chain_pos(), index());
@@ -79,14 +85,13 @@ namespace SpaceH {
 
         void impl_drift(Scalar step_size) {
             Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
-            ptc_.time() += phy_time;
             chain_advance(ptc_.pos(), chain_pos(), chain_vel(), phy_time);
+            ptc_.time() += phy_time;
         }
 
         void impl_kick(Scalar step_size) {
             Scalar phy_time = regu_.eval_vel_phy_time(ptc_, step_size);
             Scalar half_time = 0.5 * phy_time;
-
             eval_vel_indep_acc();
 
             if constexpr (Interactions::has_extra_vel_dep_acc) {
@@ -96,15 +101,18 @@ namespace SpaceH {
             } else {
                 if constexpr (Interactions::has_extra_vel_indep_acc) {
                     Calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
+                    Chain::coord_calc_chain(acc_, chain_acc_, index());
 
-                    chain_advance(ptc_.vel(), chain_vel(), acc_, half_time);
+                    chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                     advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
                     advance_bindE(ptc_.vel(), extra_vel_indep_acc_, phy_time);
-                    chain_advance(ptc_.vel(), chain_vel(), acc_, half_time);
+                    chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                 } else {
-                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, half_time);
+                    Chain::coord_calc_chain(newtonian_acc_, chain_acc_, index());
+
+                    chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                     advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
-                    chain_advance(ptc_.vel(), chain_vel(), newtonian_acc_, half_time);
+                    chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                 }
             }
         }
@@ -117,7 +125,7 @@ namespace SpaceH {
         }
 
         void impl_post_iter_process() {
-            Chain::calc_chain_index(ptc_.pos(), new_index_);
+           /* Chain::calc_chain_index(ptc_.pos(), new_index_);
             if(new_index_ != index_){
                 Chain::update_chain(chain_pos_, index_, new_index_);
                 Chain::coord_calc_cartesian(chain_pos_, ptc_.pos(), new_index_);
@@ -126,7 +134,7 @@ namespace SpaceH {
                 Chain::coord_calc_cartesian(chain_vel_, ptc_.vel(), new_index_);
                 Calc::coord_move_to_com(ptc_.mass(), ptc_.vel());
                 index_ = new_index_;
-            }
+            }*/
         }
 
         friend std::ostream &operator<<(std::ostream &os, ARchainSystem const &ps) {
@@ -139,8 +147,8 @@ namespace SpaceH {
             return is;
         }
     private:
-        void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar step_size) {
-            Calc::coord_advance(ch_var, ch_inc, step_size);
+        void chain_advance(Coord &var, Coord& ch_var, Coord const & ch_inc, Scalar phy_time) {
+            Calc::coord_advance(ch_var, ch_inc, phy_time);
             Chain::coord_calc_cartesian(ch_var, var, index());
             Calc::coord_move_to_com(ptc_.mass(), var);
         }
@@ -168,7 +176,8 @@ namespace SpaceH {
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
-            chain_advance(aux_vel_, chain_aux_vel_, acc_, phy_time);
+            Chain::coord_calc_chain(acc_, chain_acc_, index());
+            chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, phy_time);
         }
 
         void kick_real_vel(Scalar phy_time) {
@@ -183,7 +192,8 @@ namespace SpaceH {
                 Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
 
-            chain_advance(ptc_.vel(), chain_vel(), acc_, phy_time);
+            Chain::coord_calc_chain(acc_, chain_acc_, index());
+            chain_advance(ptc_.vel(), chain_vel(), chain_acc_, phy_time);
 
             advance_omega(aux_vel_, newtonian_acc_, phy_time);
             advance_bindE(aux_vel_, extra_vel_dep_acc_, phy_time);
@@ -192,7 +202,7 @@ namespace SpaceH {
 
         Particles ptc_;
         Interactions eom_;
-        Regularization<Scalar, ReguType> regu_;
+        Regularization<Scalar, RegType> regu_;
 
         Coord chain_pos_{0};
         Coord chain_vel_{0};
@@ -206,6 +216,7 @@ namespace SpaceH {
         Coord chain_aux_vel_{0};
         IdxArray index_{0};
         IdxArray new_index_{0};
+
     };
 }
 #endif //SPACEHUB_ARCHAIN_H

@@ -97,8 +97,8 @@ namespace SpaceH::Chain {
         create_index_from_dist_array(dist, index, pos.size());
     }
 
-    template<typename Coord, typename IdxArray>
-    auto get_new_node(Coord &chain, size_t head, size_t tail) -> typename Coord::Vector {
+    template<typename Coord>
+    auto get_new_node(Coord const&chain, size_t head, size_t tail) -> typename Coord::Vector {
         using Scalar = typename Coord::Scalar;
         using Vector = typename Coord::Vector;
 
@@ -109,10 +109,12 @@ namespace SpaceH::Chain {
             sign = -1;
         }
 
-        auto connect = [](auto &array, auto first, auto last) -> auto {
+        auto connect = [](auto const&array, auto first, auto last) -> auto {
             auto new_d = array[first];
-            for (size_t j = first + 1; j < last; ++j)
+            for (size_t j = first + 1; j < last; ++j){
                 new_d += array[j];
+            }
+
             return new_d;
         };
 
@@ -141,7 +143,6 @@ namespace SpaceH::Chain {
 
         chain = std::move(new_chain);
     }
-
 
     template<typename Array, typename IdxArray>
     void to_chain(Array const &cartesian, Array &chain, IdxArray const &index) {
@@ -174,8 +175,6 @@ namespace SpaceH::Chain {
         to_cartesian(chain.y, cartesian.y, index);
         to_cartesian(chain.z, cartesian.z, index);
     }
-
-
 }
 #endif
 
