@@ -81,6 +81,38 @@ namespace SpaceH {
         T z;
     };
 
+    template <typename STL, typename T>
+    void add_coords_to(STL& stl, Coords<T> const& coords){
+        for(auto const& xx : coords.x){
+            stl.emplace_back(xx);
+        }
+        for(auto const& yy : coords.y){
+            stl.emplace_back(yy);
+        }
+        for(auto const& zz : coords.z){
+            stl.emplace_back(zz);
+        }
+    }
+
+    template <typename STL, typename T>
+    void load_to_coords(STL const& stl, size_t& i, Coords<T>& coords){
+        DEBUG_MODE(
+                auto len = stl.size() - start;
+                if(len < 3*coords.size()){
+                    SPACEHUB_ABORT("insufficient input container");
+                })
+        size_t size = coords.size();
+        for(size_t j = 0 ; j < size; ++j){
+            coords.x[j] = stl[i++];
+        }
+        for(size_t j = 0 ; j < size; ++j){
+            coords.y[j] = stl[i++];
+        }
+        for(size_t j = 0 ; j < size; ++j){
+            coords.z[j] = stl[i++];
+        }
+    }
+
     template <typename T>
     inline auto distance(Coords<T> const& c, size_t i, size_t j){
         auto dx = c.x[i] - c.x[j];

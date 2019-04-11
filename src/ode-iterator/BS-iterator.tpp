@@ -78,7 +78,7 @@ namespace SpaceH::OdeIterator {
     };
 
     template<typename Real>
-    class BS : public OdeIterator<BS<Real>> {
+    class BSIterator : public OdeIterator<BSIterator<Real>> {
         static_assert(std::is_floating_point<Real>::value, "Only float-like type can be used!");
     public:
         using Scalar = Real;
@@ -89,11 +89,16 @@ namespace SpaceH::OdeIterator {
 
             for (;;) {
                 iter_num_++;
-                auto local_sys = ptcs;
-                evolve_by_n_steps(local_sys, iter_H, BS_.step(0));
+                ParticleSystem<U> local_sys(ptcs);
+
+                std::cout << "init\n" << local_sys << '\n' << ptcs.number();
+                exit(0);
+                /*evolve_by_n_steps(local_sys, iter_H, BS_.step(0));
+                std::cout << "evolve\n";
                 local_sys.to_linear_container(extrap_tab_[at(0, 0)]);
                 var_num_ = extrap_tab_[0].size();
 
+                std::cout << "fisrt\n";
                 for (size_t iter = 1; iter <= ideal_iter_ + 1; ++iter) {
                     local_sys = ptcs;
                     evolve_by_n_steps(local_sys, iter_H, BS_.step(iter));
@@ -117,7 +122,7 @@ namespace SpaceH::OdeIterator {
                             break;
                         }
                     }
-                }
+                }*/
             }
         }
 
@@ -157,7 +162,7 @@ namespace SpaceH::OdeIterator {
                 size_t right   = center  + 1;
                 size_t up      = last_row + j;
 
-                if(extrap_tab_[right].size != var_num_)
+                if(extrap_tab_[right].size() != var_num_)
                     extrap_tab_[right].resize(var_num_);
 
                 for (size_t i = 0; i < var_num_; ++i)

@@ -71,9 +71,19 @@ namespace SpaceH {
         }
 
         template<typename STL>
-        void load_from_linear_container(STL & stl) {
+        void load_from_linear_container(STL const& stl) {
             static_assert(is_container<STL>::value, "Only STL-like container can be used");
             static_cast<Derived *>(this)->impl_load_from_linear_container(stl);
+        }
+
+        friend std::ostream &operator<<(std::ostream &os, ParticleSystem const &ps) {
+            os << static_cast<Derived const&>(ps);
+            return os;
+        }
+
+        friend std::istream &operator>>(std::istream &is, ParticleSystem &ps) {
+            is >> static_cast<Derived&>(ps);
+            return is;
         }
     private:
         ParticleSystem() = default;

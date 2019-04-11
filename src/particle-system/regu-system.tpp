@@ -169,6 +169,27 @@ namespace SpaceH {
             }
         }
 
+        template <typename STL>
+        void impl_to_linear_container(STL& stl){
+            stl.clear();
+            stl.reserve(impl_number()*6 +3);
+            stl.emplace_back(impl_time());
+            stl.emplace_back(omega());
+            stl.emplace_back(bindE());
+            add_coords_to(stl, impl_pos());
+            add_coords_to(stl, impl_vel());
+        }
+
+        template <typename STL>
+        void impl_load_from_linear_container(STL const& stl){
+            size_t i = 0;
+            impl_time() = stl[i++];
+            omega() = stl[i++];
+            bindE() = stl[i++];
+            load_to_coords(stl, i, impl_pos());
+            load_to_coords(stl, i, impl_vel());
+        }
+
         friend std::ostream &operator<<(std::ostream &os, RegularizedSystem const &ps) {
             os << ps.ptc_;
             return os;

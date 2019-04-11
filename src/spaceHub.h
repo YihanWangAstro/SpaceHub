@@ -18,6 +18,7 @@
 #include "integrator/symplectic/symplectic-integrator.tpp"
 
 #include "ode-iterator/const-iterator.tpp"
+#include "ode-iterator/BS-iterator.tpp"
 
 #include "args-callback/callbacks.h"
 

@@ -116,6 +116,27 @@ namespace SpaceH {
             }
         }
 
+        template <typename STL>
+        void impl_to_linear_container(STL& stl){
+            stl.clear();
+            stl.reserve(impl_number()*6 +1);
+            stl.emplace_back(impl_time());
+            add_coords_to(stl, chain_pos_);
+            add_coords_to(stl, chain_vel_);
+        }
+
+        template <typename STL>
+        void impl_load_from_linear_container(STL const& stl){
+            size_t i = 0;
+            impl_time() = stl[i++];
+            load_to_coords(stl, i, chain_pos_);
+            load_to_coords(stl, i, chain_vel_);
+            Chain::coord_calc_cartesian(chain_pos_, impl_pos(), index());
+            Calc::coord_move_to_com(ptc_.mass(), impl_pos());
+            Chain::coord_calc_cartesian(chain_vel_, impl_vel(), index());
+            Calc::coord_move_to_com(ptc_.mass(), impl_vel());
+        }
+
         friend std::ostream &operator<<(std::ostream &os, ChainSystem const &ps) {
             os << ps.ptc_;
             return os;

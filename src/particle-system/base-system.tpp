@@ -96,6 +96,23 @@ namespace SpaceH {
                 aux_vel_ = ptc_.vel();
             }
         }
+
+        template <typename STL>
+        void impl_to_linear_container(STL& stl){
+            stl.clear();
+            stl.reserve(impl_number()*6 +1);
+            stl.emplace_back(impl_time());
+            add_coords_to(stl, impl_pos());
+            add_coords_to(stl, impl_vel());
+        }
+
+        template <typename STL>
+        void impl_load_from_linear_container(STL const& stl){
+            size_t i = 0;
+            impl_time() = stl[i++];
+            load_to_coords(stl, i, impl_pos());
+            load_to_coords(stl, i, impl_vel());
+        }
     private:
         void eval_vel_indep_acc() {
             eom_.eval_newtonian_acc(ptc_, acc_);
