@@ -18,13 +18,13 @@ int main(int argc, char **argv) {
 
     //using particles = SoAFiniteSizeParticles<type>;
 
-    using sys = SimpleSystem<particles, force>;
+    //using sys = SimpleSystem<particles, force>;
 
     //using sys = RegularizedSystem <particles, force, ReguType::logH>;
 
     //using sys = ChainSystem <particles, force>;
 
-    //using sys = ARchainSystem <particles, force, ReguType::TTL>;
+    using sys = ARchainSystem <particles, force, ReguType::TTL>;
 
     //using iter = ConstOdeIterator<symplectic2th>;
 
@@ -40,9 +40,9 @@ int main(int argc, char **argv) {
 
     auto earth_orbit = Kepler{sun.mass + earth.mass, semi_latus_rectum(AU, 0.0167086), 0.0167086, 7.155 * DEG, 174.9 * DEG, 288.1 * DEG, thermal};
 
-    move_particles(moon_orbit, moon);
+    move_particles_to(moon_orbit, moon);
 
-    move_particles(earth_orbit, earth, moon);
+    move_particles_to(earth_orbit, earth, moon);
 
     move_to_com_coord(sun, earth, moon);
 

@@ -141,9 +141,11 @@ namespace SpaceH {
             stl.reserve(impl_number()*6 + 3);
             stl.emplace_back(impl_time());
             stl.emplace_back(omega());
-            stl.empalce_back(bindE());
+            stl.emplace_back(bindE());
             add_coords_to(stl, chain_pos_);
             add_coords_to(stl, chain_vel_);
+            //add_coords_to(stl, impl_pos());
+            //add_coords_to(stl, impl_vel());
         }
 
         template <typename STL>
@@ -154,6 +156,8 @@ namespace SpaceH {
             bindE() = stl[i++];
             load_to_coords(stl, i, chain_pos_);
             load_to_coords(stl, i, chain_vel_);
+            //load_to_coords(stl, i, impl_pos());
+            //load_to_coords(stl, i, impl_vel());
             Chain::coord_calc_cartesian(chain_pos_, impl_pos(), index());
             Calc::coord_move_to_com(ptc_.mass(), impl_pos());
             Chain::coord_calc_cartesian(chain_vel_, impl_vel(), index());

@@ -185,7 +185,7 @@ namespace SpaceH::OdeIterator {
 
         Scalar calc_ideal_step_coef(Scalar error, size_t k) {
             if (error != 0) {
-                return 0.9 * pow(0.90 / error, BS_.expon(k));
+                return 0.9 * pow(0.9 / error, BS_.expon(k));
             } else {
                 return 1.0 / BS_.limiter(k);
             }

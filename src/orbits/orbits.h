@@ -268,7 +268,7 @@ namespace SpaceH::Orbit {
     }
 
     template<typename Vector, typename Particle, typename ...Args>
-    void move_particles(Vector const &cm_pos, Vector const &cm_vel, Particle &ptc, Args &...ptcs) {
+    void move_particles_to(Vector const &cm_pos, Vector const &cm_vel, Particle &ptc, Args &...ptcs) {
         if constexpr (sizeof...(Args) != 0) {
             static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
             move_to_com_coord(ptc, ptcs...);
@@ -287,11 +287,11 @@ namespace SpaceH::Orbit {
     }
 
     template<typename Particle, typename ...Args>
-    void move_particles(Kepler const &args, Particle &ptc, Args &...ptcs) {
+    void move_particles_to(Kepler const &args, Particle &ptc, Args &...ptcs) {
         using Vector = typename Particle::Vector;
         Vector cm_pos, cm_vel;
         oribt_args_to_coord(args, cm_pos, cm_vel);
-        move_particles(cm_pos, cm_vel, ptc, ptcs...);
+        move_particles_to(cm_pos, cm_vel, ptc, ptcs...);
     }
 
     template<typename Scalar>
