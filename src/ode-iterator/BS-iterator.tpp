@@ -84,21 +84,20 @@ namespace SpaceH::OdeIterator {
         using Scalar = Real;
 
         template <typename U>
-        auto impl_iterate(ParticleSystem<U>& ptcs, typename U::Scalar macro_step_size) -> typename U::Scalar {
+        auto impl_iterate(U& ptcs, typename U::Scalar macro_step_size) -> typename U::Scalar {
+            static_assert(is_particle_system<U>::value, "Passing non paritcle-system-type!");
+
             Scalar iter_H = macro_step_size;
 
             for (;;) {
                 iter_num_++;
-                ParticleSystem<U> local_sys(ptcs);
+                auto local_sys = ptcs;
 
-                std::cout << "init\n" << local_sys << '\n' << ptcs.number();
-                exit(0);
-                /*evolve_by_n_steps(local_sys, iter_H, BS_.step(0));
-                std::cout << "evolve\n";
+                evolve_by_n_steps(local_sys, iter_H, BS_.step(0));
+
                 local_sys.to_linear_container(extrap_tab_[at(0, 0)]);
                 var_num_ = extrap_tab_[0].size();
 
-                std::cout << "fisrt\n";
                 for (size_t iter = 1; iter <= ideal_iter_ + 1; ++iter) {
                     local_sys = ptcs;
                     evolve_by_n_steps(local_sys, iter_H, BS_.step(iter));
@@ -122,7 +121,7 @@ namespace SpaceH::OdeIterator {
                             break;
                         }
                     }
-                }*/
+                }
             }
         }
 
@@ -140,7 +139,7 @@ namespace SpaceH::OdeIterator {
         }
 
         template <typename U>
-        void evolve_by_n_steps(ParticleSystem<U>& ptcs, Scalar macro_step_size, size_t steps) {
+        void evolve_by_n_steps(U& ptcs, Scalar macro_step_size, size_t steps) {
             Scalar h = macro_step_size / steps;
 
             ptcs.kick(0.5 * h);
@@ -283,10 +282,10 @@ namespace SpaceH::OdeIterator {
         std::array<Scalar, MaxDepth_ + 1> work_per_len_;
 
         /** @brief Local absolute error*/
-        Scalar abs_error_{50 * SpaceH::epsilon<Scalar>::value};
+        Scalar abs_error_{1 * SpaceH::epsilon<Scalar>::value};
 
         /** @brief Local relative error*/
-        Scalar rel_error_{50 * SpaceH::epsilon<Scalar>::value};
+        Scalar rel_error_{1 * SpaceH::epsilon<Scalar>::value};
 
         /** @brief Current iteraation depth.*/
         size_t ideal_iter_{7};

@@ -61,6 +61,7 @@ int main(int argc, char **argv) {
 
     simulation nbody{0, sun, earth, moon};
 
+
     nbody.run(args);
 
     return 0;

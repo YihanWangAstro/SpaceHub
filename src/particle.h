@@ -46,6 +46,10 @@ namespace SpaceH {
         DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
         DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
+        Derived& derived(){
+            return static_cast<Derived&>(*this);
+        }
+
         void resize(size_t new_sz) {
             static_cast<Derived*>(this)->impl_resize(new_sz);
         }
@@ -61,6 +65,12 @@ namespace SpaceH {
         SoAParticles() = default;
         friend Derived;
     };
+
+    template <typename>
+    struct is_soa_particles : public std::false_type { };
+
+    template <typename T>
+    struct is_soa_particles<SoAParticles<T>> : public std::true_type { };
 
 #define SPACEHUB_PARTICLE_TYPE_CHECK(CTR, VAL) static_assert(std::is_base_of_v<typename CTR::value_type, VAL>, "Class can only be initialized by containers with its internal 'Particle' type!");
 }
