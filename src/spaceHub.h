@@ -2,6 +2,7 @@
 #define SPACEHUB_H
 
 #include "macros.h"
+#include "kahan-number.h"
 
 #include "particle/point-particle.tpp"
 #include "particle/finite-size.tpp"

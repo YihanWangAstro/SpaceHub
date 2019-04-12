@@ -8,7 +8,7 @@ using namespace SpaceH::OdeIterator;
 using namespace SpaceH::Integrator;
 using namespace SpaceH::Orbit;
 using namespace Unit;
-using scalar = double;
+using scalar = precise_d ;
 using type = Types<scalar, std::vector>;
 
 int main(int argc, char **argv) {
@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 
     //using iter = ConstOdeIterator<symplectic2th>;
 
-    using iter = BSIterator<scalar>;
+    using iter = BSIterator<double>;
 
     using simulation = Solver<sys, iter>;
 
