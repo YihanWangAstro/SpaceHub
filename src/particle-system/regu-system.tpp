@@ -105,7 +105,12 @@ namespace SpaceH {
         static constexpr ReguType regu_type{RegType};
 
         template<typename STL>
-        RegularizedSystem(Scalar t, STL const &ptc) : ptc_(t, ptc), acc_(ptc.size()), newtonian_acc_(ptc.size()), regu_(ptc_) {
+        RegularizedSystem(Scalar t, STL const &ptc)
+                : ptc_(t, ptc),
+                  acc_(ptc.size()),
+                  newtonian_acc_(ptc.size()),
+                  regu_(ptc_) {
+            static_assert(is_container_v<STL>, "Only STL-like container can be used");
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(ptc.size());
             }
@@ -121,18 +126,18 @@ namespace SpaceH {
         }
 
         void impl_advance_time(Scalar step_size) {
-            Scalar phyTime = regu_.eval_pos_phy_time(ptc_, step_size);
-            ptc_.time() += phyTime;
+            Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
+            ptc_.time() += phy_time;
         }
 
         void impl_advance_pos(Coord const &velocity, Scalar step_size) {
-            Scalar phyTime = regu_.eval_pos_phy_time(ptc_, step_size);
-            Calc::coord_advance(ptc_.pos(), velocity, phyTime);
+            Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
+            Calc::coord_advance(ptc_.pos(), velocity, phy_time);
         }
 
         void impl_advance_vel(Coord const &acceleration, Scalar step_size) {
-            Scalar phyTime = regu_.eval_vel_phy_time(ptc_, step_size);
-            Calc::coord_advance(ptc_.vel(), acceleration, phyTime);
+            Scalar phy_time = regu_.eval_vel_phy_time(ptc_, step_size);
+            Calc::coord_advance(ptc_.vel(), acceleration, phy_time);
         }
 
         void impl_evaluate_acc(Coord const &acceleration) const {
@@ -190,12 +195,12 @@ namespace SpaceH {
 
         template <typename STL>
         void impl_load_from_linear_container(STL const& stl){
-            size_t i = 0;
-            impl_time() = stl[i++];
-            omega() = stl[i++];
-            bindE() = stl[i++];
-            load_to_coords(stl, i, impl_pos());
-            load_to_coords(stl, i, impl_vel());
+            auto i = stl.begin();
+            impl_time() = *i, ++i;
+            omega() = *i, ++i;
+            bindE() = *i, ++i;
+            load_to_coords(i, impl_pos());
+            load_to_coords(i, impl_vel());
         }
 
         friend std::ostream &operator<<(std::ostream &os, RegularizedSystem const &ps) {

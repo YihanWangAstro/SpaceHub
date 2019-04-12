@@ -101,10 +101,12 @@ namespace SpaceH {
         Solver&operator=(Solver &&) = default;
 
         template<typename STL>
-        Solver(Scalar t, STL const &partc) : particles_(t, partc) {}
+        Solver(Scalar t, STL const &partc) : particles_(t, partc) {
+            static_assert(is_container_v<STL>, "Only STL-like container can be used");
+        }
 
         template<typename ...T>
-        explicit Solver(Scalar t, T const &...p) :  Solver(t, std::initializer_list<Particle>{p...}) {
+        explicit Solver(Scalar t, T const &...p) : Solver(t, std::initializer_list<Particle>{p...}) {
             static_assert(Calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
         }
 

@@ -22,9 +22,9 @@ int main(int argc, char **argv) {
 
     //using sys = RegularizedSystem <particles, force, ReguType::logH>;
 
-    //using sys = ChainSystem <particles, force>;
+    using sys = ChainSystem <particles, force>;
 
-    using sys = ARchainSystem <particles, force, ReguType::TTL>;
+    //using sys = ARchainSystem <particles, force, ReguType::TTL>;
 
     //using iter = ConstOdeIterator<symplectic2th>;
 

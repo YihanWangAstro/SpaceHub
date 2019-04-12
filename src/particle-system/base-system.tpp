@@ -27,7 +27,10 @@ namespace SpaceH {
         SimpleSystem&operator=(SimpleSystem &&) = default;
 
         template<typename STL>
-        SimpleSystem(Scalar t, STL const &partc) : ptc_(t, partc), acc_(partc.size()) {
+        SimpleSystem(Scalar t, STL const &partc)
+                : ptc_(t, partc),
+                  acc_(partc.size()) {
+            static_assert(is_container_v<STL>, "Only STL-like container can be used");
             if constexpr (Interactions::has_extra_vel_indep_acc) {
                 extra_vel_indep_acc_.resize(partc.size());
             }
@@ -47,7 +50,6 @@ namespace SpaceH {
             is >> ps.ptc_;
             return is;
         }
-
     protected:
         friend class ParticleSystem<SimpleSystem<Particles, Interactions>>;
 
@@ -116,10 +118,10 @@ namespace SpaceH {
 
         template <typename STL>
         void impl_load_from_linear_container(STL const& stl){
-            size_t i = 0;
-            impl_time() = stl[i++];
-            load_to_coords(stl, i, impl_pos());
-            load_to_coords(stl, i, impl_vel());
+            auto i = stl.begin();
+            impl_time() = *i, ++i;
+            load_to_coords(i, impl_pos());
+            load_to_coords(i, impl_vel());
         }
     private:
         void eval_vel_indep_acc() {

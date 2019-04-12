@@ -32,13 +32,13 @@ namespace SpaceH {
         }
 
         template<typename Coord, typename Scalar>
-        void advance_pos(Scalar stepSize, Coord const &velocity) {
-            static_cast<Derived *>(this)->impl_advance_pos(stepSize, velocity);
+        void advance_pos(Scalar step_size, Coord const &velocity) {
+            static_cast<Derived *>(this)->impl_advance_pos(step_size, velocity);
         }
 
         template<typename Coord, typename Scalar>
-        void advance_vel(Scalar stepSize, Coord const &acceleration) {
-            static_cast<Derived *>(this)->impl_advance_vel(stepSize, acceleration);
+        void advance_vel(Scalar step_size, Coord const &acceleration) {
+            static_cast<Derived *>(this)->impl_advance_vel(step_size, acceleration);
         }
 
         template<typename Coord>
@@ -47,13 +47,13 @@ namespace SpaceH {
         }
 
         template<typename Scalar>
-        void drift(Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_drift(stepSize);
+        void drift(Scalar step_size) {
+            static_cast<Derived *>(this)->impl_drift(step_size);
         }
 
         template<typename Scalar>
-        void kick(Scalar stepSize) {
-            static_cast<Derived *>(this)->impl_kick(stepSize);
+        void kick(Scalar step_size) {
+            static_cast<Derived *>(this)->impl_kick(step_size);
         }
 
         void pre_iter_process() {
@@ -66,13 +66,13 @@ namespace SpaceH {
 
         template<typename STL>
         void to_linear_container(STL & stl) {
-            static_assert(is_container<STL>::value, "Only STL-like container can be used");
+            static_assert(is_container_v<STL>, "Only STL-like container can be used");
             static_cast<Derived *>(this)->impl_to_linear_container(stl);
         }
 
         template<typename STL>
         void load_from_linear_container(STL const& stl) {
-            static_assert(is_container<STL>::value, "Only STL-like container can be used");
+            static_assert(is_container_v<STL>, "Only STL-like container can be used");
             static_cast<Derived *>(this)->impl_load_from_linear_container(stl);
         }
 

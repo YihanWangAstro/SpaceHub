@@ -61,6 +61,7 @@ namespace SpaceH{
 
         template<typename STL>
         SoAFiniteSizeParticles(Scalar t, STL const &partc) {
+            static_assert(is_container_v<STL>, "Only STL-like container can be used");
             SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
 
             size_t input_num = partc.size();
