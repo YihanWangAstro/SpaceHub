@@ -90,6 +90,15 @@ namespace SpaceH {
         SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
 
         /* Typedef */
+        Solver() = delete;
+
+        Solver(Solver const &) = default;
+
+        Solver(Solver &&) = default;
+
+        Solver&operator=(Solver const &) = default;
+
+        Solver&operator=(Solver &&) = default;
 
         template<typename STL>
         Solver(Scalar t, STL const &partc) : particles_(t, partc) {}
@@ -98,8 +107,6 @@ namespace SpaceH {
         explicit Solver(Scalar t, T const &...p) :  Solver(t, std::initializer_list<Particle>{p...}) {
             static_assert(Calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
         }
-
-        explicit Solver(ParticSys const &ptc) : particles_(ptc) {}//more edit
 
         void run(RunArgs const &arg) {
             step_size_ = arg.step_size;

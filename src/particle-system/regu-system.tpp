@@ -94,6 +94,14 @@ namespace SpaceH {
 
         RegularizedSystem() = delete;
 
+        RegularizedSystem(RegularizedSystem const &) = default;
+
+        RegularizedSystem(RegularizedSystem &&) = default;
+
+        RegularizedSystem &operator=(RegularizedSystem const &) = default;
+
+        RegularizedSystem &operator=(RegularizedSystem &&) = default;
+
         static constexpr ReguType regu_type{RegType};
 
         template<typename STL>

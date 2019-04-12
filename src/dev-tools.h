@@ -271,6 +271,9 @@ inline TYPE const & NAME () const {                                             
             >
     > : public std::true_type {};
 
+    template <typename T>
+    constexpr bool is_container_v = is_container<T>::value;
+
 //#define INDEXABLE(TYPE) ((is_indexable<TYPE, size_t>::value)||(is_indexable<TYPE, int>::value))
 
 #define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE,DERIVED>::value)

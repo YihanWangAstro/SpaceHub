@@ -23,6 +23,14 @@ namespace SpaceH{
 
         SoAPointParticles() = delete;
 
+        SoAPointParticles(SoAPointParticles const &)= default;
+
+        SoAPointParticles(SoAPointParticles &&)= default;
+
+        SoAPointParticles &operator=(SoAPointParticles const &)= default;
+
+        SoAPointParticles &operator=(SoAPointParticles &&)= default;
+
         template<typename STL>
         SoAPointParticles( Scalar t, STL const &partc) {
             SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);

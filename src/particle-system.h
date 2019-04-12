@@ -22,15 +22,6 @@ namespace SpaceH {
 
         DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
-
-        Derived& derived() {
-            return static_cast<Derived&>(*this);
-        }
-
-        Derived const & derived() const {
-            return static_cast<Derived const&>(*this);
-        }
-
         size_t number() const {
             return static_cast<Derived const*>(this)->impl_number();
         }
@@ -104,11 +95,8 @@ namespace SpaceH {
         friend Derived;
     };
 
-    template <typename>
-    struct is_particle_system : public std::true_type { };
-
     template <typename T>
-    struct is_particle_system<ParticleSystem<T>> : public std::true_type { };
+    constexpr bool is_particle_system_v = std::is_base_of_v<ParticleSystem<T>, T>;
 }
 
 #endif //SPACEHUB_PARTICLE_SYSTEM_H

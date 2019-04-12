@@ -18,6 +18,14 @@ namespace SpaceH {
 
         SimpleSystem() = delete;
 
+        SimpleSystem(SimpleSystem const &) = default;
+
+        SimpleSystem(SimpleSystem &&) = default;
+
+        SimpleSystem&operator=(SimpleSystem const &) = default;
+
+        SimpleSystem&operator=(SimpleSystem &&) = default;
+
         template<typename STL>
         SimpleSystem(Scalar t, STL const &partc) : ptc_(t, partc), acc_(partc.size()) {
             if constexpr (Interactions::has_extra_vel_indep_acc) {

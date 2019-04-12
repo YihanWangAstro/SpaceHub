@@ -37,6 +37,14 @@ namespace SpaceH {
 
         ChainSystem() = delete;
 
+        ChainSystem(ChainSystem const &) = default;
+
+        ChainSystem(ChainSystem &&) = default;
+
+        ChainSystem &operator=(ChainSystem const &) = default;
+
+        ChainSystem &operator=(ChainSystem &&) = default;
+
         template<typename STL>
         ChainSystem(Scalar t, STL const &ptc) : ptc_(t, ptc), chain_pos_(ptc.size()), chain_vel_(ptc.size()), index_(ptc.size()), new_index_(ptc.size()), acc_(ptc.size()) , chain_acc_(ptc.size()){
 

@@ -37,7 +37,7 @@ namespace SpaceH {
             return real;
         }
 
-        inline void zeroErr() {
+        inline void zero_err() {
             err = 0;
         }
 
@@ -90,6 +90,7 @@ namespace SpaceH {
         /** @brief Input from istream */
         friend std::istream &operator>>(std::istream &input, kahan &v) {
             input >> v.real;
+            v.err = 0;
             return input;
         }
     };

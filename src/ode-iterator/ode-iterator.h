@@ -13,7 +13,7 @@ namespace SpaceH::OdeIterator{
     public:
         template <typename T>
         auto iterate(T& particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
-            static_assert(is_particle_system<T>::value, "Passing non paritcle-system-type!");
+            static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
             return static_cast<Derived*>(this)->impl_iterate(particles, macro_step_size);
         }
     private:
@@ -21,10 +21,7 @@ namespace SpaceH::OdeIterator{
         friend Derived;
     };
 
-    template <typename>
-    struct is_ode_iterator : public std::false_type { };
-
     template <typename T>
-    struct is_ode_iterator<OdeIterator<T>> : public std::true_type { };
+    constexpr bool is_ode_iterator_v = std::is_base_of_v<OdeIterator<T>, T>;
 }
 #endif //SPACEHUB_ODE_ITERATOR_H

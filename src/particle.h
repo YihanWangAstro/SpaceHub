@@ -66,11 +66,8 @@ namespace SpaceH {
         friend Derived;
     };
 
-    template <typename>
-    struct is_soa_particles : public std::false_type { };
-
     template <typename T>
-    struct is_soa_particles<SoAParticles<T>> : public std::true_type { };
+    constexpr bool is_soa_particles_v = std::is_base_of_v<SoAParticles<T>, T>;
 
 #define SPACEHUB_PARTICLE_TYPE_CHECK(CTR, VAL) static_assert(std::is_base_of_v<typename CTR::value_type, VAL>, "Class can only be initialized by containers with its internal 'Particle' type!");
 }

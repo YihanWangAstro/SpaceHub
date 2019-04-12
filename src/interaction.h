@@ -40,11 +40,8 @@ namespace SpaceH{
         friend Derived;
     };
 
-    template <typename>
-    struct is_interactions : public std::false_type { };
-
     template <typename T, bool a, bool b>
-    struct is_interactions<Interactions<T,a,b>> : public std::true_type { };
+    constexpr bool is_interactions_v = std::is_base_of_v<Interactions<T,a,b>, T>;
 }
 
 #endif //SPACEHUB_EOM_H

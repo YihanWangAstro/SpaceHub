@@ -85,7 +85,7 @@ namespace SpaceH::OdeIterator {
 
         template <typename U>
         auto impl_iterate(U& ptcs, typename U::Scalar macro_step_size) -> typename U::Scalar {
-            static_assert(is_particle_system<U>::value, "Passing non paritcle-system-type!");
+            static_assert(is_particle_system_v<U>, "Passing non paritcle-system-type!");
 
             Scalar iter_H = macro_step_size;
 
@@ -96,28 +96,28 @@ namespace SpaceH::OdeIterator {
                 evolve_by_n_steps(local_sys, iter_H, BS_.step(0));
 
                 local_sys.to_linear_container(extrap_tab_[at(0, 0)]);
+
                 var_num_ = extrap_tab_[0].size();
 
-                for (size_t iter = 1; iter <= ideal_iter_ + 1; ++iter) {
+                for (size_t i = 1; i <= ideal_iter_ + 1; ++i) {
                     local_sys = ptcs;
-                    evolve_by_n_steps(local_sys, iter_H, BS_.step(iter));
-                    local_sys.to_linear_container(extrap_tab_[at(iter, 0)]);
+                    evolve_by_n_steps(local_sys, iter_H, BS_.step(i));
+                    local_sys.to_linear_container(extrap_tab_[at(i, 0)]);
 
-                    extrapolate_tab(iter);
+                    extrapolate_tab(i);
 
-                    Scalar error = calc_error_of_row(iter);
-                    optm_step_coef_[iter] = calc_ideal_step_coef(error, iter);
-                    work_per_len_[iter] = BS_.work(iter) / optm_step_coef_[iter];
+                    Scalar error = calc_error_of_row(i);
+                    optm_step_coef_[i] = calc_ideal_step_coef(error, i);
+                    work_per_len_[i] = BS_.work(i) / optm_step_coef_[i];
 
-
-                    if (in_convergent_window(iter)) {
+                    if (in_convergent_window(i)) {
                         if (error < 1.0) {
-                            iter_H *= step_coef_limiter(prepare_next_iter(iter));
-                            ptcs.load_from_linear_container(extrap_tab_[at(iter, iter)]);
+                            iter_H *= step_coef_limiter(prepare_next_iter(i));
+                            ptcs.load_from_linear_container(extrap_tab_[at(i, i)]);
                             return iter_H;
-                        } else if (is_diverged_anyhow(error, iter)) {
+                        } else if (is_diverged_anyhow(error, i)) {
                             rej_num_++;
-                            iter_H *= step_coef_limiter(reduced_step_coef(iter));
+                            iter_H *= step_coef_limiter(reduced_step_coef(i));
                             break;
                         }
                     }
@@ -176,7 +176,7 @@ namespace SpaceH::OdeIterator {
 
             for (size_t i = 0; i < var_num_; ++i) {
                 Scalar d     = SpaceH::abs(extrap_tab_[center][i] - extrap_tab_[left][i]);
-                Scalar scale = SpaceH::min(SpaceH::abs(extrap_tab_[left][i]   ),
+                Scalar scale = SpaceH::min(SpaceH::abs(extrap_tab_[left][i]),
                                            SpaceH::abs(extrap_tab_[center][i])) + abs_error_;
                 max_err = SpaceH::max(1.0 * max_err, d / scale);
             }

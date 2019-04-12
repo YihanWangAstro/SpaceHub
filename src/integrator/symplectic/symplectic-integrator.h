@@ -16,7 +16,7 @@ namespace SpaceH::Integrator{
 
         template <typename T>
         void integrate(T& ptc, typename T::Scalar stepSize) {
-            static_assert(is_particle_system<T>::value, "Passing non paritcle-system-type!");
+            static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
             static_cast<Derived*>(this)->impl_integrate(ptc, stepSize);
         }
 
@@ -25,10 +25,7 @@ namespace SpaceH::Integrator{
         friend Derived;
     };
 
-    template <typename>
-    struct is_sym_integrator : public std::false_type { };
-
     template <typename T, size_t Order>
-    struct is_sym_integrator<SymIntegrator<T, Order>> : public std::true_type { };
+    constexpr bool is_sym_integrator_v = std::is_base_of_v<SymIntegrator<T, Order>, T>;
 }
 #endif //SPACEHUB_SYMPLECTIC_INTEGRATOR_H

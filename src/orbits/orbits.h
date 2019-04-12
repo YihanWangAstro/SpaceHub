@@ -71,7 +71,7 @@ namespace SpaceH::Orbit {
     };
 
     template<typename T>
-    OrbitType classify_orbit(T eccentricity) {
+    constexpr OrbitType classify_orbit(T eccentricity) {
         if (0 <= eccentricity && eccentricity < 1) {
             return OrbitType::ellipse;
         } else if (iseq(eccentricity, 1.0)) {
@@ -103,7 +103,7 @@ namespace SpaceH::Orbit {
 
         OrbitArgs() = delete;
 
-        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant inclination, Variant LoAN, Variant AoP,
+        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP,
                   Variant true_anomaly) {
             if (_p_ < 0) SPACEHUB_ABORT("Semi-latus rectum cannot be negative");
 
@@ -115,8 +115,8 @@ namespace SpaceH::Orbit {
             p = _p_;
             e = _e_;
 
-            if (std::holds_alternative<Scalar>(inclination)) {
-                i = std::get<Scalar>(inclination);
+            if (std::holds_alternative<Scalar>(tilt)) {
+                i = std::get<Scalar>(tilt);
             } else {
                 shuffle_i();
             }
@@ -242,7 +242,7 @@ namespace SpaceH::Orbit {
             auto cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc.mass * ptc.vel)) / tot_mass;
             ((ptc.pos -= cm_pos), ..., (ptcs.pos -= cm_pos));
             ((ptc.vel -= cm_vel), ..., (ptcs.vel -= cm_vel));
-        } else if constexpr (is_container<Particle>::value) {
+        } else if constexpr (is_container_v<Particle>) {
             using sParticle = typename Particle::value_type;
             using Scalar = typename sParticle::Scalar;
             using Vector = typename sParticle::Vector;
@@ -274,7 +274,7 @@ namespace SpaceH::Orbit {
             move_to_com_coord(ptc, ptcs...);
             ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
             ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));
-        } else if constexpr (is_container<Particle>::value) {
+        } else if constexpr (is_container_v<Particle>) {
             move_to_com_coord(ptc);
             for (auto &p : ptc) {
                 p.pos += cm_pos;
@@ -295,7 +295,7 @@ namespace SpaceH::Orbit {
     }
 
     template<typename Scalar>
-    inline auto semi_latus_rectum(Scalar a, Scalar e) {
+    inline constexpr auto semi_latus_rectum(Scalar a, Scalar e) {
         return a * (1 - e * e);
     }
 

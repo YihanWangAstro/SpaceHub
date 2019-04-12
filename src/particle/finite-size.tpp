@@ -51,6 +51,14 @@ namespace SpaceH{
 
         SoAFiniteSizeParticles() = delete;
 
+        SoAFiniteSizeParticles(SoAFiniteSizeParticles const &) = default;
+
+        SoAFiniteSizeParticles(SoAFiniteSizeParticles &&)= default;
+
+        SoAFiniteSizeParticles &operator=(SoAFiniteSizeParticles const &) = default;
+
+        SoAFiniteSizeParticles &operator=(SoAFiniteSizeParticles &&) = default;
+
         template<typename STL>
         SoAFiniteSizeParticles(Scalar t, STL const &partc) {
             SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
