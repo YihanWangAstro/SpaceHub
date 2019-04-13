@@ -99,11 +99,11 @@ namespace space {
 
         void impl_kick(Scalar step_size) {
             if constexpr (Interactions::has_extra_vel_dep_acc) {
-                Scalar halfStep = 0.5 * step_size;
+                Scalar half_step = 0.5 * step_size;
                 eval_vel_indep_acc();
-                kick_pseu_vel(halfStep);
+                kick_pseu_vel(half_step);
                 kick_real_vel(step_size);
-                kick_pseu_vel(halfStep);
+                kick_pseu_vel(half_step);
             } else {
                 eom_.eval_acc(*this, acc_);
                 impl_advance_vel(acc_, step_size);
