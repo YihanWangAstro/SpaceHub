@@ -4,7 +4,7 @@
 #include <math.h>
 #include <iostream>
 
-namespace SpaceH {
+namespace space {
 /** @brief Self 3D vector class */
 
     template<typename T>

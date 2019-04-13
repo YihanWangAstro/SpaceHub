@@ -4,7 +4,7 @@
 
 #include "dev-tools.h"
 #include "own-math.h"
-namespace SpaceH {
+namespace space {
 
     namespace Radau {
         constexpr double maxStepCof = 1.74867862159014;// = 1/pow(0.02,1/7)
@@ -99,8 +99,8 @@ namespace SpaceH {
             Scalar diff = 0;
             Scalar scale = 0;
             for (size_t i = 0; i < size; ++i) {
-                diff = SpaceH::max(diff, (BTab[i][6] - newBTab[i][6]).abs().max_component());
-                scale = SpaceH::max(scale, acc[i].abs().max_component());
+                diff = space::max(diff, (BTab[i][6] - newBTab[i][6]).abs().max_component());
+                scale = space::max(scale, acc[i].abs().max_component());
             }
 
             Scalar convergence = diff / scale;
@@ -128,8 +128,8 @@ namespace SpaceH {
             Scalar diff = 0;
             Scalar scale = 0;
             for (size_t i = 0; i < size; ++i) {
-                diff = SpaceH::max(diff, BTab[i][6].abs().max_component());
-                scale = SpaceH::max(scale, acc[i].abs().max_component());
+                diff = space::max(diff, BTab[i][6].abs().max_component());
+                scale = space::max(scale, acc[i].abs().max_component());
             }
             return diff / (scale * relativeError_);
         }
@@ -143,7 +143,7 @@ namespace SpaceH {
             if (error == 0)
                 return Radau::maxStepCof;
             else
-                return SpaceH::max(Radau::minStepCof, SpaceH::min(pow(0.55 / error, 1.0 / 7), Radau::maxStepCof));
+                return space::max(Radau::minStepCof, space::min(pow(0.55 / error, 1.0 / 7), Radau::maxStepCof));
         }
 
         /**

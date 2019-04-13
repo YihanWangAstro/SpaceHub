@@ -3,12 +3,12 @@
 #include <array>
 #include <iomanip>
 
-using namespace SpaceH;
-using namespace SpaceH::OdeIterator;
-using namespace SpaceH::Integrator;
-using namespace SpaceH::Orbit;
-using namespace Unit;
-using scalar = precise_d ;
+using namespace space;
+using namespace space::odeIterator;
+using namespace space::integrator;
+using namespace space::orbit;
+using namespace unit;
+using scalar = double;
 using type = Types<scalar, std::vector>;
 
 int main(int argc, char **argv) {
@@ -34,11 +34,11 @@ int main(int argc, char **argv) {
 
     using particle = typename simulation::Particle;
 
-    particle sun{M_SOLAR}, earth{M_EARTH}, moon{M_MOON};
+    particle sun{m_solar}, earth{m_earth}, moon{m_moon};
 
-    auto moon_orbit = Kepler{moon.mass + earth.mass, semi_latus_rectum(384748*KM , 0.0549006), 0.0549006, 1.543 * DEG, thermal, thermal, thermal};
+    auto moon_orbit = Kepler{moon.mass + earth.mass, semi_latus_rectum(384748*km , 0.0549006), 0.0549006, 1.543 * deg, thermal, thermal, thermal};
 
-    auto earth_orbit = Kepler{sun.mass + earth.mass, semi_latus_rectum(AU, 0.0167086), 0.0167086, 7.155 * DEG, 174.9 * DEG, 288.1 * DEG, thermal};
+    auto earth_orbit = Kepler{sun.mass + earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg, 174.9 * deg, 288.1 * deg, thermal};
 
     move_particles_to(moon_orbit, moon);
 
@@ -53,11 +53,11 @@ int main(int argc, char **argv) {
 
     eng_file << std::setprecision(16);
 
-    args.add_pre_step_option(ArgsCallBack::DefaultWriter("solar.dat", 0,  10 * YEAR));
+    args.add_pre_step_option(ArgsCallBack::DefaultWriter("solar.dat", 0,  10 * year));
 
-    args.add_pre_step_option([&](auto& ptc){eng_file << Calc::calc_total_energy(ptc) << '\n';});
+    args.add_pre_step_option([&](auto& ptc){eng_file << calc::calc_total_energy(ptc) << '\n';});
 
-    args.add_stop_condition(10* YEAR);
+    args.add_stop_condition(10* year);
 
     simulation nbody{0, sun, earth, moon};
 

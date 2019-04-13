@@ -8,7 +8,7 @@
 #include "regu-system.tpp"
 #include "chain.tpp"
 
-namespace SpaceH {
+namespace space {
 
     template<typename Particles, typename Interactions, ReguType RegType>
     class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Interactions, RegType>> {
@@ -117,7 +117,7 @@ namespace SpaceH {
                 kick_pseu_vel(half_time);
             } else {
                 if constexpr (Interactions::has_extra_vel_indep_acc) {
-                    Calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
+                    calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
                     Chain::calc_chain(acc_, chain_acc_, index());
                     chain_advance(ptc_.vel(), chain_vel(), chain_acc_, half_time);
                     advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
@@ -184,7 +184,7 @@ namespace SpaceH {
         }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord const & ch_inc, Scalar phy_time) {
-            Calc::coord_advance(ch_var, ch_inc, phy_time);
+            calc::coord_advance(ch_var, ch_inc, phy_time);
             Chain::calc_cartesian(ptc_.mass(), ch_var, var, index());
         }
 
@@ -196,20 +196,20 @@ namespace SpaceH {
         }
 
         void advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar phy_time) {
-            Scalar d_omega = Calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_omega_dr);
+            Scalar d_omega = calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_omega_dr);
             regu_.omega() += d_omega * phy_time;
         }
 
         void advance_bindE(Coord const &velocity, Coord const &d_bindE_dr, Scalar phy_time) {
-            Scalar d_bindE = -Calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_bindE_dr);
+            Scalar d_bindE = -calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_bindE_dr);
             regu_.bindE() += d_bindE * phy_time;
         }
 
         void kick_pseu_vel(Scalar phy_time) {
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
-            Calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
+            calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
-                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
             Chain::calc_chain(acc_, chain_acc_, index());
             chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, phy_time);
@@ -221,9 +221,9 @@ namespace SpaceH {
             eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
-            Calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
+            calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
             if constexpr (Interactions::has_extra_vel_indep_acc) {
-                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
 
             Chain::calc_chain(acc_, chain_acc_, index());

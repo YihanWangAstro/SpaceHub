@@ -7,7 +7,7 @@
 
 #include "dev-tools.h"
 
-namespace SpaceH {
+namespace space {
 
     template<typename Derived>
     class ParticleSystem {

@@ -6,7 +6,7 @@
 #include<algorithm>
 #include "../core-computation.tpp"
 
-namespace SpaceH {
+namespace space {
 
     class Chain{
     public:
@@ -57,7 +57,7 @@ namespace SpaceH {
             to_cartesian(chain.y, cartesian.y, index);
             to_cartesian(chain.z, cartesian.z, index);
             if constexpr (manual_move) {
-                Calc::coord_move_to_com(mass, cartesian);
+                calc::coord_move_to_com(mass, cartesian);
             }
         }
 

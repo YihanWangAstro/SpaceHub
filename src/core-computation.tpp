@@ -4,7 +4,7 @@
 
 #include "own-math.h"
 
-namespace SpaceH::Calc {
+namespace space::calc {
     template<typename ...Args>
     constexpr auto add(Args &&...args) {
         return (... + args);
@@ -220,7 +220,7 @@ namespace SpaceH::Calc {
                     min_fall_free = fall_free;
             }
         }
-        return min_fall_free * Const::PI * 0.5 / sqrt(2 * Const::G);
+        return min_fall_free * consts::pi * 0.5 / sqrt(2 * consts::G);
     }
 
     CREATE_STATIC_MEMBER_CHECK(regu_type);

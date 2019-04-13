@@ -8,11 +8,11 @@
 #include <math.h>
 #include <variant>
 
-namespace SpaceH::Orbit {
+namespace space::orbit {
 
     template<typename Scalar>
     inline Scalar myacos(Scalar x) {
-        return acos(SpaceH::min(SpaceH::max(-1.0, x), 1.0));
+        return acos(space::min(space::max(-1.0, x), 1.0));
     }
 
     template<typename Vector, typename Scalar>
@@ -54,12 +54,12 @@ namespace SpaceH::Orbit {
     template<typename Scalar>
     Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
         if (0 <= e && e < 1)//newton iteration may encounter stationary point
-            return SpaceH::root_dichotom(
+            return space::root_dichotom(
                     [&](Scalar x) -> Scalar { return x - e * sin(x) - M; });//find this function in ownMath.h
         else if (e > 1)
-            return SpaceH::root_dichotom([&](Scalar x) -> Scalar { return e * sinh(x) - x - M; });
-        else if (fabs(e - 1) < SpaceH::epsilon<Scalar>::value)
-            return SpaceH::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
+            return space::root_dichotom([&](Scalar x) -> Scalar { return e * sinh(x) - x - M; });
+        else if (fabs(e - 1) < space::epsilon<Scalar>::value)
+            return space::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
         else {
             SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");
             return 0;
@@ -111,7 +111,7 @@ namespace SpaceH::Orbit {
 
             if (orbit_type == OrbitType::none) SPACEHUB_ABORT("Eccentrcity cannot be negative or NaN!");
 
-            u = tot_mass * Const::G;
+            u = tot_mass * consts::G;
             p = _p_;
             e = _e_;
 
@@ -145,25 +145,25 @@ namespace SpaceH::Orbit {
         }
 
         inline void shuffle_Omega() {
-            Omega = Random::Uniform<Scalar>::get(-Const::PI, Const::PI);
+            Omega = Random::Uniform<Scalar>::get(-consts::pi, consts::pi);
         }
 
         inline void shuffle_omega() {
-            omega = Random::Uniform<Scalar>::get(-Const::PI, Const::PI);
+            omega = Random::Uniform<Scalar>::get(-consts::pi, consts::pi);
         }
 
         inline void shuffle_nu() {
             if (orbit_type == OrbitType::ellipse) {
-                Scalar M = Random::Uniform<Scalar>::get(-Const::PI, Const::PI);
-                Scalar E = Orbit::calc_eccentric_anomaly(M, e);
-                nu = Orbit::calc_true_anomaly(E, e);
+                Scalar M = Random::Uniform<Scalar>::get(-consts::pi, consts::pi);
+                Scalar E = orbit::calc_eccentric_anomaly(M, e);
+                nu = orbit::calc_true_anomaly(E, e);
             } else {
                 SPACEHUB_ABORT("Only elliptical orbit provides random anomaly method at this moment!");
             }
         }
 
         friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
-            SpaceH::display(os, obt.u, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
+            space::display(os, obt.u, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
             return os;
         }
     };
@@ -194,24 +194,24 @@ namespace SpaceH::Orbit {
         args.i = acos(L.z / l);
 
         if (args.e != 0) {
-            args.nu = SpaceH::sign(rv) * myacos(dot(E / args.e, dr / r));
+            args.nu = space::sign(rv) * myacos(dot(E / args.e, dr / r));
 
             if (n != 0) {
-                args.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
-                args.omega = SpaceH::sign(E.z) * myacos(dot(E / args.e, N / n));
+                args.Omega = space::sign(N.y) * myacos(N.x / n);
+                args.omega = space::sign(E.z) * myacos(dot(E / args.e, N / n));
             } else {
-                args.omega = -SpaceH::sign(E.y) * myacos(-E.x / args.e);
+                args.omega = -space::sign(E.y) * myacos(-E.x / args.e);
                 args.Omega = args.omega;
             }
         } else {
             if (n != 0) {
-                args.Omega = SpaceH::sign(N.y) * myacos(N.x / n);
+                args.Omega = space::sign(N.y) * myacos(N.x / n);
                 args.omega = 0;
                 Vector peri = cross(L, N);
-                args.nu = -SpaceH::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
+                args.nu = -space::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
             } else {
                 args.Omega = args.omega = 0;
-                args.nu = SpaceH::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
+                args.nu = space::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
             }
         }
     }
@@ -229,14 +229,14 @@ namespace SpaceH::Orbit {
         pos = r * Vector(cos_nu, sin_nu, 0);
         vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
 
-        Orbit::euler_rotate(pos, args.Omega, args.i, args.omega + Const::PI);
-        Orbit::euler_rotate(vel, args.Omega, args.i, args.omega + Const::PI);
+        orbit::euler_rotate(pos, args.Omega, args.i, args.omega + consts::pi);
+        orbit::euler_rotate(vel, args.Omega, args.i, args.omega + consts::pi);
     }
 
     template<typename Particle, typename ...Args>
     void move_to_com_coord(Particle &ptc, Args &...ptcs) {
         if constexpr (sizeof...(Args) != 0) {
-            static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
+            static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
             auto tot_mass = (ptcs.mass + ... + ptc.mass);
             auto cm_pos = ((ptcs.mass * ptcs.pos) + ... + (ptc.mass * ptc.pos)) / tot_mass;
             auto cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc.mass * ptc.vel)) / tot_mass;
@@ -270,7 +270,7 @@ namespace SpaceH::Orbit {
     template<typename Vector, typename Particle, typename ...Args>
     void move_particles_to(Vector const &cm_pos, Vector const &cm_vel, Particle &ptc, Args &...ptcs) {
         if constexpr (sizeof...(Args) != 0) {
-            static_assert(Calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
+            static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
             move_to_com_coord(ptc, ptcs...);
             ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
             ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));
@@ -306,7 +306,7 @@ namespace SpaceH::Orbit {
 
     template<typename Particle>
     auto calc_eccentricity(Particle const &p1, Particle const &p2) {
-        return calc_eccentricity(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+        return calc_eccentricity(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 
     template<typename Vector, typename Scalar>
@@ -317,7 +317,7 @@ namespace SpaceH::Orbit {
 
     template<typename Particle>
     auto calc_semi_major_axis(Particle const &p1, Particle const &p2) {
-        return calc_semi_major_axis(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+        return calc_semi_major_axis(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 
     template<typename Vector, typename Scalar>
@@ -334,7 +334,7 @@ namespace SpaceH::Orbit {
 
     template<typename Particle>
     auto calc_a_e(Particle const &p1, Particle const &p2) {
-        return calc_a_e(Const::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+        return calc_a_e(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 }
 #endif

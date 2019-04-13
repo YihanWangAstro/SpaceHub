@@ -8,7 +8,7 @@
 #include "../interaction.h"
 #include "../dev-tools.h"
 
-namespace SpaceH::Interact {
+namespace space::Interact {
     class NewtonianGrav : public Interactions<NewtonianGrav, false, false> {
     private:
         CREATE_METHOD_CHECK(chain_pos);
@@ -31,7 +31,7 @@ namespace SpaceH::Interact {
             auto &pz = partc.pos().z;
             auto &m = partc.mass();
 
-            Calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
                 auto r = sqrt(dx * dx + dy * dy + dz * dz);

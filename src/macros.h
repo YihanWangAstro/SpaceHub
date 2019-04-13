@@ -2,59 +2,51 @@
 #ifndef MACROS_H
 #define MACROS_H
 
-namespace SpaceH::Const
+namespace space::consts
 {
-    constexpr double PI        = 3.14159265358979323;
+    constexpr double pi        = 3.14159265358979323;
 }
 
-namespace SpaceH::Unit
+namespace space::unit
 {
-    constexpr double AU        = 1;
-    constexpr double M_SOLAR   = 1;
-    constexpr double YEAR      = 2*Const::PI;
+    constexpr double au        = 1;
+    constexpr double m_solar   = 1;
+    constexpr double year      = 2*consts::pi;
 
-    constexpr double KYR       = 1e3*YEAR;
-    constexpr double MYR       = 1e6*YEAR;
-    constexpr double GYR       = 1e9*YEAR;
-    constexpr double MONTH     = YEAR / 12;
-    constexpr double DAY       = YEAR / 365.25636042;
-    constexpr double HOUR      = DAY / 24;
-    constexpr double MINUTE    = HOUR / 60;
-    constexpr double SECOND    = MINUTE /60;
-    constexpr double HUBBLETIME= 14.7*GYR;
+    constexpr double kyr       = 1e3*year;
+    constexpr double Myr       = 1e6*year;
+    constexpr double Gyr       = 1e9*year;
+    constexpr double month     = year / 12;
+    constexpr double day       = year / 365.25636042;
+    constexpr double hr        = day / 24;
+    constexpr double min       = hr / 60;
+    constexpr double sec       = min /60;
+    constexpr double hubble_t  = 14.7*Gyr;
 
-    constexpr double KM        = 1 / 149597870.7;
-    constexpr double PC        = 648000/Const::PI;
-    constexpr double R_SOLAR   = 6.957E5*KM;
+    constexpr double km        = 1 / 149597870.7;
+    constexpr double pc        = 648000/consts::pi;
+    constexpr double r_solar   = 6.957E5*km;
 
-    constexpr double M_EARTH   = 3.003E-6*M_SOLAR;
-    constexpr double M_MECURY  = 0.055*M_EARTH;
-    constexpr double M_VENUS   = 0.815*M_EARTH;
-    constexpr double M_MARS    = 0.107*M_EARTH;
-    constexpr double M_JUPITER = 317.8*M_EARTH;
-    constexpr double M_SATURN  = 95.16*M_EARTH;
-    constexpr double M_NEPTUNE = 17.15*M_EARTH;
-    constexpr double M_MOON    = 0.012300*M_EARTH;
+    constexpr double m_earth   = 3.003E-6*m_solar;
+    constexpr double m_mercury = 0.055*m_earth;
+    constexpr double m_venus   = 0.815*m_earth;
+    constexpr double m_mars    = 0.107*m_earth;
+    constexpr double m_jupiter = 317.8*m_earth;
+    constexpr double m_saturn  = 95.16*m_earth;
+    constexpr double m_neptune = 17.15*m_earth;
+    constexpr double m_moon    = 0.012300*m_earth;
 
-    constexpr double V_UNIT    = 2.9784651272402163E1;
-    constexpr double KMS       = 1 / V_UNIT;
+    constexpr double v_unit    = 2.9784651272402163E1;
+    constexpr double kms       = 1 / v_unit;
 
-    constexpr double DEG       = Const::PI/180.0;
+    constexpr double deg       = consts::pi/180.0;
 
-    struct Fmt {
-        double L;
-        double M;
-        double T;
-        double V;
-    };
-    constexpr Fmt STD_UNIT = {AU, M_SOLAR, YEAR, KMS};
-    constexpr Fmt UNITY_UNIT = {1.0, 1.0, 1.0, 1.0};
 }
 
-namespace SpaceH::Const
+namespace space::consts
 {
     constexpr double G         = 1;
-    constexpr double C         = 299792.458 * Unit::KMS ;
+    constexpr double C         = 299792.458 * unit::kms ;
 }
 
 

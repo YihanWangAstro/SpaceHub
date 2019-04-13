@@ -9,7 +9,7 @@
 #include <iomanip>
 #include <memory>
 
-namespace SpaceH::ArgsCallBack {
+namespace space::ArgsCallBack {
 
 
     template <typename Ostream>

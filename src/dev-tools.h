@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <tuple>
-namespace SpaceH {
+namespace space {
 
     template<typename... Args>
     void print(std::ostream &os, Args &&... args) {
@@ -32,13 +32,13 @@ namespace SpaceH {
 
     template<typename ...Args>
     std::ostream &operator<<(std::ostream &out, std::tuple<Args...> &&tup) {
-        SpaceH::print_tuple(out, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+        space::print_tuple(out, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
         return out;
     }
 
     template<typename ...Args>
     std::istream &operator>>(std::istream &in, std::tuple<Args...> &&tup) {
-        SpaceH::input_tuple(in, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+        space::input_tuple(in, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
         return in;
     }
 
@@ -83,8 +83,8 @@ namespace SpaceH {
 #define UNIQ(BASE) MACRO_CAT(BASE, __LINE__)
 
 #define SPACEHUB_ABORT(...) {                                                                                          \
-    SpaceH::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");                                                \
-    SpaceH::print(std::cout, __VA_ARGS__ );                                                                            \
+    space::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");                                                \
+    space::print(std::cout, __VA_ARGS__ );                                                                            \
     exit(0);                                                                                                           \
 }
 
@@ -258,14 +258,14 @@ inline TYPE const & NAME () const {                                             
                     is_container_helper<
                             typename T::value_type,
                             typename T::size_type,
-                            typename T::allocator_type,
+                            //typename T::allocator_type,
                             typename T::iterator,
                             typename T::const_iterator,
                             decltype(std::declval<T>().size()),
                             decltype(std::declval<T>().begin()),
-                            decltype(std::declval<T>().end()),
-                            decltype(std::declval<T>().cbegin()),
-                            decltype(std::declval<T>().cend())
+                            decltype(std::declval<T>().end())
+                            //decltype(std::declval<T>().cbegin()),
+                            //decltype(std::declval<T>().cend())
                     >,
                     void
             >

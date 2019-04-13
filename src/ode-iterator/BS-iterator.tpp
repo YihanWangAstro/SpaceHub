@@ -6,7 +6,7 @@
 #include "ode-iterator.h"
 #include "../own-math.h"
 
-namespace SpaceH::OdeIterator {
+namespace space::odeIterator {
 
     template<typename T, size_t MaxIter>
     class BStab {
@@ -175,10 +175,10 @@ namespace SpaceH::OdeIterator {
             Scalar max_err = 0;
 
             for (size_t i = 0; i < var_num_; ++i) {
-                Scalar d     = SpaceH::abs(extrap_tab_[center][i] - extrap_tab_[left][i]);
-                Scalar scale = SpaceH::min(SpaceH::abs(extrap_tab_[left][i]),
-                                           SpaceH::abs(extrap_tab_[center][i])) + abs_error_;
-                max_err = SpaceH::max(1.0 * max_err, d / scale);
+                Scalar d     = space::abs(extrap_tab_[center][i] - extrap_tab_[left][i]);
+                Scalar scale = space::min(space::abs(extrap_tab_[left][i]),
+                                           space::abs(extrap_tab_[center][i])) + abs_error_;
+                max_err = space::max(1.0 * max_err, d / scale);
             }
             return max_err / rel_error_;
         }
@@ -212,7 +212,7 @@ namespace SpaceH::OdeIterator {
         }
 
         inline Scalar step_coef_limiter(Scalar step_coef) {
-            return SpaceH::in_range(static_cast<Scalar>(BS_.limiter(ideal_iter_)/4), step_coef, static_cast<Scalar>(1.0/BS_.limiter(ideal_iter_)));
+            return space::in_range(static_cast<Scalar>(BS_.limiter(ideal_iter_)/4), step_coef, static_cast<Scalar>(1.0/BS_.limiter(ideal_iter_)));
         }
 
         inline Scalar reduced_step_coef(size_t iter) {
@@ -223,7 +223,7 @@ namespace SpaceH::OdeIterator {
         }
 
         inline size_t allowed(size_t i) {
-            return  SpaceH::in_range(static_cast<size_t>(2), i, static_cast<size_t>(MaxDepth_ - 1));
+            return  space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(MaxDepth_ - 1));
         }
 
         Scalar prepare_next_iter(size_t iter) {
@@ -282,10 +282,10 @@ namespace SpaceH::OdeIterator {
         std::array<Scalar, MaxDepth_ + 1> work_per_len_;
 
         /** @brief Local absolute error*/
-        Scalar abs_error_{1 * SpaceH::epsilon<Scalar>::value};
+        Scalar abs_error_{1 * space::epsilon<Scalar>::value};
 
         /** @brief Local relative error*/
-        Scalar rel_error_{1 * SpaceH::epsilon<Scalar>::value};
+        Scalar rel_error_{1 * space::epsilon<Scalar>::value};
 
         /** @brief Current iteraation depth.*/
         size_t ideal_iter_{7};

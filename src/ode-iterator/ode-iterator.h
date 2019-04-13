@@ -7,7 +7,7 @@
 
 #include "../particle-system.h"
 
-namespace SpaceH::OdeIterator{
+namespace space::odeIterator{
     template <typename Derived>
     class OdeIterator{
     public:

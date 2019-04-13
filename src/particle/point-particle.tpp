@@ -7,7 +7,7 @@
 
 #include "../particle.h"
 
-namespace SpaceH{
+namespace space{
     template<typename TypeSystem>
     class SoAPointParticles : public SoAParticles<SoAPointParticles<TypeSystem>> {
     public:
@@ -50,12 +50,12 @@ namespace SpaceH{
         }
 
         void impl_resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, pos_, vel_, mass_, idn_);
+            space::resize_all(new_sz, pos_, vel_, mass_, idn_);
             active_num = new_sz;
         }
 
         void impl_reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, pos_, vel_, mass_, idn_);
+            space::reserve_all(new_cap, pos_, vel_, mass_, idn_);
         }
 
         size_t impl_number() const {
@@ -66,7 +66,7 @@ namespace SpaceH{
             size_t num = ps.number();
             os << ps.time() << ' ';
             for (size_t i = 0; i < num; ++i) {
-                SpaceH::display(os, ps.idn()[i], ps.mass()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
+                space::display(os, ps.idn()[i], ps.mass()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
             }
             return os;
         }

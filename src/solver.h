@@ -5,7 +5,7 @@
 #include "core-computation.tpp"
 #include <functional>
 
-namespace SpaceH {
+namespace space {
 
     template<typename ParticleSys>
     class RunArgs {
@@ -84,7 +84,7 @@ namespace SpaceH {
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
-        using RunArgs = SpaceH::RunArgs<ParticSys>;
+        using RunArgs = space::RunArgs<ParticSys>;
         using Particle = typename ParticSys::Particle;
 
         SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
@@ -107,19 +107,19 @@ namespace SpaceH {
 
         template<typename ...T>
         explicit Solver(Scalar t, T const &...p) : Solver(t, std::initializer_list<Particle>{p...}) {
-            static_assert(Calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
+            static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
         }
 
         void run(RunArgs const &arg) {
             step_size_ = arg.step_size;
 
             if (iseq(step_size_, 0.0))
-                step_size_ = 0.01 * Calc::calc_step_scale(particles_);
+                step_size_ = 0.01 * calc::calc_step_scale(particles_);
 
             Scalar end_time = arg.end_time;
 
             if (particles_.time() >= end_time)
-                SpaceH::print(std::cout, "Warning: The stop time is '<=' to the start time!");
+                space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
 
             for (; particles_.time() < end_time;) {
                 if (arg.check_stops(particles_))

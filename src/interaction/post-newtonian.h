@@ -7,7 +7,7 @@
 #include "../interaction.h"
 #include "../dev-tools.h"
 
-namespace SpaceH::Interact {
+namespace space::Interact {
 
     template <bool _1st_order, bool _2nd_order, bool _2_5th_order>
     class PostNewtonianGrav : public Interactions<PostNewtonianGrav<_1st_order, _2nd_order, _2_5th_order>, true, false> {
@@ -31,7 +31,7 @@ namespace SpaceH::Interact {
             auto &pz = partc.pos().z;
             auto &m = partc.mass();
 
-            Calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
                 auto r = sqrt(dx * dx + dy * dy + dz * dz);
@@ -82,7 +82,7 @@ namespace SpaceH::Interact {
             auto &pz = partc.pos().z;
             auto &m = partc.mass();
 
-            Calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, chain_vel) &&
                           HAS_METHOD(Particles, index)) {

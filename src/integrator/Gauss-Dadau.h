@@ -3,7 +3,7 @@
 #define GAUSSDADAU_H
 #include "dev-tools.h"
 #include "type-class.h"
-namespace SpaceH
+namespace space
 {
     namespace Radau
     {
@@ -164,7 +164,7 @@ namespace SpaceH
         }
 
         void checkTabVolume(size_t particleNum) {
-            if constexpr (ParticSys::arraySize == SpaceH::DYNAMICAL){
+            if constexpr (ParticSys::arraySize == space::DYNAMICAL){
 
                 if (particleNum != particleNumber_) {
 

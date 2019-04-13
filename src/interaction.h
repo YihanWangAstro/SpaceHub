@@ -8,7 +8,7 @@
 #include "type-class.h"
 #include "core-computation.tpp"
 
-namespace SpaceH{
+namespace space{
 
     template <typename Derived, bool ExtVelDep, bool ExtVelIndep>
     class Interactions {

@@ -6,7 +6,7 @@
 #define SPACEHUB_FINITE_SIZE_H
 #include "../particle.h"
 
-namespace SpaceH{
+namespace space{
     template<typename TypeSystem>
     class SoAFiniteSizeParticles : public SoAParticles<SoAFiniteSizeParticles<TypeSystem>> {
     public:
@@ -26,12 +26,12 @@ namespace SpaceH{
                     : PointParticle<Scalar>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
             friend std::ostream &operator<<(std::ostream &os, Particle const &particle) {
-                SpaceH::display(os, particle.mass, particle.radius, particle.pos, particle.vel);
+                space::display(os, particle.mass, particle.radius, particle.pos, particle.vel);
                 return os;
             }
 
             friend std::istream &operator>>(std::istream &is, Particle &particle) {
-                SpaceH::input(is, particle.mass, particle.radius, particle.pos, particle.vel);
+                space::input(is, particle.mass, particle.radius, particle.pos, particle.vel);
                 return is;
             }
             Scalar radius;
@@ -79,12 +79,12 @@ namespace SpaceH{
         }
 
         void impl_resize(size_t new_sz) {
-            SpaceH::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
+            space::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
             active_num = new_sz;
         }
 
         void impl_reserve(size_t new_cap) {
-            SpaceH::reserve_all(new_cap, pos_, vel_, mass_, radius_, idn_);
+            space::reserve_all(new_cap, pos_, vel_, mass_, radius_, idn_);
         }
 
         size_t impl_number() const {
@@ -95,7 +95,7 @@ namespace SpaceH{
             size_t num = ps.number();
             os << ps.time() << ' ';
             for (size_t i = 0; i < num; ++i) {
-                SpaceH::display(os, ps.idn()[i], ps.mass()[i], ps.radius()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
+                space::display(os, ps.idn()[i], ps.mass()[i], ps.radius()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
             }
             return os;
         }

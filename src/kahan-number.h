@@ -5,7 +5,7 @@
 
 #include "own-math.h"
 
-namespace SpaceH {
+namespace space {
 /** @brief Kahan number
  *
  *  A way to reduce the round off error when adding a small number to a big one.

@@ -4,7 +4,7 @@
 
 #include "symplectic-integrator.h"
 
-namespace SpaceH::Integrator {
+namespace space::integrator {
 
     class symplectic2th : public SymIntegrator<symplectic2th, 2> {
     public:

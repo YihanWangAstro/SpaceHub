@@ -10,7 +10,7 @@
 #include "../particle-system.h"
 #include "chain.tpp"
 
-namespace SpaceH {
+namespace space {
 
     template<typename Particles, typename Interactions>
     class ChainSystem : public ParticleSystem<ChainSystem<Particles, Interactions>> {
@@ -157,7 +157,7 @@ namespace SpaceH {
         }
     private:
         void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar step_size) {
-            Calc::coord_advance(ch_var, ch_inc, step_size);
+            calc::coord_advance(ch_var, ch_inc, step_size);
             Chain::calc_cartesian(ptc_.mass(), ch_var, var, index());
         }
 
@@ -165,13 +165,13 @@ namespace SpaceH {
             eom_.eval_newtonian_acc(*this, acc_);
             if constexpr (Interactions::has_extra_vel_dep_acc) {
                 eom_.eval_extra_vel_indep_acc(*this, extra_vel_indep_acc_);
-                Calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
             }
         }
 
         void kick_pseu_vel(Scalar step_size) {
             eom_.eval_extra_vel_dep_acc(*this, extra_vel_dep_acc_);
-            Calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
             Chain::calc_chain(acc_, chain_acc_, index());
             chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, step_size);
         }
@@ -183,7 +183,7 @@ namespace SpaceH {
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
 
-            Calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
             Chain::calc_chain(acc_, chain_acc_, index());
             chain_advance(ptc_.vel(), chain_vel_(), chain_acc_, step_size);
         }

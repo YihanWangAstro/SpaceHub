@@ -6,7 +6,7 @@
 #include "vector/vector3.h"
 #include "type-class.h"
 
-namespace SpaceH {
+namespace space {
 
     template<typename Real>
     struct PointParticle {
@@ -23,12 +23,12 @@ namespace SpaceH {
                 : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
         friend std::ostream &operator<<(std::ostream &os, PointParticle const &particle) {
-            SpaceH::display(os, particle.mass, particle.pos, particle.vel);
+            space::display(os, particle.mass, particle.pos, particle.vel);
             return os;
         }
 
         friend std::istream &operator>>(std::istream &is, PointParticle &particle) {
-            SpaceH::input(is, particle.mass, particle.pos, particle.vel);
+            space::input(is, particle.mass, particle.pos, particle.vel);
             return is;
         }
 

@@ -6,7 +6,7 @@
 #include <array>
 #include <vector>
 
-namespace SpaceH {
+namespace space {
 
     template<typename T>
     struct Coords{

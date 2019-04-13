@@ -4,7 +4,7 @@
 
 #include "../dev-tools.h"
 #include "ode-iterator.h"
-namespace SpaceH::OdeIterator{
+namespace space::odeIterator{
 
     template<typename Integrator>
     class ConstOdeIterator : public OdeIterator<ConstOdeIterator<Integrator>> {

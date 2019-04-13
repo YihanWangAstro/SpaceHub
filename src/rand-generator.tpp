@@ -7,7 +7,7 @@
 
 #include <random>
 
-namespace SpaceH::Random {
+namespace space::Random {
     template<typename Dtype>
     class Uniform {
     private:

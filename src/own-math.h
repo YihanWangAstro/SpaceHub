@@ -3,8 +3,8 @@
 #define OWN_MATH_H
 
 #include "dev-tools.h"
-
-namespace SpaceH {
+#include <math.h>
+namespace space {
     /** @brief Self min()*/
     template<typename T1, typename T2>
     inline const T2 min(const T1 &x, const T2 &y) {
@@ -56,7 +56,7 @@ namespace SpaceH {
      */
     template<typename Dtype>
     struct epsilon {
-        using value_type = typename SpaceH::get_value_type<Dtype>::type;
+        using value_type = typename space::get_value_type<Dtype>::type;
         constexpr static value_type value = std::numeric_limits<value_type>::epsilon();
     };
 
@@ -71,7 +71,7 @@ namespace SpaceH {
      */
     template<typename Dtype>
     struct max_value {
-        using value_type = typename SpaceH::get_value_type<Dtype>::type;
+        using value_type = typename space::get_value_type<Dtype>::type;
         constexpr static value_type value = std::numeric_limits<value_type>::max();
     };
 
@@ -81,7 +81,7 @@ namespace SpaceH {
      */
     template<typename Dtype>
     struct big_value {
-        using value_type = typename SpaceH::get_value_type<Dtype>::type;
+        using value_type = typename space::get_value_type<Dtype>::type;
         constexpr static value_type value = 0.1 * std::numeric_limits<value_type>::max();
     };
 
@@ -123,10 +123,10 @@ namespace SpaceH {
     template<typename Fun>
     decltype(std::declval<Fun>()(0)) root_dichotom(Fun f) {
         using Scalar = decltype(f(0));
-        Scalar up = SpaceH::big_value<Scalar>::value;
+        Scalar up = space::big_value<Scalar>::value;
         Scalar low = -up;
 
-        for (; fabs((up - low) / up) > SpaceH::epsilon<Scalar>::value;) {
+        for (; fabs((up - low) / up) > space::epsilon<Scalar>::value;) {
             Scalar mid = 0.5 * (up + low);
             if (f(mid) > 0)
                 up = mid;
