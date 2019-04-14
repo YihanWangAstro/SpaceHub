@@ -8,7 +8,7 @@
 #include "../interaction.h"
 #include "../dev-tools.h"
 
-namespace space::Interact {
+namespace space::interactions {
     class NewtonianGrav : public Interactions<NewtonianGrav> {
     private:
         CREATE_METHOD_CHECK(chain_pos);

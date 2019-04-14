@@ -9,10 +9,10 @@
 
 namespace space::integrator{
 
-    template<typename Derived, size_t Order>
+    template<typename Derived>
     class SymIntegrator{
     public:
-        static constexpr size_t order{Order};
+        static constexpr size_t order{Derived::order};
 
         template <typename T>
         void integrate(T& ptc, typename T::Scalar stepSize) {
@@ -25,7 +25,7 @@ namespace space::integrator{
         friend Derived;
     };
 
-    template <typename T, size_t Order>
-    constexpr bool is_sym_integrator_v = std::is_base_of_v<SymIntegrator<T, Order>, T>;
+    template <typename T>
+    constexpr bool is_sym_integrator_v = std::is_base_of_v<SymIntegrator<T>, T>;
 }
 #endif //SPACEHUB_SYMPLECTIC_INTEGRATOR_H

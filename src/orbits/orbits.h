@@ -141,20 +141,20 @@ namespace space::orbit {
         }
 
         inline void shuffle_i() {
-            i = acos(Random::Uniform<Scalar>::get(-1, 1));
+            i = acos(randomGen::Uniform<Scalar>::get(-1, 1));
         }
 
         inline void shuffle_Omega() {
-            Omega = Random::Uniform<Scalar>::get(-consts::pi, consts::pi);
+            Omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
         }
 
         inline void shuffle_omega() {
-            omega = Random::Uniform<Scalar>::get(-consts::pi, consts::pi);
+            omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
         }
 
         inline void shuffle_nu() {
             if (orbit_type == OrbitType::ellipse) {
-                Scalar M = Random::Uniform<Scalar>::get(-consts::pi, consts::pi);
+                Scalar M = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
                 Scalar E = orbit::calc_eccentric_anomaly(M, e);
                 nu = orbit::calc_true_anomaly(E, e);
             } else {

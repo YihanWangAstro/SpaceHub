@@ -17,23 +17,13 @@ namespace space {
 
         explicit Coords(size_t count) : x(count), y(count), z(count) {}
 
-        Coords(Coords const & other) : x(other.x), y(other.y), z(other.z) {}
+        Coords(Coords const & other) = default;
 
-        Coords(Coords&& other) noexcept: x(std::move(other.x)), y(std::move(other.x)), z(std::move(other.z)) {}
+        Coords(Coords&& other) = default;
 
-        Coords& operator=(Coords const& other) {
-            x = other.x;
-            y = other.y;
-            z = other.z;
-            return *this;
-        }
+        Coords& operator=(Coords const& other) = default;
 
-        Coords& operator=(Coords && other) noexcept {
-            x = std::move(other.x);
-            y = std::move(other.y);
-            z = std::move(other.z);
-            return *this;
-        }
+        Coords& operator=(Coords && other) = default;
 
         size_t size() const {
             return x.size();

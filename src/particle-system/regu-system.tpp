@@ -260,12 +260,12 @@ namespace space {
         Forces forces_;
         Regularization<Scalar, RegType> regu_;
 
-        Coord aux_vel_;
         Coord acc_;
         Coord newtonian_acc_;
 
-        std::conditional_t <Forces::ext_vel_indep, Coord, void*> ext_vel_indep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, void*> ext_vel_dep_acc_;
+        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
     };
 }
 

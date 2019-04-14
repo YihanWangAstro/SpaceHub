@@ -12,7 +12,7 @@ using scalar = double;
 using type = Types<scalar, std::vector>;
 
 int main(int argc, char **argv) {
-    using force = Interact::NewtonianGrav;
+    using force = interactions::NewtonianGrav;
 
     using particles = SoAPointParticles<type>;
 
