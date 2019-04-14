@@ -9,8 +9,7 @@
 #include <iomanip>
 #include <memory>
 
-namespace space::ArgsCallBack {
-
+namespace space::argsCallback {
 
     template<typename Ostream>
     class BaseWriter {
@@ -35,6 +34,10 @@ namespace space::ArgsCallBack {
         }
 
         BaseWriter(BaseWriter const &other) = default;
+
+        BaseWriter &operator=(BaseWriter const &) = default;
+
+        BaseWriter &operator=(BaseWriter &&) = default;
 
         void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false) {
             write_time_ = start_;
@@ -76,20 +79,21 @@ namespace space::ArgsCallBack {
 
         DefaultWriter(DefaultWriter &&other) = default;
 
-        template <typename ParticleSys>
+        template<typename ParticleSys>
         inline void operator()(ParticleSys &ptc) {
             writer_(ptc);
         }
 
-        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false){
+        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false) {
             writer_.reset_output_params(start_, end_, snapshot_num, flush);
         }
 
-        template <typename T>
-        friend DefaultWriter&operator<<(DefaultWriter& wtr, T const& d){
+        template<typename T>
+        friend DefaultWriter &operator<<(DefaultWriter &wtr, T const &d) {
             wtr.writer_ << d;
             return wtr;
         }
+
     private:
         std::shared_ptr<std::ofstream> fstream_;
         BaseWriter<std::ofstream> writer_;

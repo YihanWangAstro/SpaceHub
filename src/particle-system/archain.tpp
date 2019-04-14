@@ -43,9 +43,9 @@ namespace space {
 
         ARchainSystem(ARchainSystem &&) = default;
 
-        ARchainSystem&operator=(ARchainSystem const &) = default;
+        ARchainSystem &operator=(ARchainSystem const &) = default;
 
-        ARchainSystem&operator=(ARchainSystem &&) = default;
+        ARchainSystem &operator=(ARchainSystem &&) = default;
 
         static constexpr ReguType regu_type{RegType};
 
@@ -141,7 +141,7 @@ namespace space {
 
         void impl_post_iter_process() {
             Chain::calc_chain_index(ptc_.pos(), new_index_);
-            if(new_index_ != index_){
+            if (new_index_ != index_) {
                 Chain::update_chain(chain_pos_, index_, new_index_);
                 Chain::calc_cartesian(ptc_.mass(), chain_pos_, ptc_.pos(), new_index_);
                 Chain::update_chain(chain_vel_, index_, new_index_);
@@ -150,10 +150,10 @@ namespace space {
             }
         }
 
-        template <typename STL>
-        void impl_to_linear_container(STL& stl){
+        template<typename STL>
+        void impl_to_linear_container(STL &stl) {
             stl.clear();
-            stl.reserve(impl_number()*6 + 3);
+            stl.reserve(impl_number() * 6 + 3);
             stl.emplace_back(impl_time());
             stl.emplace_back(omega());
             stl.emplace_back(bindE());
@@ -161,8 +161,8 @@ namespace space {
             add_coords_to(stl, chain_vel_);
         }
 
-        template <typename STL>
-        void impl_load_from_linear_container(STL const& stl){
+        template<typename STL>
+        void impl_load_from_linear_container(STL const &stl) {
             auto i = stl.begin();
             impl_time() = *i, ++i;
             omega() = *i, ++i;
@@ -182,8 +182,9 @@ namespace space {
             is >> ps.ptc_;
             return is;
         }
+
     private:
-        void chain_advance(Coord &var, Coord& ch_var, Coord const & ch_inc, Scalar phy_time) {
+        void chain_advance(Coord &var, Coord &ch_var, Coord const &ch_inc, Scalar phy_time) {
             calc::coord_advance(ch_var, ch_inc, phy_time);
             Chain::calc_cartesian(ptc_.mass(), ch_var, var, index());
         }
@@ -235,7 +236,7 @@ namespace space {
 
         Particles ptc_;
         Forces forces_;
-        Regularization<Scalar, RegType> regu_;
+        Regularization <Scalar, RegType> regu_;
 
         Coord chain_pos_;
         Coord chain_vel_;
@@ -246,10 +247,10 @@ namespace space {
         IdxArray index_;
         IdxArray new_index_;
 
-        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> chain_aux_vel_;
+        std::conditional_t<Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> aux_vel_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> chain_aux_vel_;
     };
 }
 #endif //SPACEHUB_ARCHAIN_H

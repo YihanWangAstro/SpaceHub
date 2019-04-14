@@ -86,7 +86,7 @@ namespace space {
 
 #define SPACEHUB_ABORT(...) {                                                                                          \
     space::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");                                                 \
-    space::print(std::cout, __VA_ARGS__ );                                                                             \
+    space::print(std::cout, __VA_ARGS__);                                                                             \
     exit(0);                                                                                                           \
 }
 
@@ -170,7 +170,7 @@ inline TYPE const & NAME () const {                                             
 
 #define HAS_METHOD(CLASS, METHOD, ...) has_method_##METHOD<CLASS, ##__VA_ARGS__>::value
 
-/** @brief Macros used to check if a class has a member.  */
+/** @brief Macros used to check if a class has a member.*/
 #define CREATE_MEMBER_CHECK(MEMBER)                                                                                    \
                                                                                                                        \
     template<typename T, typename V = bool>                                                                            \
@@ -205,7 +205,6 @@ inline TYPE const & NAME () const {                                             
     >: std::true_type { };
 
 #define HAS_STATIC_MEMBER(C, member) has_static ## member<C>::value
-
 
 /** @brief Macros used to static_assert if a class has a specific method. */
 #define CHECK_METHOD(CLASS, METHOD, ...)                                                                               \

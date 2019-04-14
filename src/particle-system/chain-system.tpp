@@ -10,6 +10,7 @@
 #include "../particle-system.h"
 #include "chain.tpp"
 #include <type_traits>
+
 namespace space {
 
     template<typename Particles, typename Forces>
@@ -119,7 +120,7 @@ namespace space {
 
         void impl_post_iter_process() {
             Chain::calc_chain_index(ptc_.pos(), new_index_);
-            if(new_index_ != index_){
+            if (new_index_ != index_) {
                 Chain::update_chain(chain_pos_, index_, new_index_);
                 Chain::calc_cartesian(ptc_.mass(), chain_pos_, ptc_.pos(), new_index_);
                 Chain::update_chain(chain_vel_, index_, new_index_);
@@ -128,17 +129,17 @@ namespace space {
             }
         }
 
-        template <typename STL>
-        void impl_to_linear_container(STL& stl){
+        template<typename STL>
+        void impl_to_linear_container(STL &stl) {
             stl.clear();
-            stl.reserve(impl_number()*6 +1);
+            stl.reserve(impl_number() * 6 + 1);
             stl.emplace_back(impl_time());
             add_coords_to(stl, chain_pos_);
             add_coords_to(stl, chain_vel_);
         }
 
-        template <typename STL>
-        void impl_load_from_linear_container(STL const& stl){
+        template<typename STL>
+        void impl_load_from_linear_container(STL const &stl) {
             auto i = stl.begin();
             impl_time() = *i, ++i;
             load_to_coords(i, chain_pos_);
@@ -151,12 +152,14 @@ namespace space {
             os << ps.ptc_;
             return os;
         }
+
         friend std::istream &operator>>(std::istream &is, ChainSystem &ps) {
             is >> ps.ptc_;
             return is;
         }
+
     private:
-        void chain_advance(Coord &var, Coord& ch_var, Coord & ch_inc, Scalar step_size) {
+        void chain_advance(Coord &var, Coord &ch_var, Coord &ch_inc, Scalar step_size) {
             calc::coord_advance(ch_var, ch_inc, step_size);
             Chain::calc_cartesian(ptc_.mass(), ch_var, var, index());
         }
@@ -199,10 +202,10 @@ namespace space {
         IdxArray index_;
         IdxArray new_index_;
 
-        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> chain_aux_vel_;
+        std::conditional_t<Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> aux_vel_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> chain_aux_vel_;
     };
 
 }

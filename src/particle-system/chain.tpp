@@ -7,7 +7,6 @@
 #include "../core-computation.tpp"
 
 namespace space {
-
     class Chain{
     public:
         struct Node {
@@ -74,7 +73,6 @@ namespace space {
             to_cartesian(chain.y, cartesian.y, index);
             to_cartesian(chain.z, cartesian.z, index);
         }*/
-
     private:
         static constexpr bool manual_move{false};
 
@@ -200,7 +198,6 @@ namespace space {
                 cartesian[index[i]] = cartesian[index[i - 1]] + chain[i - 1];
         }
     };
-
 }
 #endif
 

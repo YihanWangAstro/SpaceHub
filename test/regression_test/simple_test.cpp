@@ -36,9 +36,11 @@ int main(int argc, char **argv) {
 
     particle sun{m_solar}, earth{m_earth}, moon{m_moon};
 
-    auto moon_orbit = Kepler{moon.mass + earth.mass, semi_latus_rectum(384748*km , 0.0549006), 0.0549006, 1.543 * deg, thermal, thermal, thermal};
+    auto moon_orbit = Kepler{moon.mass + earth.mass, semi_latus_rectum(384748 * km, 0.0549006), 0.0549006, 1.543 * deg,
+                             thermal, thermal, thermal};
 
-    auto earth_orbit = Kepler{sun.mass + earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg, 174.9 * deg, 288.1 * deg, thermal};
+    auto earth_orbit = Kepler{sun.mass + earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
+                              174.9 * deg, 288.1 * deg, thermal};
 
     move_particles_to(moon_orbit, moon);
 
@@ -46,21 +48,19 @@ int main(int argc, char **argv) {
 
     move_to_com_coord(sun, earth, moon);
 
-    //print(std::cout, sun,'\n',earth, '\n', moon,'\n',distance(sun.pos, earth.pos), '\n', distance(earth.pos, moon.pos));
     simulation::RunArgs args;
 
     std::ofstream eng_file("solar.eng");
 
     eng_file << std::setprecision(16);
 
-    args.add_pre_step_option(ArgsCallBack::DefaultWriter("solar.dat", 0,  10 * year));
+    args.add_pre_step_option(argsCallback::DefaultWriter("solar.dat", 0, 10 * year));
 
-    args.add_pre_step_option([&](auto& ptc){eng_file << calc::calc_total_energy(ptc) << '\n';});
+    args.add_pre_step_option([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; });
 
-    args.add_stop_condition(10* year);
+    args.add_stop_condition(10 * year);
 
     simulation nbody{0, sun, earth, moon};
-
 
     nbody.run(args);
 

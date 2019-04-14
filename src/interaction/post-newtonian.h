@@ -34,7 +34,7 @@ namespace space::interactions {
             calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
-                auto r = sqrt(dx * dx + dy * dy + dz * dz);
+                auto r   = sqrt(dx * dx + dy * dy + dz * dz);
                 auto rr3 = 1.0 / (r * r * r);
                 acc.x[i] += dx * rr3 * m[j];
                 acc.y[i] += dy * rr3 * m[j];
@@ -52,7 +52,7 @@ namespace space::interactions {
                 auto const &ch_vx = partc.chain_vel().x;
                 auto const &ch_vy = partc.chain_vel().y;
                 auto const &ch_vz = partc.chain_vel().z;
-                auto const &idx = partc.index();
+                auto const &idx   = partc.index();
 
                 size_t size = partc.number();
                 for (size_t i = 0; i < size - 1; ++i)
@@ -80,7 +80,7 @@ namespace space::interactions {
             auto &px = partc.pos().x;
             auto &py = partc.pos().y;
             auto &pz = partc.pos().z;
-            auto &m = partc.mass();
+            auto &m  = partc.mass();
 
             calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
@@ -92,7 +92,7 @@ namespace space::interactions {
                 auto const &ch_vx = partc.chain_vel().x;
                 auto const &ch_vy = partc.chain_vel().y;
                 auto const &ch_vz = partc.chain_vel().z;
-                auto const &idx = partc.index();
+                auto const &idx   = partc.index();
 
                 size_t size = partc.number();
                 for (size_t i = 0; i < size - 1; ++i){

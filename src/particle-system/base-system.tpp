@@ -22,9 +22,9 @@ namespace space {
 
         SimpleSystem(SimpleSystem &&) = default;
 
-        SimpleSystem&operator=(SimpleSystem const &) = default;
+        SimpleSystem &operator=(SimpleSystem const &) = default;
 
-        SimpleSystem&operator=(SimpleSystem &&) = default;
+        SimpleSystem &operator=(SimpleSystem &&) = default;
 
         template<typename STL>
         SimpleSystem(Scalar t, STL const &partc)
@@ -50,6 +50,7 @@ namespace space {
             is >> ps.ptc_;
             return is;
         }
+
     protected:
         friend class ParticleSystem<SimpleSystem<Particles, Forces>>;
 
@@ -107,22 +108,23 @@ namespace space {
             }
         }
 
-        template <typename STL>
-        void impl_to_linear_container(STL& stl){
+        template<typename STL>
+        void impl_to_linear_container(STL &stl) {
             stl.clear();
-            stl.reserve(impl_number()*6 +1);
+            stl.reserve(impl_number() * 6 + 1);
             stl.emplace_back(impl_time());
             add_coords_to(stl, impl_pos());
             add_coords_to(stl, impl_vel());
         }
 
-        template <typename STL>
-        void impl_load_from_linear_container(STL const& stl){
+        template<typename STL>
+        void impl_load_from_linear_container(STL const &stl) {
             auto i = stl.begin();
             impl_time() = *i, ++i;
             load_to_coords(i, impl_pos());
             load_to_coords(i, impl_vel());
         }
+
     private:
         void eval_vel_indep_acc() {
             forces_.eval_newtonian_acc(ptc_, acc_);
@@ -150,9 +152,9 @@ namespace space {
         Forces forces_;
         Coord acc_;
 
-        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
+        std::conditional_t<Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> aux_vel_;
     };
 }
 

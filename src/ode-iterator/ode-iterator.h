@@ -7,21 +7,23 @@
 
 #include "../particle-system.h"
 
-namespace space::odeIterator{
-    template <typename Derived>
-    class OdeIterator{
+namespace space::odeIterator {
+    template<typename Derived>
+    class OdeIterator {
     public:
-        template <typename T>
-        auto iterate(T& particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
+        template<typename T>
+        auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
             static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
-            return static_cast<Derived*>(this)->impl_iterate(particles, macro_step_size);
+            return static_cast<Derived *>(this)->impl_iterate(particles, macro_step_size);
         }
+
     private:
         OdeIterator() = default;
+
         friend Derived;
     };
 
-    template <typename T>
+    template<typename T>
     constexpr bool is_ode_iterator_v = std::is_base_of_v<OdeIterator<T>, T>;
 }
 #endif //SPACEHUB_ODE_ITERATOR_H

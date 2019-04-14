@@ -137,24 +137,24 @@ namespace space::multiThread {
     };
 
     template<typename T>
-    class COstream {
+    class Costream {
     public:
-        explicit COstream(const char *file_name) : pip_ptr_(std::make_unique<Opip<T>>(file_name)) {}
+        explicit Costream(const char *file_name) : pip_ptr_(std::make_unique<Opip<T>>(file_name)) {}
 
-        explicit COstream(std::string &file_name) : COstream(file_name.c_str()) {}
+        explicit Costream(std::string &file_name) : Costream(file_name.c_str()) {}
 
-        COstream(COstream const &) = delete;
+        Costream(Costream const &) = delete;
 
-        COstream &operator=(COstream const &) = delete;
+        Costream &operator=(Costream const &) = delete;
 
-        COstream(COstream &&other) noexcept : pip_ptr_(std::move(other.pip_ptr_)) {}
+        Costream(Costream &&other) noexcept : pip_ptr_(std::move(other.pip_ptr_)) {}
 
-        COstream &operator=(COstream &&other) noexcept {
+        Costream &operator=(Costream &&other) noexcept {
             pip_ptr_ = std::move(other.pip_ptr_);
             return *this;
         }
 
-        friend void operator<<(COstream &out, T const &tup) {
+        friend void operator<<(Costream &out, T const &tup) {
             *(out.pip_ptr_) << tup;
         }
 
@@ -163,13 +163,13 @@ namespace space::multiThread {
     };
 
     template<typename T>
-    class CIstream {
+    class Cistream {
     public:
-        explicit CIstream(const char *file_name) : pip_ptr_(std::make_shared<Ipip<T>>(file_name)) {}
+        explicit Cistream(const char *file_name) : pip_ptr_(std::make_shared<Ipip<T>>(file_name)) {}
 
-        explicit CIstream(std::string &file_name) : CIstream(file_name.c_str()) {}
+        explicit Cistream(std::string &file_name) : Cistream(file_name.c_str()) {}
 
-        friend void operator>>(CIstream &in, T &&tup) {
+        friend void operator>>(Cistream &in, T &&tup) {
             *(in.pip_ptr_) >> std::forward<T>(tup);
         }
 

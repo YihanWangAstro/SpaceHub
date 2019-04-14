@@ -91,6 +91,7 @@ namespace space {
         SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
 
         SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
+
         /* Typedef */
 
         RegularizedSystem() = delete;
@@ -183,10 +184,10 @@ namespace space {
             }
         }
 
-        template <typename STL>
-        void impl_to_linear_container(STL& stl){
+        template<typename STL>
+        void impl_to_linear_container(STL &stl) {
             stl.clear();
-            stl.reserve(impl_number()*6 +3);
+            stl.reserve(impl_number() * 6 + 3);
             stl.emplace_back(impl_time());
             stl.emplace_back(omega());
             stl.emplace_back(bindE());
@@ -194,8 +195,8 @@ namespace space {
             add_coords_to(stl, impl_vel());
         }
 
-        template <typename STL>
-        void impl_load_from_linear_container(STL const& stl){
+        template<typename STL>
+        void impl_load_from_linear_container(STL const &stl) {
             auto i = stl.begin();
             impl_time() = *i, ++i;
             omega() = *i, ++i;
@@ -263,9 +264,9 @@ namespace space {
         Coord acc_;
         Coord newtonian_acc_;
 
-        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
-        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
+        std::conditional_t<Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t<Forces::ext_vel_dep, Coord, Empty> aux_vel_;
     };
 }
 
