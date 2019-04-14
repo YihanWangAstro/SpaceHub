@@ -10,11 +10,15 @@
 
 namespace space{
 
-    template <typename Derived, bool ExtVelDep, bool ExtVelIndep>
+    template <typename Derived>
     class Interactions {
+    private:
+        CREATE_METHOD_CHECK(impl_eval_extra_vel_indep_acc);
+
+        CREATE_METHOD_CHECK(impl_eval_extra_vel_dep_acc);
     public:
-        static constexpr bool has_extra_vel_dep_acc{ExtVelDep};
-        static constexpr bool has_extra_vel_indep_acc{ExtVelIndep};
+        static constexpr bool ext_vel_dep{HAS_METHOD(Derived, impl_eval_extra_vel_dep_acc)};
+        static constexpr bool ext_vel_indep{HAS_METHOD(Derived, impl_eval_extra_vel_indep_acc)};
 
         template<typename Particles>
         void eval_acc(Particles const &partc, typename Particles::Coord& acc) {
@@ -40,8 +44,8 @@ namespace space{
         friend Derived;
     };
 
-    template <typename T, bool a, bool b>
-    constexpr bool is_interactions_v = std::is_base_of_v<Interactions<T,a,b>, T>;
+    template <typename T>
+    constexpr bool is_interactions_v = std::is_base_of_v<Interactions<T>, T>;
 }
 
 #endif //SPACEHUB_EOM_H

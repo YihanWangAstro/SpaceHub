@@ -5,6 +5,7 @@
 #include "../particle-system.h"
 #include "../core-computation.tpp"
 #include "../dev-tools.h"
+#include <type_traits>
 
 namespace space {
     enum class ReguType {
@@ -67,10 +68,10 @@ namespace space {
      * http://iopscience.iop.org/article/10.1086/301102/meta and
      * https://link.springer.com/article/10.1023%2FA%3A1021149313347.
      * @tparam Particles
-     * @tparam Interactions
+     * @tparam Forces
      */
-    template<typename Particles, typename Interactions, ReguType RegType>
-    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, RegType>> {
+    template<typename Particles, typename Forces, ReguType RegType>
+    class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Forces, RegType>> {
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
@@ -111,12 +112,12 @@ namespace space {
                   newtonian_acc_(ptc.size()),
                   regu_(ptc_) {
             static_assert(is_container_v<STL>, "Only STL-like container can be used");
-            if constexpr (Interactions::has_extra_vel_indep_acc) {
-                extra_vel_indep_acc_.resize(ptc.size());
+            if constexpr (Forces::ext_vel_indep) {
+                ext_vel_indep_acc_.resize(ptc.size());
             }
 
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
-                extra_vel_dep_acc_.resize(ptc.size());
+            if constexpr (Forces::ext_vel_dep) {
+                ext_vel_dep_acc_.resize(ptc.size());
                 aux_vel_ = ptc_.vel();
             }
         }
@@ -141,7 +142,7 @@ namespace space {
         }
 
         void impl_evaluate_acc(Coord const &acceleration) const {
-            eom_.eval_acc(ptc_, acceleration);
+            forces_.eval_acc(ptc_, acceleration);
         }
 
         void impl_drift(Scalar step_size) {
@@ -156,17 +157,17 @@ namespace space {
 
             eval_vel_indep_acc();
 
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
+            if constexpr (Forces::ext_vel_dep) {
                 kick_pseu_vel(half_time);
                 kick_real_vel(phy_time);
                 kick_pseu_vel(half_time);
             } else {
-                if constexpr (Interactions::has_extra_vel_indep_acc) {
-                    calc::coord_add(acc_, newtonian_acc_, extra_vel_indep_acc_);
+                if constexpr (Forces::ext_vel_indep) {
+                    calc::coord_add(acc_, newtonian_acc_, ext_vel_indep_acc_);
 
                     calc::coord_advance(ptc_.vel(), acc_, half_time);
                     advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
-                    advance_bindE(ptc_.vel(), extra_vel_indep_acc_, phy_time);
+                    advance_bindE(ptc_.vel(), ext_vel_indep_acc_, phy_time);
                     calc::coord_advance(ptc_.vel(), acc_, half_time);
                 } else {
                     calc::coord_advance(ptc_.vel(), newtonian_acc_, half_time);
@@ -177,7 +178,7 @@ namespace space {
         }
 
         void impl_pre_iter_process() {
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
+            if constexpr (Forces::ext_vel_dep) {
                 aux_vel_ = ptc_.vel();
             }
         }
@@ -215,9 +216,9 @@ namespace space {
 
     private:
         void eval_vel_indep_acc() {
-            eom_.eval_newtonian_acc(ptc_, newtonian_acc_);
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
-                eom_.eval_extra_vel_indep_acc(ptc_, extra_vel_indep_acc_);
+            forces_.eval_newtonian_acc(ptc_, newtonian_acc_);
+            if constexpr (Forces::ext_vel_dep) {
+                forces_.eval_extra_vel_indep_acc(ptc_, ext_vel_indep_acc_);
             }
         }
 
@@ -232,38 +233,39 @@ namespace space {
         }
 
         void kick_pseu_vel(Scalar phy_time) {
-            eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
-            calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
-            if constexpr (Interactions::has_extra_vel_indep_acc) {
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+            forces_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
+            calc::coord_add(acc_, newtonian_acc_, ext_vel_dep_acc_);
+            if constexpr (Forces::ext_vel_indep) {
+                calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
             }
             calc::coord_advance(aux_vel_, acc_, phy_time);
         }
 
         void kick_real_vel(Scalar phy_time) {
             std::swap(aux_vel_, ptc_.vel());
-            eom_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
+            forces_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
             std::swap(aux_vel_, ptc_.vel());
 
-            calc::coord_add(acc_, newtonian_acc_, extra_vel_dep_acc_);
-            if constexpr (Interactions::has_extra_vel_indep_acc) {
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+            calc::coord_add(acc_, newtonian_acc_, ext_vel_dep_acc_);
+            if constexpr (Forces::ext_vel_indep) {
+                calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
             }
             calc::coord_advance(ptc_.vel(), acc_, phy_time);
 
             advance_omega(aux_vel_, newtonian_acc_, phy_time);
-            advance_bindE(aux_vel_, extra_vel_dep_acc_, phy_time);
+            advance_bindE(aux_vel_, ext_vel_dep_acc_, phy_time);
         }
 
         Particles ptc_;
-        Interactions eom_;
+        Forces forces_;
         Regularization<Scalar, RegType> regu_;
 
-        Coord aux_vel_{0};
-        Coord acc_{0};
-        Coord newtonian_acc_{0};
-        Coord extra_vel_indep_acc_{0};
-        Coord extra_vel_dep_acc_{0};
+        Coord aux_vel_;
+        Coord acc_;
+        Coord newtonian_acc_;
+
+        std::conditional_t <Forces::ext_vel_indep, Coord, void*> ext_vel_indep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, void*> ext_vel_dep_acc_;
     };
 }
 

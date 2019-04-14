@@ -9,11 +9,11 @@
 #include "../dev-tools.h"
 #include "../particle-system.h"
 #include "chain.tpp"
-
+#include <type_traits>
 namespace space {
 
-    template<typename Particles, typename Interactions>
-    class ChainSystem : public ParticleSystem<ChainSystem<Particles, Interactions>> {
+    template<typename Particles, typename Forces>
+    class ChainSystem : public ParticleSystem<ChainSystem<Particles, Forces>> {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
@@ -59,12 +59,12 @@ namespace space {
             Chain::calc_chain(ptc_.pos(), chain_pos(), index());
             Chain::calc_chain(ptc_.vel(), chain_vel(), index());
 
-            if constexpr (Interactions::has_extra_vel_indep_acc) {
-                extra_vel_indep_acc_.resize(ptc.size());
+            if constexpr (Forces::ext_vel_indep) {
+                ext_vel_indep_acc_.resize(ptc.size());
             }
 
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
-                extra_vel_dep_acc_.resize(ptc.size());
+            if constexpr (Forces::ext_vel_dep) {
+                ext_vel_dep_acc_.resize(ptc.size());
                 aux_vel_ = ptc_.vel();
                 chain_aux_vel_ = chain_vel_;
             }
@@ -89,7 +89,7 @@ namespace space {
         }
 
         void impl_evaluate_acc(Coord &acceleration) const {
-            eom_.eval_acc(*this, acceleration);
+            forces_.eval_acc(*this, acceleration);
         }
 
         void impl_drift(Scalar step_size) {
@@ -98,20 +98,20 @@ namespace space {
         }
 
         void impl_kick(Scalar step_size) {
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
+            if constexpr (Forces::ext_vel_dep) {
                 Scalar half_step = 0.5 * step_size;
                 eval_vel_indep_acc();
                 kick_pseu_vel(half_step);
                 kick_real_vel(step_size);
                 kick_pseu_vel(half_step);
             } else {
-                eom_.eval_acc(*this, acc_);
+                forces_.eval_acc(*this, acc_);
                 impl_advance_vel(acc_, step_size);
             }
         }
 
         void impl_pre_iter_process() {
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
+            if constexpr (Forces::ext_vel_dep) {
                 aux_vel_ = ptc_.vel();
                 chain_aux_vel_ = chain_vel_;
             }
@@ -162,16 +162,16 @@ namespace space {
         }
 
         void eval_vel_indep_acc() {
-            eom_.eval_newtonian_acc(*this, acc_);
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
-                eom_.eval_extra_vel_indep_acc(*this, extra_vel_indep_acc_);
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+            forces_.eval_newtonian_acc(*this, acc_);
+            if constexpr (Forces::ext_vel_dep) {
+                forces_.eval_extra_vel_indep_acc(*this, ext_vel_indep_acc_);
+                calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
             }
         }
 
         void kick_pseu_vel(Scalar step_size) {
-            eom_.eval_extra_vel_dep_acc(*this, extra_vel_dep_acc_);
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            forces_.eval_extra_vel_dep_acc(*this, ext_vel_dep_acc_);
+            calc::coord_add(acc_, acc_, ext_vel_dep_acc_);
             Chain::calc_chain(acc_, chain_acc_, index());
             chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, step_size);
         }
@@ -179,29 +179,30 @@ namespace space {
         void kick_real_vel(Scalar step_size) {
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
-            eom_.eval_extra_vel_dep_acc(*this, extra_vel_dep_acc_);
+            forces_.eval_extra_vel_dep_acc(*this, ext_vel_dep_acc_);
             std::swap(aux_vel_, ptc_.vel());
             std::swap(chain_aux_vel_, chain_vel());
 
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            calc::coord_add(acc_, acc_, ext_vel_dep_acc_);
             Chain::calc_chain(acc_, chain_acc_, index());
             chain_advance(ptc_.vel(), chain_vel_(), chain_acc_, step_size);
         }
 
         Particles ptc_;
-        Interactions eom_;
+        Forces forces_;
 
-        Coord chain_pos_{0};
-        Coord chain_vel_{0};
-        Coord acc_{0};
-        Coord chain_acc_{0};
+        Coord chain_pos_;
+        Coord chain_vel_;
+        Coord acc_;
+        Coord chain_acc_;
 
-        Coord extra_vel_indep_acc_{0};
-        Coord extra_vel_dep_acc_{0};
-        Coord aux_vel_{0};
-        Coord chain_aux_vel_{0};
-        IdxArray index_{0};
-        IdxArray new_index_{0};
+        IdxArray index_;
+        IdxArray new_index_;
+
+        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> chain_aux_vel_;
     };
 
 }

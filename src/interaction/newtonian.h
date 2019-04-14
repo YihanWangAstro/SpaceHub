@@ -9,7 +9,7 @@
 #include "../dev-tools.h"
 
 namespace space::Interact {
-    class NewtonianGrav : public Interactions<NewtonianGrav, false, false> {
+    class NewtonianGrav : public Interactions<NewtonianGrav> {
     private:
         CREATE_METHOD_CHECK(chain_pos);
 

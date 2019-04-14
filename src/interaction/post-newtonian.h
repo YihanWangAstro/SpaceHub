@@ -10,7 +10,7 @@
 namespace space::Interact {
 
     template <bool _1st_order, bool _2nd_order, bool _2_5th_order>
-    class PostNewtonianGrav : public Interactions<PostNewtonianGrav<_1st_order, _2nd_order, _2_5th_order>, true, false> {
+    class PostNewtonianGrav : public Interactions<PostNewtonianGrav<_1st_order, _2nd_order, _2_5th_order>> {
     private:
         CREATE_METHOD_CHECK(chain_pos);
 

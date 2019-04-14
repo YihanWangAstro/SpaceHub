@@ -5,12 +5,12 @@
 #include "../core-computation.tpp"
 #include "../dev-tools.h"
 #include "../particle-system.h"
-
+#include <type_traits>
 
 namespace space {
 
-    template<typename Particles, typename Interactions>
-    class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Interactions>> {
+    template<typename Particles, typename Forces>
+    class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Forces>> {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
@@ -31,12 +31,12 @@ namespace space {
                 : ptc_(t, partc),
                   acc_(partc.size()) {
             static_assert(is_container_v<STL>, "Only STL-like container can be used");
-            if constexpr (Interactions::has_extra_vel_indep_acc) {
-                extra_vel_indep_acc_.resize(partc.size());
+            if constexpr (Forces::ext_vel_indep) {
+                ext_vel_indep_acc_.resize(partc.size());
             }
 
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
-                extra_vel_dep_acc_.resize(partc.size());
+            if constexpr (Forces::ext_vel_dep) {
+                ext_vel_dep_acc_.resize(partc.size());
                 aux_vel_ = ptc_.vel();
             }
         }
@@ -51,7 +51,7 @@ namespace space {
             return is;
         }
     protected:
-        friend class ParticleSystem<SimpleSystem<Particles, Interactions>>;
+        friend class ParticleSystem<SimpleSystem<Particles, Forces>>;
 
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
@@ -80,7 +80,7 @@ namespace space {
         }
 
         void impl_evaluate_acc(Coord &acceleration) const {
-            eom_.eval_acc(ptc_, acceleration);
+            forces_.eval_acc(ptc_, acceleration);
         }
 
         void impl_drift(Scalar step_size) {
@@ -89,20 +89,20 @@ namespace space {
         }
 
         void impl_kick(Scalar step_size) {
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
+            if constexpr (Forces::ext_vel_dep) {
                 Scalar half_step = 0.5 * step_size;
                 eval_vel_indep_acc();
                 kick_pseu_vel(half_step);
                 kick_real_vel(step_size);
                 kick_pseu_vel(half_step);
             } else {
-                eom_.eval_acc(ptc_, acc_);
+                forces_.eval_acc(ptc_, acc_);
                 calc::coord_advance(ptc_.vel(), acc_, step_size);
             }
         }
 
         void impl_pre_iter_process() {
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
+            if constexpr (Forces::ext_vel_dep) {
                 aux_vel_ = ptc_.vel();
             }
         }
@@ -125,34 +125,34 @@ namespace space {
         }
     private:
         void eval_vel_indep_acc() {
-            eom_.eval_newtonian_acc(ptc_, acc_);
-            if constexpr (Interactions::has_extra_vel_dep_acc) {
-                eom_.eval_extra_vel_indep_acc(ptc_, extra_vel_indep_acc_);
-                calc::coord_add(acc_, acc_, extra_vel_indep_acc_);
+            forces_.eval_newtonian_acc(ptc_, acc_);
+            if constexpr (Forces::ext_vel_dep) {
+                forces_.eval_extra_vel_indep_acc(ptc_, ext_vel_indep_acc_);
+                calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
             }
         }
 
         void kick_pseu_vel(Scalar step_size) {
-            eom_.eval_extra_vel_dep_acc(ptc_, extra_vel_dep_acc_);
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            forces_.eval_extra_vel_dep_acc(ptc_, ext_vel_dep_acc_);
+            calc::coord_add(acc_, acc_, ext_vel_dep_acc_);
             calc::coord_advance(aux_vel_, acc_, step_size);
         }
 
         void kick_real_vel(Scalar step_size) {
             std::swap(aux_vel_, ptc_.vel());
-            eom_.eval_extra_vel_dep_acc(ptc_, extra_vel_dep_acc_);
+            forces_.eval_extra_vel_dep_acc(ptc_, ext_vel_dep_acc_);
             std::swap(aux_vel_, ptc_.vel());
-            calc::coord_add(acc_, acc_, extra_vel_dep_acc_);
+            calc::coord_add(acc_, acc_, ext_vel_dep_acc_);
             calc::coord_advance(ptc_.vel(), acc_, step_size);
         }
 
         Particles ptc_;
-        Interactions eom_;
-        Coord acc_{0};
+        Forces forces_;
+        Coord acc_;
 
-        Coord extra_vel_indep_acc_{0};
-        Coord extra_vel_dep_acc_{0};
-        Coord aux_vel_{0};
+        std::conditional_t <Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
+        std::conditional_t <Forces::ext_vel_dep, Coord, Empty> aux_vel_;
     };
 }
 
