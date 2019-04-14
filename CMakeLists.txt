@@ -40,7 +40,9 @@ set(TMP_HEADER_FILES
         src/tools/timer.h
         src/vector/vector3.h
         src/vector/vector3d.h
-        src/vector/vector3pd.h)
+        src/vector/vector3pd.h
+        src/multi-thread/ciostream.h
+        src/multi-thread/multi-thread.h)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

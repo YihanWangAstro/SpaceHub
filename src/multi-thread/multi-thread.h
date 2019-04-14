@@ -13,7 +13,7 @@
 #include <tuple>
 #include "dev-tools.h"
 
-namespace SpaceH::MultiThread {
+namespace space::multiThread {
 
     const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
 

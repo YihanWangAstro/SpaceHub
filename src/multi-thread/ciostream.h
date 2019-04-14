@@ -9,7 +9,7 @@
 #include <queue>
 #include "dev-tools.h"
 
-namespace SpaceH::MultiThread {
+namespace space::multiThread {
     template<typename T>
     class Opip {
     public:
