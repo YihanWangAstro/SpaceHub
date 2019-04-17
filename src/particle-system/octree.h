@@ -39,10 +39,10 @@ namespace space::octree{
     private:
         void insert(std::unique_ptr<Node<T>>& node, T const& data){
             if(node == nullptr) {
-                node = new Node<T>;
+                node = std::make_unique<Node<T>>();
                 node.data = &data;
             } else {
-                auto loc = get_region(*(node.data), data);
+                auto loc = get_region(node.data->pos, data.pos);
                 switch (loc){
                     case region::flu :
                         insert(node.flu, data);
@@ -71,9 +71,40 @@ namespace space::octree{
                 }
             }
         }
-        region get_region(T const& loc, T const& data){
 
+        template <typename Vector>
+        region get_region(Vector const& loc, Vector const& p){
+            if(p.x > loc.x) {
+                if(p.y > loc.y) {
+                    if(p.z > loc.z) {
+                        return region::fru;
+                    } else {
+                        return region::frd;
+                    }
+                } else {
+                    if(p.z > loc.z) {
+                        return region::flu;
+                    } else {
+                        return region::fld;
+                    }
+                }
+            } else {
+                if(p.y > loc.y) {
+                    if(p.z > loc.z) {
+                        return region::bru;
+                    } else {
+                        return region::brd;
+                    }
+                } else {
+                    if(p.z > loc.z) {
+                        return region::blu;
+                    } else {
+                        return region::bld;
+                    }
+                }
+            }
         }
+
         std::unique_ptr<Node<T>> root{nullptr};
     };
 }
