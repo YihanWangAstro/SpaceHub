@@ -7,7 +7,7 @@
 #include "particle/point-particle.tpp"
 #include "particle/finite-size.tpp"
 
-#include "solver.h"
+#include "simulator.h"
 
 #include "interaction/newtonian.h"
 
@@ -26,4 +26,12 @@
 #include "orbits/orbits.h"
 
 #include "tools/auto-name.tpp"
+
+namespace space{
+    using DefaultTypes = Types<double, std::vector>;
+
+    template<template <class> class Paticles, typename Force>
+    using DefaultSolver = Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::logH>, odeIterator::BSIterator<double>>;
+}
+
 #endif

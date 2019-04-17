@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 
     using iter = BSIterator<double>;
 
-    using simulation = Solver<sys, iter>;
+    using simulation = Simulator<sys, iter>;
 
     using particle = typename simulation::Particle;
 
@@ -54,9 +54,9 @@ int main(int argc, char **argv) {
 
     eng_file << std::setprecision(16);
 
-    args.add_pre_step_option(argsCallback::DefaultWriter("solar.dat", 0, 10 * year));
+    args.add_pre_step_option(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, 10 * year));
 
-    args.add_pre_step_option([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; });
+    args.add_pre_step_option(argsOpt::TimeSlice([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; }, 0, 10 * year));
 
     args.add_stop_condition(10 * year);
 

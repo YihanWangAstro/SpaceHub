@@ -9,63 +9,85 @@
 #include <iomanip>
 #include <memory>
 
-namespace space::argsCallback {
+namespace space::argsOpt {
 
-    template<typename Ostream>
-    class BaseWriter {
+    template<typename Operation>
+    class TimeSlice {
     public:
-        BaseWriter(Ostream &os_, double start_, double end_, size_t snapshot_num = 5000, bool flush = false)
-                : os{os_},
-                  write_time_{start_},
+        TimeSlice(Operation &&opt, double start_, double end_, size_t opt_num = 5000)
+                : opt_{std::forward<Operation>(opt)},
+                  opt_time_{start_},
                   end_time_{end_},
-                  write_interval_{(end_ - start_) / snapshot_num},
-                  flush_immediate_{flush} {}
+                  opt_interval_{(end_ - start_) / opt_num} {}
 
         template<typename ParticleSys>
         inline void operator()(ParticleSys &ptc) {
             auto t = ptc.time();
-            if (t >= write_time_ && write_time_ <= end_time_) {
-                os << ptc << '\n';
-                if (flush_immediate_) {
-                    os << std::endl;
-                }
-                write_time_ += write_interval_;
+            if (t >= opt_time_ && opt_time_ <= end_time_) {
+                opt_(ptc);
+                opt_time_ += opt_interval_;
             }
         }
 
-        BaseWriter(BaseWriter const &other) = default;
+        TimeSlice(TimeSlice &&other) noexcept = default;
 
-        BaseWriter &operator=(BaseWriter const &) = default;
+        TimeSlice(TimeSlice const &other) = default;
 
-        BaseWriter &operator=(BaseWriter &&) = default;
+        TimeSlice &operator=(TimeSlice const &) = default;
 
-        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false) {
-            write_time_ = start_;
+        TimeSlice &operator=(TimeSlice &&) noexcept = default;
+
+        void reset_slice_params(double start_, double end_, size_t opt_num = 5000) {
+            opt_time_ = start_;
             end_time_ = end_;
-            write_interval_ = (end_ - start_) / snapshot_num;
-            flush_immediate_ = flush;
-        }
-
-        template<typename T>
-        friend BaseWriter &operator<<(BaseWriter &wtr, T const &d) {
-            wtr.os << d;
-            return wtr;
+            opt_interval_ = (end_ - start_) / opt_num;
         }
 
     private:
-        Ostream &os;
-        double write_time_{0};
+        Operation opt_;
+        double opt_time_{0};
         double end_time_{0};
-        double write_interval_{0};
-        bool flush_immediate_{false};
+        double opt_interval_{0};
+    };
+
+    template<typename Operation>
+    class StepSlice {
+    public:
+        explicit StepSlice(Operation &&opt, size_t step_interval = 1)
+                : opt_{std::forward<Operation>(opt)},
+                  step_interval_{step_interval} {}
+
+        template<typename ParticleSys>
+        inline void operator()(ParticleSys &ptc) {
+            if (step_ % step_interval_ == 0) {
+                opt_(ptc);
+            }
+            step_++;
+        }
+
+        StepSlice(StepSlice &&other) noexcept = default;
+
+        StepSlice(StepSlice const &other) = default;
+
+        StepSlice &operator=(StepSlice const &) = default;
+
+        StepSlice &operator=(StepSlice &&) noexcept = default;
+
+        void reset_slice_params(size_t step_interval) {
+            step_ = 0;
+            step_interval_ = step_interval;
+        }
+
+    private:
+        Operation opt_;
+        size_t step_{0};
+        size_t step_interval_{0};
     };
 
     class DefaultWriter {
     public:
-        DefaultWriter(std::string const &file_name, double start_, double end_, size_t snapshot_num = 5000,
-                      bool flush = false)
-                : fstream_{std::make_shared<std::ofstream>(file_name)},
-                  writer_{*fstream_, start_, end_, snapshot_num, flush} {
+        explicit DefaultWriter(std::string const &file_name)
+                : fstream_{std::make_shared<std::ofstream>(file_name)} {
             if (!fstream_->is_open()) {
                 SPACEHUB_ABORT("Fail to open the file " + file_name);
             } else {
@@ -73,30 +95,19 @@ namespace space::argsCallback {
             }
         }
 
-        DefaultWriter(DefaultWriter const &) = default;
-
-        DefaultWriter &operator=(DefaultWriter const &) = default;
-
-        DefaultWriter(DefaultWriter &&other) = default;
-
         template<typename ParticleSys>
         inline void operator()(ParticleSys &ptc) {
-            writer_(ptc);
-        }
-
-        void reset_output_params(double start_, double end_, size_t snapshot_num = 5000, bool flush = false) {
-            writer_.reset_output_params(start_, end_, snapshot_num, flush);
+            *fstream_ << ptc << '\n';
         }
 
         template<typename T>
         friend DefaultWriter &operator<<(DefaultWriter &wtr, T const &d) {
-            wtr.writer_ << d;
+            (*wtr.fstream_) << d;
             return wtr;
         }
 
     private:
         std::shared_ptr<std::ofstream> fstream_;
-        BaseWriter<std::ofstream> writer_;
     };
 }
 #endif

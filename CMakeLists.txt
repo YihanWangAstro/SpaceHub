@@ -26,7 +26,7 @@ set(TMP_HEADER_FILES
         src/own-math.h
         src/particle-system/base-system.tpp
         src/particle.h
-        src/solver.h
+        src/simulator.h
         src/spaceHub.h
         src/type-class.h
         src/orbits/orbits.h

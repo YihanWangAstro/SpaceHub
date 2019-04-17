@@ -41,11 +41,11 @@ namespace space {
 
         ARchainSystem(ARchainSystem const &) = default;
 
-        ARchainSystem(ARchainSystem &&) = default;
+        ARchainSystem(ARchainSystem &&) noexcept = default;
 
         ARchainSystem &operator=(ARchainSystem const &) = default;
 
-        ARchainSystem &operator=(ARchainSystem &&) = default;
+        ARchainSystem &operator=(ARchainSystem &&) noexcept = default;
 
         static constexpr ReguType regu_type{RegType};
 
@@ -232,7 +232,6 @@ namespace space {
             advance_omega(aux_vel_, newtonian_acc_, phy_time);
             advance_bindE(aux_vel_, ext_vel_dep_acc_, phy_time);
         }
-
 
         Particles ptc_;
         Forces forces_;

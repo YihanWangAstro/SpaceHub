@@ -33,7 +33,7 @@ namespace space::octree{
         template <typename STL>
         Octree(STL& stl) {
             for(auto& d : stl) {
-                insert()
+                insert();
             }
         }
     private:

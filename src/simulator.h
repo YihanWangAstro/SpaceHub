@@ -80,7 +80,7 @@ namespace space {
     };
 
     template<typename ParticSys, typename OdeIterator>
-    class Solver {
+    class Simulator {
     public:
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
@@ -90,23 +90,23 @@ namespace space {
         SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
 
         /* Typedef */
-        Solver() = delete;
+        Simulator() = delete;
 
-        Solver(Solver const &) = default;
+        Simulator(Simulator const &) = default;
 
-        Solver(Solver &&) = default;
+        Simulator(Simulator &&) = default;
 
-        Solver&operator=(Solver const &) = default;
+        Simulator&operator=(Simulator const &) = default;
 
-        Solver&operator=(Solver &&) = default;
+        Simulator&operator=(Simulator &&) = default;
 
         template<typename STL>
-        Solver(Scalar t, STL const &partc) : particles_(t, partc) {
+        Simulator(Scalar t, STL const &partc) : particles_(t, partc) {
             static_assert(is_container_v<STL>, "Only STL-like container can be used");
         }
 
         template<typename ...T>
-        explicit Solver(Scalar t, T const &...p) : Solver(t, std::initializer_list<Particle>{p...}) {
+        explicit Simulator(Scalar t, T const &...p) : Simulator(t, std::initializer_list<Particle>{p...}) {
             static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particle type!");
         }
 
@@ -132,7 +132,7 @@ namespace space {
             arg.stop_options(particles_);
         }
 
-        virtual ~Solver() = default; /**< @brief Default destructor, virtualize for inherent class*/
+        virtual ~Simulator() = default; /**< @brief Default destructor, virtualize for inherent class*/
     private:
         void advance_one_step() {
             particles_.pre_iter_process();
