@@ -90,7 +90,6 @@ namespace space {
         return 1 / sqrt(x);
     }
 
-
     template<>
     inline float KarmackFastInverseSquareRoot<float>(float x) {
         float xhalf = 0.5f * x;

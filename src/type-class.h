@@ -3,7 +3,6 @@
 
 #include "vector/vector3.h"
 #include "dev-tools.h"
-#include <array>
 #include <vector>
 
 namespace space {
