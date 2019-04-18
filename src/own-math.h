@@ -61,8 +61,11 @@ namespace space {
     };
 
     template <typename T>
+    constexpr T epsilon_v = epsilon<T>::value;
+
+    template <typename T>
     inline bool iseq(T x, T y){
-        return fabs(x-y) < std::numeric_limits<T>::epsilon();
+        return fabs(x-y) < epsilon_v<T>;
     }
 
     /**

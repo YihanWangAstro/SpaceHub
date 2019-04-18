@@ -18,13 +18,13 @@ int main(int argc, char **argv) {
 
     //using particles = SoAFiniteSizeParticles<type>;
 
-    using sys = SimpleSystem<particles, force>;
+    //using sys = SimpleSystem<particles, force>;
 
     //using sys = RegularizedSystem <particles, force, ReguType::logH>;
 
     //using sys = ChainSystem <particles, force>;
 
-    //using sys = ARchainSystem <particles, force, ReguType::TTL>;
+    using sys = ARchainSystem <particles, force, ReguType::TTL>;
 
     //using iter = ConstOdeIterator<symplectic2th>;
 
@@ -54,11 +54,13 @@ int main(int argc, char **argv) {
 
     eng_file << std::setprecision(16);
 
-    args.add_pre_step_option(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, 10 * year));
+    auto end_time = 10*year;
 
-    args.add_pre_step_option(argsOpt::TimeSlice([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; }, 0, 10 * year));
+    args.add_pre_step_option(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
 
-    args.add_stop_condition(10 * year);
+    args.add_pre_step_option(argsOpt::TimeSlice([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; }, 0, end_time));
+
+    args.add_stop_condition(end_time);
 
     simulation nbody{0, sun, earth, moon};
 

@@ -14,8 +14,8 @@ namespace space::argsOpt {
     template<typename Operation>
     class TimeSlice {
     public:
-        TimeSlice(Operation &&opt, double start_, double end_, size_t opt_num = 5000)
-                : opt_{std::forward<Operation>(opt)},
+        TimeSlice(Operation const &opt, double start_, double end_, size_t opt_num = 5000)
+                : opt_{opt},
                   opt_time_{start_},
                   end_time_{end_},
                   opt_interval_{(end_ - start_) / opt_num} {}
@@ -53,8 +53,8 @@ namespace space::argsOpt {
     template<typename Operation>
     class StepSlice {
     public:
-        explicit StepSlice(Operation &&opt, size_t step_interval = 1)
-                : opt_{std::forward<Operation>(opt)},
+        explicit StepSlice(Operation const&opt, size_t step_interval = 1)
+                : opt_{opt},
                   step_interval_{step_interval} {}
 
         template<typename ParticleSys>

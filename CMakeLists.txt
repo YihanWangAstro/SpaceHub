@@ -52,8 +52,12 @@ set(SOURCE_FILES
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp
         src/interaction/post-newtonian.h src/particle-system/octree.h)
+set(KOZAI_TEST
+        test/regression_test/kozai.cpp src/ode-iterator/BS-iterator0.h)
 #add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})
 #target_link_libraries(SpaceHub_unit_test gtest gtest_main)
 #target_link_libraries(SpaceHub_unit_test gmock gmock_main)
+add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 
 add_executable(SpaceHub_reg_test ${TMP_HEADER_FILES} ${REGRESSION_TEST})
+

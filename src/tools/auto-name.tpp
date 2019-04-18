@@ -10,7 +10,7 @@
 #include <ctime>
 #include <sstream>
 
-namespace space::Tools {
+namespace space::tools {
 
     std::string auto_name(std::string const &prefix = "space_") {
             static int duplicate = 1;

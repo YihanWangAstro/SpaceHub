@@ -74,7 +74,7 @@ namespace space {
             to_cartesian(chain.z, cartesian.z, index);
         }*/
     private:
-        static constexpr bool manual_move{false};
+        static constexpr bool manual_move{true};
 
         template<typename T>
         static bool not_in_list(std::list<T> &list, T var) {

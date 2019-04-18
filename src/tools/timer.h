@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <iostream>
 
-namespace space::Tools {
+namespace space::tools {
     class Timer {
         using Time = std::chrono::time_point<std::chrono::high_resolution_clock>;
     public:
