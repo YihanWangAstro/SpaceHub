@@ -13,27 +13,27 @@
 namespace space::tools {
 
     std::string auto_name(std::string const &prefix = "space_") {
-            static int duplicate = 1;
-            static std::string last_name;
+        static int duplicate = 1;
+        static std::string last_name;
 
-            auto t = std::time(nullptr);
-            auto tm = *std::localtime(&t);
-            std::ostringstream oss;
-            oss << std::put_time(&tm, "%d-%m-%Y_%H:%M:%S");
+        auto t = std::time(nullptr);
+        auto tm = *std::localtime(&t);
+        std::ostringstream oss;
+        oss << std::put_time(&tm, "%d-%m-%Y_%H:%M:%S");
 
-            auto name = prefix + oss.str();
+        auto name = prefix + oss.str();
 
-            if (name == last_name) {
-                    return name + '(' + std::to_string(duplicate++) + ").dat";
-            } else {
-                    duplicate = 1;
-                    last_name = name;
-                    return name + ".dat";
-            }
+        if (name == last_name) {
+            return name + '(' + std::to_string(duplicate++) + ").dat";
+        } else {
+            duplicate = 1;
+            last_name = name;
+            return name + ".dat";
+        }
     }
 
     std::string make_name(std::string const &prefix, int suffix, std::string const &extension = ".dat") {
-            return prefix + std::to_string(suffix) + extension;
+        return prefix + std::to_string(suffix) + extension;
     }
 }
 #endif //SPACEHUB_AUTO_NAME_H
