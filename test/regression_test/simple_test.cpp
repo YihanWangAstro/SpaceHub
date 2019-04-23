@@ -56,9 +56,10 @@ int main(int argc, char **argv) {
 
     auto end_time = 10*year;
 
-    args.add_pre_step_option(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
+    args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
 
-    args.add_pre_step_option(argsOpt::TimeSlice([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; }, 0, end_time));
+    args.add_pre_step_operation(
+            argsOpt::TimeSlice([&](auto &ptc) { eng_file << calc::calc_total_energy(ptc) << '\n'; }, 0, end_time));
 
     args.add_stop_condition(end_time);
 

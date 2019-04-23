@@ -17,19 +17,19 @@ namespace space {
         Scalar step_size{0};
         Scalar end_time{0};
 
-        void pre_options(ParticleSys &partc_sys) const {
+        void pre_operations(ParticleSys &partc_sys) const {
             for (auto const &opt : pre_opts_) {
                 opt(partc_sys);
             }
         }
 
-        void post_options(ParticleSys &partc_sys) const {
+        void post_operations(ParticleSys &partc_sys) const {
             for (auto const &opt : post_opts_) {
                 opt(partc_sys);
             }
         }
 
-        void stop_options(ParticleSys &partc_sys) const {
+        void stop_operations(ParticleSys &partc_sys) const {
             for (auto const &opt : stop_opts_) {
                 opt(partc_sys);
             }
@@ -44,19 +44,19 @@ namespace space {
         }
 
         template<typename Func, typename ...Args>
-        void add_pre_step_option(Func &&func, Args &&...args) {
+        void add_pre_step_operation(Func &&func, Args &&...args) {
             pre_opts_.emplace_back(
                     std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
         template<typename Func, typename ...Args>
-        void add_post_step_option(Func &&func, Args &&...args) {
+        void add_post_step_operation(Func &&func, Args &&...args) {
             post_opts_.emplace_back(
                     std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
 
         template<typename Func, typename ...Args>
-        void add_stop_point_option(Func &&func, Args &&...args) {
+        void add_stop_point_operation(Func &&func, Args &&...args) {
             stop_opts_.emplace_back(
                     std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
         }
@@ -125,11 +125,11 @@ namespace space {
                 if (arg.check_stops(particles_))
                     break;
 
-                arg.pre_options(particles_);
+                arg.pre_operations(particles_);
                 advance_one_step();
-                arg.post_options(particles_);
+                arg.post_operations(particles_);
             }
-            arg.stop_options(particles_);
+            arg.stop_operations(particles_);
         }
 
         virtual ~Simulator() = default; /**< @brief Default destructor, virtualize for inherent class*/

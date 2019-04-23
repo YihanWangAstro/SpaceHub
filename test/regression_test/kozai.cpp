@@ -33,7 +33,7 @@ int main() {
 
     auto writer = [&](auto& ptc){ output << calc::calc_total_energy(ptc) << ' ' << ptc << '\n';};
 
-    args.add_pre_step_option(argsOpt::TimeSlice(writer,0, end_time));
+    args.add_pre_step_operation(argsOpt::TimeSlice(writer, 0, end_time));
 
     args.add_stop_condition(end_time);
 
