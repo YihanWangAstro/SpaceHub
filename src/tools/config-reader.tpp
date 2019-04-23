@@ -12,7 +12,7 @@
 #include <variant>
 #include "../dev-tools.h"
 
-namespace SpaceH::Tools {
+namespace space::tools {
 
     enum class ConfigDtype{
         Integer,Float, String, Empty
@@ -99,7 +99,7 @@ namespace SpaceH::Tools {
 
         friend std::ostream &operator<<(std::ostream &os, ConfigReader const &config) {
             for (auto&[key, value] : config.map_) {
-                SpaceH::print(os, key, '=', value, '\n');
+                space::print(os, key, '=', value, '\n');
             }
         }
 
