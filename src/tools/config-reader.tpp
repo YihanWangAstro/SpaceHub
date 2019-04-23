@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <sstream>
 #include <variant>
-#include "dev-tools.h"
+#include "../dev-tools.h"
 
 namespace SpaceH::Tools {
 
