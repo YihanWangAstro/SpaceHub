@@ -2,7 +2,7 @@
 // Created by yihan on 4/17/19.
 //
 #include <iomanip>
-#include "spaceHub.h"
+#include "../../src/spaceHub.h"
 using namespace space;
 int main() {
     using Simulation = DefaultSolver<>;
