@@ -62,6 +62,18 @@ namespace space {
         (..., (args.reserve(new_cap)));
     }
 
+    template<typename... Args>
+    void clear_all(Args &&... args) {
+        (..., (args.clear()));
+    }
+
+    template<typename... Args>
+    void shrink_to_fit_all(Args &&... args) {
+        (..., (args.shrink_to_fit()));
+    }
+
+
+
     template <typename ...Args>
     void spacehub_abort(Args&& ...args){
         space::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");
