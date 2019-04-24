@@ -61,7 +61,7 @@ namespace space::calc {
         size_t size = dst.size();
 
         for (size_t i = 0; i < size; i++) {
-            dst[i] = a[i] * b[i] * (args[i] + ...);
+            dst[i] = a[i] * b[i] * (args[i] * ...);
         }
     }
 
