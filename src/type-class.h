@@ -18,26 +18,22 @@ namespace space {
 
         Coords(Coords const & other) = default;
 
-        Coords(Coords&& other) = default;
+        Coords(Coords&& other) noexcept = default;
 
         Coords& operator=(Coords const& other) = default;
 
-        Coords& operator=(Coords && other) = default;
+        Coords& operator=(Coords && other) noexcept = default;
 
         size_t size() const {
             return x.size();
         }
 
         void reserve(size_t new_cap){
-            x.reserve(new_cap);
-            y.reserve(new_cap);
-            z.reserve(new_cap);
+            reserve_all(new_cap, x, y, z);
         }
 
         void resize(size_t new_sz){
-            x.resize(new_sz);
-            y.resize(new_sz);
-            z.resize(new_sz);
+            resize_all(new_sz, x, y, z);
         }
 
         template<typename Vector>
@@ -54,15 +50,11 @@ namespace space {
         }
 
         void shrink_to_fit() {
-            x.shrink_to_fit();
-            y.shrink_to_fit();
-            z.shrink_to_fit();
+            shrink_to_fit_all(x, y, z);
         }
 
         void clear() {
-            x.clear();
-            y.clear();
-            z.clear();
+            clear_all(x, y, z);
         }
 
         T x;
