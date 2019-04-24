@@ -251,12 +251,12 @@ namespace space::odeIterator {
         }
 
     private:
-        /** @brief The Maximum iteration depth*/
-        static constexpr size_t max_depth_{8};
-
         static constexpr Scalar S1{0.95};
 
         static constexpr Scalar S2{0.95};
+
+        /** @brief The Maximum iteration depth*/
+        static constexpr size_t max_depth_{8};
 
         static constexpr bool most_offensive_err{true};
 
