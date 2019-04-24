@@ -86,7 +86,7 @@ namespace space {
 
 #define SPACEHUB_ABORT(...) {                                                                                          \
     space::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");                                                 \
-    space::print(std::cout, __VA_ARGS__);                                                                             \
+    space::print(std::cout, __VA_ARGS__);                                                                              \
     exit(0);                                                                                                           \
 }
 
