@@ -4,6 +4,8 @@
 #include <iomanip>
 #include "../../src/spaceHub.h"
 using namespace space;
+using namespace orbit;
+using namespace argsOpt;
 int main() {
     using Simulation = DefaultSolver<>;
     using Particle = Simulation::Particle;
@@ -13,13 +15,13 @@ int main() {
     auto a1 = 0.5*unit::au;
     auto a2 = 5*unit::au;
 
-    orbit::move_particles_to(orbit::Kepler(m1.mass + m2.mass, a1, 0, 25.01*unit::deg, 0, 90*unit::deg, orbit::thermal), m2);
+    move_particles_to(Kepler(total_mass(m1, m2), a1, 0, 25.01*unit::deg, 0, 90*unit::deg, thermal), m2);
 
-    orbit::move_to_com_coord(m1, m2);
+    move_to_com_coord(m1, m2);
 
-    orbit::move_particles_to(orbit::Kepler(m1.mass + m2.mass + m3.mass, a2, 0, -64.99*unit::deg, 0, 0, orbit::thermal), m3);
+    move_particles_to(Kepler(total_mass(m1, m2, m3), a2, 0, -64.99*unit::deg, 0, 0, thermal), m3);
 
-    orbit::move_to_com_coord(m1, m2, m3);
+    move_to_com_coord(m1, m2, m3);
 
     Simulation kozai_test{0, m1, m2, m3};
 
@@ -33,7 +35,7 @@ int main() {
 
     auto writer = [&](auto& ptc){ output << calc::calc_total_energy(ptc) << ' ' << ptc << '\n';};
 
-    args.add_pre_step_operation(argsOpt::TimeSlice(writer, 0, end_time));
+    args.add_pre_step_operation(TimeSlice(writer, 0, end_time));
 
     args.add_stop_condition(end_time);
 
