@@ -60,7 +60,7 @@ namespace space::multiThread {
         ConcurrentFile(const char *file_name, std::ios_base::openmode mode) :
                 file_(std::make_shared<std::fstream>(file_name, mode)), mutex_(std::make_shared<std::mutex>()) {
             if (!file_->is_open()) {
-                SPACEHUB_ABORT("Unable to open file: ", file_name);
+                spacehub_abort("Unable to open file: ", file_name);
             }
         }
 

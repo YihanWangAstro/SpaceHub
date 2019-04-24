@@ -34,7 +34,7 @@ namespace space {
             } else if constexpr (Type == ReguType::none) {
                 return step_size;
             } else {
-                SPACEHUB_ABORT("Undefined regularization type!");
+                spacehub_abort("Undefined regularization type!");
             }
         }
 
@@ -47,7 +47,7 @@ namespace space {
             } else if constexpr (Type == ReguType::none) {
                 return step_size;
             } else {
-                SPACEHUB_ABORT("Undefined regularization type!");
+                spacehub_abort("Undefined regularization type!");
             }
         }
 

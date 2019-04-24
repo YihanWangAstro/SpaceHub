@@ -265,7 +265,7 @@ namespace space::odeIterator {
                     }
                     return optm_step_coef_[ideal_iter_];
 
-                default: SPACEHUB_ABORT("unexpected iteration index!");
+                default: spacehub_abort("unexpected iteration index!");
             }
         }
 

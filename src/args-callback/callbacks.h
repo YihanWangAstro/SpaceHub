@@ -89,7 +89,7 @@ namespace space::argsOpt {
         explicit DefaultWriter(std::string const &file_name)
                 : fstream_{std::make_shared<std::ofstream>(file_name)} {
             if (!fstream_->is_open()) {
-                SPACEHUB_ABORT("Fail to open the file " + file_name);
+                spacehub_abort("Fail to open the file " + file_name);
             } else {
                 (*fstream_) /*<< std::fixed*/ << std::setprecision(16);
             }

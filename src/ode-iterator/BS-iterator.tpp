@@ -226,7 +226,7 @@ namespace space::odeIterator {
             } else if (ideal_k <= k) {
                 return optm_step_coef_[ideal_k];
             } else {
-                SPACEHUB_ABORT("Unexpected iteration steps!");
+                spacehub_abort("Unexpected iteration steps!");
             }
         }
 

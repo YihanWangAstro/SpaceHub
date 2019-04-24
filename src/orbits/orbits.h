@@ -46,7 +46,7 @@ namespace space::orbit {
         else if (iseq(e, 1.0))
             return 2 * atan(0.5 * E);
         else {
-            SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");
+            spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
             return 0;
         }
     }
@@ -61,7 +61,7 @@ namespace space::orbit {
         else if (fabs(e - 1) < space::epsilon<Scalar>::value)
             return space::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
         else {
-            SPACEHUB_ABORT("Eccentrcity cannot be negative, Nan or inf!");
+            spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
             return 0;
         }
     }
@@ -105,11 +105,11 @@ namespace space::orbit {
 
         OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP,
                   Variant true_anomaly) {
-            if (_p_ < 0) SPACEHUB_ABORT("Semi-latus rectum cannot be negative");
+            if (_p_ < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
             orbit_type = classify_orbit(_e_);
 
-            if (orbit_type == OrbitType::none) SPACEHUB_ABORT("Eccentrcity cannot be negative or NaN!");
+            if (orbit_type == OrbitType::none) spacehub_abort("Eccentrcity cannot be negative or NaN!");
 
             u = tot_mass * consts::G;
             p = _p_;
@@ -158,7 +158,7 @@ namespace space::orbit {
                 Scalar E = orbit::calc_eccentric_anomaly(M, e);
                 nu = orbit::calc_true_anomaly(E, e);
             } else {
-                SPACEHUB_ABORT("Only elliptical orbit provides random anomaly method at this moment!");
+                spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
             }
         }
 

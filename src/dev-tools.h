@@ -62,6 +62,13 @@ namespace space {
         (..., (args.reserve(new_cap)));
     }
 
+    template <typename ...Args>
+    void spacehub_abort(Args&& ...args){
+        space::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");
+        space::print(std::cout, std::forward<Args>(args)...);
+        exit(0);
+    }
+
     class Empty{};
 
     template<typename T>
@@ -84,11 +91,6 @@ namespace space {
 #define MACRO_CAT_II(P, REST) REST
 #define UNIQ(BASE) MACRO_CAT(BASE, __LINE__)
 
-#define SPACEHUB_ABORT(...) {                                                                                          \
-    space::print(std::cout, __FILE__, ": Line :",  __LINE__ , "\r\n");                                                 \
-    space::print(std::cout, __VA_ARGS__);                                                                              \
-    exit(0);                                                                                                           \
-}
 
 #define PACK(...) std::forward_as_tuple(__VA_ARGS__)
 

@@ -61,7 +61,7 @@ namespace space::tools {
                     map_[key] = val;
                 }
             } else {
-                SPACEHUB_ABORT("Cannot open the configure file: ", file_name, "\r\n");
+                spacehub_abort("Cannot open the configure file: ", file_name, "\r\n");
             }
         }
 
@@ -77,7 +77,7 @@ namespace space::tools {
                 ss >> value;
                 return value;
             } else {
-                SPACEHUB_ABORT("Invalid key for configure file!");
+                spacehub_abort("Invalid key for configure file!");
             }
         }
 
@@ -93,7 +93,7 @@ namespace space::tools {
                     return map_[key];
                 }
             } else {
-                SPACEHUB_ABORT("Invalid key for configure file!");
+                spacehub_abort("Invalid key for configure file!");
             }
         }
 
@@ -120,7 +120,7 @@ auto[__VA_ARGS__] = config_map(#__VA_ARGS__);
         constexpr size_t n = sizeof...(Args);
 
         if (argc != n + 1) {
-            SPACEHUB_ABORT("Wrong args number!");
+            spacehub_abort("Wrong args number!");
         } else {
             std::stringstream ss;
             for (int i = 1; i < argc; ++i) {
