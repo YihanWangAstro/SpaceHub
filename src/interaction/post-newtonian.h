@@ -20,18 +20,31 @@ namespace space::interactions {
     public:
         template<typename Particles>
         void impl_eval_acc(Particles const &partc, typename Particles::Coord &acc) {
-            impl_eval_newtonian_acc(partc, acc);
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            add_newtonian_acc(partc, acc);
+            add_extra_vel_dep_acc(partc, acc);
         }
 
         template<typename Particles>
         void impl_eval_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            add_newtonian_acc(partc, acc);
+        }
+
+        template<typename Particles>
+        void impl_eval_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc){
+            calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            add_extra_vel_dep_acc(partc, acc);
+        }
+
+    private:
+        template<typename Particles>
+        void add_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
             size_t num = partc.number();
             auto &px = partc.pos().x;
             auto &py = partc.pos().y;
             auto &pz = partc.pos().z;
             auto &m = partc.mass();
-
-            calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
                 auto r   = sqrt(dx * dx + dy * dy + dz * dz);
@@ -75,14 +88,12 @@ namespace space::interactions {
         }
 
         template<typename Particles>
-        void impl_eval_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc){
+        void add_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc) {
             size_t num = partc.number();
             auto &px = partc.pos().x;
             auto &py = partc.pos().y;
             auto &pz = partc.pos().z;
             auto &m  = partc.mass();
-
-            calc::set_arrays_zero(acc.x, acc.y, acc.z);
 
             if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, chain_vel) &&
                           HAS_METHOD(Particles, index)) {
@@ -149,7 +160,7 @@ namespace space::interactions {
             }
         }
 
-    private:
+
         template<typename Scalar>
         void add_1st_order_acc(Scalar dx, Scalar dy, Scalar dz) {
 
