@@ -67,23 +67,23 @@ namespace space {
     class SoAParticles {
     public:
         //public methods
-        DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
-
         DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
 
-        DECLARE_CRTP_ACCESSOR(Derived, auto, time);
+        DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
         DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
+
+        DECLARE_CRTP_ACCESSOR(Derived, auto, time);
 
         DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
         Derived &derived();
 
-        void resize(size_t new_sz);
+        size_t number() const;
 
         void reserve(size_t new_cap);
 
-        size_t number() const;
+        void resize(size_t new_sz);
 
     private:
         //constructors
@@ -101,8 +101,8 @@ namespace space {
     }
 
     template<typename Derived>
-    void SoAParticles<Derived>::resize(size_t new_sz) {
-        static_cast<Derived *>(this)->impl_resize(new_sz);
+    size_t SoAParticles<Derived>::number() const {
+        return static_cast<Derived const *>(this)->impl_number();
     }
 
     template<typename Derived>
@@ -111,8 +111,8 @@ namespace space {
     }
 
     template<typename Derived>
-    size_t SoAParticles<Derived>::number() const {
-        return static_cast<Derived const *>(this)->impl_number();
+    void SoAParticles<Derived>::resize(size_t new_sz) {
+        static_cast<Derived *>(this)->impl_resize(new_sz);
     }
 
     /*---------------------------------------------------------------------------*\
@@ -121,7 +121,8 @@ namespace space {
     template<typename T>
     constexpr bool is_soa_particles_v = std::is_base_of_v<SoAParticles<T>, T>;
 
-#define SPACEHUB_PARTICLE_TYPE_CHECK(CTR, VAL) static_assert(std::is_base_of_v<typename CTR::value_type, VAL>, "Class can only be initialized by containers with its internal 'Particle' type!");
+#define SPACEHUB_PARTICLE_TYPE_CHECK(CTR, VAL) static_assert(std::is_base_of_v<typename CTR::value_type, VAL>,         \
+        "Class can only be initialized by containers with its internal 'Particle' type!");
 
 }
 #endif

@@ -7,7 +7,7 @@
 #include <condition_variable>
 #include <fstream>
 #include <queue>
-#include "dev-tools.h"
+#include "../dev-tools.h"
 
 namespace space::multiThread {
     template<typename T>
@@ -22,10 +22,10 @@ namespace space::multiThread {
                         cv_.wait(lock, [&] { return stop_ || !queue_.empty(); });
 
                         if (stop_)
-                            return;
+                            break;
 
                         T data = std::move(queue_.front());
-                        queue_.pop_front();
+                        queue_.pop();
                         lock.unlock();
 
                         file_ << data;
@@ -33,7 +33,7 @@ namespace space::multiThread {
 
                     while (!queue_.empty()) {
                         file_ << queue_.front();
-                        queue_.pop_front();
+                        queue_.pop();
                     }
 
                 })) {}
@@ -52,7 +52,7 @@ namespace space::multiThread {
         friend void operator<<(Opip &out, T &&tup) {
             {
                 std::lock_guard<std::mutex> lock(out.mutex_);
-                out.queue_.emplace_back(std::forward<T>(tup));
+                out.queue_.emplace(std::forward<T>(tup));
             }
             out.cv_.notify_one();
         }
@@ -83,7 +83,7 @@ namespace space::multiThread {
                             for (size_t i = 0; i < 100 && !file_.eof(); ++i) {
                                 T data;
                                 file_ >> data;
-                                queue_.emplace_back(std::move(data));
+                                queue_.emplace(std::move(data));
                             }
                         }
                         cv_io_.notify_all();
@@ -117,7 +117,7 @@ namespace space::multiThread {
                 return false;
 
             tup = std::move(in.queue_.front());
-            in.queue_.pop_front();
+            in.queue_.pop();
 
             if (in.queue_.empty())
                 in.cv_load_.notify_one();

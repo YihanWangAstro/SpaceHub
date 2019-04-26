@@ -60,7 +60,9 @@ set(SOURCE_FILES
         src/tools/auto-name.tpp
         src/rand-generator.tpp
         src/interaction/tidal.h
-        test/unit_test/test_chain.cpp)
+        test/unit_test/test_chain.cpp
+        src/coords.h
+        )
 
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp
@@ -69,7 +71,7 @@ set(REGRESSION_TEST
 
 set(KOZAI_TEST
         test/regression_test/kozai.cpp
-        src/ode-iterator/BS-iterator0.h)
+        src/ode-iterator/BS-iterator0.h src/coords.h)
 #add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})
 #target_link_libraries(SpaceHub_unit_test gtest gtest_main)
 #target_link_libraries(SpaceHub_unit_test gmock gmock_main)

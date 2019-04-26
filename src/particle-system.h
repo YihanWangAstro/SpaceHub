@@ -9,9 +9,13 @@
 
 namespace space {
 
+    /*---------------------------------------------------------------------------*\
+        Class ParticleSystem Declaration
+    \*---------------------------------------------------------------------------*/
     template<typename Derived>
     class ParticleSystem {
     public:
+        //public methods
         DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
         DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
@@ -22,79 +26,134 @@ namespace space {
 
         DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
-        size_t number() const {
-            return static_cast<Derived const*>(this)->impl_number();
-        }
+        size_t number() const;
 
         template<typename Scalar>
-        void advance_time(Scalar dt) {
-            static_cast<Derived *>(this)->impl_advance_time(dt);
-        }
+        void advance_time(Scalar dt);
 
         template<typename Coord, typename Scalar>
-        void advance_pos(Scalar step_size, Coord const &velocity) {
-            static_cast<Derived *>(this)->impl_advance_pos(step_size, velocity);
-        }
+        void advance_pos(Scalar step_size, Coord const &velocity);
 
         template<typename Coord, typename Scalar>
-        void advance_vel(Scalar step_size, Coord const &acceleration) {
-            static_cast<Derived *>(this)->impl_advance_vel(step_size, acceleration);
-        }
+        void advance_vel(Scalar step_size, Coord const &acceleration);
 
         template<typename Coord>
-        void evaluate_acc(Coord &acceleration) const {
-            static_cast<Derived const*>(this)->impl_evaluate_acc(acceleration);
-        }
+        void evaluate_acc(Coord &acceleration) const;
 
         template<typename Scalar>
-        void drift(Scalar step_size) {
-            static_cast<Derived *>(this)->impl_drift(step_size);
-        }
+        void drift(Scalar step_size);
 
         template<typename Scalar>
-        void kick(Scalar step_size) {
-            static_cast<Derived *>(this)->impl_kick(step_size);
-        }
+        void kick(Scalar step_size);
 
-        void pre_iter_process() {
-            static_cast<Derived *>(this)->impl_pre_iter_process();
-        }
+        void pre_iter_process();
 
-        void post_iter_process() {
-            static_cast<Derived *>(this)->impl_post_iter_process();
-        }
+        void post_iter_process();
 
         template<typename STL>
-        void to_linear_container(STL & stl) {
-            static_assert(is_container_v<STL>, "Only STL-like container can be used");
-            static_cast<Derived *>(this)->impl_to_linear_container(stl);
-        }
+        void to_linear_container(STL & stl);
 
         template<typename STL>
-        void load_from_linear_container(STL const& stl) {
-            static_assert(is_container_v<STL>, "Only STL-like container can be used");
-            static_cast<Derived *>(this)->impl_load_from_linear_container(stl);
-        }
+        void load_from_linear_container(STL const& stl);
 
-        friend std::ostream &operator<<(std::ostream &os, ParticleSystem const &ps) {
-            os << static_cast<Derived const&>(ps);
-            return os;
-        }
+        friend std::ostream &operator<<(std::ostream &os, ParticleSystem const &ps);
 
-        friend std::istream &operator>>(std::istream &is, ParticleSystem &ps) {
-            is >> static_cast<Derived&>(ps);
-            return is;
-        }
+        friend std::istream &operator>>(std::istream &is, ParticleSystem &ps);
     private:
+        //constructors
         ParticleSystem() = default;
 
+        friend Derived;
+
+        //private methods
         void impl_pre_iter_process() {}//default implementation
 
         void impl_post_iter_process() {}//default implementation
-
-        friend Derived;
     };
 
+    /*---------------------------------------------------------------------------*\
+        Class ParticleSystem Implementation
+    \*---------------------------------------------------------------------------*/
+    template<typename Derived>
+    size_t ParticleSystem<Derived>::number() const {
+        return static_cast<Derived const*>(this)->impl_number();
+    }
+
+    template<typename Derived>
+    template<typename Scalar>
+    void ParticleSystem<Derived>::advance_time(Scalar dt) {
+        static_cast<Derived *>(this)->impl_advance_time(dt);
+    }
+
+    template<typename Derived>
+    template<typename Coord, typename Scalar>
+    void ParticleSystem<Derived>::advance_pos(Scalar step_size, const Coord &velocity) {
+        static_cast<Derived *>(this)->impl_advance_pos(step_size, velocity);
+    }
+
+    template<typename Derived>
+    template<typename Coord, typename Scalar>
+    void ParticleSystem<Derived>::advance_vel(Scalar step_size, const Coord &acceleration) {
+        static_cast<Derived *>(this)->impl_advance_vel(step_size, acceleration);
+    }
+
+    template<typename Derived>
+    template<typename Coord>
+    void ParticleSystem<Derived>::evaluate_acc(Coord &acceleration) const {
+        static_cast<Derived const*>(this)->impl_evaluate_acc(acceleration);
+    }
+
+    template<typename Derived>
+    template<typename Scalar>
+    void ParticleSystem<Derived>::drift(Scalar step_size) {
+        static_cast<Derived *>(this)->impl_drift(step_size);
+    }
+
+    template<typename Derived>
+    template<typename Scalar>
+    void ParticleSystem<Derived>::kick(Scalar step_size) {
+        static_cast<Derived *>(this)->impl_kick(step_size);
+    }
+
+    template<typename Derived>
+    void ParticleSystem<Derived>::pre_iter_process() {
+        static_cast<Derived *>(this)->impl_pre_iter_process();
+    }
+
+    template<typename Derived>
+    void ParticleSystem<Derived>::post_iter_process() {
+        static_cast<Derived *>(this)->impl_post_iter_process();
+    }
+
+    template<typename Derived>
+    template<typename STL>
+    void ParticleSystem<Derived>::to_linear_container(STL &stl) {
+        static_assert(is_container_v<STL>, "Only STL-like container can be used");
+        static_cast<Derived *>(this)->impl_to_linear_container(stl);
+    }
+
+    template<typename Derived>
+    template<typename STL>
+    void ParticleSystem<Derived>::load_from_linear_container(const STL &stl) {
+        static_assert(is_container_v<STL>, "Only STL-like container can be used");
+        static_cast<Derived *>(this)->impl_load_from_linear_container(stl);
+    }
+
+    template<typename Derived>
+    std::ostream &operator<<(std::ostream &os, ParticleSystem<Derived> const &ps) {
+        os << static_cast<Derived const&>(ps);
+        return os;
+    }
+
+    template<typename Derived>
+    std::istream &operator>>(std::istream &is, ParticleSystem<Derived> &ps) {
+        is >> static_cast<Derived&>(ps);
+        return is;
+    }
+
+    /*---------------------------------------------------------------------------*\
+        Help functions and tools
+    \*---------------------------------------------------------------------------*/
     template <typename T>
     constexpr bool is_particle_system_v = std::is_base_of_v<ParticleSystem<T>, T>;
 }
