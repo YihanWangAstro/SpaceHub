@@ -15,7 +15,9 @@ namespace space {
     public:
         //type members
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
+
         using Callback = std::function<void(ParticleSys &)>;
+
         using StopCall = std::function<bool(ParticleSys &)>;
 
         //public members
@@ -24,26 +26,76 @@ namespace space {
         Scalar end_time{0};
 
         //public methods
+        /**
+         *
+         * @param partc_sys
+         */
         void pre_operations(ParticleSys &partc_sys) const;
 
+        /**
+         *
+         * @param partc_sys
+         */
         void post_operations(ParticleSys &partc_sys) const;
 
+        /**
+         *
+         * @param partc_sys
+         */
         void stop_operations(ParticleSys &partc_sys) const;
 
+        /**
+         *
+         * @param partc_sys
+         * @return
+         */
         bool check_stops(ParticleSys &partc_sys) const;
 
+        /**
+         *
+         * @tparam Func
+         * @tparam Args
+         * @param func
+         * @param args
+         */
         template<typename Func, typename ...Args>
         void add_pre_step_operation(Func &&func, Args &&...args);
 
+        /**
+         *
+         * @tparam Func
+         * @tparam Args
+         * @param func
+         * @param args
+         */
         template<typename Func, typename ...Args>
         void add_post_step_operation(Func &&func, Args &&...args);
 
+        /**
+         *
+         * @tparam Func
+         * @tparam Args
+         * @param func
+         * @param args
+         */
         template<typename Func, typename ...Args>
         void add_stop_point_operation(Func &&func, Args &&...args);
 
+        /**
+         *
+         * @tparam Func
+         * @tparam Args
+         * @param func
+         * @param args
+         */
         template<typename Func, typename ...Args>
         void add_stop_condition(Func &&func, Args &&...args);
 
+        /**
+         *
+         * @tparam Scalar
+         * @param end_
+         */
         template<typename Scalar>
         void add_stop_condition(Scalar end_);
 
@@ -66,7 +118,9 @@ namespace space {
     public:
         //Type member
         SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
+
         using RunArgs = space::RunArgs<ParticSys>;
+
         using Particle = typename ParticSys::Particle;
 
         SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
@@ -82,13 +136,29 @@ namespace space {
 
         Simulator &operator=(Simulator &&) noexcept = default;
 
+        /**
+         *
+         * @tparam STL
+         * @param t
+         * @param partc
+         */
         template<typename STL>
         Simulator(Scalar t, STL const &partc);
 
+        /**
+         *
+         * @tparam T
+         * @param t
+         * @param p
+         */
         template<typename ...T>
         explicit Simulator(Scalar t, T const &...p);
 
         //Public methods
+        /**
+         *
+         * @param arg
+         */
         void run(RunArgs const &arg);
 
         virtual ~Simulator() = default; /**< @brief Default destructor, virtualize for inherent class*/

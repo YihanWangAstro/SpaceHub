@@ -16,24 +16,38 @@ namespace space {
     public:
         //type members
         using Scalar = Real;
+
         using Vector = Vec3<Scalar>;
 
         //constructors
         PointParticle() = default;
 
+        /**
+         *
+         * @param m
+         * @param p
+         * @param v
+         */
         explicit PointParticle(Scalar m, Vector p, Vector v);
 
+        /**
+         *
+         * @param m
+         * @param px
+         * @param py
+         * @param pz
+         * @param vx
+         * @param vy
+         * @param vz
+         */
         explicit PointParticle(Scalar m, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                                Scalar vz = 0);
 
-        //friend methods
-        friend std::ostream &operator<<(std::ostream &os, PointParticle const &particle);
-
-        friend std::istream &operator>>(std::istream &is, PointParticle &particle);
-
         //public members
         Vector pos;
+
         Vector vel;
+
         Scalar mass;
     };
 
@@ -59,7 +73,6 @@ namespace space {
         space::input(is, particle.mass, particle.pos, particle.vel);
         return is;
     }
-
     /*---------------------------------------------------------------------------*\
         Class SoAParticles Declaration
     \*---------------------------------------------------------------------------*/
@@ -67,22 +80,58 @@ namespace space {
     class SoAParticles {
     public:
         //public methods
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, time);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
+        /**
+         *
+         * @return
+         */
         Derived &derived();
 
+        /**
+         *
+         * @return
+         */
         size_t number() const;
 
+        /**
+         *
+         * @param new_cap
+         */
         void reserve(size_t new_cap);
 
+        /**
+         *
+         * @param new_sz
+         */
         void resize(size_t new_sz);
 
     private:

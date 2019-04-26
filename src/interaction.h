@@ -22,23 +22,52 @@ namespace space {
         CREATE_METHOD_CHECK(impl_eval_extra_vel_dep_acc);
     public:
         //public static members
+        /**
+         *
+         */
         static constexpr bool ext_vel_dep{HAS_METHOD(Derived, impl_eval_extra_vel_dep_acc)};
 
+        /**
+         *
+         */
         static constexpr bool ext_vel_indep{HAS_METHOD(Derived, impl_eval_extra_vel_indep_acc)};
 
         //public method
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         * @param acc
+         */
         template<typename Particles>
         void eval_acc(Particles const &partc, typename Particles::Coord &acc);
 
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         * @param acc
+         */
         template<typename Particles>
         void eval_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc);
 
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         * @param acc
+         */
         template<typename Particles>
         void eval_extra_vel_indep_acc(Particles const &partc, typename Particles::Coord &acc);
 
+        /**
+         *
+         * @tparam Particles
+         * @param partc
+         * @param acc
+         */
         template<typename Particles>
         void eval_newtonian_acc(Particles const &partc, typename Particles::Coord &acc);
-
     private:
         //constructors
         Interactions() = default;

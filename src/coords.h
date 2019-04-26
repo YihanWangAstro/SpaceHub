@@ -16,11 +16,16 @@ namespace space {
     struct Coords {
         //type members
         using Scalar = typename T::value_type;
+
         using Vector = Vec3<Scalar>;
 
         //constructors
         Coords() = default;
 
+        /**
+         *
+         * @param count
+         */
         explicit Coords(size_t count);
 
         Coords(Coords const &other) = default;
@@ -33,19 +38,48 @@ namespace space {
 
 
         //public methods
+        /**
+         *
+         */
         void clear();
 
+        /**
+         *
+         * @tparam GenVector
+         * @param v
+         */
         template<typename GenVector>
         void emplace_back(GenVector const &v);
 
+        /**
+         *
+         * @param xx
+         * @param yy
+         * @param zz
+         */
         void emplace_back(Scalar &&xx, Scalar &&yy, Scalar &&zz);
 
+        /**
+         *
+         * @param new_cap
+         */
         void reserve(size_t new_cap);
 
+        /**
+         *
+         * @param new_sz
+         */
         void resize(size_t new_sz);
 
+        /**
+         *
+         */
         void shrink_to_fit();
 
+        /**
+         *
+         * @return
+         */
         size_t size() const;
 
         //public members

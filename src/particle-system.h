@@ -8,7 +8,6 @@
 #include "dev-tools.h"
 
 namespace space {
-
     /*---------------------------------------------------------------------------*\
         Class ParticleSystem Declaration
     \*---------------------------------------------------------------------------*/
@@ -16,49 +15,120 @@ namespace space {
     class ParticleSystem {
     public:
         //public methods
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, time);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
 
+        /**
+         *
+         * @return
+         */
         DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
+        /**
+         *
+         * @return
+         */
         size_t number() const;
 
+        /**
+         *
+         * @tparam Scalar
+         * @param dt
+         */
         template<typename Scalar>
         void advance_time(Scalar dt);
 
+        /**
+         *
+         * @tparam Coord
+         * @tparam Scalar
+         * @param step_size
+         * @param velocity
+         */
         template<typename Coord, typename Scalar>
         void advance_pos(Scalar step_size, Coord const &velocity);
 
+        /**
+         *
+         * @tparam Coord
+         * @tparam Scalar
+         * @param step_size
+         * @param acceleration
+         */
         template<typename Coord, typename Scalar>
         void advance_vel(Scalar step_size, Coord const &acceleration);
 
+        /**
+         *
+         * @tparam Coord
+         * @param acceleration
+         */
         template<typename Coord>
         void evaluate_acc(Coord &acceleration) const;
 
+        /**
+         *
+         * @tparam Scalar
+         * @param step_size
+         */
         template<typename Scalar>
         void drift(Scalar step_size);
 
+        /**
+         *
+         * @tparam Scalar
+         * @param step_size
+         */
         template<typename Scalar>
         void kick(Scalar step_size);
 
+        /**
+         *
+         */
         void pre_iter_process();
 
+        /**
+         *
+         */
         void post_iter_process();
 
+        /**
+         *
+         * @tparam STL
+         * @param stl
+         */
         template<typename STL>
         void to_linear_container(STL & stl);
 
+        /**
+         *
+         * @tparam STL
+         * @param stl
+         */
         template<typename STL>
         void load_from_linear_container(STL const& stl);
 
-        friend std::ostream &operator<<(std::ostream &os, ParticleSystem const &ps);
-
-        friend std::istream &operator>>(std::istream &is, ParticleSystem &ps);
     private:
         //constructors
         ParticleSystem() = default;
