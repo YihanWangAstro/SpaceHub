@@ -4,10 +4,10 @@
 
 #ifndef SPACEHUB_TIDAL_H
 #define SPACEHUB_TIDAL_H
-#include "../interaction.h"
-#include "../dev-tools.h"
-#include "../macros.h"
-#include "../orbits/orbits.h"
+#include "../interaction.hpp"
+#include "../dev-tools.hpp"
+#include "../macros.hpp"
+#include "../orbits/orbits.hpp"
 namespace SpaceH{
     class TidalForce : public Interactions<TidalForce, false, false> {
     private:

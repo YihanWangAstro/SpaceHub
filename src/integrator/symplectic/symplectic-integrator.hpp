@@ -1,15 +1,34 @@
+//
+// Created by yihan on 3/8/19.
+//
 
-#ifndef SYMPLECTIC_2TH_INTEGRATOR_H
-#define SYMPLECTIC_2TH_INTEGRATOR_H
+#ifndef SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
+#define SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 
-#include "symplectic-integrator.h"
+#include "../../particle-system.hpp"
 
-namespace space::integrator {
+namespace space::integrator{
+
+    template<typename Derived>
+    class SymIntegrator{
+    public:
+        static constexpr size_t order{Derived::order};
+
+        template <typename T>
+        void integrate(T& ptc, typename T::Scalar stepSize) {
+            static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
+            static_cast<Derived*>(this)->impl_integrate(ptc, stepSize);
+        }
+
+    private:
+        SymIntegrator() = default;
+        friend Derived;
+    };
 
     class symplectic2nd : public SymIntegrator<symplectic2nd> {
     public:
         static constexpr size_t order{2};
-        
+
         template<typename T>
         void impl_integrate(ParticleSystem<T> &system, typename T::Scalar step_size) {
             system.drift(0.5 * step_size);
@@ -172,5 +191,8 @@ namespace space::integrator {
             system.drift(3.0610967201933609e-01 * step_size);
         }
     };
+
+    template <typename T>
+    constexpr bool is_sym_integrator_v = std::is_base_of_v<SymIntegrator<T>, T>;
 }
-#endif
+#endif //SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP

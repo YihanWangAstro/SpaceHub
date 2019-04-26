@@ -2,10 +2,10 @@
 // Created by 王艺涵 on 4/12/19.
 //
 
-#ifndef SPACEHUB_POST_NEWTONIAN_H
-#define SPACEHUB_POST_NEWTONIAN_H
-#include "../interaction.h"
-#include "../dev-tools.h"
+#ifndef SPACEHUB_POST_NEWTONIAN_HPP
+#define SPACEHUB_POST_NEWTONIAN_HPP
+#include "../interaction.hpp"
+#include "../dev-tools.hpp"
 
 namespace space::interactions {
 
@@ -160,7 +160,6 @@ namespace space::interactions {
             }
         }
 
-
         template<typename Scalar>
         void add_1st_order_acc(Scalar dx, Scalar dy, Scalar dz) {
 
@@ -177,4 +176,4 @@ namespace space::interactions {
         }
     };
 }
-#endif //SPACEHUB_POST_NEWTONIAN_H
+#endif //SPACEHUB_POST_NEWTONIAN_HPP

@@ -2,8 +2,8 @@
 #ifndef CONSTITERATOR_H
 #define CONSTITERATOR_H
 
-#include "../dev-tools.h"
-#include "ode-iterator.h"
+#include "../dev-tools.hpp"
+#include "ode-iterator.hpp"
 namespace space::odeIterator{
 
     template<typename Integrator>

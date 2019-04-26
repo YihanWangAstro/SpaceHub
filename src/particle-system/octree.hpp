@@ -2,8 +2,8 @@
 // Created by 王艺涵 on 4/15/19.
 //
 
-#ifndef SPACEHUB_OCTREE_H
-#define SPACEHUB_OCTREE_H
+#ifndef SPACEHUB_OCTREE_HPP
+#define SPACEHUB_OCTREE_HPP
 
 #include <memory>
 namespace space::octree{
@@ -108,4 +108,4 @@ namespace space::octree{
         std::unique_ptr<Node<T>> root{nullptr};
     };
 }
-#endif //SPACEHUB_OCTREE_H
+#endif //SPACEHUB_OCTREE_HPP

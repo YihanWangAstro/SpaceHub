@@ -2,11 +2,11 @@
 // Created by yihan on 2/25/19.
 //
 
-#ifndef SPACEHUB_NEWTONIAN_H
-#define SPACEHUB_NEWTONIAN_H
+#ifndef SPACEHUB_NEWTONIAN_HPP
+#define SPACEHUB_NEWTONIAN_HPP
 
-#include "../interaction.h"
-#include "../dev-tools.h"
+#include "../interaction.hpp"
+#include "../dev-tools.hpp"
 
 namespace space::interactions {
     /*---------------------------------------------------------------------------*\
@@ -89,4 +89,4 @@ namespace space::interactions {
 
     }
 }
-#endif //SPACEHUB_NEWTONIAN_H
+#endif //SPACEHUB_NEWTONIAN_HPP

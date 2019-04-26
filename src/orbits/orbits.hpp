@@ -1,10 +1,10 @@
 #ifndef ORBITS_H
 #define ORBITS_H
 
-#include "../rand-generator.tpp"
-#include "../own-math.h"
-#include "../macros.h"
-#include "../core-computation.tpp"
+#include "../rand-generator.hpp"
+#include "../own-math.hpp"
+#include "../macros.hpp"
+#include "../core-computation.hpp"
 #include <cmath>
 #include <variant>
 

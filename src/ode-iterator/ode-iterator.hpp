@@ -2,10 +2,10 @@
 // Created by yihan on 3/8/19.
 //
 
-#ifndef SPACEHUB_ODE_ITERATOR_H
-#define SPACEHUB_ODE_ITERATOR_H
+#ifndef SPACEHUB_ODE_ITERATOR_HPP
+#define SPACEHUB_ODE_ITERATOR_HPP
 
-#include "../particle-system.h"
+#include "../particle-system.hpp"
 
 namespace space::odeIterator {
     template<typename Derived>
@@ -26,4 +26,4 @@ namespace space::odeIterator {
     template<typename T>
     constexpr bool is_ode_iterator_v = std::is_base_of_v<OdeIterator<T>, T>;
 }
-#endif //SPACEHUB_ODE_ITERATOR_H
+#endif //SPACEHUB_ODE_ITERATOR_HPP

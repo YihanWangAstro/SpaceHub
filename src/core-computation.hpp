@@ -2,7 +2,7 @@
 #ifndef LIBS_H
 #define LIBS_H
 
-#include "own-math.h"
+#include "own-math.hpp"
 
 namespace space::calc {
     template<typename ...Args>

@@ -5,7 +5,7 @@
 #include "lazy_expr.h"
 #include <algorithm>
 #include "slice.h"
-#include "../multi-thread/multi-thread.h"
+#include "../multi-thread/multi-thread.hpp"
 
 
 namespace SpaceH {

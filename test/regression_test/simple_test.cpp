@@ -14,7 +14,7 @@ using type = Types<scalar, std::vector>;
 int main(int argc, char **argv) {
     using force = interactions::NewtonianGrav;
 
-    using particles = SoAPointParticles<type>;
+    using particles = PointParticles<type>;
 
     //using particles = SoAFiniteSizeParticles<type>;
 

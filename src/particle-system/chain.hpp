@@ -4,7 +4,7 @@
 #include<vector>
 #include<list>
 #include<algorithm>
-#include "../core-computation.tpp"
+#include "../core-computation.hpp"
 
 namespace space {
     class Chain{

@@ -3,8 +3,8 @@
 
 #include <array>
 #include <vector>
-#include "ode-iterator.h"
-#include "../own-math.h"
+#include "ode-iterator.hpp"
+#include "../own-math.hpp"
 
 namespace space::odeIterator {
 
@@ -227,6 +227,7 @@ namespace space::odeIterator {
                 return optm_step_coef_[ideal_k];
             } else {
                 spacehub_abort("Unexpected iteration steps!");
+                return 0;
             }
         }
 

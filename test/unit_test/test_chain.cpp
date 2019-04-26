@@ -1,8 +1,8 @@
 //
 // Created by yihan on 4/9/19.
-#include "../../src/particle-system/chain.tpp"
+#include "../../src/particle-system/chain.hpp"
 #include "gtest/gtest.h"
-#include "../../src/type-class.h"
+#include "../../src/type-class.hpp"
 
 namespace UnitTest {
     template<typename Coord, typename IdxArray>

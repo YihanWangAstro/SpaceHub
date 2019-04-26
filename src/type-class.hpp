@@ -2,7 +2,7 @@
 #define TYPECLASS_H
 
 #include "vector/vector3.h"
-#include "coords.h"
+#include "coords.hpp"
 #include <vector>
 
 namespace space {

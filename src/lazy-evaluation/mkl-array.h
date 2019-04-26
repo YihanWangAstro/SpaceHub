@@ -4,7 +4,7 @@
 #include "lazy_expr.h"
 #include <string.h>
 #include "/opt/intel/mkl/include/mkl.h"
-#include "../tools/timer.h"
+#include "../tools/timer.hpp"
 
 namespace SpaceH {
 

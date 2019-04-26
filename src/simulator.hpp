@@ -1,8 +1,8 @@
 #ifndef DYNAMICSYSTEM_H
 #define DYNAMICSYSTEM_H
 
-#include "dev-tools.h"
-#include "core-computation.tpp"
+#include "dev-tools.hpp"
+#include "core-computation.hpp"
 #include <functional>
 
 namespace space {

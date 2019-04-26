@@ -2,9 +2,9 @@
 #ifndef GENPARTICLESYSTEM_H
 #define GENPARTICLESYSTEM_H
 
-#include "../core-computation.tpp"
-#include "../dev-tools.h"
-#include "../particle-system.h"
+#include "../core-computation.hpp"
+#include "../dev-tools.hpp"
+#include "../particle-system.hpp"
 #include <type_traits>
 
 namespace space {

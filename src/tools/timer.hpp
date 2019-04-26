@@ -1,6 +1,6 @@
 
-#ifndef SPACEHUB_TIMER_H
-#define SPACEHUB_TIMER_H
+#ifndef SPACEHUB_TIMER_HPP
+#define SPACEHUB_TIMER_HPP
 
 #include <chrono>
 #include <stdio.h>

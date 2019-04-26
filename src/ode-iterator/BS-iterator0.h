@@ -7,8 +7,8 @@
 
 #include <array>
 #include <vector>
-#include "ode-iterator.h"
-#include "../own-math.h"
+#include "ode-iterator.hpp"
+#include "../own-math.hpp"
 
 namespace space::odeIterator {
     template<typename T, size_t MaxIter>

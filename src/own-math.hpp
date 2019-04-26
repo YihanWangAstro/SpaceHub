@@ -2,7 +2,7 @@
 #ifndef OWN_MATH_H
 #define OWN_MATH_H
 
-#include "dev-tools.h"
+#include "dev-tools.hpp"
 #include <math.h>
 namespace space {
     /** @brief Self min()*/

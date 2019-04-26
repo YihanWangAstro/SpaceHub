@@ -2,8 +2,8 @@
 // Created by yihan on 4/25/19.
 //
 
-#ifndef SPACEHUB_COORDS_H
-#define SPACEHUB_COORDS_H
+#ifndef SPACEHUB_COORDS_HPP
+#define SPACEHUB_COORDS_HPP
 
 #include "vector/vector3.h"
 
@@ -176,4 +176,4 @@ namespace space {
     }
 }
 
-#endif //SPACEHUB_COORDS_H
+#endif //SPACEHUB_COORDS_HPP

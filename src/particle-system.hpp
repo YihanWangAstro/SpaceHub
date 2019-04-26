@@ -2,10 +2,10 @@
 // Created by yihan on 2/24/19.
 //
 
-#ifndef SPACEHUB_PARTICLE_SYSTEM_H
-#define SPACEHUB_PARTICLE_SYSTEM_H
+#ifndef SPACEHUB_PARTICLE_SYSTEM_HPP
+#define SPACEHUB_PARTICLE_SYSTEM_HPP
 
-#include "dev-tools.h"
+#include "dev-tools.hpp"
 
 namespace space {
     /*---------------------------------------------------------------------------*\
@@ -228,4 +228,4 @@ namespace space {
     constexpr bool is_particle_system_v = std::is_base_of_v<ParticleSystem<T>, T>;
 }
 
-#endif //SPACEHUB_PARTICLE_SYSTEM_H
+#endif //SPACEHUB_PARTICLE_SYSTEM_HPP

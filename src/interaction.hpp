@@ -5,8 +5,8 @@
 #ifndef SPACEHUB_EOM_H
 #define SPACEHUB_EOM_H
 
-#include "type-class.h"
-#include "core-computation.tpp"
+#include "type-class.hpp"
+#include "core-computation.hpp"
 
 namespace space {
 
