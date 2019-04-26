@@ -12,7 +12,7 @@
 
 namespace space::tools {
 
-    std::string auto_name(std::string const &prefix = "space_") {
+    static std::string auto_name(std::string const &prefix = "space_") {
         static int duplicate = 1;
         static std::string last_name;
 
@@ -32,7 +32,7 @@ namespace space::tools {
         }
     }
 
-    std::string make_name(std::string const &prefix, int suffix, std::string const &extension = ".dat") {
+    static inline std::string make_name(std::string const &prefix, int suffix, std::string const &extension = ".dat") {
         return prefix + std::to_string(suffix) + extension;
     }
 }
