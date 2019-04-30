@@ -59,9 +59,7 @@ namespace space::odeIterator {
             static constexpr Scalar S4{4.0};
 
             //Private methods
-            inline size_t at(size_t i, size_t j) const {
-                return i * (i + 1) / 2 + j;
-            }
+            size_t at(size_t i, size_t j) const;
         };
 
         //Public methods
@@ -85,7 +83,7 @@ namespace space::odeIterator {
 
         Scalar calc_ideal_step_coef(Scalar error, size_t k);
 
-        bool is_diverged_anyhow(Scalar error, size_t iter) const;
+        Scalar step_coef_limiter(Scalar step_coef);
 
         Scalar ideal_step_coef(size_t ideal_k, size_t k);
 
@@ -93,11 +91,11 @@ namespace space::odeIterator {
 
         size_t at(size_t i, size_t j) const;
 
-        bool in_converged_window(size_t iter);
-
-        Scalar step_coef_limiter(Scalar step_coef);
-
         size_t allowed(size_t i) const;
+
+        bool is_diverged_anyhow(Scalar error, size_t iter) const;
+
+        bool in_converged_window(size_t iter);
 
     private:
         //Static private members
@@ -140,7 +138,6 @@ namespace space::odeIterator {
 
         /** @brief Total iteration number*/
         size_t iter_num_{0};
-
     };
 
     /*---------------------------------------------------------------------------*\
@@ -367,6 +364,12 @@ namespace space::odeIterator {
                 coef[at(i, j)] = 1.0 / (ratio * ratio - 1);
             }
         }
+    }
+
+    template<typename Real>
+    template<size_t MaxIter>
+    inline size_t BSIterator<Real>::BStab<MaxIter>::at(size_t i, size_t j) const {
+        return i * (i + 1) / 2 + j;
     }
 }
 
