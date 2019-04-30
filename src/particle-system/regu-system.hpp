@@ -76,6 +76,8 @@ namespace space {
         /* Typedef */
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
+        using Base = ParticleSystem<RegularizedSystem<Particles, Forces, RegType>>;
+
         using Particle = typename Particles::Particle;
 
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());

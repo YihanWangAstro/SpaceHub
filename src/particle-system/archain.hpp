@@ -15,6 +15,8 @@ namespace space {
     public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
+        using Base = ParticleSystem<ARchainSystem<Particles, Forces, RegType>>;
+
         using Particle = typename Particles::Particle;
 
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
@@ -74,6 +76,8 @@ namespace space {
                 chain_aux_vel_ = chain_vel_;
             }
         }
+
+    CRTP_implementation :
 
         size_t impl_number() const {
             return ptc_.number();

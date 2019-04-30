@@ -57,14 +57,10 @@ namespace space::interactions {
                 acc.z[j] -= dz * rr3 * m[i];
             };
 
-            if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, chain_vel) &&
-                          HAS_METHOD(Particles, index)) {
+            if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
                 auto const &ch_px = partc.chain_pos().x;
                 auto const &ch_py = partc.chain_pos().y;
                 auto const &ch_pz = partc.chain_pos().z;
-                auto const &ch_vx = partc.chain_vel().x;
-                auto const &ch_vy = partc.chain_vel().y;
-                auto const &ch_vz = partc.chain_vel().z;
                 auto const &idx   = partc.index();
 
                 size_t size = partc.number();

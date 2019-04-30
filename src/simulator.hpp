@@ -178,7 +178,7 @@ namespace space {
     };
 
     /*---------------------------------------------------------------------------*\
-        Class RunArgs Implememtation
+        Class RunArgs Implementation
     \*---------------------------------------------------------------------------*/
     template<typename ParticleSys>
     void RunArgs<ParticleSys>::pre_operations(ParticleSys &partc_sys) const {

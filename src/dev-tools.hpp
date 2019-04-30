@@ -98,6 +98,8 @@ namespace space {
         using type = decltype(check<T>(0));
     };
 
+#define CRTP_implementation  friend Base; private
+
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
 #define MACRO_CAT_II(P, REST) REST

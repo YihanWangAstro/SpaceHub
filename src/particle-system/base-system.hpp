@@ -18,6 +18,8 @@ namespace space {
         //Type members
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
+        using Base = ParticleSystem<SimpleSystem<Particles, Forces>>;
+
         using Particle = typename Particles::Particle;
 
         //Constructors
@@ -45,9 +47,8 @@ namespace space {
 
         friend std::istream &operator>>(std::istream &is, SimpleSystem<Particles, Forces> &ps);
 
-    protected:
+    CRTP_implementation :
         //CRTP implementation
-        friend class ParticleSystem<SimpleSystem<Particles, Forces>>;
 
         /**
          *
