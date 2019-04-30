@@ -47,7 +47,7 @@ namespace space {
 
         friend std::istream &operator>>(std::istream &is, SimpleSystem<Particles, Forces> &ps);
 
-    CRTP_implementation :
+    CRTP_impl:
         //CRTP implementation
 
         /**

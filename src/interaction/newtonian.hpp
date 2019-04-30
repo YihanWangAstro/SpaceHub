@@ -14,7 +14,11 @@ namespace space::interactions {
     \*---------------------------------------------------------------------------*/
     class NewtonianGrav : public Interactions<NewtonianGrav> {
     public:
-        //Public methods
+        //Type members
+        using Base = Interactions<NewtonianGrav>;
+
+    CRTP_impl:
+        //CRTP implementation
         template<typename Particles>
         void impl_eval_acc(Particles const &partc, typename Particles::Coord &acc);
 

@@ -13,21 +13,14 @@ namespace space {
     template<typename Particles, typename Forces, ReguType RegType>
     class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Forces, RegType>> {
     public:
+        //Type members
         SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
         using Base = ParticleSystem<ARchainSystem<Particles, Forces, RegType>>;
 
         using Particle = typename Particles::Particle;
 
-        SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
-        SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
-
-        SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
 
         SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
 
@@ -77,7 +70,17 @@ namespace space {
             }
         }
 
-    CRTP_implementation :
+    CRTP_impl:
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
+
+        SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
 
         size_t impl_number() const {
             return ptc_.number();

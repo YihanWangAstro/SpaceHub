@@ -17,6 +17,8 @@ namespace space {
         //Type members
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
+        using Base = Particles<PointParticles<TypeSystem>>;
+
         using Particle = PointParticle<Scalar>;
 
         //Constructors
@@ -33,9 +35,8 @@ namespace space {
         template<typename STL>
         PointParticles(Scalar t, STL const &partc);
 
-    protected:
+        CRTP_impl:
         //CRTP implementation
-        friend class Particles<PointParticles<TypeSystem>>;
 
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
 
@@ -52,6 +53,7 @@ namespace space {
         void impl_reserve(size_t new_cap);
 
         size_t impl_number() const;
+
     private:
         //Private members
         Coord pos_;
@@ -110,8 +112,8 @@ namespace space {
         size_t num = ps.number();
         os << ps.time() << ' ';
         for (size_t i = 0; i < num; ++i) {
-            space::display(os, ps.idn()[i], ps.mass()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i],
-                           ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
+            space::display(os, ps.idn()[i], ps.mass()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i], ps.vel().x[i],
+                           ps.vel().y[i], ps.vel().z[i]);
         }
         return os;
     }

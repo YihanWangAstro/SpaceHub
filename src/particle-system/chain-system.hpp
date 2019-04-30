@@ -52,7 +52,7 @@ namespace space {
 
         friend std::istream &operator>>(std::istream &is, ChainSystem<Particles, Forces> &ps);
 
-    CRTP_implementation :
+    CRTP_impl:
         //CRTP implementation
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
 
@@ -98,6 +98,7 @@ namespace space {
 
         void kick_real_vel(Scalar step_size);
 
+        //Private members
         Particles ptc_;
         Forces forces_;
 

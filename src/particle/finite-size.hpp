@@ -18,6 +18,7 @@ namespace space {
         //Type members
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
+        using Base = Particles<SizeParticles<TypeSystem>>;
         /*---------------------------------------------------------------------------*\
         Sub-Class Particle Declaration and Implementation
         \*---------------------------------------------------------------------------*/
@@ -69,9 +70,8 @@ namespace space {
         //Public methods
         SPACEHUB_STD_ACCESSOR(auto, radius, radius_);
 
-    protected:
+    CRTP_impl:
         //CRTP implementation
-        friend class Particles<SizeParticles<TypeSystem>>;
 
         SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
 
