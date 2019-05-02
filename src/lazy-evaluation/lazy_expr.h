@@ -2,8 +2,8 @@
 #ifndef SPACEHUB_LAZY_EXPRESSION_H
 #define SPACEHUB_LAZY_EXPRESSION_H
 
-#include "dev-tools.h"
-#include <math.h>
+#include "../dev-tools.hpp"
+#include <cmath>
 
 namespace SpaceH::Lazy {
 

@@ -291,10 +291,10 @@ inline TYPE const & NAME () const {                                             
     template <typename T>
     constexpr bool is_container_v = is_container<T>::value;
 
-//#define INDEXABLE(TYPE) ((is_indexable<TYPE, size_t>::value)||(is_indexable<TYPE, int>::value))
-
 #define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE,DERIVED>::value)
+
 #define TYPE_OF_SELF std::remove_reference<decltype(*this)>::type
+
 #define REF_TYPE_OF_SELF decltype(*this)
 }//end namespace SpaceH
 

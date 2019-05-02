@@ -103,8 +103,7 @@ namespace space::orbit {
 
         OrbitArgs() = delete;
 
-        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP,
-                  Variant true_anomaly) {
+        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP, Variant true_anomaly) {
             if (_p_ < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
             orbit_type = classify_orbit(_e_);
@@ -305,7 +304,7 @@ namespace space::orbit {
     }
 
     template<typename Scalar>
-    auto calc_eccentricity(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
+    inline auto calc_eccentricity(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
         using Vector = Vec3<Scalar>;
         return calc_eccentricity(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
     }
@@ -322,7 +321,7 @@ namespace space::orbit {
     }
 
     template<typename Scalar>
-    Scalar calc_semi_major_axis(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
+    inline Scalar calc_semi_major_axis(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
         using Vector = Vec3<Scalar>;
         return calc_semi_major_axis(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
     }
@@ -345,7 +344,7 @@ namespace space::orbit {
     }
 
     template<typename Scalar>
-    auto calc_a_e(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
+    inline auto calc_a_e(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
         using Vector = Vec3<Scalar>;
         return calc_a_e(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
     }
