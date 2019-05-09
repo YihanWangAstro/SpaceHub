@@ -83,8 +83,11 @@ namespace space::orbit {
         }
     }
 
+
     struct RandomIndicator {
     } thermal;
+
+#define THERMAL RandomIndicator()
 
     template<typename Real>
     struct OrbitArgs {
