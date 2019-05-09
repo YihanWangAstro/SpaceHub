@@ -48,9 +48,11 @@ namespace space {
         SPACEHUB_STD_ACCESSOR(auto, index, index_);
 
         //Friend functions
-        friend std::ostream &operator<<(std::ostream &os, ChainSystem<Particles, Forces> const &ps);
+        template <typename P, typename F>
+        friend std::ostream &operator<<(std::ostream &os, ChainSystem<P, F> const &ps);
 
-        friend std::istream &operator>>(std::istream &is, ChainSystem<Particles, Forces> &ps);
+        template <typename P, typename F>
+        friend std::istream &operator>>(std::istream &is, ChainSystem<P, F> &ps);
 
     CRTP_impl:
         //CRTP implementation

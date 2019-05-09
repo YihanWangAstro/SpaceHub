@@ -43,9 +43,11 @@ namespace space {
         SimpleSystem(Scalar t, STL const &partc);
 
         //Friend functions
-        friend std::ostream &operator<<(std::ostream &os, SimpleSystem<Particles, Forces> const &ps);
+        template <typename P, typename F>
+        friend std::ostream &operator<<(std::ostream &os, SimpleSystem<P, F> const &ps);
 
-        friend std::istream &operator>>(std::istream &is, SimpleSystem<Particles, Forces> &ps);
+        template <typename P, typename F>
+        friend std::istream &operator>>(std::istream &is, SimpleSystem<P, F> &ps);
 
     CRTP_impl:
         //CRTP implementation

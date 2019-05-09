@@ -91,9 +91,11 @@ namespace space {
         SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
 
         //Friend functions
-        friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<Particles, Forces, RegType> const &ps);
+        template <typename P, typename F, ReguType R>
+        friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<P, F, R> const &ps);
 
-        friend std::istream &operator>>(std::istream &is, RegularizedSystem<Particles, Forces, RegType> &ps);
+        template <typename P, typename F, ReguType R>
+        friend std::istream &operator>>(std::istream &is, RegularizedSystem<P, F, R> &ps);
 
     CRTP_impl:
         //CRTP implementation
