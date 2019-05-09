@@ -1,6 +1,6 @@
 
-#ifndef MACROS_H
-#define MACROS_H
+#ifndef SPACEHUB_MACROS_H
+#define SPACEHUB_MACROS_H
 
 namespace space::consts {
     constexpr double pi = 3.14159265358979323;

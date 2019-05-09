@@ -96,7 +96,6 @@ namespace space {
          * @tparam Scalar
          * @param end_
          */
-        template<typename Scalar>
         void add_stop_condition(Scalar end_);
 
     private:
@@ -239,8 +238,7 @@ namespace space {
     }
 
     template<typename ParticleSys>
-    template<typename GenScaler>
-    void RunArgs<ParticleSys>::add_stop_condition(GenScaler end_) {
+    void RunArgs<ParticleSys>::add_stop_condition(Scalar end_) {
         end_time = end_;
     }
 

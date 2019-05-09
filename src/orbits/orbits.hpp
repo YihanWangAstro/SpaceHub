@@ -5,6 +5,7 @@
 #include "../own-math.hpp"
 #include "../macros.hpp"
 #include "../core-computation.hpp"
+#include "../vector/vector3.h"
 #include <cmath>
 #include <variant>
 

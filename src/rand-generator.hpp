@@ -6,9 +6,9 @@
 #define SPACEHUB_RAND_GENERATOR_H
 
 #include <random>
+#include "own-math.hpp"
 
 namespace space::randomGen {
-    using RandGen = std::mt19937;
 
     template<typename Dtype>
     class Uniform {
@@ -26,6 +26,7 @@ namespace space::randomGen {
             return low + (high - low) * singleton.Dist(singleton.gen);
         }
 
+        template <typename RandGen>
         inline static Dtype get(RandGen& gen, Dtype low = 0, Dtype high = 1) {
             static Uniform singleton;
             return low + (high - low) * singleton.Dist(gen);
@@ -50,6 +51,7 @@ namespace space::randomGen {
             return pow(10, log_low + (log_high - log_low) * singleton.Dist(singleton.gen));
         }
 
+        template <typename RandGen>
         inline static Dtype get(RandGen& gen, Dtype low, Dtype high) {
             static Logarithm singleton;
             Dtype log_low = log10(low);
@@ -72,7 +74,7 @@ namespace space::randomGen {
 
         inline static Dtype get(Dtype alpha, Dtype low, Dtype high) {
             static PowerLaw singleton;
-            if(!iseq(alpha, -1.0)){
+            if(!space::iseq(alpha, -1.0)){
                 auto beta = alpha + 1;
                 auto f_low = pow(low, beta);
                 auto f_high = pow(high, beta);
@@ -82,9 +84,10 @@ namespace space::randomGen {
             }
         }
 
+        template <typename RandGen>
         inline static Dtype get(RandGen& gen, Dtype alpha, Dtype low, Dtype high) {
             static PowerLaw singleton;
-            if(!iseq(alpha, -1.0)){
+            if(!space::iseq(alpha, -1.0)){
                 auto beta = alpha + 1;
                 auto f_low = pow(low, beta);
                 auto f_high = pow(high, beta);
@@ -112,6 +115,7 @@ namespace space::randomGen {
             return mean + sigma * singleton.Dist(singleton.gen);
         }
 
+        template <typename RandGen>
         inline static Dtype get(RandGen& gen, Dtype mean = 0, Dtype sigma = 1) {
             static Normal singleton;
             return mean + sigma * singleton.Dist(gen);
@@ -138,6 +142,7 @@ namespace space::randomGen {
             return sigma * sqrt(x * x + y * y + z * z);
         }
 
+        template <typename RandGen>
         inline static Dtype get(RandGen& gen, Dtype sigma = 1) {
             static Maxwell singleton;
             auto x = singleton.Dist(gen);

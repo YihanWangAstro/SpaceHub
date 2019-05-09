@@ -3,6 +3,7 @@
 #define LIBS_H
 
 #include "own-math.hpp"
+#include "macros.hpp"
 
 namespace space::calc {
     template<typename ...Args>
@@ -220,7 +221,7 @@ namespace space::calc {
                     min_fall_free = fall_free;
             }
         }
-        return min_fall_free * consts::pi * 0.5 / sqrt(2 * consts::G);
+        return min_fall_free * space::consts::pi * 0.5 / sqrt(2 * space::consts::G);
     }
 
     CREATE_STATIC_MEMBER_CHECK(regu_type);
