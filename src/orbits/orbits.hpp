@@ -96,7 +96,9 @@ namespace space::orbit {
         using Variant = std::variant<Real, RandomIndicator>;
     public:
         using Scalar = Real;
-        Scalar u;//gravitational parameter
+        //Scalar u;//gravitational parameter
+        Scalar m1;
+        Scalar m2;
         Scalar e;//eccentricity
         Scalar p;//semi-latus rectum
         Scalar i;//inclination
@@ -107,14 +109,15 @@ namespace space::orbit {
 
         OrbitArgs() = delete;
 
-        OrbitArgs(Scalar tot_mass, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP, Variant true_anomaly) {
+        OrbitArgs(Scalar _m1_, Scalar _m2_, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP, Variant true_anomaly) {
             if (_p_ < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
             orbit_type = classify_orbit(_e_);
 
             if (orbit_type == OrbitType::none) spacehub_abort("Eccentrcity cannot be negative or NaN!");
 
-            u = tot_mass * consts::G;
+            m1 = _m1_;
+            m2 = _m2_;
             p = _p_;
             e = _e_;
 
@@ -166,7 +169,7 @@ namespace space::orbit {
         }
 
         friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
-            space::display(os, obt.u, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
+            space::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
             return os;
         }
     };
@@ -174,16 +177,18 @@ namespace space::orbit {
     using Kepler = OrbitArgs<double>;
 
     template<typename Vector, typename Scalar>
-    void coord_to_oribt_args(Scalar u, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
+    void coord_to_oribt_args(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
         Vector L = cross(dr, dv);
         Vector N = cross(Vector(0, 0, 1.0), L);
         Scalar r = norm(dr);
         Scalar n = norm(N);
         Scalar l = norm(L);
         Scalar rv = dot(dr, dv);
+        Scalar u = (m1 + m2) * consts::G;
         Vector E = (dr * (norm2(dv) - u * re_norm(dr)) - dv * rv) / u;
 
-        args.u = u;
+        args.m1 = m1;
+        args.m2 = m2;
         args.e = norm(E);
         args.orbit_type = classify_orbit(args.e);
 
@@ -221,7 +226,7 @@ namespace space::orbit {
 
     template<typename Vector, typename Scalar>
     void oribt_args_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel) {
-        Scalar u = args.u;
+        Scalar u = (args.m1 + args.m2) * consts::G;
 
         Scalar sin_nu = sin(args.nu);
         Scalar cos_nu = cos(args.nu);

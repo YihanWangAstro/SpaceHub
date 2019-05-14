@@ -19,7 +19,7 @@ namespace space::unit {
     constexpr double hr = day / 24;
     constexpr double min = hr / 60;
     constexpr double sec = min / 60;
-    constexpr double hubble_t = 14.7 * Gyr;
+    constexpr double hubble_t = 13.7 * Gyr;
 
     constexpr double km = 1 / 149597870.7;
     constexpr double pc = 648000 / consts::pi;

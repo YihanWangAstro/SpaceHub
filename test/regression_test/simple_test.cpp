@@ -36,10 +36,10 @@ int main(int argc, char **argv) {
 
     particle sun{m_solar}, earth{m_earth}, moon{m_moon};
 
-    auto moon_orbit = Kepler{moon.mass + earth.mass, semi_latus_rectum(384748 * km, 0.0549006), 0.0549006, 1.543 * deg,
+    auto moon_orbit = Kepler{earth.mass, moon.mass, semi_latus_rectum(384748 * km, 0.0549006), 0.0549006, 1.543 * deg,
                              thermal, thermal, thermal};
 
-    auto earth_orbit = Kepler{sun.mass + earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
+    auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
                               174.9 * deg, 288.1 * deg, thermal};
 
     move_particles_to(moon_orbit, moon);

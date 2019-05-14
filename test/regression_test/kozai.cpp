@@ -15,11 +15,11 @@ int main() {
     auto a1 = 0.5*unit::au;
     auto a2 = 5*unit::au;
 
-    move_particles_to(Kepler(total_mass(m1, m2), a1, 0, 25.01*unit::deg, 0, 90*unit::deg, thermal), m2);
+    move_particles_to(Kepler(m1.mass, m2.mass, a1, 0, 25.01*unit::deg, 0, 90*unit::deg, thermal), m2);
 
     move_to_com_coord(m1, m2);
 
-    move_particles_to(Kepler(total_mass(m1, m2, m3), a2, 0, -64.99*unit::deg, 0, 0, thermal), m3);
+    move_particles_to(Kepler(total_mass(m1, m2), m3.mass, a2, 0, -64.99*unit::deg, 0, 0, thermal), m3);
 
     move_to_com_coord(m1, m2, m3);
 
