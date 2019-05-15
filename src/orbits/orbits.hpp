@@ -343,7 +343,7 @@ namespace space::orbit {
     }
 
     template<typename Vector, typename Scalar>
-    Scalar calc_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
+    inline Scalar calc_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
         return norm(dr * (norm2(dv) - u * re_norm(dr)) - dv * dot(dr, dv)) / u;
     }
 
@@ -354,12 +354,12 @@ namespace space::orbit {
     }
 
     template<typename Particle>
-    auto calc_eccentricity(Particle const &p1, Particle const &p2) {
+    inline auto calc_eccentricity(Particle const &p1, Particle const &p2) {
         return calc_eccentricity(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 
     template<typename Vector, typename Scalar>
-    Scalar calc_semi_major_axis(Scalar u, Vector const &dr, Vector const &dv) {
+    inline Scalar calc_semi_major_axis(Scalar u, Vector const &dr, Vector const &dv) {
         Scalar r = norm(dr);
         return -u * r / (r * norm2(dv) - 2 * u);
     }
@@ -371,7 +371,7 @@ namespace space::orbit {
     }
 
     template<typename Particle>
-    auto calc_semi_major_axis(Particle const &p1, Particle const &p2) {
+    inline auto calc_semi_major_axis(Particle const &p1, Particle const &p2) {
         return calc_semi_major_axis(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
     }
 
@@ -394,8 +394,26 @@ namespace space::orbit {
     }
 
     template<typename Particle>
-    auto calc_a_e(Particle const &p1, Particle const &p2) {
+    inline auto calc_a_e(Particle const &p1, Particle const &p2) {
         return calc_a_e(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+    }
+
+    template<typename Scalar>
+    inline auto calc_period(Scalar m1, Scalar m2, Scalar a) {
+        if( a > 0) {
+            return 2 * consts::pi * sqrt(a * a * a / ((m1 + m2) * consts::G));
+        } else {
+            spacehub_abort("Only elliptical orbit is periodic!");
+        }
+    }
+
+    inline auto calc_period(Kepler const& args) {
+        return calc_period(args.m1, args.m2, args.p / (1 - args.e * args.e));
+    }
+
+    template<typename Particle>
+    inline auto calc_period(Particle const &p1, Particle const &p2) {
+        return calc_period(p1.mass, p2.mass, calc_semi_major_axis(p1, p2));
     }
 
     template<typename Particle, typename ...Args>
