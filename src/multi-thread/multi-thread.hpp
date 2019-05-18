@@ -74,17 +74,27 @@ namespace space::multiThread {
         }
 
         template<typename U>
-        friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup) {
+        friend void operator<<(ConcurrentFile &os, U &&tup) {
             std::lock_guard<std::mutex> lock(*(os.mutex_));
             *(os.file_) << std::forward<U>(tup);
-            return os;
         }
 
         template<typename U>
-        friend ConcurrentFile &operator>>(ConcurrentFile &is, U &&tup) {
+        friend bool operator>>(ConcurrentFile &is, U &&tup) {
             std::lock_guard<std::mutex> lock(*(is.mutex_));
-            *(is.file_) >> std::forward<U>(tup);
-            return is;
+                *(is.file_) >> std::forward<U>(tup);
+
+                bool status = bool(*(is.file_));
+            return status;
+        }
+
+        bool operator!(){
+
+        }
+
+        bool eof(){
+            std::lock_guard<std::mutex> lock(*(mutex_));
+            return file_->eof();
         }
 
     private:

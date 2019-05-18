@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <tuple>
+#include <array>
 namespace space {
 
     template<typename... Args>
@@ -18,6 +19,14 @@ namespace space {
     template<typename... Args>
     void display(std::ostream &out, Args &&... args) {
         (..., (out << std::forward<Args>(args) << ' '));
+    }
+
+    template<typename T, size_t len>
+    std::ostream& operator<<(std::ostream& os, std::array<T, len> const& arr){
+        for (auto const& c : arr){
+            os << c << ' ';
+        }
+        return os;
     }
 
     template<class Tup, size_t... I>
