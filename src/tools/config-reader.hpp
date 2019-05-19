@@ -55,11 +55,11 @@ namespace space::tools {
             }
         }
 
-        friend std::ostream &operator<<(std::ostream &os, ConfigReader const &config) {
+        /*friend std::ostream &operator<<(std::ostream &os, ConfigReader const &config) {
             for (auto&[key, value] : config.map_) {
                 space::print(os, key, '=', value, '\n');
             }
-        }
+        }*/
 
     private:
         std::unordered_map<std::string, std::string> map_;
