@@ -21,7 +21,7 @@ namespace space::randomGen {
         std::random_device rd;
         std::mt19937 gen;
         std::uniform_real_distribution<Dtype> Dist;
-        static std::mutex mutex_;
+        static  std::mutex mutex_;
     public:
         inline static Dtype get(Dtype low = 0, Dtype high = 1) {
             static Uniform singleton;
@@ -45,6 +45,9 @@ namespace space::randomGen {
             return low + (high - low) * singleton.Dist(gen);
         }
     };
+
+    template <typename Dtype>
+    std::mutex Uniform<Dtype>::mutex_;
 
     template<typename Dtype>
     class Logarithm {
@@ -86,6 +89,9 @@ namespace space::randomGen {
             return pow(10, log_low + (log_high - log_low) * singleton.Dist(gen));
         }
     };
+
+    template <typename Dtype>
+    std::mutex Logarithm<Dtype>::mutex_;
 
     template<typename Dtype>
     class PowerLaw {
@@ -144,6 +150,9 @@ namespace space::randomGen {
         }
     };
 
+    template <typename Dtype>
+    std::mutex PowerLaw<Dtype>::mutex_;
+
 
     template<typename Dtype>
     class Normal {
@@ -179,6 +188,9 @@ namespace space::randomGen {
             return mean + sigma * singleton.Dist(gen);
         }
     };
+
+    template <typename Dtype>
+    std::mutex Normal<Dtype>::mutex_;
 
     template<typename Dtype>
     class Maxwell {
@@ -224,5 +236,8 @@ namespace space::randomGen {
             return sigma * sqrt(x * x + y * y + z * z);
         }
     };
+
+    template <typename Dtype>
+    std::mutex Maxwell<Dtype>::mutex_;
 }
 #endif //SPACEHUB_RAND_GENERATOR_H

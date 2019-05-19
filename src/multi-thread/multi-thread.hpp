@@ -73,6 +73,16 @@ namespace space::multiThread {
             return func(*file_, std::forward<Args>(args)...);
         }
 
+        void flush(){
+            std::lock_guard<std::mutex> lock(*(mutex_));
+                file_->flush();
+        }
+
+        bool eof(){
+            std::lock_guard<std::mutex> lock(*(mutex_));
+            return file_->eof();
+        }
+
         template<typename U>
         friend ConcurrentFile operator<<(ConcurrentFile &os, U &&tup) {
             std::lock_guard<std::mutex> lock(*(os.mutex_));
@@ -81,22 +91,14 @@ namespace space::multiThread {
         }
 
         template<typename U>
-        friend bool operator>>(ConcurrentFile &is, U &&tup) {
+        friend bool operator>>(ConcurrentFile &is, U &tup) {
             std::lock_guard<std::mutex> lock(*(is.mutex_));
-                *(is.file_) >> std::forward<U>(tup);
-
+                *(is.file_) >> tup;
                 bool status = bool(*(is.file_));
             return status;
         }
 
-        bool operator!(){
 
-        }
-
-        bool eof(){
-            std::lock_guard<std::mutex> lock(*(mutex_));
-            return file_->eof();
-        }
 
     private:
         std::shared_ptr<std::fstream> file_;

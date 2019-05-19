@@ -43,24 +43,30 @@ namespace SpaceH::MultiThread {
             cv_.notify_one();
         }
 
-        T pop_front() noexcept {
+        bool try_pop_front(T& data) noexcept {
             std::lock_guard<std::mutex> lock(mutex_);
-            while (deque_.empty()) {
+            while (!stop_ &&deque_.empty()) {
                 cv_.wait(lock);
             }
-            auto data = std::move(deque_.front());
+            if(stop_)
+                return false;
+
+            data = std::move(deque_.front());
             deque_.pop_front();
-            return data;
+            return true;
         }
 
-        T pop_back() noexcept {
+        bool try_pop_back(T& data) noexcept {
             std::lock_guard<std::mutex> lock(mutex_);
-            while (deque_.empty()) {
+            while (!stop_ && deque_.empty()) {
                 cv_.wait(lock);
             }
-            auto data = std::move(deque_.back());
+            if(stop_)
+                return false;
+
+            data = std::move(deque_.back());
             deque_.pop_back();
-            return data;
+            return true;
         }
 
     private:
