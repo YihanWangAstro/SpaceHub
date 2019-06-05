@@ -84,7 +84,7 @@ namespace space::multiThread {
         }
 
         template<typename U>
-        friend ConcurrentFile operator<<(ConcurrentFile &os, U &&tup) {
+        friend ConcurrentFile& operator<<(ConcurrentFile &os, U &&tup) {
             std::lock_guard<std::mutex> lock(*(os.mutex_));
             *(os.file_) << std::forward<U>(tup);
             return os;
