@@ -112,7 +112,7 @@ namespace space::orbit {
         Scalar nu;//true anomaly
         OrbitType orbit_type;
 
-        OrbitArgs() = delete;
+        OrbitArgs() = default;
 
         OrbitArgs(Scalar _m1_, Scalar _m2_, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP, Variant true_anomaly) {
             if (_p_ < 0) spacehub_abort("Semi-latus rectum cannot be negative");
