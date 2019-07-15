@@ -59,7 +59,7 @@ namespace space {
          * @param args
          */
         template<typename Func, typename ...Args>
-        void add_pre_step_operation(Func &&func, Args &&...args);
+        void add_pre_step_operation(Func func, Args ...args);
 
         /**
          *
@@ -69,7 +69,7 @@ namespace space {
          * @param args
          */
         template<typename Func, typename ...Args>
-        void add_post_step_operation(Func &&func, Args &&...args);
+        void add_post_step_operation(Func func, Args ...args);
 
         /**
          *
@@ -79,7 +79,7 @@ namespace space {
          * @param args
          */
         template<typename Func, typename ...Args>
-        void add_stop_point_operation(Func &&func, Args &&...args);
+        void add_stop_point_operation(Func func, Args ...args);
 
         /**
          *
@@ -89,7 +89,7 @@ namespace space {
          * @param args
          */
         template<typename Func, typename ...Args>
-        void add_stop_condition(Func &&func, Args &&...args);
+        void add_stop_condition(Func func, Args ...args);
 
         /**
          *
@@ -211,28 +211,28 @@ namespace space {
 
     template<typename ParticleSys>
     template<typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_pre_step_operation(Func &&func, Args &&... args) {
+    void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args ... args) {
         pre_opts_.emplace_back(
                 std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
     }
 
     template<typename ParticleSys>
     template<typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_post_step_operation(Func &&func, Args &&... args) {
+    void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args ... args) {
         post_opts_.emplace_back(
                 std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
     }
 
     template<typename ParticleSys>
     template<typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_stop_point_operation(Func &&func, Args &&... args) {
+    void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args ... args) {
         stop_opts_.emplace_back(
                 std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
     }
 
     template<typename ParticleSys>
     template<typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_stop_condition(Func &&func, Args &&... args) {
+    void RunArgs<ParticleSys>::add_stop_condition(Func func, Args ... args) {
         stop_cond_.emplace_back(
                 std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
     }
