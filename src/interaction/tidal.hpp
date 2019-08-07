@@ -8,7 +8,7 @@
 #include "../dev-tools.hpp"
 #include "../macros.hpp"
 #include "../orbits/orbits.hpp"
-namespace SpaceH{
+namespace space{
     class TidalForce : public Interactions<TidalForce, false, false> {
     private:
         CREATE_METHOD_CHECK(chain_pos);

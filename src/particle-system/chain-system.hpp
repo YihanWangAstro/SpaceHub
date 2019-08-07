@@ -38,7 +38,7 @@ namespace space {
         ChainSystem &operator=(ChainSystem &&) noexcept = default;
 
         template<typename STL>
-        ChainSystem(Scalar t, STL const &ptc);
+        ChainSystem(Scalar t, STL const &AoS_ptc);
 
         //Public methods
         SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
@@ -123,25 +123,25 @@ namespace space {
     \*---------------------------------------------------------------------------*/
     template<typename Particles, typename Forces>
     template<typename STL>
-    ChainSystem<Particles, Forces>::ChainSystem(Scalar t, const STL &ptc)
-            : ptc_(t, ptc),
-              chain_pos_(ptc.size()),
-              chain_vel_(ptc.size()),
-              index_(ptc.size()),
-              new_index_(ptc.size()),
-              acc_(ptc.size()),
-              chain_acc_(ptc.size()) {
+    ChainSystem<Particles, Forces>::ChainSystem(Scalar t, const STL &AoS_ptc)
+            : ptc_(t, AoS_ptc),
+              chain_pos_(AoS_ptc.size()),
+              chain_vel_(AoS_ptc.size()),
+              index_(AoS_ptc.size()),
+              new_index_(AoS_ptc.size()),
+              acc_(AoS_ptc.size()),
+              chain_acc_(AoS_ptc.size()) {
         static_assert(is_container_v<STL>, "Only STL-like container can be used");
         Chain::calc_chain_index(ptc_.pos(), index_);
         Chain::calc_chain(ptc_.pos(), chain_pos(), index());
         Chain::calc_chain(ptc_.vel(), chain_vel(), index());
 
         if constexpr (Forces::ext_vel_indep) {
-            ext_vel_indep_acc_.resize(ptc.size());
+            ext_vel_indep_acc_.resize(AoS_ptc.size());
         }
 
         if constexpr (Forces::ext_vel_dep) {
-            ext_vel_dep_acc_.resize(ptc.size());
+            ext_vel_dep_acc_.resize(AoS_ptc.size());
             aux_vel_ = ptc_.vel();
             chain_aux_vel_ = chain_vel_;
         }
@@ -204,14 +204,14 @@ namespace space {
 
     template<typename Particles, typename Forces>
     void ChainSystem<Particles, Forces>::impl_post_iter_process() {
-        Chain::calc_chain_index(ptc_.pos(), new_index_);
+        /*Chain::calc_chain_index(ptc_.pos(), new_index_);
         if (new_index_ != index_) {
             Chain::update_chain(chain_pos_, index_, new_index_);
             Chain::calc_cartesian(ptc_.mass(), chain_pos_, ptc_.pos(), new_index_);
             Chain::update_chain(chain_vel_, index_, new_index_);
             Chain::calc_cartesian(ptc_.mass(), chain_vel_, ptc_.vel(), new_index_);
             index_ = new_index_;
-        }
+        }*/
     }
 
     template<typename Particles, typename Forces>
@@ -256,7 +256,7 @@ namespace space {
     template<typename Particles, typename Forces>
     void ChainSystem<Particles, Forces>::eval_vel_indep_acc() {
         forces_.eval_newtonian_acc(*this, acc_);
-        if constexpr (Forces::ext_vel_dep) {
+        if constexpr (Forces::ext_vel_indep) {
             forces_.eval_extra_vel_indep_acc(*this, ext_vel_indep_acc_);
             calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
         }

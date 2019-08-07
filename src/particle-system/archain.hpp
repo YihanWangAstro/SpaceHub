@@ -299,7 +299,7 @@ namespace space {
     template<typename Particles, typename Forces, ReguType RegType>
     void ARchainSystem<Particles, Forces, RegType>::eval_vel_indep_acc() {
         forces_.eval_newtonian_acc(ptc_, newtonian_acc_);
-        if constexpr (Forces::ext_vel_dep) {
+        if constexpr (Forces::ext_vel_indep) {
             forces_.eval_extra_vel_indep_acc(ptc_, ext_vel_indep_acc_);
         }
     }

@@ -22,13 +22,13 @@ int main(int argc, char **argv) {
 
     //using sys = RegularizedSystem <particles, force, ReguType::logH>;
 
-    //using sys = ChainSystem <particles, force>;
+    using sys = ChainSystem <particles, force>;
 
-    using sys = ARchainSystem <particles, force, ReguType::TTL>;
+    //using sys = ARchainSystem <particles, force, ReguType::TTL>;
 
-    //using iter = ConstOdeIterator<symplectic2th>;
+    using iter = ConstOdeIterator<symplectic2nd>;
 
-    using iter = BSIterator<double>;
+    //using iter = BSIterator<double>;
 
     using simulation = Simulator<sys, iter>;
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
 
     eng_file << std::setprecision(16);
 
-    auto end_time = 10*year;
+    auto end_time = 1000*year;
 
     args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
 

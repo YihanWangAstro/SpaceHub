@@ -28,18 +28,19 @@ namespace space {
         SPACEHUB_STD_ACCESSOR(auto, bindE, bindE_);
 
         template<typename Particles>
-        auto eval_pos_phy_time(Particles const &partc, Scalar step_size);
+        auto eval_pos_phy_time(Particles const &partc, Scalar step_size) const;
 
         template<typename Particles>
-        auto eval_vel_phy_time(Particles const &partc, Scalar step_size);
+        auto eval_vel_phy_time(Particles const &partc, Scalar step_size) const;
 
     private:
         //Private methods
         template<typename Particles>
-        inline auto capital_omega(Particles const &partc);
+        inline auto capital_omega(Particles const &partc) const;
 
         //Private members
         Scalar omega_;
+
         Scalar bindE_;
     };
 
@@ -79,11 +80,10 @@ namespace space {
         RegularizedSystem &operator=(RegularizedSystem &&) noexcept = default;
 
         template<typename STL>
-        RegularizedSystem(Scalar t, STL const &ptc);
+        RegularizedSystem(Scalar t, STL const &AoS_ptc);
 
         //Static members
         static constexpr ReguType regu_type{RegType};
-
 
         //Public methods
         SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
@@ -162,18 +162,18 @@ namespace space {
     \*---------------------------------------------------------------------------*/
     template<typename Particles, typename Forces, ReguType RegType>
     template<typename STL>
-    RegularizedSystem<Particles, Forces, RegType>::RegularizedSystem(Scalar t, const STL &ptc)
-            : ptc_(t, ptc),
-              acc_(ptc.size()),
-              newtonian_acc_(ptc.size()),
+    RegularizedSystem<Particles, Forces, RegType>::RegularizedSystem(Scalar t, const STL &AoS_ptc)
+            : ptc_(t, AoS_ptc),
+              acc_(AoS_ptc.size()),
+              newtonian_acc_(AoS_ptc.size()),
               regu_(ptc_) {
         static_assert(is_container_v<STL>, "Only STL-like container can be used");
         if constexpr (Forces::ext_vel_indep) {
-            ext_vel_indep_acc_.resize(ptc.size());
+            ext_vel_indep_acc_.resize(AoS_ptc.size());
         }
 
         if constexpr (Forces::ext_vel_dep) {
-            ext_vel_dep_acc_.resize(ptc.size());
+            ext_vel_dep_acc_.resize(AoS_ptc.size());
             aux_vel_ = ptc_.vel();
         }
     }
@@ -285,7 +285,7 @@ namespace space {
     template<typename Particles, typename Forces, ReguType RegType>
     void RegularizedSystem<Particles, Forces, RegType>::eval_vel_indep_acc() {
         forces_.eval_newtonian_acc(ptc_, newtonian_acc_);
-        if constexpr (Forces::ext_vel_dep) {
+        if constexpr (Forces::ext_vel_indep) {
             forces_.eval_extra_vel_indep_acc(ptc_, ext_vel_indep_acc_);
         }
     }
@@ -342,7 +342,7 @@ namespace space {
 
     template<typename Scalar, ReguType Type>
     template<typename Particles>
-    auto Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &partc, Scalar step_size) {
+    auto Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &partc, Scalar step_size) const {
         if constexpr (Type == ReguType::logH) {
             return step_size / (bindE_ + calc::calc_kinetic_energy(partc));
         } else if constexpr (Type == ReguType::TTL) {
@@ -356,7 +356,7 @@ namespace space {
 
     template<typename Scalar, ReguType Type>
     template<typename Particles>
-    auto Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &partc, Scalar step_size) {
+    auto Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &partc, Scalar step_size) const {
         if constexpr (Type == ReguType::logH) {
             return step_size / -calc::calc_potential_energy(partc);
         } else if constexpr (Type == ReguType::TTL) {
@@ -370,7 +370,7 @@ namespace space {
 
     template<typename Scalar, ReguType Type>
     template<typename Particles>
-    auto Regularization<Scalar, Type>::capital_omega(const Particles &partc) {
+    auto Regularization<Scalar, Type>::capital_omega(const Particles &partc) const {
         return -calc::calc_potential_energy(partc);
     }
 }

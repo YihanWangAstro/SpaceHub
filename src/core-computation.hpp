@@ -124,7 +124,7 @@ namespace space::calc {
     }
 
     template<typename Scalar, typename Coord>
-    void coord_advance(Coord &var, const Coord &increase, Scalar stepSize) {
+    void coord_advance(Coord &var, Coord const &increase, Scalar stepSize) {
         array_advance(var.x, increase.x, stepSize);
         array_advance(var.y, increase.y, stepSize);
         array_advance(var.z, increase.z, stepSize);
