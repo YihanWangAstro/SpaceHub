@@ -204,14 +204,14 @@ namespace space {
 
     template<typename Particles, typename Forces>
     void ChainSystem<Particles, Forces>::impl_post_iter_process() {
-        /*Chain::calc_chain_index(ptc_.pos(), new_index_);
+        Chain::calc_chain_index(ptc_.pos(), new_index_);
         if (new_index_ != index_) {
             Chain::update_chain(chain_pos_, index_, new_index_);
             Chain::calc_cartesian(ptc_.mass(), chain_pos_, ptc_.pos(), new_index_);
             Chain::update_chain(chain_vel_, index_, new_index_);
             Chain::calc_cartesian(ptc_.mass(), chain_vel_, ptc_.vel(), new_index_);
             index_ = new_index_;
-        }*/
+        }
     }
 
     template<typename Particles, typename Forces>
