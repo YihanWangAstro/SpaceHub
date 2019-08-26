@@ -128,7 +128,7 @@ namespace space {
         Scalar up = space::big_value<Scalar>::value;
         Scalar low = -up;
 
-        for (; fabs((up - low) / up) > space::epsilon<Scalar>::value;) {
+        for (; fabs((up - low)) > fabs(up) * space::epsilon<Scalar>::value;) {
             Scalar mid = 0.5 * (up + low);
             if (f(mid) > 0)
                 up = mid;
@@ -136,6 +136,23 @@ namespace space {
                 low = mid;
         }
         return 0.5 * (up + low);
+    }
+
+    template<typename Fun>
+    decltype(std::declval<Fun>()(0)) root_newton(Fun f) {
+        using Scalar = decltype(f(0));
+        constexpr size_t max_iter = 1000;
+        Scalar x0 = 0;
+        Scalar x = 1;
+        for(size_t i = 0 ; i < max_iter ; ++i){
+            x = x0 - f(x0);
+            if(fabs(x-x0) <= space::epsilon<Scalar>::value){
+                break;
+            } else{
+                x0 = x;
+            }
+        }
+        return x;
     }
 }
 #endif

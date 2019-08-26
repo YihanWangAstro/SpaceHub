@@ -52,7 +52,7 @@ namespace space::orbit {
         }
     }
 
-    template<typename Scalar>
+    /*template<typename Scalar>
     Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
         if (0 <= e && e < 1)//newton iteration may encounter stationary point
             return space::root_dichotom(
@@ -61,6 +61,23 @@ namespace space::orbit {
             return space::root_dichotom([&](Scalar x) -> Scalar { return e * sinh(x) - x - M; });
         else if (fabs(e - 1) < space::epsilon<Scalar>::value)
             return space::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
+        else {
+            spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
+            return 0;
+        }
+    }*/
+    template<typename Scalar>
+    Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
+        if(M <= space::epsilon<Scalar>::value)
+            return 0;
+            
+        if (0 <= e && e < 1)
+            return space::root_newton(
+                    [&](Scalar x) -> Scalar { return (x - e * sin(x) - M) / (1 - e * cos(x)); });//find this function in ownMath.h
+        else if (e > 1)
+            return space::root_newton([&](Scalar x) -> Scalar { return (e * sinh(x) - x - M) / (e * cosh(x) - 1); });
+        else if (fabs(e - 1) < space::epsilon<Scalar>::value)
+            return space::root_newton([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - M) / (1 + x * x); });
         else {
             spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
             return 0;
