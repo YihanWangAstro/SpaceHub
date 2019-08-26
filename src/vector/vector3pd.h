@@ -7,7 +7,7 @@
 #include <x86intrin.h>
 #include "../kahanNumber.h"
 
-namespace SpaceH
+namespace space
 {
 /** @brief Specilization of vector3d */
 template<>

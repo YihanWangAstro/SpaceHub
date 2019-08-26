@@ -6,7 +6,7 @@
 #pragma message("Using AVX on vector3d")
 
 #include <x86intrin.h>
-namespace SpaceH
+namespace space
 {
 
 /** @brief Specilization of vector3d */
