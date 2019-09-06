@@ -68,7 +68,7 @@ namespace space::orbit {
     }*/
     template<typename Scalar>
     Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
-        if(M <= space::epsilon<Scalar>::value)
+        if(fabs(M) <= space::epsilon<Scalar>::value)
             return 0;
             
         if (0 <= e && e < 1)
