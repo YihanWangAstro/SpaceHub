@@ -16,6 +16,11 @@ namespace space {
 template <typename Real, template <class...> class TContainer = std::vector>
 struct Types {
  public:
+  /**
+   * @brief Generic container
+   *
+   * @tparam T variadic template parameters that compatible to various containers.
+   */
   template <typename... T>
   using Container = TContainer<T...>;
 

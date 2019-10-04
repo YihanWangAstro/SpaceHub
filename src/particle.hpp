@@ -28,22 +28,22 @@ struct PointParticle {
   /**
    * @brief Construct a new Point Particle object
    *
-   * @param mass
-   * @param position
-   * @param velocity
+   * @param mass The mass of the particle
+   * @param position The 3d vector position of the particle
+   * @param velocity The 3d vector velocity of the particle
    */
   explicit PointParticle(Scalar mass, Vector position, Vector velocity);
 
   /**
    * @brief Construct a new Point Particle object
    *
-   * @param mass
-   * @param px
-   * @param py
-   * @param pz
-   * @param vx
-   * @param vy
-   * @param vz
+   * @param mass The mass fof the particle
+   * @param px The x-component of the position vector
+   * @param py The y-component of the position vector
+   * @param pz The z-component of the position vector
+   * @param vx The x-component of the velocity vector
+   * @param vy The y-component of the velocity vector
+   * @param vz The z-component of the velocity vector
    */
   explicit PointParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                          Scalar vz = 0);
@@ -59,6 +59,11 @@ struct PointParticle {
 /*---------------------------------------------------------------------------*\
     Class Particles Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ * @brief CRTP base class of a 'Structure of Array' kind particle set.
+ *
+ * @tparam Derived
+ */
 template <typename Derived>
 class Particles {
  public:
@@ -100,18 +105,21 @@ class Particles {
   Derived &derived();
 
   /**
+   * @brief The particle number of this set.
    *
-   * @return
+   * @return size_t
    */
   size_t number() const;
 
   /**
+   * @brief Reserve(allocate) space for creating particles
    *
    * @param new_cap
    */
   void reserve(size_t new_cap);
 
   /**
+   * @brief Change the particle number of the set.
    *
    * @param new_sz
    */

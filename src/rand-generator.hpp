@@ -243,4 +243,13 @@ class Maxwell {
 template <typename Dtype>
 std::mutex Maxwell<Dtype>::mutex_;
 }  // namespace space::randomGen
+
+namespace space::random {
+using Uniform = space::randomGen::Uniform<double>;
+using Logarithm = space::randomGen::Logarithm<double>;
+using PowerLaw = space::randomGen::PowerLaw<double>;
+using Normal = space::randomGen::Normal<double>;
+using Maxwell = space::randomGen::Maxwell<double>;
+}  // namespace space::random
+
 #endif  // SPACEHUB_RAND_GENERATOR_H
