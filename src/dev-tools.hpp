@@ -1,5 +1,5 @@
-#ifndef DEVTOOLS_h
-#define DEVTOOLS_h
+#ifndef DEVTOOLS_HPP
+#define DEVTOOLS_HPP
 
 #include <iostream>
 #include <tuple>
@@ -7,13 +7,34 @@
 namespace space {
 
     template<typename... Args>
-    void print(std::ostream &os, Args &&... args) {
+    auto& print(std::ostream &os, Args &&... args) {
         (os << ...<< std::forward<Args>(args));
+        return os;
     }
 
     template<typename... Args>
-    void input(std::istream &is, Args &&... args) {
+    auto& input(std::istream &is, Args &&... args) {
         (is >> ... >> std::forward<Args>(args));
+        return is;
+    }
+
+    template<typename... Args>
+    auto& std_print(Args &&... args) {
+        (std::cout << ...<< std::forward<Args>(args));
+        return std::cout;
+    }
+
+    template<typename... Args>
+    auto& std_input(Args &&... args) {
+        (std::cin >> ...>> std::forward<Args>(args));
+        return std::cin;
+    }
+
+    template<typename Arg, typename... Args>
+    auto& print_csv(std::ostream &out, Arg &&arg, Args &&... args) {
+        out << arg;
+        (..., (out  << ',' << std::forward<Args>(args)));
+        return out;
     }
 
     template<typename... Args>
@@ -29,18 +50,18 @@ namespace space {
         return os;
     }
 
-    template<class Tup, size_t... I>
-    void print_tuple(std::ostream &out, const Tup &&tup, std::index_sequence<I...>) {
-        (..., (out << std::get<I>(tup)));
+    template<typename Tup, size_t... I>
+    void print_tuple(std::ostream &out, Tup const &tup, std::index_sequence<I...>) {
+        ((out << (I == 0 ? "" : ",") << std::get<I>(tup)),...);
     }
 
-    template<class Tup, size_t... I>
-    void input_tuple(std::istream &in, const Tup &&tup, std::index_sequence<I...>) {
-        (..., (in >> std::get<I>(tup)));
+    template<typename Tup, size_t... I>
+    void input_tuple(std::istream &in, Tup const &tup, std::index_sequence<I...>) {
+        ((in >> std::get<I>(tup)),...);
     }
 
     template<typename ...Args>
-    std::ostream &operator<<(std::ostream &out, std::tuple<Args...> &&tup) {
+    std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
         space::print_tuple(out, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
         return out;
     }
