@@ -140,7 +140,7 @@ PointParticle<Real>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Sc
 
 template <typename Real>
 std::ostream &operator<<(std::ostream &os, PointParticle<Real> const &particle) {
-  space::display(os, particle.mass, particle.pos, particle.vel);
+  space::print_csv(os, particle.mass, particle.pos, particle.vel);
   return os;
 }
 
