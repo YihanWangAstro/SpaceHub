@@ -172,7 +172,7 @@ namespace space
                     Gtab_.resize(particleNum);
                     oldBtab_.resize(particleNum);
 
-                    //once particle number changes, old b Value should be droped away.
+                    //once particles number changes, old b Value should be droped away.
                     for (size_t i = 0; i < particleNum; ++i) {
                         for (size_t j = 0; j < finalPoint; ++j) {
                             Btab_[i][j].setZero();

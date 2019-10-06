@@ -301,7 +301,7 @@ void oribt_args_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel
 template <typename Particle, typename... Args>
 void move_to_com_coord(Particle &ptc, Args &... ptcs) {
   if constexpr (sizeof...(Args) != 0) {
-    static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
+    static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particles type!");
     auto tot_mass = (ptcs.mass + ... + ptc.mass);
     auto cm_pos = ((ptcs.mass * ptcs.pos) + ... + (ptc.mass * ptc.pos)) / tot_mass;
     auto cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc.mass * ptc.vel)) / tot_mass;
@@ -335,7 +335,7 @@ void move_to_com_coord(Particle &ptc, Args &... ptcs) {
 template <typename Vector, typename Particle, typename... Args>
 void move_particles_to(Vector const &cm_pos, Vector const &cm_vel, Particle &ptc, Args &... ptcs) {
   if constexpr (sizeof...(Args) != 0) {
-    static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particle type!");
+    static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particles type!");
     move_to_com_coord(ptc, ptcs...);
     ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
     ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));

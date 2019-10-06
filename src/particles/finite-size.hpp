@@ -5,7 +5,7 @@
 #ifndef SPACEHUB_FINITE_SIZE_H
 #define SPACEHUB_FINITE_SIZE_H
 
-#include "../particle.hpp"
+#include "../particles.hpp"
 
 namespace space {
 
@@ -53,7 +53,7 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
   };
 
   // Constructors
-  SizeParticles() = delete;
+  SizeParticles() = default;
 
   SizeParticles(SizeParticles const &) = default;
 
@@ -86,7 +86,13 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
 
   void impl_reserve(size_t new_cap);
 
+  void impl_emplace_back(Particle const &new_particle);
+
   size_t impl_number() const;
+
+  size_t impl_capacity() const;
+
+  void impl_clear();
 
  private:
   // Private members
@@ -132,6 +138,10 @@ template <typename TypeSystem>
 size_t SizeParticles<TypeSystem>::impl_number() const {
   return active_num;
 }
+template <typename TypeSystem>
+size_t SizeParticles<TypeSystem>::impl_capacity() const {
+  return idn_.capacity();
+}
 
 template <typename TypeSystem>
 void SizeParticles<TypeSystem>::impl_reserve(size_t new_cap) {
@@ -139,9 +149,24 @@ void SizeParticles<TypeSystem>::impl_reserve(size_t new_cap) {
 }
 
 template <typename TypeSystem>
+void SizeParticles<TypeSystem>::impl_clear() {
+  space::clear_all(pos_, vel_, mass_, radius_, idn_);
+}
+
+template <typename TypeSystem>
 void SizeParticles<TypeSystem>::impl_resize(size_t new_sz) {
   space::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
   active_num = new_sz;
+}
+
+template <typename TypeSystem>
+void SizeParticles<TypeSystem>::impl_emplace_back(typename SizeParticles<TypeSystem>::Particle const &new_particle) {
+  pos_.emplace_back(new_particle.pos);
+  vel_.emplace_back(new_particle.vel);
+  mass_.emplace_back(new_particle.mass);
+  radius_.emplace_back(new_particle.radius);
+  idn_.emplace_back(this->number());
+  active_num++;
 }
 
 template <typename TypeSystem>

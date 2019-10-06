@@ -56,7 +56,7 @@ struct Coords {
    * @param yy
    * @param zz
    */
-  void emplace_back(Scalar &&xx, Scalar &&yy, Scalar &&zz);
+  void emplace_back(Scalar xx, Scalar yy, Scalar zz);
 
   /**
    *
@@ -118,10 +118,10 @@ void Coords<T>::emplace_back(GenVector const &v) {
 }
 
 template <typename T>
-void Coords<T>::emplace_back(Scalar &&xx, Scalar &&yy, Scalar &&zz) {
-  x.emplace_back(std::forward<Scalar>(xx));
-  y.emplace_back(std::forward<Scalar>(yy));
-  z.emplace_back(std::forward<Scalar>(zz));
+void Coords<T>::emplace_back(Scalar xx, Scalar yy, Scalar zz) {
+  x.emplace_back(xx);
+  y.emplace_back(yy);
+  z.emplace_back(zz);
 }
 
 template <typename T>

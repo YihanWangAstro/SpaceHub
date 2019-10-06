@@ -1,7 +1,6 @@
-#include "SpaceHub/src/kahan-number.hpp"
-#include "SpaceHub/src/own-math.hpp"
-#include "SpaceHub/src/rand-generator.hpp"
-#include "SpaceHub/src/vector/vector3.h"
+#include "../../src/kahan-number.hpp"
+#include "../../src/own-math.hpp"
+#include "../../src/rand-generator.hpp"
 #include "gtest/gtest.h"
 
 namespace UnitTest {

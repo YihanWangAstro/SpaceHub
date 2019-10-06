@@ -5,9 +5,58 @@
 #ifndef SPACEHUB_POINT_PARTICLE_H
 #define SPACEHUB_POINT_PARTICLE_H
 
-#include "../particle.hpp"
+#include "../particles.hpp"
 
 namespace space {
+
+/*---------------------------------------------------------------------------*\
+Class PointParticle Declaration
+\*---------------------------------------------------------------------------*/
+template <typename Real>
+struct PointParticle {
+ public:
+  // type members
+  using Scalar = Real;
+
+  using Vector = Vec3<Scalar>;
+
+  /**
+   * @brief Construct a new Point Particle object
+   *
+   */
+  PointParticle() = default;
+
+  /**
+   * @brief Construct a new Point Particle object
+   *
+   * @param mass The mass of the particle
+   * @param position The 3d vector position of the particle
+   * @param velocity The 3d vector velocity of the particle
+   */
+  explicit PointParticle(Scalar mass, Vector position, Vector velocity);
+
+  /**
+   * @brief Construct a new Point Particle object
+   *
+   * @param mass The mass fof the particle
+   * @param px The x-component of the position vector
+   * @param py The y-component of the position vector
+   * @param pz The z-component of the position vector
+   * @param vx The x-component of the velocity vector
+   * @param vy The y-component of the velocity vector
+   * @param vz The z-component of the velocity vector
+   */
+  explicit PointParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
+                         Scalar vz = 0);
+
+  // public members
+  Vector pos;
+
+  Vector vel;
+
+  Scalar mass;
+};
+
 /*---------------------------------------------------------------------------*\
     Class PointParticles Declaration
 \*---------------------------------------------------------------------------*/
@@ -22,7 +71,7 @@ class PointParticles : public Particles<PointParticles<TypeSystem>> {
   using Particle = PointParticle<Scalar>;
 
   // Constructors
-  PointParticles() = delete;
+  PointParticles() = default;
 
   PointParticles(PointParticles const &) = default;
 
@@ -52,7 +101,13 @@ class PointParticles : public Particles<PointParticles<TypeSystem>> {
 
   void impl_reserve(size_t new_cap);
 
+  void impl_emplace_back(Particle const &new_particle);
+
   size_t impl_number() const;
+
+  size_t impl_capacity() const;
+
+  void impl_clear();
 
  private:
   // Private members
@@ -68,6 +123,29 @@ class PointParticles : public Particles<PointParticles<TypeSystem>> {
 
   size_t active_num{0};
 };
+
+/*---------------------------------------------------------------------------*\
+    Class PointParticle Implementation
+\*---------------------------------------------------------------------------*/
+template <typename Real>
+PointParticle<Real>::PointParticle(Scalar m, PointParticle::Vector p, PointParticle::Vector v)
+    : pos(p), vel(v), mass(m) {}
+
+template <typename Real>
+PointParticle<Real>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
+    : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
+
+template <typename Real>
+std::ostream &operator<<(std::ostream &os, PointParticle<Real> const &particle) {
+  space::print_csv(os, particle.mass, particle.pos, particle.vel);
+  return os;
+}
+
+template <typename Real>
+std::istream &operator>>(std::istream &is, PointParticle<Real> &particle) {
+  space::input(is, particle.mass, particle.pos, particle.vel);
+  return is;
+}
 
 /*---------------------------------------------------------------------------*\
     Class PointParticles Implementation
@@ -103,10 +181,28 @@ void PointParticles<TypeSystem>::impl_reserve(size_t new_cap) {
 }
 
 template <typename TypeSystem>
+void PointParticles<TypeSystem>::impl_clear() {
+  space::clear_all(pos_, vel_, mass_, idn_);
+}
+
+template <typename TypeSystem>
+void PointParticles<TypeSystem>::impl_emplace_back(typename PointParticles<TypeSystem>::Particle const &new_particle) {
+  pos_.emplace_back(new_particle.pos);
+  vel_.emplace_back(new_particle.vel);
+  mass_.emplace_back(new_particle.mass);
+  idn_.emplace_back(this->number());
+  active_num++;
+}
+
+template <typename TypeSystem>
 size_t PointParticles<TypeSystem>::impl_number() const {
   return active_num;
 }
 
+template <typename TypeSystem>
+size_t PointParticles<TypeSystem>::impl_capacity() const {
+  return idn_.capacity();
+}
 template <typename TypeSystem>
 std::ostream &operator<<(std::ostream &os, PointParticles<TypeSystem> const &ps) {
   size_t num = ps.number();

@@ -35,8 +35,8 @@ set(TMP_HEADER_FILES
 
         src/orbits/orbits.hpp
 
-        src/particle/point-particles.hpp
-        src/particle/finite-size.hpp
+        src/particles/point-particles.hpp
+        src/particles/finite-size.hpp
 
         src/particle-system/base-system.hpp
         src/particle-system/chain-system.hpp
@@ -62,7 +62,7 @@ set(TMP_HEADER_FILES
         src/kahan-number.hpp
         src/macros.hpp
         src/own-math.hpp
-        src/particle.hpp
+        src/particles.hpp
         src/simulator.hpp
         src/spaceHub.h
         src/type-class.hpp)
@@ -72,7 +72,7 @@ set(SOURCE_FILES
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
         test/unit_test/test_chain.cpp
-        )
+        test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp)
 
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp

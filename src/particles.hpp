@@ -4,57 +4,8 @@
 
 #include "dev-tools.hpp"
 #include "type-class.hpp"
-#include "vector/vector3.h"
 
 namespace space {
-
-/*---------------------------------------------------------------------------*\
-    Class PointParticle Declaration
-\*---------------------------------------------------------------------------*/
-template <typename Real>
-struct PointParticle {
- public:
-  // type members
-  using Scalar = Real;
-
-  using Vector = Vec3<Scalar>;
-
-  /**
-   * @brief Construct a new Point Particle object
-   *
-   */
-  PointParticle() = default;
-
-  /**
-   * @brief Construct a new Point Particle object
-   *
-   * @param mass The mass of the particle
-   * @param position The 3d vector position of the particle
-   * @param velocity The 3d vector velocity of the particle
-   */
-  explicit PointParticle(Scalar mass, Vector position, Vector velocity);
-
-  /**
-   * @brief Construct a new Point Particle object
-   *
-   * @param mass The mass fof the particle
-   * @param px The x-component of the position vector
-   * @param py The y-component of the position vector
-   * @param pz The z-component of the position vector
-   * @param vx The x-component of the velocity vector
-   * @param vy The y-component of the velocity vector
-   * @param vz The z-component of the velocity vector
-   */
-  explicit PointParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
-                         Scalar vz = 0);
-
-  // public members
-  Vector pos;
-
-  Vector vel;
-
-  Scalar mass;
-};
 
 /*---------------------------------------------------------------------------*\
     Class Particles Declaration
@@ -112,6 +63,12 @@ class Particles {
   size_t number() const;
 
   /**
+   *
+   * @return
+   */
+  size_t capacity() const;
+
+  /**
    * @brief Reserve(allocate) space for creating particles
    *
    * @param new_cap
@@ -125,6 +82,18 @@ class Particles {
    */
   void resize(size_t new_sz);
 
+  /**
+   *
+   */
+  void clear();
+
+  /**
+   *
+   * @param particle
+   */
+  template <typename Particle>
+  void emplace_back(Particle const &new_particle);
+
  private:
   /**
    * @brief Construct a new Particles object
@@ -134,29 +103,6 @@ class Particles {
 
   friend Derived;
 };
-
-/*---------------------------------------------------------------------------*\
-    Class PointParticle Implementation
-\*---------------------------------------------------------------------------*/
-template <typename Real>
-PointParticle<Real>::PointParticle(Scalar m, PointParticle::Vector p, PointParticle::Vector v)
-    : pos(p), vel(v), mass(m) {}
-
-template <typename Real>
-PointParticle<Real>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
-    : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
-
-template <typename Real>
-std::ostream &operator<<(std::ostream &os, PointParticle<Real> const &particle) {
-  space::print_csv(os, particle.mass, particle.pos, particle.vel);
-  return os;
-}
-
-template <typename Real>
-std::istream &operator>>(std::istream &is, PointParticle<Real> &particle) {
-  space::input(is, particle.mass, particle.pos, particle.vel);
-  return is;
-}
 
 /*---------------------------------------------------------------------------*\
     Class Particles Implementation
@@ -172,6 +118,11 @@ size_t Particles<Derived>::number() const {
 }
 
 template <typename Derived>
+size_t Particles<Derived>::capacity() const {
+  return static_cast<Derived const *>(this)->impl_capacity();
+}
+
+template <typename Derived>
 void Particles<Derived>::reserve(size_t new_cap) {
   static_cast<Derived *>(this)->impl_reserve(new_cap);
 }
@@ -179,6 +130,17 @@ void Particles<Derived>::reserve(size_t new_cap) {
 template <typename Derived>
 void Particles<Derived>::resize(size_t new_sz) {
   static_cast<Derived *>(this)->impl_resize(new_sz);
+}
+
+template <typename Derived>
+void Particles<Derived>::clear() {
+  static_cast<Derived *>(this)->impl_clear();
+}
+
+template <typename Derived>
+template <typename Particle>
+void Particles<Derived>::emplace_back(Particle const &particle) {
+  static_cast<Derived *>(this)->impl_emplace_back(particle);
 }
 
 /*---------------------------------------------------------------------------*\
