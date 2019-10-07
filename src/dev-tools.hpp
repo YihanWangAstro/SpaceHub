@@ -146,18 +146,18 @@ namespace space {
 
 /** @brief Macros used to output debuf info.  */
 #ifdef DEBUG
-#define DEBUG_MSG(EXPR,...) (EXPR ? SpaceH::print(std::cout,  __VA_ARGS__ ) : void(0) )
+#define DEBUG_MSG(EXPR,...) (EXPR ? space::print(std::cout,  __VA_ARGS__ ) : void(0) )
 #else
 #define DEBUG_MSG(EXPR, ...)
 #endif
 
 #ifdef DEBUG
-#define DEBUG_MODE_ASSERT(EXPR,MSG) ((EXPR) ? void(0) : (SPACEHUB_ABORT(MSG)))
+#define DEBUG_MODE_ASSERT(EXPR,MSG) ((EXPR) ? void(0) : (spacehub_abort(MSG)))
 #else
 #define DEBUG_MODE_ASSERT(EXPR, MSG)
 #endif
 
-#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
+#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                         \
     template<typename ..._T_>                                                                                          \
     using Container   = typename CLASS::template Container<_T_...>;                                                    \
                                                                                                                        \
@@ -169,7 +169,7 @@ namespace space {
     using VectorArray = typename CLASS::VectorArray;                                                                   \
     using Coord       = typename CLASS::Coord
 
-#define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                                                     \
+#define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                                                   \
                                                                                                                        \
 inline TYPE & NAME () noexcept {                                                                                       \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
@@ -184,7 +184,7 @@ inline TYPE const & NAME () const noexcept {                                    
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
-#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                      \
+#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                    \
                                                                                                                        \
 inline TYPE & NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
@@ -193,13 +193,13 @@ inline TYPE const & NAME () const noexcept {                                    
     return MEMBER;                                                                                                     \
 };
 
-#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
+#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                   \
                                                                                                                        \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };
 
-#define CREATE_METHOD_CHECK(NAME)                                                                                      \
+#define CREATE_METHOD_CHECK(NAME)                                                                                    \
                                                                                                                        \
     template<typename T, typename... Args>                                                                             \
     struct has_method_##NAME                                                                                           \
@@ -235,7 +235,7 @@ inline TYPE const & NAME () const noexcept {                                    
 #define HAS_MEMBER(C, member) has_ ## member<C>::value
 
 /** @brief Macros used to check if a class has a static member.  */
-#define CREATE_STATIC_MEMBER_CHECK(MEMBER)                                                                             \
+#define CREATE_STATIC_MEMBER_CHECK(MEMBER)                                                                           \
                                                                                                                        \
     template<typename T, typename V = bool>                                                                            \
     struct has_static ## MEMBER : std::false_type { };                                                                 \

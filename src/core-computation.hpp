@@ -27,8 +27,8 @@ constexpr auto all(Args... args) {
 }
 
 template <typename Array>
-void array_set_zero(Array &arry) {
-  for (auto &a : arry) {
+void array_set_zero(Array &array) {
+  for (auto &a : array) {
     a = 0;
   }
 }
@@ -40,6 +40,7 @@ void set_arrays_zero(Args &... args) {
 
 template <typename Array, typename... Args>
 auto array_dot(Array const &a, Array const &b, Args const &... args) {
+  DEBUG_MODE_ASSERT(b.size() == a.size(), "length of the array mismatch!");
   typename Array::value_type product{0};
   size_t size = a.size();
   for (size_t i = 0; i < size; ++i) {
@@ -50,6 +51,7 @@ auto array_dot(Array const &a, Array const &b, Args const &... args) {
 
 template <typename Array, typename... Args>
 void array_add(Array &dst, Array const &a, Array const &b, Args const &... args) {
+  DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
   size_t size = dst.size();
 
   for (size_t i = 0; i < size; i++) {
@@ -66,12 +68,21 @@ void array_mul(Array &dst, Array const &a, Array const &b, Args const &... args)
   }
 }
 
+template <typename Array>
+auto array_sum(Array const &array) {
+  typename Array::value_type total = 0;
+  for (auto const &a : array) {
+    total += a;
+  }
+  return total;
+}
+
 template <typename Scalar, typename Array>
-void array_advance(Array &var, Array const &increase, Scalar stepSize) {
+void array_advance(Array &var, Array const &increase, Scalar step_size) {
   size_t size = var.size();
 
   for (size_t i = 0; i < size; i++) {
-    var[i] += increase[i] * stepSize;
+    var[i] += increase[i] * step_size;
   }
 }
 
@@ -117,35 +128,26 @@ auto coord_contract_to_scalar(Coord const &a, Coord const &b) {
 }
 
 template <typename Coord, typename... Args>
-void coord_add(Coord &dst, Coord const &a, Coord const &b, Args const &... args) {
-  array_add(dst.x, a.x, b.x, std::forward<Args>(args.x)...);
-  array_add(dst.y, a.y, b.y, std::forward<Args>(args.y)...);
-  array_add(dst.z, a.z, b.z, std::forward<Args>(args.z)...);
+inline void coord_add(Coord &dst, Coord const &a, Coord const &b, Args const &... args) {
+  array_add(dst.x, a.x, b.x, args.x...);
+  array_add(dst.y, a.y, b.y, args.y...);
+  array_add(dst.z, a.z, b.z, args.z...);
 }
 
 template <typename Scalar, typename Coord>
-void coord_advance(Coord &var, Coord const &increase, Scalar stepSize) {
-  array_advance(var.x, increase.x, stepSize);
-  array_advance(var.y, increase.y, stepSize);
-  array_advance(var.z, increase.z, stepSize);
+inline void coord_advance(Coord &var, Coord const &increment, Scalar step_size) {
+  array_advance(var.x, increment.x, step_size);
+  array_advance(var.y, increment.y, step_size);
+  array_advance(var.z, increment.z, step_size);
 }
 
 template <typename Array>
-auto array_sum(Array const &array) {
-  typename Array::value_type total = 0;
-  for (auto const &a : array) {
-    total += a;
-  }
-  return total;
-}
-
-template <typename Array>
-auto calc_com(Array const &mass, Array const &var) {
+inline auto calc_com(Array const &mass, Array const &var) {
   return array_dot(var, mass) / array_sum(mass);
 }
 
 template <typename Array>
-auto calc_com(Array const &mass, Array const &var, typename Array::value_type tot_mass) {
+inline auto calc_com(Array const &mass, Array const &var, typename Array::value_type tot_mass) {
   return array_dot(var, mass) / tot_mass;
 }
 
@@ -155,31 +157,31 @@ void move_to_com(Array &var, typename Array::value_type const &com_var) {
 }
 
 template <typename Array1, typename Array2>
-void move_to_com(Array1 const &mass, Array2 &var) {
+inline void move_to_com(Array1 const &mass, Array2 &var) {
   auto com_var = calc_com(mass, var);
   move_to_com(var, com_var);
 }
 
 template <typename Coord, typename ScalarArray>
-void coord_move_to_com(ScalarArray const &mass, Coord &var) {
+inline void coord_move_to_com(ScalarArray const &mass, Coord &var) {
   auto tot_mass = array_sum(mass);
-  move_to_com(var.x, array_dot(mass, var.x) / tot_mass);
-  move_to_com(var.y, array_dot(mass, var.y) / tot_mass);
-  move_to_com(var.z, array_dot(mass, var.z) / tot_mass);
+  move_to_com(var.x, calc_com(mass, var.x, tot_mass));
+  move_to_com(var.y, calc_com(mass, var.y, tot_mass));
+  move_to_com(var.z, calc_com(mass, var.z, tot_mass));
 }
 
 template <typename Particles>
-auto calc_kinetic_energy(Particles const &ptc) {
+inline auto calc_kinetic_energy(Particles const &ptc) {
   return 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
 }
 
 template <typename Particles>
 auto calc_potential_energy(Particles const &ptc) {
   typename Particles::Scalar p_eng{0};
-  size_t size = ptc.number();
-  auto &m = ptc.mass();
-  auto &v = ptc.vel();
-  auto &p = ptc.pos();
+  size_t const size = ptc.number();
+  auto const &m = ptc.mass();
+  auto const &v = ptc.vel();
+  auto const &p = ptc.pos();
 
   for (size_t i = 0; i < size; ++i)
     for (size_t j = i + 1; j < size; ++j) {
@@ -192,7 +194,7 @@ auto calc_potential_energy(Particles const &ptc) {
 }
 
 template <typename Particles>
-auto calc_total_energy(Particles const &ptc) {
+inline auto calc_total_energy(Particles const &ptc) {
   return calc_potential_energy(ptc) + calc_kinetic_energy(ptc);
 }
 
