@@ -72,7 +72,7 @@ set(SOURCE_FILES
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
         test/unit_test/test_chain.cpp
-        test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp)
+        test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp test/unit_test/test_core_calculations.cpp)
 
 set(REGRESSION_TEST
         test/regression_test/simple_test.cpp

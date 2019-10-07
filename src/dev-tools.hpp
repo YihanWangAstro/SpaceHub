@@ -171,31 +171,31 @@ namespace space {
 
 #define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                                                     \
                                                                                                                        \
-inline TYPE & NAME () {                                                                                                \
+inline TYPE & NAME () noexcept {                                                                                       \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };                                                                                                                     \
-inline TYPE const & NAME () const {                                                                                    \
+inline TYPE const & NAME () const noexcept {                                                                           \
     return static_cast<Derived const*>(this)->impl_##NAME();                                                           \
 };
 
 #define DECLARE_READ_ACCESSOR(NAME, TYPE, DERIVED)                                                                     \
                                                                                                                        \
-inline TYPE const & NAME () const {                                                                                    \
+inline TYPE const & NAME () const noexcept {                                                                           \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                      \
                                                                                                                        \
-inline TYPE & NAME () {                                                                                                \
+inline TYPE & NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-inline TYPE const & NAME () const {                                                                                    \
+inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };
 
 #define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
                                                                                                                        \
-inline TYPE const & NAME () const {                                                                                    \
+inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };
 
