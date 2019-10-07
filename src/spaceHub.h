@@ -18,7 +18,7 @@
 
 #include "integrator/symplectic/symplectic-integrator.hpp"
 
-#include "ode-iterator/BS-iterator.hpp"
+#include "ode-iterator/BS-iterator0.hpp"
 #include "ode-iterator/const-iterator.hpp"
 
 #include "args-callback/callbacks.hpp"
@@ -28,11 +28,11 @@
 #include "tools/auto-name.hpp"
 
 namespace space {
-using DefaultTypes = Types<double, std::vector>;
+  using DefaultTypes = Types<double, std::vector>;
 
-template <template <class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
-using DefaultSolver =
-    Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BSIterator<double>>;
+  template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
+  using DefaultSolver =
+  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BSIterator<double>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BSIterator<double>>;
