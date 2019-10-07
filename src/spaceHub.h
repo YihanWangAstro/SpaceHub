@@ -4,8 +4,8 @@
 #include "kahan-number.hpp"
 #include "macros.hpp"
 
-#include "particle/finite-size.hpp"
-#include "particle/point-particles.hpp"
+#include "particles/finite-size.hpp"
+#include "particles/point-particles.hpp"
 
 #include "simulator.hpp"
 

@@ -201,10 +201,15 @@ SimpleSystem<Particles, Forces>::SimpleSystem(Scalar t, const STL &partc) : ptc_
 template <typename Particles, typename Forces>
 template <typename STL>
 void SimpleSystem<Particles, Forces>::impl_load_from_linear_container(const STL &stl) {
-  auto i = stl.begin();
-  impl_time() = *i, ++i;
-  load_to_coords(i, impl_pos());
-  load_to_coords(i, impl_vel());
+  auto begin = stl.begin();
+  impl_time() = *begin;
+  size_t len = impl_number() * 3;
+  size_t pos_begin = begin + 1;
+  size_t pos_end = pos_begin + len;
+  size_t vel_begin = pos_end;
+  size_t vel_end = vel_begin + len;
+  load_to_coords(pos_begin, pos_end, impl_pos());
+  load_to_coords(vel_begin, vel_end, impl_vel());
 }
 
 template <typename Particles, typename Forces>

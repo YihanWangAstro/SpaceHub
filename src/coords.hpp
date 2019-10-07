@@ -138,31 +138,26 @@ void Coords<T>::clear() {
     Help functions and tools
 \*---------------------------------------------------------------------------*/
 template <typename STL, typename T>
-void add_coords_to(STL &stl, Coords<T> const &coords) {
-  for (auto const &xx : coords.x) {
-    stl.emplace_back(xx);
-  }
-  for (auto const &yy : coords.y) {
-    stl.emplace_back(yy);
-  }
-  for (auto const &zz : coords.z) {
-    stl.emplace_back(zz);
-  }
+void add_coords_to(STL &stl, Coords<T> &coords) {
+  stl.reserve(coords.size() * 3 + stl.size());
+  std::copy(coords.x.begin(), coords.x.end(), std::back_insert_iterator(stl));
+  std::copy(coords.y.begin(), coords.y.end(), std::back_insert_iterator(stl));
+  std::copy(coords.z.begin(), coords.z.end(), std::back_insert_iterator(stl));
 }
 
 template <typename STLIterator, typename T>
-void load_to_coords(STLIterator &i, Coords<T> &coords) {
+void load_to_coords(STLIterator iter_start, STLIterator iter_end, Coords<T> &coords) {
+  size_t len = (iter_end - iter_start)/3;
+  coords.resize(len);
+  auto iter = iter_start;
   for (auto &xx : coords.x) {
-    xx = *i;
-    i++;
+    xx = *iter++;
   }
   for (auto &yy : coords.y) {
-    yy = *i;
-    i++;
+    yy = *iter++;
   }
   for (auto &zz : coords.z) {
-    zz = *i;
-    i++;
+    zz = *iter++;
   }
 }
 

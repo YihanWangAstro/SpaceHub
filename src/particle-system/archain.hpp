@@ -267,12 +267,20 @@ namespace space {
     template<typename Particles, typename Forces, ReguType RegType>
     template<typename STL>
     void ARchainSystem<Particles, Forces, RegType>::impl_load_from_linear_container(const STL &stl) {
-        auto i = stl.begin();
-        impl_time() = *i, ++i;
-        omega() = *i, ++i;
-        bindE() = *i, ++i;
-        load_to_coords(i, chain_pos_);
-        load_to_coords(i, chain_vel_);
+        auto begin = stl.begin();
+        impl_time() = *begin;
+        omega() = *(begin + 1);
+        bindE() = *(begin + 2);
+
+        size_t len = impl_number() * 3;
+
+        size_t pos_begin = begin + 3;
+        size_t pos_end = pos_begin + len;
+        size_t vel_begin = pos_end;
+        size_t vel_end = vel_begin + len;
+        load_to_coords(pos_begin, pos_end, chain_pos_);
+        load_to_coords(vel_begin, vel_end, chain_vel_);
+
         Chain::calc_cartesian(ptc_.mass(), chain_pos_, impl_pos(), index());
         Chain::calc_cartesian(ptc_.mass(), chain_vel_, impl_vel(), index());
     }

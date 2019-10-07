@@ -267,12 +267,19 @@ void RegularizedSystem<Particles, Forces, RegType>::impl_to_linear_container(STL
 template <typename Particles, typename Forces, ReguType RegType>
 template <typename STL>
 void RegularizedSystem<Particles, Forces, RegType>::impl_load_from_linear_container(const STL &stl) {
-  auto i = stl.begin();
-  impl_time() = *i, ++i;
-  omega() = *i, ++i;
-  bindE() = *i, ++i;
-  load_to_coords(i, impl_pos());
-  load_to_coords(i, impl_vel());
+  auto begin = stl.begin();
+  impl_time() = *begin;
+  omega() = *(begin + 1);
+  bindE() = *(begin + 2);
+
+  size_t len = impl_number() * 3;
+
+  size_t pos_begin = begin + 3;
+  size_t pos_end = pos_begin + len;
+  size_t vel_begin = pos_end;
+  size_t vel_end = vel_begin + len;
+  load_to_coords(pos_begin, pos_end, impl_pos());
+  load_to_coords(vel_begin, vel_end, impl_vel());
 }
 
 template <typename Particles, typename Forces, ReguType RegType>
