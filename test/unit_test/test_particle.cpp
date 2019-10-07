@@ -18,7 +18,7 @@ namespace UnitTest {
         EXPECT_EQ(particles.number(), 0);
 
         for(size_t i = 0 ;i < sample_num; ++i){
-            size_t particle_num = space::randomGen::Uniform<size_t>::get(0, 10000);
+            size_t particle_num = static_cast<size_t >(space::randomGen::Uniform<float>::get(0, 10000));
 
             particles.resize(particle_num);
 
@@ -41,7 +41,7 @@ namespace UnitTest {
         EXPECT_EQ(particles.capacity(), 0);
 
         for(size_t i = 0 ; i < sample_num;++i){
-            size_t particle_num = space::randomGen::Uniform<size_t>::get(0, 10000);
+            size_t particle_num = static_cast<size_t>(space::randomGen::Uniform<float>::get(0, 10000));
 
             particles.reserve(particle_num);
 

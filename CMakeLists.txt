@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3")
+set(CMAKE_CXX_FLAGS_RELEASE  "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
+
+
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(./googletest)
@@ -53,6 +57,7 @@ set(TMP_HEADER_FILES
         src/vector/vector3d.h
         src/vector/vector3pd.h
 
+        src/accelerations.h
         src/coords.hpp
         src/interaction.hpp
         src/particle-system.hpp

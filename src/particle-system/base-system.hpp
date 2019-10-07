@@ -6,19 +6,20 @@
 #include "../core-computation.hpp"
 #include "../dev-tools.hpp"
 #include "../particle-system.hpp"
+#include "../accelerations.h"
 
 namespace space {
 
 /*---------------------------------------------------------------------------*\
     Class SimpleSystem Declaration
 \*---------------------------------------------------------------------------*/
-template <typename Particles, typename Forces>
-class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Forces>> {
+template <typename Particles, typename Interactions>
+class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Interactions>> {
  public:
   // Type members
   SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-  using Base = ParticleSystem<SimpleSystem<Particles, Forces>>;
+  using Base = ParticleSystem<SimpleSystem<Particles, Interactions>>;
 
   using Particle = typename Particles::Particle;
 
@@ -37,10 +38,10 @@ class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Forces>> {
    *
    * @tparam STL
    * @param t
-   * @param partc
+   * @param particle_set
    */
   template <typename STL>
-  SimpleSystem(Scalar t, STL const &partc);
+  SimpleSystem(Scalar t, STL const &particle_set);
 
   // Friend functions
   template <typename P, typename F>
@@ -56,31 +57,31 @@ class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Forces>> {
        *
        * @return
        */
-      SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
+      SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());
 
   /**
    *
    * @return
    */
-  SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
+  SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptcl_.idn());
 
   /**
    *
    * @return
    */
-  SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
+  SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptcl_.pos());
 
   /**
    *
    * @return
    */
-  SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
+  SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptcl_.vel());
 
   /**
    *
    * @return
    */
-  SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
+  SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time());
 
   /**
    *
@@ -167,40 +168,30 @@ class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Forces>> {
   void kick_real_vel(Scalar step_size);
 
   // Private members
-  Particles ptc_;
+  Particles ptcl_;
 
-  Forces forces_;
+  Interactions interactions_;
 
-  Coord acc_;
-
-  std::conditional_t<Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
-
-  std::conditional_t<Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
-
-  std::conditional_t<Forces::ext_vel_dep, Coord, Empty> aux_vel_;
+  Accelerations<Interactions, Coord> accels_;
+  
+  std::conditional_t<Interactions::ext_vel_dep, Coord, Empty> aux_vel_;
 };
 
 /*---------------------------------------------------------------------------*\
     Class SimpleSystem Implementation
 \*---------------------------------------------------------------------------*/
-template <typename Particles, typename Forces>
+template <typename Particles, typename Interactions>
 template <typename STL>
-SimpleSystem<Particles, Forces>::SimpleSystem(Scalar t, const STL &partc) : ptc_(t, partc), acc_(partc.size()) {
+SimpleSystem<Particles, Interactions>::SimpleSystem(Scalar t, const STL &particle_set) : ptcl_(t, particle_set), accels_(particle_set.size()) {
   static_assert(is_container_v<STL>, "Only STL-like container can be used");
-
-  if constexpr (Forces::ext_vel_indep) {
-    ext_vel_indep_acc_.resize(partc.size());
-  }
-
-  if constexpr (Forces::ext_vel_dep) {
-    ext_vel_dep_acc_.resize(partc.size());
-    aux_vel_ = ptc_.vel();
+  if constexpr (Interactions::ext_vel_dep) {
+    aux_vel_ = ptcl_.vel();
   }
 }
 
-template <typename Particles, typename Forces>
+template <typename Particles, typename Interactions>
 template <typename STL>
-void SimpleSystem<Particles, Forces>::impl_load_from_linear_container(const STL &stl) {
+void SimpleSystem<Particles, Interactions>::impl_load_from_linear_container(const STL &stl) {
   auto begin = stl.begin();
   impl_time() = *begin;
   size_t len = impl_number() * 3;
@@ -212,9 +203,9 @@ void SimpleSystem<Particles, Forces>::impl_load_from_linear_container(const STL 
   load_to_coords(vel_begin, vel_end, impl_vel());
 }
 
-template <typename Particles, typename Forces>
+template <typename Particles, typename Interactions>
 template <typename STL>
-void SimpleSystem<Particles, Forces>::impl_to_linear_container(STL &stl) {
+void SimpleSystem<Particles, Interactions>::impl_to_linear_container(STL &stl) {
   stl.clear();
   stl.reserve(impl_number() * 6 + 1);
   stl.emplace_back(impl_time());
@@ -222,92 +213,92 @@ void SimpleSystem<Particles, Forces>::impl_to_linear_container(STL &stl) {
   add_coords_to(stl, impl_vel());
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_pre_iter_process() {
-  if constexpr (Forces::ext_vel_dep) {
-    aux_vel_ = ptc_.vel();
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_pre_iter_process() {
+  if constexpr (Interactions::ext_vel_dep) {
+    aux_vel_ = ptcl_.vel();
   }
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_kick(Scalar step_size) {
-  if constexpr (Forces::ext_vel_dep) {
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_kick(Scalar step_size) {
+  if constexpr (Interactions::ext_vel_dep) {
     Scalar half_step = 0.5 * step_size;
     eval_vel_indep_acc();
     kick_pseu_vel(half_step);
     kick_real_vel(step_size);
     kick_pseu_vel(half_step);
   } else {
-    forces_.eval_acc(ptc_, acc_);
-    calc::coord_advance(ptc_.vel(), acc_, step_size);
+    interactions_.eval_acc(ptcl_, accels_.acc());
+    calc::coord_advance(ptcl_.vel(), accels_.acc(), step_size);
   }
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_drift(Scalar step_size) {
-  ptc_.time() += step_size;
-  calc::coord_advance(ptc_.pos(), ptc_.vel(), step_size);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_drift(Scalar step_size) {
+    ptcl_.time() += step_size;
+    calc::coord_advance(ptcl_.pos(), ptcl_.vel(), step_size);
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_evaluate_acc(Coord &acceleration) const {
-  forces_.eval_acc(ptc_, acceleration);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_evaluate_acc(Coord &acceleration) const {
+  interactions_.eval_acc(ptcl_, acceleration);
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
-  calc::coord_advance(ptc_.vel(), acceleration, step_size);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
+  calc::coord_advance(ptcl_.vel(), acceleration, step_size);
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
-  calc::coord_advance(ptc_.pos(), velocity, step_size);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
+  calc::coord_advance(ptcl_.pos(), velocity, step_size);
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::impl_advance_time(Scalar dt) {
-  ptc_.time() += dt;
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::impl_advance_time(Scalar dt) {
+    ptcl_.time() += dt;
 }
 
-template <typename Particles, typename Forces>
-size_t SimpleSystem<Particles, Forces>::impl_number() const {
-  return ptc_.number();
+template <typename Particles, typename Interactions>
+size_t SimpleSystem<Particles, Interactions>::impl_number() const {
+  return ptcl_.number();
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::kick_real_vel(Scalar step_size) {
-  std::swap(aux_vel_, ptc_.vel());
-  forces_.eval_extra_vel_dep_acc(ptc_, ext_vel_dep_acc_);
-  std::swap(aux_vel_, ptc_.vel());
-  calc::coord_add(acc_, acc_, ext_vel_dep_acc_);
-  calc::coord_advance(ptc_.vel(), acc_, step_size);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::kick_real_vel(Scalar step_size) {
+  std::swap(aux_vel_, ptcl_.vel());
+  interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+  std::swap(aux_vel_, ptcl_.vel());
+  calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+  calc::coord_advance(ptcl_.vel(), accels_.acc(), step_size);
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::kick_pseu_vel(Scalar step_size) {
-  forces_.eval_extra_vel_dep_acc(ptc_, ext_vel_dep_acc_);
-  calc::coord_add(acc_, acc_, ext_vel_dep_acc_);
-  calc::coord_advance(aux_vel_, acc_, step_size);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::kick_pseu_vel(Scalar step_size) {
+  interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+  calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+  calc::coord_advance(aux_vel_, accels_.acc(), step_size);
 }
 
-template <typename Particles, typename Forces>
-void SimpleSystem<Particles, Forces>::eval_vel_indep_acc() {
-  forces_.eval_newtonian_acc(ptc_, acc_);
-  if constexpr (Forces::ext_vel_dep) {
-    forces_.eval_extra_vel_indep_acc(ptc_, ext_vel_indep_acc_);
-    calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
+template <typename Particles, typename Interactions>
+void SimpleSystem<Particles, Interactions>::eval_vel_indep_acc() {
+  interactions_.eval_newtonian_acc(ptcl_, accels_.tot_vel_indep_acc());
+  if constexpr (Interactions::ext_vel_indep) {
+    interactions_.eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
+    calc::coord_add(accels_.tot_vel_indep_acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc());
   }
 }
 
-template <typename Particles, typename Forces>
-std::ostream &operator<<(std::ostream &os, SimpleSystem<Particles, Forces> const &ps) {
-  os << ps.ptc_;
+template <typename Particles, typename Interactions>
+std::ostream &operator<<(std::ostream &os, SimpleSystem<Particles, Interactions> const &ps) {
+  os << ps.ptcl_;
   return os;
 }
 
-template <typename Particles, typename Forces>
-std::istream &operator>>(std::istream &is, SimpleSystem<Particles, Forces> &ps) {
-  is >> ps.ptc_;
+template <typename Particles, typename Interactions>
+std::istream &operator>>(std::istream &is, SimpleSystem<Particles, Interactions> &ps) {
+  is >> ps.ptcl_;
   return is;
 }
 }  // namespace space

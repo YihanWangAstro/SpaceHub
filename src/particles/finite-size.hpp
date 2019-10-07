@@ -6,6 +6,7 @@
 #define SPACEHUB_FINITE_SIZE_H
 
 #include "../particles.hpp"
+#include "point-particles.hpp"
 
 namespace space {
 
@@ -39,7 +40,7 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
         : PointParticle<Scalar>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
     friend std::ostream &operator<<(std::ostream &os, Particle const &particle) {
-      space::display(os, particle.mass, particle.radius, particle.pos, particle.vel);
+      space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
       return os;
     }
 
@@ -151,6 +152,7 @@ void SizeParticles<TypeSystem>::impl_reserve(size_t new_cap) {
 template <typename TypeSystem>
 void SizeParticles<TypeSystem>::impl_clear() {
   space::clear_all(pos_, vel_, mass_, radius_, idn_);
+  active_num = 0;
 }
 
 template <typename TypeSystem>
@@ -172,9 +174,9 @@ void SizeParticles<TypeSystem>::impl_emplace_back(typename SizeParticles<TypeSys
 template <typename TypeSystem>
 std::ostream &operator<<(std::ostream &os, SizeParticles<TypeSystem> const &ps) {
   size_t num = ps.number();
-  os << ps.time() << ' ';
+  os << ps.time() << ',';
   for (size_t i = 0; i < num; ++i) {
-    space::display(os, ps.idn()[i], ps.mass()[i], ps.radius()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i],
+    space::print_csv(os, ps.idn()[i], ps.mass()[i], ps.radius()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i],
                    ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
   }
   return os;

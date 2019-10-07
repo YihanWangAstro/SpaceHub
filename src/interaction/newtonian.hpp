@@ -16,7 +16,6 @@ namespace space::interactions {
     public:
         //Type members
         using Base = Interactions<NewtonianGrav>;
-
     CRTP_impl:
         //CRTP implementation
         template<typename Particles>

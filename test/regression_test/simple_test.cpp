@@ -18,11 +18,11 @@ int main(int argc, char **argv) {
 
     //using particles = SoAFiniteSizeParticles<type>;
 
-    //using sys = SimpleSystem<particles, force>;
+    using sys = SimpleSystem<particles, force>;
 
     //using sys = RegularizedSystem <particles, force, ReguType::logH>;
 
-    using sys = ChainSystem <particles, force>;
+    //using sys = ChainSystem <particles, force>;
 
     //using sys = ARchainSystem <particles, force, ReguType::TTL>;
 

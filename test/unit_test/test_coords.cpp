@@ -10,10 +10,10 @@ namespace UnitTest {
     template<typename Container>
     void test_coords_reserve(size_t sample_num) {
         space::Coords<Container> coords;
-        auto high = 1000000;
+        auto high = 10000;
 
         for (size_t i = 0; i < sample_num; ++i) {
-            auto new_size = space::randomGen::Uniform<size_t>::get(0, high);
+            size_t new_size = static_cast<size_t >(space::randomGen::Uniform<float>::get(0, high));
 
             coords.resize(new_size);
 
@@ -30,10 +30,10 @@ namespace UnitTest {
     template<typename Container>
     void test_coords_resize(size_t sample_num) {
         space::Coords<Container> coords;
-        auto high = 1000000;
+        auto high = 10000;
 
         for (size_t i = 0; i < sample_num; ++i) {
-            auto new_size = space::randomGen::Uniform<size_t>::get(0, high);
+            size_t new_size = static_cast<size_t>(space::randomGen::Uniform<float>::get(0, high));
 
             coords.resize(new_size);
 

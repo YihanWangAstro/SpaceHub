@@ -42,7 +42,7 @@ template <typename Array, typename... Args>
 auto array_dot(Array const &a, Array const &b, Args const &... args) {
   DEBUG_MODE_ASSERT(b.size() == a.size(), "length of the array mismatch!");
   typename Array::value_type product{0};
-  size_t size = a.size();
+  size_t const size = a.size();
   for (size_t i = 0; i < size; ++i) {
     product += (args[i] * ... * (a[i] * b[i]));
   }
@@ -52,7 +52,7 @@ auto array_dot(Array const &a, Array const &b, Args const &... args) {
 template <typename Array, typename... Args>
 void array_add(Array &dst, Array const &a, Array const &b, Args const &... args) {
   DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
-  size_t size = dst.size();
+  size_t const size = dst.size();
 
   for (size_t i = 0; i < size; i++) {
     dst[i] = a[i] + b[i] + (args[i] + ...);
@@ -61,7 +61,7 @@ void array_add(Array &dst, Array const &a, Array const &b, Args const &... args)
 
 template <typename Array, typename... Args>
 void array_mul(Array &dst, Array const &a, Array const &b, Args const &... args) {
-  size_t size = dst.size();
+  size_t const size = dst.size();
 
   for (size_t i = 0; i < size; i++) {
     dst[i] = a[i] * b[i] * (args[i] * ...);
@@ -79,7 +79,7 @@ auto array_sum(Array const &array) {
 
 template <typename Scalar, typename Array>
 void array_advance(Array &var, Array const &increase, Scalar step_size) {
-  size_t size = var.size();
+  size_t const size = var.size();
 
   for (size_t i = 0; i < size; i++) {
     var[i] += increase[i] * step_size;
@@ -88,7 +88,7 @@ void array_advance(Array &var, Array const &increase, Scalar step_size) {
 
 template <typename Array, typename Coord>
 void coord_dot(Array &dst, Coord const &a, Coord const &b) {
-  size_t size = dst.size();
+  size_t const size = dst.size();
   for (size_t i = 0; i < size; ++i) {
     dst[i] = a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i];
   }
@@ -96,7 +96,7 @@ void coord_dot(Array &dst, Coord const &a, Coord const &b) {
 
 template <typename Array, typename Coord>
 auto coord_contract_to_scalar(Array &coef, Coord const &a, Coord const &b) {
-  size_t size = coef.size();
+  size_t const size = coef.size();
   typename Coord::Scalar sum{0};
 
   for (size_t i = 0; i < size; ++i) {
@@ -118,7 +118,7 @@ auto coord_contract_to_scalar(Scalar coef, Coord const &a, Coord const &b) {
 
 template <typename Coord>
 auto coord_contract_to_scalar(Coord const &a, Coord const &b) {
-  size_t size = a.size();
+  size_t const size = a.size();
   typename Coord::Scalar sum{0};
 
   for (size_t i = 0; i < size; ++i) {
@@ -177,7 +177,7 @@ inline auto calc_kinetic_energy(Particles const &ptc) {
 
 template <typename Particles>
 auto calc_potential_energy(Particles const &ptc) {
-  typename Particles::Scalar p_eng{0};
+  typename Particles::Scalar potential_eng{0};
   size_t const size = ptc.number();
   auto const &m = ptc.mass();
   auto const &v = ptc.vel();
@@ -188,9 +188,9 @@ auto calc_potential_energy(Particles const &ptc) {
       auto dx = p.x[i] - p.x[j];
       auto dy = p.y[i] - p.y[j];
       auto dz = p.z[i] - p.z[j];
-      p_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
+        potential_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
     }
-  return p_eng;
+  return potential_eng;
 }
 
 template <typename Particles>
@@ -207,7 +207,7 @@ inline auto calc_total_energy(Particles const &ptc) {
 template <typename ScalarArray, typename Coord>
 inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &pos) {
   using Scalar = typename ScalarArray::value_type;
-  size_t size = mass.size();
+  size_t const size = mass.size();
   Scalar min_fall_free = max_value<Scalar>::value;
 
   for (size_t i = 0; i < size; i++) {
@@ -226,6 +226,12 @@ inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &pos) {
 
 CREATE_STATIC_MEMBER_CHECK(regu_type);
 
+/**
+ *
+ * @tparam Particles
+ * @param ptc
+ * @return
+ */
 template <typename Particles>
 auto calc_step_scale(Particles const &ptc) {
   if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
