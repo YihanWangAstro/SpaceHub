@@ -34,6 +34,7 @@ set(TMP_HEADER_FILES
 
         src/ode-iterator/ode-iterator.hpp
         src/ode-iterator/BS-iterator.hpp
+        src/ode-iterator/BS-iterator-new.hpp
         src/ode-iterator/const-iterator.hpp
         src/ode-iterator/IAS15.h
 
@@ -70,7 +71,7 @@ set(TMP_HEADER_FILES
         src/particles.hpp
         src/simulator.hpp
         src/spaceHub.h
-        src/type-class.hpp)
+        src/type-class.hpp src/error-checker.h src/error-checker/most-offensive.h)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

@@ -21,7 +21,7 @@ namespace space::odeIterator {
         using Base = OdeIterator<BSIterator<Real>>;
 
         /*---------------------------------------------------------------------------*\
-        Sub-Class BStab Declaration
+        Sub-Class Burlish_Stoer_tab Declaration
         \*---------------------------------------------------------------------------*/
         template<size_t MaxIter>
         class BStab {
@@ -104,22 +104,22 @@ namespace space::odeIterator {
         static constexpr Scalar S2{0.95};
 
         /** @brief The Maximum iteration depth*/
-        static constexpr size_t max_depth_{8};
+        static constexpr size_t max_depth{8};
 
         static constexpr bool most_offensive_err{true};
 
         //Private members
         /** @brief The constat coef for BS extrapolation*/
-        BStab<max_depth_ + 1> BS_;
+        BStab<max_depth + 1> BS_;
 
         /** @brief Extrapolation table.*/
-        std::array<std::vector<Scalar>, (max_depth_ + 1) * (max_depth_ + 2) / 2> extrap_tab_;
+        std::array<std::vector<Scalar>, (max_depth + 1) * (max_depth + 2) / 2> extrap_tab_;
 
         /** @brief The optimal step size array.*/
-        std::array<Scalar, max_depth_ + 1> optm_step_coef_;
+        std::array<Scalar, max_depth + 1> optm_step_coef_;
 
         /** @brief The work(computation resource) needed to converge at column k.*/
-        std::array<Scalar, max_depth_ + 1> work_per_len_;
+        std::array<Scalar, max_depth + 1> work_per_len_;
 
         /** @brief Local absolute error*/
         Scalar abs_error_{max(space::epsilon_v<Scalar>, 1e-13)};
@@ -265,7 +265,7 @@ namespace space::odeIterator {
             return BS_.max_step_coef[k];
         }
         /*return SpaceH::max(BS_.limiter(k) / 4,
-                           SpaceH::min(0.9 * pow(0.90 / error, BS_.expon(k)), 1.0 / BS_.limiter(k)));*/
+                           SpaceH::min(0.9 * pow(0.90 / error, BS_.expon(k)), 1.0 / BS_.step_limiter(k)));*/
     }
 
     template<typename Real>
@@ -328,7 +328,7 @@ namespace space::odeIterator {
 
     template<typename Real>
     inline size_t BSIterator<Real>::allowed(size_t i) const {
-        return space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth_ - 1));
+        return space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
 
     template<typename Real>
@@ -337,7 +337,7 @@ namespace space::odeIterator {
     }
 
     /*---------------------------------------------------------------------------*\
-       Sub-Class BStab Implementation
+       Sub-Class Burlish_Stoer_tab Implementation
     \*---------------------------------------------------------------------------*/
     template<typename Real>
     template<size_t MaxIter>

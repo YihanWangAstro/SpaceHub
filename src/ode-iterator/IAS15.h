@@ -39,7 +39,7 @@ namespace space {
             integrator_.checkTabVolume(particles.particleNumber());
 
             Scalar iterH = stepLength;
-            RadauTab iterBTab = integrator_.getBTab();//get the b value of the last step.
+            RadauTab iterBTab = integrator_.getBTab();//get the b value of the last step_sequence.
 
             resetLastConvergence();
             for (size_t k = 0; k < max_iter_; ++k) {

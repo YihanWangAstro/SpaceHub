@@ -68,6 +68,16 @@ void array_mul(Array &dst, Array const &a, Array const &b, Args const &... args)
   }
 }
 
+  template <typename Array>
+  void array_sub(Array &dst, Array const &a, Array const &b) {
+    DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
+    size_t const size = dst.size();
+
+    for (size_t i = 0; i < size; i++) {
+      dst[i] = a[i] - b[i];
+    }
+  }
+
 template <typename Array>
 auto array_sum(Array const &array) {
   typename Array::value_type total = 0;
@@ -106,12 +116,12 @@ auto coord_contract_to_scalar(Array &coef, Coord const &a, Coord const &b) {
 }
 
 /*template<typename Scalar, typename Coord>
-auto coord_contract_to_scalar(Scalar coef, Coord const &a, Coord const &b) {
+auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b) {
     size_t size = a.size();
     Scalar sum{0};
 
     for (size_t i = 0; i < size; ++i) {
-        sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*coef;
+        sum += (a.x[i]*b.x[i] + a.y[i]*b.y[i] + a.z[i]*b.z[i])*table_coef;
     }
     return sum;
 }*/

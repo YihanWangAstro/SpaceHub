@@ -12,7 +12,7 @@
 
 namespace space::odeIterator {
     template<typename T, size_t MaxIter>
-    class BStab {
+    class Burlish_Stoer_tab {
     public:
         using Scalar = T;
 
@@ -40,7 +40,7 @@ namespace space::odeIterator {
             return extrap_coef_[at(i, j)];
         }
 
-        BStab() {
+        Burlish_Stoer_tab() {
             for (size_t i = 0; i < MaxIter; ++i) {
                 if (i == 0) {
                     sub_steps_[i] = 1;
@@ -274,7 +274,7 @@ namespace space::odeIterator {
         static constexpr size_t max_depth_{8};
 
         /** @brief The constat coef for BS extrapolation*/
-        BStab<Scalar, max_depth_ + 1> BS_;
+        Burlish_Stoer_tab<Scalar, max_depth_ + 1> BS_;
 
         /** @brief Extrapolation table.*/
         std::array<std::vector<Scalar>, (max_depth_ + 1) * (max_depth_ + 2) / 2> extrap_tab_;

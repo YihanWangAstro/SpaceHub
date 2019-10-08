@@ -18,7 +18,9 @@
 
 #include "integrator/symplectic/symplectic-integrator.hpp"
 
-#include "ode-iterator/BS-iterator0.hpp"
+#include "error-checker/most-offensive.h"
+
+#include "ode-iterator/BS-iterator-new.hpp"
 #include "ode-iterator/const-iterator.hpp"
 
 #include "args-callback/callbacks.hpp"
@@ -32,7 +34,7 @@ namespace space {
 
   template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
   using DefaultSolver =
-  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BSIterator<double>>;
+  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BSIterator<double, MostOffensive>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BSIterator<double>>;

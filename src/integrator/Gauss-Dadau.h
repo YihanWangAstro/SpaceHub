@@ -48,7 +48,7 @@ namespace space
              1.02299632982348675e+00, 1.08547219393864239e+00, 1.25426462228187776e+00, 1.60026654949081622e+00, 2.32359830021969444e+00, 4.10997577834455837e+00, 1.08460261902368476e+01
          };*/
 
-        /*coef for computing g(derived from r)*/
+        /*table_coef for computing g(derived from r)*/
         constexpr double gg[28] =
         {
             1.77738089140780001e+01,
