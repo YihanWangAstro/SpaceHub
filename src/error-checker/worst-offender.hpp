@@ -48,9 +48,9 @@ namespace space {
     auto impl_error(Array const &scale, Array const &diff) -> typename Array::value_type;
 
   private:
-    Scalar atol_{1e-13};
+    Scalar atol_{1e-15};
 
-    Scalar rtol_{1e-13};
+    Scalar rtol_{1e-15};
   };
 
   template<typename T>
