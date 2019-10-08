@@ -3,41 +3,68 @@
 //
 #include <iomanip>
 #include "../../src/spaceHub.h"
+
 using namespace space;
-using namespace orbit;
-using namespace argsOpt;
+using namespace space::odeIterator;
+using namespace space::integrator;
+using namespace space::orbit;
+using namespace unit;
+using scalar = double;
+using type = Types<scalar, std::vector>;
+
 int main() {
-    using Simulation = DefaultSolver<>;
-    using Particle = Simulation::Particle;
+  using force = interactions::NewtonianGrav;
 
-    Particle m1{unit::m_solar}, m2{0.5*unit::m_solar}, m3{0.05*unit::m_solar};
+  using particles = PointParticles<type>;
 
-    auto a1 = 0.5*unit::au;
-    auto a2 = 5*unit::au;
+  //using particles = SoAFiniteSizeParticles<type>;
 
-    move_particles_to(Kepler(m1.mass, m2.mass, a1, 0, 25.01*unit::deg, 0, 90*unit::deg, thermal), m2);
+  //using sys = SimpleSystem<particles, force>;
 
-    move_to_com_coord(m1, m2);
+  using sys = RegularizedSystem<particles, force, ReguType::logH>;
 
-    move_particles_to(Kepler(total_mass(m1, m2), m3.mass, a2, 0, -64.99*unit::deg, 0, 0, thermal), m3);
+  //using sys = ChainSystem<particles, force>;
 
-    move_to_com_coord(m1, m2, m3);
+  //using sys = ARchainSystem<particles, force, ReguType::logH>;
 
-    Simulation kozai_test{0, m1, m2, m3};
+  //using iter = ConstOdeIterator<symplectic2nd>;
 
-    Simulation::RunArgs args;
+  using iter = BurlishStoer<double, WorstOffender>;
 
-    auto end_time = 3e4*unit::year;
+  using Simulation = Simulator<sys, iter>;
 
-    std::ofstream output{"kozai.txt"};
+  using Particle = Simulation::Particle;
 
-    output << std::setprecision(16);
+  Particle m1{unit::m_solar}, m2{0.5 * unit::m_solar}, m3{0.5 * unit::m_solar};
 
-    auto writer = [&](auto& ptc){ output << calc::calc_total_energy(ptc) << ' ' << ptc << '\n';};
+  auto a1 = 0.5 * unit::au;
+  auto a2 = 5 * unit::au;
 
-    args.add_pre_step_operation(TimeSlice(writer, 0, end_time));
+  move_particles_to(Kepler(m1.mass, m2.mass, a1, 0, 25.01 * unit::deg, 0, 90 * unit::deg, 0.0), m2);
 
-    args.add_stop_condition(end_time);
+  move_to_com_coord(m1, m2);
 
-    kozai_test.run(args);
+  move_particles_to(Kepler(total_mass(m1, m2), m3.mass, a2, 0, -64.99 * unit::deg, 0, 0, 0.0), m3);
+
+  move_to_com_coord(m1, m2, m3);
+
+  Simulation kozai_test{0, m1, m2, m3};
+
+  auto E0 = calc::calc_total_energy(kozai_test.particles());
+
+  Simulation::RunArgs args;
+
+  auto end_time = 3e3 * unit::year;
+
+  std::ofstream output{"kozai.eng"};
+
+  output << std::setprecision(16);
+
+  auto writer = [&](auto &ptc) { output << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n'; };
+
+  args.add_pre_step_operation(argsOpt::TimeSlice(writer, 0, end_time));
+
+  args.add_stop_condition(end_time);
+
+  kozai_test.run(args);
 }

@@ -20,11 +20,11 @@ int main(int argc, char **argv) {
 
   //using sys = SimpleSystem<particles, force>;
 
-  //using sys = RegularizedSystem<particles, force, ReguType::logH>;
+  using sys = RegularizedSystem<particles, force, ReguType::logH>;
 
   //using sys = ChainSystem<particles, force>;
 
-  using sys = ARchainSystem<particles, force, ReguType::logH>;
+  //using sys = ARchainSystem<particles, force, ReguType::logH>;
 
   //using iter = ConstOdeIterator<symplectic2nd>;
 
@@ -48,6 +48,8 @@ int main(int argc, char **argv) {
 
   move_to_com_coord(sun, earth, moon);
 
+  simulation nbody{0, sun, earth, moon};
+
   simulation::RunArgs args;
 
   std::ofstream eng_file("solar.eng");
@@ -55,17 +57,19 @@ int main(int argc, char **argv) {
   eng_file << std::setprecision(16);
 
   auto end_time = 100 * year;
+  auto E0 = calc::calc_total_energy(nbody.particles());
 
   args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
 
   args.add_pre_step_operation(
           argsOpt::TimeSlice(
-                  [&](auto &ptc) { eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, 0) << '\n'; },
+                  [&](auto &ptc) {
+                    eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << ',' << ptc.omega() << '\n';
+                  },
                   0, end_time));
 
   args.add_stop_condition(end_time);
 
-  simulation nbody{0, sun, earth, moon};
 
   nbody.run(args);
 

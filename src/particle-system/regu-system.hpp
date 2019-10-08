@@ -117,7 +117,7 @@ namespace space {
 
     void impl_advance_vel(Coord const &acceleration, Scalar step_size);
 
-    void impl_evaluate_acc(Coord const &acceleration) const;
+    void impl_evaluate_acc(Coord &acceleration) const;
 
     void impl_drift(Scalar step_size);
 
@@ -201,7 +201,7 @@ namespace space {
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
-  void RegularizedSystem<Particles, Interactions, RegType>::impl_evaluate_acc(const Coord &acceleration) const {
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_evaluate_acc(Coord &acceleration) const {
     interactions_.eval_acc(ptcl_, acceleration);
   }
 
@@ -230,6 +230,15 @@ namespace space {
         advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
       }
       calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), half_time);
+      /*advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
+      }
+      calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), phy_time);
+      advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
+      }*/
     }
   }
 

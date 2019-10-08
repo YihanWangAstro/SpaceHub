@@ -35,7 +35,7 @@ namespace space {
 
   template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
   using DefaultSolver =
-  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BurlishStoer<double, WorstOffender>>;
+  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::logH>, odeIterator::BurlishStoer<double, RMS>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;

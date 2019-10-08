@@ -211,6 +211,19 @@ namespace space {
         advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
       }
       chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);
+
+      /*advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
+      }
+
+      Chain::calc_chain(accels_.tot_vel_indep_acc(), chain_acc_, index());
+      chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, phy_time);
+
+      advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
+      }*/
     }
   }
 
