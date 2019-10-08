@@ -3,7 +3,7 @@ project(SpaceHub)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3")
-set(CMAKE_CXX_FLAGS_RELEASE  "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
 
 
 set(CMAKE_CXX_STANDARD 17)
@@ -33,8 +33,8 @@ set(TMP_HEADER_FILES
         src/multi-thread/ciostream.hpp
 
         src/ode-iterator/ode-iterator.hpp
-        src/ode-iterator/BS-iterator.hpp
-        src/ode-iterator/BS-iterator-new.hpp
+        src/ode-iterator/BS-iterator_bk.hpp
+        src/ode-iterator/Burlish-Stoer.hpp
         src/ode-iterator/const-iterator.hpp
         src/ode-iterator/IAS15.h
 
@@ -71,7 +71,7 @@ set(TMP_HEADER_FILES
         src/particles.hpp
         src/simulator.hpp
         src/spaceHub.h
-        src/type-class.hpp src/error-checker.h src/error-checker/most-offensive.h)
+        src/type-class.hpp src/error-checker.h src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

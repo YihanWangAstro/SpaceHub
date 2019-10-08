@@ -18,9 +18,10 @@
 
 #include "integrator/symplectic/symplectic-integrator.hpp"
 
-#include "error-checker/most-offensive.h"
+#include "error-checker/worst-offender.hpp"
+#include "error-checker/RMS.hpp"
 
-#include "ode-iterator/BS-iterator-new.hpp"
+#include "ode-iterator/Burlish-Stoer.hpp"
 #include "ode-iterator/const-iterator.hpp"
 
 #include "args-callback/callbacks.hpp"
@@ -34,13 +35,13 @@ namespace space {
 
   template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
   using DefaultSolver =
-  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BSIterator<double, MostOffensive>>;
+  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::TTL>, odeIterator::BurlishStoer<double, WorstOffender>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-// using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BSIterator<double>>;
+// using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-// using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, odeIterator::BSIterator<double>>;
+// using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;
 }  // namespace space
 
 #endif

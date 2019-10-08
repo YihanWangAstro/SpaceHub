@@ -40,7 +40,7 @@ namespace space {
         new_chain.emplace_back(get_new_node(chain, first, last));
       }
 
-      if constexpr (manual_move) {
+      if constexpr (!auto_CoM) {
         new_chain.emplace_back(Vector(0, 0, 0));
       } else {
         Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
@@ -55,7 +55,7 @@ namespace space {
       to_cartesian(chain.x, cartesian.x, index);
       to_cartesian(chain.y, cartesian.y, index);
       to_cartesian(chain.z, cartesian.z, index);
-      if constexpr (manual_move) {
+      if constexpr (!auto_CoM) {
         calc::coord_move_to_com(mass, cartesian);
       }
     }
@@ -74,7 +74,7 @@ namespace space {
         to_cartesian(chain.z, cartesian.z, index);
     }*/
   private:
-    static constexpr bool manual_move{true};
+    static constexpr bool auto_CoM{false};
 
     template<typename T>
     static bool not_in_list(std::list<T> &list, T var) {
@@ -115,7 +115,7 @@ namespace space {
           auto dx = pos.x[j] - pos.x[i];
           auto dy = pos.y[j] - pos.y[i];
           auto dz = pos.z[j] - pos.z[i];
-          vec.emplace_back(std::move(Node{dx * dx + dy * dy + dz * dz, i, j, true}));
+          vec.emplace_back(Node{dx * dx + dy * dy + dz * dz, i, j, true});
         }
       }
     }
@@ -178,7 +178,7 @@ namespace space {
     template<typename Array, typename IdxArray>
     static void to_chain(Array const &cartesian, Array &chain, IdxArray const &index) {
       const size_t size = cartesian.size();
-      if constexpr (manual_move) {
+      if constexpr (!auto_CoM) {
         chain[size - 1] = 0;
       } else {
         chain[size - 1] = cartesian[index[0]];
@@ -190,7 +190,7 @@ namespace space {
     template<typename Array, typename IdxArray>
     static void to_cartesian(Array const &chain, Array &cartesian, IdxArray const &index) {
       const size_t size = cartesian.size();
-      if constexpr (manual_move) {
+      if constexpr (!auto_CoM) {
         cartesian[index[0]] = 0;
       } else {
         cartesian[index[0]] = chain[size - 1];
