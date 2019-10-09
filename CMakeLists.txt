@@ -80,10 +80,12 @@ set(SOURCE_FILES
         test/unit_test/test_chain.cpp
         test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp test/unit_test/test_core_calculations.cpp)
 
-set(REGRESSION_TEST
-        test/regression_test/simple_test.cpp
-
+set(TWOBODY_TEST
+        test/regression_test/two-body-test.cpp
         )
+
+set(SOLAR_TEST
+        test/regression_test/solar_system.cpp)
 
 set(KOZAI_TEST
         test/regression_test/kozai.cpp)
@@ -93,4 +95,6 @@ target_link_libraries(SpaceHub_unit_test gmock gmock_main)
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 
-add_executable(SpaceHub_reg_test ${TMP_HEADER_FILES} ${REGRESSION_TEST})
+add_executable(SpaceHub_twobody_test ${TMP_HEADER_FILES} ${TWOBODY_TEST})
+
+add_executable(SpaceHub_solar_test ${TMP_HEADER_FILES} ${SOLAR_TEST})

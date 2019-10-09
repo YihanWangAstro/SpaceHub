@@ -27,15 +27,7 @@ namespace space {
     using Particle = typename Particles::Particle;
 
     //Constructors
-    ChainSystem() = delete;
-
-    ChainSystem(ChainSystem const &) = default;
-
-    ChainSystem(ChainSystem &&) noexcept = default;
-
-    ChainSystem &operator=(ChainSystem const &) = default;
-
-    ChainSystem &operator=(ChainSystem &&) noexcept = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(ChainSystem, delete, default, default, default, default);
 
     template<typename STL>
     ChainSystem(Scalar t, STL const &particle_set);

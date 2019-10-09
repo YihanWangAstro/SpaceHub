@@ -21,17 +21,9 @@ namespace space {
     using value_type = T;
 
     // Constructors
-    WorstOffender() = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(WorstOffender, default, default, default, default, default);
 
     WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
-
-    WorstOffender(WorstOffender const &) = default;
-
-    WorstOffender(WorstOffender &&) noexcept = default;
-
-    WorstOffender &operator=(WorstOffender const &) = default;
-
-    WorstOffender &operator=(WorstOffender &&) noexcept = default;
 
     CRTP_impl :
     // CRTP implementation
@@ -51,15 +43,17 @@ namespace space {
     auto impl_error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
   private:
-    Scalar atol_{1e-13};
+    Scalar atol_{6e-14};
 
     Scalar rtol_{1e-13};
   };
+
 
   template<typename T>
   void WorstOffender<T>::impl_set_atol(Scalar error) {
     atol_ = error;
   }
+
 
   template<typename T>
   void WorstOffender<T>::impl_set_rtol(Scalar error) {
@@ -72,18 +66,19 @@ namespace space {
     size_t const size = y0.size();
     Scalar max_err = 0;
     for (size_t i = 0; i < size; ++i) {
-      max_err = std::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i]))* rtol_) );
+      max_err = std::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i])) * rtol_));
     }
     return max_err;
   }
 
   template<typename T>
   template<typename Array>
-  auto WorstOffender<T>::impl_error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
+  auto
+  WorstOffender<T>::impl_error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
     size_t const size = scale.size();
     Scalar max_err = 0;
     for (size_t i = 0; i < size; ++i) {
-      max_err = std::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + fabs(scale[i]) * rtol_) );
+      max_err = std::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + fabs(scale[i]) * rtol_));
     }
     return max_err;
   }

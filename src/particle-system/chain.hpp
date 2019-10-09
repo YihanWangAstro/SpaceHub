@@ -16,6 +16,9 @@ namespace space {
       bool avail; /**< State of node. If this node can be chained.*/
     };
 
+    //Constructors
+    SPACEHUB_MAKE_CONSTRUCTORS(Chain, default, default, default, default, default);
+
     template<typename Coord, typename IdxArray>
     static void calc_chain_index(Coord const &pos, IdxArray &index) {
       std::vector<Node> dist;
@@ -74,7 +77,7 @@ namespace space {
         to_cartesian(chain.z, cartesian.z, index);
     }*/
   private:
-    static constexpr bool auto_CoM{false};
+    static constexpr bool auto_CoM{true};
 
     template<typename T>
     static bool not_in_list(std::list<T> &list, T var) {

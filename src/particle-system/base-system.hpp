@@ -24,16 +24,8 @@ namespace space {
     using Particle = typename Particles::Particle;
 
     // Constructors
-    SimpleSystem() = delete;
-
-    SimpleSystem(SimpleSystem const &) = default;
-
-    SimpleSystem(SimpleSystem &&) noexcept = default;
-
-    SimpleSystem &operator=(SimpleSystem const &) = default;
-
-    SimpleSystem &operator=(SimpleSystem &&) noexcept = default;
-
+    SPACEHUB_MAKE_CONSTRUCTORS(SimpleSystem, delete, default, default, default, default);
+    
     /**
      *
      * @tparam STL

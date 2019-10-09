@@ -185,21 +185,54 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
     return 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
   }
 
+  CREATE_METHOD_CHECK(chain_pos);
+
+  CREATE_METHOD_CHECK(index);
+
   template<typename Particles>
   auto calc_potential_energy(Particles const &ptc) {
+
     typename Particles::Scalar potential_eng{0};
     size_t const size = ptc.number();
     auto const &m = ptc.mass();
     auto const &v = ptc.vel();
     auto const &p = ptc.pos();
 
-    for (size_t i = 0; i < size; ++i)
-      for (size_t j = i + 1; j < size; ++j) {
-        auto dx = p.x[i] - p.x[j];
-        auto dy = p.y[i] - p.y[j];
-        auto dz = p.z[i] - p.z[j];
-        potential_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
+    if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
+      auto const &ch_px = ptc.chain_pos().x;
+      auto const &ch_py = ptc.chain_pos().y;
+      auto const &ch_pz = ptc.chain_pos().z;
+      auto const &idx = ptc.index();
+
+      for (size_t i = 0; i < size - 1; ++i) {
+        potential_eng -=
+                m[idx[i]] * m[idx[i + 1]] / sqrt(ch_px[i] * ch_px[i] + ch_py[i] * ch_py[i] + ch_pz[i] * ch_pz[i]);
       }
+
+      for (size_t i = 0; i < size - 2; ++i) {
+        auto dx = ch_px[i] + ch_px[i + 1];
+        auto dy = ch_py[i] + ch_py[i + 1];
+        auto dz = ch_pz[i] + ch_pz[i + 1];
+        potential_eng -= m[idx[i]] * m[idx[i + 2]] / sqrt(dx * dx + dy * dy + dz * dz);
+      }
+
+      for (size_t i = 0; i < size; ++i) {
+        for (size_t j = i + 3; j < size; ++j) {
+          auto dx = p.x[idx[j]] - p.x[idx[i]];
+          auto dy = p.y[idx[j]] - p.y[idx[i]];
+          auto dz = p.z[idx[j]] - p.z[idx[i]];
+          potential_eng -= m[idx[i]] * m[idx[j]] / sqrt(dx * dx + dy * dy + dz * dz);
+        }
+      }
+    } else {
+      for (size_t i = 0; i < size; ++i)
+        for (size_t j = i + 1; j < size; ++j) {
+          auto dx = p.x[i] - p.x[j];
+          auto dy = p.y[i] - p.y[j];
+          auto dz = p.z[i] - p.z[j];
+          potential_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
+        }
+    }
     return potential_eng;
   }
 
@@ -234,7 +267,9 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
     return min_fall_free * space::consts::pi * 0.5 / sqrt(2 * space::consts::G);
   }
 
-  CREATE_STATIC_MEMBER_CHECK(regu_type);
+  CREATE_METHOD_CHECK(omega);
+
+  CREATE_METHOD_CHECK(bindE);
 
 /**
  *
@@ -244,7 +279,7 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
  */
   template<typename Particles>
   auto calc_step_scale(Particles const &ptc) {
-    if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
+    if constexpr (HAS_METHOD(Particles, omega)) {
       return calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
     } else {
       return calc_fall_free_time(ptc.mass(), ptc.pos());
@@ -256,7 +291,7 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
     auto U = -calc_potential_energy(ptcls);
     auto T = calc_kinetic_energy(ptcls);
 
-    if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
+    if constexpr (HAS_METHOD(Particles, bindE)) {
       return log(fabs((T + ptcls.bindE()) / U));
     } else {
       return fabs((T - U - E0) / E0);

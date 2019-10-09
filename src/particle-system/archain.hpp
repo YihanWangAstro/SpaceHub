@@ -26,17 +26,9 @@ namespace space {
     //Static public members
     static constexpr ReguType regu_type{RegType};
 
-    ARchainSystem() = delete;
-
-    ARchainSystem(ARchainSystem const &) = default;
-
-    ARchainSystem(ARchainSystem &&) noexcept = default;
-
-    ARchainSystem &operator=(ARchainSystem const &) = default;
-
-    ARchainSystem &operator=(ARchainSystem &&) noexcept = default;
-
     //Constructors
+    SPACEHUB_MAKE_CONSTRUCTORS(ARchainSystem, delete, default, default, default, default);
+
     template<typename STL>
     ARchainSystem(Scalar t, STL const &particle_set);
 
@@ -163,20 +155,20 @@ namespace space {
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::impl_advance_time(Scalar step_size) {
-    Scalar phy_time = regu_.eval_pos_phy_time(ptcl_, step_size);
+    Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
     ptcl_.time() += phy_time;
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
-    Scalar phy_time = regu_.eval_pos_phy_time(ptcl_, step_size);
+    Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
     Chain::calc_chain(velocity, chain_vel(), index());
     chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), phy_time);
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
-    Scalar phy_time = regu_.eval_vel_phy_time(ptcl_, step_size);
+    Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
     Chain::calc_chain(acceleration, chain_acc_, index());
     chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, phy_time);
   }
@@ -188,14 +180,14 @@ namespace space {
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::impl_drift(Scalar step_size) {
-    Scalar phy_time = regu_.eval_pos_phy_time(ptcl_, step_size);
+    Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
     chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), phy_time);
     ptcl_.time() += phy_time;
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::impl_kick(Scalar step_size) {
-    Scalar phy_time = regu_.eval_vel_phy_time(ptcl_, step_size);
+    Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
     Scalar half_time = 0.5 * phy_time;
     eval_vel_indep_acc();
 
@@ -301,10 +293,10 @@ namespace space {
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
-    interactions_.eval_newtonian_acc(ptcl_, accels_.newtonian_acc());
+    interactions_.eval_newtonian_acc(*this, accels_.newtonian_acc());
     accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
     if constexpr (Interactions::ext_vel_indep) {
-      interactions_.eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
+      interactions_.eval_extra_vel_indep_acc(*this, accels_.ext_vel_indep_acc());
       calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonain_acc());
     }
   }
@@ -325,7 +317,7 @@ namespace space {
 
   template<typename Particles, typename Interactions, ReguType RegType>
   void ARchainSystem<Particles, Interactions, RegType>::kick_pseu_vel(Scalar phy_time) {
-    interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+    interactions_.eval_extra_vel_dep_acc(*this, accels_.ext_vel_dep_acc());
     calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
     Chain::calc_chain(accels_.acc(), chain_acc_, index());
     chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, phy_time);
@@ -335,7 +327,7 @@ namespace space {
   void ARchainSystem<Particles, Interactions, RegType>::kick_real_vel(Scalar phy_time) {
     std::swap(aux_vel_, ptcl_.vel());
     std::swap(chain_aux_vel_, chain_vel());
-    interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+    interactions_.eval_extra_vel_dep_acc(*this, accels_.ext_vel_dep_acc());
     std::swap(aux_vel_, ptcl_.vel());
     std::swap(chain_aux_vel_, chain_vel());
     calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());

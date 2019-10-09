@@ -93,11 +93,11 @@ namespace space::odeIterator {
   private:
     inline size_t at(size_t i, size_t j) const {
       //return i * (i + 1) / 2 + j;
-      return i*MaxIter +j;
+      return i * MaxIter + j;
     }
 
     /** @brief Extrapolation coefficient.*/
-    std::array<Scalar, MaxIter * (MaxIter ) > extrap_coef_;
+    std::array<Scalar, MaxIter * (MaxIter)> extrap_coef_;
 
     /** @brief The exponent of error estimate at column k.*/
     std::array<Scalar, MaxIter> err_expon_;
@@ -116,6 +116,8 @@ namespace space::odeIterator {
   class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker>> {
     static_assert(std::is_floating_point<Real>::value, "Only float-like type can be used!");
   public:
+    using Base = OdeIterator<BurlishStoer<Real, ErrChecker>>;
+
     using Scalar = Real;
 
     static constexpr size_t max_depth{7};
@@ -123,6 +125,8 @@ namespace space::odeIterator {
     static constexpr size_t max_try_num{500};
 
     using BSConsts = BurlishStoerConsts<Scalar, max_depth + 1>;
+
+    CRTP_impl:
 
     template<typename U>
     auto impl_iterate(U &ptcs, typename U::Scalar macro_step_size) -> typename U::Scalar {
@@ -144,7 +148,7 @@ namespace space::odeIterator {
           evolve_by_n_steps(ptcs, iter_H, BS_.step_sequence(k));
           ptcs.to_linear_container(extrap_tab_[k]);
           extrapolate_tab(k);
-          Scalar error = err_checker_.error(extrap_tab_[0], extrap_tab_[1]);
+          Scalar error = err_checker_.error(input_, extrap_tab_[0], extrap_tab_[1]);
 
           optimal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
 
@@ -171,6 +175,14 @@ namespace space::odeIterator {
       spacehub_abort("Reach max iteration loop number!");
     }
 
+    void impl_set_atol(Scalar atol) {
+      err_checker_.set_atol(atol);
+    }
+
+    void impl_set_rtol(Scalar rtol) {
+      err_checker_.set_rtol(rtol);
+    }
+
   private:
     void check_variable_size() {
       var_num_ = input_.size();
@@ -183,7 +195,7 @@ namespace space::odeIterator {
 
     inline size_t at(size_t i, size_t j) const {
       //return i * (i + 1) / 2 + j;
-      return i* BSConsts::max_iter +j;
+      return i * BSConsts::max_iter + j;
     }
 
     template<typename U>

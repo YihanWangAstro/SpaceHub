@@ -69,15 +69,7 @@ namespace space {
     using Particle = typename Particles::Particle;
 
     // Constructors
-    RegularizedSystem() = delete;
-
-    RegularizedSystem(RegularizedSystem const &) = default;
-
-    RegularizedSystem(RegularizedSystem &&) noexcept = default;
-
-    RegularizedSystem &operator=(RegularizedSystem const &) = default;
-
-    RegularizedSystem &operator=(RegularizedSystem &&) noexcept = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(RegularizedSystem, delete, default, default, default, default);
 
     template<typename STL>
     RegularizedSystem(Scalar t, STL const &particle_set);

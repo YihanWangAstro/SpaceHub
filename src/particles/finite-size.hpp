@@ -32,7 +32,7 @@ namespace space {
       using Vector = Vec3<Scalar>;
 
       // Constructors
-      Particle() = default;
+     SPACEHUB_MAKE_CONSTRUCTORS(Particle, default, default, default, default, default);
 
       Particle(Scalar m, Scalar r, Vector p, Vector v) : PointParticle<Scalar>{m, p, v}, radius{r} {}
 
@@ -55,15 +55,7 @@ namespace space {
     };
 
     // Constructors
-    SizeParticles() = default;
-
-    SizeParticles(SizeParticles const &) = default;
-
-    SizeParticles(SizeParticles &&) noexcept = default;
-
-    SizeParticles &operator=(SizeParticles const &) = default;
-
-    SizeParticles &operator=(SizeParticles &&) noexcept = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(SizeParticles, default, default, default, default, default);
 
     template<typename STL>
     SizeParticles(Scalar t, STL const &partc);

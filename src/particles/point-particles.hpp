@@ -71,15 +71,7 @@ Class PointParticle Declaration
     using Particle = PointParticle<Scalar>;
 
     // Constructors
-    PointParticles() = default;
-
-    PointParticles(PointParticles const &) = default;
-
-    PointParticles(PointParticles &&) noexcept = default;
-
-    PointParticles &operator=(PointParticles const &) = default;
-
-    PointParticles &operator=(PointParticles &&) noexcept = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(PointParticles, default, default, default, default, default);
 
     template<typename STL>
     PointParticles(Scalar t, STL const &particle_set);

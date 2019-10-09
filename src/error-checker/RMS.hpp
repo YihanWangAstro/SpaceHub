@@ -21,17 +21,9 @@ namespace space {
     using value_type = T;
 
     // Constructors
-    RMS() = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(RMS, default, default, default, default, default);
 
     RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
-
-    RMS(RMS const &) = default;
-
-    RMS(RMS &&) noexcept = default;
-
-    RMS &operator=(RMS const &) = default;
-
-    RMS &operator=(RMS &&) noexcept = default;
 
     CRTP_impl :
     // CRTP implementation
@@ -51,7 +43,7 @@ namespace space {
     auto impl_error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
   private:
-    Scalar atol_{1e-13};
+    Scalar atol_{6e-14};
 
     Scalar rtol_{1e-13};
   };
@@ -72,7 +64,7 @@ namespace space {
     size_t const size = y0.size();
     Scalar error = 0;
     for (size_t i = 0; i < size; ++i) {
-      auto r = fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i]))* rtol_);
+      auto r = fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i])) * rtol_);
       error += r * r;
     }
     return sqrt(error / size);
@@ -80,7 +72,7 @@ namespace space {
 
   template<typename T>
   template<typename Array>
-  auto RMS<T>::impl_error(const Array & scale, const Array &y0, const Array &y1) -> typename Array::value_type {
+  auto RMS<T>::impl_error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
     size_t const size = scale.size();
     Scalar error = 0;
     for (size_t i = 0; i < size; ++i) {

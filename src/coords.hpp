@@ -20,22 +20,14 @@ struct Coords {
   using Vector = Vec3<Scalar>;
 
   // constructors
-  Coords() = default;
-
+  SPACEHUB_MAKE_CONSTRUCTORS(Coords, default, default, default, default, default);
+  
   /**
    *
    * @param count
    */
   explicit Coords(size_t count);
-
-  Coords(Coords const &other) = default;
-
-  Coords(Coords &&other) noexcept = default;
-
-  Coords &operator=(Coords const &other) = default;
-
-  Coords &operator=(Coords &&other) noexcept = default;
-
+  
   // public methods
   /**
    *

@@ -11,103 +11,137 @@ using namespace unit;
 using scalar = double;
 using type = Types<scalar, std::vector>;
 
+template<typename Simulator>
+void run_two_body_test(Simulator &nbody, std::string file_name) {
+  typename Simulator::RunArgs args;
+
+  auto end_time = 1000 * year;
+
+  std::ofstream eng_file(file_name);
+
+  auto E0 = calc::calc_total_energy(nbody.particles());
+
+  args.add_pre_step_operation(
+          argsOpt::TimeSlice(
+                  [&](auto &ptc) {
+                    eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
+                  },
+                  0, end_time));
+
+  args.add_stop_condition(end_time);
+
+  args.rtol = 1e-13;
+
+  args.atol = 6e-14;
+
+  nbody.run(args);
+}
+
 int main(int argc, char **argv) {
   using force = interactions::NewtonianGrav;
 
   using particles = PointParticles<type>;
 
-  //using particles = SoAFiniteSizeParticles<type>;
+  using particle = typename particles::Particle;
 
-  using sys = SimpleSystem<particles, force>;
+  particle sun{m_solar}, earth{m_earth};
 
-  //using sys = RegularizedSystem<particles, force, ReguType::logH>;
+  auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
+                            174.9 * deg, 288.1 * deg, 0.0};
 
-  //using sys = ChainSystem<particles, force>;
+  move_particles_to(earth_orbit, earth);
 
-  //using sys = ARchainSystem<particles, force, ReguType::logH>;
-
-  //using iter = ConstOdeIterator<symplectic2nd>;
+  move_to_com_coord(sun, earth);
 
   using iter = BurlishStoer<double, WorstOffender>;
+  //using iter = ConstOdeIterator<symplectic2nd>;
+  {
+    using sys = SimpleSystem<particles, force>;
 
-  using simulation = Simulator<sys, iter>;
+    using simulation = Simulator<sys, iter>;
 
-  using particle = typename simulation::Particle;
+    simulation nbody{0.0, sun, earth};
+
+    run_two_body_test(nbody, "circular-BS-simple.err");
+  }
 
   {
-    particle sun{m_solar}, earth{m_earth}, moon{m_moon};
+    using sys = ChainSystem<particles, force>;
 
-    auto moon_orbit = Kepler{earth.mass, moon.mass, semi_latus_rectum(384748 * km, 0.0549006), 0.0549006, 1.543 * deg,
-                             0.0, 0.0, 0.0};
+    using simulation = Simulator<sys, iter>;
 
-    auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
-                              174.9 * deg, 288.1 * deg, 0.0};
+    simulation nbody{0.0, sun, earth};
 
-    move_particles_to(moon_orbit, moon);
-
-    move_particles_to(earth_orbit, earth, moon);
-
-    move_to_com_coord(sun, earth, moon);
-
-    simulation nbody{0, sun, earth, moon};
-
-    simulation::RunArgs args;
-
-    std::ofstream eng_file("solar.eng");
-
-    eng_file << std::setprecision(16);
-
-    auto end_time = 100 * year;
-    auto E0 = calc::calc_total_energy(nbody.particles());
-
-    args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
-
-    args.add_pre_step_operation(
-            argsOpt::TimeSlice(
-                    [&](auto &ptc) {
-                      eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
-                    },
-                    0, end_time));
-
-    args.add_stop_condition(end_time);
-
-
-    nbody.run(args);
+    run_two_body_test(nbody, "circular-BS-chain.err");
   }
+
   {
-    particle sun{m_solar}, earth{m_earth};
+    using sys = RegularizedSystem<particles, force, ReguType::logH>;
 
+    using simulation = Simulator<sys, iter>;
 
-    auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
-                              174.9 * deg, 288.1 * deg, 0.0};
+    simulation nbody{0.0, sun, earth};
 
-    move_particles_to(earth_orbit, earth);
-
-    move_to_com_coord(sun, earth);
-
-    simulation nbody{0, sun, earth};
-
-    simulation::RunArgs args;
-
-    std::ofstream eng_file("two-body.eng");
-
-    eng_file << std::setprecision(16);
-
-    auto end_time = 100 * year;
-    auto E0 = calc::calc_total_energy(nbody.particles());
-
-    args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("two-body.dat"), 0, end_time));
-
-    args.add_pre_step_operation(
-            argsOpt::TimeSlice(
-                    [&](auto &ptc) {
-                      eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
-                    },
-                    0, end_time));
-
-    args.add_stop_condition(end_time);
-
-    nbody.run(args);
+    run_two_body_test(nbody, "circular-BS-regu.err");
   }
+
+  {
+    using sys = ARchainSystem<particles, force, ReguType::logH>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, sun, earth};
+
+    run_two_body_test(nbody, "circular-BS-archain.err");
+  }
+  particle ecc_sun{m_solar}, ecc_earth{m_earth};
+
+  auto ecc_orbit = Kepler{ecc_sun.mass, ecc_earth.mass, semi_latus_rectum(au, 0.99), 0.99, 7.155 * deg,
+                          174.9 * deg, 288.1 * deg, 0.0};
+
+  move_particles_to(ecc_orbit, ecc_earth);
+
+  move_to_com_coord(ecc_sun, ecc_earth);
+
+  {
+    using sys = SimpleSystem<particles, force>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, ecc_sun, ecc_earth};
+
+    run_two_body_test(nbody, "ecc-BS-simple.err");
+  }
+
+  {
+    using sys = ChainSystem<particles, force>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, ecc_sun, ecc_earth};
+
+    run_two_body_test(nbody, "ecc-BS-chain.err");
+  }
+
+  {
+    using sys = RegularizedSystem<particles, force, ReguType::logH>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, ecc_sun, ecc_earth};
+
+    run_two_body_test(nbody, "ecc-BS-regu.err");
+  }
+
+  {
+    using sys = ARchainSystem<particles, force, ReguType::logH>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, ecc_sun, ecc_earth};
+
+    run_two_body_test(nbody, "ecc-BS-archain.err");
+  }
+
   return 0;
 }

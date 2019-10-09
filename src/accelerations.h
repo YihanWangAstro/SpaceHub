@@ -13,7 +13,7 @@ namespace space {
   class Accelerations {
   public:
     // Constructors
-    Accelerations() = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(Accelerations, default, default, default, default, default);
 
     explicit Accelerations(size_t size) : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {
       if constexpr (Interactions::ext_vel_indep) {
@@ -23,15 +23,7 @@ namespace space {
         ext_vel_dep_acc_.resize(size);
       }
     };
-
-    Accelerations(Accelerations const &) = default;
-
-    Accelerations(Accelerations &&) noexcept = default;
-
-    Accelerations &operator=(Accelerations const &) = default;
-
-    Accelerations &operator=(Accelerations &&) noexcept = default;
-
+    
     //Public methods
     SPACEHUB_STD_ACCESSOR(auto, acc, acc_);
 
