@@ -1,0 +1,5 @@
+.idea
+.vscode
+googletest/
+build
+cmake-build-debug
