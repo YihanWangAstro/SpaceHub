@@ -65,11 +65,11 @@ namespace space {
 
   template<typename T>
   template<typename Array>
-  auto RMS<T>::impl_error(const Array &scale, const Array &diff) -> typename Array::value_type {
-    size_t const size = scale.size();
+  auto RMS<T>::impl_error(const Array &y0, const Array &y1) -> typename Array::value_type {
+    size_t const size = y0.size();
     Scalar error = 0;
     for (size_t i = 0; i < size; ++i) {
-      auto r = diff[i] / (atol_ + fabs(scale[i]) * rtol_);
+      auto r = fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i])) * rtol_);
       error += r * r;
     }
     return sqrt(error / size);

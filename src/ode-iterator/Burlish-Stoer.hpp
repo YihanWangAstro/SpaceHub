@@ -143,8 +143,8 @@ namespace space::odeIterator {
           evolve_by_n_steps(ptcs, iter_H, BS_.step_sequence(k));
           ptcs.to_linear_container(extrap_tab_[k]);
           extrapolate_tab(k);
-          calc::array_sub(diff_, extrap_tab_[0], extrap_tab_[1]);
-          Scalar error = err_checker_.error(input_, diff_);
+          //calc::array_sub(diff_, extrap_tab_[0], extrap_tab_[1]);
+          Scalar error = err_checker_.error(extrap_tab_[0], extrap_tab_[1]);
 
           optimal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
 
@@ -174,8 +174,8 @@ namespace space::odeIterator {
   private:
     void check_variable_size() {
       var_num_ = input_.size();
-      if (var_num_ > diff_.size()) {
-        diff_.resize(var_num_);
+      if (var_num_ > extrap_tab_[0].size()) {
+        //diff_.resize(var_num_);
         for (auto &v : extrap_tab_) {
           v.resize(var_num_);
         }
@@ -300,7 +300,7 @@ namespace space::odeIterator {
 
     ErrChecker<Scalar> err_checker_;
 
-    std::vector<Scalar> diff_;
+    //std::vector<Scalar> diff_;
 
     std::vector<Scalar> input_;
 
