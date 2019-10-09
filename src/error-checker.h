@@ -52,7 +52,10 @@ namespace space {
     void set_rtol(T);
 
     template <typename Array>
-    auto error(Array const& scale, Array const& diff)->typename Array::value_type;
+    auto error(Array const& y0, Array const& y1)->typename Array::value_type;
+
+    template <typename Array>
+    auto error(Array const& scale, Array const& y0, Array const& y1)->typename Array::value_type;
 
   private:
     /**
@@ -86,8 +89,14 @@ namespace space {
 
   template <typename Derived>
   template <typename Array>
-  auto ErrorChecker<Derived>::error(Array const& scale, Array const& diff)->typename Array::value_type{
-    return static_cast<Derived*>(this)->impl_error(scale, diff);
+  auto ErrorChecker<Derived>::error(Array const& y0, Array const& y1)->typename Array::value_type{
+    return static_cast<Derived*>(this)->impl_error(y0, y1);
+  }
+
+  template <typename Derived>
+  template <typename Array>
+  auto ErrorChecker<Derived>::error(Array const& scale, Array const& y0, Array const& y1)->typename Array::value_type{
+    return static_cast<Derived*>(this)->impl_error(scale, y0, y1);
   }
 
 }

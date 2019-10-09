@@ -92,11 +92,12 @@ namespace space::odeIterator {
 
   private:
     inline size_t at(size_t i, size_t j) const {
-      return i * (i + 1) / 2 + j;
+      //return i * (i + 1) / 2 + j;
+      return i*MaxIter +j;
     }
 
     /** @brief Extrapolation coefficient.*/
-    std::array<Scalar, MaxIter * (MaxIter + 1) / 2> extrap_coef_;
+    std::array<Scalar, MaxIter * (MaxIter ) > extrap_coef_;
 
     /** @brief The exponent of error estimate at column k.*/
     std::array<Scalar, MaxIter> err_expon_;
@@ -117,7 +118,7 @@ namespace space::odeIterator {
   public:
     using Scalar = Real;
 
-    static constexpr size_t max_depth{8};
+    static constexpr size_t max_depth{7};
 
     static constexpr size_t max_try_num{500};
 
@@ -143,13 +144,12 @@ namespace space::odeIterator {
           evolve_by_n_steps(ptcs, iter_H, BS_.step_sequence(k));
           ptcs.to_linear_container(extrap_tab_[k]);
           extrapolate_tab(k);
-          //calc::array_sub(diff_, extrap_tab_[0], extrap_tab_[1]);
           Scalar error = err_checker_.error(extrap_tab_[0], extrap_tab_[1]);
 
           optimal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
 
           work_per_len_[k] = BS_.work(k) / optimal_step_size_[k];
-
+          //space::print_csv(std::cout, k, ideal_iter_, error, optimal_step_size_[k], work_per_len_[k],'\n');
           if (in_converged_window(k)) {
             if (error < 1.0) {
               reject = false;
@@ -175,7 +175,6 @@ namespace space::odeIterator {
     void check_variable_size() {
       var_num_ = input_.size();
       if (var_num_ > extrap_tab_[0].size()) {
-        //diff_.resize(var_num_);
         for (auto &v : extrap_tab_) {
           v.resize(var_num_);
         }
@@ -183,7 +182,8 @@ namespace space::odeIterator {
     }
 
     inline size_t at(size_t i, size_t j) const {
-      return i * (i + 1) / 2 + j;
+      //return i * (i + 1) / 2 + j;
+      return i* BSConsts::max_iter +j;
     }
 
     template<typename U>
@@ -199,7 +199,9 @@ namespace space::odeIterator {
     }
 
     void extrapolate_tab(size_t k) {
+      //std::cout << BS_ << '\n';
       for (size_t j = k - 1; j > 0; --j) {
+        //space::print_csv(std::cout, k, BS_.table_coef(k, j), '\n');
         auto C1 = 1 + BS_.table_coef(k, j);
         auto C2 = -BS_.table_coef(k, j);
         for (size_t i = 0; i < var_num_; ++i) {
@@ -208,9 +210,12 @@ namespace space::odeIterator {
       }
       auto C1 = 1 + BS_.table_coef(k, 0);
       auto C2 = -BS_.table_coef(k, 0);
+      //space::print_csv(std::cout, k, BS_.table_coef(k, 0), '\n');
       for (size_t i = 0; i < var_num_; ++i) {
         extrap_tab_[0][i] = C1 * extrap_tab_[1][i] + C2 * extrap_tab_[0][i];
       }
+      //space::print_csv(std::cout,"\n\n");
+
     }
 
     inline bool in_converged_window(size_t iter) {
@@ -299,8 +304,6 @@ namespace space::odeIterator {
     std::array<std::vector<Scalar>, max_depth + 1> extrap_tab_;
 
     ErrChecker<Scalar> err_checker_;
-
-    //std::vector<Scalar> diff_;
 
     std::vector<Scalar> input_;
 

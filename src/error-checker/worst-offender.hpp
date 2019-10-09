@@ -45,12 +45,15 @@ namespace space {
     void impl_set_rtol(Scalar);
 
     template<typename Array>
-    auto impl_error(Array const &scale, Array const &diff) -> typename Array::value_type;
+    auto impl_error(Array const &y0, Array const &y1) -> typename Array::value_type;
+
+    template<typename Array>
+    auto impl_error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
   private:
-    Scalar atol_{1e-15};
+    Scalar atol_{1e-13};
 
-    Scalar rtol_{1e-15};
+    Scalar rtol_{1e-13};
   };
 
   template<typename T>
@@ -69,7 +72,18 @@ namespace space {
     size_t const size = y0.size();
     Scalar max_err = 0;
     for (size_t i = 0; i < size; ++i) {
-      max_err = space::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i])) * rtol_) );
+      max_err = space::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + std::max(fabs(y0[i]), fabs(y1[i]))* rtol_) );
+    }
+    return max_err;
+  }
+
+  template<typename T>
+  template<typename Array>
+  auto WorstOffender<T>::impl_error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
+    size_t const size = scale.size();
+    Scalar max_err = 0;
+    for (size_t i = 0; i < size; ++i) {
+      max_err = space::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + fabs(scale[i]) * rtol_) );
     }
     return max_err;
   }
