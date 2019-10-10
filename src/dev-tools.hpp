@@ -105,7 +105,7 @@ namespace space {
 
 
   template<typename ...Args>
-  void spacehub_abort(Args &&...args) {
+  [[noreturn]] void spacehub_abort(Args &&...args) {
     space::print(std::cout, __FILE__, ": Line :", __LINE__, "\r\n");
     space::print(std::cout, std::forward<Args>(args)...);
     exit(0);

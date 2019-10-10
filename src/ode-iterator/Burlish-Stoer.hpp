@@ -213,7 +213,7 @@ namespace space::odeIterator {
     }
 
     Scalar set_next_iteration(size_t k, bool last_reject) {
-      if (k == ideal_rank_) [[likely]] {
+      if (k == ideal_rank_) {
         if (cost_per_len_[k - 1] < BSConsts::cost_tol * cost_per_len_[k]) {
           ideal_rank_ = allowed(k - 1);
           return ideal_step_size_[ideal_rank_];
