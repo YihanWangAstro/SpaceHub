@@ -2,8 +2,8 @@
 // Created by 王艺涵 on 10/8/19.
 //
 
-#ifndef SPACEHUB_ERROR_CHECKER_H
-#define SPACEHUB_ERROR_CHECKER_H
+#ifndef SPACEHUB_ERROR_CHECKER_HPP
+#define SPACEHUB_ERROR_CHECKER_HPP
 
 #include "dev-tools.hpp"
 
@@ -31,7 +31,7 @@ namespace space {
      *
      * @return
      */
-    DECLARE_CRTP_ACCESSOR(Derived,auto, rtol);
+    DECLARE_CRTP_ACCESSOR(Derived, auto, rtol);
 
     /**
      *
@@ -51,11 +51,11 @@ namespace space {
     template<typename T>
     void set_rtol(T);
 
-    template <typename Array>
-    auto error(Array const& y0, Array const& y1)->typename Array::value_type;
+    template<typename Array>
+    auto error(Array const &y0, Array const &y1) -> typename Array::value_type;
 
-    template <typename Array>
-    auto error(Array const& scale, Array const& y0, Array const& y1)->typename Array::value_type;
+    template<typename Array>
+    auto error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
   private:
     /**
@@ -75,29 +75,30 @@ namespace space {
     return static_cast<Derived &>(*this);
   }
 
-  template <typename Derived>
-  template <typename T>
+  template<typename Derived>
+  template<typename T>
   void ErrorChecker<Derived>::set_atol(T atol) {
-    static_cast<Derived*>(this)->impl_set_atol(atol);
+    static_cast<Derived *>(this)->impl_set_atol(atol);
   }
 
-  template <typename Derived>
-  template <typename T>
+  template<typename Derived>
+  template<typename T>
   void ErrorChecker<Derived>::set_rtol(T rtol) {
-    static_cast<Derived*>(this)->impl_set_rtol(rtol);
+    static_cast<Derived *>(this)->impl_set_rtol(rtol);
   }
 
-  template <typename Derived>
-  template <typename Array>
-  auto ErrorChecker<Derived>::error(Array const& y0, Array const& y1)->typename Array::value_type{
-    return static_cast<Derived*>(this)->impl_error(y0, y1);
+  template<typename Derived>
+  template<typename Array>
+  auto ErrorChecker<Derived>::error(Array const &y0, Array const &y1) -> typename Array::value_type {
+    return static_cast<Derived *>(this)->impl_error(y0, y1);
   }
 
-  template <typename Derived>
-  template <typename Array>
-  auto ErrorChecker<Derived>::error(Array const& scale, Array const& y0, Array const& y1)->typename Array::value_type{
-    return static_cast<Derived*>(this)->impl_error(scale, y0, y1);
+  template<typename Derived>
+  template<typename Array>
+  auto
+  ErrorChecker<Derived>::error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type {
+    return static_cast<Derived *>(this)->impl_error(scale, y0, y1);
   }
 
 }
-#endif //SPACEHUB_ERROR_CHECKER_H
+#endif //SPACEHUB_ERROR_CHECKER_HPP

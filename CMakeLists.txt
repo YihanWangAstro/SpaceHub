@@ -58,7 +58,7 @@ set(TMP_HEADER_FILES
         src/vector/vector3d.h
         src/vector/vector3pd.h
 
-        src/accelerations.h
+        src/accelerations.hpp
         src/coords.hpp
         src/interaction.hpp
         src/particle-system.hpp
@@ -71,7 +71,7 @@ set(TMP_HEADER_FILES
         src/particles.hpp
         src/simulator.hpp
         src/spaceHub.h
-        src/type-class.hpp src/error-checker.h src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp src/stepsize-controller.h src/step-controller/PID-controller.h)
+        src/type-class.hpp src/error-checker.hpp src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp src/stepsize-controller.h src/step-controller/PID-controller.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

@@ -2,8 +2,8 @@
 // Created by 王艺涵 on 10/7/19.
 //
 
-#ifndef SPACEHUB_BS_ITERATOR_NEW_H
-#define SPACEHUB_BS_ITERATOR_NEW_H
+#ifndef SPACEHUB_BURLISH_STOER_HPP
+#define SPACEHUB_BURLISH_STOER_HPP
 
 #include <array>
 #include <vector>
@@ -295,4 +295,4 @@ namespace space::odeIterator {
     bool last_step_reject{false};
   };
 }
-#endif //SPACEHUB_BS_ITERATOR_NEW_H
+#endif //SPACEHUB_BURLISH_STOER_HPP

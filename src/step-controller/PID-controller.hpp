@@ -2,8 +2,8 @@
 // Created by 王艺涵 on 10/9/19.
 //
 
-#ifndef SPACEHUB_PID_CONTROLLER_H
-#define SPACEHUB_PID_CONTROLLER_H
+#ifndef SPACEHUB_PID_CONTROLLER_HPP
+#define SPACEHUB_PID_CONTROLLER_HPP
 
 #include "../stepsize-controller.h"
 #include "../own-math.hpp"
@@ -125,4 +125,4 @@ namespace space {
     }
   }
 }
-#endif //SPACEHUB_PID_CONTROLLER_H
+#endif //SPACEHUB_PID_CONTROLLER_HPP

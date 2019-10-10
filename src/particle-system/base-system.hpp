@@ -6,7 +6,7 @@
 #include "../core-computation.hpp"
 #include "../dev-tools.hpp"
 #include "../particle-system.hpp"
-#include "../accelerations.h"
+#include "../accelerations.hpp"
 
 namespace space {
 

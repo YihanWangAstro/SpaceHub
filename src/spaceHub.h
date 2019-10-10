@@ -21,7 +21,7 @@
 #include "error-checker/worst-offender.hpp"
 #include "error-checker/RMS.hpp"
 
-#include "step-controller/PID-controller.h"
+#include "step-controller/PID-controller.hpp"
 
 #include "ode-iterator/Burlish-Stoer.hpp"
 #include "ode-iterator/const-iterator.hpp"

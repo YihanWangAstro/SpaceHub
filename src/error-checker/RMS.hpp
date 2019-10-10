@@ -5,7 +5,7 @@
 #ifndef SPACEHUB_RMS_HPP
 #define SPACEHUB_RMS_HPP
 
-#include "../error-checker.h"
+#include "../error-checker.hpp"
 #include "../own-math.hpp"
 
 namespace space {
