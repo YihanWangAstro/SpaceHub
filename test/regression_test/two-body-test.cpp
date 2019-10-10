@@ -30,9 +30,8 @@ void run_two_body_test(Simulator &nbody, std::string file_name) {
 
   args.add_stop_condition(end_time);
 
-  args.rtol = 1e-13;
-
-  args.atol = 6e-14;
+  args.rtol = 1e-14;
+  args.atol = 1e-14;
 
   nbody.run(args);
 }
@@ -53,7 +52,7 @@ int main(int argc, char **argv) {
 
   move_to_com_coord(sun, earth);
 
-  using iter = BurlishStoer<double, WorstOffender, PController>;
+  using iter = BurlishStoer<double, RMS, PIController>;
   //using iter = ConstOdeIterator<symplectic2nd>;
   {
     using sys = SimpleSystem<particles, force>;
