@@ -81,7 +81,8 @@ namespace space::odeIterator {
     std::array<size_t, MaxIter> sub_steps_;
   };
 
-  template<typename Real, template<typename> typename ErrChecker, template <size_t, typename > typename StepControl>
+  template<typename Real, template<typename> typename ErrChecker,
+          template<size_t, typename> typename StepControl>
   class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepControl>> {
     static_assert(std::is_floating_point<Real>::value, "Only float-like type can be used!");
   public:
@@ -95,7 +96,7 @@ namespace space::odeIterator {
 
     using BSConsts = BurlishStoerConsts<Scalar, max_depth + 1>;
 
-    using StepController = StepControl<2*max_depth + 3, Scalar>;
+    using StepController = StepControl<2 * max_depth + 3, Scalar>;
 
     CRTP_impl:
 
@@ -122,8 +123,7 @@ namespace space::odeIterator {
 
           Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
 
-          //ideal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
-          ideal_step_size_[k] = step_controller_.next_step_size(2*k+1, iter_H, std::make_tuple(error, last_error_));
+          ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_H, std::make_tuple(error, last_error_));
 
           cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
           //space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
@@ -215,7 +215,7 @@ namespace space::odeIterator {
     }
 
     Scalar set_next_iteration(size_t k, bool last_reject) {
-      if (k == ideal_rank_) [[likely]]{
+      if (k == ideal_rank_) [[likely]] {
         if (cost_per_len_[k - 1] < BSConsts::cost_tol * cost_per_len_[k]) {
           ideal_rank_ = allowed(k - 1);
           return ideal_step_size_[ideal_rank_];
@@ -260,7 +260,6 @@ namespace space::odeIterator {
 
       return error > r * r;
     }
-
 
   private:
     /** @brief The constat coef for BS extrapolation*/

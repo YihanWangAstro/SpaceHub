@@ -100,7 +100,8 @@ namespace space {
      * @tparam Scalar
      * @param end_
      */
-    void add_stop_condition(Scalar end_);
+    template<typename T>
+    void add_stop_condition(T end_);
 
     /**
      * @brief
@@ -171,7 +172,7 @@ namespace space {
     virtual ~Simulator() = default; /**< @brief Default destructor, virtualize for inherent class*/
   private:
     // Private methods
-    void advance_one_step();
+    inline void advance_one_step();
 
     // Private members
     /** @brief Macro step size for ODE iterator*/
@@ -245,7 +246,8 @@ namespace space {
   }
 
   template<typename ParticleSys>
-  void RunArgs<ParticleSys>::add_stop_condition(Scalar end_) {
+  template<typename T>
+  void RunArgs<ParticleSys>::add_stop_condition(T end_) {
     end_time = end_;
     is_end_time_set_ = true;
   }
@@ -274,7 +276,7 @@ namespace space {
 
     step_size_ = arg.step_size;
 
-    if (iseq(step_size_, 0.0)) {
+    if (step_size_ == 0.0) {
       step_size_ = 0.01 * calc::calc_step_scale(particles_);
     }
 
@@ -296,8 +298,7 @@ namespace space {
       iterator_.set_rtol(arg.rtol);
     }
 
-    for (; particles_.time() < end_time;) {
-      if (arg.check_stops(particles_)) break;
+    for (; particles_.time() < end_time && !arg.check_stops(particles_);) {
 
       arg.pre_operations(particles_);
       advance_one_step();
@@ -307,7 +308,7 @@ namespace space {
   }
 
   template<typename ParticSys, typename OdeIterator>
-  void Simulator<ParticSys, OdeIterator>::advance_one_step() {
+  inline void Simulator<ParticSys, OdeIterator>::advance_one_step() {
     particles_.pre_iter_process();
     step_size_ = iterator_.iterate(particles_, step_size_);
     particles_.post_iter_process();

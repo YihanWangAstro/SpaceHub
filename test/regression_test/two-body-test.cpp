@@ -8,7 +8,7 @@ using namespace space::odeIterator;
 using namespace space::integrator;
 using namespace space::orbit;
 using namespace unit;
-using scalar = double;
+using scalar = precise_d;
 using type = Types<scalar, std::vector>;
 
 template<typename Simulator>
@@ -30,8 +30,8 @@ void run_two_body_test(Simulator &nbody, std::string file_name) {
 
   args.add_stop_condition(end_time);
 
-  args.rtol = 1e-14;
-  args.atol = 1e-14;
+  args.rtol = 1e-12;
+  args.atol = 1e-12;
 
   nbody.run(args);
 }
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 
   move_to_com_coord(sun, earth);
 
-  using iter = BurlishStoer<double, RMS, PIDController>;
+  using iter = BurlishStoer<double, WorstOffender, PIDController>;
   //using iter = ConstOdeIterator<symplectic2nd>;
   {
     using sys = SimpleSystem<particles, force>;

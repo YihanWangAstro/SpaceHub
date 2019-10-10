@@ -36,6 +36,10 @@ namespace space {
       }
     }
 
+    void set_PID_coefficients(Scalar Kp, Scalar Ki, Scalar Kd);
+
+    void set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4);
+
     CRTP_impl :
     // CRTP implementation
 
@@ -62,9 +66,11 @@ namespace space {
 
     Scalar safe_guard4_{4.0};
 
-    Scalar alpha_{0.7};
+    Scalar Kp_{0.7};//Proportion feedback coefficient
 
-    Scalar beta_{0.4};//Proportional Integration feedback
+    Scalar Ki_{0.4};//Integral feedback coefficient
+
+    Scalar Kd_{0};//Derivative feedback coefficient
 
     inline Scalar step_limiter(size_t order, Scalar step_size_ratio);
   };
@@ -72,6 +78,19 @@ namespace space {
   template<size_t Max_order, typename T>
   inline auto PIDController<Max_order, T>::step_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
     return space::in_range(limiter_min_[order], step_size_ratio, limiter_max_[order]);
+  }
+
+  template<size_t Max_order, typename T>
+  void PIDController<Max_order, T>::set_PID_coefficients(Scalar Kp, Scalar Ki, Scalar Kd) {
+    Kp_ = Kp, Ki_ = Ki, Kd_ = Kd;
+  }
+
+  template<size_t Max_order, typename T>
+  void PIDController<Max_order, T>::set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4) {
+    safe_guard1_ = S1;
+    safe_guard2_ = S2;
+    safe_guard3_ = S3;
+    safe_guard4_ = S4;
   }
 
   template<size_t Max_order, typename T>
@@ -88,8 +107,8 @@ namespace space {
     } else if constexpr (std::tuple_size_v<ArrayLike> == 2) {//Proportion & Integral part are provided
       if (std::get<0>(errors) != 0.0) {
         return old_step *
-               step_limiter(order, safe_guard1_ * pow(safe_guard2_ / std::get<0>(errors), alpha_ * expon_[order]) *
-                                   pow(std::get<1>(errors), beta_ * expon_[order]));
+               step_limiter(order, safe_guard1_ * pow(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
+                                   pow(std::get<1>(errors), Ki_ * expon_[order]));
       } else {
         return old_step * limiter_max_[order];
       }
