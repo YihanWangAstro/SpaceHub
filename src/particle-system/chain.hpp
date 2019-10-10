@@ -70,12 +70,6 @@ namespace space {
       to_chain(cartesian.z, chain.z, index);
     }
 
-    /*template<typename Coord, typename IdxArray>
-    static void coord_calc_cartesian(Coord const &chain, Coord &cartesian, IdxArray const &index) {
-        to_cartesian(chain.x, cartesian.x, index);
-        to_cartesian(chain.y, cartesian.y, index);
-        to_cartesian(chain.z, cartesian.z, index);
-    }*/
   private:
     static constexpr bool auto_CoM{true};
 

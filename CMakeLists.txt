@@ -71,7 +71,7 @@ set(TMP_HEADER_FILES
         src/particles.hpp
         src/simulator.hpp
         src/spaceHub.h
-        src/type-class.hpp src/error-checker.h src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp src/stepsize-controller.h src/step-controller/P-controller.h src/step-controller/PI-controller.h)
+        src/type-class.hpp src/error-checker.h src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp src/stepsize-controller.h src/step-controller/PID-controller.h)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp
