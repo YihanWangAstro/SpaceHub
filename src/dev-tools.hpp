@@ -161,9 +161,9 @@ namespace space {
 #define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
     CLASS() = ATTR1;                                                                                                   \
     CLASS(CLASS const&) = ATTR2;                                                                                       \
-    CLASS(CLASS &&) noexcept = ATTR3;                                                                                  \
+    CLASS(CLASS &&)  = ATTR3;                                                                                  \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
-    CLASS &operator=(CLASS &&) noexcept = ATTR5;
+    CLASS &operator=(CLASS &&)  = ATTR5;                                                                       \
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
     template<typename ..._T_>                                                                                          \
@@ -242,9 +242,9 @@ inline TYPE const & NAME () const noexcept {                                    
 
 #define HAS_PROTECTED_METHOD(CLASS, METHOD, ...) has_protected_method_##METHOD<CLASS, ##__VA_ARGS__>::value
 
-#define CREATE_CRTP_IMPLEMENTATION_CHECK(NAME) CREATE_PROTECTED_METHOD_CHECK(impl_##NAME)
+#define CREATE_CRTP_IMPLEMENTATION_CHECK(NAME) CREATE_PROTECTED_METHOD_CHECK(impl_##NAME) CREATE_METHOD_CHECK(NAME)
 
-#define HAS_CRTP_IMPLEMENTATION(CLASS, METHOD, ...) has_protected_method_impl_##METHOD<CLASS, ##__VA_ARGS__>::value
+#define HAS_CRTP_IMPLEMENTATION(CLASS, METHOD, ...) has_protected_method_impl_##METHOD<CLASS, ##__VA_ARGS__>::value && has_method_##METHOD<CLASS, ##__VA_ARGS__>::value
 
 /** @brief Macros used to check if a class has a member.*/
 #define CREATE_MEMBER_CHECK(MEMBER)                                                                                    \

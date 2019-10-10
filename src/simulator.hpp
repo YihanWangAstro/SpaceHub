@@ -25,7 +25,7 @@ namespace space {
 
     Scalar end_time{0};
 
-    Scalar atol{1e-13};
+    Scalar atol{6e-14};
 
     Scalar rtol{1e-13};
 

@@ -20,17 +20,15 @@ namespace space::odeIterator {
 
     constexpr static size_t max_iter{MaxIter};
 
-    constexpr static Scalar S1{0.65};
+    constexpr static Scalar safe_factor1{0.65};
 
-    constexpr static Scalar S2{0.94};
+    constexpr static Scalar safe_factor2{0.94};
 
-    constexpr static Scalar S3{0.02};
+    constexpr static Scalar safe_factor3{0.02};
 
-    constexpr static Scalar S4{4.0};
+    constexpr static Scalar safe_factor4{4.0};
 
-    constexpr static Scalar F1{0.8};
-
-    constexpr static Scalar F2{0.9};
+    constexpr static Scalar cost_tol{0.9};
 
     inline Scalar expon(size_t i) const {
       return err_expon_[i];
@@ -40,8 +38,8 @@ namespace space::odeIterator {
       return step_limiter_[i];
     }
 
-    inline Scalar work(size_t i) const {
-      return work_[i];
+    inline Scalar cost(size_t i) const {
+      return cost_[i];
     }
 
     inline size_t step_sequence(size_t i) const {
@@ -61,13 +59,13 @@ namespace space::odeIterator {
         sub_steps_[i] = 2 * (i + 1);
 
         if (i == 0) {
-          work_[i] = sub_steps_[i] + 1;//The additional 1 is for 'KDK' method.
+          cost_[i] = sub_steps_[i] + 1;//The additional 1 is for 'KDK' method.
         } else {
-          work_[i] = work_[i - 1] + sub_steps_[i] + 1;
+          cost_[i] = cost_[i - 1] + sub_steps_[i] + 1;
         }
 
         err_expon_[i] = 1.0 / (static_cast<Scalar>(i) * 2 + 1);
-        step_limiter_[i] = pow(S3, err_expon_[i]);
+        step_limiter_[i] = pow(safe_factor3, err_expon_[i]);
 
         for (size_t j = 0; j < i; ++j) {
           Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[j]);
@@ -78,7 +76,7 @@ namespace space::odeIterator {
 
     friend std::ostream &operator<<(std::ostream &os, BurlishStoerConsts const &tab) {
       os << tab.sub_steps_ << "\n\n";
-      os << tab.work_ << "\n\n";
+      os << tab.cost_ << "\n\n";
       os << tab.err_expon_ << "\n\n";
       os << tab.step_limiter_ << "\n\n";
       for (size_t i = 0; i < BurlishStoerConsts::max_iter; ++i) {
@@ -106,7 +104,7 @@ namespace space::odeIterator {
     std::array<Scalar, MaxIter> step_limiter_;
 
     /** @brief The work(computation resource) per step size of each iteration depth.*/
-    std::array<size_t, MaxIter> work_;
+    std::array<size_t, MaxIter> cost_;
 
     /** @brief Steps of integration of each iteration depth.*/
     std::array<size_t, MaxIter> sub_steps_;
@@ -140,25 +138,25 @@ namespace space::odeIterator {
         iter_num_++;
         bool reject = true;
 
-        evolve_by_n_steps(ptcs, iter_H, BS_.step_sequence(0));
-        ptcs.to_linear_container(extrap_tab_[0]);
+        integrate_by_n_steps(ptcs, iter_H, parameters_.step_sequence(0));
+        ptcs.to_linear_container(extrap_list_[0]);
 
-        for (size_t k = 1; k <= ideal_iter_ + 1; ++k) {
+        for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
           ptcs.load_from_linear_container(input_);
-          evolve_by_n_steps(ptcs, iter_H, BS_.step_sequence(k));
-          ptcs.to_linear_container(extrap_tab_[k]);
-          extrapolate_tab(k);
-          Scalar error = err_checker_.error(input_, extrap_tab_[0], extrap_tab_[1]);
+          integrate_by_n_steps(ptcs, iter_H, parameters_.step_sequence(k));
+          ptcs.to_linear_container(extrap_list_[k]);
+          extrapolate(k);
+          Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
 
-          optimal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
+          ideal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
 
-          work_per_len_[k] = BS_.work(k) / optimal_step_size_[k];
-          //space::print_csv(std::cout, k, ideal_iter_, error, optimal_step_size_[k], work_per_len_[k],'\n');
+          cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
+          //space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
           if (in_converged_window(k)) {
             if (error < 1.0) {
               reject = false;
               iter_H = set_next_iteration(k, last_step_reject);
-              ptcs.load_from_linear_container(extrap_tab_[0]);
+              ptcs.load_from_linear_container(extrap_list_[0]);
               return iter_H;
             } else if (is_diverged_anyhow(error, k)) {
               reject = true;
@@ -186,8 +184,8 @@ namespace space::odeIterator {
   private:
     void check_variable_size() {
       var_num_ = input_.size();
-      if (var_num_ > extrap_tab_[0].size()) {
-        for (auto &v : extrap_tab_) {
+      if (var_num_ > extrap_list_[0].size()) {
+        for (auto &v : extrap_list_) {
           v.resize(var_num_);
         }
       }
@@ -199,7 +197,7 @@ namespace space::odeIterator {
     }
 
     template<typename U>
-    void evolve_by_n_steps(U &ptcs, Scalar macro_step_size, size_t steps) {
+    void integrate_by_n_steps(U &ptcs, Scalar macro_step_size, size_t steps) {
       Scalar h = macro_step_size / steps;
       ptcs.kick(0.5 * h);
       for (size_t i = 1; i < steps; i++) {
@@ -210,47 +208,37 @@ namespace space::odeIterator {
       ptcs.kick(0.5 * h);
     }
 
-    void extrapolate_tab(size_t k) {
-      //std::cout << BS_ << '\n';
-      for (size_t j = k - 1; j > 0; --j) {
-        //space::print_csv(std::cout, k, BS_.table_coef(k, j), '\n');
-        auto C1 = 1 + BS_.table_coef(k, j);
-        auto C2 = -BS_.table_coef(k, j);
+    void extrapolate(size_t k) {
+      for (size_t j = k; j > 0; --j) {
+        auto C1 = 1 + parameters_.table_coef(k, j - 1);
+        auto C2 = -parameters_.table_coef(k, j - 1);
         for (size_t i = 0; i < var_num_; ++i) {
-          extrap_tab_[j][i] = C1 * extrap_tab_[j + 1][i] + C2 * extrap_tab_[j][i];
+          extrap_list_[j - 1][i] = C1 * extrap_list_[j][i] + C2 * extrap_list_[j - 1][i];
         }
       }
-      auto C1 = 1 + BS_.table_coef(k, 0);
-      auto C2 = -BS_.table_coef(k, 0);
-      //space::print_csv(std::cout, k, BS_.table_coef(k, 0), '\n');
-      for (size_t i = 0; i < var_num_; ++i) {
-        extrap_tab_[0][i] = C1 * extrap_tab_[1][i] + C2 * extrap_tab_[0][i];
-      }
-      //space::print_csv(std::cout,"\n\n");
-
     }
 
     inline bool in_converged_window(size_t iter) {
-      return iter == ideal_iter_ - 1 || iter == ideal_iter_ || iter == ideal_iter_ + 1;
+      return iter == ideal_rank_ - 1 || iter == ideal_rank_ || iter == ideal_rank_ + 1;
     }
 
     Scalar get_next_try_step(size_t iter) {
-      if (iter == ideal_iter_ - 1 || iter == ideal_iter_) {
-        return optimal_step_size_[iter];
-      } else if (iter == ideal_iter_ + 1) {
-        return optimal_step_size_[ideal_iter_];
+      if (iter == ideal_rank_ - 1 || iter == ideal_rank_) {
+        return ideal_step_size_[iter];
+      } else if (iter == ideal_rank_ + 1) {
+        return ideal_step_size_[ideal_rank_];
       } else {
         spacehub_abort("unexpected iteration index!");
-        return optimal_step_size_[iter];
+        return ideal_step_size_[iter];
       }
     }
 
     Scalar calc_ideal_step_coef(Scalar h, Scalar error, size_t k) {
       if (error != 0.0) {
-        return h * space::in_range(BS_.step_limiter(k) / BSConsts::S4,
-                                   BSConsts::S2 / pow(error / BSConsts::S1, BS_.expon(k)), 1.0 / BS_.step_limiter(k));
+        return h * space::in_range(parameters_.step_limiter(k) / BSConsts::safe_factor4,
+                                   BSConsts::safe_factor2 / pow(error / BSConsts::safe_factor1, parameters_.expon(k)), 1.0 / parameters_.step_limiter(k));
       } else {
-        return h / BS_.step_limiter(k);
+        return h / parameters_.step_limiter(k);
       }
     }
 
@@ -258,51 +246,49 @@ namespace space::odeIterator {
       return space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
 
-    Scalar set_next_iteration(size_t iter, bool last_reject) {
-      if (iter == ideal_iter_ - 1) {
-        if (ideal_iter_ <= 2 || work_per_len_[iter] < BSConsts::F2 * work_per_len_[iter - 1]) {
-          ideal_iter_ = allowed(iter + 1);
-          return optimal_step_size_[iter] * static_cast<Scalar>(BS_.work(iter + 1)) /
-                 static_cast<Scalar>(BS_.work(iter));
+    Scalar set_next_iteration(size_t k, bool last_reject) {
+      if (k == ideal_rank_) [[likely]]{
+        if (cost_per_len_[k - 1] < BSConsts::cost_tol * cost_per_len_[k]) {
+          ideal_rank_ = allowed(k - 1);
+          return ideal_step_size_[ideal_rank_];
+        } else if (cost_per_len_[k] < BSConsts::cost_tol * cost_per_len_[k - 1] && !last_reject) {
+          ideal_rank_ = allowed(k + 1);
+          return ideal_step_size_[k] * static_cast<Scalar>(parameters_.cost(ideal_rank_)) /
+                 static_cast<Scalar>(parameters_.cost(k));
         } else {
-          ideal_iter_ = allowed(iter);
-          return optimal_step_size_[iter];
+          return ideal_step_size_[ideal_rank_];
         }
-      } else if (iter == ideal_iter_) {
-        if (work_per_len_[iter - 1] < BSConsts::F2 * work_per_len_[iter]) {
-          ideal_iter_ = allowed(iter - 1);
-          return optimal_step_size_[ideal_iter_];
-        } else if (work_per_len_[iter] < BSConsts::F2 * work_per_len_[iter - 1] && !last_reject) {
-          ideal_iter_ = allowed(iter + 1);
-          return optimal_step_size_[iter] * static_cast<Scalar>(BS_.work(ideal_iter_)) /
-                 static_cast<Scalar>(BS_.work(iter));
+      } else if (k == ideal_rank_ - 1) {
+        if (ideal_rank_ <= 2 || cost_per_len_[k] < BSConsts::cost_tol * cost_per_len_[k - 1]) {
+          ideal_rank_ = allowed(k + 1);
+          return ideal_step_size_[k] * static_cast<Scalar>(parameters_.cost(k + 1)) /
+                 static_cast<Scalar>(parameters_.cost(k));
         } else {
-          return optimal_step_size_[ideal_iter_];
+          ideal_rank_ = allowed(k);
+          return ideal_step_size_[k];
         }
-      } else if (iter == ideal_iter_ + 1) {
-        if (work_per_len_[iter - 2] < BSConsts::F2 * work_per_len_[iter - 1]) {
-          ideal_iter_ = allowed(ideal_iter_ - 1);
+      } else if (k == ideal_rank_ + 1) {
+        if (cost_per_len_[k - 2] < BSConsts::cost_tol * cost_per_len_[k - 1]) {
+          ideal_rank_ = allowed(ideal_rank_ - 1);
         }
-        if (work_per_len_[iter] < BSConsts::F2 * work_per_len_[ideal_iter_] && !last_reject) {
-          ideal_iter_ = allowed(iter);
+        if (cost_per_len_[k] < BSConsts::cost_tol * cost_per_len_[ideal_rank_] && !last_reject) {
+          ideal_rank_ = allowed(k);
         }
-        return optimal_step_size_[ideal_iter_];
+        return ideal_step_size_[ideal_rank_];
       } else {
         spacehub_abort("unexpected iteration index!");
       }
     }
 
     bool is_diverged_anyhow(Scalar error, size_t iter) const {
-      Scalar r = 1;
+      Scalar r = 1.0;
 
-      if (iter == ideal_iter_ - 1) {
-        r = static_cast<Scalar>(BS_.step_sequence(iter + 1) * BS_.step_sequence(iter + 2)) /
-            static_cast<Scalar>(BS_.step_sequence(0) * BS_.step_sequence(0));
-      } else if (iter == ideal_iter_) {
-        r = static_cast<Scalar>(BS_.step_sequence(iter)) / static_cast<Scalar>(BS_.step_sequence(0));
-      } else {
-        return error > 1.0;//k == iterDepth+1 and error >1 reject directly
-      }
+      if (iter == ideal_rank_ - 1) {
+        r = static_cast<Scalar>(parameters_.step_sequence(iter + 1) * parameters_.step_sequence(iter + 2)) /
+            static_cast<Scalar>(parameters_.step_sequence(0) * parameters_.step_sequence(0));
+      } else if (iter == ideal_rank_) {
+        r = static_cast<Scalar>(parameters_.step_sequence(iter)) / static_cast<Scalar>(parameters_.step_sequence(0));
+      } // else k == iterDepth+1 and error >1 reject directly
 
       return error > r * r;
     }
@@ -310,23 +296,23 @@ namespace space::odeIterator {
 
   private:
     /** @brief The constat coef for BS extrapolation*/
-    BSConsts BS_;
+    BSConsts parameters_;
 
     /** @brief Extrapolation table.*/
-    std::array<std::vector<Scalar>, max_depth + 1> extrap_tab_;
+    std::array<std::vector<Scalar>, max_depth + 1> extrap_list_;
 
     ErrChecker<Scalar> err_checker_;
 
     std::vector<Scalar> input_;
 
     /** @brief The optimal step size array.*/
-    std::array<Scalar, max_depth + 1> optimal_step_size_{0};
+    std::array<Scalar, max_depth + 1> ideal_step_size_{0};
 
     /** @brief The work(computation resource) needed to converge at column k.*/
-    std::array<Scalar, max_depth + 1> work_per_len_{0};
+    std::array<Scalar, max_depth + 1> cost_per_len_{0};
 
     /** @brief Current iteraation depth.*/
-    size_t ideal_iter_{4};
+    size_t ideal_rank_{4};
 
     /** @brief Total volume of extrapolation table(in scalar).*/
     size_t var_num_{0};
