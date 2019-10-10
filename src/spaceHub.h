@@ -21,6 +21,9 @@
 #include "error-checker/worst-offender.hpp"
 #include "error-checker/RMS.hpp"
 
+#include "step-controller/P-controller.h"
+#include "step-controller/PI-controller.h"
+
 #include "ode-iterator/Burlish-Stoer.hpp"
 #include "ode-iterator/const-iterator.hpp"
 
@@ -35,7 +38,7 @@ namespace space {
 
   template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
   using DefaultSolver =
-  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::logH>, odeIterator::BurlishStoer<double, RMS>>;
+  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::logH>, odeIterator::BurlishStoer<double, RMS, PController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;

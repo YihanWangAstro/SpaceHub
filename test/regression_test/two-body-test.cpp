@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
 
   move_to_com_coord(sun, earth);
 
-  using iter = BurlishStoer<double, WorstOffender>;
+  using iter = BurlishStoer<double, WorstOffender, PController>;
   //using iter = ConstOdeIterator<symplectic2nd>;
   {
     using sys = SimpleSystem<particles, force>;

@@ -20,23 +20,7 @@ namespace space::odeIterator {
 
     constexpr static size_t max_iter{MaxIter};
 
-    constexpr static Scalar safe_factor1{0.65};
-
-    constexpr static Scalar safe_factor2{0.94};
-
-    constexpr static Scalar safe_factor3{0.02};
-
-    constexpr static Scalar safe_factor4{4.0};
-
     constexpr static Scalar cost_tol{0.9};
-
-    inline Scalar expon(size_t i) const {
-      return err_expon_[i];
-    }
-
-    inline Scalar step_limiter(size_t i) const {
-      return step_limiter_[i];
-    }
 
     inline Scalar cost(size_t i) const {
       return cost_[i];
@@ -44,10 +28,6 @@ namespace space::odeIterator {
 
     inline size_t step_sequence(size_t i) const {
       return sub_steps_[i];
-    }
-
-    inline Scalar table_coef(size_t k) const {
-      return extrap_coef_[k];
     }
 
     inline Scalar table_coef(size_t i, size_t j) const {
@@ -63,9 +43,6 @@ namespace space::odeIterator {
         } else {
           cost_[i] = cost_[i - 1] + sub_steps_[i] + 1;
         }
-
-        err_expon_[i] = 1.0 / (static_cast<Scalar>(i) * 2 + 1);
-        step_limiter_[i] = pow(safe_factor3, err_expon_[i]);
 
         for (size_t j = 0; j < i; ++j) {
           Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[j]);
@@ -97,12 +74,6 @@ namespace space::odeIterator {
     /** @brief Extrapolation coefficient.*/
     std::array<Scalar, MaxIter * (MaxIter)> extrap_coef_;
 
-    /** @brief The exponent of error estimate at column k.*/
-    std::array<Scalar, MaxIter> err_expon_;
-
-    /** @brief The minimal coeffient of integration step estimation.*/
-    std::array<Scalar, MaxIter> step_limiter_;
-
     /** @brief The work(computation resource) per step size of each iteration depth.*/
     std::array<size_t, MaxIter> cost_;
 
@@ -110,11 +81,11 @@ namespace space::odeIterator {
     std::array<size_t, MaxIter> sub_steps_;
   };
 
-  template<typename Real, template<typename> typename ErrChecker>
-  class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker>> {
+  template<typename Real, template<typename> typename ErrChecker, template <size_t, typename > typename StepControl>
+  class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepControl>> {
     static_assert(std::is_floating_point<Real>::value, "Only float-like type can be used!");
   public:
-    using Base = OdeIterator<BurlishStoer<Real, ErrChecker>>;
+    using Base = OdeIterator<BurlishStoer<Real, ErrChecker, StepControl>>;
 
     using Scalar = Real;
 
@@ -123,6 +94,8 @@ namespace space::odeIterator {
     static constexpr size_t max_try_num{500};
 
     using BSConsts = BurlishStoerConsts<Scalar, max_depth + 1>;
+
+    using StepController = StepControl<2*max_depth + 3, Scalar>;
 
     CRTP_impl:
 
@@ -146,9 +119,11 @@ namespace space::odeIterator {
           integrate_by_n_steps(ptcs, iter_H, parameters_.step_sequence(k));
           ptcs.to_linear_container(extrap_list_[k]);
           extrapolate(k);
+
           Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
 
-          ideal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
+          //ideal_step_size_[k] = calc_ideal_step_coef(iter_H, error, k);
+          ideal_step_size_[k] = step_controller_.next_step_size(2*k+1, iter_H, std::make_tuple(error, last_error_));
 
           cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
           //space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
@@ -157,6 +132,8 @@ namespace space::odeIterator {
               reject = false;
               iter_H = set_next_iteration(k, last_step_reject);
               ptcs.load_from_linear_container(extrap_list_[0]);
+              last_step_reject = reject;
+              last_error_ = error;
               return iter_H;
             } else if (is_diverged_anyhow(error, k)) {
               reject = true;
@@ -233,15 +210,6 @@ namespace space::odeIterator {
       }
     }
 
-    Scalar calc_ideal_step_coef(Scalar h, Scalar error, size_t k) {
-      if (error != 0.0) {
-        return h * space::in_range(parameters_.step_limiter(k) / BSConsts::safe_factor4,
-                                   BSConsts::safe_factor2 / pow(error / BSConsts::safe_factor1, parameters_.expon(k)), 1.0 / parameters_.step_limiter(k));
-      } else {
-        return h / parameters_.step_limiter(k);
-      }
-    }
-
     inline size_t allowed(size_t i) const {
       return space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
@@ -303,6 +271,8 @@ namespace space::odeIterator {
 
     ErrChecker<Scalar> err_checker_;
 
+    StepController step_controller_;
+
     std::vector<Scalar> input_;
 
     /** @brief The optimal step size array.*/
@@ -310,6 +280,8 @@ namespace space::odeIterator {
 
     /** @brief The work(computation resource) needed to converge at column k.*/
     std::array<Scalar, max_depth + 1> cost_per_len_{0};
+
+    Scalar last_error_{1.0};
 
     /** @brief Current iteraation depth.*/
     size_t ideal_rank_{4};

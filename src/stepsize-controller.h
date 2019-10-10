@@ -30,8 +30,8 @@ namespace space {
     Derived &derived();
 
 
-    template<typename Scalar, typename ...Args>
-    Scalar new_step_size(size_t order, Scalar old_step, Scalar error, Args &&...args);
+    template<typename Scalar, typename Array>
+    Scalar next_step_size(size_t order, Scalar old_step, Array const& errors);
 
   private:
     /**
@@ -52,9 +52,9 @@ namespace space {
   }
 
   template<typename Derived>
-  template<typename Scalar, typename ...Args>
-  Scalar StepController<Derived>::new_step_size(size_t order, Scalar old_step, Scalar error, Args &&...args) {
-    return static_cast<Derived *>(this)->impl_new_step_size(order, old_step, error, std::forward<Args>(args)...);
+  template<typename Scalar, typename Array>
+  Scalar StepController<Derived>::next_step_size(size_t order, Scalar old_step, Array const& errors) {
+    return static_cast<Derived *>(this)->impl_next_step_size(order, old_step, errors);
   }
 }
 #endif //SPACEHUB_STEPSIZE_CONTROLLER_H

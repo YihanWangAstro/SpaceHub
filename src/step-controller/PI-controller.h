@@ -2,8 +2,8 @@
 // Created by 王艺涵 on 10/9/19.
 //
 
-#ifndef SPACEHUB_PROP_FEEDBACK_H
-#define SPACEHUB_PROP_FEEDBACK_H
+#ifndef SPACEHUB_PI_CONTROLLER_H
+#define SPACEHUB_PI_CONTROLLER_H
 
 #include "../stepsize-controller.h"
 #include "../own-math.hpp"
@@ -21,10 +21,9 @@ namespace space {
     using value_type = T;
 
     // Constructors
-    SPACEHUB_MAKE_CONSTRUCTORS(PIController, delete, default, default, default, default);
+    //SPACEHUB_MAKE_CONSTRUCTORS(PIController, delete, default, default, default, default);
 
-    explicit PIController(Scalar alpha, Scalar  beta, Scalar S1 = 0.94, Scalar S2 = 0.65, Scalar S3 = 0.02, Scalar S4 = 4.0)
-    : safe_factor1_{S1}, safe_factor2_{S2}, safe_factor3_{S3}, safe_factor4_{S4}, alpha_{alpha}, beta_{beta} {
+    explicit PIController() {
       for (size_t i = 1; i <= Max_order; i++) {
         expon_[i] = 1.0 / static_cast<Scalar>(i);
         step_limiter_max_[i] = pow(1.0 / safe_factor3_, expon_[i]);
@@ -35,7 +34,8 @@ namespace space {
     CRTP_impl :
     // CRTP implementation
 
-    Scalar impl_new_step_size(size_t order, Scalar old_step, Scalar error, Scalar last_error);
+    template <typename ArrayLike>
+    Scalar impl_next_step_size(size_t order, Scalar old_step, ArrayLike const& errors);
 
   private:
     constexpr static size_t max_order{Max_order};
@@ -60,14 +60,16 @@ namespace space {
   };
 
   template<size_t Max_order, typename T>
-  auto PIController<Max_order, T>::impl_new_step_size(size_t order, Scalar old_step, Scalar error, Scalar last_error) -> Scalar {
-    if (error != 0.0) {
+  template <typename ArrayLike>
+  auto PIController<Max_order, T>::impl_next_step_size(size_t order, Scalar old_step, ArrayLike const& errors) -> Scalar {
+    static_assert(std::tuple_size<ArrayLike>::value >= 2, "At least 2 numbers of errors need for Proportional Integral controller!");
+    if (std::get<0>(errors) != 0.0) {
       return old_step * space::in_range(step_limiter_min_[order],
-                                        safe_factor1_ * pow(safe_factor2_ / error, alpha_ * expon_[order]) * pow(last_error, beta_ * expon_[order]),
+                                        safe_factor1_ * pow(safe_factor2_ / std::get<0>(errors), alpha_ * expon_[order]) * pow(std::get<1>(errors), beta_ * expon_[order]),
                                         step_limiter_max_[order]);
     } else {
       return old_step * step_limiter_max_[order];
     }
   }
 }
-#endif //SPACEHUB_PROP_FEEDBACK_H
+#endif //SPACEHUB_PI_CONTROLLER_H
