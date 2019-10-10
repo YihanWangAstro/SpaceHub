@@ -161,9 +161,9 @@ namespace space {
 #define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
     CLASS() = ATTR1;                                                                                                   \
     CLASS(CLASS const&) = ATTR2;                                                                                       \
-    CLASS(CLASS &&)  = ATTR3;                                                                                  \
+    CLASS(CLASS &&)  =  ATTR3;                                                                                  \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
-    CLASS &operator=(CLASS &&)  = ATTR5;                                                                       \
+    CLASS &operator=(CLASS &&) = ATTR5;                                                                       \
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
     template<typename ..._T_>                                                                                          \

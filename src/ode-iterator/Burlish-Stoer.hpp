@@ -54,8 +54,6 @@ namespace space::odeIterator {
     friend std::ostream &operator<<(std::ostream &os, BurlishStoerConsts const &tab) {
       os << tab.sub_steps_ << "\n\n";
       os << tab.cost_ << "\n\n";
-      os << tab.err_expon_ << "\n\n";
-      os << tab.step_limiter_ << "\n\n";
       for (size_t i = 0; i < BurlishStoerConsts::max_iter; ++i) {
         for (size_t j = 0; j < i; ++j) {
           os << tab.extrap_coef_[tab.at(i, j)] << ',';
