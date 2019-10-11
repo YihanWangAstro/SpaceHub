@@ -1,7 +1,6 @@
-#include "../../src/spaceHub.h"
-#include <vector>
+#include "../../src/spaceHub.hpp"
 #include <array>
-#include <iomanip>
+
 
 using namespace space;
 using namespace space::odeIterator;
@@ -54,38 +53,38 @@ int main(int argc, char **argv) {
 
   using iter = BurlishStoer<double, WorstOffender, PIDController>;
   //using iter = ConstOdeIterator<symplectic2nd>;
-  /* {
-     using sys = SimpleSystem<particles, force>;
+  {
+    using sys = SimpleSystem<particles, force>;
 
-     using simulation = Simulator<sys, iter>;
+    using simulation = Simulator<sys, iter>;
 
-     simulation nbody{0.0, sun, earth};
+    simulation nbody{0.0, sun, earth};
 
-     run_two_body_test(nbody, "circular-BS-simple.err");
-   }
-
-   {
-     using sys = ChainSystem<particles, force>;
-
-     using simulation = Simulator<sys, iter>;
-
-     simulation nbody{0.0, sun, earth};
-
-     run_two_body_test(nbody, "circular-BS-chain.err");
-   }
-
-   {
-     using sys = RegularizedSystem<particles, force, ReguType::logH>;
-
-     using simulation = Simulator<sys, iter>;
-
-     simulation nbody{0.0, sun, earth};
-
-     run_two_body_test(nbody, "circular-BS-regu.err");
-   }*/
+    run_two_body_test(nbody, "circular-BS-simple.err");
+  }
 
   {
-    using sys = ARchainSystem<particles, force, ReguType::logH>;
+    using sys = ChainSystem<particles, force>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, sun, earth};
+
+    run_two_body_test(nbody, "circular-BS-chain.err");
+  }
+
+  {
+    using sys = RegularizedSystem<particles, force, ReguType::LogH>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, sun, earth};
+
+    run_two_body_test(nbody, "circular-BS-regu.err");
+  }
+
+  {
+    using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
     using simulation = Simulator<sys, iter>;
 
@@ -93,7 +92,7 @@ int main(int argc, char **argv) {
 
     run_two_body_test(nbody, "circular-BS-archain.err");
   }
-  /*particle ecc_sun{m_solar}, ecc_earth{m_earth};
+  particle ecc_sun{m_solar}, ecc_earth{m_earth};
 
   auto ecc_orbit = Kepler{ecc_sun.mass, ecc_earth.mass, semi_latus_rectum(au, 0.99), 0.99, 7.155 * deg,
                           174.9 * deg, 288.1 * deg, 0.0};
@@ -123,7 +122,7 @@ int main(int argc, char **argv) {
   }
 
   {
-    using sys = RegularizedSystem<particles, force, ReguType::logH>;
+    using sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
     using simulation = Simulator<sys, iter>;
 
@@ -132,15 +131,15 @@ int main(int argc, char **argv) {
     run_two_body_test(nbody, "ecc-BS-regu.err");
   }
 
- {
-   using sys = ARchainSystem<particles, force, ReguType::logH>;
+  {
+    using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-   using simulation = Simulator<sys, iter>;
+    using simulation = Simulator<sys, iter>;
 
-   simulation nbody{0.0, ecc_sun, ecc_earth};
+    simulation nbody{0.0, ecc_sun, ecc_earth};
 
-   run_two_body_test(nbody, "ecc-BS-archain.err");
- }*/
+    run_two_body_test(nbody, "ecc-BS-archain.err");
+  }
 
   return 0;
 }

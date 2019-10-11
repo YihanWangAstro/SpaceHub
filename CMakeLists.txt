@@ -70,7 +70,7 @@ set(TMP_HEADER_FILES
         src/own-math.hpp
         src/particles.hpp
         src/simulator.hpp
-        src/spaceHub.h
+        src/spaceHub.hpp
         src/type-class.hpp src/error-checker.hpp src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp src/stepsize-controller.h src/step-controller/PID-controller.hpp)
 
 set(SOURCE_FILES

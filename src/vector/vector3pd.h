@@ -1,6 +1,6 @@
 
-#ifndef GENVECT3PD_H
-#define GENVECT3PD_H
+#ifndef SPACEHUB_VECTOR3PD_H
+#define SPACEHUB_VECTOR3PD_H
 
 #ifdef __AVX512F__
 #pragma message("Using AVX512 on vectorpd")

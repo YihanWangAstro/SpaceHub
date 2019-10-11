@@ -2,8 +2,8 @@
 // Created by yihan on 3/8/19.
 //
 
-#ifndef SPACEHUB_ARCHAIN_H
-#define SPACEHUB_ARCHAIN_H
+#ifndef SPACEHUB_ARCHAIN_HPP
+#define SPACEHUB_ARCHAIN_HPP
 
 #include "regu-system.hpp"
 #include "chain.hpp"
@@ -43,7 +43,7 @@ namespace space {
 
     SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
 
-    CRTP_impl:
+    CRTP_IMPL:
     //CRTP implementation
     SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());
 
@@ -55,7 +55,7 @@ namespace space {
 
     SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time());
 
-    size_t impl_number() const;
+    [[nodiscard]] size_t impl_number() const;
 
     void impl_advance_time(Scalar step_size);
 
@@ -297,7 +297,7 @@ namespace space {
     accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
     if constexpr (Interactions::ext_vel_indep) {
       interactions_.eval_extra_vel_indep_acc(*this, accels_.ext_vel_indep_acc());
-      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonain_acc());
+      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonian_acc());
     }
   }
 
@@ -335,7 +335,7 @@ namespace space {
     Chain::calc_chain(accels_.acc(), chain_acc_, index());
     chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, phy_time);
 
-    advance_omega(aux_vel_, accels_.newtonain_acc(), phy_time);
+    advance_omega(aux_vel_, accels_.newtonian_acc(), phy_time);
 
     if constexpr (Interactions::ext_vel_indep) {
       calc::coord_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());
@@ -345,4 +345,4 @@ namespace space {
     }
   }
 }
-#endif //SPACEHUB_ARCHAIN_H
+#endif //SPACEHUB_ARCHAIN_HPP

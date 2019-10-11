@@ -25,6 +25,8 @@ namespace space {
 
     using value_type = T;
 
+    constexpr static size_t max_order{Max_order};
+
     // Constructors
     //SPACEHUB_MAKE_CONSTRUCTORS(PIDController, delete, default, default, default, default);
 
@@ -40,7 +42,7 @@ namespace space {
 
     void set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4);
 
-    CRTP_impl :
+    CRTP_IMPL :
     // CRTP implementation
 
     template<typename ArrayLike>
@@ -50,7 +52,6 @@ namespace space {
     Scalar impl_next_step_size(size_t order, Scalar old_step, Scalar error);
 
   private:
-    constexpr static size_t max_order{Max_order};
 
     std::array<Scalar, Max_order + 1> limiter_max_;
 

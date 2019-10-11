@@ -2,10 +2,11 @@
 // Created by yihan on 4/3/19.
 //
 
-#ifndef SPACEHUB_POINT_PARTICLE_H
-#define SPACEHUB_POINT_PARTICLE_H
+#ifndef SPACEHUB_POINT_PARTICLES_HPP
+#define SPACEHUB_POINT_PARTICLES_HPP
 
 #include "../particles.hpp"
+#include "../vector/vector3.h"
 
 namespace space {
 
@@ -76,7 +77,7 @@ Class PointParticle Declaration
     template<typename STL>
     PointParticles(Scalar t, STL const &particle_set);
 
-    CRTP_impl :
+    CRTP_IMPL :
     // CRTP implementation
 
     SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
@@ -95,9 +96,9 @@ Class PointParticle Declaration
 
     void impl_emplace_back(Particle const &new_particle);
 
-    size_t impl_number() const;
+    [[nodiscard]] size_t impl_number() const;
 
-    size_t impl_capacity() const;
+    [[nodiscard]] size_t impl_capacity() const;
 
     void impl_clear();
 
@@ -113,7 +114,7 @@ Class PointParticle Declaration
 
     Scalar time_;
 
-    size_t active_num{0};
+    size_t active_num_{0};
   };
 
 /*---------------------------------------------------------------------------*\
@@ -158,13 +159,13 @@ Class PointParticle Declaration
       idn_.emplace_back(id++);
     }
     time_ = t;
-    active_num = input_num;
+    active_num_ = input_num;
   }
 
   template<typename TypeSystem>
   void PointParticles<TypeSystem>::impl_resize(size_t new_sz) {
     space::resize_all(new_sz, pos_, vel_, mass_, idn_);
-    active_num = new_sz;
+    active_num_ = new_sz;
   }
 
   template<typename TypeSystem>
@@ -175,7 +176,7 @@ Class PointParticle Declaration
   template<typename TypeSystem>
   void PointParticles<TypeSystem>::impl_clear() {
     space::clear_all(pos_, vel_, mass_, idn_);
-    active_num = 0;
+    active_num_ = 0;
   }
 
   template<typename TypeSystem>
@@ -185,12 +186,12 @@ Class PointParticle Declaration
     vel_.emplace_back(new_particle.vel);
     mass_.emplace_back(new_particle.mass);
     idn_.emplace_back(this->number());
-    active_num++;
+    active_num_++;
   }
 
   template<typename TypeSystem>
   size_t PointParticles<TypeSystem>::impl_number() const {
-    return active_num;
+    return active_num_;
   }
 
   template<typename TypeSystem>
@@ -211,4 +212,4 @@ Class PointParticle Declaration
   }
 }  // namespace space
 
-#endif  // SPACEHUB_POINT_PARTICLE_H
+#endif  //SPACEHUB_POINT_PARTICLES_HPP

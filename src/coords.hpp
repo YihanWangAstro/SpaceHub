@@ -71,7 +71,7 @@ struct Coords {
    *
    * @return
    */
-  size_t size() const;
+  [[nodiscard]] size_t size() const;
 
   // public members
   T x;

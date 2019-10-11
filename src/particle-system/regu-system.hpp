@@ -1,22 +1,21 @@
 
-#ifndef REGUPARTICLESYSTEM_H
-#define REGUPARTICLESYSTEM_H
+#ifndef SPACEHUB_REGU_SYSTEM_HPP
+#define SPACEHUB_REGU_SYSTEM_HPP
 
 #include <type_traits>
 #include "../core-computation.hpp"
-#include "../dev-tools.hpp"
 #include "../particle-system.hpp"
 #include "../accelerations.hpp"
 
 namespace space {
   enum class ReguType {
-    logH, TTL, none
+    LogH, TTL, None
   };
 
 /*---------------------------------------------------------------------------*\
     Class Regularization Declaration
 \*---------------------------------------------------------------------------*/
-  template<typename Scalar, ReguType Type = ReguType::logH>
+  template<typename Scalar, ReguType Type = ReguType::LogH>
   class Regularization {
   public:
     // Constructors
@@ -89,7 +88,7 @@ namespace space {
     template<typename P, typename F, ReguType R>
     friend std::istream &operator>>(std::istream &is, RegularizedSystem<P, F, R> &ps);
 
-    CRTP_impl :
+    CRTP_IMPL :
     // CRTP implementation
     SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());
 
@@ -101,7 +100,7 @@ namespace space {
 
     SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time());
 
-    size_t impl_number() const;
+    [[nodiscard]] size_t impl_number() const;
 
     void impl_advance_time(Scalar step_size);
 
@@ -277,7 +276,7 @@ namespace space {
     accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
     if constexpr (Interactions::ext_vel_indep) {
       interactions_.eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
-      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonain_acc());
+      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonian_acc());
     }
   }
 
@@ -336,11 +335,11 @@ namespace space {
   template<typename Scalar, ReguType Type>
   template<typename Particles>
   Scalar Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &partc, Scalar step_size) const {
-    if constexpr (Type == ReguType::logH) {
+    if constexpr (Type == ReguType::LogH) {
       return step_size / (bindE_ + calc::calc_kinetic_energy(partc));
     } else if constexpr (Type == ReguType::TTL) {
       return step_size / omega_;
-    } else if constexpr (Type == ReguType::none) {
+    } else if constexpr (Type == ReguType::None) {
       return step_size;
     } else {
       spacehub_abort("Undefined regularization type!");
@@ -350,11 +349,11 @@ namespace space {
   template<typename Scalar, ReguType Type>
   template<typename Particles>
   Scalar Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &partc, Scalar step_size) const {
-    if constexpr (Type == ReguType::logH) {
+    if constexpr (Type == ReguType::LogH) {
       return step_size / -calc::calc_potential_energy(partc);
     } else if constexpr (Type == ReguType::TTL) {
       return step_size / capital_omega(partc);
-    } else if constexpr (Type == ReguType::none) {
+    } else if constexpr (Type == ReguType::None) {
       return step_size;
     } else {
       spacehub_abort("Undefined regularization type!");

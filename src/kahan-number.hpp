@@ -1,7 +1,7 @@
 
 
-#ifndef KAHANNUMBER_h
-#define KAHANNUMBER_h
+#ifndef SPACEHUB_KAHAN_NUMBER_HPP
+#define SPACEHUB_KAHAN_NUMBER_HPP
 
 #include "own-math.hpp"
 
@@ -12,19 +12,19 @@ namespace space {
  *  See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm
  */
   template<typename T>
-  struct kahan {
+  struct Kahan {
   public:
     using value_type = T;
 
     T real, err;
 
-    kahan() = default;
+    Kahan() = default;
 
-    kahan(T r) : real(r), err(0) {};
+    Kahan(T r) : real(r), err(0) {};
 
-    kahan(const kahan &k) : real(k.real), err(k.err) {};
+    Kahan(const Kahan &k) : real(k.real), err(k.err) {};
 
-    inline const kahan &operator=(const kahan &hs) {
+    inline Kahan &operator=(const Kahan &hs) {
       real = hs.real, err = 0;
       return *this;
     }
@@ -35,9 +35,9 @@ namespace space {
 
     inline void zero_err() { err = 0; }
 
-    friend inline kahan operator-(const kahan &hs) { return kahan(-hs.real); }
+    friend inline Kahan operator-(const Kahan &hs) { return Kahan(-hs.real); }
 
-    friend inline kahan &operator+=(kahan &lhs, const kahan &rhs) {
+    friend inline Kahan &operator+=(Kahan &lhs, const Kahan &rhs) {
       T add = rhs.real - lhs.err;
       T sum = lhs.real + add;
 
@@ -50,7 +50,7 @@ namespace space {
       return lhs;
     }
 
-    friend inline kahan &operator-=(kahan &lhs, const kahan &rhs) {
+    friend inline Kahan &operator-=(Kahan &lhs, const Kahan &rhs) {
       T add = -rhs.real - lhs.err;
       T sum = lhs.real + add;
 
@@ -63,31 +63,31 @@ namespace space {
       return lhs;
     }
 
-    friend inline kahan &operator/=(kahan &lhs, const kahan &rhs) {
+    friend inline Kahan &operator/=(Kahan &lhs, const Kahan &rhs) {
       lhs.real /= rhs.real;
       return lhs;
     }
 
-    friend inline kahan &operator*=(kahan &lhs, const kahan &rhs) {
+    friend inline Kahan &operator*=(Kahan &lhs, const Kahan &rhs) {
       lhs.real *= rhs.real;
       return lhs;
     }
 
     /** @brief Output to ostream */
-    friend std::ostream &operator<<(std::ostream &output, const kahan &v) {
+    friend std::ostream &operator<<(std::ostream &output, const Kahan &v) {
       output << v.real;
       return output;
     }
 
     /** @brief Input from istream */
-    friend std::istream &operator>>(std::istream &input, kahan &v) {
+    friend std::istream &operator>>(std::istream &input, Kahan &v) {
       input >> v.real;
       v.err = 0;
       return input;
     }
   };
 
-  using precise_d = kahan<double>;
-  using precise_f = kahan<float>;
+  using precise_d = Kahan<double>;
+  using precise_f = Kahan<float>;
 }  // namespace space
 #endif /* kahanNumber_h */

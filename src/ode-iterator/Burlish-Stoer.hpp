@@ -8,8 +8,7 @@
 #include <array>
 #include <vector>
 #include "ode-iterator.hpp"
-#include "../own-math.hpp"
-#include "../core-computation.hpp"
+
 
 namespace space::odeIterator {
 
@@ -26,7 +25,7 @@ namespace space::odeIterator {
       return cost_[i];
     }
 
-    inline size_t step_sequence(size_t i) const {
+    [[nodiscard]] inline size_t step_sequence(size_t i) const {
       return sub_steps_[i];
     }
 
@@ -64,7 +63,7 @@ namespace space::odeIterator {
     }
 
   private:
-    inline size_t at(size_t i, size_t j) const {
+    [[nodiscard]] inline size_t at(size_t i, size_t j) const {
       //return i * (i + 1) / 2 + j;
       return i * MaxIter + j;
     }
@@ -96,13 +95,13 @@ namespace space::odeIterator {
 
     using StepController = StepControl<2 * max_depth + 3, Scalar>;
 
-    CRTP_impl:
+    CRTP_IMPL:
 
     template<typename U>
     auto impl_iterate(U &ptcs, typename U::Scalar macro_step_size) -> typename U::Scalar {
       static_assert(is_particle_system_v<U>, "Passing non paritcle-system-type!");
 
-      Scalar iter_H = macro_step_size;
+      Scalar iter_h = macro_step_size;
       ptcs.to_linear_container(input_);
       check_variable_size();
 
@@ -110,38 +109,38 @@ namespace space::odeIterator {
         iter_num_++;
         bool reject = true;
 
-        integrate_by_n_steps(ptcs, iter_H, parameters_.step_sequence(0));
+        integrate_by_n_steps(ptcs, iter_h, parameters_.step_sequence(0));
         ptcs.to_linear_container(extrap_list_[0]);
 
         for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
           ptcs.load_from_linear_container(input_);
-          integrate_by_n_steps(ptcs, iter_H, parameters_.step_sequence(k));
+          integrate_by_n_steps(ptcs, iter_h, parameters_.step_sequence(k));
           ptcs.to_linear_container(extrap_list_[k]);
           extrapolate(k);
 
           Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
 
-          ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_H, std::make_tuple(error, last_error_));
+          ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
 
           cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
           //space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
           if (in_converged_window(k)) {
             if (error < 1.0) {
               reject = false;
-              iter_H = set_next_iteration(k, last_step_reject);
+              iter_h = set_next_iteration(k, last_step_reject_);
               ptcs.load_from_linear_container(extrap_list_[0]);
-              last_step_reject = reject;
+              last_step_reject_ = reject;
               last_error_ = error;
-              return iter_H;
+              return iter_h;
             } else if (is_diverged_anyhow(error, k)) {
               reject = true;
               rej_num_++;
-              iter_H = get_next_try_step(k);
+              iter_h = get_next_try_step(k);
               break;
             }
           }
         }
-        last_step_reject = reject;
+        last_step_reject_ = reject;
         ptcs.load_from_linear_container(input_);
       }
 
@@ -166,7 +165,7 @@ namespace space::odeIterator {
       }
     }
 
-    inline size_t at(size_t i, size_t j) const {
+    [[nodiscard]] inline size_t at(size_t i, size_t j) const {
       //return i * (i + 1) / 2 + j;
       return i * BSConsts::max_iter + j;
     }
@@ -185,10 +184,10 @@ namespace space::odeIterator {
 
     void extrapolate(size_t k) {
       for (size_t j = k; j > 0; --j) {
-        auto C1 = 1 + parameters_.table_coef(k, j - 1);
-        auto C2 = -parameters_.table_coef(k, j - 1);
+        auto c_1 = 1 + parameters_.table_coef(k, j - 1);
+        auto c_2 = -parameters_.table_coef(k, j - 1);
         for (size_t i = 0; i < var_num_; ++i) {
-          extrap_list_[j - 1][i] = C1 * extrap_list_[j][i] + C2 * extrap_list_[j - 1][i];
+          extrap_list_[j - 1][i] = c_1 * extrap_list_[j][i] + c_2 * extrap_list_[j - 1][i];
         }
       }
     }
@@ -204,11 +203,10 @@ namespace space::odeIterator {
         return ideal_step_size_[ideal_rank_];
       } else {
         spacehub_abort("unexpected iteration index!");
-        return ideal_step_size_[iter];
       }
     }
 
-    inline size_t allowed(size_t i) const {
+    [[nodiscard]] inline size_t allowed(size_t i) const {
       return space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
 
@@ -292,7 +290,7 @@ namespace space::odeIterator {
     /** @brief Total iteration number*/
     size_t iter_num_{0};
 
-    bool last_step_reject{false};
+    bool last_step_reject_{false};
   };
 }
 #endif //SPACEHUB_BURLISH_STOER_HPP

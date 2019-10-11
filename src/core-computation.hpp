@@ -1,6 +1,6 @@
 
-#ifndef LIBS_H
-#define LIBS_H
+#ifndef SPACEHUB_CORE_COMPUTATION_HPP
+#define SPACEHUB_CORE_COMPUTATION_HPP
 
 #include "macros.hpp"
 #include "own-math.hpp"

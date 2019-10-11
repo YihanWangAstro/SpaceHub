@@ -6,7 +6,6 @@
 #define SPACEHUB_NEWTONIAN_HPP
 
 #include "../interaction.hpp"
-#include "../dev-tools.hpp"
 
 namespace space::interactions {
   /*---------------------------------------------------------------------------*\
@@ -16,7 +15,7 @@ namespace space::interactions {
   public:
     //Type members
     using Base = Interactions<NewtonianGrav>;
-    CRTP_impl:
+    CRTP_IMPL:
 
     //CRTP implementation
     template<typename Particles>

@@ -1,5 +1,5 @@
-#ifndef CHAIN_H
-#define CHAIN_H
+#ifndef SPACEHUB_CHAIN_HPP
+#define SPACEHUB_CHAIN_HPP
 
 #include<vector>
 #include<list>
@@ -23,7 +23,7 @@ namespace space {
     static void calc_chain_index(Coord const &pos, IdxArray &index) {
       std::vector<Node> dist;
       create_distances_array(pos, dist);
-      std::sort(dist.begin(), dist.end(), [&](Node const &Ni, Node const &Nj) { return (Ni.r < Nj.r); });
+      std::sort(dist.begin(), dist.end(), [&](Node const &ni, Node const &nj) { return (ni.r < nj.r); });
       create_index_from_dist_array(dist, index, pos.size());
     }
 
@@ -43,7 +43,7 @@ namespace space {
         new_chain.emplace_back(get_new_node(chain, first, last));
       }
 
-      if constexpr (!auto_CoM) {
+      if constexpr (!auto_centre_of_mass_move_) {
         new_chain.emplace_back(Vector(0, 0, 0));
       } else {
         Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
@@ -58,7 +58,7 @@ namespace space {
       to_cartesian(chain.x, cartesian.x, index);
       to_cartesian(chain.y, cartesian.y, index);
       to_cartesian(chain.z, cartesian.z, index);
-      if constexpr (!auto_CoM) {
+      if constexpr (!auto_centre_of_mass_move_) {
         calc::coord_move_to_com(mass, cartesian);
       }
     }
@@ -71,7 +71,7 @@ namespace space {
     }
 
   private:
-    static constexpr bool auto_CoM{true};
+    static constexpr bool auto_centre_of_mass_move_{true};
 
     template<typename T>
     static bool not_in_list(std::list<T> &list, T var) {
@@ -175,7 +175,7 @@ namespace space {
     template<typename Array, typename IdxArray>
     static void to_chain(Array const &cartesian, Array &chain, IdxArray const &index) {
       const size_t size = cartesian.size();
-      if constexpr (!auto_CoM) {
+      if constexpr (!auto_centre_of_mass_move_) {
         chain[size - 1] = 0;
       } else {
         chain[size - 1] = cartesian[index[0]];
@@ -187,7 +187,7 @@ namespace space {
     template<typename Array, typename IdxArray>
     static void to_cartesian(Array const &chain, Array &cartesian, IdxArray const &index) {
       const size_t size = cartesian.size();
-      if constexpr (!auto_CoM) {
+      if constexpr (!auto_centre_of_mass_move_) {
         cartesian[index[0]] = 0;
       } else {
         cartesian[index[0]] = chain[size - 1];

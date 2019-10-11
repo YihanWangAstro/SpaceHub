@@ -2,11 +2,10 @@
 // Created by yihan on 2/25/19.
 //
 
-#ifndef SPACEHUB_CHAINSYSTEM_H
-#define SPACEHUB_CHAINSYSTEM_H
+#ifndef SPACEHUB_CHAIN_SYSTEM_HPP
+#define SPACEHUB_CHAIN_SYSTEM_HPP
 
 #include "../core-computation.hpp"
-#include "../dev-tools.hpp"
 #include "../particle-system.hpp"
 #include "chain.hpp"
 #include <type_traits>
@@ -46,7 +45,7 @@ namespace space {
     template<typename P, typename F>
     friend std::istream &operator>>(std::istream &is, ChainSystem<P, F> &ps);
 
-    CRTP_impl:
+    CRTP_IMPL:
     //CRTP implementation
     SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());
 
@@ -58,7 +57,7 @@ namespace space {
 
     SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time());
 
-    size_t impl_number() const;
+    [[nodiscard]] size_t impl_number() const;
 
     void impl_advance_time(Scalar dt);
 
@@ -95,7 +94,7 @@ namespace space {
     //Private members
     Particles ptcl_;
     Interactions interactions_;
-    Accelerations <Interactions, Coord> accels_;
+    Accelerations <Interactions, Coord> accels_{};
     Coord chain_pos_;
     Coord chain_vel_;
     Coord chain_acc_;
@@ -274,4 +273,4 @@ namespace space {
     chain_advance(ptcl_.vel(), chain_vel_(), chain_acc_, step_size);
   }
 }
-#endif //SPACEHUB_ARCHAIN_H
+#endif //SPACEHUB_ARCHAIN_HPP

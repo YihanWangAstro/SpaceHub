@@ -1,5 +1,5 @@
-#ifndef DEVTOOLS_HPP
-#define DEVTOOLS_HPP
+#ifndef SPACEHUB_DEV_TOOLS_HPP
+#define SPACEHUB_DEV_TOOLS_HPP
 
 #include <iostream>
 #include <tuple>
@@ -129,7 +129,7 @@ namespace space {
     using type = decltype(check<T>(0));
   };
 
-#define CRTP_impl  friend Base; protected
+#define CRTP_IMPL  friend Base; protected
 
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
@@ -161,9 +161,9 @@ namespace space {
 #define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
     CLASS() = ATTR1;                                                                                                   \
     CLASS(CLASS const&) = ATTR2;                                                                                       \
-    CLASS(CLASS &&)  =  ATTR3;                                                                                  \
+    CLASS(CLASS &&) noexcept =  ATTR3;                                                                                  \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
-    CLASS &operator=(CLASS &&) = ATTR5;                                                                       \
+    CLASS &operator=(CLASS &&) noexcept = ATTR5;                                                                       \
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
     template<typename ..._T_>                                                                                          \

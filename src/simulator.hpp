@@ -1,5 +1,5 @@
-#ifndef DYNAMICSYSTEM_H
-#define DYNAMICSYSTEM_H
+#ifndef SPACEHUB_SIMULATOR_HPP
+#define SPACEHUB_SIMULATOR_HPP
 
 #include <functional>
 #include "core-computation.hpp"
@@ -98,10 +98,10 @@ namespace space {
     /**
      *
      * @tparam Scalar
-     * @param end_
+     * @param end
      */
     template<typename T>
-    void add_stop_condition(T end_);
+    void add_stop_condition(T end);
 
     /**
      * @brief
@@ -109,9 +109,9 @@ namespace space {
      * @return true
      * @return false
      */
-    bool is_end_time_set() const { return is_end_time_set_; }
+    [[nodiscard]] bool is_end_time_set() const { return is_end_time_set_; }
 
-    bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
+    [[nodiscard]] bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
 
   private:
     // private members
@@ -247,8 +247,8 @@ namespace space {
 
   template<typename ParticleSys>
   template<typename T>
-  void RunArgs<ParticleSys>::add_stop_condition(T end_) {
-    end_time = end_;
+  void RunArgs<ParticleSys>::add_stop_condition(T end) {
+    end_time = end;
     is_end_time_set_ = true;
   }
 

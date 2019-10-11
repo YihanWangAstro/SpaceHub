@@ -1,7 +1,7 @@
 //
 // Created by root on 10/9/19.
 //
-#include "../../src/spaceHub.h"
+#include "../../src/spaceHub.hpp"
 #include <vector>
 #include <array>
 #include <iomanip>
@@ -23,15 +23,15 @@ int main(int argc, char **argv) {
 
   using sys = SimpleSystem<particles, force>;
 
-  //using sys = RegularizedSystem<particles, force, ReguType::logH>;
+  //using sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
   //using sys = ChainSystem<particles, force>;
 
-  //using sys = ARchainSystem<particles, force, ReguType::logH>;
+  //using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
   //using iter = ConstOdeIterator<symplectic2nd>;
 
-  using iter = BurlishStoer<double, WorstOffender>;
+  using iter = BurlishStoer<double, WorstOffender, PIDController>;
 
   using simulation = Simulator<sys, iter>;
 

@@ -1,5 +1,5 @@
-#ifndef SPACEHUB_H
-#define SPACEHUB_H
+#ifndef SPACEHUB_SPACEHUB_HPP
+#define SPACEHUB_SPACEHUB_HPP
 
 #include "kahan-number.hpp"
 #include "macros.hpp"
@@ -37,7 +37,7 @@ namespace space {
 
   template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
   using DefaultSolver =
-  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::logH>, odeIterator::BurlishStoer<double, RMS, PIDController>>;
+  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::LogH>, odeIterator::BurlishStoer<double, RMS, PIDController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;

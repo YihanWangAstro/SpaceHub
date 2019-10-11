@@ -2,10 +2,9 @@
 // Created by yihan on 4/3/19.
 //
 
-#ifndef SPACEHUB_FINITE_SIZE_H
-#define SPACEHUB_FINITE_SIZE_H
+#ifndef SPACEHUB_FINITE_SIZE_HPP
+#define SPACEHUB_FINITE_SIZE_HPP
 
-#include "../particles.hpp"
 #include "point-particles.hpp"
 
 namespace space {
@@ -32,7 +31,7 @@ namespace space {
       using Vector = Vec3<Scalar>;
 
       // Constructors
-     SPACEHUB_MAKE_CONSTRUCTORS(Particle, default, default, default, default, default);
+      SPACEHUB_MAKE_CONSTRUCTORS(Particle, default, default, default, default, default);
 
       Particle(Scalar m, Scalar r, Vector p, Vector v) : PointParticle<Scalar>{m, p, v}, radius{r} {}
 
@@ -63,7 +62,7 @@ namespace space {
     // Public methods
     SPACEHUB_STD_ACCESSOR(auto, radius, radius_);
 
-    CRTP_impl :
+    CRTP_IMPL :
     // CRTP implementation
 
     SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
@@ -82,9 +81,9 @@ namespace space {
 
     void impl_emplace_back(Particle const &new_particle);
 
-    size_t impl_number() const;
+    [[nodiscard]] size_t impl_number() const;
 
-    size_t impl_capacity() const;
+    [[nodiscard]] size_t impl_capacity() const;
 
     void impl_clear();
 
@@ -102,7 +101,7 @@ namespace space {
 
     Scalar time_;
 
-    size_t active_num{0};
+    size_t active_num_{0};
   };
 
 /*---------------------------------------------------------------------------*\
@@ -125,12 +124,12 @@ namespace space {
       idn_.emplace_back(id++);
     }
     time_ = t;
-    active_num = input_num;
+    active_num_ = input_num;
   }
 
   template<typename TypeSystem>
   size_t SizeParticles<TypeSystem>::impl_number() const {
-    return active_num;
+    return active_num_;
   }
 
   template<typename TypeSystem>
@@ -146,13 +145,13 @@ namespace space {
   template<typename TypeSystem>
   void SizeParticles<TypeSystem>::impl_clear() {
     space::clear_all(pos_, vel_, mass_, radius_, idn_);
-    active_num = 0;
+    active_num_ = 0;
   }
 
   template<typename TypeSystem>
   void SizeParticles<TypeSystem>::impl_resize(size_t new_sz) {
     space::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
-    active_num = new_sz;
+    active_num_ = new_sz;
   }
 
   template<typename TypeSystem>
@@ -162,7 +161,7 @@ namespace space {
     mass_.emplace_back(new_particle.mass);
     radius_.emplace_back(new_particle.radius);
     idn_.emplace_back(this->number());
-    active_num++;
+    active_num_++;
   }
 
   template<typename TypeSystem>
@@ -176,4 +175,4 @@ namespace space {
     return os;
   }
 }  // namespace space
-#endif  // SPACEHUB_FINITE_SIZE_H
+#endif  //SPACEHUB_FINITE_SIZE_HPP

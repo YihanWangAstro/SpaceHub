@@ -1,10 +1,9 @@
 
-#ifndef GENPARTICLESYSTEM_H
-#define GENPARTICLESYSTEM_H
+#ifndef SPACEHUB_BASE_SYSTEM_HPP
+#define SPACEHUB_BASE_SYSTEM_HPP
 
 #include <type_traits>
 #include "../core-computation.hpp"
-#include "../dev-tools.hpp"
 #include "../particle-system.hpp"
 #include "../accelerations.hpp"
 
@@ -25,7 +24,7 @@ namespace space {
 
     // Constructors
     SPACEHUB_MAKE_CONSTRUCTORS(SimpleSystem, delete, default, default, default, default);
-    
+
     /**
      *
      * @tparam STL
@@ -42,7 +41,7 @@ namespace space {
     template<typename P, typename F>
     friend std::istream &operator>>(std::istream &is, SimpleSystem<P, F> &ps);
 
-    CRTP_impl :
+    CRTP_IMPL :
     // CRTP implementation
 
     /**
@@ -79,7 +78,7 @@ namespace space {
      *
      * @return
      */
-    size_t impl_number() const;
+    [[nodiscard]] size_t impl_number() const;
 
     /**
      *

@@ -6,7 +6,6 @@
 #define SPACEHUB_RMS_HPP
 
 #include "../error-checker.hpp"
-#include "../own-math.hpp"
 
 namespace space {
 
@@ -25,7 +24,7 @@ namespace space {
 
     RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 
-    CRTP_impl :
+    CRTP_IMPL :
     // CRTP implementation
 
     SPACEHUB_STD_ACCESSOR(auto, impl_atol, atol_);

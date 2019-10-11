@@ -2,7 +2,7 @@
 // Created by yihan on 4/17/19.
 //
 #include <iomanip>
-#include "../../src/spaceHub.h"
+#include "../../src/spaceHub.hpp"
 
 using namespace space;
 using namespace space::odeIterator;
@@ -21,15 +21,15 @@ int main() {
 
   //using sys = SimpleSystem<particles, force>;
 
-  using sys = RegularizedSystem<particles, force, ReguType::logH>;
+  using sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
   //using sys = ChainSystem<particles, force>;
 
-  //using sys = ARchainSystem<particles, force, ReguType::logH>;
+  //using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
   //using iter = ConstOdeIterator<symplectic2nd>;
 
-  using iter = BurlishStoer<double, WorstOffender>;
+  using iter = BurlishStoer<double, WorstOffender, PIDController>;
 
   using Simulation = Simulator<sys, iter>;
 

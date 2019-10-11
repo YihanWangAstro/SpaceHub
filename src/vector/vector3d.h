@@ -1,6 +1,6 @@
 
-#ifndef GENVECT3D_H
-#define GENVECT3D_H
+#ifndef SPACEHUB_VECTOR3D_H
+#define SPACEHUB_VECTOR3D_H
 
 #ifdef __AVX__
 #pragma message("Using AVX on vector3d")
