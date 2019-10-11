@@ -33,7 +33,6 @@ set(TMP_HEADER_FILES
         src/multi-thread/ciostream.hpp
 
         src/ode-iterator/ode-iterator.hpp
-        #src/ode-iterator/BS-iterator_bk.hpp
         src/ode-iterator/Burlish-Stoer.hpp
         src/ode-iterator/const-iterator.hpp
         src/ode-iterator/IAS15.h
@@ -71,7 +70,12 @@ set(TMP_HEADER_FILES
         src/particles.hpp
         src/simulator.hpp
         src/spaceHub.hpp
-        src/type-class.hpp src/error-checker.hpp src/error-checker/worst-offender.hpp src/error-checker/RMS.hpp src/stepsize-controller.h src/step-controller/PID-controller.hpp)
+        src/type-class.hpp
+        src/error-checker.hpp
+        src/error-checker/worst-offender.hpp
+        src/error-checker/RMS.hpp
+        src/stepsize-controller.hpp
+        src/step-controller/PID-controller.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

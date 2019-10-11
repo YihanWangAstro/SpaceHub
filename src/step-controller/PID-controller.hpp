@@ -5,16 +5,16 @@
 #ifndef SPACEHUB_PID_CONTROLLER_HPP
 #define SPACEHUB_PID_CONTROLLER_HPP
 
-#include "../stepsize-controller.h"
+#include "../stepsize-controller.hpp"
 #include "../own-math.hpp"
 
 namespace space {
 
-  /**
-   * https://en.wikipedia.org/wiki/PID_controller
-   * @tparam Max_order
-   * @tparam T
-   */
+/**
+ * https://en.wikipedia.org/wiki/PID_controller
+ * @tparam Max_order
+ * @tparam T
+ */
   template<size_t Max_order, typename T>
   class PIDController : public StepController<PIDController<Max_order, T>> {
   public:
@@ -125,5 +125,6 @@ namespace space {
       return old_step * limiter_max_[order];
     }
   }
+
 }
 #endif //SPACEHUB_PID_CONTROLLER_HPP

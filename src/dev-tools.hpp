@@ -43,33 +43,20 @@ namespace space {
     (..., (out << std::forward<Args>(args) << ' '));
   }
 
-  template<typename T, size_t len>
-  std::ostream &operator<<(std::ostream &os, std::array<T, len> const &arr) {
-    for (auto const &c : arr) {
-      os << c << ' ';
-    }
-    return os;
-  }
-
-  template<typename Tup, size_t... I>
-  void print_tuple(std::ostream &out, Tup const &tup, std::index_sequence<I...>) {
-    ((out << (I == 0 ? "" : ",") << std::get<I>(tup)), ...);
-  }
-
-  template<typename Tup, size_t... I>
-  void input_tuple(std::istream &in, Tup const &tup, std::index_sequence<I...>) {
-    ((in >> std::get<I>(tup)), ...);
-  }
-
   template<typename ...Args>
   std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
-    space::print_tuple(out, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+    std::apply([&](auto &&arg, auto &&...args) {
+      out << arg;
+      (..., (out << ',' << args));
+    }, tup);
     return out;
   }
 
   template<typename ...Args>
   std::istream &operator>>(std::istream &in, std::tuple<Args...> &&tup) {
-    space::input_tuple(in, std::forward<decltype(tup)>(tup), std::make_index_sequence<sizeof...(Args)>());
+    std::apply([&](auto &&...args) {
+      (..., (in >> args));
+    }, tup);
     return in;
   }
 
@@ -161,9 +148,9 @@ namespace space {
 #define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
     CLASS() = ATTR1;                                                                                                   \
     CLASS(CLASS const&) = ATTR2;                                                                                       \
-    CLASS(CLASS &&) noexcept =  ATTR3;                                                                                  \
+    CLASS(CLASS &&)  =  ATTR3;                                                                                         \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
-    CLASS &operator=(CLASS &&) noexcept = ATTR5;                                                                       \
+    CLASS &operator=(CLASS &&)  = ATTR5;                                                                               \
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
     template<typename ..._T_>                                                                                          \
@@ -192,7 +179,7 @@ inline TYPE const & NAME () const noexcept {                                    
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
-#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                    \
+#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                      \
                                                                                                                        \
 inline TYPE & NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
@@ -201,7 +188,7 @@ inline TYPE const & NAME () const noexcept {                                    
     return MEMBER;                                                                                                     \
 };
 
-#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                   \
+#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
                                                                                                                        \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
@@ -229,15 +216,15 @@ inline TYPE const & NAME () const noexcept {                                    
                                                                                                                        \
     template<typename T, typename... Args>                                                                             \
     struct has_protected_method_##NAME : public T                                                                      \
-    {                                                                                                \
+    {                                                                                                                  \
         template<typename U>                                                                                           \
         constexpr static auto check(const void*)                                                                       \
         ->decltype(std::declval<has_protected_method_##NAME<U, Args...> >().NAME(std::declval<Args>()...), std::true_type());                                             \
                                                                                                                        \
-        template<typename U>\
+        template<typename U>                                                                                           \
         constexpr static std::false_type check(...);                                                                   \
                                                                                                                        \
-        static constexpr bool value = decltype(check<T>(nullptr))::value;                                                 \
+        static constexpr bool value = decltype(check<T>(nullptr))::value;                                              \
     };
 
 #define HAS_PROTECTED_METHOD(CLASS, METHOD, ...) has_protected_method_##METHOD<CLASS, ##__VA_ARGS__>::value
@@ -265,7 +252,7 @@ inline TYPE const & NAME () const noexcept {                                    
 #define HAS_MEMBER(C, member) has_ ## member<C>::value
 
 /** @brief Macros used to check if a class has a static member.  */
-#define CREATE_STATIC_MEMBER_CHECK(MEMBER)                                                                           \
+#define CREATE_STATIC_MEMBER_CHECK(MEMBER)                                                                             \
                                                                                                                        \
     template<typename T, typename V = bool>                                                                            \
     struct has_static ## MEMBER : std::false_type { };                                                                 \
@@ -303,7 +290,7 @@ inline TYPE const & NAME () const noexcept {                                    
 /** @brief Macros used to static_assert if two class have the same base type set*/
 #define CHECK_TYPE(T1, T2)                                                                                             \
             static_assert(std::is_same< typename T1::Types, typename T2::Types>::value,                                \
-            "Template argument '" #T1 "' and '" #T2 "' must have the same type of the type member(SpaceH::ProtoType<...>)");
+            "Template argument '" #T1 "' and '" #T2 "' must have the same type of the type member(space::ProtoType<...>)");
 
 
 #define CHECK_POD(DATA)                                                                                                \
@@ -353,6 +340,31 @@ inline TYPE const & NAME () const noexcept {                                    
 
   template<typename T>
   constexpr bool is_container_v = is_container<T>::value;
+
+  template<template<typename ...> typename T, typename ...Args>
+  std::ostream &operator<<(std::ostream &os, T<Args...> const &container) {
+    static_assert(is_container_v<T<Args...>>, "only STL like can be used.");
+    for (auto const &c : container) {
+      os << c << ' ';
+    }
+    return os;
+  }
+
+  template<typename T, size_t N>
+  std::ostream &operator<<(std::ostream &os, std::array<T, N> const &container) {
+    for (auto const &c : container) {
+      os << c << ' ';
+    }
+    return os;
+  }
+
+  template<typename T, size_t N>
+  std::ostream &operator<<(std::ostream &os, const T (&carray)[N]) {
+    for (size_t i = 0; i < N; ++i) {
+      os << carray[i] << ' ';
+    }
+    return os;
+  }
 
 #define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE,DERIVED>::value)
 

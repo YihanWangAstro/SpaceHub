@@ -86,9 +86,9 @@ int main(int argc, char **argv) {
   {
     using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-    using simulation = Simulator<sys, iter>;
+    using Simulation = Simulator<sys, iter>;
 
-    simulation nbody{0.0, sun, earth};
+    Simulation nbody{0.0, sun, earth};
 
     run_two_body_test(nbody, "circular-BS-archain.err");
   }

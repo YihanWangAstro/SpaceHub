@@ -2,8 +2,8 @@
 // Created by 王艺涵 on 10/9/19.
 //
 
-#ifndef SPACEHUB_STEPSIZE_CONTROLLER_H
-#define SPACEHUB_STEPSIZE_CONTROLLER_H
+#ifndef SPACEHUB_STEPSIZE_CONTROLLER_HPP
+#define SPACEHUB_STEPSIZE_CONTROLLER_HPP
 
 
 #include "dev-tools.hpp"
@@ -31,7 +31,7 @@ namespace space {
 
 
     template<typename Scalar, typename Array>
-    Scalar next_step_size(size_t order, Scalar old_step, Array const& errors);
+    Scalar next_step_size(size_t order, Scalar old_step, Array const &errors);
 
   private:
     /**
@@ -53,8 +53,8 @@ namespace space {
 
   template<typename Derived>
   template<typename Scalar, typename Array>
-  Scalar StepController<Derived>::next_step_size(size_t order, Scalar old_step, Array const& errors) {
+  Scalar StepController<Derived>::next_step_size(size_t order, Scalar old_step, Array const &errors) {
     return static_cast<Derived *>(this)->impl_next_step_size(order, old_step, errors);
   }
 }
-#endif //SPACEHUB_STEPSIZE_CONTROLLER_H
+#endif //SPACEHUB_STEPSIZE_CONTROLLER_HPP
