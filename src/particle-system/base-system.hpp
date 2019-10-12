@@ -28,11 +28,11 @@ namespace space {
     /**
      *
      * @tparam STL
-     * @param t
+     * @param time
      * @param particle_set
      */
     template<typename STL>
-    SimpleSystem(Scalar t, STL const &particle_set);
+    SimpleSystem(Scalar time, STL const &particle_set);
 
     // Friend functions
     template<typename P, typename F>
@@ -126,18 +126,18 @@ namespace space {
     /**
      *
      * @tparam STL
-     * @param stl
+     * @param stl_ranges
      */
     template<typename STL>
-    void impl_to_linear_container(STL &stl);
+    void impl_to_linear_container(STL &stl_ranges);
 
     /**
      *
      * @tparam STL
-     * @param stl
+     * @param stl_ranges
      */
     template<typename STL>
-    void impl_load_from_linear_container(STL const &stl);
+    void impl_load_from_linear_container(STL const &stl_ranges);
 
   private:
     // Private methods
@@ -173,8 +173,8 @@ namespace space {
 \*---------------------------------------------------------------------------*/
   template<typename Particles, typename Interactions>
   template<typename STL>
-  SimpleSystem<Particles, Interactions>::SimpleSystem(Scalar t, const STL &particle_set) : ptcl_(t, particle_set),
-                                                                                           accels_(particle_set.size()) {
+  SimpleSystem<Particles, Interactions>::SimpleSystem(Scalar time, const STL &particle_set) : ptcl_(time, particle_set),
+                                                                                              accels_(particle_set.size()) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
     if constexpr (Interactions::ext_vel_dep) {
       aux_vel_ = ptcl_.vel();
@@ -183,8 +183,8 @@ namespace space {
 
   template<typename Particles, typename Interactions>
   template<typename STL>
-  void SimpleSystem<Particles, Interactions>::impl_load_from_linear_container(const STL &stl) {
-    auto begin = stl.begin();
+  void SimpleSystem<Particles, Interactions>::impl_load_from_linear_container(const STL &stl_ranges) {
+    auto begin = stl_ranges.begin();
     impl_time() = *begin;
     size_t len = impl_number() * 3;
     auto pos_begin = begin + 1;
@@ -197,12 +197,12 @@ namespace space {
 
   template<typename Particles, typename Interactions>
   template<typename STL>
-  void SimpleSystem<Particles, Interactions>::impl_to_linear_container(STL &stl) {
-    stl.clear();
-    stl.reserve(impl_number() * 6 + 1);
-    stl.emplace_back(impl_time());
-    add_coords_to(stl, impl_pos());
-    add_coords_to(stl, impl_vel());
+  void SimpleSystem<Particles, Interactions>::impl_to_linear_container(STL &stl_ranges) {
+    stl_ranges.clear();
+    stl_ranges.reserve(impl_number() * 6 + 1);
+    stl_ranges.emplace_back(impl_time());
+    add_coords_to(stl_ranges, impl_pos());
+    add_coords_to(stl_ranges, impl_vel());
   }
 
   template<typename Particles, typename Interactions>

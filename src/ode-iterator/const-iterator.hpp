@@ -33,7 +33,7 @@ namespace space::odeIterator {
   template<typename T>
   auto
   ConstOdeIterator<Integrator>::impl_iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
-    static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
+    static_assert(is_particle_system_v<T>, "Passing non particle-system-type!");
     integrator_.integrate(particles, macro_step_size);
     return macro_step_size;
   }

@@ -32,28 +32,28 @@ namespace space {
     // public methods
     /**
      *
-     * @param partc_sys
+     * @param particle_system
      */
-    void pre_operations(ParticleSys &partc_sys) const;
+    void pre_operations(ParticleSys &particle_system) const;
 
     /**
      *
-     * @param partc_sys
+     * @param particle_system
      */
-    void post_operations(ParticleSys &partc_sys) const;
+    void post_operations(ParticleSys &particle_system) const;
 
     /**
      *
-     * @param partc_sys
+     * @param particle_system
      */
-    void stop_operations(ParticleSys &partc_sys) const;
+    void stop_operations(ParticleSys &particle_system) const;
 
     /**
      *
-     * @param partc_sys
+     * @param particle_system
      * @return
      */
-    bool check_stops(ParticleSys &partc_sys) const;
+    bool check_stops(ParticleSys &particle_system) const;
 
     /**
      *
@@ -147,20 +147,20 @@ namespace space {
     /**
      *
      * @tparam STL
-     * @param t
-     * @param partc
+     * @param time
+     * @param particle_set
      */
     template<typename STL>
-    Simulator(Scalar t, STL const &partc);
+    Simulator(Scalar time, STL const &particle_set);
 
     /**
      *
      * @tparam T
-     * @param t
-     * @param p
+     * @param time
+     * @param particle
      */
     template<typename... T>
-    explicit Simulator(Scalar t, T const &... p);
+    explicit Simulator(Scalar time, T const &... particle);
 
     // Public methods
     /**
@@ -193,30 +193,30 @@ namespace space {
     Class RunArgs Implementation
 \*---------------------------------------------------------------------------*/
   template<typename ParticleSys>
-  void RunArgs<ParticleSys>::pre_operations(ParticleSys &partc_sys) const {
+  void RunArgs<ParticleSys>::pre_operations(ParticleSys &particle_system) const {
     for (auto const &opt : pre_opts_) {
-      opt(partc_sys);
+      opt(particle_system);
     }
   }
 
   template<typename ParticleSys>
-  void RunArgs<ParticleSys>::post_operations(ParticleSys &partc_sys) const {
+  void RunArgs<ParticleSys>::post_operations(ParticleSys &particle_system) const {
     for (auto const &opt : post_opts_) {
-      opt(partc_sys);
+      opt(particle_system);
     }
   }
 
   template<typename ParticleSys>
-  void RunArgs<ParticleSys>::stop_operations(ParticleSys &partc_sys) const {
+  void RunArgs<ParticleSys>::stop_operations(ParticleSys &particle_system) const {
     for (auto const &opt : stop_opts_) {
-      opt(partc_sys);
+      opt(particle_system);
     }
   }
 
   template<typename ParticleSys>
-  bool RunArgs<ParticleSys>::check_stops(ParticleSys &partc_sys) const {
+  bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system) const {
     for (auto const &check : stop_cond_) {
-      if (check(partc_sys)) return true;
+      if (check(particle_system)) return true;
     }
     return false;
   }
@@ -257,14 +257,14 @@ namespace space {
 \*---------------------------------------------------------------------------*/
   template<typename ParticSys, typename OdeIterator>
   template<typename STL>
-  Simulator<ParticSys, OdeIterator>::Simulator(Scalar t, const STL &partc) : particles_(t, partc) {
+  Simulator<ParticSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set) : particles_(time, particle_set) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
   }
 
   template<typename ParticSys, typename OdeIterator>
   template<typename... T>
-  Simulator<ParticSys, OdeIterator>::Simulator(Scalar t, T const &... p)
-          : Simulator(t, std::initializer_list<Particle>{p...}) {
+  Simulator<ParticSys, OdeIterator>::Simulator(Scalar time, T const &... particle)
+          : Simulator(time, std::initializer_list<Particle>{particle...}) {
     static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particles type!");
   }
 

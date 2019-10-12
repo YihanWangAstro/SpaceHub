@@ -20,7 +20,7 @@ namespace space {
   public:
     // Constructors
     template<typename Particles>
-    explicit Regularization(Particles const &partc);
+    explicit Regularization(Particles const &particles);
 
     // Public methods
     SPACEHUB_STD_ACCESSOR(auto, omega, omega_);
@@ -28,15 +28,15 @@ namespace space {
     SPACEHUB_STD_ACCESSOR(auto, bindE, bindE_);
 
     template<typename Particles>
-    Scalar eval_pos_phy_time(Particles const &partc, Scalar step_size) const;
+    Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size) const;
 
     template<typename Particles>
-    Scalar eval_vel_phy_time(Particles const &partc, Scalar step_size) const;
+    Scalar eval_vel_phy_time(Particles const &particles, Scalar step_size) const;
 
   private:
     // Private methods
     template<typename Particles>
-    inline Scalar capital_omega(Particles const &partc) const;
+    inline Scalar capital_omega(Particles const &particles) const;
 
     // Private members
     Scalar omega_;
@@ -71,7 +71,7 @@ namespace space {
     SPACEHUB_MAKE_CONSTRUCTORS(RegularizedSystem, delete, default, default, default, default);
 
     template<typename STL>
-    RegularizedSystem(Scalar t, STL const &particle_set);
+    RegularizedSystem(Scalar time, STL const &particle_set);
 
     // Static members
     static constexpr ReguType regu_type{RegType};
@@ -117,10 +117,10 @@ namespace space {
     void impl_pre_iter_process();
 
     template<typename STL>
-    void impl_to_linear_container(STL &stl);
+    void impl_to_linear_container(STL &stl_ranges);
 
     template<typename STL>
-    void impl_load_from_linear_container(STL const &stl);
+    void impl_load_from_linear_container(STL const &stl_ranges);
 
   private:
     // Private methods
@@ -147,8 +147,8 @@ namespace space {
 \*---------------------------------------------------------------------------*/
   template<typename Particles, typename Interactions, ReguType RegType>
   template<typename STL>
-  RegularizedSystem<Particles, Interactions, RegType>::RegularizedSystem(Scalar t, const STL &particle_set)
-          : ptcl_(t, particle_set), accels_(particle_set.size()), regu_(ptcl_) {
+  RegularizedSystem<Particles, Interactions, RegType>::RegularizedSystem(Scalar time, const STL &particle_set)
+          : ptcl_(time, particle_set), accels_(particle_set.size()), regu_(ptcl_) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
     if constexpr (Interactions::ext_vel_dep) {
       aux_vel_ = ptcl_.vel();
@@ -242,20 +242,20 @@ namespace space {
 
   template<typename Particles, typename Interactions, ReguType RegType>
   template<typename STL>
-  void RegularizedSystem<Particles, Interactions, RegType>::impl_to_linear_container(STL &stl) {
-    stl.clear();
-    stl.reserve(impl_number() * 6 + 3);
-    stl.emplace_back(impl_time());
-    stl.emplace_back(omega());
-    stl.emplace_back(bindE());
-    add_coords_to(stl, impl_pos());
-    add_coords_to(stl, impl_vel());
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_to_linear_container(STL &stl_ranges) {
+    stl_ranges.clear();
+    stl_ranges.reserve(impl_number() * 6 + 3);
+    stl_ranges.emplace_back(impl_time());
+    stl_ranges.emplace_back(omega());
+    stl_ranges.emplace_back(bindE());
+    add_coords_to(stl_ranges, impl_pos());
+    add_coords_to(stl_ranges, impl_vel());
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
   template<typename STL>
-  void RegularizedSystem<Particles, Interactions, RegType>::impl_load_from_linear_container(const STL &stl) {
-    auto begin = stl.begin();
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_load_from_linear_container(const STL &stl_ranges) {
+    auto begin = stl_ranges.begin();
     impl_time() = *begin;
     omega() = *(begin + 1);
     bindE() = *(begin + 2);
@@ -327,16 +327,16 @@ namespace space {
 \*---------------------------------------------------------------------------*/
   template<typename Scalar, ReguType Type>
   template<typename Particles>
-  Regularization<Scalar, Type>::Regularization(const Particles &partc) {
-    omega_ = capital_omega(partc);
-    bindE_ = -calc::calc_total_energy(partc);
+  Regularization<Scalar, Type>::Regularization(const Particles &particles) {
+    omega_ = capital_omega(particles);
+    bindE_ = -calc::calc_total_energy(particles);
   }
 
   template<typename Scalar, ReguType Type>
   template<typename Particles>
-  Scalar Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &partc, Scalar step_size) const {
+  Scalar Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &particles, Scalar step_size) const {
     if constexpr (Type == ReguType::LogH) {
-      return step_size / (bindE_ + calc::calc_kinetic_energy(partc));
+      return step_size / (bindE_ + calc::calc_kinetic_energy(particles));
     } else if constexpr (Type == ReguType::TTL) {
       return step_size / omega_;
     } else if constexpr (Type == ReguType::None) {
@@ -348,11 +348,11 @@ namespace space {
 
   template<typename Scalar, ReguType Type>
   template<typename Particles>
-  Scalar Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &partc, Scalar step_size) const {
+  Scalar Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &particles, Scalar step_size) const {
     if constexpr (Type == ReguType::LogH) {
-      return step_size / -calc::calc_potential_energy(partc);
+      return step_size / -calc::calc_potential_energy(particles);
     } else if constexpr (Type == ReguType::TTL) {
-      return step_size / capital_omega(partc);
+      return step_size / capital_omega(particles);
     } else if constexpr (Type == ReguType::None) {
       return step_size;
     } else {
@@ -362,8 +362,8 @@ namespace space {
 
   template<typename Scalar, ReguType Type>
   template<typename Particles>
-  Scalar Regularization<Scalar, Type>::capital_omega(const Particles &partc) const {
-    return -calc::calc_potential_energy(partc);
+  Scalar Regularization<Scalar, Type>::capital_omega(const Particles &particles) const {
+    return -calc::calc_potential_energy(particles);
   }
 }  // namespace space
 

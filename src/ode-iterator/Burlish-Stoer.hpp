@@ -98,24 +98,24 @@ namespace space::odeIterator {
     CRTP_IMPL:
 
     template<typename U>
-    auto impl_iterate(U &ptcs, typename U::Scalar macro_step_size) -> typename U::Scalar {
-      static_assert(is_particle_system_v<U>, "Passing non paritcle-system-type!");
+    auto impl_iterate(U &particles, typename U::Scalar macro_step_size) -> typename U::Scalar {
+      static_assert(is_particle_system_v<U>, "Passing non particle-system-type!");
 
       Scalar iter_h = macro_step_size;
-      ptcs.to_linear_container(input_);
+      particles.to_linear_container(input_);
       check_variable_size();
 
       for (size_t i = 0; i < max_try_num; ++i) {
         iter_num_++;
         bool reject = true;
 
-        integrate_by_n_steps(ptcs, iter_h, parameters_.step_sequence(0));
-        ptcs.to_linear_container(extrap_list_[0]);
+        integrate_by_n_steps(particles, iter_h, parameters_.step_sequence(0));
+        particles.to_linear_container(extrap_list_[0]);
 
         for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
-          ptcs.load_from_linear_container(input_);
-          integrate_by_n_steps(ptcs, iter_h, parameters_.step_sequence(k));
-          ptcs.to_linear_container(extrap_list_[k]);
+          particles.load_from_linear_container(input_);
+          integrate_by_n_steps(particles, iter_h, parameters_.step_sequence(k));
+          particles.to_linear_container(extrap_list_[k]);
           extrapolate(k);
 
           Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
@@ -128,7 +128,7 @@ namespace space::odeIterator {
             if (error < 1.0) {
               reject = false;
               iter_h = set_next_iteration(k, last_step_reject_);
-              ptcs.load_from_linear_container(extrap_list_[0]);
+              particles.load_from_linear_container(extrap_list_[0]);
               last_step_reject_ = reject;
               last_error_ = error;
               return iter_h;
@@ -141,7 +141,7 @@ namespace space::odeIterator {
           }
         }
         last_step_reject_ = reject;
-        ptcs.load_from_linear_container(input_);
+        particles.load_from_linear_container(input_);
       }
 
       spacehub_abort("Reach max iteration loop number!");
@@ -171,15 +171,15 @@ namespace space::odeIterator {
     }
 
     template<typename U>
-    void integrate_by_n_steps(U &ptcs, Scalar macro_step_size, size_t steps) {
+    void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps) {
       Scalar h = macro_step_size / steps;
-      ptcs.kick(0.5 * h);
+      particles.kick(0.5 * h);
       for (size_t i = 1; i < steps; i++) {
-        ptcs.drift(h);
-        ptcs.kick(h);
+        particles.drift(h);
+        particles.kick(h);
       }
-      ptcs.drift(h);
-      ptcs.kick(0.5 * h);
+      particles.drift(h);
+      particles.kick(0.5 * h);
     }
 
     void extrapolate(size_t k) {
@@ -192,14 +192,14 @@ namespace space::odeIterator {
       }
     }
 
-    inline bool in_converged_window(size_t iter) {
-      return iter == ideal_rank_ - 1 || iter == ideal_rank_ || iter == ideal_rank_ + 1;
+    inline bool in_converged_window(size_t k) {
+      return k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1;
     }
 
-    Scalar get_next_try_step(size_t iter) {
-      if (iter == ideal_rank_ - 1 || iter == ideal_rank_) {
-        return ideal_step_size_[iter];
-      } else if (iter == ideal_rank_ + 1) {
+    Scalar get_next_try_step(size_t k) {
+      if (k == ideal_rank_ - 1 || k == ideal_rank_) {
+        return ideal_step_size_[k];
+      } else if (k == ideal_rank_ + 1) {
         return ideal_step_size_[ideal_rank_];
       } else {
         spacehub_abort("unexpected iteration index!");
@@ -244,14 +244,14 @@ namespace space::odeIterator {
       }
     }
 
-    bool is_diverged_anyhow(Scalar error, size_t iter) const {
+    bool is_diverged_anyhow(Scalar error, size_t k) const {
       Scalar r = 1.0;
 
-      if (iter == ideal_rank_ - 1) {
-        r = static_cast<Scalar>(parameters_.step_sequence(iter + 1) * parameters_.step_sequence(iter + 2)) /
+      if (k == ideal_rank_ - 1) {
+        r = static_cast<Scalar>(parameters_.step_sequence(k + 1) * parameters_.step_sequence(k + 2)) /
             static_cast<Scalar>(parameters_.step_sequence(0) * parameters_.step_sequence(0));
-      } else if (iter == ideal_rank_) {
-        r = static_cast<Scalar>(parameters_.step_sequence(iter)) / static_cast<Scalar>(parameters_.step_sequence(0));
+      } else if (k == ideal_rank_) {
+        r = static_cast<Scalar>(parameters_.step_sequence(k)) / static_cast<Scalar>(parameters_.step_sequence(0));
       } // else k == iterDepth+1 and error >1 reject directly
 
       return error > r * r;

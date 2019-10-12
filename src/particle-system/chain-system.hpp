@@ -29,7 +29,7 @@ namespace space {
     SPACEHUB_MAKE_CONSTRUCTORS(ChainSystem, delete, default, default, default, default);
 
     template<typename STL>
-    ChainSystem(Scalar t, STL const &particle_set);
+    ChainSystem(Scalar time, STL const &particle_set);
 
     //Public methods
     SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
@@ -76,14 +76,14 @@ namespace space {
     void impl_post_iter_process();
 
     template<typename STL>
-    void impl_to_linear_container(STL &stl);
+    void impl_to_linear_container(STL &stl_ranges);
 
     template<typename STL>
-    void impl_load_from_linear_container(STL const &stl);
+    void impl_load_from_linear_container(STL const &stl_ranges);
 
   private:
     //Private methods
-    void chain_advance(Coord &var, Coord &ch_var, Coord &ch_inc, Scalar step_size);
+    void chain_advance(Coord &var, Coord &chain_var, Coord &chain_increment, Scalar step_size);
 
     void eval_vel_indep_acc();
 
@@ -111,8 +111,8 @@ namespace space {
   \*---------------------------------------------------------------------------*/
   template<typename Particles, typename Interactions>
   template<typename STL>
-  ChainSystem<Particles, Interactions>::ChainSystem(Scalar t, const STL &particle_set)
-          : ptcl_(t, particle_set),
+  ChainSystem<Particles, Interactions>::ChainSystem(Scalar time, const STL &particle_set)
+          : ptcl_(time, particle_set),
             chain_pos_(particle_set.size()),
             chain_vel_(particle_set.size()),
             index_(particle_set.size()),
@@ -199,18 +199,18 @@ namespace space {
 
   template<typename Particles, typename Interactions>
   template<typename STL>
-  void ChainSystem<Particles, Interactions>::impl_to_linear_container(STL &stl) {
-    stl.clear();
-    stl.reserve(impl_number() * 6 + 1);
-    stl.emplace_back(impl_time());
-    add_coords_to(stl, chain_pos_);
-    add_coords_to(stl, chain_vel_);
+  void ChainSystem<Particles, Interactions>::impl_to_linear_container(STL &stl_ranges) {
+    stl_ranges.clear();
+    stl_ranges.reserve(impl_number() * 6 + 1);
+    stl_ranges.emplace_back(impl_time());
+    add_coords_to(stl_ranges, chain_pos_);
+    add_coords_to(stl_ranges, chain_vel_);
   }
 
   template<typename Particles, typename Interactions>
   template<typename STL>
-  void ChainSystem<Particles, Interactions>::impl_load_from_linear_container(const STL &stl) {
-    auto begin = stl.begin();
+  void ChainSystem<Particles, Interactions>::impl_load_from_linear_container(const STL &stl_ranges) {
+    auto begin = stl_ranges.begin();
     impl_time() = *begin;
     size_t len = impl_number() * 3;
     auto pos_begin = begin + 1;
@@ -238,9 +238,9 @@ namespace space {
   }
 
   template<typename Particles, typename Interactions>
-  void ChainSystem<Particles, Interactions>::chain_advance(Coord &var, Coord &ch_var, Coord &ch_inc, Scalar step_size) {
-    calc::coord_advance(ch_var, ch_inc, step_size);
-    Chain::calc_cartesian(ptcl_.mass(), ch_var, var, index());
+  void ChainSystem<Particles, Interactions>::chain_advance(Coord &var, Coord &chain_var, Coord &chain_increment, Scalar step_size) {
+    calc::coord_advance(chain_var, chain_increment, step_size);
+    Chain::calc_cartesian(ptcl_.mass(), chain_var, var, index());
   }
 
   template<typename Particles, typename Interactions>

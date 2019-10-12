@@ -15,9 +15,9 @@ namespace space::integrator {
     static constexpr size_t order{Derived::order};
 
     template<typename T>
-    void integrate(T &ptc, typename T::Scalar step_size) {
+    void integrate(T &particle_system, typename T::Scalar step_size) {
       static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
-      static_cast<Derived *>(this)->impl_integrate(ptc, step_size);
+      static_cast<Derived *>(this)->impl_integrate(particle_system, step_size);
     }
 
   private:

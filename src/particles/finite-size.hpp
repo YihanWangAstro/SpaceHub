@@ -57,7 +57,7 @@ namespace space {
     SPACEHUB_MAKE_CONSTRUCTORS(SizeParticles, default, default, default, default, default);
 
     template<typename STL>
-    SizeParticles(Scalar t, STL const &partc);
+    SizeParticles(Scalar time, STL const &particles_set);
 
     // Public methods
     SPACEHUB_STD_ACCESSOR(auto, radius, radius_);
@@ -109,21 +109,21 @@ namespace space {
 \*---------------------------------------------------------------------------*/
   template<typename TypeSystem>
   template<typename STL>
-  SizeParticles<TypeSystem>::SizeParticles(Scalar t, const STL &partc) {
+  SizeParticles<TypeSystem>::SizeParticles(Scalar time, const STL &particles_set) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
     SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
 
-    size_t input_num = partc.size();
+    size_t input_num = particles_set.size();
     this->reserve(input_num);
     size_t id = 0;
-    for (auto &p : partc) {
+    for (auto &p : particles_set) {
       pos_.emplace_back(p.pos);
       vel_.emplace_back(p.vel);
       mass_.emplace_back(p.mass);
       radius_.emplace_back(p.radius);
       idn_.emplace_back(id++);
     }
-    time_ = t;
+    time_ = time;
     active_num_ = input_num;
   }
 

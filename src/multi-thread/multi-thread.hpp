@@ -16,6 +16,8 @@ namespace space::multiThread {
 
   const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
 
+  const size_t machine_thread_num = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
+
   template<typename Lambda>
   void multi_threads_loop(size_t total_len, size_t thread_num, Lambda &&task) {
     auto len_pth = total_len / thread_num;

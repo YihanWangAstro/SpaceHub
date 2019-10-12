@@ -30,7 +30,7 @@ namespace space {
     SPACEHUB_MAKE_CONSTRUCTORS(ARchainSystem, delete, default, default, default, default);
 
     template<typename STL>
-    ARchainSystem(Scalar t, STL const &particle_set);
+    ARchainSystem(Scalar time, STL const &particle_set);
 
     //Public methods
     SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
@@ -74,10 +74,10 @@ namespace space {
     void impl_post_iter_process();
 
     template<typename STL>
-    void impl_to_linear_container(STL &stl);
+    void impl_to_linear_container(STL &stl_ranges);
 
     template<typename STL>
-    void impl_load_from_linear_container(STL const &stl);
+    void impl_load_from_linear_container(STL const &stl_ranges);
 
     //Friend functions
     template<typename P, typename F, ReguType R>
@@ -88,7 +88,7 @@ namespace space {
 
   private:
     //Private methods
-    void chain_advance(Coord &var, Coord &ch_var, Coord const &ch_inc, Scalar phy_time);
+    void chain_advance(Coord &var, Coord &chain_var, Coord const &chain_increment, Scalar phy_time);
 
     void eval_vel_indep_acc();
 
@@ -129,8 +129,8 @@ namespace space {
   \*---------------------------------------------------------------------------*/
   template<typename Particles, typename Interactions, ReguType RegType>
   template<typename STL>
-  ARchainSystem<Particles, Interactions, RegType>::ARchainSystem(Scalar t, const STL &particle_set)
-          : ptcl_(t, particle_set),
+  ARchainSystem<Particles, Interactions, RegType>::ARchainSystem(Scalar time, const STL &particle_set)
+          : ptcl_(time, particle_set),
             regu_(ptcl_),
             chain_pos_(particle_set.size()),
             chain_vel_(particle_set.size()),
@@ -241,20 +241,20 @@ namespace space {
 
   template<typename Particles, typename Interactions, ReguType RegType>
   template<typename STL>
-  void ARchainSystem<Particles, Interactions, RegType>::impl_to_linear_container(STL &stl) {
-    stl.clear();
-    stl.reserve(impl_number() * 6 + 3);
-    stl.emplace_back(impl_time());
-    stl.emplace_back(omega());
-    stl.emplace_back(bindE());
-    add_coords_to(stl, chain_pos_);
-    add_coords_to(stl, chain_vel_);
+  void ARchainSystem<Particles, Interactions, RegType>::impl_to_linear_container(STL &stl_ranges) {
+    stl_ranges.clear();
+    stl_ranges.reserve(impl_number() * 6 + 3);
+    stl_ranges.emplace_back(impl_time());
+    stl_ranges.emplace_back(omega());
+    stl_ranges.emplace_back(bindE());
+    add_coords_to(stl_ranges, chain_pos_);
+    add_coords_to(stl_ranges, chain_vel_);
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
   template<typename STL>
-  void ARchainSystem<Particles, Interactions, RegType>::impl_load_from_linear_container(const STL &stl) {
-    auto begin = stl.begin();
+  void ARchainSystem<Particles, Interactions, RegType>::impl_load_from_linear_container(const STL &stl_ranges) {
+    auto begin = stl_ranges.begin();
     impl_time() = *begin;
     omega() = *(begin + 1);
     bindE() = *(begin + 2);
@@ -285,10 +285,10 @@ namespace space {
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
-  void ARchainSystem<Particles, Interactions, RegType>::chain_advance(Coord &var, Coord &ch_var, const Coord &ch_inc,
+  void ARchainSystem<Particles, Interactions, RegType>::chain_advance(Coord &var, Coord &chain_var, const Coord &chain_increment,
                                                                       Scalar phy_time) {
-    calc::coord_advance(ch_var, ch_inc, phy_time);
-    Chain::calc_cartesian(ptcl_.mass(), ch_var, var, index());
+    calc::coord_advance(chain_var, chain_increment, phy_time);
+    Chain::calc_cartesian(ptcl_.mass(), chain_var, var, index());
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>

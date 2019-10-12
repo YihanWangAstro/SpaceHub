@@ -37,10 +37,10 @@ struct Coords {
   /**
    *
    * @tparam GenVector
-   * @param v
+   * @param vector
    */
   template <typename GenVector>
-  void emplace_back(GenVector const &v);
+  void emplace_back(GenVector const &vector);
 
   /**
    *
@@ -103,10 +103,10 @@ void Coords<T>::resize(size_t new_sz) {
 
 template <typename T>
 template <typename GenVector>
-void Coords<T>::emplace_back(GenVector const &v) {
-  x.emplace_back(v.x);
-  y.emplace_back(v.y);
-  z.emplace_back(v.z);
+void Coords<T>::emplace_back(GenVector const &vector) {
+  x.emplace_back(vector.x);
+  y.emplace_back(vector.y);
+  z.emplace_back(vector.z);
 }
 
 template <typename T>
@@ -130,11 +130,11 @@ void Coords<T>::clear() {
     Help functions and tools
 \*---------------------------------------------------------------------------*/
 template <typename STL, typename T>
-void add_coords_to(STL &stl, Coords<T> &coords) {
-  stl.reserve(coords.size() * 3 + stl.size());
-  std::copy(coords.x.begin(), coords.x.end(), std::back_insert_iterator(stl));
-  std::copy(coords.y.begin(), coords.y.end(), std::back_insert_iterator(stl));
-  std::copy(coords.z.begin(), coords.z.end(), std::back_insert_iterator(stl));
+  void add_coords_to(STL &stl_ranges, Coords<T> &coords) {
+    stl_ranges.reserve(coords.size() * 3 + stl_ranges.size());
+    std::copy(coords.x.begin(), coords.x.end(), std::back_insert_iterator(stl_ranges));
+    std::copy(coords.y.begin(), coords.y.end(), std::back_insert_iterator(stl_ranges));
+    std::copy(coords.z.begin(), coords.z.end(), std::back_insert_iterator(stl_ranges));
 }
 
 template <typename STLIterator, typename T>

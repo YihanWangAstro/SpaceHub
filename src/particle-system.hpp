@@ -116,18 +116,18 @@ namespace space {
     /**
      *
      * @tparam STL
-     * @param stl
+     * @param stl_ranges
      */
     template<typename STL>
-    void to_linear_container(STL &stl);
+    void to_linear_container(STL &stl_ranges);
 
     /**
      *
      * @tparam STL
-     * @param stl
+     * @param stl_ranges
      */
     template<typename STL>
-    void load_from_linear_container(STL const &stl);
+    void load_from_linear_container(STL const &stl_ranges);
 
   private:
     // constructors
@@ -197,16 +197,16 @@ namespace space {
 
   template<typename Derived>
   template<typename STL>
-  void ParticleSystem<Derived>::to_linear_container(STL &stl) {
+  void ParticleSystem<Derived>::to_linear_container(STL &stl_ranges) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
-    static_cast<Derived *>(this)->impl_to_linear_container(stl);
+    static_cast<Derived *>(this)->impl_to_linear_container(stl_ranges);
   }
 
   template<typename Derived>
   template<typename STL>
-  void ParticleSystem<Derived>::load_from_linear_container(const STL &stl) {
+  void ParticleSystem<Derived>::load_from_linear_container(const STL &stl_ranges) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
-    static_cast<Derived *>(this)->impl_load_from_linear_container(stl);
+    static_cast<Derived *>(this)->impl_load_from_linear_container(stl_ranges);
   }
 
   template<typename Derived>

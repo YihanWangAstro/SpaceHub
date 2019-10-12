@@ -88,11 +88,11 @@ namespace space::calc {
   }
 
   template<typename Scalar, typename Array>
-  void array_advance(Array &var, Array const &increase, Scalar step_size) {
+  void array_advance(Array &var, Array const &increment, Scalar step_size) {
     size_t const size = var.size();
 
     for (size_t i = 0; i < size; i++) {
-      var[i] += increase[i] * step_size;
+      var[i] += increment[i] * step_size;
     }
   }
 
@@ -190,19 +190,19 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
   CREATE_METHOD_CHECK(index);
 
   template<typename Particles>
-  auto calc_potential_energy(Particles const &ptc) {
+  auto calc_potential_energy(Particles const &particles) {
 
     typename Particles::Scalar potential_eng{0};
-    size_t const size = ptc.number();
-    auto const &m = ptc.mass();
-    auto const &v = ptc.vel();
-    auto const &p = ptc.pos();
+    size_t const size = particles.number();
+    auto const &m = particles.mass();
+    auto const &v = particles.vel();
+    auto const &p = particles.pos();
 
     if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
-      auto const &ch_px = ptc.chain_pos().x;
-      auto const &ch_py = ptc.chain_pos().y;
-      auto const &ch_pz = ptc.chain_pos().z;
-      auto const &idx = ptc.index();
+      auto const &ch_px = particles.chain_pos().x;
+      auto const &ch_py = particles.chain_pos().y;
+      auto const &ch_pz = particles.chain_pos().z;
+      auto const &idx = particles.index();
 
       for (size_t i = 0; i < size - 1; ++i) {
         potential_eng -=
@@ -237,27 +237,27 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
   }
 
   template<typename Particles>
-  inline auto calc_total_energy(Particles const &ptc) {
-    return calc_potential_energy(ptc) + calc_kinetic_energy(ptc);
+  inline auto calc_total_energy(Particles const &particles) {
+    return calc_potential_energy(particles) + calc_kinetic_energy(particles);
   }
 
 /** @brief Calculate the minimal fall free time of two particles
  *
  *  @param  mass mass array of particle.
- *  @param  pos  position array of particle.
+ *  @param  position  position array of particle.
  *  @return The minimal fall free time of the two particles
  */
   template<typename ScalarArray, typename Coord>
-  inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &pos) {
+  inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &position) {
     using Scalar = typename ScalarArray::value_type;
     size_t const size = mass.size();
     Scalar min_fall_free = max_value<Scalar>::value;
 
     for (size_t i = 0; i < size; i++) {
       for (size_t j = i + 1; j < size; j++) {
-        Scalar dx = pos.x[i] - pos.x[j];
-        Scalar dy = pos.y[i] - pos.y[j];
-        Scalar dz = pos.z[i] - pos.z[j];
+        Scalar dx = position.x[i] - position.x[j];
+        Scalar dy = position.y[i] - position.y[j];
+        Scalar dz = position.z[i] - position.z[j];
         Scalar r = sqrt(dx * dx + dy * dy + dz * dz);
         Scalar fall_free = pow(r, 1.5) / sqrt(mass[i] + mass[j]);
 
@@ -274,25 +274,25 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
 /**
  *
  * @tparam Particles
- * @param ptc
+ * @param particles
  * @return
  */
   template<typename Particles>
-  auto calc_step_scale(Particles const &ptc) {
+  auto calc_step_scale(Particles const &particles) {
     if constexpr (HAS_METHOD(Particles, omega)) {
-      return calc_fall_free_time(ptc.mass(), ptc.pos()) * ptc.omega();
+      return calc_fall_free_time(particles.mass(), particles.pos()) * particles.omega();
     } else {
-      return calc_fall_free_time(ptc.mass(), ptc.pos());
+      return calc_fall_free_time(particles.mass(), particles.pos());
     }
   }
 
   template<typename Particles>
-  auto calc_energy_error(Particles const &ptcls, typename Particles::Scalar E0) {
-    auto U = -calc_potential_energy(ptcls);
-    auto T = calc_kinetic_energy(ptcls);
+  auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) {
+    auto U = -calc_potential_energy(particles);
+    auto T = calc_kinetic_energy(particles);
 
     if constexpr (HAS_METHOD(Particles, bindE)) {
-      return log(fabs((T + ptcls.bindE()) / U));
+      return log(fabs((T + particles.bindE()) / U));
     } else {
       return fabs((T - U - E0) / E0);
     }

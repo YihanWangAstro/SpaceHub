@@ -20,51 +20,51 @@ namespace space::interactions {
     CREATE_METHOD_CHECK(index);
   public:
     template<typename Particles>
-    void impl_eval_acc(Particles const &partc, typename Particles::Coord &acc) {
-      calc::set_arrays_zero(acc.x, acc.y, acc.z);
-      add_newtonian_acc(partc, acc);
-      add_extra_vel_dep_acc(partc, acc);
+    void impl_eval_acc(Particles const &particles, typename Particles::Coord &acceleration) {
+      calc::set_arrays_zero(acceleration.x, acceleration.y, acceleration.z);
+      add_newtonian_acc(particles, acceleration);
+      add_extra_vel_dep_acc(particles, acceleration);
     }
 
     template<typename Particles>
-    void impl_eval_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
-      calc::set_arrays_zero(acc.x, acc.y, acc.z);
-      add_newtonian_acc(partc, acc);
+    void impl_eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration) {
+      calc::set_arrays_zero(acceleration.x, acceleration.y, acceleration.z);
+      add_newtonian_acc(particles, acceleration);
     }
 
     template<typename Particles>
-    void impl_eval_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc) {
-      calc::set_arrays_zero(acc.x, acc.y, acc.z);
-      add_extra_vel_dep_acc(partc, acc);
+    void impl_eval_extra_vel_dep_acc(Particles const &particles, typename Particles::Coord &acceleration) {
+      calc::set_arrays_zero(acceleration.x, acceleration.y, acceleration.z);
+      add_extra_vel_dep_acc(particles, acceleration);
     }
 
   private:
     template<typename Particles>
-    void add_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
-      size_t num = partc.number();
-      auto &px = partc.pos().x;
-      auto &py = partc.pos().y;
-      auto &pz = partc.pos().z;
-      auto &m = partc.mass();
+    void add_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration) {
+      size_t num = particles.number();
+      auto &px = particles.pos().x;
+      auto &py = particles.pos().y;
+      auto &pz = particles.pos().z;
+      auto &m = particles.mass();
 
       auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
         auto r = sqrt(dx * dx + dy * dy + dz * dz);
         auto rr3 = 1.0 / (r * r * r);
-        acc.x[i] += dx * rr3 * m[j];
-        acc.y[i] += dy * rr3 * m[j];
-        acc.z[i] += dz * rr3 * m[j];
-        acc.x[j] -= dx * rr3 * m[i];
-        acc.y[j] -= dy * rr3 * m[i];
-        acc.z[j] -= dz * rr3 * m[i];
+        acceleration.x[i] += dx * rr3 * m[j];
+        acceleration.y[i] += dy * rr3 * m[j];
+        acceleration.z[i] += dz * rr3 * m[j];
+        acceleration.x[j] -= dx * rr3 * m[i];
+        acceleration.y[j] -= dy * rr3 * m[i];
+        acceleration.z[j] -= dz * rr3 * m[i];
       };
 
       if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
-        auto const &ch_px = partc.chain_pos().x;
-        auto const &ch_py = partc.chain_pos().y;
-        auto const &ch_pz = partc.chain_pos().z;
-        auto const &idx = partc.index();
+        auto const &ch_px = particles.chain_pos().x;
+        auto const &ch_py = particles.chain_pos().y;
+        auto const &ch_pz = particles.chain_pos().z;
+        auto const &idx = particles.index();
 
-        size_t size = partc.number();
+        size_t size = particles.number();
         for (size_t i = 0; i < size - 1; ++i)
           force(ch_px[i], ch_py[i], ch_pz[i], idx[i], idx[i + 1]);
 
@@ -85,35 +85,35 @@ namespace space::interactions {
     }
 
     template<typename Particles>
-    void add_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc) {
-      size_t num = partc.number();
-      auto &px = partc.pos().x;
-      auto &py = partc.pos().y;
-      auto &pz = partc.pos().z;
-      auto &m = partc.mass();
+    void add_extra_vel_dep_acc(Particles const &particles, typename Particles::Coord &acceleration) {
+      size_t num = particles.number();
+      auto &px = particles.pos().x;
+      auto &py = particles.pos().y;
+      auto &pz = particles.pos().z;
+      auto &m = particles.mass();
 
       auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
         auto r = sqrt(dx * dx + dy * dy + dz * dz);
         auto rr3 = 1.0 / (r * r * r);
-        acc.x[i] += dx * rr3 * m[j];
-        acc.y[i] += dy * rr3 * m[j];
-        acc.z[i] += dz * rr3 * m[j];
-        acc.x[j] -= dx * rr3 * m[i];
-        acc.y[j] -= dy * rr3 * m[i];
-        acc.z[j] -= dz * rr3 * m[i];
+        acceleration.x[i] += dx * rr3 * m[j];
+        acceleration.y[i] += dy * rr3 * m[j];
+        acceleration.z[i] += dz * rr3 * m[j];
+        acceleration.x[j] -= dx * rr3 * m[i];
+        acceleration.y[j] -= dy * rr3 * m[i];
+        acceleration.z[j] -= dz * rr3 * m[i];
       };
 
       if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, chain_vel) &&
                     HAS_METHOD(Particles, index)) {
-        auto const &ch_px = partc.chain_pos().x;
-        auto const &ch_py = partc.chain_pos().y;
-        auto const &ch_pz = partc.chain_pos().z;
-        auto const &ch_vx = partc.chain_vel().x;
-        auto const &ch_vy = partc.chain_vel().y;
-        auto const &ch_vz = partc.chain_vel().z;
-        auto const &idx = partc.index();
+        auto const &ch_px = particles.chain_pos().x;
+        auto const &ch_py = particles.chain_pos().y;
+        auto const &ch_pz = particles.chain_pos().z;
+        auto const &ch_vx = particles.chain_vel().x;
+        auto const &ch_vy = particles.chain_vel().y;
+        auto const &ch_vz = particles.chain_vel().z;
+        auto const &idx = particles.index();
 
-        size_t size = partc.number();
+        size_t size = particles.number();
         for (size_t i = 0; i < size - 1; ++i) {
           if constexpr (_1st_order) {
             force(ch_px[i], ch_py[i], ch_pz[i], idx[i], idx[i + 1]);
@@ -174,12 +174,12 @@ namespace space::interactions {
     }
 
     template<typename Particles>
-    void add__2nd_order_acc(Particles const &partc, typename Particles::Coord &acc) {
+    void add__2nd_order_acc(Particles const &particles, typename Particles::Coord &acceleration) {
 
     }
 
     template<typename Particles>
-    void add_2_5th_order_acc(Particles const &partc, typename Particles::Coord &acc) {
+    void add_2_5th_order_acc(Particles const &particles, typename Particles::Coord &acceleration) {
 
     }
   };

@@ -42,7 +42,7 @@ namespace space::orbit {
     else if (iseq(e, 1.0))
       return 2 * atan(0.5 * eccentric_anomaly);
     else {
-      spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
+      spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
     }
   }
 
@@ -61,37 +61,37 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     }
 }*/
   template<typename Scalar>
-  Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
-    if (fabs(M) <= space::epsilon<Scalar>::value) return 0;
+  Scalar calc_eccentric_anomaly(Scalar mean_anomaly, Scalar e) {
+    if (fabs(mean_anomaly) <= space::epsilon<Scalar>::value) return 0;
 
     if (0 <= e && e < 1)
-      return space::root_bisection([&](Scalar x) -> Scalar { return (x - e * sin(x) - M) / (1 - e * cos(x)); },
+      return space::root_bisection([&](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
                                    -space::consts::pi, space::consts::pi);  // find this function in ownMath.h
     else if (e > 1)
-      return space::root_bisection([&](Scalar x) -> Scalar { return (e * sinh(x) - x - M) / (e * cosh(x) - 1); },
+      return space::root_bisection([&](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); },
                                    -space::consts::pi, space::consts::pi);
     else if (fabs(e - 1) < space::epsilon<Scalar>::value)
-      return space::root_bisection([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - M) / (1 + x * x); },
+      return space::root_bisection([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
                                    -space::consts::pi, space::consts::pi);
     else {
-      spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
+      spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
     }
   }
 
   enum class OrbitType {
-    ellipse, parabola, hyperbola, none
+    Ellipse, Parabola, Hyperbola, None
   };
 
   template<typename T>
   constexpr OrbitType classify_orbit(T eccentricity) {
     if (0 <= eccentricity && eccentricity < 1) {
-      return OrbitType::ellipse;
+      return OrbitType::Ellipse;
     } else if (iseq(eccentricity, 1.0)) {
-      return OrbitType::parabola;
+      return OrbitType::Parabola;
     } else if (eccentricity > 1) {
-      return OrbitType::hyperbola;
+      return OrbitType::Hyperbola;
     } else {
-      return OrbitType::none;
+      return OrbitType::None;
     }
   }
 
@@ -125,18 +125,18 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
     OrbitArgs() = default;
 
-    OrbitArgs(Scalar m_1, Scalar m_2, Scalar _p_, Scalar _e_, Variant tilt, Variant LoAN, Variant AoP,
+    OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant tilt, Variant LoAN, Variant AoP,
               Variant true_anomaly) {
-      if (_p_ < 0) spacehub_abort("Semi-latus rectum cannot be negative");
+      if (periastron < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
-      orbit_type = classify_orbit(_e_);
+      orbit_type = classify_orbit(eccentricity);
 
-      if (orbit_type == OrbitType::none) spacehub_abort("Eccentrcity cannot be negative or NaN!");
+      if (orbit_type == OrbitType::None) spacehub_abort("Eccentricity cannot be negative or NaN!");
 
       m1 = m_1;
       m2 = m_2;
-      p = _p_;
-      e = _e_;
+      p = periastron;
+      e = eccentricity;
 
       if (std::holds_alternative<Scalar>(tilt)) {
         i = std::get<Scalar>(tilt);
@@ -178,7 +178,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     inline void shuffle_omega() { omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
 
     inline void shuffle_nu() {
-      if (orbit_type == OrbitType::ellipse) {
+      if (orbit_type == OrbitType::Ellipse) {
         Scalar M = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
         Scalar E = orbit::calc_eccentric_anomaly(M, e);
         nu = orbit::calc_true_anomaly(E, e);
@@ -194,7 +194,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     inline void lock_shuffle_omega() { omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
 
     inline void lock_shuffle_nu() {
-      if (orbit_type == OrbitType::ellipse) {
+      if (orbit_type == OrbitType::Ellipse) {
         Scalar M = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi);
         Scalar E = orbit::calc_eccentric_anomaly(M, e);
         nu = orbit::calc_true_anomaly(E, e);
@@ -248,7 +248,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     args.e = norm(E);
     args.orbit_type = classify_orbit(args.e);
 
-    if (args.orbit_type == OrbitType::parabola) {
+    if (args.orbit_type == OrbitType::Parabola) {
       Scalar a = -u * r / (r * norm2(dv) - 2.0 * u);
       args.p = semi_latus_rectum(a, args.e);
     } else {
@@ -332,21 +332,21 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
   }
 
   template<typename Vector, typename Particle, typename... Args>
-  void move_particles_to(Vector const &cm_pos, Vector const &cm_vel, Particle &ptc, Args &... ptcs) {
+  void move_particles_to(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
     if constexpr (sizeof...(Args) != 0) {
       static_assert(calc::all(std::is_same_v<Args, Particle>...), "Wrong particles type!");
       move_to_com_coord(ptc, ptcs...);
-      ((ptc.pos += cm_pos), ..., (ptcs.pos += cm_pos));
-      ((ptc.vel += cm_vel), ..., (ptcs.vel += cm_vel));
+      ((ptc.pos += centre_mass_pos), ..., (ptcs.pos += centre_mass_pos));
+      ((ptc.vel += centre_mass_vel), ..., (ptcs.vel += centre_mass_vel));
     } else if constexpr (is_container_v<Particle>) {
       move_to_com_coord(ptc);
       for (auto &p : ptc) {
-        p.pos += cm_pos;
-        p.vel += cm_vel;
+        p.pos += centre_mass_pos;
+        p.vel += centre_mass_vel;
       }
     } else {
-      ptc.pos = cm_pos;
-      ptc.vel = cm_vel;
+      ptc.pos = centre_mass_pos;
+      ptc.vel = centre_mass_vel;
     }
   }
 

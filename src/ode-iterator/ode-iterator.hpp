@@ -38,7 +38,7 @@ namespace space::odeIterator {
   template<typename Derived>
   template<typename T>
   auto OdeIterator<Derived>::iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
-    static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
+    static_assert(is_particle_system_v<T>, "Passing non particle-system-type!");
     return static_cast<Derived *>(this)->impl_iterate(particles, macro_step_size);
   }
 
