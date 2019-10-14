@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['operator_3c_3c_406',['operator&lt;&lt;',['../structspace_1_1_kahan.html#ab7a20a2939e89b95217bfd9c6a2845a6',1,'space::Kahan::operator&lt;&lt;()'],['../structspace_1_1_vec3.html#a46215beb5e7387eeb465edbbdaf7dccf',1,'space::Vec3::operator&lt;&lt;()'],['../structspace_1_1vec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf',1,'space::vec3::operator&lt;&lt;()'],['../structspace_1_1vec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf',1,'space::vec3::operator&lt;&lt;()'],['../structspace_1_1vec3.html#af5e1bcad9d3d484d6f4e6b3f8949f5cf',1,'space::vec3::operator&lt;&lt;()']]],
-  ['operator_3e_3e_407',['operator&gt;&gt;',['../structspace_1_1_kahan.html#a23c0f55b05b750986ccf7e1b6d436590',1,'space::Kahan::operator&gt;&gt;()'],['../structspace_1_1_vec3.html#add63778c3d77375a67809c8265513bea',1,'space::Vec3::operator&gt;&gt;()'],['../structspace_1_1vec3.html#a72f92578884bd68e0747871acd8545fd',1,'space::vec3::operator&gt;&gt;()'],['../structspace_1_1vec3.html#a72f92578884bd68e0747871acd8545fd',1,'space::vec3::operator&gt;&gt;()'],['../structspace_1_1vec3.html#a72f92578884bd68e0747871acd8545fd',1,'space::vec3::operator&gt;&gt;()']]]
-];

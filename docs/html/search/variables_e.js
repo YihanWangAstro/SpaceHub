@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['old_5fstep_1140',['old_step',['../classspace_1_1_p_i_d_controller.html#a1b8af6d3256363d62c5b25e0970c6e72',1,'space::PIDController']]],
-  ['omega_1141',['Omega',['../structspace_1_1orbit_1_1_orbit_args.html#a5953c736414689c3b2e1a478df686322',1,'space::orbit::OrbitArgs::Omega()'],['../structspace_1_1orbit_1_1_orbit_args.html#a408cd63bafe90dc3243da7185930ae00',1,'space::orbit::OrbitArgs::omega()']]],
-  ['orbit_5ftype_1142',['orbit_type',['../structspace_1_1orbit_1_1_orbit_args.html#a838f5cf2ba6382820b7dea8f9dfa6b38',1,'space::orbit::OrbitArgs']]],
-  ['order_1143',['order',['../classspace_1_1_gauss_dadau.html#a2abe1550f71fac107ccff4dabb130e80',1,'space::GaussDadau::order()'],['../classspace_1_1integrator_1_1_sym_integrator.html#a63c9e6575d495679b72cbbf9ccac425a',1,'space::integrator::SymIntegrator::order()'],['../classspace_1_1integrator_1_1symplectic2nd.html#a4928464aca0c2a734931024b3106d8ae',1,'space::integrator::symplectic2nd::order()'],['../classspace_1_1integrator_1_1symplectic4th.html#a6e5151125289c0f0a430e36a2952a86b',1,'space::integrator::symplectic4th::order()'],['../classspace_1_1integrator_1_1symplectic6th.html#ad7069991bff35c07f7e57405f3c5fba1',1,'space::integrator::symplectic6th::order()'],['../classspace_1_1integrator_1_1symplectic8th.html#a94ab997d3b6f66e881cc3f84bc034a1b',1,'space::integrator::symplectic8th::order()'],['../classspace_1_1integrator_1_1symplectic10th.html#a049d415931969a21c7483b639f67b7bc',1,'space::integrator::symplectic10th::order()']]]
-];
