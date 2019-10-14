@@ -1,0 +1,288 @@
+\hypertarget{classspace_1_1_simple_system}{}\doxysection{space\+::Simple\+System$<$ Particles, Interactions $>$ Class Template Reference}
+\label{classspace_1_1_simple_system}\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+
+
+{\ttfamily \#include $<$base-\/system.\+hpp$>$}
+
+Inheritance diagram for space\+::Simple\+System$<$ Particles, Interactions $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classspace_1_1_simple_system}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a7c280cc736259912059cddc62cd74ce4}\label{classspace_1_1_simple_system_a7c280cc736259912059cddc62cd74ce4}} 
+using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1_particle_system}{Particle\+System}}$<$ \mbox{\hyperlink{classspace_1_1_simple_system}{Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$ $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_abe9343e6073b3eddedba4e4299936851}\label{classspace_1_1_simple_system_abe9343e6073b3eddedba4e4299936851}} 
+using {\bfseries Particle} = typename Particles\+::\+Particle
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a0186275e2f5d98e8adbb623e6c9aa681}\label{classspace_1_1_simple_system_a0186275e2f5d98e8adbb623e6c9aa681}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}})
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_af0b4e0f1c5263f6009c20b4ae58e7340}\label{classspace_1_1_simple_system_af0b4e0f1c5263f6009c20b4ae58e7340}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS} (\mbox{\hyperlink{classspace_1_1_simple_system}{Simple\+System}}, delete, default, default, default, default)
+\item 
+{\footnotesize template$<$typename S\+TL $>$ }\\\mbox{\hyperlink{classspace_1_1_simple_system_a20bf361e689d28fd2dba85e1d97e8b55}{Simple\+System}} (Scalar time, S\+TL const \&particle\+\_\+set)
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a66a94b5b5f73bddc56c776d2bae59bf9}\label{classspace_1_1_simple_system_a66a94b5b5f73bddc56c776d2bae59bf9}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL ptcl\+\_\+ {\bfseries mass} ())
+\item 
+\mbox{\hyperlink{classspace_1_1_simple_system_a53c7859059e2e2cfbd6bbad836c6c666}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (auto, impl\+\_\+idn, ptcl\+\_\+.\+idn())
+\item 
+\mbox{\hyperlink{classspace_1_1_simple_system_a2f67e371e38e9d5e5f176827d0b95341}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (auto, impl\+\_\+pos, ptcl\+\_\+.\+pos())
+\item 
+\mbox{\hyperlink{classspace_1_1_simple_system_ab02d4e7b46b1960da0565094402c6ee1}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (auto, impl\+\_\+vel, ptcl\+\_\+.\+vel())
+\item 
+\mbox{\hyperlink{classspace_1_1_simple_system_a030504194195ed49b20354a911b88d5e}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (auto, impl\+\_\+time, ptcl\+\_\+.\+time())
+\item 
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_simple_system_a0c2ea6535c72f108b43eb552ae949832}{impl\+\_\+number}} () const
+\item 
+void \mbox{\hyperlink{classspace_1_1_simple_system_a83a186f6e7c91dbbb50629bb20a88313}{impl\+\_\+advance\+\_\+time}} (Scalar dt)
+\item 
+void \mbox{\hyperlink{classspace_1_1_simple_system_a157aef344aabace4e2ab0dcf04108c92}{impl\+\_\+advance\+\_\+pos}} (Coord const \&velocity, Scalar step\+\_\+size)
+\item 
+void \mbox{\hyperlink{classspace_1_1_simple_system_a09e4fec0b67f6b31a38cfcf8f85029b9}{impl\+\_\+advance\+\_\+vel}} (Coord const \&acceleration, Scalar step\+\_\+size)
+\item 
+void \mbox{\hyperlink{classspace_1_1_simple_system_aa1e11ae8a2e9e438178625e1bf377bc9}{impl\+\_\+evaluate\+\_\+acc}} (Coord \&acceleration) const
+\item 
+void \mbox{\hyperlink{classspace_1_1_simple_system_adcc1014a98430e309574d2923d7be992}{impl\+\_\+drift}} (Scalar step\+\_\+size)
+\item 
+void \mbox{\hyperlink{classspace_1_1_simple_system_a26a7ab28ecd913c2035cdc08f6567dd8}{impl\+\_\+kick}} (Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a90af6cdf1b2c1e9f9c164a331a265d49}\label{classspace_1_1_simple_system_a90af6cdf1b2c1e9f9c164a331a265d49}} 
+void {\bfseries impl\+\_\+pre\+\_\+iter\+\_\+process} ()
+\item 
+{\footnotesize template$<$typename S\+TL $>$ }\\void \mbox{\hyperlink{classspace_1_1_simple_system_a77905c48bdb9b57a83e910f00bc388e5}{impl\+\_\+to\+\_\+linear\+\_\+container}} (S\+TL \&stl\+\_\+ranges)
+\item 
+{\footnotesize template$<$typename S\+TL $>$ }\\void \mbox{\hyperlink{classspace_1_1_simple_system_a7d53155cbf437a0e732292fe59a7a71d}{impl\+\_\+load\+\_\+from\+\_\+linear\+\_\+container}} (S\+TL const \&stl\+\_\+ranges)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a40ad3053a686a0b4ecce5647c91547e5}\label{classspace_1_1_simple_system_a40ad3053a686a0b4ecce5647c91547e5}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: \mbox{\hyperlink{classspace_1_1_simple_system_a53c7859059e2e2cfbd6bbad836c6c666}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR}}(auto
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a6fa5a223251fdf28cafccddc14cfda82}\label{classspace_1_1_simple_system_a6fa5a223251fdf28cafccddc14cfda82}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries impl\+\_\+mass}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a4e048ab9386feb43a2c631285a02c69f}\label{classspace_1_1_simple_system_a4e048ab9386feb43a2c631285a02c69f}} 
+{\footnotesize template$<$typename P , typename F $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classspace_1_1_simple_system}{Simple\+System}}$<$ P, F $>$ const \&ps)
+\item 
+\mbox{\Hypertarget{classspace_1_1_simple_system_a6c3448dbfa080f2f381bff34663a9953}\label{classspace_1_1_simple_system_a6c3448dbfa080f2f381bff34663a9953}} 
+{\footnotesize template$<$typename P , typename F $>$ }\\std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{classspace_1_1_simple_system}{Simple\+System}}$<$ P, F $>$ \&ps)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Particles, typename Interactions$>$\newline
+class space\+::\+Simple\+System$<$ Particles, Interactions $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{classspace_1_1_particles}{Particles}}} & \\
+\hline
+{\em \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a20bf361e689d28fd2dba85e1d97e8b55}\label{classspace_1_1_simple_system_a20bf361e689d28fd2dba85e1d97e8b55}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!SimpleSystem@{SimpleSystem}}
+\index{SimpleSystem@{SimpleSystem}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{SimpleSystem()}{SimpleSystem()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+template$<$typename S\+TL $>$ \\
+\mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::\mbox{\hyperlink{classspace_1_1_simple_system}{Simple\+System}} (\begin{DoxyParamCaption}\item[{Scalar}]{time,  }\item[{S\+TL const \&}]{particle\+\_\+set }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S\+TL} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+{\em particle\+\_\+set} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a157aef344aabace4e2ab0dcf04108c92}\label{classspace_1_1_simple_system_a157aef344aabace4e2ab0dcf04108c92}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_advance\_pos@{impl\_advance\_pos}}
+\index{impl\_advance\_pos@{impl\_advance\_pos}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_advance\_pos()}{impl\_advance\_pos()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+advance\+\_\+pos (\begin{DoxyParamCaption}\item[{Coord const \&}]{velocity,  }\item[{Scalar}]{step\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity} & \\
+\hline
+{\em step\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a83a186f6e7c91dbbb50629bb20a88313}\label{classspace_1_1_simple_system_a83a186f6e7c91dbbb50629bb20a88313}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_advance\_time@{impl\_advance\_time}}
+\index{impl\_advance\_time@{impl\_advance\_time}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_advance\_time()}{impl\_advance\_time()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+advance\+\_\+time (\begin{DoxyParamCaption}\item[{Scalar}]{dt }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a09e4fec0b67f6b31a38cfcf8f85029b9}\label{classspace_1_1_simple_system_a09e4fec0b67f6b31a38cfcf8f85029b9}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_advance\_vel@{impl\_advance\_vel}}
+\index{impl\_advance\_vel@{impl\_advance\_vel}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_advance\_vel()}{impl\_advance\_vel()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+advance\+\_\+vel (\begin{DoxyParamCaption}\item[{Coord const \&}]{acceleration,  }\item[{Scalar}]{step\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em acceleration} & \\
+\hline
+{\em step\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_adcc1014a98430e309574d2923d7be992}\label{classspace_1_1_simple_system_adcc1014a98430e309574d2923d7be992}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_drift@{impl\_drift}}
+\index{impl\_drift@{impl\_drift}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_drift()}{impl\_drift()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+drift (\begin{DoxyParamCaption}\item[{Scalar}]{step\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_aa1e11ae8a2e9e438178625e1bf377bc9}\label{classspace_1_1_simple_system_aa1e11ae8a2e9e438178625e1bf377bc9}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_evaluate\_acc@{impl\_evaluate\_acc}}
+\index{impl\_evaluate\_acc@{impl\_evaluate\_acc}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_evaluate\_acc()}{impl\_evaluate\_acc()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+evaluate\+\_\+acc (\begin{DoxyParamCaption}\item[{Coord \&}]{acceleration }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em acceleration} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a26a7ab28ecd913c2035cdc08f6567dd8}\label{classspace_1_1_simple_system_a26a7ab28ecd913c2035cdc08f6567dd8}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_kick@{impl\_kick}}
+\index{impl\_kick@{impl\_kick}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_kick()}{impl\_kick()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+kick (\begin{DoxyParamCaption}\item[{Scalar}]{step\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a7d53155cbf437a0e732292fe59a7a71d}\label{classspace_1_1_simple_system_a7d53155cbf437a0e732292fe59a7a71d}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_load\_from\_linear\_container@{impl\_load\_from\_linear\_container}}
+\index{impl\_load\_from\_linear\_container@{impl\_load\_from\_linear\_container}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_load\_from\_linear\_container()}{impl\_load\_from\_linear\_container()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+template$<$typename S\+TL $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+load\+\_\+from\+\_\+linear\+\_\+container (\begin{DoxyParamCaption}\item[{S\+TL const \&}]{stl\+\_\+ranges }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S\+TL} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+ranges} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a0c2ea6535c72f108b43eb552ae949832}\label{classspace_1_1_simple_system_a0c2ea6535c72f108b43eb552ae949832}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_number@{impl\_number}}
+\index{impl\_number@{impl\_number}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_number()}{impl\_number()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a77905c48bdb9b57a83e910f00bc388e5}\label{classspace_1_1_simple_system_a77905c48bdb9b57a83e910f00bc388e5}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!impl\_to\_linear\_container@{impl\_to\_linear\_container}}
+\index{impl\_to\_linear\_container@{impl\_to\_linear\_container}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_to\_linear\_container()}{impl\_to\_linear\_container()}}
+{\footnotesize\ttfamily template$<$typename Particles , typename Interactions $>$ \\
+template$<$typename S\+TL $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+to\+\_\+linear\+\_\+container (\begin{DoxyParamCaption}\item[{S\+TL \&}]{stl\+\_\+ranges }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S\+TL} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+ranges} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a53c7859059e2e2cfbd6bbad836c6c666}\label{classspace_1_1_simple_system_a53c7859059e2e2cfbd6bbad836c6c666}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}}
+\index{SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{SPACEHUB\_STD\_ACCESSOR()}{SPACEHUB\_STD\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{auto}]{,  }\item[{impl\+\_\+idn}]{,  }\item[{ptcl\+\_\+.}]{idn() }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a2f67e371e38e9d5e5f176827d0b95341}\label{classspace_1_1_simple_system_a2f67e371e38e9d5e5f176827d0b95341}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}}
+\index{SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{SPACEHUB\_STD\_ACCESSOR()}{SPACEHUB\_STD\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{auto}]{,  }\item[{impl\+\_\+pos}]{,  }\item[{ptcl\+\_\+.}]{pos() }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_simple_system_a030504194195ed49b20354a911b88d5e}\label{classspace_1_1_simple_system_a030504194195ed49b20354a911b88d5e}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}}
+\index{SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{SPACEHUB\_STD\_ACCESSOR()}{SPACEHUB\_STD\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{auto}]{,  }\item[{impl\+\_\+time}]{,  }\item[{ptcl\+\_\+.}]{time() }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_simple_system_ab02d4e7b46b1960da0565094402c6ee1}\label{classspace_1_1_simple_system_ab02d4e7b46b1960da0565094402c6ee1}} 
+\index{space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}!SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}}
+\index{SPACEHUB\_STD\_ACCESSOR@{SPACEHUB\_STD\_ACCESSOR}!space::SimpleSystem$<$ Particles, Interactions $>$@{space::SimpleSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{SPACEHUB\_STD\_ACCESSOR()}{SPACEHUB\_STD\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_simple_system}{space\+::\+Simple\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{auto}]{,  }\item[{impl\+\_\+vel}]{,  }\item[{ptcl\+\_\+.}]{vel() }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle-\/system/base-\/system.\+hpp\end{DoxyCompactItemize}

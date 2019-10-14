@@ -1,0 +1,33 @@
+\hypertarget{space_hub_8hpp}{}\doxysection{space\+Hub.\+hpp File Reference}
+\label{space_hub_8hpp}\index{spaceHub.hpp@{spaceHub.hpp}}
+{\ttfamily \#include \char`\"{}kahan-\/number.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}macros.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particles/finite-\/size.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particles/point-\/particles.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}simulator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interaction/newtonian.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle-\/system/archain.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle-\/system/base-\/system.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle-\/system/chain-\/system.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}particle-\/system/regu-\/system.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}integrator/symplectic/symplectic-\/integrator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}error-\/checker/worst-\/offender.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}error-\/checker/\+R\+M\+S.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}step-\/controller/\+P\+I\+D-\/controller.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ode-\/iterator/\+Burlish-\/\+Stoer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ode-\/iterator/const-\/iterator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}args-\/callback/callbacks.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}orbits/orbits.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tools/auto-\/name.\+hpp\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacespace}{space}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacespace_a49d7d5fcc8177f9c1e92b48b75c0835c}{space\+::\+Default\+Types}} = Types$<$ double, std\+::vector $>$
+\item 
+{\footnotesize template$<$template$<$ class $>$ class Paticles = Point\+Particles, typename Force  = interactions\+::\+Newtonian\+Grav$>$ }\\using \mbox{\hyperlink{namespacespace_ad2ef35cee56ad99f746840675de3fd70}{space\+::\+Default\+Solver}} = Simulator$<$ A\+Rchain\+System$<$ Paticles$<$ Default\+Types $>$, Force, Regu\+Type\+::\+LogH $>$, ode\+Iterator\+::\+Burlish\+Stoer$<$ double, R\+MS, P\+I\+D\+Controller $>$ $>$
+\end{DoxyCompactItemize}

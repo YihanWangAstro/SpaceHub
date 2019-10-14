@@ -1,0 +1,47 @@
+\hypertarget{namespacespace_1_1multi_thread}{}\doxysection{space\+::multi\+Thread Namespace Reference}
+\label{namespacespace_1_1multi_thread}\index{space::multiThread@{space::multiThread}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_cistream}{Cistream}}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_concurrent_deque}{Concurrent\+Deque}}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_concurrent_file}{Concurrent\+File}}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_costream}{Costream}}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_ipip}{Ipip}}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_opip}{Opip}}
+\item 
+class \mbox{\hyperlink{classspace_1_1multi_thread_1_1_thread_pool}{Thread\+Pool}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacespace_1_1multi_thread_af6493e43bcb2e2105245546ede571dd0}\label{namespacespace_1_1multi_thread_af6493e43bcb2e2105245546ede571dd0}} 
+{\footnotesize template$<$typename Lambda $>$ }\\void {\bfseries multi\+\_\+threads\+\_\+loop} (size\+\_\+t total\+\_\+len, size\+\_\+t thread\+\_\+num, Lambda \&\&task)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1multi_thread_a7c2380e468c16bba70fce92cae55d2cf}\label{namespacespace_1_1multi_thread_a7c2380e468c16bba70fce92cae55d2cf}} 
+{\footnotesize template$<$typename Callable , typename ... Args$>$ }\\void {\bfseries multi\+\_\+thread\+\_\+run} (size\+\_\+t thread\+\_\+num, Callable \&\&job, Args \&\&...args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1multi_thread_a55562dd560725d1e9d7407181ec770be}\label{namespacespace_1_1multi_thread_a55562dd560725d1e9d7407181ec770be}} 
+{\footnotesize template$<$typename ... Args$>$ }\\void {\bfseries auto\+\_\+multi\+\_\+thread} (Args \&\&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1multi_thread_ac70c8b812d85907b7d67030ec0241f87}\label{namespacespace_1_1multi_thread_ac70c8b812d85907b7d67030ec0241f87}} 
+\mbox{\hyperlink{classspace_1_1multi_thread_1_1_concurrent_file}{Concurrent\+File}} {\bfseries make\+\_\+thread\+\_\+safe\+\_\+fstream} (std\+::string const \&name, std\+::ios\+\_\+base\+::openmode mode)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacespace_1_1multi_thread_aa3b09051ab5b830534b0aac25869a95f}\label{namespacespace_1_1multi_thread_aa3b09051ab5b830534b0aac25869a95f}} 
+const size\+\_\+t {\bfseries auto\+\_\+thread} = (std\+::thread\+::hardware\+\_\+concurrency() $>$ 1) ? std\+::thread\+::hardware\+\_\+concurrency() \+: 1
+\item 
+\mbox{\Hypertarget{namespacespace_1_1multi_thread_ae75c85134749f3d5a0b4cc1fe693ab99}\label{namespacespace_1_1multi_thread_ae75c85134749f3d5a0b4cc1fe693ab99}} 
+const size\+\_\+t {\bfseries machine\+\_\+thread\+\_\+num} = (std\+::thread\+::hardware\+\_\+concurrency() $>$ 1) ? std\+::thread\+::hardware\+\_\+concurrency() \+: 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Documentation for Foo here. More docs for Foo here, and down here. 

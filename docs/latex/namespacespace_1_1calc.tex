@@ -1,0 +1,146 @@
+\hypertarget{namespacespace_1_1calc}{}\doxysection{space\+::calc Namespace Reference}
+\label{namespacespace_1_1calc}\index{space::calc@{space::calc}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_ab1eb54b1b30947e6b678b543a9c2322e}\label{namespacespace_1_1calc_ab1eb54b1b30947e6b678b543a9c2322e}} 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto {\bfseries add} (Args \&\&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_af042dd5822d4fdeea0b2888a3b688533}\label{namespacespace_1_1calc_af042dd5822d4fdeea0b2888a3b688533}} 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto {\bfseries mul} (Args \&\&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a7742b69c5da4cd5bc6053beec5f3c4f6}\label{namespacespace_1_1calc_a7742b69c5da4cd5bc6053beec5f3c4f6}} 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto {\bfseries any} (Args... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a60f195a3f599f8bfad623c64a096656e}\label{namespacespace_1_1calc_a60f195a3f599f8bfad623c64a096656e}} 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto {\bfseries all} (Args... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a0e1d122eca5e4cb2251f40e06e53ac6b}\label{namespacespace_1_1calc_a0e1d122eca5e4cb2251f40e06e53ac6b}} 
+{\footnotesize template$<$typename Array $>$ }\\void {\bfseries array\+\_\+set\+\_\+zero} (Array \&array)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a876d13557c3ddba32cd4440f480ee07c}\label{namespacespace_1_1calc_a876d13557c3ddba32cd4440f480ee07c}} 
+{\footnotesize template$<$typename... Args$>$ }\\void {\bfseries set\+\_\+arrays\+\_\+zero} (Args \&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a54cff9b21c1dc99cfa0a27d03a361e6a}\label{namespacespace_1_1calc_a54cff9b21c1dc99cfa0a27d03a361e6a}} 
+{\footnotesize template$<$typename Array , typename... Args$>$ }\\auto {\bfseries array\+\_\+dot} (Array const \&a, Array const \&b, Args const \&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a48c41d16177599e77106683bc56a612e}\label{namespacespace_1_1calc_a48c41d16177599e77106683bc56a612e}} 
+{\footnotesize template$<$typename Array , typename... Args$>$ }\\void {\bfseries array\+\_\+add} (Array \&dst, Array const \&a, Array const \&b, Args const \&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_aeb8318a2bff3ae82781e3a8d0611a92c}\label{namespacespace_1_1calc_aeb8318a2bff3ae82781e3a8d0611a92c}} 
+{\footnotesize template$<$typename Array , typename... Args$>$ }\\void {\bfseries array\+\_\+mul} (Array \&dst, Array const \&a, Array const \&b, Args const \&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a7831753c2e80720a319e3d4cc326c11c}\label{namespacespace_1_1calc_a7831753c2e80720a319e3d4cc326c11c}} 
+{\footnotesize template$<$typename Array $>$ }\\void {\bfseries array\+\_\+sub} (Array \&dst, Array const \&a, Array const \&b)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a290e37919d94780a2c578e5a52ff0165}\label{namespacespace_1_1calc_a290e37919d94780a2c578e5a52ff0165}} 
+{\footnotesize template$<$typename Array $>$ }\\auto {\bfseries array\+\_\+sum} (Array const \&array)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_ae0294ebd7b3e5b7ce717c3f84934ac4f}\label{namespacespace_1_1calc_ae0294ebd7b3e5b7ce717c3f84934ac4f}} 
+{\footnotesize template$<$typename Scalar , typename Array $>$ }\\void {\bfseries array\+\_\+advance} (Array \&var, Array const \&increment, Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a82c5f94387edd834bbe2fc513322490e}\label{namespacespace_1_1calc_a82c5f94387edd834bbe2fc513322490e}} 
+{\footnotesize template$<$typename Array , typename Coord $>$ }\\void {\bfseries coord\+\_\+dot} (Array \&dst, Coord const \&a, Coord const \&b)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a8b669c19a44813e6337745defca230f2}\label{namespacespace_1_1calc_a8b669c19a44813e6337745defca230f2}} 
+{\footnotesize template$<$typename Array , typename Coord $>$ }\\auto {\bfseries coord\+\_\+contract\+\_\+to\+\_\+scalar} (Array \&coef, Coord const \&a, Coord const \&b)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a1af20f175b415a4f9fe360d089cdc72e}\label{namespacespace_1_1calc_a1af20f175b415a4f9fe360d089cdc72e}} 
+{\footnotesize template$<$typename Coord $>$ }\\auto {\bfseries coord\+\_\+contract\+\_\+to\+\_\+scalar} (Coord const \&a, Coord const \&b)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a5e778967bb47fbd2366e9a2085cb197f}\label{namespacespace_1_1calc_a5e778967bb47fbd2366e9a2085cb197f}} 
+{\footnotesize template$<$typename Coord , typename... Args$>$ }\\void {\bfseries coord\+\_\+add} (Coord \&dst, Coord const \&a, Coord const \&b, Args const \&... args)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a520b8098b25a63a467c0ab7d852bc900}\label{namespacespace_1_1calc_a520b8098b25a63a467c0ab7d852bc900}} 
+{\footnotesize template$<$typename Scalar , typename Coord $>$ }\\void {\bfseries coord\+\_\+advance} (Coord \&var, Coord const \&increment, Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_ad226d2c8703569776126e317a61834f6}\label{namespacespace_1_1calc_ad226d2c8703569776126e317a61834f6}} 
+{\footnotesize template$<$typename Array $>$ }\\auto {\bfseries calc\+\_\+com} (Array const \&mass, Array const \&var)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_aebb322a76702b6dfd4ee4917580b6f58}\label{namespacespace_1_1calc_aebb322a76702b6dfd4ee4917580b6f58}} 
+{\footnotesize template$<$typename Array $>$ }\\auto {\bfseries calc\+\_\+com} (Array const \&mass, Array const \&var, typename Array\+::value\+\_\+type tot\+\_\+mass)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a83deb44ff9c8856f98270e385b48be5d}\label{namespacespace_1_1calc_a83deb44ff9c8856f98270e385b48be5d}} 
+{\footnotesize template$<$typename Array $>$ }\\void {\bfseries move\+\_\+to\+\_\+com} (Array \&var, typename Array\+::value\+\_\+type const \&com\+\_\+var)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a324136b8087717d03bd33285695130d2}\label{namespacespace_1_1calc_a324136b8087717d03bd33285695130d2}} 
+{\footnotesize template$<$typename Array1 , typename Array2 $>$ }\\void {\bfseries move\+\_\+to\+\_\+com} (Array1 const \&mass, Array2 \&var)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a6690fcdfccc1d3c01caa6461a8535359}\label{namespacespace_1_1calc_a6690fcdfccc1d3c01caa6461a8535359}} 
+{\footnotesize template$<$typename Coord , typename Scalar\+Array $>$ }\\void {\bfseries coord\+\_\+move\+\_\+to\+\_\+com} (Scalar\+Array const \&mass, Coord \&var)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a1023e026d3105bcc7c84b638fc52c16e}\label{namespacespace_1_1calc_a1023e026d3105bcc7c84b638fc52c16e}} 
+{\footnotesize template$<$typename Particles $>$ }\\auto {\bfseries calc\+\_\+kinetic\+\_\+energy} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}} const \&ptc)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a89ee11854c27cf6309c12eee4bf0a97b}\label{namespacespace_1_1calc_a89ee11854c27cf6309c12eee4bf0a97b}} 
+{\bfseries C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK} (chain\+\_\+pos)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a0e07e47bb29fd01937127334d0d66293}\label{namespacespace_1_1calc_a0e07e47bb29fd01937127334d0d66293}} 
+{\bfseries C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK} (index)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_ad8d5868f9417c166b0418ec1f8ebaf5a}\label{namespacespace_1_1calc_ad8d5868f9417c166b0418ec1f8ebaf5a}} 
+{\footnotesize template$<$typename Particles $>$ }\\auto {\bfseries calc\+\_\+potential\+\_\+energy} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}} const \&particles)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a44497f7a8ce6ed8b43bda1045eb13359}\label{namespacespace_1_1calc_a44497f7a8ce6ed8b43bda1045eb13359}} 
+{\footnotesize template$<$typename Particles $>$ }\\auto {\bfseries calc\+\_\+total\+\_\+energy} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}} const \&particles)
+\item 
+{\footnotesize template$<$typename Scalar\+Array , typename Coord $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a803024b9c9a7c28844d9932f4ebecf92}{calc\+\_\+fall\+\_\+free\+\_\+time}} (Scalar\+Array const \&mass, Coord const \&position)
+\begin{DoxyCompactList}\small\item\em Calculate the minimal fall free time of two particles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a5ad565ae9639f01b3a74f6b70a104188}\label{namespacespace_1_1calc_a5ad565ae9639f01b3a74f6b70a104188}} 
+{\bfseries C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK} (omega)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a53adec80aa3e0d41d66e93903fa225fb}\label{namespacespace_1_1calc_a53adec80aa3e0d41d66e93903fa225fb}} 
+{\bfseries C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK} (bindE)
+\item 
+{\footnotesize template$<$typename Particles $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a3f014dcdcc83e6975bdc75598a85bb51}{calc\+\_\+step\+\_\+scale}} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}} const \&particles)
+\item 
+\mbox{\Hypertarget{namespacespace_1_1calc_a73501521c29dae1b3e19467c56d4d814}\label{namespacespace_1_1calc_a73501521c29dae1b3e19467c56d4d814}} 
+{\footnotesize template$<$typename Particles $>$ }\\auto {\bfseries calc\+\_\+energy\+\_\+error} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}} const \&particles, typename Particles\+::\+Scalar E0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Documentation for space 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacespace_1_1calc_a803024b9c9a7c28844d9932f4ebecf92}\label{namespacespace_1_1calc_a803024b9c9a7c28844d9932f4ebecf92}} 
+\index{space::calc@{space::calc}!calc\_fall\_free\_time@{calc\_fall\_free\_time}}
+\index{calc\_fall\_free\_time@{calc\_fall\_free\_time}!space::calc@{space::calc}}
+\doxysubsubsection{\texorpdfstring{calc\_fall\_free\_time()}{calc\_fall\_free\_time()}}
+{\footnotesize\ttfamily template$<$typename Scalar\+Array , typename Coord $>$ \\
+auto space\+::calc\+::calc\+\_\+fall\+\_\+free\+\_\+time (\begin{DoxyParamCaption}\item[{Scalar\+Array const \&}]{mass,  }\item[{Coord const \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the minimal fall free time of two particles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mass} & mass array of particle. \\
+\hline
+{\em position} & position array of particle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The minimal fall free time of the two particles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacespace_1_1calc_a3f014dcdcc83e6975bdc75598a85bb51}\label{namespacespace_1_1calc_a3f014dcdcc83e6975bdc75598a85bb51}} 
+\index{space::calc@{space::calc}!calc\_step\_scale@{calc\_step\_scale}}
+\index{calc\_step\_scale@{calc\_step\_scale}!space::calc@{space::calc}}
+\doxysubsubsection{\texorpdfstring{calc\_step\_scale()}{calc\_step\_scale()}}
+{\footnotesize\ttfamily template$<$typename Particles $>$ \\
+auto space\+::calc\+::calc\+\_\+step\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_particles}{Particles}} const \&}]{particles }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{classspace_1_1_particles}{Particles}}} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

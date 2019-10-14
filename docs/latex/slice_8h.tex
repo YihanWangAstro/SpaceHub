@@ -1,0 +1,58 @@
+\hypertarget{slice_8h}{}\doxysection{lazy-\/evaluation/slice.h File Reference}
+\label{slice_8h}\index{lazy-\/evaluation/slice.h@{lazy-\/evaluation/slice.h}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include \char`\"{}lazy\+\_\+expr.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_lazy_1_1_slice}{Space\+H\+::\+Lazy\+::\+Slice$<$ Begin, End, Stride $>$}}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_lazy_1_1_slice___expr}{Space\+H\+::\+Lazy\+::\+Slice\+\_\+\+Expr$<$ T, Begin, End, Stride, Src\+Size $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\item 
+ \mbox{\hyperlink{namespace_space_h_1_1_lazy}{Space\+H\+::\+Lazy}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{slice_8h_a0cca9dd020b1187d28afa82cca006fa9}{slice}}(B\+E\+G\+IN,  E\+ND, ...)~(Slice$<$B\+E\+G\+IN,E\+ND ,\#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+$>$())
+\item 
+\#define \mbox{\hyperlink{slice_8h_a65fd0989cf17a9954e67fbe210677e14}{E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+S\+L\+I\+C\+E\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr size\+\_\+t \mbox{\hyperlink{namespace_space_h_1_1_lazy_ae692630f6e945e4f0538c0b95ccecbb0}{Space\+H\+::\+Lazy\+::constexpr\+\_\+slice\+\_\+len}} (int begin, int end, int stride, size\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{slice_8h_a65fd0989cf17a9954e67fbe210677e14}\label{slice_8h_a65fd0989cf17a9954e67fbe210677e14}} 
+\index{slice.h@{slice.h}!EXPR\_CREATE\_SLICE\_INTERFACE@{EXPR\_CREATE\_SLICE\_INTERFACE}}
+\index{EXPR\_CREATE\_SLICE\_INTERFACE@{EXPR\_CREATE\_SLICE\_INTERFACE}!slice.h@{slice.h}}
+\doxysubsubsection{\texorpdfstring{EXPR\_CREATE\_SLICE\_INTERFACE}{EXPR\_CREATE\_SLICE\_INTERFACE}}
+{\footnotesize\ttfamily \#define E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+S\+L\+I\+C\+E\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keywordtype}{int} UNIQ(Begin), \textcolor{keywordtype}{int} UNIQ(End), \textcolor{keywordtype}{int} UNIQ(Str\textcolor{keywordtype}{id}e) = 1>                                                     \(\backslash\)}
+\DoxyCodeLine{    inline constexpr \textcolor{keyword}{auto} operator[](\textcolor{keyword}{const} Slice<\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(Begin), \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(End), \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(Stride)>\& \mbox{\hyperlink{slice_8h_a0cca9dd020b1187d28afa82cca006fa9}{slice}})                         \(\backslash\)}
+\DoxyCodeLine{    -\/>Slice\_Expr<\textcolor{keyword}{typename} \mbox{\hyperlink{dev-tools_8hpp_a16d2c5a0818a4356eb912b06c8b0a0e3}{TYPE\_OF\_SELF}}, \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(Begin), \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(End), \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(Stride), TYPE\_OF\_SELF::size()>\{                   \(\backslash\)}
+\DoxyCodeLine{        static\_assert(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(Begin) <= static\_cast<int>(TYPE\_OF\_SELF::size()), \textcolor{stringliteral}{"Slice out of range"});                    \(\backslash\)}
+\DoxyCodeLine{        static\_assert(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(Begin) >= -\/static\_cast<int>(TYPE\_OF\_SELF::size()), \textcolor{stringliteral}{"Slice out of range"});                   \(\backslash\)}
+\DoxyCodeLine{        static\_assert(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(End)   <= static\_cast<int>(TYPE\_OF\_SELF::size()), \textcolor{stringliteral}{"Slice out of range"});                    \(\backslash\)}
+\DoxyCodeLine{        static\_assert(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(End)   >= -\/static\_cast<int>(TYPE\_OF\_SELF::size()), \textcolor{stringliteral}{"Slice out of range"});                   \(\backslash\)}
+\DoxyCodeLine{        return Slice\_Expr<typename TYPE\_OF\_SELF, UNIQ(Begin), UNIQ(End), UNIQ(Stride), TYPE\_OF\_SELF::size()>(*\textcolor{keyword}{this});   \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{slice_8h_a0cca9dd020b1187d28afa82cca006fa9}\label{slice_8h_a0cca9dd020b1187d28afa82cca006fa9}} 
+\index{slice.h@{slice.h}!slice@{slice}}
+\index{slice@{slice}!slice.h@{slice.h}}
+\doxysubsubsection{\texorpdfstring{slice}{slice}}
+{\footnotesize\ttfamily \#define slice(\begin{DoxyParamCaption}\item[{}]{B\+E\+G\+IN,  }\item[{}]{E\+ND,  }\item[{}]{... }\end{DoxyParamCaption})~(Slice$<$B\+E\+G\+IN,E\+ND ,\#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+$>$())}
+

@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structspace_1_1orbit_1_1_orbit_args" kind="struct" language="C++" prot="public">
+    <compoundname>space::orbit::OrbitArgs</compoundname>
+    <derivedcompoundref refid="structspace_1_1orbit_1_1_hyper_orbit_args" prot="public" virt="non-virtual">space::orbit::HyperOrbitArgs&lt; Real &gt;</derivedcompoundref>
+    <includes refid="orbits_8hpp" local="no">orbits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Real</declname>
+        <defname>Real</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="structspace_1_1orbit_1_1_orbit_args_1a1843abbd31ae9739d7a7a92ae16eaedb" prot="private" static="no">
+        <type>std::variant&lt; Real, <ref refid="structspace_1_1orbit_1_1_random_indicator" kindref="compound">RandomIndicator</ref>, <ref refid="structspace_1_1orbit_1_1_lock_random" kindref="compound">LockRandom</ref> &gt;</type>
+        <definition>using space::orbit::OrbitArgs&lt; Real &gt;::Variant =  std::variant&lt;Real, RandomIndicator, LockRandom&gt;</definition>
+        <argsstring></argsstring>
+        <name>Variant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="118" column="5" bodyfile="orbits/orbits.hpp" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" prot="public" static="no">
+        <type>Real</type>
+        <definition>using space::orbit::OrbitArgs&lt; Real &gt;::Scalar =  Real</definition>
+        <argsstring></argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="121" column="5" bodyfile="orbits/orbits.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a7a895d4f840ff051336254ac414dd516" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::m1</definition>
+        <argsstring></argsstring>
+        <name>m1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="123" column="12" bodyfile="orbits/orbits.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1ae23a20aeea94dd686bc8763fc808835d" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::m2</definition>
+        <argsstring></argsstring>
+        <name>m2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="124" column="12" bodyfile="orbits/orbits.hpp" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1aa08aac46eea7ca745948313b160bd06c" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::e</definition>
+        <argsstring></argsstring>
+        <name>e</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="125" column="12" bodyfile="orbits/orbits.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1ab088534ff1dd7ff7396ece41b2c531f6" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="126" column="12" bodyfile="orbits/orbits.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1af52e1afa8edc7142af77aa18d8acd1da" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="127" column="12" bodyfile="orbits/orbits.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a5953c736414689c3b2e1a478df686322" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::Omega</definition>
+        <argsstring></argsstring>
+        <name>Omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="128" column="12" bodyfile="orbits/orbits.hpp" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a408cd63bafe90dc3243da7185930ae00" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::omega</definition>
+        <argsstring></argsstring>
+        <name>omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="129" column="12" bodyfile="orbits/orbits.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1afaeb608e784832a2bbb0919828b71f1b" prot="public" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::orbit::OrbitArgs&lt; Real &gt;::nu</definition>
+        <argsstring></argsstring>
+        <name>nu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="130" column="12" bodyfile="orbits/orbits.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a838f5cf2ba6382820b7dea8f9dfa6b38" prot="public" static="no" mutable="no">
+        <type>OrbitType</type>
+        <definition>OrbitType space::orbit::OrbitArgs&lt; Real &gt;::orbit_type</definition>
+        <argsstring></argsstring>
+        <name>orbit_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="131" column="15" bodyfile="orbits/orbits.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a44b222c2e0b35869c1d45088267eb51f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::orbit::OrbitArgs&lt; Real &gt;::OrbitArgs</definition>
+        <argsstring>()=default</argsstring>
+        <name>OrbitArgs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="133" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a4984e29f05b7fc62dcd15b31ab479faa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::orbit::OrbitArgs&lt; Real &gt;::OrbitArgs</definition>
+        <argsstring>(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant tilt, Variant LoAN, Variant AoP, Variant true_anomaly)</argsstring>
+        <name>OrbitArgs</name>
+        <param>
+          <type>Scalar</type>
+          <declname>m_1</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>m_2</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>periastron</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>eccentricity</declname>
+        </param>
+        <param>
+          <type>Variant</type>
+          <declname>tilt</declname>
+        </param>
+        <param>
+          <type>Variant</type>
+          <declname>LoAN</declname>
+        </param>
+        <param>
+          <type>Variant</type>
+          <declname>AoP</declname>
+        </param>
+        <param>
+          <type>Variant</type>
+          <declname>true_anomaly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="135" column="5" bodyfile="orbits/orbits.hpp" bodystart="135" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a06d9e41d9d35001e245d021ee6136bbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::shuffle_i</definition>
+        <argsstring>()</argsstring>
+        <name>shuffle_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="181" column="17" bodyfile="orbits/orbits.hpp" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a6ab10d5338aab477e8be5239a5265c85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::shuffle_Omega</definition>
+        <argsstring>()</argsstring>
+        <name>shuffle_Omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="183" column="17" bodyfile="orbits/orbits.hpp" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a9df626e401cfc580ec9ae273eb72226b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::shuffle_omega</definition>
+        <argsstring>()</argsstring>
+        <name>shuffle_omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="185" column="17" bodyfile="orbits/orbits.hpp" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1ad115a031995591783878eaf3f31dfbdb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::shuffle_nu</definition>
+        <argsstring>()</argsstring>
+        <name>shuffle_nu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="187" column="17" bodyfile="orbits/orbits.hpp" bodystart="187" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a152ae74a06730952b3c86e4ba695b848" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::lock_shuffle_i</definition>
+        <argsstring>()</argsstring>
+        <name>lock_shuffle_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="197" column="17" bodyfile="orbits/orbits.hpp" bodystart="197" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1ad64f288f2a5572c9879bd69cd5e5cab1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::lock_shuffle_Omega</definition>
+        <argsstring>()</argsstring>
+        <name>lock_shuffle_Omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="199" column="17" bodyfile="orbits/orbits.hpp" bodystart="199" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a58cac0aa929af0e17bff1986c52ed9a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::lock_shuffle_omega</definition>
+        <argsstring>()</argsstring>
+        <name>lock_shuffle_omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="201" column="17" bodyfile="orbits/orbits.hpp" bodystart="201" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1af2bdd4650b0f5187c2842f789cc1754c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::orbit::OrbitArgs&lt; Real &gt;::lock_shuffle_nu</definition>
+        <argsstring>()</argsstring>
+        <name>lock_shuffle_nu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="203" column="17" bodyfile="orbits/orbits.hpp" bodystart="203" bodyend="211"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structspace_1_1orbit_1_1_orbit_args_1a53f9617cb3efba3e8ea40916e2c0e4ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, OrbitArgs const &amp;obt)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="structspace_1_1orbit_1_1_orbit_args" kindref="compound">OrbitArgs</ref> const &amp;</type>
+          <declname>obt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="213" column="12" bodyfile="orbits/orbits.hpp" bodystart="213" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Real</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>space::orbit::OrbitArgs&lt; Real &gt;</label>
+        <link refid="structspace_1_1orbit_1_1_orbit_args"/>
+      </node>
+      <node id="2">
+        <label>space::orbit::HyperOrbitArgs&lt; Real &gt;</label>
+        <link refid="structspace_1_1orbit_1_1_hyper_orbit_args"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="orbits/orbits.hpp" line="116" column="18" bodyfile="orbits/orbits.hpp" bodystart="116" bodyend="217"/>
+    <listofallmembers>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1aa08aac46eea7ca745948313b160bd06c" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>e</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1af52e1afa8edc7142af77aa18d8acd1da" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>i</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a152ae74a06730952b3c86e4ba695b848" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>lock_shuffle_i</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1af2bdd4650b0f5187c2842f789cc1754c" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>lock_shuffle_nu</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1ad64f288f2a5572c9879bd69cd5e5cab1" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>lock_shuffle_Omega</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a58cac0aa929af0e17bff1986c52ed9a8" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>lock_shuffle_omega</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a7a895d4f840ff051336254ac414dd516" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>m1</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1ae23a20aeea94dd686bc8763fc808835d" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>m2</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1afaeb608e784832a2bbb0919828b71f1b" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>nu</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a5953c736414689c3b2e1a478df686322" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>Omega</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a408cd63bafe90dc3243da7185930ae00" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>omega</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a53f9617cb3efba3e8ea40916e2c0e4ab" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a838f5cf2ba6382820b7dea8f9dfa6b38" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>orbit_type</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a44b222c2e0b35869c1d45088267eb51f" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>OrbitArgs</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a4984e29f05b7fc62dcd15b31ab479faa" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>OrbitArgs</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1ab088534ff1dd7ff7396ece41b2c531f6" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>p</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>Scalar</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a06d9e41d9d35001e245d021ee6136bbd" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>shuffle_i</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1ad115a031995591783878eaf3f31dfbdb" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>shuffle_nu</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a6ab10d5338aab477e8be5239a5265c85" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>shuffle_Omega</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a9df626e401cfc580ec9ae273eb72226b" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>shuffle_omega</name></member>
+      <member refid="structspace_1_1orbit_1_1_orbit_args_1a1843abbd31ae9739d7a7a92ae16eaedb" prot="private" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>Variant</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

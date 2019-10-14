@@ -1,46 +1,56 @@
 
-#ifndef REGUPARTICLESYSTEM_H
-#define REGUPARTICLESYSTEM_H
+#ifndef SPACEHUB_REGU_SYSTEM_HPP
+#define SPACEHUB_REGU_SYSTEM_HPP
 
 #include <type_traits>
 #include "../core-computation.hpp"
-#include "../dev-tools.hpp"
 #include "../particle-system.hpp"
+#include "../accelerations.hpp"
 
 namespace space {
-enum class ReguType { logH, TTL, none };
+  /**
+   *
+   */
+  enum class ReguType {
+    LogH, TTL, None
+  };
 
 /*---------------------------------------------------------------------------*\
     Class Regularization Declaration
 \*---------------------------------------------------------------------------*/
-template <typename Scalar, ReguType Type = ReguType::logH>
-class Regularization {
- public:
-  // Constructors
-  template <typename Particles>
-  explicit Regularization(Particles const &partc);
+/**
+ *
+ * @tparam Scalar
+ * @tparam Type
+ */
+  template<typename Scalar, ReguType Type = ReguType::LogH>
+  class Regularization {
+  public:
+    // Constructors
+    template<typename Particles>
+    explicit Regularization(Particles const &particles);
 
-  // Public methods
-  SPACEHUB_STD_ACCESSOR(auto, omega, omega_);
+    // Public methods
+    SPACEHUB_STD_ACCESSOR(auto, omega, omega_);
 
-  SPACEHUB_STD_ACCESSOR(auto, bindE, bindE_);
+    SPACEHUB_STD_ACCESSOR(auto, bindE, bindE_);
 
-  template <typename Particles>
-  Scalar eval_pos_phy_time(Particles const &partc, Scalar step_size) const;
+    template<typename Particles>
+    Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size) const;
 
-  template <typename Particles>
-  Scalar eval_vel_phy_time(Particles const &partc, Scalar step_size) const;
+    template<typename Particles>
+    Scalar eval_vel_phy_time(Particles const &particles, Scalar step_size) const;
 
- private:
-  // Private methods
-  template <typename Particles>
-  inline Scalar capital_omega(Particles const &partc) const;
+  private:
+    // Private methods
+    template<typename Particles>
+    inline Scalar capital_omega(Particles const &particles) const;
 
-  // Private members
-  Scalar omega_;
+    // Private members
+    Scalar omega_;
 
-  Scalar bindE_;
-};
+    Scalar bindE_;
+  };
 
 /*---------------------------------------------------------------------------*\
     Class RegularizedSystem Declaration
@@ -53,319 +63,316 @@ class Regularization {
  * http://iopscience.iop.org/article/10.1086/301102/meta and
  * https://link.springer.com/article/10.1023%2FA%3A1021149313347.
  * @tparam Particles
- * @tparam Forces
+ * @tparam Interactions
  */
-template <typename Particles, typename Forces, ReguType RegType>
-class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Forces, RegType>> {
- public:
-  // Type members
-  SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
+  template<typename Particles, typename Interactions, ReguType RegType>
+  class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Interactions, RegType>> {
+  public:
+    // Type members
+    SPACEHUB_USING_TYPE_SYSTEM_OF(Particles);
 
-  using Base = ParticleSystem<RegularizedSystem<Particles, Forces, RegType>>;
+    using Base = ParticleSystem<RegularizedSystem<Particles, Interactions, RegType>>;
 
-  using Particle = typename Particles::Particle;
+    using Particle = typename Particles::Particle;
 
-  // Constructors
-  RegularizedSystem() = delete;
+    // Constructors
+    SPACEHUB_MAKE_CONSTRUCTORS(RegularizedSystem, delete, default, default, default, default);
 
-  RegularizedSystem(RegularizedSystem const &) = default;
+    template<typename STL>
+    RegularizedSystem(Scalar time, STL const &particle_set);
 
-  RegularizedSystem(RegularizedSystem &&) noexcept = default;
+    // Static members
+    static constexpr ReguType regu_type{RegType};
 
-  RegularizedSystem &operator=(RegularizedSystem const &) = default;
+    // Public methods
+    SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
 
-  RegularizedSystem &operator=(RegularizedSystem &&) noexcept = default;
+    SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
 
-  template <typename STL>
-  RegularizedSystem(Scalar t, STL const &AoS_ptc);
+    // Friend functions
+    template<typename P, typename F, ReguType R>
+    friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<P, F, R> const &ps);
 
-  // Static members
-  static constexpr ReguType regu_type{RegType};
+    template<typename P, typename F, ReguType R>
+    friend std::istream &operator>>(std::istream &is, RegularizedSystem<P, F, R> &ps);
 
-  // Public methods
-  SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
+    CRTP_IMPL :
+    // CRTP implementation
+    SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());
 
-  SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
+    SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptcl_.idn());
 
-  // Friend functions
-  template <typename P, typename F, ReguType R>
-  friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<P, F, R> const &ps);
+    SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptcl_.pos());
 
-  template <typename P, typename F, ReguType R>
-  friend std::istream &operator>>(std::istream &is, RegularizedSystem<P, F, R> &ps);
+    SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptcl_.vel());
 
-  CRTP_impl :
-      // CRTP implementation
-      SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptc_.mass());
+    SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time());
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptc_.idn());
+    [[nodiscard]] size_t impl_number() const;
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptc_.pos());
+    void impl_advance_time(Scalar step_size);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptc_.vel());
+    void impl_advance_pos(Coord const &velocity, Scalar step_size);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_time, ptc_.time());
+    void impl_advance_vel(Coord const &acceleration, Scalar step_size);
 
-  size_t impl_number() const;
+    void impl_evaluate_acc(Coord &acceleration) const;
 
-  void impl_advance_time(Scalar step_size);
+    void impl_drift(Scalar step_size);
 
-  void impl_advance_pos(Coord const &velocity, Scalar step_size);
+    void impl_kick(Scalar step_size);
 
-  void impl_advance_vel(Coord const &acceleration, Scalar step_size);
+    void impl_pre_iter_process();
 
-  void impl_evaluate_acc(Coord const &acceleration) const;
+    template<typename STL>
+    void impl_to_linear_container(STL &stl_ranges);
 
-  void impl_drift(Scalar step_size);
+    template<typename STL>
+    void impl_load_from_linear_container(STL const &stl_ranges);
 
-  void impl_kick(Scalar step_size);
+  private:
+    // Private methods
+    void eval_vel_indep_acc();
 
-  void impl_pre_iter_process();
+    void advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar phy_time);
 
-  template <typename STL>
-  void impl_to_linear_container(STL &stl);
+    void advance_bindE(Coord const &velocity, Coord const &d_bindE_dr, Scalar phy_time);
 
-  template <typename STL>
-  void impl_load_from_linear_container(STL const &stl);
+    void kick_pseu_vel(Scalar phy_time);
 
- private:
-  // Private methods
-  void eval_vel_indep_acc();
+    void kick_real_vel(Scalar phy_time);
 
-  void advance_omega(Coord const &velocity, Coord const &d_omega_dr, Scalar phy_time);
-
-  void advance_bindE(Coord const &velocity, Coord const &d_bindE_dr, Scalar phy_time);
-
-  void kick_pseu_vel(Scalar phy_time);
-
-  void kick_real_vel(Scalar phy_time);
-
-  // Private members
-  Particles ptc_;
-  Forces forces_;
-  Regularization<Scalar, RegType> regu_;
-
-  Coord acc_;
-  Coord newtonian_acc_;
-
-  std::conditional_t<Forces::ext_vel_indep, Coord, Empty> ext_vel_indep_acc_;
-  std::conditional_t<Forces::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
-  std::conditional_t<Forces::ext_vel_dep, Coord, Empty> aux_vel_;
-};
+    // Private members
+    Particles ptcl_;
+    Interactions interactions_;
+    Accelerations<Interactions, Coord> accels_;
+    Regularization<Scalar, RegType> regu_;
+    std::conditional_t<Interactions::ext_vel_dep, Coord, Empty> aux_vel_;
+  };
 
 /*---------------------------------------------------------------------------*\
     Class RegularizedSystem Implementation
 \*---------------------------------------------------------------------------*/
-template <typename Particles, typename Forces, ReguType RegType>
-template <typename STL>
-RegularizedSystem<Particles, Forces, RegType>::RegularizedSystem(Scalar t, const STL &AoS_ptc)
-    : ptc_(t, AoS_ptc), acc_(AoS_ptc.size()), newtonian_acc_(AoS_ptc.size()), regu_(ptc_) {
-  static_assert(is_container_v<STL>, "Only STL-like container can be used");
-  if constexpr (Forces::ext_vel_indep) {
-    ext_vel_indep_acc_.resize(AoS_ptc.size());
-  }
-
-  if constexpr (Forces::ext_vel_dep) {
-    ext_vel_dep_acc_.resize(AoS_ptc.size());
-    aux_vel_ = ptc_.vel();
-  }
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-std::istream &operator>>(std::istream &is, RegularizedSystem<Particles, Forces, RegType> &ps) {
-  is >> ps.ptc_;
-  return is;
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-std::ostream &operator<<(std::ostream &os, const RegularizedSystem<Particles, Forces, RegType> &ps) {
-  os << ps.ptc_;
-  return os;
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-size_t RegularizedSystem<Particles, Forces, RegType>::impl_number() const {
-  return ptc_.number();
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_advance_time(Scalar step_size) {
-  Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
-  ptc_.time() += phy_time;
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
-  Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
-  calc::coord_advance(ptc_.pos(), velocity, phy_time);
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
-  Scalar phy_time = regu_.eval_vel_phy_time(ptc_, step_size);
-  calc::coord_advance(ptc_.vel(), acceleration, phy_time);
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_evaluate_acc(const Coord &acceleration) const {
-  forces_.eval_acc(ptc_, acceleration);
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_drift(Scalar step_size) {
-  Scalar phy_time = regu_.eval_pos_phy_time(ptc_, step_size);
-  calc::coord_advance(ptc_.pos(), ptc_.vel(), phy_time);
-  ptc_.time() += phy_time;
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_kick(Scalar step_size) {
-  Scalar phy_time = regu_.eval_vel_phy_time(ptc_, step_size);
-  Scalar half_time = 0.5 * phy_time;
-
-  eval_vel_indep_acc();
-
-  if constexpr (Forces::ext_vel_dep) {
-    kick_pseu_vel(half_time);
-    kick_real_vel(phy_time);
-    kick_pseu_vel(half_time);
-  } else {
-    if constexpr (Forces::ext_vel_indep) {
-      calc::coord_add(acc_, newtonian_acc_, ext_vel_indep_acc_);
-
-      calc::coord_advance(ptc_.vel(), acc_, half_time);
-      advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
-      advance_bindE(ptc_.vel(), ext_vel_indep_acc_, phy_time);
-      calc::coord_advance(ptc_.vel(), acc_, half_time);
-    } else {
-      calc::coord_advance(ptc_.vel(), newtonian_acc_, half_time);
-      advance_omega(ptc_.vel(), newtonian_acc_, phy_time);
-      calc::coord_advance(ptc_.vel(), newtonian_acc_, half_time);
+  template<typename Particles, typename Interactions, ReguType RegType>
+  template<typename STL>
+  RegularizedSystem<Particles, Interactions, RegType>::RegularizedSystem(Scalar time, const STL &particle_set)
+          : ptcl_(time, particle_set), accels_(particle_set.size()), regu_(ptcl_) {
+    static_assert(is_container_v<STL>, "Only STL-like container can be used");
+    if constexpr (Interactions::ext_vel_dep) {
+      aux_vel_ = ptcl_.vel();
     }
   }
-}
 
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::impl_pre_iter_process() {
-  if constexpr (Forces::ext_vel_dep) {
-    aux_vel_ = ptc_.vel();
+  template<typename Particles, typename Interactions, ReguType RegType>
+  std::istream &operator>>(std::istream &is, RegularizedSystem<Particles, Interactions, RegType> &ps) {
+    is >> ps.ptcl_;
+    return is;
   }
-}
 
-template <typename Particles, typename Forces, ReguType RegType>
-template <typename STL>
-void RegularizedSystem<Particles, Forces, RegType>::impl_to_linear_container(STL &stl) {
-  stl.clear();
-  stl.reserve(impl_number() * 6 + 3);
-  stl.emplace_back(impl_time());
-  stl.emplace_back(omega());
-  stl.emplace_back(bindE());
-  add_coords_to(stl, impl_pos());
-  add_coords_to(stl, impl_vel());
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-template <typename STL>
-void RegularizedSystem<Particles, Forces, RegType>::impl_load_from_linear_container(const STL &stl) {
-  auto i = stl.begin();
-  impl_time() = *i, ++i;
-  omega() = *i, ++i;
-  bindE() = *i, ++i;
-  load_to_coords(i, impl_pos());
-  load_to_coords(i, impl_vel());
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::eval_vel_indep_acc() {
-  forces_.eval_newtonian_acc(ptc_, newtonian_acc_);
-  if constexpr (Forces::ext_vel_indep) {
-    forces_.eval_extra_vel_indep_acc(ptc_, ext_vel_indep_acc_);
+  template<typename Particles, typename Interactions, ReguType RegType>
+  std::ostream &operator<<(std::ostream &os, const RegularizedSystem<Particles, Interactions, RegType> &ps) {
+    os << ps.ptcl_;
+    return os;
   }
-}
 
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::advance_omega(const Coord &velocity, const Coord &d_omega_dr,
-                                                                  Scalar phy_time) {
-  Scalar d_omega = calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_omega_dr);
-  regu_.omega() += d_omega * phy_time;
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::advance_bindE(const Coord &velocity, const Coord &d_bindE_dr,
-                                                                  Scalar phy_time) {
-  Scalar d_bindE = -calc::coord_contract_to_scalar(ptc_.mass(), velocity, d_bindE_dr);
-  regu_.bindE() += d_bindE * phy_time;
-}
-
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::kick_pseu_vel(Scalar phy_time) {
-  forces_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
-  calc::coord_add(acc_, newtonian_acc_, ext_vel_dep_acc_);
-  if constexpr (Forces::ext_vel_indep) {
-    calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
+  template<typename Particles, typename Interactions, ReguType RegType>
+  size_t RegularizedSystem<Particles, Interactions, RegType>::impl_number() const {
+    return ptcl_.number();
   }
-  calc::coord_advance(aux_vel_, acc_, phy_time);
-}
 
-template <typename Particles, typename Forces, ReguType RegType>
-void RegularizedSystem<Particles, Forces, RegType>::kick_real_vel(Scalar phy_time) {
-  std::swap(aux_vel_, ptc_.vel());
-  forces_.eval_extra_vel_dep_acc(ptc_, acc_.vel_dep_acc());
-  std::swap(aux_vel_, ptc_.vel());
-
-  calc::coord_add(acc_, newtonian_acc_, ext_vel_dep_acc_);
-  if constexpr (Forces::ext_vel_indep) {
-    calc::coord_add(acc_, acc_, ext_vel_indep_acc_);
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_advance_time(Scalar step_size) {
+    Scalar phy_time = regu_.eval_pos_phy_time(ptcl_, step_size);
+    ptcl_.time() += phy_time;
   }
-  calc::coord_advance(ptc_.vel(), acc_, phy_time);
 
-  advance_omega(aux_vel_, newtonian_acc_, phy_time);
-  advance_bindE(aux_vel_, ext_vel_dep_acc_, phy_time);
-}
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
+    Scalar phy_time = regu_.eval_pos_phy_time(ptcl_, step_size);
+    calc::coord_advance(ptcl_.pos(), velocity, phy_time);
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void
+  RegularizedSystem<Particles, Interactions, RegType>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
+    Scalar phy_time = regu_.eval_vel_phy_time(ptcl_, step_size);
+    calc::coord_advance(ptcl_.vel(), acceleration, phy_time);
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_evaluate_acc(Coord &acceleration) const {
+    interactions_.eval_acc(ptcl_, acceleration);
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_drift(Scalar step_size) {
+    Scalar phy_time = regu_.eval_pos_phy_time(ptcl_, step_size);
+    calc::coord_advance(ptcl_.pos(), ptcl_.vel(), phy_time);
+    ptcl_.time() += phy_time;
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_kick(Scalar step_size) {
+    Scalar phy_time = regu_.eval_vel_phy_time(ptcl_, step_size);
+    Scalar half_time = 0.5 * phy_time;
+
+    eval_vel_indep_acc();
+
+    if constexpr (Interactions::ext_vel_dep) {
+      kick_pseu_vel(half_time);
+      kick_real_vel(phy_time);
+      kick_pseu_vel(half_time);
+    } else {
+      calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), half_time);
+      advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
+      }
+      calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), half_time);
+      /*advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
+      }
+      calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), phy_time);
+      advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+      if constexpr (Interactions::ext_vel_indep) {
+        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
+      }*/
+    }
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_pre_iter_process() {
+    if constexpr (Interactions::ext_vel_dep) {
+      aux_vel_ = ptcl_.vel();
+    }
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  template<typename STL>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_to_linear_container(STL &stl_ranges) {
+    stl_ranges.clear();
+    stl_ranges.reserve(impl_number() * 6 + 3);
+    stl_ranges.emplace_back(impl_time());
+    stl_ranges.emplace_back(omega());
+    stl_ranges.emplace_back(bindE());
+    add_coords_to(stl_ranges, impl_pos());
+    add_coords_to(stl_ranges, impl_vel());
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  template<typename STL>
+  void RegularizedSystem<Particles, Interactions, RegType>::impl_load_from_linear_container(const STL &stl_ranges) {
+    auto begin = stl_ranges.begin();
+    impl_time() = *begin;
+    omega() = *(begin + 1);
+    bindE() = *(begin + 2);
+
+    size_t len = impl_number() * 3;
+
+    auto pos_begin = begin + 3;
+    auto pos_end = pos_begin + len;
+    auto vel_begin = pos_end;
+    auto vel_end = vel_begin + len;
+    load_to_coords(pos_begin, pos_end, impl_pos());
+    load_to_coords(vel_begin, vel_end, impl_vel());
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
+    interactions_.eval_newtonian_acc(ptcl_, accels_.newtonian_acc());
+    accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
+    if constexpr (Interactions::ext_vel_indep) {
+      interactions_.eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
+      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonian_acc());
+    }
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void
+  RegularizedSystem<Particles, Interactions, RegType>::advance_omega(const Coord &velocity, const Coord &d_omega_dr,
+                                                                     Scalar phy_time) {
+    Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
+    regu_.omega() += d_omega * phy_time;
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void
+  RegularizedSystem<Particles, Interactions, RegType>::advance_bindE(const Coord &velocity, const Coord &d_bindE_dr,
+                                                                     Scalar phy_time) {
+    Scalar d_bindE = -calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_bindE_dr);
+    regu_.bindE() += d_bindE * phy_time;
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::kick_pseu_vel(Scalar phy_time) {
+    interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+    calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+    calc::coord_advance(aux_vel_, accels_.acc(), phy_time);
+  }
+
+  template<typename Particles, typename Interactions, ReguType RegType>
+  void RegularizedSystem<Particles, Interactions, RegType>::kick_real_vel(Scalar phy_time) {
+    std::swap(aux_vel_, ptcl_.vel());
+    interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+    std::swap(aux_vel_, ptcl_.vel());
+
+    calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+    calc::coord_advance(ptcl_.vel(), accels_.acc(), phy_time);
+
+    advance_omega(aux_vel_, accels_.newtonian_acc(), phy_time);
+
+    if constexpr (Interactions::ext_vel_indep) {
+      calc::coord_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());
+      advance_bindE(aux_vel_, accels_.acc(), phy_time);
+    } else {
+      advance_bindE(aux_vel_, accels_.ext_vel_dep_acc(), phy_time);
+    }
+  }
 
 /*---------------------------------------------------------------------------*\
     Class Regularization Implementation
 \*---------------------------------------------------------------------------*/
-template <typename Scalar, ReguType Type>
-template <typename Particles>
-Regularization<Scalar, Type>::Regularization(const Particles &partc) {
-  omega_ = capital_omega(partc);
-  bindE_ = -calc::calc_total_energy(partc);
-}
-
-template <typename Scalar, ReguType Type>
-template <typename Particles>
-Scalar Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &partc, Scalar step_size) const {
-  if constexpr (Type == ReguType::logH) {
-    return step_size / (bindE_ + calc::calc_kinetic_energy(partc));
-  } else if constexpr (Type == ReguType::TTL) {
-    return step_size / omega_;
-  } else if constexpr (Type == ReguType::none) {
-    return step_size;
-  } else {
-    spacehub_abort("Undefined regularization type!");
+  template<typename Scalar, ReguType Type>
+  template<typename Particles>
+  Regularization<Scalar, Type>::Regularization(const Particles &particles) {
+    omega_ = capital_omega(particles);
+    bindE_ = -calc::calc_total_energy(particles);
   }
-}
 
-template <typename Scalar, ReguType Type>
-template <typename Particles>
-Scalar Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &partc, Scalar step_size) const {
-  if constexpr (Type == ReguType::logH) {
-    return step_size / -calc::calc_potential_energy(partc);
-  } else if constexpr (Type == ReguType::TTL) {
-    return step_size / capital_omega(partc);
-  } else if constexpr (Type == ReguType::none) {
-    return step_size;
-  } else {
-    spacehub_abort("Undefined regularization type!");
+  template<typename Scalar, ReguType Type>
+  template<typename Particles>
+  Scalar Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &particles, Scalar step_size) const {
+    if constexpr (Type == ReguType::LogH) {
+      return step_size / (bindE_ + calc::calc_kinetic_energy(particles));
+    } else if constexpr (Type == ReguType::TTL) {
+      return step_size / omega_;
+    } else if constexpr (Type == ReguType::None) {
+      return step_size;
+    } else {
+      spacehub_abort("Undefined regularization type!");
+    }
   }
-}
 
-template <typename Scalar, ReguType Type>
-template <typename Particles>
-Scalar Regularization<Scalar, Type>::capital_omega(const Particles &partc) const {
-  return -calc::calc_potential_energy(partc);
-}
+  template<typename Scalar, ReguType Type>
+  template<typename Particles>
+  Scalar Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &particles, Scalar step_size) const {
+    if constexpr (Type == ReguType::LogH) {
+      return step_size / -calc::calc_potential_energy(particles);
+    } else if constexpr (Type == ReguType::TTL) {
+      return step_size / capital_omega(particles);
+    } else if constexpr (Type == ReguType::None) {
+      return step_size;
+    } else {
+      spacehub_abort("Undefined regularization type!");
+    }
+  }
+
+  template<typename Scalar, ReguType Type>
+  template<typename Particles>
+  Scalar Regularization<Scalar, Type>::capital_omega(const Particles &particles) const {
+    return -calc::calc_potential_energy(particles);
+  }
 }  // namespace space
 
 #endif

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1integrator_1_1symplectic8th" kind="class" language="C++" prot="public">
+    <compoundname>space::integrator::symplectic8th</compoundname>
+    <basecompoundref refid="classspace_1_1integrator_1_1_sym_integrator" prot="public" virt="non-virtual">space::integrator::SymIntegrator&lt; symplectic8th &gt;</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classspace_1_1integrator_1_1symplectic8th_1a94ab997d3b6f66e881cc3f84bc034a1b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t space::integrator::symplectic8th::order</definition>
+        <argsstring></argsstring>
+        <name>order</name>
+        <initializer>{8}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/symplectic/symplectic-integrator.hpp" line="103" column="29" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1integrator_1_1symplectic8th_1a2d81d37535939523427329801d65b4ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::integrator::symplectic8th::impl_integrate</definition>
+        <argsstring>(ParticleSystem&lt; T &gt; &amp;system, typename T::Scalar step_size)</argsstring>
+        <name>impl_integrate</name>
+        <param>
+          <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; T &gt; &amp;</type>
+          <declname>system</declname>
+        </param>
+        <param>
+          <type>typename T::Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/symplectic/symplectic-integrator.hpp" line="106" column="10" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="106" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>space::integrator::SymIntegrator&lt; symplectic8th &gt;</label>
+        <link refid="classspace_1_1integrator_1_1_sym_integrator"/>
+      </node>
+      <node id="1">
+        <label>space::integrator::symplectic8th</label>
+        <link refid="classspace_1_1integrator_1_1symplectic8th"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>space::integrator::SymIntegrator&lt; symplectic8th &gt;</label>
+        <link refid="classspace_1_1integrator_1_1_sym_integrator"/>
+      </node>
+      <node id="1">
+        <label>space::integrator::symplectic8th</label>
+        <link refid="classspace_1_1integrator_1_1symplectic8th"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="integrator/symplectic/symplectic-integrator.hpp" line="101" column="44" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="101" bodyend="140"/>
+    <listofallmembers>
+      <member refid="classspace_1_1integrator_1_1symplectic8th_1a2d81d37535939523427329801d65b4ab" prot="public" virt="non-virtual"><scope>space::integrator::symplectic8th</scope><name>impl_integrate</name></member>
+      <member refid="classspace_1_1integrator_1_1_sym_integrator_1ad3da555cbc723524321f16411e46b4e7" prot="public" virt="non-virtual"><scope>space::integrator::symplectic8th</scope><name>integrate</name></member>
+      <member refid="classspace_1_1integrator_1_1symplectic8th_1a94ab997d3b6f66e881cc3f84bc034a1b" prot="public" virt="non-virtual"><scope>space::integrator::symplectic8th</scope><name>order</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

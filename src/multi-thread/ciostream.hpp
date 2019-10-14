@@ -1,7 +1,7 @@
-#ifndef SPACEHUB_JOB_SYSTEM_H
-#define SPACEHUB_JOB_SYSTEM_H
+#ifndef SPACEHUB_CIOSTREAM_HPP
+#define SPACEHUB_CIOSTREAM_HPP
 
-#include <memory>
+
 #include <thread>
 #include <mutex>
 #include <condition_variable>
@@ -10,172 +10,172 @@
 #include "../dev-tools.hpp"
 
 namespace space::multiThread {
-    template<typename T>
-    class Opip {
-    public:
-        explicit Opip(const char *file_name) :
-                file_(file_name, std::fstream::out),
-                thread_(std::thread([&] {
-                    while (true) {
-                        std::unique_lock<std::mutex> lock(mutex_, std::defer_lock);
-                        lock.lock();
-                        cv_.wait(lock, [&] { return stop_ || !queue_.empty(); });
+  template<typename T>
+  class Opip {
+  public:
+    explicit Opip(const char *file_name) :
+            file_(file_name, std::fstream::out),
+            thread_(std::thread([&] {
+              while (true) {
+                std::unique_lock<std::mutex> lock(mutex_, std::defer_lock);
+                lock.lock();
+                cv_.wait(lock, [&] { return stop_ || !queue_.empty(); });
 
-                        if (stop_)
-                            break;
+                if (stop_)
+                  break;
 
-                        T data = std::move(queue_.front());
-                        queue_.pop();
-                        lock.unlock();
+                T data = std::move(queue_.front());
+                queue_.pop();
+                lock.unlock();
 
-                        file_ << data;
-                    }
+                file_ << data;
+              }
 
-                    while (!queue_.empty()) {
-                        file_ << queue_.front();
-                        queue_.pop();
-                    }
+              while (!queue_.empty()) {
+                file_ << queue_.front();
+                queue_.pop();
+              }
 
-                })) {}
+            })) {}
 
-        ~Opip() {
-            {
+    ~Opip() {
+      {
+        std::lock_guard<std::mutex> lock(mutex_);
+        stop_ = true;
+      }
+      cv_.notify_all();
+
+      if (thread_.joinable())
+        thread_.join();
+    }
+
+    friend void operator<<(Opip &out, T &&tup) {
+      {
+        std::lock_guard<std::mutex> lock(out.mutex_);
+        out.queue_.emplace(std::forward<T>(tup));
+      }
+      out.cv_.notify_one();
+    }
+
+  private:
+    std::queue<T> queue_;
+    std::mutex mutex_;
+    std::condition_variable cv_;
+    std::fstream file_;
+    std::thread thread_;
+    bool stop_{false};
+  };
+
+  template<typename T>
+  class Ipip {
+  public:
+    explicit Ipip(const char *file_name) :
+            file_(file_name, std::fstream::in),
+            thread_(std::thread([&] {
+              while (!file_.eof()) {
+                {
+                  std::unique_lock<std::mutex> lock(mutex_);
+                  cv_load_.wait(lock, [&] { return stop_ || queue_.empty(); });
+
+                  if (stop_)
+                    break;
+
+                  for (size_t i = 0; i < 100 && !file_.eof(); ++i) {
+                    T data;
+                    file_ >> data;
+                    queue_.emplace(std::move(data));
+                  }
+                }
+                cv_io_.notify_all();
+              }
+
+              {
                 std::lock_guard<std::mutex> lock(mutex_);
-                stop_ = true;
-            }
-            cv_.notify_all();
-
-            if (thread_.joinable())
-                thread_.join();
-        }
-
-        friend void operator<<(Opip &out, T &&tup) {
-            {
-                std::lock_guard<std::mutex> lock(out.mutex_);
-                out.queue_.emplace(std::forward<T>(tup));
-            }
-            out.cv_.notify_one();
-        }
-
-    private:
-        std::queue<T> queue_;
-        std::mutex mutex_;
-        std::condition_variable cv_;
-        std::fstream file_;
-        std::thread thread_;
-        bool stop_{false};
-    };
-
-    template<typename T>
-    class Ipip {
-    public:
-        explicit Ipip(const char *file_name) :
-                file_(file_name, std::fstream::in),
-                thread_(std::thread([&] {
-                    while (!file_.eof()) {
-                        {
-                            std::unique_lock<std::mutex> lock(mutex_);
-                            cv_load_.wait(lock, [&] { return stop_ || queue_.empty(); });
-
-                            if (stop_)
-                                break;
-
-                            for (size_t i = 0; i < 100 && !file_.eof(); ++i) {
-                                T data;
-                                file_ >> data;
-                                queue_.emplace(std::move(data));
-                            }
-                        }
-                        cv_io_.notify_all();
-                    }
-
-                    {
-                        std::lock_guard<std::mutex> lock(mutex_);
-                        eoq_ = true;
-                    }
-                    cv_io_.notify_all();
-                })) {}
-
-        ~Ipip() {
-            {
-                std::lock_guard<std::mutex> lock(mutex_);
-                stop_ = true;
                 eoq_ = true;
-            }
-            cv_io_.notify_all();
-            cv_load_.notify_one();
+              }
+              cv_io_.notify_all();
+            })) {}
 
-            if (thread_.joinable())
-                thread_.join();
-        }
+    ~Ipip() {
+      {
+        std::lock_guard<std::mutex> lock(mutex_);
+        stop_ = true;
+        eoq_ = true;
+      }
+      cv_io_.notify_all();
+      cv_load_.notify_one();
 
-        friend bool operator>>(Ipip &in, T &&tup) {
-            std::unique_lock<std::mutex> lock(in.mutex_);
-            in.cv_io_.wait(lock, [&] { return in.eoq_ || !in.queue_.empty(); });
+      if (thread_.joinable())
+        thread_.join();
+    }
 
-            if (in.eoq_ && in.queue_.empty())
-                return false;
+    friend bool operator>>(Ipip &in, T &&tup) {
+      std::unique_lock<std::mutex> lock(in.mutex_);
+      in.cv_io_.wait(lock, [&] { return in.eoq_ || !in.queue_.empty(); });
 
-            tup = std::move(in.queue_.front());
-            in.queue_.pop();
+      if (in.eoq_ && in.queue_.empty())
+        return false;
 
-            if (in.queue_.empty())
-                in.cv_load_.notify_one();
+      tup = std::move(in.queue_.front());
+      in.queue_.pop();
 
-            return true;
-        }
+      if (in.queue_.empty())
+        in.cv_load_.notify_one();
 
-    private:
-        std::queue<T> queue_;
-        std::mutex mutex_;
-        std::condition_variable cv_load_;
-        std::condition_variable cv_io_;
-        std::fstream file_;
-        std::thread thread_;
-        bool stop_{false};
-        bool eoq_{false};
-    };
+      return true;
+    }
 
-    template<typename T>
-    class Costream {
-    public:
-        explicit Costream(const char *file_name) : pip_ptr_(std::make_unique<Opip<T>>(file_name)) {}
+  private:
+    std::queue<T> queue_;
+    std::mutex mutex_;
+    std::condition_variable cv_load_;
+    std::condition_variable cv_io_;
+    std::fstream file_;
+    std::thread thread_;
+    bool stop_{false};
+    bool eoq_{false};
+  };
 
-        explicit Costream(std::string &file_name) : Costream(file_name.c_str()) {}
+  template<typename T>
+  class Costream {
+  public:
+    explicit Costream(const char *file_name) : pip_ptr_(std::make_unique<Opip<T>>(file_name)) {}
 
-        Costream(Costream const &) = delete;
+    explicit Costream(std::string &file_name) : Costream(file_name.c_str()) {}
 
-        Costream &operator=(Costream const &) = delete;
+    Costream(Costream const &) = delete;
 
-        Costream(Costream &&other) noexcept : pip_ptr_(std::move(other.pip_ptr_)) {}
+    Costream &operator=(Costream const &) = delete;
 
-        Costream &operator=(Costream &&other) noexcept {
-            pip_ptr_ = std::move(other.pip_ptr_);
-            return *this;
-        }
+    Costream(Costream &&other) noexcept : pip_ptr_(std::move(other.pip_ptr_)) {}
 
-        friend void operator<<(Costream &out, T const &tup) {
-            *(out.pip_ptr_) << tup;
-        }
+    Costream &operator=(Costream &&other) noexcept {
+      pip_ptr_ = std::move(other.pip_ptr_);
+      return *this;
+    }
 
-    private:
-        std::unique_ptr<Opip<T>> pip_ptr_;
-    };
+    friend void operator<<(Costream &out, T const &tup) {
+      *(out.pip_ptr_) << tup;
+    }
 
-    template<typename T>
-    class Cistream {
-    public:
-        explicit Cistream(const char *file_name) : pip_ptr_(std::make_shared<Ipip<T>>(file_name)) {}
+  private:
+    std::unique_ptr<Opip<T>> pip_ptr_;
+  };
 
-        explicit Cistream(std::string &file_name) : Cistream(file_name.c_str()) {}
+  template<typename T>
+  class Cistream {
+  public:
+    explicit Cistream(const char *file_name) : pip_ptr_(std::make_shared<Ipip<T>>(file_name)) {}
 
-        friend void operator>>(Cistream &in, T &&tup) {
-            *(in.pip_ptr_) >> std::forward<T>(tup);
-        }
+    explicit Cistream(std::string &file_name) : Cistream(file_name.c_str()) {}
 
-    private:
-        std::shared_ptr<Ipip<T>> pip_ptr_;
-    };
+    friend void operator>>(Cistream &in, T &&tup) {
+      *(in.pip_ptr_) >> std::forward<T>(tup);
+    }
+
+  private:
+    std::shared_ptr<Ipip<T>> pip_ptr_;
+  };
 
 }
-#endif //SPACEHUB_JOB_SYSTEM_H
+#endif //SPACEHUB_CIOSTREAM_HPP

@@ -1,0 +1,72 @@
+\hypertarget{classspace_1_1_p_i_d_controller}{}\doxysection{space\+::P\+I\+D\+Controller$<$ Max\+\_\+order, T $>$ Class Template Reference}
+\label{classspace_1_1_p_i_d_controller}\index{space::PIDController$<$ Max\_order, T $>$@{space::PIDController$<$ Max\_order, T $>$}}
+
+
+{\ttfamily \#include $<$P\+I\+D-\/controller.\+hpp$>$}
+
+Inheritance diagram for space\+::P\+I\+D\+Controller$<$ Max\+\_\+order, T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classspace_1_1_p_i_d_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_aec0f91516488e50495f8269156a72919}\label{classspace_1_1_p_i_d_controller_aec0f91516488e50495f8269156a72919}} 
+using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1_step_controller}{Step\+Controller}}$<$ \mbox{\hyperlink{classspace_1_1_p_i_d_controller}{P\+I\+D\+Controller}}$<$ Max\+\_\+order, T $>$ $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a9dc417dca8aec7143be16997c418fe5f}\label{classspace_1_1_p_i_d_controller_a9dc417dca8aec7143be16997c418fe5f}} 
+using {\bfseries Scalar} = T
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a0f64304989f42062274f7a39d46ed1ca}\label{classspace_1_1_p_i_d_controller_a0f64304989f42062274f7a39d46ed1ca}} 
+using {\bfseries value\+\_\+type} = T
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a7af09229ee7a03a117034db39c1935bc}\label{classspace_1_1_p_i_d_controller_a7af09229ee7a03a117034db39c1935bc}} 
+void {\bfseries set\+\_\+\+P\+I\+D\+\_\+coefficients} (Scalar Kp, Scalar Ki, Scalar Kd)
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a0cfc8b16b2c7bc303affa92100012b67}\label{classspace_1_1_p_i_d_controller_a0cfc8b16b2c7bc303affa92100012b67}} 
+void {\bfseries set\+\_\+safe\+\_\+guards} (Scalar S1, Scalar S2, Scalar S3, Scalar S4)
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a4bbff2234d6e13285f9e654fddc5d1d1}\label{classspace_1_1_p_i_d_controller_a4bbff2234d6e13285f9e654fddc5d1d1}} 
+Scalar {\bfseries impl\+\_\+next\+\_\+step\+\_\+size} (size\+\_\+t order, Scalar old\+\_\+step, Scalar error)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a3d5fb8e757b38e790f0d8dcd60edbf77}\label{classspace_1_1_p_i_d_controller_a3d5fb8e757b38e790f0d8dcd60edbf77}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: template$<$typename Array\+Like$>$ Scalar impl\+\_\+next\+\_\+step\+\_\+size(size\+\_\+t order
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a1b8af6d3256363d62c5b25e0970c6e72}\label{classspace_1_1_p_i_d_controller_a1b8af6d3256363d62c5b25e0970c6e72}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL Scalar {\bfseries old\+\_\+step}
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a73085abfe61aabdb8eaedffc06edc6d9}\label{classspace_1_1_p_i_d_controller_a73085abfe61aabdb8eaedffc06edc6d9}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL Scalar const Array\+Like \& {\bfseries errors}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_af929894705189fbcdc085141712e4a69}\label{classspace_1_1_p_i_d_controller_af929894705189fbcdc085141712e4a69}} 
+constexpr static size\+\_\+t {\bfseries max\+\_\+order} \{Max\+\_\+order\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$size\+\_\+t Max\+\_\+order, typename T$>$\newline
+class space\+::\+P\+I\+D\+Controller$<$ Max\+\_\+order, T $>$}
+
+\href{https://en.wikipedia.org/wiki/PID_controller}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+P\+I\+D\+\_\+controller}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Max\+\_\+order} & \\
+\hline
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+step-\/controller/P\+I\+D-\/controller.\+hpp\end{DoxyCompactItemize}

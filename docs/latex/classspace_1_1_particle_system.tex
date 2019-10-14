@@ -1,0 +1,274 @@
+\hypertarget{classspace_1_1_particle_system}{}\doxysection{space\+::Particle\+System$<$ Derived $>$ Class Template Reference}
+\label{classspace_1_1_particle_system}\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+
+
+{\ttfamily \#include $<$particle-\/system.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspace_1_1_particle_system_afdb86cfe95aa215f750cd8f54ac5f01d}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, mass)
+\item 
+\mbox{\hyperlink{classspace_1_1_particle_system_a71a945b9dc866394018fda90736aeee6}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, idn)
+\item 
+\mbox{\hyperlink{classspace_1_1_particle_system_a8f19bf5259aa48a7e1d5b8da35d7a7c4}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, time)
+\item 
+\mbox{\hyperlink{classspace_1_1_particle_system_ad01d0168269f3c8e0c1056e3486a5797}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, pos)
+\item 
+\mbox{\hyperlink{classspace_1_1_particle_system_a1a0692e0d367dd820e69f51cd8039e0b}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, vel)
+\item 
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_particle_system_afcf1ce0901ca8aadd08d2a05cbdb95db}{number}} () const
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a06f59e07f2ed6ef0b74cf04aab2314b5}{advance\+\_\+time}} (Scalar dt)
+\item 
+{\footnotesize template$<$typename Coord , typename Scalar $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a2aa924fe50893957b6c2c4adc3715a59}{advance\+\_\+pos}} (Scalar step\+\_\+size, Coord const \&velocity)
+\item 
+{\footnotesize template$<$typename Coord , typename Scalar $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a725e1999204d5cd73f9b0f6fe53bacc4}{advance\+\_\+vel}} (Scalar step\+\_\+size, Coord const \&acceleration)
+\item 
+{\footnotesize template$<$typename Coord $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_afcffe317de92a41955bfcdafc4277fac}{evaluate\+\_\+acc}} (Coord \&acceleration) const
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a9f8e3f2fa7f41577688a83f09ad245ea}{drift}} (Scalar step\+\_\+size)
+\item 
+{\footnotesize template$<$typename Scalar $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a040e62f9f12ea1da654bbf3fdf4606ec}{kick}} (Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_particle_system_a1bfa0b1bf933d9a3a00937ebfa052e0c}\label{classspace_1_1_particle_system_a1bfa0b1bf933d9a3a00937ebfa052e0c}} 
+void {\bfseries pre\+\_\+iter\+\_\+process} ()
+\item 
+\mbox{\Hypertarget{classspace_1_1_particle_system_a5c91987e0659ef74244aeec676e3218d}\label{classspace_1_1_particle_system_a5c91987e0659ef74244aeec676e3218d}} 
+void {\bfseries post\+\_\+iter\+\_\+process} ()
+\item 
+{\footnotesize template$<$typename S\+TL $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a1e33bfd67792a3b0242f575553bed151}{to\+\_\+linear\+\_\+container}} (S\+TL \&stl\+\_\+ranges)
+\item 
+{\footnotesize template$<$typename S\+TL $>$ }\\void \mbox{\hyperlink{classspace_1_1_particle_system_a8fe7b476281b0a3793d123bc33eb1211}{load\+\_\+from\+\_\+linear\+\_\+container}} (S\+TL const \&stl\+\_\+ranges)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Derived$>$\newline
+class space\+::\+Particle\+System$<$ Derived $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Derived} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a2aa924fe50893957b6c2c4adc3715a59}\label{classspace_1_1_particle_system_a2aa924fe50893957b6c2c4adc3715a59}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!advance\_pos@{advance\_pos}}
+\index{advance\_pos@{advance\_pos}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{advance\_pos()}{advance\_pos()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Coord , typename Scalar $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::advance\+\_\+pos (\begin{DoxyParamCaption}\item[{Scalar}]{step\+\_\+size,  }\item[{Coord const \&}]{velocity }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Coord} & \\
+\hline
+{\em Scalar} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+size} & \\
+\hline
+{\em velocity} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a06f59e07f2ed6ef0b74cf04aab2314b5}\label{classspace_1_1_particle_system_a06f59e07f2ed6ef0b74cf04aab2314b5}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!advance\_time@{advance\_time}}
+\index{advance\_time@{advance\_time}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{advance\_time()}{advance\_time()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Scalar $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::advance\+\_\+time (\begin{DoxyParamCaption}\item[{Scalar}]{dt }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Scalar} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a725e1999204d5cd73f9b0f6fe53bacc4}\label{classspace_1_1_particle_system_a725e1999204d5cd73f9b0f6fe53bacc4}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!advance\_vel@{advance\_vel}}
+\index{advance\_vel@{advance\_vel}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{advance\_vel()}{advance\_vel()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Coord , typename Scalar $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::advance\+\_\+vel (\begin{DoxyParamCaption}\item[{Scalar}]{step\+\_\+size,  }\item[{Coord const \&}]{acceleration }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Coord} & \\
+\hline
+{\em Scalar} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+size} & \\
+\hline
+{\em acceleration} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a71a945b9dc866394018fda90736aeee6}\label{classspace_1_1_particle_system_a71a945b9dc866394018fda90736aeee6}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{idn}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particle_system_afdb86cfe95aa215f750cd8f54ac5f01d}\label{classspace_1_1_particle_system_afdb86cfe95aa215f750cd8f54ac5f01d}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{mass}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particle_system_ad01d0168269f3c8e0c1056e3486a5797}\label{classspace_1_1_particle_system_ad01d0168269f3c8e0c1056e3486a5797}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{pos}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a8f19bf5259aa48a7e1d5b8da35d7a7c4}\label{classspace_1_1_particle_system_a8f19bf5259aa48a7e1d5b8da35d7a7c4}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{time}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a1a0692e0d367dd820e69f51cd8039e0b}\label{classspace_1_1_particle_system_a1a0692e0d367dd820e69f51cd8039e0b}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{vel}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a9f8e3f2fa7f41577688a83f09ad245ea}\label{classspace_1_1_particle_system_a9f8e3f2fa7f41577688a83f09ad245ea}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!drift@{drift}}
+\index{drift@{drift}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{drift()}{drift()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Scalar $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::drift (\begin{DoxyParamCaption}\item[{Scalar}]{step\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Scalar} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_afcffe317de92a41955bfcdafc4277fac}\label{classspace_1_1_particle_system_afcffe317de92a41955bfcdafc4277fac}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!evaluate\_acc@{evaluate\_acc}}
+\index{evaluate\_acc@{evaluate\_acc}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{evaluate\_acc()}{evaluate\_acc()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Coord $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::evaluate\+\_\+acc (\begin{DoxyParamCaption}\item[{Coord \&}]{acceleration }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Coord} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em acceleration} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a040e62f9f12ea1da654bbf3fdf4606ec}\label{classspace_1_1_particle_system_a040e62f9f12ea1da654bbf3fdf4606ec}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!kick@{kick}}
+\index{kick@{kick}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{kick()}{kick()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Scalar $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::kick (\begin{DoxyParamCaption}\item[{Scalar}]{step\+\_\+size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Scalar} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em step\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a8fe7b476281b0a3793d123bc33eb1211}\label{classspace_1_1_particle_system_a8fe7b476281b0a3793d123bc33eb1211}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!load\_from\_linear\_container@{load\_from\_linear\_container}}
+\index{load\_from\_linear\_container@{load\_from\_linear\_container}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{load\_from\_linear\_container()}{load\_from\_linear\_container()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename S\+TL $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::load\+\_\+from\+\_\+linear\+\_\+container (\begin{DoxyParamCaption}\item[{S\+TL const \&}]{stl\+\_\+ranges }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S\+TL} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+ranges} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particle_system_afcf1ce0901ca8aadd08d2a05cbdb95db}\label{classspace_1_1_particle_system_afcf1ce0901ca8aadd08d2a05cbdb95db}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!number@{number}}
+\index{number@{number}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{number()}{number()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particle_system_a1e33bfd67792a3b0242f575553bed151}\label{classspace_1_1_particle_system_a1e33bfd67792a3b0242f575553bed151}} 
+\index{space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}!to\_linear\_container@{to\_linear\_container}}
+\index{to\_linear\_container@{to\_linear\_container}!space::ParticleSystem$<$ Derived $>$@{space::ParticleSystem$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{to\_linear\_container()}{to\_linear\_container()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename S\+TL $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particle_system}{space\+::\+Particle\+System}}$<$ Derived $>$\+::to\+\_\+linear\+\_\+container (\begin{DoxyParamCaption}\item[{S\+TL \&}]{stl\+\_\+ranges }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S\+TL} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+ranges} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle-\/system.\+hpp\end{DoxyCompactItemize}

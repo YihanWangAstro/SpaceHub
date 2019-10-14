@@ -1,0 +1,907 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacespace_1_1calc" kind="namespace" language="C++">
+    <compoundname>space::calc</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacespace_1_1calc_1ab1eb54b1b30947e6b678b543a9c2322e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto space::calc::add</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>add</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="14" column="18" bodyfile="core-computation.hpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1af042dd5822d4fdeea0b2888a3b688533" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto space::calc::mul</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>mul</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="19" column="18" bodyfile="core-computation.hpp" bodystart="19" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a7742b69c5da4cd5bc6053beec5f3c4f6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto space::calc::any</definition>
+        <argsstring>(Args... args)</argsstring>
+        <name>any</name>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="24" column="18" bodyfile="core-computation.hpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a60f195a3f599f8bfad623c64a096656e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto space::calc::all</definition>
+        <argsstring>(Args... args)</argsstring>
+        <name>all</name>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="29" column="18" bodyfile="core-computation.hpp" bodystart="29" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a0e1d122eca5e4cb2251f40e06e53ac6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::array_set_zero</definition>
+        <argsstring>(Array &amp;array)</argsstring>
+        <name>array_set_zero</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="34" column="8" bodyfile="core-computation.hpp" bodystart="34" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a876d13557c3ddba32cd4440f480ee07c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::set_arrays_zero</definition>
+        <argsstring>(Args &amp;... args)</argsstring>
+        <name>set_arrays_zero</name>
+        <param>
+          <type>Args &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="41" column="8" bodyfile="core-computation.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a54cff9b21c1dc99cfa0a27d03a361e6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::array_dot</definition>
+        <argsstring>(Array const &amp;a, Array const &amp;b, Args const &amp;... args)</argsstring>
+        <name>array_dot</name>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>Args const &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="46" column="8" bodyfile="core-computation.hpp" bodystart="46" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a48c41d16177599e77106683bc56a612e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::array_add</definition>
+        <argsstring>(Array &amp;dst, Array const &amp;a, Array const &amp;b, Args const &amp;... args)</argsstring>
+        <name>array_add</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>Args const &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="57" column="8" bodyfile="core-computation.hpp" bodystart="57" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1aeb8318a2bff3ae82781e3a8d0611a92c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::array_mul</definition>
+        <argsstring>(Array &amp;dst, Array const &amp;a, Array const &amp;b, Args const &amp;... args)</argsstring>
+        <name>array_mul</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>Args const &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="67" column="8" bodyfile="core-computation.hpp" bodystart="67" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a7831753c2e80720a319e3d4cc326c11c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::array_sub</definition>
+        <argsstring>(Array &amp;dst, Array const &amp;a, Array const &amp;b)</argsstring>
+        <name>array_sub</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="76" column="8" bodyfile="core-computation.hpp" bodystart="76" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a290e37919d94780a2c578e5a52ff0165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::array_sum</definition>
+        <argsstring>(Array const &amp;array)</argsstring>
+        <name>array_sum</name>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>array</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="86" column="8" bodyfile="core-computation.hpp" bodystart="86" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1ae0294ebd7b3e5b7ce717c3f84934ac4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::array_advance</definition>
+        <argsstring>(Array &amp;var, Array const &amp;increment, Scalar step_size)</argsstring>
+        <name>array_advance</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>increment</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="95" column="8" bodyfile="core-computation.hpp" bodystart="95" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a82c5f94387edd834bbe2fc513322490e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+          <param>
+            <type>typename Coord</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::coord_dot</definition>
+        <argsstring>(Array &amp;dst, Coord const &amp;a, Coord const &amp;b)</argsstring>
+        <name>coord_dot</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="104" column="8" bodyfile="core-computation.hpp" bodystart="104" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a8b669c19a44813e6337745defca230f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+          <param>
+            <type>typename Coord</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::coord_contract_to_scalar</definition>
+        <argsstring>(Array &amp;coef, Coord const &amp;a, Coord const &amp;b)</argsstring>
+        <name>coord_contract_to_scalar</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>coef</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="112" column="8" bodyfile="core-computation.hpp" bodystart="112" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a1af20f175b415a4f9fe360d089cdc72e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Coord</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::coord_contract_to_scalar</definition>
+        <argsstring>(Coord const &amp;a, Coord const &amp;b)</argsstring>
+        <name>coord_contract_to_scalar</name>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="134" column="8" bodyfile="core-computation.hpp" bodystart="134" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a5e778967bb47fbd2366e9a2085cb197f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Coord</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::coord_add</definition>
+        <argsstring>(Coord &amp;dst, Coord const &amp;a, Coord const &amp;b, Args const &amp;... args)</argsstring>
+        <name>coord_add</name>
+        <param>
+          <type>Coord &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>Args const &amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="145" column="15" bodyfile="core-computation.hpp" bodystart="145" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a520b8098b25a63a467c0ab7d852bc900" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+          <param>
+            <type>typename Coord</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::coord_advance</definition>
+        <argsstring>(Coord &amp;var, Coord const &amp;increment, Scalar step_size)</argsstring>
+        <name>coord_advance</name>
+        <param>
+          <type>Coord &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>increment</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="152" column="15" bodyfile="core-computation.hpp" bodystart="152" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1ad226d2c8703569776126e317a61834f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_com</definition>
+        <argsstring>(Array const &amp;mass, Array const &amp;var)</argsstring>
+        <name>calc_com</name>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>var</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="159" column="15" bodyfile="core-computation.hpp" bodystart="159" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1aebb322a76702b6dfd4ee4917580b6f58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_com</definition>
+        <argsstring>(Array const &amp;mass, Array const &amp;var, typename Array::value_type tot_mass)</argsstring>
+        <name>calc_com</name>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>typename Array::value_type</type>
+          <declname>tot_mass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="164" column="15" bodyfile="core-computation.hpp" bodystart="164" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a83deb44ff9c8856f98270e385b48be5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::move_to_com</definition>
+        <argsstring>(Array &amp;var, typename Array::value_type const &amp;com_var)</argsstring>
+        <name>move_to_com</name>
+        <param>
+          <type>Array &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>typename Array::value_type const &amp;</type>
+          <declname>com_var</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="169" column="8" bodyfile="core-computation.hpp" bodystart="169" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a324136b8087717d03bd33285695130d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Array1</type>
+          </param>
+          <param>
+            <type>typename Array2</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::move_to_com</definition>
+        <argsstring>(Array1 const &amp;mass, Array2 &amp;var)</argsstring>
+        <name>move_to_com</name>
+        <param>
+          <type>Array1 const &amp;</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>Array2 &amp;</type>
+          <declname>var</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="174" column="15" bodyfile="core-computation.hpp" bodystart="174" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a6690fcdfccc1d3c01caa6461a8535359" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Coord</type>
+          </param>
+          <param>
+            <type>typename ScalarArray</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::calc::coord_move_to_com</definition>
+        <argsstring>(ScalarArray const &amp;mass, Coord &amp;var)</argsstring>
+        <name>coord_move_to_com</name>
+        <param>
+          <type>ScalarArray const &amp;</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>Coord &amp;</type>
+          <declname>var</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="180" column="15" bodyfile="core-computation.hpp" bodystart="180" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a1023e026d3105bcc7c84b638fc52c16e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_kinetic_energy</definition>
+        <argsstring>(Particles const &amp;ptc)</argsstring>
+        <name>calc_kinetic_energy</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>ptc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="188" column="15" bodyfile="core-computation.hpp" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a89ee11854c27cf6309c12eee4bf0a97b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::calc::CREATE_METHOD_CHECK</definition>
+        <argsstring>(chain_pos)</argsstring>
+        <name>CREATE_METHOD_CHECK</name>
+        <param>
+          <type>chain_pos</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="192" column="3" declfile="core-computation.hpp" declline="192" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a0e07e47bb29fd01937127334d0d66293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::calc::CREATE_METHOD_CHECK</definition>
+        <argsstring>(index)</argsstring>
+        <name>CREATE_METHOD_CHECK</name>
+        <param>
+          <type>index</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="194" column="3" declfile="core-computation.hpp" declline="194" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1ad8d5868f9417c166b0418ec1f8ebaf5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_potential_energy</definition>
+        <argsstring>(Particles const &amp;particles)</argsstring>
+        <name>calc_potential_energy</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="197" column="8" bodyfile="core-computation.hpp" bodystart="197" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a44497f7a8ce6ed8b43bda1045eb13359" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_total_energy</definition>
+        <argsstring>(Particles const &amp;particles)</argsstring>
+        <name>calc_total_energy</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="244" column="15" bodyfile="core-computation.hpp" bodystart="244" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a803024b9c9a7c28844d9932f4ebecf92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ScalarArray</type>
+          </param>
+          <param>
+            <type>typename Coord</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_fall_free_time</definition>
+        <argsstring>(ScalarArray const &amp;mass, Coord const &amp;position)</argsstring>
+        <name>calc_fall_free_time</name>
+        <param>
+          <type>ScalarArray const &amp;</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the minimal fall free time of two particles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>mass array of particle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>position array of particle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The minimal fall free time of the two particles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="255" column="15" bodyfile="core-computation.hpp" bodystart="255" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a5ad565ae9639f01b3a74f6b70a104188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::calc::CREATE_METHOD_CHECK</definition>
+        <argsstring>(omega)</argsstring>
+        <name>CREATE_METHOD_CHECK</name>
+        <param>
+          <type>omega</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="274" column="3" declfile="core-computation.hpp" declline="274" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a53adec80aa3e0d41d66e93903fa225fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::calc::CREATE_METHOD_CHECK</definition>
+        <argsstring>(bindE)</argsstring>
+        <name>CREATE_METHOD_CHECK</name>
+        <param>
+          <type>bindE</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="276" column="3" declfile="core-computation.hpp" declline="276" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a3f014dcdcc83e6975bdc75598a85bb51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_step_scale</definition>
+        <argsstring>(Particles const &amp;particles)</argsstring>
+        <name>calc_step_scale</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="285" column="8" bodyfile="core-computation.hpp" bodystart="285" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1calc_1a73501521c29dae1b3e19467c56d4d814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::calc::calc_energy_error</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Scalar E0)</argsstring>
+        <name>calc_energy_error</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Scalar</type>
+          <declname>E0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="core-computation.hpp" line="294" column="8" bodyfile="core-computation.hpp" bodystart="294" bodyend="303"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Documentation for space </para>
+    </detaileddescription>
+    <location file="core-computation.hpp" line="8" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1tools_1_1_timer" kind="class" language="C++" prot="public">
+    <compoundname>space::tools::Timer</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classspace_1_1tools_1_1_timer_1a2b2c749b82312ad22d3e7e0a746e7049" prot="private" static="no">
+        <type>std::chrono::time_point&lt; std::chrono::high_resolution_clock &gt;</type>
+        <definition>using space::tools::Timer::Time =  std::chrono::time_point&lt;std::chrono::high_resolution_clock&gt;</definition>
+        <argsstring></argsstring>
+        <name>Time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="9" column="5" bodyfile="tools/timer.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1tools_1_1_timer_1a5921219f65e98646706367c079681271" prot="private" static="no" mutable="no">
+        <type>Time</type>
+        <definition>Time space::tools::Timer::start_</definition>
+        <argsstring></argsstring>
+        <name>start_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="51" column="10" bodyfile="tools/timer.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1tools_1_1_timer_1aea33a2ec56f8d3b2b5cac72338ac8533" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float space::tools::Timer::duration_</definition>
+        <argsstring></argsstring>
+        <name>duration_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="52" column="11" bodyfile="tools/timer.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1tools_1_1_timer_1a51c102564c585720c86552b8588bf036" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool space::tools::Timer::active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="53" column="10" bodyfile="tools/timer.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1a7155bf9009002be96674e8faf446b51f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::tools::Timer::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="15" column="10" bodyfile="tools/timer.hpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1ae26d63313a7416a2dddd6bcf6a4e4b77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float space::tools::Timer::get_time</definition>
+        <argsstring>()</argsstring>
+        <name>get_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="24" column="11" bodyfile="tools/timer.hpp" bodystart="24" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1abe4da3e4edb19f7984ca350e7ca67ee6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::tools::Timer::pause</definition>
+        <argsstring>()</argsstring>
+        <name>pause</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="37" column="10" bodyfile="tools/timer.hpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1a80e6ff22760a000254bb1e98ccc08bfd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::tools::Timer::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/timer.hpp" line="45" column="10" bodyfile="tools/timer.hpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tools/timer.hpp" line="8" column="14" bodyfile="tools/timer.hpp" bodystart="8" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classspace_1_1tools_1_1_timer_1a51c102564c585720c86552b8588bf036" prot="private" virt="non-virtual"><scope>space::tools::Timer</scope><name>active_</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1aea33a2ec56f8d3b2b5cac72338ac8533" prot="private" virt="non-virtual"><scope>space::tools::Timer</scope><name>duration_</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1ae26d63313a7416a2dddd6bcf6a4e4b77" prot="public" virt="non-virtual"><scope>space::tools::Timer</scope><name>get_time</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1abe4da3e4edb19f7984ca350e7ca67ee6" prot="public" virt="non-virtual"><scope>space::tools::Timer</scope><name>pause</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1a80e6ff22760a000254bb1e98ccc08bfd" prot="public" virt="non-virtual"><scope>space::tools::Timer</scope><name>reset</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1a7155bf9009002be96674e8faf446b51f" prot="public" virt="non-virtual"><scope>space::tools::Timer</scope><name>start</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1a5921219f65e98646706367c079681271" prot="private" virt="non-virtual"><scope>space::tools::Timer</scope><name>start_</name></member>
+      <member refid="classspace_1_1tools_1_1_timer_1a2b2c749b82312ad22d3e7e0a746e7049" prot="private" virt="non-virtual"><scope>space::tools::Timer</scope><name>Time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

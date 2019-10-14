@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="space_hub_8hpp" kind="file" language="C++">
+    <compoundname>spaceHub.hpp</compoundname>
+    <includes refid="kahan-number_8hpp" local="yes">kahan-number.hpp</includes>
+    <includes refid="macros_8hpp" local="yes">macros.hpp</includes>
+    <includes refid="finite-size_8hpp" local="yes">particles/finite-size.hpp</includes>
+    <includes refid="point-particles_8hpp" local="yes">particles/point-particles.hpp</includes>
+    <includes refid="simulator_8hpp" local="yes">simulator.hpp</includes>
+    <includes refid="newtonian_8hpp" local="yes">interaction/newtonian.hpp</includes>
+    <includes refid="archain_8hpp" local="yes">particle-system/archain.hpp</includes>
+    <includes refid="base-system_8hpp" local="yes">particle-system/base-system.hpp</includes>
+    <includes refid="chain-system_8hpp" local="yes">particle-system/chain-system.hpp</includes>
+    <includes refid="regu-system_8hpp" local="yes">particle-system/regu-system.hpp</includes>
+    <includes refid="symplectic-integrator_8hpp" local="yes">integrator/symplectic/symplectic-integrator.hpp</includes>
+    <includes refid="worst-offender_8hpp" local="yes">error-checker/worst-offender.hpp</includes>
+    <includes refid="_r_m_s_8hpp" local="yes">error-checker/RMS.hpp</includes>
+    <includes refid="_p_i_d-controller_8hpp" local="yes">step-controller/PID-controller.hpp</includes>
+    <includes refid="_burlish-_stoer_8hpp" local="yes">ode-iterator/Burlish-Stoer.hpp</includes>
+    <includes refid="const-iterator_8hpp" local="yes">ode-iterator/const-iterator.hpp</includes>
+    <includes refid="callbacks_8hpp" local="yes">args-callback/callbacks.hpp</includes>
+    <includes refid="orbits_8hpp" local="yes">orbits/orbits.hpp</includes>
+    <includes refid="auto-name_8hpp" local="yes">tools/auto-name.hpp</includes>
+    <incdepgraph>
+      <node id="38">
+        <label>step-controller/PID-controller.hpp</label>
+        <link refid="_p_i_d-controller_8hpp_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>list</label>
+      </node>
+      <node id="12">
+        <label>../particles.hpp</label>
+        <link refid="particles_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>interaction/newtonian.hpp</label>
+        <link refid="newtonian_8hpp_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>args-callback/callbacks.hpp</label>
+        <link refid="callbacks_8hpp_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>iomanip</label>
+      </node>
+      <node id="17">
+        <label>functional</label>
+      </node>
+      <node id="23">
+        <label>coords.hpp</label>
+        <link refid="coords_8hpp_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>../rand-generator.hpp</label>
+        <link refid="rand-generator_8hpp_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>../tools/timer.hpp</label>
+        <link refid="timer_8hpp_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>ode-iterator.hpp</label>
+        <link refid="ode-iterator_8hpp_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>macros.hpp</label>
+        <link refid="macros_8hpp_source"/>
+      </node>
+      <node id="34">
+        <label>integrator/symplectic/symplectic-integrator.hpp</label>
+        <link refid="symplectic-integrator_8hpp_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>particles/finite-size.hpp</label>
+        <link refid="finite-size_8hpp_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>variant</label>
+      </node>
+      <node id="40">
+        <label>ode-iterator/Burlish-Stoer.hpp</label>
+        <link refid="_burlish-_stoer_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>particle-system/base-system.hpp</label>
+        <link refid="base-system_8hpp_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cmath</label>
+      </node>
+      <node id="33">
+        <label>particle-system/chain-system.hpp</label>
+        <link refid="chain-system_8hpp_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>string</label>
+      </node>
+      <node id="42">
+        <label>ode-iterator/const-iterator.hpp</label>
+        <link refid="const-iterator_8hpp_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>own-math.hpp</label>
+        <link refid="own-math_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../vector/vector3.h</label>
+        <link refid="vector3_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>../interaction.hpp</label>
+        <link refid="interaction_8hpp_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>fstream</label>
+      </node>
+      <node id="25">
+        <label>regu-system.hpp</label>
+        <link refid="regu-system_8hpp_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>tools/auto-name.hpp</label>
+        <link refid="auto-name_8hpp_source"/>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>core-computation.hpp</label>
+        <link refid="core-computation_8hpp_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>random</label>
+      </node>
+      <node id="15">
+        <label>vector3pd.h</label>
+        <link refid="vector3pd_8h_source"/>
+      </node>
+      <node id="7">
+        <label>tuple</label>
+      </node>
+      <node id="56">
+        <label>ctime</label>
+      </node>
+      <node id="27">
+        <label>../particle-system.hpp</label>
+        <link refid="particle-system_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>../stepsize-controller.hpp</label>
+        <link refid="stepsize-controller_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>vector</label>
+      </node>
+      <node id="16">
+        <label>simulator.hpp</label>
+        <link refid="simulator_8hpp_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>../accelerations.hpp</label>
+        <link refid="accelerations_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>array</label>
+      </node>
+      <node id="57">
+        <label>sstream</label>
+      </node>
+      <node id="11">
+        <label>point-particles.hpp</label>
+        <link refid="point-particles_8hpp_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>type-class.hpp</label>
+        <link refid="type-class_8hpp_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>vector3d.h</label>
+        <link refid="vector3d_8h_source"/>
+      </node>
+      <node id="6">
+        <label>iostream</label>
+      </node>
+      <node id="37">
+        <label>error-checker/RMS.hpp</label>
+        <link refid="_r_m_s_8hpp_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>error-checker/worst-offender.hpp</label>
+        <link refid="worst-offender_8hpp_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>mutex</label>
+      </node>
+      <node id="45">
+        <label>chrono</label>
+      </node>
+      <node id="49">
+        <label>orbits/orbits.hpp</label>
+        <link refid="orbits_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>chain.hpp</label>
+        <link refid="chain_8hpp_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>../error-checker.hpp</label>
+        <link refid="error-checker_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>kahan-number.hpp</label>
+        <link refid="kahan-number_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>type_traits</label>
+      </node>
+      <node id="24">
+        <label>particle-system/archain.hpp</label>
+        <link refid="archain_8hpp_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>algorithm</label>
+      </node>
+      <node id="48">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="spaceHub.hpp"/>
+  </compounddef>
+</doxygen>

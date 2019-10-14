@@ -12,6 +12,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Coords Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam T
+ */
 template <typename T>
 struct Coords {
   // type members
@@ -20,22 +24,14 @@ struct Coords {
   using Vector = Vec3<Scalar>;
 
   // constructors
-  Coords() = default;
-
+  SPACEHUB_MAKE_CONSTRUCTORS(Coords, default, default, default, default, default);
+  
   /**
    *
    * @param count
    */
   explicit Coords(size_t count);
-
-  Coords(Coords const &other) = default;
-
-  Coords(Coords &&other) noexcept = default;
-
-  Coords &operator=(Coords const &other) = default;
-
-  Coords &operator=(Coords &&other) noexcept = default;
-
+  
   // public methods
   /**
    *
@@ -45,10 +41,10 @@ struct Coords {
   /**
    *
    * @tparam GenVector
-   * @param v
+   * @param vector
    */
   template <typename GenVector>
-  void emplace_back(GenVector const &v);
+  void emplace_back(GenVector const &vector);
 
   /**
    *
@@ -56,7 +52,7 @@ struct Coords {
    * @param yy
    * @param zz
    */
-  void emplace_back(Scalar &&xx, Scalar &&yy, Scalar &&zz);
+  void emplace_back(Scalar xx, Scalar yy, Scalar zz);
 
   /**
    *
@@ -79,7 +75,7 @@ struct Coords {
    *
    * @return
    */
-  size_t size() const;
+  [[nodiscard]] size_t size() const;
 
   // public members
   T x;
@@ -111,17 +107,17 @@ void Coords<T>::resize(size_t new_sz) {
 
 template <typename T>
 template <typename GenVector>
-void Coords<T>::emplace_back(GenVector const &v) {
-  x.emplace_back(v.x);
-  y.emplace_back(v.y);
-  z.emplace_back(v.z);
+void Coords<T>::emplace_back(GenVector const &vector) {
+  x.emplace_back(vector.x);
+  y.emplace_back(vector.y);
+  z.emplace_back(vector.z);
 }
 
 template <typename T>
-void Coords<T>::emplace_back(Scalar &&xx, Scalar &&yy, Scalar &&zz) {
-  x.emplace_back(std::forward<Scalar>(xx));
-  y.emplace_back(std::forward<Scalar>(yy));
-  z.emplace_back(std::forward<Scalar>(zz));
+void Coords<T>::emplace_back(Scalar xx, Scalar yy, Scalar zz) {
+  x.emplace_back(xx);
+  y.emplace_back(yy);
+  z.emplace_back(zz);
 }
 
 template <typename T>
@@ -138,31 +134,26 @@ void Coords<T>::clear() {
     Help functions and tools
 \*---------------------------------------------------------------------------*/
 template <typename STL, typename T>
-void add_coords_to(STL &stl, Coords<T> const &coords) {
-  for (auto const &xx : coords.x) {
-    stl.emplace_back(xx);
-  }
-  for (auto const &yy : coords.y) {
-    stl.emplace_back(yy);
-  }
-  for (auto const &zz : coords.z) {
-    stl.emplace_back(zz);
-  }
+  void add_coords_to(STL &stl_ranges, Coords<T> &coords) {
+    stl_ranges.reserve(coords.size() * 3 + stl_ranges.size());
+    std::copy(coords.x.begin(), coords.x.end(), std::back_insert_iterator(stl_ranges));
+    std::copy(coords.y.begin(), coords.y.end(), std::back_insert_iterator(stl_ranges));
+    std::copy(coords.z.begin(), coords.z.end(), std::back_insert_iterator(stl_ranges));
 }
 
 template <typename STLIterator, typename T>
-void load_to_coords(STLIterator &i, Coords<T> &coords) {
+void load_to_coords(STLIterator iter_start, STLIterator iter_end, Coords<T> &coords) {
+  size_t len = (iter_end - iter_start)/3;
+  coords.resize(len);
+  auto iter = iter_start;
   for (auto &xx : coords.x) {
-    xx = *i;
-    i++;
+    xx = *iter++;
   }
   for (auto &yy : coords.y) {
-    yy = *i;
-    i++;
+    yy = *iter++;
   }
   for (auto &zz : coords.z) {
-    zz = *i;
-    i++;
+    zz = *iter++;
   }
 }
 

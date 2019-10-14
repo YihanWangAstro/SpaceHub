@@ -1,0 +1,133 @@
+\hypertarget{classspace_1_1_regularized_system}{}\doxysection{space\+::Regularized\+System$<$ Particles, Interactions, Reg\+Type $>$ Class Template Reference}
+\label{classspace_1_1_regularized_system}\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+
+
+Regularized particle System.  
+
+
+
+
+{\ttfamily \#include $<$regu-\/system.\+hpp$>$}
+
+Inheritance diagram for space\+::Regularized\+System$<$ Particles, Interactions, Reg\+Type $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classspace_1_1_regularized_system}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a9e662c5eeece87a9b78ad762969e8ef5}\label{classspace_1_1_regularized_system_a9e662c5eeece87a9b78ad762969e8ef5}} 
+using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1_particle_system}{Particle\+System}}$<$ \mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$ $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a92a08d143c071573ae12242faaadd377}\label{classspace_1_1_regularized_system_a92a08d143c071573ae12242faaadd377}} 
+using {\bfseries Particle} = typename Particles\+::\+Particle
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a16d3c69898d9d0e256c154a2564d2455}\label{classspace_1_1_regularized_system_a16d3c69898d9d0e256c154a2564d2455}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}})
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a36986b6c6bdff4dc5f8860a9742b9c08}\label{classspace_1_1_regularized_system_a36986b6c6bdff4dc5f8860a9742b9c08}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS} (\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}, delete, default, default, default, default)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a5461fd02126cffd25534b3b92a401d3e}\label{classspace_1_1_regularized_system_a5461fd02126cffd25534b3b92a401d3e}} 
+{\footnotesize template$<$typename S\+TL $>$ }\\{\bfseries Regularized\+System} (Scalar time, S\+TL const \&particle\+\_\+set)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a8b8b64fbd28e2d3fb602cf5ea8806be6}\label{classspace_1_1_regularized_system_a8b8b64fbd28e2d3fb602cf5ea8806be6}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, omega, regu\+\_\+.\+omega())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a1412390c25bbd1cf46e1a4e189ea4795}\label{classspace_1_1_regularized_system_a1412390c25bbd1cf46e1a4e189ea4795}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, bindE, regu\+\_\+.\+bindE())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a03162f5fc0b8706af35b5c45e12d9826}\label{classspace_1_1_regularized_system_a03162f5fc0b8706af35b5c45e12d9826}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL ptcl\+\_\+ {\bfseries mass} ())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a22c515d8b1fa4cd5dab8f79340f7c826}\label{classspace_1_1_regularized_system_a22c515d8b1fa4cd5dab8f79340f7c826}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+idn, ptcl\+\_\+.\+idn())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a033220ccfcf4f168b1ce9b60f1fad011}\label{classspace_1_1_regularized_system_a033220ccfcf4f168b1ce9b60f1fad011}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+pos, ptcl\+\_\+.\+pos())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a695eb0e8237d0532c5b60a75d6c711c5}\label{classspace_1_1_regularized_system_a695eb0e8237d0532c5b60a75d6c711c5}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+vel, ptcl\+\_\+.\+vel())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a80b500f92054e68bb8e1e836d8cbf193}\label{classspace_1_1_regularized_system_a80b500f92054e68bb8e1e836d8cbf193}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+time, ptcl\+\_\+.\+time())
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a6471341e5bd5bfe0cddb3298376499c3}\label{classspace_1_1_regularized_system_a6471341e5bd5bfe0cddb3298376499c3}} 
+size\+\_\+t {\bfseries impl\+\_\+number} () const
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a7b2bab60e41da7bf1fab5f71cc274f0c}\label{classspace_1_1_regularized_system_a7b2bab60e41da7bf1fab5f71cc274f0c}} 
+void {\bfseries impl\+\_\+advance\+\_\+time} (Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ad6c4fa3a3a945337b9c5245753c59487}\label{classspace_1_1_regularized_system_ad6c4fa3a3a945337b9c5245753c59487}} 
+void {\bfseries impl\+\_\+advance\+\_\+pos} (Coord const \&velocity, Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a7c227c41617a5dce7c35affce4130f19}\label{classspace_1_1_regularized_system_a7c227c41617a5dce7c35affce4130f19}} 
+void {\bfseries impl\+\_\+advance\+\_\+vel} (Coord const \&acceleration, Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_aa2676f5ff801e12be2a86679c7347c16}\label{classspace_1_1_regularized_system_aa2676f5ff801e12be2a86679c7347c16}} 
+void {\bfseries impl\+\_\+evaluate\+\_\+acc} (Coord \&acceleration) const
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a2873f64a12f14051fc634c6c8d379d78}\label{classspace_1_1_regularized_system_a2873f64a12f14051fc634c6c8d379d78}} 
+void {\bfseries impl\+\_\+drift} (Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a3c8a37943e26c25c0d5e050baafd03de}\label{classspace_1_1_regularized_system_a3c8a37943e26c25c0d5e050baafd03de}} 
+void {\bfseries impl\+\_\+kick} (Scalar step\+\_\+size)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a700159d161c55d26e141e995e0230411}\label{classspace_1_1_regularized_system_a700159d161c55d26e141e995e0230411}} 
+void {\bfseries impl\+\_\+pre\+\_\+iter\+\_\+process} ()
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a0af4bcb966b78052933f1b62159cdf8f}\label{classspace_1_1_regularized_system_a0af4bcb966b78052933f1b62159cdf8f}} 
+{\footnotesize template$<$typename S\+TL $>$ }\\void {\bfseries impl\+\_\+to\+\_\+linear\+\_\+container} (S\+TL \&stl\+\_\+ranges)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ada56faa365fc45f8adc5ada04ed1bfbd}\label{classspace_1_1_regularized_system_ada56faa365fc45f8adc5ada04ed1bfbd}} 
+{\footnotesize template$<$typename S\+TL $>$ }\\void {\bfseries impl\+\_\+load\+\_\+from\+\_\+linear\+\_\+container} (S\+TL const \&stl\+\_\+ranges)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a48286bce5179be4b432ec62bba9325c4}\label{classspace_1_1_regularized_system_a48286bce5179be4b432ec62bba9325c4}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR(auto
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a3c6e0cbc657bd8cce95723eb2acb8cae}\label{classspace_1_1_regularized_system_a3c6e0cbc657bd8cce95723eb2acb8cae}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries impl\+\_\+mass}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_af5c95e0810d7f571e2059035cb53f54e}\label{classspace_1_1_regularized_system_af5c95e0810d7f571e2059035cb53f54e}} 
+static constexpr Regu\+Type {\bfseries regu\+\_\+type} \{Reg\+Type\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_af2a766e888f178d151d31aee767d69a6}\label{classspace_1_1_regularized_system_af2a766e888f178d151d31aee767d69a6}} 
+{\footnotesize template$<$typename P , typename F , Regu\+Type R$>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ P, F, R $>$ const \&ps)
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_aeacb3810dbf383caa0d7ae0b9ee38c09}\label{classspace_1_1_regularized_system_aeacb3810dbf383caa0d7ae0b9ee38c09}} 
+{\footnotesize template$<$typename P , typename F , Regu\+Type R$>$ }\\std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ P, F, R $>$ \&ps)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$\newline
+class space\+::\+Regularized\+System$<$ Particles, Interactions, Reg\+Type $>$}
+
+Regularized particle System. 
+
+Regularied particle system. See details in \href{https://link.springer.com/article/10.1023\%2FA\%3A1008368322547}{\texttt{ https\+://link.\+springer.\+com/article/10.\+1023\%2\+F\+A\%3\+A1008368322547}} , \href{http://iopscience.iop.org/article/10.1086/301102/meta}{\texttt{ http\+://iopscience.\+iop.\+org/article/10.\+1086/301102/meta}} and \href{https://link.springer.com/article/10.1023\%2FA\%3A1021149313347}{\texttt{ https\+://link.\+springer.\+com/article/10.\+1023\%2\+F\+A\%3\+A1021149313347}}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \mbox{\hyperlink{classspace_1_1_particles}{Particles}}} & \\
+\hline
+{\em \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particle-\/system/regu-\/system.\+hpp\end{DoxyCompactItemize}

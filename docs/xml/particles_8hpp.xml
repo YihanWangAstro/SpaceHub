@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="particles_8hpp" kind="file" language="C++">
+    <compoundname>particles.hpp</compoundname>
+    <includes refid="dev-tools_8hpp" local="yes">dev-tools.hpp</includes>
+    <includedby refid="point-particles_8hpp" local="yes">particles/point-particles.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>particles.hpp</label>
+        <link refid="particles_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>particles.hpp</label>
+        <link refid="particles_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>particles/finite-size.hpp</label>
+        <link refid="finite-size_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="2">
+        <label>particles/point-particles.hpp</label>
+        <link refid="point-particles_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classspace_1_1_particles" prot="public">space::Particles</innerclass>
+    <innernamespace refid="namespacespace">space</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="particles_8hpp_1a89c368e13a9bed5d13ed5e4381bb44d9" prot="public" static="no">
+        <name>SPACEHUB_PARTICLE_TYPE_CHECK</name>
+        <param><defname>CTR</defname></param>
+        <param><defname>VAL</defname></param>
+        <initializer>static_assert(std::is_base_of_v&lt;typename CTR::value_type, VAL&gt;, \
+                &quot;Class can only be initialized by containers with its internal &apos;Particle&apos; type!&quot;);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles.hpp" line="151" column="9" bodyfile="particles.hpp" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="particles.hpp"/>
+  </compounddef>
+</doxygen>

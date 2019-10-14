@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
+
+
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(./googletest)
@@ -29,14 +33,14 @@ set(TMP_HEADER_FILES
         src/multi-thread/ciostream.hpp
 
         src/ode-iterator/ode-iterator.hpp
-        src/ode-iterator/BS-iterator.hpp
+        src/ode-iterator/Burlish-Stoer.hpp
         src/ode-iterator/const-iterator.hpp
         src/ode-iterator/IAS15.h
 
         src/orbits/orbits.hpp
 
-        src/particle/point-particles.hpp
-        src/particle/finite-size.hpp
+        src/particles/point-particles.hpp
+        src/particles/finite-size.hpp
 
         src/particle-system/base-system.hpp
         src/particle-system/chain-system.hpp
@@ -53,6 +57,7 @@ set(TMP_HEADER_FILES
         src/vector/vector3d.h
         src/vector/vector3pd.h
 
+        src/accelerations.hpp
         src/coords.hpp
         src/interaction.hpp
         src/particle-system.hpp
@@ -62,29 +67,38 @@ set(TMP_HEADER_FILES
         src/kahan-number.hpp
         src/macros.hpp
         src/own-math.hpp
-        src/particle.hpp
+        src/particles.hpp
         src/simulator.hpp
-        src/spaceHub.h
-        src/type-class.hpp)
+        src/spaceHub.hpp
+        src/type-class.hpp
+        src/error-checker.hpp
+        src/error-checker/worst-offender.hpp
+        src/error-checker/RMS.hpp
+        src/stepsize-controller.hpp
+        src/step-controller/PID-controller.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp
         test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
         test/unit_test/test_chain.cpp
+        test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp test/unit_test/test_core_calculations.cpp)
+
+set(TWOBODY_TEST
+        test/regression_test/two-body-test.cpp
         )
 
-set(REGRESSION_TEST
-        test/regression_test/simple_test.cpp
-
-        )
+set(SOLAR_TEST
+        test/regression_test/solar_system.cpp)
 
 set(KOZAI_TEST
         test/regression_test/kozai.cpp)
-#add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES} ${REGRESSION_TEST})
-#target_link_libraries(SpaceHub_unit_test gtest gtest_main)
-#target_link_libraries(SpaceHub_unit_test gmock gmock_main)
+add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES})
+target_link_libraries(SpaceHub_unit_test gtest gtest_main)
+target_link_libraries(SpaceHub_unit_test gmock gmock_main)
+
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 
-add_executable(SpaceHub_reg_test ${TMP_HEADER_FILES} ${REGRESSION_TEST})
+add_executable(SpaceHub_twobody_test ${TMP_HEADER_FILES} ${TWOBODY_TEST})
 
+add_executable(SpaceHub_solar_test ${TMP_HEADER_FILES} ${SOLAR_TEST})

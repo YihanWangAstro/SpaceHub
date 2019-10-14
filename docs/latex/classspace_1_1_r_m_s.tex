@@ -1,0 +1,76 @@
+\hypertarget{classspace_1_1_r_m_s}{}\doxysection{space\+::R\+MS$<$ T $>$ Class Template Reference}
+\label{classspace_1_1_r_m_s}\index{space::RMS$<$ T $>$@{space::RMS$<$ T $>$}}
+
+
+{\ttfamily \#include $<$R\+M\+S.\+hpp$>$}
+
+Inheritance diagram for space\+::R\+MS$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classspace_1_1_r_m_s}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a636f7d42e98426b7e3648fceb573d937}\label{classspace_1_1_r_m_s_a636f7d42e98426b7e3648fceb573d937}} 
+using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1_error_checker}{Error\+Checker}}$<$ \mbox{\hyperlink{classspace_1_1_r_m_s}{R\+MS}}$<$ T $>$ $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_af64b033bf094a07eca8bec50621872fb}\label{classspace_1_1_r_m_s_af64b033bf094a07eca8bec50621872fb}} 
+using {\bfseries Scalar} = T
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a879757fa5beb44165477ec65a6fed4c7}\label{classspace_1_1_r_m_s_a879757fa5beb44165477ec65a6fed4c7}} 
+using {\bfseries value\+\_\+type} = T
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_ad1de447f8e8a7be9cbd965589caf065b}\label{classspace_1_1_r_m_s_ad1de447f8e8a7be9cbd965589caf065b}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS} (\mbox{\hyperlink{classspace_1_1_r_m_s}{R\+MS}}, default, default, default, default, default)
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a0a62e9ff014b2dd36c262b18ba26da74}\label{classspace_1_1_r_m_s_a0a62e9ff014b2dd36c262b18ba26da74}} 
+{\bfseries R\+MS} (Scalar atol, Scalar rtol)
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a08831b5dfc1bca6fab35e93b3a1fb2f0}\label{classspace_1_1_r_m_s_a08831b5dfc1bca6fab35e93b3a1fb2f0}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+rtol, rtol\+\_\+)
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a2cc67079020ff0fa1fbf8a85916684c5}\label{classspace_1_1_r_m_s_a2cc67079020ff0fa1fbf8a85916684c5}} 
+void {\bfseries impl\+\_\+set\+\_\+atol} (Scalar)
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_adcf94c009434aab255c6a9bdd3c3de7f}\label{classspace_1_1_r_m_s_adcf94c009434aab255c6a9bdd3c3de7f}} 
+void {\bfseries impl\+\_\+set\+\_\+rtol} (Scalar)
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_ad28ed800a8d59f97dadfe1e6f36b058a}\label{classspace_1_1_r_m_s_ad28ed800a8d59f97dadfe1e6f36b058a}} 
+{\footnotesize template$<$typename Array $>$ }\\auto {\bfseries impl\+\_\+error} (Array const \&y0, Array const \&y1) -\/$>$ typename Array\+::value\+\_\+type
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_abdaa79657fa6eadfbaccaa5d2340f91d}\label{classspace_1_1_r_m_s_abdaa79657fa6eadfbaccaa5d2340f91d}} 
+{\footnotesize template$<$typename Array $>$ }\\auto {\bfseries impl\+\_\+error} (Array const \&scale, Array const \&y0, Array const \&y1) -\/$>$ typename Array\+::value\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_afd4fc2bc2eec2990ac3511bae6dcbbc6}\label{classspace_1_1_r_m_s_afd4fc2bc2eec2990ac3511bae6dcbbc6}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR(auto
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a4450a8f80d8daf87233194cf6784c547}\label{classspace_1_1_r_m_s_a4450a8f80d8daf87233194cf6784c547}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries impl\+\_\+atol}
+\item 
+\mbox{\Hypertarget{classspace_1_1_r_m_s_a8f97a47e0f2851a614cf2c913df28ec9}\label{classspace_1_1_r_m_s_a8f97a47e0f2851a614cf2c913df28ec9}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries atol\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class space\+::\+R\+M\+S$<$ T $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+error-\/checker/R\+M\+S.\+hpp\end{DoxyCompactItemize}

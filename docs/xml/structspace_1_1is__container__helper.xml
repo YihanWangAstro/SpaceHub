@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structspace_1_1is__container__helper" kind="struct" language="C++" prot="public">
+    <compoundname>space::is_container_helper</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename...</type>
+        <declname>Ts</declname>
+        <defname>Ts</defname>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="dev-tools.hpp" line="326" column="28" bodyfile="dev-tools.hpp" bodystart="326" bodyend="327"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

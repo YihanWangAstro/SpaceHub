@@ -1,0 +1,50 @@
+\hypertarget{own-math_8hpp}{}\doxysection{own-\/math.hpp File Reference}
+\label{own-math_8hpp}\index{own-\/math.hpp@{own-\/math.hpp}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}dev-\/tools.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structspace_1_1epsilon}{space\+::epsilon$<$ Dtype $>$}}
+\item 
+struct \mbox{\hyperlink{structspace_1_1max__value}{space\+::max\+\_\+value$<$ Dtype $>$}}
+\item 
+struct \mbox{\hyperlink{structspace_1_1big__value}{space\+::big\+\_\+value$<$ Dtype $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacespace}{space}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\T2 \mbox{\hyperlink{namespacespace_af82c0e7ed03d03accf59391663c1f72b}{space\+::min}} (const T1 \&x, const T2 \&y)
+\begin{DoxyCompactList}\small\item\em Self \mbox{\hyperlink{namespacespace_af82c0e7ed03d03accf59391663c1f72b}{min()}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\T2 \mbox{\hyperlink{namespacespace_a23b3a7b6bd57409f91a6cad1a9b852f4}{space\+::max}} (const T1 \&x, const T2 \&y)
+\begin{DoxyCompactList}\small\item\em Self \mbox{\hyperlink{namespacespace_a23b3a7b6bd57409f91a6cad1a9b852f4}{max()}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_a38e2c327d558183010000c0213658b4a}{space\+::abs}} (const T \&x)
+\begin{DoxyCompactList}\small\item\em Self \mbox{\hyperlink{namespacespace_a38e2c327d558183010000c0213658b4a}{abs()}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_a18bf1b62ee0d594afd8c21ead44e3282}{space\+::in\+\_\+range}} (T low, T x, T high)
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr T \mbox{\hyperlink{namespacespace_a0a207b752e72eee8d6c546c8beb63f09}{space\+::stepfunction}} (T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr T \mbox{\hyperlink{namespacespace_abe73681680cf6baecce2543c3fbe05c7}{space\+::sign}} (T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespacespace_aba36b8226a478451143614d2ceede527}{space\+::iseq}} (T x, T y)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_a5ab583df5703addfa74f8fe1eab55c1b}{space\+::karmack\+\_\+fast\+\_\+inverse\+\_\+square\+\_\+root}} (T x)
+\item 
+{\footnotesize template$<$$>$ }\\float \mbox{\hyperlink{namespacespace_a279f21598079d1b4352976c68ab27242}{space\+::karmack\+\_\+fast\+\_\+inverse\+\_\+square\+\_\+root$<$ float $>$}} (float x)
+\item 
+{\footnotesize template$<$$>$ }\\double \mbox{\hyperlink{namespacespace_a8a3fe7149ea1af4bd2f544833ed9c4c7}{space\+::karmack\+\_\+fast\+\_\+inverse\+\_\+square\+\_\+root$<$ double $>$}} (double x)
+\item 
+{\footnotesize template$<$typename Fun $>$ }\\auto \mbox{\hyperlink{namespacespace_a39eb2a86b90fb45dee58f5e92a447612}{space\+::root\+\_\+bisection}} (Fun f, decltype(f(0)) low, decltype(f(0)) high) -\/$>$ decltype(f(0))
+\item 
+{\footnotesize template$<$typename Fun $>$ }\\decltype(std\+::declval$<$ Fun $>$()(0)) \mbox{\hyperlink{namespacespace_a768daee35e068885d9f10a755d3ccc3c}{space\+::root\+\_\+newton}} (Fun f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr T \mbox{\hyperlink{namespacespace_aca418903124fbea5621539bacf958f04}{space\+::epsilon\+\_\+v}} = epsilon$<$T$>$\+::value
+\end{DoxyCompactItemize}

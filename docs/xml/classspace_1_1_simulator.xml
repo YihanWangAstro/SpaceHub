@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1_simulator" kind="class" language="C++" prot="public">
+    <compoundname>space::Simulator</compoundname>
+    <includes refid="simulator_8hpp" local="no">simulator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename ParticSys</type>
+      </param>
+      <param>
+        <type>typename OdeIterator</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classspace_1_1_simulator_1ad9c952d1fcbc6ac963a537e6707a4057" prot="public" static="no">
+        <type><ref refid="classspace_1_1_run_args" kindref="compound">space::RunArgs</ref>&lt; ParticSys &gt;</type>
+        <definition>using space::Simulator&lt; ParticSys, OdeIterator &gt;::RunArgs =  space::RunArgs&lt;ParticSys&gt;</definition>
+        <argsstring></argsstring>
+        <name>RunArgs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="149" column="5" bodyfile="simulator.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_simulator_1a5f4e451f81cb1e587a97b556075986c3" prot="public" static="no">
+        <type>typename ParticSys::Particle</type>
+        <definition>using space::Simulator&lt; ParticSys, OdeIterator &gt;::Particle =  typename ParticSys::Particle</definition>
+        <argsstring></argsstring>
+        <name>Particle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="151" column="5" bodyfile="simulator.hpp" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1_simulator_1a7897d9d11ae472483d47a185d50e8e69" prot="private" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::Simulator&lt; ParticSys, OdeIterator &gt;::step_size_</definition>
+        <argsstring></argsstring>
+        <name>step_size_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Macro step size for ODE iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="190" column="12" bodyfile="simulator.hpp" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_simulator_1a2931c37149600eb406178498316477ef" prot="private" static="no" mutable="no">
+        <type>ParticSys</type>
+        <definition>ParticSys space::Simulator&lt; ParticSys, OdeIterator &gt;::particles_</definition>
+        <argsstring></argsstring>
+        <name>particles_</name>
+        <briefdescription>
+<para>Particle system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="193" column="15" bodyfile="simulator.hpp" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_simulator_1a0f65eae562796706d34c40808971d55b" prot="private" static="no" mutable="no">
+        <type>OdeIterator</type>
+        <definition>OdeIterator space::Simulator&lt; ParticSys, OdeIterator &gt;::iterator_</definition>
+        <argsstring></argsstring>
+        <name>iterator_</name>
+        <briefdescription>
+<para>ODE Iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="196" column="17" bodyfile="simulator.hpp" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1_simulator_1a076f74d81eace565a6d6885ed39eeafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::SPACEHUB_USING_TYPE_SYSTEM_OF</definition>
+        <argsstring>(ParticSys)</argsstring>
+        <name>SPACEHUB_USING_TYPE_SYSTEM_OF</name>
+        <param>
+          <type>ParticSys</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="147" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1aac21d553e8bdaa9d710c84207edc23c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::SPACEHUB_READ_ACCESSOR</definition>
+        <argsstring>(auto, particles, particles_)</argsstring>
+        <name>SPACEHUB_READ_ACCESSOR</name>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>particles</type>
+        </param>
+        <param>
+          <type>particles_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="153" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1ae38a50f5123809747c1244355f0b665e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::SPACEHUB_MAKE_CONSTRUCTORS</definition>
+        <argsstring>(Simulator, delete, default, default, default, default)</argsstring>
+        <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
+        <param>
+          <type><ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref></type>
+        </param>
+        <param>
+          <type>delete</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="156" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1ad4135964c5e41e60e213835642131822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::Simulator</definition>
+        <argsstring>(Scalar time, STL const &amp;particle_set)</argsstring>
+        <name>Simulator</name>
+        <param>
+          <type>Scalar</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>STL const &amp;</type>
+          <declname>particle_set</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>STL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>particle_set</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="165" column="5" bodyfile="simulator.hpp" bodystart="271" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1ad9795f5cf3e9882fa0748d887a397372" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::Simulator</definition>
+        <argsstring>(Scalar time, T const &amp;... particle)</argsstring>
+        <name>Simulator</name>
+        <param>
+          <type>Scalar</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>T const &amp;...</type>
+          <declname>particle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>particle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="174" column="14" bodyfile="simulator.hpp" bodystart="277" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1aedd59ea3b5b1fff4b5993769687476b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Simulator&lt; ParticSys, OdeIterator &gt;::run</definition>
+        <argsstring>(RunArgs const &amp;arg)</argsstring>
+        <name>run</name>
+        <param>
+          <type><ref refid="classspace_1_1_run_args" kindref="compound">RunArgs</ref> const &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="181" column="10" bodyfile="simulator.hpp" bodystart="283" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1a2ba27f705d9ea69d0dbf14e92f5bb521" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual space::Simulator&lt; ParticSys, OdeIterator &gt;::~Simulator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Simulator</name>
+        <briefdescription>
+<para>Default destructor, virtualize for inherent class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="183" column="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classspace_1_1_simulator_1a638f1b4633f11eeece624ec48ea2f774" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Simulator&lt; ParticSys, OdeIterator &gt;::advance_one_step</definition>
+        <argsstring>()</argsstring>
+        <name>advance_one_step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="186" column="17" bodyfile="simulator.hpp" bodystart="322" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1aa673474a035691fb6b17b1d59c72c567" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::CREATE_CRTP_IMPLEMENTATION_CHECK</definition>
+        <argsstring>(set_atol)</argsstring>
+        <name>CREATE_CRTP_IMPLEMENTATION_CHECK</name>
+        <param>
+          <type>set_atol</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="198" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_simulator_1a16d7a859df637905f1d8c554661a02de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Simulator&lt; ParticSys, OdeIterator &gt;::CREATE_CRTP_IMPLEMENTATION_CHECK</definition>
+        <argsstring>(set_rtol)</argsstring>
+        <name>CREATE_CRTP_IMPLEMENTATION_CHECK</name>
+        <param>
+          <type>set_rtol</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="200" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ParticSys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OdeIterator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="simulator.hpp" line="144" column="18" bodyfile="simulator.hpp" bodystart="144" bodyend="201"/>
+    <listofallmembers>
+      <member refid="classspace_1_1_simulator_1a638f1b4633f11eeece624ec48ea2f774" prot="private" virt="non-virtual"><scope>space::Simulator</scope><name>advance_one_step</name></member>
+      <member refid="classspace_1_1_simulator_1aa673474a035691fb6b17b1d59c72c567" prot="private" virt="non-virtual"><scope>space::Simulator</scope><name>CREATE_CRTP_IMPLEMENTATION_CHECK</name></member>
+      <member refid="classspace_1_1_simulator_1a16d7a859df637905f1d8c554661a02de" prot="private" virt="non-virtual"><scope>space::Simulator</scope><name>CREATE_CRTP_IMPLEMENTATION_CHECK</name></member>
+      <member refid="classspace_1_1_simulator_1a0f65eae562796706d34c40808971d55b" prot="private" virt="non-virtual"><scope>space::Simulator</scope><name>iterator_</name></member>
+      <member refid="classspace_1_1_simulator_1a5f4e451f81cb1e587a97b556075986c3" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>Particle</name></member>
+      <member refid="classspace_1_1_simulator_1a2931c37149600eb406178498316477ef" prot="private" virt="non-virtual"><scope>space::Simulator</scope><name>particles_</name></member>
+      <member refid="classspace_1_1_simulator_1aedd59ea3b5b1fff4b5993769687476b8" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>run</name></member>
+      <member refid="classspace_1_1_simulator_1ad9c952d1fcbc6ac963a537e6707a4057" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>RunArgs</name></member>
+      <member refid="classspace_1_1_simulator_1ad4135964c5e41e60e213835642131822" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>Simulator</name></member>
+      <member refid="classspace_1_1_simulator_1ad9795f5cf3e9882fa0748d887a397372" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>Simulator</name></member>
+      <member refid="classspace_1_1_simulator_1ae38a50f5123809747c1244355f0b665e" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
+      <member refid="classspace_1_1_simulator_1aac21d553e8bdaa9d710c84207edc23c3" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>SPACEHUB_READ_ACCESSOR</name></member>
+      <member refid="classspace_1_1_simulator_1a076f74d81eace565a6d6885ed39eeafa" prot="public" virt="non-virtual"><scope>space::Simulator</scope><name>SPACEHUB_USING_TYPE_SYSTEM_OF</name></member>
+      <member refid="classspace_1_1_simulator_1a7897d9d11ae472483d47a185d50e8e69" prot="private" virt="non-virtual"><scope>space::Simulator</scope><name>step_size_</name></member>
+      <member refid="classspace_1_1_simulator_1a2ba27f705d9ea69d0dbf14e92f5bb521" prot="public" virt="virtual"><scope>space::Simulator</scope><name>~Simulator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
