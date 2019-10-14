@@ -1,128 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>space::Kahan struct | Space Hub</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon-dark.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Space Hub: space::Kahan&lt; T &gt; Struct Template Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header><nav id="navigation">
-  <div class="m-container">
-    <div class="m-row">
-      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Space Hub</a>
-      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
-        </svg></a>
-        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
-        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
-      </div>
-      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
-        <div class="m-row">
-          <ol class="m-col-t-6 m-col-m-none">
-            <li><a href="pages.html">Pages</a></li>
-            <li><a href="namespaces.html">Namespaces</a></li>
-          </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="3">
-            <li><a href="annotated.html">Classes</a></li>
-            <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-              <use href="#m-doc-search-icon-path" />
-            </svg></a></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav></header>
-<main><article>
-  <div class="m-container m-container-inflatable">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <h1>
-          <div class="m-doc-template">template&lt;typename T&gt;</div>
-          <span class="m-breadcrumb"><a href="namespacespace.html">space</a>::<wbr/></span>Kahan <span class="m-thin">struct</span>
-        </h1>
-        <p><a href="structspace_1_1_kahan.html" class="m-doc">Kahan</a> number.</p>
-        <div class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#friends">Friends</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-<p>A way to reduce the round off error when adding a small number to a big one. See details in <a href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">https://en.wikipedia.org/wiki/Kahan_<wbr />summation_<wbr />algorithm</a></p>
-        <section id="friends">
-          <h2><a href="#friends">Friends</a></h2>
-          <dl class="m-doc">
-            <dt id="ab7a20a2939e89b95217bfd9c6a2845a6">
-              <span class="m-doc-wrap-bumper">auto <a href="#ab7a20a2939e89b95217bfd9c6a2845a6" class="m-doc-self">operator&lt;&lt;</a>(</span><span class="m-doc-wrap">std::ostream&amp; output,
-              const <a href="structspace_1_1_kahan.html" class="m-doc">Kahan</a>&amp; v) -&gt; std::ostream&amp;</span>
-            </dt>
-            <dd>Output to ostream.</dd>
-            <dt id="a23c0f55b05b750986ccf7e1b6d436590">
-              <span class="m-doc-wrap-bumper">auto <a href="#a23c0f55b05b750986ccf7e1b6d436590" class="m-doc-self">operator&gt;&gt;</a>(</span><span class="m-doc-wrap">std::istream&amp; input,
-              <a href="structspace_1_1_kahan.html" class="m-doc">Kahan</a>&amp; v) -&gt; std::istream&amp;</span>
-            </dt>
-            <dd>Input from istream.</dd>
-          </dl>
-        </section>
-      </div>
-    </div>
-  </div>
-</article></main>
-<div class="m-doc-search" id="search">
-  <a href="#!" onclick="return hideSearch()"></a>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-m-8 m-push-m-2">
-        <div class="m-doc-search-header m-text m-small">
-          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
-          <div id="search-symbolcount">&hellip;</div>
-        </div>
-        <div class="m-doc-search-content">
-          <form>
-            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
-          </form>
-          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
-          <div id="search-help" class="m-text m-dim m-text-center">
-            <p class="m-noindent">Search for symbols, directories, files, pages or
-            modules. You can omit any prefix from the symbol or file path; adding a
-            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
-            directory.</p>
-            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
-            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
-            <span class="m-label m-dim">Enter</span> to go.
-            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
-            copy a link to the result using <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
-          </div>
-          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Space Hub
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
 </div>
-<script src="search-v1.js"></script>
-<script src="searchdata-v1.js" async="async"></script>
-<footer><nav>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
-      </div>
-    </div>
-  </div>
-</nav></footer>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacespace.html">space</a></li><li class="navelem"><a class="el" href="structspace_1_1_kahan.html">Kahan</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Data Fields</a> &#124;
+<a href="#friends">Friends</a>  </div>
+  <div class="headertitle">
+<div class="title">space::Kahan&lt; T &gt; Struct Template Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a class="el" href="structspace_1_1_kahan.html" title="Kahan number.">Kahan</a> number.  
+ <a href="structspace_1_1_kahan.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="kahan-number_8hpp_source.html">kahan-number.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a38d613eef4851e327d29beb17d40cbbb"><td class="memItemLeft" align="right" valign="top"><a id="a38d613eef4851e327d29beb17d40cbbb"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = T</td></tr>
+<tr class="separator:a38d613eef4851e327d29beb17d40cbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a328f3dc3ff71f5be0443949207b77a1c"><td class="memItemLeft" align="right" valign="top"><a id="a328f3dc3ff71f5be0443949207b77a1c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Kahan</b> (T r)</td></tr>
+<tr class="separator:a328f3dc3ff71f5be0443949207b77a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459fc7e196eba6aff66b2c8c1d00fd77"><td class="memItemLeft" align="right" valign="top"><a id="a459fc7e196eba6aff66b2c8c1d00fd77"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Kahan</b> (const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;k)</td></tr>
+<tr class="separator:a459fc7e196eba6aff66b2c8c1d00fd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae64ef997d272e3fd7fc0054c2e9019f2"><td class="memItemLeft" align="right" valign="top"><a id="ae64ef997d272e3fd7fc0054c2e9019f2"></a>
+<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;hs)</td></tr>
+<tr class="separator:ae64ef997d272e3fd7fc0054c2e9019f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0630c162e7c1d5976d989c4b6b6090"><td class="memItemLeft" align="right" valign="top"><a id="add0630c162e7c1d5976d989c4b6b6090"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator T</b> ()</td></tr>
+<tr class="separator:add0630c162e7c1d5976d989c4b6b6090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6abfdf394b576a4d03fa0d6e31f746b8"><td class="memItemLeft" align="right" valign="top"><a id="a6abfdf394b576a4d03fa0d6e31f746b8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator T</b> () const</td></tr>
+<tr class="separator:a6abfdf394b576a4d03fa0d6e31f746b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe17ba875e782d46327b8a3cc2bf6ee8"><td class="memItemLeft" align="right" valign="top"><a id="afe17ba875e782d46327b8a3cc2bf6ee8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>zero_err</b> ()</td></tr>
+<tr class="separator:afe17ba875e782d46327b8a3cc2bf6ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a019ed5b367648efb8c7a0187d8aca3a8"><td class="memItemLeft" align="right" valign="top"><a id="a019ed5b367648efb8c7a0187d8aca3a8"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>real</b></td></tr>
+<tr class="separator:a019ed5b367648efb8c7a0187d8aca3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee92462f32c8f2e5809ba16348d13fc9"><td class="memItemLeft" align="right" valign="top"><a id="aee92462f32c8f2e5809ba16348d13fc9"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>err</b></td></tr>
+<tr class="separator:aee92462f32c8f2e5809ba16348d13fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a93a611fd2d802b0a7a6467ef37b82933"><td class="memItemLeft" align="right" valign="top"><a id="a93a611fd2d802b0a7a6467ef37b82933"></a>
+<a class="el" href="structspace_1_1_kahan.html">Kahan</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;hs)</td></tr>
+<tr class="separator:a93a611fd2d802b0a7a6467ef37b82933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d45869504dd4bd5f5523157f8f9c67e"><td class="memItemLeft" align="right" valign="top"><a id="a9d45869504dd4bd5f5523157f8f9c67e"></a>
+<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;lhs, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;rhs)</td></tr>
+<tr class="separator:a9d45869504dd4bd5f5523157f8f9c67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4c370bcb1c296cbb649a4095b09d913"><td class="memItemLeft" align="right" valign="top"><a id="ab4c370bcb1c296cbb649a4095b09d913"></a>
+<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;lhs, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;rhs)</td></tr>
+<tr class="separator:ab4c370bcb1c296cbb649a4095b09d913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5759f7653b5003e23ee886ab7d902990"><td class="memItemLeft" align="right" valign="top"><a id="a5759f7653b5003e23ee886ab7d902990"></a>
+<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;lhs, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;rhs)</td></tr>
+<tr class="separator:a5759f7653b5003e23ee886ab7d902990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42e4f8216229b2e3f6ab1b9be7adbfff"><td class="memItemLeft" align="right" valign="top"><a id="a42e4f8216229b2e3f6ab1b9be7adbfff"></a>
+<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;lhs, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;rhs)</td></tr>
+<tr class="separator:a42e4f8216229b2e3f6ab1b9be7adbfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a20a2939e89b95217bfd9c6a2845a6"><td class="memItemLeft" align="right" valign="top"><a id="ab7a20a2939e89b95217bfd9c6a2845a6"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_kahan.html#ab7a20a2939e89b95217bfd9c6a2845a6">operator&lt;&lt;</a> (std::ostream &amp;output, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;v)</td></tr>
+<tr class="memdesc:ab7a20a2939e89b95217bfd9c6a2845a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to ostream. <br /></td></tr>
+<tr class="separator:ab7a20a2939e89b95217bfd9c6a2845a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c0f55b05b750986ccf7e1b6d436590"><td class="memItemLeft" align="right" valign="top"><a id="a23c0f55b05b750986ccf7e1b6d436590"></a>
+std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_kahan.html#a23c0f55b05b750986ccf7e1b6d436590">operator&gt;&gt;</a> (std::istream &amp;input, <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;v)</td></tr>
+<tr class="memdesc:a23c0f55b05b750986ccf7e1b6d436590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input from istream. <br /></td></tr>
+<tr class="separator:a23c0f55b05b750986ccf7e1b6d436590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+struct space::Kahan&lt; T &gt;</h3>
+
+<p><a class="el" href="structspace_1_1_kahan.html" title="Kahan number.">Kahan</a> number. </p>
+<p>A way to reduce the round off error when adding a small number to a big one. See details in <a href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">https://en.wikipedia.org/wiki/Kahan_summation_algorithm</a> </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="kahan-number_8hpp_source.html">kahan-number.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
 </body>
 </html>

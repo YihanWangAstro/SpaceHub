@@ -1,248 +1,375 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8" />
-  <title>space::GaussDadau class | Space Hub</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon-dark.png" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Space Hub: space::GaussDadau&lt; ParticSys &gt; Class Template Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header><nav id="navigation">
-  <div class="m-container">
-    <div class="m-row">
-      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">Space Hub</a>
-      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
-        </svg></a>
-        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
-        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
-      </div>
-      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
-        <div class="m-row">
-          <ol class="m-col-t-6 m-col-m-none">
-            <li><a href="pages.html">Pages</a></li>
-            <li><a href="namespaces.html">Namespaces</a></li>
-          </ol>
-          <ol class="m-col-t-6 m-col-m-none" start="3">
-            <li><a href="annotated.html">Classes</a></li>
-            <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
-              <use href="#m-doc-search-icon-path" />
-            </svg></a></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav></header>
-<main><article>
-  <div class="m-container m-container-inflatable">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <h1>
-          <div class="m-doc-template">template&lt;typename ParticSys&gt;</div>
-          <span class="m-breadcrumb"><a href="namespacespace.html">space</a>::<wbr/></span>GaussDadau <span class="m-thin">class</span>
-        </h1>
-        <p>Gauss-Dadau integrator.</p>
-        <div class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#pub-static-attribs">Public static variables</a></li>
-                <li><a href="#pub-methods">Public functions</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <section id="pub-static-attribs">
-          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
-          <dl class="m-doc">
-            <dt id="a2abe1550f71fac107ccff4dabb130e80">
-              static const int <a href="#a2abe1550f71fac107ccff4dabb130e80" class="m-doc-self">order</a>
-            </dt>
-            <dd>Order of the integrator.</dd>
-          </dl>
-        </section>
-        <section id="pub-methods">
-          <h2><a href="#pub-methods">Public functions</a></h2>
-          <dl class="m-doc">
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#aba82c30a0d594104c3abed72b6f79098" class="m-doc">integrate</a>(</span><span class="m-doc-wrap">ParticSys&amp; particles,
-              Scalar stepLength)</span>
-            </dt>
-            <dd>Interface to integrate particle system.</dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a9cd9378f66da4ace3c1200482496a774" class="m-doc">calcuBTab</a>(</span><span class="m-doc-wrap">const ParticSys&amp; particles,
-              Scalar stepLength)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#ac5c9176c9dca785449710b3715e16654" class="m-doc">evaluateSystemAt</a>(</span><span class="m-doc-wrap">ParticSys&amp; particleSys,
-              Scalar stepLength,
-              size_t index)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a49d0f17bbd53c6cc9ad347d6c3a84d83" class="m-doc">predictNewB</a>(</span><span class="m-doc-wrap">Scalar Q1)</span>
-            </dt>
-            <dd></dd>
-          </dl>
-        </section>
-        <section>
-          <h2>Function documentation</h2>
-          <section class="m-doc-details" id="aba82c30a0d594104c3abed72b6f79098"><div>
-            <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aba82c30a0d594104c3abed72b6f79098" class="m-doc-self">integrate</a>(</span><span class="m-doc-wrap">ParticSys&amp; particles,
-              Scalar stepLength)</span></span>
-            </h3>
-            <p>Interface to integrate particle system.</p>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">particles</td>
-                  <td>Particle system need to be integrated.</td>
-                </tr>
-                <tr>
-                  <td>stepLength</td>
-                  <td>Step size for integration.</td>
-                </tr>
-              </tbody>
-            </table>
-<p>This function integrate the particle system for one step with Gauss-Radau stepping.</p>
-          </div></section>
-          <section class="m-doc-details" id="a9cd9378f66da4ace3c1200482496a774"><div>
-            <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9cd9378f66da4ace3c1200482496a774" class="m-doc-self">calcuBTab</a>(</span><span class="m-doc-wrap">const ParticSys&amp; particles,
-              Scalar stepLength)</span></span>
-            </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">particles</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>stepLength</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div></section>
-          <section class="m-doc-details" id="ac5c9176c9dca785449710b3715e16654"><div>
-            <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac5c9176c9dca785449710b3715e16654" class="m-doc-self">evaluateSystemAt</a>(</span><span class="m-doc-wrap">ParticSys&amp; particleSys,
-              Scalar stepLength,
-              size_t index)</span></span>
-            </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">particleSys</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>stepLength</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>index</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div></section>
-          <section class="m-doc-details" id="a49d0f17bbd53c6cc9ad347d6c3a84d83"><div>
-            <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a49d0f17bbd53c6cc9ad347d6c3a84d83" class="m-doc-self">predictNewB</a>(</span><span class="m-doc-wrap">Scalar Q1)</span></span>
-            </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">Q1</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div></section>
-        </section>
-      </div>
-    </div>
-  </div>
-</article></main>
-<div class="m-doc-search" id="search">
-  <a href="#!" onclick="return hideSearch()"></a>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-m-8 m-push-m-2">
-        <div class="m-doc-search-header m-text m-small">
-          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
-          <div id="search-symbolcount">&hellip;</div>
-        </div>
-        <div class="m-doc-search-content">
-          <form>
-            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
-          </form>
-          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
-          <div id="search-help" class="m-text m-dim m-text-center">
-            <p class="m-noindent">Search for symbols, directories, files, pages or
-            modules. You can omit any prefix from the symbol or file path; adding a
-            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
-            directory.</p>
-            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
-            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
-            <span class="m-label m-dim">Enter</span> to go.
-            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
-            copy a link to the result using <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
-            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
-          </div>
-          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Space Hub
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
 </div>
-<script src="search-v1.js"></script>
-<script src="searchdata-v1.js" async="async"></script>
-<footer><nav>
-  <div class="m-container">
-    <div class="m-row">
-      <div class="m-col-l-10 m-push-l-1">
-        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
-      </div>
-    </div>
-  </div>
-</nav></footer>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacespace.html">space</a></li><li class="navelem"><a class="el" href="classspace_1_1_gauss_dadau.html">GaussDadau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
+  <div class="headertitle">
+<div class="title">space::GaussDadau&lt; ParticSys &gt; Class Template Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gauss-Dadau integrator.  
+ <a href="classspace_1_1_gauss_dadau.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_gauss-_dadau_8h_source.html">Gauss-Dadau.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac28b3c480cf1ae769da5dbc05a2809fa"><td class="memItemLeft" align="right" valign="top"><a id="ac28b3c480cf1ae769da5dbc05a2809fa"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>RadauArray</b> = Container&lt; Vector, 7 &gt;</td></tr>
+<tr class="separator:ac28b3c480cf1ae769da5dbc05a2809fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a705e773dc91296ae0e709a45f048cbb4"><td class="memItemLeft" align="right" valign="top"><a id="a705e773dc91296ae0e709a45f048cbb4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>RadauTab</b> = Container&lt; RadauArray, ParticSys::arraySize &gt;</td></tr>
+<tr class="separator:a705e773dc91296ae0e709a45f048cbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a08ef6b64f54424152bd572dd606a5c0e"><td class="memItemLeft" align="right" valign="top"><a id="a08ef6b64f54424152bd572dd606a5c0e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SPACEHUB_USING_TYPE_SYSTEM_OF</b> (ParticSys)</td></tr>
+<tr class="separator:a08ef6b64f54424152bd572dd606a5c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba82c30a0d594104c3abed72b6f79098"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#aba82c30a0d594104c3abed72b6f79098">integrate</a> (ParticSys &amp;particles, Scalar stepLength)</td></tr>
+<tr class="memdesc:aba82c30a0d594104c3abed72b6f79098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to integrate particle system.  <a href="classspace_1_1_gauss_dadau.html#aba82c30a0d594104c3abed72b6f79098">More...</a><br /></td></tr>
+<tr class="separator:aba82c30a0d594104c3abed72b6f79098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd9378f66da4ace3c1200482496a774"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#a9cd9378f66da4ace3c1200482496a774">calcuBTab</a> (const ParticSys &amp;particles, Scalar stepLength)</td></tr>
+<tr class="separator:a9cd9378f66da4ace3c1200482496a774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c9176c9dca785449710b3715e16654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#ac5c9176c9dca785449710b3715e16654">evaluateSystemAt</a> (ParticSys &amp;particleSys, Scalar stepLength, size_t index)</td></tr>
+<tr class="separator:ac5c9176c9dca785449710b3715e16654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d7bd1c32d27ed7e53a54ae1818b002"><td class="memItemLeft" align="right" valign="top">const RadauTab &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#a30d7bd1c32d27ed7e53a54ae1818b002">getBTab</a> () const</td></tr>
+<tr class="separator:a30d7bd1c32d27ed7e53a54ae1818b002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf17c663420129c967088df0897bfa77"><td class="memItemLeft" align="right" valign="top">const VectorArray &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#adf17c663420129c967088df0897bfa77">localAcc</a> () const</td></tr>
+<tr class="separator:adf17c663420129c967088df0897bfa77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a4ed21df5d484f05c5b156814aae00"><td class="memItemLeft" align="right" valign="top"><a id="a43a4ed21df5d484f05c5b156814aae00"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>checkTabVolume</b> (size_t particleNum)</td></tr>
+<tr class="separator:a43a4ed21df5d484f05c5b156814aae00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d0f17bbd53c6cc9ad347d6c3a84d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#a49d0f17bbd53c6cc9ad347d6c3a84d83">predictNewB</a> (Scalar Q1)</td></tr>
+<tr class="separator:a49d0f17bbd53c6cc9ad347d6c3a84d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a2abe1550f71fac107ccff4dabb130e80"><td class="memItemLeft" align="right" valign="top"><a id="a2abe1550f71fac107ccff4dabb130e80"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html#a2abe1550f71fac107ccff4dabb130e80">order</a> {15}</td></tr>
+<tr class="memdesc:a2abe1550f71fac107ccff4dabb130e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order of the integrator. <br /></td></tr>
+<tr class="separator:a2abe1550f71fac107ccff4dabb130e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae88a3879789fe5743d9017b5f86f6f66"><td class="memItemLeft" align="right" valign="top"><a id="ae88a3879789fe5743d9017b5f86f6f66"></a>
+static const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>finalPoint</b> {7}</td></tr>
+<tr class="separator:ae88a3879789fe5743d9017b5f86f6f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ParticSys&gt;<br />
+class space::GaussDadau&lt; ParticSys &gt;</h3>
+
+<p>Gauss-Dadau integrator. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9cd9378f66da4ace3c1200482496a774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd9378f66da4ace3c1200482496a774">&#9670;&nbsp;</a></span>calcuBTab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classspace_1_1_gauss_dadau.html">space::GaussDadau</a>&lt; ParticSys &gt;::calcuBTab </td>
+          <td>(</td>
+          <td class="paramtype">const ParticSys &amp;&#160;</td>
+          <td class="paramname"><em>particles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Scalar&#160;</td>
+          <td class="paramname"><em>stepLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particles</td><td></td></tr>
+    <tr><td class="paramname">stepLength</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5c9176c9dca785449710b3715e16654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c9176c9dca785449710b3715e16654">&#9670;&nbsp;</a></span>evaluateSystemAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classspace_1_1_gauss_dadau.html">space::GaussDadau</a>&lt; ParticSys &gt;::evaluateSystemAt </td>
+          <td>(</td>
+          <td class="paramtype">ParticSys &amp;&#160;</td>
+          <td class="paramname"><em>particleSys</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Scalar&#160;</td>
+          <td class="paramname"><em>stepLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particleSys</td><td></td></tr>
+    <tr><td class="paramname">stepLength</td><td></td></tr>
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a30d7bd1c32d27ed7e53a54ae1818b002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d7bd1c32d27ed7e53a54ae1818b002">&#9670;&nbsp;</a></span>getBTab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const RadauTab&amp; <a class="el" href="classspace_1_1_gauss_dadau.html">space::GaussDadau</a>&lt; ParticSys &gt;::getBTab </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aba82c30a0d594104c3abed72b6f79098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba82c30a0d594104c3abed72b6f79098">&#9670;&nbsp;</a></span>integrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classspace_1_1_gauss_dadau.html">space::GaussDadau</a>&lt; ParticSys &gt;::integrate </td>
+          <td>(</td>
+          <td class="paramtype">ParticSys &amp;&#160;</td>
+          <td class="paramname"><em>particles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Scalar&#160;</td>
+          <td class="paramname"><em>stepLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Interface to integrate particle system. </p>
+<p>This function integrate the particle system for one step with Gauss-Radau stepping. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particles</td><td>Particle system need to be integrated. </td></tr>
+    <tr><td class="paramname">stepLength</td><td>Step size for integration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adf17c663420129c967088df0897bfa77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf17c663420129c967088df0897bfa77">&#9670;&nbsp;</a></span>localAcc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const VectorArray&amp; <a class="el" href="classspace_1_1_gauss_dadau.html">space::GaussDadau</a>&lt; ParticSys &gt;::localAcc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a49d0f17bbd53c6cc9ad347d6c3a84d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d0f17bbd53c6cc9ad347d6c3a84d83">&#9670;&nbsp;</a></span>predictNewB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParticSys &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classspace_1_1_gauss_dadau.html">space::GaussDadau</a>&lt; ParticSys &gt;::predictNewB </td>
+          <td>(</td>
+          <td class="paramtype">Scalar&#160;</td>
+          <td class="paramname"><em>Q1</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Q1</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>integrator/<a class="el" href="_gauss-_dadau_8h_source.html">Gauss-Dadau.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
 </body>
 </html>
