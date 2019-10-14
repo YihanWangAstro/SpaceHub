@@ -139,6 +139,15 @@
       </node>
     </incdepgraph>
     <innerclass refid="classspace_1_1_tidal_force" prot="public">space::TidalForce</innerclass>
+      <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" prot="private">
+          space::TidalForce::has_method_chain_pos
+      </innerclass>
+      <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" prot="private">
+          space::TidalForce::has_method_chain_vel
+      </innerclass>
+      <innerclass refid="structspace_1_1_tidal_force_1_1has__method__index" prot="private">
+          space::TidalForce::has_method_index
+      </innerclass>
     <innernamespace refid="namespacespace">space</innernamespace>
     <briefdescription>
     </briefdescription>

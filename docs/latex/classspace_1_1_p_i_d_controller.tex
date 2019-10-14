@@ -42,27 +42,30 @@ void {\bfseries set\+\_\+\+P\+I\+D\+\_\+coefficients} (Scalar Kp, Scalar Ki, Sca
 \item 
 \mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a0cfc8b16b2c7bc303affa92100012b67}\label{classspace_1_1_p_i_d_controller_a0cfc8b16b2c7bc303affa92100012b67}} 
 void {\bfseries set\+\_\+safe\+\_\+guards} (Scalar S1, Scalar S2, Scalar S3, Scalar S4)
-\item 
-\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a4bbff2234d6e13285f9e654fddc5d1d1}\label{classspace_1_1_p_i_d_controller_a4bbff2234d6e13285f9e654fddc5d1d1}} 
-Scalar {\bfseries impl\+\_\+next\+\_\+step\+\_\+size} (size\+\_\+t order, Scalar old\+\_\+step, Scalar error)
 \end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a3d5fb8e757b38e790f0d8dcd60edbf77}\label{classspace_1_1_p_i_d_controller_a3d5fb8e757b38e790f0d8dcd60edbf77}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: template$<$typename Array\+Like$>$ Scalar impl\+\_\+next\+\_\+step\+\_\+size(size\+\_\+t order
-\item 
-\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a1b8af6d3256363d62c5b25e0970c6e72}\label{classspace_1_1_p_i_d_controller_a1b8af6d3256363d62c5b25e0970c6e72}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL Scalar {\bfseries old\+\_\+step}
-\item 
-\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a73085abfe61aabdb8eaedffc06edc6d9}\label{classspace_1_1_p_i_d_controller_a73085abfe61aabdb8eaedffc06edc6d9}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL Scalar const Array\+Like \& {\bfseries errors}
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_adaed299f3a972a8a8be9c78b27101f86}\label{classspace_1_1_p_i_d_controller_adaed299f3a972a8a8be9c78b27101f86}} 
+friend {\bfseries Base}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classspace_1_1_p_i_d_controller_af929894705189fbcdc085141712e4a69}\label{classspace_1_1_p_i_d_controller_af929894705189fbcdc085141712e4a69}} 
 constexpr static size\+\_\+t {\bfseries max\+\_\+order} \{Max\+\_\+order\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a6293c8ba248c57c738fa929567549b44}\label{classspace_1_1_p_i_d_controller_a6293c8ba248c57c738fa929567549b44}} 
+{\footnotesize template$<$typename Array\+Like $>$ }\\Scalar {\bfseries impl\+\_\+next\+\_\+step\+\_\+size} (size\+\_\+t order, Scalar old\+\_\+step, Array\+Like const \&errors)
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a4bbff2234d6e13285f9e654fddc5d1d1}\label{classspace_1_1_p_i_d_controller_a4bbff2234d6e13285f9e654fddc5d1d1}} 
+Scalar {\bfseries impl\+\_\+next\+\_\+step\+\_\+size} (size\+\_\+t order, Scalar old\+\_\+step, Scalar error)
+\item 
+\mbox{\Hypertarget{classspace_1_1_p_i_d_controller_a3e61270b286be8d703189a9e1fe0646b}\label{classspace_1_1_p_i_d_controller_a3e61270b286be8d703189a9e1fe0646b}} 
+{\footnotesize template$<$typename Array\+Like $>$ }\\auto {\bfseries impl\+\_\+next\+\_\+step\+\_\+size} (size\+\_\+t order, Scalar old\+\_\+step, Array\+Like const \&errors) -\/$>$ Scalar
 \end{DoxyCompactItemize}
 
 

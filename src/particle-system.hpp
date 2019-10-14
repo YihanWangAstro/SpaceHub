@@ -19,34 +19,15 @@ namespace space {
   class ParticleSystem {
   public:
     // public methods
-    /**
-     *
-     * @return
-     */
+
     DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, time);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
     /**

@@ -140,6 +140,15 @@
         </childnode>
       </node>
     </invincdepgraph>
+      <innerclass refid="structspace_1_1calc_1_1has__method__chain__pos" prot="public">
+          space::calc::has_method_chain_pos
+      </innerclass>
+      <innerclass refid="structspace_1_1calc_1_1has__method__index" prot="public">space::calc::has_method_index
+      </innerclass>
+      <innerclass refid="structspace_1_1calc_1_1has__method__omega" prot="public">space::calc::has_method_omega
+      </innerclass>
+      <innerclass refid="structspace_1_1calc_1_1has__method__bind_e" prot="public">space::calc::has_method_bindE
+      </innerclass>
     <innernamespace refid="namespacespace_1_1calc">space::calc</innernamespace>
     <innernamespace refid="namespacespace">space</innernamespace>
     <briefdescription>

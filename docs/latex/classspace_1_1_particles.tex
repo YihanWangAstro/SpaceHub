@@ -2,38 +2,42 @@
 \label{classspace_1_1_particles}\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
 
 
-C\+R\+TP base class of a \textquotesingle{}Structure of Array\textquotesingle{} kind particle set.  
-
-
-
-
 {\ttfamily \#include $<$particles.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classspace_1_1_particles_ad975d199e2c45813545f42d4112249fe}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, idn)
+auto \& \mbox{\hyperlink{classspace_1_1_particles_a964b67a83c8728c11b07448d472f0577}{idn}} () noexcept
 \item 
-\mbox{\hyperlink{classspace_1_1_particles_a25311dd18dbf9173170c7c866894b08d}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, mass)
+const auto \& \mbox{\hyperlink{classspace_1_1_particles_a54a4876043317dcf84231b82babcb3d8}{idn}} () const noexcept
 \item 
-\mbox{\hyperlink{classspace_1_1_particles_a7266a558f27170a4f682f16b195faffb}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, pos)
+auto \& \mbox{\hyperlink{classspace_1_1_particles_a1be68a05d871298fc3829457d6cf77fa}{mass}} () noexcept
 \item 
-\mbox{\hyperlink{classspace_1_1_particles_a4216ea655deafa0c41c1505d450f70f1}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, time)
+const auto \& \mbox{\hyperlink{classspace_1_1_particles_ae0f67e101ca6099b72a198130b295400}{mass}} () const noexcept
 \item 
-\mbox{\hyperlink{classspace_1_1_particles_a0bc171b4fa0185e720d105708e2ee204}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, vel)
+auto \& \mbox{\hyperlink{classspace_1_1_particles_a88b14a9d84c8887f5a95c4ecc8922543}{pos}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_particles_ab4adc005f0b607b96c5f6ebc494c3d99}{pos}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_particles_ab7706ec2697aff1972f6b17248354ffa}{time}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_particles_a8d5470c95c29216ed74c377102caf6e9}{time}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_particles_aac4152046aebc0f7735ec475a472b698}{vel}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_particles_a592e5621e12b5ccc79b3364294543ef9}{vel}} () const noexcept
 \item 
 Derived \& \mbox{\hyperlink{classspace_1_1_particles_a8d4572f516edfeb65457ccb21fa62de6}{derived}} ()
 \item 
 size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}{number}} () const
-\begin{DoxyCompactList}\small\item\em The particle number of this set. \end{DoxyCompactList}\item 
+\item 
 size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles_aa34fcf3707da6d94091d75e235687267}{capacity}} () const
 \item 
 void \mbox{\hyperlink{classspace_1_1_particles_a928e0065624cc688216c09f312e7a1df}{reserve}} (size\+\_\+t new\+\_\+cap)
-\begin{DoxyCompactList}\small\item\em Reserve(allocate) space for creating particles. \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{classspace_1_1_particles_a8be4d54604402eccaa9b50b6bb7783d8}{resize}} (size\+\_\+t new\+\_\+sz)
-\begin{DoxyCompactList}\small\item\em Change the particle number of the set. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}\label{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}} 
-void {\bfseries clear} ()
+\item 
+void \mbox{\hyperlink{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}{clear}} ()
 \item 
 {\footnotesize template$<$typename Particle $>$ }\\void \mbox{\hyperlink{classspace_1_1_particles_a4a5558934deec20dc500a3f8ff981e14}{emplace\+\_\+back}} (Particle const \&new\+\_\+particle)
 \end{DoxyCompactItemize}
@@ -43,11 +47,16 @@ void {\bfseries clear} ()
 \subsubsection*{template$<$typename Derived$>$\newline
 class space\+::\+Particles$<$ Derived $>$}
 
-C\+R\+TP base class of a \textquotesingle{}Structure of Array\textquotesingle{} kind particle set. 
+Abstract class of a \textquotesingle{}Structure of Array(\+So\+A)\textquotesingle{} kind SoA particle set. A class implements(partly/fully) the interfaces of this class via C\+R\+TP idioms can be used cross the system as an implementation of the concept {\ttfamily \mbox{\hyperlink{classspace_1_1_particles}{Particles}}}.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Derived} & \\
+{\em Derived} & The implemented class in C\+R\+TP idioms.\\
+\hline
+\end{DoxyTemplParams}
+Type traits to check if a Type is an implementation of the 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type need to be cheched. \\
 \hline
 \end{DoxyTemplParams}
 
@@ -60,59 +69,26 @@ C\+R\+TP base class of a \textquotesingle{}Structure of Array\textquotesingle{} 
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\begin{DoxyReturn}{Returns}
+ {\bfseries{optional impl}} {\ttfamily $>$ The particle set is resizable.}
 
+Get the capacity of the {\ttfamily Container} for the each component(i.\+e idn, pos, vel) of the SoA particle set. \begin{DoxyReturn}{Returns}
+size\+\_\+t the capacity of the the SoA particle set. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classspace_1_1_particles_ad975d199e2c45813545f42d4112249fe}\label{classspace_1_1_particles_ad975d199e2c45813545f42d4112249fe}} 
-\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
-\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
-\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
-{\footnotesize\ttfamily template$<$typename Derived$>$ \\
-\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{idn}]{ }\end{DoxyParamCaption})}
+\begin{DoxyNote}{Note}
+implementation should keep the consistence of the capacity of all components. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}\label{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!clear@{clear}}
+\index{clear@{clear}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\begin{DoxyReturn}{Returns}
+ {\bfseries{must impl}}
 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classspace_1_1_particles_a25311dd18dbf9173170c7c866894b08d}\label{classspace_1_1_particles_a25311dd18dbf9173170c7c866894b08d}} 
-\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
-\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
-\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
-{\footnotesize\ttfamily template$<$typename Derived$>$ \\
-\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{mass}]{ }\end{DoxyParamCaption})}
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\mbox{\Hypertarget{classspace_1_1_particles_a7266a558f27170a4f682f16b195faffb}\label{classspace_1_1_particles_a7266a558f27170a4f682f16b195faffb}} 
-\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
-\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
-\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
-{\footnotesize\ttfamily template$<$typename Derived$>$ \\
-\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{pos}]{ }\end{DoxyParamCaption})}
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\mbox{\Hypertarget{classspace_1_1_particles_a4216ea655deafa0c41c1505d450f70f1}\label{classspace_1_1_particles_a4216ea655deafa0c41c1505d450f70f1}} 
-\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
-\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
-\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
-{\footnotesize\ttfamily template$<$typename Derived$>$ \\
-\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{time}]{ }\end{DoxyParamCaption})}
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\mbox{\Hypertarget{classspace_1_1_particles_a0bc171b4fa0185e720d105708e2ee204}\label{classspace_1_1_particles_a0bc171b4fa0185e720d105708e2ee204}} 
-\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
-\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
-\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
-{\footnotesize\ttfamily template$<$typename Derived$>$ \\
-\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{vel}]{ }\end{DoxyParamCaption})}
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
+Clear all the particles in the set. \begin{DoxyNote}{Note}
+After the clear, the number of the particle set should be 0. i.\+e \mbox{\hyperlink{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}{number()}} should return 0; 
+\end{DoxyNote}
 \mbox{\Hypertarget{classspace_1_1_particles_a8d4572f516edfeb65457ccb21fa62de6}\label{classspace_1_1_particles_a8d4572f516edfeb65457ccb21fa62de6}} 
 \index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!derived@{derived}}
 \index{derived@{derived}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
@@ -120,8 +96,10 @@ size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 Derived \& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::derived (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\begin{DoxyReturn}{Returns}
+ {\bfseries{auto impl}}
 
+The downcast interface of Base class to Derived class. \begin{DoxyReturn}{Returns}
+Derived 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classspace_1_1_particles_a4a5558934deec20dc500a3f8ff981e14}\label{classspace_1_1_particles_a4a5558934deec20dc500a3f8ff981e14}} 
 \index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!emplace\_back@{emplace\_back}}
@@ -131,11 +109,62 @@ Derived \& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ 
 template$<$typename Particle $>$ \\
 void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::emplace\+\_\+back (\begin{DoxyParamCaption}\item[{Particle const \&}]{new\+\_\+particle }\end{DoxyParamCaption})}
 
+ {\bfseries{must impl}}
 
-\begin{DoxyParams}{Parameters}
-{\em particle} & \\
+Add a single particle to the SoA particle set. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Particle} & The generic particle Type of the added particle. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+particle} & The single particle that is going to be added. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particles_a54a4876043317dcf84231b82babcb3d8}\label{classspace_1_1_particles_a54a4876043317dcf84231b82babcb3d8}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!idn@{idn}}
+\index{idn@{idn}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{idn()}{idn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The getter interface of member {\ttfamily idn}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a964b67a83c8728c11b07448d472f0577}\label{classspace_1_1_particles_a964b67a83c8728c11b07448d472f0577}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!idn@{idn}}
+\index{idn@{idn}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{idn()}{idn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The setter interface of member {\ttfamily idn}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_ae0f67e101ca6099b72a198130b295400}\label{classspace_1_1_particles_ae0f67e101ca6099b72a198130b295400}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!mass@{mass}}
+\index{mass@{mass}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{mass()}{mass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The getter interface of member {\ttfamily mass}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a1be68a05d871298fc3829457d6cf77fa}\label{classspace_1_1_particles_a1be68a05d871298fc3829457d6cf77fa}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!mass@{mass}}
+\index{mass@{mass}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{mass()}{mass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The setter interface of member {\ttfamily mass}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}\label{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}} 
 \index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!number@{number}}
 \index{number@{number}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
@@ -143,12 +172,32 @@ void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derive
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+ {\bfseries{must impl}}
 
+Get the (active) particle number of the SoA particle set. \begin{DoxyReturn}{Returns}
+size\+\_\+t the number of the particles. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_ab4adc005f0b607b96c5f6ebc494c3d99}\label{classspace_1_1_particles_ab4adc005f0b607b96c5f6ebc494c3d99}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!pos@{pos}}
+\index{pos@{pos}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{pos()}{pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
-The particle number of this set. 
+ {\bfseries{must impl}} The getter interface of member {\ttfamily pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a88b14a9d84c8887f5a95c4ecc8922543}\label{classspace_1_1_particles_a88b14a9d84c8887f5a95c4ecc8922543}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!pos@{pos}}
+\index{pos@{pos}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{pos()}{pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
-\begin{DoxyReturn}{Returns}
-size\+\_\+t 
+ {\bfseries{must impl}} The setter interface of member {\ttfamily pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classspace_1_1_particles_a928e0065624cc688216c09f312e7a1df}\label{classspace_1_1_particles_a928e0065624cc688216c09f312e7a1df}} 
 \index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!reserve@{reserve}}
@@ -157,13 +206,13 @@ size\+\_\+t
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::reserve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+\_\+cap }\end{DoxyParamCaption})}
 
+ {\bfseries{optional impl}} {\ttfamily $>$ The particle set is resizable.}
+
+Reserve(allocate) space for each component(i.\+e idn, pos, vel) of the SoA particle set.
 
 
-Reserve(allocate) space for creating particles. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em new\+\_\+cap} & \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+cap} & The new capacity size(in particle number) of the SoA particle set. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classspace_1_1_particles_a8be4d54604402eccaa9b50b6bb7783d8}\label{classspace_1_1_particles_a8be4d54604402eccaa9b50b6bb7783d8}} 
@@ -173,15 +222,59 @@ Reserve(allocate) space for creating particles.
 {\footnotesize\ttfamily template$<$typename Derived $>$ \\
 void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::resize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+\_\+sz }\end{DoxyParamCaption})}
 
+ {\bfseries{optional impl}} {\ttfamily $>$ The particle set is resizable.}
+
+Change the particle number of the set.
 
 
-Change the particle number of the set. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em new\+\_\+sz} & \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+sz} & The new size(in particle number) of the SoA particle set. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particles_a8d5470c95c29216ed74c377102caf6e9}\label{classspace_1_1_particles_a8d5470c95c29216ed74c377102caf6e9}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!time@{time}}
+\index{time@{time}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{time()}{time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The getter interface of member {\ttfamily time}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_ab7706ec2697aff1972f6b17248354ffa}\label{classspace_1_1_particles_ab7706ec2697aff1972f6b17248354ffa}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!time@{time}}
+\index{time@{time}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{time()}{time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The setter interface of member {\ttfamily time}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a592e5621e12b5ccc79b3364294543ef9}\label{classspace_1_1_particles_a592e5621e12b5ccc79b3364294543ef9}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!vel@{vel}}
+\index{vel@{vel}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{vel()}{vel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The getter interface of member {\ttfamily vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_aac4152046aebc0f7735ec475a472b698}\label{classspace_1_1_particles_aac4152046aebc0f7735ec475a472b698}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!vel@{vel}}
+\index{vel@{vel}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{vel()}{vel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ {\bfseries{must impl}} The setter interface of member {\ttfamily vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -67,9 +67,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+      <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+      <a href="#pub-attribs">Data Fields</a> &#124;
+      <a href="#pro-methods">Protected Member Functions</a></div>
   <div class="headertitle">
 <div class="title">space::interactions::NewtonianGrav Class Reference</div>  </div>
 </div><!--header-->
@@ -99,13 +100,56 @@ Public Types</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Base</b> = <a class="el" href="classspace_1_1_interactions.html">Interactions</a>&lt; <a class="el" href="classspace_1_1interactions_1_1_newtonian_grav.html">NewtonianGrav</a> &gt;</td></tr>
 <tr class="separator:a7749cba6fb3e7cd236c536df8cd3f4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
+    <tr class="heading">
+        <td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+            Data Fields</h2></td>
+    </tr>
+    <tr class="memitem:a024aa0573cc7c567cb4962e838692a46">
+        <td class="memItemLeft" align="right" valign="top"><a id="a024aa0573cc7c567cb4962e838692a46"></a>
+            friend&#160;
+        </td>
+        <td class="memItemRight" valign="bottom"><b>Base</b></td>
+    </tr>
+    <tr class="separator:a024aa0573cc7c567cb4962e838692a46">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+</table>
+    <table class="memberdecls">
+        <tr class="heading">
+            <td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+                Protected Member Functions</h2></td>
+        </tr>
+        <tr class="memitem:a745bc979d3fd0897e55d2c7a56d39da5">
+            <td class="memTemplParams" colspan="2"><a id="a745bc979d3fd0897e55d2c7a56d39da5"></a>
+                template&lt;typename Particles &gt;
+            </td>
+        </tr>
+        <tr class="memitem:a745bc979d3fd0897e55d2c7a56d39da5">
+            <td class="memTemplItemLeft" align="right" valign="top">void&#160;</td>
+            <td class="memTemplItemRight" valign="bottom"><b>impl_eval_acc</b> (<a class="el"
+                                                                                   href="classspace_1_1_particles.html">Particles</a>
+                const &amp;particles, typename Particles::Coord &amp;acceleration)
+            </td>
+        </tr>
+        <tr class="separator:a745bc979d3fd0897e55d2c7a56d39da5">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
 <tr class="memitem:ab068f2a0a42660ab505a953cbf6a3b06"><td class="memTemplParams" colspan="2"><a id="ab068f2a0a42660ab505a953cbf6a3b06"></a>
 template&lt;typename Particles &gt; </td></tr>
 <tr class="memitem:ab068f2a0a42660ab505a953cbf6a3b06"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>impl_eval_newtonian_acc</b> (<a class="el" href="classspace_1_1_particles.html">Particles</a> const &amp;particles, typename Particles::Coord &amp;acceleration)</td></tr>
 <tr class="separator:ab068f2a0a42660ab505a953cbf6a3b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classspace_1_1_interactions"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classspace_1_1_interactions')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classspace_1_1_interactions.html">space::Interactions&lt; NewtonianGrav &gt;</a></td></tr>
+    </table>
+    <table class="memberdecls">
+        <tr class="heading">
+            <td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+                Additional Inherited Members</h2></td>
+        </tr>
+        <tr class="inherit_header pub_methods_classspace_1_1_interactions">
+            <td colspan="2" onclick="toggleInherit('pub_methods_classspace_1_1_interactions')"><img src="closed.png"
+                                                                                                    alt="-"/>&#160;Public
+                Member Functions inherited from <a class="el" href="classspace_1_1_interactions.html">space::Interactions&lt;
+                    NewtonianGrav &gt;</a></td>
+        </tr>
 <tr class="memitem:a6688576102282c07dc5c7b6b2745be5f inherit pub_methods_classspace_1_1_interactions"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_interactions.html#a6688576102282c07dc5c7b6b2745be5f">eval_acc</a> (<a class="el" href="classspace_1_1_particles.html">Particles</a> const &amp;particles, typename Particles::Coord &amp;acceleration)</td></tr>
 <tr class="separator:a6688576102282c07dc5c7b6b2745be5f inherit pub_methods_classspace_1_1_interactions"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eaa8fc6ade5e5d127d5d93f6e75663e inherit pub_methods_classspace_1_1_interactions"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_interactions.html#a2eaa8fc6ade5e5d127d5d93f6e75663e">eval_extra_vel_dep_acc</a> (<a class="el" href="classspace_1_1_particles.html">Particles</a> const &amp;particles, typename Particles::Coord &amp;acceleration)</td></tr>
@@ -114,19 +158,12 @@ template&lt;typename Particles &gt; </td></tr>
 <tr class="separator:a42e012c717f1ac61c401e7492203ea1e inherit pub_methods_classspace_1_1_interactions"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8ccb90af06fe343684870d2c93a54fd inherit pub_methods_classspace_1_1_interactions"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_interactions.html#ae8ccb90af06fe343684870d2c93a54fd">eval_newtonian_acc</a> (<a class="el" href="classspace_1_1_particles.html">Particles</a> const &amp;particles, typename Particles::Coord &amp;acceleration)</td></tr>
 <tr class="separator:ae8ccb90af06fe343684870d2c93a54fd inherit pub_methods_classspace_1_1_interactions"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:ade0f0e50fd69f83a86d68a9eeab61bf5"><td class="memItemLeft" align="right" valign="top"><a id="ade0f0e50fd69f83a86d68a9eeab61bf5"></a>
-CRTP_IMPL&#160;</td><td class="memItemRight" valign="bottom"><b>__pad0__</b>: template&lt;typename <a class="el" href="classspace_1_1_particles.html">Particles</a>&gt; void impl_eval_acc(<a class="el" href="classspace_1_1_particles.html">Particles</a> const &amp;particles</td></tr>
-<tr class="separator:ade0f0e50fd69f83a86d68a9eeab61bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bbe1fe31f73cf0d7735cadc56384df5"><td class="memItemLeft" align="right" valign="top"><a id="a1bbe1fe31f73cf0d7735cadc56384df5"></a>
-CRTP_IMPL Particles::Coord &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>acceleration</b></td></tr>
-<tr class="separator:a1bbe1fe31f73cf0d7735cadc56384df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_attribs_classspace_1_1_interactions"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classspace_1_1_interactions')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classspace_1_1_interactions.html">space::Interactions&lt; NewtonianGrav &gt;</a></td></tr>
+        <tr class="inherit_header pub_static_attribs_classspace_1_1_interactions">
+            <td colspan="2" onclick="toggleInherit('pub_static_attribs_classspace_1_1_interactions')"><img
+                    src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el"
+                                                                                               href="classspace_1_1_interactions.html">space::Interactions&lt;
+                NewtonianGrav &gt;</a></td>
+        </tr>
 <tr class="memitem:a722a9fafdf2e329951f30daa07f0fbe8 inherit pub_static_attribs_classspace_1_1_interactions"><td class="memItemLeft" align="right" valign="top"><a id="a722a9fafdf2e329951f30daa07f0fbe8"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>ext_vel_dep</b></td></tr>
 <tr class="separator:a722a9fafdf2e329951f30daa07f0fbe8 inherit pub_static_attribs_classspace_1_1_interactions"><td class="memSeparator" colspan="2">&#160;</td></tr>

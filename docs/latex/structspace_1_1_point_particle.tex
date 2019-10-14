@@ -25,8 +25,16 @@ using {\bfseries Vector} = \mbox{\hyperlink{structspace_1_1_vec3}{Vec3}}$<$ Scal
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structspace_1_1_point_particle_a7c2fdaef2b81299cdfa9debd0799159e}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS}} (\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}, default, default, default, default, default)
+\mbox{\hyperlink{structspace_1_1_point_particle_a30b98a3bc0fea896fd938749e731806a}{Point\+Particle}} ()=default
 \begin{DoxyCompactList}\small\item\em Construct a new Point Particle object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structspace_1_1_point_particle_af649105460c5420b9c6d3eb49ade323d}{Point\+Particle}} (\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} const \&)=default
+\item 
+\mbox{\hyperlink{structspace_1_1_point_particle_a99e8775d321591f19db74aa41ada8702}{Point\+Particle}} (\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} \&\&)=default
+\item 
+\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} \& \mbox{\hyperlink{structspace_1_1_point_particle_a9e638adc8a91703dd3ad4c88be558f0a}{operator=}} (\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} const \&)=default
+\item 
+\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} \& \mbox{\hyperlink{structspace_1_1_point_particle_abac49aab20583ce49a7fffd4e7e2dcf7}{operator=}} (\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} \&\&)=default
+\item 
 \mbox{\hyperlink{structspace_1_1_point_particle_ac0f213b4f8a499cc9fe6b824b43675ad}{Point\+Particle}} (Scalar mass, \mbox{\hyperlink{structspace_1_1_vec3}{Vector}} position, \mbox{\hyperlink{structspace_1_1_vec3}{Vector}} velocity)
 \begin{DoxyCompactList}\small\item\em Construct a new Point Particle object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structspace_1_1_point_particle_a1d59149edd7d01c13ba93b54e899bb64}{Point\+Particle}} (Scalar mass, Scalar px=0, Scalar py=0, Scalar pz=0, Scalar vx=0, Scalar vy=0, Scalar vz=0)
@@ -57,10 +65,38 @@ struct space\+::\+Point\+Particle$<$ Real $>$}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{structspace_1_1_point_particle_ac0f213b4f8a499cc9fe6b824b43675ad}\label{structspace_1_1_point_particle_ac0f213b4f8a499cc9fe6b824b43675ad}} 
+\mbox{\Hypertarget{structspace_1_1_point_particle_a30b98a3bc0fea896fd938749e731806a}\label{structspace_1_1_point_particle_a30b98a3bc0fea896fd938749e731806a}} 
 \index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!PointParticle@{PointParticle}}
 \index{PointParticle@{PointParticle}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
-\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename Real$>$ \\
+\mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Point Particle object. 
+
+Default constructor. ~\newline
+ \mbox{\Hypertarget{structspace_1_1_point_particle_af649105460c5420b9c6d3eb49ade323d}\label{structspace_1_1_point_particle_af649105460c5420b9c6d3eb49ade323d}} 
+\index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!PointParticle@{PointParticle}}
+\index{PointParticle@{PointParticle}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename Real$>$ \\
+\mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default copy constructor. ~\newline
+ \mbox{\Hypertarget{structspace_1_1_point_particle_a99e8775d321591f19db74aa41ada8702}\label{structspace_1_1_point_particle_a99e8775d321591f19db74aa41ada8702}} 
+\index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!PointParticle@{PointParticle}}
+\index{PointParticle@{PointParticle}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename Real$>$ \\
+\mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default move constructor ~\newline
+ \mbox{\Hypertarget{structspace_1_1_point_particle_ac0f213b4f8a499cc9fe6b824b43675ad}\label{structspace_1_1_point_particle_ac0f213b4f8a499cc9fe6b824b43675ad}} 
+\index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!PointParticle@{PointParticle}}
+\index{PointParticle@{PointParticle}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
 {\footnotesize\ttfamily template$<$typename Real $>$ \\
 \mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} (\begin{DoxyParamCaption}\item[{Scalar}]{mass,  }\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_vec3}{Vector}}}]{p,  }\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_vec3}{Vector}}}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
@@ -80,7 +116,7 @@ Construct a new Point Particle object.
 \mbox{\Hypertarget{structspace_1_1_point_particle_a1d59149edd7d01c13ba93b54e899bb64}\label{structspace_1_1_point_particle_a1d59149edd7d01c13ba93b54e899bb64}} 
 \index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!PointParticle@{PointParticle}}
 \index{PointParticle@{PointParticle}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
-\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{PointParticle()}{PointParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
 {\footnotesize\ttfamily template$<$typename Real $>$ \\
 \mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}} (\begin{DoxyParamCaption}\item[{Scalar}]{mass,  }\item[{Scalar}]{px = {\ttfamily 0},  }\item[{Scalar}]{py = {\ttfamily 0},  }\item[{Scalar}]{pz = {\ttfamily 0},  }\item[{Scalar}]{vx = {\ttfamily 0},  }\item[{Scalar}]{vy = {\ttfamily 0},  }\item[{Scalar}]{vz = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
@@ -108,18 +144,23 @@ Construct a new Point Particle object.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{structspace_1_1_point_particle_a7c2fdaef2b81299cdfa9debd0799159e}\label{structspace_1_1_point_particle_a7c2fdaef2b81299cdfa9debd0799159e}} 
-\index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!SPACEHUB\_MAKE\_CONSTRUCTORS@{SPACEHUB\_MAKE\_CONSTRUCTORS}}
-\index{SPACEHUB\_MAKE\_CONSTRUCTORS@{SPACEHUB\_MAKE\_CONSTRUCTORS}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
-\doxysubsubsection{\texorpdfstring{SPACEHUB\_MAKE\_CONSTRUCTORS()}{SPACEHUB\_MAKE\_CONSTRUCTORS()}}
+\mbox{\Hypertarget{structspace_1_1_point_particle_abac49aab20583ce49a7fffd4e7e2dcf7}\label{structspace_1_1_point_particle_abac49aab20583ce49a7fffd4e7e2dcf7}} 
+\index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename Real$>$ \\
-\mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$}]{,  }\item[{default}]{,  }\item[{default}]{,  }\item[{default}]{,  }\item[{default}]{,  }\item[{default}]{ }\end{DoxyParamCaption})}
+\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}\& \mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
+Default move assignment operator ~\newline
+ \mbox{\Hypertarget{structspace_1_1_point_particle_a9e638adc8a91703dd3ad4c88be558f0a}\label{structspace_1_1_point_particle_a9e638adc8a91703dd3ad4c88be558f0a}} 
+\index{space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!space::PointParticle$<$ Real $>$@{space::PointParticle$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Real$>$ \\
+\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}\& \mbox{\hyperlink{structspace_1_1_point_particle}{space\+::\+Point\+Particle}}$<$ Real $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structspace_1_1_point_particle}{Point\+Particle}}$<$ Real $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-
-Construct a new Point Particle object. 
-
-
+Default copy assignment operator ~\newline
+ 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

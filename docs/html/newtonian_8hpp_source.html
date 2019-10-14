@@ -112,10 +112,22 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles&gt;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> NewtonianGrav::impl_eval_newtonian_acc(<span class="keyword">const</span> <a class="code" href="classspace_1_1_particles.html">Particles</a> &amp;particles, <span class="keyword">typename</span> Particles::Coord &amp;acceleration) {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">size_t</span> num = particles.<a class="code" href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">number</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">auto</span> &amp;px = particles.pos().x;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">auto</span> &amp;py = particles.pos().y;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">auto</span> &amp;pz = particles.pos().z;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">auto</span> &amp;m = particles.mass();</div>
+    <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">auto</span>
+        &amp;px = particles.<a class="code"
+                               href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().x;
+    </div>
+    <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">auto</span>
+        &amp;py = particles.<a class="code"
+                               href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().y;
+    </div>
+    <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <span class="keyword">auto</span>
+        &amp;pz = particles.<a class="code"
+                               href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().z;
+    </div>
+    <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">auto</span>
+        &amp;m = particles.<a class="code"
+                              href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>();
+    </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    calc::set_arrays_zero(acceleration.x, acceleration.y, acceleration.z);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -161,9 +173,29 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassspace_1_1_interactions_html"><div class="ttname"><a href="classspace_1_1_interactions.html">space::Interactions</a></div><div class="ttdef"><b>Definition:</b> interaction.hpp:21</div></div>
 <div class="ttc" id="anamespacespace_1_1interactions_html"><div class="ttname"><a href="namespacespace_1_1interactions.html">space::interactions</a></div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdoc">CRTP base class of a 'Structure of Array' kind particle set.</div><div class="ttdef"><b>Definition:</b> particles.hpp:18</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa">
+    <div class="ttname"><a
+            href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div>
+    <div class="ttdeci">auto &amp; mass() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> particles.hpp:24</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543">
+    <div class="ttname"><a
+            href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div>
+    <div class="ttdeci">auto &amp; pos() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> particles.hpp:26</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_particles_html">
+    <div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div>
+    <div class="ttdef"><b>Definition:</b> particles.hpp:19</div>
+</div>
 <div class="ttc" id="aclassspace_1_1interactions_1_1_newtonian_grav_html"><div class="ttname"><a href="classspace_1_1interactions_1_1_newtonian_grav.html">space::interactions::NewtonianGrav</a></div><div class="ttdef"><b>Definition:</b> newtonian.hpp:20</div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32"><div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a></div><div class="ttdeci">size_t number() const</div><div class="ttdoc">The particle number of this set.</div><div class="ttdef"><b>Definition:</b> particles.hpp:115</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32">
+    <div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a>
+    </div>
+    <div class="ttdeci">size_t number() const</div>
+    <div class="ttdef"><b>Definition:</b> particles.hpp:111</div>
+</div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

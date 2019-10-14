@@ -58,21 +58,6 @@
         <location file="lazy-evaluation/slice.h" line="47" column="15" bodyfile="lazy-evaluation/slice.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a2e1ac172c0fcf2b866567e58c6fe38ee" prot="public" static="no" mutable="no">
-        <type></type>
-        <definition>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::EXPR_CREATE_SLICE_INTERFACE</definition>
-        <argsstring></argsstring>
-        <name>EXPR_CREATE_SLICE_INTERFACE</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="94" column="13" bodyfile="lazy-evaluation/slice.h" bodystart="94" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ae7807a24ac3b7d5b94b294d863c1687e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -185,6 +170,49 @@
         </inbodydescription>
         <location file="lazy-evaluation/slice.h" line="85" column="15" bodyfile="lazy-evaluation/slice.h" bodystart="85" bodyend="92"/>
       </memberdef>
+          <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9"
+                     prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>int</type>
+                      <declname>Begin__LINE__</declname>
+                      <defname>Begin__LINE__</defname>
+                  </param>
+                  <param>
+                      <type>int</type>
+                      <declname>End__LINE__</declname>
+                      <defname>End__LINE__</defname>
+                  </param>
+                  <param>
+                      <type>int</type>
+                      <declname>Stride__LINE__</declname>
+                      <defname>Stride__LINE__</defname>
+                      <defval>1</defval>
+                  </param>
+              </templateparamlist>
+              <type>constexpr auto</type>
+              <definition>constexpr auto SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::operator[]
+              </definition>
+              <argsstring>(const Slice&lt; Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;slice) -&gt; Slice_Expr&lt;
+                  typename std::remove_reference&lt; decltype(*this)&gt;::type, Begin__LINE__, End__LINE__,
+                  Stride__LINE__, std::remove_reference&lt; decltype(*this)&gt;::type ::size()&gt;
+              </argsstring>
+              <name>operator[]</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_slice" kindref="compound">Slice</ref>&lt;
+                      Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;
+                  </type>
+                  <declname>slice</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/slice.h" line="94" column="61" bodyfile="lazy-evaluation/slice.h"
+                        bodystart="94" bodyend="94"/>
+          </memberdef>
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a5dc48b5baaca706112f65502346a0295" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -255,13 +283,17 @@
     <listofallmembers>
       <member refid="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>cast</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1adf4ef281b9f1726aadbfe2a72e28207b" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>eval</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a2e1ac172c0fcf2b866567e58c6fe38ee" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>EXPR_CREATE_SLICE_INTERFACE</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab1104037b93baa734f225a4aa01a0108" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>max</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a8de487fed4f00ca7603a6326cca38fe0" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>min</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a453f84adc5053709a73682f1ee2fec1b" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator=</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a5dc48b5baaca706112f65502346a0295" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator=</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab39be14d6286c12344c877fac3085db9" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator[]</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a2411acbcb2265fe7cf9ca2b1afef6875" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator[]</name></member>
+        <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" prot="public"
+                virt="non-virtual">
+            <scope>SpaceH::Lazy::Slice_Expr</scope>
+            <name>operator[]</name>
+        </member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a6eca9207127464b5fa31de2071ff95a8" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>size</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ae7807a24ac3b7d5b94b294d863c1687e" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>Slice_Expr</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1af6cdf5b8352304847ae70cf406e20afd" prot="private" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>src_</name></member>

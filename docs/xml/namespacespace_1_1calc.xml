@@ -2,6 +2,15 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
   <compounddef id="namespacespace_1_1calc" kind="namespace" language="C++">
     <compoundname>space::calc</compoundname>
+      <innerclass refid="structspace_1_1calc_1_1has__method__bind_e" prot="public">space::calc::has_method_bindE
+      </innerclass>
+      <innerclass refid="structspace_1_1calc_1_1has__method__chain__pos" prot="public">
+          space::calc::has_method_chain_pos
+      </innerclass>
+      <innerclass refid="structspace_1_1calc_1_1has__method__index" prot="public">space::calc::has_method_index
+      </innerclass>
+      <innerclass refid="structspace_1_1calc_1_1has__method__omega" prot="public">space::calc::has_method_omega
+      </innerclass>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespacespace_1_1calc_1ab1eb54b1b30947e6b678b543a9c2322e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -669,38 +678,6 @@
         </inbodydescription>
         <location file="core-computation.hpp" line="188" column="15" bodyfile="core-computation.hpp" bodystart="188" bodyend="190"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1calc_1a89ee11854c27cf6309c12eee4bf0a97b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::calc::CREATE_METHOD_CHECK</definition>
-        <argsstring>(chain_pos)</argsstring>
-        <name>CREATE_METHOD_CHECK</name>
-        <param>
-          <type>chain_pos</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="core-computation.hpp" line="192" column="3" declfile="core-computation.hpp" declline="192" declcolumn="3"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1calc_1a0e07e47bb29fd01937127334d0d66293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::calc::CREATE_METHOD_CHECK</definition>
-        <argsstring>(index)</argsstring>
-        <name>CREATE_METHOD_CHECK</name>
-        <param>
-          <type>index</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="core-computation.hpp" line="194" column="3" declfile="core-computation.hpp" declline="194" declcolumn="3"/>
-      </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1ad8d5868f9417c166b0418ec1f8ebaf5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -794,38 +771,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="core-computation.hpp" line="255" column="15" bodyfile="core-computation.hpp" bodystart="255" bodyend="272"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1calc_1a5ad565ae9639f01b3a74f6b70a104188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::calc::CREATE_METHOD_CHECK</definition>
-        <argsstring>(omega)</argsstring>
-        <name>CREATE_METHOD_CHECK</name>
-        <param>
-          <type>omega</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="core-computation.hpp" line="274" column="3" declfile="core-computation.hpp" declline="274" declcolumn="3"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1calc_1a53adec80aa3e0d41d66e93903fa225fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::calc::CREATE_METHOD_CHECK</definition>
-        <argsstring>(bindE)</argsstring>
-        <name>CREATE_METHOD_CHECK</name>
-        <param>
-          <type>bindE</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="core-computation.hpp" line="276" column="3" declfile="core-computation.hpp" declline="276" declcolumn="3"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a3f014dcdcc83e6975bdc75598a85bb51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

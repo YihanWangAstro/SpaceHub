@@ -104,6 +104,15 @@
       </node>
     </incdepgraph>
     <innerclass refid="classspace_1_1interactions_1_1_post_newtonian_grav" prot="public">space::interactions::PostNewtonianGrav</innerclass>
+      <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos" prot="private">
+          space::interactions::PostNewtonianGrav::has_method_chain_pos
+      </innerclass>
+      <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" prot="private">
+          space::interactions::PostNewtonianGrav::has_method_chain_vel
+      </innerclass>
+      <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index" prot="private">
+          space::interactions::PostNewtonianGrav::has_method_index
+      </innerclass>
     <innernamespace refid="namespacespace">space</innernamespace>
     <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
     <briefdescription>

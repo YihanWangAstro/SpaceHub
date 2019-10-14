@@ -9,6 +9,26 @@
     <innerclass refid="struct_space_h_1_1_lazy_1_1_slice" prot="public">SpaceH::Lazy::Slice</innerclass>
     <innerclass refid="struct_space_h_1_1_lazy_1_1_slice___expr" prot="public">SpaceH::Lazy::Slice_Expr</innerclass>
     <innerclass refid="struct_space_h_1_1_lazy_1_1_unary___expr" prot="public">SpaceH::Lazy::Unary_Expr</innerclass>
+      <sectiondef kind="var">
+          <memberdef kind="variable" id="lazy__expr_8h_1a279d033332d618b8fe5935fc0bd2615d" prot="public" static="no"
+                     mutable="no">
+              <type>auto</type>
+              <definition>auto SpaceH::Lazy::OP__LINE__</definition>
+              <argsstring></argsstring>
+              <name>OP__LINE__</name>
+              <initializer>=[](const auto &amp;lhs, const auto &amp;rhs)-&gt; decltype( lhs + rhs ) {return ( lhs + rhs
+                  );}
+              </initializer>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="91" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="91" bodyend="-1"/>
+          </memberdef>
+      </sectiondef>
       <sectiondef kind="func">
       <memberdef kind="function" id="lazy__array_8h_1a2e9fc8a531a641d52ae48dd739b15076" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -105,16 +125,575 @@
         </inbodydescription>
         <location file="lazy-evaluation/lazy_expr.h" line="25" column="23" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="25" bodyend="27"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1aef65804433db8f71f458d22086fdb836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator+, lhs+rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator+</type>
-        </param>
-        <param>
-          <type>lhs+</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a7eca1aaecebef4e4b13c4e5d8ea6a3b5" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator+
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator+</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="91" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="91" bodyend="91"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a229ad375ecfa1eb16df325960ed8838b" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator+
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator+</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="91" column="262" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="91" bodyend="91"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a85dad28c588527f3385cb68a2d554433" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator+
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator+</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="91" column="419" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="91" bodyend="91"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a3a8d4d6f8a5c2b20775f484c88490c80" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator-
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator-</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="92" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="92" bodyend="92"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a225606e16b3e38da3878149cad2c62d6" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator-
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator-</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="92" column="262" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="92" bodyend="92"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a48b2b3840e8ab95e0d5b47096b2cfd10" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator-
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator-</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="92" column="419" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="92" bodyend="92"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a715d571c28ef6b2c588b6b334051d96d" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator*
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator*</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="93" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="93" bodyend="93"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a506da0d467cf1c9111d61e5eda6f9890" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator*
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator*</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="93" column="262" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="93" bodyend="93"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1acdccb6e8e32db9902aad46b76586c13e" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator*
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator*</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="93" column="419" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="93" bodyend="93"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1aee0cfb13cc5ee0a267e2a65603e02ff0" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator/
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator/</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="94" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="94" bodyend="94"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a7fffe107bb23ef589cb12c2635cc1532" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator/
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator/</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="94" column="262" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="94" bodyend="94"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1aab9fe8c5ae348556ae2be43ca4a7d069" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator/
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator/</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="94" column="419" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="94" bodyend="94"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a66085f75cca9acc0e9aa13849e68d23b" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator%
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator%</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="95" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="95" bodyend="95"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1aee6b3f24996f9b4584442b6f2bf93f86" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator%
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator%</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="95" column="262" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="95" bodyend="95"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a402a52d9f15792a08e28c1918a209c58" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator%
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator%</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -123,18 +702,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="91" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="91" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="95" column="419" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="95" bodyend="95"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a4ab8eb185d06fc7bc78e54cbc1a09423" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator-, lhs - rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1aa9d2e45f4ab1a65e6f4eee6dfbdfcde4" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator==
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator==</name>
         <param>
-          <type>operator-</type>
+            <type>const Lhs &amp;</type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>lhs -</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt; &amp;
+            </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -143,18 +740,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="92" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="92" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="96" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="96" bodyend="96"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a0a921798c92e25e9d8ce1d163f1b2a41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator*, lhs *rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator*</type>
-        </param>
-        <param>
-          <type>lhs *</type>
+          <memberdef kind="function" id="lazy__expr_8h_1af1489bb4487a34a4a2f51536b32b08b9" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator==
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator==</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -163,18 +779,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="93" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="93" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="96" column="263" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="96" bodyend="96"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a0412546370bd2144a3385fde5e3aa65f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator/, lhs/rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator/</type>
-        </param>
-        <param>
-          <type>lhs/</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a4f46f60044d1cdd6632c85d8dfc97769" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator==
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator==</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -183,18 +817,75 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="94" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="94" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="96" column="421" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="96" bodyend="96"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a8ba37399cf4449226779071c13c5fe81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator%, lhs % rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1aabb16a9e93a31b107a45d42e8a1da676" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator!=
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator!=</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="97" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="97" bodyend="97"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1af947ac6977c556b4352c7a7f7459faca" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator!=
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator!=</name>
         <param>
-          <type>operator%</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt; &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>lhs %</type>
+            <type>const Rhs &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -203,20 +894,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="95" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="95" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="97" column="263" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="97" bodyend="97"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1ad43ea1ad3b50d19d6e235241c614cea6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator==, lhs==rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator</type>
-          <defval>=</defval>
-        </param>
-        <param>
-          <type>lhs</type>
-          <defval>=rhs</defval>
+          <memberdef kind="function" id="lazy__expr_8h_1acec8c8438ebed2a695c95aef15fb50b7" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator!=
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator!=</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -224,19 +932,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="96" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="96" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="97" column="421" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="97" bodyend="97"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a56c1138a1bc05d67854d6eba411d33e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator!=, lhs !=rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a38a42c862506241e4f8973e26d1691f7" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&lt;
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&lt;</name>
         <param>
-          <type>operator!</type>
+            <type>const Lhs &amp;</type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>lhs !</type>
-          <defval>rhs</defval>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt; &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -244,34 +970,75 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="97" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="97" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="98" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="98" bodyend="98"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1add957ae6c5718943246e19b1222cfd65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator&lt;, lhs&lt; rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a2ab2076029c37c6618251768cd5841f5" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&lt;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator&lt;</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="98" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="98" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="98" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="98" bodyend="98"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a86a183e72a8f9777efa3df9a13690d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator&gt;, lhs &gt; rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a7d601229647d2ed95c2bfbd84483d8c4" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator&lt;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&lt;</name>
         <param>
-          <type>operator</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt; &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
-        <param>
-          <type>lhs</type>
-        </param>
-        <param>
-          <type>rhs</type>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -279,18 +1046,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="99" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="99" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="98" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="98" bodyend="98"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a6e560b420657c54a2dadc4633282bc6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator&lt;=, lhs&lt;=rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator&lt;=</type>
-        </param>
-        <param>
-          <type>lhs&lt;=</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a855e2df47d842963ba769cb4f3c9f191" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&gt;
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&gt;</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -299,18 +1085,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="100" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="100" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="99" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="99" bodyend="99"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1abd1c1b8d645c8669ea8b2049c173b9f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator&gt;=, lhs &gt;=rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator&gt;=</type>
-        </param>
-        <param>
-          <type>lhs &gt;=</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a31586fd154fbc622269ec5513eed5ce9" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&gt;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator&gt;</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -319,18 +1124,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="101" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="101" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="99" column="262" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="99" bodyend="99"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a8d2ffe0001b228a3b37b889f94c2956e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator&amp;&amp;, lhs &amp;&amp;rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1ac3402ac154983ca216293aac0f3372d5" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator&gt;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&gt;</name>
         <param>
-          <type>operator&amp;&amp;</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt; &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>lhs &amp;&amp;</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt; &amp;
+            </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -339,18 +1160,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="102" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="102" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="99" column="419" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="99" bodyend="99"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a1ea960888a4f9dc9e6dcf952979a5de7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator||, lhs||rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a82cf2db802999b22a7fad1a22daa7124" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&lt;=
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&lt;=</name>
         <param>
-          <type>operator||</type>
+            <type>const Lhs &amp;</type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>lhs||</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt; &amp;
+            </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -359,18 +1198,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="103" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="103" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="100" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="100" bodyend="100"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1ab91c25b3d505d8c992b0e0f9675c43f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator&amp;, lhs &amp;rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator&amp;</type>
-        </param>
-        <param>
-          <type>lhs &amp;</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a35cb4846b5eb1c0b7d44c9a7bfdc028d" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&lt;=
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator&lt;=</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -379,18 +1237,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="104" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="104" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="100" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="100" bodyend="100"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1af7e16c004440c6302cc567ba4c76d993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator^, lhs ^ rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1ac0c05592eb27752053e882a1dbb18f5e" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator&lt;=
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&lt;=</name>
         <param>
-          <type>operator^</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt; &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>lhs ^</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt; &amp;
+            </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -399,18 +1273,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="105" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="105" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="100" column="11" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="100" bodyend="100"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a8d90fbc5979955175eb094d6e6cbe517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator|, lhs|rhs)</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>operator|</type>
-        </param>
-        <param>
-          <type>lhs|</type>
+          <memberdef kind="function" id="lazy__expr_8h_1acf2422f09fcf41cbcc145367a5340cb9" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&gt;=
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&gt;=</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -419,18 +1312,38 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="106" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="106" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="101" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="101" bodyend="101"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a083ad88185b365016550be898183b4c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(pow, pow(lhs, rhs))</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>pow</type>
-        </param>
-        <param>
-          <type>pow(lhs, rhs)</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a16dd56acd7953e2f164ecf1c92fac3b3" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&gt;=
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator&gt;=</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -438,18 +1351,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="107" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="107" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="101" column="263"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="101" bodyend="101"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a7fbdf3427bddb25cb291d6c8a0eb9ed2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(exp, exp(lhs, rhs))</argsstring>
-        <name>EXPR_CREATE_BINARY_OPERATION</name>
-        <param>
-          <type>exp</type>
-        </param>
-        <param>
-          <type>exp(lhs, rhs)</type>
+          <memberdef kind="function" id="lazy__expr_8h_1a64f88a51b9c1c98ed816cee6a89837b9" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator&gt;=
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&gt;=</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -457,18 +1389,38 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="108" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="108" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="101" column="421"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="101" bodyend="101"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a1d30528b87f50ee8ff6d59c866252bc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(operator+, unary)</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
-        <param>
-          <type>operator+</type>
-        </param>
-        <param>
-          <type>unary</type>
+          <memberdef kind="function" id="lazy__expr_8h_1ab693d6900c8625dbe0326a8188310601" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&amp;&amp;
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&amp;&amp;</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -476,18 +1428,797 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="110" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="110" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="102" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="102" bodyend="102"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1ad6826faaa95c256f6f5a7da4764ba7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(operator-,-unary)</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a449c938f3d50f06499be8b6440dff5c5" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&amp;&amp;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator&amp;&amp;</name>
         <param>
-          <type>operator-</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt; &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>-</type>
+            <type>const Rhs &amp;</type>
+            <declname>rhs</declname>
+        </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="102" column="263"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="102" bodyend="102"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a672f9d1ac5c241c0eb42ba07aec061ad" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt;
+                  SpaceH::Lazy::operator&amp;&amp;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&amp;&amp;</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="102" column="421"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="102" bodyend="102"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a8058d96ec41b3127aee4f0fed84b444d" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator||
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator||</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="103" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="103" bodyend="103"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1af65f7c046155d0ae3bed24913fbaca57" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator||
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator||</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="103" column="263"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="103" bodyend="103"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1ac7235e2eebc70e441a8f2a733e3080d6" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator||
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator||</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="103" column="421"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="103" bodyend="103"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a170d6ccca80ad287c313c4d4607ffa63" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&amp;
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&amp;</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="104" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="104" bodyend="104"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a17e8e5d410e9dcb279fbc225af92b754" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator&amp;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator&amp;</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="104" column="262"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="104" bodyend="104"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a9222215fb0e46e3fa79eeb75fcc6d601" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator&amp;
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator&amp;</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="104" column="419"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="104" bodyend="104"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1ab2db8074cb71c651266ec737ce048d3e" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator^
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator^</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="105" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="105" bodyend="105"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a036fd0bd35239c7ee0089102b0b7b7de" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator^
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator^</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="105" column="262"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="105" bodyend="105"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a9fd726579e72369534a87a6ada0c8e32" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator^
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator^</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="105" column="419"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="105" bodyend="105"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a6924b352c43fbe8f17dbf32131ff20fe" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator|
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator|</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="106" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="106" bodyend="106"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a7275c084eb7c8620c567a4dd177a9952" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::operator|
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>operator|</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="106" column="262"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="106" bodyend="106"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a85b4db00a1ba2299af09ca6f6e3b6827" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::operator|
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>operator|</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="106" column="419"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="106" bodyend="106"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a34c7bc183e083e0841cf230bb0ea6f9c" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::pow
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>pow</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="107" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="107" bodyend="107"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1abc7a3dd7f9e9de9eccd441b4cf659332" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::pow
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>pow</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="107" column="256"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="107" bodyend="107"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a66697f3f317b349bbff0175097dbc942" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::pow</definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>pow</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="107" column="407"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="107" bodyend="107"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a07b8da2398e07fa52127b33f0cb48cc7" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Lhs &gt;,
+                  Lhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Lhs &gt; , Lhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::exp
+              </definition>
+              <argsstring>(const Lhs &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>exp</name>
+              <param>
+                  <type>const Lhs &amp;</type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="108" column="90" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="108" bodyend="108"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a0c0a35e25db25d015506b51a973e5813" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; <ref refid="struct_space_h_1_1_lazy_1_1_expr"
+                                                                             kindref="compound">Expr</ref>&lt; Rhs &gt;,
+                  Rhs &gt;::value), <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                      Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt; &gt;
+              </type>
+              <definition>constexpr std::enable_if_t&lt;!(std::is_base_of&lt; Expr&lt; Rhs &gt; , Rhs &gt;::value),Binary_Expr&lt;decltype(
+                  OP__LINE__ ), Lhs, Rhs&gt; &gt; SpaceH::Lazy::exp
+              </definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Rhs &amp;rhs)</argsstring>
+              <name>exp</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const Rhs &amp;</type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="108" column="256"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="108" bodyend="108"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a7ff70b47f06de88dffe582837c680cfa" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Lhs</type>
+                  </param>
+                  <param>
+                      <type>typename Rhs</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_binary___expr" kindref="compound">
+                  Binary_Expr</ref>&lt; decltype(OP__LINE__), Lhs, Rhs &gt;
+              </type>
+              <definition>constexpr Binary_Expr&lt;decltype( OP__LINE__ ), Lhs, Rhs&gt; SpaceH::Lazy::exp</definition>
+              <argsstring>(const Expr&lt; Lhs &gt; &amp;lhs, const Expr&lt; Rhs &gt; &amp;rhs)</argsstring>
+              <name>exp</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Lhs &gt;
+                      &amp;
+                  </type>
+                  <declname>lhs</declname>
+              </param>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Rhs &gt;
+                      &amp;
+                  </type>
+                  <declname>rhs</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="108" column="407"
+                        bodyfile="lazy-evaluation/lazy_expr.h" bodystart="108" bodyend="108"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1accbaeee7892349d1835e238d886a3ab9" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::operator+</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>operator+</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt;
+                      &amp;
+                  </type>
           <declname>unary</declname>
         </param>
         <briefdescription>
@@ -496,18 +2227,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="111" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="111" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="110" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="110" bodyend="110"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1acdc850b98bf6aaf4577789334d71dcb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(operator*,*unary)</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1afe246cf52d1b8e6c6480c00078459b4f" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::operator-</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>operator-</name>
         <param>
-          <type>operator*</type>
-        </param>
-        <param>
-          <type>*</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
           <declname>unary</declname>
         </param>
         <briefdescription>
@@ -516,18 +2254,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="112" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="112" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="111" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="111" bodyend="111"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a547712b6d587729be87599a1d4f70a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(operator!,!unary)</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a0a6f435f2b345687c72556552642d4f9" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::operator*</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>operator*</name>
         <param>
-          <type>operator!</type>
-        </param>
-        <param>
-          <type>!</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
           <declname>unary</declname>
         </param>
         <briefdescription>
@@ -536,18 +2281,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="113" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="113" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="112" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="112" bodyend="112"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1ad48593ba5d9bb2f26f65614e0fd17e85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(operator~,~unary)</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a164429e78d6098438316b13695c8e2bb" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::operator!</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>operator!</name>
         <param>
-          <type>operator~</type>
-        </param>
-        <param>
-          <type>~</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
           <declname>unary</declname>
         </param>
         <briefdescription>
@@ -556,22 +2308,81 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="114" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="114" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="113" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="113" bodyend="113"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a51fc4df33a2f884fafe8033008345cb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(abs, unary &gt; 0 ? unary :-unary)</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1aa3fb1649248dddffd45eb3feb697d0be" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::operator~</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>operator~</name>
         <param>
-          <type>abs</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="114" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="114" bodyend="114"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1aff4e45f98de5e5c3f549ee6179a7a552" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::abs</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>abs</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt;
+                      &amp;
+                  </type>
+                  <declname>unary</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_expr.h" line="115" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="115" bodyend="115"/>
+          </memberdef>
+          <memberdef kind="function" id="lazy__expr_8h_1a7cb44bbd0fd0d7ea550c510e0bdbb1f0" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::log</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>log</name>
         <param>
-          <type>unary</type>
-        </param>
-        <param>
-          <type>0 ? unary :-</type>
-          <declname>unary</declname>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -579,18 +2390,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="115" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="115" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="116" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="116" bodyend="116"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1aa8ec773af6cc7ec4f0e0246ebc33282f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(log, log(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1aefaed9e2a7523b473eecebb53ec91263" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::log10</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>log10</name>
         <param>
-          <type>log</type>
-        </param>
-        <param>
-          <type>log(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -598,18 +2417,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="116" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="116" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="117" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="117" bodyend="117"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a3d5220ad3d5b94e59f787081ab0a8fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(log10, log10(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a4453625bbb1c7f315145f28668b4f3e3" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::sin</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>sin</name>
         <param>
-          <type>log10</type>
-        </param>
-        <param>
-          <type>log10(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -617,18 +2444,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="117" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="117" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="118" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="118" bodyend="118"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a75f330dc0e0556bb24fb8586a391406b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(sin, sin(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1aaceb6a39308fb02610d144db3ad90944" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::cos</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>cos</name>
         <param>
-          <type>sin</type>
-        </param>
-        <param>
-          <type>sin(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -636,18 +2471,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="118" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="118" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="119" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="119" bodyend="119"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1aea69d428a51a67fa312f6ffbabe81b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(cos, cos(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a2e9f07cc876e7379e16a970b4359d2cc" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::tan</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>tan</name>
         <param>
-          <type>cos</type>
-        </param>
-        <param>
-          <type>cos(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -655,18 +2498,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="119" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="119" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="120" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="120" bodyend="120"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1ac2bde62ebb92a88697d5f94b7ae3acd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(tan, tan(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a200166966304fe12c853f97faac55fc8" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::asin</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>asin</name>
         <param>
-          <type>tan</type>
-        </param>
-        <param>
-          <type>tan(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -674,18 +2525,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="120" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="120" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="121" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="121" bodyend="121"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1add0c98a3bf1e29a3ea611911c56cf9a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(asin, asin(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a51e60901d011376fb3960f85d608d841" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::acos</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>acos</name>
         <param>
-          <type>asin</type>
-        </param>
-        <param>
-          <type>asin(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -693,18 +2552,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="121" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="121" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="122" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="122" bodyend="122"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1af9ca39d81032b8a018a08a3502d3e782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(acos, acos(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a3512ecc8ba490789397be7cd2de13238" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::atan</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>atan</name>
         <param>
-          <type>acos</type>
-        </param>
-        <param>
-          <type>acos(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -712,18 +2579,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="122" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="122" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="123" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="123" bodyend="123"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1ace17ffcb8ff343889eeab92d7e184dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(atan, atan(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a817bb1cf740aba1b2ff2f4a1f01c4cf2" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::sinh</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>sinh</name>
         <param>
-          <type>atan</type>
-        </param>
-        <param>
-          <type>atan(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -731,18 +2606,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="123" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="123" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="124" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="124" bodyend="124"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a7e1fe8696d0aa32b1b109986d63d791f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(sinh, sinh(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1a6fa82ee0507c93a10486491440ff9074" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::cosh</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>cosh</name>
         <param>
-          <type>sinh</type>
-        </param>
-        <param>
-          <type>sinh(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -750,18 +2633,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="124" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="124" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="125" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="125" bodyend="125"/>
       </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a2d47d924e24a173fc9c258caae138167" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(cosh, cosh(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
+          <memberdef kind="function" id="lazy__expr_8h_1abc73d2c8ac779b23217088f7c5cdcc90" prot="public" static="no"
+                     constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename Unary</type>
+                  </param>
+              </templateparamlist>
+              <type>constexpr <ref refid="struct_space_h_1_1_lazy_1_1_unary___expr" kindref="compound">Unary_Expr</ref>&lt;
+                  decltype(OP__LINE__), Unary &gt;
+              </type>
+              <definition>constexpr Unary_Expr&lt;decltype( OP__LINE__ ), Unary&gt; SpaceH::Lazy::tanh</definition>
+              <argsstring>(const Expr&lt; Unary &gt; &amp;unary)</argsstring>
+              <name>tanh</name>
         <param>
-          <type>cosh</type>
-        </param>
-        <param>
-          <type>cosh(unary)</type>
+            <type>const <ref refid="struct_space_h_1_1_lazy_1_1_expr" kindref="compound">Expr</ref>&lt; Unary &gt; &amp;
+            </type>
+            <declname>unary</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -769,26 +2660,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="125" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="125" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="lazy__expr_8h_1a4e51fcad09f66205420b1e1e38250c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
-        <argsstring>(tanh, tanh(unary))</argsstring>
-        <name>EXPR_CREATE_UNARY_OPERATION</name>
-        <param>
-          <type>tanh</type>
-        </param>
-        <param>
-          <type>tanh(unary)</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="lazy-evaluation/lazy_expr.h" line="126" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="126" declcolumn="5"/>
+              <location file="lazy-evaluation/lazy_expr.h" line="126" column="72" bodyfile="lazy-evaluation/lazy_expr.h"
+                        bodystart="126" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="slice_8h_1ae692630f6e945e4f0538c0b95ccecbb0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr size_t</type>

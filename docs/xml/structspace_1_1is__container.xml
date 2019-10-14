@@ -38,7 +38,7 @@
         <label>std::false_type</label>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="322" column="37" bodyfile="dev-tools.hpp" bodystart="322" bodyend="323"/>
+      <location file="dev-tools.hpp" line="366" column="37" bodyfile="dev-tools.hpp" bodystart="366" bodyend="367"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

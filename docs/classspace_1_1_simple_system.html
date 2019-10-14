@@ -56,6 +56,7 @@
                 <li><a href="#base-classes">Base classes</a></li>
                 <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
+                  <li><a href="#pro-methods">Protected functions</a></li>
               </ul>
             </li>
           </ul>
@@ -73,6 +74,23 @@
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
+              <dt>
+                  <span class="m-doc-wrap-bumper"><a href="#a391d2233baa0b0bd186f2d6c7860882f" class="m-doc">SimpleSystem</a>(</span><span
+                      class="m-doc-wrap">) <span class="m-label m-flat m-danger">deleted</span></span>
+              </dt>
+              <dd></dd>
+              <dt>
+                  <span class="m-doc-wrap-bumper"><a href="#a4cc4393605037bfa05201af03114e6c4" class="m-doc">SimpleSystem</a>(</span><span
+                      class="m-doc-wrap"><a href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a> const&amp;) <span
+                      class="m-label m-flat m-info">defaulted</span></span>
+              </dt>
+              <dd></dd>
+              <dt>
+                  <span class="m-doc-wrap-bumper"><a href="#af5d7b829888d65f3db1e1b5ccef6e931" class="m-doc">SimpleSystem</a>(</span><span
+                      class="m-doc-wrap"><a href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a>&amp;&amp;) <span
+                      class="m-label m-flat m-info">defaulted</span></span>
+              </dt>
+              <dd></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename STL&gt;</div>
               <span class="m-doc-wrap-bumper"><a href="#a20bf361e689d28fd2dba85e1d97e8b55" class="m-doc">SimpleSystem</a>(</span><span class="m-doc-wrap">Scalar time,
@@ -85,45 +103,165 @@
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a83a186f6e7c91dbbb50629bb20a88313" class="m-doc">impl_advance_time</a>(</span><span class="m-doc-wrap">Scalar dt)</span>
+                <span class="m-doc-wrap-bumper">auto <a href="#a33ab4567878d98db38f0702801b0c299" class="m-doc">operator=</a>(</span><span
+                    class="m-doc-wrap"><a href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a> const&amp;) -&gt; <a
+                    href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a>&amp; <span
+                    class="m-label m-flat m-info">defaulted</span></span>
             </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a157aef344aabace4e2ab0dcf04108c92" class="m-doc">impl_advance_pos</a>(</span><span class="m-doc-wrap">Coord const&amp; velocity,
-              Scalar step_size)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a09e4fec0b67f6b31a38cfcf8f85029b9" class="m-doc">impl_advance_vel</a>(</span><span class="m-doc-wrap">Coord const&amp; acceleration,
-              Scalar step_size)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#aa1e11ae8a2e9e438178625e1bf377bc9" class="m-doc">impl_evaluate_acc</a>(</span><span class="m-doc-wrap">Coord&amp; acceleration) const</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#adcc1014a98430e309574d2923d7be992" class="m-doc">impl_drift</a>(</span><span class="m-doc-wrap">Scalar step_size)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a26a7ab28ecd913c2035cdc08f6567dd8" class="m-doc">impl_kick</a>(</span><span class="m-doc-wrap">Scalar step_size)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename STL&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#a77905c48bdb9b57a83e910f00bc388e5" class="m-doc">impl_to_linear_container</a>(</span><span class="m-doc-wrap">STL&amp; stl_ranges)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename STL&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#a7d53155cbf437a0e732292fe59a7a71d" class="m-doc">impl_load_from_linear_container</a>(</span><span class="m-doc-wrap">STL const&amp; stl_ranges)</span>
-            </dt>
-            <dd></dd>
+              <dd></dd>
+              <dt>
+                  <span class="m-doc-wrap-bumper">auto <a href="#a4caa5ab7bacdb71690b9a8414107bef8" class="m-doc">operator=</a>(</span><span
+                      class="m-doc-wrap"><a href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a>&amp;&amp;) -&gt; <a
+                      href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a>&amp; <span
+                      class="m-label m-flat m-info">defaulted</span></span>
+              </dt>
+              <dd></dd>
           </dl>
         </section>
+          <section id="pro-methods">
+              <h2><a href="#pro-methods">Protected functions</a></h2>
+              <dl class="m-doc">
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a266bf82600759168e1968b703125c07a" class="m-doc">impl_mass</a>(</span><span
+                          class="m-doc-wrap">) -&gt; auto&amp; <span
+                          class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a2b84eb11cae1ff0981ece40a81ab2b62" class="m-doc">impl_mass</a>(</span><span
+                          class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#ade5d2b6fb17fcab706a5659845888cf5" class="m-doc">impl_idn</a>(</span><span
+                          class="m-doc-wrap">) -&gt; auto&amp; <span
+                          class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a32e144e7a7d6eec154406eee1fb3d54c" class="m-doc">impl_idn</a>(</span><span
+                          class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a4dec706185faa5997e4f02e9bca69f89" class="m-doc">impl_pos</a>(</span><span
+                          class="m-doc-wrap">) -&gt; auto&amp; <span
+                          class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#aa5b43fd7f345964f2b1bb95e4d6fbbb0" class="m-doc">impl_pos</a>(</span><span
+                          class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a78b78ec46d96059ec0874a715203a385" class="m-doc">impl_vel</a>(</span><span
+                          class="m-doc-wrap">) -&gt; auto&amp; <span
+                          class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a378a529dd0cfec49151f1385139c207a" class="m-doc">impl_vel</a>(</span><span
+                          class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#a29f13663d781fe79c05fb4c017b0229e" class="m-doc">impl_time</a>(</span><span
+                          class="m-doc-wrap">) -&gt; auto&amp; <span
+                          class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">auto <a href="#ae15b6669e5fc5ac0803182540f649ef4" class="m-doc">impl_time</a>(</span><span
+                          class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">void <a href="#a83a186f6e7c91dbbb50629bb20a88313" class="m-doc">impl_advance_time</a>(</span><span class="m-doc-wrap">Scalar dt)</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">void <a href="#a157aef344aabace4e2ab0dcf04108c92" class="m-doc">impl_advance_pos</a>(</span><span class="m-doc-wrap">Coord const&amp; velocity,
+              Scalar step_size)</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">void <a href="#a09e4fec0b67f6b31a38cfcf8f85029b9" class="m-doc">impl_advance_vel</a>(</span><span class="m-doc-wrap">Coord const&amp; acceleration,
+              Scalar step_size)</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">void <a href="#aa1e11ae8a2e9e438178625e1bf377bc9" class="m-doc">impl_evaluate_acc</a>(</span><span class="m-doc-wrap">Coord&amp; acceleration) const</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">void <a href="#adcc1014a98430e309574d2923d7be992" class="m-doc">impl_drift</a>(</span><span class="m-doc-wrap">Scalar step_size)</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <span class="m-doc-wrap-bumper">void <a href="#a26a7ab28ecd913c2035cdc08f6567dd8" class="m-doc">impl_kick</a>(</span><span class="m-doc-wrap">Scalar step_size)</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <div class="m-doc-template">template&lt;typename STL&gt;</div>
+                      <span class="m-doc-wrap-bumper">void <a href="#a77905c48bdb9b57a83e910f00bc388e5" class="m-doc">impl_to_linear_container</a>(</span><span class="m-doc-wrap">STL&amp; stl_ranges)</span>
+                  </dt>
+                  <dd></dd>
+                  <dt>
+                      <div class="m-doc-template">template&lt;typename STL&gt;</div>
+                      <span class="m-doc-wrap-bumper">void <a href="#a7d53155cbf437a0e732292fe59a7a71d" class="m-doc">impl_load_from_linear_container</a>(</span><span class="m-doc-wrap">STL const&amp; stl_ranges)</span>
+                  </dt>
+                  <dd></dd>
+              </dl>
+          </section>
         <section>
           <h2>Function documentation</h2>
+            <section class="m-doc-details" id="a391d2233baa0b0bd186f2d6c7860882f">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper"> space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a391d2233baa0b0bd186f2d6c7860882f" class="m-doc-self">SimpleSystem</a>(</span><span
+                            class="m-doc-wrap">) <span class="m-label m-danger">deleted</span></span></span>
+                    </h3>
+                    <p>Default constructor.<br/></p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a4cc4393605037bfa05201af03114e6c4">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper"> space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a4cc4393605037bfa05201af03114e6c4" class="m-doc-self">SimpleSystem</a>(</span><span
+                            class="m-doc-wrap"><a href="classspace_1_1_simple_system.html"
+                                                  class="m-doc">SimpleSystem</a> const&amp;) <span
+                            class="m-label m-info">defaulted</span></span></span>
+                    </h3>
+                    <p>Default copy constructor.<br/></p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="af5d7b829888d65f3db1e1b5ccef6e931">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper"> space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#af5d7b829888d65f3db1e1b5ccef6e931" class="m-doc-self">SimpleSystem</a>(</span><span
+                            class="m-doc-wrap"><a href="classspace_1_1_simple_system.html"
+                                                  class="m-doc">SimpleSystem</a>&amp;&amp;) <span
+                            class="m-label m-info">defaulted</span></span></span>
+                    </h3>
+                    <p>Default move constructor<br/></p>
+                </div>
+            </section>
           <section class="m-doc-details" id="a20bf361e689d28fd2dba85e1d97e8b55"><div>
             <h3>
               <div class="m-doc-template">
@@ -158,12 +296,279 @@
               </tbody>
             </table>
           </div></section>
+            <section class="m-doc-details" id="a33ab4567878d98db38f0702801b0c299">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper"><a href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a>&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a33ab4567878d98db38f0702801b0c299" class="m-doc-self">operator=</a>(</span><span
+                            class="m-doc-wrap"><a href="classspace_1_1_simple_system.html"
+                                                  class="m-doc">SimpleSystem</a> const&amp;) <span
+                            class="m-label m-info">defaulted</span></span></span>
+                    </h3>
+                    <p>Default copy assignment operator<br/></p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a4caa5ab7bacdb71690b9a8414107bef8">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper"><a href="classspace_1_1_simple_system.html" class="m-doc">SimpleSystem</a>&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a4caa5ab7bacdb71690b9a8414107bef8" class="m-doc-self">operator=</a>(</span><span
+                            class="m-doc-wrap"><a href="classspace_1_1_simple_system.html"
+                                                  class="m-doc">SimpleSystem</a>&amp;&amp;) <span
+                            class="m-label m-info">defaulted</span></span></span>
+                    </h3>
+                    <p>Default move assignment operator<br/></p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a266bf82600759168e1968b703125c07a">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a266bf82600759168e1968b703125c07a" class="m-doc-self">impl_mass</a>(</span><span
+                            class="m-doc-wrap">) <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>The setter interface of member <code>ptcl_.mass()</code> in name of
+                                <code>impl_mass</code>.
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a2b84eb11cae1ff0981ece40a81ab2b62">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a2b84eb11cae1ff0981ece40a81ab2b62" class="m-doc-self">impl_mass</a>(</span><span
+                            class="m-doc-wrap">) const <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>auto Depend on implementation.<br/></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <p>The getter interface of member <code>ptcl_.mass()</code> in name of <code>impl_mass</code>.</p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="ade5d2b6fb17fcab706a5659845888cf5">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#ade5d2b6fb17fcab706a5659845888cf5" class="m-doc-self">impl_idn</a>(</span><span
+                            class="m-doc-wrap">) <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>The setter interface of member <code>ptcl_.idn()</code> in name of <code>impl_idn</code>.
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a32e144e7a7d6eec154406eee1fb3d54c">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a32e144e7a7d6eec154406eee1fb3d54c" class="m-doc-self">impl_idn</a>(</span><span
+                            class="m-doc-wrap">) const <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>auto Depend on implementation.<br/></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <p>The getter interface of member <code>ptcl_.idn()</code> in name of <code>impl_idn</code>.</p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a4dec706185faa5997e4f02e9bca69f89">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a4dec706185faa5997e4f02e9bca69f89" class="m-doc-self">impl_pos</a>(</span><span
+                            class="m-doc-wrap">) <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>The setter interface of member <code>ptcl_.pos()</code> in name of <code>impl_pos</code>.
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            <section class="m-doc-details" id="aa5b43fd7f345964f2b1bb95e4d6fbbb0">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#aa5b43fd7f345964f2b1bb95e4d6fbbb0" class="m-doc-self">impl_pos</a>(</span><span
+                            class="m-doc-wrap">) const <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>auto Depend on implementation.<br/></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <p>The getter interface of member <code>ptcl_.pos()</code> in name of <code>impl_pos</code>.</p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a78b78ec46d96059ec0874a715203a385">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a78b78ec46d96059ec0874a715203a385" class="m-doc-self">impl_vel</a>(</span><span
+                            class="m-doc-wrap">) <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>The setter interface of member <code>ptcl_.vel()</code> in name of <code>impl_vel</code>.
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a378a529dd0cfec49151f1385139c207a">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a378a529dd0cfec49151f1385139c207a" class="m-doc-self">impl_vel</a>(</span><span
+                            class="m-doc-wrap">) const <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>auto Depend on implementation.<br/></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <p>The getter interface of member <code>ptcl_.vel()</code> in name of <code>impl_vel</code>.</p>
+                </div>
+            </section>
+            <section class="m-doc-details" id="a29f13663d781fe79c05fb4c017b0229e">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#a29f13663d781fe79c05fb4c017b0229e" class="m-doc-self">impl_time</a>(</span><span
+                            class="m-doc-wrap">) <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>The setter interface of member <code>ptcl_.time()</code> in name of
+                                <code>impl_time</code>.
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            <section class="m-doc-details" id="ae15b6669e5fc5ac0803182540f649ef4">
+                <div>
+                    <h3>
+                        <div class="m-doc-template">
+                            template&lt;typename Particles, typename Interactions&gt;
+                        </div>
+                        <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                            class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a
+                            href="#ae15b6669e5fc5ac0803182540f649ef4" class="m-doc-self">impl_time</a>(</span><span
+                            class="m-doc-wrap">) const <span class="m-label m-warning">protected</span> <span
+                            class="m-label m-success">noexcept</span></span></span>
+                    </h3>
+                    <table class="m-table m-fullwidth m-flat">
+                        <tfoot>
+                        <tr>
+                            <th style="width: 1%">Returns</th>
+                            <td>auto Depend on implementation.<br/></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <p>The getter interface of member <code>ptcl_.time()</code> in name of <code>impl_time</code>.</p>
+                </div>
+            </section>
           <section class="m-doc-details" id="a83a186f6e7c91dbbb50629bb20a88313"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename Particles, typename Interactions&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a83a186f6e7c91dbbb50629bb20a88313" class="m-doc-self">impl_advance_time</a>(</span><span class="m-doc-wrap">Scalar dt)</span></span>
+                <span class="m-doc-wrap-bumper">void space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                    class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a83a186f6e7c91dbbb50629bb20a88313"
+                                                                          class="m-doc-self">impl_advance_time</a>(</span><span
+                    class="m-doc-wrap">Scalar dt) <span class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -183,7 +588,7 @@
                 template&lt;typename Particles, typename Interactions&gt;
               </div>
               <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a157aef344aabace4e2ab0dcf04108c92" class="m-doc-self">impl_advance_pos</a>(</span><span class="m-doc-wrap">Coord const&amp; velocity,
-              Scalar step_size)</span></span>
+              Scalar step_size) <span class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -207,7 +612,7 @@
                 template&lt;typename Particles, typename Interactions&gt;
               </div>
               <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a09e4fec0b67f6b31a38cfcf8f85029b9" class="m-doc-self">impl_advance_vel</a>(</span><span class="m-doc-wrap">Coord const&amp; acceleration,
-              Scalar step_size)</span></span>
+              Scalar step_size) <span class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -230,7 +635,11 @@
               <div class="m-doc-template">
                 template&lt;typename Particles, typename Interactions&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa1e11ae8a2e9e438178625e1bf377bc9" class="m-doc-self">impl_evaluate_acc</a>(</span><span class="m-doc-wrap">Coord&amp; acceleration) const</span></span>
+                <span class="m-doc-wrap-bumper">void space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                    class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa1e11ae8a2e9e438178625e1bf377bc9"
+                                                                          class="m-doc-self">impl_evaluate_acc</a>(</span><span
+                    class="m-doc-wrap">Coord&amp; acceleration) const <span
+                    class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -249,7 +658,10 @@
               <div class="m-doc-template">
                 template&lt;typename Particles, typename Interactions&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adcc1014a98430e309574d2923d7be992" class="m-doc-self">impl_drift</a>(</span><span class="m-doc-wrap">Scalar step_size)</span></span>
+                <span class="m-doc-wrap-bumper">void space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                    class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adcc1014a98430e309574d2923d7be992"
+                                                                          class="m-doc-self">impl_drift</a>(</span><span
+                    class="m-doc-wrap">Scalar step_size) <span class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -268,7 +680,10 @@
               <div class="m-doc-template">
                 template&lt;typename Particles, typename Interactions&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a26a7ab28ecd913c2035cdc08f6567dd8" class="m-doc-self">impl_kick</a>(</span><span class="m-doc-wrap">Scalar step_size)</span></span>
+                <span class="m-doc-wrap-bumper">void space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                    class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a26a7ab28ecd913c2035cdc08f6567dd8"
+                                                                          class="m-doc-self">impl_kick</a>(</span><span
+                    class="m-doc-wrap">Scalar step_size) <span class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -288,7 +703,11 @@
                 template&lt;typename Particles, typename Interactions&gt;
                 template&lt;typename STL&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a77905c48bdb9b57a83e910f00bc388e5" class="m-doc-self">impl_to_linear_container</a>(</span><span class="m-doc-wrap">STL&amp; stl_ranges)</span></span>
+                <span class="m-doc-wrap-bumper">void space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                    class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a77905c48bdb9b57a83e910f00bc388e5"
+                                                                          class="m-doc-self">impl_to_linear_container</a>(</span><span
+                    class="m-doc-wrap">STL&amp; stl_ranges) <span
+                    class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -317,7 +736,11 @@
                 template&lt;typename Particles, typename Interactions&gt;
                 template&lt;typename STL&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />SimpleSystem&lt;Particles, Interactions&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7d53155cbf437a0e732292fe59a7a71d" class="m-doc-self">impl_load_from_linear_container</a>(</span><span class="m-doc-wrap">STL const&amp; stl_ranges)</span></span>
+                <span class="m-doc-wrap-bumper">void space::<wbr/>SimpleSystem&lt;Particles, Interactions&gt;::<wbr/></span><span
+                    class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7d53155cbf437a0e732292fe59a7a71d"
+                                                                          class="m-doc-self">impl_load_from_linear_container</a>(</span><span
+                    class="m-doc-wrap">STL const&amp; stl_ranges) <span
+                    class="m-label m-warning">protected</span></span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>

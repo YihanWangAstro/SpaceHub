@@ -28,21 +28,6 @@
         <location file="lazy-evaluation/lazy_array.h" line="129" column="13" bodyfile="lazy-evaluation/lazy_array.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a6ab8347f4394d4593401bda6f532b232" prot="public" static="no" mutable="no">
-        <type></type>
-        <definition>SpaceH::Lazy::Larray&lt; T, Len, true &gt;::EXPR_CREATE_SLICE_INTERFACE</definition>
-        <argsstring></argsstring>
-        <name>EXPR_CREATE_SLICE_INTERFACE</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="lazy-evaluation/lazy_array.h" line="201" column="13" bodyfile="lazy-evaluation/lazy_array.h" bodystart="201" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1af865361db876e3a297cdf1442555da88" prot="private" static="no" mutable="no">
         <type>T</type>
@@ -55,7 +40,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/lazy_array.h" line="203" column="15" bodyfile="lazy-evaluation/lazy_array.h" bodystart="203" bodyend="-1"/>
+          <location file="lazy-evaluation/lazy_array.h" line="203" column="15" bodyfile="lazy-evaluation/lazy_array.h"
+                    bodystart="201" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -276,6 +262,49 @@
         </inbodydescription>
         <location file="lazy-evaluation/lazy_array.h" line="197" column="18" bodyfile="lazy-evaluation/lazy_array.h" bodystart="197" bodyend="199"/>
       </memberdef>
+          <memberdef kind="function"
+                     id="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ae1dcf1ad4231ce1b8a2a507a80ca5668"
+                     prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>int</type>
+                      <declname>Begin__LINE__</declname>
+                      <defname>Begin__LINE__</defname>
+                  </param>
+                  <param>
+                      <type>int</type>
+                      <declname>End__LINE__</declname>
+                      <defname>End__LINE__</defname>
+                  </param>
+                  <param>
+                      <type>int</type>
+                      <declname>Stride__LINE__</declname>
+                      <defname>Stride__LINE__</defname>
+                      <defval>1</defval>
+                  </param>
+              </templateparamlist>
+              <type>constexpr auto</type>
+              <definition>constexpr auto SpaceH::Lazy::Larray&lt; T, Len, true &gt;::operator[]</definition>
+              <argsstring>(const Slice&lt; Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;slice) -&gt; Slice_Expr&lt;
+                  typename std::remove_reference&lt; decltype(*this)&gt;::type, Begin__LINE__, End__LINE__,
+                  Stride__LINE__, std::remove_reference&lt; decltype(*this)&gt;::type ::size()&gt;
+              </argsstring>
+              <name>operator[]</name>
+              <param>
+                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_slice" kindref="compound">Slice</ref>&lt;
+                      Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;
+                  </type>
+                  <declname>slice</declname>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="lazy-evaluation/lazy_array.h" line="201" column="61"
+                        bodyfile="lazy-evaluation/lazy_array.h" bodystart="201" bodyend="201"/>
+          </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ab24463e509ac53af5aa5496b1a1115cd" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -325,7 +354,6 @@
       <member refid="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>cast</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1af865361db876e3a297cdf1442555da88" prot="private" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>data_</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a2d2347b60a94bb443b4f0adc267a0b5d" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>eval</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a6ab8347f4394d4593401bda6f532b232" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>EXPR_CREATE_SLICE_INTERFACE</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a16aaef56f92a1c8119ebff58464e3a01" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>Larray</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ae4553b20e07d41b977a21e7cbe541551" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>Larray</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a499d851b45888fcc19138ec09b6919c3" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>Larray</name></member>
@@ -336,6 +364,11 @@
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a2acdfadb34569632b83ef46b64e7ef1f" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>operator=</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1af1641e402ae5b8af958281366bac2e58" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>operator[]</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a4f7d37dcd829896ae75388029955879b" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>operator[]</name></member>
+        <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ae1dcf1ad4231ce1b8a2a507a80ca5668"
+                prot="public" virt="non-virtual">
+            <scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope>
+            <name>operator[]</name>
+        </member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ab24463e509ac53af5aa5496b1a1115cd" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>size</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a479369b9e3f4a47ae81ea7fc6d59ebea" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>sort</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1aa57bfb881d6478dd468a83ba1efc59cc" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</scope><name>value_type</name></member>

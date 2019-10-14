@@ -150,16 +150,27 @@ $(function() {
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">using</span> Particle = <span class="keyword">typename</span> ParticSys::Particle;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    SPACEHUB_READ_ACCESSOR(<span class="keyword">auto</span>, particles, particles_);</div>
+    <div class="line"><a name="l00153"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_simulator.html#af6d11515e1cf7ad7dfe6da01c63dcb8a">  153</a></span>&#160;
+        SPACEHUB_READ_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                     href="classspace_1_1_simulator.html#af6d11515e1cf7ad7dfe6da01c63dcb8a">particles</a>,
+        particles_);
+    </div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">// Constructors</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    SPACEHUB_MAKE_CONSTRUCTORS(<a class="code" href="classspace_1_1_simulator.html">Simulator</a>, <span class="keyword">delete</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator</a>(Scalar time, STL <span class="keyword">const</span> &amp;particle_set);</div>
+    <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; <a class="code"
+                                                                                      href="classspace_1_1_simulator.html#a6c9ebf6f677d6260d0fa02754947a75e">Simulator</a>(Scalar
+        time, STL <span class="keyword">const</span> &amp;particle_set);
+    </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator</a>(Scalar time, T <span class="keyword">const</span> &amp;... particle);</div>
+    <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; <span class="keyword">explicit</span>
+        <a class="code" href="classspace_1_1_simulator.html#a6c9ebf6f677d6260d0fa02754947a75e">Simulator</a>(Scalar
+        time, T <span class="keyword">const</span> &amp;... particle);
+    </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">// Public methods</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">run</a>(<a class="code" href="classspace_1_1_run_args.html">RunArgs</a> <span class="keyword">const</span> &amp;arg);</div>
@@ -249,13 +260,22 @@ $(function() {
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticSys, <span class="keyword">typename</span> OdeIterator&gt;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div>
-<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">  271</a></span>&#160;  <a class="code" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator&lt;ParticSys, OdeIterator&gt;::Simulator</a>(Scalar time, <span class="keyword">const</span> STL &amp;particle_set) : particles_(time, particle_set) {</div>
+    <div class="line"><a name="l00271"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">  271</a></span>&#160;
+        <a class="code" href="classspace_1_1_simulator.html#a6c9ebf6f677d6260d0fa02754947a75e">Simulator&lt;ParticSys,
+            OdeIterator&gt;::Simulator</a>(Scalar time, <span class="keyword">const</span> STL &amp;particle_set) :
+        particles_(time, particle_set) {
+    </div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    static_assert(is_container_v&lt;STL&gt;, <span class="stringliteral">&quot;Only STL-like container can be used&quot;</span>);</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  }</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticSys, <span class="keyword">typename</span> OdeIterator&gt;</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;</div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">  277</a></span>&#160;  <a class="code" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator&lt;ParticSys, OdeIterator&gt;::Simulator</a>(Scalar time, T <span class="keyword">const</span> &amp;... particle)</div>
+    <div class="line"><a name="l00277"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">  277</a></span>&#160;
+        <a class="code" href="classspace_1_1_simulator.html#a6c9ebf6f677d6260d0fa02754947a75e">Simulator&lt;ParticSys,
+            OdeIterator&gt;::Simulator</a>(Scalar time, T <span class="keyword">const</span> &amp;... particle)
+    </div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;          : <a class="code" href="classspace_1_1_simulator.html">Simulator</a>(time, std::initializer_list&lt;Particle&gt;{particle...}) {</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    static_assert(calc::all(std::is_same_v&lt;T, Particle&gt;...), <span class="stringliteral">&quot;Wrong particles type!&quot;</span>);</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  }</div>
@@ -312,16 +332,26 @@ $(function() {
 <div class="ttc" id="aclassspace_1_1_run_args_html_a356e0a6fb304ecbd7c649ae3a0486594"><div class="ttname"><a href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">space::RunArgs::add_post_step_operation</a></div><div class="ttdeci">void add_post_step_operation(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:243</div></div>
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
 <div class="ttc" id="aclassspace_1_1_simulator_html"><div class="ttname"><a href="classspace_1_1_simulator.html">space::Simulator</a></div><div class="ttdef"><b>Definition:</b> simulator.hpp:144</div></div>
-<div class="ttc" id="aclassspace_1_1_simulator_html_ad4135964c5e41e60e213835642131822"><div class="ttname"><a href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">space::Simulator::Simulator</a></div><div class="ttdeci">Simulator(Scalar time, STL const &amp;particle_set)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:271</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html"><div class="ttname"><a href="classspace_1_1_run_args.html">space::RunArgs</a></div><div class="ttdef"><b>Definition:</b> simulator.hpp:20</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_a5f6d9c34a5998231505583ffd2fd4df7"><div class="ttname"><a href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">space::RunArgs::check_stops</a></div><div class="ttdeci">bool check_stops(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:228</div></div>
 <div class="ttc" id="aclassspace_1_1_simulator_html_a2ba27f705d9ea69d0dbf14e92f5bb521"><div class="ttname"><a href="classspace_1_1_simulator.html#a2ba27f705d9ea69d0dbf14e92f5bb521">space::Simulator::~Simulator</a></div><div class="ttdeci">virtual ~Simulator()=default</div><div class="ttdoc">Default destructor, virtualize for inherent class.</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_af3a00bc9788de7eba958b457441b7063"><div class="ttname"><a href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">space::RunArgs::post_operations</a></div><div class="ttdeci">void post_operations(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:214</div></div>
+<div class="ttc" id="aclassspace_1_1_simulator_html_a6c9ebf6f677d6260d0fa02754947a75e">
+    <div class="ttname"><a href="classspace_1_1_simulator.html#a6c9ebf6f677d6260d0fa02754947a75e">space::Simulator::Simulator</a>
+    </div>
+    <div class="ttdeci">Simulator()=delete</div>
+</div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_a5b7abe613e970c74f62846be03f9734d"><div class="ttname"><a href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">space::RunArgs::pre_operations</a></div><div class="ttdeci">void pre_operations(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:207</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_aee5ebfc0b21db4a01f5269adfc8e9441"><div class="ttname"><a href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">space::RunArgs::is_end_time_set</a></div><div class="ttdeci">bool is_end_time_set() const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:118</div></div>
 <div class="ttc" id="aclassspace_1_1_simulator_html_aedd59ea3b5b1fff4b5993769687476b8"><div class="ttname"><a href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">space::Simulator::run</a></div><div class="ttdeci">void run(RunArgs const &amp;arg)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:283</div></div>
 <div class="ttc" id="anamespacespace_1_1calc_html_a3f014dcdcc83e6975bdc75598a85bb51"><div class="ttname"><a href="namespacespace_1_1calc.html#a3f014dcdcc83e6975bdc75598a85bb51">space::calc::calc_step_scale</a></div><div class="ttdeci">auto calc_step_scale(Particles const &amp;particles)</div><div class="ttdef"><b>Definition:</b> core-computation.hpp:285</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_a40dd8e75c3602befb2ea3a54f850a3de"><div class="ttname"><a href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">space::RunArgs::add_pre_step_operation</a></div><div class="ttdeci">void add_pre_step_operation(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:237</div></div>
+<div class="ttc" id="aclassspace_1_1_simulator_html_af6d11515e1cf7ad7dfe6da01c63dcb8a">
+    <div class="ttname"><a href="classspace_1_1_simulator.html#af6d11515e1cf7ad7dfe6da01c63dcb8a">space::Simulator::particles</a>
+    </div>
+    <div class="ttdeci">const auto &amp; particles() const noexcept</div>
+    <div class="ttdef"><b>Definition:</b> simulator.hpp:153</div>
+</div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_a1f7732aa10f12671047acd41f43b7035"><div class="ttname"><a href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">space::RunArgs::add_stop_condition</a></div><div class="ttdeci">void add_stop_condition(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:255</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_a202c1480767ceb6d2873f9383d21145b"><div class="ttname"><a href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">space::RunArgs::add_stop_point_operation</a></div><div class="ttdeci">void add_stop_point_operation(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:249</div></div>
 <div class="ttc" id="aclassspace_1_1_run_args_html_ab3a245733eb8a0cf2e23e62ecedb3bd7"><div class="ttname"><a href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">space::RunArgs::stop_operations</a></div><div class="ttdeci">void stop_operations(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:221</div></div>

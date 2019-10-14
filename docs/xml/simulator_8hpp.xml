@@ -77,6 +77,18 @@
     </invincdepgraph>
     <innerclass refid="classspace_1_1_run_args" prot="public">space::RunArgs</innerclass>
     <innerclass refid="classspace_1_1_simulator" prot="public">space::Simulator</innerclass>
+      <innerclass refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol" prot="private">
+          space::Simulator::has_protected_method_impl_set_atol
+      </innerclass>
+      <innerclass refid="structspace_1_1_simulator_1_1has__method__set__atol" prot="private">
+          space::Simulator::has_method_set_atol
+      </innerclass>
+      <innerclass refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol" prot="private">
+          space::Simulator::has_protected_method_impl_set_rtol
+      </innerclass>
+      <innerclass refid="structspace_1_1_simulator_1_1has__method__set__rtol" prot="private">
+          space::Simulator::has_method_set_rtol
+      </innerclass>
     <innernamespace refid="namespacespace">space</innernamespace>
     <briefdescription>
     </briefdescription>

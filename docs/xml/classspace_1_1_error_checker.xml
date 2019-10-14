@@ -22,59 +22,106 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="67" column="12" bodyfile="error-checker.hpp" bodystart="67" bodyend="-1"/>
+          <location file="error-checker.hpp" line="60" column="12" bodyfile="error-checker.hpp" bodystart="60"
+                    bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1_error_checker_1a951db47fa7bf5b27b20872a6534d094a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ErrorChecker&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, atol)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>atol</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ErrorChecker&lt; Derived &gt;::atol</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>atol</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The setter interface of member <computeroutput>atol</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="28" column="5"/>
+              <location file="error-checker.hpp" line="25" column="23" bodyfile="error-checker.hpp" bodystart="25"
+                        bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_error_checker_1a397884fd1964b51aa8d8b61085b2f1b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ErrorChecker&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, rtol)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>rtol</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ErrorChecker&lt; Derived &gt;::atol</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>atol</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The getter interface of member <computeroutput>atol</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="error-checker.hpp" line="25" column="118" bodyfile="error-checker.hpp" bodystart="25"
+                        bodyend="25"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ErrorChecker&lt; Derived &gt;::rtol</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>rtol</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The setter interface of member <computeroutput>rtol</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="error-checker.hpp" line="27" column="23" bodyfile="error-checker.hpp" bodystart="27"
+                        bodyend="27"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ErrorChecker&lt; Derived &gt;::rtol</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>rtol</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The getter interface of member <computeroutput>rtol</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="34" column="5"/>
+              <location file="error-checker.hpp" line="27" column="118" bodyfile="error-checker.hpp" bodystart="27"
+                        bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Derived &amp;</type>
@@ -90,7 +137,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="40" column="13" bodyfile="error-checker.hpp" bodystart="74" bodyend="76"/>
+          <location file="error-checker.hpp" line="33" column="13" bodyfile="error-checker.hpp" bodystart="67"
+                    bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -112,7 +160,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="46" column="10" bodyfile="error-checker.hpp" bodystart="80" bodyend="82"/>
+          <location file="error-checker.hpp" line="39" column="10" bodyfile="error-checker.hpp" bodystart="73"
+                    bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -134,7 +183,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="52" column="10" bodyfile="error-checker.hpp" bodystart="86" bodyend="88"/>
+          <location file="error-checker.hpp" line="45" column="10" bodyfile="error-checker.hpp" bodystart="79"
+                    bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -160,7 +210,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="55" column="10" bodyfile="error-checker.hpp" bodystart="92" bodyend="94"/>
+          <location file="error-checker.hpp" line="48" column="10" bodyfile="error-checker.hpp" bodystart="85"
+                    bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -190,7 +241,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="58" column="10" bodyfile="error-checker.hpp" bodystart="99" bodyend="101"/>
+          <location file="error-checker.hpp" line="51" column="10" bodyfile="error-checker.hpp" bodystart="92"
+                    bodyend="94"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -206,7 +258,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="65" column="5"/>
+          <location file="error-checker.hpp" line="58" column="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -224,15 +276,34 @@
 </parameterlist>
 </para>
     </detaileddescription>
-    <location file="error-checker.hpp" line="21" column="21" bodyfile="error-checker.hpp" bodystart="21" bodyend="68"/>
+      <location file="error-checker.hpp" line="21" column="21" bodyfile="error-checker.hpp" bodystart="21"
+                bodyend="61"/>
     <listofallmembers>
-      <member refid="classspace_1_1_error_checker_1a951db47fa7bf5b27b20872a6534d094a" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_error_checker_1a397884fd1964b51aa8d8b61085b2f1b1" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+        <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public"
+                virt="non-virtual">
+            <scope>space::ErrorChecker</scope>
+            <name>atol</name>
+        </member>
+        <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public"
+                virt="non-virtual">
+            <scope>space::ErrorChecker</scope>
+            <name>atol</name>
+        </member>
       <member refid="classspace_1_1_error_checker_1ab8d93f54ecf15f2f131d7411de8115d8" prot="private" virt="non-virtual"><scope>space::ErrorChecker</scope><name>Derived</name></member>
       <member refid="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>derived</name></member>
       <member refid="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>error</name></member>
       <member refid="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>error</name></member>
       <member refid="classspace_1_1_error_checker_1a4dd0d0422ef946fcc1460b076f7eb049" prot="private" virt="non-virtual"><scope>space::ErrorChecker</scope><name>ErrorChecker</name></member>
+        <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public"
+                virt="non-virtual">
+            <scope>space::ErrorChecker</scope>
+            <name>rtol</name>
+        </member>
+        <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public"
+                virt="non-virtual">
+            <scope>space::ErrorChecker</scope>
+            <name>rtol</name>
+        </member>
       <member refid="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_atol</name></member>
       <member refid="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_rtol</name></member>
     </listofallmembers>

@@ -13,9 +13,6 @@ namespace space {
     Class SimpleSystem Declaration
 \*---------------------------------------------------------------------------*/
 /**
-  @f[
-    x^2 +1 =0
-  @f]
  * @tparam Particles
  * @tparam Interactions
  */

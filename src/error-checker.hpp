@@ -21,16 +21,9 @@ namespace space {
   class ErrorChecker {
   public:
     // public methods
-    /**
-     *
-     * @return
-     */
+
     DECLARE_CRTP_ACCESSOR(Derived, auto, atol);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, rtol);
 
     /**

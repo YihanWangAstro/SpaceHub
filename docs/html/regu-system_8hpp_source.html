@@ -95,9 +95,19 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classspace_1_1_regularization.html">Regularization</a>(<a class="code" href="classspace_1_1_particles.html">Particles</a> <span class="keyword">const</span> &amp;particles);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Public methods</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, omega, omega_);</div>
+    <div class="line"><a name="l00034"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularization.html#aa5addbe2a3c0609c8317de46a6d42ea8">   34</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularization.html#a974700ff971d4d240b9fbdc1fecb2993">omega</a>,
+        omega_);
+    </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, bindE, bindE_);</div>
+    <div class="line"><a name="l00036"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularization.html#ae35b2a31d97f1a458a70d0c63c5fc408">   36</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularization.html#afe751a9d3503e55523043e358a7ce56b">bindE</a>,
+        bindE_);
+    </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles&gt;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    Scalar eval_pos_phy_time(<a class="code" href="classspace_1_1_particles.html">Particles</a> <span class="keyword">const</span> &amp;particles, Scalar step_size) <span class="keyword">const</span>;</div>
@@ -134,15 +144,29 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SPACEHUB_MAKE_CONSTRUCTORS(<a class="code" href="classspace_1_1_regularized_system.html">RegularizedSystem</a>, <span class="keyword">delete</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classspace_1_1_regularized_system.html">RegularizedSystem</a>(Scalar time, STL <span class="keyword">const</span> &amp;particle_set);</div>
+    <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <a class="code"
+                                                                                      href="classspace_1_1_regularized_system.html#ac46577f637b3b6434527246e8532f934">RegularizedSystem</a>(Scalar
+        <a class="code" href="classspace_1_1_particle_system.html#a333441c5101a535ef02dc1f257378394">time</a>, STL <span
+                class="keyword">const</span> &amp;particle_set);
+    </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// Static members</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> constexpr ReguType regu_type{RegType};</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Public methods</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, omega, regu_.omega());</div>
+    <div class="line"><a name="l00088"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#a8253991af985abb20647397ccb3ad314">   88</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#af875559084edf49acb4023b0eb06090a">omega</a>,
+        regu_.omega());
+    </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, bindE, regu_.bindE());</div>
+    <div class="line"><a name="l00090"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#adb57fda560e2f05a68c0e87b47b2fba5">   90</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#ac0a1fc21f863f4f586e6a6704c09927c">bindE</a>,
+        regu_.bindE());
+    </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">// Friend functions</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span> F, ReguType R&gt;</div>
@@ -153,15 +177,40 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    CRTP_IMPL :</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">// CRTP implementation</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, impl_mass, ptcl_.mass());</div>
+    <div class="line"><a name="l00101"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#a437594951667c2af5e7651c3d6bb3bdd">  101</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#a4496b6aa55c080b27389b87472033720">impl_mass</a>,
+        ptcl_.mass());
+    </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, impl_idn, ptcl_.idn());</div>
+    <div class="line"><a name="l00103"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#ab5dd9fc61923a7db0ae47c612c049896">  103</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#a983d7741e9f018fd81655da7cc05205f">impl_idn</a>,
+        ptcl_.idn());
+    </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, impl_pos, ptcl_.pos());</div>
+    <div class="line"><a name="l00105"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#a6ab8dbe690ad7b9c6043bc4ad4eda2b7">  105</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#ac31ddf4edc35754a90327b801cba4d6a">impl_pos</a>,
+        ptcl_.pos());
+    </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, impl_vel, ptcl_.vel());</div>
+    <div class="line"><a name="l00107"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#a26a4b19c8801307a328354fb828fd60f">  107</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#ae73d2e53d5efe55714e36e92521b0515">impl_vel</a>,
+        ptcl_.vel());
+    </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, impl_time, ptcl_.time());</div>
+    <div class="line"><a name="l00109"></a><span class="lineno"><a class="line"
+                                                                   href="classspace_1_1_regularized_system.html#a5ffc975821a471f084da4344ec1a4d10">  109</a></span>&#160;
+        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
+                                                                    href="classspace_1_1_regularized_system.html#a79389cba5c60e9f67d331362368ae628">impl_time</a>,
+        ptcl_.time());
+    </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    [[nodiscard]] <span class="keywordtype">size_t</span> impl_number() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
@@ -210,11 +259,16 @@ $(function() {
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions, ReguType RegType&gt;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <a class="code" href="classspace_1_1_regularized_system.html">RegularizedSystem&lt;Particles, Interactions, RegType&gt;::RegularizedSystem</a>(Scalar time, <span class="keyword">const</span> STL &amp;particle_set)</div>
+    <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; <a class="code"
+                                                                                      href="classspace_1_1_regularized_system.html#ac46577f637b3b6434527246e8532f934">RegularizedSystem&lt;Particles,
+        Interactions, RegType&gt;::RegularizedSystem</a>(Scalar time, <span class="keyword">const</span> STL &amp;particle_set)
+    </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;          : ptcl_(time, particle_set), accels_(particle_set.size()), regu_(ptcl_) {</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    static_assert(is_container_v&lt;STL&gt;, <span class="stringliteral">&quot;Only STL-like container can be used&quot;</span>);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_dep) {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      aux_vel_ = ptcl_.vel();</div>
+    <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; aux_vel_ = ptcl_.<a class="code"
+                                                                                                       href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>();
+    </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  }</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
@@ -433,11 +487,85 @@ $(function() {
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_a4496b6aa55c080b27389b87472033720">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#a4496b6aa55c080b27389b87472033720">space::RegularizedSystem::impl_mass</a>
+    </div>
+    <div class="ttdeci">auto &amp; impl_mass() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:101</div>
+</div>
 <div class="ttc" id="aclassspace_1_1_interactions_html"><div class="ttname"><a href="classspace_1_1_interactions.html">space::Interactions</a></div><div class="ttdef"><b>Definition:</b> interaction.hpp:21</div></div>
 <div class="ttc" id="aclassspace_1_1_accelerations_html"><div class="ttname"><a href="classspace_1_1_accelerations.html">space::Accelerations</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:18</div></div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_ae73d2e53d5efe55714e36e92521b0515">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#ae73d2e53d5efe55714e36e92521b0515">space::RegularizedSystem::impl_vel</a>
+    </div>
+    <div class="ttdeci">auto &amp; impl_vel() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:107</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_a79389cba5c60e9f67d331362368ae628">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#a79389cba5c60e9f67d331362368ae628">space::RegularizedSystem::impl_time</a>
+    </div>
+    <div class="ttdeci">auto &amp; impl_time() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:109</div>
+</div>
 <div class="ttc" id="aclassspace_1_1_regularized_system_html"><div class="ttname"><a href="classspace_1_1_regularized_system.html">space::RegularizedSystem</a></div><div class="ttdoc">Regularized particle System.</div><div class="ttdef"><b>Definition:</b> regu-system.hpp:69</div></div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_a983d7741e9f018fd81655da7cc05205f">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#a983d7741e9f018fd81655da7cc05205f">space::RegularizedSystem::impl_idn</a>
+    </div>
+    <div class="ttdeci">auto &amp; impl_idn() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:103</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_particles_html_aac4152046aebc0f7735ec475a472b698">
+    <div class="ttname"><a
+            href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">space::Particles::vel</a></div>
+    <div class="ttdeci">auto &amp; vel() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> particles.hpp:30</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_ac46577f637b3b6434527246e8532f934">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#ac46577f637b3b6434527246e8532f934">space::RegularizedSystem::RegularizedSystem</a>
+    </div>
+    <div class="ttdeci">RegularizedSystem()=delete</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_particle_system_html_a333441c5101a535ef02dc1f257378394">
+    <div class="ttname"><a href="classspace_1_1_particle_system.html#a333441c5101a535ef02dc1f257378394">space::ParticleSystem&lt;
+        RegularizedSystem&lt; Particles, Interactions, RegType &gt; &gt;::time</a></div>
+    <div class="ttdeci">auto &amp; time() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> particle-system.hpp:27</div>
+</div>
 <div class="ttc" id="aclassspace_1_1_regularization_html"><div class="ttname"><a href="classspace_1_1_regularization.html">space::Regularization</a></div><div class="ttdef"><b>Definition:</b> regu-system.hpp:27</div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdoc">CRTP base class of a 'Structure of Array' kind particle set.</div><div class="ttdef"><b>Definition:</b> particles.hpp:18</div></div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_af875559084edf49acb4023b0eb06090a">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#af875559084edf49acb4023b0eb06090a">space::RegularizedSystem::omega</a>
+    </div>
+    <div class="ttdeci">auto &amp; omega() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:88</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_ac0a1fc21f863f4f586e6a6704c09927c">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#ac0a1fc21f863f4f586e6a6704c09927c">space::RegularizedSystem::bindE</a>
+    </div>
+    <div class="ttdeci">auto &amp; bindE() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:90</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_regularized_system_html_ac31ddf4edc35754a90327b801cba4d6a">
+    <div class="ttname"><a href="classspace_1_1_regularized_system.html#ac31ddf4edc35754a90327b801cba4d6a">space::RegularizedSystem::impl_pos</a>
+    </div>
+    <div class="ttdeci">auto &amp; impl_pos() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:105</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_particles_html">
+    <div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div>
+    <div class="ttdef"><b>Definition:</b> particles.hpp:19</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_regularization_html_a974700ff971d4d240b9fbdc1fecb2993">
+    <div class="ttname"><a href="classspace_1_1_regularization.html#a974700ff971d4d240b9fbdc1fecb2993">space::Regularization::omega</a>
+    </div>
+    <div class="ttdeci">auto &amp; omega() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:34</div>
+</div>
+<div class="ttc" id="aclassspace_1_1_regularization_html_afe751a9d3503e55523043e358a7ce56b">
+    <div class="ttname"><a href="classspace_1_1_regularization.html#afe751a9d3503e55523043e358a7ce56b">space::Regularization::bindE</a>
+    </div>
+    <div class="ttdeci">auto &amp; bindE() noexcept</div>
+    <div class="ttdef"><b>Definition:</b> regu-system.hpp:36</div>
+</div>
 <div class="ttc" id="aclassspace_1_1_particle_system_html"><div class="ttname"><a href="classspace_1_1_particle_system.html">space::ParticleSystem</a></div><div class="ttdef"><b>Definition:</b> particle-system.hpp:19</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

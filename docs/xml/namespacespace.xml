@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="352" column="18" bodyfile="dev-tools.hpp" bodystart="352" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="396" column="18" bodyfile="dev-tools.hpp" bodystart="396" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacespace_1adef73637c574d3c8bdee43f4fab29c8a" prot="public" static="no" constexpr="yes" mutable="no">
         <templateparamlist>
@@ -309,7 +309,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="232" column="18" bodyfile="particle-system.hpp" bodystart="232" bodyend="-1"/>
+          <location file="particle-system.hpp" line="213" column="18" bodyfile="particle-system.hpp" bodystart="213"
+                    bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacespace_1a97968c526d2b2fc010cd5ed92d4b68ba" prot="public" static="no" constexpr="yes" mutable="no">
         <templateparamlist>
@@ -868,7 +869,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="352" column="18" bodyfile="dev-tools.hpp" bodystart="355" bodyend="360"/>
+          <location file="dev-tools.hpp" line="396" column="18" bodyfile="dev-tools.hpp" bodystart="399" bodyend="404"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a5a057e80264f1bbc39d5db42a7fbb403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -899,7 +900,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="363" column="3" bodyfile="dev-tools.hpp" bodystart="363" bodyend="368"/>
+          <location file="dev-tools.hpp" line="407" column="3" bodyfile="dev-tools.hpp" bodystart="407" bodyend="412"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a77c671e9eda1f141c1ee2dbdb381c383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -931,21 +932,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="371" column="3" bodyfile="dev-tools.hpp" bodystart="371" bodyend="376"/>
+          <location file="dev-tools.hpp" line="415" column="3" bodyfile="dev-tools.hpp" bodystart="415" bodyend="420"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1a395725b9ff6c8630769a526e33ddd180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator+, vdAdd, double)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1aac174a0cc1a2348338fbe270b275dccb" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double,Size &gt;
+              </type>
+              <definition>MKLArray&lt; double ,Size&gt; space::operator+</definition>
+              <argsstring>(MKLArray&lt; double, Size &gt; const &amp;lhs, MKLArray&lt; double, Size &gt; const
+                  &amp;rhs)
+              </argsstring>
+              <name>operator+</name>
         <param>
-          <type>operator+</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vdAdd</type>
-        </param>
-        <param>
-          <type>double</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -953,21 +968,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="65" column="3" declfile="lazy-evaluation/mkl-array.h" declline="65" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="65" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="65" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1a82af0c3517381e0bcad3daa34de8c1cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator-, vdSub, double)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1a64c299f9e182f777b522fda7fc1632b7" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double,Size &gt;
+              </type>
+              <definition>MKLArray&lt; double ,Size&gt; space::operator-</definition>
+              <argsstring>(MKLArray&lt; double, Size &gt; const &amp;lhs, MKLArray&lt; double, Size &gt; const
+                  &amp;rhs)
+              </argsstring>
+              <name>operator-</name>
         <param>
-          <type>operator-</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vdSub</type>
-        </param>
-        <param>
-          <type>double</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -975,21 +1005,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="67" column="3" declfile="lazy-evaluation/mkl-array.h" declline="67" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="67" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="67" bodyend="67"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1a3fb19fc4345c6ca6fa9f79ed563d4c0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator*, vdMul, double)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1a71880002b8c40a02f798ca9a96d6d786" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double,Size &gt;
+              </type>
+              <definition>MKLArray&lt; double ,Size&gt; space::operator*</definition>
+              <argsstring>(MKLArray&lt; double, Size &gt; const &amp;lhs, MKLArray&lt; double, Size &gt; const
+                  &amp;rhs)
+              </argsstring>
+              <name>operator*</name>
         <param>
-          <type>operator*</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vdMul</type>
-        </param>
-        <param>
-          <type>double</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -997,21 +1042,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="69" column="3" declfile="lazy-evaluation/mkl-array.h" declline="69" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="69" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="69" bodyend="69"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1aee4bbae18ef212b294ef6e25dc99039b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator/, vdDiv, double)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1a768d0e58550d7ae2291be5f4c49ac146" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double,Size &gt;
+              </type>
+              <definition>MKLArray&lt; double ,Size&gt; space::operator/</definition>
+              <argsstring>(MKLArray&lt; double, Size &gt; const &amp;lhs, MKLArray&lt; double, Size &gt; const
+                  &amp;rhs)
+              </argsstring>
+              <name>operator/</name>
         <param>
-          <type>operator/</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vdDiv</type>
-        </param>
-        <param>
-          <type>double</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; double, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1019,21 +1079,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="71" column="3" declfile="lazy-evaluation/mkl-array.h" declline="71" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="71" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="71" bodyend="71"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1af48b736615b43af20e4d5deab3c71e39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator+, vsAdd, float)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1abe514c511ccce757d571022517cd014f" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float,Size &gt;
+              </type>
+              <definition>MKLArray&lt; float ,Size&gt; space::operator+</definition>
+              <argsstring>(MKLArray&lt; float, Size &gt; const &amp;lhs, MKLArray&lt; float, Size &gt; const &amp;rhs)
+              </argsstring>
+              <name>operator+</name>
         <param>
-          <type>operator+</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vsAdd</type>
-        </param>
-        <param>
-          <type>float</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1041,21 +1115,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="73" column="3" declfile="lazy-evaluation/mkl-array.h" declline="73" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="73" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="73" bodyend="73"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1ae2936eabe8563936e4911308834ebff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator-, vsSub, float)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1a0f157c54041bd93935747f70b044c474" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float,Size &gt;
+              </type>
+              <definition>MKLArray&lt; float ,Size&gt; space::operator-</definition>
+              <argsstring>(MKLArray&lt; float, Size &gt; const &amp;lhs, MKLArray&lt; float, Size &gt; const &amp;rhs)
+              </argsstring>
+              <name>operator-</name>
         <param>
-          <type>operator-</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vsSub</type>
-        </param>
-        <param>
-          <type>float</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1063,21 +1151,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="75" column="3" declfile="lazy-evaluation/mkl-array.h" declline="75" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="75" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="75" bodyend="75"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1aa4a34c5b6a2c413a4b5f468bdd456912" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator*, vsMul, float)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1a14ead9434d2100411feb631da671b473" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float,Size &gt;
+              </type>
+              <definition>MKLArray&lt; float ,Size&gt; space::operator*</definition>
+              <argsstring>(MKLArray&lt; float, Size &gt; const &amp;lhs, MKLArray&lt; float, Size &gt; const &amp;rhs)
+              </argsstring>
+              <name>operator*</name>
         <param>
-          <type>operator*</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vsMul</type>
-        </param>
-        <param>
-          <type>float</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1085,21 +1187,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="77" column="3" declfile="lazy-evaluation/mkl-array.h" declline="77" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="77" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="77" bodyend="77"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1a116a383c4fb23f532c5f3c8e81fc52c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
-        <argsstring>(operator/, vsDiv, float)</argsstring>
-        <name>MKL_CREATE_BINARY_OPERATION</name>
+          <memberdef kind="function" id="namespacespace_1a7ad7c1e4d2d8eac0dfa7c46f387d5c98" prot="public" static="no"
+                     const="no" explicit="no" inline="yes" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>size_t</type>
+                      <declname>Size</declname>
+                      <defname>Size</defname>
+                  </param>
+              </templateparamlist>
+              <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float,Size &gt;
+              </type>
+              <definition>MKLArray&lt; float ,Size&gt; space::operator/</definition>
+              <argsstring>(MKLArray&lt; float, Size &gt; const &amp;lhs, MKLArray&lt; float, Size &gt; const &amp;rhs)
+              </argsstring>
+              <name>operator/</name>
         <param>
-          <type>operator/</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>lhs</declname>
         </param>
         <param>
-          <type>vsDiv</type>
-        </param>
-        <param>
-          <type>float</type>
+            <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref>&lt; float, Size &gt; const
+                &amp;
+            </type>
+            <declname>rhs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1107,7 +1223,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="79" column="3" declfile="lazy-evaluation/mkl-array.h" declline="79" declcolumn="3"/>
+              <location file="lazy-evaluation/mkl-array.h" line="79" column="34" bodyfile="lazy-evaluation/mkl-array.h"
+                        bodystart="79" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1562,7 +1679,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/base-system.hpp" line="291" column="3" bodyfile="particle-system/base-system.hpp" bodystart="291" bodyend="294"/>
+          <location file="particle-system/base-system.hpp" line="290" column="3"
+                    bodyfile="particle-system/base-system.hpp" bodystart="290" bodyend="293"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ace0c605baca0a7891a87844024e5ab16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1591,7 +1709,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/base-system.hpp" line="297" column="16" bodyfile="particle-system/base-system.hpp" bodystart="297" bodyend="300"/>
+          <location file="particle-system/base-system.hpp" line="296" column="16"
+                    bodyfile="particle-system/base-system.hpp" bodystart="296" bodyend="299"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a06390303b3a675ad8dd74646f4328e7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1743,7 +1862,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="217" column="3" bodyfile="particle-system.hpp" bodystart="217" bodyend="220"/>
+          <location file="particle-system.hpp" line="198" column="3" bodyfile="particle-system.hpp" bodystart="198"
+                    bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ae74ac57858b0c2dbb3d2ea5013770677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1769,7 +1889,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="223" column="16" bodyfile="particle-system.hpp" bodystart="223" bodyend="226"/>
+          <location file="particle-system.hpp" line="204" column="16" bodyfile="particle-system.hpp" bodystart="204"
+                    bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a7e0961d075d0802bb77d2c92203ecab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

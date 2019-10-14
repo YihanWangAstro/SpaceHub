@@ -20,37 +20,117 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1_chain_1a2da41d3ea89e0b3fbc624063990b4641" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_1ae570df3513d4daecd23b54ca4548f07c" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>space::Chain::SPACEHUB_MAKE_CONSTRUCTORS</definition>
-        <argsstring>(Chain, default, default, default, default, default)</argsstring>
-        <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
+              <definition>space::Chain::Chain</definition>
+              <argsstring>()=default</argsstring>
+              <name>Chain</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default constructor.
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain.hpp" line="23" column="9"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_1aae885fbe1f31d0d903995ee96c2294c5" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type></type>
+              <definition>space::Chain::Chain</definition>
+              <argsstring>(Chain const &amp;)=default</argsstring>
+              <name>Chain</name>
         <param>
-          <type><ref refid="classspace_1_1_chain" kindref="compound">Chain</ref></type>
+            <type>
+                <ref refid="classspace_1_1_chain" kindref="compound">Chain</ref>
+                const &amp;
+            </type>
         </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default copy constructor.
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain.hpp" line="23" column="33"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_1ade5f7ba028ee32b540cd62e32800de61" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type></type>
+              <definition>space::Chain::Chain</definition>
+              <argsstring>(Chain &amp;&amp;)=default</argsstring>
+              <name>Chain</name>
         <param>
-          <type>default</type>
+            <type>
+                <ref refid="classspace_1_1_chain" kindref="compound">Chain</ref> &amp;&amp;
+            </type>
         </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain.hpp" line="23" column="5"/>
-      </memberdef>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default move constructor
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain.hpp" line="23" column="60"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_1aba865aabd5f1b0dbddcad4aa26c80e24" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type>
+                  <ref refid="classspace_1_1_chain" kindref="compound">Chain</ref> &amp;
+              </type>
+              <definition>Chain&amp; space::Chain::operator=</definition>
+              <argsstring>(Chain const &amp;)=default</argsstring>
+              <name>operator=</name>
+              <param>
+                  <type>
+                      <ref refid="classspace_1_1_chain" kindref="compound">Chain</ref>
+                      const &amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default copy assignment operator
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain.hpp" line="23" column="94"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_1a3397dd1dc4dab782cada71b2272d70a1" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type>
+                  <ref refid="classspace_1_1_chain" kindref="compound">Chain</ref> &amp;
+              </type>
+              <definition>Chain&amp; space::Chain::operator=</definition>
+              <argsstring>(Chain &amp;&amp;)=default</argsstring>
+              <name>operator=</name>
+              <param>
+                  <type>
+                      <ref refid="classspace_1_1_chain" kindref="compound">Chain</ref> &amp;&amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default move assignment operator
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain.hpp" line="23" column="132"/>
+          </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="classspace_1_1_chain_1a4f44ee0689a33aa23882156b984be73d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -449,11 +529,30 @@
       <member refid="classspace_1_1_chain_1aedc972ea5d90f1f2e2f95c139a0dd5a4" prot="public" virt="non-virtual"><scope>space::Chain</scope><name>calc_cartesian</name></member>
       <member refid="classspace_1_1_chain_1a7c4fa4fd9fa9375ff206f46a9cb1c0d3" prot="public" virt="non-virtual"><scope>space::Chain</scope><name>calc_chain</name></member>
       <member refid="classspace_1_1_chain_1a4f44ee0689a33aa23882156b984be73d" prot="public" virt="non-virtual"><scope>space::Chain</scope><name>calc_chain_index</name></member>
+        <member refid="classspace_1_1_chain_1ae570df3513d4daecd23b54ca4548f07c" prot="public" virt="non-virtual">
+            <scope>space::Chain</scope>
+            <name>Chain</name>
+        </member>
+        <member refid="classspace_1_1_chain_1aae885fbe1f31d0d903995ee96c2294c5" prot="public" virt="non-virtual">
+            <scope>space::Chain</scope>
+            <name>Chain</name>
+        </member>
+        <member refid="classspace_1_1_chain_1ade5f7ba028ee32b540cd62e32800de61" prot="public" virt="non-virtual">
+            <scope>space::Chain</scope>
+            <name>Chain</name>
+        </member>
       <member refid="classspace_1_1_chain_1ac8bc24b492e66b368f451a530d604a9f" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>create_distances_array</name></member>
       <member refid="classspace_1_1_chain_1a06065990580d5ce0c021251f1d16badb" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>create_index_from_dist_array</name></member>
       <member refid="classspace_1_1_chain_1a9b951383bf5553f4443ec69f58e53bce" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>get_new_node</name></member>
       <member refid="classspace_1_1_chain_1ae00ca48bf0cc335d3e5b386f9768f32f" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>not_in_list</name></member>
-      <member refid="classspace_1_1_chain_1a2da41d3ea89e0b3fbc624063990b4641" prot="public" virt="non-virtual"><scope>space::Chain</scope><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
+        <member refid="classspace_1_1_chain_1aba865aabd5f1b0dbddcad4aa26c80e24" prot="public" virt="non-virtual">
+            <scope>space::Chain</scope>
+            <name>operator=</name>
+        </member>
+        <member refid="classspace_1_1_chain_1a3397dd1dc4dab782cada71b2272d70a1" prot="public" virt="non-virtual">
+            <scope>space::Chain</scope>
+            <name>operator=</name>
+        </member>
       <member refid="classspace_1_1_chain_1a83c87541ba09eb6cdf611f88ae47ffd3" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>to_cartesian</name></member>
       <member refid="classspace_1_1_chain_1a5056f223cadd6c52178bf3aee514af63" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>to_chain</name></member>
       <member refid="classspace_1_1_chain_1acb107f1d075808d4271ab23d47fa8bea" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>try_add_to_chain</name></member>

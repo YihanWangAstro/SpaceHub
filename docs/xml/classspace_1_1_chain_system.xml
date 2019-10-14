@@ -17,6 +17,158 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1a120b67a32c87704d3cac47994d50eb1c" prot="public"
+                     static="no">
+              <templateparamlist>
+                  <param>
+                      <type>typename ...</type>
+                      <declname>_T_</declname>
+                      <defname>_T_</defname>
+                  </param>
+              </templateparamlist>
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::template
+                  Container&lt; _T_... &gt;
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::Container = typename Particles
+                  ::template Container&lt;_T_...&gt;
+              </definition>
+              <argsstring></argsstring>
+              <name>Container</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="18"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1afb1fb8f7de7a1bd240c9f064adeb68c2" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Scalar
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::Scalar = typename Particles
+                  ::Scalar
+              </definition>
+              <argsstring></argsstring>
+              <name>Scalar</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="38"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1a98cf380ab07f155d058a1235f2cfb650" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::ScalarArray
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::ScalarArray = typename Particles
+                  ::ScalarArray
+              </definition>
+              <argsstring></argsstring>
+              <name>ScalarArray</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="53"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1a1e8c7db0d3c5aed23114e2cc20793b6b" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IdxArray
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::IdxArray = typename Particles
+                  ::IdxArray
+              </definition>
+              <argsstring></argsstring>
+              <name>IdxArray</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="73"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1a6f851e9902da51d0149ce4214f776731" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IntArray
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::IntArray = typename Particles
+                  ::IntArray
+              </definition>
+              <argsstring></argsstring>
+              <name>IntArray</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="90"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1ad7da6d35d221214c6df70c5a4dcc9f03" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Vector
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::Vector = typename Particles
+                  ::Vector
+              </definition>
+              <argsstring></argsstring>
+              <name>Vector</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="107"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1afeb80de8263b28d425111171c89389d3" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::VectorArray
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::VectorArray = typename Particles
+                  ::VectorArray
+              </definition>
+              <argsstring></argsstring>
+              <name>VectorArray</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="122"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
+          <memberdef kind="typedef" id="classspace_1_1_chain_system_1ab5e1fd4141d996ce3fadc94668ece5a7" prot="public"
+                     static="no">
+              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Coord
+              </type>
+              <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::Coord = typename Particles
+                  ::Coord
+              </definition>
+              <argsstring></argsstring>
+              <name>Coord</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="27" column="142"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="27" bodyend="-1"/>
+          </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_chain_system_1ac99ca2662e77a7b03e9d0818d72c96d4" prot="public" static="no">
         <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref> &gt; &gt;</type>
         <definition>using space::ChainSystem&lt; Particles, Interactions &gt;::Base =  ParticleSystem&lt;ChainSystem&lt;Particles, Interactions&gt; &gt;</definition>
@@ -45,32 +197,20 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="classspace_1_1_chain_system_1a9f0489a6121cae32129c09c9dce0d604" prot="public" static="no" mutable="no">
-        <type>CRTP_IMPL</type>
-        <definition>CRTP_IMPL space::ChainSystem&lt; Particles, Interactions &gt;::__pad0__</definition>
+          <memberdef kind="variable" id="classspace_1_1_chain_system_1af5e9ed8219b6bcafdeefacd51d7ef35b" prot="public"
+                     static="no" mutable="no">
+              <type>friend</type>
+              <definition>friend space::ChainSystem&lt; Particles, Interactions &gt;::Base</definition>
         <argsstring></argsstring>
-        <name>__pad0__</name>
-        <bitfield> SPACEHUB_STD_ACCESSOR(auto</bitfield>
+              <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="53" column="5" bodyfile="particle-system/chain-system.hpp" bodystart="55" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1_chain_system_1a7673e1196ad216dd12f3025bc851eb18" prot="public" static="no" mutable="no">
-        <type>CRTP_IMPL</type>
-        <definition>CRTP_IMPL space::ChainSystem&lt; Particles, Interactions &gt;::impl_mass</definition>
-        <argsstring></argsstring>
-        <name>impl_mass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="55" column="2" bodyfile="particle-system/chain-system.hpp" bodystart="55" bodyend="-1"/>
+              <location file="particle-system/chain-system.hpp" line="53" column="13"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="53" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -207,53 +347,117 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1_chain_system_1aabf3c22c0e31df77ad093cc5ed56ac87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a8a3ee89ecdb57265e177685fe797a34b" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_USING_TYPE_SYSTEM_OF</definition>
-        <argsstring>(Particles)</argsstring>
-        <name>SPACEHUB_USING_TYPE_SYSTEM_OF</name>
-        <param>
-          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
-        </param>
+              <definition>space::ChainSystem&lt; Particles, Interactions &gt;::ChainSystem</definition>
+              <argsstring>()=delete</argsstring>
+              <name>ChainSystem</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+            <para>Default constructor.
+                <linebreak/>
+            </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="27" column="5"/>
+              <location file="particle-system/chain-system.hpp" line="34" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a2169bdc4f266af2aa891762002d057ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a668e666a3e861ef77748f041341e8465" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_MAKE_CONSTRUCTORS</definition>
-        <argsstring>(ChainSystem, delete, default, default, default, default)</argsstring>
-        <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
+              <definition>space::ChainSystem&lt; Particles, Interactions &gt;::ChainSystem</definition>
+              <argsstring>(ChainSystem const &amp;)=default</argsstring>
+              <name>ChainSystem</name>
         <param>
-          <type><ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref></type>
+            <type>
+                <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>
+                const &amp;
+            </type>
         </param>
-        <param>
-          <type>delete</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="34" column="5"/>
-      </memberdef>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default copy constructor.
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="34" column="38"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a5b9afbe37d16fab11af5b77a66b10065" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type></type>
+              <definition>space::ChainSystem&lt; Particles, Interactions &gt;::ChainSystem</definition>
+              <argsstring>(ChainSystem &amp;&amp;)=default</argsstring>
+              <name>ChainSystem</name>
+              <param>
+                  <type>
+                      <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref> &amp;&amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default move constructor
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="34" column="71"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a0e3f7e0e7efbe84036f5d5b0cc08e700" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type>
+                  <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref> &amp;
+              </type>
+              <definition>ChainSystem&amp; space::ChainSystem&lt; Particles, Interactions &gt;::operator=</definition>
+              <argsstring>(ChainSystem const &amp;)=default</argsstring>
+              <name>operator=</name>
+              <param>
+                  <type>
+                      <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>
+                      const &amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default copy assignment operator
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="34" column="117"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a06c568b919a54ab43ec7845c92c19d51" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type>
+                  <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref> &amp;
+              </type>
+              <definition>ChainSystem&amp; space::ChainSystem&lt; Particles, Interactions &gt;::operator=</definition>
+              <argsstring>(ChainSystem &amp;&amp;)=default</argsstring>
+              <name>operator=</name>
+              <param>
+                  <type>
+                      <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref> &amp;&amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default move assignment operator
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="34" column="161"/>
+          </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_system_1a483c30a3b7580fccf99a5608352d3759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -280,172 +484,169 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="37" column="5" bodyfile="particle-system/chain-system.hpp" bodystart="119" bodyend="136"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1ab605d85031f1a78a3359e6cd02b230dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, chain_pos, chain_pos_)</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a2ee2191d0de27baffed5ab05c9d6b4ef" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::chain_pos</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>chain_pos</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The setter interface of member <computeroutput>chain_pos_</computeroutput> in name
+                      of <computeroutput>chain_pos</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="40" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="40" bodyend="40"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1aaf5993d9adfaa969a57238b7a32f2534" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::chain_pos</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>chain_pos</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The getter interface of member <computeroutput>chain_pos_</computeroutput> in name
+                      of <computeroutput>chain_pos</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="40" column="95"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="40" bodyend="40"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1ab1f5be564113f902ec8dedd8070d39de" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::chain_vel</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>chain_vel</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The setter interface of member <computeroutput>chain_vel_</computeroutput> in name
+                      of <computeroutput>chain_vel</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="42" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="42" bodyend="42"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a9bcff70ce45f346c8ca5fcdd331021ce" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::chain_vel</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>chain_vel</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The getter interface of member <computeroutput>chain_vel_</computeroutput> in name
+                      of <computeroutput>chain_vel</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="42" column="95"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="42" bodyend="42"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1acdf71004fee347a028e372f9e57686ba" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::index</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>index</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The setter interface of member <computeroutput>index_</computeroutput> in name
+                      of <computeroutput>index</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="44" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="44" bodyend="44"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a9f6e9569e817878bdc4d2ee2ccf3319d" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::index</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>index</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The getter interface of member <computeroutput>index_</computeroutput> in name
+                      of <computeroutput>index</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="44" column="87"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="44" bodyend="44"/>
+          </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+          <memberdef kind="friend" id="classspace_1_1_chain_system_1ae6489af7c22ee2b13dca45bf1b282072" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename P</type>
+                  </param>
+                  <param>
+                      <type>typename F</type>
+                  </param>
+              </templateparamlist>
+              <type>friend std::ostream &amp;</type>
+              <definition>std::ostream&amp; operator&lt;&lt;</definition>
+              <argsstring>(std::ostream &amp;os, ChainSystem&lt; P, F &gt; const &amp;ps)</argsstring>
+              <name>operator&lt;&lt;</name>
         <param>
-          <type>auto</type>
+            <type>std::ostream &amp;</type>
+            <declname>os</declname>
         </param>
         <param>
-          <type>chain_pos</type>
-        </param>
-        <param>
-          <type>chain_pos_</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="40" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a1562fe4767306c035c0a2de4cdcf723a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, chain_vel, chain_vel_)</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>chain_vel</type>
-        </param>
-        <param>
-          <type>chain_vel_</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="42" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a7e7fa4e72c0d6625ad56033bca66e381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, index, index_)</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>index</type>
-        </param>
-        <param>
-          <type>index_</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="44" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a54ce5a119b1be31108bc33072be99b2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>CRTP_IMPL ptcl_</type>
-        <definition>CRTP_IMPL ptcl_ space::ChainSystem&lt; Particles, Interactions &gt;::mass</definition>
-        <argsstring>())</argsstring>
-        <name>mass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="55" column="17"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a0c7212aaac4900530eedc28765fb4071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, impl_idn, ptcl_.idn())</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>impl_idn</type>
-        </param>
-        <param>
-          <type>ptcl_.</type>
-          <declname>idn</declname>
-          <array>()</array>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="57" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1aad6873b97695a130850ec1ff17a7b6a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, impl_pos, ptcl_.pos())</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>impl_pos</type>
-        </param>
-        <param>
-          <type>ptcl_.</type>
-          <declname>pos</declname>
-          <array>()</array>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="59" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a031ab036328459b6011ade475b2ae774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, impl_vel, ptcl_.vel())</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>impl_vel</type>
-        </param>
-        <param>
-          <type>ptcl_.</type>
-          <declname>vel</declname>
-          <array>()</array>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="61" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a26c039ea315fa56843c69165d06b1039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::ChainSystem&lt; Particles, Interactions &gt;::SPACEHUB_STD_ACCESSOR</definition>
-        <argsstring>(auto, impl_time, ptcl_.time())</argsstring>
-        <name>SPACEHUB_STD_ACCESSOR</name>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>impl_time</type>
-        </param>
-        <param>
-          <type>ptcl_.</type>
-          <declname>time</declname>
-          <array>()</array>
+            <type><ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; P, F &gt; const
+                &amp;
+            </type>
+            <declname>ps</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -453,9 +654,284 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="63" column="5"/>
+              <location file="particle-system/chain-system.hpp" line="48" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1aec1f22b879398f7f3d028a9e04fee7b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="friend" id="classspace_1_1_chain_system_1a5a128d62a6716b95ff048a4f381fc24c" prot="public"
+                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename P</type>
+                  </param>
+                  <param>
+                      <type>typename F</type>
+                  </param>
+              </templateparamlist>
+              <type>friend std::istream &amp;</type>
+              <definition>std::istream&amp; operator&gt;&gt;</definition>
+              <argsstring>(std::istream &amp;is, ChainSystem&lt; P, F &gt; &amp;ps)</argsstring>
+              <name>operator&gt;&gt;</name>
+        <param>
+            <type>std::istream &amp;</type>
+            <declname>is</declname>
+        </param>
+              <param>
+                  <type><ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; P, F &gt;
+                      &amp;
+                  </type>
+                  <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="51" column="25"/>
+          </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a8973754d21804430f41e10363429c449"
+                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_mass</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>impl_mass</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The setter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name
+                      of <computeroutput>impl_mass</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="55" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a760f1c909e91b0899cb8d3290452dc42"
+                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_mass</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>impl_mass</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The getter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name
+                      of <computeroutput>impl_mass</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="55" column="97"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="55" bodyend="55"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1ad61c17d0fa52fd56187918fbcd940362"
+                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_idn</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>impl_idn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>The setter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name
+                of <computeroutput>impl_idn</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="57" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1aac48a597bf72a3ca5072f401a591ba18"
+                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_idn</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>impl_idn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>The getter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name
+                of <computeroutput>impl_idn</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="57" column="95"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a69bcf473df7448a44300e34895904ab1"
+                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_pos</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>impl_pos</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The setter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name
+                      of <computeroutput>impl_pos</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="59" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="59" bodyend="59"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a6e47652835e3423e7bbdd57304fbd082"
+                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_pos</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>impl_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>The getter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name
+                of <computeroutput>impl_pos</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="59" column="95"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a5720c619f1e59f4356f45538f1351d21"
+                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_vel</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>impl_vel</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>The setter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name
+                      of <computeroutput>impl_vel</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="61" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="61" bodyend="61"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1ac9b9a6f60d6f1d9f0209752ab45bc3d9"
+                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_vel</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>impl_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>The getter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name
+                of <computeroutput>impl_vel</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="61" column="95"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a1b4cfc2fcfa8b776b20d67a9bc4a558f"
+                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_time</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>impl_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>The setter interface of member <computeroutput>ptcl_.time()</computeroutput> in name
+                of <computeroutput>impl_time</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="63" column="23"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a2b1c63589db85d31ba050ad81c9c4f61"
+                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
+                     virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::ChainSystem&lt; Particles, Interactions &gt;::impl_time</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>impl_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>The getter interface of member <computeroutput>ptcl_.time()</computeroutput> in name
+                of <computeroutput>impl_time</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
+                </simplesect>
+            </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+              <location file="particle-system/chain-system.hpp" line="63" column="97"
+                        bodyfile="particle-system/chain-system.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+          <memberdef kind="function" id="classspace_1_1_chain_system_1aec1f22b879398f7f3d028a9e04fee7b7"
+                     prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
         <definition>size_t space::ChainSystem&lt; Particles, Interactions &gt;::impl_number</definition>
         <argsstring>() const</argsstring>
@@ -468,7 +944,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="65" column="13" bodyfile="particle-system/chain-system.hpp" bodystart="139" bodyend="141"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1ab07a0719d22db2e5d6285c547498da38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1ab07a0719d22db2e5d6285c547498da38"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_advance_time</definition>
         <argsstring>(Scalar dt)</argsstring>
@@ -485,7 +962,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="67" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="144" bodyend="146"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a0fc622eed05b67f0ff6eeac0781ee5db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a0fc622eed05b67f0ff6eeac0781ee5db"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_advance_pos</definition>
         <argsstring>(Coord const &amp;velocity, Scalar step_size)</argsstring>
@@ -506,7 +984,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="69" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="149" bodyend="152"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1acf07e04f44b6263421bac8c140448811" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1acf07e04f44b6263421bac8c140448811"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_advance_vel</definition>
         <argsstring>(Coord const &amp;acceleration, Scalar step_size)</argsstring>
@@ -527,7 +1006,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="71" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="155" bodyend="158"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1af8864ed9de9cce87237b0a447138ef34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1af8864ed9de9cce87237b0a447138ef34"
+                     prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_evaluate_acc</definition>
         <argsstring>(Coord &amp;acceleration) const</argsstring>
@@ -544,7 +1024,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="73" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="161" bodyend="163"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a179a3e77c9b728f31071f56ef8eb0451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a179a3e77c9b728f31071f56ef8eb0451"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_drift</definition>
         <argsstring>(Scalar step_size)</argsstring>
@@ -561,7 +1042,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="75" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="166" bodyend="169"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a2969352787126623169a4a9b9bec9152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a2969352787126623169a4a9b9bec9152"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_kick</definition>
         <argsstring>(Scalar step_size)</argsstring>
@@ -578,7 +1060,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="77" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="172" bodyend="183"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a65dbcf00f4037fedd92857cc1d11a130" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a65dbcf00f4037fedd92857cc1d11a130"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_pre_iter_process</definition>
         <argsstring>()</argsstring>
@@ -591,7 +1074,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="79" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="186" bodyend="191"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a02855377c7c789e3014262824db5a914" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a02855377c7c789e3014262824db5a914"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::ChainSystem&lt; Particles, Interactions &gt;::impl_post_iter_process</definition>
         <argsstring>()</argsstring>
@@ -604,7 +1088,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="81" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="194" bodyend="203"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1a8492ec552883eac97429ee816f4ee384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1a8492ec552883eac97429ee816f4ee384"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename STL</type>
@@ -626,7 +1111,8 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="84" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="207" bodyend="213"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_chain_system_1ab130afc375ba238780ac8da8fda6e5dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1_chain_system_1ab130afc375ba238780ac8da8fda6e5dd"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename STL</type>
@@ -647,66 +1133,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="87" column="10" bodyfile="particle-system/chain-system.hpp" bodystart="217" bodyend="231"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="classspace_1_1_chain_system_1ae6489af7c22ee2b13dca45bf1b282072" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename P</type>
-          </param>
-          <param>
-            <type>typename F</type>
-          </param>
-        </templateparamlist>
-        <type>friend std::ostream &amp;</type>
-        <definition>std::ostream&amp; operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;os, ChainSystem&lt; P, F &gt; const &amp;ps)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type><ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; P, F &gt; const &amp;</type>
-          <declname>ps</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="48" column="12"/>
-      </memberdef>
-      <memberdef kind="friend" id="classspace_1_1_chain_system_1a5a128d62a6716b95ff048a4f381fc24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename P</type>
-          </param>
-          <param>
-            <type>typename F</type>
-          </param>
-        </templateparamlist>
-        <type>friend std::istream &amp;</type>
-        <definition>std::istream&amp; operator&gt;&gt;</definition>
-        <argsstring>(std::istream &amp;is, ChainSystem&lt; P, F &gt; &amp;ps)</argsstring>
-        <name>operator&gt;&gt;</name>
-        <param>
-          <type>std::istream &amp;</type>
-          <declname>is</declname>
-        </param>
-        <param>
-          <type><ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; P, F &gt; &amp;</type>
-          <declname>ps</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="51" column="25"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -835,64 +1261,271 @@
     </collaborationgraph>
     <location file="particle-system/chain-system.hpp" line="24" column="45" bodyfile="particle-system/chain-system.hpp" bodystart="24" bodyend="112"/>
     <listofallmembers>
-      <member refid="classspace_1_1_chain_system_1a9f0489a6121cae32129c09c9dce0d604" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>__pad0__</name></member>
       <member refid="classspace_1_1_chain_system_1a37bb448d331757da80c09e987f17ea9b" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>accels_</name></member>
       <member refid="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>advance_pos</name></member>
       <member refid="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>advance_time</name></member>
       <member refid="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>advance_vel</name></member>
       <member refid="classspace_1_1_chain_system_1a0403fde260ae3591dd978f78df769b64" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>aux_vel_</name></member>
       <member refid="classspace_1_1_chain_system_1ac99ca2662e77a7b03e9d0818d72c96d4" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>Base</name></member>
+        <member refid="classspace_1_1_chain_system_1af5e9ed8219b6bcafdeefacd51d7ef35b" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>Base</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1a9d6de9030fd6af7d1a9e1ae3ffb7dec2" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>chain_acc_</name></member>
       <member refid="classspace_1_1_chain_system_1adf4713e1aa2df2ed64fc2ca41b112dd9" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>chain_advance</name></member>
       <member refid="classspace_1_1_chain_system_1a538a9a333fa6c866dcf9f8e6f2a71b22" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>chain_aux_vel_</name></member>
+        <member refid="classspace_1_1_chain_system_1a2ee2191d0de27baffed5ab05c9d6b4ef" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>chain_pos</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1aaf5993d9adfaa969a57238b7a32f2534" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>chain_pos</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1a045f00e05506ca0ed16a9c9698d515bf" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>chain_pos_</name></member>
+        <member refid="classspace_1_1_chain_system_1ab1f5be564113f902ec8dedd8070d39de" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>chain_vel</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a9bcff70ce45f346c8ca5fcdd331021ce" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>chain_vel</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1afddda22ff65a3aa7e3a6cab2601469d4" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>chain_vel_</name></member>
+        <member refid="classspace_1_1_chain_system_1a8a3ee89ecdb57265e177685fe797a34b" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>ChainSystem</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a668e666a3e861ef77748f041341e8465" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>ChainSystem</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a5b9afbe37d16fab11af5b77a66b10065" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>ChainSystem</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1a483c30a3b7580fccf99a5608352d3759" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>ChainSystem</name></member>
-      <member refid="classspace_1_1_particle_system_1afdb86cfe95aa215f750cd8f54ac5f01d" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particle_system_1a71a945b9dc866394018fda90736aeee6" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particle_system_1a8f19bf5259aa48a7e1d5b8da35d7a7c4" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particle_system_1ad01d0168269f3c8e0c1056e3486a5797" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particle_system_1a1a0692e0d367dd820e69f51cd8039e0b" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+        <member refid="classspace_1_1_chain_system_1a120b67a32c87704d3cac47994d50eb1c" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>Container</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1ab5e1fd4141d996ce3fadc94668ece5a7" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>Coord</name>
+        </member>
       <member refid="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>drift</name></member>
       <member refid="classspace_1_1_chain_system_1af2467e6833eec7e08db6d0aea93b1dc6" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>eval_vel_indep_acc</name></member>
       <member refid="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>evaluate_acc</name></member>
-      <member refid="classspace_1_1_chain_system_1a0fc622eed05b67f0ff6eeac0781ee5db" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_advance_pos</name></member>
-      <member refid="classspace_1_1_chain_system_1ab07a0719d22db2e5d6285c547498da38" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_advance_time</name></member>
-      <member refid="classspace_1_1_chain_system_1acf07e04f44b6263421bac8c140448811" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_advance_vel</name></member>
-      <member refid="classspace_1_1_chain_system_1a179a3e77c9b728f31071f56ef8eb0451" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_drift</name></member>
-      <member refid="classspace_1_1_chain_system_1af8864ed9de9cce87237b0a447138ef34" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_evaluate_acc</name></member>
-      <member refid="classspace_1_1_chain_system_1a2969352787126623169a4a9b9bec9152" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_kick</name></member>
-      <member refid="classspace_1_1_chain_system_1ab130afc375ba238780ac8da8fda6e5dd" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_load_from_linear_container</name></member>
-      <member refid="classspace_1_1_chain_system_1a7673e1196ad216dd12f3025bc851eb18" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_mass</name></member>
-      <member refid="classspace_1_1_chain_system_1aec1f22b879398f7f3d028a9e04fee7b7" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_number</name></member>
-      <member refid="classspace_1_1_chain_system_1a02855377c7c789e3014262824db5a914" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_post_iter_process</name></member>
-      <member refid="classspace_1_1_chain_system_1a65dbcf00f4037fedd92857cc1d11a130" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_pre_iter_process</name></member>
-      <member refid="classspace_1_1_chain_system_1a8492ec552883eac97429ee816f4ee384" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>impl_to_linear_container</name></member>
+        <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>idn</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>idn</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a1e8c7db0d3c5aed23114e2cc20793b6b" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>IdxArray</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a0fc622eed05b67f0ff6eeac0781ee5db" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_advance_pos</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1ab07a0719d22db2e5d6285c547498da38" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_advance_time</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1acf07e04f44b6263421bac8c140448811" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_advance_vel</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a179a3e77c9b728f31071f56ef8eb0451" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_drift</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1af8864ed9de9cce87237b0a447138ef34" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_evaluate_acc</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1ad61c17d0fa52fd56187918fbcd940362" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_idn</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1aac48a597bf72a3ca5072f401a591ba18" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_idn</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a2969352787126623169a4a9b9bec9152" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_kick</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1ab130afc375ba238780ac8da8fda6e5dd" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_load_from_linear_container</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a8973754d21804430f41e10363429c449" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_mass</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a760f1c909e91b0899cb8d3290452dc42" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_mass</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1aec1f22b879398f7f3d028a9e04fee7b7" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_number</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a69bcf473df7448a44300e34895904ab1" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_pos</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a6e47652835e3423e7bbdd57304fbd082" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_pos</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a02855377c7c789e3014262824db5a914" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_post_iter_process</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a65dbcf00f4037fedd92857cc1d11a130" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_pre_iter_process</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a1b4cfc2fcfa8b776b20d67a9bc4a558f" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_time</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a2b1c63589db85d31ba050ad81c9c4f61" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_time</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a8492ec552883eac97429ee816f4ee384" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_to_linear_container</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a5720c619f1e59f4356f45538f1351d21" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_vel</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1ac9b9a6f60d6f1d9f0209752ab45bc3d9" prot="protected"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>impl_vel</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1acdf71004fee347a028e372f9e57686ba" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>index</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a9f6e9569e817878bdc4d2ee2ccf3319d" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>index</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1a971f31bd6951945e3b40c13fc65f676e" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>index_</name></member>
+        <member refid="classspace_1_1_chain_system_1a6f851e9902da51d0149ce4214f776731" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>IntArray</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1a3a2bdd9bd83cd97583feaf87d583b235" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>interactions_</name></member>
       <member refid="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>kick</name></member>
       <member refid="classspace_1_1_chain_system_1a1e1495b0d51341278f2e6446ea5dd204" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>kick_pseu_vel</name></member>
       <member refid="classspace_1_1_chain_system_1a25038a5540b7098f60206d9447ae1499" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>kick_real_vel</name></member>
       <member refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>load_from_linear_container</name></member>
-      <member refid="classspace_1_1_chain_system_1a54ce5a119b1be31108bc33072be99b2e" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>mass</name></member>
+        <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>mass</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>mass</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1aacec18e041266d421ac4527db1be8e34" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>new_index_</name></member>
       <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>number</name></member>
       <member refid="classspace_1_1_chain_system_1ae6489af7c22ee2b13dca45bf1b282072" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>operator&lt;&lt;</name></member>
+        <member refid="classspace_1_1_chain_system_1a0e3f7e0e7efbe84036f5d5b0cc08e700" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>operator=</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a06c568b919a54ab43ec7845c92c19d51" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>operator=</name>
+        </member>
       <member refid="classspace_1_1_chain_system_1a5a128d62a6716b95ff048a4f381fc24c" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>operator&gt;&gt;</name></member>
       <member refid="classspace_1_1_chain_system_1a8e4f9d85b3cc034a5a5ee49db3a6c5df" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>Particle</name></member>
+        <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>pos</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>pos</name>
+        </member>
       <member refid="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>pre_iter_process</name></member>
       <member refid="classspace_1_1_chain_system_1a6a12cec0875c3b3a39e159b10ed70bca" prot="private" virt="non-virtual"><scope>space::ChainSystem</scope><name>ptcl_</name></member>
-      <member refid="classspace_1_1_chain_system_1a2169bdc4f266af2aa891762002d057ca" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
-      <member refid="classspace_1_1_chain_system_1ab605d85031f1a78a3359e6cd02b230dd" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1a1562fe4767306c035c0a2de4cdcf723a" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1a7e7fa4e72c0d6625ad56033bca66e381" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1a0c7212aaac4900530eedc28765fb4071" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1aad6873b97695a130850ec1ff17a7b6a3" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1a031ab036328459b6011ade475b2ae774" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1a26c039ea315fa56843c69165d06b1039" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
-      <member refid="classspace_1_1_chain_system_1aabf3c22c0e31df77ad093cc5ed56ac87" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>SPACEHUB_USING_TYPE_SYSTEM_OF</name></member>
+        <member refid="classspace_1_1_chain_system_1afb1fb8f7de7a1bd240c9f064adeb68c2" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>Scalar</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1a98cf380ab07f155d058a1235f2cfb650" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>ScalarArray</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>time</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>time</name>
+        </member>
       <member refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" virt="non-virtual"><scope>space::ChainSystem</scope><name>to_linear_container</name></member>
+        <member refid="classspace_1_1_chain_system_1ad7da6d35d221214c6df70c5a4dcc9f03" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>Vector</name>
+        </member>
+        <member refid="classspace_1_1_chain_system_1afeb80de8263b28d425111171c89389d3" prot="public" virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>VectorArray</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>vel</name>
+        </member>
+        <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public"
+                virt="non-virtual">
+            <scope>space::ChainSystem</scope>
+            <name>vel</name>
+        </member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -34,7 +34,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="348" column="24" bodyfile="dev-tools.hpp" bodystart="330" bodyend="349"/>
+      <location file="dev-tools.hpp" line="392" column="24" bodyfile="dev-tools.hpp" bodystart="374" bodyend="393"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

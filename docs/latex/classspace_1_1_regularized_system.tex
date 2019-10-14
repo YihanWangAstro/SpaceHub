@@ -30,6 +30,30 @@ Collaboration diagram for space\+::Regularized\+System$<$ Particles, Interaction
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a1c5f8e7d63fec3abe61166be56a4bdd3}\label{classspace_1_1_regularized_system_a1c5f8e7d63fec3abe61166be56a4bdd3}} 
+{\footnotesize template$<$typename ... \+\_\+\+T\+\_\+$>$ }\\using {\bfseries Container} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::template Container$<$ \+\_\+\+T\+\_\+... $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a6efafc5cb08deaf5c3aa92f38e2e8b83}\label{classspace_1_1_regularized_system_a6efafc5cb08deaf5c3aa92f38e2e8b83}} 
+using {\bfseries Scalar} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Scalar
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ac700cf91610326f924556131dbfa05ee}\label{classspace_1_1_regularized_system_ac700cf91610326f924556131dbfa05ee}} 
+using {\bfseries Scalar\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Scalar\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a59d61f1a27f1d41c0c5af0f2061498b2}\label{classspace_1_1_regularized_system_a59d61f1a27f1d41c0c5af0f2061498b2}} 
+using {\bfseries Idx\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Idx\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a0f5fdff31cd80ad9b2fd1ac31037e194}\label{classspace_1_1_regularized_system_a0f5fdff31cd80ad9b2fd1ac31037e194}} 
+using {\bfseries Int\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Int\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ac46d7674258ba1f523271cdee56792dd}\label{classspace_1_1_regularized_system_ac46d7674258ba1f523271cdee56792dd}} 
+using {\bfseries Vector} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Vector
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_acf1d5630273f7982a2b9fc5e95a47b06}\label{classspace_1_1_regularized_system_acf1d5630273f7982a2b9fc5e95a47b06}} 
+using {\bfseries Vector\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Vector\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a3eec86ff7fe2b1b70c5abe314c773213}\label{classspace_1_1_regularized_system_a3eec86ff7fe2b1b70c5abe314c773213}} 
+using {\bfseries Coord} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Coord
+\item 
 \mbox{\Hypertarget{classspace_1_1_regularized_system_a9e662c5eeece87a9b78ad762969e8ef5}\label{classspace_1_1_regularized_system_a9e662c5eeece87a9b78ad762969e8ef5}} 
 using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1_particle_system}{Particle\+System}}$<$ \mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$ $>$
 \item 
@@ -39,35 +63,61 @@ using {\bfseries Particle} = typename Particles\+::\+Particle
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a16d3c69898d9d0e256c154a2564d2455}\label{classspace_1_1_regularized_system_a16d3c69898d9d0e256c154a2564d2455}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}})
+\mbox{\hyperlink{classspace_1_1_regularized_system_ac46577f637b3b6434527246e8532f934}{Regularized\+System}} ()=delete
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a36986b6c6bdff4dc5f8860a9742b9c08}\label{classspace_1_1_regularized_system_a36986b6c6bdff4dc5f8860a9742b9c08}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS} (\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}, delete, default, default, default, default)
+\mbox{\hyperlink{classspace_1_1_regularized_system_a06971b935f7cfb55cf0fe232555459d0}{Regularized\+System}} (\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} const \&)=default
+\item 
+\mbox{\hyperlink{classspace_1_1_regularized_system_a59e0a8f79a45f0c6e7e63b9f18b53dbd}{Regularized\+System}} (\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} \&\&)=default
+\item 
+\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} \& \mbox{\hyperlink{classspace_1_1_regularized_system_a5e7a9739ad0b11498207fcf85556c38a}{operator=}} (\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} const \&)=default
+\item 
+\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} \& \mbox{\hyperlink{classspace_1_1_regularized_system_a37cfcf4271064778315baefa4541aafa}{operator=}} (\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} \&\&)=default
 \item 
 \mbox{\Hypertarget{classspace_1_1_regularized_system_a5461fd02126cffd25534b3b92a401d3e}\label{classspace_1_1_regularized_system_a5461fd02126cffd25534b3b92a401d3e}} 
-{\footnotesize template$<$typename S\+TL $>$ }\\{\bfseries Regularized\+System} (Scalar time, S\+TL const \&particle\+\_\+set)
+{\footnotesize template$<$typename S\+TL $>$ }\\{\bfseries Regularized\+System} (Scalar \mbox{\hyperlink{classspace_1_1_particle_system_a333441c5101a535ef02dc1f257378394}{time}}, S\+TL const \&particle\+\_\+set)
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a8b8b64fbd28e2d3fb602cf5ea8806be6}\label{classspace_1_1_regularized_system_a8b8b64fbd28e2d3fb602cf5ea8806be6}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, omega, regu\+\_\+.\+omega())
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_af875559084edf49acb4023b0eb06090a}{omega}} () noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a1412390c25bbd1cf46e1a4e189ea4795}\label{classspace_1_1_regularized_system_a1412390c25bbd1cf46e1a4e189ea4795}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, bindE, regu\+\_\+.\+bindE())
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a8253991af985abb20647397ccb3ad314}{omega}} () const noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a03162f5fc0b8706af35b5c45e12d9826}\label{classspace_1_1_regularized_system_a03162f5fc0b8706af35b5c45e12d9826}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL ptcl\+\_\+ {\bfseries mass} ())
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_ac0a1fc21f863f4f586e6a6704c09927c}{bindE}} () noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a22c515d8b1fa4cd5dab8f79340f7c826}\label{classspace_1_1_regularized_system_a22c515d8b1fa4cd5dab8f79340f7c826}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+idn, ptcl\+\_\+.\+idn())
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_adb57fda560e2f05a68c0e87b47b2fba5}{bindE}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a033220ccfcf4f168b1ce9b60f1fad011}\label{classspace_1_1_regularized_system_a033220ccfcf4f168b1ce9b60f1fad011}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+pos, ptcl\+\_\+.\+pos())
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ada324a04573b6f57318a8debf2f46237}\label{classspace_1_1_regularized_system_ada324a04573b6f57318a8debf2f46237}} 
+friend {\bfseries Base}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a695eb0e8237d0532c5b60a75d6c711c5}\label{classspace_1_1_regularized_system_a695eb0e8237d0532c5b60a75d6c711c5}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+vel, ptcl\+\_\+.\+vel())
+\mbox{\Hypertarget{classspace_1_1_regularized_system_af5c95e0810d7f571e2059035cb53f54e}\label{classspace_1_1_regularized_system_af5c95e0810d7f571e2059035cb53f54e}} 
+static constexpr Regu\+Type {\bfseries regu\+\_\+type} \{Reg\+Type\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a80b500f92054e68bb8e1e836d8cbf193}\label{classspace_1_1_regularized_system_a80b500f92054e68bb8e1e836d8cbf193}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+time, ptcl\+\_\+.\+time())
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a4496b6aa55c080b27389b87472033720}{impl\+\_\+mass}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a437594951667c2af5e7651c3d6bb3bdd}{impl\+\_\+mass}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a983d7741e9f018fd81655da7cc05205f}{impl\+\_\+idn}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_ab5dd9fc61923a7db0ae47c612c049896}{impl\+\_\+idn}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_ac31ddf4edc35754a90327b801cba4d6a}{impl\+\_\+pos}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a6ab8dbe690ad7b9c6043bc4ad4eda2b7}{impl\+\_\+pos}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_ae73d2e53d5efe55714e36e92521b0515}{impl\+\_\+vel}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a26a4b19c8801307a328354fb828fd60f}{impl\+\_\+vel}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a79389cba5c60e9f67d331362368ae628}{impl\+\_\+time}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_regularized_system_a5ffc975821a471f084da4344ec1a4d10}{impl\+\_\+time}} () const noexcept
 \item 
 \mbox{\Hypertarget{classspace_1_1_regularized_system_a6471341e5bd5bfe0cddb3298376499c3}\label{classspace_1_1_regularized_system_a6471341e5bd5bfe0cddb3298376499c3}} 
 size\+\_\+t {\bfseries impl\+\_\+number} () const
@@ -99,21 +149,6 @@ void {\bfseries impl\+\_\+pre\+\_\+iter\+\_\+process} ()
 \mbox{\Hypertarget{classspace_1_1_regularized_system_ada56faa365fc45f8adc5ada04ed1bfbd}\label{classspace_1_1_regularized_system_ada56faa365fc45f8adc5ada04ed1bfbd}} 
 {\footnotesize template$<$typename S\+TL $>$ }\\void {\bfseries impl\+\_\+load\+\_\+from\+\_\+linear\+\_\+container} (S\+TL const \&stl\+\_\+ranges)
 \end{DoxyCompactItemize}
-\doxysubsection*{Data Fields}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a48286bce5179be4b432ec62bba9325c4}\label{classspace_1_1_regularized_system_a48286bce5179be4b432ec62bba9325c4}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR(auto
-\item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_a3c6e0cbc657bd8cce95723eb2acb8cae}\label{classspace_1_1_regularized_system_a3c6e0cbc657bd8cce95723eb2acb8cae}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries impl\+\_\+mass}
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classspace_1_1_regularized_system_af5c95e0810d7f571e2059035cb53f54e}\label{classspace_1_1_regularized_system_af5c95e0810d7f571e2059035cb53f54e}} 
-static constexpr Regu\+Type {\bfseries regu\+\_\+type} \{Reg\+Type\}
-\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -139,6 +174,206 @@ Regularied particle system. See details in \href{https://link.springer.com/artic
 \hline
 \end{DoxyTemplParams}
 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ac46577f637b3b6434527246e8532f934}\label{classspace_1_1_regularized_system_ac46577f637b3b6434527246e8532f934}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!RegularizedSystem@{RegularizedSystem}}
+\index{RegularizedSystem@{RegularizedSystem}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{RegularizedSystem()}{RegularizedSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+\mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor. ~\newline
+ \mbox{\Hypertarget{classspace_1_1_regularized_system_a06971b935f7cfb55cf0fe232555459d0}\label{classspace_1_1_regularized_system_a06971b935f7cfb55cf0fe232555459d0}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!RegularizedSystem@{RegularizedSystem}}
+\index{RegularizedSystem@{RegularizedSystem}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{RegularizedSystem()}{RegularizedSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+\mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default copy constructor. ~\newline
+ \mbox{\Hypertarget{classspace_1_1_regularized_system_a59e0a8f79a45f0c6e7e63b9f18b53dbd}\label{classspace_1_1_regularized_system_a59e0a8f79a45f0c6e7e63b9f18b53dbd}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!RegularizedSystem@{RegularizedSystem}}
+\index{RegularizedSystem@{RegularizedSystem}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{RegularizedSystem()}{RegularizedSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+\mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default move constructor ~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_adb57fda560e2f05a68c0e87b47b2fba5}\label{classspace_1_1_regularized_system_adb57fda560e2f05a68c0e87b47b2fba5}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!bindE@{bindE}}
+\index{bindE@{bindE}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{bindE()}{bindE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::bindE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily regu\+\_\+.\+bind\+E()} in name of {\ttfamily bindE}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ac0a1fc21f863f4f586e6a6704c09927c}\label{classspace_1_1_regularized_system_ac0a1fc21f863f4f586e6a6704c09927c}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!bindE@{bindE}}
+\index{bindE@{bindE}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{bindE()}{bindE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::bindE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily regu\+\_\+.\+bind\+E()} in name of {\ttfamily bindE}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ab5dd9fc61923a7db0ae47c612c049896}\label{classspace_1_1_regularized_system_ab5dd9fc61923a7db0ae47c612c049896}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_idn@{impl\_idn}}
+\index{impl\_idn@{impl\_idn}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_idn()}{impl\_idn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+idn()} in name of {\ttfamily impl\+\_\+idn}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a983d7741e9f018fd81655da7cc05205f}\label{classspace_1_1_regularized_system_a983d7741e9f018fd81655da7cc05205f}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_idn@{impl\_idn}}
+\index{impl\_idn@{impl\_idn}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_idn()}{impl\_idn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+idn()} in name of {\ttfamily impl\+\_\+idn}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a437594951667c2af5e7651c3d6bb3bdd}\label{classspace_1_1_regularized_system_a437594951667c2af5e7651c3d6bb3bdd}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_mass@{impl\_mass}}
+\index{impl\_mass@{impl\_mass}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_mass()}{impl\_mass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+mass()} in name of {\ttfamily impl\+\_\+mass}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a4496b6aa55c080b27389b87472033720}\label{classspace_1_1_regularized_system_a4496b6aa55c080b27389b87472033720}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_mass@{impl\_mass}}
+\index{impl\_mass@{impl\_mass}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_mass()}{impl\_mass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+mass()} in name of {\ttfamily impl\+\_\+mass}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a6ab8dbe690ad7b9c6043bc4ad4eda2b7}\label{classspace_1_1_regularized_system_a6ab8dbe690ad7b9c6043bc4ad4eda2b7}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_pos@{impl\_pos}}
+\index{impl\_pos@{impl\_pos}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_pos()}{impl\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+pos()} in name of {\ttfamily impl\+\_\+pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ac31ddf4edc35754a90327b801cba4d6a}\label{classspace_1_1_regularized_system_ac31ddf4edc35754a90327b801cba4d6a}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_pos@{impl\_pos}}
+\index{impl\_pos@{impl\_pos}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_pos()}{impl\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+pos()} in name of {\ttfamily impl\+\_\+pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a5ffc975821a471f084da4344ec1a4d10}\label{classspace_1_1_regularized_system_a5ffc975821a471f084da4344ec1a4d10}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_time@{impl\_time}}
+\index{impl\_time@{impl\_time}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_time()}{impl\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+time()} in name of {\ttfamily impl\+\_\+time}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a79389cba5c60e9f67d331362368ae628}\label{classspace_1_1_regularized_system_a79389cba5c60e9f67d331362368ae628}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_time@{impl\_time}}
+\index{impl\_time@{impl\_time}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_time()}{impl\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+time()} in name of {\ttfamily impl\+\_\+time}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a26a4b19c8801307a328354fb828fd60f}\label{classspace_1_1_regularized_system_a26a4b19c8801307a328354fb828fd60f}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_vel@{impl\_vel}}
+\index{impl\_vel@{impl\_vel}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_vel()}{impl\_vel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+vel()} in name of {\ttfamily impl\+\_\+vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_ae73d2e53d5efe55714e36e92521b0515}\label{classspace_1_1_regularized_system_ae73d2e53d5efe55714e36e92521b0515}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!impl\_vel@{impl\_vel}}
+\index{impl\_vel@{impl\_vel}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_vel()}{impl\_vel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::impl\+\_\+vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+vel()} in name of {\ttfamily impl\+\_\+vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a8253991af985abb20647397ccb3ad314}\label{classspace_1_1_regularized_system_a8253991af985abb20647397ccb3ad314}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!omega@{omega}}
+\index{omega@{omega}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{omega()}{omega()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::omega (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily regu\+\_\+.\+omega()} in name of {\ttfamily omega}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_af875559084edf49acb4023b0eb06090a}\label{classspace_1_1_regularized_system_af875559084edf49acb4023b0eb06090a}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!omega@{omega}}
+\index{omega@{omega}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{omega()}{omega()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::omega (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily regu\+\_\+.\+omega()} in name of {\ttfamily omega}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_regularized_system_a37cfcf4271064778315baefa4541aafa}\label{classspace_1_1_regularized_system_a37cfcf4271064778315baefa4541aafa}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default move assignment operator ~\newline
+ \mbox{\Hypertarget{classspace_1_1_regularized_system_a5e7a9739ad0b11498207fcf85556c38a}\label{classspace_1_1_regularized_system_a5e7a9739ad0b11498207fcf85556c38a}} 
+\index{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!space::RegularizedSystem$<$ Particles, Interactions, RegType $>$@{space::RegularizedSystem$<$ Particles, Interactions, RegType $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions, Regu\+Type Reg\+Type$>$ \\
+\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}\& \mbox{\hyperlink{classspace_1_1_regularized_system}{space\+::\+Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_regularized_system}{Regularized\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}}, Reg\+Type $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default copy assignment operator ~\newline
+ 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['norm_371',['norm',['../structspace_1_1_vec3.html#a69d1115b0654ab307c3277ddf766282d',1,'space::Vec3::norm()'],['../structspace_1_1vec3.html#aa9129aa5d54a4b810c0cb12d99e4c774',1,'space::vec3::norm() const'],['../structspace_1_1vec3.html#aa9129aa5d54a4b810c0cb12d99e4c774',1,'space::vec3::norm() const'],['../structspace_1_1vec3.html#aa9129aa5d54a4b810c0cb12d99e4c774',1,'space::vec3::norm() const']]],
-  ['norm2_372',['norm2',['../structspace_1_1_vec3.html#af7d2b77f54d5cd2bcb634eb284c5e047',1,'space::Vec3::norm2()'],['../structspace_1_1vec3.html#a87c11509121e27285c638e9dbdba5813',1,'space::vec3::norm2() const'],['../structspace_1_1vec3.html#a87c11509121e27285c638e9dbdba5813',1,'space::vec3::norm2() const'],['../structspace_1_1vec3.html#a87c11509121e27285c638e9dbdba5813',1,'space::vec3::norm2() const']]],
-  ['number_373',['number',['../classspace_1_1_particle_system.html#afcf1ce0901ca8aadd08d2a05cbdb95db',1,'space::ParticleSystem::number()'],['../classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32',1,'space::Particles::number()']]]
+    ['mass_428', ['mass', ['../classspace_1_1_particle_system.html#abecb6bc83c665d844dbd353493ca8578', 1, 'space::ParticleSystem::mass() noexcept'], ['../classspace_1_1_particle_system.html#a6aed19be5fc9f27445ea414767e57d84', 1, 'space::ParticleSystem::mass() const noexcept'], ['../classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa', 1, 'space::Particles::mass() noexcept'], ['../classspace_1_1_particles.html#ae0f67e101ca6099b72a198130b295400', 1, 'space::Particles::mass() const noexcept']]],
+    ['max_429', ['max', ['../namespacespace.html#a23b3a7b6bd57409f91a6cad1a9b852f4', 1, 'space']]],
+    ['min_430', ['min', ['../namespacespace.html#af82c0e7ed03d03accf59391663c1f72b', 1, 'space']]]
 ];

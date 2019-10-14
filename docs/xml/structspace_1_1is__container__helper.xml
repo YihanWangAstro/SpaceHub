@@ -13,7 +13,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="dev-tools.hpp" line="326" column="28" bodyfile="dev-tools.hpp" bodystart="326" bodyend="327"/>
+      <location file="dev-tools.hpp" line="370" column="28" bodyfile="dev-tools.hpp" bodystart="370" bodyend="371"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

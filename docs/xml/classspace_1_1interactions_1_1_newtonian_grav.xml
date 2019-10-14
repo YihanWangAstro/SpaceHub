@@ -3,6 +3,12 @@
   <compounddef id="classspace_1_1interactions_1_1_newtonian_grav" kind="class" language="C++" prot="public">
     <compoundname>space::interactions::NewtonianGrav</compoundname>
     <basecompoundref refid="classspace_1_1_interactions" prot="public" virt="non-virtual">space::Interactions&lt; NewtonianGrav &gt;</basecompoundref>
+      <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" prot="private">
+          space::interactions::NewtonianGrav::has_method_chain_pos
+      </innerclass>
+      <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" prot="private">
+          space::interactions::NewtonianGrav::has_method_index
+      </innerclass>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classspace_1_1interactions_1_1_newtonian_grav_1a7749cba6fb3e7cd236c536df8cd3f4c6" prot="public" static="no">
         <type><ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>&lt; <ref refid="classspace_1_1interactions_1_1_newtonian_grav" kindref="compound">NewtonianGrav</ref> &gt;</type>
@@ -19,45 +25,36 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="classspace_1_1interactions_1_1_newtonian_grav_1ade0f0e50fd69f83a86d68a9eeab61bf5" prot="public" static="no" mutable="no">
-        <type>CRTP_IMPL</type>
-        <definition>CRTP_IMPL space::interactions::NewtonianGrav::__pad0__</definition>
+          <memberdef kind="variable"
+                     id="classspace_1_1interactions_1_1_newtonian_grav_1a024aa0573cc7c567cb4962e838692a46" prot="public"
+                     static="no" mutable="no">
+              <type>friend</type>
+              <definition>friend space::interactions::NewtonianGrav::Base</definition>
         <argsstring></argsstring>
-        <name>__pad0__</name>
-        <bitfield> template&lt;typename Particles&gt; void impl_eval_acc(Particles const &amp;particles</bitfield>
+              <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="24" column="5" bodyfile="interaction/newtonian.hpp" bodystart="28" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1interactions_1_1_newtonian_grav_1a1bbe1fe31f73cf0d7735cadc56384df5" prot="public" static="no" mutable="no">
-        <type>CRTP_IMPL Particles::Coord &amp;</type>
-        <definition>CRTP_IMPL Particles::Coord&amp; space::interactions::NewtonianGrav::acceleration</definition>
-        <argsstring></argsstring>
-        <name>acceleration</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="28" column="28" bodyfile="interaction/newtonian.hpp" bodystart="28" bodyend="-1"/>
+              <location file="interaction/newtonian.hpp" line="24" column="13" bodyfile="interaction/newtonian.hpp"
+                        bodystart="24" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <sectiondef kind="protected-func">
+          <memberdef kind="function"
+                     id="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-        <definition>void space::interactions::NewtonianGrav::impl_eval_newtonian_acc</definition>
+              <definition>void space::interactions::NewtonianGrav::impl_eval_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-        <name>impl_eval_newtonian_acc</name>
+              <name>impl_eval_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -72,17 +69,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="31" column="10" bodyfile="interaction/newtonian.hpp" bodystart="48" bodyend="93"/>
+              <location file="interaction/newtonian.hpp" line="28" column="10" bodyfile="interaction/newtonian.hpp"
+                        bodystart="43" bodyend="45"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="classspace_1_1interactions_1_1_newtonian_grav_1a49606fa39fe439d26b387906f228c9f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::interactions::NewtonianGrav::CREATE_METHOD_CHECK</definition>
-        <argsstring>(chain_pos)</argsstring>
-        <name>CREATE_METHOD_CHECK</name>
+          <memberdef kind="function"
+                     id="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06"
+                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <templateparamlist>
+                  <param>
+                      <type>typename
+                          <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
+                      </type>
+                  </param>
+              </templateparamlist>
+              <type>void</type>
+              <definition>void space::interactions::NewtonianGrav::impl_eval_newtonian_acc</definition>
+              <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+              <name>impl_eval_newtonian_acc</name>
+              <param>
+                  <type>
+                      <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
+                      const &amp;
+                  </type>
+                  <declname>particles</declname>
+              </param>
         <param>
-          <type>chain_pos</type>
+            <type>typename Particles::Coord &amp;</type>
+            <declname>acceleration</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -90,23 +103,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="34" column="5"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1interactions_1_1_newtonian_grav_1a8ad3a4ce35a31aa1f84d7c9711e5a4ec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::interactions::NewtonianGrav::CREATE_METHOD_CHECK</definition>
-        <argsstring>(index)</argsstring>
-        <name>CREATE_METHOD_CHECK</name>
-        <param>
-          <type>index</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="36" column="5"/>
+              <location file="interaction/newtonian.hpp" line="31" column="10" bodyfile="interaction/newtonian.hpp"
+                        bodystart="48" bodyend="93"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -139,18 +137,28 @@
     </collaborationgraph>
     <location file="interaction/newtonian.hpp" line="20" column="43" bodyfile="interaction/newtonian.hpp" bodystart="20" bodyend="37"/>
     <listofallmembers>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ade0f0e50fd69f83a86d68a9eeab61bf5" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>__pad0__</name></member>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a1bbe1fe31f73cf0d7735cadc56384df5" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>acceleration</name></member>
       <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a7749cba6fb3e7cd236c536df8cd3f4c6" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>Base</name></member>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a49606fa39fe439d26b387906f228c9f2" prot="private" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>CREATE_METHOD_CHECK</name></member>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a8ad3a4ce35a31aa1f84d7c9711e5a4ec" prot="private" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>CREATE_METHOD_CHECK</name></member>
+        <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a024aa0573cc7c567cb4962e838692a46" prot="public"
+                virt="non-virtual">
+            <scope>space::interactions::NewtonianGrav</scope>
+            <name>Base</name>
+        </member>
       <member refid="classspace_1_1_interactions_1a6688576102282c07dc5c7b6b2745be5f" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_acc</name></member>
       <member refid="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_extra_vel_dep_acc</name></member>
       <member refid="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_extra_vel_indep_acc</name></member>
       <member refid="classspace_1_1_interactions_1ae8ccb90af06fe343684870d2c93a54fd" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_newtonian_acc</name></member>
       <member refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>ext_vel_dep</name></member>
       <member refid="classspace_1_1_interactions_1ad8453af189e176a74e97e536c5bff568" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>ext_vel_indep</name></member>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>impl_eval_newtonian_acc</name></member>
+        <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5"
+                prot="protected" virt="non-virtual">
+            <scope>space::interactions::NewtonianGrav</scope>
+            <name>impl_eval_acc</name>
+        </member>
+        <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06"
+                prot="protected" virt="non-virtual">
+            <scope>space::interactions::NewtonianGrav</scope>
+            <name>impl_eval_newtonian_acc</name>
+        </member>
     </listofallmembers>
   </compounddef>
 </doxygen>

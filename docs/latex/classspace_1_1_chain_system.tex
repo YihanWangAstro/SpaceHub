@@ -25,6 +25,30 @@ Collaboration diagram for space\+::Chain\+System$<$ Particles, Interactions $>$\
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_a120b67a32c87704d3cac47994d50eb1c}\label{classspace_1_1_chain_system_a120b67a32c87704d3cac47994d50eb1c}} 
+{\footnotesize template$<$typename ... \+\_\+\+T\+\_\+$>$ }\\using {\bfseries Container} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::template Container$<$ \+\_\+\+T\+\_\+... $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_afb1fb8f7de7a1bd240c9f064adeb68c2}\label{classspace_1_1_chain_system_afb1fb8f7de7a1bd240c9f064adeb68c2}} 
+using {\bfseries Scalar} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Scalar
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_a98cf380ab07f155d058a1235f2cfb650}\label{classspace_1_1_chain_system_a98cf380ab07f155d058a1235f2cfb650}} 
+using {\bfseries Scalar\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Scalar\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_a1e8c7db0d3c5aed23114e2cc20793b6b}\label{classspace_1_1_chain_system_a1e8c7db0d3c5aed23114e2cc20793b6b}} 
+using {\bfseries Idx\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Idx\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_a6f851e9902da51d0149ce4214f776731}\label{classspace_1_1_chain_system_a6f851e9902da51d0149ce4214f776731}} 
+using {\bfseries Int\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Int\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_ad7da6d35d221214c6df70c5a4dcc9f03}\label{classspace_1_1_chain_system_ad7da6d35d221214c6df70c5a4dcc9f03}} 
+using {\bfseries Vector} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Vector
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_afeb80de8263b28d425111171c89389d3}\label{classspace_1_1_chain_system_afeb80de8263b28d425111171c89389d3}} 
+using {\bfseries Vector\+Array} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Vector\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_chain_system_ab5e1fd4141d996ce3fadc94668ece5a7}\label{classspace_1_1_chain_system_ab5e1fd4141d996ce3fadc94668ece5a7}} 
+using {\bfseries Coord} = typename \mbox{\hyperlink{classspace_1_1_particles}{Particles}} \+::Coord
+\item 
 \mbox{\Hypertarget{classspace_1_1_chain_system_ac99ca2662e77a7b03e9d0818d72c96d4}\label{classspace_1_1_chain_system_ac99ca2662e77a7b03e9d0818d72c96d4}} 
 using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1_particle_system}{Particle\+System}}$<$ \mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$ $>$
 \item 
@@ -34,38 +58,59 @@ using {\bfseries Particle} = typename Particles\+::\+Particle
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_aabf3c22c0e31df77ad093cc5ed56ac87}\label{classspace_1_1_chain_system_aabf3c22c0e31df77ad093cc5ed56ac87}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (\mbox{\hyperlink{classspace_1_1_particles}{Particles}})
+\mbox{\hyperlink{classspace_1_1_chain_system_a8a3ee89ecdb57265e177685fe797a34b}{Chain\+System}} ()=delete
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a2169bdc4f266af2aa891762002d057ca}\label{classspace_1_1_chain_system_a2169bdc4f266af2aa891762002d057ca}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS} (\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}, delete, default, default, default, default)
+\mbox{\hyperlink{classspace_1_1_chain_system_a668e666a3e861ef77748f041341e8465}{Chain\+System}} (\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} const \&)=default
+\item 
+\mbox{\hyperlink{classspace_1_1_chain_system_a5b9afbe37d16fab11af5b77a66b10065}{Chain\+System}} (\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} \&\&)=default
+\item 
+\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} \& \mbox{\hyperlink{classspace_1_1_chain_system_a0e3f7e0e7efbe84036f5d5b0cc08e700}{operator=}} (\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} const \&)=default
+\item 
+\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} \& \mbox{\hyperlink{classspace_1_1_chain_system_a06c568b919a54ab43ec7845c92c19d51}{operator=}} (\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} \&\&)=default
 \item 
 \mbox{\Hypertarget{classspace_1_1_chain_system_a483c30a3b7580fccf99a5608352d3759}\label{classspace_1_1_chain_system_a483c30a3b7580fccf99a5608352d3759}} 
-{\footnotesize template$<$typename S\+TL $>$ }\\{\bfseries Chain\+System} (Scalar time, S\+TL const \&particle\+\_\+set)
+{\footnotesize template$<$typename S\+TL $>$ }\\{\bfseries Chain\+System} (Scalar \mbox{\hyperlink{classspace_1_1_particle_system_a333441c5101a535ef02dc1f257378394}{time}}, S\+TL const \&particle\+\_\+set)
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_ab605d85031f1a78a3359e6cd02b230dd}\label{classspace_1_1_chain_system_ab605d85031f1a78a3359e6cd02b230dd}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, chain\+\_\+pos, chain\+\_\+pos\+\_\+)
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a2ee2191d0de27baffed5ab05c9d6b4ef}{chain\+\_\+pos}} () noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a1562fe4767306c035c0a2de4cdcf723a}\label{classspace_1_1_chain_system_a1562fe4767306c035c0a2de4cdcf723a}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, chain\+\_\+vel, chain\+\_\+vel\+\_\+)
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_aaf5993d9adfaa969a57238b7a32f2534}{chain\+\_\+pos}} () const noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a7e7fa4e72c0d6625ad56033bca66e381}\label{classspace_1_1_chain_system_a7e7fa4e72c0d6625ad56033bca66e381}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, index, index\+\_\+)
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_ab1f5be564113f902ec8dedd8070d39de}{chain\+\_\+vel}} () noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a54ce5a119b1be31108bc33072be99b2e}\label{classspace_1_1_chain_system_a54ce5a119b1be31108bc33072be99b2e}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL ptcl\+\_\+ {\bfseries mass} ())
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a9bcff70ce45f346c8ca5fcdd331021ce}{chain\+\_\+vel}} () const noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a0c7212aaac4900530eedc28765fb4071}\label{classspace_1_1_chain_system_a0c7212aaac4900530eedc28765fb4071}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+idn, ptcl\+\_\+.\+idn())
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_acdf71004fee347a028e372f9e57686ba}{index}} () noexcept
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_aad6873b97695a130850ec1ff17a7b6a3}\label{classspace_1_1_chain_system_aad6873b97695a130850ec1ff17a7b6a3}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+pos, ptcl\+\_\+.\+pos())
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a9f6e9569e817878bdc4d2ee2ccf3319d}{index}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a031ab036328459b6011ade475b2ae774}\label{classspace_1_1_chain_system_a031ab036328459b6011ade475b2ae774}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+vel, ptcl\+\_\+.\+vel())
+\mbox{\Hypertarget{classspace_1_1_chain_system_af5e9ed8219b6bcafdeefacd51d7ef35b}\label{classspace_1_1_chain_system_af5e9ed8219b6bcafdeefacd51d7ef35b}} 
+friend {\bfseries Base}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a26c039ea315fa56843c69165d06b1039}\label{classspace_1_1_chain_system_a26c039ea315fa56843c69165d06b1039}} 
-{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, impl\+\_\+time, ptcl\+\_\+.\+time())
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a8973754d21804430f41e10363429c449}{impl\+\_\+mass}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a760f1c909e91b0899cb8d3290452dc42}{impl\+\_\+mass}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_ad61c17d0fa52fd56187918fbcd940362}{impl\+\_\+idn}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_aac48a597bf72a3ca5072f401a591ba18}{impl\+\_\+idn}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a69bcf473df7448a44300e34895904ab1}{impl\+\_\+pos}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a6e47652835e3423e7bbdd57304fbd082}{impl\+\_\+pos}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a5720c619f1e59f4356f45538f1351d21}{impl\+\_\+vel}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_ac9b9a6f60d6f1d9f0209752ab45bc3d9}{impl\+\_\+vel}} () const noexcept
+\item 
+auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a1b4cfc2fcfa8b776b20d67a9bc4a558f}{impl\+\_\+time}} () noexcept
+\item 
+const auto \& \mbox{\hyperlink{classspace_1_1_chain_system_a2b1c63589db85d31ba050ad81c9c4f61}{impl\+\_\+time}} () const noexcept
 \item 
 \mbox{\Hypertarget{classspace_1_1_chain_system_aec1f22b879398f7f3d028a9e04fee7b7}\label{classspace_1_1_chain_system_aec1f22b879398f7f3d028a9e04fee7b7}} 
 size\+\_\+t {\bfseries impl\+\_\+number} () const
@@ -100,15 +145,6 @@ void {\bfseries impl\+\_\+post\+\_\+iter\+\_\+process} ()
 \mbox{\Hypertarget{classspace_1_1_chain_system_ab130afc375ba238780ac8da8fda6e5dd}\label{classspace_1_1_chain_system_ab130afc375ba238780ac8da8fda6e5dd}} 
 {\footnotesize template$<$typename S\+TL $>$ }\\void {\bfseries impl\+\_\+load\+\_\+from\+\_\+linear\+\_\+container} (S\+TL const \&stl\+\_\+ranges)
 \end{DoxyCompactItemize}
-\doxysubsection*{Data Fields}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a9f0489a6121cae32129c09c9dce0d604}\label{classspace_1_1_chain_system_a9f0489a6121cae32129c09c9dce0d604}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+S\+T\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR(auto
-\item 
-\mbox{\Hypertarget{classspace_1_1_chain_system_a7673e1196ad216dd12f3025bc851eb18}\label{classspace_1_1_chain_system_a7673e1196ad216dd12f3025bc851eb18}} 
-C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries impl\+\_\+mass}
-\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -132,6 +168,228 @@ class space\+::\+Chain\+System$<$ Particles, Interactions $>$}
 \hline
 \end{DoxyTemplParams}
 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a8a3ee89ecdb57265e177685fe797a34b}\label{classspace_1_1_chain_system_a8a3ee89ecdb57265e177685fe797a34b}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!ChainSystem@{ChainSystem}}
+\index{ChainSystem@{ChainSystem}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{ChainSystem()}{ChainSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Default constructor. ~\newline
+ \mbox{\Hypertarget{classspace_1_1_chain_system_a668e666a3e861ef77748f041341e8465}\label{classspace_1_1_chain_system_a668e666a3e861ef77748f041341e8465}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!ChainSystem@{ChainSystem}}
+\index{ChainSystem@{ChainSystem}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{ChainSystem()}{ChainSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default copy constructor. ~\newline
+ \mbox{\Hypertarget{classspace_1_1_chain_system_a5b9afbe37d16fab11af5b77a66b10065}\label{classspace_1_1_chain_system_a5b9afbe37d16fab11af5b77a66b10065}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!ChainSystem@{ChainSystem}}
+\index{ChainSystem@{ChainSystem}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{ChainSystem()}{ChainSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default move constructor ~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_chain_system_aaf5993d9adfaa969a57238b7a32f2534}\label{classspace_1_1_chain_system_aaf5993d9adfaa969a57238b7a32f2534}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!chain\_pos@{chain\_pos}}
+\index{chain\_pos@{chain\_pos}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{chain\_pos()}{chain\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::chain\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily chain\+\_\+pos\+\_\+} in name of {\ttfamily chain\+\_\+pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a2ee2191d0de27baffed5ab05c9d6b4ef}\label{classspace_1_1_chain_system_a2ee2191d0de27baffed5ab05c9d6b4ef}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!chain\_pos@{chain\_pos}}
+\index{chain\_pos@{chain\_pos}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{chain\_pos()}{chain\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::chain\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily chain\+\_\+pos\+\_\+} in name of {\ttfamily chain\+\_\+pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a9bcff70ce45f346c8ca5fcdd331021ce}\label{classspace_1_1_chain_system_a9bcff70ce45f346c8ca5fcdd331021ce}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!chain\_vel@{chain\_vel}}
+\index{chain\_vel@{chain\_vel}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{chain\_vel()}{chain\_vel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::chain\+\_\+vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily chain\+\_\+vel\+\_\+} in name of {\ttfamily chain\+\_\+vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_ab1f5be564113f902ec8dedd8070d39de}\label{classspace_1_1_chain_system_ab1f5be564113f902ec8dedd8070d39de}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!chain\_vel@{chain\_vel}}
+\index{chain\_vel@{chain\_vel}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{chain\_vel()}{chain\_vel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::chain\+\_\+vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily chain\+\_\+vel\+\_\+} in name of {\ttfamily chain\+\_\+vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_aac48a597bf72a3ca5072f401a591ba18}\label{classspace_1_1_chain_system_aac48a597bf72a3ca5072f401a591ba18}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_idn@{impl\_idn}}
+\index{impl\_idn@{impl\_idn}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_idn()}{impl\_idn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+idn()} in name of {\ttfamily impl\+\_\+idn}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_ad61c17d0fa52fd56187918fbcd940362}\label{classspace_1_1_chain_system_ad61c17d0fa52fd56187918fbcd940362}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_idn@{impl\_idn}}
+\index{impl\_idn@{impl\_idn}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_idn()}{impl\_idn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+idn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+idn()} in name of {\ttfamily impl\+\_\+idn}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a760f1c909e91b0899cb8d3290452dc42}\label{classspace_1_1_chain_system_a760f1c909e91b0899cb8d3290452dc42}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_mass@{impl\_mass}}
+\index{impl\_mass@{impl\_mass}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_mass()}{impl\_mass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+mass()} in name of {\ttfamily impl\+\_\+mass}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a8973754d21804430f41e10363429c449}\label{classspace_1_1_chain_system_a8973754d21804430f41e10363429c449}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_mass@{impl\_mass}}
+\index{impl\_mass@{impl\_mass}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_mass()}{impl\_mass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+mass()} in name of {\ttfamily impl\+\_\+mass}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a6e47652835e3423e7bbdd57304fbd082}\label{classspace_1_1_chain_system_a6e47652835e3423e7bbdd57304fbd082}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_pos@{impl\_pos}}
+\index{impl\_pos@{impl\_pos}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_pos()}{impl\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+pos()} in name of {\ttfamily impl\+\_\+pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a69bcf473df7448a44300e34895904ab1}\label{classspace_1_1_chain_system_a69bcf473df7448a44300e34895904ab1}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_pos@{impl\_pos}}
+\index{impl\_pos@{impl\_pos}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_pos()}{impl\_pos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+pos()} in name of {\ttfamily impl\+\_\+pos}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a2b1c63589db85d31ba050ad81c9c4f61}\label{classspace_1_1_chain_system_a2b1c63589db85d31ba050ad81c9c4f61}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_time@{impl\_time}}
+\index{impl\_time@{impl\_time}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_time()}{impl\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+time()} in name of {\ttfamily impl\+\_\+time}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a1b4cfc2fcfa8b776b20d67a9bc4a558f}\label{classspace_1_1_chain_system_a1b4cfc2fcfa8b776b20d67a9bc4a558f}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_time@{impl\_time}}
+\index{impl\_time@{impl\_time}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_time()}{impl\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+time()} in name of {\ttfamily impl\+\_\+time}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_ac9b9a6f60d6f1d9f0209752ab45bc3d9}\label{classspace_1_1_chain_system_ac9b9a6f60d6f1d9f0209752ab45bc3d9}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_vel@{impl\_vel}}
+\index{impl\_vel@{impl\_vel}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_vel()}{impl\_vel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily ptcl\+\_\+.\+vel()} in name of {\ttfamily impl\+\_\+vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a5720c619f1e59f4356f45538f1351d21}\label{classspace_1_1_chain_system_a5720c619f1e59f4356f45538f1351d21}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!impl\_vel@{impl\_vel}}
+\index{impl\_vel@{impl\_vel}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{impl\_vel()}{impl\_vel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::impl\+\_\+vel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily ptcl\+\_\+.\+vel()} in name of {\ttfamily impl\+\_\+vel}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a9f6e9569e817878bdc4d2ee2ccf3319d}\label{classspace_1_1_chain_system_a9f6e9569e817878bdc4d2ee2ccf3319d}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!index@{index}}
+\index{index@{index}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+const auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The getter interface of member {\ttfamily index\+\_\+} in name of {\ttfamily index}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_acdf71004fee347a028e372f9e57686ba}\label{classspace_1_1_chain_system_acdf71004fee347a028e372f9e57686ba}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!index@{index}}
+\index{index@{index}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+auto\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+The setter interface of member {\ttfamily index\+\_\+} in name of {\ttfamily index}. \begin{DoxyReturn}{Returns}
+auto Depend on implementation. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_chain_system_a06c568b919a54ab43ec7845c92c19d51}\label{classspace_1_1_chain_system_a06c568b919a54ab43ec7845c92c19d51}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default move assignment operator ~\newline
+ \mbox{\Hypertarget{classspace_1_1_chain_system_a0e3f7e0e7efbe84036f5d5b0cc08e700}\label{classspace_1_1_chain_system_a0e3f7e0e7efbe84036f5d5b0cc08e700}} 
+\index{space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!space::ChainSystem$<$ Particles, Interactions $>$@{space::ChainSystem$<$ Particles, Interactions $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Particles, typename Interactions$>$ \\
+\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}\& \mbox{\hyperlink{classspace_1_1_chain_system}{space\+::\+Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_chain_system}{Chain\+System}}$<$ \mbox{\hyperlink{classspace_1_1_particles}{Particles}}, \mbox{\hyperlink{classspace_1_1_interactions}{Interactions}} $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default copy assignment operator ~\newline
+ 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

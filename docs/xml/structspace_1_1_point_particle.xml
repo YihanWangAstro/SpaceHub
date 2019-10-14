@@ -80,38 +80,118 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structspace_1_1_point_particle_1a7c2fdaef2b81299cdfa9debd0799159e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function" id="structspace_1_1_point_particle_1a30b98a3bc0fea896fd938749e731806a"
+                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type></type>
+              <definition>space::PointParticle&lt; Real &gt;::PointParticle</definition>
+              <argsstring>()=default</argsstring>
+              <name>PointParticle</name>
+              <briefdescription>
+                  <para>Construct a new Point Particle object.</para>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default constructor.
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles/point-particles.hpp" line="32" column="9"/>
+          </memberdef>
+          <memberdef kind="function" id="structspace_1_1_point_particle_1af649105460c5420b9c6d3eb49ade323d"
+                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>space::PointParticle&lt; Real &gt;::SPACEHUB_MAKE_CONSTRUCTORS</definition>
-        <argsstring>(PointParticle, default, default, default, default, default)</argsstring>
-        <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
+              <definition>space::PointParticle&lt; Real &gt;::PointParticle</definition>
+              <argsstring>(PointParticle const &amp;)=default</argsstring>
+              <name>PointParticle</name>
         <param>
-          <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref></type>
+            <type>
+                <ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref>
+                const &amp;
+            </type>
         </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <param>
-          <type>default</type>
-        </param>
-        <briefdescription>
-<para>Construct a new Point Particle object. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particles/point-particles.hpp" line="32" column="5"/>
-      </memberdef>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default copy constructor.
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles/point-particles.hpp" line="32" column="41"/>
+          </memberdef>
+          <memberdef kind="function" id="structspace_1_1_point_particle_1a99e8775d321591f19db74aa41ada8702"
+                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type></type>
+              <definition>space::PointParticle&lt; Real &gt;::PointParticle</definition>
+              <argsstring>(PointParticle &amp;&amp;)=default</argsstring>
+              <name>PointParticle</name>
+              <param>
+                  <type>
+                      <ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref> &amp;&amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default move constructor
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles/point-particles.hpp" line="32" column="76"/>
+          </memberdef>
+          <memberdef kind="function" id="structspace_1_1_point_particle_1a9e638adc8a91703dd3ad4c88be558f0a"
+                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type>
+                  <ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref> &amp;
+              </type>
+              <definition>PointParticle&amp; space::PointParticle&lt; Real &gt;::operator=</definition>
+              <argsstring>(PointParticle const &amp;)=default</argsstring>
+              <name>operator=</name>
+              <param>
+                  <type>
+                      <ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref>
+                      const &amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default copy assignment operator
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles/point-particles.hpp" line="32" column="126"/>
+          </memberdef>
+          <memberdef kind="function" id="structspace_1_1_point_particle_1abac49aab20583ce49a7fffd4e7e2dcf7"
+                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+              <type>
+                  <ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref> &amp;
+              </type>
+              <definition>PointParticle&amp; space::PointParticle&lt; Real &gt;::operator=</definition>
+              <argsstring>(PointParticle &amp;&amp;)=default</argsstring>
+              <name>operator=</name>
+              <param>
+                  <type>
+                      <ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref> &amp;&amp;
+                  </type>
+              </param>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>Default move assignment operator
+                      <linebreak/>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles/point-particles.hpp" line="32" column="172"/>
+          </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1ac0f213b4f8a499cc9fe6b824b43675ad" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>space::PointParticle&lt; Real &gt;::PointParticle</definition>
@@ -310,11 +390,35 @@
     <location file="particles/point-particles.hpp" line="21" column="22" bodyfile="particles/point-particles.hpp" bodystart="21" bodyend="63"/>
     <listofallmembers>
       <member refid="structspace_1_1_point_particle_1a8b240331fde57f80170f72a97427d747" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>mass</name></member>
+        <member refid="structspace_1_1_point_particle_1a9e638adc8a91703dd3ad4c88be558f0a" prot="public"
+                virt="non-virtual">
+            <scope>space::PointParticle</scope>
+            <name>operator=</name>
+        </member>
+        <member refid="structspace_1_1_point_particle_1abac49aab20583ce49a7fffd4e7e2dcf7" prot="public"
+                virt="non-virtual">
+            <scope>space::PointParticle</scope>
+            <name>operator=</name>
+        </member>
+        <member refid="structspace_1_1_point_particle_1a30b98a3bc0fea896fd938749e731806a" prot="public"
+                virt="non-virtual">
+            <scope>space::PointParticle</scope>
+            <name>PointParticle</name>
+        </member>
+        <member refid="structspace_1_1_point_particle_1af649105460c5420b9c6d3eb49ade323d" prot="public"
+                virt="non-virtual">
+            <scope>space::PointParticle</scope>
+            <name>PointParticle</name>
+        </member>
+        <member refid="structspace_1_1_point_particle_1a99e8775d321591f19db74aa41ada8702" prot="public"
+                virt="non-virtual">
+            <scope>space::PointParticle</scope>
+            <name>PointParticle</name>
+        </member>
       <member refid="structspace_1_1_point_particle_1ac0f213b4f8a499cc9fe6b824b43675ad" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>PointParticle</name></member>
       <member refid="structspace_1_1_point_particle_1a1d59149edd7d01c13ba93b54e899bb64" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>PointParticle</name></member>
       <member refid="structspace_1_1_point_particle_1af536a4faa674ae695f0e7f2561376f27" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>pos</name></member>
       <member refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>Scalar</name></member>
-      <member refid="structspace_1_1_point_particle_1a7c2fdaef2b81299cdfa9debd0799159e" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
       <member refid="structspace_1_1_point_particle_1aa4fd4a33cdacb79d0759ac2438af02c8" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>Vector</name></member>
       <member refid="structspace_1_1_point_particle_1abd1118535da76308239551fc5fbdedef" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>vel</name></member>
     </listofallmembers>

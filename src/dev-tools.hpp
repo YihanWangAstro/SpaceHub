@@ -151,10 +151,25 @@ namespace space {
   return result;}()
 
 #define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
+/**                                                                                                                    \
+   Default constructor.                                                                                               \
+ */                                                                                                                    \
     CLASS() = ATTR1;                                                                                                   \
+/**                                                                                                                    \
+   Default copy constructor.                                                                                          \
+ */                                                                                                                    \
     CLASS(CLASS const&) = ATTR2;                                                                                       \
+/**                                                                                                                    \
+   Default move constructor                                                                                           \
+ */                                                                                                                    \
     CLASS(CLASS &&) = ATTR3;                                                                                           \
+/**                                                                                                                    \
+   Default copy assignment operator                                                                                   \
+ */                                                                                                                    \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
+/**                                                                                                                    \
+   Default move assignment operator                                                                                   \
+ */                                                                                                                    \
     CLASS &operator=(CLASS &&) = ATTR5;                                                                                \
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
@@ -170,28 +185,57 @@ namespace space {
     using Coord       = typename CLASS::Coord
 
 #define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                                                     \
+/**                                                                                                                    \
+  @must_impl                                                                                                          \
+                                                                                                                      \
+  The setter interface of member `NAME`.                                                                              \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE & NAME () noexcept {                                                                                       \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };                                                                                                                     \
+/**                                                                                                                    \
+  @must_impl                                                                                                          \
+                                                                                                                       \
+  The getter interface of member `NAME`.                                                                              \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return static_cast<Derived const*>(this)->impl_##NAME();                                                           \
 };
 
-#define DECLARE_READ_ACCESSOR(NAME, TYPE, DERIVED)                                                                     \
+#define DECLARE_CRTP_READ_ACCESSOR(DERIVED, TYPE, NAME)                                                                \
+/**                                                                                                                    \
+  @must_impl                                                                                                          \
                                                                                                                        \
+  The getter interface of member `NAME`.                                                                              \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                      \
+/**                                                                                                                    \
+  The setter interface of member `MEMBER` in name of `NAME`.                                                          \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE & NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
+/**                                                                                                                    \
+  The getter interface of member `MEMBER` in name of `NAME`.                                                          \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };
 
 #define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
+/**                                                                                                                    \
+  The getter interface of member NAME.                                                                                \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };

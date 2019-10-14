@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['setconvergentlimit_388',['SetConvergentLimit',['../classspace_1_1_i_a_s15.html#a5f01ce9046fd087793c5548af18abef5',1,'space::IAS15']]],
-  ['setrelativeerror_389',['setRelativeError',['../classspace_1_1_i_a_s15.html#a3a3caa50326f535fee171cba6fb3a130',1,'space::IAS15']]],
-  ['sign_390',['sign',['../namespacespace.html#abe73681680cf6baecce2543c3fbe05c7',1,'space']]],
-  ['simplesystem_391',['SimpleSystem',['../classspace_1_1_simple_system.html#a20bf361e689d28fd2dba85e1d97e8b55',1,'space::SimpleSystem']]],
-  ['simulator_392',['Simulator',['../classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822',1,'space::Simulator::Simulator(Scalar time, STL const &amp;particle_set)'],['../classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372',1,'space::Simulator::Simulator(Scalar time, T const &amp;... particle)']]],
-  ['size_393',['size',['../structspace_1_1_coords.html#a4edddb1c9ce9206f057f0fc45866eb1f',1,'space::Coords']]],
-  ['spacehub_5fmake_5fconstructors_394',['SPACEHUB_MAKE_CONSTRUCTORS',['../structspace_1_1_point_particle.html#a7c2fdaef2b81299cdfa9debd0799159e',1,'space::PointParticle']]],
-  ['spacehub_5fstd_5faccessor_395',['SPACEHUB_STD_ACCESSOR',['../classspace_1_1_simple_system.html#a53c7859059e2e2cfbd6bbad836c6c666',1,'space::SimpleSystem::SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptcl_.idn())'],['../classspace_1_1_simple_system.html#a2f67e371e38e9d5e5f176827d0b95341',1,'space::SimpleSystem::SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptcl_.pos())'],['../classspace_1_1_simple_system.html#ab02d4e7b46b1960da0565094402c6ee1',1,'space::SimpleSystem::SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptcl_.vel())'],['../classspace_1_1_simple_system.html#a030504194195ed49b20354a911b88d5e',1,'space::SimpleSystem::SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time())']]],
-  ['stepfunction_396',['stepfunction',['../namespacespace.html#a0a207b752e72eee8d6c546c8beb63f09',1,'space']]],
-  ['stop_5foperations_397',['stop_operations',['../classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7',1,'space::RunArgs']]]
+    ['radius_449', ['radius', ['../classspace_1_1_size_particles.html#a88e854086d72ae84f7c71f5a64b9f02b', 1, 'space::SizeParticles::radius() noexcept'], ['../classspace_1_1_size_particles.html#aae58d22a7107f521bc81da245e3d0bc0', 1, 'space::SizeParticles::radius() const noexcept']]],
+    ['re_5fnorm_450', ['re_norm', ['../structspace_1_1_vec3.html#a1d2b0550efdf32220a052211394b48f6', 1, 'space::Vec3']]],
+    ['regularizedsystem_451', ['RegularizedSystem', ['../classspace_1_1_regularized_system.html#ac46577f637b3b6434527246e8532f934', 1, 'space::RegularizedSystem::RegularizedSystem()=delete'], ['../classspace_1_1_regularized_system.html#a06971b935f7cfb55cf0fe232555459d0', 1, 'space::RegularizedSystem::RegularizedSystem(RegularizedSystem const &amp;)=default'], ['../classspace_1_1_regularized_system.html#a59e0a8f79a45f0c6e7e63b9f18b53dbd', 1, 'space::RegularizedSystem::RegularizedSystem(RegularizedSystem &amp;&amp;)=default']]],
+    ['renorm_452', ['reNorm', ['../structspace_1_1vec3.html#a8341929b135c150114f3b350ab8166e2', 1, 'space::vec3::reNorm() const'], ['../structspace_1_1vec3.html#a8341929b135c150114f3b350ab8166e2', 1, 'space::vec3::reNorm() const'], ['../structspace_1_1vec3.html#a8341929b135c150114f3b350ab8166e2', 1, 'space::vec3::reNorm() const']]],
+    ['reserve_453', ['reserve', ['../structspace_1_1_coords.html#a31d602268120b0ed77623f7e6df3d6e8', 1, 'space::Coords::reserve()'], ['../classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df', 1, 'space::Particles::reserve()']]],
+    ['resize_454', ['resize', ['../structspace_1_1_coords.html#ac69c82658f3f4228ccbe7f283d4a686b', 1, 'space::Coords::resize()'], ['../classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8', 1, 'space::Particles::resize()']]],
+    ['rms_455', ['RMS', ['../classspace_1_1_r_m_s.html#aaea812b4ded21952fe777c107bdbd3ae', 1, 'space::RMS::RMS()=default'], ['../classspace_1_1_r_m_s.html#ad4f67f63189b91845241286cb2e999d9', 1, 'space::RMS::RMS(RMS const &amp;)=default'], ['../classspace_1_1_r_m_s.html#aa555257897ad63a34d0776e595c1fd49', 1, 'space::RMS::RMS(RMS &amp;&amp;)=default']]],
+    ['root_5fbisection_456', ['root_bisection', ['../namespacespace.html#a39eb2a86b90fb45dee58f5e92a447612', 1, 'space']]],
+    ['rtol_457', ['rtol', ['../classspace_1_1_error_checker.html#aca17cff839756bc95d0aad1096ccffdf', 1, 'space::ErrorChecker::rtol() noexcept'], ['../classspace_1_1_error_checker.html#ad0814e413f0281caaf44942fe9483319', 1, 'space::ErrorChecker::rtol() const noexcept']]],
+    ['run_458', ['run', ['../classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8', 1, 'space::Simulator']]]
 ];

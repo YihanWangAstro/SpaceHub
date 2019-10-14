@@ -68,7 +68,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+      <a href="#pub-attribs">Data Fields</a> &#124;
+      <a href="#pro-methods">Protected Member Functions</a></div>
   <div class="headertitle">
 <div class="title">space::odeIterator::ConstOdeIterator&lt; Integrator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
@@ -102,13 +103,44 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Base</b> = <a class=
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:af8b6e1457fb435ba122359c96170bdf2"><td class="memItemLeft" align="right" valign="top"><a id="af8b6e1457fb435ba122359c96170bdf2"></a>
-CRTP_IMPL&#160;</td><td class="memItemRight" valign="bottom"><b>__pad0__</b>: template&lt;typename T&gt; auto impl_iterate(T &amp;particles</td></tr>
-<tr class="separator:af8b6e1457fb435ba122359c96170bdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+    <tr class="memitem:a56f7b0b302dfe77df7669969b4c57928">
+        <td class="memItemLeft" align="right" valign="top"><a id="a56f7b0b302dfe77df7669969b4c57928"></a>
+            friend&#160;
+        </td>
+        <td class="memItemRight" valign="bottom"><b>Base</b></td>
+    </tr>
+    <tr class="separator:a56f7b0b302dfe77df7669969b4c57928">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+</table>
+    <table class="memberdecls">
+        <tr class="heading">
+            <td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+                Protected Member Functions</h2></td>
+        </tr>
+        <tr class="memitem:a6a7e751c418463a6b435bc83374ec15b">
+            <td class="memTemplParams" colspan="2"><a id="a6a7e751c418463a6b435bc83374ec15b"></a>
+                template&lt;typename T &gt;
+            </td>
+        </tr>
+        <tr class="memitem:a6a7e751c418463a6b435bc83374ec15b">
+            <td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td>
+            <td class="memTemplItemRight" valign="bottom"><b>impl_iterate</b> (T &amp;particles, typename T::Scalar
+                macro_step_size) -&gt; typename T::Scalar
+            </td>
+        </tr>
+        <tr class="separator:a6a7e751c418463a6b435bc83374ec15b">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_methods_classspace_1_1ode_iterator_1_1_ode_iterator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classspace_1_1ode_iterator_1_1_ode_iterator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classspace_1_1ode_iterator_1_1_ode_iterator.html">space::odeIterator::OdeIterator&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</a></td></tr>
+    <tr class="inherit_header pub_methods_classspace_1_1ode_iterator_1_1_ode_iterator">
+        <td colspan="2" onclick="toggleInherit('pub_methods_classspace_1_1ode_iterator_1_1_ode_iterator')"><img
+                src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el"
+                                                                                          href="classspace_1_1ode_iterator_1_1_ode_iterator.html">space::odeIterator::OdeIterator&lt;
+            ConstOdeIterator&lt; Integrator &gt; &gt;</a></td>
+    </tr>
 <tr class="memitem:a415466d750c7405d63b72089535a2520 inherit pub_methods_classspace_1_1ode_iterator_1_1_ode_iterator"><td class="memItemLeft" align="right" valign="top"><a id="a415466d750c7405d63b72089535a2520"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>iterate</b> (T &amp;particles, typename T::Scalar macro_step_size) -&gt; typename T::Scalar</td></tr>
 <tr class="separator:a415466d750c7405d63b72089535a2520 inherit pub_methods_classspace_1_1ode_iterator_1_1_ode_iterator"><td class="memSeparator" colspan="2">&#160;</td></tr>

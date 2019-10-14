@@ -22,134 +22,249 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="103" column="12" bodyfile="particles.hpp" bodystart="103" bodyend="-1"/>
+          <location file="particles.hpp" line="99" column="12" bodyfile="particles.hpp" bodystart="99" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1_particles_1ad975d199e2c45813545f42d4112249fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::Particles&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, idn)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>idn</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::Particles&lt; Derived &gt;::idn</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The setter interface of member <computeroutput>idn</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="25" column="5"/>
+              <location file="particles.hpp" line="22" column="23" bodyfile="particles.hpp" bodystart="22"
+                        bodyend="22"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particles_1a25311dd18dbf9173170c7c866894b08d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::Particles&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, mass)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>mass</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::Particles&lt; Derived &gt;::idn</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The getter interface of member <computeroutput>idn</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="31" column="5"/>
+              <location file="particles.hpp" line="22" column="116" bodyfile="particles.hpp" bodystart="22"
+                        bodyend="22"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particles_1a7266a558f27170a4f682f16b195faffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::Particles&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, pos)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>pos</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::Particles&lt; Derived &gt;::mass</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The setter interface of member <computeroutput>mass</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="37" column="5"/>
+              <location file="particles.hpp" line="24" column="23" bodyfile="particles.hpp" bodystart="24"
+                        bodyend="24"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particles_1a4216ea655deafa0c41c1505d450f70f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::Particles&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, time)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>time</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::Particles&lt; Derived &gt;::mass</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The getter interface of member <computeroutput>mass</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="43" column="5"/>
+              <location file="particles.hpp" line="24" column="118" bodyfile="particles.hpp" bodystart="24"
+                        bodyend="24"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particles_1a0bc171b4fa0185e720d105708e2ee204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>space::Particles&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
-        <argsstring>(Derived, auto, vel)</argsstring>
-        <name>DECLARE_CRTP_ACCESSOR</name>
-        <param>
-          <type>Derived</type>
-        </param>
-        <param>
-          <type>auto</type>
-        </param>
-        <param>
-          <type>vel</type>
-        </param>
+          <memberdef kind="function" id="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::Particles&lt; Derived &gt;::pos</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>pos</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The setter interface of member <computeroutput>pos</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles.hpp" line="26" column="23" bodyfile="particles.hpp" bodystart="26"
+                        bodyend="26"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::Particles&lt; Derived &gt;::pos</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>pos</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The getter interface of member <computeroutput>pos</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles.hpp" line="26" column="116" bodyfile="particles.hpp" bodystart="26"
+                        bodyend="26"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::Particles&lt; Derived &gt;::time</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>time</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The setter interface of member <computeroutput>time</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles.hpp" line="28" column="23" bodyfile="particles.hpp" bodystart="28"
+                        bodyend="28"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::Particles&lt; Derived &gt;::time</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>time</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The getter interface of member <computeroutput>time</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles.hpp" line="28" column="118" bodyfile="particles.hpp" bodystart="28"
+                        bodyend="28"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" prot="public"
+                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>auto &amp;</type>
+              <definition>auto&amp; space::Particles&lt; Derived &gt;::vel</definition>
+              <argsstring>() noexcept</argsstring>
+              <name>vel</name>
+              <briefdescription>
+              </briefdescription>
+              <detaileddescription>
+                  <para>
+                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                      <bold>must impl</bold> The setter interface of member <computeroutput>vel</computeroutput>.
+                      <simplesect kind="return">
+                          <para>auto Depend on implementation.
+                              <linebreak/>
+                          </para>
+                      </simplesect>
+                  </para>
+              </detaileddescription>
+              <inbodydescription>
+              </inbodydescription>
+              <location file="particles.hpp" line="30" column="23" bodyfile="particles.hpp" bodystart="30"
+                        bodyend="30"/>
+          </memberdef>
+          <memberdef kind="function" id="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" prot="public"
+                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+              <type>const auto &amp;</type>
+              <definition>const auto&amp; space::Particles&lt; Derived &gt;::vel</definition>
+              <argsstring>() const noexcept</argsstring>
+              <name>vel</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold> The getter interface of member <computeroutput>vel</computeroutput>.
+                <simplesect kind="return">
+                    <para>auto Depend on implementation.
+                        <linebreak/>
+                    </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="49" column="5"/>
+              <location file="particles.hpp" line="30" column="116" bodyfile="particles.hpp" bodystart="30"
+                        bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1a8d4572f516edfeb65457ccb21fa62de6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Derived &amp;</type>
@@ -159,13 +274,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-success"/>
+                <bold>auto impl</bold>
+            </para>
+            <para>The downcast interface of Base class to Derived class.
+                <simplesect kind="return">
+                    <para>Derived</para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="55" column="13" bodyfile="particles.hpp" bodystart="110" bodyend="112"/>
+          <location file="particles.hpp" line="38" column="13" bodyfile="particles.hpp" bodystart="106" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -173,16 +294,21 @@
         <argsstring>() const</argsstring>
         <name>number</name>
         <briefdescription>
-<para>The particle number of this set. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>size_t </para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold>
+            </para>
+            <para>Get the (active) particle number of the SoA particle set.
+                <simplesect kind="return">
+                    <para>size_t the number of the particles.</para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="62" column="13" bodyfile="particles.hpp" bodystart="115" bodyend="117"/>
+          <location file="particles.hpp" line="46" column="13" bodyfile="particles.hpp" bodystart="111" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1aa34fcf3707da6d94091d75e235687267" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -192,13 +318,24 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-success"/>
+                <bold>optional impl</bold>
+                <computeroutput>&gt; The particle set is resizable.</computeroutput>
+            </para>
+            <para>Get the capacity of the <computeroutput>Container</computeroutput> for the each component(i.e idn,
+                pos, vel) of the SoA particle set.
+                <simplesect kind="return">
+                    <para>size_t the capacity of the the SoA particle set.</para>
+                </simplesect>
+                <simplesect kind="note">
+                    <para>implementation should keep the consistence of the capacity of all components.</para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="68" column="13" bodyfile="particles.hpp" bodystart="120" bodyend="122"/>
+          <location file="particles.hpp" line="55" column="13" bodyfile="particles.hpp" bodystart="116" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1a928e0065624cc688216c09f312e7a1df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -210,15 +347,20 @@
           <declname>new_cap</declname>
         </param>
         <briefdescription>
-<para>Reserve(allocate) space for creating particles. </para>
         </briefdescription>
         <detaileddescription>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-success"/>
+                <bold>optional impl</bold>
+                <computeroutput>&gt; The particle set is resizable.</computeroutput>
+            </para>
+            <para>Reserve(allocate) space for each component(i.e idn, pos, vel) of the SoA particle set.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>new_cap</parametername>
+    <parametername direction="in">new_cap</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
+    <para>The new capacity size(in particle number) of the SoA particle set.</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -226,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="75" column="10" bodyfile="particles.hpp" bodystart="125" bodyend="127"/>
+          <location file="particles.hpp" line="64" column="10" bodyfile="particles.hpp" bodystart="121" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1a8be4d54604402eccaa9b50b6bb7783d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -238,15 +380,20 @@
           <declname>new_sz</declname>
         </param>
         <briefdescription>
-<para>Change the particle number of the set. </para>
         </briefdescription>
         <detaileddescription>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-success"/>
+                <bold>optional impl</bold>
+                <computeroutput>&gt; The particle set is resizable.</computeroutput>
+            </para>
+            <para>Change the particle number of the set.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>new_sz</parametername>
+    <parametername direction="in">new_sz</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
+    <para>The new size(in particle number) of the SoA particle set.</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -254,7 +401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="82" column="10" bodyfile="particles.hpp" bodystart="130" bodyend="132"/>
+          <location file="particles.hpp" line="73" column="10" bodyfile="particles.hpp" bodystart="126" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1aa6bbc1f7954d0991ca411ba7041969c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -264,10 +411,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold>
+            </para>
+            <para>Clear all the particles in the set.
+                <simplesect kind="note">
+                    <para>After the clear, the number of the particle set should be 0. i.e <ref
+                            refid="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" kindref="member">
+                        number()
+                    </ref> should return 0;
+                    </para>
+                </simplesect>
+            </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="87" column="10" bodyfile="particles.hpp" bodystart="135" bodyend="137"/>
+          <location file="particles.hpp" line="81" column="10" bodyfile="particles.hpp" bodystart="131" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particles_1a4a5558934deec20dc500a3f8ff981e14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -286,12 +446,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
+            <para>
+                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
+                <bold>must impl</bold>
+            </para>
+            <para>Add a single particle to the SoA particle set.
+                <parameterlist kind="templateparam">
+                    <parameteritem>
+                        <parameternamelist>
+                            <parametername>Particle</parametername>
+                        </parameternamelist>
+                        <parameterdescription>
+                            <para>The generic particle Type of the added particle.</para>
+                        </parameterdescription>
+                    </parameteritem>
+                </parameterlist>
+                <parameterlist kind="param">
+                    <parameteritem>
 <parameternamelist>
-<parametername>particle</parametername>
+    <parametername direction="in">new_particle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
+    <para>The single particle that is going to be added.</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -299,7 +475,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="94" column="10" bodyfile="particles.hpp" bodystart="141" bodyend="143"/>
+          <location file="particles.hpp" line="91" column="10" bodyfile="particles.hpp" bodystart="137" bodyend="139"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -309,46 +485,101 @@
         <argsstring>()=default</argsstring>
         <name>Particles</name>
         <briefdescription>
-<para>Construct a new <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> object. </para>
         </briefdescription>
         <detaileddescription>
+            <para>Construct a new <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> object. Set
+                to be private to avoid outside access. Only implement class can access.
+            </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="101" column="5"/>
+          <location file="particles.hpp" line="97" column="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>CRTP base class of a &apos;Structure of Array&apos; kind particle set. </para>
     </briefdescription>
     <detaileddescription>
+        <para>Abstract class of a &apos;Structure of Array(SoA)&apos; kind SoA particle set. A class
+            implements(partly/fully) the interfaces of this class via CRTP idioms can be used cross the system as an
+            implementation of the concept
+            <computeroutput>
+                <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
+            </computeroutput>
+            .
+        </para>
 <para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Derived</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
+    <para>The implemented class in CRTP idioms.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+    Type traits to check if a Type is an implementation of the
+    <parameterlist kind="templateparam">
+        <parameteritem>
+            <parameternamelist>
+                <parametername>T</parametername>
+            </parameternamelist>
+            <parameterdescription>
+                <para>The type need to be cheched.</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
 </para>
     </detaileddescription>
-    <location file="particles.hpp" line="18" column="18" bodyfile="particles.hpp" bodystart="18" bodyend="104"/>
+      <location file="particles.hpp" line="19" column="18" bodyfile="particles.hpp" bodystart="19" bodyend="100"/>
     <listofallmembers>
       <member refid="classspace_1_1_particles_1aa34fcf3707da6d94091d75e235687267" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>capacity</name></member>
       <member refid="classspace_1_1_particles_1aa6bbc1f7954d0991ca411ba7041969c6" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>clear</name></member>
-      <member refid="classspace_1_1_particles_1ad975d199e2c45813545f42d4112249fe" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particles_1a25311dd18dbf9173170c7c866894b08d" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particles_1a7266a558f27170a4f682f16b195faffb" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particles_1a4216ea655deafa0c41c1505d450f70f1" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="classspace_1_1_particles_1a0bc171b4fa0185e720d105708e2ee204" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
       <member refid="classspace_1_1_particles_1afe3912f5c4b7b4f64b13479088ea8603" prot="private" virt="non-virtual"><scope>space::Particles</scope><name>Derived</name></member>
       <member refid="classspace_1_1_particles_1a8d4572f516edfeb65457ccb21fa62de6" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>derived</name></member>
       <member refid="classspace_1_1_particles_1a4a5558934deec20dc500a3f8ff981e14" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>emplace_back</name></member>
+        <member refid="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>idn</name>
+        </member>
+        <member refid="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>idn</name>
+        </member>
+        <member refid="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>mass</name>
+        </member>
+        <member refid="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>mass</name>
+        </member>
       <member refid="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>number</name></member>
       <member refid="classspace_1_1_particles_1a5e18d5ae31895fc49495a3caf3f2e269" prot="private" virt="non-virtual"><scope>space::Particles</scope><name>Particles</name></member>
+        <member refid="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>pos</name>
+        </member>
+        <member refid="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>pos</name>
+        </member>
       <member refid="classspace_1_1_particles_1a928e0065624cc688216c09f312e7a1df" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>reserve</name></member>
       <member refid="classspace_1_1_particles_1a8be4d54604402eccaa9b50b6bb7783d8" prot="public" virt="non-virtual"><scope>space::Particles</scope><name>resize</name></member>
+        <member refid="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>time</name>
+        </member>
+        <member refid="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>time</name>
+        </member>
+        <member refid="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>vel</name>
+        </member>
+        <member refid="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" prot="public" virt="non-virtual">
+            <scope>space::Particles</scope>
+            <name>vel</name>
+        </member>
     </listofallmembers>
   </compounddef>
 </doxygen>

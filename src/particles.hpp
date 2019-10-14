@@ -10,93 +10,89 @@ namespace space {
     Class Particles Declaration
 \*---------------------------------------------------------------------------*/
 /**
- * @brief CRTP base class of a 'Structure of Array' kind particle set.
+ * Abstract class of a 'Structure of Array(SoA)' kind SoA particle set. A class implements(partly/fully) the interfaces of this
+ * class via CRTP idioms can be used cross the system as an implementation of the concept `Particles`.
  *
- * @tparam Derived
+ * @tparam Derived The implement class in CRTP idioms.
  */
   template<typename Derived>
   class Particles {
   public:
     // public methods
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, idn);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, mass);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, pos);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, time);
 
-    /**
-     *
-     * @return
-     */
     DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
     /**
+     * @glabel{auto impl}
      *
-     * @return
+     * The downcast interface of Base class to Derived class.
+     * @return Derived
      */
     Derived &derived();
 
     /**
-     * @brief The particle number of this set.
+     * @must_impl
      *
-     * @return size_t
+     * Get the (active) particle number of the SoA particle set.
+     * @return size_t the number of the particles.
      */
     [[nodiscard]] size_t number() const;
 
     /**
+     * @opt_impl{The particle set is resizable.}
      *
-     * @return
+     * Get the capacity of the `Container` for the each component(i.e idn, pos, vel) of the SoA particle set.
+     * @return size_t the capacity of the the SoA particle set.
+     * @note implementation should keep the consistence of the capacity of all components.
      */
     [[nodiscard]] size_t capacity() const;
 
     /**
-     * @brief Reserve(allocate) space for creating particles
+     * @opt_impl{The particle set is resizable.}
      *
-     * @param new_cap
+     * Reserve(allocate) space for each component(i.e idn, pos, vel) of the SoA particle set.
+     *
+     * @param[in] new_cap The new capacity size(in particle number) of the SoA particle set.
      */
     void reserve(size_t new_cap);
 
     /**
-     * @brief Change the particle number of the set.
+     * @opt_impl{The particle set is resizable.}
      *
-     * @param new_sz
+     * Change the particle number of the set.
+     *
+     * @param[in] new_sz The new size(in particle number) of the SoA particle set.
      */
     void resize(size_t new_sz);
 
     /**
+     * @must_impl
      *
+     * Clear all the particles in the set.
+     * @note After the clear, the number of the particle set should be 0. i.e number() should return 0;
      */
     void clear();
 
     /**
+     * @must_impl
      *
-     * @param particle
+     * Add a single particle to the SoA particle set.
+     * @tparam Particle The generic particle Type of the added particle.
+     * @param[in] new_particle The single particle that is going to be added.
      */
     template<typename Particle>
     void emplace_back(Particle const &new_particle);
 
   private:
     /**
-     * @brief Construct a new Particles object
-     *
+     * Construct a new Particles object. Set to be private to avoid outside access. Only implement class can access.
      */
     Particles() = default;
 
@@ -145,6 +141,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Help functions and tools
 \*---------------------------------------------------------------------------*/
+/**
+ * Type traits to check if a Type is an implementation of the @class Particles.
+ * @tparam T The type need to be cheched.
+ */
   template<typename T>
   constexpr bool is_soa_particles_v = std::is_base_of_v<Particles<T>, T>;
 
