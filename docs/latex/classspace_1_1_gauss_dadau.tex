@@ -1,0 +1,144 @@
+\hypertarget{classspace_1_1_gauss_dadau}{}\doxysection{space\+::Gauss\+Dadau$<$ Partic\+Sys $>$ Class Template Reference}
+\label{classspace_1_1_gauss_dadau}\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+
+
+Gauss-\/\+Dadau integrator.  
+
+
+
+
+{\ttfamily \#include $<$Gauss-\/\+Dadau.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_ac28b3c480cf1ae769da5dbc05a2809fa}\label{classspace_1_1_gauss_dadau_ac28b3c480cf1ae769da5dbc05a2809fa}} 
+using {\bfseries Radau\+Array} = Container$<$ Vector, 7 $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a705e773dc91296ae0e709a45f048cbb4}\label{classspace_1_1_gauss_dadau_a705e773dc91296ae0e709a45f048cbb4}} 
+using {\bfseries Radau\+Tab} = Container$<$ Radau\+Array, Partic\+Sys\+::array\+Size $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a08ef6b64f54424152bd572dd606a5c0e}\label{classspace_1_1_gauss_dadau_a08ef6b64f54424152bd572dd606a5c0e}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (Partic\+Sys)
+\item 
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau_aba82c30a0d594104c3abed72b6f79098}{integrate}} (Partic\+Sys \&particles, Scalar step\+Length)
+\begin{DoxyCompactList}\small\item\em Interface to integrate particle system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau_a9cd9378f66da4ace3c1200482496a774}{calcu\+B\+Tab}} (const Partic\+Sys \&particles, Scalar step\+Length)
+\item 
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau_ac5c9176c9dca785449710b3715e16654}{evaluate\+System\+At}} (Partic\+Sys \&particle\+Sys, Scalar step\+Length, size\+\_\+t index)
+\item 
+const Radau\+Tab \& \mbox{\hyperlink{classspace_1_1_gauss_dadau_a30d7bd1c32d27ed7e53a54ae1818b002}{get\+B\+Tab}} () const
+\item 
+const Vector\+Array \& \mbox{\hyperlink{classspace_1_1_gauss_dadau_adf17c663420129c967088df0897bfa77}{local\+Acc}} () const
+\item 
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a43a4ed21df5d484f05c5b156814aae00}\label{classspace_1_1_gauss_dadau_a43a4ed21df5d484f05c5b156814aae00}} 
+void {\bfseries check\+Tab\+Volume} (size\+\_\+t particle\+Num)
+\item 
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau_a49d0f17bbd53c6cc9ad347d6c3a84d83}{predict\+NewB}} (Scalar Q1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a2abe1550f71fac107ccff4dabb130e80}\label{classspace_1_1_gauss_dadau_a2abe1550f71fac107ccff4dabb130e80}} 
+static const int \mbox{\hyperlink{classspace_1_1_gauss_dadau_a2abe1550f71fac107ccff4dabb130e80}{order}} \{15\}
+\begin{DoxyCompactList}\small\item\em Order of the integrator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_ae88a3879789fe5743d9017b5f86f6f66}\label{classspace_1_1_gauss_dadau_ae88a3879789fe5743d9017b5f86f6f66}} 
+static const size\+\_\+t {\bfseries final\+Point} \{7\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys$>$\newline
+class space\+::\+Gauss\+Dadau$<$ Partic\+Sys $>$}
+
+Gauss-\/\+Dadau integrator. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a9cd9378f66da4ace3c1200482496a774}\label{classspace_1_1_gauss_dadau_a9cd9378f66da4ace3c1200482496a774}} 
+\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}!calcuBTab@{calcuBTab}}
+\index{calcuBTab@{calcuBTab}!space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+\doxysubsubsection{\texorpdfstring{calcuBTab()}{calcuBTab()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau}{space\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::calcu\+B\+Tab (\begin{DoxyParamCaption}\item[{const Partic\+Sys \&}]{particles,  }\item[{Scalar}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & \\
+\hline
+{\em step\+Length} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_ac5c9176c9dca785449710b3715e16654}\label{classspace_1_1_gauss_dadau_ac5c9176c9dca785449710b3715e16654}} 
+\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}!evaluateSystemAt@{evaluateSystemAt}}
+\index{evaluateSystemAt@{evaluateSystemAt}!space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+\doxysubsubsection{\texorpdfstring{evaluateSystemAt()}{evaluateSystemAt()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau}{space\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::evaluate\+System\+At (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particle\+Sys,  }\item[{Scalar}]{step\+Length,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particle\+Sys} & \\
+\hline
+{\em step\+Length} & \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a30d7bd1c32d27ed7e53a54ae1818b002}\label{classspace_1_1_gauss_dadau_a30d7bd1c32d27ed7e53a54ae1818b002}} 
+\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}!getBTab@{getBTab}}
+\index{getBTab@{getBTab}!space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+\doxysubsubsection{\texorpdfstring{getBTab()}{getBTab()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const Radau\+Tab\& \mbox{\hyperlink{classspace_1_1_gauss_dadau}{space\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::get\+B\+Tab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_aba82c30a0d594104c3abed72b6f79098}\label{classspace_1_1_gauss_dadau_aba82c30a0d594104c3abed72b6f79098}} 
+\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}!integrate@{integrate}}
+\index{integrate@{integrate}!space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+\doxysubsubsection{\texorpdfstring{integrate()}{integrate()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau}{space\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::integrate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{Scalar}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Interface to integrate particle system. 
+
+This function integrate the particle system for one step with Gauss-\/\+Radau stepping. 
+\begin{DoxyParams}{Parameters}
+{\em particles} & Particle system need to be integrated. \\
+\hline
+{\em step\+Length} & Step size for integration. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_adf17c663420129c967088df0897bfa77}\label{classspace_1_1_gauss_dadau_adf17c663420129c967088df0897bfa77}} 
+\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}!localAcc@{localAcc}}
+\index{localAcc@{localAcc}!space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+\doxysubsubsection{\texorpdfstring{localAcc()}{localAcc()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+const Vector\+Array\& \mbox{\hyperlink{classspace_1_1_gauss_dadau}{space\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::local\+Acc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_gauss_dadau_a49d0f17bbd53c6cc9ad347d6c3a84d83}\label{classspace_1_1_gauss_dadau_a49d0f17bbd53c6cc9ad347d6c3a84d83}} 
+\index{space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}!predictNewB@{predictNewB}}
+\index{predictNewB@{predictNewB}!space::GaussDadau$<$ ParticSys $>$@{space::GaussDadau$<$ ParticSys $>$}}
+\doxysubsubsection{\texorpdfstring{predictNewB()}{predictNewB()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys $>$ \\
+void \mbox{\hyperlink{classspace_1_1_gauss_dadau}{space\+::\+Gauss\+Dadau}}$<$ Partic\+Sys $>$\+::predict\+NewB (\begin{DoxyParamCaption}\item[{Scalar}]{Q1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Q1} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+integrator/Gauss-\/\+Dadau.\+h\end{DoxyCompactItemize}

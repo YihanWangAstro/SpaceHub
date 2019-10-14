@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_space_h_1_1_lazy_1_1_binary___expr" kind="struct" language="C++" prot="public">
+    <compoundname>SpaceH::Lazy::Binary_Expr</compoundname>
+    <basecompoundref refid="struct_space_h_1_1_lazy_1_1_expr" prot="public" virt="non-virtual">SpaceH::Lazy::Expr&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename Operator</type>
+      </param>
+      <param>
+        <type>typename Lhs</type>
+      </param>
+      <param>
+        <type>typename Rhs</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_space_h_1_1_lazy_1_1_binary___expr_1a7ca0e4ca67365a153c347aa1ea66f9d6" prot="private" static="no" mutable="no">
+        <type>const Operator &amp;</type>
+        <definition>const Operator&amp; SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;::opt_</definition>
+        <argsstring></argsstring>
+        <name>opt_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="46" column="24" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_space_h_1_1_lazy_1_1_binary___expr_1af8a6f76a1ca4744eca067bee31ed8676" prot="private" static="no" mutable="no">
+        <type>const Lhs &amp;</type>
+        <definition>const Lhs&amp; SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;::lhs_</definition>
+        <argsstring></argsstring>
+        <name>lhs_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="47" column="19" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_space_h_1_1_lazy_1_1_binary___expr_1a2ce90ab5fdce7f91dfac0474192b1693" prot="private" static="no" mutable="no">
+        <type>const Rhs &amp;</type>
+        <definition>const Rhs&amp; SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;::rhs_</definition>
+        <argsstring></argsstring>
+        <name>rhs_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="48" column="19" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_binary___expr_1a160b8c1a4277418c605dfeb6bd62f82b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;::Binary_Expr</definition>
+        <argsstring>(const Operator &amp;opt, const Lhs &amp;lhs, const Rhs &amp;rhs)</argsstring>
+        <name>Binary_Expr</name>
+        <param>
+          <type>const Operator &amp;</type>
+          <declname>opt</declname>
+        </param>
+        <param>
+          <type>const Lhs &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const Rhs &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="50" column="9" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_binary___expr_1a847b7eefdbe247bd88614edceffcd707" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;::eval</definition>
+        <argsstring>(Args &amp;&amp;... args) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="53" column="21" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>SpaceH::Lazy::Expr&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
+      </node>
+      <node id="1">
+        <label>SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_binary___expr"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>SpaceH::Lazy::Expr&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
+      </node>
+      <node id="1">
+        <label>SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_binary___expr"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="lazy-evaluation/lazy_expr.h" line="44" column="38" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="44" bodyend="57"/>
+    <listofallmembers>
+      <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a160b8c1a4277418c605dfeb6bd62f82b" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Binary_Expr</scope><name>Binary_Expr</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Binary_Expr</scope><name>cast</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a847b7eefdbe247bd88614edceffcd707" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Binary_Expr</scope><name>eval</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1af8a6f76a1ca4744eca067bee31ed8676" prot="private" virt="non-virtual"><scope>SpaceH::Lazy::Binary_Expr</scope><name>lhs_</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a7ca0e4ca67365a153c347aa1ea66f9d6" prot="private" virt="non-virtual"><scope>SpaceH::Lazy::Binary_Expr</scope><name>opt_</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a2ce90ab5fdce7f91dfac0474192b1693" prot="private" virt="non-virtual"><scope>SpaceH::Lazy::Binary_Expr</scope><name>rhs_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

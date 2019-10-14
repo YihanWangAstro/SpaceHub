@@ -12,6 +12,11 @@
 
 namespace space::odeIterator {
 
+  /**
+   *
+   * @tparam T
+   * @tparam MaxIter
+   */
   template<typename T, size_t MaxIter>
   class BurlishStoerConsts {
   public:
@@ -78,6 +83,12 @@ namespace space::odeIterator {
     std::array<size_t, MaxIter> sub_steps_;
   };
 
+  /**
+   *
+   * @tparam Real
+   * @tparam ErrChecker
+   * @tparam StepControl
+   */
   template<typename Real, template<typename> typename ErrChecker,
           template<size_t, typename> typename StepControl>
   class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepControl>> {

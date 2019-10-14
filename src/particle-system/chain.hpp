@@ -7,6 +7,9 @@
 #include "../core-computation.hpp"
 
 namespace space {
+  /**
+   *
+   */
   class Chain {
   public:
     struct Node {

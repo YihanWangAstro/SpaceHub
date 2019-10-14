@@ -13,6 +13,12 @@ namespace space {
   /*---------------------------------------------------------------------------*\
       Class ARchainSystem Declaration
   \*---------------------------------------------------------------------------*/
+  /**
+   *
+   * @tparam Particles
+   * @tparam Interactions
+   * @tparam RegType
+   */
   template<typename Particles, typename Interactions, ReguType RegType>
   class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Interactions, RegType>> {
   public:

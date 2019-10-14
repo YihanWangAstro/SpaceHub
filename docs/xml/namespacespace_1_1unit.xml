@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacespace_1_1unit" kind="namespace" language="C++">
+    <compoundname>space::unit</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacespace_1_1unit_1ace4f7e3b11e370c6c6911aa1d78869bc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::au</definition>
+        <argsstring></argsstring>
+        <name>au</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="18" column="20" bodyfile="macros.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a1f5af7def5a965203687480eba9d82b5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_solar</definition>
+        <argsstring></argsstring>
+        <name>m_solar</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="19" column="20" bodyfile="macros.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a20ad47547f3486c2dd3b894d479a8521" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::year</definition>
+        <argsstring></argsstring>
+        <name>year</name>
+        <initializer>= 2 * consts::pi</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="20" column="20" bodyfile="macros.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a9a70961c217cbd1f7057b7286e73530a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::deg</definition>
+        <argsstring></argsstring>
+        <name>deg</name>
+        <initializer>= consts::pi / 180.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="21" column="20" bodyfile="macros.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a170170a6e5154418a0221ef99b1584a5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::kyr</definition>
+        <argsstring></argsstring>
+        <name>kyr</name>
+        <initializer>= 1e3 * year</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="23" column="20" bodyfile="macros.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a226bead689dcda4fa3b135d4dadff648" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::Myr</definition>
+        <argsstring></argsstring>
+        <name>Myr</name>
+        <initializer>= 1e6 * year</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="24" column="20" bodyfile="macros.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1af00deabf093d6eedb794f51b394a69ba" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::Gyr</definition>
+        <argsstring></argsstring>
+        <name>Gyr</name>
+        <initializer>= 1e9 * year</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="25" column="20" bodyfile="macros.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a7dd7a50474bc07f10975b486b411c813" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::month</definition>
+        <argsstring></argsstring>
+        <name>month</name>
+        <initializer>= year / 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="26" column="20" bodyfile="macros.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1aed1606d2d29735b0da5980642bcf0ba6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::day</definition>
+        <argsstring></argsstring>
+        <name>day</name>
+        <initializer>= year / 365.25636042</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="27" column="20" bodyfile="macros.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1ac136c07b8841fbdf9c053e20eefc2338" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::hr</definition>
+        <argsstring></argsstring>
+        <name>hr</name>
+        <initializer>= day / 24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="28" column="20" bodyfile="macros.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1add4c1e6ad3b1e30f659965cc92afea6d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <initializer>= hr / 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="29" column="20" bodyfile="macros.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1ad9c0125bd61d3145ff091be30cb746c5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::sec</definition>
+        <argsstring></argsstring>
+        <name>sec</name>
+        <initializer>= min / 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="30" column="20" bodyfile="macros.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a67d71b64393768825be5d2fdef5c3505" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::hubble_t</definition>
+        <argsstring></argsstring>
+        <name>hubble_t</name>
+        <initializer>= 13.7 * Gyr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="31" column="20" bodyfile="macros.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a64f46d036c14b9a2713373a2b0b6b1f8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::km</definition>
+        <argsstring></argsstring>
+        <name>km</name>
+        <initializer>= 1 / 149597870.7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="33" column="20" bodyfile="macros.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1ad0db1a5a2107bbbd7a10877f3ba8416b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::pc</definition>
+        <argsstring></argsstring>
+        <name>pc</name>
+        <initializer>= 648000 / consts::pi</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="34" column="20" bodyfile="macros.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1ad2c6f5b55598471b1f7348f487b646d5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::r_solar</definition>
+        <argsstring></argsstring>
+        <name>r_solar</name>
+        <initializer>= 6.957E5 * km</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="35" column="20" bodyfile="macros.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a728d522d5be26e350704b8fa9c51c535" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::r_jupiter</definition>
+        <argsstring></argsstring>
+        <name>r_jupiter</name>
+        <initializer>= 69911 * km</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="36" column="20" bodyfile="macros.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a8ac77ca8d0a841ba7ee2f80c5fe8b0ea" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::r_neptune</definition>
+        <argsstring></argsstring>
+        <name>r_neptune</name>
+        <initializer>= 24622 * km</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="37" column="20" bodyfile="macros.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a73387aa7c7c0a35ca6d96150d6cfbb7e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::v_unit</definition>
+        <argsstring></argsstring>
+        <name>v_unit</name>
+        <initializer>= 2.9784651272402163E1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="39" column="20" bodyfile="macros.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a9ecd524cf30ef01953aaeacfb611cf77" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::kms</definition>
+        <argsstring></argsstring>
+        <name>kms</name>
+        <initializer>= 1 / v_unit</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="40" column="20" bodyfile="macros.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a7b08501ffe9dcf21bb296444ee9eab4b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_earth</definition>
+        <argsstring></argsstring>
+        <name>m_earth</name>
+        <initializer>= 3.003E-6 * m_solar</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="42" column="20" bodyfile="macros.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a7561fcf84aeccaeee1310885311a095c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_mercury</definition>
+        <argsstring></argsstring>
+        <name>m_mercury</name>
+        <initializer>= 0.055 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="43" column="20" bodyfile="macros.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a168952d8be9f4e2e9ca2fe3a7188d192" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_venus</definition>
+        <argsstring></argsstring>
+        <name>m_venus</name>
+        <initializer>= 0.815 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="44" column="20" bodyfile="macros.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a2485a8059b30dd2e6e8697f5106266ca" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_mars</definition>
+        <argsstring></argsstring>
+        <name>m_mars</name>
+        <initializer>= 0.107 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="45" column="20" bodyfile="macros.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1acfd91c7281357b77ecafdd261fa82393" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_jupiter</definition>
+        <argsstring></argsstring>
+        <name>m_jupiter</name>
+        <initializer>= 317.8 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="46" column="20" bodyfile="macros.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a434335814b47b28077ff7cd6148f74ff" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_saturn</definition>
+        <argsstring></argsstring>
+        <name>m_saturn</name>
+        <initializer>= 95.16 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="47" column="20" bodyfile="macros.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1aa1fb7ba25eb80d54bbe3c0941e02d4fb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_neptune</definition>
+        <argsstring></argsstring>
+        <name>m_neptune</name>
+        <initializer>= 17.15 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="48" column="20" bodyfile="macros.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1unit_1a8ffc166e31c159462e8b56793e3b258c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double space::unit::m_moon</definition>
+        <argsstring></argsstring>
+        <name>m_moon</name>
+        <initializer>= 0.012300 * m_earth</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="macros.hpp" line="49" column="20" bodyfile="macros.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Documentation for space </para>
+    </detaileddescription>
+    <location file="macros.hpp" line="13" column="1"/>
+  </compounddef>
+</doxygen>

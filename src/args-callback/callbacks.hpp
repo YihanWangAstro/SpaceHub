@@ -8,8 +8,16 @@
 #include <iomanip>
 #include <memory>
 
+/**
+ * @namespace space::argsOpt
+ * Documentation for space
+ */
 namespace space::argsOpt {
 
+  /**
+   *
+   * @tparam Operation
+   */
   template<typename Operation>
   class TimeSlice {
   public:

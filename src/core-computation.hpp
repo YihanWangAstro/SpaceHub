@@ -5,6 +5,10 @@
 #include "macros.hpp"
 #include "own-math.hpp"
 
+/**
+ * @namespace space::calc
+ * Documentation for space
+ */
 namespace space::calc {
   template<typename... Args>
   constexpr auto add(Args &&... args) {

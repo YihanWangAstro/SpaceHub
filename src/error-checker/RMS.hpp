@@ -9,6 +9,10 @@
 
 namespace space {
 
+  /**
+   *
+   * @tparam T
+   */
   template<typename T>
   class RMS : public ErrorChecker<RMS<T>> {
   public:

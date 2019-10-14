@@ -6,9 +6,16 @@
 #define SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 
 #include "../../particle-system.hpp"
-
+/**
+ * @namespace space::integrator
+ * Documentation for space
+ */
 namespace space::integrator {
 
+  /**
+   *
+   * @tparam Derived
+   */
   template<typename Derived>
   class SymIntegrator {
   public:
@@ -26,6 +33,9 @@ namespace space::integrator {
     friend Derived;
   };
 
+  /**
+   *
+   */
   class symplectic2nd : public SymIntegrator<symplectic2nd> {
   public:
     static constexpr size_t order{2};
@@ -38,6 +48,9 @@ namespace space::integrator {
     }
   };
 
+  /**
+   *
+   */
   class symplectic4th : public SymIntegrator<symplectic4th> {
   public:
     static constexpr size_t order{4};
@@ -54,6 +67,9 @@ namespace space::integrator {
     }
   };
 
+  /**
+   *
+   */
   class symplectic6th : public SymIntegrator<symplectic6th> {
   public:
     static constexpr size_t order{6};
@@ -79,6 +95,9 @@ namespace space::integrator {
     }
   };
 
+  /**
+   *
+   */
   class symplectic8th : public SymIntegrator<symplectic8th> {
   public:
     static constexpr size_t order{8};
@@ -120,6 +139,9 @@ namespace space::integrator {
     }
   };
 
+  /**
+   *
+   */
   class symplectic10th : public SymIntegrator<symplectic10th> {
   public:
     static constexpr size_t order{10};

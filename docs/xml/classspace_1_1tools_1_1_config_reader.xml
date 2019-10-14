@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1tools_1_1_config_reader" kind="class" language="C++" prot="public">
+    <compoundname>space::tools::ConfigReader</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1tools_1_1_config_reader_1a3c21a136fd53be97872330dbb3ebdc36" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::string &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::string&gt; space::tools::ConfigReader::map_</definition>
+        <argsstring></argsstring>
+        <name>map_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/config-reader.hpp" line="67" column="24" bodyfile="tools/config-reader.hpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1tools_1_1_config_reader_1a1148267071952f04ab61a994eedd056a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::tools::ConfigReader::ConfigReader</definition>
+        <argsstring>(std::string const &amp;file_name, char divider=&apos;=&apos;, char commenter=&apos;#&apos;)</argsstring>
+        <name>ConfigReader</name>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>file_name</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>divider</declname>
+          <defval>&apos;=&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>commenter</declname>
+          <defval>&apos;#&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/config-reader.hpp" line="25" column="14" bodyfile="tools/config-reader.hpp" bodystart="25" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1tools_1_1_config_reader_1ac828703f9b32cc521b573af96a609c2f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::tools::ConfigReader::ConfigReader</definition>
+        <argsstring>(char const *file_name, char divider=&apos;=&apos;, char commenter=&apos;#&apos;)</argsstring>
+        <name>ConfigReader</name>
+        <param>
+          <type>char const *</type>
+          <declname>file_name</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>divider</declname>
+          <defval>&apos;=&apos;</defval>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>commenter</declname>
+          <defval>&apos;#&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/config-reader.hpp" line="44" column="14" bodyfile="tools/config-reader.hpp" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1tools_1_1_config_reader_1a317db5b99a0c82b950507fe87af754c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::tools::ConfigReader::get</definition>
+        <argsstring>(std::string const &amp;key)</argsstring>
+        <name>get</name>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/config-reader.hpp" line="48" column="7" bodyfile="tools/config-reader.hpp" bodystart="48" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classspace_1_1tools_1_1_config_reader_1ad990961c2aa9fb1e0dacad76509a7471" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>static auto space::tools::ConfigReader::classify_string</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>classify_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="tools/config-reader.hpp" line="69" column="17" bodyfile="tools/config-reader.hpp" bodystart="69" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tools/config-reader.hpp" line="23" column="21" bodyfile="tools/config-reader.hpp" bodystart="23" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classspace_1_1tools_1_1_config_reader_1ad990961c2aa9fb1e0dacad76509a7471" prot="private" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>classify_string</name></member>
+      <member refid="classspace_1_1tools_1_1_config_reader_1a1148267071952f04ab61a994eedd056a" prot="public" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>ConfigReader</name></member>
+      <member refid="classspace_1_1tools_1_1_config_reader_1ac828703f9b32cc521b573af96a609c2f" prot="public" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>ConfigReader</name></member>
+      <member refid="classspace_1_1tools_1_1_config_reader_1a317db5b99a0c82b950507fe87af754c1" prot="public" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>get</name></member>
+      <member refid="classspace_1_1tools_1_1_config_reader_1a3c21a136fd53be97872330dbb3ebdc36" prot="private" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>map_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

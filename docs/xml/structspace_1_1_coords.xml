@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structspace_1_1_coords" kind="struct" language="C++" prot="public">
+    <compoundname>space::Coords</compoundname>
+    <includes refid="coords_8hpp" local="no">coords.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structspace_1_1_coords_1aad183bdb28bbffba831152075debe228" prot="public" static="no">
+        <type>typename T::value_type</type>
+        <definition>using space::Coords&lt; T &gt;::Scalar =  typename T::value_type</definition>
+        <argsstring></argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="22" column="3" bodyfile="coords.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structspace_1_1_coords_1a04ff710f593ff09266c15309e5a5e2e9" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; Scalar &gt;</type>
+        <definition>using space::Coords&lt; T &gt;::Vector =  Vec3&lt;Scalar&gt;</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="24" column="3" bodyfile="coords.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structspace_1_1_coords_1a4a63ed0f12c10ee1f53770620988aea2" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T space::Coords&lt; T &gt;::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="81" column="5" bodyfile="coords.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1_coords_1a98efdb82ca046020c53c01e53585f53b" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T space::Coords&lt; T &gt;::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="82" column="5" bodyfile="coords.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structspace_1_1_coords_1ad0b8256873f0aa88ebb98fbeccf10b87" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T space::Coords&lt; T &gt;::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="83" column="5" bodyfile="coords.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structspace_1_1_coords_1a166e9093598db4255cca4106a8ca71e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Coords&lt; T &gt;::SPACEHUB_MAKE_CONSTRUCTORS</definition>
+        <argsstring>(Coords, default, default, default, default, default)</argsstring>
+        <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
+        <param>
+          <type><ref refid="structspace_1_1_coords" kindref="compound">Coords</ref></type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="27" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a8847cd19bce595b3c1884af35575cdf8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Coords&lt; T &gt;::Coords</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>Coords</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="33" column="12" bodyfile="coords.hpp" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a2ac7befea51cf997e44bc3aebbb4b159" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Coords&lt; T &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="39" column="8" bodyfile="coords.hpp" bodystart="129" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a16e0215407e594a6577553cbcf923d26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename GenVector</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::Coords&lt; T &gt;::emplace_back</definition>
+        <argsstring>(GenVector const &amp;vector)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>GenVector const &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>GenVector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="47" column="8" bodyfile="coords.hpp" bodystart="110" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a535fc8740e8e19bea38495f93d220188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Coords&lt; T &gt;::emplace_back</definition>
+        <argsstring>(Scalar xx, Scalar yy, Scalar zz)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>Scalar</type>
+          <declname>xx</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>yy</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>zz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>zz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="55" column="8" bodyfile="coords.hpp" bodystart="117" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a31d602268120b0ed77623f7e6df3d6e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Coords&lt; T &gt;::reserve</definition>
+        <argsstring>(size_t new_cap)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_cap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>new_cap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="61" column="8" bodyfile="coords.hpp" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1ac69c82658f3f4228ccbe7f283d4a686b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Coords&lt; T &gt;::resize</definition>
+        <argsstring>(size_t new_sz)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>new_sz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="67" column="8" bodyfile="coords.hpp" bodystart="104" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a0533eb5cd049b08a42b94e8ac9819102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::Coords&lt; T &gt;::shrink_to_fit</definition>
+        <argsstring>()</argsstring>
+        <name>shrink_to_fit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="72" column="8" bodyfile="coords.hpp" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_coords_1a4edddb1c9ce9206f057f0fc45866eb1f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t space::Coords&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="78" column="11" bodyfile="coords.hpp" bodystart="94" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>T</label>
+      </node>
+      <node id="1">
+        <label>space::Coords&lt; T &gt;</label>
+        <link refid="structspace_1_1_coords"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>x</edgelabel>
+          <edgelabel>y</edgelabel>
+          <edgelabel>z</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="coords.hpp" line="20" column="13" bodyfile="coords.hpp" bodystart="20" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structspace_1_1_coords_1a2ac7befea51cf997e44bc3aebbb4b159" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>clear</name></member>
+      <member refid="structspace_1_1_coords_1a8847cd19bce595b3c1884af35575cdf8" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>Coords</name></member>
+      <member refid="structspace_1_1_coords_1a16e0215407e594a6577553cbcf923d26" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>emplace_back</name></member>
+      <member refid="structspace_1_1_coords_1a535fc8740e8e19bea38495f93d220188" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>emplace_back</name></member>
+      <member refid="structspace_1_1_coords_1a31d602268120b0ed77623f7e6df3d6e8" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>reserve</name></member>
+      <member refid="structspace_1_1_coords_1ac69c82658f3f4228ccbe7f283d4a686b" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>resize</name></member>
+      <member refid="structspace_1_1_coords_1aad183bdb28bbffba831152075debe228" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>Scalar</name></member>
+      <member refid="structspace_1_1_coords_1a0533eb5cd049b08a42b94e8ac9819102" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>shrink_to_fit</name></member>
+      <member refid="structspace_1_1_coords_1a4edddb1c9ce9206f057f0fc45866eb1f" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>size</name></member>
+      <member refid="structspace_1_1_coords_1a166e9093598db4255cca4106a8ca71e8" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
+      <member refid="structspace_1_1_coords_1a04ff710f593ff09266c15309e5a5e2e9" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>Vector</name></member>
+      <member refid="structspace_1_1_coords_1a4a63ed0f12c10ee1f53770620988aea2" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>x</name></member>
+      <member refid="structspace_1_1_coords_1a98efdb82ca046020c53c01e53585f53b" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>y</name></member>
+      <member refid="structspace_1_1_coords_1ad0b8256873f0aa88ebb98fbeccf10b87" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

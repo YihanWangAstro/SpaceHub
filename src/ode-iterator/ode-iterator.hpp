@@ -7,6 +7,11 @@
 
 #include "../particle-system.hpp"
 
+
+/**
+ * @namespace space::odeIterator
+ * Documentation for space
+ */
 namespace space::odeIterator {
 
   /*---------------------------------------------------------------------------*\

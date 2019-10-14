@@ -9,6 +9,10 @@
 #include <random>
 #include "own-math.hpp"
 
+/**
+ * @namespace space::randomGen
+ * Documentation for space
+ */
 namespace space::randomGen {
 
   template<typename Dtype>

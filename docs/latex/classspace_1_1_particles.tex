@@ -1,0 +1,189 @@
+\hypertarget{classspace_1_1_particles}{}\doxysection{space\+::Particles$<$ Derived $>$ Class Template Reference}
+\label{classspace_1_1_particles}\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+
+
+C\+R\+TP base class of a \textquotesingle{}Structure of Array\textquotesingle{} kind particle set.  
+
+
+
+
+{\ttfamily \#include $<$particles.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classspace_1_1_particles_ad975d199e2c45813545f42d4112249fe}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, idn)
+\item 
+\mbox{\hyperlink{classspace_1_1_particles_a25311dd18dbf9173170c7c866894b08d}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, mass)
+\item 
+\mbox{\hyperlink{classspace_1_1_particles_a7266a558f27170a4f682f16b195faffb}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, pos)
+\item 
+\mbox{\hyperlink{classspace_1_1_particles_a4216ea655deafa0c41c1505d450f70f1}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, time)
+\item 
+\mbox{\hyperlink{classspace_1_1_particles_a0bc171b4fa0185e720d105708e2ee204}{D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR}} (Derived, auto, vel)
+\item 
+Derived \& \mbox{\hyperlink{classspace_1_1_particles_a8d4572f516edfeb65457ccb21fa62de6}{derived}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}{number}} () const
+\begin{DoxyCompactList}\small\item\em The particle number of this set. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles_aa34fcf3707da6d94091d75e235687267}{capacity}} () const
+\item 
+void \mbox{\hyperlink{classspace_1_1_particles_a928e0065624cc688216c09f312e7a1df}{reserve}} (size\+\_\+t new\+\_\+cap)
+\begin{DoxyCompactList}\small\item\em Reserve(allocate) space for creating particles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classspace_1_1_particles_a8be4d54604402eccaa9b50b6bb7783d8}{resize}} (size\+\_\+t new\+\_\+sz)
+\begin{DoxyCompactList}\small\item\em Change the particle number of the set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}\label{classspace_1_1_particles_aa6bbc1f7954d0991ca411ba7041969c6}} 
+void {\bfseries clear} ()
+\item 
+{\footnotesize template$<$typename Particle $>$ }\\void \mbox{\hyperlink{classspace_1_1_particles_a4a5558934deec20dc500a3f8ff981e14}{emplace\+\_\+back}} (Particle const \&new\+\_\+particle)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Derived$>$\newline
+class space\+::\+Particles$<$ Derived $>$}
+
+C\+R\+TP base class of a \textquotesingle{}Structure of Array\textquotesingle{} kind particle set. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Derived} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_particles_aa34fcf3707da6d94091d75e235687267}\label{classspace_1_1_particles_aa34fcf3707da6d94091d75e235687267}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_ad975d199e2c45813545f42d4112249fe}\label{classspace_1_1_particles_ad975d199e2c45813545f42d4112249fe}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{idn}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a25311dd18dbf9173170c7c866894b08d}\label{classspace_1_1_particles_a25311dd18dbf9173170c7c866894b08d}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{mass}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a7266a558f27170a4f682f16b195faffb}\label{classspace_1_1_particles_a7266a558f27170a4f682f16b195faffb}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{pos}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a4216ea655deafa0c41c1505d450f70f1}\label{classspace_1_1_particles_a4216ea655deafa0c41c1505d450f70f1}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{time}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a0bc171b4fa0185e720d105708e2ee204}\label{classspace_1_1_particles_a0bc171b4fa0185e720d105708e2ee204}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}}
+\index{DECLARE\_CRTP\_ACCESSOR@{DECLARE\_CRTP\_ACCESSOR}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{DECLARE\_CRTP\_ACCESSOR()}{DECLARE\_CRTP\_ACCESSOR()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename Derived$>$ \\
+\mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::D\+E\+C\+L\+A\+R\+E\+\_\+\+C\+R\+T\+P\+\_\+\+A\+C\+C\+E\+S\+S\+OR (\begin{DoxyParamCaption}\item[{Derived}]{,  }\item[{auto}]{,  }\item[{vel}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a8d4572f516edfeb65457ccb21fa62de6}\label{classspace_1_1_particles_a8d4572f516edfeb65457ccb21fa62de6}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!derived@{derived}}
+\index{derived@{derived}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{derived()}{derived()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+Derived \& \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::derived (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a4a5558934deec20dc500a3f8ff981e14}\label{classspace_1_1_particles_a4a5558934deec20dc500a3f8ff981e14}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!emplace\_back@{emplace\_back}}
+\index{emplace\_back@{emplace\_back}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{emplace\_back()}{emplace\_back()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+template$<$typename Particle $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::emplace\+\_\+back (\begin{DoxyParamCaption}\item[{Particle const \&}]{new\+\_\+particle }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em particle} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}\label{classspace_1_1_particles_ac7f2786d692d170715b1643846eece32}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!number@{number}}
+\index{number@{number}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{number()}{number()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+size\+\_\+t \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The particle number of this set. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_particles_a928e0065624cc688216c09f312e7a1df}\label{classspace_1_1_particles_a928e0065624cc688216c09f312e7a1df}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!reserve@{reserve}}
+\index{reserve@{reserve}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::reserve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+\_\+cap }\end{DoxyParamCaption})}
+
+
+
+Reserve(allocate) space for creating particles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+cap} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_particles_a8be4d54604402eccaa9b50b6bb7783d8}\label{classspace_1_1_particles_a8be4d54604402eccaa9b50b6bb7783d8}} 
+\index{space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}!resize@{resize}}
+\index{resize@{resize}!space::Particles$<$ Derived $>$@{space::Particles$<$ Derived $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$typename Derived $>$ \\
+void \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles}}$<$ Derived $>$\+::resize (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+\_\+sz }\end{DoxyParamCaption})}
+
+
+
+Change the particle number of the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+sz} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+particles.\+hpp\end{DoxyCompactItemize}

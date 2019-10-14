@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacespace_1_1stellar" kind="namespace" language="C++">
+    <compoundname>space::stellar</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StarType</name>
+        <enumvalue id="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8a1baa5a77aeff33338948c1e0c4466462" prot="public">
+          <name>BH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8a53c8d15a175221d2127083e66a8cc937" prot="public">
+          <name>NS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8a8ab2630ada18b94a005a0c5399d9d483" prot="public">
+          <name>STAR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8aa8522b770693a6c14a26f3aeeec134a9" prot="public">
+          <name>WD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stellar/stellar.hpp" line="12" column="24" bodyfile="stellar/stellar.hpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="stellar_8hpp_1a39134fbabd6f1d47b4cf9f9cad48c8c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::stellar::calc_obj_radius</definition>
+        <argsstring>(StarType T, Scalar mass)</argsstring>
+        <name>calc_obj_radius</name>
+        <param>
+          <type>StarType</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stellar/stellar.hpp" line="17" column="10" bodyfile="stellar/stellar.hpp" bodystart="17" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="stellar/stellar.hpp" line="10" column="24"/>
+  </compounddef>
+</doxygen>

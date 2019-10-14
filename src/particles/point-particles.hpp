@@ -13,6 +13,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
 Class PointParticle Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam Real
+ */
   template<typename Real>
   struct PointParticle {
   public:
@@ -25,7 +29,7 @@ Class PointParticle Declaration
      * @brief Construct a new Point Particle object
      *
      */
-    PointParticle() = default;
+    SPACEHUB_MAKE_CONSTRUCTORS(PointParticle, default, default, default, default, default);
 
     /**
      * @brief Construct a new Point Particle object

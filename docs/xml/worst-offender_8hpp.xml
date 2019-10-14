@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="worst-offender_8hpp" kind="file" language="C++">
+    <compoundname>worst-offender.hpp</compoundname>
+    <includes refid="error-checker_8hpp" local="yes">../error-checker.hpp</includes>
+    <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>tuple</label>
+      </node>
+      <node id="6">
+        <label>array</label>
+      </node>
+      <node id="4">
+        <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>error-checker/worst-offender.hpp</label>
+        <link refid="worst-offender_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../error-checker.hpp</label>
+        <link refid="error-checker_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>error-checker/worst-offender.hpp</label>
+        <link refid="worst-offender_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classspace_1_1_worst_offender" prot="public">space::WorstOffender</innerclass>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="error-checker/worst-offender.hpp"/>
+  </compounddef>
+</doxygen>

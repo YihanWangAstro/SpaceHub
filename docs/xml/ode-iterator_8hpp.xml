@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="ode-iterator_8hpp" kind="file" language="C++">
+    <compoundname>ode-iterator.hpp</compoundname>
+    <includes refid="particle-system_8hpp" local="yes">../particle-system.hpp</includes>
+    <includedby refid="_burlish-_stoer_8hpp" local="yes">ode-iterator/Burlish-Stoer.hpp</includedby>
+    <includedby refid="const-iterator_8hpp" local="yes">ode-iterator/const-iterator.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>ode-iterator/ode-iterator.hpp</label>
+        <link refid="ode-iterator_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>tuple</label>
+      </node>
+      <node id="2">
+        <label>../particle-system.hpp</label>
+        <link refid="particle-system_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>array</label>
+      </node>
+      <node id="4">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>ode-iterator/ode-iterator.hpp</label>
+        <link refid="ode-iterator_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="2">
+        <label>ode-iterator/Burlish-Stoer.hpp</label>
+        <link refid="_burlish-_stoer_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ode-iterator/const-iterator.hpp</label>
+        <link refid="const-iterator_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classspace_1_1ode_iterator_1_1_ode_iterator" prot="public">space::odeIterator::OdeIterator</innerclass>
+    <innernamespace refid="namespacespace_1_1ode_iterator">space::odeIterator</innernamespace>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ode-iterator/ode-iterator.hpp"/>
+  </compounddef>
+</doxygen>

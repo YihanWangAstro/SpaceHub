@@ -31,7 +31,10 @@
 #include "orbits/orbits.hpp"
 
 #include "tools/auto-name.hpp"
-
+/**
+ * @namespace space
+ * Documentation for space
+ */
 namespace space {
   using DefaultTypes = Types<double, std::vector>;
 

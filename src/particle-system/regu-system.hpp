@@ -8,6 +8,9 @@
 #include "../accelerations.hpp"
 
 namespace space {
+  /**
+   *
+   */
   enum class ReguType {
     LogH, TTL, None
   };
@@ -15,6 +18,11 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Regularization Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam Scalar
+ * @tparam Type
+ */
   template<typename Scalar, ReguType Type = ReguType::LogH>
   class Regularization {
   public:

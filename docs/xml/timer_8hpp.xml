@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="timer_8hpp" kind="file" language="C++">
+    <compoundname>timer.hpp</compoundname>
+    <includes local="no">chrono</includes>
+    <includedby refid="callbacks_8hpp" local="yes">args-callback/callbacks.hpp</includedby>
+    <includedby refid="mkl-array_8h" local="yes">lazy-evaluation/mkl-array.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>tools/timer.hpp</label>
+        <link refid="timer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>chrono</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>args-callback/callbacks.hpp</label>
+        <link refid="callbacks_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>tools/timer.hpp</label>
+        <link refid="timer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>lazy-evaluation/mkl-array.h</label>
+        <link refid="mkl-array_8h_source"/>
+      </node>
+      <node id="3">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classspace_1_1tools_1_1_timer" prot="public">space::tools::Timer</innerclass>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <innernamespace refid="namespacespace_1_1tools">space::tools</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tools/timer.hpp"/>
+  </compounddef>
+</doxygen>

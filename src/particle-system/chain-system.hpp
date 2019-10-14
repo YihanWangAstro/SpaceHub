@@ -15,6 +15,11 @@ namespace space {
   /*---------------------------------------------------------------------------*\
       Class ChainSystem Declaration
   \*---------------------------------------------------------------------------*/
+  /**
+   *
+   * @tparam Particles
+   * @tparam Interactions
+   */
   template<typename Particles, typename Interactions>
   class ChainSystem : public ParticleSystem<ChainSystem<Particles, Interactions>> {
   public:

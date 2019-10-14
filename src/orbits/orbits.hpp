@@ -5,7 +5,10 @@
 #include <variant>
 #include "../rand-generator.hpp"
 
-
+/**
+ * @namespace space::orbit
+ * Documentation for space
+ */
 namespace space::orbit {
 
   template<typename Scalar>
@@ -105,6 +108,10 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
 #define LOCK_ISOTHERMAL LockRandom()
 
+  /**
+   *
+   * @tparam Real
+   */
   template<typename Real>
   struct OrbitArgs {
   private:
@@ -211,6 +218,10 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
   using Kepler = OrbitArgs<double>;
 
+  /**
+   *
+   * @tparam Real
+   */
   template<typename Real>
   struct HyperOrbitArgs : public OrbitArgs<Real> {
   private:

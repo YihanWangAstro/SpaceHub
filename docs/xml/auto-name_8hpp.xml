@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="auto-name_8hpp" kind="file" language="C++">
+    <compoundname>auto-name.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">ctime</includes>
+    <includes local="no">sstream</includes>
+    <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>iomanip</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>tools/auto-name.hpp</label>
+        <link refid="auto-name_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ctime</label>
+      </node>
+      <node id="5">
+        <label>sstream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>tools/auto-name.hpp</label>
+        <link refid="auto-name_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <innernamespace refid="namespacespace_1_1tools">space::tools</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="tools/auto-name.hpp"/>
+  </compounddef>
+</doxygen>

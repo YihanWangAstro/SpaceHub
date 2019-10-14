@@ -4,12 +4,18 @@
 #include <functional>
 #include "core-computation.hpp"
 #include "dev-tools.hpp"
-
+/**
+ *
+ */
 namespace space {
 
 /*---------------------------------------------------------------------------*\
     Class RunArgs Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam ParticleSys
+ */
   template<typename ParticleSys>
   class RunArgs {
   public:
@@ -129,6 +135,11 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Simulator Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam ParticSys
+ * @tparam OdeIterator
+ */
   template<typename ParticSys, typename OdeIterator>
   class Simulator {
   public:

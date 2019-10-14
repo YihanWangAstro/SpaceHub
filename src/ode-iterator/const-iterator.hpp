@@ -9,6 +9,10 @@ namespace space::odeIterator {
   /*---------------------------------------------------------------------------*\
       Class ConstOdeIterator Declaration
   \*---------------------------------------------------------------------------*/
+  /**
+   *
+   * @tparam Integrator
+   */
   template<typename Integrator>
   class ConstOdeIterator : public OdeIterator<ConstOdeIterator<Integrator>> {
   public:

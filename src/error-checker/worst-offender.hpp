@@ -10,6 +10,10 @@
 
 namespace space {
 
+  /**
+   *
+   * @tparam T
+   */
   template<typename T>
   class WorstOffender : public ErrorChecker<WorstOffender<T>> {
   public:

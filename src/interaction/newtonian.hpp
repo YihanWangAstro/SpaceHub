@@ -6,11 +6,17 @@
 #define SPACEHUB_NEWTONIAN_HPP
 
 #include "../interaction.hpp"
-
+/**
+ * @namespace space::interactions
+ * Documentation for space
+ */
 namespace space::interactions {
   /*---------------------------------------------------------------------------*\
       Class NewtonianGrav Declaration
   \*---------------------------------------------------------------------------*/
+  /**
+   *
+   */
   class NewtonianGrav : public Interactions<NewtonianGrav> {
   public:
     //Type members

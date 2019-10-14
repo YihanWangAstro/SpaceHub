@@ -1,0 +1,98 @@
+\hypertarget{classspace_1_1_i_a_s15}{}\doxysection{space\+::I\+A\+S15$<$ Partic\+Sys, Integrator $>$ Class Template Reference}
+\label{classspace_1_1_i_a_s15}\index{space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}}
+
+
+\mbox{\hyperlink{classspace_1_1_i_a_s15}{I\+A\+S15}} iterator see details in \href{https://arxiv.org/abs/1409.4779}{\texttt{ https\+://arxiv.\+org/abs/1409.\+4779}} .  
+
+
+
+
+{\ttfamily \#include $<$I\+A\+S15.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_a74c58634a69cfafa36bc126978d8022b}\label{classspace_1_1_i_a_s15_a74c58634a69cfafa36bc126978d8022b}} 
+using {\bfseries Radau\+Array} = typename Integrator\+::\+Radau\+Array
+\item 
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_ac1fb21e42d0701d10e5cdd83939bb88c}\label{classspace_1_1_i_a_s15_ac1fb21e42d0701d10e5cdd83939bb88c}} 
+using {\bfseries Radau\+Tab} = typename Integrator\+::\+Radau\+Tab
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_a79763f20b52e14adc8f9687c848f9a30}\label{classspace_1_1_i_a_s15_a79763f20b52e14adc8f9687c848f9a30}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (Partic\+Sys)
+\item 
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_a39452f1ee5f558483a19df4ad6e5dba3}\label{classspace_1_1_i_a_s15_a39452f1ee5f558483a19df4ad6e5dba3}} 
+{\bfseries C\+H\+E\+C\+K\+\_\+\+T\+Y\+PE} (Partic\+Sys, Integrator)
+\item 
+Scalar \mbox{\hyperlink{classspace_1_1_i_a_s15_a1167d6465a34b45725bc269b7aef9ccc}{iterate}} (Partic\+Sys \&particles, Scalar step\+Length)
+\begin{DoxyCompactList}\small\item\em interface to iterate particle system for one step \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classspace_1_1_i_a_s15_a3a3caa50326f535fee171cba6fb3a130}{set\+Relative\+Error}} (Scalar rel\+\_\+tol)
+\item 
+void \mbox{\hyperlink{classspace_1_1_i_a_s15_a5f01ce9046fd087793c5548af18abef5}{Set\+Convergent\+Limit}} (Scalar limit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys, typename Integrator$>$\newline
+class space\+::\+I\+A\+S15$<$ Partic\+Sys, Integrator $>$}
+
+\mbox{\hyperlink{classspace_1_1_i_a_s15}{I\+A\+S15}} iterator see details in \href{https://arxiv.org/abs/1409.4779}{\texttt{ https\+://arxiv.\+org/abs/1409.\+4779}} . 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_a1167d6465a34b45725bc269b7aef9ccc}\label{classspace_1_1_i_a_s15_a1167d6465a34b45725bc269b7aef9ccc}} 
+\index{space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}!iterate@{iterate}}
+\index{iterate@{iterate}!space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}}
+\doxysubsubsection{\texorpdfstring{iterate()}{iterate()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+Scalar \mbox{\hyperlink{classspace_1_1_i_a_s15}{space\+::\+I\+A\+S15}}$<$ Partic\+Sys, Integrator $>$\+::iterate (\begin{DoxyParamCaption}\item[{Partic\+Sys \&}]{particles,  }\item[{Scalar}]{step\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+interface to iterate particle system for one step 
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & Particle system needs evolution. \\
+\hline
+{\em integrator} & Integrator to integrate the particle system. \\
+\hline
+{\em step\+Length} & Macro step length for iteration(\+Here, the step length of the integrator). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+step length for next iteration. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_a5f01ce9046fd087793c5548af18abef5}\label{classspace_1_1_i_a_s15_a5f01ce9046fd087793c5548af18abef5}} 
+\index{space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}!SetConvergentLimit@{SetConvergentLimit}}
+\index{SetConvergentLimit@{SetConvergentLimit}!space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}}
+\doxysubsubsection{\texorpdfstring{SetConvergentLimit()}{SetConvergentLimit()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+void \mbox{\hyperlink{classspace_1_1_i_a_s15}{space\+::\+I\+A\+S15}}$<$ Partic\+Sys, Integrator $>$\+::Set\+Convergent\+Limit (\begin{DoxyParamCaption}\item[{Scalar}]{limit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_i_a_s15_a3a3caa50326f535fee171cba6fb3a130}\label{classspace_1_1_i_a_s15_a3a3caa50326f535fee171cba6fb3a130}} 
+\index{space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}!setRelativeError@{setRelativeError}}
+\index{setRelativeError@{setRelativeError}!space::IAS15$<$ ParticSys, Integrator $>$@{space::IAS15$<$ ParticSys, Integrator $>$}}
+\doxysubsubsection{\texorpdfstring{setRelativeError()}{setRelativeError()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Integrator $>$ \\
+void \mbox{\hyperlink{classspace_1_1_i_a_s15}{space\+::\+I\+A\+S15}}$<$ Partic\+Sys, Integrator $>$\+::set\+Relative\+Error (\begin{DoxyParamCaption}\item[{Scalar}]{rel\+\_\+tol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rel\+\_\+tol} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ode-\/iterator/I\+A\+S15.\+h\end{DoxyCompactItemize}

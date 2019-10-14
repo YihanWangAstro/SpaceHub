@@ -17,6 +17,9 @@ namespace space::tools {
     Integer, Float, String, Empty
   };
 
+  /**
+   *
+   */
   class ConfigReader {
   public:
     explicit ConfigReader(std::string const &file_name, char divider = '=', char commenter = '#') {

@@ -1,0 +1,169 @@
+\hypertarget{lazy__expr_8h}{}\doxysection{lazy-\/evaluation/lazy\+\_\+expr.h File Reference}
+\label{lazy__expr_8h}\index{lazy-\/evaluation/lazy\_expr.h@{lazy-\/evaluation/lazy\_expr.h}}
+{\ttfamily \#include \char`\"{}../dev-\/tools.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_lazy_1_1_expr}{Space\+H\+::\+Lazy\+::\+Expr$<$ Derived $>$}}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_lazy_1_1_unary___expr}{Space\+H\+::\+Lazy\+::\+Unary\+\_\+\+Expr$<$ Operator, Unary $>$}}
+\item 
+struct \mbox{\hyperlink{struct_space_h_1_1_lazy_1_1_binary___expr}{Space\+H\+::\+Lazy\+::\+Binary\+\_\+\+Expr$<$ Operator, Lhs, Rhs $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_space_h}{SpaceH}}
+\item 
+ \mbox{\hyperlink{namespace_space_h_1_1_lazy}{Space\+H\+::\+Lazy}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lazy__expr_8h_ae6a36060593a9dee5c7ed2f2853a053e}{I\+S\+\_\+\+E\+X\+PR}}(T\+Y\+PE)~\mbox{\hyperlink{dev-tools_8hpp_a8a3f3c65b4167fb7188576cfa5e2ca44}{I\+S\+\_\+\+B\+A\+S\+E\+\_\+\+OF}}(Expr$<$T\+Y\+PE$>$,T\+Y\+PE)
+\item 
+\#define \mbox{\hyperlink{lazy__expr_8h_afc22057c6ded0f3a22b19d2e084687b6}{E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}}(F\+U\+NC,  \mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{E\+X\+PR}})
+\item 
+\#define \mbox{\hyperlink{lazy__expr_8h_aaaa4886316abb057c851c7281a73c4e3}{E\+X\+P\+R\+\_\+\+F\+I\+L\+T\+ER}}(T\+Y\+PE, ...)~typename std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{lazy__expr_8h_ae6a36060593a9dee5c7ed2f2853a053e}{I\+S\+\_\+\+E\+X\+PR}}(T\+Y\+PE), \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+$>$
+\item 
+\#define \mbox{\hyperlink{lazy__expr_8h_a95072850b37b9d9f310b26f9601627cf}{E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}}(F\+U\+NC,  \mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{E\+X\+PR}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$bool Is\+Expr, typename T , typename ... Args$>$ }\\const auto \mbox{\hyperlink{namespace_space_h_1_1_lazy_aeb257316187aeda2523266d9879718b4}{Space\+H\+::\+Lazy\+::eval\+\_\+at}} (std\+::enable\+\_\+if\+\_\+t$<$ Is\+Expr, T $>$ const \&expr, Args \&\&...args)
+\item 
+{\footnotesize template$<$bool Is\+Expr, typename T , typename ... Args$>$ }\\const auto \mbox{\hyperlink{namespace_space_h_1_1_lazy_a8b63f7f18bba2a2104de6ec4a38d752b}{Space\+H\+::\+Lazy\+::eval\+\_\+at}} (std\+::enable\+\_\+if\+\_\+t$<$!Is\+Expr, T $>$ const \&expr, Args \&\&...args)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_aef65804433db8f71f458d22086fdb836}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator+, lhs+rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a4ab8eb185d06fc7bc78e54cbc1a09423}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator-\/, lhs -\/ rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a0a921798c92e25e9d8ce1d163f1b2a41}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$\ast$, lhs $\ast$rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a0412546370bd2144a3385fde5e3aa65f}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator/, lhs/rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a8ba37399cf4449226779071c13c5fe81}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator\%, lhs \% rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_ad43ea1ad3b50d19d6e235241c614cea6}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator==, lhs==rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a56c1138a1bc05d67854d6eba411d33e1}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator!=, lhs !=rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_add957ae6c5718943246e19b1222cfd65}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$<$, lhs$<$ rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a86a183e72a8f9777efa3df9a13690d01}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$>$, lhs $>$ rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a6e560b420657c54a2dadc4633282bc6d}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$<$=, lhs$<$=rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_abd1c1b8d645c8669ea8b2049c173b9f8}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$>$=, lhs $>$=rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a8d2ffe0001b228a3b37b889f94c2956e}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator\&\&, lhs \&\&rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a1ea960888a4f9dc9e6dcf952979a5de7}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$\vert$$\vert$, lhs$\vert$$\vert$rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_ab91c25b3d505d8c992b0e0f9675c43f3}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator\&, lhs \&rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_af7e16c004440c6302cc567ba4c76d993}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$^\wedge$, lhs $^\wedge$ rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a8d90fbc5979955175eb094d6e6cbe517}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$\vert$, lhs$\vert$rhs)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a083ad88185b365016550be898183b4c7}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (pow, pow(lhs, rhs))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a7fbdf3427bddb25cb291d6c8a0eb9ed2}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (exp, exp(lhs, rhs))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a1d30528b87f50ee8ff6d59c866252bc5}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator+, unary)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_ad6826faaa95c256f6f5a7da4764ba7c8}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator-\/,-\/unary)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_acdc850b98bf6aaf4577789334d71dcb2}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$\ast$,$\ast$unary)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a547712b6d587729be87599a1d4f70a43}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator!,!unary)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_ad48593ba5d9bb2f26f65614e0fd17e85}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (operator$\sim$,$\sim$unary)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a51fc4df33a2f884fafe8033008345cb9}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (abs, unary $>$ 0 ? unary \+:-\/unary)
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_aa8ec773af6cc7ec4f0e0246ebc33282f}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (log, log(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a3d5220ad3d5b94e59f787081ab0a8fbf}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (log10, log10(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a75f330dc0e0556bb24fb8586a391406b}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (sin, sin(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_aea69d428a51a67fa312f6ffbabe81b03}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (cos, cos(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_ac2bde62ebb92a88697d5f94b7ae3acd4}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (tan, tan(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_add0c98a3bf1e29a3ea611911c56cf9a6}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (asin, asin(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_af9ca39d81032b8a018a08a3502d3e782}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (acos, acos(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_ace17ffcb8ff343889eeab92d7e184dc6}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (atan, atan(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a7e1fe8696d0aa32b1b109986d63d791f}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (sinh, sinh(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a2d47d924e24a173fc9c258caae138167}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (cosh, cosh(unary))
+\item 
+\mbox{\hyperlink{namespace_space_h_1_1_lazy_a4e51fcad09f66205420b1e1e38250c78}{Space\+H\+::\+Lazy\+::\+E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}} (tanh, tanh(unary))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lazy__expr_8h_a95072850b37b9d9f310b26f9601627cf}\label{lazy__expr_8h_a95072850b37b9d9f310b26f9601627cf}} 
+\index{lazy\_expr.h@{lazy\_expr.h}!EXPR\_CREATE\_BINARY\_OPERATION@{EXPR\_CREATE\_BINARY\_OPERATION}}
+\index{EXPR\_CREATE\_BINARY\_OPERATION@{EXPR\_CREATE\_BINARY\_OPERATION}!lazy\_expr.h@{lazy\_expr.h}}
+\doxysubsubsection{\texorpdfstring{EXPR\_CREATE\_BINARY\_OPERATION}{EXPR\_CREATE\_BINARY\_OPERATION}}
+{\footnotesize\ttfamily \#define E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{F\+U\+NC,  }\item[{}]{\mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{E\+X\+PR}} }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto} \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP) =[](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&lhs, \textcolor{keyword}{const} \textcolor{keyword}{auto} \&rhs)-\/> decltype(\mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{EXPR}}) \{\textcolor{keywordflow}{return} (\mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{EXPR}});\};                         \(\backslash\)}
+\DoxyCodeLine{                                                                                                                       \(\backslash\)}
+\DoxyCodeLine{        template<typename Lhs, typename Rhs>                                                                           \(\backslash\)}
+\DoxyCodeLine{        inline constexpr \mbox{\hyperlink{lazy__expr_8h_aaaa4886316abb057c851c7281a73c4e3}{EXPR\_FILTER}}(Lhs, Binary\_Expr<decltype(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP)), Lhs, Rhs>)                                   \(\backslash\)}
+\DoxyCodeLine{        FUNC(\textcolor{keyword}{const} Lhs \&lhs, \textcolor{keyword}{const} Expr<Rhs> \&rhs) \{                                                                   \(\backslash\)}
+\DoxyCodeLine{            return Binary\_Expr<decltype(UNIQ(OP)), Lhs, Rhs>(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP), lhs, rhs.cast());                               \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                                              \(\backslash\)}
+\DoxyCodeLine{                                                                                                                       \(\backslash\)}
+\DoxyCodeLine{        template<typename Lhs, typename Rhs>                                                                           \(\backslash\)}
+\DoxyCodeLine{        inline constexpr \mbox{\hyperlink{lazy__expr_8h_aaaa4886316abb057c851c7281a73c4e3}{EXPR\_FILTER}}(Rhs, Binary\_Expr<decltype(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP)), Lhs, Rhs>)                                   \(\backslash\)}
+\DoxyCodeLine{        FUNC(\textcolor{keyword}{const} Expr<Lhs> \&lhs, \textcolor{keyword}{const} Rhs \&rhs) \{                                                                   \(\backslash\)}
+\DoxyCodeLine{            return Binary\_Expr<decltype(UNIQ(OP)), Lhs, Rhs>(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP), lhs.cast(), rhs);                               \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                                              \(\backslash\)}
+\DoxyCodeLine{                                                                                                                       \(\backslash\)}
+\DoxyCodeLine{        template<typename Lhs, typename Rhs>                                                                           \(\backslash\)}
+\DoxyCodeLine{        inline constexpr Binary\_Expr<decltype(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP)), Lhs, Rhs>                                                     \(\backslash\)}
+\DoxyCodeLine{        FUNC(\textcolor{keyword}{const} Expr<Lhs> \&lhs, \textcolor{keyword}{const} Expr<Rhs> \&rhs) \{                                                             \(\backslash\)}
+\DoxyCodeLine{            return Binary\_Expr<decltype(UNIQ(OP)), Lhs, Rhs>(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP), lhs.cast(), rhs.cast());                        \(\backslash\)}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{lazy__expr_8h_afc22057c6ded0f3a22b19d2e084687b6}\label{lazy__expr_8h_afc22057c6ded0f3a22b19d2e084687b6}} 
+\index{lazy\_expr.h@{lazy\_expr.h}!EXPR\_CREATE\_UNARY\_OPERATION@{EXPR\_CREATE\_UNARY\_OPERATION}}
+\index{EXPR\_CREATE\_UNARY\_OPERATION@{EXPR\_CREATE\_UNARY\_OPERATION}!lazy\_expr.h@{lazy\_expr.h}}
+\doxysubsubsection{\texorpdfstring{EXPR\_CREATE\_UNARY\_OPERATION}{EXPR\_CREATE\_UNARY\_OPERATION}}
+{\footnotesize\ttfamily \#define E\+X\+P\+R\+\_\+\+C\+R\+E\+A\+T\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{F\+U\+NC,  }\item[{}]{\mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{E\+X\+PR}} }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto} \mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP) = [](\textcolor{keyword}{const} \textcolor{keyword}{auto}\& unary ) -\/> decltype(\mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{EXPR}}) \{\textcolor{keywordflow}{return} (\mbox{\hyperlink{dev-tools_8hpp_a3102a3792f55f3ad5ff10f5fe3a6ce79}{EXPR}});\};                                     \(\backslash\)}
+\DoxyCodeLine{                                                                                                                       \(\backslash\)}
+\DoxyCodeLine{        template<typename Unary>                                                                                       \(\backslash\)}
+\DoxyCodeLine{        inline constexpr Unary\_Expr<decltype(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP)), Unary>                                                         \(\backslash\)}
+\DoxyCodeLine{        FUNC(\textcolor{keyword}{const} Expr<Unary> \&unary) \{                                                                               \(\backslash\)}
+\DoxyCodeLine{            return Unary\_Expr<decltype(UNIQ(OP)), Unary>(\mbox{\hyperlink{dev-tools_8hpp_addeaa2230f7e557c339dd2a7a37d62f2}{UNIQ}}(OP), unary.cast());                                      \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                                              \(\backslash\)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{lazy__expr_8h_aaaa4886316abb057c851c7281a73c4e3}\label{lazy__expr_8h_aaaa4886316abb057c851c7281a73c4e3}} 
+\index{lazy\_expr.h@{lazy\_expr.h}!EXPR\_FILTER@{EXPR\_FILTER}}
+\index{EXPR\_FILTER@{EXPR\_FILTER}!lazy\_expr.h@{lazy\_expr.h}}
+\doxysubsubsection{\texorpdfstring{EXPR\_FILTER}{EXPR\_FILTER}}
+{\footnotesize\ttfamily \#define E\+X\+P\+R\+\_\+\+F\+I\+L\+T\+ER(\begin{DoxyParamCaption}\item[{}]{T\+Y\+PE,  }\item[{}]{... }\end{DoxyParamCaption})~typename std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{lazy__expr_8h_ae6a36060593a9dee5c7ed2f2853a053e}{I\+S\+\_\+\+E\+X\+PR}}(T\+Y\+PE), \#\#\+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+$>$}
+
+\mbox{\Hypertarget{lazy__expr_8h_ae6a36060593a9dee5c7ed2f2853a053e}\label{lazy__expr_8h_ae6a36060593a9dee5c7ed2f2853a053e}} 
+\index{lazy\_expr.h@{lazy\_expr.h}!IS\_EXPR@{IS\_EXPR}}
+\index{IS\_EXPR@{IS\_EXPR}!lazy\_expr.h@{lazy\_expr.h}}
+\doxysubsubsection{\texorpdfstring{IS\_EXPR}{IS\_EXPR}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+E\+X\+PR(\begin{DoxyParamCaption}\item[{}]{T\+Y\+PE }\end{DoxyParamCaption})~\mbox{\hyperlink{dev-tools_8hpp_a8a3f3c65b4167fb7188576cfa5e2ca44}{I\+S\+\_\+\+B\+A\+S\+E\+\_\+\+OF}}(Expr$<$T\+Y\+PE$>$,T\+Y\+PE)}
+

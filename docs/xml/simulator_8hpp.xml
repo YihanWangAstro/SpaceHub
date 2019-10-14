@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="simulator_8hpp" kind="file" language="C++">
+    <compoundname>simulator.hpp</compoundname>
+    <includes local="no">functional</includes>
+    <includes refid="core-computation_8hpp" local="yes">core-computation.hpp</includes>
+    <includes refid="dev-tools_8hpp" local="yes">dev-tools.hpp</includes>
+    <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>functional</label>
+      </node>
+      <node id="4">
+        <label>macros.hpp</label>
+        <link refid="macros_8hpp_source"/>
+      </node>
+      <node id="6">
+        <label>cmath</label>
+      </node>
+      <node id="5">
+        <label>own-math.hpp</label>
+        <link refid="own-math_8hpp_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>core-computation.hpp</label>
+        <link refid="core-computation_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>tuple</label>
+      </node>
+      <node id="1">
+        <label>simulator.hpp</label>
+        <link refid="simulator_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>array</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>simulator.hpp</label>
+        <link refid="simulator_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classspace_1_1_run_args" prot="public">space::RunArgs</innerclass>
+    <innerclass refid="classspace_1_1_simulator" prot="public">space::Simulator</innerclass>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="simulator.hpp"/>
+  </compounddef>
+</doxygen>

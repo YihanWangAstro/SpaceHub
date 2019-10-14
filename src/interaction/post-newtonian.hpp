@@ -9,7 +9,12 @@
 #include "../dev-tools.hpp"
 
 namespace space::interactions {
-
+/**
+ *
+ * @tparam _1st_order
+ * @tparam _2nd_order
+ * @tparam _2_5th_order
+ */
   template<bool _1st_order, bool _2nd_order, bool _2_5th_order>
   class PostNewtonianGrav : public Interactions<PostNewtonianGrav<_1st_order, _2nd_order, _2_5th_order>> {
   private:

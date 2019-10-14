@@ -1,0 +1,46 @@
+\hypertarget{vector3_8h}{}\doxysection{vector/vector3.h File Reference}
+\label{vector3_8h}\index{vector/vector3.h@{vector/vector3.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}vector3d.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector3pd.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structspace_1_1_vec3}{space\+::\+Vec3$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Self 3D vector class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacespace}{space}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacespace_a0b9ee91bd17fc9aa56d2cf7467900fce}{space\+::vec3ld}} = Vec3$<$ long double $>$
+\item 
+using \mbox{\hyperlink{namespacespace_a1be55951f75940bbdd74d26a30aa7df3}{space\+::vec3d}} = Vec3$<$ double $>$
+\item 
+using \mbox{\hyperlink{namespacespace_aef134f80296acbb9c1d2ab5ff4fc4b8b}{space\+::vec3f}} = Vec3$<$ float $>$
+\item 
+using \mbox{\hyperlink{namespacespace_aba2aef33549766dafc3a3a5134651622}{space\+::vec3i}} = Vec3$<$ int $>$
+\item 
+using \mbox{\hyperlink{namespacespace_a433328f837c233654c381b1db0349778}{space\+::vec3c}} = Vec3$<$ char $>$
+\item 
+using \mbox{\hyperlink{namespacespace_a7cb2cfd21ce83f3f8925c6bedaece223}{space\+::vec3b}} = Vec3$<$ bool $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_a2963cbc658d86ae899c08372a618f3fe}{space\+::distance}} (const Vec3$<$ T $>$ \&v1, const Vec3$<$ T $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Calculate the Euclid distance of two vectors. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_a9471e13d1110601d090fb498061e55f5}{space\+::dot}} (const Vec3$<$ T $>$ \&v1, const Vec3$<$ T $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Calculate the inner product of two vectors. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_af528f519f6072ce27becb1d2acc270ad}{space\+::norm}} (const Vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_a336c4b7ef644a2d2e28cb69c1e3d8dc5}{space\+::re\+\_\+norm}} (const Vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacespace_afbb0245be78abc3f96541898d1aeced4}{space\+::norm2}} (const Vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\Vec3$<$ T $>$ \mbox{\hyperlink{namespacespace_aba641f0ea9662b2a002b7321ac18d46b}{space\+::cross}} (const Vec3$<$ T $>$ \&v1, const Vec3$<$ T $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Calculate the cross product of two vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}

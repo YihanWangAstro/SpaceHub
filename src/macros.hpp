@@ -2,10 +2,18 @@
 #ifndef SPACEHUB_MACROS_HPP
 #define SPACEHUB_MACROS_HPP
 
+/**
+ * @namespace space::consts
+ * Documentation for space
+ */
 namespace space::consts {
   constexpr double pi = 3.14159265358979323;
 }
 
+/**
+ * @namespace space::unit
+ * Documentation for space
+ */
 namespace space::unit {
   constexpr double au = 1;
   constexpr double m_solar = 1;

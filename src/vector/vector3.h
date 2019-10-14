@@ -6,7 +6,6 @@
 
 namespace space {
 /** @brief Self 3D vector class */
-
   template<typename T>
   struct Vec3 {
   public:
@@ -18,13 +17,13 @@ namespace space {
     value_type y{0};
     value_type z{0};
 
-    Vec3() = default;
+    //Vec3() = default;
+
+    SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
 
     explicit Vec3(value_type s) : x(s), y(s), z(s) {}
 
     Vec3(value_type vx, value_type vy, value_type vz) : x(vx), y(vy), z(vz) {}
-
-    Vec3(const Vec3 &v) : x(v.x), y(v.y), z(v.z) {}
 
     /** @brief Addition by wise */
     inline Vec3 operator+(const Vec3 &v) const { return Vec3(x + v.x, y + v.y, z + v.z); }
@@ -98,11 +97,6 @@ namespace space {
 
     inline Vec3 &operator=(const value_type s) {
       x = y = z = s;
-      return *this;
-    }
-
-    inline Vec3 &operator=(const Vec3 &v) {
-      x = v.x, y = v.y, z = v.z;
       return *this;
     }
 

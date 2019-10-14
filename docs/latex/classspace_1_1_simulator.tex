@@ -1,0 +1,112 @@
+\hypertarget{classspace_1_1_simulator}{}\doxysection{space\+::Simulator$<$ Partic\+Sys, Ode\+Iterator $>$ Class Template Reference}
+\label{classspace_1_1_simulator}\index{space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}}
+
+
+{\ttfamily \#include $<$simulator.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_simulator_ad9c952d1fcbc6ac963a537e6707a4057}\label{classspace_1_1_simulator_ad9c952d1fcbc6ac963a537e6707a4057}} 
+using {\bfseries Run\+Args} = \mbox{\hyperlink{classspace_1_1_run_args}{space\+::\+Run\+Args}}$<$ Partic\+Sys $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1_simulator_a5f4e451f81cb1e587a97b556075986c3}\label{classspace_1_1_simulator_a5f4e451f81cb1e587a97b556075986c3}} 
+using {\bfseries Particle} = typename Partic\+Sys\+::\+Particle
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1_simulator_a076f74d81eace565a6d6885ed39eeafa}\label{classspace_1_1_simulator_a076f74d81eace565a6d6885ed39eeafa}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+U\+S\+I\+N\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+OF} (Partic\+Sys)
+\item 
+\mbox{\Hypertarget{classspace_1_1_simulator_aac21d553e8bdaa9d710c84207edc23c3}\label{classspace_1_1_simulator_aac21d553e8bdaa9d710c84207edc23c3}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+R\+E\+A\+D\+\_\+\+A\+C\+C\+E\+S\+S\+OR} (auto, particles, particles\+\_\+)
+\item 
+\mbox{\Hypertarget{classspace_1_1_simulator_ae38a50f5123809747c1244355f0b665e}\label{classspace_1_1_simulator_ae38a50f5123809747c1244355f0b665e}} 
+{\bfseries S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+M\+A\+K\+E\+\_\+\+C\+O\+N\+S\+T\+R\+U\+C\+T\+O\+RS} (\mbox{\hyperlink{classspace_1_1_simulator}{Simulator}}, delete, default, default, default, default)
+\item 
+{\footnotesize template$<$typename S\+TL $>$ }\\\mbox{\hyperlink{classspace_1_1_simulator_ad4135964c5e41e60e213835642131822}{Simulator}} (Scalar time, S\+TL const \&particle\+\_\+set)
+\item 
+{\footnotesize template$<$typename... T$>$ }\\\mbox{\hyperlink{classspace_1_1_simulator_ad9795f5cf3e9882fa0748d887a397372}{Simulator}} (Scalar time, T const \&... particle)
+\item 
+void \mbox{\hyperlink{classspace_1_1_simulator_aedd59ea3b5b1fff4b5993769687476b8}{run}} (\mbox{\hyperlink{classspace_1_1_run_args}{Run\+Args}} const \&arg)
+\item 
+\mbox{\Hypertarget{classspace_1_1_simulator_a2ba27f705d9ea69d0dbf14e92f5bb521}\label{classspace_1_1_simulator_a2ba27f705d9ea69d0dbf14e92f5bb521}} 
+virtual \mbox{\hyperlink{classspace_1_1_simulator_a2ba27f705d9ea69d0dbf14e92f5bb521}{$\sim$\+Simulator}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor, virtualize for inherent class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Partic\+Sys, typename Ode\+Iterator$>$\newline
+class space\+::\+Simulator$<$ Partic\+Sys, Ode\+Iterator $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Partic\+Sys} & \\
+\hline
+{\em Ode\+Iterator} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classspace_1_1_simulator_ad4135964c5e41e60e213835642131822}\label{classspace_1_1_simulator_ad4135964c5e41e60e213835642131822}} 
+\index{space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}!Simulator@{Simulator}}
+\index{Simulator@{Simulator}!space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}}
+\doxysubsubsection{\texorpdfstring{Simulator()}{Simulator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Ode\+Iterator $>$ \\
+template$<$typename S\+TL $>$ \\
+\mbox{\hyperlink{classspace_1_1_simulator}{space\+::\+Simulator}}$<$ Partic\+Sys, Ode\+Iterator $>$\+::\mbox{\hyperlink{classspace_1_1_simulator}{Simulator}} (\begin{DoxyParamCaption}\item[{Scalar}]{time,  }\item[{S\+TL const \&}]{particle\+\_\+set }\end{DoxyParamCaption})}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S\+TL} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+{\em particle\+\_\+set} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classspace_1_1_simulator_ad9795f5cf3e9882fa0748d887a397372}\label{classspace_1_1_simulator_ad9795f5cf3e9882fa0748d887a397372}} 
+\index{space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}!Simulator@{Simulator}}
+\index{Simulator@{Simulator}!space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}}
+\doxysubsubsection{\texorpdfstring{Simulator()}{Simulator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Ode\+Iterator $>$ \\
+template$<$typename... T$>$ \\
+\mbox{\hyperlink{classspace_1_1_simulator}{space\+::\+Simulator}}$<$ Partic\+Sys, Ode\+Iterator $>$\+::\mbox{\hyperlink{classspace_1_1_simulator}{Simulator}} (\begin{DoxyParamCaption}\item[{Scalar}]{time,  }\item[{T const \&...}]{particle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+{\em particle} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classspace_1_1_simulator_aedd59ea3b5b1fff4b5993769687476b8}\label{classspace_1_1_simulator_aedd59ea3b5b1fff4b5993769687476b8}} 
+\index{space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}!run@{run}}
+\index{run@{run}!space::Simulator$<$ ParticSys, OdeIterator $>$@{space::Simulator$<$ ParticSys, OdeIterator $>$}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily template$<$typename Partic\+Sys , typename Ode\+Iterator $>$ \\
+void \mbox{\hyperlink{classspace_1_1_simulator}{space\+::\+Simulator}}$<$ Partic\+Sys, Ode\+Iterator $>$\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classspace_1_1_run_args}{Run\+Args}} const \&}]{arg }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+simulator.\+hpp\end{DoxyCompactItemize}

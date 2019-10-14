@@ -1,0 +1,2114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacespace" kind="namespace" language="C++">
+    <compoundname>space</compoundname>
+    <innerclass refid="classspace_1_1_accelerations" prot="public">space::Accelerations</innerclass>
+    <innerclass refid="classspace_1_1_a_rchain_system" prot="public">space::ARchainSystem</innerclass>
+    <innerclass refid="structspace_1_1big__value" prot="public">space::big_value</innerclass>
+    <innerclass refid="classspace_1_1_chain" prot="public">space::Chain</innerclass>
+    <innerclass refid="classspace_1_1_chain_system" prot="public">space::ChainSystem</innerclass>
+    <innerclass refid="structspace_1_1_coords" prot="public">space::Coords</innerclass>
+    <innerclass refid="classspace_1_1_empty" prot="public">space::Empty</innerclass>
+    <innerclass refid="structspace_1_1epsilon" prot="public">space::epsilon</innerclass>
+    <innerclass refid="classspace_1_1_error_checker" prot="public">space::ErrorChecker</innerclass>
+    <innerclass refid="classspace_1_1_gauss_dadau" prot="public">space::GaussDadau</innerclass>
+    <innerclass refid="structspace_1_1get__value__type" prot="public">space::get_value_type</innerclass>
+    <innerclass refid="classspace_1_1_i_a_s15" prot="public">space::IAS15</innerclass>
+    <innerclass refid="classspace_1_1_interactions" prot="public">space::Interactions</innerclass>
+    <innerclass refid="structspace_1_1is__container" prot="public">space::is_container</innerclass>
+    <innerclass refid="structspace_1_1is__container_3_01_t_00_01std_1_1conditional__t_3_01false_00_01is__container__helcfd49663b99169f905a0b919fe8283f9" prot="public">space::is_container&lt; T, std::conditional_t&lt; false, is_container_helper&lt; typename T::value_type, typename T::size_type, typename T::iterator, typename T::const_iterator, decltype(std::declval&lt; T &gt;().size()), decltype(std::declval&lt; T &gt;().begin()), decltype(std::declval&lt; T &gt;().end()) &gt;, void &gt; &gt;</innerclass>
+    <innerclass refid="structspace_1_1is__container__helper" prot="public">space::is_container_helper</innerclass>
+    <innerclass refid="structspace_1_1is__indexable" prot="public">space::is_indexable</innerclass>
+    <innerclass refid="structspace_1_1is__reservable" prot="public">space::is_reservable</innerclass>
+    <innerclass refid="structspace_1_1_kahan" prot="public">space::Kahan</innerclass>
+    <innerclass refid="structspace_1_1max__value" prot="public">space::max_value</innerclass>
+    <innerclass refid="structspace_1_1_m_k_l_array" prot="public">space::MKLArray</innerclass>
+    <innerclass refid="classspace_1_1_particles" prot="public">space::Particles</innerclass>
+    <innerclass refid="classspace_1_1_particle_system" prot="public">space::ParticleSystem</innerclass>
+    <innerclass refid="classspace_1_1_p_i_d_controller" prot="public">space::PIDController</innerclass>
+    <innerclass refid="structspace_1_1_point_particle" prot="public">space::PointParticle</innerclass>
+    <innerclass refid="classspace_1_1_point_particles" prot="public">space::PointParticles</innerclass>
+    <innerclass refid="classspace_1_1_regularization" prot="public">space::Regularization</innerclass>
+    <innerclass refid="classspace_1_1_regularized_system" prot="public">space::RegularizedSystem</innerclass>
+    <innerclass refid="classspace_1_1_r_m_s" prot="public">space::RMS</innerclass>
+    <innerclass refid="classspace_1_1_run_args" prot="public">space::RunArgs</innerclass>
+    <innerclass refid="classspace_1_1_simple_system" prot="public">space::SimpleSystem</innerclass>
+    <innerclass refid="classspace_1_1_simulator" prot="public">space::Simulator</innerclass>
+    <innerclass refid="classspace_1_1_size_particles" prot="public">space::SizeParticles</innerclass>
+    <innerclass refid="classspace_1_1_step_controller" prot="public">space::StepController</innerclass>
+    <innerclass refid="classspace_1_1_tidal_force" prot="public">space::TidalForce</innerclass>
+    <innerclass refid="structspace_1_1_types" prot="public">space::Types</innerclass>
+    <innerclass refid="structspace_1_1_vec3" prot="public">space::Vec3</innerclass>
+    <innerclass refid="structspace_1_1vec3" prot="public">space::vec3</innerclass>
+    <innerclass refid="classspace_1_1_worst_offender" prot="public">space::WorstOffender</innerclass>
+    <innernamespace refid="namespacespace_1_1args_opt">space::argsOpt</innernamespace>
+    <innernamespace refid="namespacespace_1_1calc">space::calc</innernamespace>
+    <innernamespace refid="namespacespace_1_1consts">space::consts</innernamespace>
+    <innernamespace refid="namespacespace_1_1integrator">space::integrator</innernamespace>
+    <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
+    <innernamespace refid="namespacespace_1_1multi_thread">space::multiThread</innernamespace>
+    <innernamespace refid="namespacespace_1_1octree">space::octree</innernamespace>
+    <innernamespace refid="namespacespace_1_1ode_iterator">space::odeIterator</innernamespace>
+    <innernamespace refid="namespacespace_1_1orbit">space::orbit</innernamespace>
+    <innernamespace refid="namespacespace_1_1_radau">space::Radau</innernamespace>
+    <innernamespace refid="namespacespace_1_1random">space::random</innernamespace>
+    <innernamespace refid="namespacespace_1_1random_gen">space::randomGen</innernamespace>
+    <innernamespace refid="namespacespace_1_1stellar">space::stellar</innernamespace>
+    <innernamespace refid="namespacespace_1_1tools">space::tools</innernamespace>
+    <innernamespace refid="namespacespace_1_1unit">space::unit</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacespace_1aeae90fe24a996e141e44212e2161584f" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ReguType</name>
+        <enumvalue id="namespacespace_1aeae90fe24a996e141e44212e2161584fa360c009cc18cabba43fcbfe53c5f61ef" prot="public">
+          <name>LogH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacespace_1aeae90fe24a996e141e44212e2161584fa433a6d1dc9f59395173b9c44da198568" prot="public">
+          <name>TTL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacespace_1aeae90fe24a996e141e44212e2161584fa6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="14" column="22" bodyfile="particle-system/regu-system.hpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacespace_1ad15e69df5dff14118c0f8803a17524f7" prot="public" static="no">
+        <type><ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref>&lt; double &gt;</type>
+        <definition>using space::precise_d = typedef Kahan&lt;double&gt;</definition>
+        <argsstring></argsstring>
+        <name>precise_d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="kahan-number.hpp" line="90" column="3" bodyfile="kahan-number.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1a54aebfe3aa3980061d97b59d9bc812e7" prot="public" static="no">
+        <type><ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref>&lt; float &gt;</type>
+        <definition>using space::precise_f = typedef Kahan&lt;float&gt;</definition>
+        <argsstring></argsstring>
+        <name>precise_f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="kahan-number.hpp" line="91" column="3" bodyfile="kahan-number.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1a49d7d5fcc8177f9c1e92b48b75c0835c" prot="public" static="no">
+        <type><ref refid="structspace_1_1_types" kindref="compound">Types</ref>&lt; double, std::vector &gt;</type>
+        <definition>using space::DefaultTypes = typedef Types&lt;double, std::vector&gt;</definition>
+        <argsstring></argsstring>
+        <name>DefaultTypes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spaceHub.hpp" line="39" column="3" bodyfile="spaceHub.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1ad2ef35cee56ad99f746840675de3fd70" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>template&lt; class &gt; class</type>
+            <declname>Paticles</declname>
+            <defname>Paticles</defname>
+            <defval>PointParticles</defval>
+          </param>
+          <param>
+            <type>typename Force</type>
+            <defval>interactions::NewtonianGrav</defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref>&lt; <ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref>&lt; Paticles&lt; <ref refid="structspace_1_1_types" kindref="compound">DefaultTypes</ref> &gt;, Force, ReguType::LogH &gt;, <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">odeIterator::BurlishStoer</ref>&lt; double, <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref>, <ref refid="classspace_1_1_p_i_d_controller" kindref="compound">PIDController</ref> &gt; &gt;</type>
+        <definition>using space::DefaultSolver = typedef Simulator&lt;ARchainSystem&lt;Paticles&lt;DefaultTypes&gt;, Force, ReguType::LogH&gt;, odeIterator::BurlishStoer&lt;double, RMS, PIDController&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>DefaultSolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spaceHub.hpp" line="42" column="3" bodyfile="spaceHub.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1a0b9ee91bd17fc9aa56d2cf7467900fce" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; long double &gt;</type>
+        <definition>typedef vec3&lt; long double &gt; space::vec3ld</definition>
+        <argsstring></argsstring>
+        <name>vec3ld</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="171" column="3" bodyfile="vector/vector3.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1a1be55951f75940bbdd74d26a30aa7df3" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; double &gt;</type>
+        <definition>typedef vec3&lt; double &gt; space::vec3d</definition>
+        <argsstring></argsstring>
+        <name>vec3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="172" column="3" bodyfile="vector/vector3.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1aef134f80296acbb9c1d2ab5ff4fc4b8b" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; float &gt;</type>
+        <definition>typedef vec3&lt; float &gt; space::vec3f</definition>
+        <argsstring></argsstring>
+        <name>vec3f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="173" column="3" bodyfile="vector/vector3.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1aba2aef33549766dafc3a3a5134651622" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; int &gt;</type>
+        <definition>typedef vec3&lt; int &gt; space::vec3i</definition>
+        <argsstring></argsstring>
+        <name>vec3i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="174" column="3" bodyfile="vector/vector3.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1a433328f837c233654c381b1db0349778" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; char &gt;</type>
+        <definition>typedef vec3&lt; char &gt; space::vec3c</definition>
+        <argsstring></argsstring>
+        <name>vec3c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="175" column="3" bodyfile="vector/vector3.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacespace_1a7cb2cfd21ce83f3f8925c6bedaece223" prot="public" static="no">
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; bool &gt;</type>
+        <definition>typedef vec3&lt; bool &gt; space::vec3b</definition>
+        <argsstring></argsstring>
+        <name>vec3b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="176" column="3" bodyfile="vector/vector3.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacespace_1a1013e1dc47dc2b7d2a90bb1e19cba4ef" prot="public" static="no" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::is_container_v</definition>
+        <argsstring></argsstring>
+        <name>is_container_v</name>
+        <initializer>= <ref refid="structspace_1_1is__container" kindref="compound">is_container</ref>&lt;T&gt;::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="352" column="18" bodyfile="dev-tools.hpp" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1adef73637c574d3c8bdee43f4fab29c8a" prot="public" static="no" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::is_interactions_v</definition>
+        <argsstring></argsstring>
+        <name>is_interactions_v</name>
+        <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>&lt;T&gt;, T&gt;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="115" column="18" bodyfile="interaction.hpp" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1aca418903124fbea5621539bacf958f04" prot="public" static="no" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T space::epsilon_v</definition>
+        <argsstring></argsstring>
+        <name>epsilon_v</name>
+        <initializer>= <ref refid="structspace_1_1epsilon" kindref="compound">epsilon</ref>&lt;T&gt;::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="66" column="15" bodyfile="own-math.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1a0f777c4034f7bc9abab6bcf4a8b427dd" prot="public" static="no" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::is_particle_system_v</definition>
+        <argsstring></argsstring>
+        <name>is_particle_system_v</name>
+        <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt;T&gt;, T&gt;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="232" column="18" bodyfile="particle-system.hpp" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacespace_1a97968c526d2b2fc010cd5ed92d4b68ba" prot="public" static="no" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::is_soa_particles_v</definition>
+        <argsstring></argsstring>
+        <name>is_soa_particles_v</name>
+        <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>&lt;T&gt;, T&gt;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles.hpp" line="149" column="18" bodyfile="particles.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacespace_1a8245395dfd53171e9ea418b21ca7ef77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::add_coords_to</definition>
+        <argsstring>(STL &amp;stl_ranges, Coords&lt; T &gt; &amp;coords)</argsstring>
+        <name>add_coords_to</name>
+        <param>
+          <type>STL &amp;</type>
+          <declname>stl_ranges</declname>
+        </param>
+        <param>
+          <type><ref refid="structspace_1_1_coords" kindref="compound">Coords</ref>&lt; T &gt; &amp;</type>
+          <declname>coords</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="137" column="8" bodyfile="coords.hpp" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a4606cc6c62a632506125d8ba2bc3ae86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STLIterator</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::load_to_coords</definition>
+        <argsstring>(STLIterator iter_start, STLIterator iter_end, Coords&lt; T &gt; &amp;coords)</argsstring>
+        <name>load_to_coords</name>
+        <param>
+          <type>STLIterator</type>
+          <declname>iter_start</declname>
+        </param>
+        <param>
+          <type>STLIterator</type>
+          <declname>iter_end</declname>
+        </param>
+        <param>
+          <type><ref refid="structspace_1_1_coords" kindref="compound">Coords</ref>&lt; T &gt; &amp;</type>
+          <declname>coords</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="145" column="6" bodyfile="coords.hpp" bodystart="145" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a56a7205312bc74520aad69dbc1e1b93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::distance</definition>
+        <argsstring>(Coords&lt; T &gt; const &amp;c, size_t i, size_t j)</argsstring>
+        <name>distance</name>
+        <param>
+          <type><ref refid="structspace_1_1_coords" kindref="compound">Coords</ref>&lt; T &gt; const &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="coords.hpp" line="161" column="6" bodyfile="coords.hpp" bodystart="161" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a9225df04790836d3a9dce8f94ce4d15b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::print</definition>
+        <argsstring>(std::ostream &amp;os, Args &amp;&amp;... args)</argsstring>
+        <name>print</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="10" column="8" bodyfile="dev-tools.hpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a4dfbbf0c49a0ab8474512e3080b66bfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::input</definition>
+        <argsstring>(std::istream &amp;is, Args &amp;&amp;... args)</argsstring>
+        <name>input</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="16" column="8" bodyfile="dev-tools.hpp" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aa711c0aa2909a0a48b579033b7cb4499" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::std_print</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>std_print</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="22" column="8" bodyfile="dev-tools.hpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a423503d664e1b35744da843e92d598ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::std_input</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>std_input</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="28" column="8" bodyfile="dev-tools.hpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a4e5b361d3829ded8a1e85d1b972c25f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Arg</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::print_csv</definition>
+        <argsstring>(std::ostream &amp;out, Arg &amp;&amp;arg, Args &amp;&amp;... args)</argsstring>
+        <name>print_csv</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>Arg &amp;&amp;</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="34" column="8" bodyfile="dev-tools.hpp" bodystart="34" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1ab24fac92f9401f4375076dbc541494ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::display</definition>
+        <argsstring>(std::ostream &amp;out, Args &amp;&amp;... args)</argsstring>
+        <name>display</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="41" column="8" bodyfile="dev-tools.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aa8d480c947cb519f52178c5a193f87e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, std::tuple&lt; Args... &gt; const &amp;tup)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>std::tuple&lt; Args... &gt; const &amp;</type>
+          <declname>tup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="46" column="3" bodyfile="dev-tools.hpp" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a3f7b720c88795f6a4091efb732967e52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;in, std::tuple&lt; Args... &gt; &amp;&amp;tup)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>std::tuple&lt; Args... &gt; &amp;&amp;</type>
+          <declname>tup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="55" column="16" bodyfile="dev-tools.hpp" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aed12b8f4a16d159f377a64a2fe8b4ea7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::emplace_back</definition>
+        <argsstring>(STL &amp;container, Args &amp;&amp;...args)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>STL &amp;</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="63" column="8" bodyfile="dev-tools.hpp" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1ab18ef7ad843fd44458401037a3b717cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::push_back</definition>
+        <argsstring>(STL &amp;container, Args &amp;&amp;...args)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>STL &amp;</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="68" column="8" bodyfile="dev-tools.hpp" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a398177de9db360b7fd651350a38d45c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::resize_all</definition>
+        <argsstring>(size_t new_sz, Args &amp;&amp;... args)</argsstring>
+        <name>resize_all</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_sz</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="73" column="8" bodyfile="dev-tools.hpp" bodystart="73" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a0426cf18d918efe6a70d54dd3f21f17f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::reserve_all</definition>
+        <argsstring>(size_t new_cap, Args &amp;&amp;... args)</argsstring>
+        <name>reserve_all</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_cap</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="78" column="8" bodyfile="dev-tools.hpp" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a31e63f1ffbf6d7b9e51838b57de6c74a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::clear_all</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>clear_all</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="83" column="8" bodyfile="dev-tools.hpp" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a3e07eb66af61266dbc425dc2b7686ce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::shrink_to_fit_all</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>shrink_to_fit_all</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="88" column="8" bodyfile="dev-tools.hpp" bodystart="88" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a34ee00c2009d3625b40b22952b312575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::spacehub_abort</definition>
+        <argsstring>(Args &amp;&amp;...args)</argsstring>
+        <name>spacehub_abort</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="93" column="9" bodyfile="dev-tools.hpp" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a9fd7aa5e5798898136db4ed6480f2468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename ... &gt; typename</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>std::enable_if_t&lt; is_container_v&lt; T&lt; Args... &gt; &gt;, std::ostream &amp; &gt;</type>
+        <definition>std::enable_if_t&lt;is_container_v&lt;T&lt;Args...&gt; &gt;, std::ostream &amp;&gt; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, T&lt; Args... &gt; const &amp;container)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>T&lt; Args... &gt; const &amp;</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="352" column="18" bodyfile="dev-tools.hpp" bodystart="355" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a5a057e80264f1bbc39d5db42a7fbb403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, std::array&lt; T, N &gt; const &amp;container)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>std::array&lt; T, N &gt; const &amp;</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="363" column="3" bodyfile="dev-tools.hpp" bodystart="363" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a77c671e9eda1f141c1ee2dbdb381c383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>N</declname>
+            <defname>N</defname>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const T(&amp;carray)[N])</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const T(&amp;)</type>
+          <declname>carray</declname>
+          <array>[N]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="371" column="3" bodyfile="dev-tools.hpp" bodystart="371" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a395725b9ff6c8630769a526e33ddd180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator+, vdAdd, double)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator+</type>
+        </param>
+        <param>
+          <type>vdAdd</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="65" column="3" declfile="lazy-evaluation/mkl-array.h" declline="65" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a82af0c3517381e0bcad3daa34de8c1cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator-, vdSub, double)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator-</type>
+        </param>
+        <param>
+          <type>vdSub</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="67" column="3" declfile="lazy-evaluation/mkl-array.h" declline="67" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a3fb19fc4345c6ca6fa9f79ed563d4c0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator*, vdMul, double)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator*</type>
+        </param>
+        <param>
+          <type>vdMul</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="69" column="3" declfile="lazy-evaluation/mkl-array.h" declline="69" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aee4bbae18ef212b294ef6e25dc99039b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator/, vdDiv, double)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator/</type>
+        </param>
+        <param>
+          <type>vdDiv</type>
+        </param>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="71" column="3" declfile="lazy-evaluation/mkl-array.h" declline="71" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1af48b736615b43af20e4d5deab3c71e39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator+, vsAdd, float)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator+</type>
+        </param>
+        <param>
+          <type>vsAdd</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="73" column="3" declfile="lazy-evaluation/mkl-array.h" declline="73" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1ae2936eabe8563936e4911308834ebff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator-, vsSub, float)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator-</type>
+        </param>
+        <param>
+          <type>vsSub</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="75" column="3" declfile="lazy-evaluation/mkl-array.h" declline="75" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aa4a34c5b6a2c413a4b5f468bdd456912" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator*, vsMul, float)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator*</type>
+        </param>
+        <param>
+          <type>vsMul</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="77" column="3" declfile="lazy-evaluation/mkl-array.h" declline="77" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a116a383c4fb23f532c5f3c8e81fc52c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::MKL_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator/, vsDiv, float)</argsstring>
+        <name>MKL_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator/</type>
+        </param>
+        <param>
+          <type>vsDiv</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/mkl-array.h" line="79" column="3" declfile="lazy-evaluation/mkl-array.h" declline="79" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T1</type>
+          </param>
+          <param>
+            <type>typename T2</type>
+          </param>
+        </templateparamlist>
+        <type>T2</type>
+        <definition>T2 space::min</definition>
+        <argsstring>(const T1 &amp;x, const T2 &amp;y)</argsstring>
+        <name>min</name>
+        <param>
+          <type>const T1 &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const T2 &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Self <ref refid="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" kindref="member">min()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="11" column="13" bodyfile="own-math.hpp" bodystart="11" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T1</type>
+          </param>
+          <param>
+            <type>typename T2</type>
+          </param>
+        </templateparamlist>
+        <type>T2</type>
+        <definition>T2 space::max</definition>
+        <argsstring>(const T1 &amp;x, const T2 &amp;y)</argsstring>
+        <name>max</name>
+        <param>
+          <type>const T1 &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const T2 &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Self <ref refid="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" kindref="member">max()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="17" column="13" bodyfile="own-math.hpp" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a38e2c327d558183010000c0213658b4a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::abs</definition>
+        <argsstring>(const T &amp;x)</argsstring>
+        <name>abs</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Self <ref refid="namespacespace_1a38e2c327d558183010000c0213658b4a" kindref="member">abs()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="23" column="12" bodyfile="own-math.hpp" bodystart="23" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a18bf1b62ee0d594afd8c21ead44e3282" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::in_range</definition>
+        <argsstring>(T low, T x, T high)</argsstring>
+        <name>in_range</name>
+        <param>
+          <type>T</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>high</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="28" column="12" bodyfile="own-math.hpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a0a207b752e72eee8d6c546c8beb63f09" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T space::stepfunction</definition>
+        <argsstring>(T x)</argsstring>
+        <name>stepfunction</name>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="40" column="22" bodyfile="own-math.hpp" bodystart="40" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1abe73681680cf6baecce2543c3fbe05c7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T space::sign</definition>
+        <argsstring>(T x)</argsstring>
+        <name>sign</name>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="51" column="22" bodyfile="own-math.hpp" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aba36b8226a478451143614d2ceede527" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool space::iseq</definition>
+        <argsstring>(T x, T y)</argsstring>
+        <name>iseq</name>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="69" column="15" bodyfile="own-math.hpp" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a5ab583df5703addfa74f8fe1eab55c1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::karmack_fast_inverse_square_root</definition>
+        <argsstring>(T x)</argsstring>
+        <name>karmack_fast_inverse_square_root</name>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="94" column="12" bodyfile="own-math.hpp" bodystart="94" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a279f21598079d1b4352976c68ab27242" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float space::karmack_fast_inverse_square_root&lt; float &gt;</definition>
+        <argsstring>(float x)</argsstring>
+        <name>karmack_fast_inverse_square_root&lt; float &gt;</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="99" column="10" bodyfile="own-math.hpp" bodystart="99" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a8a3fe7149ea1af4bd2f544833ed9c4c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double space::karmack_fast_inverse_square_root&lt; double &gt;</definition>
+        <argsstring>(double x)</argsstring>
+        <name>karmack_fast_inverse_square_root&lt; double &gt;</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="111" column="10" bodyfile="own-math.hpp" bodystart="111" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a39eb2a86b90fb45dee58f5e92a447612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Fun</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::root_bisection</definition>
+        <argsstring>(Fun f, decltype(f(0)) low, decltype(f(0)) high) -&gt; decltype(f(0))</argsstring>
+        <name>root_bisection</name>
+        <param>
+          <type>Fun</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>decltype(f(0))</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>decltype(f(0))</type>
+          <declname>high</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Fun</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="128" column="8" bodyfile="own-math.hpp" bodystart="128" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a768daee35e068885d9f10a755d3ccc3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Fun</type>
+          </param>
+        </templateparamlist>
+        <type>decltype(std::declval&lt; Fun &gt;()(0))</type>
+        <definition>decltype(std::declval&lt;Fun&gt;()(0)) space::root_newton</definition>
+        <argsstring>(Fun f)</argsstring>
+        <name>root_newton</name>
+        <param>
+          <type>Fun</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="own-math.hpp" line="142" column="12" bodyfile="own-math.hpp" bodystart="142" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a469373e39503d8103410f95a3c6976c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+          <param>
+            <type>ReguType</type>
+            <declname>RegType</declname>
+            <defname>RegType</defname>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, ARchainSystem&lt; Particles, Interactions, RegType &gt; const &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; const &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/archain.hpp" line="282" column="3" bodyfile="particle-system/archain.hpp" bodystart="282" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1af461eec404596481de968fd0be0f7593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+          <param>
+            <type>ReguType</type>
+            <declname>RegType</declname>
+            <defname>RegType</defname>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, ARchainSystem&lt; Particles, Interactions, RegType &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/archain.hpp" line="288" column="16" bodyfile="particle-system/archain.hpp" bodystart="288" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a91a038d7b3cdcdff7c6932e2226c912c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, SimpleSystem&lt; Particles, Interactions &gt; const &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_simple_system" kindref="compound">SimpleSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref> &gt; const &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/base-system.hpp" line="291" column="3" bodyfile="particle-system/base-system.hpp" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1ace0c605baca0a7891a87844024e5ab16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, SimpleSystem&lt; Particles, Interactions &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_simple_system" kindref="compound">SimpleSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref> &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/base-system.hpp" line="297" column="16" bodyfile="particle-system/base-system.hpp" bodystart="297" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a06390303b3a675ad8dd74646f4328e7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, ChainSystem&lt; Particles, Interactions &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref> &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/chain-system.hpp" line="234" column="16" bodyfile="particle-system/chain-system.hpp" bodystart="234" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aa110088df84bc47c226836379fdc5004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const ChainSystem&lt; Particles, Interactions &gt; &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classspace_1_1_chain_system" kindref="compound">ChainSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref> &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/chain-system.hpp" line="240" column="3" bodyfile="particle-system/chain-system.hpp" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a0decbcf1e20d1e8cb224c19d043eb345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+          <param>
+            <type>ReguType</type>
+            <declname>RegType</declname>
+            <defname>RegType</defname>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, RegularizedSystem&lt; Particles, Interactions, RegType &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="167" column="16" bodyfile="particle-system/regu-system.hpp" bodystart="167" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a418040ff3b0a206c7a76379475df434a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+          <param>
+            <type>typename Interactions</type>
+          </param>
+          <param>
+            <type>ReguType</type>
+            <declname>RegType</declname>
+            <defname>RegType</defname>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const RegularizedSystem&lt; Particles, Interactions, RegType &gt; &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="173" column="3" bodyfile="particle-system/regu-system.hpp" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1abd2edab3ff47043885a5fbb9d964a55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Derived</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, ParticleSystem&lt; Derived &gt; const &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; Derived &gt; const &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="217" column="3" bodyfile="particle-system.hpp" bodystart="217" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1ae74ac57858b0c2dbb3d2ea5013770677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Derived</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, ParticleSystem&lt; Derived &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; Derived &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="223" column="16" bodyfile="particle-system.hpp" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a7e0961d075d0802bb77d2c92203ecab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TypeSystem</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, SizeParticles&lt; TypeSystem &gt; const &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_size_particles" kindref="compound">SizeParticles</ref>&lt; TypeSystem &gt; const &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="172" column="3" bodyfile="particles/finite-size.hpp" bodystart="172" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a0bc4429812f32185e411978b4fe5664a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Real</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, PointParticle&lt; Real &gt; const &amp;particle)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref>&lt; Real &gt; const &amp;</type>
+          <declname>particle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="136" column="3" bodyfile="particles/point-particles.hpp" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a85899eadb3856c8e5bf1fe135c3fd7c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Real</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, PointParticle&lt; Real &gt; &amp;particle)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref>&lt; Real &gt; &amp;</type>
+          <declname>particle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="142" column="16" bodyfile="particles/point-particles.hpp" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a5a2f00008399bbdfb4d8f7142937aaba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TypeSystem</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, PointParticles&lt; TypeSystem &gt; const &amp;particle_system)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref>&lt; TypeSystem &gt; const &amp;</type>
+          <declname>particle_system</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="207" column="3" bodyfile="particles/point-particles.hpp" bodystart="207" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a2963cbc658d86ae899c08372a618f3fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::distance</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;v1, const Vec3&lt; T &gt; &amp;v2)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the Euclid distance of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="140" column="12" bodyfile="vector/vector3.h" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a9471e13d1110601d090fb498061e55f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::dot</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;v1, const Vec3&lt; T &gt; &amp;v2)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the inner product of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="146" column="12" bodyfile="vector/vector3.h" bodystart="146" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1af528f519f6072ce27becb1d2acc270ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::norm</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;v)</argsstring>
+        <name>norm</name>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="151" column="12" bodyfile="vector/vector3.h" bodystart="151" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a336c4b7ef644a2d2e28cb69c1e3d8dc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::re_norm</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;v)</argsstring>
+        <name>re_norm</name>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="156" column="12" bodyfile="vector/vector3.h" bodystart="156" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1afbb0245be78abc3f96541898d1aeced4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::norm2</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;v)</argsstring>
+        <name>norm2</name>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="161" column="12" bodyfile="vector/vector3.h" bodystart="161" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1aba641f0ea9662b2a002b7321ac18d46b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt;</type>
+        <definition>Vec3&lt;T&gt; space::cross</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;v1, const Vec3&lt; T &gt; &amp;v2)</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the cross product of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3.h" line="167" column="15" bodyfile="vector/vector3.h" bodystart="167" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a86bda8692fc2d75619d57fbdb23be089" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::distance</definition>
+        <argsstring>(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the Euclid distance of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3f.h" line="105" column="10" bodyfile="vector/vector3f.h" bodystart="105" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1afcb12df6c0b9bdba80f49503496dd2d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::dot</definition>
+        <argsstring>(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the inner product of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3f.h" line="110" column="10" bodyfile="vector/vector3f.h" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1a389923b3aa7c850e6a39f198861fc3b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T space::cross</definition>
+        <argsstring>(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the cross product of two vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vector/vector3f.h" line="115" column="10" bodyfile="vector/vector3f.h" bodystart="115" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Documentation for space </para>
+    </detaileddescription>
+    <location file="accelerations.hpp" line="8" column="15"/>
+  </compounddef>
+</doxygen>

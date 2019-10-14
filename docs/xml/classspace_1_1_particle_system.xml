@@ -1,0 +1,650 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1_particle_system" kind="class" language="C++" prot="public">
+    <compoundname>space::ParticleSystem</compoundname>
+    <includes refid="particle-system_8hpp" local="no">particle-system.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Derived</declname>
+        <defname>Derived</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1_particle_system_1af9791fd034c4b1b10ee3798c9c35ed6c" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::ParticleSystem&lt; Derived &gt;::Derived</definition>
+        <argsstring></argsstring>
+        <name>Derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="140" column="12" bodyfile="particle-system.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1afdb86cfe95aa215f750cd8f54ac5f01d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ParticleSystem&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
+        <argsstring>(Derived, auto, mass)</argsstring>
+        <name>DECLARE_CRTP_ACCESSOR</name>
+        <param>
+          <type>Derived</type>
+        </param>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>mass</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="26" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a71a945b9dc866394018fda90736aeee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ParticleSystem&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
+        <argsstring>(Derived, auto, idn)</argsstring>
+        <name>DECLARE_CRTP_ACCESSOR</name>
+        <param>
+          <type>Derived</type>
+        </param>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>idn</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="32" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a8f19bf5259aa48a7e1d5b8da35d7a7c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ParticleSystem&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
+        <argsstring>(Derived, auto, time)</argsstring>
+        <name>DECLARE_CRTP_ACCESSOR</name>
+        <param>
+          <type>Derived</type>
+        </param>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>time</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1ad01d0168269f3c8e0c1056e3486a5797" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ParticleSystem&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
+        <argsstring>(Derived, auto, pos)</argsstring>
+        <name>DECLARE_CRTP_ACCESSOR</name>
+        <param>
+          <type>Derived</type>
+        </param>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>pos</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="44" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a1a0692e0d367dd820e69f51cd8039e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ParticleSystem&lt; Derived &gt;::DECLARE_CRTP_ACCESSOR</definition>
+        <argsstring>(Derived, auto, vel)</argsstring>
+        <name>DECLARE_CRTP_ACCESSOR</name>
+        <param>
+          <type>Derived</type>
+        </param>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>vel</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="50" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t space::ParticleSystem&lt; Derived &gt;::number</definition>
+        <argsstring>() const</argsstring>
+        <name>number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="56" column="13" bodyfile="particle-system.hpp" bodystart="152" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::advance_time</definition>
+        <argsstring>(Scalar dt)</argsstring>
+        <name>advance_time</name>
+        <param>
+          <type>Scalar</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="64" column="10" bodyfile="particle-system.hpp" bodystart="158" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Coord</type>
+          </param>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::advance_pos</definition>
+        <argsstring>(Scalar step_size, Coord const &amp;velocity)</argsstring>
+        <name>advance_pos</name>
+        <param>
+          <type>Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Coord</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="74" column="10" bodyfile="particle-system.hpp" bodystart="164" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Coord</type>
+          </param>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::advance_vel</definition>
+        <argsstring>(Scalar step_size, Coord const &amp;acceleration)</argsstring>
+        <name>advance_vel</name>
+        <param>
+          <type>Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <param>
+          <type>Coord const &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Coord</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="84" column="10" bodyfile="particle-system.hpp" bodystart="170" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Coord</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::evaluate_acc</definition>
+        <argsstring>(Coord &amp;acceleration) const</argsstring>
+        <name>evaluate_acc</name>
+        <param>
+          <type>Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Coord</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="92" column="10" bodyfile="particle-system.hpp" bodystart="176" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::drift</definition>
+        <argsstring>(Scalar step_size)</argsstring>
+        <name>drift</name>
+        <param>
+          <type>Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="100" column="10" bodyfile="particle-system.hpp" bodystart="182" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::kick</definition>
+        <argsstring>(Scalar step_size)</argsstring>
+        <name>kick</name>
+        <param>
+          <type>Scalar</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="108" column="10" bodyfile="particle-system.hpp" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::pre_iter_process</definition>
+        <argsstring>()</argsstring>
+        <name>pre_iter_process</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="113" column="10" bodyfile="particle-system.hpp" bodystart="193" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::post_iter_process</definition>
+        <argsstring>()</argsstring>
+        <name>post_iter_process</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="118" column="10" bodyfile="particle-system.hpp" bodystart="198" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::to_linear_container</definition>
+        <argsstring>(STL &amp;stl_ranges)</argsstring>
+        <name>to_linear_container</name>
+        <param>
+          <type>STL &amp;</type>
+          <declname>stl_ranges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>STL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stl_ranges</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="126" column="10" bodyfile="particle-system.hpp" bodystart="204" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::load_from_linear_container</definition>
+        <argsstring>(STL const &amp;stl_ranges)</argsstring>
+        <name>load_from_linear_container</name>
+        <param>
+          <type>STL const &amp;</type>
+          <declname>stl_ranges</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>STL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stl_ranges</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="134" column="10" bodyfile="particle-system.hpp" bodystart="211" bodyend="214"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a0004ebcbfd0c2af9e7dfdf13b015bf0b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ParticleSystem&lt; Derived &gt;::ParticleSystem</definition>
+        <argsstring>()=default</argsstring>
+        <name>ParticleSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="138" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a7c205436f025ab607db33f53a8af59c6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::impl_pre_iter_process</definition>
+        <argsstring>()</argsstring>
+        <name>impl_pre_iter_process</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="143" column="10" bodyfile="particle-system.hpp" bodystart="143" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1addeff3b1be80f3b8ac64f62218fdd6ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::ParticleSystem&lt; Derived &gt;::impl_post_iter_process</definition>
+        <argsstring>()</argsstring>
+        <name>impl_post_iter_process</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="145" column="10" bodyfile="particle-system.hpp" bodystart="145" bodyend="145"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Derived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="particle-system.hpp" line="19" column="23" bodyfile="particle-system.hpp" bodystart="19" bodyend="146"/>
+    <listofallmembers>
+      <member refid="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_pos</name></member>
+      <member refid="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_time</name></member>
+      <member refid="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_vel</name></member>
+      <member refid="classspace_1_1_particle_system_1afdb86cfe95aa215f750cd8f54ac5f01d" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particle_system_1a71a945b9dc866394018fda90736aeee6" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particle_system_1a8f19bf5259aa48a7e1d5b8da35d7a7c4" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particle_system_1ad01d0168269f3c8e0c1056e3486a5797" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particle_system_1a1a0692e0d367dd820e69f51cd8039e0b" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particle_system_1af9791fd034c4b1b10ee3798c9c35ed6c" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>Derived</name></member>
+      <member refid="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>drift</name></member>
+      <member refid="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>evaluate_acc</name></member>
+      <member refid="classspace_1_1_particle_system_1addeff3b1be80f3b8ac64f62218fdd6ec" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>impl_post_iter_process</name></member>
+      <member refid="classspace_1_1_particle_system_1a7c205436f025ab607db33f53a8af59c6" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>impl_pre_iter_process</name></member>
+      <member refid="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>kick</name></member>
+      <member refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>load_from_linear_container</name></member>
+      <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>number</name></member>
+      <member refid="classspace_1_1_particle_system_1a0004ebcbfd0c2af9e7dfdf13b015bf0b" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>ParticleSystem</name></member>
+      <member refid="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>post_iter_process</name></member>
+      <member refid="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pre_iter_process</name></member>
+      <member refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>to_linear_container</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

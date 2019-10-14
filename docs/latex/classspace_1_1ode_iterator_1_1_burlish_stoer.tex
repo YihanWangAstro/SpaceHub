@@ -1,0 +1,86 @@
+\hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer}{}\doxysection{space\+::ode\+Iterator\+::Burlish\+Stoer$<$ Real, Err\+Checker, Step\+Control $>$ Class Template Reference}
+\label{classspace_1_1ode_iterator_1_1_burlish_stoer}\index{space::odeIterator::BurlishStoer$<$ Real, ErrChecker, StepControl $>$@{space::odeIterator::BurlishStoer$<$ Real, ErrChecker, StepControl $>$}}
+
+
+{\ttfamily \#include $<$Burlish-\/\+Stoer.\+hpp$>$}
+
+Inheritance diagram for space\+::ode\+Iterator\+::Burlish\+Stoer$<$ Real, Err\+Checker, Step\+Control $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classspace_1_1ode_iterator_1_1_burlish_stoer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a3cde5642d5bf0996653fa7114452ad4d}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a3cde5642d5bf0996653fa7114452ad4d}} 
+using {\bfseries Base} = \mbox{\hyperlink{classspace_1_1ode_iterator_1_1_ode_iterator}{Ode\+Iterator}}$<$ \mbox{\hyperlink{classspace_1_1ode_iterator_1_1_burlish_stoer}{Burlish\+Stoer}}$<$ Real, Err\+Checker, Step\+Control $>$ $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a19246e4e8c2443e765a9313d2777c0ec}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a19246e4e8c2443e765a9313d2777c0ec}} 
+using {\bfseries Scalar} = Real
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a57e8185402d2241bd0371156832b4a01}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a57e8185402d2241bd0371156832b4a01}} 
+using {\bfseries B\+S\+Consts} = \mbox{\hyperlink{classspace_1_1ode_iterator_1_1_burlish_stoer_consts}{Burlish\+Stoer\+Consts}}$<$ Scalar, max\+\_\+depth+1 $>$
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a384389b21db53809b17f7869876ef8cc}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a384389b21db53809b17f7869876ef8cc}} 
+using {\bfseries Step\+Controller} = Step\+Control$<$ 2 $\ast$max\+\_\+depth+3, Scalar $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a3246ee889bef46192e6ed69727cc582d}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a3246ee889bef46192e6ed69727cc582d}} 
+particles {\bfseries to\+\_\+linear\+\_\+container} (input\+\_\+)
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a94c7d659e7dbf9f6424a2466e877869e}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a94c7d659e7dbf9f6424a2466e877869e}} 
+{\bfseries check\+\_\+variable\+\_\+size} ()
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a63bd495387ac14533a8d0508f6ce46dd}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a63bd495387ac14533a8d0508f6ce46dd}} 
+{\bfseries for} (size\+\_\+t i=0;i$<$ max\+\_\+try\+\_\+num;++i)
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_ac475ce2b3085729e4552df1e3df6128b}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_ac475ce2b3085729e4552df1e3df6128b}} 
+{\bfseries spacehub\+\_\+abort} (\char`\"{}Reach \mbox{\hyperlink{namespacespace_a23b3a7b6bd57409f91a6cad1a9b852f4}{max}} iteration loop number!\char`\"{})
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_ad8147621abeac8afda970ecefa5b662b}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_ad8147621abeac8afda970ecefa5b662b}} 
+void {\bfseries impl\+\_\+set\+\_\+atol} (Scalar atol)
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_aecd145e37a43030f1f9abb8099364bbc}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_aecd145e37a43030f1f9abb8099364bbc}} 
+void {\bfseries impl\+\_\+set\+\_\+rtol} (Scalar rtol)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a310858d25c1f40c4a1dbe9b936c788b1}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a310858d25c1f40c4a1dbe9b936c788b1}} 
+C\+R\+T\+P\+\_\+\+I\+M\+PL {\bfseries \+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: template$<$typename U$>$ auto impl\+\_\+iterate(U \&particles
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a3fa6993c1a358ac0878bedd8a57039f8}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a3fa6993c1a358ac0878bedd8a57039f8}} 
+Scalar {\bfseries iter\+\_\+h} = macro\+\_\+step\+\_\+size
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a6bae9d555eafc39eeec1e8bea24f9087}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a6bae9d555eafc39eeec1e8bea24f9087}} 
+static constexpr size\+\_\+t {\bfseries max\+\_\+depth} \{7\}
+\item 
+\mbox{\Hypertarget{classspace_1_1ode_iterator_1_1_burlish_stoer_a33907349fe38ce4f5940c793b712f1fd}\label{classspace_1_1ode_iterator_1_1_burlish_stoer_a33907349fe38ce4f5940c793b712f1fd}} 
+static constexpr size\+\_\+t {\bfseries max\+\_\+try\+\_\+num} \{500\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Real, template$<$ typename $>$ typename Err\+Checker, template$<$ size\+\_\+t, typename $>$ typename Step\+Control$>$\newline
+class space\+::ode\+Iterator\+::\+Burlish\+Stoer$<$ Real, Err\+Checker, Step\+Control $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Real} & \\
+\hline
+{\em Err\+Checker} & \\
+\hline
+{\em Step\+Control} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ode-\/iterator/Burlish-\/\+Stoer.\+hpp\end{DoxyCompactItemize}

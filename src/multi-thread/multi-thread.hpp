@@ -12,6 +12,11 @@
 #include <iostream>
 #include "../dev-tools.hpp"
 
+/**
+ * @namespace space::multiThread
+ * Documentation for Foo here. More docs for Foo here,
+ * and down here.
+ */
 namespace space::multiThread {
 
   const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;

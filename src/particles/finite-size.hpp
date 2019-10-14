@@ -12,6 +12,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class SizeParticles Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam TypeSystem
+ */
   template<typename TypeSystem>
   class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
   public:

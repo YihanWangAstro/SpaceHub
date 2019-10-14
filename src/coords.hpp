@@ -12,6 +12,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Coords Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam T
+ */
 template <typename T>
 struct Coords {
   // type members

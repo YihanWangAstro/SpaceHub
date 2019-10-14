@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structspace_1_1is__reservable" kind="struct" language="C++" prot="public">
+    <compoundname>space::is_reservable</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structspace_1_1is__reservable_1a9b93498db562c05b94ff77a94fd5079c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::is_reservable&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="318" column="27" bodyfile="dev-tools.hpp" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structspace_1_1is__reservable_1a62d772bf4de337330b2d2c4cf1f8a78c" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr static auto</type>
+        <definition>constexpr static auto space::is_reservable&lt; T &gt;::check</definition>
+        <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;().reserve(std::declval&lt; size_t &gt;()), std::true_type())</argsstring>
+        <name>check</name>
+        <param>
+          <type>const void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="312" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1is__reservable_1a72d2bcb9c62bb9d9a385e1acf6db5b60" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr static std::false_type</type>
+        <definition>constexpr static std::false_type space::is_reservable&lt; T &gt;::check</definition>
+        <argsstring>(...)</argsstring>
+        <name>check</name>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dev-tools.hpp" line="316" column="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="dev-tools.hpp" line="310" column="22" bodyfile="dev-tools.hpp" bodystart="310" bodyend="319"/>
+    <listofallmembers>
+      <member refid="structspace_1_1is__reservable_1a62d772bf4de337330b2d2c4cf1f8a78c" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>check</name></member>
+      <member refid="structspace_1_1is__reservable_1a72d2bcb9c62bb9d9a385e1acf6db5b60" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>check</name></member>
+      <member refid="structspace_1_1is__reservable_1a9b93498db562c05b94ff77a94fd5079c" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="vector3pd_8h" kind="file" language="C++">
+    <compoundname>vector3pd.h</compoundname>
+    <includedby refid="vector3_8h" local="yes">vector/vector3.h</includedby>
+    <invincdepgraph>
+      <node id="7">
+        <label>interaction/newtonian.hpp</label>
+        <link refid="newtonian_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>coords.hpp</label>
+        <link refid="coords_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>particles/finite-size.hpp</label>
+        <link refid="finite-size_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>interaction/post-newtonian.hpp</label>
+        <link refid="post-newtonian_8hpp_source"/>
+      </node>
+      <node id="8">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="2">
+        <label>vector/vector3.h</label>
+        <link refid="vector3_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>interaction.hpp</label>
+        <link refid="interaction_8hpp_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>integrator/Gauss-Dadau.h</label>
+        <link refid="_gauss-_dadau_8h_source"/>
+      </node>
+      <node id="1">
+        <label>vector/vector3pd.h</label>
+        <link refid="vector3pd_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>particles/point-particles.hpp</label>
+        <link refid="point-particles_8hpp_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>type-class.hpp</label>
+        <link refid="type-class_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>interaction/tidal.hpp</label>
+        <link refid="tidal_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="vector/vector3pd.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structsecular_1_1_secular" kind="struct" language="C++" prot="public">
+    <compoundname>secular::Secular</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structsecular_1_1_secular_1a71e2301320116e7054f387665d4b47ae" prot="public" static="no">
+        <type>std::array&lt; double, 12 &gt;</type>
+        <definition>using secular::Secular::Container =  std::array&lt;double, 12&gt;</definition>
+        <argsstring></argsstring>
+        <name>Container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="41" column="3" bodyfile="secular.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structsecular_1_1_secular_1a5ab5b81560b916c165c16a81aea02856" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::m1</definition>
+        <argsstring></argsstring>
+        <name>m1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="117" column="10" bodyfile="secular.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsecular_1_1_secular_1afbdd5920175a67c0a42ef87a97dec874" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::m2</definition>
+        <argsstring></argsstring>
+        <name>m2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="118" column="10" bodyfile="secular.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsecular_1_1_secular_1ac16cb4018add16290c55077232af4b56" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::m3</definition>
+        <argsstring></argsstring>
+        <name>m3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="119" column="10" bodyfile="secular.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsecular_1_1_secular_1afe86454015e5b9bd38c99dfe9d6433d3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::mu1</definition>
+        <argsstring></argsstring>
+        <name>mu1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="120" column="10" bodyfile="secular.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsecular_1_1_secular_1a4d9d1b14fee6abc505b083c69a60cc11" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::mu2</definition>
+        <argsstring></argsstring>
+        <name>mu2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="121" column="10" bodyfile="secular.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsecular_1_1_secular_1a51b35f20ced81adeac07eb133b04d71c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::a_in_coef</definition>
+        <argsstring></argsstring>
+        <name>a_in_coef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="122" column="10" bodyfile="secular.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsecular_1_1_secular_1a1ccfc455f7b3af676ed839a89140fcb8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double secular::Secular::a_out_coef</definition>
+        <argsstring></argsstring>
+        <name>a_out_coef</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="123" column="10" bodyfile="secular.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsecular_1_1_secular_1af757c9d9c1780a8cd2ed49318be35042" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>secular::Secular::Secular</definition>
+        <argsstring>(double m1_, double m2_, double m3_)</argsstring>
+        <name>Secular</name>
+        <param>
+          <type>double</type>
+          <declname>m1_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>m2_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>m3_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="43" column="3" bodyfile="secular.h" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structsecular_1_1_secular_1a2ed4a71e7b4d5f95137fe8a1de7410e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void secular::Secular::operator</definition>
+        <argsstring>(Container const &amp;x, Container &amp;dxdt)</argsstring>
+        <name>operator</name>
+        <param>
+          <type>Container const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>Container &amp;</type>
+          <declname>dxdt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="49" column="8" bodyfile="secular.h" bodystart="49" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structsecular_1_1_secular_1a6a53310f486cc2ff53961939b2d242f4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto secular::Secular::map_to_vectors</definition>
+        <argsstring>(state_type const &amp;x)</argsstring>
+        <name>map_to_vectors</name>
+        <param>
+          <type>state_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="100" column="8" bodyfile="secular.h" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="structsecular_1_1_secular_1a63fea43e32a600eb23558380894598b3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void secular::Secular::map_to_array</definition>
+        <argsstring>(state_type &amp;x, Vec3d const &amp;L1, Vec3d const &amp;L2, Vec3d const &amp;e1, Vec3d const &amp;e2)</argsstring>
+        <name>map_to_array</name>
+        <param>
+          <type>state_type &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>Vec3d const &amp;</type>
+          <declname>L1</declname>
+        </param>
+        <param>
+          <type>Vec3d const &amp;</type>
+          <declname>L2</declname>
+        </param>
+        <param>
+          <type>Vec3d const &amp;</type>
+          <declname>e1</declname>
+        </param>
+        <param>
+          <type>Vec3d const &amp;</type>
+          <declname>e2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="105" column="8" bodyfile="secular.h" bodystart="105" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="structsecular_1_1_secular_1a592ee8fd20cafc3700234c51c6e8cd3c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double secular::Secular::calc_a_in</definition>
+        <argsstring>(double L_in, double c_in)</argsstring>
+        <name>calc_a_in</name>
+        <param>
+          <type>double</type>
+          <declname>L_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="112" column="10" bodyfile="secular.h" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="structsecular_1_1_secular_1a0dbcd52074efd1ec7799061c010d8586" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double secular::Secular::calc_a_out</definition>
+        <argsstring>(double L_out, double c_out)</argsstring>
+        <name>calc_a_out</name>
+        <param>
+          <type>double</type>
+          <declname>L_out</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="114" column="10" bodyfile="secular.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="secular.h" line="38" column="14" bodyfile="secular.h" bodystart="38" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structsecular_1_1_secular_1a51b35f20ced81adeac07eb133b04d71c" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>a_in_coef</name></member>
+      <member refid="structsecular_1_1_secular_1a1ccfc455f7b3af676ed839a89140fcb8" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>a_out_coef</name></member>
+      <member refid="structsecular_1_1_secular_1a592ee8fd20cafc3700234c51c6e8cd3c" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>calc_a_in</name></member>
+      <member refid="structsecular_1_1_secular_1a0dbcd52074efd1ec7799061c010d8586" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>calc_a_out</name></member>
+      <member refid="structsecular_1_1_secular_1a71e2301320116e7054f387665d4b47ae" prot="public" virt="non-virtual"><scope>secular::Secular</scope><name>Container</name></member>
+      <member refid="structsecular_1_1_secular_1a5ab5b81560b916c165c16a81aea02856" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>m1</name></member>
+      <member refid="structsecular_1_1_secular_1afbdd5920175a67c0a42ef87a97dec874" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>m2</name></member>
+      <member refid="structsecular_1_1_secular_1ac16cb4018add16290c55077232af4b56" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>m3</name></member>
+      <member refid="structsecular_1_1_secular_1a63fea43e32a600eb23558380894598b3" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>map_to_array</name></member>
+      <member refid="structsecular_1_1_secular_1a6a53310f486cc2ff53961939b2d242f4" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>map_to_vectors</name></member>
+      <member refid="structsecular_1_1_secular_1afe86454015e5b9bd38c99dfe9d6433d3" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>mu1</name></member>
+      <member refid="structsecular_1_1_secular_1a4d9d1b14fee6abc505b083c69a60cc11" prot="private" virt="non-virtual"><scope>secular::Secular</scope><name>mu2</name></member>
+      <member refid="structsecular_1_1_secular_1a2ed4a71e7b4d5f95137fe8a1de7410e4" prot="public" virt="non-virtual"><scope>secular::Secular</scope><name>operator</name></member>
+      <member refid="structsecular_1_1_secular_1af757c9d9c1780a8cd2ed49318be35042" prot="public" virt="non-virtual"><scope>secular::Secular</scope><name>Secular</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

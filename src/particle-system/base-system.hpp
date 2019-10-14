@@ -12,6 +12,11 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class SimpleSystem Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam Particles
+ * @tparam Interactions
+ */
   template<typename Particles, typename Interactions>
   class SimpleSystem : public ParticleSystem<SimpleSystem<Particles, Interactions>> {
   public:

@@ -1,0 +1,78 @@
+\hypertarget{core-computation_8hpp}{}\doxysection{core-\/computation.hpp File Reference}
+\label{core-computation_8hpp}\index{core-\/computation.hpp@{core-\/computation.hpp}}
+{\ttfamily \#include \char`\"{}macros.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}own-\/math.\+hpp\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacespace}{space}}
+\item 
+ \mbox{\hyperlink{namespacespace_1_1calc}{space\+::calc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto \mbox{\hyperlink{namespacespace_1_1calc_ab1eb54b1b30947e6b678b543a9c2322e}{space\+::calc\+::add}} (Args \&\&... args)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto \mbox{\hyperlink{namespacespace_1_1calc_af042dd5822d4fdeea0b2888a3b688533}{space\+::calc\+::mul}} (Args \&\&... args)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto \mbox{\hyperlink{namespacespace_1_1calc_a7742b69c5da4cd5bc6053beec5f3c4f6}{space\+::calc\+::any}} (Args... args)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\constexpr auto \mbox{\hyperlink{namespacespace_1_1calc_a60f195a3f599f8bfad623c64a096656e}{space\+::calc\+::all}} (Args... args)
+\item 
+{\footnotesize template$<$typename Array $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a0e1d122eca5e4cb2251f40e06e53ac6b}{space\+::calc\+::array\+\_\+set\+\_\+zero}} (Array \&array)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a876d13557c3ddba32cd4440f480ee07c}{space\+::calc\+::set\+\_\+arrays\+\_\+zero}} (Args \&... args)
+\item 
+{\footnotesize template$<$typename Array , typename... Args$>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a54cff9b21c1dc99cfa0a27d03a361e6a}{space\+::calc\+::array\+\_\+dot}} (Array const \&a, Array const \&b, Args const \&... args)
+\item 
+{\footnotesize template$<$typename Array , typename... Args$>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a48c41d16177599e77106683bc56a612e}{space\+::calc\+::array\+\_\+add}} (Array \&dst, Array const \&a, Array const \&b, Args const \&... args)
+\item 
+{\footnotesize template$<$typename Array , typename... Args$>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_aeb8318a2bff3ae82781e3a8d0611a92c}{space\+::calc\+::array\+\_\+mul}} (Array \&dst, Array const \&a, Array const \&b, Args const \&... args)
+\item 
+{\footnotesize template$<$typename Array $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a7831753c2e80720a319e3d4cc326c11c}{space\+::calc\+::array\+\_\+sub}} (Array \&dst, Array const \&a, Array const \&b)
+\item 
+{\footnotesize template$<$typename Array $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a290e37919d94780a2c578e5a52ff0165}{space\+::calc\+::array\+\_\+sum}} (Array const \&array)
+\item 
+{\footnotesize template$<$typename Scalar , typename Array $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_ae0294ebd7b3e5b7ce717c3f84934ac4f}{space\+::calc\+::array\+\_\+advance}} (Array \&var, Array const \&increment, Scalar step\+\_\+size)
+\item 
+{\footnotesize template$<$typename Array , typename Coord $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a82c5f94387edd834bbe2fc513322490e}{space\+::calc\+::coord\+\_\+dot}} (Array \&dst, Coord const \&a, Coord const \&b)
+\item 
+{\footnotesize template$<$typename Array , typename Coord $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a8b669c19a44813e6337745defca230f2}{space\+::calc\+::coord\+\_\+contract\+\_\+to\+\_\+scalar}} (Array \&coef, Coord const \&a, Coord const \&b)
+\item 
+{\footnotesize template$<$typename Coord $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a1af20f175b415a4f9fe360d089cdc72e}{space\+::calc\+::coord\+\_\+contract\+\_\+to\+\_\+scalar}} (Coord const \&a, Coord const \&b)
+\item 
+{\footnotesize template$<$typename Coord , typename... Args$>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a5e778967bb47fbd2366e9a2085cb197f}{space\+::calc\+::coord\+\_\+add}} (Coord \&dst, Coord const \&a, Coord const \&b, Args const \&... args)
+\item 
+{\footnotesize template$<$typename Scalar , typename Coord $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a520b8098b25a63a467c0ab7d852bc900}{space\+::calc\+::coord\+\_\+advance}} (Coord \&var, Coord const \&increment, Scalar step\+\_\+size)
+\item 
+{\footnotesize template$<$typename Array $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_ad226d2c8703569776126e317a61834f6}{space\+::calc\+::calc\+\_\+com}} (Array const \&mass, Array const \&var)
+\item 
+{\footnotesize template$<$typename Array $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_aebb322a76702b6dfd4ee4917580b6f58}{space\+::calc\+::calc\+\_\+com}} (Array const \&mass, Array const \&var, typename Array\+::value\+\_\+type tot\+\_\+mass)
+\item 
+{\footnotesize template$<$typename Array $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a83deb44ff9c8856f98270e385b48be5d}{space\+::calc\+::move\+\_\+to\+\_\+com}} (Array \&var, typename Array\+::value\+\_\+type const \&com\+\_\+var)
+\item 
+{\footnotesize template$<$typename Array1 , typename Array2 $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a324136b8087717d03bd33285695130d2}{space\+::calc\+::move\+\_\+to\+\_\+com}} (Array1 const \&mass, Array2 \&var)
+\item 
+{\footnotesize template$<$typename Coord , typename Scalar\+Array $>$ }\\void \mbox{\hyperlink{namespacespace_1_1calc_a6690fcdfccc1d3c01caa6461a8535359}{space\+::calc\+::coord\+\_\+move\+\_\+to\+\_\+com}} (Scalar\+Array const \&mass, Coord \&var)
+\item 
+{\footnotesize template$<$typename Particles $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a1023e026d3105bcc7c84b638fc52c16e}{space\+::calc\+::calc\+\_\+kinetic\+\_\+energy}} (Particles const \&ptc)
+\item 
+\mbox{\hyperlink{namespacespace_1_1calc_a89ee11854c27cf6309c12eee4bf0a97b}{space\+::calc\+::\+C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK}} (chain\+\_\+pos)
+\item 
+\mbox{\hyperlink{namespacespace_1_1calc_a0e07e47bb29fd01937127334d0d66293}{space\+::calc\+::\+C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK}} (index)
+\item 
+{\footnotesize template$<$typename Particles $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_ad8d5868f9417c166b0418ec1f8ebaf5a}{space\+::calc\+::calc\+\_\+potential\+\_\+energy}} (Particles const \&particles)
+\item 
+{\footnotesize template$<$typename Particles $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a44497f7a8ce6ed8b43bda1045eb13359}{space\+::calc\+::calc\+\_\+total\+\_\+energy}} (Particles const \&particles)
+\item 
+{\footnotesize template$<$typename Scalar\+Array , typename Coord $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a803024b9c9a7c28844d9932f4ebecf92}{space\+::calc\+::calc\+\_\+fall\+\_\+free\+\_\+time}} (Scalar\+Array const \&mass, Coord const \&position)
+\begin{DoxyCompactList}\small\item\em Calculate the minimal fall free time of two particles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacespace_1_1calc_a5ad565ae9639f01b3a74f6b70a104188}{space\+::calc\+::\+C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK}} (omega)
+\item 
+\mbox{\hyperlink{namespacespace_1_1calc_a53adec80aa3e0d41d66e93903fa225fb}{space\+::calc\+::\+C\+R\+E\+A\+T\+E\+\_\+\+M\+E\+T\+H\+O\+D\+\_\+\+C\+H\+E\+CK}} (bindE)
+\item 
+{\footnotesize template$<$typename Particles $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a3f014dcdcc83e6975bdc75598a85bb51}{space\+::calc\+::calc\+\_\+step\+\_\+scale}} (Particles const \&particles)
+\item 
+{\footnotesize template$<$typename Particles $>$ }\\auto \mbox{\hyperlink{namespacespace_1_1calc_a73501521c29dae1b3e19467c56d4d814}{space\+::calc\+::calc\+\_\+energy\+\_\+error}} (Particles const \&particles, typename Particles\+::\+Scalar E0)
+\end{DoxyCompactItemize}

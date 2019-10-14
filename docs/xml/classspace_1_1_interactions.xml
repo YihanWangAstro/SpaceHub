@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1_interactions" kind="class" language="C++" prot="public">
+    <compoundname>space::Interactions</compoundname>
+    <includes refid="interaction_8hpp" local="no">interaction.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Derived</declname>
+        <defname>Derived</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::Interactions&lt; Derived &gt;::ext_vel_dep</definition>
+        <argsstring></argsstring>
+        <name>ext_vel_dep</name>
+        <initializer>{HAS_METHOD(Derived, impl_eval_extra_vel_dep_acc)}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="33" column="27" bodyfile="interaction.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_interactions_1ad8453af189e176a74e97e536c5bff568" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::Interactions&lt; Derived &gt;::ext_vel_indep</definition>
+        <argsstring></argsstring>
+        <name>ext_vel_indep</name>
+        <initializer>{HAS_METHOD(Derived, impl_eval_extra_vel_indep_acc)}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="38" column="27" bodyfile="interaction.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1_interactions_1ac8442b99470b79176e5c1cdd3415fc4d" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::Interactions&lt; Derived &gt;::Derived</definition>
+        <argsstring></argsstring>
+        <name>Derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="81" column="12" bodyfile="interaction.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classspace_1_1_interactions_1aba7429b443dcdb098cf139d066ee159e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Interactions&lt; Derived &gt;::CREATE_METHOD_CHECK</definition>
+        <argsstring>(impl_eval_extra_vel_indep_acc)</argsstring>
+        <name>CREATE_METHOD_CHECK</name>
+        <param>
+          <type>impl_eval_extra_vel_indep_acc</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="24" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_interactions_1a656e179210a1a761843d9615b42fce1d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Interactions&lt; Derived &gt;::CREATE_METHOD_CHECK</definition>
+        <argsstring>(impl_eval_extra_vel_dep_acc)</argsstring>
+        <name>CREATE_METHOD_CHECK</name>
+        <param>
+          <type>impl_eval_extra_vel_dep_acc</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="26" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_interactions_1ae8bd165e3715550c9541ea0087729610" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Interactions&lt; Derived &gt;::Interactions</definition>
+        <argsstring>()=default</argsstring>
+        <name>Interactions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="79" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1_interactions_1a6688576102282c07dc5c7b6b2745be5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::Interactions&lt; Derived &gt;::eval_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_acc</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="48" column="10" bodyfile="interaction.hpp" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::Interactions&lt; Derived &gt;::eval_extra_vel_dep_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_extra_vel_dep_acc</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="57" column="10" bodyfile="interaction.hpp" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::Interactions&lt; Derived &gt;::eval_extra_vel_indep_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_extra_vel_indep_acc</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="66" column="10" bodyfile="interaction.hpp" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_interactions_1ae8ccb90af06fe343684870d2c93a54fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::Interactions&lt; Derived &gt;::eval_newtonian_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_newtonian_acc</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="75" column="10" bodyfile="interaction.hpp" bodystart="107" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Derived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="interaction.hpp" line="21" column="21" bodyfile="interaction.hpp" bodystart="21" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classspace_1_1_interactions_1aba7429b443dcdb098cf139d066ee159e" prot="private" virt="non-virtual"><scope>space::Interactions</scope><name>CREATE_METHOD_CHECK</name></member>
+      <member refid="classspace_1_1_interactions_1a656e179210a1a761843d9615b42fce1d" prot="private" virt="non-virtual"><scope>space::Interactions</scope><name>CREATE_METHOD_CHECK</name></member>
+      <member refid="classspace_1_1_interactions_1ac8442b99470b79176e5c1cdd3415fc4d" prot="private" virt="non-virtual"><scope>space::Interactions</scope><name>Derived</name></member>
+      <member refid="classspace_1_1_interactions_1a6688576102282c07dc5c7b6b2745be5f" prot="public" virt="non-virtual"><scope>space::Interactions</scope><name>eval_acc</name></member>
+      <member refid="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" prot="public" virt="non-virtual"><scope>space::Interactions</scope><name>eval_extra_vel_dep_acc</name></member>
+      <member refid="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" prot="public" virt="non-virtual"><scope>space::Interactions</scope><name>eval_extra_vel_indep_acc</name></member>
+      <member refid="classspace_1_1_interactions_1ae8ccb90af06fe343684870d2c93a54fd" prot="public" virt="non-virtual"><scope>space::Interactions</scope><name>eval_newtonian_acc</name></member>
+      <member refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" prot="public" virt="non-virtual"><scope>space::Interactions</scope><name>ext_vel_dep</name></member>
+      <member refid="classspace_1_1_interactions_1ad8453af189e176a74e97e536c5bff568" prot="public" virt="non-virtual"><scope>space::Interactions</scope><name>ext_vel_indep</name></member>
+      <member refid="classspace_1_1_interactions_1ae8bd165e3715550c9541ea0087729610" prot="private" virt="non-virtual"><scope>space::Interactions</scope><name>Interactions</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

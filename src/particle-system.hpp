@@ -11,6 +11,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class ParticleSystem Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam Derived
+ */
   template<typename Derived>
   class ParticleSystem {
   public:

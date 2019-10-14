@@ -1,0 +1,38 @@
+\hypertarget{particles_8hpp}{}\doxysection{particles.\+hpp File Reference}
+\label{particles_8hpp}\index{particles.hpp@{particles.hpp}}
+{\ttfamily \#include \char`\"{}dev-\/tools.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classspace_1_1_particles}{space\+::\+Particles$<$ Derived $>$}}
+\begin{DoxyCompactList}\small\item\em C\+R\+TP base class of a \textquotesingle{}Structure of Array\textquotesingle{} kind particle set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacespace}{space}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{particles_8hpp_a89c368e13a9bed5d13ed5e4381bb44d9}{S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+P\+A\+R\+T\+I\+C\+L\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+E\+CK}}(C\+TR,  V\+AL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacespace_a97968c526d2b2fc010cd5ed92d4b68ba}{space\+::is\+\_\+soa\+\_\+particles\+\_\+v}} = std\+::is\+\_\+base\+\_\+of\+\_\+v$<$Particles$<$T$>$, T$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{particles_8hpp_a89c368e13a9bed5d13ed5e4381bb44d9}\label{particles_8hpp_a89c368e13a9bed5d13ed5e4381bb44d9}} 
+\index{particles.hpp@{particles.hpp}!SPACEHUB\_PARTICLE\_TYPE\_CHECK@{SPACEHUB\_PARTICLE\_TYPE\_CHECK}}
+\index{SPACEHUB\_PARTICLE\_TYPE\_CHECK@{SPACEHUB\_PARTICLE\_TYPE\_CHECK}!particles.hpp@{particles.hpp}}
+\doxysubsubsection{\texorpdfstring{SPACEHUB\_PARTICLE\_TYPE\_CHECK}{SPACEHUB\_PARTICLE\_TYPE\_CHECK}}
+{\footnotesize\ttfamily \#define S\+P\+A\+C\+E\+H\+U\+B\+\_\+\+P\+A\+R\+T\+I\+C\+L\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+H\+E\+CK(\begin{DoxyParamCaption}\item[{}]{C\+TR,  }\item[{}]{V\+AL }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{static\_assert(std::is\_base\_of\_v<typename CTR::value\_type, VAL>, \(\backslash\)}
+\DoxyCodeLine{                \textcolor{stringliteral}{"Class can only be initialized by containers with its internal 'Particle' type!"});}
+
+\end{DoxyCode}

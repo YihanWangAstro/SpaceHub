@@ -13,6 +13,10 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Interactions Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam Derived
+ */
   template<typename Derived>
   class Interactions {
   private:

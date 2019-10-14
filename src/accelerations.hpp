@@ -9,6 +9,11 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Accelerations Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ *
+ * @tparam Interactions
+ * @tparam Coord
+ */
   template<typename Interactions, typename Coord>
   class Accelerations {
   public:

@@ -8,7 +8,7 @@
 #include <string>
 #include <iomanip>
 #include <ctime>
-
+#include <sstream>
 
 namespace space::tools {
 
