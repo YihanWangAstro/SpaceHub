@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1_size_particles" kind="class" language="C++" prot="public">
+    <compoundname>space::SizeParticles</compoundname>
+    <basecompoundref refid="classspace_1_1_particles" prot="public" virt="non-virtual">space::Particles&lt; SizeParticles&lt; TypeSystem &gt; &gt;</basecompoundref>
+    <includes refid="finite-size_8hpp" local="no">finite-size.hpp</includes>
+    <innerclass refid="structspace_1_1_size_particles_1_1_particle" prot="public">space::SizeParticles::Particle</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename TypeSystem</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classspace_1_1_size_particles_1a0c5f9e6da6aea05709180baf6c05bf44" prot="public" static="no">
+        <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>&lt; <ref refid="classspace_1_1_size_particles" kindref="compound">SizeParticles</ref>&lt; TypeSystem &gt; &gt;</type>
+        <definition>using space::SizeParticles&lt; TypeSystem &gt;::Base =  Particles&lt;SizeParticles&lt;TypeSystem&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>Base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="25" column="5" bodyfile="particles/finite-size.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1ad0ebd80600336b75a182e3fd77f8310c" prot="public" static="no" mutable="no">
+        <type>CRTP_IMPL</type>
+        <definition>CRTP_IMPL space::SizeParticles&lt; TypeSystem &gt;::__pad0__</definition>
+        <argsstring></argsstring>
+        <name>__pad0__</name>
+        <bitfield> SPACEHUB_STD_ACCESSOR(auto</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="69" column="5" bodyfile="particles/finite-size.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1acde27ee35328e2ae1a61c0907aeaa796" prot="public" static="no" mutable="no">
+        <type>CRTP_IMPL</type>
+        <definition>CRTP_IMPL space::SizeParticles&lt; TypeSystem &gt;::impl_mass</definition>
+        <argsstring></argsstring>
+        <name>impl_mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="72" column="2" bodyfile="particles/finite-size.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1a38df5223551b24b8baef9b89445528a6" prot="public" static="no" mutable="no">
+        <type>CRTP_IMPL</type>
+        <definition>CRTP_IMPL space::SizeParticles&lt; TypeSystem &gt;::mass_</definition>
+        <argsstring></argsstring>
+        <name>mass_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="72" column="12" bodyfile="particles/finite-size.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1a1d8fb92b47a84d70aea1d58088087162" prot="private" static="no" mutable="no">
+        <type>Coord</type>
+        <definition>Coord space::SizeParticles&lt; TypeSystem &gt;::pos_</definition>
+        <argsstring></argsstring>
+        <name>pos_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="96" column="11" bodyfile="particles/finite-size.hpp" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1af7744d2e3507d728c9824f1101b6002d" prot="private" static="no" mutable="no">
+        <type>Coord</type>
+        <definition>Coord space::SizeParticles&lt; TypeSystem &gt;::vel_</definition>
+        <argsstring></argsstring>
+        <name>vel_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="98" column="11" bodyfile="particles/finite-size.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1ae02964c18b96f0f0d3cabb8b30d6d42b" prot="private" static="no" mutable="no">
+        <type>ScalarArray</type>
+        <definition>ScalarArray space::SizeParticles&lt; TypeSystem &gt;::mass_</definition>
+        <argsstring></argsstring>
+        <name>mass_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="100" column="17" bodyfile="particles/finite-size.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1a42adff216f0c11c54a945b59613e827d" prot="private" static="no" mutable="no">
+        <type>ScalarArray</type>
+        <definition>ScalarArray space::SizeParticles&lt; TypeSystem &gt;::radius_</definition>
+        <argsstring></argsstring>
+        <name>radius_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="102" column="17" bodyfile="particles/finite-size.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1ae2de537179c3d3f4fa8eaa147692c214" prot="private" static="no" mutable="no">
+        <type>IdxArray</type>
+        <definition>IdxArray space::SizeParticles&lt; TypeSystem &gt;::idn_</definition>
+        <argsstring></argsstring>
+        <name>idn_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="104" column="14" bodyfile="particles/finite-size.hpp" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1aa777138b72c2b2ccfb19156a31e04293" prot="private" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::SizeParticles&lt; TypeSystem &gt;::time_</definition>
+        <argsstring></argsstring>
+        <name>time_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="106" column="12" bodyfile="particles/finite-size.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_size_particles_1a95b3a4a2e8a2b500170b9edfbc759d89" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t space::SizeParticles&lt; TypeSystem &gt;::active_num_</definition>
+        <argsstring></argsstring>
+        <name>active_num_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="108" column="12" bodyfile="particles/finite-size.hpp" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a282c77338b5ae0a441b02ee6e3374320" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_USING_TYPE_SYSTEM_OF</definition>
+        <argsstring>(TypeSystem)</argsstring>
+        <name>SPACEHUB_USING_TYPE_SYSTEM_OF</name>
+        <param>
+          <type>TypeSystem</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="23" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a2eff31812a4c6e20fc3dddf6476a9645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_MAKE_CONSTRUCTORS</definition>
+        <argsstring>(SizeParticles, default, default, default, default, default)</argsstring>
+        <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
+        <param>
+          <type><ref refid="classspace_1_1_size_particles" kindref="compound">SizeParticles</ref></type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <param>
+          <type>default</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="61" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1aaf1aed8b88d09c43caba2f7e509fb3e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename STL</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SizeParticles</definition>
+        <argsstring>(Scalar time, STL const &amp;particles_set)</argsstring>
+        <name>SizeParticles</name>
+        <param>
+          <type>Scalar</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>STL const &amp;</type>
+          <declname>particles_set</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="64" column="5" bodyfile="particles/finite-size.hpp" bodystart="116" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a0ec422c76820cd6996257341214f23ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_STD_ACCESSOR</definition>
+        <argsstring>(auto, radius, radius_)</argsstring>
+        <name>SPACEHUB_STD_ACCESSOR</name>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>radius</type>
+        </param>
+        <param>
+          <type>radius_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a75c229d88d25e849e16e4f82aedbdf11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_STD_ACCESSOR</definition>
+        <argsstring>(auto, impl_idn, idn_)</argsstring>
+        <name>SPACEHUB_STD_ACCESSOR</name>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>impl_idn</type>
+        </param>
+        <param>
+          <type>idn_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="74" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a21814b77b32c66db2438a114a9c09327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_STD_ACCESSOR</definition>
+        <argsstring>(auto, impl_time, time_)</argsstring>
+        <name>SPACEHUB_STD_ACCESSOR</name>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>impl_time</type>
+        </param>
+        <param>
+          <type>time_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="76" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a8d7b890c6092c62e68c1ad05d234e56c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_STD_ACCESSOR</definition>
+        <argsstring>(auto, impl_pos, pos_)</argsstring>
+        <name>SPACEHUB_STD_ACCESSOR</name>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>impl_pos</type>
+        </param>
+        <param>
+          <type>pos_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="78" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a82c6ccb900900b737c7d9acdd56e5cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::SizeParticles&lt; TypeSystem &gt;::SPACEHUB_STD_ACCESSOR</definition>
+        <argsstring>(auto, impl_vel, vel_)</argsstring>
+        <name>SPACEHUB_STD_ACCESSOR</name>
+        <param>
+          <type>auto</type>
+        </param>
+        <param>
+          <type>impl_vel</type>
+        </param>
+        <param>
+          <type>vel_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="80" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a9eeba3f48784792a709543478609a0a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::SizeParticles&lt; TypeSystem &gt;::impl_resize</definition>
+        <argsstring>(size_t new_sz)</argsstring>
+        <name>impl_resize</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="82" column="10" bodyfile="particles/finite-size.hpp" bodystart="156" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a4489da7395703ab2eb9ae68dfb89184f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::SizeParticles&lt; TypeSystem &gt;::impl_reserve</definition>
+        <argsstring>(size_t new_cap)</argsstring>
+        <name>impl_reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>new_cap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="84" column="10" bodyfile="particles/finite-size.hpp" bodystart="145" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a123bc93506407d18942fdf6eeb384cf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::SizeParticles&lt; TypeSystem &gt;::impl_emplace_back</definition>
+        <argsstring>(Particle const &amp;new_particle)</argsstring>
+        <name>impl_emplace_back</name>
+        <param>
+          <type><ref refid="structspace_1_1_size_particles_1_1_particle" kindref="compound">Particle</ref> const &amp;</type>
+          <declname>new_particle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="86" column="10" bodyfile="particles/finite-size.hpp" bodystart="162" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1a33bf3da679cb6d312fd005b04bd458db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t space::SizeParticles&lt; TypeSystem &gt;::impl_number</definition>
+        <argsstring>() const</argsstring>
+        <name>impl_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="88" column="13" bodyfile="particles/finite-size.hpp" bodystart="135" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1aa95b15f9520421910753b38c957001da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t space::SizeParticles&lt; TypeSystem &gt;::impl_capacity</definition>
+        <argsstring>() const</argsstring>
+        <name>impl_capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="90" column="13" bodyfile="particles/finite-size.hpp" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_size_particles_1ab829c4dbf8ac3e552241d5a93a08cc73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::SizeParticles&lt; TypeSystem &gt;::impl_clear</definition>
+        <argsstring>()</argsstring>
+        <name>impl_clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/finite-size.hpp" line="92" column="10" bodyfile="particles/finite-size.hpp" bodystart="150" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>TypeSystem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>space::SizeParticles&lt; TypeSystem &gt;</label>
+        <link refid="classspace_1_1_size_particles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>space::Particles&lt; SizeParticles&lt; TypeSystem &gt; &gt;</label>
+        <link refid="classspace_1_1_particles"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>space::SizeParticles&lt; TypeSystem &gt;</label>
+        <link refid="classspace_1_1_size_particles"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>space::Particles&lt; SizeParticles&lt; TypeSystem &gt; &gt;</label>
+        <link refid="classspace_1_1_particles"/>
+      </node>
+    </collaborationgraph>
+    <location file="particles/finite-size.hpp" line="20" column="41" bodyfile="particles/finite-size.hpp" bodystart="20" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classspace_1_1_size_particles_1ad0ebd80600336b75a182e3fd77f8310c" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>__pad0__</name></member>
+      <member refid="classspace_1_1_size_particles_1a95b3a4a2e8a2b500170b9edfbc759d89" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>active_num_</name></member>
+      <member refid="classspace_1_1_size_particles_1a0c5f9e6da6aea05709180baf6c05bf44" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>Base</name></member>
+      <member refid="classspace_1_1_particles_1aa34fcf3707da6d94091d75e235687267" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>capacity</name></member>
+      <member refid="classspace_1_1_particles_1aa6bbc1f7954d0991ca411ba7041969c6" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>clear</name></member>
+      <member refid="classspace_1_1_particles_1ad975d199e2c45813545f42d4112249fe" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particles_1a25311dd18dbf9173170c7c866894b08d" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particles_1a7266a558f27170a4f682f16b195faffb" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particles_1a4216ea655deafa0c41c1505d450f70f1" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particles_1a0bc171b4fa0185e720d105708e2ee204" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>DECLARE_CRTP_ACCESSOR</name></member>
+      <member refid="classspace_1_1_particles_1a8d4572f516edfeb65457ccb21fa62de6" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>derived</name></member>
+      <member refid="classspace_1_1_particles_1a4a5558934deec20dc500a3f8ff981e14" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>emplace_back</name></member>
+      <member refid="classspace_1_1_size_particles_1ae2de537179c3d3f4fa8eaa147692c214" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>idn_</name></member>
+      <member refid="classspace_1_1_size_particles_1aa95b15f9520421910753b38c957001da" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_capacity</name></member>
+      <member refid="classspace_1_1_size_particles_1ab829c4dbf8ac3e552241d5a93a08cc73" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_clear</name></member>
+      <member refid="classspace_1_1_size_particles_1a123bc93506407d18942fdf6eeb384cf2" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_emplace_back</name></member>
+      <member refid="classspace_1_1_size_particles_1acde27ee35328e2ae1a61c0907aeaa796" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_mass</name></member>
+      <member refid="classspace_1_1_size_particles_1a33bf3da679cb6d312fd005b04bd458db" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_number</name></member>
+      <member refid="classspace_1_1_size_particles_1a4489da7395703ab2eb9ae68dfb89184f" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_reserve</name></member>
+      <member refid="classspace_1_1_size_particles_1a9eeba3f48784792a709543478609a0a1" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>impl_resize</name></member>
+      <member refid="classspace_1_1_size_particles_1a38df5223551b24b8baef9b89445528a6" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>mass_</name></member>
+      <member refid="classspace_1_1_size_particles_1ae02964c18b96f0f0d3cabb8b30d6d42b" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>mass_</name></member>
+      <member refid="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>number</name></member>
+      <member refid="classspace_1_1_size_particles_1a1d8fb92b47a84d70aea1d58088087162" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>pos_</name></member>
+      <member refid="classspace_1_1_size_particles_1a42adff216f0c11c54a945b59613e827d" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>radius_</name></member>
+      <member refid="classspace_1_1_particles_1a928e0065624cc688216c09f312e7a1df" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>reserve</name></member>
+      <member refid="classspace_1_1_particles_1a8be4d54604402eccaa9b50b6bb7783d8" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>resize</name></member>
+      <member refid="classspace_1_1_size_particles_1aaf1aed8b88d09c43caba2f7e509fb3e5" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SizeParticles</name></member>
+      <member refid="classspace_1_1_size_particles_1a2eff31812a4c6e20fc3dddf6476a9645" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
+      <member refid="classspace_1_1_size_particles_1a0ec422c76820cd6996257341214f23ca" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
+      <member refid="classspace_1_1_size_particles_1a75c229d88d25e849e16e4f82aedbdf11" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
+      <member refid="classspace_1_1_size_particles_1a21814b77b32c66db2438a114a9c09327" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
+      <member refid="classspace_1_1_size_particles_1a8d7b890c6092c62e68c1ad05d234e56c" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
+      <member refid="classspace_1_1_size_particles_1a82c6ccb900900b737c7d9acdd56e5cdb" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_STD_ACCESSOR</name></member>
+      <member refid="classspace_1_1_size_particles_1a282c77338b5ae0a441b02ee6e3374320" prot="public" virt="non-virtual"><scope>space::SizeParticles</scope><name>SPACEHUB_USING_TYPE_SYSTEM_OF</name></member>
+      <member refid="classspace_1_1_size_particles_1aa777138b72c2b2ccfb19156a31e04293" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>time_</name></member>
+      <member refid="classspace_1_1_size_particles_1af7744d2e3507d728c9824f1101b6002d" prot="private" virt="non-virtual"><scope>space::SizeParticles</scope><name>vel_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

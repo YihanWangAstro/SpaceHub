@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="slice_8h" kind="file" language="C++">
+    <compoundname>slice.h</compoundname>
+    <includes local="no">cstddef</includes>
+    <includes refid="lazy__expr_8h" local="yes">lazy_expr.h</includes>
+    <includedby refid="lazy__array_8h" local="yes">lazy-evaluation/lazy_array.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>../dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>lazy-evaluation/slice.h</label>
+        <link refid="slice_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>lazy_expr.h</label>
+        <link refid="lazy__expr_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>tuple</label>
+      </node>
+      <node id="7">
+        <label>array</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="2">
+        <label>cstddef</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>lazy-evaluation/lazy_array.h</label>
+        <link refid="lazy__array_8h_source"/>
+      </node>
+      <node id="1">
+        <label>lazy-evaluation/slice.h</label>
+        <link refid="slice_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_slice" prot="public">SpaceH::Lazy::Slice</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_slice___expr" prot="public">SpaceH::Lazy::Slice_Expr</innerclass>
+    <innernamespace refid="namespace_space_h">SpaceH</innernamespace>
+    <innernamespace refid="namespace_space_h_1_1_lazy">SpaceH::Lazy</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="slice_8h_1a0cca9dd020b1187d28afa82cca006fa9" prot="public" static="no">
+        <name>slice</name>
+        <param><defname>BEGIN</defname></param>
+        <param><defname>END</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>(Slice&lt;BEGIN,END ,##__VA_ARGS__&gt;())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/slice.h" line="10" column="9" bodyfile="lazy-evaluation/slice.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="slice_8h_1a65fd0989cf17a9954e67fbe210677e14" prot="public" static="no">
+        <name>EXPR_CREATE_SLICE_INTERFACE</name>
+        <initializer>template&lt;int UNIQ(Begin), int UNIQ(End), int UNIQ(Stride) = 1&gt;                                                     \
+    inline constexpr auto operator[](const Slice&lt;UNIQ(Begin), UNIQ(End), UNIQ(Stride)&gt;&amp; slice)                         \
+    -&gt;Slice_Expr&lt;typename TYPE_OF_SELF, UNIQ(Begin), UNIQ(End), UNIQ(Stride), TYPE_OF_SELF::size()&gt;{                   \
+        static_assert(UNIQ(Begin) &lt;= static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                    \
+        static_assert(UNIQ(Begin) &gt;= -static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                   \
+        static_assert(UNIQ(End)   &lt;= static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                    \
+        static_assert(UNIQ(End)   &gt;= -static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                   \
+        return Slice_Expr&lt;typename TYPE_OF_SELF, UNIQ(Begin), UNIQ(End), UNIQ(Stride), TYPE_OF_SELF::size()&gt;(*this);   \
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/slice.h" line="12" column="9" bodyfile="lazy-evaluation/slice.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="lazy-evaluation/slice.h"/>
+  </compounddef>
+</doxygen>

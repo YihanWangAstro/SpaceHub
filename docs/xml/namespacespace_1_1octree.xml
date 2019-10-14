@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacespace_1_1octree" kind="namespace" language="C++">
+    <compoundname>space::octree</compoundname>
+    <innerclass refid="classspace_1_1octree_1_1_node" prot="public">space::octree::Node</innerclass>
+    <innerclass refid="classspace_1_1octree_1_1_octree" prot="public">space::octree::Octree</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>region</name>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a9fe934c7a727864763bff7eddba8bd49" prot="public">
+          <name>flu</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a39b7b22d803b1a0270c9c6c6f8a3b4cb" prot="public">
+          <name>fld</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a8d276b234bb8ebe920aab27a756f1cd9" prot="public">
+          <name>fru</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a2cd6c10d55c39a6f6c3e8ce73545906f" prot="public">
+          <name>frd</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a6f2fb2d3def4f99053edab239195f146" prot="public">
+          <name>blu</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a3f641f36cdee11944705fad10214252e" prot="public">
+          <name>bld</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35af9dd4ecba5e25999ab63a9aa968c939d" prot="public">
+          <name>bru</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="octree_8hpp_1ab2b2971972f1b34511452015ddebca35ab213e73e577729cd2a09f49ac5e04b29" prot="public">
+          <name>brd</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/octree.hpp" line="24" column="22" bodyfile="particle-system/octree.hpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="particle-system/octree.hpp" line="9" column="23"/>
+  </compounddef>
+</doxygen>

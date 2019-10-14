@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacesecular" kind="namespace" language="C++">
+    <compoundname>secular</compoundname>
+    <innerclass refid="structsecular_1_1_secular" prot="public">secular::Secular</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="secular_8h_1a2325df9e23243185fd062b7010e1f4c4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double secular::pi</definition>
+        <argsstring></argsstring>
+        <name>pi</name>
+        <initializer>= 3.14159265358979323</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="30" column="18" bodyfile="secular.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="secular_8h_1a87db980e5cbd6052849e7c33acfc34c7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double secular::G</definition>
+        <argsstring></argsstring>
+        <name>G</name>
+        <initializer>= 4 * pi * pi</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="31" column="18" bodyfile="secular.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="secular_8h_1ad0c122c910730efad2e29f2573eb3e2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double secular::t_k_quad</definition>
+        <argsstring>(double m_in, double m_out, double a_in, double a_out, double c_out)</argsstring>
+        <name>t_k_quad</name>
+        <param>
+          <type>double</type>
+          <declname>m_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>m_out</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a_out</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="secular.h" line="33" column="8" bodyfile="secular.h" bodystart="33" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="secular.h" line="28" column="17"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="_i_a_s15_8h" kind="file" language="C++">
+    <compoundname>IAS15.h</compoundname>
+    <includes refid="dev-tools_8hpp" local="yes">../dev-tools.hpp</includes>
+    <includes refid="own-math_8hpp" local="yes">../own-math.hpp</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>ode-iterator/IAS15.h</label>
+        <link refid="_i_a_s15_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="6">
+        <label>../own-math.hpp</label>
+        <link refid="own-math_8hpp_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classspace_1_1_i_a_s15" prot="public">space::IAS15</innerclass>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <innernamespace refid="namespacespace_1_1_radau">space::Radau</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ode-iterator/IAS15.h"/>
+  </compounddef>
+</doxygen>

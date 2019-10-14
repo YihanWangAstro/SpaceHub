@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_01c7a9a5702f56698e782b15fdad187a" kind="dir">
+    <compoundname>interaction</compoundname>
+    <innerfile refid="newtonian_8hpp">newtonian.hpp</innerfile>
+    <innerfile refid="post-newtonian_8hpp">post-newtonian.hpp</innerfile>
+    <innerfile refid="tidal_8hpp">tidal.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="interaction/"/>
+  </compounddef>
+</doxygen>

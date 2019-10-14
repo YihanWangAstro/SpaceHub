@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacespace_1_1ode_iterator" kind="namespace" language="C++">
+    <compoundname>space::odeIterator</compoundname>
+    <innerclass refid="classspace_1_1ode_iterator_1_1_burlish_stoer" prot="public">space::odeIterator::BurlishStoer</innerclass>
+    <innerclass refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts" prot="public">space::odeIterator::BurlishStoerConsts</innerclass>
+    <innerclass refid="classspace_1_1ode_iterator_1_1_const_ode_iterator" prot="public">space::odeIterator::ConstOdeIterator</innerclass>
+    <innerclass refid="classspace_1_1ode_iterator_1_1_ode_iterator" prot="public">space::odeIterator::OdeIterator</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacespace_1_1ode_iterator_1ac59ca83f468838ce0193ad38623b2ddc" prot="public" static="no" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::odeIterator::is_ode_iterator_v</definition>
+        <argsstring></argsstring>
+        <name>is_ode_iterator_v</name>
+        <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1ode_iterator_1_1_ode_iterator" kindref="compound">OdeIterator</ref>&lt;T&gt;, T&gt;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/ode-iterator.hpp" line="66" column="18" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Documentation for space </para>
+    </detaileddescription>
+    <location file="ode-iterator/Burlish-Stoer.hpp" line="13" column="28"/>
+  </compounddef>
+</doxygen>

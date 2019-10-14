@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_space_h_1_1_lazy_1_1_expr" kind="struct" language="C++" prot="public">
+    <compoundname>SpaceH::Lazy::Expr</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Derived</declname>
+        <defname>Derived</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Derived &amp;</type>
+        <definition>const Derived&amp; SpaceH::Lazy::Expr&lt; Derived &gt;::cast</definition>
+        <argsstring>() const</argsstring>
+        <name>cast</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="14" column="30" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="lazy-evaluation/lazy_expr.h" line="13" column="15" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="13" bodyend="17"/>
+    <listofallmembers>
+      <member refid="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Expr</scope><name>cast</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

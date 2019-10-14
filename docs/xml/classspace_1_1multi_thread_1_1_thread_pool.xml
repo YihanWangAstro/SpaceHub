@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1multi_thread_1_1_thread_pool" kind="class" language="C++" prot="public">
+    <compoundname>space::multiThread::ThreadPool</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classspace_1_1multi_thread_1_1_thread_pool_1a067d3fb4b7179e86dfe9fc94bf85d6f2" prot="public" static="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>using space::multiThread::ThreadPool::Task =  std::function&lt;void()&gt;</definition>
+        <argsstring></argsstring>
+        <name>Task</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="17" column="5" bodyfile="multi-thread/thread_pool.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a8f875add35ea70b13a9a6f63683ce813" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::thread &gt;</type>
+        <definition>std::vector&lt;std::thread&gt; space::multiThread::ThreadPool::workers_</definition>
+        <argsstring></argsstring>
+        <name>workers_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="75" column="17" bodyfile="multi-thread/thread_pool.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a2b7eecc3f4c1fabe8606f88d259ebc5d" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; Task &gt;</type>
+        <definition>std::queue&lt;Task&gt; space::multiThread::ThreadPool::tasks_</definition>
+        <argsstring></argsstring>
+        <name>tasks_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="76" column="16" bodyfile="multi-thread/thread_pool.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1af05c41467f1bde7a707e3d9e4f31e168" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex space::multiThread::ThreadPool::lock_</definition>
+        <argsstring></argsstring>
+        <name>lock_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="77" column="16" bodyfile="multi-thread/thread_pool.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a8b71dd67a7928cbd59dfa50d5034582e" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable space::multiThread::ThreadPool::cv_</definition>
+        <argsstring></argsstring>
+        <name>cv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="78" column="29" bodyfile="multi-thread/thread_pool.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1ab826ff077b829d4b0805576ed7e34f04" prot="private" static="no" mutable="no">
+        <type>std::atomic_bool</type>
+        <definition>std::atomic_bool space::multiThread::ThreadPool::stop_</definition>
+        <argsstring></argsstring>
+        <name>stop_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="79" column="22" bodyfile="multi-thread/thread_pool.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a290b003f2afc25b18395fffe00dd00cc" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t space::multiThread::ThreadPool::max_tasks_</definition>
+        <argsstring></argsstring>
+        <name>max_tasks_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="80" column="18" bodyfile="multi-thread/thread_pool.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a02cf2d05bba8325354c5901390480c4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::multiThread::ThreadPool::ThreadPool</definition>
+        <argsstring>()=delete</argsstring>
+        <name>ThreadPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="19" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a5e6521815906952ed488827a026bec91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::multiThread::ThreadPool::ThreadPool</definition>
+        <argsstring>(ThreadPool const &amp;)=delete</argsstring>
+        <name>ThreadPool</name>
+        <param>
+          <type><ref refid="classspace_1_1multi_thread_1_1_thread_pool" kindref="compound">ThreadPool</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="21" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a674021617cd15feb787809e5b0688efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1multi_thread_1_1_thread_pool" kindref="compound">ThreadPool</ref> &amp;</type>
+        <definition>ThreadPool&amp; space::multiThread::ThreadPool::operator=</definition>
+        <argsstring>(ThreadPool const &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1multi_thread_1_1_thread_pool" kindref="compound">ThreadPool</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="23" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a2f553495abe857375f51150f2ae0fc1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::multiThread::ThreadPool::ThreadPool</definition>
+        <argsstring>(size_t max_thread, size_t max_tasks)</argsstring>
+        <name>ThreadPool</name>
+        <param>
+          <type>size_t</type>
+          <declname>max_thread</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_tasks</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="25" column="5" bodyfile="multi-thread/thread_pool.h" bodystart="25" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a63d3ecca0d3d5a76e31ffa82937aee5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::multiThread::ThreadPool::~ThreadPool</definition>
+        <argsstring>()</argsstring>
+        <name>~ThreadPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="46" column="5" bodyfile="multi-thread/thread_pool.h" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a9db3e104e1fbff08270fa1a982157432" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Func</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::multiThread::ThreadPool::commit</definition>
+        <argsstring>(Func &amp;&amp;func, Args &amp;&amp;...args)</argsstring>
+        <name>commit</name>
+        <param>
+          <type>Func &amp;&amp;</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/thread_pool.h" line="56" column="10" bodyfile="multi-thread/thread_pool.h" bodystart="56" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="multi-thread/thread_pool.h" line="15" column="19" bodyfile="multi-thread/thread_pool.h" bodystart="15" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a9db3e104e1fbff08270fa1a982157432" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>commit</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a8b71dd67a7928cbd59dfa50d5034582e" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>cv_</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1af05c41467f1bde7a707e3d9e4f31e168" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>lock_</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a290b003f2afc25b18395fffe00dd00cc" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>max_tasks_</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a674021617cd15feb787809e5b0688efa" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>operator=</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1ab826ff077b829d4b0805576ed7e34f04" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>stop_</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a067d3fb4b7179e86dfe9fc94bf85d6f2" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>Task</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a2b7eecc3f4c1fabe8606f88d259ebc5d" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>tasks_</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a02cf2d05bba8325354c5901390480c4d" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>ThreadPool</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a5e6521815906952ed488827a026bec91" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>ThreadPool</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a2f553495abe857375f51150f2ae0fc1c" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>ThreadPool</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a8f875add35ea70b13a9a6f63683ce813" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>workers_</name></member>
+      <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a63d3ecca0d3d5a76e31ffa82937aee5b" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>~ThreadPool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

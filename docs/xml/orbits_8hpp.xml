@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="orbits_8hpp" kind="file" language="C++">
+    <compoundname>orbits.hpp</compoundname>
+    <includes local="no">cmath</includes>
+    <includes local="no">variant</includes>
+    <includes refid="rand-generator_8hpp" local="yes">../rand-generator.hpp</includes>
+    <includedby refid="tidal_8hpp" local="yes">interaction/tidal.hpp</includedby>
+    <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>../rand-generator.hpp</label>
+        <link refid="rand-generator_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>variant</label>
+      </node>
+      <node id="2">
+        <label>cmath</label>
+      </node>
+      <node id="7">
+        <label>own-math.hpp</label>
+        <link refid="own-math_8hpp_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>random</label>
+      </node>
+      <node id="10">
+        <label>tuple</label>
+      </node>
+      <node id="11">
+        <label>array</label>
+      </node>
+      <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>mutex</label>
+      </node>
+      <node id="1">
+        <label>orbits/orbits.hpp</label>
+        <link refid="orbits_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>orbits/orbits.hpp</label>
+        <link refid="orbits_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>interaction/tidal.hpp</label>
+        <link refid="tidal_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structspace_1_1orbit_1_1_random_indicator" prot="public">space::orbit::RandomIndicator</innerclass>
+    <innerclass refid="structspace_1_1orbit_1_1_lock_random" prot="public">space::orbit::LockRandom</innerclass>
+    <innerclass refid="structspace_1_1orbit_1_1_orbit_args" prot="public">space::orbit::OrbitArgs</innerclass>
+    <innerclass refid="structspace_1_1orbit_1_1_hyper_orbit_args" prot="public">space::orbit::HyperOrbitArgs</innerclass>
+    <innernamespace refid="namespacespace_1_1orbit">space::orbit</innernamespace>
+    <innernamespace refid="namespacespace">space</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="orbits_8hpp_1a62a0bac635c4ff2708112c7c1f90e1ce" prot="public" static="no">
+        <name>ISOTHERMAL</name>
+        <initializer>RandomIndicator()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="107" column="9" bodyfile="orbits/orbits.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="orbits_8hpp_1ac5d1af83aa891813baea00cdf423102f" prot="public" static="no">
+        <name>LOCK_ISOTHERMAL</name>
+        <initializer>LockRandom()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="orbits/orbits.hpp" line="109" column="9" bodyfile="orbits/orbits.hpp" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="orbits/orbits.hpp"/>
+  </compounddef>
+</doxygen>

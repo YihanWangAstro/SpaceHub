@@ -1,0 +1,829 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespace_space_h_1_1_lazy" kind="namespace" language="C++">
+    <compoundname>SpaceH::Lazy</compoundname>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_binary___expr" prot="public">SpaceH::Lazy::Binary_Expr</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_expr" prot="public">SpaceH::Lazy::Expr</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_larray" prot="public">SpaceH::Lazy::Larray</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4" prot="public">SpaceH::Lazy::Larray&lt; T, Len, true &gt;</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_slice" prot="public">SpaceH::Lazy::Slice</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_slice___expr" prot="public">SpaceH::Lazy::Slice_Expr</innerclass>
+    <innerclass refid="struct_space_h_1_1_lazy_1_1_unary___expr" prot="public">SpaceH::Lazy::Unary_Expr</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="lazy__array_8h_1a2e9fc8a531a641d52ae48dd739b15076" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool SpaceH::Lazy::leq_cache_line</definition>
+        <argsstring>(size_t len=1)</argsstring>
+        <name>leq_cache_line</name>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_array.h" line="15" column="24" bodyfile="lazy-evaluation/lazy_array.h" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1aeb257316187aeda2523266d9879718b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>IsExpr</declname>
+            <defname>IsExpr</defname>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>const auto</type>
+        <definition>const auto SpaceH::Lazy::eval_at</definition>
+        <argsstring>(std::enable_if_t&lt; IsExpr, T &gt; const &amp;expr, Args &amp;&amp;...args)</argsstring>
+        <name>eval_at</name>
+        <param>
+          <type>std::enable_if_t&lt; IsExpr, T &gt; const &amp;</type>
+          <declname>expr</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="20" column="23" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a8b63f7f18bba2a2104de6ec4a38d752b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>IsExpr</declname>
+            <defname>IsExpr</defname>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>const auto</type>
+        <definition>const auto SpaceH::Lazy::eval_at</definition>
+        <argsstring>(std::enable_if_t&lt;!IsExpr, T &gt; const &amp;expr, Args &amp;&amp;...args)</argsstring>
+        <name>eval_at</name>
+        <param>
+          <type>std::enable_if_t&lt;!IsExpr, T &gt; const &amp;</type>
+          <declname>expr</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="25" column="23" bodyfile="lazy-evaluation/lazy_expr.h" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1aef65804433db8f71f458d22086fdb836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator+, lhs+rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator+</type>
+        </param>
+        <param>
+          <type>lhs+</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="91" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="91" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a4ab8eb185d06fc7bc78e54cbc1a09423" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator-, lhs - rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator-</type>
+        </param>
+        <param>
+          <type>lhs -</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="92" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="92" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a0a921798c92e25e9d8ce1d163f1b2a41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator*, lhs *rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator*</type>
+        </param>
+        <param>
+          <type>lhs *</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="93" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="93" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a0412546370bd2144a3385fde5e3aa65f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator/, lhs/rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator/</type>
+        </param>
+        <param>
+          <type>lhs/</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="94" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="94" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a8ba37399cf4449226779071c13c5fe81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator%, lhs % rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator%</type>
+        </param>
+        <param>
+          <type>lhs %</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="95" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="95" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1ad43ea1ad3b50d19d6e235241c614cea6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator==, lhs==rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator</type>
+          <defval>=</defval>
+        </param>
+        <param>
+          <type>lhs</type>
+          <defval>=rhs</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="96" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="96" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a56c1138a1bc05d67854d6eba411d33e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator!=, lhs !=rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator!</type>
+        </param>
+        <param>
+          <type>lhs !</type>
+          <defval>rhs</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="97" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="97" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1add957ae6c5718943246e19b1222cfd65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator&lt;, lhs&lt; rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="98" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="98" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a86a183e72a8f9777efa3df9a13690d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator&gt;, lhs &gt; rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator</type>
+        </param>
+        <param>
+          <type>lhs</type>
+        </param>
+        <param>
+          <type>rhs</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="99" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="99" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a6e560b420657c54a2dadc4633282bc6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator&lt;=, lhs&lt;=rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator&lt;=</type>
+        </param>
+        <param>
+          <type>lhs&lt;=</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="100" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="100" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1abd1c1b8d645c8669ea8b2049c173b9f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator&gt;=, lhs &gt;=rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator&gt;=</type>
+        </param>
+        <param>
+          <type>lhs &gt;=</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="101" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="101" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a8d2ffe0001b228a3b37b889f94c2956e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator&amp;&amp;, lhs &amp;&amp;rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator&amp;&amp;</type>
+        </param>
+        <param>
+          <type>lhs &amp;&amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="102" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="102" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a1ea960888a4f9dc9e6dcf952979a5de7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator||, lhs||rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator||</type>
+        </param>
+        <param>
+          <type>lhs||</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="103" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="103" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1ab91c25b3d505d8c992b0e0f9675c43f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator&amp;, lhs &amp;rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator&amp;</type>
+        </param>
+        <param>
+          <type>lhs &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="104" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="104" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1af7e16c004440c6302cc567ba4c76d993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator^, lhs ^ rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator^</type>
+        </param>
+        <param>
+          <type>lhs ^</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="105" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="105" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a8d90fbc5979955175eb094d6e6cbe517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(operator|, lhs|rhs)</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>operator|</type>
+        </param>
+        <param>
+          <type>lhs|</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="106" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="106" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a083ad88185b365016550be898183b4c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(pow, pow(lhs, rhs))</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>pow</type>
+        </param>
+        <param>
+          <type>pow(lhs, rhs)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="107" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="107" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a7fbdf3427bddb25cb291d6c8a0eb9ed2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_BINARY_OPERATION</definition>
+        <argsstring>(exp, exp(lhs, rhs))</argsstring>
+        <name>EXPR_CREATE_BINARY_OPERATION</name>
+        <param>
+          <type>exp</type>
+        </param>
+        <param>
+          <type>exp(lhs, rhs)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="108" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="108" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a1d30528b87f50ee8ff6d59c866252bc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(operator+, unary)</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>operator+</type>
+        </param>
+        <param>
+          <type>unary</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="110" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="110" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1ad6826faaa95c256f6f5a7da4764ba7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(operator-,-unary)</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>operator-</type>
+        </param>
+        <param>
+          <type>-</type>
+          <declname>unary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="111" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="111" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1acdc850b98bf6aaf4577789334d71dcb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(operator*,*unary)</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>operator*</type>
+        </param>
+        <param>
+          <type>*</type>
+          <declname>unary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="112" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="112" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a547712b6d587729be87599a1d4f70a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(operator!,!unary)</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>operator!</type>
+        </param>
+        <param>
+          <type>!</type>
+          <declname>unary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="113" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="113" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1ad48593ba5d9bb2f26f65614e0fd17e85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(operator~,~unary)</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>operator~</type>
+        </param>
+        <param>
+          <type>~</type>
+          <declname>unary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="114" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="114" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a51fc4df33a2f884fafe8033008345cb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(abs, unary &gt; 0 ? unary :-unary)</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>abs</type>
+        </param>
+        <param>
+          <type>unary</type>
+        </param>
+        <param>
+          <type>0 ? unary :-</type>
+          <declname>unary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="115" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="115" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1aa8ec773af6cc7ec4f0e0246ebc33282f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(log, log(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>log</type>
+        </param>
+        <param>
+          <type>log(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="116" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="116" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a3d5220ad3d5b94e59f787081ab0a8fbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(log10, log10(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>log10</type>
+        </param>
+        <param>
+          <type>log10(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="117" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="117" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a75f330dc0e0556bb24fb8586a391406b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(sin, sin(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>sin</type>
+        </param>
+        <param>
+          <type>sin(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="118" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="118" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1aea69d428a51a67fa312f6ffbabe81b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(cos, cos(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>cos</type>
+        </param>
+        <param>
+          <type>cos(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="119" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="119" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1ac2bde62ebb92a88697d5f94b7ae3acd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(tan, tan(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>tan</type>
+        </param>
+        <param>
+          <type>tan(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="120" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="120" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1add0c98a3bf1e29a3ea611911c56cf9a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(asin, asin(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>asin</type>
+        </param>
+        <param>
+          <type>asin(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="121" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="121" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1af9ca39d81032b8a018a08a3502d3e782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(acos, acos(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>acos</type>
+        </param>
+        <param>
+          <type>acos(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="122" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="122" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1ace17ffcb8ff343889eeab92d7e184dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(atan, atan(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>atan</type>
+        </param>
+        <param>
+          <type>atan(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="123" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="123" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a7e1fe8696d0aa32b1b109986d63d791f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(sinh, sinh(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>sinh</type>
+        </param>
+        <param>
+          <type>sinh(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="124" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="124" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a2d47d924e24a173fc9c258caae138167" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(cosh, cosh(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>cosh</type>
+        </param>
+        <param>
+          <type>cosh(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="125" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="125" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="lazy__expr_8h_1a4e51fcad09f66205420b1e1e38250c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpaceH::Lazy::EXPR_CREATE_UNARY_OPERATION</definition>
+        <argsstring>(tanh, tanh(unary))</argsstring>
+        <name>EXPR_CREATE_UNARY_OPERATION</name>
+        <param>
+          <type>tanh</type>
+        </param>
+        <param>
+          <type>tanh(unary)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_expr.h" line="126" column="5" declfile="lazy-evaluation/lazy_expr.h" declline="126" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="slice_8h_1ae692630f6e945e4f0538c0b95ccecbb0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t SpaceH::Lazy::constexpr_slice_len</definition>
+        <argsstring>(int begin, int end, int stride, size_t size)</argsstring>
+        <name>constexpr_slice_len</name>
+        <param>
+          <type>int</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>stride</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/slice.h" line="23" column="26" bodyfile="lazy-evaluation/slice.h" bodystart="23" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="lazy-evaluation/lazy_array.h" line="12" column="18"/>
+  </compounddef>
+</doxygen>

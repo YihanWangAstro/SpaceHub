@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1_i_a_s15" kind="class" language="C++" prot="public">
+    <compoundname>space::IAS15</compoundname>
+    <includes refid="_i_a_s15_8h" local="no">IAS15.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename ParticSys</type>
+      </param>
+      <param>
+        <type>typename Integrator</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classspace_1_1_i_a_s15_1a74c58634a69cfafa36bc126978d8022b" prot="public" static="no">
+        <type>typename Integrator::RadauArray</type>
+        <definition>using space::IAS15&lt; ParticSys, Integrator &gt;::RadauArray =  typename Integrator::RadauArray</definition>
+        <argsstring></argsstring>
+        <name>RadauArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="23" column="9" bodyfile="ode-iterator/IAS15.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_i_a_s15_1ac1fb21e42d0701d10e5cdd83939bb88c" prot="public" static="no">
+        <type>typename Integrator::RadauTab</type>
+        <definition>using space::IAS15&lt; ParticSys, Integrator &gt;::RadauTab =  typename Integrator::RadauTab</definition>
+        <argsstring></argsstring>
+        <name>RadauTab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="24" column="9" bodyfile="ode-iterator/IAS15.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1_i_a_s15_1a000761edc630b82a2a4accfd2d869be8" prot="private" static="no" mutable="no">
+        <type>Integrator</type>
+        <definition>Integrator space::IAS15&lt; ParticSys, Integrator &gt;::integrator_</definition>
+        <argsstring></argsstring>
+        <name>integrator_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="157" column="20" bodyfile="ode-iterator/IAS15.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_i_a_s15_1a563a6aabfde29ff19c0513ea5419b480" prot="private" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::IAS15&lt; ParticSys, Integrator &gt;::relativeError_</definition>
+        <argsstring></argsstring>
+        <name>relativeError_</name>
+        <initializer>{1e-10}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="159" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_i_a_s15_1a8d685275f0463a16b838b9495843d232" prot="private" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::IAS15&lt; ParticSys, Integrator &gt;::convergent_limit_</definition>
+        <argsstring></argsstring>
+        <name>convergent_limit_</name>
+        <initializer>{1e-16}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="161" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_i_a_s15_1a36429aeda50fdaa222edf22926fdbb70" prot="private" static="no" mutable="no">
+        <type>Scalar</type>
+        <definition>Scalar space::IAS15&lt; ParticSys, Integrator &gt;::last_convergence_</definition>
+        <argsstring></argsstring>
+        <name>last_convergence_</name>
+        <initializer>{Radau::maxFloat}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="163" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1_i_a_s15_1ab50f66241553b99bd206f40c6aaa16ac" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t space::IAS15&lt; ParticSys, Integrator &gt;::particleNum_</definition>
+        <argsstring></argsstring>
+        <name>particleNum_</name>
+        <initializer>{ParticSys::arraySize}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="165" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classspace_1_1_i_a_s15_1a24856330ddc5a6f2340384cdbae0e3ff" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static size_t</type>
+        <definition>constexpr static size_t space::IAS15&lt; ParticSys, Integrator &gt;::max_iter_</definition>
+        <argsstring></argsstring>
+        <name>max_iter_</name>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="167" column="33" bodyfile="ode-iterator/IAS15.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a79763f20b52e14adc8f9687c848f9a30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::IAS15&lt; ParticSys, Integrator &gt;::SPACEHUB_USING_TYPE_SYSTEM_OF</definition>
+        <argsstring>(ParticSys)</argsstring>
+        <name>SPACEHUB_USING_TYPE_SYSTEM_OF</name>
+        <param>
+          <type>ParticSys</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="22" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a39452f1ee5f558483a19df4ad6e5dba3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::IAS15&lt; ParticSys, Integrator &gt;::CHECK_TYPE</definition>
+        <argsstring>(ParticSys, Integrator)</argsstring>
+        <name>CHECK_TYPE</name>
+        <param>
+          <type>ParticSys</type>
+        </param>
+        <param>
+          <type>Integrator</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="29" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a1167d6465a34b45725bc269b7aef9ccc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Scalar</type>
+        <definition>Scalar space::IAS15&lt; ParticSys, Integrator &gt;::iterate</definition>
+        <argsstring>(ParticSys &amp;particles, Scalar stepLength)</argsstring>
+        <name>iterate</name>
+        <param>
+          <type>ParticSys &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>stepLength</declname>
+        </param>
+        <briefdescription>
+<para>interface to iterate particle system for one step </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Particle system needs evolution. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>integrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integrator to integrate the particle system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stepLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro step length for iteration(Here, the step length of the integrator). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>step length for next iteration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="38" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="38" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a3a3caa50326f535fee171cba6fb3a130" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::IAS15&lt; ParticSys, Integrator &gt;::setRelativeError</definition>
+        <argsstring>(Scalar rel_tol)</argsstring>
+        <name>setRelativeError</name>
+        <param>
+          <type>Scalar</type>
+          <declname>rel_tol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rel_tol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="76" column="14" bodyfile="ode-iterator/IAS15.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a5f01ce9046fd087793c5548af18abef5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::IAS15&lt; ParticSys, Integrator &gt;::SetConvergentLimit</definition>
+        <argsstring>(Scalar limit)</argsstring>
+        <name>SetConvergentLimit</name>
+        <param>
+          <type>Scalar</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="84" column="14" bodyfile="ode-iterator/IAS15.h" bodystart="84" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1ad14bef5b026cd721b68bc65cc4d5049e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool space::IAS15&lt; ParticSys, Integrator &gt;::isConvergent</definition>
+        <argsstring>(const RadauTab &amp;BTab, const RadauTab &amp;newBTab, const VectorArray &amp;acc)</argsstring>
+        <name>isConvergent</name>
+        <param>
+          <type>const RadauTab &amp;</type>
+          <declname>BTab</declname>
+        </param>
+        <param>
+          <type>const RadauTab &amp;</type>
+          <declname>newBTab</declname>
+        </param>
+        <param>
+          <type>const VectorArray &amp;</type>
+          <declname>acc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>BTab</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newBTab</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="96" column="14" bodyfile="ode-iterator/IAS15.h" bodystart="96" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a88c4d3568f87af7db2b1f5ecdc8a3c81" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Scalar</type>
+        <definition>Scalar space::IAS15&lt; ParticSys, Integrator &gt;::calcuBError</definition>
+        <argsstring>(const RadauTab &amp;BTab, const VectorArray &amp;acc)</argsstring>
+        <name>calcuBError</name>
+        <param>
+          <type>const RadauTab &amp;</type>
+          <declname>BTab</declname>
+        </param>
+        <param>
+          <type>const VectorArray &amp;</type>
+          <declname>acc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>BTab</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="126" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="126" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1a5adb37ca1ff611d69f120e8ce334cebb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Scalar</type>
+        <definition>Scalar space::IAS15&lt; ParticSys, Integrator &gt;::optimalStepCoef</definition>
+        <argsstring>(Scalar error)</argsstring>
+        <name>optimalStepCoef</name>
+        <param>
+          <type>Scalar</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="142" column="23" bodyfile="ode-iterator/IAS15.h" bodystart="142" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_i_a_s15_1aa3b6f4eff1505e732e0fa505d2ba6327" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::IAS15&lt; ParticSys, Integrator &gt;::resetLastConvergence</definition>
+        <argsstring>()</argsstring>
+        <name>resetLastConvergence</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/IAS15.h" line="152" column="21" bodyfile="ode-iterator/IAS15.h" bodystart="152" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classspace_1_1_i_a_s15" kindref="compound">IAS15</ref> iterator see details in <ulink url="https://arxiv.org/abs/1409.4779">https://arxiv.org/abs/1409.4779</ulink> . </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ode-iterator/IAS15.h" line="19" column="16" bodyfile="ode-iterator/IAS15.h" bodystart="19" bodyend="168"/>
+    <listofallmembers>
+      <member refid="classspace_1_1_i_a_s15_1a88c4d3568f87af7db2b1f5ecdc8a3c81" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>calcuBError</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a39452f1ee5f558483a19df4ad6e5dba3" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>CHECK_TYPE</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a8d685275f0463a16b838b9495843d232" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>convergent_limit_</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a000761edc630b82a2a4accfd2d869be8" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>integrator_</name></member>
+      <member refid="classspace_1_1_i_a_s15_1ad14bef5b026cd721b68bc65cc4d5049e" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>isConvergent</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a1167d6465a34b45725bc269b7aef9ccc" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>iterate</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a36429aeda50fdaa222edf22926fdbb70" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>last_convergence_</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a24856330ddc5a6f2340384cdbae0e3ff" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>max_iter_</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a5adb37ca1ff611d69f120e8ce334cebb" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>optimalStepCoef</name></member>
+      <member refid="classspace_1_1_i_a_s15_1ab50f66241553b99bd206f40c6aaa16ac" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>particleNum_</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a74c58634a69cfafa36bc126978d8022b" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>RadauArray</name></member>
+      <member refid="classspace_1_1_i_a_s15_1ac1fb21e42d0701d10e5cdd83939bb88c" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>RadauTab</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a563a6aabfde29ff19c0513ea5419b480" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>relativeError_</name></member>
+      <member refid="classspace_1_1_i_a_s15_1aa3b6f4eff1505e732e0fa505d2ba6327" prot="private" virt="non-virtual"><scope>space::IAS15</scope><name>resetLastConvergence</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a5f01ce9046fd087793c5548af18abef5" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>SetConvergentLimit</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a3a3caa50326f535fee171cba6fb3a130" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>setRelativeError</name></member>
+      <member refid="classspace_1_1_i_a_s15_1a79763f20b52e14adc8f9687c848f9a30" prot="public" virt="non-virtual"><scope>space::IAS15</scope><name>SPACEHUB_USING_TYPE_SYSTEM_OF</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

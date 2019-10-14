@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="particle-system_8hpp" kind="file" language="C++">
+    <compoundname>particle-system.hpp</compoundname>
+    <includes refid="dev-tools_8hpp" local="yes">dev-tools.hpp</includes>
+    <includedby refid="symplectic-integrator_8hpp" local="yes">integrator/symplectic/symplectic-integrator.hpp</includedby>
+    <includedby refid="ode-iterator_8hpp" local="yes">ode-iterator/ode-iterator.hpp</includedby>
+    <includedby refid="regu-system_8hpp" local="yes">particle-system/regu-system.hpp</includedby>
+    <includedby refid="base-system_8hpp" local="yes">particle-system/base-system.hpp</includedby>
+    <includedby refid="chain-system_8hpp" local="yes">particle-system/chain-system.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tuple</label>
+      </node>
+      <node id="1">
+        <label>particle-system.hpp</label>
+        <link refid="particle-system_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>ode-iterator/ode-iterator.hpp</label>
+        <link refid="ode-iterator_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>integrator/symplectic/symplectic-integrator.hpp</label>
+        <link refid="symplectic-integrator_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>particle-system/base-system.hpp</label>
+        <link refid="base-system_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ode-iterator/Burlish-Stoer.hpp</label>
+        <link refid="_burlish-_stoer_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp_source"/>
+      </node>
+      <node id="10">
+        <label>particle-system/chain-system.hpp</label>
+        <link refid="chain-system_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ode-iterator/const-iterator.hpp</label>
+        <link refid="const-iterator_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>particle-system/regu-system.hpp</label>
+        <link refid="regu-system_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>particle-system.hpp</label>
+        <link refid="particle-system_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>particle-system/archain.hpp</label>
+        <link refid="archain_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classspace_1_1_particle_system" prot="public">space::ParticleSystem</innerclass>
+    <innernamespace refid="namespacespace">space</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="particle-system.hpp"/>
+  </compounddef>
+</doxygen>

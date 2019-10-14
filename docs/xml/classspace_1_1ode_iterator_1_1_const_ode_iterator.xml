@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classspace_1_1ode_iterator_1_1_const_ode_iterator" kind="class" language="C++" prot="public">
+    <compoundname>space::odeIterator::ConstOdeIterator</compoundname>
+    <basecompoundref refid="classspace_1_1ode_iterator_1_1_ode_iterator" prot="public" virt="non-virtual">space::odeIterator::OdeIterator&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</basecompoundref>
+    <includes refid="const-iterator_8hpp" local="no">const-iterator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Integrator</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1ade51217e98fc0b97d34a63caba47526c" prot="public" static="no">
+        <type><ref refid="classspace_1_1ode_iterator_1_1_ode_iterator" kindref="compound">OdeIterator</ref>&lt; <ref refid="classspace_1_1ode_iterator_1_1_const_ode_iterator" kindref="compound">ConstOdeIterator</ref>&lt; Integrator &gt; &gt;</type>
+        <definition>using space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::Base =  OdeIterator&lt;ConstOdeIterator&lt;Integrator&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>Base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/const-iterator.hpp" line="20" column="5" bodyfile="ode-iterator/const-iterator.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1af8b6e1457fb435ba122359c96170bdf2" prot="public" static="no" mutable="no">
+        <type>CRTP_IMPL</type>
+        <definition>CRTP_IMPL space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::__pad0__</definition>
+        <argsstring></argsstring>
+        <name>__pad0__</name>
+        <bitfield> template&lt;typename T&gt; auto impl_iterate(T &amp;particles</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/const-iterator.hpp" line="22" column="5" bodyfile="ode-iterator/const-iterator.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a27c17658e08e1144a7ffb3588a5cc5f8" prot="private" static="no" mutable="no">
+        <type>Integrator</type>
+        <definition>Integrator space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::integrator_</definition>
+        <argsstring></argsstring>
+        <name>integrator_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/const-iterator.hpp" line="30" column="16" bodyfile="ode-iterator/const-iterator.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Integrator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>space::odeIterator::ConstOdeIterator&lt; Integrator &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_const_ode_iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>space::odeIterator::OdeIterator&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>space::odeIterator::ConstOdeIterator&lt; Integrator &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_const_ode_iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>space::odeIterator::OdeIterator&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+      </node>
+    </collaborationgraph>
+    <location file="ode-iterator/const-iterator.hpp" line="17" column="46" bodyfile="ode-iterator/const-iterator.hpp" bodystart="17" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1af8b6e1457fb435ba122359c96170bdf2" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>__pad0__</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1ade51217e98fc0b97d34a63caba47526c" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>Base</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a27c17658e08e1144a7ffb3588a5cc5f8" prot="private" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>integrator_</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a415466d750c7405d63b72089535a2520" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>iterate</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1aa9481da6ee6d141407470f53be24e10d" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>set_atol</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a873d6066bec6938b499b396f7df08b7e" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>set_atol</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1abb6991b00bf41b2f37a7516cb3da7af5" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>set_rtol</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1ace1ee0d8fd523857e850afbcfa97d84f" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>set_rtol</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
