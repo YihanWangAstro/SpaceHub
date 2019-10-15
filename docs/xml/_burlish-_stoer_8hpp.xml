@@ -64,18 +64,13 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1ode__iterator_1_1_burlish_stoer_consts" prot="public">
-          space::ode_iterator::BurlishStoerConsts
-      </innerclass>
-      <innerclass refid="classspace_1_1ode__iterator_1_1_burlish_stoer" prot="public">
-          space::ode_iterator::BurlishStoer
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
+    <innerclass refid="classspace_1_1ode__iterator_1_1_burlish_stoer_consts" prot="public">space::ode_iterator::BurlishStoerConsts</innerclass>
+    <innerclass refid="classspace_1_1ode__iterator_1_1_burlish_stoer" prot="public">space::ode_iterator::BurlishStoer</innerclass>
+    <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="ode-iterator/Burlish-Stoer.hpp"/>
   </compounddef>
 </doxygen>

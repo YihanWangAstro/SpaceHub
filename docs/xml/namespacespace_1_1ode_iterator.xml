@@ -5,10 +5,10 @@
     <innerclass refid="classspace_1_1ode_iterator_1_1_b_s_iterator" prot="public">space::odeIterator::BSIterator</innerclass>
     <innerclass refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab" prot="public">space::odeIterator::Burlish_Stoer_tab</innerclass>
     <innerclass refid="classspace_1_1ode_iterator_1_1_burlish_stoer" prot="public">space::odeIterator::BurlishStoer</innerclass>
-      <briefdescription>
-      </briefdescription>
-      <detaileddescription>
-      </detaileddescription>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
     <location file="ode-iterator/BS-iterator0.hpp" line="13" column="1"/>
   </compounddef>
 </doxygen>

@@ -3,20 +3,20 @@
   <compounddef id="point-particles_8hpp" kind="file" language="C++">
     <compoundname>point-particles.hpp</compoundname>
     <includes refid="particles_8hpp" local="yes">../particles.hpp</includes>
-      <includes refid="vector3_8hpp" local="yes">../vector/vector3.hpp</includes>
+    <includes refid="vector3_8hpp" local="yes">../vector/vector3.hpp</includes>
     <includedby refid="finite-size_8hpp" local="yes">particles/finite-size.hpp</includedby>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-        <node id="568">
-            <label>vector3d.hpp</label>
-            <link refid="vector3d_8hpp"/>
-        </node>
-        <node id="567">
-            <label>cmath</label>
-        </node>
+      <node id="568">
+        <label>vector3d.hpp</label>
+        <link refid="vector3d_8hpp"/>
+      </node>
+      <node id="567">
+        <label>cmath</label>
+      </node>
       <node id="566">
-          <label>../vector/vector3.hpp</label>
-          <link refid="vector3_8hpp"/>
+        <label>../vector/vector3.hpp</label>
+        <link refid="vector3_8hpp"/>
         <childnode refid="567" relation="include">
         </childnode>
         <childnode refid="563" relation="include">
@@ -59,9 +59,9 @@
         <childnode refid="566" relation="include">
         </childnode>
       </node>
-        <node id="569">
-            <label>vector3pd.hpp</label>
-            <link refid="vector3pd_8hpp"/>
+      <node id="569">
+        <label>vector3pd.hpp</label>
+        <link refid="vector3pd_8hpp"/>
       </node>
     </incdepgraph>
     <invincdepgraph>
@@ -84,18 +84,13 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="structspace_1_1particle__set_1_1_point_particle" prot="public">
-          space::particle_set::PointParticle
-      </innerclass>
-      <innerclass refid="classspace_1_1particle__set_1_1_point_particles" prot="public">
-          space::particle_set::PointParticles
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1particle__set">space::particle_set</innernamespace>
+    <innerclass refid="structspace_1_1particle__set_1_1_point_particle" prot="public">space::particle_set::PointParticle</innerclass>
+    <innerclass refid="classspace_1_1particle__set_1_1_point_particles" prot="public">space::particle_set::PointParticles</innerclass>
+    <innernamespace refid="namespacespace_1_1particle__set">space::particle_set</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="particles/point-particles.hpp"/>
   </compounddef>
 </doxygen>

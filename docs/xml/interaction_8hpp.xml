@@ -8,9 +8,9 @@
     <includedby refid="post-newtonian_8hpp" local="yes">interaction/post-newtonian.hpp</includedby>
     <includedby refid="tidal_8hpp" local="yes">interaction/tidal.hpp</includedby>
     <incdepgraph>
-        <node id="157">
-            <label>vector3d.hpp</label>
-            <link refid="vector3d_8hpp"/>
+      <node id="157">
+        <label>vector3d.hpp</label>
+        <link refid="vector3d_8hpp"/>
       </node>
       <node id="148">
         <label>cmath</label>
@@ -23,18 +23,18 @@
         <childnode refid="149" relation="include">
         </childnode>
       </node>
-        <node id="156">
-            <label>vector/vector3.hpp</label>
-            <link refid="vector3_8hpp"/>
-            <childnode refid="148" relation="include">
-            </childnode>
-            <childnode refid="150" relation="include">
-            </childnode>
-            <childnode refid="157" relation="include">
-            </childnode>
-            <childnode refid="158" relation="include">
-            </childnode>
-        </node>
+      <node id="156">
+        <label>vector/vector3.hpp</label>
+        <link refid="vector3_8hpp"/>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+      </node>
       <node id="146">
         <label>macros.hpp</label>
         <link refid="macros_8hpp"/>
@@ -87,9 +87,9 @@
         <childnode refid="156" relation="include">
         </childnode>
       </node>
-        <node id="158">
-            <label>vector3pd.hpp</label>
-            <link refid="vector3pd_8hpp"/>
+      <node id="158">
+        <label>vector3pd.hpp</label>
+        <link refid="vector3pd_8hpp"/>
       </node>
       <node id="155">
         <label>coords.hpp</label>
@@ -128,21 +128,14 @@
         <link refid="tidal_8hpp"/>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1interactions_1_1_interactions" prot="public">space::interactions::Interactions
-      </innerclass>
-      <innerclass
-              refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc"
-              prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_indep_acc
-      </innerclass>
-      <innerclass refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc"
-                  prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_dep_acc
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
+    <innerclass refid="classspace_1_1interactions_1_1_interactions" prot="public">space::interactions::Interactions</innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_indep_acc</innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_dep_acc</innerclass>
+    <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="interaction.hpp"/>
   </compounddef>
 </doxygen>

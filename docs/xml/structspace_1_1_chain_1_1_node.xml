@@ -15,8 +15,7 @@
 <para>Relative distance of two particles. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system/chain.hpp" line="40" column="1" bodyfile="particle-system/chain.hpp"
-                    bodystart="40" bodyend="-1"/>
+        <location file="particle-system/chain.hpp" line="40" column="1" bodyfile="particle-system/chain.hpp" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_chain_1_1_node_1ace54e4ed7a3fce6fc707019a632e708b" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -29,8 +28,7 @@
 <para>Particle index. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system/chain.hpp" line="41" column="1" bodyfile="particle-system/chain.hpp"
-                    bodystart="41" bodyend="-1"/>
+        <location file="particle-system/chain.hpp" line="41" column="1" bodyfile="particle-system/chain.hpp" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_chain_1_1_node_1afd2257d3b178e0eb7e9ffe09e78f5e9f" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -43,8 +41,7 @@
 <para>Particle index. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system/chain.hpp" line="42" column="1" bodyfile="particle-system/chain.hpp"
-                    bodystart="42" bodyend="-1"/>
+        <location file="particle-system/chain.hpp" line="42" column="1" bodyfile="particle-system/chain.hpp" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_chain_1_1_node_1ae9b63e24a0c952190ecbf64669d51725" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -57,8 +54,7 @@
 <para>State of node. If this node can be chained. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system/chain.hpp" line="43" column="1" bodyfile="particle-system/chain.hpp"
-                    bodystart="43" bodyend="-1"/>
+        <location file="particle-system/chain.hpp" line="43" column="1" bodyfile="particle-system/chain.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -66,13 +62,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="201">
+      <node id="201">
         <label>space::Chain::Node</label>
         <link refid="structspace_1_1_chain_1_1_node"/>
       </node>
     </collaborationgraph>
-      <location file="particle-system/chain.hpp" line="39" column="1" bodyfile="particle-system/chain.hpp"
-                bodystart="39" bodyend="44"/>
+    <location file="particle-system/chain.hpp" line="39" column="1" bodyfile="particle-system/chain.hpp" bodystart="39" bodyend="44"/>
     <listofallmembers>
       <member refid="structspace_1_1_chain_1_1_node_1ae9b63e24a0c952190ecbf64669d51725" prot="public" virt="non-virtual"><scope>space::Chain::Node</scope><name>avail</name></member>
       <member refid="structspace_1_1_chain_1_1_node_1ace54e4ed7a3fce6fc707019a632e708b" prot="public" virt="non-virtual"><scope>space::Chain::Node</scope><name>i</name></member>

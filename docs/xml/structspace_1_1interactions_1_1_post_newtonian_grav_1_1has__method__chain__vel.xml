@@ -77,7 +77,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="112">
+      <node id="112">
         <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;</label>
       </node>
     </collaborationgraph>

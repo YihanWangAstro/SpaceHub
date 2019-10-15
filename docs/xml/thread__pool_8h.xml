@@ -56,9 +56,8 @@
         <label>thread</label>
       </node>
     </incdepgraph>
-      <innerclass refid="classspace_1_1multi__thread_1_1_thread_pool" prot="public">space::multi_thread::ThreadPool
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1multi__thread">space::multi_thread</innernamespace>
+    <innerclass refid="classspace_1_1multi__thread_1_1_thread_pool" prot="public">space::multi_thread::ThreadPool</innerclass>
+    <innernamespace refid="namespacespace_1_1multi__thread">space::multi_thread</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

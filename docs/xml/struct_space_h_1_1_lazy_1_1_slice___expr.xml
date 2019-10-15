@@ -249,39 +249,39 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-        <node id="312">
+      <node id="312">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-        <node id="310">
+      <node id="310">
         <label>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_slice___expr"/>
-            <childnode refid="311" relation="public-inheritance">
+        <childnode refid="311" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="311">
+      <node id="311">
         <label>SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-            <childnode refid="312" relation="template-instance">
+        <childnode refid="312" relation="template-instance">
           <edgelabel>&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</edgelabel>
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-        <node id="315">
+      <node id="315">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-        <node id="313">
+      <node id="313">
         <label>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_slice___expr"/>
-            <childnode refid="314" relation="public-inheritance">
+        <childnode refid="314" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="314">
+      <node id="314">
         <label>SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-            <childnode refid="315" relation="template-instance">
+        <childnode refid="315" relation="template-instance">
           <edgelabel>&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</edgelabel>
         </childnode>
       </node>

@@ -258,7 +258,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="293">
+      <node id="293">
         <label>secular::Secular</label>
         <link refid="structsecular_1_1_secular"/>
       </node>

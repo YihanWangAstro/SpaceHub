@@ -101,8 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="133" column="9" bodyfile="orbits/orbits.hpp" bodystart="133"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="133" column="9" bodyfile="orbits/orbits.hpp" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="orbits_8hpp_1ac5d1af83aa891813baea00cdf423102f" prot="public" static="no">
         <name>LOCK_ISOTHERMAL</name>
@@ -113,15 +112,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="135" column="9" bodyfile="orbits/orbits.hpp" bodystart="135"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="135" column="9" bodyfile="orbits/orbits.hpp" bodystart="135" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="orbits/orbits.hpp"/>
   </compounddef>
 </doxygen>

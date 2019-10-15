@@ -15,8 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="91" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="91" bodyend="-1"/>
+        <location file="tools/config-reader.hpp" line="91" column="1" bodyfile="tools/config-reader.hpp" bodystart="91" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -45,8 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="49" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="49" bodyend="66"/>
+        <location file="tools/config-reader.hpp" line="49" column="1" bodyfile="tools/config-reader.hpp" bodystart="49" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1tools_1_1_config_reader_1ac828703f9b32cc521b573af96a609c2f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -73,8 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="68" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="68" bodyend="69"/>
+        <location file="tools/config-reader.hpp" line="68" column="1" bodyfile="tools/config-reader.hpp" bodystart="68" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1tools_1_1_config_reader_1a317db5b99a0c82b950507fe87af754c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -96,8 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="72" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="72" bodyend="82"/>
+        <location file="tools/config-reader.hpp" line="72" column="1" bodyfile="tools/config-reader.hpp" bodystart="72" bodyend="82"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -116,8 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="93" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="93" bodyend="114"/>
+        <location file="tools/config-reader.hpp" line="93" column="1" bodyfile="tools/config-reader.hpp" bodystart="93" bodyend="114"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -125,13 +120,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="61">
+      <node id="61">
         <label>space::tools::ConfigReader</label>
         <link refid="classspace_1_1tools_1_1_config_reader"/>
       </node>
     </collaborationgraph>
-      <location file="tools/config-reader.hpp" line="47" column="1" bodyfile="tools/config-reader.hpp" bodystart="47"
-                bodyend="115"/>
+    <location file="tools/config-reader.hpp" line="47" column="1" bodyfile="tools/config-reader.hpp" bodystart="47" bodyend="115"/>
     <listofallmembers>
       <member refid="classspace_1_1tools_1_1_config_reader_1ad990961c2aa9fb1e0dacad76509a7471" prot="private" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>classify_string</name></member>
       <member refid="classspace_1_1tools_1_1_config_reader_1a1148267071952f04ab61a994eedd056a" prot="public" virt="non-virtual"><scope>space::tools::ConfigReader</scope><name>ConfigReader</name></member>

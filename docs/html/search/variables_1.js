@@ -6,6 +6,6 @@ var searchData=
   ['aop_5fneptune',['AoP_neptune',['../namespacespace_1_1consts.html#a127e25afaa606e680e00394c46871ae8',1,'space::consts']]],
   ['atol',['atol',['../classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9',1,'space::RunArgs']]],
   ['au',['au',['../namespacespace_1_1unit.html#ace4f7e3b11e370c6c6911aa1d78869bc',1,'space::unit']]],
-    ['auto_5fthread', ['auto_thread', ['../namespacespace_1_1multi__thread.html#a48be29b2e3204f77b8304b314322f351', 1, 'space::multi_thread']]],
+  ['auto_5fthread',['auto_thread',['../namespacespace_1_1multi__thread.html#a48be29b2e3204f77b8304b314322f351',1,'space::multi_thread']]],
   ['avail',['avail',['../structspace_1_1_chain_1_1_node.html#ae9b63e24a0c952190ecbf64669d51725',1,'space::Chain::Node']]]
 ];

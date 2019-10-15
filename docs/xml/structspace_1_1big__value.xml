@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="own-math.hpp" line="112" column="1" bodyfile="own-math.hpp" bodystart="112" bodyend="-1"/>
+        <location file="own-math.hpp" line="112" column="1" bodyfile="own-math.hpp" bodystart="112" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="own-math.hpp" line="113" column="1" bodyfile="own-math.hpp" bodystart="113" bodyend="-1"/>
+        <location file="own-math.hpp" line="113" column="1" bodyfile="own-math.hpp" bodystart="113" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,12 +52,12 @@
 </parameterlist>
 </para>    </detaileddescription>
     <collaborationgraph>
-        <node id="11">
+      <node id="11">
         <label>space::big_value&lt; Dtype &gt;</label>
         <link refid="structspace_1_1big__value"/>
       </node>
     </collaborationgraph>
-      <location file="own-math.hpp" line="111" column="1" bodyfile="own-math.hpp" bodystart="111" bodyend="114"/>
+    <location file="own-math.hpp" line="111" column="1" bodyfile="own-math.hpp" bodystart="111" bodyend="114"/>
     <listofallmembers>
       <member refid="structspace_1_1big__value_1a7a13d49b6cefe1ff541f1a2afe44ebbe" prot="public" virt="non-virtual"><scope>space::big_value</scope><name>value</name></member>
       <member refid="structspace_1_1big__value_1a3839a0f998917d07e10e662245c18fad" prot="public" virt="non-virtual"><scope>space::big_value</scope><name>value_type</name></member>

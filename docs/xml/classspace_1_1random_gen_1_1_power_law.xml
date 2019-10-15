@@ -20,8 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="129" column="1" bodyfile="rand-generator.hpp" bodystart="129"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="129" column="1" bodyfile="rand-generator.hpp" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1random_gen_1_1_power_law_1a41b7278be020f65b51a2c01d0c5c20f5" prot="private" static="no" mutable="no">
         <type>std::mt19937</type>
@@ -34,8 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="130" column="1" bodyfile="rand-generator.hpp" bodystart="130"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="130" column="1" bodyfile="rand-generator.hpp" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1random_gen_1_1_power_law_1a0d63ce3448bbc112834679f3119d6822" prot="private" static="no" mutable="no">
         <type>std::uniform_real_distribution&lt; Dtype &gt;</type>
@@ -48,8 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="131" column="1" bodyfile="rand-generator.hpp" bodystart="131"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="131" column="1" bodyfile="rand-generator.hpp" bodystart="131" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
@@ -64,8 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="132" column="1" bodyfile="rand-generator.hpp" bodystart="132"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="132" column="1" bodyfile="rand-generator.hpp" bodystart="132" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -80,8 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="125" column="1" bodyfile="rand-generator.hpp" bodystart="125"
-                    bodyend="125"/>
+        <location file="rand-generator.hpp" line="125" column="1" bodyfile="rand-generator.hpp" bodystart="125" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_power_law_1a1d2e66280b041b3c9536110c397d48db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -97,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="127" column="1"/>
+        <location file="rand-generator.hpp" line="127" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -124,8 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="135" column="1" bodyfile="rand-generator.hpp" bodystart="135"
-                    bodyend="145"/>
+        <location file="rand-generator.hpp" line="135" column="1" bodyfile="rand-generator.hpp" bodystart="135" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_power_law_1ab5bc89445ac91069040164b7f9983f9b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Dtype</type>
@@ -150,8 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="147" column="1" bodyfile="rand-generator.hpp" bodystart="147"
-                    bodyend="163"/>
+        <location file="rand-generator.hpp" line="147" column="1" bodyfile="rand-generator.hpp" bodystart="147" bodyend="163"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_power_law_1a07926441f1aca10903969d6a49f98244" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -185,8 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="166" column="1" bodyfile="rand-generator.hpp" bodystart="166"
-                    bodyend="176"/>
+        <location file="rand-generator.hpp" line="166" column="1" bodyfile="rand-generator.hpp" bodystart="166" bodyend="176"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -194,13 +186,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="272">
+      <node id="272">
         <label>space::randomGen::PowerLaw&lt; Dtype &gt;</label>
         <link refid="classspace_1_1random_gen_1_1_power_law"/>
       </node>
     </collaborationgraph>
-      <location file="rand-generator.hpp" line="123" column="1" bodyfile="rand-generator.hpp" bodystart="123"
-                bodyend="177"/>
+    <location file="rand-generator.hpp" line="123" column="1" bodyfile="rand-generator.hpp" bodystart="123" bodyend="177"/>
     <listofallmembers>
       <member refid="classspace_1_1random_gen_1_1_power_law_1a0d63ce3448bbc112834679f3119d6822" prot="private" virt="non-virtual"><scope>space::randomGen::PowerLaw</scope><name>dist_</name></member>
       <member refid="classspace_1_1random_gen_1_1_power_law_1a41b7278be020f65b51a2c01d0c5c20f5" prot="private" virt="non-virtual"><scope>space::randomGen::PowerLaw</scope><name>gen_</name></member>

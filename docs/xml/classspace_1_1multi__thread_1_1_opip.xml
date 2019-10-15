@@ -1,228 +1,170 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
-         version="1.8.13">
-    <compounddef id="classspace_1_1multi__thread_1_1_opip" kind="class" language="C++" prot="public">
-        <compoundname>space::multi_thread::Opip</compoundname>
-        <includes refid="ciostream_8hpp" local="no">ciostream.hpp</includes>
-        <templateparamlist>
-            <param>
-                <type>typename T</type>
-            </param>
-        </templateparamlist>
-        <sectiondef kind="private-attrib">
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1a100e0f1e0c39382b882c6574071fd6ee"
-                       prot="private" static="no" mutable="no">
-                <type>std::queue&lt; T &gt;</type>
-                <definition>std::queue&lt;T&gt; space::multi_thread::Opip&lt; T &gt;::queue_</definition>
-                <argsstring></argsstring>
-                <name>queue_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="61" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="61" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1ac627aed395c0dca8804524866299297a"
-                       prot="private" static="no" mutable="no">
-                <type>std::mutex</type>
-                <definition>std::mutex space::multi_thread::Opip&lt; T &gt;::mutex_</definition>
-                <argsstring></argsstring>
-                <name>mutex_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="62" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="62" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1a9842f65f1663295d64fc15ebcb213a63"
-                       prot="private" static="no" mutable="no">
-                <type>std::condition_variable</type>
-                <definition>std::condition_variable space::multi_thread::Opip&lt; T &gt;::cv_</definition>
-                <argsstring></argsstring>
-                <name>cv_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="63" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="63" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1ae2e956ed6710b33579cf50fddf0ca0bc"
-                       prot="private" static="no" mutable="no">
-                <type>std::fstream</type>
-                <definition>std::fstream space::multi_thread::Opip&lt; T &gt;::file_</definition>
-                <argsstring></argsstring>
-                <name>file_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="64" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="64" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1aa16f985cb09a92b1ac696b75264a99c3"
-                       prot="private" static="no" mutable="no">
-                <type>std::thread</type>
-                <definition>std::thread space::multi_thread::Opip&lt; T &gt;::thread_</definition>
-                <argsstring></argsstring>
-                <name>thread_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="65" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="65" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1a6ba110abda7ff8bb0b4bcbc9509d22ce"
-                       prot="private" static="no" mutable="no">
-                <type>bool</type>
-                <definition>bool space::multi_thread::Opip&lt; T &gt;::stop_</definition>
-                <argsstring></argsstring>
-                <name>stop_</name>
-                <initializer>{false}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="66" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="66" bodyend="-1"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="public-func">
-            <memberdef kind="function" id="classspace_1_1multi__thread_1_1_opip_1a192d6729523d661ce8e7df24c79e4f15"
-                       prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
-                <type></type>
-                <definition>space::multi_thread::Opip&lt; T &gt;::Opip</definition>
-                <argsstring>(const char *file_name)</argsstring>
-                <name>Opip</name>
-                <param>
-                    <type>const char *</type>
-                    <declname>file_name</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="16" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="16" bodyend="39"/>
-            </memberdef>
-            <memberdef kind="function" id="classspace_1_1multi__thread_1_1_opip_1a4b8f6c869ac3ed877366e6cf2610c3a5"
-                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-                <type></type>
-                <definition>space::multi_thread::Opip&lt; T &gt;::~Opip</definition>
-                <argsstring>()</argsstring>
-                <name>~Opip</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="41" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="41" bodyend="50"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="friend">
-            <memberdef kind="friend" id="classspace_1_1multi__thread_1_1_opip_1a5dae72941612649f0ef8d257be244f3d"
-                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-                <type>friend void</type>
-                <definition>void operator&lt;&lt;</definition>
-                <argsstring>(Opip &amp;out, T &amp;&amp;tup)</argsstring>
-                <name>operator&lt;&lt;</name>
-                <param>
-                    <type>
-                        <ref refid="classspace_1_1multi__thread_1_1_opip" kindref="compound">Opip</ref> &amp;
-                    </type>
-                    <declname>out</declname>
-                </param>
-                <param>
-                    <type>T &amp;&amp;</type>
-                    <declname>tup</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="52" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="52" bodyend="58"/>
-            </memberdef>
-        </sectiondef>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classspace_1_1multi__thread_1_1_opip" kind="class" language="C++" prot="public">
+    <compoundname>space::multi_thread::Opip</compoundname>
+    <includes refid="ciostream_8hpp" local="no">ciostream.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1a100e0f1e0c39382b882c6574071fd6ee" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; T &gt;</type>
+        <definition>std::queue&lt;T&gt; space::multi_thread::Opip&lt; T &gt;::queue_</definition>
+        <argsstring></argsstring>
+        <name>queue_</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
-        <collaborationgraph>
-            <node id="215">
-                <label>space::multi_thread::Opip&lt; T &gt;</label>
-                <link refid="classspace_1_1multi__thread_1_1_opip"/>
-            </node>
-        </collaborationgraph>
-        <location file="multi-thread/ciostream.hpp" line="14" column="1" bodyfile="multi-thread/ciostream.hpp"
-                  bodystart="14" bodyend="67"/>
-        <listofallmembers>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1a9842f65f1663295d64fc15ebcb213a63" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>cv_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1ae2e956ed6710b33579cf50fddf0ca0bc" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>file_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1ac627aed395c0dca8804524866299297a" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>mutex_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1a5dae72941612649f0ef8d257be244f3d" prot="public"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>operator&lt;&lt;</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1a192d6729523d661ce8e7df24c79e4f15" prot="public"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>Opip</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1a100e0f1e0c39382b882c6574071fd6ee" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>queue_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1a6ba110abda7ff8bb0b4bcbc9509d22ce" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>stop_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1aa16f985cb09a92b1ac696b75264a99c3" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>thread_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_opip_1a4b8f6c869ac3ed877366e6cf2610c3a5" prot="public"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Opip</scope>
-                <name>~Opip</name>
-            </member>
-        </listofallmembers>
-    </compounddef>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="61" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1ac627aed395c0dca8804524866299297a" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex space::multi_thread::Opip&lt; T &gt;::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="62" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1a9842f65f1663295d64fc15ebcb213a63" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable space::multi_thread::Opip&lt; T &gt;::cv_</definition>
+        <argsstring></argsstring>
+        <name>cv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="63" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1ae2e956ed6710b33579cf50fddf0ca0bc" prot="private" static="no" mutable="no">
+        <type>std::fstream</type>
+        <definition>std::fstream space::multi_thread::Opip&lt; T &gt;::file_</definition>
+        <argsstring></argsstring>
+        <name>file_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="64" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1aa16f985cb09a92b1ac696b75264a99c3" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread space::multi_thread::Opip&lt; T &gt;::thread_</definition>
+        <argsstring></argsstring>
+        <name>thread_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="65" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_opip_1a6ba110abda7ff8bb0b4bcbc9509d22ce" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool space::multi_thread::Opip&lt; T &gt;::stop_</definition>
+        <argsstring></argsstring>
+        <name>stop_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="66" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1multi__thread_1_1_opip_1a192d6729523d661ce8e7df24c79e4f15" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::multi_thread::Opip&lt; T &gt;::Opip</definition>
+        <argsstring>(const char *file_name)</argsstring>
+        <name>Opip</name>
+        <param>
+          <type>const char *</type>
+          <declname>file_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="16" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="16" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi__thread_1_1_opip_1a4b8f6c869ac3ed877366e6cf2610c3a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::multi_thread::Opip&lt; T &gt;::~Opip</definition>
+        <argsstring>()</argsstring>
+        <name>~Opip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="41" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="41" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classspace_1_1multi__thread_1_1_opip_1a5dae72941612649f0ef8d257be244f3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend void</type>
+        <definition>void operator&lt;&lt;</definition>
+        <argsstring>(Opip &amp;out, T &amp;&amp;tup)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type><ref refid="classspace_1_1multi__thread_1_1_opip" kindref="compound">Opip</ref> &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>tup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="52" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="52" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="215">
+        <label>space::multi_thread::Opip&lt; T &gt;</label>
+        <link refid="classspace_1_1multi__thread_1_1_opip"/>
+      </node>
+    </collaborationgraph>
+    <location file="multi-thread/ciostream.hpp" line="14" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="14" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1a9842f65f1663295d64fc15ebcb213a63" prot="private" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>cv_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1ae2e956ed6710b33579cf50fddf0ca0bc" prot="private" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>file_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1ac627aed395c0dca8804524866299297a" prot="private" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>mutex_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1a5dae72941612649f0ef8d257be244f3d" prot="public" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1a192d6729523d661ce8e7df24c79e4f15" prot="public" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>Opip</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1a100e0f1e0c39382b882c6574071fd6ee" prot="private" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>queue_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1a6ba110abda7ff8bb0b4bcbc9509d22ce" prot="private" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>stop_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1aa16f985cb09a92b1ac696b75264a99c3" prot="private" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>thread_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_opip_1a4b8f6c869ac3ed877366e6cf2610c3a5" prot="public" virt="non-virtual"><scope>space::multi_thread::Opip</scope><name>~Opip</name></member>
+    </listofallmembers>
+  </compounddef>
 </doxygen>

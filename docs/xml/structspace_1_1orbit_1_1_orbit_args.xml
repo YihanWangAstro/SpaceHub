@@ -21,8 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="144" column="1" bodyfile="orbits/orbits.hpp" bodystart="144"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="144" column="1" bodyfile="orbits/orbits.hpp" bodystart="144" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-type">
@@ -37,8 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="147" column="1" bodyfile="orbits/orbits.hpp" bodystart="147"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="147" column="1" bodyfile="orbits/orbits.hpp" bodystart="147" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -53,8 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="149" column="1" bodyfile="orbits/orbits.hpp" bodystart="149"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="149" column="1" bodyfile="orbits/orbits.hpp" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1ae23a20aeea94dd686bc8763fc808835d" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -67,8 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="150" column="1" bodyfile="orbits/orbits.hpp" bodystart="150"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="150" column="1" bodyfile="orbits/orbits.hpp" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1aa08aac46eea7ca745948313b160bd06c" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -81,8 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="151" column="1" bodyfile="orbits/orbits.hpp" bodystart="151"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="151" column="1" bodyfile="orbits/orbits.hpp" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1ab088534ff1dd7ff7396ece41b2c531f6" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -95,8 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="152" column="1" bodyfile="orbits/orbits.hpp" bodystart="152"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="152" column="1" bodyfile="orbits/orbits.hpp" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1af52e1afa8edc7142af77aa18d8acd1da" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -109,8 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="153" column="1" bodyfile="orbits/orbits.hpp" bodystart="153"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="153" column="1" bodyfile="orbits/orbits.hpp" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a5953c736414689c3b2e1a478df686322" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -123,8 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="154" column="1" bodyfile="orbits/orbits.hpp" bodystart="154"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="154" column="1" bodyfile="orbits/orbits.hpp" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a408cd63bafe90dc3243da7185930ae00" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -137,8 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="155" column="1" bodyfile="orbits/orbits.hpp" bodystart="155"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="155" column="1" bodyfile="orbits/orbits.hpp" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1afaeb608e784832a2bbb0919828b71f1b" prot="public" static="no" mutable="no">
         <type><ref refid="structspace_1_1orbit_1_1_orbit_args_1a38a48688019e2fb69cc638bafbe23fa9" kindref="member">Scalar</ref></type>
@@ -151,8 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="156" column="1" bodyfile="orbits/orbits.hpp" bodystart="156"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="156" column="1" bodyfile="orbits/orbits.hpp" bodystart="156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1orbit_1_1_orbit_args_1a838f5cf2ba6382820b7dea8f9dfa6b38" prot="public" static="no" mutable="no">
         <type><ref refid="namespacespace_1_1orbit_1a5b218ab4c1cd5603e9dfb9e657297ff5" kindref="member">OrbitType</ref></type>
@@ -165,8 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="157" column="1" bodyfile="orbits/orbits.hpp" bodystart="157"
-                    bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="157" column="1" bodyfile="orbits/orbits.hpp" bodystart="157" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -181,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="159" column="1"/>
+        <location file="orbits/orbits.hpp" line="159" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a4984e29f05b7fc62dcd15b31ab479faa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -226,8 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="161" column="1" bodyfile="orbits/orbits.hpp" bodystart="161"
-                    bodyend="205"/>
+        <location file="orbits/orbits.hpp" line="161" column="1" bodyfile="orbits/orbits.hpp" bodystart="161" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a06d9e41d9d35001e245d021ee6136bbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -240,8 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="207" column="1" bodyfile="orbits/orbits.hpp" bodystart="207"
-                    bodyend="207"/>
+        <location file="orbits/orbits.hpp" line="207" column="1" bodyfile="orbits/orbits.hpp" bodystart="207" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a6ab10d5338aab477e8be5239a5265c85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -254,8 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="209" column="1" bodyfile="orbits/orbits.hpp" bodystart="209"
-                    bodyend="209"/>
+        <location file="orbits/orbits.hpp" line="209" column="1" bodyfile="orbits/orbits.hpp" bodystart="209" bodyend="209"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a9df626e401cfc580ec9ae273eb72226b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -268,8 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="211" column="1" bodyfile="orbits/orbits.hpp" bodystart="211"
-                    bodyend="211"/>
+        <location file="orbits/orbits.hpp" line="211" column="1" bodyfile="orbits/orbits.hpp" bodystart="211" bodyend="211"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1ad115a031995591783878eaf3f31dfbdb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -282,8 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="213" column="1" bodyfile="orbits/orbits.hpp" bodystart="213"
-                    bodyend="221"/>
+        <location file="orbits/orbits.hpp" line="213" column="1" bodyfile="orbits/orbits.hpp" bodystart="213" bodyend="221"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a152ae74a06730952b3c86e4ba695b848" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -296,8 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="223" column="1" bodyfile="orbits/orbits.hpp" bodystart="223"
-                    bodyend="223"/>
+        <location file="orbits/orbits.hpp" line="223" column="1" bodyfile="orbits/orbits.hpp" bodystart="223" bodyend="223"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1ad64f288f2a5572c9879bd69cd5e5cab1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -310,8 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="225" column="1" bodyfile="orbits/orbits.hpp" bodystart="225"
-                    bodyend="225"/>
+        <location file="orbits/orbits.hpp" line="225" column="1" bodyfile="orbits/orbits.hpp" bodystart="225" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1a58cac0aa929af0e17bff1986c52ed9a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -324,8 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="227" column="1" bodyfile="orbits/orbits.hpp" bodystart="227"
-                    bodyend="227"/>
+        <location file="orbits/orbits.hpp" line="227" column="1" bodyfile="orbits/orbits.hpp" bodystart="227" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_orbit_args_1af2bdd4650b0f5187c2842f789cc1754c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -338,8 +319,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="229" column="1" bodyfile="orbits/orbits.hpp" bodystart="229"
-                    bodyend="237"/>
+        <location file="orbits/orbits.hpp" line="229" column="1" bodyfile="orbits/orbits.hpp" bodystart="229" bodyend="237"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -362,8 +342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="orbits/orbits.hpp" line="239" column="1" bodyfile="orbits/orbits.hpp" bodystart="239"
-                    bodyend="242"/>
+        <location file="orbits/orbits.hpp" line="239" column="1" bodyfile="orbits/orbits.hpp" bodystart="239" bodyend="242"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -379,25 +358,24 @@
 </parameterlist>
 </para>    </detaileddescription>
     <inheritancegraph>
-        <node id="216">
+      <node id="216">
         <label>space::orbit::OrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_orbit_args"/>
       </node>
-        <node id="217">
+      <node id="217">
         <label>space::orbit::HyperOrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_hyper_orbit_args"/>
-            <childnode refid="216" relation="public-inheritance">
+        <childnode refid="216" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-        <node id="218">
+      <node id="218">
         <label>space::orbit::OrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_orbit_args"/>
       </node>
     </collaborationgraph>
-      <location file="orbits/orbits.hpp" line="142" column="1" bodyfile="orbits/orbits.hpp" bodystart="142"
-                bodyend="243"/>
+    <location file="orbits/orbits.hpp" line="142" column="1" bodyfile="orbits/orbits.hpp" bodystart="142" bodyend="243"/>
     <listofallmembers>
       <member refid="structspace_1_1orbit_1_1_orbit_args_1aa08aac46eea7ca745948313b160bd06c" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>e</name></member>
       <member refid="structspace_1_1orbit_1_1_orbit_args_1af52e1afa8edc7142af77aa18d8acd1da" prot="public" virt="non-virtual"><scope>space::orbit::OrbitArgs</scope><name>i</name></member>

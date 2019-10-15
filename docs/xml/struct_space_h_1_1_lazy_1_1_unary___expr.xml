@@ -92,39 +92,39 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-        <node id="376">
+      <node id="376">
         <label>SpaceH::Lazy::Unary_Expr&lt; Operator, Unary &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_unary___expr"/>
-            <childnode refid="377" relation="public-inheritance">
+        <childnode refid="377" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="378">
+      <node id="378">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-        <node id="377">
+      <node id="377">
         <label>SpaceH::Lazy::Expr&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-            <childnode refid="378" relation="template-instance">
+        <childnode refid="378" relation="template-instance">
           <edgelabel>&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;</edgelabel>
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-        <node id="379">
+      <node id="379">
         <label>SpaceH::Lazy::Unary_Expr&lt; Operator, Unary &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_unary___expr"/>
-            <childnode refid="380" relation="public-inheritance">
+        <childnode refid="380" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="381">
+      <node id="381">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-        <node id="380">
+      <node id="380">
         <label>SpaceH::Lazy::Expr&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-            <childnode refid="381" relation="template-instance">
+        <childnode refid="381" relation="template-instance">
           <edgelabel>&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;</edgelabel>
         </childnode>
       </node>

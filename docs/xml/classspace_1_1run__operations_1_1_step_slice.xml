@@ -1,291 +1,207 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
-         version="1.8.13">
-    <compounddef id="classspace_1_1run__operations_1_1_step_slice" kind="class" language="C++" prot="public">
-        <compoundname>space::run_operations::StepSlice</compoundname>
-        <includes refid="callbacks_8hpp" local="no">callbacks.hpp</includes>
-        <templateparamlist>
-            <param>
-                <type>typename Operation</type>
-            </param>
-        </templateparamlist>
-        <sectiondef kind="private-attrib">
-            <memberdef kind="variable"
-                       id="classspace_1_1run__operations_1_1_step_slice_1a9aae8204879faefd0d60f3dea5100c78"
-                       prot="private" static="no" mutable="no">
-                <type>Operation</type>
-                <definition>Operation space::run_operations::StepSlice&lt; Operation &gt;::opt_</definition>
-                <argsstring></argsstring>
-                <name>opt_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="112" column="1"
-                          bodyfile="args-callback/callbacks.hpp" bodystart="112" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable"
-                       id="classspace_1_1run__operations_1_1_step_slice_1ae0c92e17487eab9fffb766fd925f4d42"
-                       prot="private" static="no" mutable="no">
-                <type>size_t</type>
-                <definition>size_t space::run_operations::StepSlice&lt; Operation &gt;::step_</definition>
-                <argsstring></argsstring>
-                <name>step_</name>
-                <initializer>{0}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="113" column="1"
-                          bodyfile="args-callback/callbacks.hpp" bodystart="113" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable"
-                       id="classspace_1_1run__operations_1_1_step_slice_1aed99a8a6d485e67e551343b8fd4f411d"
-                       prot="private" static="no" mutable="no">
-                <type>size_t</type>
-                <definition>size_t space::run_operations::StepSlice&lt; Operation &gt;::step_interval_</definition>
-                <argsstring></argsstring>
-                <name>step_interval_</name>
-                <initializer>{0}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="114" column="1"
-                          bodyfile="args-callback/callbacks.hpp" bodystart="114" bodyend="-1"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="public-func">
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1a38da8fce31fbb7c82ba70a9a0f7e0ee0"
-                       prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
-                <type></type>
-                <definition>space::run_operations::StepSlice&lt; Operation &gt;::StepSlice</definition>
-                <argsstring>(Operation const &amp;opt, size_t step_interval=1)</argsstring>
-                <name>StepSlice</name>
-                <param>
-                    <type>Operation const &amp;</type>
-                    <declname>opt</declname>
-                </param>
-                <param>
-                    <type>size_t</type>
-                    <declname>step_interval</declname>
-                    <defval>1</defval>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="86" column="1" bodyfile="args-callback/callbacks.hpp"
-                          bodystart="86" bodyend="88"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1afa47fca16edae6094c2ebe40bcb85892"
-                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-                <templateparamlist>
-                    <param>
-                        <type>typename ParticleSys</type>
-                    </param>
-                </templateparamlist>
-                <type>void</type>
-                <definition>void space::run_operations::StepSlice&lt; Operation &gt;::operator()</definition>
-                <argsstring>(ParticleSys &amp;ptc)</argsstring>
-                <name>operator()</name>
-                <param>
-                    <type>ParticleSys &amp;</type>
-                    <declname>ptc</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="91" column="1" bodyfile="args-callback/callbacks.hpp"
-                          bodystart="91" bodyend="96"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1a2c8abca25ab037e0bb447301b311e2cf"
-                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type></type>
-                <definition>space::run_operations::StepSlice&lt; Operation &gt;::StepSlice</definition>
-                <argsstring>(StepSlice &amp;&amp;other) noexcept=default</argsstring>
-                <name>StepSlice</name>
-                <param>
-                    <type>
-                        <ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref>
-                        &amp;&amp;
-                    </type>
-                    <declname>other</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="98" column="1"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1a9636635c3bd19fdee3477e0e373f7476"
-                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type></type>
-                <definition>space::run_operations::StepSlice&lt; Operation &gt;::StepSlice</definition>
-                <argsstring>(StepSlice const &amp;other)=default</argsstring>
-                <name>StepSlice</name>
-                <param>
-                    <type>
-                        <ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref>
-                        const &amp;
-                    </type>
-                    <declname>other</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="100" column="1"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1ab32bdfa83b053551ad4858adba05bf8b"
-                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type>
-                    <ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> &amp;
-                </type>
-                <definition>StepSlice&amp; space::run_operations::StepSlice&lt; Operation &gt;::operator=</definition>
-                <argsstring>(StepSlice const &amp;)=default</argsstring>
-                <name>operator=</name>
-                <param>
-                    <type>
-                        <ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref>
-                        const &amp;
-                    </type>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="102" column="1"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1ad06908869ebffa36e8254646b78347a6"
-                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type>
-                    <ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> &amp;
-                </type>
-                <definition>StepSlice&amp; space::run_operations::StepSlice&lt; Operation &gt;::operator=</definition>
-                <argsstring>(StepSlice &amp;&amp;) noexcept=default</argsstring>
-                <name>operator=</name>
-                <param>
-                    <type>
-                        <ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref>
-                        &amp;&amp;
-                    </type>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="104" column="1"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1run__operations_1_1_step_slice_1a9e404eac8f9a5fe2ac8ad82478f908b7"
-                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-                <type>void</type>
-                <definition>void space::run_operations::StepSlice&lt; Operation &gt;::reset_slice_params</definition>
-                <argsstring>(size_t step_interval)</argsstring>
-                <name>reset_slice_params</name>
-                <param>
-                    <type>size_t</type>
-                    <declname>step_interval</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="args-callback/callbacks.hpp" line="106" column="1"
-                          bodyfile="args-callback/callbacks.hpp" bodystart="106" bodyend="109"/>
-            </memberdef>
-        </sectiondef>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classspace_1_1run__operations_1_1_step_slice" kind="class" language="C++" prot="public">
+    <compoundname>space::run_operations::StepSlice</compoundname>
+    <includes refid="callbacks_8hpp" local="no">callbacks.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Operation</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1run__operations_1_1_step_slice_1a9aae8204879faefd0d60f3dea5100c78" prot="private" static="no" mutable="no">
+        <type>Operation</type>
+        <definition>Operation space::run_operations::StepSlice&lt; Operation &gt;::opt_</definition>
+        <argsstring></argsstring>
+        <name>opt_</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
-        <collaborationgraph>
-            <node id="321">
-                <label>space::run_operations::StepSlice&lt; Operation &gt;</label>
-                <link refid="classspace_1_1run__operations_1_1_step_slice"/>
-            </node>
-        </collaborationgraph>
-        <location file="args-callback/callbacks.hpp" line="84" column="1" bodyfile="args-callback/callbacks.hpp"
-                  bodystart="84" bodyend="115"/>
-        <listofallmembers>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1afa47fca16edae6094c2ebe40bcb85892"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>operator()</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1ab32bdfa83b053551ad4858adba05bf8b"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>operator=</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1ad06908869ebffa36e8254646b78347a6"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>operator=</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1a9aae8204879faefd0d60f3dea5100c78"
-                    prot="private" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>opt_</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1a9e404eac8f9a5fe2ac8ad82478f908b7"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>reset_slice_params</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1ae0c92e17487eab9fffb766fd925f4d42"
-                    prot="private" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>step_</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1aed99a8a6d485e67e551343b8fd4f411d"
-                    prot="private" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>step_interval_</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1a38da8fce31fbb7c82ba70a9a0f7e0ee0"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>StepSlice</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1a2c8abca25ab037e0bb447301b311e2cf"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>StepSlice</name>
-            </member>
-            <member refid="classspace_1_1run__operations_1_1_step_slice_1a9636635c3bd19fdee3477e0e373f7476"
-                    prot="public" virt="non-virtual">
-                <scope>space::run_operations::StepSlice</scope>
-                <name>StepSlice</name>
-            </member>
-        </listofallmembers>
-    </compounddef>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="112" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1run__operations_1_1_step_slice_1ae0c92e17487eab9fffb766fd925f4d42" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t space::run_operations::StepSlice&lt; Operation &gt;::step_</definition>
+        <argsstring></argsstring>
+        <name>step_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="113" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1run__operations_1_1_step_slice_1aed99a8a6d485e67e551343b8fd4f411d" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t space::run_operations::StepSlice&lt; Operation &gt;::step_interval_</definition>
+        <argsstring></argsstring>
+        <name>step_interval_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="114" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1a38da8fce31fbb7c82ba70a9a0f7e0ee0" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::run_operations::StepSlice&lt; Operation &gt;::StepSlice</definition>
+        <argsstring>(Operation const &amp;opt, size_t step_interval=1)</argsstring>
+        <name>StepSlice</name>
+        <param>
+          <type>Operation const &amp;</type>
+          <declname>opt</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>step_interval</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="86" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="86" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1afa47fca16edae6094c2ebe40bcb85892" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ParticleSys</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::run_operations::StepSlice&lt; Operation &gt;::operator()</definition>
+        <argsstring>(ParticleSys &amp;ptc)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>ParticleSys &amp;</type>
+          <declname>ptc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="91" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1a2c8abca25ab037e0bb447301b311e2cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::run_operations::StepSlice&lt; Operation &gt;::StepSlice</definition>
+        <argsstring>(StepSlice &amp;&amp;other) noexcept=default</argsstring>
+        <name>StepSlice</name>
+        <param>
+          <type><ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="98" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1a9636635c3bd19fdee3477e0e373f7476" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::run_operations::StepSlice&lt; Operation &gt;::StepSlice</definition>
+        <argsstring>(StepSlice const &amp;other)=default</argsstring>
+        <name>StepSlice</name>
+        <param>
+          <type><ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> const &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1ab32bdfa83b053551ad4858adba05bf8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> &amp;</type>
+        <definition>StepSlice&amp; space::run_operations::StepSlice&lt; Operation &gt;::operator=</definition>
+        <argsstring>(StepSlice const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="102" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1ad06908869ebffa36e8254646b78347a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> &amp;</type>
+        <definition>StepSlice&amp; space::run_operations::StepSlice&lt; Operation &gt;::operator=</definition>
+        <argsstring>(StepSlice &amp;&amp;) noexcept=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1run__operations_1_1_step_slice" kindref="compound">StepSlice</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="104" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1run__operations_1_1_step_slice_1a9e404eac8f9a5fe2ac8ad82478f908b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void space::run_operations::StepSlice&lt; Operation &gt;::reset_slice_params</definition>
+        <argsstring>(size_t step_interval)</argsstring>
+        <name>reset_slice_params</name>
+        <param>
+          <type>size_t</type>
+          <declname>step_interval</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="args-callback/callbacks.hpp" line="106" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="321">
+        <label>space::run_operations::StepSlice&lt; Operation &gt;</label>
+        <link refid="classspace_1_1run__operations_1_1_step_slice"/>
+      </node>
+    </collaborationgraph>
+    <location file="args-callback/callbacks.hpp" line="84" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="84" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1afa47fca16edae6094c2ebe40bcb85892" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>operator()</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1ab32bdfa83b053551ad4858adba05bf8b" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>operator=</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1ad06908869ebffa36e8254646b78347a6" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>operator=</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1a9aae8204879faefd0d60f3dea5100c78" prot="private" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>opt_</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1a9e404eac8f9a5fe2ac8ad82478f908b7" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>reset_slice_params</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1ae0c92e17487eab9fffb766fd925f4d42" prot="private" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>step_</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1aed99a8a6d485e67e551343b8fd4f411d" prot="private" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>step_interval_</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1a38da8fce31fbb7c82ba70a9a0f7e0ee0" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>StepSlice</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1a2c8abca25ab037e0bb447301b311e2cf" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>StepSlice</name></member>
+      <member refid="classspace_1_1run__operations_1_1_step_slice_1a9636635c3bd19fdee3477e0e373f7476" prot="public" virt="non-virtual"><scope>space::run_operations::StepSlice</scope><name>StepSlice</name></member>
+    </listofallmembers>
+  </compounddef>
 </doxygen>

@@ -49,15 +49,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1ode__iterator_1_1_step_controller" prot="public">
-          space::ode_iterator::StepController
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
+    <innerclass refid="classspace_1_1ode__iterator_1_1_step_controller" prot="public">space::ode_iterator::StepController</innerclass>
+    <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="stepsize-controller.hpp"/>
   </compounddef>
 </doxygen>

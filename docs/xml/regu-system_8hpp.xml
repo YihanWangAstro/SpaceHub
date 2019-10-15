@@ -99,18 +99,13 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1particle__system_1_1_regularization" prot="public">
-          space::particle_system::Regularization
-      </innerclass>
-      <innerclass refid="classspace_1_1particle__system_1_1_regularized_system" prot="public">
-          space::particle_system::RegularizedSystem
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1particle__system">space::particle_system</innernamespace>
+    <innerclass refid="classspace_1_1particle__system_1_1_regularization" prot="public">space::particle_system::Regularization</innerclass>
+    <innerclass refid="classspace_1_1particle__system_1_1_regularized_system" prot="public">space::particle_system::RegularizedSystem</innerclass>
+    <innernamespace refid="namespacespace_1_1particle__system">space::particle_system</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="particle-system/regu-system.hpp"/>
   </compounddef>
 </doxygen>

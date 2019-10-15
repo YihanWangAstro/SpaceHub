@@ -318,39 +318,39 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-        <node id="178">
+      <node id="178">
         <label>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4"/>
-            <childnode refid="179" relation="public-inheritance">
+        <childnode refid="179" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="180">
+      <node id="180">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-        <node id="179">
+      <node id="179">
         <label>SpaceH::Lazy::Expr&lt; Larray&lt; T, Len, true &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-            <childnode refid="180" relation="template-instance">
+        <childnode refid="180" relation="template-instance">
           <edgelabel>&lt; Larray&lt; T, Len, true &gt; &gt;</edgelabel>
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-        <node id="181">
+      <node id="181">
         <label>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4"/>
-            <childnode refid="182" relation="public-inheritance">
+        <childnode refid="182" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="183">
+      <node id="183">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-        <node id="182">
+      <node id="182">
         <label>SpaceH::Lazy::Expr&lt; Larray&lt; T, Len, true &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-            <childnode refid="183" relation="template-instance">
+        <childnode refid="183" relation="template-instance">
           <edgelabel>&lt; Larray&lt; T, Len, true &gt; &gt;</edgelabel>
         </childnode>
       </node>

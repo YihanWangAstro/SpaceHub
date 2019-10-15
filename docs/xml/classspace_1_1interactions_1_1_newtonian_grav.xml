@@ -2,18 +2,13 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1interactions_1_1_newtonian_grav" kind="class" language="C++" prot="public">
     <compoundname>space::interactions::NewtonianGrav</compoundname>
-      <basecompoundref refid="classspace_1_1interactions_1_1_interactions" prot="public" virt="non-virtual">
-          space::interactions::Interactions&lt; NewtonianGrav &gt;
-      </basecompoundref>
+    <basecompoundref refid="classspace_1_1interactions_1_1_interactions" prot="public" virt="non-virtual">space::interactions::Interactions&lt; NewtonianGrav &gt;</basecompoundref>
     <includes refid="newtonian_8hpp" local="no">newtonian.hpp</includes>
     <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" prot="private">space::interactions::NewtonianGrav::has_method_chain_pos</innerclass>
     <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" prot="private">space::interactions::NewtonianGrav::has_method_index</innerclass>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classspace_1_1interactions_1_1_newtonian_grav_1a7749cba6fb3e7cd236c536df8cd3f4c6" prot="public" static="no">
-          <type><ref refid="classspace_1_1interactions_1_1_interactions" kindref="compound">Interactions</ref>&lt; <ref
-                  refid="classspace_1_1interactions_1_1_newtonian_grav" kindref="compound">NewtonianGrav
-          </ref> &gt;
-          </type>
+        <type><ref refid="classspace_1_1interactions_1_1_interactions" kindref="compound">Interactions</ref>&lt; <ref refid="classspace_1_1interactions_1_1_newtonian_grav" kindref="compound">NewtonianGrav</ref> &gt;</type>
         <definition>using space::interactions::NewtonianGrav::Base =  Interactions&lt;NewtonianGrav&gt;</definition>
         <argsstring></argsstring>
         <name>Base</name>
@@ -45,7 +40,7 @@
       <memberdef kind="function" id="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename Particles</type>
+            <type>typename Particles</type>
           </param>
         </templateparamlist>
         <type>void</type>
@@ -53,7 +48,7 @@
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
         <name>impl_eval_acc</name>
         <param>
-            <type>Particles const &amp;</type>
+          <type>Particles const &amp;</type>
           <declname>particles</declname>
         </param>
         <param>
@@ -71,7 +66,7 @@
       <memberdef kind="function" id="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename Particles</type>
+            <type>typename Particles</type>
           </param>
         </templateparamlist>
         <type>void</type>
@@ -79,7 +74,7 @@
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
         <name>impl_eval_newtonian_acc</name>
         <param>
-            <type>Particles const &amp;</type>
+          <type>Particles const &amp;</type>
           <declname>particles</declname>
         </param>
         <param>
@@ -100,82 +95,54 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-        <node id="194">
-            <label>space::interactions::NewtonianGrav</label>
-            <link refid="classspace_1_1interactions_1_1_newtonian_grav"/>
-            <childnode refid="195" relation="public-inheritance">
-            </childnode>
-        </node>
-        <node id="196">
-            <label>space::interactions::Interactions&lt; Derived &gt;</label>
-            <link refid="classspace_1_1interactions_1_1_interactions"/>
-        </node>
-        <node id="195">
-            <label>space::interactions::Interactions&lt; NewtonianGrav &gt;</label>
-            <link refid="classspace_1_1interactions_1_1_interactions"/>
-            <childnode refid="196" relation="template-instance">
+      <node id="194">
+        <label>space::interactions::NewtonianGrav</label>
+        <link refid="classspace_1_1interactions_1_1_newtonian_grav"/>
+        <childnode refid="195" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="196">
+        <label>space::interactions::Interactions&lt; Derived &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+      </node>
+      <node id="195">
+        <label>space::interactions::Interactions&lt; NewtonianGrav &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+        <childnode refid="196" relation="template-instance">
           <edgelabel>&lt; NewtonianGrav &gt;</edgelabel>
         </childnode>
       </node>
     </inheritancegraph>
-      <collaborationgraph>
-          <node id="197">
-              <label>space::interactions::NewtonianGrav</label>
-              <link refid="classspace_1_1interactions_1_1_newtonian_grav"/>
-              <childnode refid="198" relation="public-inheritance">
-              </childnode>
-          </node>
-          <node id="199">
-              <label>space::interactions::Interactions&lt; Derived &gt;</label>
-              <link refid="classspace_1_1interactions_1_1_interactions"/>
-          </node>
-          <node id="198">
-              <label>space::interactions::Interactions&lt; NewtonianGrav &gt;</label>
-              <link refid="classspace_1_1interactions_1_1_interactions"/>
-              <childnode refid="199" relation="template-instance">
-                  <edgelabel>&lt; NewtonianGrav &gt;</edgelabel>
-              </childnode>
-          </node>
-      </collaborationgraph>
+    <collaborationgraph>
+      <node id="197">
+        <label>space::interactions::NewtonianGrav</label>
+        <link refid="classspace_1_1interactions_1_1_newtonian_grav"/>
+        <childnode refid="198" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="199">
+        <label>space::interactions::Interactions&lt; Derived &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+      </node>
+      <node id="198">
+        <label>space::interactions::Interactions&lt; NewtonianGrav &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+        <childnode refid="199" relation="template-instance">
+          <edgelabel>&lt; NewtonianGrav &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
     <location file="interaction/newtonian.hpp" line="20" column="1" bodyfile="interaction/newtonian.hpp" bodystart="20" bodyend="37"/>
     <listofallmembers>
       <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a7749cba6fb3e7cd236c536df8cd3f4c6" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>Base</name></member>
       <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a024aa0573cc7c567cb4962e838692a46" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>Base</name></member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>derived</name>
-        </member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>eval_acc</name>
-        </member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>eval_extra_vel_dep_acc</name>
-        </member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>eval_extra_vel_indep_acc</name>
-        </member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>eval_newtonian_acc</name>
-        </member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>ext_vel_dep</name>
-        </member>
-        <member refid="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public"
-                virt="non-virtual">
-            <scope>space::interactions::NewtonianGrav</scope>
-            <name>ext_vel_indep</name>
-        </member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>derived</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_extra_vel_dep_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_extra_vel_indep_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>eval_newtonian_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>ext_vel_dep</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>ext_vel_indep</name></member>
       <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5" prot="protected" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>impl_eval_acc</name></member>
       <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" prot="protected" virt="non-virtual"><scope>space::interactions::NewtonianGrav</scope><name>impl_eval_newtonian_acc</name></member>
     </listofallmembers>

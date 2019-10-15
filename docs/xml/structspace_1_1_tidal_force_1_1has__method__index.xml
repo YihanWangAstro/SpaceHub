@@ -77,7 +77,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="126">
+      <node id="126">
         <label>space::TidalForce::has_method_index&lt; T, Args &gt;</label>
       </node>
     </collaborationgraph>

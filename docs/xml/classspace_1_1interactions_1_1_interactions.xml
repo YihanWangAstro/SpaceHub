@@ -1,521 +1,350 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
-         version="1.8.13">
-    <compounddef id="classspace_1_1interactions_1_1_interactions" kind="class" language="C++" prot="public">
-        <compoundname>space::interactions::Interactions</compoundname>
-        <includes refid="interaction_8hpp" local="no">interaction.hpp</includes>
-        <innerclass
-                refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc"
-                prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_dep_acc
-        </innerclass>
-        <innerclass
-                refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc"
-                prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_indep_acc
-        </innerclass>
-        <templateparamlist>
-            <param>
-                <type>typename</type>
-                <declname>Derived</declname>
-                <defname>Derived</defname>
-            </param>
-        </templateparamlist>
-        <sectiondef kind="public-static-attrib">
-            <memberdef kind="variable"
-                       id="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" prot="public"
-                       static="yes" mutable="no">
-                <type>constexpr bool</type>
-                <definition>constexpr bool space::interactions::Interactions&lt; Derived &gt;::ext_vel_dep</definition>
-                <argsstring></argsstring>
-                <name>ext_vel_dep</name>
-                <initializer>{has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success"/>
-                        <bold>auto impl</bold>
-                    </para>
-                    <para>Variable to check if external velocity dependent forces exist the interaction. If the Derived
-                        class implements method impl_eval_extra_vel_dep_acc(). The value is <computeroutput>
-                            true</computeroutput>, otherwise this value is <computeroutput>false</computeroutput>.
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="58" column="1" bodyfile="interaction.hpp" bodystart="58"
-                          bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable"
-                       id="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public"
-                       static="yes" mutable="no">
-                <type>constexpr bool</type>
-                <definition>constexpr bool space::interactions::Interactions&lt; Derived &gt;::ext_vel_indep
-                </definition>
-                <argsstring></argsstring>
-                <name>ext_vel_indep</name>
-                <initializer>{has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success"/>
-                        <bold>auto impl</bold>
-                    </para>
-                    <para>Variable to check if external velocity independent forces exist the interaction. If the
-                        Derived class implements method impl_eval_extra_vel_indep_acc(). The value is <computeroutput>
-                            true</computeroutput>, otherwise this value is <computeroutput>false</computeroutput>.
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="66" column="1" bodyfile="interaction.hpp" bodystart="66"
-                          bodyend="-1"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="private-attrib">
-            <memberdef kind="variable"
-                       id="classspace_1_1interactions_1_1_interactions_1a43dba0a79005ad55e26516e26007648a"
-                       prot="private" static="no" mutable="no">
-                <type>friend</type>
-                <definition>friend space::interactions::Interactions&lt; Derived &gt;::Derived</definition>
-                <argsstring></argsstring>
-                <name>Derived</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="133" column="1" bodyfile="interaction.hpp" bodystart="133"
-                          bodyend="-1"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="public-func">
-            <memberdef kind="function"
-                       id="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public"
-                       static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type>Derived &amp;</type>
-                <definition>Derived &amp; Interactions::derived</definition>
-                <argsstring>()</argsstring>
-                <name>derived</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success"/>
-                        <bold>auto impl</bold>
-                    </para>
-                    <para>The downcast interface of Base class to Derived class.
-                        <simplesect kind="return">
-                            <para>Derived</para>
-                        </simplesect>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="75" column="1" bodyfile="interaction.hpp" bodystart="140"
-                          bodyend="142"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public"
-                       static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <templateparamlist>
-                    <param>
-                        <type>typename Particles</type>
-                    </param>
-                </templateparamlist>
-                <type>void</type>
-                <definition>void Interactions::eval_acc</definition>
-                <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-                <name>eval_acc</name>
-                <param>
-                    <type>Particles const &amp;</type>
-                    <declname>particles</declname>
-                </param>
-                <param>
-                    <type>typename Particles::Coord &amp;</type>
-                    <declname>acceleration</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger"/>
-                        <bold>must impl</bold>
-                    </para>
-                    <para>Evaluate the total acceleration of the current state of a given particle system.</para>
-                    <para>
-                        <parameterlist kind="templateparam">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername>Particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Type of the particle system. This type must have method mass(), pos(), vel(),
-                                        time(); type member <computeroutput>Coord</computeroutput>.
-                                    </para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                        <parameterlist kind="param">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The particle system need to be evaluated.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="out">acceleration</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The output of the evaluated acceleration.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="88" column="1" bodyfile="interaction.hpp" bodystart="146"
-                          bodyend="148"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public"
-                       static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <templateparamlist>
-                    <param>
-                        <type>typename Particles</type>
-                    </param>
-                </templateparamlist>
-                <type>void</type>
-                <definition>void Interactions::eval_extra_vel_dep_acc</definition>
-                <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-                <name>eval_extra_vel_dep_acc</name>
-                <param>
-                    <type>Particles const &amp;</type>
-                    <declname>particles</declname>
-                </param>
-                <param>
-                    <type>typename Particles::Coord &amp;</type>
-                    <declname>acceleration</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning"/>
-                        <bold>optional impl</bold>
-                        <computeroutput>&gt; external velocity dependent forces exist.</computeroutput>
-                    </para>
-                    <para>Evaluate the external velocity dependent acceleration of the current state of a given particle
-                        system.
-                    </para>
-                    <para>
-                        <parameterlist kind="templateparam">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername>Particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Type of the particle system. This type must have method mass(), pos(), vel();
-                                        type member <computeroutput>Coord</computeroutput>.
-                                    </para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                        <parameterlist kind="param">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The particle system need to be evaluated.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="out">acceleration</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The output of the evaluated acceleration.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="101" column="1" bodyfile="interaction.hpp" bodystart="153"
-                          bodyend="155"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public"
-                       static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <templateparamlist>
-                    <param>
-                        <type>typename Particles</type>
-                    </param>
-                </templateparamlist>
-                <type>void</type>
-                <definition>void Interactions::eval_extra_vel_indep_acc</definition>
-                <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-                <name>eval_extra_vel_indep_acc</name>
-                <param>
-                    <type>Particles const &amp;</type>
-                    <declname>particles</declname>
-                </param>
-                <param>
-                    <type>typename Particles::Coord &amp;</type>
-                    <declname>acceleration</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning"/>
-                        <bold>optional impl</bold>
-                        <computeroutput>&gt; external velocity independent forces exist.</computeroutput>
-                    </para>
-                    <para>Evaluate the external velocity independent acceleration of the current state of a given
-                        particle system.
-                    </para>
-                    <para>
-                        <parameterlist kind="templateparam">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername>Particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Type of the particle system. This type must have method mass(), pos(); type
-                                        member <computeroutput>Coord</computeroutput>.
-                                    </para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                        <parameterlist kind="param">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The particle system need to be evaluated.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="out">acceleration</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The output of the evaluated acceleration.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="114" column="1" bodyfile="interaction.hpp" bodystart="160"
-                          bodyend="162"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public"
-                       static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <templateparamlist>
-                    <param>
-                        <type>typename Particles</type>
-                    </param>
-                </templateparamlist>
-                <type>void</type>
-                <definition>void Interactions::eval_newtonian_acc</definition>
-                <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-                <name>eval_newtonian_acc</name>
-                <param>
-                    <type>Particles const &amp;</type>
-                    <declname>particles</declname>
-                </param>
-                <param>
-                    <type>typename Particles::Coord &amp;</type>
-                    <declname>acceleration</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger"/>
-                        <bold>must impl</bold>
-                    </para>
-                    <para>Evaluate the internal newtonian acceleration of the current state of a given particle
-                        system.
-                    </para>
-                    <para>
-                        <parameterlist kind="templateparam">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername>Particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Type of the particle system. This type must have method mass(), pos(); type
-                                        member <computeroutput>Coord</computeroutput>.
-                                    </para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                        <parameterlist kind="param">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">particles</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The particle system need to be evaluated.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="out">acceleration</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The output of the evaluated acceleration.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="127" column="1" bodyfile="interaction.hpp" bodystart="166"
-                          bodyend="168"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="private-func">
-            <memberdef kind="function"
-                       id="classspace_1_1interactions_1_1_interactions_1a2f1d4e78ecdbc5cc05b26dea4f0b4244"
-                       prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type></type>
-                <definition>space::interactions::Interactions&lt; Derived &gt;::Interactions</definition>
-                <argsstring>()=default</argsstring>
-                <name>Interactions</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="interaction.hpp" line="131" column="1"/>
-            </memberdef>
-        </sectiondef>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classspace_1_1interactions_1_1_interactions" kind="class" language="C++" prot="public">
+    <compoundname>space::interactions::Interactions</compoundname>
+    <includes refid="interaction_8hpp" local="no">interaction.hpp</includes>
+    <innerclass refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_dep_acc</innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" prot="private">space::interactions::Interactions::has_method_impl_eval_extra_vel_indep_acc</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Derived</declname>
+        <defname>Derived</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" prot="public" static="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::interactions::Interactions&lt; Derived &gt;::ext_vel_dep</definition>
+        <argsstring></argsstring>
+        <name>ext_vel_dep</name>
+        <initializer>{has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>Abstract class of interactions. A class implements(partly/fully) the interfaces of this class via CRTP
-                idiom can be used cross the system as interaction of the concept
-                <computeroutput>
-                    <ref refid="classspace_1_1interactions_1_1_interactions" kindref="compound">Interactions</ref>
-                </computeroutput>
-                .
-            </para>
-            <para>
-                <parameterlist kind="templateparam">
-                    <parameteritem>
-                        <parameternamelist>
-                            <parametername>Derived</parametername>
-                        </parameternamelist>
-                        <parameterdescription>
-                            <para>The implement class in CRTP idiom.</para>
-                        </parameterdescription>
-                    </parameteritem>
-                </parameterlist>
-            </para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>Variable to check if external velocity dependent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_dep_acc(). The value is <computeroutput>true</computeroutput>, otherwise this value is <computeroutput>false</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="58" column="1" bodyfile="interaction.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public" static="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::interactions::Interactions&lt; Derived &gt;::ext_vel_indep</definition>
+        <argsstring></argsstring>
+        <name>ext_vel_indep</name>
+        <initializer>{has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>Variable to check if external velocity independent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_indep_acc(). The value is <computeroutput>true</computeroutput>, otherwise this value is <computeroutput>false</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="66" column="1" bodyfile="interaction.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1interactions_1_1_interactions_1a43dba0a79005ad55e26516e26007648a" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::interactions::Interactions&lt; Derived &gt;::Derived</definition>
+        <argsstring></argsstring>
+        <name>Derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
         </detaileddescription>
-        <inheritancegraph>
-            <node id="148">
-                <label>space::interactions::Interactions&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order
-                    &gt; &gt;
-                </label>
-                <link refid="classspace_1_1interactions_1_1_interactions"/>
-                <childnode refid="147" relation="template-instance">
-                    <edgelabel>&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</edgelabel>
-                </childnode>
-            </node>
-            <node id="151">
-                <label>space::interactions::NewtonianGrav</label>
-                <link refid="classspace_1_1interactions_1_1_newtonian_grav"/>
-                <childnode refid="150" relation="public-inheritance">
-                </childnode>
-            </node>
-            <node id="149">
-                <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;</label>
-                <link refid="classspace_1_1interactions_1_1_post_newtonian_grav"/>
-                <childnode refid="148" relation="public-inheritance">
-                </childnode>
-            </node>
-            <node id="147">
-                <label>space::interactions::Interactions&lt; Derived &gt;</label>
-                <link refid="classspace_1_1interactions_1_1_interactions"/>
-            </node>
-            <node id="150">
-                <label>space::interactions::Interactions&lt; NewtonianGrav &gt;</label>
-                <link refid="classspace_1_1interactions_1_1_interactions"/>
-                <childnode refid="147" relation="template-instance">
-                    <edgelabel>&lt; NewtonianGrav &gt;</edgelabel>
-                </childnode>
-            </node>
-        </inheritancegraph>
-        <collaborationgraph>
-            <node id="152">
-                <label>space::interactions::Interactions&lt; Derived &gt;</label>
-                <link refid="classspace_1_1interactions_1_1_interactions"/>
-            </node>
-        </collaborationgraph>
-        <location file="interaction.hpp" line="43" column="1" bodyfile="interaction.hpp" bodystart="43" bodyend="134"/>
-        <listofallmembers>
-            <member refid="classspace_1_1interactions_1_1_interactions_1a43dba0a79005ad55e26516e26007648a"
-                    prot="private" virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>Derived</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>derived</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>eval_acc</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>eval_extra_vel_dep_acc</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>eval_extra_vel_indep_acc</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>eval_newtonian_acc</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>ext_vel_dep</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public"
-                    virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>ext_vel_indep</name>
-            </member>
-            <member refid="classspace_1_1interactions_1_1_interactions_1a2f1d4e78ecdbc5cc05b26dea4f0b4244"
-                    prot="private" virt="non-virtual">
-                <scope>space::interactions::Interactions</scope>
-                <name>Interactions</name>
-            </member>
-        </listofallmembers>
-    </compounddef>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="133" column="1" bodyfile="interaction.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Derived &amp;</type>
+        <definition>Derived &amp; Interactions::derived</definition>
+        <argsstring>()</argsstring>
+        <name>derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>The downcast interface of Base class to Derived class. <simplesect kind="return"><para>Derived </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="75" column="1" bodyfile="interaction.hpp" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Interactions::eval_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_acc</name>
+        <param>
+          <type>Particles const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Evaluate the total acceleration of the current state of a given particle system.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the particle system. This type must have method mass(), pos(), vel(), time(); type member <computeroutput>Coord</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The particle system need to be evaluated. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output of the evaluated acceleration. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="88" column="1" bodyfile="interaction.hpp" bodystart="146" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Interactions::eval_extra_vel_dep_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_extra_vel_dep_acc</name>
+        <param>
+          <type>Particles const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; external velocity dependent forces exist.</computeroutput></para><para>Evaluate the external velocity dependent acceleration of the current state of a given particle system.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the particle system. This type must have method mass(), pos(), vel(); type member <computeroutput>Coord</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The particle system need to be evaluated. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output of the evaluated acceleration. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="101" column="1" bodyfile="interaction.hpp" bodystart="153" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Interactions::eval_extra_vel_indep_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_extra_vel_indep_acc</name>
+        <param>
+          <type>Particles const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; external velocity independent forces exist.</computeroutput></para><para>Evaluate the external velocity independent acceleration of the current state of a given particle system.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the particle system. This type must have method mass(), pos(); type member <computeroutput>Coord</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The particle system need to be evaluated. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output of the evaluated acceleration. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="114" column="1" bodyfile="interaction.hpp" bodystart="160" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Particles</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Interactions::eval_newtonian_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>eval_newtonian_acc</name>
+        <param>
+          <type>Particles const &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Evaluate the internal newtonian acceleration of the current state of a given particle system.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the particle system. This type must have method mass(), pos(); type member <computeroutput>Coord</computeroutput>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">particles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The particle system need to be evaluated. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">acceleration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output of the evaluated acceleration. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="127" column="1" bodyfile="interaction.hpp" bodystart="166" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a2f1d4e78ecdbc5cc05b26dea4f0b4244" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::interactions::Interactions&lt; Derived &gt;::Interactions</definition>
+        <argsstring>()=default</argsstring>
+        <name>Interactions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="131" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Abstract class of interactions. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as interaction of the concept <computeroutput><ref refid="classspace_1_1interactions_1_1_interactions" kindref="compound">Interactions</ref></computeroutput>.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Derived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The implement class in CRTP idiom. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="148">
+        <label>space::interactions::Interactions&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+        <childnode refid="147" relation="template-instance">
+          <edgelabel>&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="151">
+        <label>space::interactions::NewtonianGrav</label>
+        <link refid="classspace_1_1interactions_1_1_newtonian_grav"/>
+        <childnode refid="150" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_post_newtonian_grav"/>
+        <childnode refid="148" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="147">
+        <label>space::interactions::Interactions&lt; Derived &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+      </node>
+      <node id="150">
+        <label>space::interactions::Interactions&lt; NewtonianGrav &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+        <childnode refid="147" relation="template-instance">
+          <edgelabel>&lt; NewtonianGrav &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="152">
+        <label>space::interactions::Interactions&lt; Derived &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_interactions"/>
+      </node>
+    </collaborationgraph>
+    <location file="interaction.hpp" line="43" column="1" bodyfile="interaction.hpp" bodystart="43" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a43dba0a79005ad55e26516e26007648a" prot="private" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>Derived</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>derived</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>eval_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>eval_extra_vel_dep_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>eval_extra_vel_indep_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>eval_newtonian_acc</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>ext_vel_dep</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>ext_vel_indep</name></member>
+      <member refid="classspace_1_1interactions_1_1_interactions_1a2f1d4e78ecdbc5cc05b26dea4f0b4244" prot="private" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>Interactions</name></member>
+    </listofallmembers>
+  </compounddef>
 </doxygen>

@@ -1,248 +1,175 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
-         version="1.8.13">
-    <compounddef id="classspace_1_1ode__iterator_1_1_step_controller" kind="class" language="C++" prot="public">
-        <compoundname>space::ode_iterator::StepController</compoundname>
-        <includes refid="stepsize-controller_8hpp" local="no">stepsize-controller.hpp</includes>
-        <templateparamlist>
-            <param>
-                <type>typename</type>
-                <declname>Derived</declname>
-                <defname>Derived</defname>
-            </param>
-        </templateparamlist>
-        <sectiondef kind="private-attrib">
-            <memberdef kind="variable"
-                       id="classspace_1_1ode__iterator_1_1_step_controller_1ab61ed7b32550b8e349764d82a009804a"
-                       prot="private" static="no" mutable="no">
-                <type>friend</type>
-                <definition>friend space::ode_iterator::StepController&lt; Derived &gt;::Derived</definition>
-                <argsstring></argsstring>
-                <name>Derived</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="stepsize-controller.hpp" line="78" column="1" bodyfile="stepsize-controller.hpp"
-                          bodystart="78" bodyend="-1"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="public-func">
-            <memberdef kind="function"
-                       id="classspace_1_1ode__iterator_1_1_step_controller_1a61baae0392981b2929a2b937704bda9e"
-                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type>Derived &amp;</type>
-                <definition>Derived &amp; space::ode_iterator::StepController&lt; Derived &gt;::derived</definition>
-                <argsstring>()</argsstring>
-                <name>derived</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success"/>
-                        <bold>auto impl</bold>
-                    </para>
-                    <para>The downcast interface of Base class to Derived class.
-                        <simplesect kind="return">
-                            <para>Derived</para>
-                        </simplesect>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="stepsize-controller.hpp" line="54" column="1" bodyfile="stepsize-controller.hpp"
-                          bodystart="85" bodyend="87"/>
-            </memberdef>
-            <memberdef kind="function"
-                       id="classspace_1_1ode__iterator_1_1_step_controller_1afc3107c25916e0df4f87c08bc3e9b36a"
-                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <templateparamlist>
-                    <param>
-                        <type>typename Scalar</type>
-                    </param>
-                    <param>
-                        <type>typename Array</type>
-                    </param>
-                </templateparamlist>
-                <type>Scalar</type>
-                <definition>Scalar space::ode_iterator::StepController&lt; Derived &gt;::next_step_size</definition>
-                <argsstring>(size_t order, Scalar old_step, Array const &amp;errors)</argsstring>
-                <name>next_step_size</name>
-                <param>
-                    <type>size_t</type>
-                    <declname>order</declname>
-                </param>
-                <param>
-                    <type>Scalar</type>
-                    <declname>old_step</declname>
-                </param>
-                <param>
-                    <type>Array const &amp;</type>
-                    <declname>errors</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>
-                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger"/>
-                        <bold>must impl</bold>
-                    </para>
-                    <para>Estimate the step size of the next step from errors in previous steps and current step size of
-                        an integration system.
-                    </para>
-                    <para>
-                        <parameterlist kind="templateparam">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername>Scalar</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Floating point like type type.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername>Array</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Tuple/array like type. i.e <computeroutput>
-                                        std::tuple</computeroutput>, <computeroutput>std::array</computeroutput>.
-                                    </para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                        <parameterlist kind="param">
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">order</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Order of the integration method.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">old_step</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>The current step size of the integration system.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                            <parameteritem>
-                                <parameternamelist>
-                                    <parametername direction="in">errors</parametername>
-                                </parameternamelist>
-                                <parameterdescription>
-                                    <para>Errors of previous steps.</para>
-                                </parameterdescription>
-                            </parameteritem>
-                        </parameterlist>
-                        <simplesect kind="return">
-                            <para>The estimated step size of the next step.</para>
-                        </simplesect>
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="stepsize-controller.hpp" line="70" column="1" bodyfile="stepsize-controller.hpp"
-                          bodystart="91" bodyend="93"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="private-func">
-            <memberdef kind="function"
-                       id="classspace_1_1ode__iterator_1_1_step_controller_1ad35a61756620c1bba60e0b0ffba9fb82"
-                       prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-                <type></type>
-                <definition>space::ode_iterator::StepController&lt; Derived &gt;::StepController</definition>
-                <argsstring>()=default</argsstring>
-                <name>StepController</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                    <para>Construct a new <ref refid="classspace_1_1ode__iterator_1_1_step_controller"
-                                               kindref="compound">StepController
-                    </ref> object
-                    </para>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="stepsize-controller.hpp" line="76" column="1"/>
-            </memberdef>
-        </sectiondef>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classspace_1_1ode__iterator_1_1_step_controller" kind="class" language="C++" prot="public">
+    <compoundname>space::ode_iterator::StepController</compoundname>
+    <includes refid="stepsize-controller_8hpp" local="no">stepsize-controller.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>Derived</declname>
+        <defname>Derived</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1ode__iterator_1_1_step_controller_1ab61ed7b32550b8e349764d82a009804a" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::ode_iterator::StepController&lt; Derived &gt;::Derived</definition>
+        <argsstring></argsstring>
+        <name>Derived</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>Abstract class of step size controller. A class implements(partly/fully) the interfaces of this class
-                via CRTP idiom can be used cross the system as an implementation of the concept
-                <computeroutput>
-                    <ref refid="classspace_1_1ode__iterator_1_1_step_controller" kindref="compound">StepController</ref>
-                </computeroutput>
-                . The step size controller provides the interface to estimate the next step size with current step size
-                and errors in previous steps.
-            </para>
-            <para>
-                <parameterlist kind="templateparam">
-                    <parameteritem>
-                        <parameternamelist>
-                            <parametername>Derived</parametername>
-                        </parameternamelist>
-                        <parameterdescription>
-                            <para>The implement class in CRTP idiom.</para>
-                        </parameterdescription>
-                    </parameteritem>
-                </parameterlist>
-            </para>
         </detaileddescription>
-        <inheritancegraph>
-            <node id="316">
-                <label>space::ode_iterator::StepController&lt; Derived &gt;</label>
-                <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
-            </node>
-            <node id="317">
-                <label>space::ode_iterator::StepController&lt; PIDController&lt; Max_order, T &gt; &gt;</label>
-                <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
-                <childnode refid="316" relation="template-instance">
-                    <edgelabel>&lt; PIDController&lt; Max_order, T &gt; &gt;</edgelabel>
-                </childnode>
-            </node>
-            <node id="318">
-                <label>space::ode_iterator::PIDController&lt; Max_order, T &gt;</label>
-                <link refid="classspace_1_1ode__iterator_1_1_p_i_d_controller"/>
-                <childnode refid="317" relation="public-inheritance">
-                </childnode>
-            </node>
-        </inheritancegraph>
-        <collaborationgraph>
-            <node id="319">
-                <label>space::ode_iterator::StepController&lt; Derived &gt;</label>
-                <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
-            </node>
-        </collaborationgraph>
-        <location file="stepsize-controller.hpp" line="44" column="1" bodyfile="stepsize-controller.hpp" bodystart="44"
-                  bodyend="79"/>
-        <listofallmembers>
-            <member refid="classspace_1_1ode__iterator_1_1_step_controller_1ab61ed7b32550b8e349764d82a009804a"
-                    prot="private" virt="non-virtual">
-                <scope>space::ode_iterator::StepController</scope>
-                <name>Derived</name>
-            </member>
-            <member refid="classspace_1_1ode__iterator_1_1_step_controller_1a61baae0392981b2929a2b937704bda9e"
-                    prot="public" virt="non-virtual">
-                <scope>space::ode_iterator::StepController</scope>
-                <name>derived</name>
-            </member>
-            <member refid="classspace_1_1ode__iterator_1_1_step_controller_1afc3107c25916e0df4f87c08bc3e9b36a"
-                    prot="public" virt="non-virtual">
-                <scope>space::ode_iterator::StepController</scope>
-                <name>next_step_size</name>
-            </member>
-            <member refid="classspace_1_1ode__iterator_1_1_step_controller_1ad35a61756620c1bba60e0b0ffba9fb82"
-                    prot="private" virt="non-virtual">
-                <scope>space::ode_iterator::StepController</scope>
-                <name>StepController</name>
-            </member>
-        </listofallmembers>
-    </compounddef>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stepsize-controller.hpp" line="78" column="1" bodyfile="stepsize-controller.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_step_controller_1a61baae0392981b2929a2b937704bda9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Derived &amp;</type>
+        <definition>Derived &amp; space::ode_iterator::StepController&lt; Derived &gt;::derived</definition>
+        <argsstring>()</argsstring>
+        <name>derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>The downcast interface of Base class to Derived class. <simplesect kind="return"><para>Derived </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stepsize-controller.hpp" line="54" column="1" bodyfile="stepsize-controller.hpp" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_step_controller_1afc3107c25916e0df4f87c08bc3e9b36a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+          <param>
+            <type>typename Array</type>
+          </param>
+        </templateparamlist>
+        <type>Scalar</type>
+        <definition>Scalar space::ode_iterator::StepController&lt; Derived &gt;::next_step_size</definition>
+        <argsstring>(size_t order, Scalar old_step, Array const &amp;errors)</argsstring>
+        <name>next_step_size</name>
+        <param>
+          <type>size_t</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>old_step</declname>
+        </param>
+        <param>
+          <type>Array const &amp;</type>
+          <declname>errors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Estimate the step size of the next step from errors in previous steps and current step size of an integration system.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tuple/array like type. i.e <computeroutput>std::tuple</computeroutput>, <computeroutput>std::array</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">order</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Order of the integration method. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">old_step</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current step size of the integration system. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Errors of previous steps. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The estimated step size of the next step. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stepsize-controller.hpp" line="70" column="1" bodyfile="stepsize-controller.hpp" bodystart="91" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_step_controller_1ad35a61756620c1bba60e0b0ffba9fb82" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::ode_iterator::StepController&lt; Derived &gt;::StepController</definition>
+        <argsstring>()=default</argsstring>
+        <name>StepController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new <ref refid="classspace_1_1ode__iterator_1_1_step_controller" kindref="compound">StepController</ref> object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stepsize-controller.hpp" line="76" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Abstract class of step size controller. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <computeroutput><ref refid="classspace_1_1ode__iterator_1_1_step_controller" kindref="compound">StepController</ref></computeroutput>. The step size controller provides the interface to estimate the next step size with current step size and errors in previous steps.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Derived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The implement class in CRTP idiom. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="316">
+        <label>space::ode_iterator::StepController&lt; Derived &gt;</label>
+        <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
+      </node>
+      <node id="317">
+        <label>space::ode_iterator::StepController&lt; PIDController&lt; Max_order, T &gt; &gt;</label>
+        <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
+        <childnode refid="316" relation="template-instance">
+          <edgelabel>&lt; PIDController&lt; Max_order, T &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="318">
+        <label>space::ode_iterator::PIDController&lt; Max_order, T &gt;</label>
+        <link refid="classspace_1_1ode__iterator_1_1_p_i_d_controller"/>
+        <childnode refid="317" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="319">
+        <label>space::ode_iterator::StepController&lt; Derived &gt;</label>
+        <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
+      </node>
+    </collaborationgraph>
+    <location file="stepsize-controller.hpp" line="44" column="1" bodyfile="stepsize-controller.hpp" bodystart="44" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classspace_1_1ode__iterator_1_1_step_controller_1ab61ed7b32550b8e349764d82a009804a" prot="private" virt="non-virtual"><scope>space::ode_iterator::StepController</scope><name>Derived</name></member>
+      <member refid="classspace_1_1ode__iterator_1_1_step_controller_1a61baae0392981b2929a2b937704bda9e" prot="public" virt="non-virtual"><scope>space::ode_iterator::StepController</scope><name>derived</name></member>
+      <member refid="classspace_1_1ode__iterator_1_1_step_controller_1afc3107c25916e0df4f87c08bc3e9b36a" prot="public" virt="non-virtual"><scope>space::ode_iterator::StepController</scope><name>next_step_size</name></member>
+      <member refid="classspace_1_1ode__iterator_1_1_step_controller_1ad35a61756620c1bba60e0b0ffba9fb82" prot="private" virt="non-virtual"><scope>space::ode_iterator::StepController</scope><name>StepController</name></member>
+    </listofallmembers>
+  </compounddef>
 </doxygen>

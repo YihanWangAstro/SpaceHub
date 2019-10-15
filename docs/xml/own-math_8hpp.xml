@@ -192,8 +192,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="own-math.hpp"/>
   </compounddef>
 </doxygen>

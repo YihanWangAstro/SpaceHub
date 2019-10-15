@@ -106,8 +106,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="macros.hpp"/>
   </compounddef>
 </doxygen>

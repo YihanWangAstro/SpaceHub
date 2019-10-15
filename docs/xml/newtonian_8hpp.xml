@@ -5,9 +5,9 @@
     <includes refid="interaction_8hpp" local="yes">../interaction.hpp</includes>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-        <node id="178">
-            <label>vector3d.hpp</label>
-            <link refid="vector3d_8hpp"/>
+      <node id="178">
+        <label>vector3d.hpp</label>
+        <link refid="vector3d_8hpp"/>
       </node>
       <node id="164">
         <label>interaction/newtonian.hpp</label>
@@ -26,18 +26,18 @@
         <childnode refid="170" relation="include">
         </childnode>
       </node>
-        <node id="177">
-            <label>vector/vector3.hpp</label>
-            <link refid="vector3_8hpp"/>
-            <childnode refid="169" relation="include">
-            </childnode>
-            <childnode refid="171" relation="include">
-            </childnode>
-            <childnode refid="178" relation="include">
-            </childnode>
-            <childnode refid="179" relation="include">
-            </childnode>
-        </node>
+      <node id="177">
+        <label>vector/vector3.hpp</label>
+        <link refid="vector3_8hpp"/>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+      </node>
       <node id="167">
         <label>macros.hpp</label>
         <link refid="macros_8hpp"/>
@@ -90,9 +90,9 @@
         <childnode refid="177" relation="include">
         </childnode>
       </node>
-        <node id="179">
-            <label>vector3pd.hpp</label>
-            <link refid="vector3pd_8hpp"/>
+      <node id="179">
+        <label>vector3pd.hpp</label>
+        <link refid="vector3pd_8hpp"/>
       </node>
       <node id="176">
         <label>coords.hpp</label>

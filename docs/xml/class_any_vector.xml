@@ -193,7 +193,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="3">
+      <node id="3">
         <label>AnyVector</label>
         <link refid="class_any_vector"/>
       </node>

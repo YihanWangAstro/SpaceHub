@@ -57,9 +57,8 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1particle__set_1_1_particles" prot="public">space::particle_set::Particles
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1particle__set">space::particle_set</innernamespace>
+    <innerclass refid="classspace_1_1particle__set_1_1_particles" prot="public">space::particle_set::Particles</innerclass>
+    <innernamespace refid="namespacespace_1_1particle__set">space::particle_set</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="particles_8hpp_1a89c368e13a9bed5d13ed5e4381bb44d9" prot="public" static="no">
         <name>SPACEHUB_PARTICLE_TYPE_CHECK</name>
@@ -73,14 +72,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particles.hpp" line="175" column="9" bodyfile="particles.hpp" bodystart="175" bodyend="-1"/>
+        <location file="particles.hpp" line="175" column="9" bodyfile="particles.hpp" bodystart="175" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="particles.hpp"/>
   </compounddef>
 </doxygen>

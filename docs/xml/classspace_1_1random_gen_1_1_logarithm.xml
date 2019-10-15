@@ -20,8 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="84" column="1" bodyfile="rand-generator.hpp" bodystart="84"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="84" column="1" bodyfile="rand-generator.hpp" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1random_gen_1_1_logarithm_1abab3bd8ddc86c5d68ee0c316e0b9dcb1" prot="private" static="no" mutable="no">
         <type>std::mt19937</type>
@@ -34,8 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="85" column="1" bodyfile="rand-generator.hpp" bodystart="85"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="85" column="1" bodyfile="rand-generator.hpp" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1random_gen_1_1_logarithm_1ad2c17595f5cce02b92aa4fde18d41c60" prot="private" static="no" mutable="no">
         <type>std::uniform_real_distribution&lt; Dtype &gt;</type>
@@ -48,8 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="86" column="1" bodyfile="rand-generator.hpp" bodystart="86"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="86" column="1" bodyfile="rand-generator.hpp" bodystart="86" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
@@ -64,8 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="87" column="1" bodyfile="rand-generator.hpp" bodystart="87"
-                    bodyend="-1"/>
+        <location file="rand-generator.hpp" line="87" column="1" bodyfile="rand-generator.hpp" bodystart="87" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -80,8 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="80" column="1" bodyfile="rand-generator.hpp" bodystart="80"
-                    bodyend="80"/>
+        <location file="rand-generator.hpp" line="80" column="1" bodyfile="rand-generator.hpp" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_logarithm_1a0926074caeb3ede224cb4075c81e1883" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -97,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="82" column="1"/>
+        <location file="rand-generator.hpp" line="82" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -120,8 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="90" column="1" bodyfile="rand-generator.hpp" bodystart="90"
-                    bodyend="95"/>
+        <location file="rand-generator.hpp" line="90" column="1" bodyfile="rand-generator.hpp" bodystart="90" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_logarithm_1a9b298625678cdaef33a8b7d37efa1a5e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Dtype</type>
@@ -142,8 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="97" column="1" bodyfile="rand-generator.hpp" bodystart="97"
-                    bodyend="108"/>
+        <location file="rand-generator.hpp" line="97" column="1" bodyfile="rand-generator.hpp" bodystart="97" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_logarithm_1acfbae3d3ed5e1c0ceee2f58ded8db30d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -173,8 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="rand-generator.hpp" line="111" column="1" bodyfile="rand-generator.hpp" bodystart="111"
-                    bodyend="116"/>
+        <location file="rand-generator.hpp" line="111" column="1" bodyfile="rand-generator.hpp" bodystart="111" bodyend="116"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -182,13 +174,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="187">
+      <node id="187">
         <label>space::randomGen::Logarithm&lt; Dtype &gt;</label>
         <link refid="classspace_1_1random_gen_1_1_logarithm"/>
       </node>
     </collaborationgraph>
-      <location file="rand-generator.hpp" line="78" column="1" bodyfile="rand-generator.hpp" bodystart="78"
-                bodyend="117"/>
+    <location file="rand-generator.hpp" line="78" column="1" bodyfile="rand-generator.hpp" bodystart="78" bodyend="117"/>
     <listofallmembers>
       <member refid="classspace_1_1random_gen_1_1_logarithm_1ad2c17595f5cce02b92aa4fde18d41c60" prot="private" virt="non-virtual"><scope>space::randomGen::Logarithm</scope><name>dist_</name></member>
       <member refid="classspace_1_1random_gen_1_1_logarithm_1abab3bd8ddc86c5d68ee0c316e0b9dcb1" prot="private" virt="non-virtual"><scope>space::randomGen::Logarithm</scope><name>gen_</name></member>

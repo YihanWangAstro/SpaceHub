@@ -26,7 +26,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="309">
+      <node id="309">
         <label>SpaceH::Lazy::Slice&lt; Begin, End, Stride &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_slice"/>
       </node>

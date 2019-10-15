@@ -55,15 +55,12 @@
         <link refid="space_hub_8hpp"/>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1ode__iterator_1_1_const_ode_iterator" prot="public">
-          space::ode_iterator::ConstOdeIterator
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
+    <innerclass refid="classspace_1_1ode__iterator_1_1_const_ode_iterator" prot="public">space::ode_iterator::ConstOdeIterator</innerclass>
+    <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="ode-iterator/const-iterator.hpp"/>
   </compounddef>
 </doxygen>

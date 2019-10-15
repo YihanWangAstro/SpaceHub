@@ -51,19 +51,14 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1run__operations_1_1_time_slice" prot="public">space::run_operations::TimeSlice
-      </innerclass>
-      <innerclass refid="classspace_1_1run__operations_1_1_step_slice" prot="public">space::run_operations::StepSlice
-      </innerclass>
-      <innerclass refid="classspace_1_1run__operations_1_1_default_writer" prot="public">
-          space::run_operations::DefaultWriter
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1run__operations">space::run_operations</innernamespace>
+    <innerclass refid="classspace_1_1run__operations_1_1_time_slice" prot="public">space::run_operations::TimeSlice</innerclass>
+    <innerclass refid="classspace_1_1run__operations_1_1_step_slice" prot="public">space::run_operations::StepSlice</innerclass>
+    <innerclass refid="classspace_1_1run__operations_1_1_default_writer" prot="public">space::run_operations::DefaultWriter</innerclass>
+    <innernamespace refid="namespacespace_1_1run__operations">space::run_operations</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="args-callback/callbacks.hpp"/>
   </compounddef>
 </doxygen>

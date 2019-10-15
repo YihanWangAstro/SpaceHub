@@ -1,269 +1,199 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
-         version="1.8.13">
-    <compounddef id="classspace_1_1multi__thread_1_1_ipip" kind="class" language="C++" prot="public">
-        <compoundname>space::multi_thread::Ipip</compoundname>
-        <includes refid="ciostream_8hpp" local="no">ciostream.hpp</includes>
-        <templateparamlist>
-            <param>
-                <type>typename T</type>
-            </param>
-        </templateparamlist>
-        <sectiondef kind="private-attrib">
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a8e1c85a7236724f5a44275b787e5d6c2"
-                       prot="private" static="no" mutable="no">
-                <type>std::queue&lt; T &gt;</type>
-                <definition>std::queue&lt;T&gt; space::multi_thread::Ipip&lt; T &gt;::queue_</definition>
-                <argsstring></argsstring>
-                <name>queue_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="129" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="129" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a14bcfaf91e48a337008d6f5c8bf46d21"
-                       prot="private" static="no" mutable="no">
-                <type>std::mutex</type>
-                <definition>std::mutex space::multi_thread::Ipip&lt; T &gt;::mutex_</definition>
-                <argsstring></argsstring>
-                <name>mutex_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="130" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="130" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1ad5ce94013c8c09aff5496d9f01b36df7"
-                       prot="private" static="no" mutable="no">
-                <type>std::condition_variable</type>
-                <definition>std::condition_variable space::multi_thread::Ipip&lt; T &gt;::cv_load_</definition>
-                <argsstring></argsstring>
-                <name>cv_load_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="131" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="131" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a24f2733a3c4720150b248832afbde366"
-                       prot="private" static="no" mutable="no">
-                <type>std::condition_variable</type>
-                <definition>std::condition_variable space::multi_thread::Ipip&lt; T &gt;::cv_io_</definition>
-                <argsstring></argsstring>
-                <name>cv_io_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="132" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="132" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a1ac452a48223a97655b34aef7e1403dc"
-                       prot="private" static="no" mutable="no">
-                <type>std::fstream</type>
-                <definition>std::fstream space::multi_thread::Ipip&lt; T &gt;::file_</definition>
-                <argsstring></argsstring>
-                <name>file_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="133" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="133" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a38d46a0ac8dc1dc6134c373057615035"
-                       prot="private" static="no" mutable="no">
-                <type>std::thread</type>
-                <definition>std::thread space::multi_thread::Ipip&lt; T &gt;::thread_</definition>
-                <argsstring></argsstring>
-                <name>thread_</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="134" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="134" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a58d77e23de51a50b5ba8244c368e757c"
-                       prot="private" static="no" mutable="no">
-                <type>bool</type>
-                <definition>bool space::multi_thread::Ipip&lt; T &gt;::stop_</definition>
-                <argsstring></argsstring>
-                <name>stop_</name>
-                <initializer>{false}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="135" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="135" bodyend="-1"/>
-            </memberdef>
-            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a3e5a1afa13a0f2498fc248fe9794fdd5"
-                       prot="private" static="no" mutable="no">
-                <type>bool</type>
-                <definition>bool space::multi_thread::Ipip&lt; T &gt;::eoq_</definition>
-                <argsstring></argsstring>
-                <name>eoq_</name>
-                <initializer>{false}</initializer>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="136" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="136" bodyend="-1"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="public-func">
-            <memberdef kind="function" id="classspace_1_1multi__thread_1_1_ipip_1acfa3e6c7d6477f25ed8923575f677f9a"
-                       prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
-                <type></type>
-                <definition>space::multi_thread::Ipip&lt; T &gt;::Ipip</definition>
-                <argsstring>(const char *file_name)</argsstring>
-                <name>Ipip</name>
-                <param>
-                    <type>const char *</type>
-                    <declname>file_name</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="72" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="72" bodyend="97"/>
-            </memberdef>
-            <memberdef kind="function" id="classspace_1_1multi__thread_1_1_ipip_1a8dab4560ebaa3d188c933ba8e7853d91"
-                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-                <type></type>
-                <definition>space::multi_thread::Ipip&lt; T &gt;::~Ipip</definition>
-                <argsstring>()</argsstring>
-                <name>~Ipip</name>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="99" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="99" bodyend="110"/>
-            </memberdef>
-        </sectiondef>
-        <sectiondef kind="friend">
-            <memberdef kind="friend" id="classspace_1_1multi__thread_1_1_ipip_1a1e4d0a5b76239f919334308e6ebfa298"
-                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-                <type>friend bool</type>
-                <definition>bool operator&gt;&gt;</definition>
-                <argsstring>(Ipip &amp;in, T &amp;&amp;tup)</argsstring>
-                <name>operator&gt;&gt;</name>
-                <param>
-                    <type>
-                        <ref refid="classspace_1_1multi__thread_1_1_ipip" kindref="compound">Ipip</ref> &amp;
-                    </type>
-                    <declname>in</declname>
-                </param>
-                <param>
-                    <type>T &amp;&amp;</type>
-                    <declname>tup</declname>
-                </param>
-                <briefdescription>
-                </briefdescription>
-                <detaileddescription>
-                </detaileddescription>
-                <inbodydescription>
-                </inbodydescription>
-                <location file="multi-thread/ciostream.hpp" line="112" column="1" bodyfile="multi-thread/ciostream.hpp"
-                          bodystart="112" bodyend="126"/>
-            </memberdef>
-        </sectiondef>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classspace_1_1multi__thread_1_1_ipip" kind="class" language="C++" prot="public">
+    <compoundname>space::multi_thread::Ipip</compoundname>
+    <includes refid="ciostream_8hpp" local="no">ciostream.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a8e1c85a7236724f5a44275b787e5d6c2" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; T &gt;</type>
+        <definition>std::queue&lt;T&gt; space::multi_thread::Ipip&lt; T &gt;::queue_</definition>
+        <argsstring></argsstring>
+        <name>queue_</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
-        <collaborationgraph>
-            <node id="154">
-                <label>space::multi_thread::Ipip&lt; T &gt;</label>
-                <link refid="classspace_1_1multi__thread_1_1_ipip"/>
-            </node>
-        </collaborationgraph>
-        <location file="multi-thread/ciostream.hpp" line="70" column="1" bodyfile="multi-thread/ciostream.hpp"
-                  bodystart="70" bodyend="137"/>
-        <listofallmembers>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a24f2733a3c4720150b248832afbde366" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>cv_io_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1ad5ce94013c8c09aff5496d9f01b36df7" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>cv_load_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a3e5a1afa13a0f2498fc248fe9794fdd5" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>eoq_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a1ac452a48223a97655b34aef7e1403dc" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>file_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1acfa3e6c7d6477f25ed8923575f677f9a" prot="public"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>Ipip</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a14bcfaf91e48a337008d6f5c8bf46d21" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>mutex_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a1e4d0a5b76239f919334308e6ebfa298" prot="public"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>operator&gt;&gt;</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a8e1c85a7236724f5a44275b787e5d6c2" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>queue_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a58d77e23de51a50b5ba8244c368e757c" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>stop_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a38d46a0ac8dc1dc6134c373057615035" prot="private"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>thread_</name>
-            </member>
-            <member refid="classspace_1_1multi__thread_1_1_ipip_1a8dab4560ebaa3d188c933ba8e7853d91" prot="public"
-                    virt="non-virtual">
-                <scope>space::multi_thread::Ipip</scope>
-                <name>~Ipip</name>
-            </member>
-        </listofallmembers>
-    </compounddef>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="129" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a14bcfaf91e48a337008d6f5c8bf46d21" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex space::multi_thread::Ipip&lt; T &gt;::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="130" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1ad5ce94013c8c09aff5496d9f01b36df7" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable space::multi_thread::Ipip&lt; T &gt;::cv_load_</definition>
+        <argsstring></argsstring>
+        <name>cv_load_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="131" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a24f2733a3c4720150b248832afbde366" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable space::multi_thread::Ipip&lt; T &gt;::cv_io_</definition>
+        <argsstring></argsstring>
+        <name>cv_io_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="132" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a1ac452a48223a97655b34aef7e1403dc" prot="private" static="no" mutable="no">
+        <type>std::fstream</type>
+        <definition>std::fstream space::multi_thread::Ipip&lt; T &gt;::file_</definition>
+        <argsstring></argsstring>
+        <name>file_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="133" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a38d46a0ac8dc1dc6134c373057615035" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread space::multi_thread::Ipip&lt; T &gt;::thread_</definition>
+        <argsstring></argsstring>
+        <name>thread_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="134" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a58d77e23de51a50b5ba8244c368e757c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool space::multi_thread::Ipip&lt; T &gt;::stop_</definition>
+        <argsstring></argsstring>
+        <name>stop_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="135" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_ipip_1a3e5a1afa13a0f2498fc248fe9794fdd5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool space::multi_thread::Ipip&lt; T &gt;::eoq_</definition>
+        <argsstring></argsstring>
+        <name>eoq_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="136" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classspace_1_1multi__thread_1_1_ipip_1acfa3e6c7d6477f25ed8923575f677f9a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::multi_thread::Ipip&lt; T &gt;::Ipip</definition>
+        <argsstring>(const char *file_name)</argsstring>
+        <name>Ipip</name>
+        <param>
+          <type>const char *</type>
+          <declname>file_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="72" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="72" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1multi__thread_1_1_ipip_1a8dab4560ebaa3d188c933ba8e7853d91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>space::multi_thread::Ipip&lt; T &gt;::~Ipip</definition>
+        <argsstring>()</argsstring>
+        <name>~Ipip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="99" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="99" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classspace_1_1multi__thread_1_1_ipip_1a1e4d0a5b76239f919334308e6ebfa298" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend bool</type>
+        <definition>bool operator&gt;&gt;</definition>
+        <argsstring>(Ipip &amp;in, T &amp;&amp;tup)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type><ref refid="classspace_1_1multi__thread_1_1_ipip" kindref="compound">Ipip</ref> &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>tup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="multi-thread/ciostream.hpp" line="112" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="112" bodyend="126"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="154">
+        <label>space::multi_thread::Ipip&lt; T &gt;</label>
+        <link refid="classspace_1_1multi__thread_1_1_ipip"/>
+      </node>
+    </collaborationgraph>
+    <location file="multi-thread/ciostream.hpp" line="70" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="70" bodyend="137"/>
+    <listofallmembers>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a24f2733a3c4720150b248832afbde366" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>cv_io_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1ad5ce94013c8c09aff5496d9f01b36df7" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>cv_load_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a3e5a1afa13a0f2498fc248fe9794fdd5" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>eoq_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a1ac452a48223a97655b34aef7e1403dc" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>file_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1acfa3e6c7d6477f25ed8923575f677f9a" prot="public" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>Ipip</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a14bcfaf91e48a337008d6f5c8bf46d21" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>mutex_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a1e4d0a5b76239f919334308e6ebfa298" prot="public" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a8e1c85a7236724f5a44275b787e5d6c2" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>queue_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a58d77e23de51a50b5ba8244c368e757c" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>stop_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a38d46a0ac8dc1dc6134c373057615035" prot="private" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>thread_</name></member>
+      <member refid="classspace_1_1multi__thread_1_1_ipip_1a8dab4560ebaa3d188c933ba8e7853d91" prot="public" virt="non-virtual"><scope>space::multi_thread::Ipip</scope><name>~Ipip</name></member>
+    </listofallmembers>
+  </compounddef>
 </doxygen>

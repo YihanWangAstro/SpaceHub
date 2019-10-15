@@ -66,10 +66,8 @@
         </childnode>
       </node>
     </invincdepgraph>
-      <innerclass refid="classspace_1_1interactions_1_1_accelerations" prot="public">
-          space::interactions::Accelerations
-      </innerclass>
-      <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
+    <innerclass refid="classspace_1_1interactions_1_1_accelerations" prot="public">space::interactions::Accelerations</innerclass>
+    <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
       <sectiondef kind="define">
       <memberdef kind="define" id="accelerations_8hpp_1a42046844e6f6a0fb9875406a0fd442f4" prot="public" static="no">
         <name>SPACEHUB_ACCELERATIONS_H</name>
@@ -79,15 +77,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="accelerations.hpp" line="28" column="9" bodyfile="accelerations.hpp" bodystart="28"
-                    bodyend="-1"/>
+        <location file="accelerations.hpp" line="28" column="9" bodyfile="accelerations.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>Header file.</para>
-    </detaileddescription>
+<para>Header file. </para>    </detaileddescription>
     <location file="accelerations.hpp"/>
   </compounddef>
 </doxygen>

@@ -26,8 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="core-computation.hpp" line="217" column="1" bodyfile="core-computation.hpp" bodystart="217"
-                    bodyend="-1"/>
+        <location file="core-computation.hpp" line="217" column="1" bodyfile="core-computation.hpp" bodystart="217" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -50,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="core-computation.hpp" line="217" column="1"/>
+        <location file="core-computation.hpp" line="217" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1calc_1_1has__method__index_1af7c47a6a20aa4d86734ebdb5455dd2d7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -71,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="core-computation.hpp" line="217" column="1"/>
+        <location file="core-computation.hpp" line="217" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -79,13 +78,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="120">
+      <node id="120">
         <label>space::calc::has_method_index&lt; T, Args &gt;</label>
         <link refid="structspace_1_1calc_1_1has__method__index"/>
       </node>
     </collaborationgraph>
-      <location file="core-computation.hpp" line="217" column="1" bodyfile="core-computation.hpp" bodystart="217"
-                bodyend="217"/>
+    <location file="core-computation.hpp" line="217" column="1" bodyfile="core-computation.hpp" bodystart="217" bodyend="217"/>
     <listofallmembers>
       <member refid="structspace_1_1calc_1_1has__method__index_1ad6f4e9da19416da14965013445651cb4" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>check</name></member>
       <member refid="structspace_1_1calc_1_1has__method__index_1af7c47a6a20aa4d86734ebdb5455dd2d7" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>check</name></member>

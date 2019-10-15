@@ -2,8 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1ode_iterator_1_1_burlish_stoer" kind="class" language="C++" prot="public">
     <compoundname>space::odeIterator::BurlishStoer</compoundname>
-      <basecompoundref prot="public" virt="non-virtual">OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;
-      </basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</basecompoundref>
     <includes refid="_b_s-iterator__bk_8hpp" local="no">BS-iterator_bk.hpp</includes>
     <innerclass refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab" prot="public">space::odeIterator::BurlishStoer::BStab</innerclass>
     <templateparamlist>
@@ -26,9 +25,7 @@
         <location file="ode-iterator/BS-iterator_bk.hpp" line="19" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a77262a8f084fc073f3211db83c41ff64" prot="public" static="no">
-          <type>OdeIterator&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">
-              BurlishStoer</ref>&lt; Real &gt; &gt;
-          </type>
+        <type>OdeIterator&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">BurlishStoer</ref>&lt; Real &gt; &gt;</type>
         <definition>using space::odeIterator::BurlishStoer&lt; Real &gt;::Base =  OdeIterator&lt;BurlishStoer&lt;Real&gt; &gt;</definition>
         <argsstring></argsstring>
         <name>Base</name>
@@ -99,11 +96,9 @@
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="105" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="105" bodyend="-1"/>
       </memberdef>
-          <memberdef kind="variable"
-                     id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a646f753b39ef5761a8ecc3e1e36ad6c0" prot="private"
-                     static="yes" mutable="no">
+      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a646f753b39ef5761a8ecc3e1e36ad6c0" prot="private" static="yes" mutable="no">
         <type>constexpr size_t</type>
-              <definition>constexpr size_t space::odeIterator::BurlishStoer&lt; Real &gt;::max_depth</definition>
+        <definition>constexpr size_t space::odeIterator::BurlishStoer&lt; Real &gt;::max_depth</definition>
         <argsstring></argsstring>
         <name>max_depth</name>
         <initializer>{8}</initializer>
@@ -522,30 +517,30 @@
         <location file="ode-iterator/BS-iterator_bk.hpp" line="99" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="322" bodyend="324"/>
       </memberdef>
       </sectiondef>
-      <briefdescription>
-      </briefdescription>
-      <detaileddescription>
-      </detaileddescription>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
     <inheritancegraph>
-        <node id="33">
+      <node id="33">
         <label>space::odeIterator::BurlishStoer&lt; Real &gt;</label>
         <link refid="classspace_1_1ode_iterator_1_1_burlish_stoer"/>
-            <childnode refid="34" relation="public-inheritance">
+        <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="34">
-            <label>OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
+      <node id="34">
+        <label>OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-        <node id="35">
+      <node id="35">
         <label>space::odeIterator::BurlishStoer&lt; Real &gt;</label>
         <link refid="classspace_1_1ode_iterator_1_1_burlish_stoer"/>
-            <childnode refid="36" relation="public-inheritance">
+        <childnode refid="36" relation="public-inheritance">
         </childnode>
       </node>
-        <node id="36">
-            <label>OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
+      <node id="36">
+        <label>OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
       </node>
     </collaborationgraph>
     <location file="ode-iterator/BS-iterator_bk.hpp" line="15" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="15" bodyend="142"/>
@@ -567,11 +562,7 @@
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad0f11b0dbf75c13b727de37b9a605b42" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>is_diverged_anyhow</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a90a0207bc39328d5333d701a1089c8b0" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>iter_num_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac5eba7423145a9ac928be011af469fb6" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>macro_step_size</name></member>
-        <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a646f753b39ef5761a8ecc3e1e36ad6c0" prot="private"
-                virt="non-virtual">
-            <scope>space::odeIterator::BurlishStoer</scope>
-            <name>max_depth</name>
-        </member>
+      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a646f753b39ef5761a8ecc3e1e36ad6c0" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>max_depth</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afd24580426870463b98fd70e37ffb78d" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>most_offensive_err</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7395e41b40aede814064cce08a002074" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>optm_step_coef_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8d6a6d52c973d48754a7cb6cc4ea7eea" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>prepare_next_iter</name></member>

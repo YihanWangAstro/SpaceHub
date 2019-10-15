@@ -2,42 +2,35 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespacespace_1_1interactions" kind="namespace" language="C++">
     <compoundname>space::interactions</compoundname>
-      <innerclass refid="classspace_1_1interactions_1_1_accelerations" prot="public">
-          space::interactions::Accelerations
-      </innerclass>
-      <innerclass refid="classspace_1_1interactions_1_1_interactions" prot="public">space::interactions::Interactions
-      </innerclass>
+    <innerclass refid="classspace_1_1interactions_1_1_accelerations" prot="public">space::interactions::Accelerations</innerclass>
+    <innerclass refid="classspace_1_1interactions_1_1_interactions" prot="public">space::interactions::Interactions</innerclass>
     <innerclass refid="classspace_1_1interactions_1_1_newtonian_grav" prot="public">space::interactions::NewtonianGrav</innerclass>
     <innerclass refid="classspace_1_1interactions_1_1_post_newtonian_grav" prot="public">space::interactions::PostNewtonianGrav</innerclass>
       <sectiondef kind="var">
-          <memberdef kind="variable" id="namespacespace_1_1interactions_1a9080252ac11853221df0ac36c0d36c75"
-                     prot="public" static="no" mutable="no">
-              <templateparamlist>
-                  <param>
-                      <type>typename T</type>
-                  </param>
-              </templateparamlist>
-              <type>constexpr bool</type>
-              <definition>constexpr bool space::interactions::is_interactions_v</definition>
-              <argsstring></argsstring>
-              <name>is_interactions_v</name>
-              <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1interactions_1_1_interactions"
-                                                       kindref="compound">Interactions</ref>&lt;T&gt;, T&gt;
-              </initializer>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="interaction.hpp" line="174" column="1" bodyfile="interaction.hpp" bodystart="174"
-                        bodyend="-1"/>
-          </memberdef>
+      <memberdef kind="variable" id="namespacespace_1_1interactions_1a9080252ac11853221df0ac36c0d36c75" prot="public" static="no" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::interactions::is_interactions_v</definition>
+        <argsstring></argsstring>
+        <name>is_interactions_v</name>
+        <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1interactions_1_1_interactions" kindref="compound">Interactions</ref>&lt;T&gt;, T&gt;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="174" column="1" bodyfile="interaction.hpp" bodystart="174" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Documentation for space </para>    </detaileddescription>
-      <location file="accelerations.hpp" line="29" column="1"/>
+    <location file="accelerations.hpp" line="29" column="1"/>
   </compounddef>
 </doxygen>

@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_tidal_force" kind="class" language="C++" prot="public">
     <compoundname>space::TidalForce</compoundname>
-      <basecompoundref prot="public" virt="non-virtual">Interactions&lt; TidalForce &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">Interactions&lt; TidalForce &gt;</basecompoundref>
     <includes refid="tidal_8hpp" local="no">tidal.hpp</includes>
     <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" prot="private">space::TidalForce::has_method_chain_pos</innerclass>
     <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" prot="private">space::TidalForce::has_method_chain_vel</innerclass>
@@ -11,7 +11,7 @@
       <memberdef kind="function" id="classspace_1_1_tidal_force_1ac1f51d613bfd1711de0149e928c5cfd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename Particles</type>
+            <type>typename Particles</type>
           </param>
         </templateparamlist>
         <type>void</type>
@@ -19,7 +19,7 @@
         <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
         <name>impl_eval_acc</name>
         <param>
-            <type>Particles const &amp;</type>
+          <type>Particles const &amp;</type>
           <declname>partc</declname>
         </param>
         <param>
@@ -37,7 +37,7 @@
       <memberdef kind="function" id="classspace_1_1_tidal_force_1a3884814331a629df5de8d4f1c40bd5dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename Particles</type>
+            <type>typename Particles</type>
           </param>
         </templateparamlist>
         <type>void</type>
@@ -45,7 +45,7 @@
         <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
         <name>impl_eval_extra_vel_dep_acc</name>
         <param>
-            <type>Particles const &amp;</type>
+          <type>Particles const &amp;</type>
           <declname>partc</declname>
         </param>
         <param>
@@ -63,7 +63,7 @@
       <memberdef kind="function" id="classspace_1_1_tidal_force_1a410b7c28bac7e271df651d4cc31c622c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename Particles</type>
+            <type>typename Particles</type>
           </param>
         </templateparamlist>
         <type>void</type>
@@ -71,7 +71,7 @@
         <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
         <name>impl_eval_newtonian_acc</name>
         <param>
-            <type>Particles const &amp;</type>
+          <type>Particles const &amp;</type>
           <declname>partc</declname>
         </param>
         <param>
@@ -158,24 +158,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-        <node id="367">
-            <label>Interactions&lt; TidalForce &gt;</label>
-        </node>
-        <node id="366">
+      <node id="367">
+        <label>Interactions&lt; TidalForce &gt;</label>
+      </node>
+      <node id="366">
         <label>space::TidalForce</label>
         <link refid="classspace_1_1_tidal_force"/>
-            <childnode refid="367" relation="public-inheritance">
+        <childnode refid="367" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-        <node id="369">
-            <label>Interactions&lt; TidalForce &gt;</label>
-        </node>
-        <node id="368">
+      <node id="369">
+        <label>Interactions&lt; TidalForce &gt;</label>
+      </node>
+      <node id="368">
         <label>space::TidalForce</label>
         <link refid="classspace_1_1_tidal_force"/>
-            <childnode refid="369" relation="public-inheritance">
+        <childnode refid="369" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

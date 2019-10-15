@@ -177,7 +177,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="193">
+      <node id="193">
         <label>space::MKLArray&lt; T, Size &gt;</label>
         <link refid="structspace_1_1_m_k_l_array"/>
       </node>

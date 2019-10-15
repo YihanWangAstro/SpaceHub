@@ -77,6 +77,8 @@ $(function() {
 Collaboration diagram for space::RunArgs&lt; ParticleSys &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classspace_1_1_run_args__coll__graph.png" border="0" usemap="#space_1_1_run_args_3_01_particle_sys_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="space_1_1_run_args_3_01_particle_sys_01_4_coll__map" id="space_1_1_run_args_3_01_particle_sys_01_4_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -149,35 +151,10 @@ Data Fields</h2></td></tr>
 class space::RunArgs&lt; ParticleSys &gt;</h3>
 
 <p>Run arguments that is used to set all arguments needed by <a class="el" href="classspace_1_1_simulator.html">Simulator</a>.</p>
-    <p>The <a class="el" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations()</a>, <a
-            class="el" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations()</a>, <a
-            class="el" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations()</a> and
-        <a class="el" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops()</a> will be
-        called in a simulation in this way.</p>
-    <div class="fragment">
-        <div class="line">...</div>
-        <div class="line">auto sys; <span class="comment">// particle system that is going to be evolved.</span></div>
-        <div class="line"><span class="keywordflow">for</span>( ;<a class="code"
-                                                                    href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops</a>(sys);){
-        </div>
-        <div class="line"><a class="code" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations</a>(sys);
-        </div>
-        <div class="line"> ...<span class="comment">//step integration.</span></div>
-        <div class="line"><a class="code" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations</a>(sys);
-        </div>
-        <div class="line">}</div>
-        <div class="line"><a class="code" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations</a>(sys);
-        </div>
-        <div class="line">...</div>
-    </div><!-- fragment -->
-    <dl class="tparams">
-        <dt>Template Parameters</dt>
-        <dd>
+<p>The <a class="el" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations()</a>, <a class="el" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations()</a>, <a class="el" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations()</a> and <a class="el" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops()</a> will be called in a simulation in this way.</p>
+<div class="fragment"><div class="line">...</div><div class="line">auto sys; <span class="comment">// particle system that is going to be evolved.</span></div><div class="line"><span class="keywordflow">for</span>( ;<a class="code" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops</a>(sys);){</div><div class="line">    <a class="code" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations</a>(sys);</div><div class="line">    ...<span class="comment">//step integration.</span></div><div class="line">    <a class="code" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations</a>(sys);</div><div class="line">}</div><div class="line"><a class="code" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations</a>(sys);</div><div class="line">...</div></div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-      <tr>
-          <td class="paramname">ParticleSys</td>
-          <td>Any implementation of concept ParticleSystem.</td>
-      </tr>
+    <tr><td class="paramname">ParticleSys</td><td>Any implementation of concept ParticleSystem. </td></tr>
   </table>
   </dd>
 </dl>
@@ -589,11 +566,7 @@ template&lt;typename ParticleSys &gt; </div>
 <p>Check the all registered stop condition functions by sequence. If any of them is satisfied, return <code>true</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-      <tr>
-          <td class="paramdir">[in]</td>
-          <td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td>
-          <td>The particle system that is going to be checked</td>
-      </tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td><td>The particle system that is going to be checked </td></tr>
   </table>
   </dd>
 </dl>
@@ -676,11 +649,7 @@ template&lt;typename ParticleSys &gt; </div>
 <p>Call the all registered pos-operation functions by sequence.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-      <tr>
-          <td class="paramdir">[in,out]</td>
-          <td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td>
-          <td>The particle system that is going to be operated.</td>
-      </tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td><td>The particle system that is going to be operated. </td></tr>
   </table>
   </dd>
 </dl>
@@ -707,11 +676,7 @@ template&lt;typename ParticleSys &gt; </div>
 <p>Call the all registered pre-operation functions by sequence.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-      <tr>
-          <td class="paramdir">[in,out]</td>
-          <td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td>
-          <td>The particle system that is going to be operated.</td>
-      </tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td><td>The particle system that is going to be operated. </td></tr>
   </table>
   </dd>
 </dl>
@@ -738,11 +703,7 @@ template&lt;typename ParticleSys &gt; </div>
 <p>Call the all registered stop-operation functions by sequence.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-      <tr>
-          <td class="paramdir">[in,out]</td>
-          <td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td>
-          <td>The particle system that is going to be operated.</td>
-      </tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname"><a class="el" href="namespacespace_1_1particle__system.html">particle_system</a></td><td>The particle system that is going to be operated. </td></tr>
   </table>
   </dd>
 </dl>

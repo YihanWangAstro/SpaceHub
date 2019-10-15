@@ -41,8 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="40" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="40" bodyend="42"/>
+        <location file="tools/config-reader.hpp" line="40" column="1" bodyfile="tools/config-reader.hpp" bodystart="40" bodyend="42"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -120,15 +119,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="tools/config-reader.hpp" line="118" column="1" bodyfile="tools/config-reader.hpp"
-                    bodystart="118" bodyend="130"/>
+        <location file="tools/config-reader.hpp" line="118" column="1" bodyfile="tools/config-reader.hpp" bodystart="118" bodyend="130"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-        <para>space name for tools</para>
-    </detaileddescription>
+<para>space name for tools </para>    </detaileddescription>
     <location file="tools/auto-name.hpp" line="13" column="1"/>
   </compounddef>
 </doxygen>

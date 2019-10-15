@@ -8,12 +8,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-        <node id="76">
+      <node id="76">
         <label>space::Empty</label>
         <link refid="classspace_1_1_empty"/>
       </node>
     </collaborationgraph>
-      <location file="dev-tools.hpp" line="123" column="1" bodyfile="dev-tools.hpp" bodystart="123" bodyend="124"/>
+    <location file="dev-tools.hpp" line="123" column="1" bodyfile="dev-tools.hpp" bodystart="123" bodyend="124"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>
