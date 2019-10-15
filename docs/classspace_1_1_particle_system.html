@@ -54,7 +54,7 @@
           <tbody>
             <tr>
               <td style="width: 1%">Derived</td>
-              <td></td>
+              <td>The implement class in CRTP idioms.</td>
             </tr>
           </tbody>
         </table>
@@ -69,6 +69,7 @@
             </li>
           </ul>
         </div>
+<p>Abstract class of Particle System. A class implements(partly/fully) the interfaces of this class via CRTP idioms can be used cross the system as an implementation of the concept <code>Particle System</code>. The particle System integrates the data set of a particle set and provides interface to evolve the internal particles.</p>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
@@ -113,6 +114,10 @@
             </dt>
             <dd></dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#afcf1ce0901ca8aadd08d2a05cbdb95db" class="m-doc">number</a>(</span><span class="m-doc-wrap">) const -&gt; size_t</span>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template&lt;typename Scalar&gt;</div>
               <span class="m-doc-wrap-bumper">void <a href="#a06f59e07f2ed6ef0b74cf04aab2314b5" class="m-doc">advance_time</a>(</span><span class="m-doc-wrap">Scalar dt)</span>
             </dt>
@@ -142,6 +147,14 @@
             <dt>
               <div class="m-doc-template">template&lt;typename Scalar&gt;</div>
               <span class="m-doc-wrap-bumper">void <a href="#a040e62f9f12ea1da654bbf3fdf4606ec" class="m-doc">kick</a>(</span><span class="m-doc-wrap">Scalar step_size)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a1bfa0b1bf933d9a3a00937ebfa052e0c" class="m-doc">pre_iter_process</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a5c91987e0659ef74244aeec676e3218d" class="m-doc">post_iter_process</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd></dd>
             <dt>
@@ -328,6 +341,23 @@
             </table>
 <p><strong class="m-label m-warning">must impl</strong> The getter interface of member <code>vel</code>.</p>
           </div></section>
+          <section class="m-doc-details" id="afcf1ce0901ca8aadd08d2a05cbdb95db"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">size_t space::<wbr />ParticleSystem&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afcf1ce0901ca8aadd08d2a05cbdb95db" class="m-doc-self">number</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>size_t the number of the particles.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Get the (active) particle number of the SoA particle set.</p>
+          </div></section>
           <section class="m-doc-details" id="a06f59e07f2ed6ef0b74cf04aab2314b5"><div>
             <h3>
               <div class="m-doc-template">
@@ -343,7 +373,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Scalar</td>
-                  <td></td>
+                  <td>Floating point like type type.</td>
                 </tr>
               </tbody>
               <thead>
@@ -351,11 +381,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>dt</td>
-                  <td></td>
+                  <td>dt&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Avanced time interval.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Advance the internal time of the particle system with given time interval.</p>
           </div></section>
           <section class="m-doc-details" id="a2aa924fe50893957b6c2c4adc3715a59"><div>
             <h3>
@@ -373,11 +404,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Coord</td>
-                  <td></td>
+                  <td>The Coordinates Type.</td>
                 </tr>
                 <tr>
                   <td>Scalar</td>
-                  <td></td>
+                  <td>Floating point like type type.</td>
                 </tr>
               </tbody>
               <thead>
@@ -385,15 +416,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>step_size</td>
-                  <td></td>
+                  <td>step_size&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Advance step_size.</td>
                 </tr>
                 <tr>
-                  <td>velocity</td>
-                  <td></td>
+                  <td>velocity&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Corresponding velocity of all particles.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Advance the interval position of all particles by providing all corresponding velocity with given step size.</p>
           </div></section>
           <section class="m-doc-details" id="a725e1999204d5cd73f9b0f6fe53bacc4"><div>
             <h3>
@@ -411,11 +443,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Coord</td>
-                  <td></td>
+                  <td>The Coordinates Type.</td>
                 </tr>
                 <tr>
                   <td>Scalar</td>
-                  <td></td>
+                  <td>Floating point like type type.</td>
                 </tr>
               </tbody>
               <thead>
@@ -423,15 +455,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>step_size</td>
-                  <td></td>
+                  <td>step_size&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Advance step_size.</td>
                 </tr>
                 <tr>
-                  <td>acceleration</td>
-                  <td></td>
+                  <td>acceleration&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Corresponding acceleration of all particles.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Advance the interval velocity of all particles by providing all corresponding acceleration with given step size.</p>
           </div></section>
           <section class="m-doc-details" id="afcffe317de92a41955bfcdafc4277fac"><div>
             <h3>
@@ -448,7 +481,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Coord</td>
-                  <td></td>
+                  <td>The Coordinates Type.</td>
                 </tr>
               </tbody>
               <thead>
@@ -456,11 +489,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>acceleration</td>
-                  <td></td>
+                  <td>acceleration&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>The calculated acceleration.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Evaluate the acceleration for current state of the particle system.</p>
           </div></section>
           <section class="m-doc-details" id="a9f8e3f2fa7f41577688a83f09ad245ea"><div>
             <h3>
@@ -477,7 +511,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Scalar</td>
-                  <td></td>
+                  <td>Floating point like type type.</td>
                 </tr>
               </tbody>
               <thead>
@@ -485,11 +519,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>step_size</td>
-                  <td></td>
+                  <td>step_size&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Drift step size.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-success">optional impl</strong> <code>&gt; Symplectic integration is required.</code></p><p>Drift the particle system with given step size.</p>
           </div></section>
           <section class="m-doc-details" id="a040e62f9f12ea1da654bbf3fdf4606ec"><div>
             <h3>
@@ -506,7 +541,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Scalar</td>
-                  <td></td>
+                  <td>Floating point like type type.</td>
                 </tr>
               </tbody>
               <thead>
@@ -514,11 +549,30 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>step_size</td>
-                  <td></td>
+                  <td>step_size&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Drift step size.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-success">optional impl</strong> <code>&gt; Symplectic integration is required.</code></p><p>Kick the particle system with given step size.</p>
+          </div></section>
+          <section class="m-doc-details" id="a1bfa0b1bf933d9a3a00937ebfa052e0c"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />ParticleSystem&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1bfa0b1bf933d9a3a00937ebfa052e0c" class="m-doc-self">pre_iter_process</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+<p><strong class="m-label m-success">optional impl</strong> <code>&gt; For specific required.</code></p><p>Pre-process of the particle system before each step iteration.</p>
+          </div></section>
+          <section class="m-doc-details" id="a5c91987e0659ef74244aeec676e3218d"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />ParticleSystem&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5c91987e0659ef74244aeec676e3218d" class="m-doc-self">post_iter_process</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+<p><strong class="m-label m-success">optional impl</strong> <code>&gt; For specific required.</code></p><p>Post-process of the particle system after each step iteration.</p>
           </div></section>
           <section class="m-doc-details" id="a1e33bfd67792a3b0242f575553bed151"><div>
             <h3>
@@ -535,7 +589,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">STL</td>
-                  <td></td>
+                  <td>1-d iterable Container.</td>
                 </tr>
               </tbody>
               <thead>
@@ -543,11 +597,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>stl_ranges</td>
-                  <td></td>
+                  <td>stl_ranges&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>Target container to store the evolved data domain.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Map all evolved data domain to a 1-d linear Container(i.e std::vector, std::array, etc,.). Used for general integration modules. The method should keep consistence with <code>load_from_linear_container</code>.</p>
           </div></section>
           <section class="m-doc-details" id="a8fe7b476281b0a3793d123bc33eb1211"><div>
             <h3>
@@ -564,7 +619,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">STL</td>
-                  <td></td>
+                  <td>1-d iterable Container.</td>
                 </tr>
               </tbody>
               <thead>
@@ -572,11 +627,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>stl_ranges</td>
-                  <td></td>
+                  <td>stl_ranges&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Container that store the particle information for reconstruction.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-warning">must impl</strong></p><p>Reconstruct the particle system from a 1-d linear Container(i.e std::vector, std::array, etc,.). Used for general integration modules. The method should keep consistence with <code>to_linear_container</code>.</p>
           </div></section>
         </section>
       </div>

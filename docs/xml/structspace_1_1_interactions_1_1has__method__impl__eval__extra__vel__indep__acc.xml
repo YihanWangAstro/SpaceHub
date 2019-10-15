@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" kind="struct" language="C++" prot="private">
+    <compoundname>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a39c88efc8b526096c33271db407f0c69" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool space::Interactions&lt; Derived &gt;::has_method_impl_eval_extra_vel_indep_acc&lt; T, Args &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="24" column="195" bodyfile="interaction.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a203049171bdfea45bf805c6016869e3b" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr static auto</type>
+        <definition>constexpr static auto space::Interactions&lt; Derived &gt;::has_method_impl_eval_extra_vel_indep_acc&lt; T, Args &gt;::check</definition>
+        <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). impl_eval_extra_vel_indep_acc(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
+        <name>check</name>
+        <param>
+          <type>const void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="24" column="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a942a83467f185b29908e9b3df73131cc" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr static std::false_type</type>
+        <definition>constexpr static std::false_type space::Interactions&lt; Derived &gt;::has_method_impl_eval_extra_vel_indep_acc&lt; T, Args &gt;::check</definition>
+        <argsstring>(...)</argsstring>
+        <name>check</name>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="24" column="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="interaction.hpp" line="24" column="66" bodyfile="interaction.hpp" bodystart="24" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a203049171bdfea45bf805c6016869e3b" prot="public" virt="non-virtual"><scope>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</scope><name>check</name></member>
+      <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a942a83467f185b29908e9b3df73131cc" prot="public" virt="non-virtual"><scope>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</scope><name>check</name></member>
+      <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a39c88efc8b526096c33271db407f0c69" prot="public" virt="non-virtual"><scope>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

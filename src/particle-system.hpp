@@ -12,8 +12,11 @@ namespace space {
     Class ParticleSystem Declaration
 \*---------------------------------------------------------------------------*/
 /**
+ * Abstract class of Particle System. A class implements(partly/fully) the interfaces of this
+ * class via CRTP idioms can be used cross the system as an implementation of the concept `Particle System`. The particle
+ * System integrates the data set of a particle set and provides interface to evolve the internal particles.
  *
- * @tparam Derived
+ * @tparam Derived The implement class in CRTP idioms.
  */
   template<typename Derived>
   class ParticleSystem {
@@ -31,85 +34,116 @@ namespace space {
     DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
     /**
+     * @must_impl
      *
-     * @return
+     * Get the (active) particle number of the SoA particle set.
+     * @return size_t the number of the particles.
      */
     [[nodiscard]] size_t number() const;
 
     /**
+     * @must_impl
      *
-     * @tparam Scalar
-     * @param dt
+     * Advance the internal time of the particle system with given time interval.
+     * @tparam Scalar Floating point like type type.
+     * @param[in] dt Avanced time interval.
      */
     template<typename Scalar>
     void advance_time(Scalar dt);
 
     /**
+     * @must_impl
      *
-     * @tparam Coord
-     * @tparam Scalar
-     * @param step_size
-     * @param velocity
+     * Advance the interval position of all particles by providing all corresponding velocity with given step size.
+     *
+     * @tparam Coord The Coordinates Type.
+     * @tparam Scalar Floating point like type type.
+     * @param[in] step_size Advance step_size.
+     * @param[in] velocity Corresponding velocity of all particles.
      */
     template<typename Coord, typename Scalar>
     void advance_pos(Scalar step_size, Coord const &velocity);
 
     /**
+     * @must_impl
      *
-     * @tparam Coord
-     * @tparam Scalar
-     * @param step_size
-     * @param acceleration
+     * Advance the interval velocity of all particles by providing all corresponding acceleration with given step size.
+     *
+     * @tparam Coord The Coordinates Type.
+     * @tparam Scalar Floating point like type type.
+     * @param[in] step_size Advance step_size.
+     * @param[in] acceleration Corresponding acceleration of all particles.
      */
     template<typename Coord, typename Scalar>
     void advance_vel(Scalar step_size, Coord const &acceleration);
 
     /**
+     * @must_impl
      *
-     * @tparam Coord
-     * @param acceleration
+     * Evaluate the acceleration for current state of the particle system.
+     *
+     * @tparam Coord The Coordinates Type.
+     * @param[out] acceleration The calculated acceleration.
      */
     template<typename Coord>
     void evaluate_acc(Coord &acceleration) const;
 
     /**
+     * @opt_impl{Symplectic integration is required.}
      *
-     * @tparam Scalar
-     * @param step_size
+     * Drift the particle system with given step size.
+     *
+     * @tparam Scalar Floating point like type type.
+     * @param[in] step_size Drift step size.
      */
     template<typename Scalar>
     void drift(Scalar step_size);
 
     /**
+     * @opt_impl{Symplectic integration is required.}
      *
-     * @tparam Scalar
-     * @param step_size
+     * Kick the particle system with given step size.
+     *
+     * @tparam Scalar Floating point like type type.
+     * @param[in] step_size Drift step size.
      */
     template<typename Scalar>
     void kick(Scalar step_size);
 
     /**
+     * @opt_impl{For specific required.}
      *
+     * Pre-process of the particle system before each step iteration.
      */
     void pre_iter_process();
 
     /**
+     * @opt_impl{For specific required.}
      *
+     * Post-process of the particle system after each step iteration.
      */
     void post_iter_process();
 
     /**
+     * @must_impl
      *
-     * @tparam STL
-     * @param stl_ranges
+     * Map all evolved data domain to a 1-d iterable Container(i.e `std::vector`, `std::array`, etc,.). Used for general
+     * integration modules. The method should keep consistence with `load_from_linear_container`.
+     *
+     * @tparam STL 1-d iterable Container.
+     * @param[out] stl_ranges Target container to store the evolved data domain.
      */
     template<typename STL>
     void to_linear_container(STL &stl_ranges);
 
     /**
+     * @must_impl
      *
-     * @tparam STL
-     * @param stl_ranges
+     * Reconstruct the particle system from a 1-d iterable Container(i.e `std::vector`, `std::array`, etc,.). Used for general
+     * integration modules. The method should keep consistence with `to_linear_container`.
+     *
+     * @tparam STL 1-d iterable Container.
+     * @param[in] stl_ranges Container that store the particle information for reconstruction.
      */
     template<typename STL>
     void load_from_linear_container(STL const &stl_ranges);

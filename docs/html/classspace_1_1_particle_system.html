@@ -117,11 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a040e62f9f12ea1da654bbf3fdf4606ec"><td class="memTemplParams" colspan="2">template&lt;typename Scalar &gt; </td></tr>
 <tr class="memitem:a040e62f9f12ea1da654bbf3fdf4606ec"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classspace_1_1_particle_system.html#a040e62f9f12ea1da654bbf3fdf4606ec">kick</a> (Scalar step_size)</td></tr>
 <tr class="separator:a040e62f9f12ea1da654bbf3fdf4606ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bfa0b1bf933d9a3a00937ebfa052e0c"><td class="memItemLeft" align="right" valign="top"><a id="a1bfa0b1bf933d9a3a00937ebfa052e0c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pre_iter_process</b> ()</td></tr>
+<tr class="memitem:a1bfa0b1bf933d9a3a00937ebfa052e0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_particle_system.html#a1bfa0b1bf933d9a3a00937ebfa052e0c">pre_iter_process</a> ()</td></tr>
 <tr class="separator:a1bfa0b1bf933d9a3a00937ebfa052e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c91987e0659ef74244aeec676e3218d"><td class="memItemLeft" align="right" valign="top"><a id="a5c91987e0659ef74244aeec676e3218d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>post_iter_process</b> ()</td></tr>
+<tr class="memitem:a5c91987e0659ef74244aeec676e3218d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_particle_system.html#a5c91987e0659ef74244aeec676e3218d">post_iter_process</a> ()</td></tr>
 <tr class="separator:a5c91987e0659ef74244aeec676e3218d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e33bfd67792a3b0242f575553bed151"><td class="memTemplParams" colspan="2">template&lt;typename STL &gt; </td></tr>
 <tr class="memitem:a1e33bfd67792a3b0242f575553bed151"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classspace_1_1_particle_system.html#a1e33bfd67792a3b0242f575553bed151">to_linear_container</a> (STL &amp;stl_ranges)</td></tr>
@@ -134,9 +132,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>post_iter_process</b>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class space::ParticleSystem&lt; Derived &gt;</h3>
 
+<p>Abstract class of Particle System. A class implements(partly/fully) the interfaces of this class via CRTP idioms can be used cross the system as an implementation of the concept <code>Particle System</code>. The particle System integrates the data set of a particle set and provides interface to evolve the internal particles.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td></td></tr>
+    <tr><td class="paramname">Derived</td><td>The implement class in CRTP idioms. </td></tr>
   </table>
   </dd>
 </dl>
@@ -170,17 +169,19 @@ template&lt;typename Coord , typename Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Advance the interval position of all particles by providing all corresponding velocity with given step size.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Coord</td><td></td></tr>
-    <tr><td class="paramname">Scalar</td><td></td></tr>
+    <tr><td class="paramname">Coord</td><td>The Coordinates Type. </td></tr>
+    <tr><td class="paramname">Scalar</td><td>Floating point like type type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">step_size</td><td></td></tr>
-    <tr><td class="paramname">velocity</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">step_size</td><td>Advance step_size. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">velocity</td><td>Corresponding velocity of all particles. </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,15 +207,16 @@ template&lt;typename Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p> <b>must impl</b></p>
+<p>Advance the internal time of the particle system with given time interval. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Scalar</td><td></td></tr>
+    <tr><td class="paramname">Scalar</td><td>Floating point like type type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dt</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Avanced time interval. </td></tr>
   </table>
   </dd>
 </dl>
@@ -250,17 +252,19 @@ template&lt;typename Coord , typename Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Advance the interval velocity of all particles by providing all corresponding acceleration with given step size.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Coord</td><td></td></tr>
-    <tr><td class="paramname">Scalar</td><td></td></tr>
+    <tr><td class="paramname">Coord</td><td>The Coordinates Type. </td></tr>
+    <tr><td class="paramname">Scalar</td><td>Floating point like type type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">step_size</td><td></td></tr>
-    <tr><td class="paramname">acceleration</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">step_size</td><td>Advance step_size. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acceleration</td><td>Corresponding acceleration of all particles. </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,15 +290,17 @@ template&lt;typename Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>optional impl</b> <code>&gt; Symplectic integration is required.</code></p>
+<p>Drift the particle system with given step size.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Scalar</td><td></td></tr>
+    <tr><td class="paramname">Scalar</td><td>Floating point like type type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">step_size</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">step_size</td><td>Drift step size. </td></tr>
   </table>
   </dd>
 </dl>
@@ -320,15 +326,17 @@ template&lt;typename Coord &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Evaluate the acceleration for current state of the particle system.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Coord</td><td></td></tr>
+    <tr><td class="paramname">Coord</td><td>The Coordinates Type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">acceleration</td><td></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>The calculated acceleration. </td></tr>
   </table>
   </dd>
 </dl>
@@ -412,15 +420,17 @@ template&lt;typename Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>optional impl</b> <code>&gt; Symplectic integration is required.</code></p>
+<p>Kick the particle system with given step size.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Scalar</td><td></td></tr>
+    <tr><td class="paramname">Scalar</td><td>Floating point like type type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">step_size</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">step_size</td><td>Drift step size. </td></tr>
   </table>
   </dd>
 </dl>
@@ -446,15 +456,17 @@ template&lt;typename STL &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Reconstruct the particle system from a 1-d linear Container(i.e std::vector, std::array, etc,.). Used for general integration modules. The method should keep consistence with <code>to_linear_container</code>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">STL</td><td></td></tr>
+    <tr><td class="paramname">STL</td><td>1-d iterable Container. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stl_ranges</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stl_ranges</td><td>Container that store the particle information for reconstruction. </td></tr>
   </table>
   </dd>
 </dl>
@@ -535,7 +547,8 @@ template&lt;typename Derived &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p> <b>must impl</b></p>
+<p>Get the (active) particle number of the SoA particle set. </p><dl class="section return"><dt>Returns</dt><dd>size_t the number of the particles. </dd></dl>
 
 </div>
 </div>
@@ -594,6 +607,48 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 <p> <b>must impl</b> The setter interface of member <code>pos</code>. </p><dl class="section return"><dt>Returns</dt><dd>auto Depend on implementation. <br  />
  </dd></dl>
+
+</div>
+</div>
+<a id="a5c91987e0659ef74244aeec676e3218d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c91987e0659ef74244aeec676e3218d">&#9670;&nbsp;</a></span>post_iter_process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classspace_1_1_particle_system.html">space::ParticleSystem</a>&lt; Derived &gt;::post_iter_process </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p> <b>optional impl</b> <code>&gt; For specific required.</code></p>
+<p>Post-process of the particle system after each step iteration. </p>
+
+</div>
+</div>
+<a id="a1bfa0b1bf933d9a3a00937ebfa052e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bfa0b1bf933d9a3a00937ebfa052e0c">&#9670;&nbsp;</a></span>pre_iter_process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classspace_1_1_particle_system.html">space::ParticleSystem</a>&lt; Derived &gt;::pre_iter_process </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p> <b>optional impl</b> <code>&gt; For specific required.</code></p>
+<p>Pre-process of the particle system before each step iteration. </p>
 
 </div>
 </div>
@@ -674,15 +729,17 @@ template&lt;typename STL &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Map all evolved data domain to a 1-d linear Container(i.e std::vector, std::array, etc,.). Used for general integration modules. The method should keep consistence with <code>load_from_linear_container</code>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">STL</td><td></td></tr>
+    <tr><td class="paramname">STL</td><td>1-d iterable Container. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stl_ranges</td><td></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stl_ranges</td><td>Target container to store the evolved data domain. </td></tr>
   </table>
   </dd>
 </dl>

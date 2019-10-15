@@ -141,10 +141,7 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Help functions and tools
 \*---------------------------------------------------------------------------*/
-/**
- * Type traits to check if a Type is an implementation of the @class Particles.
- * @tparam T The type need to be cheched.
- */
+
   template<typename T>
   constexpr bool is_soa_particles_v = std::is_base_of_v<Particles<T>, T>;
 

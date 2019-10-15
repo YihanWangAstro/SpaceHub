@@ -392,16 +392,7 @@
 <parametername>Derived</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The implement class in CRTP idioms.</para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-Type traits to check if a Type is an implementation of the <parameterlist kind="templateparam"><parameteritem>
-<parameternamelist>
-<parametername>T</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The type need to be cheched. </para>
+<para>The implement class in CRTP idioms. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
