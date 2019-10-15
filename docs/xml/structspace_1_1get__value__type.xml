@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="114" column="1" bodyfile="dev-tools.hpp" bodystart="114" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="138" column="1" bodyfile="dev-tools.hpp" bodystart="138" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="107" column="1"/>
+          <location file="dev-tools.hpp" line="131" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1get__value__type_1aaf0d70b6d2d8d320f153a1a0d5e7856a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="111" column="1"/>
+          <location file="dev-tools.hpp" line="135" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -72,12 +72,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="101">
+        <node id="100">
         <label>space::get_value_type&lt; T &gt;</label>
         <link refid="structspace_1_1get__value__type"/>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="103" column="1" bodyfile="dev-tools.hpp" bodystart="103" bodyend="115"/>
+      <location file="dev-tools.hpp" line="127" column="1" bodyfile="dev-tools.hpp" bodystart="127" bodyend="139"/>
     <listofallmembers>
       <member refid="structspace_1_1get__value__type_1a8d0bcef058ab37175f23eb6f9e1eddc4" prot="private" virt="non-virtual"><scope>space::get_value_type</scope><name>check</name></member>
       <member refid="structspace_1_1get__value__type_1aaf0d70b6d2d8d320f153a1a0d5e7856a" prot="private" virt="non-virtual"><scope>space::get_value_type</scope><name>check</name></member>

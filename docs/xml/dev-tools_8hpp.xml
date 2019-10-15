@@ -375,7 +375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="117" column="9" bodyfile="dev-tools.hpp" bodystart="117" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="141" column="9" bodyfile="dev-tools.hpp" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1acdfe40b6293bb934c6e9b3a8e3446647" prot="public" static="no">
         <name>MACRO_CAT</name>
@@ -388,7 +388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="119" column="9" bodyfile="dev-tools.hpp" bodystart="119" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="143" column="9" bodyfile="dev-tools.hpp" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a73b71c9cec23232564276263c3c36b67" prot="public" static="no">
         <name>MACRO_CAT_I</name>
@@ -401,7 +401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="120" column="9" bodyfile="dev-tools.hpp" bodystart="120" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="144" column="9" bodyfile="dev-tools.hpp" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac0633fcb84d102fae11cf1915d380ae4" prot="public" static="no">
         <name>MACRO_CAT_II</name>
@@ -414,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="121" column="9" bodyfile="dev-tools.hpp" bodystart="121" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="145" column="9" bodyfile="dev-tools.hpp" bodystart="145" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" prot="public" static="no">
         <name>UNIQ</name>
@@ -426,7 +426,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="122" column="9" bodyfile="dev-tools.hpp" bodystart="122" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="146" column="9" bodyfile="dev-tools.hpp" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a7e3ba13a65ca1eb893e8a01d8e89d570" prot="public" static="no">
         <name>PACK</name>
@@ -438,7 +438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="124" column="9" bodyfile="dev-tools.hpp" bodystart="124" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="148" column="9" bodyfile="dev-tools.hpp" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1afa143f3d190b8ed8cdfd048cb74f99ee" prot="public" static="no">
         <name>DEBUG_MODE</name>
@@ -449,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="129" column="10" bodyfile="dev-tools.hpp" bodystart="129" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="153" column="10" bodyfile="dev-tools.hpp" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a58c80f7d71aa5555df912ee9d60d34ea" prot="public" static="no">
         <name>DEBUG_MSG</name>
@@ -461,7 +461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="136" column="10" bodyfile="dev-tools.hpp" bodystart="136" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="160" column="10" bodyfile="dev-tools.hpp" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1abf836016ac652bb5c932fe102c48301e" prot="public" static="no">
         <name>DEBUG_MODE_ASSERT</name>
@@ -473,7 +473,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="142" column="10" bodyfile="dev-tools.hpp" bodystart="142" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="166" column="10" bodyfile="dev-tools.hpp" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a3102a3792f55f3ad5ff10f5fe3a6ce79" prot="public" static="no">
         <name>EXPR</name>
@@ -490,7 +490,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="145" column="9" bodyfile="dev-tools.hpp" bodystart="145" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="169" column="9" bodyfile="dev-tools.hpp" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac2bdf3bcd9a8848f9533cb143fea0a3a" prot="public" static="no">
         <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
@@ -516,7 +516,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="153" column="9" bodyfile="dev-tools.hpp" bodystart="153" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="177" column="9" bodyfile="dev-tools.hpp" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a0f585cf51c90e87b303299d7e5901c62" prot="public" static="no">
         <name>SPACEHUB_USING_TYPE_SYSTEM_OF</name>
@@ -537,7 +537,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="165" column="9" bodyfile="dev-tools.hpp" bodystart="165" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="189" column="9" bodyfile="dev-tools.hpp" bodystart="189" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ae057e45edf56a31a4859f89e6bba2100" prot="public" static="no">
         <name>DECLARE_CRTP_ACCESSOR</name>
@@ -558,7 +558,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="177" column="9" bodyfile="dev-tools.hpp" bodystart="177" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="201" column="9" bodyfile="dev-tools.hpp" bodystart="201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a681c127002bf82b9b09dbd0545db1646" prot="public" static="no">
         <name>DECLARE_CRTP_READ_ACCESSOR</name>
@@ -575,7 +575,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="187" column="9" bodyfile="dev-tools.hpp" bodystart="187" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="211" column="9" bodyfile="dev-tools.hpp" bodystart="211" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a7048ff21fd022abe7a131342f2fed10d" prot="public" static="no">
         <name>SPACEHUB_STD_ACCESSOR</name>
@@ -596,14 +596,14 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="193" column="9" bodyfile="dev-tools.hpp" bodystart="193" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="217" column="9" bodyfile="dev-tools.hpp" bodystart="217" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a6e8dcb3772ed46afbe5b83c269336181" prot="public" static="no">
         <name>SPACEHUB_READ_ACCESSOR</name>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>MEMBER</defname></param>
-        <initializer>/** The getter interface of member NAME. */                                                                            \
+          <initializer>/** The getter interface of member `MEMBER` in name of `NAME`. */ \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };</initializer>
@@ -613,7 +613,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="203" column="9" bodyfile="dev-tools.hpp" bodystart="203" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="227" column="9" bodyfile="dev-tools.hpp" bodystart="227" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a043ac749777107d34e02197c9942ac3d" prot="public" static="no">
         <name>CREATE_METHOD_CHECK</name>
@@ -636,7 +636,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="209" column="9" bodyfile="dev-tools.hpp" bodystart="209" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="233" column="9" bodyfile="dev-tools.hpp" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a01123b58bcb865a870641e5f30ce8ed2" prot="public" static="no">
         <name>HAS_METHOD</name>
@@ -650,7 +650,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="223" column="9" bodyfile="dev-tools.hpp" bodystart="223" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="247" column="9" bodyfile="dev-tools.hpp" bodystart="247" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a002df30e7890bdb68e3693ca94c9e684" prot="public" static="no">
         <name>CREATE_PROTECTED_METHOD_CHECK</name>
@@ -673,7 +673,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="226" column="9" bodyfile="dev-tools.hpp" bodystart="226" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="250" column="9" bodyfile="dev-tools.hpp" bodystart="250" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a1c72db210bcf48a1b855a5e83e78e840" prot="public" static="no">
         <name>HAS_PROTECTED_METHOD</name>
@@ -687,7 +687,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="240" column="9" bodyfile="dev-tools.hpp" bodystart="240" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="264" column="9" bodyfile="dev-tools.hpp" bodystart="264" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a4250abbdfc25337cd0dca29f9b55ff47" prot="public" static="no">
         <name>CREATE_CRTP_IMPLEMENTATION_CHECK</name>
@@ -699,7 +699,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="242" column="9" bodyfile="dev-tools.hpp" bodystart="242" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="266" column="9" bodyfile="dev-tools.hpp" bodystart="266" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a71c2a282f291770b45b3f1cef8c19f75" prot="public" static="no">
         <name>HAS_CRTP_IMPLEMENTATION</name>
@@ -713,7 +713,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="244" column="9" bodyfile="dev-tools.hpp" bodystart="244" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="268" column="9" bodyfile="dev-tools.hpp" bodystart="268" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a86408b2e79be508b3c8b8c90f66e89a7" prot="public" static="no">
         <name>CREATE_MEMBER_CHECK</name>
@@ -736,7 +736,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="247" column="9" bodyfile="dev-tools.hpp" bodystart="247" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="271" column="9" bodyfile="dev-tools.hpp" bodystart="271" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a4e050f8974fcc0ca3e7ecfee0558f4f2" prot="public" static="no">
         <name>HAS_MEMBER</name>
@@ -749,7 +749,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="261" column="9" bodyfile="dev-tools.hpp" bodystart="261" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="285" column="9" bodyfile="dev-tools.hpp" bodystart="285" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1acd50abf2f60a8ebc7dcc2a94bda2d7ca" prot="public" static="no">
         <name>CREATE_STATIC_MEMBER_CHECK</name>
@@ -773,7 +773,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
 <para>Macros used to check if a class has a static member. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="264" column="9" bodyfile="dev-tools.hpp" bodystart="264" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="288" column="9" bodyfile="dev-tools.hpp" bodystart="288" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a53374bd759b4f29eaec7c33870b03da5" prot="public" static="no">
         <name>HAS_STATIC_MEMBER</name>
@@ -786,7 +786,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="279" column="9" bodyfile="dev-tools.hpp" bodystart="279" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="303" column="9" bodyfile="dev-tools.hpp" bodystart="303" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac2fd4f3ea0b555c107cad2c9430717f8" prot="public" static="no">
         <name>CHECK_METHOD</name>
@@ -802,7 +802,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="282" column="9" bodyfile="dev-tools.hpp" bodystart="282" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="306" column="9" bodyfile="dev-tools.hpp" bodystart="306" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a3004813da8a05abadaad077b5cacbc6f" prot="public" static="no">
         <name>CHECK_MEMBER</name>
@@ -816,7 +816,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="288" column="9" bodyfile="dev-tools.hpp" bodystart="288" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="312" column="9" bodyfile="dev-tools.hpp" bodystart="312" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac10c0f62e719b8f64c36b62dfacfbd82" prot="public" static="no">
         <name>CHECK_STATIC_MEMBER</name>
@@ -831,7 +831,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="293" column="9" bodyfile="dev-tools.hpp" bodystart="293" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="317" column="9" bodyfile="dev-tools.hpp" bodystart="317" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a9165bf60ffe95b57b3a1deb24f92b7f7" prot="public" static="no">
         <name>CHECK_TYPE</name>
@@ -845,7 +845,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="299" column="9" bodyfile="dev-tools.hpp" bodystart="299" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="323" column="9" bodyfile="dev-tools.hpp" bodystart="323" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ad76c4399904c876b0fde01a7edbaf093" prot="public" static="no">
         <name>CHECK_POD</name>
@@ -857,7 +857,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="304" column="9" bodyfile="dev-tools.hpp" bodystart="304" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="328" column="9" bodyfile="dev-tools.hpp" bodystart="328" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a8a3f3c65b4167fb7188576cfa5e2ca44" prot="public" static="no">
         <name>IS_BASE_OF</name>
@@ -870,7 +870,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="373" column="9" bodyfile="dev-tools.hpp" bodystart="373" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="397" column="9" bodyfile="dev-tools.hpp" bodystart="397" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a16d2c5a0818a4356eb912b06c8b0a0e3" prot="public" static="no">
         <name>TYPE_OF_SELF</name>
@@ -881,12 +881,13 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="375" column="9" bodyfile="dev-tools.hpp" bodystart="375" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="399" column="9" bodyfile="dev-tools.hpp" bodystart="399" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="dev-tools.hpp"/>
   </compounddef>

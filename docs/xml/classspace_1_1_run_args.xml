@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" kindref="member">Scalar</ref></type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" kindref="member">ScalarArray</ref></type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" kindref="member">IdxArray</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" kindref="member">IntArray</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" kindref="member">Vector</ref></type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" kindref="member">VectorArray</ref></type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" prot="public" static="no">
         <type>typename ParticleSys ::<ref refid="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" kindref="member">Coord</ref></type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="23" column="1" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+          <location file="simulator.hpp" line="62" column="1" bodyfile="simulator.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1ab2ae5d33c6cfb8573ce977e9820f0938" prot="public" static="no">
         <type>std::function&lt; void(ParticleSys &amp;)&gt;</type>
@@ -124,7 +124,7 @@
 <para>Callback function type for pre-operation, pos-operation and stop operation. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="28" column="1" bodyfile="simulator.hpp" bodystart="28" bodyend="-1"/>
+          <location file="simulator.hpp" line="67" column="1" bodyfile="simulator.hpp" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1ad706d387865fd3b6399a0d67be56f079" prot="public" static="no">
         <type>std::function&lt; bool(ParticleSys &amp;)&gt;</type>
@@ -137,7 +137,7 @@
 <para>Callback function type for stop condition. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="33" column="1" bodyfile="simulator.hpp" bodystart="33" bodyend="-1"/>
+          <location file="simulator.hpp" line="72" column="1" bodyfile="simulator.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -153,7 +153,7 @@
 <para>Initial step size for the integration of the <ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="40" column="1" bodyfile="simulator.hpp" bodystart="40" bodyend="-1"/>
+          <location file="simulator.hpp" line="79" column="1" bodyfile="simulator.hpp" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1a4f43bc396d42b099ecfb41bdb2d78d7d" prot="public" static="no" mutable="no">
         <type><ref refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" kindref="member">Scalar</ref></type>
@@ -167,7 +167,7 @@
 <para>The time duration for the integration of the <ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="45" column="1" bodyfile="simulator.hpp" bodystart="45" bodyend="-1"/>
+          <location file="simulator.hpp" line="84" column="1" bodyfile="simulator.hpp" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1a0f130e30d4bdb4b1fbfd3e067ac0eea9" prot="public" static="no" mutable="no">
         <type><ref refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" kindref="member">Scalar</ref></type>
@@ -181,7 +181,7 @@
 <para>The absolute error tolerance. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="50" column="1" bodyfile="simulator.hpp" bodystart="50" bodyend="-1"/>
+          <location file="simulator.hpp" line="89" column="1" bodyfile="simulator.hpp" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1abd0b0970bbfc5f62d7e7ac07a2f54c71" prot="public" static="no" mutable="no">
         <type><ref refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" kindref="member">Scalar</ref></type>
@@ -195,7 +195,7 @@
 <para>The relative error tolerance. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="55" column="1" bodyfile="simulator.hpp" bodystart="55" bodyend="-1"/>
+          <location file="simulator.hpp" line="94" column="1" bodyfile="simulator.hpp" bodystart="94" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="152" column="1" bodyfile="simulator.hpp" bodystart="152" bodyend="-1"/>
+          <location file="simulator.hpp" line="191" column="1" bodyfile="simulator.hpp" bodystart="191" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1a9b86cc38a949a66c4043e53a0cf0368d" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classspace_1_1_run_args_1ab2ae5d33c6cfb8573ce977e9820f0938" kindref="member">Callback</ref> &gt;</type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="154" column="1" bodyfile="simulator.hpp" bodystart="154" bodyend="-1"/>
+          <location file="simulator.hpp" line="193" column="1" bodyfile="simulator.hpp" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1a04410ba0463f8c760db7385b07da4204" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classspace_1_1_run_args_1ab2ae5d33c6cfb8573ce977e9820f0938" kindref="member">Callback</ref> &gt;</type>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="156" column="1" bodyfile="simulator.hpp" bodystart="156" bodyend="-1"/>
+          <location file="simulator.hpp" line="195" column="1" bodyfile="simulator.hpp" bodystart="195" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1a04921230c25ee65ef160f2b7ad295f84" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classspace_1_1_run_args_1ad706d387865fd3b6399a0d67be56f079" kindref="member">StopCall</ref> &gt;</type>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="158" column="1" bodyfile="simulator.hpp" bodystart="158" bodyend="-1"/>
+          <location file="simulator.hpp" line="197" column="1" bodyfile="simulator.hpp" bodystart="197" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_run_args_1ab04556c795d6957ca8b2fbc36ddd5384" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -263,7 +263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="160" column="1" bodyfile="simulator.hpp" bodystart="160" bodyend="-1"/>
+          <location file="simulator.hpp" line="199" column="1" bodyfile="simulator.hpp" bodystart="199" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -281,7 +281,9 @@
         <detaileddescription>
 <para>Call the all registered pre-operation functions by sequence.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername direction="in">particle_system</parametername>
+    <parametername direction="inout">
+        <ref refid="namespacespace_1_1particle__system" kindref="compound">particle_system</ref>
+    </parametername>
 </parameternamelist>
 <parameterdescription>
 <para>The particle system that is going to be operated. </para></parameterdescription>
@@ -290,7 +292,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="63" column="1" bodyfile="simulator.hpp" bodystart="235" bodyend="239"/>
+          <location file="simulator.hpp" line="102" column="1" bodyfile="simulator.hpp" bodystart="282" bodyend="286"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1af3a00bc9788de7eba958b457441b7063" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -306,7 +308,9 @@
         <detaileddescription>
 <para>Call the all registered pos-operation functions by sequence.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername direction="in">particle_system</parametername>
+    <parametername direction="inout">
+        <ref refid="namespacespace_1_1particle__system" kindref="compound">particle_system</ref>
+    </parametername>
 </parameternamelist>
 <parameterdescription>
 <para>The particle system that is going to be operated. </para></parameterdescription>
@@ -315,7 +319,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="70" column="1" bodyfile="simulator.hpp" bodystart="242" bodyend="246"/>
+          <location file="simulator.hpp" line="109" column="1" bodyfile="simulator.hpp" bodystart="289" bodyend="293"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1ab3a245733eb8a0cf2e23e62ecedb3bd7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -331,7 +335,9 @@
         <detaileddescription>
 <para>Call the all registered stop-operation functions by sequence.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername direction="in">particle_system</parametername>
+    <parametername direction="inout">
+        <ref refid="namespacespace_1_1particle__system" kindref="compound">particle_system</ref>
+    </parametername>
 </parameternamelist>
 <parameterdescription>
 <para>The particle system that is going to be operated. </para></parameterdescription>
@@ -340,7 +346,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="77" column="1" bodyfile="simulator.hpp" bodystart="249" bodyend="253"/>
+          <location file="simulator.hpp" line="116" column="1" bodyfile="simulator.hpp" bodystart="296" bodyend="300"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1a5f6d9c34a5998231505583ffd2fd4df7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -356,7 +362,9 @@
         <detaileddescription>
 <para>Check the all registered stop condition functions by sequence. If any of them is satisfied, return <computeroutput>true</computeroutput>.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername direction="in">particle_system</parametername>
+    <parametername direction="in">
+        <ref refid="namespacespace_1_1particle__system" kindref="compound">particle_system</ref>
+    </parametername>
 </parameternamelist>
 <parameterdescription>
 <para>The particle system that is going to be checked </para></parameterdescription>
@@ -365,7 +373,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="84" column="1" bodyfile="simulator.hpp" bodystart="256" bodyend="261"/>
+          <location file="simulator.hpp" line="123" column="1" bodyfile="simulator.hpp" bodystart="303" bodyend="308"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1a40dd8e75c3602befb2ea3a54f850a3de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -426,7 +434,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="95" column="1" bodyfile="simulator.hpp" bodystart="265" bodyend="267"/>
+          <location file="simulator.hpp" line="134" column="1" bodyfile="simulator.hpp" bodystart="312" bodyend="314"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1a356e0a6fb304ecbd7c649ae3a0486594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -487,7 +495,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="106" column="1" bodyfile="simulator.hpp" bodystart="271" bodyend="273"/>
+          <location file="simulator.hpp" line="145" column="1" bodyfile="simulator.hpp" bodystart="318" bodyend="320"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1a202c1480767ceb6d2873f9383d21145b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -548,7 +556,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="117" column="1" bodyfile="simulator.hpp" bodystart="277" bodyend="279"/>
+          <location file="simulator.hpp" line="156" column="1" bodyfile="simulator.hpp" bodystart="324" bodyend="326"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1a1f7732aa10f12671047acd41f43b7035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -609,7 +617,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="128" column="1" bodyfile="simulator.hpp" bodystart="283" bodyend="285"/>
+          <location file="simulator.hpp" line="167" column="1" bodyfile="simulator.hpp" bodystart="330" bodyend="332"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1a05a043ed2282f9529f326c5e665e93e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -647,7 +655,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="136" column="1" bodyfile="simulator.hpp" bodystart="289" bodyend="292"/>
+          <location file="simulator.hpp" line="175" column="1" bodyfile="simulator.hpp" bodystart="336" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1aee5ebfc0b21db4a01f5269adfc8e9441" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -661,7 +669,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="142" column="1" bodyfile="simulator.hpp" bodystart="142" bodyend="142"/>
+          <location file="simulator.hpp" line="181" column="1" bodyfile="simulator.hpp" bodystart="181" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_run_args_1aace390d73a2eef9effb0443eb27657ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -675,28 +683,108 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="148" column="1" bodyfile="simulator.hpp" bodystart="148" bodyend="148"/>
+          <location file="simulator.hpp" line="187" column="1" bodyfile="simulator.hpp" bodystart="187" bodyend="187"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Run arguments that is used to set all arguments needed by <ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref>.</para><para><parameterlist kind="templateparam"><parameteritem>
+        <para>Run arguments that is used to set all arguments needed by <ref refid="classspace_1_1_simulator"
+                                                                             kindref="compound">Simulator</ref>.
+        </para>
+        <para>The <ref refid="classspace_1_1_run_args_1a5b7abe613e970c74f62846be03f9734d" kindref="member">
+            pre_operations()</ref>, <ref refid="classspace_1_1_run_args_1af3a00bc9788de7eba958b457441b7063"
+                                         kindref="member">post_operations()</ref>, <ref
+                refid="classspace_1_1_run_args_1ab3a245733eb8a0cf2e23e62ecedb3bd7" kindref="member">stop_operations()
+        </ref> and <ref refid="classspace_1_1_run_args_1a5f6d9c34a5998231505583ffd2fd4df7" kindref="member">
+            check_stops()
+        </ref> will be called in a simulation in this way.
+        </para>
+        <para>
+            <programlisting>
+                <codeline>
+                    <highlight class="normal">...</highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal">auto<sp/>sys;
+                        <sp/>
+                    </highlight>
+                    <highlight class="comment">//<sp/>particle<sp/>system<sp/>that<sp/>is<sp/>going<sp/>to<sp/>be<sp/>
+                        evolved.
+                    </highlight>
+                    <highlight class="normal"></highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal"></highlight>
+                    <highlight class="keywordflow">for</highlight>
+                    <highlight class="normal">(<sp/>;<ref
+                            refid="classspace_1_1_run_args_1a5f6d9c34a5998231505583ffd2fd4df7" kindref="member">
+                        check_stops</ref>(sys);){
+                    </highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal">
+                        <sp/>
+                        <sp/>
+                        <sp/>
+                        <sp/>
+                        <ref refid="classspace_1_1_run_args_1a5b7abe613e970c74f62846be03f9734d" kindref="member">
+                            pre_operations</ref>(sys);
+                    </highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal">
+                        <sp/>
+                        <sp/>
+                        <sp/>
+                        <sp/>...
+                    </highlight>
+                    <highlight class="comment">//step<sp/>integration.
+                    </highlight>
+                    <highlight class="normal"></highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal">
+                        <sp/>
+                        <sp/>
+                        <sp/>
+                        <sp/>
+                        <ref refid="classspace_1_1_run_args_1af3a00bc9788de7eba958b457441b7063" kindref="member">
+                            post_operations</ref>(sys);
+                    </highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal">}</highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal"><ref refid="classspace_1_1_run_args_1ab3a245733eb8a0cf2e23e62ecedb3bd7"
+                                                   kindref="member">stop_operations</ref>(sys);
+                    </highlight>
+                </codeline>
+                <codeline>
+                    <highlight class="normal">...</highlight>
+                </codeline>
+            </programlisting>
+        </para>
+        <para>
+            <parameterlist kind="templateparam">
+                <parameteritem>
 <parameternamelist>
 <parametername>ParticleSys</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Any implementation of concept <ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>. </para></parameterdescription>
+    <para>Any implementation of concept ParticleSystem.</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="297">
+        <node id="291">
         <label>space::RunArgs&lt; ParticleSys &gt;</label>
         <link refid="classspace_1_1_run_args"/>
       </node>
     </collaborationgraph>
-    <location file="simulator.hpp" line="20" column="1" bodyfile="simulator.hpp" bodystart="20" bodyend="161"/>
+      <location file="simulator.hpp" line="59" column="1" bodyfile="simulator.hpp" bodystart="59" bodyend="200"/>
     <listofallmembers>
       <member refid="classspace_1_1_run_args_1a356e0a6fb304ecbd7c649ae3a0486594" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>add_post_step_operation</name></member>
       <member refid="classspace_1_1_run_args_1a40dd8e75c3602befb2ea3a54f850a3de" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>add_pre_step_operation</name></member>

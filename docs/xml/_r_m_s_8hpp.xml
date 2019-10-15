@@ -49,11 +49,12 @@
         <link refid="space_hub_8hpp"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="classspace_1_1_r_m_s" prot="public">space::RMS</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
+      <innerclass refid="classspace_1_1ode__iterator_1_1_r_m_s" prot="public">space::ode_iterator::RMS</innerclass>
+      <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="error-checker/RMS.hpp"/>
   </compounddef>

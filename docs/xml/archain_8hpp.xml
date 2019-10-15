@@ -117,11 +117,14 @@
         <link refid="space_hub_8hpp"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="classspace_1_1_a_rchain_system" prot="public">space::ARchainSystem</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
+      <innerclass refid="classspace_1_1particle__system_1_1_a_rchain_system" prot="public">
+          space::particle_system::ARchainSystem
+      </innerclass>
+      <innernamespace refid="namespacespace_1_1particle__system">space::particle_system</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="particle-system/archain.hpp"/>
   </compounddef>

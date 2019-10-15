@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="328" column="1" bodyfile="dev-tools.hpp" bodystart="328" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="352" column="1" bodyfile="dev-tools.hpp" bodystart="352" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="322" column="1"/>
+          <location file="dev-tools.hpp" line="346" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1is__reservable_1af5358a243f35ba51dbee47bf8c12218b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="326" column="1"/>
+          <location file="dev-tools.hpp" line="350" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -73,12 +73,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="171">
+        <node id="168">
         <label>space::is_reservable&lt; T &gt;</label>
         <link refid="structspace_1_1is__reservable"/>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="320" column="1" bodyfile="dev-tools.hpp" bodystart="320" bodyend="329"/>
+      <location file="dev-tools.hpp" line="344" column="1" bodyfile="dev-tools.hpp" bodystart="344" bodyend="353"/>
     <listofallmembers>
       <member refid="structspace_1_1is__reservable_1aeb2ae61e2b1974fa2c0cedbafdd645ca" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>check</name></member>
       <member refid="structspace_1_1is__reservable_1af5358a243f35ba51dbee47bf8c12218b" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>check</name></member>

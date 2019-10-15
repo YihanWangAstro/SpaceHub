@@ -11,7 +11,7 @@
 #include <stdexcept>
 #include <functional>
 
-namespace space::multiThread {
+namespace space::multi_thread {
   class ThreadPool {
   public:
     using Task = std::function<void()>;

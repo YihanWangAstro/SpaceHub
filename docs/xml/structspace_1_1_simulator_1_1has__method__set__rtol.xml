@@ -13,9 +13,13 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1_simulator_1_1has__method__set__rtol_1a76b6deb93f951b42adee9c7dd0e5a11b" prot="public" static="yes" mutable="no">
+          <memberdef kind="variable"
+                     id="structspace_1_1_simulator_1_1has__method__set__rtol_1a0d57182929aad323876cac603740b4a2"
+                     prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
-        <definition>constexpr bool space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_rtol&lt; T, Args &gt;::value</definition>
+              <definition>constexpr bool space::Simulator&lt; ParticleSys, OdeIterator &gt;::has_method_set_rtol&lt; T,
+                  Args &gt;::value
+              </definition>
         <argsstring></argsstring>
         <name>value</name>
         <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
@@ -25,18 +29,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="228" column="1" bodyfile="simulator.hpp" bodystart="228" bodyend="-1"/>
+              <location file="simulator.hpp" line="275" column="1" bodyfile="simulator.hpp" bodystart="275"
+                        bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1_simulator_1_1has__method__set__rtol_1aab304e1563b8b3d7225d33d8b93db47c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function"
+                     id="structspace_1_1_simulator_1_1has__method__set__rtol_1a2b05c3a38e6444b2e4a50762f8dabbc6"
+                     prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
         <type>constexpr auto</type>
-        <definition>static constexpr auto space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_rtol&lt; T, Args &gt;::check</definition>
+              <definition>static constexpr auto space::Simulator&lt; ParticleSys, OdeIterator &gt;::has_method_set_rtol&lt;
+                  T, Args &gt;::check
+              </definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). set_rtol(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +57,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="228" column="1"/>
+              <location file="simulator.hpp" line="275" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1_simulator_1_1has__method__set__rtol_1a60e61b163774777ce5a505c384934845" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+          <memberdef kind="function"
+                     id="structspace_1_1_simulator_1_1has__method__set__rtol_1a573dd1a84c4ea3d8541153f45fa506d4"
+                     prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
         <type>constexpr std::false_type</type>
-        <definition>static constexpr std::false_type space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_rtol&lt; T, Args &gt;::check</definition>
+              <definition>static constexpr std::false_type space::Simulator&lt; ParticleSys, OdeIterator &gt;::has_method_set_rtol&lt;
+                  T, Args &gt;::check
+              </definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="228" column="1"/>
+              <location file="simulator.hpp" line="275" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -77,15 +90,27 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="133">
-        <label>space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_rtol&lt; T, Args &gt;</label>
+        <node id="132">
+            <label>space::Simulator&lt; ParticleSys, OdeIterator &gt;::has_method_set_rtol&lt; T, Args &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="simulator.hpp" line="228" column="1" bodyfile="simulator.hpp" bodystart="228" bodyend="228"/>
+      <location file="simulator.hpp" line="275" column="1" bodyfile="simulator.hpp" bodystart="275" bodyend="275"/>
     <listofallmembers>
-      <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1aab304e1563b8b3d7225d33d8b93db47c" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_rtol</scope><name>check</name></member>
-      <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a60e61b163774777ce5a505c384934845" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_rtol</scope><name>check</name></member>
-      <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a76b6deb93f951b42adee9c7dd0e5a11b" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_rtol</scope><name>value</name></member>
+        <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a2b05c3a38e6444b2e4a50762f8dabbc6"
+                prot="public" virt="non-virtual">
+            <scope>space::Simulator::has_method_set_rtol</scope>
+            <name>check</name>
+        </member>
+        <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a573dd1a84c4ea3d8541153f45fa506d4"
+                prot="public" virt="non-virtual">
+            <scope>space::Simulator::has_method_set_rtol</scope>
+            <name>check</name>
+        </member>
+        <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a0d57182929aad323876cac603740b4a2"
+                prot="public" virt="non-virtual">
+            <scope>space::Simulator::has_method_set_rtol</scope>
+            <name>value</name>
+        </member>
     </listofallmembers>
   </compounddef>
 </doxygen>

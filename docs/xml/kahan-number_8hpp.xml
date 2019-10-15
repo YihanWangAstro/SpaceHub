@@ -59,6 +59,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="kahan-number.hpp"/>
   </compounddef>

@@ -112,40 +112,40 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="14">
+        <node id="13">
         <label>SpaceH::Lazy::Expr&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="15" relation="template-instance">
+            <childnode refid="14" relation="template-instance">
           <edgelabel>&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="15">
+        <node id="14">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-      <node id="13">
+        <node id="12">
         <label>SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_binary___expr"/>
-        <childnode refid="14" relation="public-inheritance">
+            <childnode refid="13" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="17">
+        <node id="16">
         <label>SpaceH::Lazy::Expr&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="18" relation="template-instance">
+            <childnode refid="17" relation="template-instance">
           <edgelabel>&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="18">
+        <node id="17">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-      <node id="16">
+        <node id="15">
         <label>SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_binary___expr"/>
-        <childnode refid="17" relation="public-inheritance">
+            <childnode refid="16" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

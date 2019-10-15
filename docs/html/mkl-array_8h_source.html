@@ -67,9 +67,291 @@ $(function() {
 <div class="title">mkl-array.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="mkl-array_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPACEHUB_MKL_ARRAY_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPACEHUB_MKL_ARRAY_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="lazy__expr_8h.html">&quot;lazy_expr.h&quot;</a></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">string</span><span class="preprocessor">.</span><span class="preprocessor">h</span><span class="preprocessor">&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;/opt/intel/mkl/include/mkl.h&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../tools/timer.hpp&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespacespace.html">space</a> {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, size_t Size&gt;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html">   12</a></span>&#160;  <span class="keyword">struct</span> <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static_assert</span>(std::is_same&lt;T, <span class="keywordtype">double</span>&gt;::value || std::is_same&lt;T, <span class="keywordtype">float</span>&gt;::value,</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                  <span class="stringliteral">&quot;Only float and double are allowed.&quot;</span>);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a122cb694c38b12f53371fd110df4e677">   16</a></span>&#160;    <a class="code" href="structspace_1_1_m_k_l_array.html#a122cb694c38b12f53371fd110df4e677">MKLArray</a>() : data_(<span class="keyword">new</span> T[Size]) {}</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a031d22d6a80fdee38e5d019e9ef794db">   18</a></span>&#160;    ~<a class="code" href="structspace_1_1_m_k_l_array.html#a031d22d6a80fdee38e5d019e9ef794db">MKLArray</a>() { <span class="keyword">delete</span>[] data_; }</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a5487071bbe2d57affc462f27588aafda">   20</a></span>&#160;    <a class="code" href="structspace_1_1_m_k_l_array.html#a5487071bbe2d57affc462f27588aafda">MKLArray</a>(<span class="keyword">const</span> <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;src) : data_(<span class="keyword">new</span> T[Size]) {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      memcpy(data_, src.data_, <span class="keyword">sizeof</span>(T) * Size);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a2bc38bbcc14b169155bd2448ab6d7f40">   24</a></span>&#160;    <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;<a class="code" href="structspace_1_1_m_k_l_array.html#a2bc38bbcc14b169155bd2448ab6d7f40">operator</a>=(<a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> <span class="keyword">const</span> &amp;src) {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      memcpy(data_, src.data_, <span class="keyword">sizeof</span>(T) * Size);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a83b608b6cad7813702f030bd11e165c1">   29</a></span>&#160;    <a class="code" href="structspace_1_1_m_k_l_array.html#a83b608b6cad7813702f030bd11e165c1">MKLArray</a>(<a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;&amp;src) <span class="keyword">noexcept</span> {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      data_ = src.data_;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      src.data_ = <span class="keywordtype">nullptr</span>;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a9231b07bff7d4e9dd9ce693f945a8e01">   34</a></span>&#160;    <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;<a class="code" href="structspace_1_1_m_k_l_array.html#a9231b07bff7d4e9dd9ce693f945a8e01">operator</a>=(<a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;&amp;src) <span class="keyword">noexcept</span> {</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">delete</span>[] data_;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      data_ = src.data_;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      src.data_ = <span class="keywordtype">nullptr</span>;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a22791fd75530d1df0dcc36901f9d2cdd">   41</a></span>&#160;    T <span class="keyword">const</span> &amp;<a class="code" href="structspace_1_1_m_k_l_array.html#a22791fd75530d1df0dcc36901f9d2cdd">operator</a>[](size_t i) <span class="keyword">const</span> {</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordflow">return</span> data_[i];</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#aa7dc3a9fffc3e9126e1442b1689c9dd1">   45</a></span>&#160;    T &amp;<a class="code" href="structspace_1_1_m_k_l_array.html#aa7dc3a9fffc3e9126e1442b1689c9dd1">operator</a>[](size_t i) {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">const_cast</span>&lt;T &amp;&gt;(<span class="keyword">static_cast</span>&lt;<a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> <span class="keyword">const</span> &amp;&gt;(*<span class="keyword">this</span>)[i]);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structspace_1_1_m_k_l_array.html#a2724c5b75e92cec2527f9569d537c39f">   49</a></span>&#160;    T *<a class="code" href="structspace_1_1_m_k_l_array.html#a2724c5b75e92cec2527f9569d537c39f">get</a>() <span class="keyword">const</span> {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">return</span> data_;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    T *data_{<span class="keywordtype">nullptr</span>};</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  };</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">   57</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">MKL_CREATE_BINARY_OPERATION</span><span class="preprocessor">(</span><span class="preprocessor">FUNC</span><span class="preprocessor">,</span> <span class="preprocessor">INTERFACE</span><span class="preprocessor">,</span> <span class="preprocessor">TYPE</span><span class="preprocessor">)</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">template</span> <span class="preprocessor">&lt;</span><span class="preprocessor">size_t</span> <span class="preprocessor">Size</span><span class="preprocessor">&gt;</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">inline</span> <span class="preprocessor">MKLArray</span><span class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span class="preprocessor">,</span><span class="preprocessor">Size</span><span class="preprocessor">&gt;</span> <span class="preprocessor">FUNC</span><span class="preprocessor">(</span><span class="preprocessor">MKLArray</span><span class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span class="preprocessor">,</span><span class="preprocessor">Size</span><span class="preprocessor">&gt;</span> <span class="keyword">const</span> <span class="preprocessor">&amp;</span><span class="preprocessor">lhs</span><span class="preprocessor">,</span> <span class="preprocessor">MKLArray</span><span class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span class="preprocessor">,</span><span class="preprocessor">Size</span><span class="preprocessor">&gt;</span> <span class="keyword">const</span> <span class="preprocessor">&amp;</span><span class="preprocessor">rhs</span><span class="preprocessor">)</span><span class="preprocessor">{</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="preprocessor">MKLArray</span><span class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span class="preprocessor">,</span><span class="preprocessor">Size</span><span class="preprocessor">&gt;</span> <span class="preprocessor">dst</span><span class="preprocessor">;</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="preprocessor">INTERFACE</span><span class="preprocessor">(</span><span class="keyword">static_cast</span><span class="preprocessor">&lt;</span><span class="preprocessor">MKL_INT</span><span class="preprocessor">&gt;</span><span class="preprocessor">(</span><span class="preprocessor">Size</span><span class="preprocessor">)</span><span class="preprocessor">,</span> <span class="preprocessor">lhs</span><span class="preprocessor">.</span><span class="preprocessor">get</span><span class="preprocessor">(</span><span class="preprocessor">)</span><span class="preprocessor">,</span> <span class="preprocessor">rhs</span><span class="preprocessor">.</span><span class="preprocessor">get</span><span class="preprocessor">(</span><span class="preprocessor">)</span><span class="preprocessor">,</span> <span class="preprocessor">dst</span><span class="preprocessor">.</span><span class="preprocessor">get</span><span class="preprocessor">(</span><span class="preprocessor">)</span><span class="preprocessor">)</span><span class="preprocessor">;</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> <span class="preprocessor">dst</span><span class="preprocessor">;</span></div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="preprocessor">}</span></div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespacespace.html#aac174a0cc1a2348338fbe270b275dccb">   65</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#aac174a0cc1a2348338fbe270b275dccb">operator</a>+, vdAdd, <span class="keywordtype">double</span>);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="namespacespace.html#a64c299f9e182f777b522fda7fc1632b7">   67</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#a64c299f9e182f777b522fda7fc1632b7">operator</a>-, vdSub, <span class="keywordtype">double</span>);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacespace.html#a71880002b8c40a02f798ca9a96d6d786">   69</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#a71880002b8c40a02f798ca9a96d6d786">operator</a>*, vdMul, <span class="keywordtype">double</span>);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="namespacespace.html#a768d0e58550d7ae2291be5f4c49ac146">   71</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#a768d0e58550d7ae2291be5f4c49ac146">operator</a>/, vdDiv, <span class="keywordtype">double</span>);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="namespacespace.html#abe514c511ccce757d571022517cd014f">   73</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#abe514c511ccce757d571022517cd014f">operator</a>+, vsAdd, <span class="keywordtype">float</span>);</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="namespacespace.html#a0f157c54041bd93935747f70b044c474">   75</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#a0f157c54041bd93935747f70b044c474">operator</a>-, vsSub, <span class="keywordtype">float</span>);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacespace.html#a14ead9434d2100411feb631da671b473">   77</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#a14ead9434d2100411feb631da671b473">operator</a>*, vsMul, <span class="keywordtype">float</span>);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacespace.html#a7ad7c1e4d2d8eac0dfa7c46f387d5c98">   79</a></span>&#160;  <a class="code" href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a class="code" href="namespacespace.html#a7ad7c1e4d2d8eac0dfa7c46f387d5c98">operator</a>/, vsDiv, <span class="keywordtype">float</span>);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">//SPACEHUB_MKL_ARRAY_H</span></div><div class="ttc" id="namespacespace_html_a7ad7c1e4d2d8eac0dfa7c46f387d5c98"><div class="ttname"><a href="namespacespace.html#a7ad7c1e4d2d8eac0dfa7c46f387d5c98">space::operator/</a></div><div class="ttdeci">MKLArray&lt; float,Size &gt; operator/(MKLArray&lt; float, Size &gt; const &amp;lhs, MKLArray&lt; float, Size &gt; const &amp;rhs)</div><div class="ttdef"><b>Definition:</b> mkl-array.h:79</div></div>
+    <a href="mkl-array_8h.html">Go to the documentation of this file.</a>
+    <div class="fragment">
+        <div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPACEHUB_MKL_ARRAY_H</span>
+        </div>
+        <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPACEHUB_MKL_ARRAY_H</span>
+        </div>
+        <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+        <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code"
+                                                                                          href="lazy__expr_8h.html">&quot;lazy_expr.h&quot;</a>
+        </div>
+        <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span
+                class="preprocessor">&lt;</span><span class="preprocessor">string</span><span
+                class="preprocessor">.</span><span class="preprocessor">h</span><span class="preprocessor">&gt;</span>
+        </div>
+        <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;/opt/intel/mkl/include/mkl.h&quot;</span>
+        </div>
+        <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../tools/timer.hpp&quot;</span>
+        </div>
+        <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+        <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span
+                class="keyword">namespace</span> space {
+        </div>
+        <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+        <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> T, size_t Size&gt;
+        </div>
+        <div class="line"><a name="l00012"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html">   12</a></span>&#160;
+            <span class="keyword">struct</span> <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> {
+        </div>
+        <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; <span class="keyword">static_assert</span>(std::is_same&lt;T,
+            <span class="keywordtype">double</span>&gt;::value || std::is_same&lt;T, <span
+                    class="keywordtype">float</span>&gt;::value,
+        </div>
+        <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; <span class="stringliteral">&quot;Only float and double are allowed.&quot;</span>);
+        </div>
+        <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+        <div class="line"><a name="l00016"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a122cb694c38b12f53371fd110df4e677">   16</a></span>&#160;
+            <a class="code" href="structspace_1_1_m_k_l_array.html#a122cb694c38b12f53371fd110df4e677">MKLArray</a>() :
+            data_(<span class="keyword">new</span> T[Size]) {}
+        </div>
+        <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+        <div class="line"><a name="l00018"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a031d22d6a80fdee38e5d019e9ef794db">   18</a></span>&#160;
+            ~<a class="code" href="structspace_1_1_m_k_l_array.html#a031d22d6a80fdee38e5d019e9ef794db">MKLArray</a>() {
+            <span class="keyword">delete</span>[] data_; }
+        </div>
+        <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+        <div class="line"><a name="l00020"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a5487071bbe2d57affc462f27588aafda">   20</a></span>&#160;
+            <a class="code" href="structspace_1_1_m_k_l_array.html#a5487071bbe2d57affc462f27588aafda">MKLArray</a>(<span
+                    class="keyword">const</span> <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a>
+            &amp;src) : data_(<span class="keyword">new</span> T[Size]) {
+        </div>
+        <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; memcpy(data_, src.data_, <span
+                class="keyword">sizeof</span>(T) * Size);
+        </div>
+        <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; }</div>
+        <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+        <div class="line"><a name="l00024"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a2bc38bbcc14b169155bd2448ab6d7f40">   24</a></span>&#160;
+            <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;<a class="code"
+                                                                                         href="structspace_1_1_m_k_l_array.html#a2bc38bbcc14b169155bd2448ab6d7f40">operator</a>=(<a
+                    class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> <span class="keyword">const</span>
+            &amp;src) {
+        </div>
+        <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; memcpy(data_, src.data_, <span
+                class="keyword">sizeof</span>(T) * Size);
+        </div>
+        <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; <span
+                class="keywordflow">return</span> *<span class="keyword">this</span>;
+        </div>
+        <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; }</div>
+        <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+        <div class="line"><a name="l00029"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a83b608b6cad7813702f030bd11e165c1">   29</a></span>&#160;
+            <a class="code" href="structspace_1_1_m_k_l_array.html#a83b608b6cad7813702f030bd11e165c1">MKLArray</a>(<a
+                    class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;&amp;src) <span
+                    class="keyword">noexcept</span> {
+        </div>
+        <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; data_ = src.data_;</div>
+        <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; src.data_ = <span
+                class="keywordtype">nullptr</span>;
+        </div>
+        <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; }</div>
+        <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+        <div class="line"><a name="l00034"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a9231b07bff7d4e9dd9ce693f945a8e01">   34</a></span>&#160;
+            <a class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;<a class="code"
+                                                                                         href="structspace_1_1_m_k_l_array.html#a9231b07bff7d4e9dd9ce693f945a8e01">operator</a>=(<a
+                    class="code" href="structspace_1_1_m_k_l_array.html">MKLArray</a> &amp;&amp;src) <span
+                    class="keyword">noexcept</span> {
+        </div>
+        <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span
+                class="keyword">delete</span>[] data_;
+        </div>
+        <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; data_ = src.data_;</div>
+        <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; src.data_ = <span
+                class="keywordtype">nullptr</span>;
+        </div>
+        <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span
+                class="keywordflow">return</span> *<span class="keyword">this</span>;
+        </div>
+        <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; }</div>
+        <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+        <div class="line"><a name="l00041"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a22791fd75530d1df0dcc36901f9d2cdd">   41</a></span>&#160;
+            T <span class="keyword">const</span> &amp;<a class="code"
+                                                         href="structspace_1_1_m_k_l_array.html#a22791fd75530d1df0dcc36901f9d2cdd">operator</a>[](size_t
+            i) <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span
+                class="keywordflow">return</span> data_[i];
+        </div>
+        <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; }</div>
+        <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+        <div class="line"><a name="l00045"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#aa7dc3a9fffc3e9126e1442b1689c9dd1">   45</a></span>&#160;
+            T &amp;<a class="code"
+                      href="structspace_1_1_m_k_l_array.html#aa7dc3a9fffc3e9126e1442b1689c9dd1">operator</a>[](size_t i)
+            {
+        </div>
+        <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span
+                class="keywordflow">return</span> <span class="keyword">const_cast</span>&lt;T &amp;&gt;(<span
+                class="keyword">static_cast</span>&lt;<a class="code"
+                                                         href="structspace_1_1_m_k_l_array.html">MKLArray</a> <span
+                class="keyword">const</span> &amp;&gt;(*<span class="keyword">this</span>)[i]);
+        </div>
+        <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; }</div>
+        <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+        <div class="line"><a name="l00049"></a><span class="lineno"><a class="line"
+                                                                       href="structspace_1_1_m_k_l_array.html#a2724c5b75e92cec2527f9569d537c39f">   49</a></span>&#160;
+            T *<a class="code" href="structspace_1_1_m_k_l_array.html#a2724c5b75e92cec2527f9569d537c39f">get</a>() <span
+                    class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span
+                class="keywordflow">return</span> data_;
+        </div>
+        <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; }</div>
+        <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+        <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span
+                class="keyword">private</span>:
+        </div>
+        <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; T *data_{<span
+                class="keywordtype">nullptr</span>};
+        </div>
+        <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; };</div>
+        <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+        <div class="line"><a name="l00057"></a><span class="lineno"><a class="line"
+                                                                       href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">   57</a></span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">MKL_CREATE_BINARY_OPERATION</span><span
+                class="preprocessor">(</span><span class="preprocessor">FUNC</span><span class="preprocessor">,</span>
+            <span class="preprocessor">INTERFACE</span><span class="preprocessor">,</span> <span class="preprocessor">TYPE</span><span
+                    class="preprocessor">)</span></div>
+        <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span
+                class="keyword">template</span> <span class="preprocessor">&lt;</span><span
+                class="preprocessor">size_t</span> <span class="preprocessor">Size</span><span
+                class="preprocessor">&gt;</span></div>
+        <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span
+                class="keyword">inline</span> <span class="preprocessor">MKLArray</span><span
+                class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span
+                class="preprocessor">,</span><span class="preprocessor">Size</span><span
+                class="preprocessor">&gt;</span> <span class="preprocessor">FUNC</span><span
+                class="preprocessor">(</span><span class="preprocessor">MKLArray</span><span
+                class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span
+                class="preprocessor">,</span><span class="preprocessor">Size</span><span
+                class="preprocessor">&gt;</span> <span class="keyword">const</span> <span
+                class="preprocessor">&amp;</span><span class="preprocessor">lhs</span><span
+                class="preprocessor">,</span> <span class="preprocessor">MKLArray</span><span
+                class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span
+                class="preprocessor">,</span><span class="preprocessor">Size</span><span
+                class="preprocessor">&gt;</span> <span class="keyword">const</span> <span
+                class="preprocessor">&amp;</span><span class="preprocessor">rhs</span><span
+                class="preprocessor">)</span><span class="preprocessor">{</span></div>
+        <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="preprocessor">MKLArray</span><span
+                class="preprocessor">&lt;</span><span class="preprocessor">TYPE</span><span
+                class="preprocessor">,</span><span class="preprocessor">Size</span><span
+                class="preprocessor">&gt;</span> <span class="preprocessor">dst</span><span
+                class="preprocessor">;</span></div>
+        <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="preprocessor">INTERFACE</span><span
+                class="preprocessor">(</span><span class="keyword">static_cast</span><span
+                class="preprocessor">&lt;</span><span class="preprocessor">MKL_INT</span><span
+                class="preprocessor">&gt;</span><span class="preprocessor">(</span><span
+                class="preprocessor">Size</span><span class="preprocessor">)</span><span class="preprocessor">,</span>
+            <span class="preprocessor">lhs</span><span class="preprocessor">.</span><span
+                    class="preprocessor">get</span><span class="preprocessor">(</span><span
+                    class="preprocessor">)</span><span class="preprocessor">,</span> <span
+                    class="preprocessor">rhs</span><span class="preprocessor">.</span><span
+                    class="preprocessor">get</span><span class="preprocessor">(</span><span
+                    class="preprocessor">)</span><span class="preprocessor">,</span> <span
+                    class="preprocessor">dst</span><span class="preprocessor">.</span><span
+                    class="preprocessor">get</span><span class="preprocessor">(</span><span
+                    class="preprocessor">)</span><span class="preprocessor">)</span><span class="preprocessor">;</span>
+        </div>
+        <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span
+                class="keywordflow">return</span> <span class="preprocessor">dst</span><span
+                class="preprocessor">;</span></div>
+        <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span
+                class="preprocessor">}</span></div>
+        <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+        <div class="line"><a name="l00065"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#aac174a0cc1a2348338fbe270b275dccb">   65</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#aac174a0cc1a2348338fbe270b275dccb">operator</a>+, vdAdd,
+            <span class="keywordtype">double</span>);
+        </div>
+        <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+        <div class="line"><a name="l00067"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#a64c299f9e182f777b522fda7fc1632b7">   67</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#a64c299f9e182f777b522fda7fc1632b7">operator</a>-, vdSub,
+            <span class="keywordtype">double</span>);
+        </div>
+        <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+        <div class="line"><a name="l00069"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#a71880002b8c40a02f798ca9a96d6d786">   69</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#a71880002b8c40a02f798ca9a96d6d786">operator</a>*, vdMul,
+            <span class="keywordtype">double</span>);
+        </div>
+        <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+        <div class="line"><a name="l00071"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#a768d0e58550d7ae2291be5f4c49ac146">   71</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#a768d0e58550d7ae2291be5f4c49ac146">operator</a>/, vdDiv,
+            <span class="keywordtype">double</span>);
+        </div>
+        <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+        <div class="line"><a name="l00073"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#abe514c511ccce757d571022517cd014f">   73</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#abe514c511ccce757d571022517cd014f">operator</a>+, vsAdd,
+            <span class="keywordtype">float</span>);
+        </div>
+        <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+        <div class="line"><a name="l00075"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#a0f157c54041bd93935747f70b044c474">   75</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#a0f157c54041bd93935747f70b044c474">operator</a>-, vsSub,
+            <span class="keywordtype">float</span>);
+        </div>
+        <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+        <div class="line"><a name="l00077"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#a14ead9434d2100411feb631da671b473">   77</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#a14ead9434d2100411feb631da671b473">operator</a>*, vsMul,
+            <span class="keywordtype">float</span>);
+        </div>
+        <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+        <div class="line"><a name="l00079"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace.html#a7ad7c1e4d2d8eac0dfa7c46f387d5c98">   79</a></span>&#160;
+            <a class="code"
+               href="mkl-array_8h.html#a0eae9fda61f614f8e01a3c510a49a429">MKL_CREATE_BINARY_OPERATION</a>(<a
+                    class="code" href="namespacespace.html#a7ad7c1e4d2d8eac0dfa7c46f387d5c98">operator</a>/, vsDiv,
+            <span class="keywordtype">float</span>);
+        </div>
+        <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+        <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+        <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+        <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">//SPACEHUB_MKL_ARRAY_H</span>
+        </div>
+        <div class="ttc" id="namespacespace_html_a7ad7c1e4d2d8eac0dfa7c46f387d5c98">
+            <div class="ttname"><a href="namespacespace.html#a7ad7c1e4d2d8eac0dfa7c46f387d5c98">space::operator/</a>
+            </div>
+            <div class="ttdeci">MKLArray&lt; float,Size &gt; operator/(MKLArray&lt; float, Size &gt; const &amp;lhs,
+                MKLArray&lt; float, Size &gt; const &amp;rhs)
+            </div>
+            <div class="ttdef"><b>Definition:</b> mkl-array.h:79</div>
+        </div>
 <div class="ttc" id="structspace_1_1_m_k_l_array_html_a031d22d6a80fdee38e5d019e9ef794db"><div class="ttname"><a href="structspace_1_1_m_k_l_array.html#a031d22d6a80fdee38e5d019e9ef794db">space::MKLArray::~MKLArray</a></div><div class="ttdeci">~MKLArray()</div><div class="ttdef"><b>Definition:</b> mkl-array.h:18</div></div>
-<div class="ttc" id="namespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
 <div class="ttc" id="namespacespace_html_a0f157c54041bd93935747f70b044c474"><div class="ttname"><a href="namespacespace.html#a0f157c54041bd93935747f70b044c474">space::operator-</a></div><div class="ttdeci">MKLArray&lt; float,Size &gt; operator-(MKLArray&lt; float, Size &gt; const &amp;lhs, MKLArray&lt; float, Size &gt; const &amp;rhs)</div><div class="ttdef"><b>Definition:</b> mkl-array.h:75</div></div>
 <div class="ttc" id="structspace_1_1_m_k_l_array_html_a9231b07bff7d4e9dd9ce693f945a8e01"><div class="ttname"><a href="structspace_1_1_m_k_l_array.html#a9231b07bff7d4e9dd9ce693f945a8e01">space::MKLArray::operator=</a></div><div class="ttdeci">MKLArray &amp; operator=(MKLArray &amp;&amp;src) noexcept</div><div class="ttdef"><b>Definition:</b> mkl-array.h:34</div></div>
 <div class="ttc" id="structspace_1_1_m_k_l_array_html_a83b608b6cad7813702f030bd11e165c1"><div class="ttname"><a href="structspace_1_1_m_k_l_array.html#a83b608b6cad7813702f030bd11e165c1">space::MKLArray::MKLArray</a></div><div class="ttdeci">MKLArray(MKLArray &amp;&amp;src) noexcept</div><div class="ttdef"><b>Definition:</b> mkl-array.h:29</div></div>

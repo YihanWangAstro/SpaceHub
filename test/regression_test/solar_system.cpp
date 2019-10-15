@@ -7,7 +7,7 @@
 #include <iomanip>
 
 using namespace space;
-using namespace space::odeIterator;
+using namespace space::ode_iterator;
 using namespace space::integrator;
 using namespace space::orbit;
 using namespace unit;
@@ -63,10 +63,10 @@ int main(int argc, char **argv) {
     auto end_time = 100 * year;
     auto E0 = calc::calc_total_energy(nbody.particles());
 
-    args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("solar.dat"), 0, end_time));
+    args.add_pre_step_operation(run_operations::TimeSlice(run_operations::DefaultWriter("solar.dat"), 0, end_time));
 
     args.add_pre_step_operation(
-            argsOpt::TimeSlice(
+            run_operations::TimeSlice(
                     [&](auto &ptc) {
                       eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
                     },
@@ -99,10 +99,10 @@ int main(int argc, char **argv) {
     auto end_time = 100 * year;
     auto E0 = calc::calc_total_energy(nbody.particles());
 
-    args.add_pre_step_operation(argsOpt::TimeSlice(argsOpt::DefaultWriter("two-body.dat"), 0, end_time));
+    args.add_pre_step_operation(run_operations::TimeSlice(run_operations::DefaultWriter("two-body.dat"), 0, end_time));
 
     args.add_pre_step_operation(
-            argsOpt::TimeSlice(
+            run_operations::TimeSlice(
                     [&](auto &ptc) {
                       eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
                     },

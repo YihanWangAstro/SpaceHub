@@ -17,26 +17,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="integrator/symplectic/symplectic-integrator.hpp" line="147" column="1" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="147" bodyend="-1"/>
+          <location file="integrator/symplectic/symplectic-integrator.hpp" line="167" column="1"
+                    bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="167" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1integrator_1_1symplectic10th_1a7cf4780e864e2039ca632d4be35a13fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+          <memberdef kind="function" id="classspace_1_1integrator_1_1symplectic10th_1a922ffe4a3c01c2e7d56467fc64852ea6"
+                     prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename T</type>
+              <type>typename ParticleSys</type>
           </param>
         </templateparamlist>
         <type>void</type>
         <definition>void space::integrator::symplectic10th::impl_integrate</definition>
-        <argsstring>(ParticleSystem&lt; T &gt; &amp;system, typename T::Scalar step_size)</argsstring>
+              <argsstring>(ParticleSys &amp;system, typename ParticleSys::Scalar step_size)</argsstring>
         <name>impl_integrate</name>
         <param>
-          <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; T &gt; &amp;</type>
+            <type>ParticleSys &amp;</type>
           <declname>system</declname>
         </param>
         <param>
-          <type>typename T::Scalar</type>
+            <type>typename ParticleSys::Scalar</type>
           <declname>step_size</declname>
         </param>
         <briefdescription>
@@ -45,7 +47,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="integrator/symplectic/symplectic-integrator.hpp" line="150" column="1" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="150" bodyend="215"/>
+              <location file="integrator/symplectic/symplectic-integrator.hpp" line="170" column="1"
+                        bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="170" bodyend="235"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -53,46 +56,51 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="342">
+        <node id="336">
         <label>space::integrator::SymIntegrator&lt; Derived &gt;</label>
         <link refid="classspace_1_1integrator_1_1_sym_integrator"/>
       </node>
-      <node id="341">
+        <node id="335">
         <label>space::integrator::SymIntegrator&lt; symplectic10th &gt;</label>
         <link refid="classspace_1_1integrator_1_1_sym_integrator"/>
-        <childnode refid="342" relation="template-instance">
+            <childnode refid="336" relation="template-instance">
           <edgelabel>&lt; symplectic10th &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="340">
+        <node id="334">
         <label>space::integrator::symplectic10th</label>
         <link refid="classspace_1_1integrator_1_1symplectic10th"/>
-        <childnode refid="341" relation="public-inheritance">
+            <childnode refid="335" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="345">
+        <node id="339">
         <label>space::integrator::SymIntegrator&lt; Derived &gt;</label>
         <link refid="classspace_1_1integrator_1_1_sym_integrator"/>
       </node>
-      <node id="344">
+        <node id="338">
         <label>space::integrator::SymIntegrator&lt; symplectic10th &gt;</label>
         <link refid="classspace_1_1integrator_1_1_sym_integrator"/>
-        <childnode refid="345" relation="template-instance">
+            <childnode refid="339" relation="template-instance">
           <edgelabel>&lt; symplectic10th &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="343">
+        <node id="337">
         <label>space::integrator::symplectic10th</label>
         <link refid="classspace_1_1integrator_1_1symplectic10th"/>
-        <childnode refid="344" relation="public-inheritance">
+            <childnode refid="338" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="integrator/symplectic/symplectic-integrator.hpp" line="145" column="1" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="145" bodyend="216"/>
+      <location file="integrator/symplectic/symplectic-integrator.hpp" line="165" column="1"
+                bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="165" bodyend="236"/>
     <listofallmembers>
-      <member refid="classspace_1_1integrator_1_1symplectic10th_1a7cf4780e864e2039ca632d4be35a13fb" prot="public" virt="non-virtual"><scope>space::integrator::symplectic10th</scope><name>impl_integrate</name></member>
+        <member refid="classspace_1_1integrator_1_1symplectic10th_1a922ffe4a3c01c2e7d56467fc64852ea6" prot="public"
+                virt="non-virtual">
+            <scope>space::integrator::symplectic10th</scope>
+            <name>impl_integrate</name>
+        </member>
       <member refid="classspace_1_1integrator_1_1_sym_integrator_1ad3da555cbc723524321f16411e46b4e7" prot="public" virt="non-virtual"><scope>space::integrator::symplectic10th</scope><name>integrate</name></member>
       <member refid="classspace_1_1integrator_1_1symplectic10th_1a049d415931969a21c7483b639f67b7bc" prot="public" virt="non-virtual"><scope>space::integrator::symplectic10th</scope><name>order</name></member>
     </listofallmembers>

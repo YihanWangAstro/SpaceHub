@@ -105,6 +105,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="particle-system/chain.hpp"/>
   </compounddef>

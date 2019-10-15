@@ -1,7 +1,7 @@
 #include "../../src/kahan-number.hpp"
 #include "../../src/own-math.hpp"
 #include "../../src/rand-generator.hpp"
-#include "../../src/vector/vector3.h"
+#include "../../src/vector/vector3.hpp"
 #include "gtest/gtest.h"
 namespace UnitTest {
 template <typename T>

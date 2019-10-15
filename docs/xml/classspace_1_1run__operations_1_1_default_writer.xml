@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="classspace_1_1run__operations_1_1_default_writer" kind="class" language="C++" prot="public">
+        <compoundname>space::run_operations::DefaultWriter</compoundname>
+        <includes refid="callbacks_8hpp" local="no">callbacks.hpp</includes>
+        <sectiondef kind="private-attrib">
+            <memberdef kind="variable"
+                       id="classspace_1_1run__operations_1_1_default_writer_1aca19cdd7b3e871d8db6c0d5484428c8b"
+                       prot="private" static="no" mutable="no">
+                <type>std::shared_ptr&lt; std::ofstream &gt;</type>
+                <definition>std::shared_ptr&lt;std::ofstream&gt; space::run_operations::DefaultWriter::fstream_
+                </definition>
+                <argsstring></argsstring>
+                <name>fstream_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="args-callback/callbacks.hpp" line="140" column="1"
+                          bodyfile="args-callback/callbacks.hpp" bodystart="140" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function"
+                       id="classspace_1_1run__operations_1_1_default_writer_1a41dfe6dfd2fdfd915844ce0cc5af5180"
+                       prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::run_operations::DefaultWriter::DefaultWriter</definition>
+                <argsstring>(std::string const &amp;file_name)</argsstring>
+                <name>DefaultWriter</name>
+                <param>
+                    <type>std::string const &amp;</type>
+                    <declname>file_name</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="args-callback/callbacks.hpp" line="119" column="1"
+                          bodyfile="args-callback/callbacks.hpp" bodystart="119" bodyend="126"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1run__operations_1_1_default_writer_1a04d4a12a06a50099d26918cc0628370f"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename ParticleSys</type>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::run_operations::DefaultWriter::operator()</definition>
+                <argsstring>(ParticleSys &amp;ptc)</argsstring>
+                <name>operator()</name>
+                <param>
+                    <type>ParticleSys &amp;</type>
+                    <declname>ptc</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="args-callback/callbacks.hpp" line="129" column="1"
+                          bodyfile="args-callback/callbacks.hpp" bodystart="129" bodyend="131"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="friend">
+            <memberdef kind="friend"
+                       id="classspace_1_1run__operations_1_1_default_writer_1a8246f2aeaec18e9b05eeb905b47c9f9a"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename T</type>
+                    </param>
+                </templateparamlist>
+                <type>friend <ref refid="classspace_1_1run__operations_1_1_default_writer" kindref="compound">
+                    DefaultWriter
+                </ref> &amp;
+                </type>
+                <definition>DefaultWriter&amp; operator&lt;&lt;</definition>
+                <argsstring>(DefaultWriter &amp;wtr, T const &amp;d)</argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1run__operations_1_1_default_writer" kindref="compound">DefaultWriter
+                        </ref> &amp;
+                    </type>
+                    <declname>wtr</declname>
+                </param>
+                <param>
+                    <type>T const &amp;</type>
+                    <declname>d</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="args-callback/callbacks.hpp" line="134" column="1"
+                          bodyfile="args-callback/callbacks.hpp" bodystart="134" bodyend="137"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <collaborationgraph>
+            <node id="74">
+                <label>space::run_operations::DefaultWriter</label>
+                <link refid="classspace_1_1run__operations_1_1_default_writer"/>
+            </node>
+        </collaborationgraph>
+        <location file="args-callback/callbacks.hpp" line="117" column="1" bodyfile="args-callback/callbacks.hpp"
+                  bodystart="117" bodyend="141"/>
+        <listofallmembers>
+            <member refid="classspace_1_1run__operations_1_1_default_writer_1a41dfe6dfd2fdfd915844ce0cc5af5180"
+                    prot="public" virt="non-virtual">
+                <scope>space::run_operations::DefaultWriter</scope>
+                <name>DefaultWriter</name>
+            </member>
+            <member refid="classspace_1_1run__operations_1_1_default_writer_1aca19cdd7b3e871d8db6c0d5484428c8b"
+                    prot="private" virt="non-virtual">
+                <scope>space::run_operations::DefaultWriter</scope>
+                <name>fstream_</name>
+            </member>
+            <member refid="classspace_1_1run__operations_1_1_default_writer_1a04d4a12a06a50099d26918cc0628370f"
+                    prot="public" virt="non-virtual">
+                <scope>space::run_operations::DefaultWriter</scope>
+                <name>operator()</name>
+            </member>
+            <member refid="classspace_1_1run__operations_1_1_default_writer_1a8246f2aeaec18e9b05eeb905b47c9f9a"
+                    prot="public" virt="non-virtual">
+                <scope>space::run_operations::DefaultWriter</scope>
+                <name>operator&lt;&lt;</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

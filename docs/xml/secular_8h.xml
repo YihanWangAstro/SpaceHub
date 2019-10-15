@@ -6,7 +6,7 @@
     <includes local="no">iostream</includes>
     <includes local="no">tuple</includes>
     <includes local="yes">/home/yihan/Repositories/odeint-v2/include/boost/numeric/odeint.hpp</includes>
-    <includes refid="vector3d_8h" local="yes">vector3d.h</includes>
+      <includes local="yes">vector3d.h</includes>
     <incdepgraph>
       <node id="590">
         <label>/home/yihan/Repositories/odeint-v2/include/boost/numeric/odeint.hpp</label>
@@ -14,6 +14,9 @@
       <node id="589">
         <label>tuple</label>
       </node>
+        <node id="591">
+            <label>vector3d.h</label>
+        </node>
       <node id="587">
         <label>array</label>
       </node>
@@ -33,10 +36,6 @@
       </node>
       <node id="588">
         <label>iostream</label>
-      </node>
-      <node id="591">
-        <label>vector3d.h</label>
-        <link refid="vector3d_8h"/>
       </node>
     </incdepgraph>
     <innerclass refid="structsecular_1_1_secular" prot="public">secular::Secular</innerclass>

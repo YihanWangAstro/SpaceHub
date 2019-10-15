@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="79" column="1" bodyfile="own-math.hpp" bodystart="79" bodyend="-1"/>
+          <location file="own-math.hpp" line="102" column="1" bodyfile="own-math.hpp" bodystart="102" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="80" column="1" bodyfile="own-math.hpp" bodystart="80" bodyend="-1"/>
+          <location file="own-math.hpp" line="103" column="1" bodyfile="own-math.hpp" bodystart="103" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,12 +52,12 @@
 </parameterlist>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="192">
+        <node id="189">
         <label>space::max_value&lt; Dtype &gt;</label>
         <link refid="structspace_1_1max__value"/>
       </node>
     </collaborationgraph>
-    <location file="own-math.hpp" line="78" column="1" bodyfile="own-math.hpp" bodystart="78" bodyend="81"/>
+      <location file="own-math.hpp" line="101" column="1" bodyfile="own-math.hpp" bodystart="101" bodyend="104"/>
     <listofallmembers>
       <member refid="structspace_1_1max__value_1a9b5d634b4765683c560b670bd851ce67" prot="public" virt="non-virtual"><scope>space::max_value</scope><name>value</name></member>
       <member refid="structspace_1_1max__value_1ac71b02c5533e24497a861349009c1dcb" prot="public" virt="non-virtual"><scope>space::max_value</scope><name>value_type</name></member>

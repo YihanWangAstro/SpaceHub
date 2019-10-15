@@ -6,7 +6,7 @@ var searchData=
   ['karmack_5ffast_5finverse_5fsquare_5froot_3c_20double_20_3e',['karmack_fast_inverse_square_root&lt; double &gt;',['../namespacespace.html#a8a3fe7149ea1af4bd2f544833ed9c4c7',1,'space']]],
   ['karmack_5ffast_5finverse_5fsquare_5froot_3c_20float_20_3e',['karmack_fast_inverse_square_root&lt; float &gt;',['../namespacespace.html#a279f21598079d1b4352976c68ab27242',1,'space']]],
   ['kepler',['Kepler',['../namespacespace_1_1orbit.html#aedf6623ebb465a158de649daaf3ed1ce',1,'space::orbit']]],
-  ['kick',['kick',['../classspace_1_1_particle_system.html#a040e62f9f12ea1da654bbf3fdf4606ec',1,'space::ParticleSystem']]],
+    ['kick', ['kick', ['../classspace_1_1particle__system_1_1_particle_system.html#a328dc0a4a58781a1d4ab14409b6d0b19', 1, 'space::particle_system::ParticleSystem']]],
   ['km',['km',['../namespacespace_1_1unit.html#a64f46d036c14b9a2713373a2b0b6b1f8',1,'space::unit']]],
   ['kms',['kms',['../namespacespace_1_1unit.html#a9ecd524cf30ef01953aaeacfb611cf77',1,'space::unit']]],
   ['kyr',['kyr',['../namespacespace_1_1unit.html#a170170a6e5154418a0221ef99b1584a5',1,'space::unit']]]

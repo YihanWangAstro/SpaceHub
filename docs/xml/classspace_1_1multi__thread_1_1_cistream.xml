@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="classspace_1_1multi__thread_1_1_cistream" kind="class" language="C++" prot="public">
+        <compoundname>space::multi_thread::Cistream</compoundname>
+        <includes refid="ciostream_8hpp" local="no">ciostream.hpp</includes>
+        <templateparamlist>
+            <param>
+                <type>typename T</type>
+            </param>
+        </templateparamlist>
+        <sectiondef kind="private-attrib">
+            <memberdef kind="variable" id="classspace_1_1multi__thread_1_1_cistream_1a2a9b1d7ca38f6eac23108d2b385c993d"
+                       prot="private" static="no" mutable="no">
+                <type>std::shared_ptr&lt; <ref refid="classspace_1_1multi__thread_1_1_ipip" kindref="compound">
+                    Ipip</ref>&lt; T &gt; &gt;
+                </type>
+                <definition>std::shared_ptr&lt;Ipip&lt;T&gt; &gt; space::multi_thread::Cistream&lt; T &gt;::pip_ptr_
+                </definition>
+                <argsstring></argsstring>
+                <name>pip_ptr_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/ciostream.hpp" line="177" column="1" bodyfile="multi-thread/ciostream.hpp"
+                          bodystart="177" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function" id="classspace_1_1multi__thread_1_1_cistream_1a947d8d11f86ea86aa9b96b64f3008980"
+                       prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::multi_thread::Cistream&lt; T &gt;::Cistream</definition>
+                <argsstring>(const char *file_name)</argsstring>
+                <name>Cistream</name>
+                <param>
+                    <type>const char *</type>
+                    <declname>file_name</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/ciostream.hpp" line="168" column="1" bodyfile="multi-thread/ciostream.hpp"
+                          bodystart="168" bodyend="168"/>
+            </memberdef>
+            <memberdef kind="function" id="classspace_1_1multi__thread_1_1_cistream_1afdca4b15b62a59db79471e41bc6f45b1"
+                       prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::multi_thread::Cistream&lt; T &gt;::Cistream</definition>
+                <argsstring>(std::string &amp;file_name)</argsstring>
+                <name>Cistream</name>
+                <param>
+                    <type>std::string &amp;</type>
+                    <declname>file_name</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/ciostream.hpp" line="170" column="1" bodyfile="multi-thread/ciostream.hpp"
+                          bodystart="170" bodyend="170"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="friend">
+            <memberdef kind="friend" id="classspace_1_1multi__thread_1_1_cistream_1add0fefc50159a9a4006d8a85462dc205"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>friend void</type>
+                <definition>void operator&gt;&gt;</definition>
+                <argsstring>(Cistream &amp;in, T &amp;&amp;tup)</argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1multi__thread_1_1_cistream" kindref="compound">Cistream</ref> &amp;
+                    </type>
+                    <declname>in</declname>
+                </param>
+                <param>
+                    <type>T &amp;&amp;</type>
+                    <declname>tup</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/ciostream.hpp" line="172" column="1" bodyfile="multi-thread/ciostream.hpp"
+                          bodystart="172" bodyend="174"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <collaborationgraph>
+            <node id="55">
+                <label>space::multi_thread::Cistream&lt; T &gt;</label>
+                <link refid="classspace_1_1multi__thread_1_1_cistream"/>
+            </node>
+        </collaborationgraph>
+        <location file="multi-thread/ciostream.hpp" line="166" column="1" bodyfile="multi-thread/ciostream.hpp"
+                  bodystart="166" bodyend="178"/>
+        <listofallmembers>
+            <member refid="classspace_1_1multi__thread_1_1_cistream_1a947d8d11f86ea86aa9b96b64f3008980" prot="public"
+                    virt="non-virtual">
+                <scope>space::multi_thread::Cistream</scope>
+                <name>Cistream</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_cistream_1afdca4b15b62a59db79471e41bc6f45b1" prot="public"
+                    virt="non-virtual">
+                <scope>space::multi_thread::Cistream</scope>
+                <name>Cistream</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_cistream_1add0fefc50159a9a4006d8a85462dc205" prot="public"
+                    virt="non-virtual">
+                <scope>space::multi_thread::Cistream</scope>
+                <name>operator&gt;&gt;</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_cistream_1a2a9b1d7ca38f6eac23108d2b385c993d" prot="private"
+                    virt="non-virtual">
+                <scope>space::multi_thread::Cistream</scope>
+                <name>pip_ptr_</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

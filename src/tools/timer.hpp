@@ -1,16 +1,43 @@
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file timer.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_TIMER_HPP
 #define SPACEHUB_TIMER_HPP
 
 #include <chrono>
 
 namespace space::tools {
+
+  /**
+   * High precision timer for benchmark.
+   */
   class Timer {
     using Time = std::chrono::time_point<std::chrono::high_resolution_clock>;
 
   public:
     /**
-     *
+     * Start the timer.
      */
     void start() {
       active_ = true;
@@ -18,8 +45,8 @@ namespace space::tools {
     }
 
     /**
-     *
-     * @return
+     * Get the time in milli-second.
+     * @return Time duration from start().
      */
     float get_time() {
       if (active_) {
@@ -32,7 +59,7 @@ namespace space::tools {
     }
 
     /**
-     *
+     * Pause the timer.
      */
     void pause() {
       duration_ = get_time();
@@ -40,7 +67,7 @@ namespace space::tools {
     }
 
     /**
-     *
+     * Reset the timer.
      */
     void reset() {
       active_ = false;

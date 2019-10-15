@@ -77,7 +77,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="107">
+        <node id="106">
         <label>space::interactions::NewtonianGrav::has_method_chain_pos&lt; T, Args &gt;</label>
       </node>
     </collaborationgraph>

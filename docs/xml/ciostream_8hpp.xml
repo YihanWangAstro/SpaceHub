@@ -60,11 +60,13 @@
         <label>thread</label>
       </node>
     </incdepgraph>
-    <innerclass refid="classspace_1_1multi_thread_1_1_opip" prot="public">space::multiThread::Opip</innerclass>
-    <innerclass refid="classspace_1_1multi_thread_1_1_ipip" prot="public">space::multiThread::Ipip</innerclass>
-    <innerclass refid="classspace_1_1multi_thread_1_1_costream" prot="public">space::multiThread::Costream</innerclass>
-    <innerclass refid="classspace_1_1multi_thread_1_1_cistream" prot="public">space::multiThread::Cistream</innerclass>
-    <innernamespace refid="namespacespace_1_1multi_thread">space::multiThread</innernamespace>
+      <innerclass refid="classspace_1_1multi__thread_1_1_opip" prot="public">space::multi_thread::Opip</innerclass>
+      <innerclass refid="classspace_1_1multi__thread_1_1_ipip" prot="public">space::multi_thread::Ipip</innerclass>
+      <innerclass refid="classspace_1_1multi__thread_1_1_costream" prot="public">space::multi_thread::Costream
+      </innerclass>
+      <innerclass refid="classspace_1_1multi__thread_1_1_cistream" prot="public">space::multi_thread::Cistream
+      </innerclass>
+      <innernamespace refid="namespacespace_1_1multi__thread">space::multi_thread</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

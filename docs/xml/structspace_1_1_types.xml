@@ -34,7 +34,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="25" column="1" bodyfile="type-class.hpp" bodystart="25" bodyend="-1"/>
+          <location file="type-class.hpp" line="50" column="1" bodyfile="type-class.hpp" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1aa153db52d77d1848ae930fa41411b3d3" prot="public" static="no">
         <type>Real</type>
@@ -47,7 +47,7 @@
 <para>Floating point like type cross the system </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="30" column="1" bodyfile="type-class.hpp" bodystart="30" bodyend="-1"/>
+          <location file="type-class.hpp" line="55" column="1" bodyfile="type-class.hpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1ad155d339411e1df6e6831a4a561abf17" prot="public" static="no">
         <type><ref refid="structspace_1_1_types_1aef9bf10a6cda409d88bd4b721ae206d3" kindref="member">Container</ref>&lt; <ref refid="structspace_1_1_types_1aa153db52d77d1848ae930fa41411b3d3" kindref="member">Scalar</ref> &gt;</type>
@@ -60,7 +60,7 @@
 <para>1-d array with value type <computeroutput>Scalar</computeroutput>. Alias of <computeroutput>Container&lt;Scalar&gt;</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="35" column="1" bodyfile="type-class.hpp" bodystart="35" bodyend="-1"/>
+          <location file="type-class.hpp" line="60" column="1" bodyfile="type-class.hpp" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1a74e013af93d6cf750faea20dd29fc197" prot="public" static="no">
         <type><ref refid="structspace_1_1_types_1aef9bf10a6cda409d88bd4b721ae206d3" kindref="member">Container</ref>&lt; int &gt;</type>
@@ -73,7 +73,7 @@
 <para>1-d array with value type <computeroutput>int</computeroutput>. Alias of <computeroutput>Container&lt;int&gt;</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="40" column="1" bodyfile="type-class.hpp" bodystart="40" bodyend="-1"/>
+          <location file="type-class.hpp" line="65" column="1" bodyfile="type-class.hpp" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1a7e74ccbdf0fc0e85d11b7b5947408732" prot="public" static="no">
         <type><ref refid="structspace_1_1_types_1aef9bf10a6cda409d88bd4b721ae206d3" kindref="member">Container</ref>&lt; size_t &gt;</type>
@@ -86,7 +86,7 @@
 <para>1-d array with value type <computeroutput>size_t</computeroutput>. Alias of <computeroutput>Container&lt;size_t&gt;</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="45" column="1" bodyfile="type-class.hpp" bodystart="45" bodyend="-1"/>
+          <location file="type-class.hpp" line="70" column="1" bodyfile="type-class.hpp" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1ae871a5e6e1d4f92c979dc51b67644ca8" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; <ref refid="structspace_1_1_types_1aa153db52d77d1848ae930fa41411b3d3" kindref="member">Scalar</ref> &gt;</type>
@@ -99,7 +99,7 @@
 <para>3-d math vector (x, y, z) with <computeroutput>Scalar</computeroutput> type of x, y, z. Use genetic <computeroutput><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></computeroutput> by default, but can be replaced with any other implementation implements interfaces defined in <computeroutput><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="51" column="1" bodyfile="type-class.hpp" bodystart="51" bodyend="-1"/>
+          <location file="type-class.hpp" line="76" column="1" bodyfile="type-class.hpp" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1a7da4a9267d13662f1e32489752537689" prot="public" static="no">
         <type><ref refid="structspace_1_1_types_1aef9bf10a6cda409d88bd4b721ae206d3" kindref="member">Container</ref>&lt; <ref refid="structspace_1_1_types_1ae871a5e6e1d4f92c979dc51b67644ca8" kindref="member">Vector</ref> &gt;</type>
@@ -112,7 +112,7 @@
 <para>1-d array with value type <computeroutput>Vector</computeroutput>, Alias of <computeroutput>Container&lt;Vector&gt;</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="56" column="1" bodyfile="type-class.hpp" bodystart="56" bodyend="-1"/>
+          <location file="type-class.hpp" line="81" column="1" bodyfile="type-class.hpp" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_types_1a92ab981bb0ac9ba49ffb6ae5506d21fc" prot="public" static="no">
         <type><ref refid="structspace_1_1_coords" kindref="compound">Coords</ref>&lt; <ref refid="structspace_1_1_types_1ad155d339411e1df6e6831a4a561abf17" kindref="member">ScalarArray</ref> &gt;</type>
@@ -125,7 +125,7 @@
 <para>An <bold>Structure of Array</bold> coordinates system (x, y, z) with x, y, z to be a ScalarArray. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="type-class.hpp" line="61" column="1" bodyfile="type-class.hpp" bodystart="61" bodyend="-1"/>
+          <location file="type-class.hpp" line="86" column="1" bodyfile="type-class.hpp" bodystart="86" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -148,12 +148,12 @@
 </parameterlist>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="383">
+        <node id="375">
         <label>space::Types&lt; Real, TContainer &gt;</label>
         <link refid="structspace_1_1_types"/>
       </node>
     </collaborationgraph>
-    <location file="type-class.hpp" line="17" column="1" bodyfile="type-class.hpp" bodystart="17" bodyend="62"/>
+      <location file="type-class.hpp" line="42" column="1" bodyfile="type-class.hpp" bodystart="42" bodyend="87"/>
     <listofallmembers>
       <member refid="structspace_1_1_types_1aef9bf10a6cda409d88bd4b721ae206d3" prot="public" virt="non-virtual"><scope>space::Types</scope><name>Container</name></member>
       <member refid="structspace_1_1_types_1a92ab981bb0ac9ba49ffb6ae5506d21fc" prot="public" virt="non-virtual"><scope>space::Types</scope><name>Coord</name></member>

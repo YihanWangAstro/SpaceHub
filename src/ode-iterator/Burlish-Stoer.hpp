@@ -1,7 +1,27 @@
-//
-// Created by 王艺涵 on 10/7/19.
-//
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file Burlish-Stoer.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_BURLISH_STOER_HPP
 #define SPACEHUB_BURLISH_STOER_HPP
 
@@ -10,7 +30,7 @@
 #include "ode-iterator.hpp"
 
 
-namespace space::odeIterator {
+namespace space::ode_iterator {
 
   /**
    *
@@ -110,7 +130,7 @@ namespace space::odeIterator {
 
     template<typename U>
     auto impl_iterate(U &particles, typename U::Scalar macro_step_size) -> typename U::Scalar {
-      static_assert(is_particle_system_v<U>, "Passing non particle-system-type!");
+      static_assert(particle_system::is_particle_system_v<U>, "Passing non particle-system-type!");
 
       Scalar iter_h = macro_step_size;
       particles.to_linear_container(input_);

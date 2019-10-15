@@ -49,11 +49,14 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="classspace_1_1_worst_offender" prot="public">space::WorstOffender</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
+      <innerclass refid="classspace_1_1ode__iterator_1_1_worst_offender" prot="public">
+          space::ode_iterator::WorstOffender
+      </innerclass>
+      <innernamespace refid="namespacespace_1_1ode__iterator">space::ode_iterator</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="error-checker/worst-offender.hpp"/>
   </compounddef>

@@ -1,7 +1,27 @@
-//
-// Created by yihan on 2/25/19.
-//
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file chain-system.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_CHAIN_SYSTEM_HPP
 #define SPACEHUB_CHAIN_SYSTEM_HPP
 
@@ -10,7 +30,7 @@
 #include "chain.hpp"
 #include <type_traits>
 
-namespace space {
+namespace space::particle_system {
 
   /*---------------------------------------------------------------------------*\
       Class ChainSystem Declaration
@@ -99,7 +119,7 @@ namespace space {
     //Private members
     Particles ptcl_;
     Interactions interactions_;
-    Accelerations <Interactions, Coord> accels_{};
+    interactions::Accelerations <Interactions, Coord> accels_{};
     Coord chain_pos_;
     Coord chain_vel_;
     Coord chain_acc_;
@@ -243,7 +263,8 @@ namespace space {
   }
 
   template<typename Particles, typename Interactions>
-  void ChainSystem<Particles, Interactions>::chain_advance(Coord &var, Coord &chain_var, Coord &chain_increment, Scalar step_size) {
+  void ChainSystem<Particles, Interactions>::chain_advance(Coord &var, Coord &chain_var, Coord &chain_increment,
+                                                           Scalar step_size) {
     calc::coord_advance(chain_var, chain_increment, step_size);
     Chain::calc_cartesian(ptcl_.mass(), chain_var, var, index());
   }

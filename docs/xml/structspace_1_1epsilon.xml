@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="61" column="1" bodyfile="own-math.hpp" bodystart="61" bodyend="-1"/>
+          <location file="own-math.hpp" line="84" column="1" bodyfile="own-math.hpp" bodystart="84" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="62" column="1" bodyfile="own-math.hpp" bodystart="62" bodyend="-1"/>
+          <location file="own-math.hpp" line="85" column="1" bodyfile="own-math.hpp" bodystart="85" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,12 +52,12 @@
 </parameterlist>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="79">
+        <node id="78">
         <label>space::epsilon&lt; Dtype &gt;</label>
         <link refid="structspace_1_1epsilon"/>
       </node>
     </collaborationgraph>
-    <location file="own-math.hpp" line="60" column="1" bodyfile="own-math.hpp" bodystart="60" bodyend="63"/>
+      <location file="own-math.hpp" line="83" column="1" bodyfile="own-math.hpp" bodystart="83" bodyend="86"/>
     <listofallmembers>
       <member refid="structspace_1_1epsilon_1ac0d9c9841416d52821794c2137394129" prot="public" virt="non-virtual"><scope>space::epsilon</scope><name>value</name></member>
       <member refid="structspace_1_1epsilon_1add53d4d777a0484caa7095e348f4dd49" prot="public" virt="non-virtual"><scope>space::epsilon</scope><name>value_type</name></member>

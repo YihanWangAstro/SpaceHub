@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="namespacespace_1_1ode__iterator" kind="namespace" language="C++">
+        <compoundname>space::ode_iterator</compoundname>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_burlish_stoer" prot="public">
+            space::ode_iterator::BurlishStoer
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_burlish_stoer_consts" prot="public">
+            space::ode_iterator::BurlishStoerConsts
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_const_ode_iterator" prot="public">
+            space::ode_iterator::ConstOdeIterator
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_error_checker" prot="public">
+            space::ode_iterator::ErrorChecker
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_ode_iterator" prot="public">
+            space::ode_iterator::OdeIterator
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_p_i_d_controller" prot="public">
+            space::ode_iterator::PIDController
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_r_m_s" prot="public">space::ode_iterator::RMS</innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_step_controller" prot="public">
+            space::ode_iterator::StepController
+        </innerclass>
+        <innerclass refid="classspace_1_1ode__iterator_1_1_worst_offender" prot="public">
+            space::ode_iterator::WorstOffender
+        </innerclass>
+        <sectiondef kind="var">
+            <memberdef kind="variable" id="namespacespace_1_1ode__iterator_1a539cba3c0496330d8808cc87c7a681a4"
+                       prot="public" static="no" mutable="no">
+                <templateparamlist>
+                    <param>
+                        <type>typename T</type>
+                    </param>
+                </templateparamlist>
+                <type>constexpr bool</type>
+                <definition>constexpr bool space::ode_iterator::is_ode_iterator_v</definition>
+                <argsstring></argsstring>
+                <name>is_ode_iterator_v</name>
+                <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1ode__iterator_1_1_ode_iterator"
+                                                         kindref="compound">OdeIterator</ref>&lt;T&gt;, T&gt;
+                </initializer>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="120" column="1"
+                          bodyfile="ode-iterator/ode-iterator.hpp" bodystart="120" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>space name for ode-iterator</para>
+        </detaileddescription>
+        <location file="error-checker/RMS.hpp" line="30" column="1"/>
+    </compounddef>
+</doxygen>

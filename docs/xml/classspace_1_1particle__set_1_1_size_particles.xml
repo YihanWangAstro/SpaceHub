@@ -1,0 +1,1219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="classspace_1_1particle__set_1_1_size_particles" kind="class" language="C++" prot="public">
+        <compoundname>space::particle_set::SizeParticles</compoundname>
+        <basecompoundref refid="classspace_1_1particle__set_1_1_particles" prot="public" virt="non-virtual">
+            space::particle_set::Particles&lt; SizeParticles&lt; TypeSystem &gt; &gt;
+        </basecompoundref>
+        <includes refid="finite-size_8hpp" local="no">finite-size.hpp</includes>
+        <innerclass refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" prot="public">
+            space::particle_set::SizeParticles::Particle
+        </innerclass>
+        <templateparamlist>
+            <param>
+                <type>typename TypeSystem</type>
+            </param>
+        </templateparamlist>
+        <sectiondef kind="public-type">
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ae4d7fe24a27bfc42a55b124ee3566eb3"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::template <ref
+                        refid="classspace_1_1particle__set_1_1_size_particles_1ae4d7fe24a27bfc42a55b124ee3566eb3"
+                        kindref="member">Container</ref>&lt; _T_... &gt;
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Container = typename
+                    TypeSystem ::template Container&lt;_T_...&gt;
+                </definition>
+                <argsstring></argsstring>
+                <name>Container</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a7cd8aa5b7d58a499df6d51f789e02e6c"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1a7cd8aa5b7d58a499df6d51f789e02e6c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Scalar = typename TypeSystem
+                    ::Scalar
+                </definition>
+                <argsstring></argsstring>
+                <name>Scalar</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ad6ac0fd7937be43641868c6a47889fe9"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1ad6ac0fd7937be43641868c6a47889fe9"
+                         kindref="member">ScalarArray
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::ScalarArray = typename
+                    TypeSystem ::ScalarArray
+                </definition>
+                <argsstring></argsstring>
+                <name>ScalarArray</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a280ca78ff47e08b1fffd15ff4fd3beb6"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1a280ca78ff47e08b1fffd15ff4fd3beb6"
+                         kindref="member">IdxArray
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::IdxArray = typename TypeSystem
+                    ::IdxArray
+                </definition>
+                <argsstring></argsstring>
+                <name>IdxArray</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a2c3d3b8536a60f103cab83355a53eb83"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1a2c3d3b8536a60f103cab83355a53eb83"
+                         kindref="member">IntArray
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::IntArray = typename TypeSystem
+                    ::IntArray
+                </definition>
+                <argsstring></argsstring>
+                <name>IntArray</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a36b1d7caf661b65a46b8356a6b386729"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1a36b1d7caf661b65a46b8356a6b386729"
+                         kindref="member">Vector
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Vector = typename TypeSystem
+                    ::Vector
+                </definition>
+                <argsstring></argsstring>
+                <name>Vector</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ae06b57e7b79896ecdda530f7b486794e"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1ae06b57e7b79896ecdda530f7b486794e"
+                         kindref="member">VectorArray
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::VectorArray = typename
+                    TypeSystem ::VectorArray
+                </definition>
+                <argsstring></argsstring>
+                <name>VectorArray</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1acb9ea2e06a472283ccf85e510314a779"
+                       prot="public" static="no">
+                <type>typename TypeSystem ::
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1acb9ea2e06a472283ccf85e510314a779"
+                         kindref="member">Coord
+                    </ref>
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Coord = typename TypeSystem
+                    ::Coord
+                </definition>
+                <argsstring></argsstring>
+                <name>Coord</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="43" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="43" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a1abbc3c3706a6af1ea01e40dcddc2b1f"
+                       prot="public" static="no">
+                <type><ref refid="classspace_1_1particle__set_1_1_particles" kindref="compound">Particles</ref>&lt; <ref
+                        refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles</ref>&lt;
+                    TypeSystem &gt; &gt;
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Base = Particles&lt;SizeParticles&lt;TypeSystem&gt;
+                    &gt;
+                </definition>
+                <argsstring></argsstring>
+                <name>Base</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="45" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="45" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-attrib">
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ad95e39ecf52d08433a0fe07e9165da3c"
+                       prot="public" static="no" mutable="no">
+                <type>friend</type>
+                <definition>friend space::particle_set::SizeParticles&lt; TypeSystem &gt;::Base</definition>
+                <argsstring></argsstring>
+                <name>Base</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="89" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="87" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="private-attrib">
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a34640b88d96bda8f9c8288e90f06f177"
+                       prot="private" static="no" mutable="no">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1acb9ea2e06a472283ccf85e510314a779"
+                         kindref="member">Coord
+                    </ref>
+                </type>
+                <definition>Coord space::particle_set::SizeParticles&lt; TypeSystem &gt;::pos_</definition>
+                <argsstring></argsstring>
+                <name>pos_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="116" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="116" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a33cfeefb8d4e451be429c95c388ab5f0"
+                       prot="private" static="no" mutable="no">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1acb9ea2e06a472283ccf85e510314a779"
+                         kindref="member">Coord
+                    </ref>
+                </type>
+                <definition>Coord space::particle_set::SizeParticles&lt; TypeSystem &gt;::vel_</definition>
+                <argsstring></argsstring>
+                <name>vel_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="118" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="118" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ae40d7f336820f632386520d8a8bbbcbe"
+                       prot="private" static="no" mutable="no">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1ad6ac0fd7937be43641868c6a47889fe9"
+                         kindref="member">ScalarArray
+                    </ref>
+                </type>
+                <definition>ScalarArray space::particle_set::SizeParticles&lt; TypeSystem &gt;::mass_</definition>
+                <argsstring></argsstring>
+                <name>mass_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="120" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="120" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a57fd780a5b3010ac0efc63468beabb61"
+                       prot="private" static="no" mutable="no">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1ad6ac0fd7937be43641868c6a47889fe9"
+                         kindref="member">ScalarArray
+                    </ref>
+                </type>
+                <definition>ScalarArray space::particle_set::SizeParticles&lt; TypeSystem &gt;::radius_</definition>
+                <argsstring></argsstring>
+                <name>radius_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="122" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="122" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1aecb005c41eed257dd0cc3053651a71fe"
+                       prot="private" static="no" mutable="no">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1a280ca78ff47e08b1fffd15ff4fd3beb6"
+                         kindref="member">IdxArray
+                    </ref>
+                </type>
+                <definition>IdxArray space::particle_set::SizeParticles&lt; TypeSystem &gt;::idn_</definition>
+                <argsstring></argsstring>
+                <name>idn_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="124" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="124" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a72ae8e9af98b7692258624bf4c921b79"
+                       prot="private" static="no" mutable="no">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles_1a7cd8aa5b7d58a499df6d51f789e02e6c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>Scalar space::particle_set::SizeParticles&lt; TypeSystem &gt;::time_</definition>
+                <argsstring></argsstring>
+                <name>time_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="126" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="126" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1particle__set_1_1_size_particles_1aae263a74f63a42c5aee973722480ce85"
+                       prot="private" static="no" mutable="no">
+                <type>size_t</type>
+                <definition>size_t space::particle_set::SizeParticles&lt; TypeSystem &gt;::active_num_</definition>
+                <argsstring></argsstring>
+                <name>active_num_</name>
+                <initializer>{0}</initializer>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="128" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="128" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a065d36f8b838af69aed3992c8bb0dcf2"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::SizeParticles</definition>
+                <argsstring>()=default</argsstring>
+                <name>SizeParticles</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default constructor.</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="81" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a5f01e3c77e6c7130493941402542bb43"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::SizeParticles</definition>
+                <argsstring>(SizeParticles const &amp;)=default</argsstring>
+                <name>SizeParticles</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles
+                        </ref>
+                        const &amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default copy constructor.</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="81" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ae318d8c7f4b3c178d73457051f2cd251"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::SizeParticles</definition>
+                <argsstring>(SizeParticles &amp;&amp;)=default</argsstring>
+                <name>SizeParticles</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles
+                        </ref> &amp;&amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default move constructor</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="81" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ac9d9793f1f363570c975ad7b595bdb80"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles</ref>
+                    &amp;
+                </type>
+                <definition>SizeParticles&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::operator=
+                </definition>
+                <argsstring>(SizeParticles const &amp;)=default</argsstring>
+                <name>operator=</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles
+                        </ref>
+                        const &amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default copy assignment operator</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="81" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a1e389195cb2f6fee22e8b86845610ea7"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles</ref>
+                    &amp;
+                </type>
+                <definition>SizeParticles&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::operator=
+                </definition>
+                <argsstring>(SizeParticles &amp;&amp;)=default</argsstring>
+                <name>operator=</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1particle__set_1_1_size_particles" kindref="compound">SizeParticles
+                        </ref> &amp;&amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default move assignment operator</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="81" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ac63626620675889779a34beec0b30756"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename STL</type>
+                    </param>
+                </templateparamlist>
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::SizeParticles</definition>
+                <argsstring>(Scalar time, STL const &amp;particles_set)</argsstring>
+                <name>SizeParticles</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1particle__set_1_1_size_particles_1a7cd8aa5b7d58a499df6d51f789e02e6c"
+                             kindref="member">Scalar
+                        </ref>
+                    </type>
+                    <declname>time</declname>
+                </param>
+                <param>
+                    <type>STL const &amp;</type>
+                    <declname>particles_set</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="84" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="136" bodyend="152"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a3de39f74d68c1c825ec9f88a9b55b11e"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto &amp;</type>
+                <definition>auto&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::radius</definition>
+                <argsstring>() noexcept</argsstring>
+                <name>radius</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The setter interface of member <computeroutput>radius_</computeroutput> in name
+                        of <computeroutput>radius</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="87" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="87" bodyend="87"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a8305b09fea8d0b286b9f36fd29a1879f"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto const &amp;</type>
+                <definition>auto const&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::radius</definition>
+                <argsstring>() const noexcept</argsstring>
+                <name>radius</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The getter interface of member <computeroutput>radius_</computeroutput> in name
+                        of <computeroutput>radius</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="87" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="87" bodyend="87"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="protected-func">
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ade5daf01f97188e07f2d6620db9b9308"
+                       prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto &amp;</type>
+                <definition>auto&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_mass</definition>
+                <argsstring>() noexcept</argsstring>
+                <name>impl_mass</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The setter interface of member <computeroutput>mass_</computeroutput> in name
+                        of <computeroutput>impl_mass</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="92" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="92" bodyend="92"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a5ad31640700d3b169c33743268bb3942"
+                       prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto const &amp;</type>
+                <definition>auto const&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_mass
+                </definition>
+                <argsstring>() const noexcept</argsstring>
+                <name>impl_mass</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The getter interface of member <computeroutput>mass_</computeroutput> in name
+                        of <computeroutput>impl_mass</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="92" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="92" bodyend="92"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a25722deaec0e0007d9b766d0f9ddf511"
+                       prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto &amp;</type>
+                <definition>auto&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_idn</definition>
+                <argsstring>() noexcept</argsstring>
+                <name>impl_idn</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The setter interface of member <computeroutput>idn_</computeroutput> in name
+                        of <computeroutput>impl_idn</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="94" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="94" bodyend="94"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ae585067f37bf2ef9a030317b32524c99"
+                       prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto const &amp;</type>
+                <definition>auto const&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_idn
+                </definition>
+                <argsstring>() const noexcept</argsstring>
+                <name>impl_idn</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The getter interface of member <computeroutput>idn_</computeroutput> in name
+                        of <computeroutput>impl_idn</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="94" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="94" bodyend="94"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a8fd261a79ec1e0c344de38829e6fd554"
+                       prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto &amp;</type>
+                <definition>auto&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_time</definition>
+                <argsstring>() noexcept</argsstring>
+                <name>impl_time</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The setter interface of member <computeroutput>time_</computeroutput> in name
+                        of <computeroutput>impl_time</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="96" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="96" bodyend="96"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a924ba9d1ce920b29806ab06748acd92a"
+                       prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto const &amp;</type>
+                <definition>auto const&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_time
+                </definition>
+                <argsstring>() const noexcept</argsstring>
+                <name>impl_time</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The getter interface of member <computeroutput>time_</computeroutput> in name
+                        of <computeroutput>impl_time</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="96" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="96" bodyend="96"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ad2879cbc80f7c942377e41d11e133339"
+                       prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto &amp;</type>
+                <definition>auto&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_pos</definition>
+                <argsstring>() noexcept</argsstring>
+                <name>impl_pos</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The setter interface of member <computeroutput>pos_</computeroutput> in name
+                        of <computeroutput>impl_pos</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="98" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="98" bodyend="98"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1afce1eb13e6bf6e29ec6f0a41eea13327"
+                       prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto const &amp;</type>
+                <definition>auto const&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_pos
+                </definition>
+                <argsstring>() const noexcept</argsstring>
+                <name>impl_pos</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The getter interface of member <computeroutput>pos_</computeroutput> in name
+                        of <computeroutput>impl_pos</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="98" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="98" bodyend="98"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ae583990c919f76fd59d64652aded092f"
+                       prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto &amp;</type>
+                <definition>auto&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_vel</definition>
+                <argsstring>() noexcept</argsstring>
+                <name>impl_vel</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The setter interface of member <computeroutput>vel_</computeroutput> in name
+                        of <computeroutput>impl_vel</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="100" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="100" bodyend="100"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ad6263d8994e05e7bc5bfa05cc933fa41"
+                       prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>auto const &amp;</type>
+                <definition>auto const&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_vel
+                </definition>
+                <argsstring>() const noexcept</argsstring>
+                <name>impl_vel</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>The getter interface of member <computeroutput>vel_</computeroutput> in name
+                        of <computeroutput>impl_vel</computeroutput>.
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="100" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="100" bodyend="100"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a26016329db0514932665bba73a8b0a23"
+                       prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>void</type>
+                <definition>void space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_resize</definition>
+                <argsstring>(size_t new_sz)</argsstring>
+                <name>impl_resize</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>new_sz</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="102" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="176" bodyend="179"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ab032c2d6f1cfa33dd8ff8a7d593b8555"
+                       prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>void</type>
+                <definition>void space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_reserve</definition>
+                <argsstring>(size_t new_cap)</argsstring>
+                <name>impl_reserve</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>new_cap</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="104" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="165" bodyend="167"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1adc7024bddafab1eda45a44a81e9a765d"
+                       prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>void</type>
+                <definition>void space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_emplace_back</definition>
+                <argsstring>(Particle const &amp;new_particle)</argsstring>
+                <name>impl_emplace_back</name>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                            Particle
+                        </ref>
+                        const &amp;
+                    </type>
+                    <declname>new_particle</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="106" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="182" bodyend="189"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a2f6edf55d1e22aaf2dbe981b992aa732"
+                       prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+                <type>size_t</type>
+                <definition>size_t space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_number</definition>
+                <argsstring>() const</argsstring>
+                <name>impl_number</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="108" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="155" bodyend="157"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1ac5ec3d3a3b338ca6bc99023fcd654212"
+                       prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+                <type>size_t</type>
+                <definition>size_t space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_capacity</definition>
+                <argsstring>() const</argsstring>
+                <name>impl_capacity</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="110" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="160" bodyend="162"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1particle__set_1_1_size_particles_1a9a2ae41035b38ce06950a6770a518c8d"
+                       prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>void</type>
+                <definition>void space::particle_set::SizeParticles&lt; TypeSystem &gt;::impl_clear</definition>
+                <argsstring>()</argsstring>
+                <name>impl_clear</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="112" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="170" bodyend="173"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>
+                <parameterlist kind="templateparam">
+                    <parameteritem>
+                        <parameternamelist>
+                            <parametername>TypeSystem</parametername>
+                        </parameternamelist>
+                        <parameterdescription>
+                            <para></para>
+                        </parameterdescription>
+                    </parameteritem>
+                </parameterlist>
+            </para>
+        </detaileddescription>
+        <inheritancegraph>
+            <node id="303">
+                <label>space::particle_set::Particles&lt; SizeParticles&lt; TypeSystem &gt; &gt;</label>
+                <link refid="classspace_1_1particle__set_1_1_particles"/>
+                <childnode refid="304" relation="template-instance">
+                    <edgelabel>&lt; SizeParticles&lt; TypeSystem &gt; &gt;</edgelabel>
+                </childnode>
+            </node>
+            <node id="304">
+                <label>space::particle_set::Particles&lt; Derived &gt;</label>
+                <link refid="classspace_1_1particle__set_1_1_particles"/>
+            </node>
+            <node id="302">
+                <label>space::particle_set::SizeParticles&lt; TypeSystem &gt;</label>
+                <link refid="classspace_1_1particle__set_1_1_size_particles"/>
+                <childnode refid="303" relation="public-inheritance">
+                </childnode>
+            </node>
+        </inheritancegraph>
+        <collaborationgraph>
+            <node id="306">
+                <label>space::particle_set::Particles&lt; SizeParticles&lt; TypeSystem &gt; &gt;</label>
+                <link refid="classspace_1_1particle__set_1_1_particles"/>
+                <childnode refid="307" relation="template-instance">
+                    <edgelabel>&lt; SizeParticles&lt; TypeSystem &gt; &gt;</edgelabel>
+                </childnode>
+            </node>
+            <node id="307">
+                <label>space::particle_set::Particles&lt; Derived &gt;</label>
+                <link refid="classspace_1_1particle__set_1_1_particles"/>
+            </node>
+            <node id="305">
+                <label>space::particle_set::SizeParticles&lt; TypeSystem &gt;</label>
+                <link refid="classspace_1_1particle__set_1_1_size_particles"/>
+                <childnode refid="306" relation="public-inheritance">
+                </childnode>
+            </node>
+        </collaborationgraph>
+        <location file="particles/finite-size.hpp" line="40" column="1" bodyfile="particles/finite-size.hpp"
+                  bodystart="40" bodyend="129"/>
+        <listofallmembers>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1aae263a74f63a42c5aee973722480ce85"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>active_num_</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a1abbc3c3706a6af1ea01e40dcddc2b1f"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>Base</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ad95e39ecf52d08433a0fe07e9165da3c"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>Base</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a5eaa7257f965dc28bf5f4ec310c2980e" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>capacity</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1ae3ab65c8ce8b7267988b1955b80501bc" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>clear</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ae4d7fe24a27bfc42a55b124ee3566eb3"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>Container</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1acb9ea2e06a472283ccf85e510314a779"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>Coord</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a245ecb69dca54f735ad508257cc2c9b7" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>derived</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a839bfe959f17a5732f055abb5495b1f3" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>emplace_back</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a9a8afdf6e553f6402cc36beb5f056703" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>idn</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1aebd2aaaf9f5d9933fda2c1e05c0148f6" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>idn</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1aecb005c41eed257dd0cc3053651a71fe"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>idn_</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a280ca78ff47e08b1fffd15ff4fd3beb6"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>IdxArray</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ac5ec3d3a3b338ca6bc99023fcd654212"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_capacity</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a9a2ae41035b38ce06950a6770a518c8d"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_clear</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1adc7024bddafab1eda45a44a81e9a765d"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_emplace_back</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a25722deaec0e0007d9b766d0f9ddf511"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_idn</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ae585067f37bf2ef9a030317b32524c99"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_idn</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ade5daf01f97188e07f2d6620db9b9308"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_mass</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a5ad31640700d3b169c33743268bb3942"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_mass</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a2f6edf55d1e22aaf2dbe981b992aa732"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_number</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ad2879cbc80f7c942377e41d11e133339"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_pos</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1afce1eb13e6bf6e29ec6f0a41eea13327"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_pos</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ab032c2d6f1cfa33dd8ff8a7d593b8555"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_reserve</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a26016329db0514932665bba73a8b0a23"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_resize</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a8fd261a79ec1e0c344de38829e6fd554"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_time</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a924ba9d1ce920b29806ab06748acd92a"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_time</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ae583990c919f76fd59d64652aded092f"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_vel</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ad6263d8994e05e7bc5bfa05cc933fa41"
+                    prot="protected" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>impl_vel</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a2c3d3b8536a60f103cab83355a53eb83"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>IntArray</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a10121dc019d3a70a5dd718fcb6c14b46" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>mass</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1aef17d9f3ebadd7353c0a66af29b53aaf" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>mass</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ae40d7f336820f632386520d8a8bbbcbe"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>mass_</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a2c2283739306b6a990d1e9cb012432af" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>number</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ac9d9793f1f363570c975ad7b595bdb80"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>operator=</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a1e389195cb2f6fee22e8b86845610ea7"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>operator=</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a141109c26bd5ab4c283eb8d9259d1b78" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>pos</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a90c17e9ade3a79cbab7d22350d4d4e1e" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>pos</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a34640b88d96bda8f9c8288e90f06f177"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>pos_</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a3de39f74d68c1c825ec9f88a9b55b11e"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>radius</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a8305b09fea8d0b286b9f36fd29a1879f"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>radius</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a57fd780a5b3010ac0efc63468beabb61"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>radius_</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a119f7dc027bfb14909a8ce0585348605" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>reserve</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a8fa9b783ab2f05e96f83c15103de51ff" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>resize</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a7cd8aa5b7d58a499df6d51f789e02e6c"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>Scalar</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ad6ac0fd7937be43641868c6a47889fe9"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>ScalarArray</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a065d36f8b838af69aed3992c8bb0dcf2"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>SizeParticles</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a5f01e3c77e6c7130493941402542bb43"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>SizeParticles</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ae318d8c7f4b3c178d73457051f2cd251"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>SizeParticles</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ac63626620675889779a34beec0b30756"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>SizeParticles</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1ad8f44a494a805d454fa3a2b3f3967088" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>time</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a19d88f547ae6af7869670b4460003c15" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>time</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a72ae8e9af98b7692258624bf4c921b79"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>time_</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a36b1d7caf661b65a46b8356a6b386729"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>Vector</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1ae06b57e7b79896ecdda530f7b486794e"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>VectorArray</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1a4c206bfebf1f290ef01397cfc94bd9ab" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>vel</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_particles_1adb61dd7ea71b5fb78fc0e2dba5cea06f" prot="public"
+                    virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>vel</name>
+            </member>
+            <member refid="classspace_1_1particle__set_1_1_size_particles_1a33cfeefb8d4e451be429c95c388ab5f0"
+                    prot="private" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles</scope>
+                <name>vel_</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

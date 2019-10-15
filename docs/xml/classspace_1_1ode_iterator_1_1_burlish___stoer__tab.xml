@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab" kind="class" language="C++" prot="public">
+        <compoundname>space::odeIterator::Burlish_Stoer_tab</compoundname>
+        <includes refid="_b_s-iterator0_8hpp" local="no">BS-iterator0.hpp</includes>
+        <templateparamlist>
+            <param>
+                <type>typename</type>
+                <declname>T</declname>
+                <defname>T</defname>
+            </param>
+            <param>
+                <type>size_t</type>
+                <declname>MaxIter</declname>
+                <defname>MaxIter</defname>
+            </param>
+        </templateparamlist>
+        <sectiondef kind="public-type">
+            <memberdef kind="typedef"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                       prot="public" static="no">
+                <type>T</type>
+                <definition>using space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::Scalar = T</definition>
+                <argsstring></argsstring>
+                <name>Scalar</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="17" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="17" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="private-attrib">
+            <memberdef kind="variable"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a98329685c8ce25274626fecc2656d134"
+                       prot="private" static="no" mutable="no">
+                <type>std::array&lt; <ref
+                        refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                        kindref="member">Scalar</ref>, MaxIter *(MaxIter+1)/2 &gt;
+                </type>
+                <definition>std::array&lt;Scalar, MaxIter * (MaxIter + 1) / 2&gt; space::odeIterator::Burlish_Stoer_tab&lt;
+                    T, MaxIter &gt;::extrap_coef_
+                </definition>
+                <argsstring></argsstring>
+                <name>extrap_coef_</name>
+                <briefdescription>
+                    <para>Extrapolation coefficient.</para>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="68" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="68" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a6b789eb2189f75103fb8e12402655c76"
+                       prot="private" static="no" mutable="no">
+                <type>std::array&lt; <ref
+                        refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                        kindref="member">Scalar</ref>, MaxIter &gt;
+                </type>
+                <definition>std::array&lt;Scalar, MaxIter&gt; space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::err_expon_</definition>
+                <argsstring></argsstring>
+                <name>err_expon_</name>
+                <briefdescription>
+                    <para>The exponent of error estimate at column k.</para>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="71" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="71" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a952450dacb7431553321775343ad2b77"
+                       prot="private" static="no" mutable="no">
+                <type>std::array&lt; <ref
+                        refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                        kindref="member">Scalar</ref>, MaxIter &gt;
+                </type>
+                <definition>std::array&lt;Scalar, MaxIter&gt; space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::limiter_</definition>
+                <argsstring></argsstring>
+                <name>limiter_</name>
+                <briefdescription>
+                    <para>The minimal coeffient of integration step estimation.</para>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="74" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="74" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a9cc62ac119ab51d849476ff532c71104"
+                       prot="private" static="no" mutable="no">
+                <type>std::array&lt; size_t, MaxIter &gt;</type>
+                <definition>std::array&lt;size_t, MaxIter&gt; space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::work_</definition>
+                <argsstring></argsstring>
+                <name>work_</name>
+                <briefdescription>
+                    <para>The work(computation resource) per step size of each iteration depth.</para>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="77" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="77" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a0433e63845a40ffef3825461551efeb4"
+                       prot="private" static="no" mutable="no">
+                <type>std::array&lt; size_t, MaxIter &gt;</type>
+                <definition>std::array&lt;size_t, MaxIter&gt; space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::sub_steps_</definition>
+                <argsstring></argsstring>
+                <name>sub_steps_</name>
+                <briefdescription>
+                    <para>Steps of integration of each iteration depth.</para>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="80" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="80" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1aba1b0fe4fcc9501e00fc97d1e0b26530"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>Scalar space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::expon</definition>
+                <argsstring>(size_t i) const</argsstring>
+                <name>expon</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>i</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="19" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="19" bodyend="21"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a4e45c24680ed3179f605c4ff62ba7ed9"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>Scalar space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::limiter</definition>
+                <argsstring>(size_t i) const</argsstring>
+                <name>limiter</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>i</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="23" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="23" bodyend="25"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1adf9cbadc82fcce03d0d58aa384c227cb"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>Scalar space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::work</definition>
+                <argsstring>(size_t i) const</argsstring>
+                <name>work</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>i</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="27" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="27" bodyend="29"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a61079f6561b1900f7e4cceaa6ed312ac"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>size_t</type>
+                <definition>size_t space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::step</definition>
+                <argsstring>(size_t i) const</argsstring>
+                <name>step</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>i</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="31" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="31" bodyend="33"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1acd57580b48705518d28d391ff8a28d8c"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>Scalar space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::coef</definition>
+                <argsstring>(size_t k) const</argsstring>
+                <name>coef</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>k</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="35" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="35" bodyend="37"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a803efc9a897ffe4ce1e3041bd1aaedb9"
+                       prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                         kindref="member">Scalar
+                    </ref>
+                </type>
+                <definition>Scalar space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::coef</definition>
+                <argsstring>(size_t i, size_t j) const</argsstring>
+                <name>coef</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>i</declname>
+                </param>
+                <param>
+                    <type>size_t</type>
+                    <declname>j</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="39" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="39" bodyend="41"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a286283a68bb124a3b6df0d9bb27a305d"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::Burlish_Stoer_tab</definition>
+                <argsstring>()</argsstring>
+                <name>Burlish_Stoer_tab</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="43" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="43" bodyend="60"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="private-func">
+            <memberdef kind="function"
+                       id="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a63d55a47a658b574906203618b708887"
+                       prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+                <type>size_t</type>
+                <definition>size_t space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;::at</definition>
+                <argsstring>(size_t i, size_t j) const</argsstring>
+                <name>at</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>i</declname>
+                </param>
+                <param>
+                    <type>size_t</type>
+                    <declname>j</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/BS-iterator0.hpp" line="63" column="1"
+                          bodyfile="ode-iterator/BS-iterator0.hpp" bodystart="63" bodyend="65"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inheritancegraph>
+            <node id="30">
+                <label>space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;</label>
+                <link refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab"/>
+            </node>
+            <node id="31">
+                <label>space::odeIterator::Burlish_Stoer_tab&lt; Scalar, max_depth_+1 &gt;</label>
+                <link refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab"/>
+                <childnode refid="30" relation="template-instance">
+                    <edgelabel>&lt; Scalar, max_depth_+1 &gt;</edgelabel>
+                </childnode>
+            </node>
+        </inheritancegraph>
+        <collaborationgraph>
+            <node id="32">
+                <label>space::odeIterator::Burlish_Stoer_tab&lt; T, MaxIter &gt;</label>
+                <link refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab"/>
+            </node>
+        </collaborationgraph>
+        <location file="ode-iterator/BS-iterator0.hpp" line="15" column="1" bodyfile="ode-iterator/BS-iterator0.hpp"
+                  bodystart="15" bodyend="81"/>
+        <listofallmembers>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a63d55a47a658b574906203618b708887"
+                    prot="private" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>at</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a286283a68bb124a3b6df0d9bb27a305d"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>Burlish_Stoer_tab</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1acd57580b48705518d28d391ff8a28d8c"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>coef</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a803efc9a897ffe4ce1e3041bd1aaedb9"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>coef</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a6b789eb2189f75103fb8e12402655c76"
+                    prot="private" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>err_expon_</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1aba1b0fe4fcc9501e00fc97d1e0b26530"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>expon</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a98329685c8ce25274626fecc2656d134"
+                    prot="private" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>extrap_coef_</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a4e45c24680ed3179f605c4ff62ba7ed9"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>limiter</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a952450dacb7431553321775343ad2b77"
+                    prot="private" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>limiter_</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>Scalar</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a61079f6561b1900f7e4cceaa6ed312ac"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>step</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a0433e63845a40ffef3825461551efeb4"
+                    prot="private" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>sub_steps_</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1adf9cbadc82fcce03d0d58aa384c227cb"
+                    prot="public" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>work</name>
+            </member>
+            <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a9cc62ac119ab51d849476ff532c71104"
+                    prot="private" virt="non-virtual">
+                <scope>space::odeIterator::Burlish_Stoer_tab</scope>
+                <name>work_</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

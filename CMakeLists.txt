@@ -53,9 +53,9 @@ set(TMP_HEADER_FILES
         src/tools/config-reader.hpp
         src/tools/auto-name.hpp
 
-        src/vector/vector3.h
-        src/vector/vector3d.h
-        src/vector/vector3pd.h
+        src/vector/vector3.hpp
+        src/vector/vector3d.hpp
+        src/vector/vector3pd.hpp
 
         src/accelerations.hpp
         src/coords.hpp

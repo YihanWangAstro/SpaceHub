@@ -1,3 +1,27 @@
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file orbits.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_ORBITS_HPP
 #define SPACEHUB_ORBITS_HPP
 
@@ -68,11 +92,13 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     if (fabs(mean_anomaly) <= space::epsilon<Scalar>::value) return 0;
 
     if (0 <= e && e < 1)
-      return space::root_bisection([&](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
-                                   -space::consts::pi, space::consts::pi);  // find this function in ownMath.h
+      return space::root_bisection(
+              [&](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
+              -space::consts::pi, space::consts::pi);  // find this function in ownMath.h
     else if (e > 1)
-      return space::root_bisection([&](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); },
-                                   -space::consts::pi, space::consts::pi);
+      return space::root_bisection(
+              [&](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); },
+              -space::consts::pi, space::consts::pi);
     else if (fabs(e - 1) < space::epsilon<Scalar>::value)
       return space::root_bisection([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
                                    -space::consts::pi, space::consts::pi);

@@ -26,7 +26,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="192" column="1" bodyfile="core-computation.hpp" bodystart="192" bodyend="-1"/>
+          <location file="core-computation.hpp" line="215" column="1" bodyfile="core-computation.hpp" bodystart="215"
+                    bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -49,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="192" column="1"/>
+          <location file="core-computation.hpp" line="215" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1calc_1_1has__method__chain__pos_1a90f54b3f156bf3836e582ad91e743bd9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -70,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="192" column="1"/>
+          <location file="core-computation.hpp" line="215" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -78,12 +79,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="105">
+        <node id="104">
         <label>space::calc::has_method_chain_pos&lt; T, Args &gt;</label>
         <link refid="structspace_1_1calc_1_1has__method__chain__pos"/>
       </node>
     </collaborationgraph>
-    <location file="core-computation.hpp" line="192" column="1" bodyfile="core-computation.hpp" bodystart="192" bodyend="192"/>
+      <location file="core-computation.hpp" line="215" column="1" bodyfile="core-computation.hpp" bodystart="215"
+                bodyend="215"/>
     <listofallmembers>
       <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a4c5d70188a3a86544cd536bdce1561b8" prot="public" virt="non-virtual"><scope>space::calc::has_method_chain_pos</scope><name>check</name></member>
       <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a90f54b3f156bf3836e582ad91e743bd9" prot="public" virt="non-virtual"><scope>space::calc::has_method_chain_pos</scope><name>check</name></member>

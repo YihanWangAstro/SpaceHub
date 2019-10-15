@@ -30,78 +30,78 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="89">
+        <node id="88">
         <label>SpaceH::Lazy::Expr&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="86" relation="template-instance">
+            <childnode refid="85" relation="template-instance">
           <edgelabel>&lt; Binary_Expr&lt; Operator, Lhs, Rhs &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="91">
+        <node id="90">
         <label>SpaceH::Lazy::Expr&lt; Larray&lt; T, Len, IsSmall &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="86" relation="template-instance">
+            <childnode refid="85" relation="template-instance">
           <edgelabel>&lt; Larray&lt; T, Len, IsSmall &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="94">
+        <node id="93">
         <label>SpaceH::Lazy::Unary_Expr&lt; Operator, Unary &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_unary___expr"/>
-        <childnode refid="93" relation="public-inheritance">
+            <childnode refid="92" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="96">
+        <node id="95">
         <label>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4"/>
-        <childnode refid="95" relation="public-inheritance">
+            <childnode refid="94" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="88">
+        <node id="87">
         <label>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_slice___expr"/>
-        <childnode refid="87" relation="public-inheritance">
+            <childnode refid="86" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="86">
+        <node id="85">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
-      <node id="87">
+        <node id="86">
         <label>SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="86" relation="template-instance">
+            <childnode refid="85" relation="template-instance">
           <edgelabel>&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="95">
+        <node id="94">
         <label>SpaceH::Lazy::Expr&lt; Larray&lt; T, Len, true &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="86" relation="template-instance">
+            <childnode refid="85" relation="template-instance">
           <edgelabel>&lt; Larray&lt; T, Len, true &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="93">
+        <node id="92">
         <label>SpaceH::Lazy::Expr&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
-        <childnode refid="86" relation="template-instance">
+            <childnode refid="85" relation="template-instance">
           <edgelabel>&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;</edgelabel>
         </childnode>
       </node>
-      <node id="90">
+        <node id="89">
         <label>SpaceH::Lazy::Binary_Expr&lt; Operator, Lhs, Rhs &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_binary___expr"/>
-        <childnode refid="89" relation="public-inheritance">
+            <childnode refid="88" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="92">
+        <node id="91">
         <label>SpaceH::Lazy::Larray&lt; T, Len, IsSmall &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_larray"/>
-        <childnode refid="91" relation="public-inheritance">
+            <childnode refid="90" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="97">
+        <node id="96">
         <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>

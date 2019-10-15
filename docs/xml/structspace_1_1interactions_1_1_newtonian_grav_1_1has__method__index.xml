@@ -77,7 +77,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="123">
+        <node id="122">
         <label>space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;</label>
       </node>
     </collaborationgraph>

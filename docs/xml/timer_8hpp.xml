@@ -45,6 +45,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="tools/timer.hpp"/>
   </compounddef>

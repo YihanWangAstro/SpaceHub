@@ -15,12 +15,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="167">
+        <node id="164">
         <label>space::is_container_helper&lt; Ts &gt;</label>
         <link refid="structspace_1_1is__container__helper"/>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="336" column="1" bodyfile="dev-tools.hpp" bodystart="336" bodyend="337"/>
+      <location file="dev-tools.hpp" line="360" column="1" bodyfile="dev-tools.hpp" bodystart="360" bodyend="361"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

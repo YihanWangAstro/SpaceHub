@@ -29,7 +29,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="14" column="1" bodyfile="core-computation.hpp" bodystart="14" bodyend="16"/>
+          <location file="core-computation.hpp" line="37" column="1" bodyfile="core-computation.hpp" bodystart="37"
+                    bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1af042dd5822d4fdeea0b2888a3b688533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -53,7 +54,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="19" column="1" bodyfile="core-computation.hpp" bodystart="19" bodyend="21"/>
+          <location file="core-computation.hpp" line="42" column="1" bodyfile="core-computation.hpp" bodystart="42"
+                    bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a7742b69c5da4cd5bc6053beec5f3c4f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -77,7 +79,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="24" column="1" bodyfile="core-computation.hpp" bodystart="24" bodyend="26"/>
+          <location file="core-computation.hpp" line="47" column="1" bodyfile="core-computation.hpp" bodystart="47"
+                    bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a60f195a3f599f8bfad623c64a096656e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -101,7 +104,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="29" column="1" bodyfile="core-computation.hpp" bodystart="29" bodyend="31"/>
+          <location file="core-computation.hpp" line="52" column="1" bodyfile="core-computation.hpp" bodystart="52"
+                    bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a0e1d122eca5e4cb2251f40e06e53ac6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -123,7 +127,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="34" column="1" bodyfile="core-computation.hpp" bodystart="34" bodyend="38"/>
+          <location file="core-computation.hpp" line="57" column="1" bodyfile="core-computation.hpp" bodystart="57"
+                    bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a876d13557c3ddba32cd4440f480ee07c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -147,7 +152,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="41" column="1" bodyfile="core-computation.hpp" bodystart="41" bodyend="43"/>
+          <location file="core-computation.hpp" line="64" column="1" bodyfile="core-computation.hpp" bodystart="64"
+                    bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a54cff9b21c1dc99cfa0a27d03a361e6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -182,7 +188,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="46" column="1" bodyfile="core-computation.hpp" bodystart="46" bodyend="54"/>
+          <location file="core-computation.hpp" line="69" column="1" bodyfile="core-computation.hpp" bodystart="69"
+                    bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a48c41d16177599e77106683bc56a612e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -221,7 +228,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="57" column="1" bodyfile="core-computation.hpp" bodystart="57" bodyend="64"/>
+          <location file="core-computation.hpp" line="80" column="1" bodyfile="core-computation.hpp" bodystart="80"
+                    bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1aeb8318a2bff3ae82781e3a8d0611a92c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -260,7 +268,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="67" column="1" bodyfile="core-computation.hpp" bodystart="67" bodyend="73"/>
+          <location file="core-computation.hpp" line="90" column="1" bodyfile="core-computation.hpp" bodystart="90"
+                    bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a7831753c2e80720a319e3d4cc326c11c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -290,7 +299,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="76" column="1" bodyfile="core-computation.hpp" bodystart="76" bodyend="83"/>
+          <location file="core-computation.hpp" line="99" column="1" bodyfile="core-computation.hpp" bodystart="99"
+                    bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a290e37919d94780a2c578e5a52ff0165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -312,7 +322,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="86" column="1" bodyfile="core-computation.hpp" bodystart="86" bodyend="92"/>
+          <location file="core-computation.hpp" line="109" column="1" bodyfile="core-computation.hpp" bodystart="109"
+                    bodyend="115"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1ae0294ebd7b3e5b7ce717c3f84934ac4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -345,7 +356,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="95" column="1" bodyfile="core-computation.hpp" bodystart="95" bodyend="101"/>
+          <location file="core-computation.hpp" line="118" column="1" bodyfile="core-computation.hpp" bodystart="118"
+                    bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a82c5f94387edd834bbe2fc513322490e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -378,7 +390,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="104" column="1" bodyfile="core-computation.hpp" bodystart="104" bodyend="109"/>
+          <location file="core-computation.hpp" line="127" column="1" bodyfile="core-computation.hpp" bodystart="127"
+                    bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a8b669c19a44813e6337745defca230f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -411,7 +424,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="112" column="1" bodyfile="core-computation.hpp" bodystart="112" bodyend="120"/>
+          <location file="core-computation.hpp" line="135" column="1" bodyfile="core-computation.hpp" bodystart="135"
+                    bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a1af20f175b415a4f9fe360d089cdc72e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -437,7 +451,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="134" column="1" bodyfile="core-computation.hpp" bodystart="134" bodyend="142"/>
+          <location file="core-computation.hpp" line="157" column="1" bodyfile="core-computation.hpp" bodystart="157"
+                    bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a5e778967bb47fbd2366e9a2085cb197f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -476,7 +491,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="145" column="1" bodyfile="core-computation.hpp" bodystart="145" bodyend="149"/>
+          <location file="core-computation.hpp" line="168" column="1" bodyfile="core-computation.hpp" bodystart="168"
+                    bodyend="172"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a520b8098b25a63a467c0ab7d852bc900" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -509,7 +525,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="152" column="1" bodyfile="core-computation.hpp" bodystart="152" bodyend="156"/>
+          <location file="core-computation.hpp" line="175" column="1" bodyfile="core-computation.hpp" bodystart="175"
+                    bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1ad226d2c8703569776126e317a61834f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -535,7 +552,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="159" column="1" bodyfile="core-computation.hpp" bodystart="159" bodyend="161"/>
+          <location file="core-computation.hpp" line="182" column="1" bodyfile="core-computation.hpp" bodystart="182"
+                    bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1aebb322a76702b6dfd4ee4917580b6f58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -565,7 +583,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="164" column="1" bodyfile="core-computation.hpp" bodystart="164" bodyend="166"/>
+          <location file="core-computation.hpp" line="187" column="1" bodyfile="core-computation.hpp" bodystart="187"
+                    bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a83deb44ff9c8856f98270e385b48be5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -591,7 +610,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="169" column="1" bodyfile="core-computation.hpp" bodystart="169" bodyend="171"/>
+          <location file="core-computation.hpp" line="192" column="1" bodyfile="core-computation.hpp" bodystart="192"
+                    bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a324136b8087717d03bd33285695130d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -620,7 +640,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="174" column="1" bodyfile="core-computation.hpp" bodystart="174" bodyend="177"/>
+          <location file="core-computation.hpp" line="197" column="1" bodyfile="core-computation.hpp" bodystart="197"
+                    bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a6690fcdfccc1d3c01caa6461a8535359" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -649,7 +670,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="180" column="1" bodyfile="core-computation.hpp" bodystart="180" bodyend="185"/>
+          <location file="core-computation.hpp" line="203" column="1" bodyfile="core-computation.hpp" bodystart="203"
+                    bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a1023e026d3105bcc7c84b638fc52c16e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -662,7 +684,7 @@
         <argsstring>(Particles const &amp;ptc)</argsstring>
         <name>calc_kinetic_energy</name>
         <param>
-          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+            <type>Particles const &amp;</type>
           <declname>ptc</declname>
         </param>
         <briefdescription>
@@ -671,7 +693,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="188" column="1" bodyfile="core-computation.hpp" bodystart="188" bodyend="190"/>
+          <location file="core-computation.hpp" line="211" column="1" bodyfile="core-computation.hpp" bodystart="211"
+                    bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1ad8d5868f9417c166b0418ec1f8ebaf5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -684,7 +707,7 @@
         <argsstring>(Particles const &amp;particles)</argsstring>
         <name>calc_potential_energy</name>
         <param>
-          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+            <type>Particles const &amp;</type>
           <declname>particles</declname>
         </param>
         <briefdescription>
@@ -693,7 +716,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="197" column="1" bodyfile="core-computation.hpp" bodystart="197" bodyend="241"/>
+          <location file="core-computation.hpp" line="220" column="1" bodyfile="core-computation.hpp" bodystart="220"
+                    bodyend="264"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a44497f7a8ce6ed8b43bda1045eb13359" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -706,7 +730,7 @@
         <argsstring>(Particles const &amp;particles)</argsstring>
         <name>calc_total_energy</name>
         <param>
-          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+            <type>Particles const &amp;</type>
           <declname>particles</declname>
         </param>
         <briefdescription>
@@ -715,7 +739,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="244" column="1" bodyfile="core-computation.hpp" bodystart="244" bodyend="246"/>
+          <location file="core-computation.hpp" line="267" column="1" bodyfile="core-computation.hpp" bodystart="267"
+                    bodyend="269"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a803024b9c9a7c28844d9932f4ebecf92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -760,7 +785,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="255" column="1" bodyfile="core-computation.hpp" bodystart="255" bodyend="272"/>
+          <location file="core-computation.hpp" line="278" column="1" bodyfile="core-computation.hpp" bodystart="278"
+                    bodyend="295"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a3f014dcdcc83e6975bdc75598a85bb51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -773,7 +799,7 @@
         <argsstring>(Particles const &amp;particles)</argsstring>
         <name>calc_step_scale</name>
         <param>
-          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+            <type>Particles const &amp;</type>
           <declname>particles</declname>
         </param>
         <briefdescription>
@@ -781,7 +807,7 @@
         <detaileddescription>
 <para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
-<parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
+    <parametername>Particles</parametername>
 </parameternamelist>
 <parameterdescription>
 <para></para></parameterdescription>
@@ -799,7 +825,8 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="285" column="1" bodyfile="core-computation.hpp" bodystart="285" bodyend="291"/>
+          <location file="core-computation.hpp" line="308" column="1" bodyfile="core-computation.hpp" bodystart="308"
+                    bodyend="314"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1calc_1a73501521c29dae1b3e19467c56d4d814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -812,7 +839,7 @@
         <argsstring>(Particles const &amp;particles, typename Particles::Scalar E0)</argsstring>
         <name>calc_energy_error</name>
         <param>
-          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+            <type>Particles const &amp;</type>
           <declname>particles</declname>
         </param>
         <param>
@@ -825,13 +852,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="294" column="1" bodyfile="core-computation.hpp" bodystart="294" bodyend="303"/>
+          <location file="core-computation.hpp" line="317" column="1" bodyfile="core-computation.hpp" bodystart="317"
+                    bodyend="326"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Documentation for space </para>    </detaileddescription>
-    <location file="core-computation.hpp" line="9" column="1"/>
+      <location file="core-computation.hpp" line="32" column="1"/>
   </compounddef>
 </doxygen>

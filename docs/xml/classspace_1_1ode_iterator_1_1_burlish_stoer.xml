@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1ode_iterator_1_1_burlish_stoer" kind="class" language="C++" prot="public">
     <compoundname>space::odeIterator::BurlishStoer</compoundname>
-    <basecompoundref refid="classspace_1_1ode_iterator_1_1_ode_iterator" prot="public" virt="non-virtual">space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</basecompoundref>
-    <basecompoundref refid="classspace_1_1ode_iterator_1_1_ode_iterator" prot="public" virt="non-virtual">space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</basecompoundref>
+      <basecompoundref prot="public" virt="non-virtual">OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;
+      </basecompoundref>
     <includes refid="_b_s-iterator__bk_8hpp" local="no">BS-iterator_bk.hpp</includes>
     <innerclass refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab" prot="public">space::odeIterator::BurlishStoer::BStab</innerclass>
     <templateparamlist>
@@ -26,7 +26,9 @@
         <location file="ode-iterator/BS-iterator_bk.hpp" line="19" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a77262a8f084fc073f3211db83c41ff64" prot="public" static="no">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_ode_iterator" kindref="compound">OdeIterator</ref>&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">BurlishStoer</ref>&lt; Real &gt; &gt;</type>
+          <type>OdeIterator&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">
+              BurlishStoer</ref>&lt; Real &gt; &gt;
+          </type>
         <definition>using space::odeIterator::BurlishStoer&lt; Real &gt;::Base =  OdeIterator&lt;BurlishStoer&lt;Real&gt; &gt;</definition>
         <argsstring></argsstring>
         <name>Base</name>
@@ -37,58 +39,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="21" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="21" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac0d0a602d3d9aad96cc45a97141ed984" prot="public" static="no">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_ode_iterator" kindref="compound">OdeIterator</ref>&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">BurlishStoer</ref>&lt; Real, ErrChecker, StepControl &gt; &gt;</type>
-        <definition>using space::odeIterator::BurlishStoer&lt; Real &gt;::Base =  OdeIterator&lt;BurlishStoer&lt;Real, ErrChecker, StepControl&gt; &gt;</definition>
-        <argsstring></argsstring>
-        <name>Base</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="97" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="97" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" prot="public" static="no">
-        <type>Real</type>
-        <definition>using space::odeIterator::BurlishStoer&lt; Real &gt;::Scalar =  Real</definition>
-        <argsstring></argsstring>
-        <name>Scalar</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="99" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="99" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f978415d7f0befa3bf5d8359a636eb9" prot="public" static="no">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts" kindref="compound">BurlishStoerConsts</ref>&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref>, max_depth+1 &gt;</type>
-        <definition>using space::odeIterator::BurlishStoer&lt; Real &gt;::BSConsts =  BurlishStoerConsts&lt;Scalar, max_depth + 1&gt;</definition>
-        <argsstring></argsstring>
-        <name>BSConsts</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="105" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="105" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1aed977dd8091b49e5278336d91c1eb4c8" prot="public" static="no">
-        <type>StepControl&lt; 2 *max_depth+3, <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref> &gt;</type>
-        <definition>using space::odeIterator::BurlishStoer&lt; Real &gt;::StepController =  StepControl&lt;2 * max_depth + 3, Scalar&gt;</definition>
-        <argsstring></argsstring>
-        <name>StepController</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="107" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="107" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -118,19 +68,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="74" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="74" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a48430eb52c224128b8a30e8463d11a6e" prot="public" static="no" mutable="no">
-        <type>friend</type>
-        <definition>friend space::odeIterator::BurlishStoer&lt; Real &gt;::Base</definition>
-        <argsstring></argsstring>
-        <name>Base</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="109" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="109" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
@@ -162,9 +99,11 @@
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="105" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="105" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad3672cbcef43b6ecaaca72a2c2bf7ca4" prot="private" static="yes" mutable="no">
+          <memberdef kind="variable"
+                     id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a646f753b39ef5761a8ecc3e1e36ad6c0" prot="private"
+                     static="yes" mutable="no">
         <type>constexpr size_t</type>
-        <definition>static constexpr size_t space::odeIterator::BurlishStoer&lt; Real &gt;::max_depth</definition>
+              <definition>constexpr size_t space::odeIterator::BurlishStoer&lt; Real &gt;::max_depth</definition>
         <argsstring></argsstring>
         <name>max_depth</name>
         <initializer>{8}</initializer>
@@ -328,157 +267,6 @@
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="141" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="141" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad4d12381a4fc0a77bcaa95d910127638" prot="private" static="no" mutable="no">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f978415d7f0befa3bf5d8359a636eb9" kindref="member">BSConsts</ref></type>
-        <definition>BSConsts space::odeIterator::BurlishStoer&lt; Real &gt;::parameters_</definition>
-        <argsstring></argsstring>
-        <name>parameters_</name>
-        <briefdescription>
-<para>The constat coef for BS extrapolation. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="273" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="273" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1afc0be4fb76bdff05b97547298f653243" prot="private" static="no" mutable="no">
-        <type>std::array&lt; std::vector&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref> &gt;, max_depth+1 &gt;</type>
-        <definition>std::array&lt;std::vector&lt;Scalar&gt;, max_depth + 1&gt; space::odeIterator::BurlishStoer&lt; Real &gt;::extrap_list_</definition>
-        <argsstring></argsstring>
-        <name>extrap_list_</name>
-        <briefdescription>
-<para>Extrapolation table. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="276" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="276" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f2714929d878efadfc7103d7a0f709f" prot="private" static="no" mutable="no">
-        <type>ErrChecker&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref> &gt;</type>
-        <definition>ErrChecker&lt;Scalar&gt; space::odeIterator::BurlishStoer&lt; Real &gt;::err_checker_</definition>
-        <argsstring></argsstring>
-        <name>err_checker_</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="278" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="278" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9fe475cbed212bf6bdcbbaea515dcce3" prot="private" static="no" mutable="no">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aed977dd8091b49e5278336d91c1eb4c8" kindref="member">StepController</ref></type>
-        <definition>StepController space::odeIterator::BurlishStoer&lt; Real &gt;::step_controller_</definition>
-        <argsstring></argsstring>
-        <name>step_controller_</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="280" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="280" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a5b3aa2de0bfa0f36c0e356b9b64d07c6" prot="private" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref> &gt;</type>
-        <definition>std::vector&lt;Scalar&gt; space::odeIterator::BurlishStoer&lt; Real &gt;::input_</definition>
-        <argsstring></argsstring>
-        <name>input_</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="282" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="282" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8e1c9d6c4fb6c7d4a8e763d7399b58e8" prot="private" static="no" mutable="no">
-        <type>std::array&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref>, max_depth+1 &gt;</type>
-        <definition>std::array&lt;Scalar, max_depth + 1&gt; space::odeIterator::BurlishStoer&lt; Real &gt;::ideal_step_size_</definition>
-        <argsstring></argsstring>
-        <name>ideal_step_size_</name>
-        <initializer>{0}</initializer>
-        <briefdescription>
-<para>The optimal step size array. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="285" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="285" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7c30e21e8abe9c056ffd91187d4a5fc8" prot="private" static="no" mutable="no">
-        <type>std::array&lt; <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref>, max_depth+1 &gt;</type>
-        <definition>std::array&lt;Scalar, max_depth + 1&gt; space::odeIterator::BurlishStoer&lt; Real &gt;::cost_per_len_</definition>
-        <argsstring></argsstring>
-        <name>cost_per_len_</name>
-        <initializer>{0}</initializer>
-        <briefdescription>
-<para>The work(computation resource) needed to converge at column k. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="288" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="288" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9cc0ab78e5cddd569911d37c3f569e06" prot="private" static="no" mutable="no">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-        <definition>Scalar space::odeIterator::BurlishStoer&lt; Real &gt;::last_error_</definition>
-        <argsstring></argsstring>
-        <name>last_error_</name>
-        <initializer>{1.0}</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="290" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="290" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1aaa99acfa3308efec9a2b5af5f2db4cc6" prot="private" static="no" mutable="no">
-        <type>size_t</type>
-        <definition>size_t space::odeIterator::BurlishStoer&lt; Real &gt;::ideal_rank_</definition>
-        <argsstring></argsstring>
-        <name>ideal_rank_</name>
-        <initializer>{4}</initializer>
-        <briefdescription>
-<para>Current iteraation depth. </para>        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="293" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="293" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad0f0ebf78414273e6d1890bcb79664e7" prot="private" static="no" mutable="no">
-        <type>bool</type>
-        <definition>bool space::odeIterator::BurlishStoer&lt; Real &gt;::last_step_reject_</definition>
-        <argsstring></argsstring>
-        <name>last_step_reject_</name>
-        <initializer>{false}</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="304" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="304" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a33d661689594e7addac035f86b8a3a6a" prot="public" static="yes" mutable="no">
-        <type>constexpr size_t</type>
-        <definition>constexpr size_t space::odeIterator::BurlishStoer&lt; Real &gt;::max_try_num</definition>
-        <argsstring></argsstring>
-        <name>max_try_num</name>
-        <initializer>{500}</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="103" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="103" bodyend="-1"/>
-      </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a638985d8a272f437af3f119dfe7a21ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -514,32 +302,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="68" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="153" bodyend="155"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0be007d08450c6b4b9e1ff25bcdcb699" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename U</type>
-          </param>
-        </templateparamlist>
-        <type>auto</type>
-        <definition>auto space::odeIterator::BurlishStoer&lt; Real &gt;::impl_iterate</definition>
-        <argsstring>(U &amp;ptcs, Scalar macro_step_size) -&gt; Scalar</argsstring>
-        <name>impl_iterate</name>
-        <param>
-          <type>U &amp;</type>
-          <declname>ptcs</declname>
-        </param>
-        <param>
-          <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-          <declname>macro_step_size</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/BS-iterator_bk.hpp" line="159" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="159" bodyend="198"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -759,323 +521,31 @@
         </inbodydescription>
         <location file="ode-iterator/BS-iterator_bk.hpp" line="99" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="322" bodyend="324"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a351debb4bc8d571e8f0ccfa797180e90" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void space::odeIterator::BurlishStoer&lt; Real &gt;::check_variable_size</definition>
-        <argsstring>()</argsstring>
-        <name>check_variable_size</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="170" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="170" bodyend="177"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad70b7a2a944a5dd9e5676cbe7b8dccc1" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>size_t</type>
-        <definition>size_t space::odeIterator::BurlishStoer&lt; Real &gt;::at</definition>
-        <argsstring>(size_t i, size_t j) const</argsstring>
-        <name>at</name>
-        <param>
-          <type>size_t</type>
-          <declname>i</declname>
-        </param>
-        <param>
-          <type>size_t</type>
-          <declname>j</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="179" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="179" bodyend="182"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0c31d1fdddeaab00ab060ce0db77604" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename U</type>
-          </param>
-        </templateparamlist>
-        <type>void</type>
-        <definition>void space::odeIterator::BurlishStoer&lt; Real &gt;::integrate_by_n_steps</definition>
-        <argsstring>(U &amp;particles, Scalar macro_step_size, size_t steps)</argsstring>
-        <name>integrate_by_n_steps</name>
-        <param>
-          <type>U &amp;</type>
-          <declname>particles</declname>
-        </param>
-        <param>
-          <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-          <declname>macro_step_size</declname>
-        </param>
-        <param>
-          <type>size_t</type>
-          <declname>steps</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="185" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="185" bodyend="194"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6c0af3328f039a6f7664cae79de89542" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void space::odeIterator::BurlishStoer&lt; Real &gt;::extrapolate</definition>
-        <argsstring>(size_t k)</argsstring>
-        <name>extrapolate</name>
-        <param>
-          <type>size_t</type>
-          <declname>k</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="196" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="196" bodyend="204"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a438e910c532ec4deb8fe6ae877b0f10b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool space::odeIterator::BurlishStoer&lt; Real &gt;::in_converged_window</definition>
-        <argsstring>(size_t k)</argsstring>
-        <name>in_converged_window</name>
-        <param>
-          <type>size_t</type>
-          <declname>k</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="206" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="206" bodyend="208"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad46d628468c06a57ec3d949ea8bf3d1e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-        <definition>Scalar space::odeIterator::BurlishStoer&lt; Real &gt;::get_next_try_step</definition>
-        <argsstring>(size_t k)</argsstring>
-        <name>get_next_try_step</name>
-        <param>
-          <type>size_t</type>
-          <declname>k</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="210" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="210" bodyend="218"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11c9c67fcc67e8d2d090c4f249f80f08" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>size_t</type>
-        <definition>size_t space::odeIterator::BurlishStoer&lt; Real &gt;::allowed</definition>
-        <argsstring>(size_t i) const</argsstring>
-        <name>allowed</name>
-        <param>
-          <type>size_t</type>
-          <declname>i</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="220" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="220" bodyend="222"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae78a0047313350b96637a8eb854d306c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-        <definition>Scalar space::odeIterator::BurlishStoer&lt; Real &gt;::set_next_iteration</definition>
-        <argsstring>(size_t k, bool last_reject)</argsstring>
-        <name>set_next_iteration</name>
-        <param>
-          <type>size_t</type>
-          <declname>k</declname>
-        </param>
-        <param>
-          <type>bool</type>
-          <declname>last_reject</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="224" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="224" bodyend="256"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6c6867e3df413077e8fd0f2486f0b7d7" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool space::odeIterator::BurlishStoer&lt; Real &gt;::is_diverged_anyhow</definition>
-        <argsstring>(Scalar error, size_t k) const</argsstring>
-        <name>is_diverged_anyhow</name>
-        <param>
-          <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-          <declname>error</declname>
-        </param>
-        <param>
-          <type>size_t</type>
-          <declname>k</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="258" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="258" bodyend="269"/>
-      </memberdef>
       </sectiondef>
-      <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1aa7477ef5e6f4c5606d05a91486fd75a0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename U</type>
-          </param>
-        </templateparamlist>
-        <type>auto</type>
-        <definition>auto space::odeIterator::BurlishStoer&lt; Real &gt;::impl_iterate</definition>
-        <argsstring>(U &amp;particles, typename U::Scalar macro_step_size) -&gt; typename U::Scalar</argsstring>
-        <name>impl_iterate</name>
-        <param>
-          <type>U &amp;</type>
-          <declname>particles</declname>
-        </param>
-        <param>
-          <type>typename U::Scalar</type>
-          <declname>macro_step_size</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="112" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="112" bodyend="159"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1aad8021e63d65c4808a4a0ad8d00ae133" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void space::odeIterator::BurlishStoer&lt; Real &gt;::impl_set_atol</definition>
-        <argsstring>(Scalar atol)</argsstring>
-        <name>impl_set_atol</name>
-        <param>
-          <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-          <declname>atol</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="161" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="161" bodyend="163"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_burlish_stoer_1af8b270283d102a6a549176e82db1008f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void space::odeIterator::BurlishStoer&lt; Real &gt;::impl_set_rtol</definition>
-        <argsstring>(Scalar rtol)</argsstring>
-        <name>impl_set_rtol</name>
-        <param>
-          <type><ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kindref="member">Scalar</ref></type>
-          <declname>rtol</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="ode-iterator/Burlish-Stoer.hpp" line="165" column="1" bodyfile="ode-iterator/Burlish-Stoer.hpp" bodystart="165" bodyend="167"/>
-      </memberdef>
-      </sectiondef>
-    <briefdescription>
-    </briefdescription>
-    <detaileddescription>
-<para><parameterlist kind="templateparam"><parameteritem>
-<parameternamelist>
-<parametername>Real</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>ErrChecker</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>StepControl</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>    </detaileddescription>
+      <briefdescription>
+      </briefdescription>
+      <detaileddescription>
+      </detaileddescription>
     <inheritancegraph>
-      <node id="38">
-        <label>space::odeIterator::OdeIterator&lt; Derived &gt;</label>
-        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
-      </node>
-      <node id="37">
-        <label>space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</label>
-        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
-        <childnode refid="38" relation="template-instance">
-          <edgelabel>&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</edgelabel>
-        </childnode>
-      </node>
-      <node id="36">
+        <node id="33">
         <label>space::odeIterator::BurlishStoer&lt; Real &gt;</label>
         <link refid="classspace_1_1ode_iterator_1_1_burlish_stoer"/>
-        <childnode refid="37" relation="public-inheritance">
-        </childnode>
-        <childnode refid="39" relation="public-inheritance">
+            <childnode refid="34" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="39">
-        <label>space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
-        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
-        <childnode refid="38" relation="template-instance">
-          <edgelabel>&lt; BurlishStoer&lt; Real &gt; &gt;</edgelabel>
-        </childnode>
+        <node id="34">
+            <label>OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="42">
-        <label>space::odeIterator::OdeIterator&lt; Derived &gt;</label>
-        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
-      </node>
-      <node id="41">
-        <label>space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</label>
-        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
-        <childnode refid="42" relation="template-instance">
-          <edgelabel>&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</edgelabel>
-        </childnode>
-      </node>
-      <node id="40">
+        <node id="35">
         <label>space::odeIterator::BurlishStoer&lt; Real &gt;</label>
         <link refid="classspace_1_1ode_iterator_1_1_burlish_stoer"/>
-        <childnode refid="41" relation="public-inheritance">
-        </childnode>
-        <childnode refid="43" relation="public-inheritance">
+            <childnode refid="36" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="43">
-        <label>space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
-        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
-        <childnode refid="42" relation="template-instance">
-          <edgelabel>&lt; BurlishStoer&lt; Real &gt; &gt;</edgelabel>
-        </childnode>
+        <node id="36">
+            <label>OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
       </node>
     </collaborationgraph>
     <location file="ode-iterator/BS-iterator_bk.hpp" line="15" column="1" bodyfile="ode-iterator/BS-iterator_bk.hpp" bodystart="15" bodyend="142"/>
@@ -1083,71 +553,36 @@
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6a4fe0ae857350b67e582569e8a662b6" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>__pad0__</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab7e3cde60fb51cbf2381a682df6b6aba" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>abs_error_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11c9c67fcc67e8d2d090c4f249f80f08" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>allowed</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11c9c67fcc67e8d2d090c4f249f80f08" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>allowed</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad70b7a2a944a5dd9e5676cbe7b8dccc1" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>at</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad70b7a2a944a5dd9e5676cbe7b8dccc1" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>at</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a77262a8f084fc073f3211db83c41ff64" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>Base</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac0d0a602d3d9aad96cc45a97141ed984" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>Base</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a48430eb52c224128b8a30e8463d11a6e" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>Base</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a45917c0c872c64c7ec71aa1f3fc2173f" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>BS_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f978415d7f0befa3bf5d8359a636eb9" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>BSConsts</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0edcbc477b21156f11df5e1fa59a096b" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>calc_error_of_row</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aca63989172dfa384cf10970c458304a5" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>calc_ideal_step_coef</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a351debb4bc8d571e8f0ccfa797180e90" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>check_variable_size</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7c30e21e8abe9c056ffd91187d4a5fc8" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>cost_per_len_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f2714929d878efadfc7103d7a0f709f" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>err_checker_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aebe2911453d07d42bb21d4544d0f29cd" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>evolve_by_n_steps</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afc0be4fb76bdff05b97547298f653243" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>extrap_list_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a66111b4e92fdb8c62875f78fdc5cc774" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>extrap_tab_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6c0af3328f039a6f7664cae79de89542" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>extrapolate</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a51366a8e962ea9f101138a8dc9f9f8ab" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>extrapolate_tab</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad46d628468c06a57ec3d949ea8bf3d1e" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>get_next_try_step</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a522d232df556aba72a562137e20fafbc" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>ideal_iter_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aaa99acfa3308efec9a2b5af5f2db4cc6" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>ideal_rank_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afc51016931163ed73f51bfb86a5c6cb0" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>ideal_step_coef</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8e1c9d6c4fb6c7d4a8e763d7399b58e8" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>ideal_step_size_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aa7477ef5e6f4c5606d05a91486fd75a0" prot="protected" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>impl_iterate</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0be007d08450c6b4b9e1ff25bcdcb699" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>impl_iterate</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aad8021e63d65c4808a4a0ad8d00ae133" prot="protected" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>impl_set_atol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1af8b270283d102a6a549176e82db1008f" prot="protected" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>impl_set_rtol</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a936ee8597e347566b9c3044850bee37b" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>in_converged_window</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a438e910c532ec4deb8fe6ae877b0f10b" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>in_converged_window</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a5b3aa2de0bfa0f36c0e356b9b64d07c6" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>input_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0c31d1fdddeaab00ab060ce0db77604" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>integrate_by_n_steps</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad0f11b0dbf75c13b727de37b9a605b42" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>is_diverged_anyhow</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6c6867e3df413077e8fd0f2486f0b7d7" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>is_diverged_anyhow</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a90a0207bc39328d5333d701a1089c8b0" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>iter_num_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a415466d750c7405d63b72089535a2520" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>iterate</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a415466d750c7405d63b72089535a2520" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>iterate</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9cc0ab78e5cddd569911d37c3f569e06" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>last_error_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad0f0ebf78414273e6d1890bcb79664e7" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>last_step_reject_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac5eba7423145a9ac928be011af469fb6" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>macro_step_size</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad3672cbcef43b6ecaaca72a2c2bf7ca4" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>max_depth</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a33d661689594e7addac035f86b8a3a6a" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>max_try_num</name></member>
+        <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a646f753b39ef5761a8ecc3e1e36ad6c0" prot="private"
+                virt="non-virtual">
+            <scope>space::odeIterator::BurlishStoer</scope>
+            <name>max_depth</name>
+        </member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afd24580426870463b98fd70e37ffb78d" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>most_offensive_err</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7395e41b40aede814064cce08a002074" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>optm_step_coef_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad4d12381a4fc0a77bcaa95d910127638" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>parameters_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8d6a6d52c973d48754a7cb6cc4ea7eea" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>prepare_next_iter</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8357e184681ca0c51cfa5f2a26fbea16" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>rej_num_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a299c22efe4646d9b8f555fd60346c8c1" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>rel_error_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a85c954188429c2af6870253116c464f5" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>S1</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a945bd9faeb687786f3896a4161d94789" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>S2</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>Scalar</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>Scalar</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a638985d8a272f437af3f119dfe7a21ab" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>set_abs_err</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1aa9481da6ee6d141407470f53be24e10d" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_atol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a873d6066bec6938b499b396f7df08b7e" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_atol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1aa9481da6ee6d141407470f53be24e10d" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_atol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a873d6066bec6938b499b396f7df08b7e" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_atol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae78a0047313350b96637a8eb854d306c" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>set_next_iteration</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aecdd64b1a2205a0b6890a14f478160ad" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>set_rel_err</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1abb6991b00bf41b2f37a7516cb3da7af5" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_rtol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1ace1ee0d8fd523857e850afbcfa97d84f" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_rtol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1abb6991b00bf41b2f37a7516cb3da7af5" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_rtol</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1ace1ee0d8fd523857e850afbcfa97d84f" prot="public" virt="non-virtual" ambiguityscope="OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;::"><scope>space::odeIterator::BurlishStoer</scope><name>set_rtol</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac433857389d59b2af32a5d0299383851" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>step_coef_limiter</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9fe475cbed212bf6bdcbbaea515dcce3" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>step_controller_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aed977dd8091b49e5278336d91c1eb4c8" prot="public" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>StepController</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1acb573753970530a4e4766c7008d14f5d" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>var_num_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad3a87ca473739339ee8c112e6eecb108" prot="private" virt="non-virtual"><scope>space::odeIterator::BurlishStoer</scope><name>work_per_len_</name></member>
     </listofallmembers>

@@ -63,37 +63,1151 @@ $(function() {
 <div class="title">simulator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="simulator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPACEHUB_SIMULATOR_HPP</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPACEHUB_SIMULATOR_HPP</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">functional</span><span class="preprocessor">&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="core-computation_8hpp.html">&quot;core-computation.hpp&quot;</a></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="dev-tools_8hpp.html">&quot;dev-tools.hpp&quot;</a></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespacespace.html">space</a> {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    Class RunArgs Declaration</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/**</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * Run arguments that is used to set all arguments needed by Simulator.</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @tparam ParticleSys Any implementation of concept ParticleSystem.</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html">   20</a></span>&#160;  <span class="keyword">class</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a> {</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// type members</span></div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#abad11eb69b51816f44b2e05b17230852">   23</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>(ParticleSys);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">     * Callback function type for pre-operation, pos-operation and stop operation.</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#ab2ae5d33c6cfb8573ce977e9820f0938">   28</a></span>&#160;    <span class="keyword">using</span> Callback = std::function&lt;<span class="keywordtype">void</span>(ParticleSys &amp;)&gt;;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     * Callback function type for stop condition.</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#ad706d387865fd3b6399a0d67be56f079">   33</a></span>&#160;    <span class="keyword">using</span> StopCall = std::function&lt;<span class="keywordtype">bool</span>(ParticleSys &amp;)&gt;;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// public members</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     * Initial step size for the integration of the Simulator.</span></div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a918fcf4f601c96b9aaf477fb8e26e510">   40</a></span>&#160;    Scalar <a class="code" href="classspace_1_1_run_args.html#a918fcf4f601c96b9aaf477fb8e26e510">step_size</a>{0};</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     * The time duration for the integration of the Simulator.</span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">   45</a></span>&#160;    Scalar <a class="code" href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">end_time</a>{0};</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">     * The absolute error tolerance.</span></div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9">   50</a></span>&#160;    Scalar <a class="code" href="classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9">atol</a>{1e-12};</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     * The relative error tolerance.</span></div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#abd0b0970bbfc5f62d7e7ac07a2f54c71">   55</a></span>&#160;    Scalar <a class="code" href="classspace_1_1_run_args.html#abd0b0970bbfc5f62d7e7ac07a2f54c71">rtol</a>{1e-12};</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// public methods</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">     * Call the all registered pre-operation functions by sequence.</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     * @param[in] particle_system The particle system that is going to be operated.</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span>;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     * Call the all registered pos-operation functions by sequence.</span></div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     * @param[in] particle_system The particle system that is going to be operated.</span></div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span>;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     * Call the all registered stop-operation functions by sequence.</span></div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     * @param[in] particle_system The particle system that is going to be operated.</span></div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span>;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     * Check the all registered stop condition functions by sequence. If any of them is satisfied, return `true`.</span></div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * @param[in] particle_system The particle system that is going to be checked</span></div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span>;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.</span></div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `Callback`.</span></div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span></div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">     * @param[in] func Callable object.</span></div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span></div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">add_pre_step_operation</a>(Func func, Args &amp;&amp;... args);</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.</span></div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `Callback`.</span></div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span></div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">     * @param[in] func Callable object.</span></div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span></div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">add_post_step_operation</a>(Func func, Args &amp;&amp;... args);</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.</span></div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `Callback`.</span></div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span></div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">     * @param[in] func Callable object.</span></div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span></div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">add_stop_point_operation</a>(Func func, Args &amp;&amp;... args);</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.</span></div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `StopCall`.</span></div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span></div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">     * @param[in] func Callable object.</span></div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span></div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">add_stop_condition</a>(Func func, Args &amp;&amp;... args);</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">     * Add the duration time of the integration as a stop condition.</span></div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">     * @tparam T Floating point like scalar.</span></div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">     * @param[in] end Duration time of the integration.</span></div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">add_stop_condition</a>(T end);</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">     * Check if the integration duration time is set.</span></div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">     * @return boolean</span></div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">  142</a></span>&#160;    [[<a class="code" href="classspace_1_1_run_args.html">nodiscard</a>]] <span class="keywordtype">bool</span> <a class="code" href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">is_end_time_set</a>() <span class="keyword">const</span> { <span class="keywordflow">return</span> is_end_time_set_; }</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">     * Check if any of the stop condition(except the duration time) is set.</span></div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">     * @return boolean</span></div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#aace390d73a2eef9effb0443eb27657ed">  148</a></span>&#160;    [[<a class="code" href="classspace_1_1_run_args.html">nodiscard</a>]] <span class="keywordtype">bool</span> <a class="code" href="classspace_1_1_run_args.html#aace390d73a2eef9effb0443eb27657ed">is_stop_condition_set</a>() <span class="keyword">const</span> { <span class="keywordflow">return</span> stop_cond_.size() &gt; 0; }</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">// private members</span></div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    std::vector&lt;Callback&gt; pre_opts_;</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    std::vector&lt;Callback&gt; post_opts_;</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    std::vector&lt;Callback&gt; stop_opts_;</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    std::vector&lt;StopCall&gt; stop_cond_;</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">bool</span> is_end_time_set_{<span class="keyword">false</span>};</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  };</div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">    Class Simulator Declaration</span></div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">/**</span></div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"> * </span></div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment"> * @tparam ParticSys</span></div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment"> * @tparam OdeIterator</span></div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticSys, <span class="keyword">typename</span> OdeIterator&gt;</div><div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html">  172</a></span>&#160;  <span class="keyword">class</span> <a class="code" href="classspace_1_1_simulator.html">Simulator</a> {</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="comment">// Type member</span></div><div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ac0b14ac8119b1d4ceefc728217fbb5bf">  175</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>(ParticSys);</div><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div><div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ad9c952d1fcbc6ac963a537e6707a4057">  177</a></span>&#160;    <span class="keyword">using</span> RunArgs = <a class="code" href="namespacespace.html">space</a>::<a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticSys&gt;;</div><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div><div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#a5f4e451f81cb1e587a97b556075986c3">  179</a></span>&#160;    <span class="keyword">using</span> Particle = <span class="keyword">typename</span> ParticSys::Particle;</div><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div><div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ab1f91be54441cf13999de40606bf839c">  181</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a6e8dcb3772ed46afbe5b83c269336181">SPACEHUB_READ_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_simulator.html#ab1f91be54441cf13999de40606bf839c">particles</a>, particles_);</div><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="comment">// Constructors</span></div><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a>(<a class="code" href="classspace_1_1_simulator.html">Simulator</a>, <span class="keyword">delete</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">     * @tparam STL</span></div><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">     * @param time</span></div><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">     * @param particle_set</span></div><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <a class="code" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator</a>(Scalar time, STL <span class="keyword">const</span> &amp;particle_set);</div><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">     * @tparam T</span></div><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">     * @param time</span></div><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">     * @param particle</span></div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;</div><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">Simulator</a>(Scalar time, T <span class="keyword">const</span> &amp;... particle);</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">// Public methods</span></div><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">/**</span></div><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">     *</span></div><div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">     * @param arg</span></div><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">     */</span></div><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">run</a>(RunArgs <span class="keyword">const</span> &amp;arg);</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classspace_1_1_simulator.html#a2ba27f705d9ea69d0dbf14e92f5bb521">Simulator</a>() = <span class="keywordflow">default</span>; <span class="comment">/**&lt; @brief Default destructor, virtualize for inherent class*/</span></div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">// Private methods</span></div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> advance_one_step();</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment">// Private members</span></div><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">/** @brief Macro step size for ODE iterator*/</span></div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    Scalar step_size_{0.0};</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">/** @brief Particle system*/</span></div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    ParticSys particles_;</div><div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">/** @brief ODE Iterator*/</span></div><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    OdeIterator iterator_;</div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <a class="code" href="dev-tools_8hpp.html#a4250abbdfc25337cd0dca29f9b55ff47">CREATE_CRTP_IMPLEMENTATION_CHECK</a>(set_atol);</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="dev-tools_8hpp.html#a4250abbdfc25337cd0dca29f9b55ff47">CREATE_CRTP_IMPLEMENTATION_CHECK</a>(set_rtol);</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  };</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div><div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">    Class RunArgs Implementation</span></div><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;</div><div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">  235</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span> {</div><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;opt : pre_opts_) {</div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      opt(particle_system);</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  }</div><div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;</div><div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">  242</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span> {</div><div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;opt : post_opts_) {</div><div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      opt(particle_system);</div><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  }</div><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;</div><div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">  249</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span> {</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;opt : stop_opts_) {</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      opt(particle_system);</div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    }</div><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  }</div><div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;</div><div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">  256</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops</a>(ParticleSys &amp;particle_system) <span class="keyword">const</span> {</div><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;check : stop_cond_) {</div><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      <span class="keywordflow">if</span> (check(particle_system)) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  }</div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticleSys</a>&gt;</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">  265</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">add_pre_step_operation</a>(Func func, Args &amp;&amp;... args) {</div><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    pre_opts_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));</div><div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  }</div><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticleSys</a>&gt;</div><div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">  271</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">add_post_step_operation</a>(Func func, Args &amp;&amp;... args) {</div><div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    post_opts_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));</div><div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  }</div><div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticleSys</a>&gt;</div><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">  277</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">add_stop_point_operation</a>(Func func, Args &amp;&amp;... args) {</div><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    stop_opts_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));</div><div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  }</div><div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div><div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticleSys</a>&gt;</div><div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>... Args&gt;</div><div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">  283</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">add_stop_condition</a>(Func func, Args &amp;&amp;... args) {</div><div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    stop_cond_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));</div><div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  }</div><div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div><div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticleSys</a>&gt;</div><div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">  289</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a class="code" href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">add_stop_condition</a>(T end) {</div><div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <a class="code" href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">end_time</a> = end;</div><div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    is_end_time_set_ = <span class="keyword">true</span>;</div><div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  }</div><div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div><div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div><div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">    Class Simulator Implememtation</span></div><div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div><div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticSys</a>, <span class="keyword">typename</span> <a class="code" href="namespacespace.html">OdeIterator</a>&gt;</div><div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">  299</a></span>&#160;  <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticSys, OdeIterator&gt;::<a class="code" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator</a>(Scalar time, <span class="keyword">const</span> STL &amp;particle_set) : particles_(time, particle_set) {</div><div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keyword">static_assert</span>(is_container_v&lt;STL&gt;, <span class="stringliteral">&quot;Only STL-like container can be used&quot;</span>);</div><div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  }</div><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div><div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">ParticSys</a>, <span class="keyword">typename</span> <a class="code" href="namespacespace.html">OdeIterator</a>&gt;</div><div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;</div><div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">  305</a></span>&#160;  <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticSys, OdeIterator&gt;::<a class="code" href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">Simulator</a>(Scalar time, T <span class="keyword">const</span> &amp;... particle)</div><div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;          : <a class="code" href="classspace_1_1_simulator.html">Simulator</a>(time, std::initializer_list&lt;Particle&gt;{particle...}) {</div><div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">static_assert</span>(calc::all(std::is_same_v&lt;T, Particle&gt;...), <span class="stringliteral">&quot;Wrong particles type!&quot;</span>);</div><div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  }</div><div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div><div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticSys, <span class="keyword">typename</span> OdeIterator&gt;</div><div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">  311</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticSys, OdeIterator&gt;::<a class="code" href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">run</a>(RunArgs <span class="keyword">const</span> &amp;arg) {</div><div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">if</span> (!arg.is_stop_condition_set() &amp;&amp; !arg.is_end_time_set()) {</div><div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <a class="code" href="namespacespace.html">space</a><a class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">::</a><a class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">spacehub_abort</a><a class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">(</a><span class="stringliteral">&quot;Use &#39;add_stop_condition&#39; to set stop condition.&quot;</span><a class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">)</a>;</div><div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    }</div><div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div><div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    step_size_ = arg.step_size;</div><div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">if</span> (step_size_ == 0.0) {</div><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      step_size_ = 0.01 * calc::calc_step_scale(particles_);</div><div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div><div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    Scalar end_time = <a class="code" href="namespacespace.html">space</a><a class="code" href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">::</a>unit<a class="code" href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">::</a><a class="code" href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">hubble_t</a>;</div><div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div><div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">if</span> (arg.is_end_time_set()) {</div><div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      end_time = arg.end_time;</div><div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div><div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div><div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">if</span> (particles_.time() &gt;= end_time) {</div><div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <a class="code" href="namespacespace.html">space</a><a class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">::</a><a class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">print</a><a class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">(</a>std::cout<a class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">,</a> <span class="stringliteral">&quot;Warning: The stop time is &#39;&lt;=&#39; to the start time!&quot;</span><a class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">)</a>;</div><div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div><div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code" href="dev-tools_8hpp.html#a71c2a282f291770b45b3f1cef8c19f75">HAS_CRTP_IMPLEMENTATION</a>(OdeIterator, set_atol, Scalar)) {</div><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      iterator_.set_atol(arg.atol);</div><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    }</div><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code" href="dev-tools_8hpp.html#a71c2a282f291770b45b3f1cef8c19f75">HAS_CRTP_IMPLEMENTATION</a>(OdeIterator, set_rtol, Scalar)) {</div><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      iterator_.set_rtol(arg.rtol);</div><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    }</div><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">for</span> (; particles_.time() &lt; end_time &amp;&amp; !arg.check_stops(particles_);) {</div><div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;</div><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      arg.pre_operations(particles_);</div><div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      advance_one_step();</div><div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      arg.post_operations(particles_);</div><div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div><div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    arg.stop_operations(particles_);</div><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  }</div><div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticSys, <span class="keyword">typename</span> OdeIterator&gt;</div><div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticSys, OdeIterator&gt;::advance_one_step() {</div><div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    particles_.pre_iter_process();</div><div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    step_size_ = iterator_.iterate(particles_, step_size_);</div><div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    particles_.post_iter_process();</div><div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  }</div><div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div><div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}  <span class="comment">// namespace space</span></div><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span></div><div class="ttc" id="dev-tools_8hpp_html_a0f585cf51c90e87b303299d7e5901c62"><div class="ttname"><a href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a></div><div class="ttdeci">#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:165</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a5f6d9c34a5998231505583ffd2fd4df7"><div class="ttname"><a href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">space::RunArgs::check_stops</a></div><div class="ttdeci">bool check_stops(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:256</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a05a043ed2282f9529f326c5e665e93e7"><div class="ttname"><a href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">space::RunArgs::add_stop_condition</a></div><div class="ttdeci">void add_stop_condition(T end)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:289</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_abd0b0970bbfc5f62d7e7ac07a2f54c71"><div class="ttname"><a href="classspace_1_1_run_args.html#abd0b0970bbfc5f62d7e7ac07a2f54c71">space::RunArgs::rtol</a></div><div class="ttdeci">Scalar rtol</div><div class="ttdef"><b>Definition:</b> simulator.hpp:55</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a0f130e30d4bdb4b1fbfd3e067ac0eea9"><div class="ttname"><a href="classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9">space::RunArgs::atol</a></div><div class="ttdeci">Scalar atol</div><div class="ttdef"><b>Definition:</b> simulator.hpp:50</div></div>
-<div class="ttc" id="classspace_1_1_simulator_html"><div class="ttname"><a href="classspace_1_1_simulator.html">space::Simulator</a></div><div class="ttdef"><b>Definition:</b> simulator.hpp:172</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a202c1480767ceb6d2873f9383d21145b"><div class="ttname"><a href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">space::RunArgs::add_stop_point_operation</a></div><div class="ttdeci">void add_stop_point_operation(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:277</div></div>
-<div class="ttc" id="classspace_1_1_simulator_html_ad4135964c5e41e60e213835642131822"><div class="ttname"><a href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">space::Simulator::Simulator</a></div><div class="ttdeci">Simulator(Scalar time, STL const &amp;particle_set)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:299</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_ab3a245733eb8a0cf2e23e62ecedb3bd7"><div class="ttname"><a href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">space::RunArgs::stop_operations</a></div><div class="ttdeci">void stop_operations(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:249</div></div>
-<div class="ttc" id="namespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_a71c2a282f291770b45b3f1cef8c19f75"><div class="ttname"><a href="dev-tools_8hpp.html#a71c2a282f291770b45b3f1cef8c19f75">HAS_CRTP_IMPLEMENTATION</a></div><div class="ttdeci">#define HAS_CRTP_IMPLEMENTATION(CLASS, METHOD,...)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:244</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a40dd8e75c3602befb2ea3a54f850a3de"><div class="ttname"><a href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">space::RunArgs::add_pre_step_operation</a></div><div class="ttdeci">void add_pre_step_operation(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:265</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a918fcf4f601c96b9aaf477fb8e26e510"><div class="ttname"><a href="classspace_1_1_run_args.html#a918fcf4f601c96b9aaf477fb8e26e510">space::RunArgs::step_size</a></div><div class="ttdeci">Scalar step_size</div><div class="ttdef"><b>Definition:</b> simulator.hpp:40</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a356e0a6fb304ecbd7c649ae3a0486594"><div class="ttname"><a href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">space::RunArgs::add_post_step_operation</a></div><div class="ttdeci">void add_post_step_operation(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:271</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_af3a00bc9788de7eba958b457441b7063"><div class="ttname"><a href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">space::RunArgs::post_operations</a></div><div class="ttdeci">void post_operations(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:242</div></div>
-<div class="ttc" id="classspace_1_1_simulator_html_ad9795f5cf3e9882fa0748d887a397372"><div class="ttname"><a href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">space::Simulator::Simulator</a></div><div class="ttdeci">Simulator(Scalar time, T const &amp;... particle)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:305</div></div>
-<div class="ttc" id="classspace_1_1_simulator_html_a2ba27f705d9ea69d0dbf14e92f5bb521"><div class="ttname"><a href="classspace_1_1_simulator.html#a2ba27f705d9ea69d0dbf14e92f5bb521">space::Simulator::~Simulator</a></div><div class="ttdeci">virtual ~Simulator()=default</div><div class="ttdoc">Default destructor, virtualize for inherent class. </div></div>
-<div class="ttc" id="namespacespace_html_a9225df04790836d3a9dce8f94ce4d15b"><div class="ttname"><a href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">space::print</a></div><div class="ttdeci">auto &amp; print(std::ostream &amp;os, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:10</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a5b7abe613e970c74f62846be03f9734d"><div class="ttname"><a href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">space::RunArgs::pre_operations</a></div><div class="ttdeci">void pre_operations(ParticleSys &amp;particle_system) const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:235</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a1f7732aa10f12671047acd41f43b7035"><div class="ttname"><a href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">space::RunArgs::add_stop_condition</a></div><div class="ttdeci">void add_stop_condition(Func func, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:283</div></div>
-<div class="ttc" id="classspace_1_1_simulator_html_ab1f91be54441cf13999de40606bf839c"><div class="ttname"><a href="classspace_1_1_simulator.html#ab1f91be54441cf13999de40606bf839c">space::Simulator::particles</a></div><div class="ttdeci">auto const  &amp; particles() const noexcept</div><div class="ttdef"><b>Definition:</b> simulator.hpp:181</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_ac2bdf3bcd9a8848f9533cb143fea0a3a"><div class="ttname"><a href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a></div><div class="ttdeci">#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:153</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_a4f43bc396d42b099ecfb41bdb2d78d7d"><div class="ttname"><a href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">space::RunArgs::end_time</a></div><div class="ttdeci">Scalar end_time</div><div class="ttdef"><b>Definition:</b> simulator.hpp:45</div></div>
-<div class="ttc" id="classspace_1_1_simulator_html_aedd59ea3b5b1fff4b5993769687476b8"><div class="ttname"><a href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">space::Simulator::run</a></div><div class="ttdeci">void run(RunArgs const &amp;arg)</div><div class="ttdef"><b>Definition:</b> simulator.hpp:311</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_aee5ebfc0b21db4a01f5269adfc8e9441"><div class="ttname"><a href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">space::RunArgs::is_end_time_set</a></div><div class="ttdeci">bool is_end_time_set() const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:142</div></div>
-<div class="ttc" id="namespacespace_1_1unit_html_a67d71b64393768825be5d2fdef5c3505"><div class="ttname"><a href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">space::unit::hubble_t</a></div><div class="ttdeci">constexpr double hubble_t</div><div class="ttdef"><b>Definition:</b> macros.hpp:31</div></div>
-<div class="ttc" id="namespacespace_html_a34ee00c2009d3625b40b22952b312575"><div class="ttname"><a href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">space::spacehub_abort</a></div><div class="ttdeci">void spacehub_abort(Args &amp;&amp;...args)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:93</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html"><div class="ttname"><a href="classspace_1_1_run_args.html">space::RunArgs</a></div><div class="ttdef"><b>Definition:</b> simulator.hpp:20</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_a4250abbdfc25337cd0dca29f9b55ff47"><div class="ttname"><a href="dev-tools_8hpp.html#a4250abbdfc25337cd0dca29f9b55ff47">CREATE_CRTP_IMPLEMENTATION_CHECK</a></div><div class="ttdeci">#define CREATE_CRTP_IMPLEMENTATION_CHECK(NAME)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:242</div></div>
-<div class="ttc" id="classspace_1_1_run_args_html_aace390d73a2eef9effb0443eb27657ed"><div class="ttname"><a href="classspace_1_1_run_args.html#aace390d73a2eef9effb0443eb27657ed">space::RunArgs::is_stop_condition_set</a></div><div class="ttdeci">bool is_stop_condition_set() const</div><div class="ttdef"><b>Definition:</b> simulator.hpp:148</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_a6e8dcb3772ed46afbe5b83c269336181"><div class="ttname"><a href="dev-tools_8hpp.html#a6e8dcb3772ed46afbe5b83c269336181">SPACEHUB_READ_ACCESSOR</a></div><div class="ttdeci">#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:203</div></div>
+    <a href="simulator_8hpp.html">Go to the documentation of this file.</a>
+    <div class="fragment">
+        <div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">        .-&#39;&#39;&#39;&#39;-.         |</span>
+        </div>
+        <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">       /        \        |</span>
+        </div>
+        <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">      /_        _\       |  SpaceHub: The Open Source N-body Toolkit</span>
+        </div>
+        <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">     // \  &lt;&gt;  / \\      |</span>
+        </div>
+        <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/</span>
+        </div>
+        <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">      \    ||    /       |</span>
+        </div>
+        <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">        \  __  /         |  Copyright (C) 2019 Yihan Wang</span>
+        </div>
+        <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">         &#39;.__.&#39;          |</span>
+        </div>
+        <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">---------------------------------------------------------------------</span>
+        </div>
+        <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span
+                class="comment">License</span></div>
+        <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    This file is part of SpaceHub.</span>
+        </div>
+        <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    SpaceHub is free software: you can redistribute it and/or modify it under</span>
+        </div>
+        <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    the terms of the MIT License. SpaceHub is distributed in the hope that it</span>
+        </div>
+        <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty</span>
+        </div>
+        <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License</span>
+        </div>
+        <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">    for more details. You should have received a copy of the MIT License along</span>
+        </div>
+        <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">    with SpaceHub.</span>
+        </div>
+        <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * @file simulator.hpp</span>
+        </div>
+        <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *</span>
+        </div>
+        <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * Header file.</span>
+        </div>
+        <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span>
+        </div>
+        <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPACEHUB_SIMULATOR_HPP</span>
+        </div>
+        <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPACEHUB_SIMULATOR_HPP</span>
+        </div>
+        <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+        <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span
+                class="preprocessor">&lt;</span><span class="preprocessor">functional</span><span class="preprocessor">&gt;</span>
+        </div>
+        <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code"
+                                                                                          href="core-computation_8hpp.html">&quot;core-computation.hpp&quot;</a>
+        </div>
+        <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code"
+                                                                                          href="dev-tools_8hpp.html">&quot;dev-tools.hpp&quot;</a>
+        </div>
+        <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+        <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+        <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span
+                class="keyword">namespace</span> space {
+        </div>
+        <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+        <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    Class RunArgs Declaration</span>
+        </div>
+        <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> * Run arguments that is used to set all arguments needed by Simulator.</span>
+        </div>
+        <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> *</span>
+        </div>
+        <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * The pre_operations(), post_operations(), stop_operations() and check_stops() will be called in a simulation</span>
+        </div>
+        <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * in this way.</span>
+        </div>
+        <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> *</span>
+        </div>
+        <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> * @code{.cpp}</span>
+        </div>
+        <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span
+                class="comment"> *  ...</span></div>
+        <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> *  auto sys; // particle system that is going to be evolved.</span>
+        </div>
+        <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> *  for( ;check_stops(sys);){</span>
+        </div>
+        <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> *      pre_operations(sys);</span>
+        </div>
+        <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> *      ...//step integration.</span>
+        </div>
+        <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> *      post_operations(sys);</span>
+        </div>
+        <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> *  }</span>
+        </div>
+        <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> *  stop_operations(sys);</span>
+        </div>
+        <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span
+                class="comment"> *  ...</span></div>
+        <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span
+                class="comment"> * @endcode</span></div>
+        <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> *</span>
+        </div>
+        <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * @tparam ParticleSys Any implementation of concept ParticleSystem.</span>
+        </div>
+        <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> */</span>
+        </div>
+        <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classspace_1_1_run_args.html">   59</a></span>&#160;
+            <span class="keyword">class</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a> {
+        </div>
+        <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span
+                class="keyword">public</span>:
+        </div>
+        <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="comment">// type members</span>
+        </div>
+        <div class="line"><a name="l00062"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#abad11eb69b51816f44b2e05b17230852">   62</a></span>&#160;
+            <a class="code"
+               href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>(ParticleSys);
+        </div>
+        <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+        <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     * Callback function type for pre-operation, pos-operation and stop operation.</span>
+        </div>
+        <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00067"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#ab2ae5d33c6cfb8573ce977e9820f0938">   67</a></span>&#160;
+            <span class="keyword">using</span> Callback = std::function&lt;<span class="keywordtype">void</span>(ParticleSys
+            &amp;)&gt;;
+        </div>
+        <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+        <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">     * Callback function type for stop condition.</span>
+        </div>
+        <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00072"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#ad706d387865fd3b6399a0d67be56f079">   72</a></span>&#160;
+            <span class="keyword">using</span> StopCall = std::function&lt;<span class="keywordtype">bool</span>(ParticleSys
+            &amp;)&gt;;
+        </div>
+        <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+        <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="comment">// public members</span>
+        </div>
+        <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+        <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">     * Initial step size for the integration of the Simulator.</span>
+        </div>
+        <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00079"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a918fcf4f601c96b9aaf477fb8e26e510">   79</a></span>&#160;
+            Scalar <a class="code" href="classspace_1_1_run_args.html#a918fcf4f601c96b9aaf477fb8e26e510">step_size</a>{0};
+        </div>
+        <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+        <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * The time duration for the integration of the Simulator.</span>
+        </div>
+        <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00084"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">   84</a></span>&#160;
+            Scalar <a class="code" href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">end_time</a>{0};
+        </div>
+        <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+        <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">     * The absolute error tolerance.</span>
+        </div>
+        <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00089"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9">   89</a></span>&#160;
+            Scalar <a class="code" href="classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9">atol</a>{1e-12};
+        </div>
+        <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+        <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">     * The relative error tolerance.</span>
+        </div>
+        <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00094"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#abd0b0970bbfc5f62d7e7ac07a2f54c71">   94</a></span>&#160;
+            Scalar <a class="code" href="classspace_1_1_run_args.html#abd0b0970bbfc5f62d7e7ac07a2f54c71">rtol</a>{1e-12};
+        </div>
+        <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+        <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; <span class="comment">// public methods</span>
+        </div>
+        <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">     * Call the all registered pre-operation functions by sequence.</span>
+        </div>
+        <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">     * @param[in,out] particle_system The particle system that is going to be operated.</span>
+        </div>
+        <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span>;
+        </div>
+        <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+        <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">     * Call the all registered pos-operation functions by sequence.</span>
+        </div>
+        <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">     * @param[in,out] particle_system The particle system that is going to be operated.</span>
+        </div>
+        <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span>;
+        </div>
+        <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+        <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">     * Call the all registered stop-operation functions by sequence.</span>
+        </div>
+        <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">     * @param[in,out] particle_system The particle system that is going to be operated.</span>
+        </div>
+        <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span>;
+        </div>
+        <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+        <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">     * Check the all registered stop condition functions by sequence. If any of them is satisfied, return `true`.</span>
+        </div>
+        <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">     * @param[in] particle_system The particle system that is going to be checked</span>
+        </div>
+        <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; <span
+                class="keywordtype">bool</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span>;
+        </div>
+        <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+        <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.</span>
+        </div>
+        <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `Callback`.</span>
+        </div>
+        <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">     * @param[in] func Callable object.</span>
+        </div>
+        <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">add_pre_step_operation</a>(Func
+            func, Args &amp;&amp;... args);
+        </div>
+        <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+        <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.</span>
+        </div>
+        <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `Callback`.</span>
+        </div>
+        <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">     * @param[in] func Callable object.</span>
+        </div>
+        <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">add_post_step_operation</a>(Func
+            func, Args &amp;&amp;... args);
+        </div>
+        <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+        <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.</span>
+        </div>
+        <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `Callback`.</span>
+        </div>
+        <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">     * @param[in] func Callable object.</span>
+        </div>
+        <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">add_stop_point_operation</a>(Func
+            func, Args &amp;&amp;... args);
+        </div>
+        <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+        <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">     * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.</span>
+        </div>
+        <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span
+                class="comment">     *</span></div>
+        <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">     * @tparam Func Callable type that is conversional to `StopCall`.</span>
+        </div>
+        <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">     * @tparam Args Type of the binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">     * @param[in] func Callable object.</span>
+        </div>
+        <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">     * @param[in] args Binding arguments.</span>
+        </div>
+        <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">add_stop_condition</a>(Func
+            func, Args &amp;&amp;... args);
+        </div>
+        <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+        <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">     * Add the duration time of the integration as a stop condition.</span>
+        </div>
+        <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">     * @tparam T Floating point like scalar.</span>
+        </div>
+        <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">     * @param[in] end Duration time of the integration.</span>
+        </div>
+        <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+        </div>
+        <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">add_stop_condition</a>(T
+            end);
+        </div>
+        <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+        <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">     * Check if the integration duration time is set.</span>
+        </div>
+        <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">     * @return boolean</span>
+        </div>
+        <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00181"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">  181</a></span>&#160;
+            [[<a class="code" href="classspace_1_1_run_args.html">nodiscard</a>]] <span class="keywordtype">bool</span>
+            <a class="code" href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">is_end_time_set</a>()
+            <span class="keyword">const</span> { <span class="keywordflow">return</span> is_end_time_set_; }
+        </div>
+        <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+        <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">     * Check if any of the stop condition(except the duration time) is set.</span>
+        </div>
+        <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">     * @return boolean</span>
+        </div>
+        <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00187"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#aace390d73a2eef9effb0443eb27657ed">  187</a></span>&#160;
+            [[<a class="code" href="classspace_1_1_run_args.html">nodiscard</a>]] <span class="keywordtype">bool</span>
+            <a class="code"
+               href="classspace_1_1_run_args.html#aace390d73a2eef9effb0443eb27657ed">is_stop_condition_set</a>() <span
+                    class="keyword">const</span> { <span class="keywordflow">return</span> stop_cond_.size() &gt; 0; }
+        </div>
+        <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+        <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; <span
+                class="keyword">private</span>:
+        </div>
+        <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; <span class="comment">// private members</span>
+        </div>
+        <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; std::vector&lt;Callback&gt;
+            pre_opts_;
+        </div>
+        <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+        <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; std::vector&lt;Callback&gt;
+            post_opts_;
+        </div>
+        <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+        <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; std::vector&lt;Callback&gt;
+            stop_opts_;
+        </div>
+        <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+        <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; std::vector&lt;StopCall&gt;
+            stop_cond_;
+        </div>
+        <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+        <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; <span
+                class="keywordtype">bool</span> is_end_time_set_{<span class="keyword">false</span>};
+        </div>
+        <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; };</div>
+        <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+        <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">    Class Simulator Declaration</span>
+        </div>
+        <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment"> * Wrapper to integrate the particle system and ode-iterator to perform the simulation.</span>
+        </div>
+        <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"> *</span>
+        </div>
+        <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"> * @tparam ParticleSys Any implementation of concept `particle_system::ParticleSystem`.</span>
+        </div>
+        <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"> * @tparam OdeIterator Any implementation of concept `ode_iterator::OdeIterator`.</span>
+        </div>
+        <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"> */</span>
+        </div>
+        <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys, <span
+                class="keyword">typename</span> OdeIterator&gt;
+        </div>
+        <div class="line"><a name="l00212"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html">  212</a></span>&#160;
+            <span class="keyword">class</span> <a class="code" href="classspace_1_1_simulator.html">Simulator</a> {
+        </div>
+        <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; <span
+                class="keyword">public</span>:
+        </div>
+        <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; <span class="comment">// Type member</span>
+        </div>
+        <div class="line"><a name="l00215"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#a6ce1cd2e2c4a95fae704c633d3fc9cc5">  215</a></span>&#160;
+            <a class="code"
+               href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>(ParticleSys);
+        </div>
+        <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+        <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">     * Run arguments that is used to set all arguments needed by Simulator.</span>
+        </div>
+        <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00220"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#a88824142441db0121ad2d374041aa55b">  220</a></span>&#160;
+            <span class="keyword">using</span> RunArgs = space::<a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;;
+        </div>
+        <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
+        <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">     * Particle type that is used to create the initial conditions to initialize the Simulator.</span>
+        </div>
+        <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00225"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#aa216238bcffe4be483681dca40bc478e">  225</a></span>&#160;
+            <span class="keyword">using</span> Particle = <span class="keyword">typename</span> ParticleSys::Particle;
+        </div>
+        <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+        <div class="line"><a name="l00227"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#a160d44ac456d95a246028fa533497cbf">  227</a></span>&#160;
+            <a class="code"
+               href="dev-tools_8hpp.html#a6e8dcb3772ed46afbe5b83c269336181">SPACEHUB_READ_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1_simulator.html#a160d44ac456d95a246028fa533497cbf">particles</a>,
+            particles_);
+        </div>
+        <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+        <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; <span class="comment">// Constructors</span>
+        </div>
+        <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; <a class="code"
+                                                                                          href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a>(<a
+                class="code" href="classspace_1_1_simulator.html">Simulator</a>, <span class="keyword">delete</span>,
+            <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span
+                    class="keywordflow">default</span>, <span class="keywordflow">default</span>);
+        </div>
+        <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+        <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">     * Initialize the Simulator with an iterable Particle Container.</span>
+        </div>
+        <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">     * @tparam STL Iterable Particle Container.</span>
+        </div>
+        <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">     * @param[in] time Initial time of the particle system.</span>
+        </div>
+        <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">     * @param[in] particle_set Particle container.</span>
+        </div>
+        <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_simulator.html#a8c0d24c12645999adb8ed683679ea7e0">Simulator</a>(Scalar
+            time, STL <span class="keyword">const</span> &amp;particle_set);
+        </div>
+        <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+        <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">     * Initialize the Simulator with an given particles.</span>
+        </div>
+        <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">     * @tparam T Any particle type that has the same interfaces of type member `Particle`.</span>
+        </div>
+        <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">     * @param[in] time Initial time of the particle system.</span>
+        </div>
+        <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">     * @param[in] particle Initial particles.</span>
+        </div>
+        <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;
+        </div>
+        <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; <span
+                class="keyword">explicit</span> <a class="code"
+                                                   href="classspace_1_1_simulator.html#aca727f16cf5767a56f36789dc28a3da7">Simulator</a>(Scalar
+            time, T <span class="keyword">const</span> &amp;... particle);
+        </div>
+        <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+        <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; <span class="comment">// Public methods</span>
+        </div>
+        <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">     * Run the simulation with given arguments.</span>
+        </div>
+        <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">     * @param[in] run_args Run arguments.</span>
+        </div>
+        <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span
+                class="comment">     */</span></div>
+        <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1_simulator.html#aa93d58d04a993371fe989347310c9c3f">run</a>(RunArgs
+            <span class="keyword">const</span> &amp;run_args);
+        </div>
+        <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+        <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; <span
+                class="keyword">virtual</span> ~<a class="code"
+                                                   href="classspace_1_1_simulator.html#ade7047547057dcc8752fd5e108bc40a2">Simulator</a>()
+            = <span class="keywordflow">default</span>;
+        </div>
+        <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+        <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; <span
+                class="keyword">private</span>:
+        </div>
+        <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; <span class="comment">// Private methods</span>
+        </div>
+        <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; <span
+                class="keyword">inline</span> <span class="keywordtype">void</span> advance_one_step();
+        </div>
+        <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+        <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; <span class="comment">// Private members</span>
+        </div>
+        <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; <span class="comment">/** @brief Macro step size for ODE iterator*/</span>
+        </div>
+        <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; Scalar step_size_{0.0};</div>
+        <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+        <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; <span class="comment">/** @brief Particle system*/</span>
+        </div>
+        <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; ParticleSys particles_;</div>
+        <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+        <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; <span class="comment">/** @brief ODE Iterator*/</span>
+        </div>
+        <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; OdeIterator iterator_;</div>
+        <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+        <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; <a class="code"
+                                                                                          href="dev-tools_8hpp.html#a4250abbdfc25337cd0dca29f9b55ff47">CREATE_CRTP_IMPLEMENTATION_CHECK</a>(set_atol);
+        </div>
+        <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+        <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; <a class="code"
+                                                                                          href="dev-tools_8hpp.html#a4250abbdfc25337cd0dca29f9b55ff47">CREATE_CRTP_IMPLEMENTATION_CHECK</a>(set_rtol);
+        </div>
+        <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; };</div>
+        <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+        <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">    Class RunArgs Implementation</span>
+        </div>
+        <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00282"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">  282</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code"
+                    href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">pre_operations</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>
+            &amp;opt : pre_opts_) {
+        </div>
+        <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; opt(particle_system);</div>
+        <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; }</div>
+        <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; }</div>
+        <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+        <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00289"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">  289</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code"
+                    href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">post_operations</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>
+            &amp;opt : post_opts_) {
+        </div>
+        <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; opt(particle_system);</div>
+        <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; }</div>
+        <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; }</div>
+        <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
+        <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00296"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">  296</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code"
+                    href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">stop_operations</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>
+            &amp;opt : stop_opts_) {
+        </div>
+        <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; opt(particle_system);</div>
+        <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; }</div>
+        <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; }</div>
+        <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+        <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00303"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">  303</a></span>&#160;
+            <span class="keywordtype">bool</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code" href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">check_stops</a>(ParticleSys
+            &amp;particle_system) <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>
+            &amp;check : stop_cond_) {
+        </div>
+        <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; <span
+                class="keywordflow">if</span> (check(particle_system)) <span class="keywordflow">return</span> <span
+                class="keyword">true</span>;
+        </div>
+        <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; }</div>
+        <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; <span
+                class="keywordflow">return</span> <span class="keyword">false</span>;
+        </div>
+        <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; }</div>
+        <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+        <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00312"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">  312</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code" href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">add_pre_step_operation</a>(Func
+            func, Args &amp;&amp;... args) {
+        </div>
+        <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;
+            pre_opts_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));
+        </div>
+        <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; }</div>
+        <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
+        <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00318"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">  318</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code" href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">add_post_step_operation</a>(Func
+            func, Args &amp;&amp;... args) {
+        </div>
+        <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;
+            post_opts_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));
+        </div>
+        <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; }</div>
+        <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+        <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00324"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">  324</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code" href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">add_stop_point_operation</a>(Func
+            func, Args &amp;&amp;... args) {
+        </div>
+        <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;
+            stop_opts_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));
+        </div>
+        <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; }</div>
+        <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
+        <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Func, <span class="keyword">typename</span>...
+            Args&gt;
+        </div>
+        <div class="line"><a name="l00330"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">  330</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code" href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">add_stop_condition</a>(Func
+            func, Args &amp;&amp;... args) {
+        </div>
+        <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;
+            stop_cond_.emplace_back(std::bind(std::forward&lt;Func&gt;(func), std::placeholders::_1, std::forward&lt;Args&gt;(args)...));
+        </div>
+        <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; }</div>
+        <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+        <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys&gt;
+        </div>
+        <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+        </div>
+        <div class="line"><a name="l00336"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">  336</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_run_args.html">RunArgs</a>&lt;ParticleSys&gt;::<a
+                    class="code" href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">add_stop_condition</a>(T
+            end) {
+        </div>
+        <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">end_time</a>
+            = end;
+        </div>
+        <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; is_end_time_set_ = <span
+                class="keyword">true</span>;
+        </div>
+        <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; }</div>
+        <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+        <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment">    Class Simulator Implememtation</span>
+        </div>
+        <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys, <span
+                class="keyword">typename</span> OdeIterator&gt;
+        </div>
+        <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00346"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#a8c0d24c12645999adb8ed683679ea7e0">  346</a></span>&#160;
+            <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticleSys, OdeIterator&gt;::<a
+                    class="code" href="classspace_1_1_simulator.html#a8c0d24c12645999adb8ed683679ea7e0">Simulator</a>(Scalar
+            time, <span class="keyword">const</span> STL &amp;particle_set) : particles_(time,
+        </div>
+        <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; particle_set) {</div>
+        <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; <span class="keyword">static_assert</span>(is_container_v&lt;STL&gt;,
+            <span class="stringliteral">&quot;Only STL-like container can be used&quot;</span>);
+        </div>
+        <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; }</div>
+        <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
+        <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys, <span
+                class="keyword">typename</span> OdeIterator&gt;
+        </div>
+        <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;
+        </div>
+        <div class="line"><a name="l00353"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#aca727f16cf5767a56f36789dc28a3da7">  353</a></span>&#160;
+            <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticleSys, OdeIterator&gt;::<a
+                    class="code" href="classspace_1_1_simulator.html#aca727f16cf5767a56f36789dc28a3da7">Simulator</a>(Scalar
+            time, T <span class="keyword">const</span> &amp;... particle)
+        </div>
+        <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; : <a class="code"
+                                                                                            href="classspace_1_1_simulator.html">Simulator</a>(time,
+            std::initializer_list&lt;Particle&gt;{particle...}) {
+        </div>
+        <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; <span class="keyword">static_assert</span>(calc::all(std::is_same_v&lt;T,
+            Particle&gt;...), <span class="stringliteral">&quot;Wrong particles type!&quot;</span>);
+        </div>
+        <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; }</div>
+        <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
+        <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys, <span
+                class="keyword">typename</span> OdeIterator&gt;
+        </div>
+        <div class="line"><a name="l00359"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1_simulator.html#aa93d58d04a993371fe989347310c9c3f">  359</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticleSys,
+            OdeIterator&gt;::<a class="code"
+                                href="classspace_1_1_simulator.html#aa93d58d04a993371fe989347310c9c3f">run</a>(RunArgs
+            <span class="keyword">const</span> &amp;run_args) {
+        </div>
+        <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; <span
+                class="keywordflow">if</span> (!run_args.is_stop_condition_set() &amp;&amp; !run_args.is_end_time_set())
+            {
+        </div>
+        <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; space<a class="code"
+                                                                                               href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">::</a><a
+                class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">spacehub_abort</a><a
+                class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">(</a><span
+                class="stringliteral">&quot;Use &#39;add_stop_condition&#39; to set stop condition.&quot;</span><a
+                class="code" href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">)</a>;
+        </div>
+        <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; }</div>
+        <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
+        <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; step_size_ = run_args.step_size;
+        </div>
+        <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
+        <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; <span
+                class="keywordflow">if</span> (step_size_ == 0.0) {
+        </div>
+        <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; step_size_ = 0.01 *
+            calc::calc_step_scale(particles_);
+        </div>
+        <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; }</div>
+        <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
+        <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; Scalar end_time = space<a
+                class="code" href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">::</a>unit<a
+                class="code" href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">::</a><a class="code"
+                                                                                                           href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">hubble_t</a>;
+        </div>
+        <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+        <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; <span
+                class="keywordflow">if</span> (run_args.is_end_time_set()) {
+        </div>
+        <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; end_time = run_args.end_time;
+        </div>
+        <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; }</div>
+        <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
+        <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; <span
+                class="keywordflow">if</span> (particles_.time() &gt;= end_time) {
+        </div>
+        <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; space<a class="code"
+                                                                                               href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">::</a><a
+                class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">print</a><a class="code"
+                                                                                                      href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">(</a>std::cout<a
+                class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">,</a> <span
+                class="stringliteral">&quot;Warning: The stop time is &#39;&lt;=&#39; to the start time!&quot;</span><a
+                class="code" href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">)</a>;
+        </div>
+        <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; }</div>
+        <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+        <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; <span
+                class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code"
+                                                                                         href="dev-tools_8hpp.html#a71c2a282f291770b45b3f1cef8c19f75">HAS_CRTP_IMPLEMENTATION</a>(OdeIterator,
+            set_atol, Scalar)) {
+        </div>
+        <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;
+            iterator_.set_atol(run_args.atol);
+        </div>
+        <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; }</div>
+        <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
+        <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; <span
+                class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code"
+                                                                                         href="dev-tools_8hpp.html#a71c2a282f291770b45b3f1cef8c19f75">HAS_CRTP_IMPLEMENTATION</a>(OdeIterator,
+            set_rtol, Scalar)) {
+        </div>
+        <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;
+            iterator_.set_rtol(run_args.rtol);
+        </div>
+        <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; }</div>
+        <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;</div>
+        <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; <span
+                class="keywordflow">for</span> (; particles_.time() &lt; end_time &amp;&amp;
+            !run_args.check_stops(particles_);) {
+        </div>
+        <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
+        <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;
+            run_args.pre_operations(particles_);
+        </div>
+        <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; advance_one_step();</div>
+        <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;
+            run_args.post_operations(particles_);
+        </div>
+        <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; }</div>
+        <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;
+            run_args.stop_operations(particles_);
+        </div>
+        <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; }</div>
+        <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+        <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> ParticleSys, <span
+                class="keyword">typename</span> OdeIterator&gt;
+        </div>
+        <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; <span
+                class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code"
+                                                                                       href="classspace_1_1_simulator.html">Simulator</a>&lt;ParticleSys,
+            OdeIterator&gt;::advance_one_step() {
+        </div>
+        <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; particles_.pre_iter_process();
+        </div>
+        <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; step_size_ =
+            iterator_.iterate(particles_, step_size_);
+        </div>
+        <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; particles_.post_iter_process();
+        </div>
+        <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; }</div>
+        <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
+        <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;} <span class="comment">// namespace space</span>
+        </div>
+        <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">endif</span></div>
+        <div class="ttc" id="dev-tools_8hpp_html_a0f585cf51c90e87b303299d7e5901c62">
+            <div class="ttname"><a href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>
+            </div>
+            <div class="ttdeci">#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:189</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a5f6d9c34a5998231505583ffd2fd4df7">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a5f6d9c34a5998231505583ffd2fd4df7">space::RunArgs::check_stops</a>
+            </div>
+            <div class="ttdeci">bool check_stops(ParticleSys &amp;particle_system) const</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:303</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a05a043ed2282f9529f326c5e665e93e7">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7">space::RunArgs::add_stop_condition</a>
+            </div>
+            <div class="ttdeci">void add_stop_condition(T end)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:336</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_abd0b0970bbfc5f62d7e7ac07a2f54c71">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#abd0b0970bbfc5f62d7e7ac07a2f54c71">space::RunArgs::rtol</a>
+            </div>
+            <div class="ttdeci">Scalar rtol</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:94</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a0f130e30d4bdb4b1fbfd3e067ac0eea9">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a0f130e30d4bdb4b1fbfd3e067ac0eea9">space::RunArgs::atol</a>
+            </div>
+            <div class="ttdeci">Scalar atol</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:89</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_simulator_html">
+            <div class="ttname"><a href="classspace_1_1_simulator.html">space::Simulator</a></div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:212</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a202c1480767ceb6d2873f9383d21145b">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b">space::RunArgs::add_stop_point_operation</a>
+            </div>
+            <div class="ttdeci">void add_stop_point_operation(Func func, Args &amp;&amp;... args)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:324</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_ab3a245733eb8a0cf2e23e62ecedb3bd7">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#ab3a245733eb8a0cf2e23e62ecedb3bd7">space::RunArgs::stop_operations</a>
+            </div>
+            <div class="ttdeci">void stop_operations(ParticleSys &amp;particle_system) const</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:296</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_a71c2a282f291770b45b3f1cef8c19f75">
+            <div class="ttname"><a
+                    href="dev-tools_8hpp.html#a71c2a282f291770b45b3f1cef8c19f75">HAS_CRTP_IMPLEMENTATION</a></div>
+            <div class="ttdeci">#define HAS_CRTP_IMPLEMENTATION(CLASS, METHOD,...)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:268</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a40dd8e75c3602befb2ea3a54f850a3de">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de">space::RunArgs::add_pre_step_operation</a>
+            </div>
+            <div class="ttdeci">void add_pre_step_operation(Func func, Args &amp;&amp;... args)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:312</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a918fcf4f601c96b9aaf477fb8e26e510">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a918fcf4f601c96b9aaf477fb8e26e510">space::RunArgs::step_size</a>
+            </div>
+            <div class="ttdeci">Scalar step_size</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:79</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a356e0a6fb304ecbd7c649ae3a0486594">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a356e0a6fb304ecbd7c649ae3a0486594">space::RunArgs::add_post_step_operation</a>
+            </div>
+            <div class="ttdeci">void add_post_step_operation(Func func, Args &amp;&amp;... args)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:318</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_af3a00bc9788de7eba958b457441b7063">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#af3a00bc9788de7eba958b457441b7063">space::RunArgs::post_operations</a>
+            </div>
+            <div class="ttdeci">void post_operations(ParticleSys &amp;particle_system) const</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:289</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_simulator_html_a8c0d24c12645999adb8ed683679ea7e0">
+            <div class="ttname"><a href="classspace_1_1_simulator.html#a8c0d24c12645999adb8ed683679ea7e0">space::Simulator::Simulator</a>
+            </div>
+            <div class="ttdeci">Simulator(Scalar time, STL const &amp;particle_set)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:346</div>
+        </div>
+        <div class="ttc" id="namespacespace_html_a9225df04790836d3a9dce8f94ce4d15b">
+            <div class="ttname"><a href="namespacespace.html#a9225df04790836d3a9dce8f94ce4d15b">space::print</a></div>
+            <div class="ttdeci">auto &amp; print(std::ostream &amp;os, Args &amp;&amp;... args)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:34</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_simulator_html_aca727f16cf5767a56f36789dc28a3da7">
+            <div class="ttname"><a href="classspace_1_1_simulator.html#aca727f16cf5767a56f36789dc28a3da7">space::Simulator::Simulator</a>
+            </div>
+            <div class="ttdeci">Simulator(Scalar time, T const &amp;... particle)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:353</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a5b7abe613e970c74f62846be03f9734d">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a5b7abe613e970c74f62846be03f9734d">space::RunArgs::pre_operations</a>
+            </div>
+            <div class="ttdeci">void pre_operations(ParticleSys &amp;particle_system) const</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:282</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a1f7732aa10f12671047acd41f43b7035">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035">space::RunArgs::add_stop_condition</a>
+            </div>
+            <div class="ttdeci">void add_stop_condition(Func func, Args &amp;&amp;... args)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:330</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_simulator_html_ade7047547057dcc8752fd5e108bc40a2">
+            <div class="ttname"><a href="classspace_1_1_simulator.html#ade7047547057dcc8752fd5e108bc40a2">space::Simulator::~Simulator</a>
+            </div>
+            <div class="ttdeci">virtual ~Simulator()=default</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_ac2bdf3bcd9a8848f9533cb143fea0a3a">
+            <div class="ttname"><a href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a>
+            </div>
+            <div class="ttdeci">#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:177</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_simulator_html_a160d44ac456d95a246028fa533497cbf">
+            <div class="ttname"><a href="classspace_1_1_simulator.html#a160d44ac456d95a246028fa533497cbf">space::Simulator::particles</a>
+            </div>
+            <div class="ttdeci">auto const &amp; particles() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:227</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_a4f43bc396d42b099ecfb41bdb2d78d7d">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#a4f43bc396d42b099ecfb41bdb2d78d7d">space::RunArgs::end_time</a>
+            </div>
+            <div class="ttdeci">Scalar end_time</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:84</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_aee5ebfc0b21db4a01f5269adfc8e9441">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#aee5ebfc0b21db4a01f5269adfc8e9441">space::RunArgs::is_end_time_set</a>
+            </div>
+            <div class="ttdeci">bool is_end_time_set() const</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:181</div>
+        </div>
+        <div class="ttc" id="namespacespace_1_1unit_html_a67d71b64393768825be5d2fdef5c3505">
+            <div class="ttname"><a href="namespacespace_1_1unit.html#a67d71b64393768825be5d2fdef5c3505">space::unit::hubble_t</a>
+            </div>
+            <div class="ttdeci">constexpr double hubble_t</div>
+            <div class="ttdef"><b>Definition:</b> macros.hpp:54</div>
+        </div>
+        <div class="ttc" id="namespacespace_html_a34ee00c2009d3625b40b22952b312575">
+            <div class="ttname"><a
+                    href="namespacespace.html#a34ee00c2009d3625b40b22952b312575">space::spacehub_abort</a></div>
+            <div class="ttdeci">void spacehub_abort(Args &amp;&amp;...args)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:117</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html">
+            <div class="ttname"><a href="classspace_1_1_run_args.html">space::RunArgs</a></div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:59</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_a4250abbdfc25337cd0dca29f9b55ff47">
+            <div class="ttname"><a href="dev-tools_8hpp.html#a4250abbdfc25337cd0dca29f9b55ff47">CREATE_CRTP_IMPLEMENTATION_CHECK</a>
+            </div>
+            <div class="ttdeci">#define CREATE_CRTP_IMPLEMENTATION_CHECK(NAME)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:266</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_run_args_html_aace390d73a2eef9effb0443eb27657ed">
+            <div class="ttname"><a href="classspace_1_1_run_args.html#aace390d73a2eef9effb0443eb27657ed">space::RunArgs::is_stop_condition_set</a>
+            </div>
+            <div class="ttdeci">bool is_stop_condition_set() const</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:187</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_simulator_html_aa93d58d04a993371fe989347310c9c3f">
+            <div class="ttname"><a href="classspace_1_1_simulator.html#aa93d58d04a993371fe989347310c9c3f">space::Simulator::run</a>
+            </div>
+            <div class="ttdeci">void run(RunArgs const &amp;run_args)</div>
+            <div class="ttdef"><b>Definition:</b> simulator.hpp:359</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_a6e8dcb3772ed46afbe5b83c269336181">
+            <div class="ttname"><a
+                    href="dev-tools_8hpp.html#a6e8dcb3772ed46afbe5b83c269336181">SPACEHUB_READ_ACCESSOR</a></div>
+            <div class="ttdeci">#define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:227</div>
+        </div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

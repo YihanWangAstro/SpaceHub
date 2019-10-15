@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="namespacespace_1_1particle__system" kind="namespace" language="C++">
+        <compoundname>space::particle_system</compoundname>
+        <innerclass refid="classspace_1_1particle__system_1_1_a_rchain_system" prot="public">
+            space::particle_system::ARchainSystem
+        </innerclass>
+        <innerclass refid="classspace_1_1particle__system_1_1_chain_system" prot="public">
+            space::particle_system::ChainSystem
+        </innerclass>
+        <innerclass refid="classspace_1_1particle__system_1_1_particle_system" prot="public">
+            space::particle_system::ParticleSystem
+        </innerclass>
+        <innerclass refid="classspace_1_1particle__system_1_1_regularization" prot="public">
+            space::particle_system::Regularization
+        </innerclass>
+        <innerclass refid="classspace_1_1particle__system_1_1_regularized_system" prot="public">
+            space::particle_system::RegularizedSystem
+        </innerclass>
+        <innerclass refid="classspace_1_1particle__system_1_1_simple_system" prot="public">
+            space::particle_system::SimpleSystem
+        </innerclass>
+        <sectiondef kind="enum">
+            <memberdef kind="enum" id="namespacespace_1_1particle__system_1ad1d6bb96466a13872b2362628224c740"
+                       prot="public" static="no">
+                <name>ReguType</name>
+                <enumvalue
+                        id="namespacespace_1_1particle__system_1ad1d6bb96466a13872b2362628224c740a360c009cc18cabba43fcbfe53c5f61ef"
+                        prot="public">
+                    <name>LogH</name>
+                    <briefdescription>
+                    </briefdescription>
+                    <detaileddescription>
+                    </detaileddescription>
+                </enumvalue>
+                <enumvalue
+                        id="namespacespace_1_1particle__system_1ad1d6bb96466a13872b2362628224c740a433a6d1dc9f59395173b9c44da198568"
+                        prot="public">
+                    <name>TTL</name>
+                    <briefdescription>
+                    </briefdescription>
+                    <detaileddescription>
+                    </detaileddescription>
+                </enumvalue>
+                <enumvalue
+                        id="namespacespace_1_1particle__system_1ad1d6bb96466a13872b2362628224c740a6adf97f83acf6453d4a6a4b1070f3754"
+                        prot="public">
+                    <name>None</name>
+                    <briefdescription>
+                    </briefdescription>
+                    <detaileddescription>
+                    </detaileddescription>
+                </enumvalue>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/regu-system.hpp" line="37" column="1"
+                          bodyfile="particle-system/regu-system.hpp" bodystart="37" bodyend="39"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="var">
+            <memberdef kind="variable" id="namespacespace_1_1particle__system_1afc1dea125f038874fd7cf69255ae6acd"
+                       prot="public" static="no" mutable="no">
+                <templateparamlist>
+                    <param>
+                        <type>typename T</type>
+                    </param>
+                </templateparamlist>
+                <type>constexpr bool</type>
+                <definition>constexpr bool space::particle_system::is_particle_system_v</definition>
+                <argsstring></argsstring>
+                <name>is_particle_system_v</name>
+                <initializer>= std::is_base_of_v&lt;<ref refid="classspace_1_1particle__system_1_1_particle_system"
+                                                         kindref="compound">ParticleSystem</ref>&lt;T&gt;, T&gt;
+                </initializer>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system.hpp" line="286" column="1" bodyfile="particle-system.hpp"
+                          bodystart="286" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="func">
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a074d064ea80312215cec24e0a6e084bc"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                    <param>
+                        <type>ReguType</type>
+                        <declname>RegType</declname>
+                        <defname>RegType</defname>
+                    </param>
+                </templateparamlist>
+                <type>std::ostream &amp;</type>
+                <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
+                <argsstring>(std::ostream &amp;os, ARchainSystem&lt; Particles, Interactions, RegType &gt; const &amp;ps)</argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>std::ostream &amp;</type>
+                    <declname>os</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_a_rchain_system" kindref="compound">
+                        ARchainSystem</ref>&lt; Particles, Interactions, RegType &gt; const &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/archain.hpp" line="302" column="1"
+                          bodyfile="particle-system/archain.hpp" bodystart="302" bodyend="305"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a8f2adae5f7eeba0777c7e74a3cb0dbd4"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                    <param>
+                        <type>ReguType</type>
+                        <declname>RegType</declname>
+                        <defname>RegType</defname>
+                    </param>
+                </templateparamlist>
+                <type>std::istream &amp;</type>
+                <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
+                <argsstring>(std::istream &amp;is, ARchainSystem&lt; Particles, Interactions, RegType &gt; &amp;ps)
+                </argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>std::istream &amp;</type>
+                    <declname>is</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_a_rchain_system" kindref="compound">
+                        ARchainSystem</ref>&lt; Particles, Interactions, RegType &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/archain.hpp" line="308" column="1"
+                          bodyfile="particle-system/archain.hpp" bodystart="308" bodyend="311"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1ad42963f3fbd8f692ceeaead83f42254d"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                </templateparamlist>
+                <type>std::ostream &amp;</type>
+                <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
+                <argsstring>(std::ostream &amp;os, SimpleSystem&lt; Particles, Interactions &gt; const &amp;ps)
+                </argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>std::ostream &amp;</type>
+                    <declname>os</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_simple_system" kindref="compound">
+                        SimpleSystem</ref>&lt; Particles, Interactions &gt; const &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/base-system.hpp" line="313" column="1"
+                          bodyfile="particle-system/base-system.hpp" bodystart="313" bodyend="316"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a153c902952b7375522fd64216b07eb78"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                </templateparamlist>
+                <type>std::istream &amp;</type>
+                <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
+                <argsstring>(std::istream &amp;is, SimpleSystem&lt; Particles, Interactions &gt; &amp;ps)</argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>std::istream &amp;</type>
+                    <declname>is</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_simple_system" kindref="compound">
+                        SimpleSystem</ref>&lt; Particles, Interactions &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/base-system.hpp" line="319" column="1"
+                          bodyfile="particle-system/base-system.hpp" bodystart="319" bodyend="322"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a740760ae2cd8c4348377ccf438d95aff"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                </templateparamlist>
+                <type>std::istream &amp;</type>
+                <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
+                <argsstring>(std::istream &amp;is, ChainSystem&lt; Particles, Interactions &gt; &amp;ps)</argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>std::istream &amp;</type>
+                    <declname>is</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_chain_system" kindref="compound">
+                        ChainSystem</ref>&lt; Particles, Interactions &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/chain-system.hpp" line="254" column="1"
+                          bodyfile="particle-system/chain-system.hpp" bodystart="254" bodyend="257"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a564bceda97e7591778849d2038c542fa"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                </templateparamlist>
+                <type>std::ostream &amp;</type>
+                <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
+                <argsstring>(std::ostream &amp;os, const ChainSystem&lt; Particles, Interactions &gt; &amp;ps)
+                </argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>std::ostream &amp;</type>
+                    <declname>os</declname>
+                </param>
+                <param>
+                    <type>const <ref refid="classspace_1_1particle__system_1_1_chain_system" kindref="compound">
+                        ChainSystem</ref>&lt; Particles, Interactions &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/chain-system.hpp" line="260" column="1"
+                          bodyfile="particle-system/chain-system.hpp" bodystart="260" bodyend="263"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a5690419f29383d3527b99135a3807737"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                    <param>
+                        <type>ReguType</type>
+                        <declname>RegType</declname>
+                        <defname>RegType</defname>
+                    </param>
+                </templateparamlist>
+                <type>std::istream &amp;</type>
+                <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
+                <argsstring>(std::istream &amp;is, RegularizedSystem&lt; Particles, Interactions, RegType &gt;
+                    &amp;ps)
+                </argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>std::istream &amp;</type>
+                    <declname>is</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_regularized_system" kindref="compound">
+                        RegularizedSystem</ref>&lt; Particles, Interactions, RegType &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/regu-system.hpp" line="191" column="1"
+                          bodyfile="particle-system/regu-system.hpp" bodystart="191" bodyend="194"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a87366d656151e2403f98f594db3a765f"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Particles</type>
+                    </param>
+                    <param>
+                        <type>typename Interactions</type>
+                    </param>
+                    <param>
+                        <type>ReguType</type>
+                        <declname>RegType</declname>
+                        <defname>RegType</defname>
+                    </param>
+                </templateparamlist>
+                <type>std::ostream &amp;</type>
+                <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
+                <argsstring>(std::ostream &amp;os, const RegularizedSystem&lt; Particles, Interactions, RegType &gt;
+                    &amp;ps)
+                </argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>std::ostream &amp;</type>
+                    <declname>os</declname>
+                </param>
+                <param>
+                    <type>const <ref refid="classspace_1_1particle__system_1_1_regularized_system" kindref="compound">
+                        RegularizedSystem</ref>&lt; Particles, Interactions, RegType &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system/regu-system.hpp" line="197" column="1"
+                          bodyfile="particle-system/regu-system.hpp" bodystart="197" bodyend="200"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1a482c590fed1c31fdfcd05165bfad6b2e"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Derived</type>
+                    </param>
+                </templateparamlist>
+                <type>std::ostream &amp;</type>
+                <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
+                <argsstring>(std::ostream &amp;os, ParticleSystem&lt; Derived &gt; const &amp;ps)</argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>std::ostream &amp;</type>
+                    <declname>os</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_particle_system" kindref="compound">
+                        ParticleSystem</ref>&lt; Derived &gt; const &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system.hpp" line="271" column="1" bodyfile="particle-system.hpp"
+                          bodystart="271" bodyend="274"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1particle__system_1acba86c9d9ab42f3157555c31715a833b"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Derived</type>
+                    </param>
+                </templateparamlist>
+                <type>std::istream &amp;</type>
+                <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
+                <argsstring>(std::istream &amp;is, ParticleSystem&lt; Derived &gt; &amp;ps)</argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>std::istream &amp;</type>
+                    <declname>is</declname>
+                </param>
+                <param>
+                    <type><ref refid="classspace_1_1particle__system_1_1_particle_system" kindref="compound">
+                        ParticleSystem</ref>&lt; Derived &gt; &amp;
+                    </type>
+                    <declname>ps</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particle-system.hpp" line="277" column="1" bodyfile="particle-system.hpp"
+                          bodystart="277" bodyend="280"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>space name for particle system.</para>
+        </detaileddescription>
+        <location file="particle-system/archain.hpp" line="31" column="1"/>
+    </compounddef>
+</doxygen>

@@ -5,7 +5,7 @@
 #include "../../src/spaceHub.hpp"
 
 using namespace space;
-using namespace space::odeIterator;
+using namespace space::ode_iterator;
 using namespace space::integrator;
 using namespace space::orbit;
 using namespace unit;
@@ -62,7 +62,7 @@ int main() {
 
   auto writer = [&](auto &ptc) { output << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n'; };
 
-  args.add_pre_step_operation(argsOpt::TimeSlice(writer, 0, end_time));
+  args.add_pre_step_operation(run_operations::TimeSlice(writer, 0, end_time));
 
   args.add_stop_condition(end_time);
 

@@ -7,6 +7,10 @@
     <includes refid="macros_8hpp" local="yes">../macros.hpp</includes>
     <includes refid="orbits_8hpp" local="yes">../orbits/orbits.hpp</includes>
     <incdepgraph>
+        <node id="213">
+            <label>vector3d.hpp</label>
+            <link refid="vector3d_8hpp"/>
+        </node>
       <node id="215">
         <label>../orbits/orbits.hpp</label>
         <link refid="orbits_8hpp"/>
@@ -15,18 +19,6 @@
         <childnode refid="216" relation="include">
         </childnode>
         <childnode refid="217" relation="include">
-        </childnode>
-      </node>
-      <node id="212">
-        <label>vector/vector3.h</label>
-        <link refid="vector3_8h"/>
-        <childnode refid="204" relation="include">
-        </childnode>
-        <childnode refid="206" relation="include">
-        </childnode>
-        <childnode refid="213" relation="include">
-        </childnode>
-        <childnode refid="214" relation="include">
         </childnode>
       </node>
       <node id="216">
@@ -43,13 +35,21 @@
         <childnode refid="205" relation="include">
         </childnode>
       </node>
+        <node id="212">
+            <label>vector/vector3.hpp</label>
+            <link refid="vector3_8hpp"/>
+            <childnode refid="204" relation="include">
+            </childnode>
+            <childnode refid="206" relation="include">
+            </childnode>
+            <childnode refid="213" relation="include">
+            </childnode>
+            <childnode refid="214" relation="include">
+            </childnode>
+        </node>
       <node id="202">
         <label>macros.hpp</label>
         <link refid="macros_8hpp"/>
-      </node>
-      <node id="214">
-        <label>vector3pd.h</label>
-        <link refid="vector3pd_8h"/>
       </node>
       <node id="205">
         <label>dev-tools.hpp</label>
@@ -117,9 +117,9 @@
       <node id="218">
         <label>mutex</label>
       </node>
-      <node id="213">
-        <label>vector3d.h</label>
-        <link refid="vector3d_8h"/>
+        <node id="214">
+            <label>vector3pd.hpp</label>
+            <link refid="vector3pd_8hpp"/>
       </node>
       <node id="217">
         <label>../rand-generator.hpp</label>

@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="22" column="1" bodyfile="coords.hpp" bodystart="22" bodyend="-1"/>
+          <location file="coords.hpp" line="42" column="1" bodyfile="coords.hpp" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_coords_1a04ff710f593ff09266c15309e5a5e2e9" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; <ref refid="structspace_1_1_coords_1aad183bdb28bbffba831152075debe228" kindref="member">Scalar</ref> &gt;</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="24" column="1" bodyfile="coords.hpp" bodystart="24" bodyend="-1"/>
+          <location file="coords.hpp" line="44" column="1" bodyfile="coords.hpp" bodystart="44" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="81" column="1" bodyfile="coords.hpp" bodystart="81" bodyend="-1"/>
+          <location file="coords.hpp" line="101" column="1" bodyfile="coords.hpp" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_coords_1a98efdb82ca046020c53c01e53585f53b" prot="public" static="no" mutable="no">
         <type>T</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="82" column="1" bodyfile="coords.hpp" bodystart="82" bodyend="-1"/>
+          <location file="coords.hpp" line="102" column="1" bodyfile="coords.hpp" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_coords_1ad0b8256873f0aa88ebb98fbeccf10b87" prot="public" static="no" mutable="no">
         <type>T</type>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="83" column="1" bodyfile="coords.hpp" bodystart="83" bodyend="-1"/>
+          <location file="coords.hpp" line="103" column="1" bodyfile="coords.hpp" bodystart="103" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="27" column="1"/>
+          <location file="coords.hpp" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a8847cd19bce595b3c1884af35575cdf8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -132,7 +132,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="33" column="1" bodyfile="coords.hpp" bodystart="91" bodyend="91"/>
+          <location file="coords.hpp" line="53" column="1" bodyfile="coords.hpp" bodystart="111" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a2ac7befea51cf997e44bc3aebbb4b159" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="39" column="1" bodyfile="coords.hpp" bodystart="129" bodyend="131"/>
+          <location file="coords.hpp" line="59" column="1" bodyfile="coords.hpp" bodystart="149" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a16e0215407e594a6577553cbcf923d26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -183,7 +183,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="47" column="1" bodyfile="coords.hpp" bodystart="110" bodyend="114"/>
+          <location file="coords.hpp" line="67" column="1" bodyfile="coords.hpp" bodystart="130" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a535fc8740e8e19bea38495f93d220188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,7 +230,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="55" column="1" bodyfile="coords.hpp" bodystart="117" bodyend="121"/>
+          <location file="coords.hpp" line="75" column="1" bodyfile="coords.hpp" bodystart="137" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a31d602268120b0ed77623f7e6df3d6e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -255,7 +255,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="61" column="1" bodyfile="coords.hpp" bodystart="99" bodyend="101"/>
+          <location file="coords.hpp" line="81" column="1" bodyfile="coords.hpp" bodystart="119" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1ac69c82658f3f4228ccbe7f283d4a686b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,7 +280,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="67" column="1" bodyfile="coords.hpp" bodystart="104" bodyend="106"/>
+          <location file="coords.hpp" line="87" column="1" bodyfile="coords.hpp" bodystart="124" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a0533eb5cd049b08a42b94e8ac9819102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -293,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="72" column="1" bodyfile="coords.hpp" bodystart="124" bodyend="126"/>
+          <location file="coords.hpp" line="92" column="1" bodyfile="coords.hpp" bodystart="144" bodyend="146"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_coords_1a4edddb1c9ce9206f057f0fc45866eb1f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -307,7 +307,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="78" column="1" bodyfile="coords.hpp" bodystart="94" bodyend="96"/>
+          <location file="coords.hpp" line="98" column="1" bodyfile="coords.hpp" bodystart="114" bodyend="116"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -323,20 +323,20 @@
 </parameterlist>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="71">
+        <node id="70">
         <label>T</label>
       </node>
-      <node id="70">
+        <node id="69">
         <label>space::Coords&lt; T &gt;</label>
         <link refid="structspace_1_1_coords"/>
-        <childnode refid="71" relation="usage">
+            <childnode refid="70" relation="usage">
           <edgelabel>+x</edgelabel>
           <edgelabel>+y</edgelabel>
           <edgelabel>+z</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="coords.hpp" line="20" column="1" bodyfile="coords.hpp" bodystart="20" bodyend="84"/>
+      <location file="coords.hpp" line="40" column="1" bodyfile="coords.hpp" bodystart="40" bodyend="104"/>
     <listofallmembers>
       <member refid="structspace_1_1_coords_1a2ac7befea51cf997e44bc3aebbb4b159" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>clear</name></member>
       <member refid="structspace_1_1_coords_1a8847cd19bce595b3c1884af35575cdf8" prot="public" virt="non-virtual"><scope>space::Coords</scope><name>Coords</name></member>

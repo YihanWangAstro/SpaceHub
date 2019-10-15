@@ -90,11 +90,14 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="classspace_1_1_simple_system" prot="public">space::SimpleSystem</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
+      <innerclass refid="classspace_1_1particle__system_1_1_simple_system" prot="public">
+          space::particle_system::SimpleSystem
+      </innerclass>
+      <innernamespace refid="namespacespace_1_1particle__system">space::particle_system</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="particle-system/base-system.hpp"/>
   </compounddef>

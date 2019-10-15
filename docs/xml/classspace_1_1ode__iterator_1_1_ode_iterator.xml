@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="classspace_1_1ode__iterator_1_1_ode_iterator" kind="class" language="C++" prot="public">
+        <compoundname>space::ode_iterator::OdeIterator</compoundname>
+        <includes refid="ode-iterator_8hpp" local="no">ode-iterator.hpp</includes>
+        <templateparamlist>
+            <param>
+                <type>typename</type>
+                <declname>Derived</declname>
+                <defname>Derived</defname>
+            </param>
+        </templateparamlist>
+        <sectiondef kind="private-attrib">
+            <memberdef kind="variable"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1a20c6ce6610563132d715869fd344bc0c"
+                       prot="private" static="no" mutable="no">
+                <type>friend</type>
+                <definition>friend space::ode_iterator::OdeIterator&lt; Derived &gt;::Derived</definition>
+                <argsstring></argsstring>
+                <name>Derived</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="91" column="1"
+                          bodyfile="ode-iterator/ode-iterator.hpp" bodystart="91" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1a3d4b435d9fcc6e9c1b6c1e3aedbb1068"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename T</type>
+                    </param>
+                </templateparamlist>
+                <type>auto</type>
+                <definition>auto OdeIterator::iterate</definition>
+                <argsstring>(T &amp;particles, typename T::Scalar macro_step_size) -&gt; typename T::Scalar</argsstring>
+                <name>iterate</name>
+                <param>
+                    <type>T &amp;</type>
+                    <declname>particles</declname>
+                </param>
+                <param>
+                    <type>typename T::Scalar</type>
+                    <declname>macro_step_size</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>
+                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger"/>
+                        <bold>must impl</bold>
+                    </para>
+                    <para>Evolve a particle system with given step size as a trial. The method should return the proper
+                        step size for next iteration.
+                    </para>
+                    <para>
+                        <parameterlist kind="templateparam">
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername>T</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>Any implementation of concept <computeroutput>ParticleSystem</computeroutput>.
+                                    </para>
+                                </parameterdescription>
+                            </parameteritem>
+                        </parameterlist>
+                        <parameterlist kind="param">
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername direction="inout">particles</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>The particles that need evolution.</para>
+                                </parameterdescription>
+                            </parameteritem>
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername direction="in">macro_step_size</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>Step size.</para>
+                                </parameterdescription>
+                            </parameteritem>
+                        </parameterlist>
+                        <simplesect kind="return">
+                            <para>The step size for next iteration.</para>
+                        </simplesect>
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="63" column="1"
+                          bodyfile="ode-iterator/ode-iterator.hpp" bodystart="99" bodyend="102"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1a9a013fb333d9ff549677602c752b2be0"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Scalar</type>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::ode_iterator::OdeIterator&lt; Derived &gt;::set_atol</definition>
+                <argsstring>(Scalar atol)</argsstring>
+                <name>set_atol</name>
+                <param>
+                    <type>Scalar</type>
+                    <declname>atol</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>
+                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning"/>
+                        <bold>optional impl</bold>
+                        <computeroutput>&gt; Absolute error tolerance is required.</computeroutput>
+                    </para>
+                    <para>Set the absolute error tolerance of the iterator.</para>
+                    <para>
+                        <parameterlist kind="templateparam">
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername>Scalar</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>Floating point like scalar.</para>
+                                </parameterdescription>
+                            </parameteritem>
+                        </parameterlist>
+                        <parameterlist kind="param">
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername direction="in">atol</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>Absolute error tolerance.</para>
+                                </parameterdescription>
+                            </parameteritem>
+                        </parameterlist>
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="74" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1a84bdc27d203e94a752ad666f9a50d871"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Scalar</type>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::ode_iterator::OdeIterator&lt; Derived &gt;::set_rtol</definition>
+                <argsstring>(Scalar rtol)</argsstring>
+                <name>set_rtol</name>
+                <param>
+                    <type>Scalar</type>
+                    <declname>rtol</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>
+                        <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning"/>
+                        <bold>optional impl</bold>
+                        <computeroutput>&gt; Relative error tolerance is required.</computeroutput>
+                    </para>
+                    <para>Set the relative error tolerance of the iterator.</para>
+                    <para>
+                        <parameterlist kind="templateparam">
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername>Scalar</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>Floating point like scalar.</para>
+                                </parameterdescription>
+                            </parameteritem>
+                        </parameterlist>
+                        <parameterlist kind="param">
+                            <parameteritem>
+                                <parameternamelist>
+                                    <parametername direction="in">rtol</parametername>
+                                </parameternamelist>
+                                <parameterdescription>
+                                    <para>Relative error tolerance.</para>
+                                </parameterdescription>
+                            </parameteritem>
+                        </parameterlist>
+                    </para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="85" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1ac07fe0e5a15f1b362135cb11093b97d0"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename T</type>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::ode_iterator::OdeIterator&lt; Derived &gt;::set_atol</definition>
+                <argsstring>(T atol)</argsstring>
+                <name>set_atol</name>
+                <param>
+                    <type>T</type>
+                    <declname>atol</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="106" column="1"
+                          bodyfile="ode-iterator/ode-iterator.hpp" bodystart="106" bodyend="108"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1a93cc0a2dab54e6f547c625e6669903a7"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename T</type>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::ode_iterator::OdeIterator&lt; Derived &gt;::set_rtol</definition>
+                <argsstring>(T rtol)</argsstring>
+                <name>set_rtol</name>
+                <param>
+                    <type>T</type>
+                    <declname>rtol</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="112" column="1"
+                          bodyfile="ode-iterator/ode-iterator.hpp" bodystart="112" bodyend="114"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="private-func">
+            <memberdef kind="function"
+                       id="classspace_1_1ode__iterator_1_1_ode_iterator_1ac48285e0b2a185ccc51269f783b25f39"
+                       prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::ode_iterator::OdeIterator&lt; Derived &gt;::OdeIterator</definition>
+                <argsstring>()=default</argsstring>
+                <name>OdeIterator</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="ode-iterator/ode-iterator.hpp" line="89" column="1"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>Abstract class of ode-iterator. A class implements(partly/fully) the interfaces of this class via CRTP
+                idiom can be used cross the system as an implementation of the concept
+                <computeroutput>
+                    <ref refid="classspace_1_1ode__iterator_1_1_ode_iterator" kindref="compound">OdeIterator</ref>
+                </computeroutput>
+                . The <ref refid="classspace_1_1ode__iterator_1_1_ode_iterator" kindref="compound">OdeIterator</ref> is
+                used to iterate the ParticleSystem by steps.
+            </para>
+            <para>
+                <parameterlist kind="templateparam">
+                    <parameteritem>
+                        <parameternamelist>
+                            <parametername>Derived</parametername>
+                        </parameternamelist>
+                        <parameterdescription>
+                            <para>The implement class in CRTP idiom.</para>
+                        </parameterdescription>
+                    </parameteritem>
+                </parameterlist>
+            </para>
+        </detaileddescription>
+        <inheritancegraph>
+            <node id="211">
+                <label>space::ode_iterator::OdeIterator&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</label>
+                <link refid="classspace_1_1ode__iterator_1_1_ode_iterator"/>
+                <childnode refid="208" relation="template-instance">
+                    <edgelabel>&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</edgelabel>
+                </childnode>
+            </node>
+            <node id="210">
+                <label>space::ode_iterator::BurlishStoer&lt; Real, ErrChecker, StepControl &gt;</label>
+                <link refid="classspace_1_1ode__iterator_1_1_burlish_stoer"/>
+                <childnode refid="209" relation="public-inheritance">
+                </childnode>
+            </node>
+            <node id="208">
+                <label>space::ode_iterator::OdeIterator&lt; Derived &gt;</label>
+                <link refid="classspace_1_1ode__iterator_1_1_ode_iterator"/>
+            </node>
+            <node id="212">
+                <label>space::ode_iterator::ConstOdeIterator&lt; Integrator &gt;</label>
+                <link refid="classspace_1_1ode__iterator_1_1_const_ode_iterator"/>
+                <childnode refid="211" relation="public-inheritance">
+                </childnode>
+            </node>
+            <node id="209">
+                <label>space::ode_iterator::OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;
+                </label>
+                <link refid="classspace_1_1ode__iterator_1_1_ode_iterator"/>
+                <childnode refid="208" relation="template-instance">
+                    <edgelabel>&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</edgelabel>
+                </childnode>
+            </node>
+        </inheritancegraph>
+        <collaborationgraph>
+            <node id="213">
+                <label>space::ode_iterator::OdeIterator&lt; Derived &gt;</label>
+                <link refid="classspace_1_1ode__iterator_1_1_ode_iterator"/>
+            </node>
+        </collaborationgraph>
+        <location file="ode-iterator/ode-iterator.hpp" line="48" column="1" bodyfile="ode-iterator/ode-iterator.hpp"
+                  bodystart="48" bodyend="92"/>
+        <listofallmembers>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1a20c6ce6610563132d715869fd344bc0c"
+                    prot="private" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>Derived</name>
+            </member>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1a3d4b435d9fcc6e9c1b6c1e3aedbb1068"
+                    prot="public" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>iterate</name>
+            </member>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1ac48285e0b2a185ccc51269f783b25f39"
+                    prot="private" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>OdeIterator</name>
+            </member>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1a9a013fb333d9ff549677602c752b2be0"
+                    prot="public" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>set_atol</name>
+            </member>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1ac07fe0e5a15f1b362135cb11093b97d0"
+                    prot="public" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>set_atol</name>
+            </member>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1a84bdc27d203e94a752ad666f9a50d871"
+                    prot="public" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>set_rtol</name>
+            </member>
+            <member refid="classspace_1_1ode__iterator_1_1_ode_iterator_1a93cc0a2dab54e6f547c625e6669903a7"
+                    prot="public" virt="non-virtual">
+                <scope>space::ode_iterator::OdeIterator</scope>
+                <name>set_rtol</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

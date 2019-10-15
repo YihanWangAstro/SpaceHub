@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="classspace_1_1multi__thread_1_1_concurrent_file" kind="class" language="C++" prot="public">
+        <compoundname>space::multi_thread::ConcurrentFile</compoundname>
+        <includes refid="multi-thread_8hpp" local="no">multi-thread.hpp</includes>
+        <sectiondef kind="private-attrib">
+            <memberdef kind="variable"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1ac1ceb28fcb8ddb8b5d58d81a1668762a"
+                       prot="private" static="no" mutable="no">
+                <type>std::shared_ptr&lt; std::fstream &gt;</type>
+                <definition>std::shared_ptr&lt;std::fstream&gt; space::multi_thread::ConcurrentFile::file_</definition>
+                <argsstring></argsstring>
+                <name>file_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="132" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="132" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1a258fbfe4acc5540c7e59b95056e40429"
+                       prot="private" static="no" mutable="no">
+                <type>std::shared_ptr&lt; std::mutex &gt;</type>
+                <definition>std::shared_ptr&lt;std::mutex&gt; space::multi_thread::ConcurrentFile::mutex_</definition>
+                <argsstring></argsstring>
+                <name>mutex_</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="133" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="133" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1ab1438900a6d036fb83b4392b5717bdc9"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::multi_thread::ConcurrentFile::ConcurrentFile</definition>
+                <argsstring>(const char *file_name, std::ios_base::openmode mode)</argsstring>
+                <name>ConcurrentFile</name>
+                <param>
+                    <type>const char *</type>
+                    <declname>file_name</declname>
+                </param>
+                <param>
+                    <type>std::ios_base::openmode</type>
+                    <declname>mode</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="89" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="89" bodyend="94"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1abc63d4857e583eee1fead39acf452459"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::multi_thread::ConcurrentFile::ConcurrentFile</definition>
+                <argsstring>(const std::string &amp;file_name, std::ios_base::openmode mode)</argsstring>
+                <name>ConcurrentFile</name>
+                <param>
+                    <type>const std::string &amp;</type>
+                    <declname>file_name</declname>
+                </param>
+                <param>
+                    <type>std::ios_base::openmode</type>
+                    <declname>mode</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="96" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="96" bodyend="97"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1a2477d0ad94694bad9afe43e6f36d5a1d"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Callback</type>
+                    </param>
+                    <param>
+                        <type>typename ...</type>
+                        <declname>Args</declname>
+                        <defname>Args</defname>
+                    </param>
+                </templateparamlist>
+                <type>auto</type>
+                <definition>auto space::multi_thread::ConcurrentFile::execute</definition>
+                <argsstring>(Callback &amp;&amp;func, Args &amp;&amp;...args)</argsstring>
+                <name>execute</name>
+                <param>
+                    <type>Callback &amp;&amp;</type>
+                    <declname>func</declname>
+                </param>
+                <param>
+                    <type>Args &amp;&amp;...</type>
+                    <declname>args</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="100" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="100" bodyend="103"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1a18c096379983327e65991a9c47e25696"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>void</type>
+                <definition>void space::multi_thread::ConcurrentFile::flush</definition>
+                <argsstring>()</argsstring>
+                <name>flush</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="105" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="105" bodyend="108"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1af0b787fb4623bdeee373b9fdea4262cb"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type>bool</type>
+                <definition>bool space::multi_thread::ConcurrentFile::eof</definition>
+                <argsstring>()</argsstring>
+                <name>eof</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="110" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="110" bodyend="113"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="friend">
+            <memberdef kind="friend"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1a4ff8182dffe89350438ef9aedc33ade0"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename U</type>
+                    </param>
+                </templateparamlist>
+                <type>friend <ref refid="classspace_1_1multi__thread_1_1_concurrent_file" kindref="compound">
+                    ConcurrentFile
+                </ref> &amp;
+                </type>
+                <definition>ConcurrentFile&amp; operator&lt;&lt;</definition>
+                <argsstring>(ConcurrentFile &amp;os, U &amp;&amp;tup)</argsstring>
+                <name>operator&lt;&lt;</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1multi__thread_1_1_concurrent_file" kindref="compound">ConcurrentFile
+                        </ref> &amp;
+                    </type>
+                    <declname>os</declname>
+                </param>
+                <param>
+                    <type>U &amp;&amp;</type>
+                    <declname>tup</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="116" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="116" bodyend="120"/>
+            </memberdef>
+            <memberdef kind="friend"
+                       id="classspace_1_1multi__thread_1_1_concurrent_file_1a989ac6f685c3d26fb0e66c800d194644"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename U</type>
+                    </param>
+                </templateparamlist>
+                <type>friend bool</type>
+                <definition>bool operator&gt;&gt;</definition>
+                <argsstring>(ConcurrentFile &amp;is, U &amp;tup)</argsstring>
+                <name>operator&gt;&gt;</name>
+                <param>
+                    <type>
+                        <ref refid="classspace_1_1multi__thread_1_1_concurrent_file" kindref="compound">ConcurrentFile
+                        </ref> &amp;
+                    </type>
+                    <declname>is</declname>
+                </param>
+                <param>
+                    <type>U &amp;</type>
+                    <declname>tup</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="123" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="123" bodyend="128"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <collaborationgraph>
+            <node id="59">
+                <label>space::multi_thread::ConcurrentFile</label>
+                <link refid="classspace_1_1multi__thread_1_1_concurrent_file"/>
+            </node>
+        </collaborationgraph>
+        <location file="multi-thread/multi-thread.hpp" line="87" column="1" bodyfile="multi-thread/multi-thread.hpp"
+                  bodystart="87" bodyend="134"/>
+        <listofallmembers>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1ab1438900a6d036fb83b4392b5717bdc9"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>ConcurrentFile</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1abc63d4857e583eee1fead39acf452459"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>ConcurrentFile</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1af0b787fb4623bdeee373b9fdea4262cb"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>eof</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1a2477d0ad94694bad9afe43e6f36d5a1d"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>execute</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1ac1ceb28fcb8ddb8b5d58d81a1668762a"
+                    prot="private" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>file_</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1a18c096379983327e65991a9c47e25696"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>flush</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1a258fbfe4acc5540c7e59b95056e40429"
+                    prot="private" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>mutex_</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1a4ff8182dffe89350438ef9aedc33ade0"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>operator&lt;&lt;</name>
+            </member>
+            <member refid="classspace_1_1multi__thread_1_1_concurrent_file_1a989ac6f685c3d26fb0e66c800d194644"
+                    prot="public" virt="non-virtual">
+                <scope>space::multi_thread::ConcurrentFile</scope>
+                <name>operator&gt;&gt;</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

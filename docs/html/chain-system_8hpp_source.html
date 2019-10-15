@@ -67,37 +67,1061 @@ $(function() {
 <div class="title">chain-system.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="chain-system_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by yihan on 2/25/19.</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPACEHUB_CHAIN_SYSTEM_HPP</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPACEHUB_CHAIN_SYSTEM_HPP</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../core-computation.hpp&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../particle-system.hpp&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code" href="chain_8hpp.html">&quot;chain.hpp&quot;</a></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">type_traits</span><span class="preprocessor">&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespacespace.html">space</a> {</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*\</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">      Class ChainSystem Declaration</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  \*---------------------------------------------------------------------------*/</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">/**</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">   *</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">   * @tparam Particles</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">   * @tparam Interactions</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">   */</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html">   24</a></span>&#160;  <span class="keyword">class</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a> : <span class="keyword">public</span> <a class="code" href="classspace_1_1_particle_system.html">ParticleSystem</a>&lt;<a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;&gt; {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//Type members</span></div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#afeb80de8263b28d425111171c89389d3">   27</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>(Particles);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#ac99ca2662e77a7b03e9d0818d72c96d4">   29</a></span>&#160;    <span class="keyword">using</span> Base = <a class="code" href="classspace_1_1_particle_system.html">ParticleSystem</a>&lt;<a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;&gt;;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a8e4f9d85b3cc034a5a5ee49db3a6c5df">   31</a></span>&#160;    <span class="keyword">using</span> Particle = <span class="keyword">typename</span> Particles::Particle;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//Constructors</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a>(<a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>, <span class="keyword">delete</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">ChainSystem</a>(Scalar time, STL <span class="keyword">const</span> &amp;particle_set);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">//Public methods</span></div><div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#ad1018fb01af447632fbef085cad13fb4">   40</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#ad1018fb01af447632fbef085cad13fb4">chain_pos</a>, chain_pos_);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#adcc923b5e42882b18a01a028c3586b50">   42</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#adcc923b5e42882b18a01a028c3586b50">chain_vel</a>, chain_vel_);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#aa39a3f420e3f8ebfae8ce71b0d9b21e7">   44</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#aa39a3f420e3f8ebfae8ce71b0d9b21e7">index</a>, index_);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//Friend functions</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span> F&gt;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;P, F&gt; <span class="keyword">const</span> &amp;ps);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span> F&gt;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">friend</span> std::istream &amp;<a class="code" href="classspace_1_1_chain_system.html#a5a128d62a6716b95ff048a4f381fc24c">operator</a>&gt;&gt;(std::istream &amp;is, <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;P, F&gt; &amp;ps);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#af5e9ed8219b6bcafdeefacd51d7ef35b">   53</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#ae4334217b14191738cf54d7b89e42b00">CRTP_IMPL</a>:</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">//CRTP implementation</span></div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a9eb2e596b83803b566c84ad94d838922">   55</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#a9eb2e596b83803b566c84ad94d838922">impl_mass</a>, ptcl_.mass());</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a136cb35e64c879d777cd7528d423a264">   57</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#a136cb35e64c879d777cd7528d423a264">impl_idn</a>, ptcl_.idn());</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a0a5ce40dd1ae04df4fceed7e3074000f">   59</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#a0a5ce40dd1ae04df4fceed7e3074000f">impl_pos</a>, ptcl_.pos());</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a57f00626599f7a164316674f750d0bb6">   61</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#a57f00626599f7a164316674f750d0bb6">impl_vel</a>, ptcl_.vel());</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a735e94c8369c695b4ee6dd7688d05fe9">   63</a></span>&#160;    <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_chain_system.html#a735e94c8369c695b4ee6dd7688d05fe9">impl_time</a>, ptcl_.time());</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    [[<a class="code" href="classspace_1_1_chain_system.html">nodiscard</a>]] size_t <a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">impl_number</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#ab07a0719d22db2e5d6285c547498da38">impl_advance_time</a>(Scalar dt);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#a0fc622eed05b67f0ff6eeac0781ee5db">impl_advance_pos</a>(Coord <span class="keyword">const</span> &amp;velocity, Scalar step_size);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#acf07e04f44b6263421bac8c140448811">impl_advance_vel</a>(Coord <span class="keyword">const</span> &amp;acceleration, Scalar step_size);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#af8864ed9de9cce87237b0a447138ef34">impl_evaluate_acc</a>(Coord &amp;acceleration) <span class="keyword">const</span>;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#a179a3e77c9b728f31071f56ef8eb0451">impl_drift</a>(Scalar step_size);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#a2969352787126623169a4a9b9bec9152">impl_kick</a>(Scalar step_size);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#a65dbcf00f4037fedd92857cc1d11a130">impl_pre_iter_process</a>();</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#a02855377c7c789e3014262824db5a914">impl_post_iter_process</a>();</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#a8492ec552883eac97429ee816f4ee384">impl_to_linear_container</a>(STL &amp;stl_ranges);</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html#ab130afc375ba238780ac8da8fda6e5dd">impl_load_from_linear_container</a>(STL <span class="keyword">const</span> &amp;stl_ranges);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">private</span>:</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">//Private methods</span></div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> chain_advance(Coord &amp;var, Coord &amp;chain_var, Coord &amp;chain_increment, Scalar step_size);</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> eval_vel_indep_acc();</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> kick_pseu_vel(Scalar step_size);</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> kick_real_vel(Scalar step_size);</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">//Private members</span></div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    Particles ptcl_;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    Interactions interactions_;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    Accelerations &lt;Interactions, Coord&gt; accels_{};</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    Coord chain_pos_;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    Coord chain_vel_;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    Coord chain_acc_;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    IdxArray index_;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    IdxArray new_index_;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    std::conditional_t&lt;Interactions::ext_vel_dep, Coord, <a class="code" href="classspace_1_1_empty.html">Empty</a>&gt; aux_vel_;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    std::conditional_t&lt;Interactions::ext_vel_dep, Coord, <a class="code" href="classspace_1_1_empty.html">Empty</a>&gt; chain_aux_vel_;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  };</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*\</span></div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">      Class ChainSystem Implementation</span></div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">  \*---------------------------------------------------------------------------*/</span></div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">Particles</a>, <span class="keyword">typename</span> <a class="code" href="namespacespace.html">Interactions</a>&gt;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">  119</a></span>&#160;  <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">ChainSystem</a>(Scalar time, <span class="keyword">const</span> STL &amp;particle_set)</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;          : ptcl_(time, particle_set),</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            chain_pos_(particle_set.size()),</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            chain_vel_(particle_set.size()),</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            index_(particle_set.size()),</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            new_index_(particle_set.size()),</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <a class="code" href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">accels_</a>(<a class="code" href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">particle_set</a>.<a class="code" href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">size</a>()),</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            chain_acc_(particle_set.size()) {</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">static_assert</span>(is_container_v&lt;STL&gt;, <span class="stringliteral">&quot;Only STL-like container can be used&quot;</span>);</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_chain_index(ptcl_.pos(), index_);</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_chain(ptcl_.pos(), chain_pos(), index());</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_chain(ptcl_.vel(), chain_vel(), index());</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_dep) {</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      aux_vel_ = ptcl_.vel();</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      chain_aux_vel_ = chain_vel_;</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  }</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">  139</a></span>&#160;  size_t <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">impl_number</a>() <span class="keyword">const</span> {</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> ptcl_.number();</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  }</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#ab07a0719d22db2e5d6285c547498da38">  144</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#ab07a0719d22db2e5d6285c547498da38">impl_advance_time</a>(Scalar dt) {</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    ptcl_.time() += dt;</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  }</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a0fc622eed05b67f0ff6eeac0781ee5db">  149</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a0fc622eed05b67f0ff6eeac0781ee5db">impl_advance_pos</a>(<span class="keyword">const</span> Coord &amp;velocity, Scalar step_size) {</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_chain(velocity, chain_vel(), index());</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), step_size);</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  }</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#acf07e04f44b6263421bac8c140448811">  155</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#acf07e04f44b6263421bac8c140448811">impl_advance_vel</a>(<span class="keyword">const</span> Coord &amp;acceleration, Scalar step_size) {</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_chain(acceleration, chain_acc_, index());</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, step_size);</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  }</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#af8864ed9de9cce87237b0a447138ef34">  161</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#af8864ed9de9cce87237b0a447138ef34">impl_evaluate_acc</a>(Coord &amp;acceleration) <span class="keyword">const</span> {</div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    interactions_.eval_acc(*<span class="keyword">this</span>, acceleration);</div><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  }</div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a179a3e77c9b728f31071f56ef8eb0451">  166</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a179a3e77c9b728f31071f56ef8eb0451">impl_drift</a>(Scalar step_size) {</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    ptcl_.time() += step_size;</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), step_size);</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  }</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a2969352787126623169a4a9b9bec9152">  172</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a2969352787126623169a4a9b9bec9152">impl_kick</a>(Scalar step_size) {</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_dep) {</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      Scalar half_step = 0.5 * step_size;</div><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      eval_vel_indep_acc();</div><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      kick_pseu_vel(half_step);</div><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      kick_real_vel(step_size);</div><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      kick_pseu_vel(half_step);</div><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      interactions_.eval_acc(*<span class="keyword">this</span>, accels_.acc());</div><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      impl_advance_vel(accels_.acc(), step_size);</div><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  }</div><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a65dbcf00f4037fedd92857cc1d11a130">  186</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a65dbcf00f4037fedd92857cc1d11a130">impl_pre_iter_process</a>() {</div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_dep) {</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      aux_vel_ = ptcl_.vel();</div><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      chain_aux_vel_ = chain_vel_;</div><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  }</div><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a02855377c7c789e3014262824db5a914">  194</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a02855377c7c789e3014262824db5a914">impl_post_iter_process</a>() {</div><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_chain_index(ptcl_.pos(), new_index_);</div><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span> (new_index_ != index_) {</div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <a class="code" href="classspace_1_1_chain.html">Chain</a>::update_chain(chain_pos_, index_, new_index_);</div><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(), chain_pos_, ptcl_.pos(), new_index_);</div><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <a class="code" href="classspace_1_1_chain.html">Chain</a>::update_chain(chain_vel_, index_, new_index_);</div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(), chain_vel_, ptcl_.vel(), new_index_);</div><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      index_ = new_index_;</div><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">Particles</a>, <span class="keyword">typename</span> <a class="code" href="namespacespace.html">Interactions</a>&gt;</div><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#a8492ec552883eac97429ee816f4ee384">  207</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#a8492ec552883eac97429ee816f4ee384">impl_to_linear_container</a>(STL &amp;stl_ranges) {</div><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    stl_ranges.clear();</div><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    stl_ranges.reserve(<a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">impl_number</a><a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">(</a><a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">)</a> * 6 + 1);</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    stl_ranges.emplace_back(impl_time());</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    add_coords_to(stl_ranges, chain_pos_);</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    add_coords_to(stl_ranges, chain_vel_);</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  }</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespacespace.html">Particles</a>, <span class="keyword">typename</span> <a class="code" href="namespacespace.html">Interactions</a>&gt;</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div><div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="classspace_1_1_chain_system.html#ab130afc375ba238780ac8da8fda6e5dd">  217</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::<a class="code" href="classspace_1_1_chain_system.html#ab130afc375ba238780ac8da8fda6e5dd">impl_load_from_linear_container</a>(<span class="keyword">const</span> STL &amp;stl_ranges) {</div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">auto</span> begin = stl_ranges.begin();</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    impl_time() = *begin;</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    size_t len = <a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">impl_number</a><a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">(</a><a class="code" href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">)</a> * 3;</div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keyword">auto</span> pos_begin = begin + 1;</div><div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">auto</span> pos_end = pos_begin + len;</div><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">auto</span> vel_begin = pos_end;</div><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">auto</span> vel_end = vel_begin + len;</div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    load_to_coords(pos_begin, pos_end, chain_pos_);</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    load_to_coords(vel_begin, vel_end, chain_vel_);</div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(), chain_pos_, ptcl_.pos(), index_);</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(), chain_vel_, ptcl_.vel(), index_);</div><div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  }</div><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="namespacespace.html#a06390303b3a675ad8dd74646f4328e7c">  234</a></span>&#160;  std::istream &amp;<a class="code" href="namespacespace.html#a06390303b3a675ad8dd74646f4328e7c">operator</a>&gt;&gt;(std::istream &amp;is, <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt; &amp;ps) {</div><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    is &gt;&gt; ps.ptcl_;</div><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">return</span> is;</div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  }</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="namespacespace.html#aa110088df84bc47c226836379fdc5004">  240</a></span>&#160;  std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt; &amp;ps) {</div><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    os &lt;&lt; ps.ptcl_;</div><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> os;</div><div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  }</div><div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::chain_advance(Coord &amp;var, Coord &amp;chain_var, Coord &amp;chain_increment, Scalar step_size) {</div><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    calc::coord_advance(chain_var, chain_increment, step_size);</div><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(), chain_var, var, index());</div><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::eval_vel_indep_acc() {</div><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    interactions_.eval_newtonian_acc(*<span class="keyword">this</span>, accels_.tot_vel_indep_acc());</div><div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_indep) {</div><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      interactions_.eval_extra_vel_indep_acc(*<span class="keyword">this</span>, accels_.ext_vel_indep_acc());</div><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc());</div><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    }</div><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  }</div><div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::kick_pseu_vel(Scalar step_size) {</div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    interactions_.eval_extra_vel_dep_acc(*<span class="keyword">this</span>, accels_.ext_vel_dep_acc());</div><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    Chain::calc_chain(accels_.acc(), chain_acc_, index());</div><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, step_size);</div><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  }</div><div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions&gt;</div><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_chain_system.html">ChainSystem</a>&lt;Particles, Interactions&gt;::kick_real_vel(Scalar step_size) {</div><div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    std::swap(aux_vel_, ptcl_.vel());</div><div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    std::swap(chain_aux_vel_, chain_vel());</div><div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    interactions_.eval_extra_vel_dep_acc(*<span class="keyword">this</span>, accels_.ext_vel_dep_acc());</div><div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::swap(aux_vel_, ptcl_.vel());</div><div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    std::swap(chain_aux_vel_, chain_vel());</div><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());</div><div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    Chain::calc_chain(accels_.acc(), chain_acc_, index());</div><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    chain_advance(ptcl_.vel(), chain_vel_(), chain_acc_, step_size);</div><div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  }</div><div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;}</div><div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">//SPACEHUB_ARCHAIN_HPP</span></div><div class="ttc" id="dev-tools_8hpp_html_a0f585cf51c90e87b303299d7e5901c62"><div class="ttname"><a href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a></div><div class="ttdeci">#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:165</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a179a3e77c9b728f31071f56ef8eb0451"><div class="ttname"><a href="classspace_1_1_chain_system.html#a179a3e77c9b728f31071f56ef8eb0451">space::ChainSystem::impl_drift</a></div><div class="ttdeci">void impl_drift(Scalar step_size)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:166</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a0fc622eed05b67f0ff6eeac0781ee5db"><div class="ttname"><a href="classspace_1_1_chain_system.html#a0fc622eed05b67f0ff6eeac0781ee5db">space::ChainSystem::impl_advance_pos</a></div><div class="ttdeci">void impl_advance_pos(Coord const &amp;velocity, Scalar step_size)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:149</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_a7048ff21fd022abe7a131342f2fed10d"><div class="ttname"><a href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a></div><div class="ttdeci">#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:193</div></div>
-<div class="ttc" id="namespacespace_html_a06390303b3a675ad8dd74646f4328e7c"><div class="ttname"><a href="namespacespace.html#a06390303b3a675ad8dd74646f4328e7c">space::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;is, ChainSystem&lt; Particles, Interactions &gt; &amp;ps)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:234</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a0a5ce40dd1ae04df4fceed7e3074000f"><div class="ttname"><a href="classspace_1_1_chain_system.html#a0a5ce40dd1ae04df4fceed7e3074000f">space::ChainSystem::impl_pos</a></div><div class="ttdeci">auto const  &amp; impl_pos() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:59</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_af8864ed9de9cce87237b0a447138ef34"><div class="ttname"><a href="classspace_1_1_chain_system.html#af8864ed9de9cce87237b0a447138ef34">space::ChainSystem::impl_evaluate_acc</a></div><div class="ttdeci">void impl_evaluate_acc(Coord &amp;acceleration) const</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:161</div></div>
-<div class="ttc" id="classspace_1_1_chain_html"><div class="ttname"><a href="classspace_1_1_chain.html">space::Chain</a></div><div class="ttdef"><b>Definition:</b> chain.hpp:13</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a136cb35e64c879d777cd7528d423a264"><div class="ttname"><a href="classspace_1_1_chain_system.html#a136cb35e64c879d777cd7528d423a264">space::ChainSystem::impl_idn</a></div><div class="ttdeci">auto const  &amp; impl_idn() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:57</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a8492ec552883eac97429ee816f4ee384"><div class="ttname"><a href="classspace_1_1_chain_system.html#a8492ec552883eac97429ee816f4ee384">space::ChainSystem::impl_to_linear_container</a></div><div class="ttdeci">void impl_to_linear_container(STL &amp;stl_ranges)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:207</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a02855377c7c789e3014262824db5a914"><div class="ttname"><a href="classspace_1_1_chain_system.html#a02855377c7c789e3014262824db5a914">space::ChainSystem::impl_post_iter_process</a></div><div class="ttdeci">void impl_post_iter_process()</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:194</div></div>
-<div class="ttc" id="namespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_ad1018fb01af447632fbef085cad13fb4"><div class="ttname"><a href="classspace_1_1_chain_system.html#ad1018fb01af447632fbef085cad13fb4">space::ChainSystem::chain_pos</a></div><div class="ttdeci">auto const  &amp; chain_pos() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:40</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html"><div class="ttname"><a href="classspace_1_1_chain_system.html">space::ChainSystem</a></div><div class="ttdef"><b>Definition:</b> chain-system.hpp:24</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a2969352787126623169a4a9b9bec9152"><div class="ttname"><a href="classspace_1_1_chain_system.html#a2969352787126623169a4a9b9bec9152">space::ChainSystem::impl_kick</a></div><div class="ttdeci">void impl_kick(Scalar step_size)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:172</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_ab07a0719d22db2e5d6285c547498da38"><div class="ttname"><a href="classspace_1_1_chain_system.html#ab07a0719d22db2e5d6285c547498da38">space::ChainSystem::impl_advance_time</a></div><div class="ttdeci">void impl_advance_time(Scalar dt)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:144</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a735e94c8369c695b4ee6dd7688d05fe9"><div class="ttname"><a href="classspace_1_1_chain_system.html#a735e94c8369c695b4ee6dd7688d05fe9">space::ChainSystem::impl_time</a></div><div class="ttdeci">auto const  &amp; impl_time() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:63</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_acf07e04f44b6263421bac8c140448811"><div class="ttname"><a href="classspace_1_1_chain_system.html#acf07e04f44b6263421bac8c140448811">space::ChainSystem::impl_advance_vel</a></div><div class="ttdeci">void impl_advance_vel(Coord const &amp;acceleration, Scalar step_size)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:155</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a5a128d62a6716b95ff048a4f381fc24c"><div class="ttname"><a href="classspace_1_1_chain_system.html#a5a128d62a6716b95ff048a4f381fc24c">space::ChainSystem::operator&gt;&gt;</a></div><div class="ttdeci">friend std::istream &amp; operator&gt;&gt;(std::istream &amp;is, ChainSystem&lt; P, F &gt; &amp;ps)</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_aa39a3f420e3f8ebfae8ce71b0d9b21e7"><div class="ttname"><a href="classspace_1_1_chain_system.html#aa39a3f420e3f8ebfae8ce71b0d9b21e7">space::ChainSystem::index</a></div><div class="ttdeci">auto const  &amp; index() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:44</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a9eb2e596b83803b566c84ad94d838922"><div class="ttname"><a href="classspace_1_1_chain_system.html#a9eb2e596b83803b566c84ad94d838922">space::ChainSystem::impl_mass</a></div><div class="ttdeci">auto const  &amp; impl_mass() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:55</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_ab130afc375ba238780ac8da8fda6e5dd"><div class="ttname"><a href="classspace_1_1_chain_system.html#ab130afc375ba238780ac8da8fda6e5dd">space::ChainSystem::impl_load_from_linear_container</a></div><div class="ttdeci">void impl_load_from_linear_container(STL const &amp;stl_ranges)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:217</div></div>
-<div class="ttc" id="classspace_1_1_particle_system_html"><div class="ttname"><a href="classspace_1_1_particle_system.html">space::ParticleSystem</a></div><div class="ttdef"><b>Definition:</b> particle-system.hpp:22</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_ae4334217b14191738cf54d7b89e42b00"><div class="ttname"><a href="dev-tools_8hpp.html#ae4334217b14191738cf54d7b89e42b00">CRTP_IMPL</a></div><div class="ttdeci">#define CRTP_IMPL</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:117</div></div>
-<div class="ttc" id="classspace_1_1_empty_html"><div class="ttname"><a href="classspace_1_1_empty.html">space::Empty</a></div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:99</div></div>
-<div class="ttc" id="dev-tools_8hpp_html_ac2bdf3bcd9a8848f9533cb143fea0a3a"><div class="ttname"><a href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a></div><div class="ttdeci">#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)</div><div class="ttdef"><b>Definition:</b> dev-tools.hpp:153</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a57f00626599f7a164316674f750d0bb6"><div class="ttname"><a href="classspace_1_1_chain_system.html#a57f00626599f7a164316674f750d0bb6">space::ChainSystem::impl_vel</a></div><div class="ttdeci">auto const  &amp; impl_vel() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:61</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_aec1f22b879398f7f3d028a9e04fee7b7"><div class="ttname"><a href="classspace_1_1_chain_system.html#aec1f22b879398f7f3d028a9e04fee7b7">space::ChainSystem::impl_number</a></div><div class="ttdeci">size_t impl_number() const</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:139</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a483c30a3b7580fccf99a5608352d3759"><div class="ttname"><a href="classspace_1_1_chain_system.html#a483c30a3b7580fccf99a5608352d3759">space::ChainSystem::ChainSystem</a></div><div class="ttdeci">ChainSystem(Scalar time, STL const &amp;particle_set)</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:119</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_a65dbcf00f4037fedd92857cc1d11a130"><div class="ttname"><a href="classspace_1_1_chain_system.html#a65dbcf00f4037fedd92857cc1d11a130">space::ChainSystem::impl_pre_iter_process</a></div><div class="ttdeci">void impl_pre_iter_process()</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:186</div></div>
-<div class="ttc" id="classspace_1_1_chain_system_html_adcc923b5e42882b18a01a028c3586b50"><div class="ttname"><a href="classspace_1_1_chain_system.html#adcc923b5e42882b18a01a028c3586b50">space::ChainSystem::chain_vel</a></div><div class="ttdeci">auto const  &amp; chain_vel() const noexcept</div><div class="ttdef"><b>Definition:</b> chain-system.hpp:42</div></div>
+    <a href="chain-system_8hpp.html">Go to the documentation of this file.</a>
+    <div class="fragment">
+        <div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">        .-&#39;&#39;&#39;&#39;-.         |</span>
+        </div>
+        <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">       /        \        |</span>
+        </div>
+        <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">      /_        _\       |  SpaceHub: The Open Source N-body Toolkit</span>
+        </div>
+        <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">     // \  &lt;&gt;  / \\      |</span>
+        </div>
+        <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/</span>
+        </div>
+        <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">      \    ||    /       |</span>
+        </div>
+        <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">        \  __  /         |  Copyright (C) 2019 Yihan Wang</span>
+        </div>
+        <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">         &#39;.__.&#39;          |</span>
+        </div>
+        <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">---------------------------------------------------------------------</span>
+        </div>
+        <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span
+                class="comment">License</span></div>
+        <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    This file is part of SpaceHub.</span>
+        </div>
+        <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    SpaceHub is free software: you can redistribute it and/or modify it under</span>
+        </div>
+        <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    the terms of the MIT License. SpaceHub is distributed in the hope that it</span>
+        </div>
+        <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty</span>
+        </div>
+        <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License</span>
+        </div>
+        <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">    for more details. You should have received a copy of the MIT License along</span>
+        </div>
+        <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">    with SpaceHub.</span>
+        </div>
+        <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * @file chain-system.hpp</span>
+        </div>
+        <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *</span>
+        </div>
+        <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * Header file.</span>
+        </div>
+        <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span>
+        </div>
+        <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SPACEHUB_CHAIN_SYSTEM_HPP</span>
+        </div>
+        <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SPACEHUB_CHAIN_SYSTEM_HPP</span>
+        </div>
+        <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+        <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../core-computation.hpp&quot;</span>
+        </div>
+        <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&quot;../particle-system.hpp&quot;</span>
+        </div>
+        <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <a class="code"
+                                                                                          href="chain_8hpp.html">&quot;chain.hpp&quot;</a>
+        </div>
+        <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">include</span> <span
+                class="preprocessor">&lt;</span><span class="preprocessor">type_traits</span><span class="preprocessor">&gt;</span>
+        </div>
+        <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+        <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span
+                class="keyword">namespace</span> space::<a class="code" href="namespacespace_1_1particle__system.html">particle_system</a>
+            {
+        </div>
+        <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+        <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">      Class ChainSystem Declaration</span>
+        </div>
+        <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  \*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="comment">/**</span>
+        </div>
+        <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">   *</span>
+        </div>
+        <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">   * @tparam Particles</span>
+        </div>
+        <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">   * @tparam Interactions</span>
+        </div>
+        <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">   */</span>
+        </div>
+        <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00044"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html">   44</a></span>&#160;
+            <span class="keyword">class</span> <a class="code"
+                                                  href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>
+            : <span class="keyword">public</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_particle_system.html">ParticleSystem</a>&lt;<a
+                    class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;&gt; {
+        </div>
+        <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span
+                class="keyword">public</span>:
+        </div>
+        <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="comment">//Type members</span>
+        </div>
+        <div class="line"><a name="l00047"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a60049a17cfa81140f61b4f68afb56337">   47</a></span>&#160;
+            <a class="code"
+               href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>(Particles);
+        </div>
+        <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+        <div class="line"><a name="l00049"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a8d1752269d7cc9ccfcc36452f5997600">   49</a></span>&#160;
+            <span class="keyword">using</span> Base = <a class="code"
+                                                         href="classspace_1_1particle__system_1_1_particle_system.html">ParticleSystem</a>&lt;<a
+                    class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;&gt;;
+        </div>
+        <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+        <div class="line"><a name="l00051"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a97159467251222794b381ba2b647ee71">   51</a></span>&#160;
+            <span class="keyword">using</span> Particle = <span class="keyword">typename</span> Particles::Particle;
+        </div>
+        <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+        <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="comment">//Constructors</span>
+        </div>
+        <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <a class="code"
+                                                                                          href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a>(<a
+                class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>, <span
+                class="keyword">delete</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>,
+            <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);
+        </div>
+        <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+        <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">ChainSystem</a>(Scalar
+            time, STL <span class="keyword">const</span> &amp;particle_set);
+        </div>
+        <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+        <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="comment">//Public methods</span>
+        </div>
+        <div class="line"><a name="l00060"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#abe0f66364f3274995ec0dd61919e3be0">   60</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#abe0f66364f3274995ec0dd61919e3be0">chain_pos</a>,
+            chain_pos_);
+        </div>
+        <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+        <div class="line"><a name="l00062"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#aaa33dd0c6b4ce5287d662717a76bab11">   62</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#aaa33dd0c6b4ce5287d662717a76bab11">chain_vel</a>,
+            chain_vel_);
+        </div>
+        <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+        <div class="line"><a name="l00064"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a36a6eaa713490228642334fd16b7faea">   64</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#a36a6eaa713490228642334fd16b7faea">index</a>,
+            index_);
+        </div>
+        <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+        <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="comment">//Friend functions</span>
+        </div>
+        <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span>
+            F&gt;
+        </div>
+        <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; <span
+                class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <a class="code"
+                                                                                                          href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;P,
+            F&gt; <span class="keyword">const</span> &amp;ps);
+        </div>
+        <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+        <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span>
+            F&gt;
+        </div>
+        <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span
+                class="keyword">friend</span> std::istream &amp;<a class="code"
+                                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a5a128d62a6716b95ff048a4f381fc24c">operator</a>&gt;&gt;(std::istream
+            &amp;is, <a class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;P, F&gt;
+            &amp;ps);
+        </div>
+        <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+        <div class="line"><a name="l00073"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a033a438e30125f288ae6925958f15c67">   73</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#ae4334217b14191738cf54d7b89e42b00">CRTP_IMPL</a>:
+        </div>
+        <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="comment">//CRTP implementation</span>
+        </div>
+        <div class="line"><a name="l00075"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a6c28aaf30f088ed9464725d022c7a89d">   75</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#a6c28aaf30f088ed9464725d022c7a89d">impl_mass</a>,
+            ptcl_.mass());
+        </div>
+        <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+        <div class="line"><a name="l00077"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a5e0116c229120f81830874b1594e6025">   77</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#a5e0116c229120f81830874b1594e6025">impl_idn</a>,
+            ptcl_.idn());
+        </div>
+        <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+        <div class="line"><a name="l00079"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a327679eb721dcb2f2a3a556fa43b6af3">   79</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#a327679eb721dcb2f2a3a556fa43b6af3">impl_pos</a>,
+            ptcl_.pos());
+        </div>
+        <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+        <div class="line"><a name="l00081"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#ad4bd5fa0693d42e79b6277f93e6465b4">   81</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#ad4bd5fa0693d42e79b6277f93e6465b4">impl_vel</a>,
+            ptcl_.vel());
+        </div>
+        <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+        <div class="line"><a name="l00083"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a528538a876c67eb342ebc0a4c48a9340">   83</a></span>&#160;
+            <a class="code" href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a>(<span
+                    class="keyword">auto</span>, <a class="code"
+                                                    href="classspace_1_1particle__system_1_1_chain_system.html#a528538a876c67eb342ebc0a4c48a9340">impl_time</a>,
+            ptcl_.time());
+        </div>
+        <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+        <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; [[<a class="code"
+                                                                                            href="classspace_1_1particle__system_1_1_chain_system.html">nodiscard</a>]]
+            size_t <a class="code"
+                      href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">impl_number</a>()
+            <span class="keyword">const</span>;
+        </div>
+        <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+        <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a0004efb5986d096f24cfb8b630cf93e9">impl_advance_time</a>(Scalar
+            dt);
+        </div>
+        <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+        <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a61beb5e54c2945d9041c2b9eb9ae1510">impl_advance_pos</a>(Coord
+            <span class="keyword">const</span> &amp;velocity, Scalar step_size);
+        </div>
+        <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+        <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a6cd63f996eccc1f133bf4f1a2e711593">impl_advance_vel</a>(Coord
+            <span class="keyword">const</span> &amp;acceleration, Scalar step_size);
+        </div>
+        <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+        <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a5c1ef9b38089c0fb44df04e7cc2df82c">impl_evaluate_acc</a>(Coord
+            &amp;acceleration) <span class="keyword">const</span>;
+        </div>
+        <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+        <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a72d4ee0eb83360720ede3c03cee85d61">impl_drift</a>(Scalar
+            step_size);
+        </div>
+        <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+        <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#adccf80811749abc1e1eecd3860b8699f">impl_kick</a>(Scalar
+            step_size);
+        </div>
+        <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+        <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a3e7c36e8bf748d42c2b7f699a7a7c963">impl_pre_iter_process</a>();
+        </div>
+        <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+        <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a2e6497256bc4bae00b9c122bfb6c95e1">impl_post_iter_process</a>();
+        </div>
+        <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+        <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a41ad0758ee2dd41ba1946ddd92076aff">impl_to_linear_container</a>(STL
+            &amp;stl_ranges);
+        </div>
+        <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+        <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html#a7cad4dd5384937d9df6c4e4f4d508408">impl_load_from_linear_container</a>(STL
+            <span class="keyword">const</span> &amp;stl_ranges);
+        </div>
+        <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+        <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; <span
+                class="keyword">private</span>:
+        </div>
+        <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; <span class="comment">//Private methods</span>
+        </div>
+        <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; <span
+                class="keywordtype">void</span> chain_advance(Coord &amp;var, Coord &amp;chain_var, Coord &amp;chain_increment,
+            Scalar step_size);
+        </div>
+        <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+        <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; <span
+                class="keywordtype">void</span> eval_vel_indep_acc();
+        </div>
+        <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+        <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; <span
+                class="keywordtype">void</span> kick_pseu_vel(Scalar step_size);
+        </div>
+        <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+        <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; <span
+                class="keywordtype">void</span> kick_real_vel(Scalar step_size);
+        </div>
+        <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+        <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; <span class="comment">//Private members</span>
+        </div>
+        <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; Particles ptcl_;</div>
+        <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; Interactions interactions_;</div>
+        <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; interactions::Accelerations &lt;Interactions,
+            Coord&gt; accels_{};
+        </div>
+        <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; Coord chain_pos_;</div>
+        <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; Coord chain_vel_;</div>
+        <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; Coord chain_acc_;</div>
+        <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+        <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; IdxArray index_;</div>
+        <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; IdxArray new_index_;</div>
+        <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+        <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; std::conditional_t&lt;Interactions::ext_vel_dep,
+            Coord, <a class="code" href="classspace_1_1_empty.html">Empty</a>&gt; aux_vel_;
+        </div>
+        <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; std::conditional_t&lt;Interactions::ext_vel_dep,
+            Coord, <a class="code" href="classspace_1_1_empty.html">Empty</a>&gt; chain_aux_vel_;
+        </div>
+        <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; };</div>
+        <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+        <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; <span class="comment">/*---------------------------------------------------------------------------*\</span>
+        </div>
+        <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">      Class ChainSystem Implementation</span>
+        </div>
+        <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">  \*---------------------------------------------------------------------------*/</span>
+        </div>
+        <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code"
+                                                                                            href="namespacespace_1_1particle__system.html">Particles</a>,
+            <span class="keyword">typename</span> <a class="code" href="namespacespace_1_1particle__system.html">Interactions</a>&gt;
+        </div>
+        <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00139"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">  139</a></span>&#160;
+            <a class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">ChainSystem</a>(Scalar
+            time, <span class="keyword">const</span> STL &amp;particle_set)
+        </div>
+        <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; : ptcl_(time, particle_set),
+        </div>
+        <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; chain_pos_(particle_set.size()),
+        </div>
+        <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; chain_vel_(particle_set.size()),
+        </div>
+        <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; index_(particle_set.size()),
+        </div>
+        <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; new_index_(particle_set.size()),
+        </div>
+        <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">accels_</a>(<a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">particle_set</a>.<a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">size</a>()),
+        </div>
+        <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; chain_acc_(particle_set.size()) {
+        </div>
+        <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; <span class="keyword">static_assert</span>(is_container_v&lt;STL&gt;,
+            <span class="stringliteral">&quot;Only STL-like container can be used&quot;</span>);
+        </div>
+        <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_chain_index(ptcl_.pos(),
+            index_);
+        </div>
+        <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_chain(ptcl_.pos(),
+            chain_pos(), index());
+        </div>
+        <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_chain(ptcl_.vel(),
+            chain_vel(), index());
+        </div>
+        <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+        <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; <span
+                class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_dep) {
+        </div>
+        <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; aux_vel_ = ptcl_.vel();</div>
+        <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; chain_aux_vel_ = chain_vel_;
+        </div>
+        <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; }</div>
+        <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; }</div>
+        <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+        <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00159"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">  159</a></span>&#160;
+            size_t <a class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">impl_number</a>()
+            <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; <span
+                class="keywordflow">return</span> ptcl_.number();
+        </div>
+        <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; }</div>
+        <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+        <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00164"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a0004efb5986d096f24cfb8b630cf93e9">  164</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a0004efb5986d096f24cfb8b630cf93e9">impl_advance_time</a>(Scalar
+            dt) {
+        </div>
+        <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; ptcl_.time() += dt;</div>
+        <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; }</div>
+        <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+        <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00169"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a61beb5e54c2945d9041c2b9eb9ae1510">  169</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a61beb5e54c2945d9041c2b9eb9ae1510">impl_advance_pos</a>(<span
+                    class="keyword">const</span> Coord &amp;velocity, Scalar step_size) {
+        </div>
+        <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_chain(velocity,
+            chain_vel(), index());
+        </div>
+        <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; chain_advance(ptcl_.pos(),
+            chain_pos(), chain_vel(), step_size);
+        </div>
+        <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; }</div>
+        <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+        <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00175"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a6cd63f996eccc1f133bf4f1a2e711593">  175</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a6cd63f996eccc1f133bf4f1a2e711593">impl_advance_vel</a>(<span
+                    class="keyword">const</span> Coord &amp;acceleration, Scalar step_size) {
+        </div>
+        <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_chain(acceleration,
+            chain_acc_, index());
+        </div>
+        <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; chain_advance(ptcl_.vel(),
+            chain_vel(), chain_acc_, step_size);
+        </div>
+        <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; }</div>
+        <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+        <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00181"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a5c1ef9b38089c0fb44df04e7cc2df82c">  181</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a5c1ef9b38089c0fb44df04e7cc2df82c">impl_evaluate_acc</a>(Coord
+            &amp;acceleration) <span class="keyword">const</span> {
+        </div>
+        <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; interactions_.eval_acc(*<span
+                class="keyword">this</span>, acceleration);
+        </div>
+        <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; }</div>
+        <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+        <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00186"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a72d4ee0eb83360720ede3c03cee85d61">  186</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a72d4ee0eb83360720ede3c03cee85d61">impl_drift</a>(Scalar
+            step_size) {
+        </div>
+        <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; ptcl_.time() += step_size;</div>
+        <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; chain_advance(ptcl_.pos(),
+            chain_pos(), chain_vel(), step_size);
+        </div>
+        <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; }</div>
+        <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+        <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00192"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#adccf80811749abc1e1eecd3860b8699f">  192</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#adccf80811749abc1e1eecd3860b8699f">impl_kick</a>(Scalar
+            step_size) {
+        </div>
+        <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; <span
+                class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_dep) {
+        </div>
+        <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; Scalar half_step = 0.5 *
+            step_size;
+        </div>
+        <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; eval_vel_indep_acc();</div>
+        <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; kick_pseu_vel(half_step);</div>
+        <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; kick_real_vel(step_size);</div>
+        <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; kick_pseu_vel(half_step);</div>
+        <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; } <span
+                class="keywordflow">else</span> {
+        </div>
+        <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; interactions_.eval_acc(*<span
+                class="keyword">this</span>, accels_.acc());
+        </div>
+        <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; impl_advance_vel(accels_.acc(),
+            step_size);
+        </div>
+        <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; }</div>
+        <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; }</div>
+        <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+        <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00206"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a3e7c36e8bf748d42c2b7f699a7a7c963">  206</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a3e7c36e8bf748d42c2b7f699a7a7c963">impl_pre_iter_process</a>()
+            {
+        </div>
+        <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; <span
+                class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_dep) {
+        </div>
+        <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; aux_vel_ = ptcl_.vel();</div>
+        <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; chain_aux_vel_ = chain_vel_;
+        </div>
+        <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; }</div>
+        <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; }</div>
+        <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+        <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00214"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a2e6497256bc4bae00b9c122bfb6c95e1">  214</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a2e6497256bc4bae00b9c122bfb6c95e1">impl_post_iter_process</a>()
+            {
+        </div>
+        <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_chain_index(ptcl_.pos(),
+            new_index_);
+        </div>
+        <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; <span
+                class="keywordflow">if</span> (new_index_ != index_) {
+        </div>
+        <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::update_chain(chain_pos_,
+            index_, new_index_);
+        </div>
+        <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(),
+            chain_pos_, ptcl_.pos(), new_index_);
+        </div>
+        <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::update_chain(chain_vel_,
+            index_, new_index_);
+        </div>
+        <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(),
+            chain_vel_, ptcl_.vel(), new_index_);
+        </div>
+        <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; index_ = new_index_;</div>
+        <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; }</div>
+        <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; }</div>
+        <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+        <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code"
+                                                                                            href="namespacespace_1_1particle__system.html">Particles</a>,
+            <span class="keyword">typename</span> <a class="code" href="namespacespace_1_1particle__system.html">Interactions</a>&gt;
+        </div>
+        <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00227"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a41ad0758ee2dd41ba1946ddd92076aff">  227</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a41ad0758ee2dd41ba1946ddd92076aff">impl_to_linear_container</a>(STL
+            &amp;stl_ranges) {
+        </div>
+        <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; stl_ranges.clear();</div>
+        <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; stl_ranges.reserve(<a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">impl_number</a><a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">(</a><a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">)</a> * 6
+            + 1);
+        </div>
+        <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;
+            stl_ranges.emplace_back(impl_time());
+        </div>
+        <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; add_coords_to(stl_ranges,
+            chain_pos_);
+        </div>
+        <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; add_coords_to(stl_ranges,
+            chain_vel_);
+        </div>
+        <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; }</div>
+        <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+        <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code"
+                                                                                            href="namespacespace_1_1particle__system.html">Particles</a>,
+            <span class="keyword">typename</span> <a class="code" href="namespacespace_1_1particle__system.html">Interactions</a>&gt;
+        </div>
+        <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;
+        </div>
+        <div class="line"><a name="l00237"></a><span class="lineno"><a class="line"
+                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#a7cad4dd5384937d9df6c4e4f4d508408">  237</a></span>&#160;
+            <span class="keywordtype">void</span> <a class="code"
+                                                     href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::<a class="code"
+                                 href="classspace_1_1particle__system_1_1_chain_system.html#a7cad4dd5384937d9df6c4e4f4d508408">impl_load_from_linear_container</a>(<span
+                    class="keyword">const</span> STL &amp;stl_ranges) {
+        </div>
+        <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; <span class="keyword">auto</span>
+            begin = stl_ranges.begin();
+        </div>
+        <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; impl_time() = *begin;</div>
+        <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; size_t len = <a class="code"
+                                                                                                       href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">impl_number</a><a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">(</a><a
+                class="code"
+                href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">)</a> * 3;
+        </div>
+        <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; <span class="keyword">auto</span>
+            pos_begin = begin + 1;
+        </div>
+        <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; <span class="keyword">auto</span>
+            pos_end = pos_begin + len;
+        </div>
+        <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; <span class="keyword">auto</span>
+            vel_begin = pos_end;
+        </div>
+        <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; <span class="keyword">auto</span>
+            vel_end = vel_begin + len;
+        </div>
+        <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+        <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; load_to_coords(pos_begin,
+            pos_end, chain_pos_);
+        </div>
+        <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; load_to_coords(vel_begin,
+            vel_end, chain_vel_);
+        </div>
+        <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+        <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(),
+            chain_pos_, ptcl_.pos(), index_);
+        </div>
+        <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(),
+            chain_vel_, ptcl_.vel(), index_);
+        </div>
+        <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; }</div>
+        <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+        <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00254"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace_1_1particle__system.html#a740760ae2cd8c4348377ccf438d95aff">  254</a></span>&#160;
+            std::istream &amp;<a class="code"
+                                 href="namespacespace_1_1particle__system.html#a740760ae2cd8c4348377ccf438d95aff">operator</a>&gt;&gt;(std::istream
+            &amp;is, <a class="code" href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt; &amp;ps) {
+        </div>
+        <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; is &gt;&gt; ps.ptcl_;</div>
+        <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; <span
+                class="keywordflow">return</span> is;
+        </div>
+        <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; }</div>
+        <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+        <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00260"></a><span class="lineno"><a class="line"
+                                                                       href="namespacespace_1_1particle__system.html#a564bceda97e7591778849d2038c542fa">  260</a></span>&#160;
+            std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> <a class="code"
+                                                                                                           href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt; &amp;ps) {
+        </div>
+        <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; os &lt;&lt; ps.ptcl_;</div>
+        <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; <span
+                class="keywordflow">return</span> os;
+        </div>
+        <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; }</div>
+        <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
+        <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::chain_advance(Coord &amp;var, Coord &amp;chain_var, Coord &amp;chain_increment,
+        </div>
+        <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; Scalar step_size) {</div>
+        <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; calc::coord_advance(chain_var,
+            chain_increment, step_size);
+        </div>
+        <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; <a class="code"
+                                                                                          href="classspace_1_1_chain.html">Chain</a>::calc_cartesian(ptcl_.mass(),
+            chain_var, var, index());
+        </div>
+        <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; }</div>
+        <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+        <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::eval_vel_indep_acc() {
+        </div>
+        <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;
+            interactions_.eval_newtonian_acc(*<span class="keyword">this</span>, accels_.tot_vel_indep_acc());
+        </div>
+        <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; <span
+                class="keywordflow">if</span> <span class="keyword">constexpr</span> (Interactions::ext_vel_indep) {
+        </div>
+        <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;
+            interactions_.eval_extra_vel_indep_acc(*<span class="keyword">this</span>, accels_.ext_vel_indep_acc());
+        </div>
+        <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;
+            calc::coord_add(accels_.tot_vel_indep_acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc());
+        </div>
+        <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; }</div>
+        <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; }</div>
+        <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+        <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::kick_pseu_vel(Scalar step_size) {
+        </div>
+        <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;
+            interactions_.eval_extra_vel_dep_acc(*<span class="keyword">this</span>, accels_.ext_vel_dep_acc());
+        </div>
+        <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; calc::coord_add(accels_.acc(),
+            accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+        </div>
+        <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; Chain::calc_chain(accels_.acc(),
+            chain_acc_, index());
+        </div>
+        <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; chain_advance(aux_vel_,
+            chain_aux_vel_, chain_acc_, step_size);
+        </div>
+        <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; }</div>
+        <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+        <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; <span
+                class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span
+                class="keyword">typename</span> Interactions&gt;
+        </div>
+        <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; <span
+                class="keywordtype">void</span> <a class="code"
+                                                   href="classspace_1_1particle__system_1_1_chain_system.html">ChainSystem</a>&lt;Particles,
+            Interactions&gt;::kick_real_vel(Scalar step_size) {
+        </div>
+        <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; std::swap(aux_vel_, ptcl_.vel());
+        </div>
+        <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; std::swap(chain_aux_vel_,
+            chain_vel());
+        </div>
+        <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;
+            interactions_.eval_extra_vel_dep_acc(*<span class="keyword">this</span>, accels_.ext_vel_dep_acc());
+        </div>
+        <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; std::swap(aux_vel_, ptcl_.vel());
+        </div>
+        <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; std::swap(chain_aux_vel_,
+            chain_vel());
+        </div>
+        <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
+        <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; calc::coord_add(accels_.acc(),
+            accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+        </div>
+        <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; Chain::calc_chain(accels_.acc(),
+            chain_acc_, index());
+        </div>
+        <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; chain_advance(ptcl_.vel(),
+            chain_vel_(), chain_acc_, step_size);
+        </div>
+        <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; }</div>
+        <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
+        <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span
+                class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">//SPACEHUB_ARCHAIN_HPP</span>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html">
+            <div class="ttname"><a href="classspace_1_1particle__system_1_1_chain_system.html">space::particle_system::ChainSystem</a>
+            </div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:44</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a0004efb5986d096f24cfb8b630cf93e9">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a0004efb5986d096f24cfb8b630cf93e9">space::particle_system::ChainSystem::impl_advance_time</a>
+            </div>
+            <div class="ttdeci">void impl_advance_time(Scalar dt)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:164</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_a0f585cf51c90e87b303299d7e5901c62">
+            <div class="ttname"><a href="dev-tools_8hpp.html#a0f585cf51c90e87b303299d7e5901c62">SPACEHUB_USING_TYPE_SYSTEM_OF</a>
+            </div>
+            <div class="ttdeci">#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:189</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a5a128d62a6716b95ff048a4f381fc24c">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a5a128d62a6716b95ff048a4f381fc24c">space::particle_system::ChainSystem::operator&gt;&gt;</a>
+            </div>
+            <div class="ttdeci">friend std::istream &amp; operator&gt;&gt;(std::istream &amp;is, ChainSystem&lt; P, F
+                &gt; &amp;ps)
+            </div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_ad4bd5fa0693d42e79b6277f93e6465b4">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#ad4bd5fa0693d42e79b6277f93e6465b4">space::particle_system::ChainSystem::impl_vel</a>
+            </div>
+            <div class="ttdeci">auto const &amp; impl_vel() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:81</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_a7048ff21fd022abe7a131342f2fed10d">
+            <div class="ttname"><a
+                    href="dev-tools_8hpp.html#a7048ff21fd022abe7a131342f2fed10d">SPACEHUB_STD_ACCESSOR</a></div>
+            <div class="ttdeci">#define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:217</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_chain_html">
+            <div class="ttname"><a href="classspace_1_1_chain.html">space::Chain</a></div>
+            <div class="ttdef"><b>Definition:</b> chain.hpp:37</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_addbfa7e4b9f69fb38e4e8ec17a253616">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#addbfa7e4b9f69fb38e4e8ec17a253616">space::particle_system::ChainSystem::impl_number</a>
+            </div>
+            <div class="ttdeci">size_t impl_number() const</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:159</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a6cd63f996eccc1f133bf4f1a2e711593">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a6cd63f996eccc1f133bf4f1a2e711593">space::particle_system::ChainSystem::impl_advance_vel</a>
+            </div>
+            <div class="ttdeci">void impl_advance_vel(Coord const &amp;acceleration, Scalar step_size)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:175</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a5e0116c229120f81830874b1594e6025">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a5e0116c229120f81830874b1594e6025">space::particle_system::ChainSystem::impl_idn</a>
+            </div>
+            <div class="ttdeci">auto const &amp; impl_idn() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:77</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a72d4ee0eb83360720ede3c03cee85d61">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a72d4ee0eb83360720ede3c03cee85d61">space::particle_system::ChainSystem::impl_drift</a>
+            </div>
+            <div class="ttdeci">void impl_drift(Scalar step_size)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:186</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a2e6497256bc4bae00b9c122bfb6c95e1">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a2e6497256bc4bae00b9c122bfb6c95e1">space::particle_system::ChainSystem::impl_post_iter_process</a>
+            </div>
+            <div class="ttdeci">void impl_post_iter_process()</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:214</div>
+        </div>
+        <div class="ttc" id="namespacespace_1_1particle__system_html_a740760ae2cd8c4348377ccf438d95aff">
+            <div class="ttname"><a href="namespacespace_1_1particle__system.html#a740760ae2cd8c4348377ccf438d95aff">space::particle_system::operator&gt;&gt;</a>
+            </div>
+            <div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;is, ChainSystem&lt; Particles,
+                Interactions &gt; &amp;ps)
+            </div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:254</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_particle_system_html">
+            <div class="ttname"><a href="classspace_1_1particle__system_1_1_particle_system.html">space::particle_system::ParticleSystem</a>
+            </div>
+            <div class="ttdef"><b>Definition:</b> particle-system.hpp:46</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_adccf80811749abc1e1eecd3860b8699f">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#adccf80811749abc1e1eecd3860b8699f">space::particle_system::ChainSystem::impl_kick</a>
+            </div>
+            <div class="ttdeci">void impl_kick(Scalar step_size)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:192</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_aaa33dd0c6b4ce5287d662717a76bab11">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#aaa33dd0c6b4ce5287d662717a76bab11">space::particle_system::ChainSystem::chain_vel</a>
+            </div>
+            <div class="ttdeci">auto const &amp; chain_vel() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:62</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a61beb5e54c2945d9041c2b9eb9ae1510">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a61beb5e54c2945d9041c2b9eb9ae1510">space::particle_system::ChainSystem::impl_advance_pos</a>
+            </div>
+            <div class="ttdeci">void impl_advance_pos(Coord const &amp;velocity, Scalar step_size)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:169</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a528538a876c67eb342ebc0a4c48a9340">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a528538a876c67eb342ebc0a4c48a9340">space::particle_system::ChainSystem::impl_time</a>
+            </div>
+            <div class="ttdeci">auto const &amp; impl_time() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:83</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a327679eb721dcb2f2a3a556fa43b6af3">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a327679eb721dcb2f2a3a556fa43b6af3">space::particle_system::ChainSystem::impl_pos</a>
+            </div>
+            <div class="ttdeci">auto const &amp; impl_pos() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:79</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_abe0f66364f3274995ec0dd61919e3be0">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#abe0f66364f3274995ec0dd61919e3be0">space::particle_system::ChainSystem::chain_pos</a>
+            </div>
+            <div class="ttdeci">auto const &amp; chain_pos() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:60</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_ae4334217b14191738cf54d7b89e42b00">
+            <div class="ttname"><a href="dev-tools_8hpp.html#ae4334217b14191738cf54d7b89e42b00">CRTP_IMPL</a></div>
+            <div class="ttdeci">#define CRTP_IMPL</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:141</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a7cad4dd5384937d9df6c4e4f4d508408">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a7cad4dd5384937d9df6c4e4f4d508408">space::particle_system::ChainSystem::impl_load_from_linear_container</a>
+            </div>
+            <div class="ttdeci">void impl_load_from_linear_container(STL const &amp;stl_ranges)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:237</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a36a6eaa713490228642334fd16b7faea">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a36a6eaa713490228642334fd16b7faea">space::particle_system::ChainSystem::index</a>
+            </div>
+            <div class="ttdeci">auto const &amp; index() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:64</div>
+        </div>
+        <div class="ttc" id="classspace_1_1_empty_html">
+            <div class="ttname"><a href="classspace_1_1_empty.html">space::Empty</a></div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:123</div>
+        </div>
+        <div class="ttc" id="dev-tools_8hpp_html_ac2bdf3bcd9a8848f9533cb143fea0a3a">
+            <div class="ttname"><a href="dev-tools_8hpp.html#ac2bdf3bcd9a8848f9533cb143fea0a3a">SPACEHUB_MAKE_CONSTRUCTORS</a>
+            </div>
+            <div class="ttdeci">#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)</div>
+            <div class="ttdef"><b>Definition:</b> dev-tools.hpp:177</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_acd75e2a1311c82e83739f17035533b95">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#acd75e2a1311c82e83739f17035533b95">space::particle_system::ChainSystem::ChainSystem</a>
+            </div>
+            <div class="ttdeci">ChainSystem(Scalar time, STL const &amp;particle_set)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:139</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a5c1ef9b38089c0fb44df04e7cc2df82c">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a5c1ef9b38089c0fb44df04e7cc2df82c">space::particle_system::ChainSystem::impl_evaluate_acc</a>
+            </div>
+            <div class="ttdeci">void impl_evaluate_acc(Coord &amp;acceleration) const</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:181</div>
+        </div>
+        <div class="ttc" id="namespacespace_1_1particle__system_html">
+            <div class="ttname"><a href="namespacespace_1_1particle__system.html">space::particle_system</a></div>
+            <div class="ttdef"><b>Definition:</b> archain.hpp:31</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a6c28aaf30f088ed9464725d022c7a89d">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a6c28aaf30f088ed9464725d022c7a89d">space::particle_system::ChainSystem::impl_mass</a>
+            </div>
+            <div class="ttdeci">auto const &amp; impl_mass() const noexcept</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:75</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a41ad0758ee2dd41ba1946ddd92076aff">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a41ad0758ee2dd41ba1946ddd92076aff">space::particle_system::ChainSystem::impl_to_linear_container</a>
+            </div>
+            <div class="ttdeci">void impl_to_linear_container(STL &amp;stl_ranges)</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:227</div>
+        </div>
+        <div class="ttc" id="classspace_1_1particle__system_1_1_chain_system_html_a3e7c36e8bf748d42c2b7f699a7a7c963">
+            <div class="ttname"><a
+                    href="classspace_1_1particle__system_1_1_chain_system.html#a3e7c36e8bf748d42c2b7f699a7a7c963">space::particle_system::ChainSystem::impl_pre_iter_process</a>
+            </div>
+            <div class="ttdeci">void impl_pre_iter_process()</div>
+            <div class="ttdef"><b>Definition:</b> chain-system.hpp:206</div>
+        </div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

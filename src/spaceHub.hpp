@@ -1,3 +1,28 @@
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file spaceHub.hpp
+ *
+ * Giant header file.
+ */
+
 #ifndef SPACEHUB_SPACEHUB_HPP
 #define SPACEHUB_SPACEHUB_HPP
 
@@ -38,15 +63,15 @@
 namespace space {
   using DefaultTypes = Types<double, std::vector>;
 
-  template<template<class> class Paticles = PointParticles, typename Force = interactions::NewtonianGrav>
+  template<template<class> class Paticles = particle_set::PointParticles, typename Force = interactions::NewtonianGrav>
   using DefaultSolver =
-  Simulator<ARchainSystem<Paticles<DefaultTypes>, Force, ReguType::LogH>, odeIterator::BurlishStoer<double, RMS, PIDController>>;
+  Simulator<particle_system::ARchainSystem<Paticles<DefaultTypes>, Force, particle_system::ReguType::LogH>, ode_iterator::BurlishStoer<double, ode_iterator::RMS, ode_iterator::PIDController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-// using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;
+// using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-// using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, odeIterator::BurlishStoer<double>>;
+// using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
 }  // namespace space
 
 #endif

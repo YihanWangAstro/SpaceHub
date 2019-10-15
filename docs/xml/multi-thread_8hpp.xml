@@ -88,11 +88,14 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="classspace_1_1multi_thread_1_1_concurrent_file" prot="public">space::multiThread::ConcurrentFile</innerclass>
-    <innernamespace refid="namespacespace_1_1multi_thread">space::multiThread</innernamespace>
+      <innerclass refid="classspace_1_1multi__thread_1_1_concurrent_file" prot="public">
+          space::multi_thread::ConcurrentFile
+      </innerclass>
+      <innernamespace refid="namespacespace_1_1multi__thread">space::multi_thread</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+        <para>Header file.</para>
     </detaileddescription>
     <location file="multi-thread/multi-thread.hpp"/>
   </compounddef>

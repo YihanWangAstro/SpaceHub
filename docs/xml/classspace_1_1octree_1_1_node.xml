@@ -141,7 +141,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="206">
+        <node id="203">
         <label>space::octree::Node&lt; T &gt;</label>
         <link refid="classspace_1_1octree_1_1_node"/>
       </node>

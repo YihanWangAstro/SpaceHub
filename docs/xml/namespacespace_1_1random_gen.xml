@@ -11,6 +11,6 @@
     </briefdescription>
     <detaileddescription>
 <para>Documentation for space </para>    </detaileddescription>
-    <location file="rand-generator.hpp" line="13" column="1"/>
+      <location file="rand-generator.hpp" line="33" column="1"/>
   </compounddef>
 </doxygen>

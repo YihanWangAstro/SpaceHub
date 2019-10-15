@@ -18,28 +18,28 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="158">
+        <node id="155">
         <label>space::is_container&lt; T, _ &gt;</label>
         <link refid="structspace_1_1is__container"/>
-        <childnode refid="159" relation="public-inheritance">
+            <childnode refid="156" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="159">
+        <node id="156">
         <label>std::false_type</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="160">
+        <node id="157">
         <label>space::is_container&lt; T, _ &gt;</label>
         <link refid="structspace_1_1is__container"/>
-        <childnode refid="161" relation="public-inheritance">
+            <childnode refid="158" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="161">
+        <node id="158">
         <label>std::false_type</label>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="332" column="1" bodyfile="dev-tools.hpp" bodystart="332" bodyend="333"/>
+      <location file="dev-tools.hpp" line="356" column="1" bodyfile="dev-tools.hpp" bodystart="356" bodyend="357"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['abs',['abs',['../structspace_1_1_vec3.html#acdb0073664210d36a69df4ea851ed023',1,'space::Vec3::abs()'],['../namespace_space_h_1_1_lazy.html#aff4e45f98de5e5c3f549ee6179a7a552',1,'SpaceH::Lazy::abs()'],['../namespacespace.html#a38e2c327d558183010000c0213658b4a',1,'space::abs()']]],
-  ['acc',['acc',['../classspace_1_1_accelerations.html#a33f4209d477db92eaef003c36ce1037b',1,'space::Accelerations::acc() noexcept'],['../classspace_1_1_accelerations.html#a3d642a245d8b9d508b3e4b214e50bd6f',1,'space::Accelerations::acc() const noexcept']]],
-  ['accelerations',['Accelerations',['../classspace_1_1_accelerations.html#a494a58741396f7345ac30f202c12a416',1,'space::Accelerations::Accelerations()=default'],['../classspace_1_1_accelerations.html#a293d5b1518c5777d4815d50470e0179f',1,'space::Accelerations::Accelerations(Accelerations const &amp;)=default'],['../classspace_1_1_accelerations.html#aebb41e2607bca30139ed23f76d082af5',1,'space::Accelerations::Accelerations(Accelerations &amp;&amp;)=default'],['../classspace_1_1_accelerations.html#a149aa0d9b75cc17087099441dda0aa27',1,'space::Accelerations::Accelerations(size_t size)']]],
+    ['acc', ['acc', ['../classspace_1_1interactions_1_1_accelerations.html#a2a52a12aa0487db0eab2795d1bebfd5d', 1, 'space::interactions::Accelerations::acc() noexcept'], ['../classspace_1_1interactions_1_1_accelerations.html#a42f00143454ebc375b8b698c9ee95a5d', 1, 'space::interactions::Accelerations::acc() const noexcept']]],
+    ['accelerations', ['Accelerations', ['../classspace_1_1interactions_1_1_accelerations.html#a5495161f0c32785a7359031658dca87c', 1, 'space::interactions::Accelerations::Accelerations()=default'], ['../classspace_1_1interactions_1_1_accelerations.html#a5469a65edb850ad9792b76318c0afcb3', 1, 'space::interactions::Accelerations::Accelerations(Accelerations const &amp;)=default'], ['../classspace_1_1interactions_1_1_accelerations.html#a7ea590cb463a00549f2cd44aec051a5b', 1, 'space::interactions::Accelerations::Accelerations(Accelerations &amp;&amp;)=default'], ['../classspace_1_1interactions_1_1_accelerations.html#acfded7207ce6137b1dddda10d2981315', 1, 'space::interactions::Accelerations::Accelerations(size_t size)']]],
   ['acos',['acos',['../namespace_space_h_1_1_lazy.html#a51e60901d011376fb3960f85d608d841',1,'SpaceH::Lazy']]],
   ['add',['add',['../namespacespace_1_1calc.html#ab1eb54b1b30947e6b678b543a9c2322e',1,'space::calc']]],
   ['add_5fcoords_5fto',['add_coords_to',['../namespacespace.html#a8245395dfd53171e9ea418b21ca7ef77',1,'space']]],
@@ -10,13 +10,13 @@ var searchData=
   ['add_5fpre_5fstep_5foperation',['add_pre_step_operation',['../classspace_1_1_run_args.html#a40dd8e75c3602befb2ea3a54f850a3de',1,'space::RunArgs']]],
   ['add_5fstop_5fcondition',['add_stop_condition',['../classspace_1_1_run_args.html#a1f7732aa10f12671047acd41f43b7035',1,'space::RunArgs::add_stop_condition(Func func, Args &amp;&amp;... args)'],['../classspace_1_1_run_args.html#a05a043ed2282f9529f326c5e665e93e7',1,'space::RunArgs::add_stop_condition(T end)']]],
   ['add_5fstop_5fpoint_5foperation',['add_stop_point_operation',['../classspace_1_1_run_args.html#a202c1480767ceb6d2873f9383d21145b',1,'space::RunArgs']]],
-  ['advance_5fpos',['advance_pos',['../classspace_1_1_particle_system.html#a2aa924fe50893957b6c2c4adc3715a59',1,'space::ParticleSystem']]],
-  ['advance_5ftime',['advance_time',['../classspace_1_1_particle_system.html#a06f59e07f2ed6ef0b74cf04aab2314b5',1,'space::ParticleSystem']]],
-  ['advance_5fvel',['advance_vel',['../classspace_1_1_particle_system.html#a725e1999204d5cd73f9b0f6fe53bacc4',1,'space::ParticleSystem']]],
+    ['advance_5fpos', ['advance_pos', ['../classspace_1_1particle__system_1_1_particle_system.html#a68d0fecd53f5c5ce1c761590738371d8', 1, 'space::particle_system::ParticleSystem']]],
+    ['advance_5ftime', ['advance_time', ['../classspace_1_1particle__system_1_1_particle_system.html#a3e4a5296048b357017f605b70c12dbc1', 1, 'space::particle_system::ParticleSystem']]],
+    ['advance_5fvel', ['advance_vel', ['../classspace_1_1particle__system_1_1_particle_system.html#a51bf1a6523a58932b5fa1c755ca33f00', 1, 'space::particle_system::ParticleSystem']]],
   ['all',['all',['../namespacespace_1_1calc.html#a60f195a3f599f8bfad623c64a096656e',1,'space::calc']]],
   ['any',['any',['../namespacespace_1_1calc.html#a7742b69c5da4cd5bc6053beec5f3c4f6',1,'space::calc']]],
   ['anyvector',['AnyVector',['../class_any_vector.html#a2a5b9d3cf006aae9f7e5722fbdb9cc59',1,'AnyVector::AnyVector()=default'],['../class_any_vector.html#a727b697ad1ec50b42a717129dcda6b63',1,'AnyVector::AnyVector(AnyVector const &amp;)=default'],['../class_any_vector.html#a016668bc163ec587db853c55d94c43ed',1,'AnyVector::AnyVector(AnyVector &amp;&amp;)=default']]],
-  ['archainsystem',['ARchainSystem',['../classspace_1_1_a_rchain_system.html#ae57f2ed4ae122899e21df71e2f0f8a62',1,'space::ARchainSystem::ARchainSystem()=delete'],['../classspace_1_1_a_rchain_system.html#a2f1fd3aa88442f13d02d5ae6c37be8f1',1,'space::ARchainSystem::ARchainSystem(ARchainSystem const &amp;)=default'],['../classspace_1_1_a_rchain_system.html#a0f2febf1bbf4923995a2536561a99d6b',1,'space::ARchainSystem::ARchainSystem(ARchainSystem &amp;&amp;)=default'],['../classspace_1_1_a_rchain_system.html#aaf57fa45ed46c628296fe70324a9a6cc',1,'space::ARchainSystem::ARchainSystem(Scalar time, STL const &amp;particle_set)']]],
+    ['archainsystem', ['ARchainSystem', ['../classspace_1_1particle__system_1_1_a_rchain_system.html#a0b813c2386c7a68f91cc3447ca5e5efe', 1, 'space::particle_system::ARchainSystem::ARchainSystem()=delete'], ['../classspace_1_1particle__system_1_1_a_rchain_system.html#a643050d39cc2e0b9bbd484cf3f8d4ff7', 1, 'space::particle_system::ARchainSystem::ARchainSystem(ARchainSystem const &amp;)=default'], ['../classspace_1_1particle__system_1_1_a_rchain_system.html#a197ae31f2da62c1b44eb3cf67d413847', 1, 'space::particle_system::ARchainSystem::ARchainSystem(ARchainSystem &amp;&amp;)=default'], ['../classspace_1_1particle__system_1_1_a_rchain_system.html#ad88aecf5f388a2f9e0dc5345586abd7a', 1, 'space::particle_system::ARchainSystem::ARchainSystem(Scalar time, STL const &amp;particle_set)']]],
   ['array_5fadd',['array_add',['../namespacespace_1_1calc.html#a48c41d16177599e77106683bc56a612e',1,'space::calc']]],
   ['array_5fadvance',['array_advance',['../namespacespace_1_1calc.html#ae0294ebd7b3e5b7ce717c3f84934ac4f',1,'space::calc']]],
   ['array_5fdot',['array_dot',['../namespacespace_1_1calc.html#a54cff9b21c1dc99cfa0a27d03a361e6a',1,'space::calc']]],
@@ -26,6 +26,6 @@ var searchData=
   ['array_5fsum',['array_sum',['../namespacespace_1_1calc.html#a290e37919d94780a2c578e5a52ff0165',1,'space::calc']]],
   ['asin',['asin',['../namespace_space_h_1_1_lazy.html#a200166966304fe12c853f97faac55fc8',1,'SpaceH::Lazy']]],
   ['atan',['atan',['../namespace_space_h_1_1_lazy.html#a3512ecc8ba490789397be7cd2de13238',1,'SpaceH::Lazy']]],
-  ['atol',['atol',['../classspace_1_1_error_checker.html#a654027488409a6df5304611c450d52a2',1,'space::ErrorChecker']]],
-  ['auto_5fmulti_5fthread',['auto_multi_thread',['../namespacespace_1_1multi_thread.html#a55562dd560725d1e9d7407181ec770be',1,'space::multiThread']]]
+    ['atol', ['atol', ['../classspace_1_1ode__iterator_1_1_error_checker.html#a563a4c2559d79f569369cde381541b86', 1, 'space::ode_iterator::ErrorChecker']]],
+    ['auto_5fmulti_5fthread', ['auto_multi_thread', ['../namespacespace_1_1multi__thread.html#a28108191f5b6832d42d96800778992c2', 1, 'space::multi_thread']]]
 ];

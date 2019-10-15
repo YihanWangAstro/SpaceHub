@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Space Hub: space::Simulator&lt; ParticSys, OdeIterator &gt; Class Template Reference</title>
+    <title>Space Hub: space::Simulator&lt; ParticleSys, OdeIterator &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,235 +68,504 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">space::Simulator&lt; ParticSys, OdeIterator &gt; Class Template Reference</div>  </div>
+      <div class="title">space::Simulator&lt; ParticleSys, OdeIterator &gt; Class Template Reference</div>
+  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="simulator_8hpp_source.html">simulator.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for space::Simulator&lt; ParticSys, OdeIterator &gt;:</div>
+    Collaboration diagram for space::Simulator&lt; ParticleSys, OdeIterator &gt;:
+</div>
 <div class="dyncontent">
-<div class="center"><img src="classspace_1_1_simulator__coll__graph.png" border="0" usemap="#space_1_1_simulator_3_01_partic_sys_00_01_ode_iterator_01_4_coll__map" alt="Collaboration graph"/></div>
+    <div class="center"><img src="classspace_1_1_simulator__coll__graph.png" border="0"
+                             usemap="#space_1_1_simulator_3_01_particle_sys_00_01_ode_iterator_01_4_coll__map"
+                             alt="Collaboration graph"/></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a408412892df3fe3e641a82e4ef69bd07"><td class="memTemplParams" colspan="2">template&lt;typename ... _T_&gt; </td></tr>
-<tr class="memitem:a408412892df3fe3e641a82e4ef69bd07"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a408412892df3fe3e641a82e4ef69bd07">Container</a> = typename ParticSys ::template <a class="el" href="classspace_1_1_simulator.html#a408412892df3fe3e641a82e4ef69bd07">Container</a>&lt; _T_... &gt;</td></tr>
-<tr class="separator:a408412892df3fe3e641a82e4ef69bd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5076aec593fbf1fa71f5d442b594929"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a></td></tr>
-<tr class="separator:ad5076aec593fbf1fa71f5d442b594929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a415dc74d3deff46d221e800a8439caab"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a415dc74d3deff46d221e800a8439caab">ScalarArray</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a415dc74d3deff46d221e800a8439caab">ScalarArray</a></td></tr>
-<tr class="separator:a415dc74d3deff46d221e800a8439caab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00324d26ea7c2a7bc2e90ec479a07ed1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a00324d26ea7c2a7bc2e90ec479a07ed1">IdxArray</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a00324d26ea7c2a7bc2e90ec479a07ed1">IdxArray</a></td></tr>
-<tr class="separator:a00324d26ea7c2a7bc2e90ec479a07ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44655dfcb5bac88f2c287a655a141c2a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a44655dfcb5bac88f2c287a655a141c2a">IntArray</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a44655dfcb5bac88f2c287a655a141c2a">IntArray</a></td></tr>
-<tr class="separator:a44655dfcb5bac88f2c287a655a141c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aec408c7ee34273538db101596a5b0a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a3aec408c7ee34273538db101596a5b0a">Vector</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a3aec408c7ee34273538db101596a5b0a">Vector</a></td></tr>
-<tr class="separator:a3aec408c7ee34273538db101596a5b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0b14ac8119b1d4ceefc728217fbb5bf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ac0b14ac8119b1d4ceefc728217fbb5bf">VectorArray</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#ac0b14ac8119b1d4ceefc728217fbb5bf">VectorArray</a></td></tr>
-<tr class="separator:ac0b14ac8119b1d4ceefc728217fbb5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83ccd382bd9f922d520d52d77067bcd1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a83ccd382bd9f922d520d52d77067bcd1">Coord</a> = typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a83ccd382bd9f922d520d52d77067bcd1">Coord</a></td></tr>
-<tr class="separator:a83ccd382bd9f922d520d52d77067bcd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c952d1fcbc6ac963a537e6707a4057"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ad9c952d1fcbc6ac963a537e6707a4057">RunArgs</a> = <a class="el" href="classspace_1_1_run_args.html">space::RunArgs</a>&lt; ParticSys &gt;</td></tr>
-<tr class="separator:ad9c952d1fcbc6ac963a537e6707a4057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f4e451f81cb1e587a97b556075986c3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a5f4e451f81cb1e587a97b556075986c3">Particle</a> = typename ParticSys::Particle</td></tr>
-<tr class="separator:a5f4e451f81cb1e587a97b556075986c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+    <tr class="memitem:a353dd909af6fe28a777ae24d493874c8">
+        <td class="memTemplParams" colspan="2">template&lt;typename ... _T_&gt;</td>
+    </tr>
+    <tr class="memitem:a353dd909af6fe28a777ae24d493874c8">
+        <td class="memTemplItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memTemplItemRight" valign="bottom"><a class="el"
+                                                         href="classspace_1_1_simulator.html#a353dd909af6fe28a777ae24d493874c8">Container</a>
+            = typename ParticleSys ::template <a class="el"
+                                                 href="classspace_1_1_simulator.html#a353dd909af6fe28a777ae24d493874c8">Container</a>&lt;
+            _T_... &gt;
+        </td>
+    </tr>
+    <tr class="separator:a353dd909af6fe28a777ae24d493874c8">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:ab8a0b759dfef50c3a2afec8e533520ba">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a>
+        </td>
+    </tr>
+    <tr class="separator:ab8a0b759dfef50c3a2afec8e533520ba">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a14f95719f99b2d0ce0a44db0b26d101d">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a14f95719f99b2d0ce0a44db0b26d101d">ScalarArray</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#a14f95719f99b2d0ce0a44db0b26d101d">ScalarArray</a>
+        </td>
+    </tr>
+    <tr class="separator:a14f95719f99b2d0ce0a44db0b26d101d">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a55461755a172a5f28809e472a8d00d97">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a55461755a172a5f28809e472a8d00d97">IdxArray</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#a55461755a172a5f28809e472a8d00d97">IdxArray</a>
+        </td>
+    </tr>
+    <tr class="separator:a55461755a172a5f28809e472a8d00d97">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a997547e44e164332a099ae6abab2f372">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a997547e44e164332a099ae6abab2f372">IntArray</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#a997547e44e164332a099ae6abab2f372">IntArray</a>
+        </td>
+    </tr>
+    <tr class="separator:a997547e44e164332a099ae6abab2f372">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a318fe1c20b08e9c34833b49c1c08d509">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a318fe1c20b08e9c34833b49c1c08d509">Vector</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#a318fe1c20b08e9c34833b49c1c08d509">Vector</a>
+        </td>
+    </tr>
+    <tr class="separator:a318fe1c20b08e9c34833b49c1c08d509">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a6ce1cd2e2c4a95fae704c633d3fc9cc5">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a6ce1cd2e2c4a95fae704c633d3fc9cc5">VectorArray</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#a6ce1cd2e2c4a95fae704c633d3fc9cc5">VectorArray</a>
+        </td>
+    </tr>
+    <tr class="separator:a6ce1cd2e2c4a95fae704c633d3fc9cc5">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a6dd249dbf86bad36f32ad66bd40fd35f">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a6dd249dbf86bad36f32ad66bd40fd35f">Coord</a>
+            = typename ParticleSys ::<a class="el"
+                                        href="classspace_1_1_simulator.html#a6dd249dbf86bad36f32ad66bd40fd35f">Coord</a>
+        </td>
+    </tr>
+    <tr class="separator:a6dd249dbf86bad36f32ad66bd40fd35f">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a88824142441db0121ad2d374041aa55b">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a88824142441db0121ad2d374041aa55b">RunArgs</a>
+            = <a class="el" href="classspace_1_1_run_args.html">space::RunArgs</a>&lt; ParticleSys &gt;
+        </td>
+    </tr>
+    <tr class="separator:a88824142441db0121ad2d374041aa55b">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:aa216238bcffe4be483681dca40bc478e">
+        <td class="memItemLeft" align="right" valign="top">using&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#aa216238bcffe4be483681dca40bc478e">Particle</a>
+            = typename ParticleSys::Particle
+        </td>
+    </tr>
+    <tr class="separator:aa216238bcffe4be483681dca40bc478e">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1f91be54441cf13999de40606bf839c"><td class="memItemLeft" align="right" valign="top">auto const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ab1f91be54441cf13999de40606bf839c">particles</a> () const noexcept</td></tr>
-<tr class="separator:ab1f91be54441cf13999de40606bf839c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c9ebf6f677d6260d0fa02754947a75e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a6c9ebf6f677d6260d0fa02754947a75e">Simulator</a> ()=delete</td></tr>
-<tr class="separator:a6c9ebf6f677d6260d0fa02754947a75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d79232bb1c647ecbc1c7e73f078735"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a32d79232bb1c647ecbc1c7e73f078735">Simulator</a> (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> const &amp;)=default</td></tr>
-<tr class="separator:a32d79232bb1c647ecbc1c7e73f078735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab522c2ca3d315e52aa8c82027fc04e0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ab522c2ca3d315e52aa8c82027fc04e0f">Simulator</a> (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:ab522c2ca3d315e52aa8c82027fc04e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432ccf9e9fa0c5162d27af24f53b2d17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classspace_1_1_simulator.html">Simulator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a432ccf9e9fa0c5162d27af24f53b2d17">operator=</a> (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> const &amp;)=default</td></tr>
-<tr class="separator:a432ccf9e9fa0c5162d27af24f53b2d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbe59c582df5dbf16be5add9519c4469"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classspace_1_1_simulator.html">Simulator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#adbe59c582df5dbf16be5add9519c4469">operator=</a> (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:adbe59c582df5dbf16be5add9519c4469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4135964c5e41e60e213835642131822"><td class="memTemplParams" colspan="2">template&lt;typename STL &gt; </td></tr>
-<tr class="memitem:ad4135964c5e41e60e213835642131822"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ad4135964c5e41e60e213835642131822">Simulator</a> (<a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a> time, STL const &amp;particle_set)</td></tr>
-<tr class="separator:ad4135964c5e41e60e213835642131822"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9795f5cf3e9882fa0748d887a397372"><td class="memTemplParams" colspan="2">template&lt;typename... T&gt; </td></tr>
-<tr class="memitem:ad9795f5cf3e9882fa0748d887a397372"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#ad9795f5cf3e9882fa0748d887a397372">Simulator</a> (<a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a> time, T const &amp;... particle)</td></tr>
-<tr class="separator:ad9795f5cf3e9882fa0748d887a397372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedd59ea3b5b1fff4b5993769687476b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#aedd59ea3b5b1fff4b5993769687476b8">run</a> (<a class="el" href="classspace_1_1_simulator.html#ad9c952d1fcbc6ac963a537e6707a4057">RunArgs</a> const &amp;arg)</td></tr>
-<tr class="separator:aedd59ea3b5b1fff4b5993769687476b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ba27f705d9ea69d0dbf14e92f5bb521"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_simulator.html#a2ba27f705d9ea69d0dbf14e92f5bb521">~Simulator</a> ()=default</td></tr>
-<tr class="memdesc:a2ba27f705d9ea69d0dbf14e92f5bb521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor, virtualize for inherent class.  <a href="#a2ba27f705d9ea69d0dbf14e92f5bb521">More...</a><br /></td></tr>
-<tr class="separator:a2ba27f705d9ea69d0dbf14e92f5bb521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+    <tr class="memitem:a160d44ac456d95a246028fa533497cbf">
+        <td class="memItemLeft" align="right" valign="top">auto const &amp;&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a160d44ac456d95a246028fa533497cbf">particles</a>
+            () const noexcept
+        </td>
+    </tr>
+    <tr class="separator:a160d44ac456d95a246028fa533497cbf">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:ad26e5a172747562cb3a9a4f7161e589e">
+        <td class="memItemLeft" align="right" valign="top">&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#ad26e5a172747562cb3a9a4f7161e589e">Simulator</a>
+            ()=delete
+        </td>
+    </tr>
+    <tr class="separator:ad26e5a172747562cb3a9a4f7161e589e">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a19a14965b34255440940fb574d519bb2">
+        <td class="memItemLeft" align="right" valign="top">&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a19a14965b34255440940fb574d519bb2">Simulator</a>
+            (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> const &amp;)=default
+        </td>
+    </tr>
+    <tr class="separator:a19a14965b34255440940fb574d519bb2">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:add96f4792262e7c820f7666ab7c62eb7">
+        <td class="memItemLeft" align="right" valign="top">&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#add96f4792262e7c820f7666ab7c62eb7">Simulator</a>
+            (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> &amp;&amp;)=default
+        </td>
+    </tr>
+    <tr class="separator:add96f4792262e7c820f7666ab7c62eb7">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a40b2bd859c51f8fd99bedc5b8c3377e8">
+        <td class="memItemLeft" align="right" valign="top"><a class="el"
+                                                              href="classspace_1_1_simulator.html">Simulator</a> &amp;&#160;
+        </td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#a40b2bd859c51f8fd99bedc5b8c3377e8">operator=</a>
+            (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> const &amp;)=default
+        </td>
+    </tr>
+    <tr class="separator:a40b2bd859c51f8fd99bedc5b8c3377e8">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:ac806b7e8526bd3e3c1ef8636e4ff6a67">
+        <td class="memItemLeft" align="right" valign="top"><a class="el"
+                                                              href="classspace_1_1_simulator.html">Simulator</a> &amp;&#160;
+        </td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#ac806b7e8526bd3e3c1ef8636e4ff6a67">operator=</a>
+            (<a class="el" href="classspace_1_1_simulator.html">Simulator</a> &amp;&amp;)=default
+        </td>
+    </tr>
+    <tr class="separator:ac806b7e8526bd3e3c1ef8636e4ff6a67">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:a8c0d24c12645999adb8ed683679ea7e0">
+        <td class="memTemplParams" colspan="2">template&lt;typename STL &gt;</td>
+    </tr>
+    <tr class="memitem:a8c0d24c12645999adb8ed683679ea7e0">
+        <td class="memTemplItemLeft" align="right" valign="top">&#160;</td>
+        <td class="memTemplItemRight" valign="bottom"><a class="el"
+                                                         href="classspace_1_1_simulator.html#a8c0d24c12645999adb8ed683679ea7e0">Simulator</a>
+            (<a class="el" href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a> time, STL
+            const &amp;particle_set)
+        </td>
+    </tr>
+    <tr class="separator:a8c0d24c12645999adb8ed683679ea7e0">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:aca727f16cf5767a56f36789dc28a3da7">
+        <td class="memTemplParams" colspan="2">template&lt;typename... T&gt;</td>
+    </tr>
+    <tr class="memitem:aca727f16cf5767a56f36789dc28a3da7">
+        <td class="memTemplItemLeft" align="right" valign="top">&#160;</td>
+        <td class="memTemplItemRight" valign="bottom"><a class="el"
+                                                         href="classspace_1_1_simulator.html#aca727f16cf5767a56f36789dc28a3da7">Simulator</a>
+            (<a class="el" href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a> time, T
+            const &amp;... particle)
+        </td>
+    </tr>
+    <tr class="separator:aca727f16cf5767a56f36789dc28a3da7">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:aa93d58d04a993371fe989347310c9c3f">
+        <td class="memItemLeft" align="right" valign="top">void&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#aa93d58d04a993371fe989347310c9c3f">run</a>
+            (<a class="el" href="classspace_1_1_simulator.html#a88824142441db0121ad2d374041aa55b">RunArgs</a> const
+            &amp;run_args)
+        </td>
+    </tr>
+    <tr class="separator:aa93d58d04a993371fe989347310c9c3f">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
+    <tr class="memitem:ade7047547057dcc8752fd5e108bc40a2">
+        <td class="memItemLeft" align="right" valign="top">virtual&#160;</td>
+        <td class="memItemRight" valign="bottom"><a class="el"
+                                                    href="classspace_1_1_simulator.html#ade7047547057dcc8752fd5e108bc40a2">~Simulator</a>
+            ()=default
+        </td>
+    </tr>
+    <tr class="separator:ade7047547057dcc8752fd5e108bc40a2">
+        <td class="memSeparator" colspan="2">&#160;</td>
+    </tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename ParticSys, typename OdeIterator&gt;<br />
-class space::Simulator&lt; ParticSys, OdeIterator &gt;</h3>
+    <div class="textblock"><h3>template&lt;typename ParticleSys, typename OdeIterator&gt;<br/>
+        class space::Simulator&lt; ParticleSys, OdeIterator &gt;</h3>
 
+        <p>Wrapper to integrate the particle system and ode-iterator to perform the simulation.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">ParticSys</td><td></td></tr>
-    <tr><td class="paramname">OdeIterator</td><td></td></tr>
+      <tr>
+          <td class="paramname">ParticleSys</td>
+          <td>Any implementation of concept <code><a class="el"
+                                                     href="classspace_1_1particle__system_1_1_particle_system.html">particle_system::ParticleSystem</a></code>.
+          </td>
+      </tr>
+      <tr>
+          <td class="paramname">OdeIterator</td>
+          <td>Any implementation of concept <code><a class="el"
+                                                     href="classspace_1_1ode__iterator_1_1_ode_iterator.html">ode_iterator::OdeIterator</a></code>.
+          </td>
+      </tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a408412892df3fe3e641a82e4ef69bd07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a408412892df3fe3e641a82e4ef69bd07">&#9670;&nbsp;</a></span>Container</h2>
+    <a id="a353dd909af6fe28a777ae24d493874c8"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a353dd909af6fe28a777ae24d493874c8">&#9670;&nbsp;</a></span>Container
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <div class="memtemplate">
 template&lt;typename ... _T_&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a408412892df3fe3e641a82e4ef69bd07">Container</a> =  typename ParticSys ::template <a class="el" href="classspace_1_1_simulator.html#a408412892df3fe3e641a82e4ef69bd07">Container</a>&lt;_T_...&gt;</td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a353dd909af6fe28a777ae24d493874c8">Container</a>
+                = typename ParticleSys ::template <a class="el"
+                                                     href="classspace_1_1_simulator.html#a353dd909af6fe28a777ae24d493874c8">Container</a>&lt;_T_...&gt;
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a83ccd382bd9f922d520d52d77067bcd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83ccd382bd9f922d520d52d77067bcd1">&#9670;&nbsp;</a></span>Coord</h2>
+    <a id="a6dd249dbf86bad36f32ad66bd40fd35f"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a6dd249dbf86bad36f32ad66bd40fd35f">&#9670;&nbsp;</a></span>Coord
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a83ccd382bd9f922d520d52d77067bcd1">Coord</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a83ccd382bd9f922d520d52d77067bcd1">Coord</a></td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a6dd249dbf86bad36f32ad66bd40fd35f">Coord</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#a6dd249dbf86bad36f32ad66bd40fd35f">Coord</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a00324d26ea7c2a7bc2e90ec479a07ed1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00324d26ea7c2a7bc2e90ec479a07ed1">&#9670;&nbsp;</a></span>IdxArray</h2>
+    <a id="a55461755a172a5f28809e472a8d00d97"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a55461755a172a5f28809e472a8d00d97">&#9670;&nbsp;</a></span>IdxArray
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a00324d26ea7c2a7bc2e90ec479a07ed1">IdxArray</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a00324d26ea7c2a7bc2e90ec479a07ed1">IdxArray</a></td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a55461755a172a5f28809e472a8d00d97">IdxArray</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#a55461755a172a5f28809e472a8d00d97">IdxArray</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a44655dfcb5bac88f2c287a655a141c2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44655dfcb5bac88f2c287a655a141c2a">&#9670;&nbsp;</a></span>IntArray</h2>
+    <a id="a997547e44e164332a099ae6abab2f372"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a997547e44e164332a099ae6abab2f372">&#9670;&nbsp;</a></span>IntArray
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a44655dfcb5bac88f2c287a655a141c2a">IntArray</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a44655dfcb5bac88f2c287a655a141c2a">IntArray</a></td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a997547e44e164332a099ae6abab2f372">IntArray</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#a997547e44e164332a099ae6abab2f372">IntArray</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5f4e451f81cb1e587a97b556075986c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f4e451f81cb1e587a97b556075986c3">&#9670;&nbsp;</a></span>Particle</h2>
+    <a id="aa216238bcffe4be483681dca40bc478e"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#aa216238bcffe4be483681dca40bc478e">&#9670;&nbsp;</a></span>Particle
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a5f4e451f81cb1e587a97b556075986c3">Particle</a> =  typename ParticSys::Particle</td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#aa216238bcffe4be483681dca40bc478e">Particle</a>
+                = typename ParticleSys::Particle
+            </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+    <p>Particle type that is used to create the initial conditions to initialize the <a class="el"
+                                                                                        href="classspace_1_1_simulator.html">Simulator</a>.
+    </p>
+
+</div>
+</div>
+    <a id="a88824142441db0121ad2d374041aa55b"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a88824142441db0121ad2d374041aa55b">&#9670;&nbsp;</a></span>RunArgs
+    </h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
+      <table class="memname">
+        <tr>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a88824142441db0121ad2d374041aa55b">RunArgs</a>
+                = <a class="el" href="classspace_1_1_run_args.html">space::RunArgs</a>&lt;ParticleSys&gt;
+            </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+    <p>Run arguments that is used to set all arguments needed by <a class="el" href="classspace_1_1_simulator.html">Simulator</a>.
+    </p>
+
+</div>
+</div>
+    <a id="ab8a0b759dfef50c3a2afec8e533520ba"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#ab8a0b759dfef50c3a2afec8e533520ba">&#9670;&nbsp;</a></span>Scalar
+    </h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
+      <table class="memname">
+        <tr>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad9c952d1fcbc6ac963a537e6707a4057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9c952d1fcbc6ac963a537e6707a4057">&#9670;&nbsp;</a></span>RunArgs</h2>
+    <a id="a14f95719f99b2d0ce0a44db0b26d101d"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a14f95719f99b2d0ce0a44db0b26d101d">&#9670;&nbsp;</a></span>ScalarArray
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#ad9c952d1fcbc6ac963a537e6707a4057">RunArgs</a> =  <a class="el" href="classspace_1_1_run_args.html">space::RunArgs</a>&lt;ParticSys&gt;</td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a14f95719f99b2d0ce0a44db0b26d101d">ScalarArray</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#a14f95719f99b2d0ce0a44db0b26d101d">ScalarArray</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad5076aec593fbf1fa71f5d442b594929"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5076aec593fbf1fa71f5d442b594929">&#9670;&nbsp;</a></span>Scalar</h2>
+    <a id="a318fe1c20b08e9c34833b49c1c08d509"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a318fe1c20b08e9c34833b49c1c08d509">&#9670;&nbsp;</a></span>Vector
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a></td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a318fe1c20b08e9c34833b49c1c08d509">Vector</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#a318fe1c20b08e9c34833b49c1c08d509">Vector</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a415dc74d3deff46d221e800a8439caab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a415dc74d3deff46d221e800a8439caab">&#9670;&nbsp;</a></span>ScalarArray</h2>
+    <a id="a6ce1cd2e2c4a95fae704c633d3fc9cc5"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a6ce1cd2e2c4a95fae704c633d3fc9cc5">&#9670;&nbsp;</a></span>VectorArray
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a415dc74d3deff46d221e800a8439caab">ScalarArray</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a415dc74d3deff46d221e800a8439caab">ScalarArray</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3aec408c7ee34273538db101596a5b0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aec408c7ee34273538db101596a5b0a">&#9670;&nbsp;</a></span>Vector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#a3aec408c7ee34273538db101596a5b0a">Vector</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#a3aec408c7ee34273538db101596a5b0a">Vector</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac0b14ac8119b1d4ceefc728217fbb5bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0b14ac8119b1d4ceefc728217fbb5bf">&#9670;&nbsp;</a></span>VectorArray</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html#ac0b14ac8119b1d4ceefc728217fbb5bf">VectorArray</a> =  typename ParticSys ::<a class="el" href="classspace_1_1_simulator.html#ac0b14ac8119b1d4ceefc728217fbb5bf">VectorArray</a></td>
+            <td class="memname">using <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::<a class="el"
+                                                  href="classspace_1_1_simulator.html#a6ce1cd2e2c4a95fae704c633d3fc9cc5">VectorArray</a>
+                = typename ParticleSys ::<a class="el"
+                                            href="classspace_1_1_simulator.html#a6ce1cd2e2c4a95fae704c633d3fc9cc5">VectorArray</a>
+            </td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -304,19 +573,22 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6c9ebf6f677d6260d0fa02754947a75e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c9ebf6f677d6260d0fa02754947a75e">&#9670;&nbsp;</a></span>Simulator() <span class="overload">[1/5]</span></h2>
+    <a id="ad26e5a172747562cb3a9a4f7161e589e"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#ad26e5a172747562cb3a9a4f7161e589e">&#9670;&nbsp;</a></span>Simulator()
+        <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a> </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a></td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -332,21 +604,26 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 
 </div>
 </div>
-<a id="a32d79232bb1c647ecbc1c7e73f078735"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32d79232bb1c647ecbc1c7e73f078735">&#9670;&nbsp;</a></span>Simulator() <span class="overload">[2/5]</span></h2>
+    <a id="a19a14965b34255440940fb574d519bb2"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a19a14965b34255440940fb574d519bb2">&#9670;&nbsp;</a></span>Simulator()
+        <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a> </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a></td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticSys, OdeIterator &gt; const &amp;&#160;</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt; const &amp;&#160;
+            </td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -361,21 +638,26 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 
 </div>
 </div>
-<a id="ab522c2ca3d315e52aa8c82027fc04e0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab522c2ca3d315e52aa8c82027fc04e0f">&#9670;&nbsp;</a></span>Simulator() <span class="overload">[3/5]</span></h2>
+    <a id="add96f4792262e7c820f7666ab7c62eb7"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#add96f4792262e7c820f7666ab7c62eb7">&#9670;&nbsp;</a></span>Simulator()
+        <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a> </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a></td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticSys, OdeIterator &gt; &amp;&amp;&#160;</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt; &amp;&amp;&#160;
+            </td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -390,20 +672,24 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 
 </div>
 </div>
-<a id="ad4135964c5e41e60e213835642131822"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4135964c5e41e60e213835642131822">&#9670;&nbsp;</a></span>Simulator() <span class="overload">[4/5]</span></h2>
+    <a id="a8c0d24c12645999adb8ed683679ea7e0"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a8c0d24c12645999adb8ed683679ea7e0">&#9670;&nbsp;</a></span>Simulator()
+        <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <div class="memtemplate">
 template&lt;typename STL &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a> </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a></td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a>&#160;</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a>&#160;
+            </td>
           <td class="paramname"><em>time</em>, </td>
         </tr>
         <tr>
@@ -419,29 +705,46 @@ template&lt;typename STL &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+    <p>Initialize the <a class="el" href="classspace_1_1_simulator.html">Simulator</a> with an iterable Particle
+        Container. </p>
+    <dl class="tparams">
+        <dt>Template Parameters</dt>
+        <dd>
   <table class="tparams">
-    <tr><td class="paramname">STL</td><td></td></tr>
+      <tr>
+          <td class="paramname">STL</td>
+          <td>Iterable Particle Container.</td>
+      </tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">time</td><td></td></tr>
-    <tr><td class="paramname">particle_set</td><td></td></tr>
+      <tr>
+          <td class="paramdir">[in]</td>
+          <td class="paramname">time</td>
+          <td>Initial time of the particle system.</td>
+      </tr>
+      <tr>
+          <td class="paramdir">[in]</td>
+          <td class="paramname"><a class="el" href="namespacespace_1_1particle__set.html">particle_set</a></td>
+          <td>Particle container.</td>
+      </tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ad9795f5cf3e9882fa0748d887a397372"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9795f5cf3e9882fa0748d887a397372">&#9670;&nbsp;</a></span>Simulator() <span class="overload">[5/5]</span></h2>
+    <a id="aca727f16cf5767a56f36789dc28a3da7"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#aca727f16cf5767a56f36789dc28a3da7">&#9670;&nbsp;</a></span>Simulator()
+        <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <div class="memtemplate">
 template&lt;typename... T&gt; </div>
 <table class="mlabels">
@@ -449,9 +752,11 @@ template&lt;typename... T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a> </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt;::<a class="el" href="classspace_1_1_simulator.html">Simulator</a></td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html#ad5076aec593fbf1fa71f5d442b594929">Scalar</a>&#160;</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html#ab8a0b759dfef50c3a2afec8e533520ba">Scalar</a>&#160;
+            </td>
           <td class="paramname"><em>time</em>, </td>
         </tr>
         <tr>
@@ -472,35 +777,52 @@ template&lt;typename... T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+    <p>Initialize the <a class="el" href="classspace_1_1_simulator.html">Simulator</a> with an given particles. </p>
+    <dl class="tparams">
+        <dt>Template Parameters</dt>
+        <dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td></td></tr>
+      <tr>
+          <td class="paramname">T</td>
+          <td>Any particle type that has the same interfaces of type member <code>Particle</code>.</td>
+      </tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">time</td><td></td></tr>
-    <tr><td class="paramname">particle</td><td></td></tr>
+      <tr>
+          <td class="paramdir">[in]</td>
+          <td class="paramname">time</td>
+          <td>Initial time of the particle system.</td>
+      </tr>
+      <tr>
+          <td class="paramdir">[in]</td>
+          <td class="paramname">particle</td>
+          <td>Initial particles.</td>
+      </tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a2ba27f705d9ea69d0dbf14e92f5bb521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ba27f705d9ea69d0dbf14e92f5bb521">&#9670;&nbsp;</a></span>~Simulator()</h2>
+    <a id="ade7047547057dcc8752fd5e108bc40a2"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#ade7047547057dcc8752fd5e108bc40a2">&#9670;&nbsp;</a></span>~Simulator()
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::~<a class="el" href="classspace_1_1_simulator.html">Simulator</a> </td>
+            <td class="memname">virtual <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::~<a class="el" href="classspace_1_1_simulator.html">Simulator</a></td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -513,26 +835,31 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Default destructor, virtualize for inherent class. </p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a432ccf9e9fa0c5162d27af24f53b2d17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a432ccf9e9fa0c5162d27af24f53b2d17">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+    <a id="a40b2bd859c51f8fd99bedc5b8c3377e8"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a40b2bd859c51f8fd99bedc5b8c3377e8">&#9670;&nbsp;</a></span>operator=()
+        <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&amp; <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::operator= </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&amp; <a class="el"
+                                                                                                         href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::operator=
+            </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticSys, OdeIterator &gt; const &amp;&#160;</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt; const &amp;&#160;
+            </td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -547,21 +874,28 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 
 </div>
 </div>
-<a id="adbe59c582df5dbf16be5add9519c4469"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbe59c582df5dbf16be5add9519c4469">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+    <a id="ac806b7e8526bd3e3c1ef8636e4ff6a67"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#ac806b7e8526bd3e3c1ef8636e4ff6a67">&#9670;&nbsp;</a></span>operator=()
+        <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&amp; <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::operator= </td>
+            <td class="memname"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&amp; <a class="el"
+                                                                                                         href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::operator=
+            </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticSys, OdeIterator &gt; &amp;&amp;&#160;</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; ParticleSys,
+                OdeIterator &gt; &amp;&amp;&#160;
+            </td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -576,19 +910,23 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
 
 </div>
 </div>
-<a id="ab1f91be54441cf13999de40606bf839c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1f91be54441cf13999de40606bf839c">&#9670;&nbsp;</a></span>particles()</h2>
+    <a id="a160d44ac456d95a246028fa533497cbf"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#a160d44ac456d95a246028fa533497cbf">&#9670;&nbsp;</a></span>particles()
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto const&amp; <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::particles </td>
+            <td class="memname">auto const&amp; <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::particles
+            </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -600,30 +938,44 @@ template&lt;typename ParticSys , typename OdeIterator &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The getter interface of member particles . </p>
+    <p>The getter interface of member <code>particles_</code> in name of <code>particles</code>. </p>
 
 </div>
 </div>
-<a id="aedd59ea3b5b1fff4b5993769687476b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedd59ea3b5b1fff4b5993769687476b8">&#9670;&nbsp;</a></span>run()</h2>
+    <a id="aa93d58d04a993371fe989347310c9c3f"></a>
+    <h2 class="memtitle"><span class="permalink"><a href="#aa93d58d04a993371fe989347310c9c3f">&#9670;&nbsp;</a></span>run()
+    </h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ParticSys , typename OdeIterator &gt; </div>
+    template&lt;typename ParticleSys , typename OdeIterator &gt;
+</div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt; ParticSys, OdeIterator &gt;::run </td>
+            <td class="memname">void <a class="el" href="classspace_1_1_simulator.html">space::Simulator</a>&lt;
+                ParticleSys, OdeIterator &gt;::run
+            </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html#ad9c952d1fcbc6ac963a537e6707a4057">RunArgs</a> const &amp;&#160;</td>
-          <td class="paramname"><em>arg</em></td><td>)</td>
+            <td class="paramtype"><a class="el" href="classspace_1_1_simulator.html#a88824142441db0121ad2d374041aa55b">RunArgs</a>
+                const &amp;&#160;
+            </td>
+            <td class="paramname"><em>run_args</em></td>
+            <td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+    <p>Run the simulation with given arguments. </p>
+    <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
   <table class="params">
-    <tr><td class="paramname">arg</td><td></td></tr>
+      <tr>
+          <td class="paramdir">[in]</td>
+          <td class="paramname">run_args</td>
+          <td>Run arguments.</td>
+      </tr>
   </table>
   </dd>
 </dl>

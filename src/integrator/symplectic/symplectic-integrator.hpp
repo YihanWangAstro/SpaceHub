@@ -1,7 +1,27 @@
-//
-// Created by yihan on 3/8/19.
-//
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file symplectic-integrator.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 #define SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 
@@ -23,7 +43,7 @@ namespace space::integrator {
 
     template<typename T>
     void integrate(T &particle_system, typename T::Scalar step_size) {
-      static_assert(is_particle_system_v<T>, "Passing non paritcle-system-type!");
+      static_assert(particle_system::is_particle_system_v<T>, "Passing non paritcle-system-type!");
       static_cast<Derived *>(this)->impl_integrate(particle_system, step_size);
     }
 
@@ -40,8 +60,8 @@ namespace space::integrator {
   public:
     static constexpr size_t order{2};
 
-    template<typename T>
-    void impl_integrate(ParticleSystem <T> &system, typename T::Scalar step_size) {
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
       system.drift(0.5 * step_size);
       system.kick(step_size);
       system.drift(0.5 * step_size);
@@ -55,8 +75,8 @@ namespace space::integrator {
   public:
     static constexpr size_t order{4};
 
-    template<typename T>
-    void impl_integrate(ParticleSystem <T> &system, typename T::Scalar step_size) {
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
       system.drift(6.7560359597983000E-1 * step_size);
       system.kick(1.3512071919596600E0 * step_size);
       system.drift(-1.7560359597983000E-1 * step_size);
@@ -74,8 +94,8 @@ namespace space::integrator {
   public:
     static constexpr size_t order{6};
 
-    template<typename T>
-    void impl_integrate(ParticleSystem <T> &system, typename T::Scalar step_size) {
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
       /*unroll loop manually*/
       system.drift(3.9225680523877998E-1 * step_size);
       system.kick(7.8451361047755996E-1 * step_size);
@@ -102,8 +122,8 @@ namespace space::integrator {
   public:
     static constexpr size_t order{8};
 
-    template<typename T>
-    void impl_integrate(ParticleSystem <T> &system, typename T::Scalar step_size) {
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
       /*unroll loop manually*/
       system.drift(5.21213104349955048E-1 * step_size);
       system.kick(1.04242620869991010E0 * step_size);
@@ -146,8 +166,8 @@ namespace space::integrator {
   public:
     static constexpr size_t order{10};
 
-    template<typename T>
-    void impl_integrate(ParticleSystem <T> &system, typename T::Scalar step_size) {
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
       /*unroll loop manually*/
       system.drift(3.0610967201933609e-01 * step_size);
       system.kick(6.1221934403867218e-01 * step_size);

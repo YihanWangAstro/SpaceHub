@@ -1,14 +1,34 @@
-//
-// Created by yihan on 3/8/19.
-//
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file archain.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_ARCHAIN_HPP
 #define SPACEHUB_ARCHAIN_HPP
 
 #include "regu-system.hpp"
 #include "chain.hpp"
 
-namespace space {
+namespace space::particle_system {
 
   /*---------------------------------------------------------------------------*\
       Class ARchainSystem Declaration
@@ -111,7 +131,7 @@ namespace space {
 
     Interactions interactions_;
 
-    Accelerations<Interactions, Coord> accels_;
+    interactions::Accelerations<Interactions, Coord> accels_;
 
     Regularization<Scalar, RegType> regu_;
 
@@ -291,7 +311,8 @@ namespace space {
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
-  void ARchainSystem<Particles, Interactions, RegType>::chain_advance(Coord &var, Coord &chain_var, const Coord &chain_increment,
+  void ARchainSystem<Particles, Interactions, RegType>::chain_advance(Coord &var, Coord &chain_var,
+                                                                      const Coord &chain_increment,
                                                                       Scalar phy_time) {
     calc::coord_advance(chain_var, chain_increment, phy_time);
     Chain::calc_cartesian(ptcl_.mass(), chain_var, var, index());

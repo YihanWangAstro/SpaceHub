@@ -1,3 +1,27 @@
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file simulator.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_SIMULATOR_HPP
 #define SPACEHUB_SIMULATOR_HPP
 
@@ -13,6 +37,21 @@ namespace space {
 \*---------------------------------------------------------------------------*/
 /**
  * Run arguments that is used to set all arguments needed by Simulator.
+ *
+ * The pre_operations(), post_operations(), stop_operations() and check_stops() will be called in a simulation
+ * in this way.
+ *
+ * @code{.cpp}
+ *  ...
+ *  auto sys; // particle system that is going to be evolved.
+ *  for( ;check_stops(sys);){
+ *      pre_operations(sys);
+ *      ...//step integration.
+ *      post_operations(sys);
+ *  }
+ *  stop_operations(sys);
+ *  ...
+ * @endcode
  *
  * @tparam ParticleSys Any implementation of concept ParticleSystem.
  */
@@ -58,21 +97,21 @@ namespace space {
     /**
      * Call the all registered pre-operation functions by sequence.
      *
-     * @param[in] particle_system The particle system that is going to be operated.
+     * @param[in,out] particle_system The particle system that is going to be operated.
      */
     void pre_operations(ParticleSys &particle_system) const;
 
     /**
      * Call the all registered pos-operation functions by sequence.
      *
-     * @param[in] particle_system The particle system that is going to be operated.
+     * @param[in,out] particle_system The particle system that is going to be operated.
      */
     void post_operations(ParticleSys &particle_system) const;
 
     /**
      * Call the all registered stop-operation functions by sequence.
      *
-     * @param[in] particle_system The particle system that is going to be operated.
+     * @param[in,out] particle_system The particle system that is going to be operated.
      */
     void stop_operations(ParticleSys &particle_system) const;
 
@@ -164,19 +203,26 @@ namespace space {
     Class Simulator Declaration
 \*---------------------------------------------------------------------------*/
 /**
- * 
- * @tparam ParticSys
- * @tparam OdeIterator
+ * Wrapper to integrate the particle system and ode-iterator to perform the simulation.
+ *
+ * @tparam ParticleSys Any implementation of concept `particle_system::ParticleSystem`.
+ * @tparam OdeIterator Any implementation of concept `ode_iterator::OdeIterator`.
  */
-  template<typename ParticSys, typename OdeIterator>
+  template<typename ParticleSys, typename OdeIterator>
   class Simulator {
   public:
     // Type member
-    SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
+    SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
 
-    using RunArgs = space::RunArgs<ParticSys>;
+    /**
+     * Run arguments that is used to set all arguments needed by Simulator.
+     */
+    using RunArgs = space::RunArgs<ParticleSys>;
 
-    using Particle = typename ParticSys::Particle;
+    /**
+     * Particle type that is used to create the initial conditions to initialize the Simulator.
+     */
+    using Particle = typename ParticleSys::Particle;
 
     SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
 
@@ -184,31 +230,32 @@ namespace space {
     SPACEHUB_MAKE_CONSTRUCTORS(Simulator, delete, default, default, default, default);
 
     /**
-     *
-     * @tparam STL
-     * @param time
-     * @param particle_set
+     * Initialize the Simulator with an iterable Particle Container.
+     * @tparam STL Iterable Particle Container.
+     * @param[in] time Initial time of the particle system.
+     * @param[in] particle_set Particle container.
      */
     template<typename STL>
     Simulator(Scalar time, STL const &particle_set);
 
     /**
-     *
-     * @tparam T
-     * @param time
-     * @param particle
+     * Initialize the Simulator with an given particles.
+     * @tparam T Any particle type that has the same interfaces of type member `Particle`.
+     * @param[in] time Initial time of the particle system.
+     * @param[in] particle Initial particles.
      */
     template<typename... T>
     explicit Simulator(Scalar time, T const &... particle);
 
     // Public methods
     /**
-     *
-     * @param arg
+     * Run the simulation with given arguments.
+     * @param[in] run_args Run arguments.
      */
-    void run(RunArgs const &arg);
+    void run(RunArgs const &run_args);
 
-    virtual ~Simulator() = default; /**< @brief Default destructor, virtualize for inherent class*/
+    virtual ~Simulator() = default;
+
   private:
     // Private methods
     inline void advance_one_step();
@@ -218,7 +265,7 @@ namespace space {
     Scalar step_size_{0.0};
 
     /** @brief Particle system*/
-    ParticSys particles_;
+    ParticleSys particles_;
 
     /** @brief ODE Iterator*/
     OdeIterator iterator_;
@@ -294,26 +341,27 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class Simulator Implememtation
 \*---------------------------------------------------------------------------*/
-  template<typename ParticSys, typename OdeIterator>
+  template<typename ParticleSys, typename OdeIterator>
   template<typename STL>
-  Simulator<ParticSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set) : particles_(time, particle_set) {
+  Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set) : particles_(time,
+                                                                                                    particle_set) {
     static_assert(is_container_v<STL>, "Only STL-like container can be used");
   }
 
-  template<typename ParticSys, typename OdeIterator>
+  template<typename ParticleSys, typename OdeIterator>
   template<typename... T>
-  Simulator<ParticSys, OdeIterator>::Simulator(Scalar time, T const &... particle)
+  Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, T const &... particle)
           : Simulator(time, std::initializer_list<Particle>{particle...}) {
     static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particles type!");
   }
 
-  template<typename ParticSys, typename OdeIterator>
-  void Simulator<ParticSys, OdeIterator>::run(RunArgs const &arg) {
-    if (!arg.is_stop_condition_set() && !arg.is_end_time_set()) {
+  template<typename ParticleSys, typename OdeIterator>
+  void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
+    if (!run_args.is_stop_condition_set() && !run_args.is_end_time_set()) {
       space::spacehub_abort("Use 'add_stop_condition' to set stop condition.");
     }
 
-    step_size_ = arg.step_size;
+    step_size_ = run_args.step_size;
 
     if (step_size_ == 0.0) {
       step_size_ = 0.01 * calc::calc_step_scale(particles_);
@@ -321,8 +369,8 @@ namespace space {
 
     Scalar end_time = space::unit::hubble_t;
 
-    if (arg.is_end_time_set()) {
-      end_time = arg.end_time;
+    if (run_args.is_end_time_set()) {
+      end_time = run_args.end_time;
     }
 
     if (particles_.time() >= end_time) {
@@ -330,24 +378,24 @@ namespace space {
     }
 
     if constexpr (HAS_CRTP_IMPLEMENTATION(OdeIterator, set_atol, Scalar)) {
-      iterator_.set_atol(arg.atol);
+      iterator_.set_atol(run_args.atol);
     }
 
     if constexpr (HAS_CRTP_IMPLEMENTATION(OdeIterator, set_rtol, Scalar)) {
-      iterator_.set_rtol(arg.rtol);
+      iterator_.set_rtol(run_args.rtol);
     }
 
-    for (; particles_.time() < end_time && !arg.check_stops(particles_);) {
+    for (; particles_.time() < end_time && !run_args.check_stops(particles_);) {
 
-      arg.pre_operations(particles_);
+      run_args.pre_operations(particles_);
       advance_one_step();
-      arg.post_operations(particles_);
+      run_args.post_operations(particles_);
     }
-    arg.stop_operations(particles_);
+    run_args.stop_operations(particles_);
   }
 
-  template<typename ParticSys, typename OdeIterator>
-  inline void Simulator<ParticSys, OdeIterator>::advance_one_step() {
+  template<typename ParticleSys, typename OdeIterator>
+  inline void Simulator<ParticleSys, OdeIterator>::advance_one_step() {
     particles_.pre_iter_process();
     step_size_ = iterator_.iterate(particles_, step_size_);
     particles_.post_iter_process();

@@ -1,4 +1,27 @@
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the MIT License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the MIT License
+    for more details. You should have received a copy of the MIT License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file multi-thread.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_MULTI_THREAD_HPP
 #define SPACEHUB_MULTI_THREAD_HPP
 
@@ -13,11 +36,11 @@
 #include "../dev-tools.hpp"
 
 /**
- * @namespace space::multiThread
+ * @namespace space::multi_thread
  * Documentation for Foo here. More docs for Foo here,
  * and down here.
  */
-namespace space::multiThread {
+namespace space::multi_thread {
 
   const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
 

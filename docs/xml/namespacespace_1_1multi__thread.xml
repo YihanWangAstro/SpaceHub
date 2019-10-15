@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="namespacespace_1_1multi__thread" kind="namespace" language="C++">
+        <compoundname>space::multi_thread</compoundname>
+        <innerclass refid="classspace_1_1multi__thread_1_1_cistream" prot="public">space::multi_thread::Cistream
+        </innerclass>
+        <innerclass refid="classspace_1_1multi__thread_1_1_concurrent_deque" prot="public">
+            space::multi_thread::ConcurrentDeque
+        </innerclass>
+        <innerclass refid="classspace_1_1multi__thread_1_1_concurrent_file" prot="public">
+            space::multi_thread::ConcurrentFile
+        </innerclass>
+        <innerclass refid="classspace_1_1multi__thread_1_1_costream" prot="public">space::multi_thread::Costream
+        </innerclass>
+        <innerclass refid="classspace_1_1multi__thread_1_1_ipip" prot="public">space::multi_thread::Ipip</innerclass>
+        <innerclass refid="classspace_1_1multi__thread_1_1_opip" prot="public">space::multi_thread::Opip</innerclass>
+        <innerclass refid="classspace_1_1multi__thread_1_1_thread_pool" prot="public">space::multi_thread::ThreadPool
+        </innerclass>
+        <sectiondef kind="var">
+            <memberdef kind="variable" id="namespacespace_1_1multi__thread_1a48be29b2e3204f77b8304b314322f351"
+                       prot="public" static="no" mutable="no">
+                <type>const size_t</type>
+                <definition>const size_t space::multi_thread::auto_thread</definition>
+                <argsstring></argsstring>
+                <name>auto_thread</name>
+                <initializer>= (std::thread::hardware_concurrency() &gt; 1) ? std::thread::hardware_concurrency() : 1
+                </initializer>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="45" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="45" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="variable" id="namespacespace_1_1multi__thread_1a2351ce9cd3a76b80202faf14e09bc8d9"
+                       prot="public" static="no" mutable="no">
+                <type>const size_t</type>
+                <definition>const size_t space::multi_thread::machine_thread_num</definition>
+                <argsstring></argsstring>
+                <name>machine_thread_num</name>
+                <initializer>= (std::thread::hardware_concurrency() &gt; 1) ? std::thread::hardware_concurrency() : 1
+                </initializer>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="47" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="47" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="func">
+            <memberdef kind="function" id="namespacespace_1_1multi__thread_1a47debc0613414e94f27c8e16441fd207"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Lambda</type>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::multi_thread::multi_threads_loop</definition>
+                <argsstring>(size_t total_len, size_t thread_num, Lambda &amp;&amp;task)</argsstring>
+                <name>multi_threads_loop</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>total_len</declname>
+                </param>
+                <param>
+                    <type>size_t</type>
+                    <declname>thread_num</declname>
+                </param>
+                <param>
+                    <type>Lambda &amp;&amp;</type>
+                    <declname>task</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="50" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="50" bodyend="66"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1multi__thread_1a4830bf876728b3cd30665d5d5c26e4dc"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename Callable</type>
+                    </param>
+                    <param>
+                        <type>typename ...</type>
+                        <declname>Args</declname>
+                        <defname>Args</defname>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::multi_thread::multi_thread_run</definition>
+                <argsstring>(size_t thread_num, Callable &amp;&amp;job, Args &amp;&amp;...args)</argsstring>
+                <name>multi_thread_run</name>
+                <param>
+                    <type>size_t</type>
+                    <declname>thread_num</declname>
+                </param>
+                <param>
+                    <type>Callable &amp;&amp;</type>
+                    <declname>job</declname>
+                </param>
+                <param>
+                    <type>Args &amp;&amp;...</type>
+                    <declname>args</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="69" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="69" bodyend="80"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1multi__thread_1a28108191f5b6832d42d96800778992c2"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <templateparamlist>
+                    <param>
+                        <type>typename ...</type>
+                        <declname>Args</declname>
+                        <defname>Args</defname>
+                    </param>
+                </templateparamlist>
+                <type>void</type>
+                <definition>void space::multi_thread::auto_multi_thread</definition>
+                <argsstring>(Args &amp;&amp;... args)</argsstring>
+                <name>auto_multi_thread</name>
+                <param>
+                    <type>Args &amp;&amp;...</type>
+                    <declname>args</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="83" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="83" bodyend="85"/>
+            </memberdef>
+            <memberdef kind="function" id="namespacespace_1_1multi__thread_1add48464677ab9c4134943907d3fa625d"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>
+                    <ref refid="classspace_1_1multi__thread_1_1_concurrent_file" kindref="compound">ConcurrentFile</ref>
+                </type>
+                <definition>ConcurrentFile space::multi_thread::make_thread_safe_fstream</definition>
+                <argsstring>(std::string const &amp;name, std::ios_base::openmode mode)</argsstring>
+                <name>make_thread_safe_fstream</name>
+                <param>
+                    <type>std::string const &amp;</type>
+                    <declname>name</declname>
+                </param>
+                <param>
+                    <type>std::ios_base::openmode</type>
+                    <declname>mode</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="multi-thread/multi-thread.hpp" line="136" column="1"
+                          bodyfile="multi-thread/multi-thread.hpp" bodystart="136" bodyend="138"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+            <para>Documentation for Foo here. More docs for Foo here, and down here.</para>
+        </detaileddescription>
+        <location file="multi-thread/ciostream.hpp" line="12" column="1"/>
+    </compounddef>
+</doxygen>

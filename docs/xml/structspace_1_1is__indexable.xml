@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="316" column="1" bodyfile="dev-tools.hpp" bodystart="316" bodyend="-1"/>
+          <location file="dev-tools.hpp" line="340" column="1" bodyfile="dev-tools.hpp" bodystart="340" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="310" column="1"/>
+          <location file="dev-tools.hpp" line="334" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1is__indexable_1a9c3a7863cdb7e9e3bcdd1d013f52d481" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="314" column="1"/>
+          <location file="dev-tools.hpp" line="338" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -78,12 +78,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="169">
+        <node id="166">
         <label>space::is_indexable&lt; T, Args &gt;</label>
         <link refid="structspace_1_1is__indexable"/>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="308" column="1" bodyfile="dev-tools.hpp" bodystart="308" bodyend="317"/>
+      <location file="dev-tools.hpp" line="332" column="1" bodyfile="dev-tools.hpp" bodystart="332" bodyend="341"/>
     <listofallmembers>
       <member refid="structspace_1_1is__indexable_1a54916ba9d0bafbe3f6c43a227eee23d7" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>
       <member refid="structspace_1_1is__indexable_1a9c3a7863cdb7e9e3bcdd1d013f52d481" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>

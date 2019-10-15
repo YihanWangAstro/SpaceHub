@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd"
+         version="1.8.13">
+    <compounddef id="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kind="struct" language="C++"
+                 prot="public">
+        <compoundname>space::particle_set::SizeParticles::Particle</compoundname>
+        <basecompoundref refid="structspace_1_1particle__set_1_1_point_particle" prot="public" virt="non-virtual">
+            space::particle_set::PointParticle&lt; Scalar &gt;
+        </basecompoundref>
+        <includes refid="finite-size_8hpp" local="no">finite-size.hpp</includes>
+        <sectiondef kind="public-type">
+            <memberdef kind="typedef"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                       prot="public" static="no">
+                <type>typename TypeSystem::Scalar</type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::Scalar = typename
+                    TypeSystem::Scalar
+                </definition>
+                <argsstring></argsstring>
+                <name>Scalar</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="53" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="53" bodyend="-1"/>
+            </memberdef>
+            <memberdef kind="typedef"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a2e7f141e80e6a5445321166e923f75eb"
+                       prot="public" static="no">
+                <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; <ref
+                        refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                        kindref="member">Scalar
+                </ref> &gt;
+                </type>
+                <definition>using space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::Vector = Vec3&lt;Scalar&gt;</definition>
+                <argsstring></argsstring>
+                <name>Vector</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="55" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="55" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-attrib">
+            <memberdef kind="variable"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a752cf1622e47b337a1bda0a3494d20e4"
+                       prot="public" static="no" mutable="no">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::radius</definition>
+                <argsstring></argsstring>
+                <name>radius</name>
+                <initializer>{r} {}
+
+                    <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                        Particle</ref>(<ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> m, <ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> r, <ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> px = 0, <ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> py = 0, <ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> pz = 0, <ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> vx = 0, <ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar
+                    </ref> vy = 0,
+                    <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                         kindref="member">Scalar
+                    </ref>
+                    vz = 0)
+                    : <ref refid="structspace_1_1particle__set_1_1_point_particle" kindref="compound">
+                        PointParticle</ref>&lt;<ref
+                            refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                            kindref="member">Scalar</ref>&gt;{m, px, py, pz, vx, vy, vz}
+                </initializer>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="60" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="60" bodyend="-1"/>
+            </memberdef>
+        </sectiondef>
+        <sectiondef kind="public-func">
+            <memberdef kind="function"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a98cca7511b55465431c3034be9d20277"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::Particle</definition>
+                <argsstring>()=default</argsstring>
+                <name>Particle</name>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default constructor.</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="58" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1abc33fdee30a16e2bffd6a4b97cfddb76"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::Particle</definition>
+                <argsstring>(Particle const &amp;)=default</argsstring>
+                <name>Particle</name>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                            Particle
+                        </ref>
+                        const &amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default copy constructor.</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="58" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a0fed9778a2fb01460abdca96cad987a3"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::Particle</definition>
+                <argsstring>(Particle &amp;&amp;)=default</argsstring>
+                <name>Particle</name>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                            Particle
+                        </ref> &amp;&amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default move constructor</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="58" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a44c5621a99d29e81e6187519b83b98f8"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>
+                    <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                        Particle
+                    </ref> &amp;
+                </type>
+                <definition>Particle&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::operator=
+                </definition>
+                <argsstring>(Particle const &amp;)=default</argsstring>
+                <name>operator=</name>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                            Particle
+                        </ref>
+                        const &amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default copy assignment operator</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="58" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a091d61c55fdd694864e3ca9fd87021cd"
+                       prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+                <type>
+                    <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                        Particle
+                    </ref> &amp;
+                </type>
+                <definition>Particle&amp; space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::operator=
+                </definition>
+                <argsstring>(Particle &amp;&amp;)=default</argsstring>
+                <name>operator=</name>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle" kindref="compound">
+                            Particle
+                        </ref> &amp;&amp;
+                    </type>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                    <para>Default move assignment operator</para>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="58" column="1"/>
+            </memberdef>
+            <memberdef kind="function"
+                       id="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1acb6e7310001b955fdef9e341ed1d5dad"
+                       prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+                <type></type>
+                <definition>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle::Particle</definition>
+                <argsstring>(Scalar m, Scalar r, Vector p, Vector v)</argsstring>
+                <name>Particle</name>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                             kindref="member">Scalar
+                        </ref>
+                    </type>
+                    <declname>m</declname>
+                </param>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                             kindref="member">Scalar
+                        </ref>
+                    </type>
+                    <declname>r</declname>
+                </param>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a2e7f141e80e6a5445321166e923f75eb"
+                             kindref="member">Vector
+                        </ref>
+                    </type>
+                    <declname>p</declname>
+                </param>
+                <param>
+                    <type>
+                        <ref refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a2e7f141e80e6a5445321166e923f75eb"
+                             kindref="member">Vector
+                        </ref>
+                    </type>
+                    <declname>v</declname>
+                </param>
+                <briefdescription>
+                </briefdescription>
+                <detaileddescription>
+                </detaileddescription>
+                <inbodydescription>
+                </inbodydescription>
+                <location file="particles/finite-size.hpp" line="60" column="1" bodyfile="particles/finite-size.hpp"
+                          bodystart="60" bodyend="60"/>
+            </memberdef>
+        </sectiondef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inheritancegraph>
+            <node id="220">
+                <label>space::particle_set::PointParticle&lt; Scalar &gt;</label>
+                <link refid="structspace_1_1particle__set_1_1_point_particle"/>
+                <childnode refid="221" relation="template-instance">
+                    <edgelabel>&lt; Scalar &gt;</edgelabel>
+                </childnode>
+            </node>
+            <node id="219">
+                <label>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle</label>
+                <link refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle"/>
+                <childnode refid="220" relation="public-inheritance">
+                </childnode>
+            </node>
+            <node id="221">
+                <label>space::particle_set::PointParticle&lt; Real &gt;</label>
+                <link refid="structspace_1_1particle__set_1_1_point_particle"/>
+            </node>
+        </inheritancegraph>
+        <collaborationgraph>
+            <node id="224">
+                <label>space::Vec3&lt; Scalar &gt;</label>
+                <link refid="structspace_1_1_vec3"/>
+                <childnode refid="225" relation="template-instance">
+                    <edgelabel>&lt; Scalar &gt;</edgelabel>
+                </childnode>
+            </node>
+            <node id="226">
+                <label>T</label>
+            </node>
+            <node id="228">
+                <label>Real</label>
+            </node>
+            <node id="223">
+                <label>space::particle_set::PointParticle&lt; Scalar &gt;</label>
+                <link refid="structspace_1_1particle__set_1_1_point_particle"/>
+                <childnode refid="224" relation="usage">
+                    <edgelabel>+pos</edgelabel>
+                    <edgelabel>+vel</edgelabel>
+                </childnode>
+                <childnode refid="227" relation="template-instance">
+                    <edgelabel>&lt; Scalar &gt;</edgelabel>
+                </childnode>
+            </node>
+            <node id="222">
+                <label>space::particle_set::SizeParticles&lt; TypeSystem &gt;::Particle</label>
+                <link refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle"/>
+                <childnode refid="223" relation="public-inheritance">
+                </childnode>
+            </node>
+            <node id="227">
+                <label>space::particle_set::PointParticle&lt; Real &gt;</label>
+                <link refid="structspace_1_1particle__set_1_1_point_particle"/>
+                <childnode refid="224" relation="usage">
+                    <edgelabel>+pos</edgelabel>
+                    <edgelabel>+vel</edgelabel>
+                </childnode>
+                <childnode refid="228" relation="usage">
+                    <edgelabel>+mass</edgelabel>
+                </childnode>
+            </node>
+            <node id="225">
+                <label>space::Vec3&lt; T &gt;</label>
+                <link refid="structspace_1_1_vec3"/>
+                <childnode refid="226" relation="usage">
+                    <edgelabel>+x</edgelabel>
+                    <edgelabel>+y</edgelabel>
+                    <edgelabel>+z</edgelabel>
+                </childnode>
+            </node>
+        </collaborationgraph>
+        <location file="particles/finite-size.hpp" line="50" column="1" bodyfile="particles/finite-size.hpp"
+                  bodystart="50" bodyend="78"/>
+        <listofallmembers>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a1305c6f9cf975e2b93f894e093e5419c"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>mass</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a44c5621a99d29e81e6187519b83b98f8"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>operator=</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a091d61c55fdd694864e3ca9fd87021cd"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>operator=</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a4dfb71f6237c0f07ef5020f892673aa7"
+                    prot="public" virt="non-virtual" ambiguityscope="PointParticle&lt; Scalar &gt;::">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>operator=</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a63d69f009e93cf9f02f5554a370b65a6"
+                    prot="public" virt="non-virtual" ambiguityscope="PointParticle&lt; Scalar &gt;::">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>operator=</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a98cca7511b55465431c3034be9d20277"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>Particle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1abc33fdee30a16e2bffd6a4b97cfddb76"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>Particle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a0fed9778a2fb01460abdca96cad987a3"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>Particle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1acb6e7310001b955fdef9e341ed1d5dad"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>Particle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1ac4a06825009e1b11f029b9d137945962"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>PointParticle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a6d96341c619329b2f0132625c3e2bf1c"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>PointParticle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1af0f10782fb80bfad270a954c92560d90"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>PointParticle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a9dd14942d7f6fed0dfa4ff224de1c396"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>PointParticle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a196cccc5db5505dbe9fe50031bbb9233"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>PointParticle</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1ac6c86eba6daa1c320da71f6cd9e63b2f"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>pos</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a752cf1622e47b337a1bda0a3494d20e4"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>radius</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a17f053dfbf0715cf69ac4a8b38be7528"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>Scalar</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_size_particles_1_1_particle_1a2e7f141e80e6a5445321166e923f75eb"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>Vector</name>
+            </member>
+            <member refid="structspace_1_1particle__set_1_1_point_particle_1a2c54d82cbaa1539a0d13e0a7a3ae73dd"
+                    prot="public" virt="non-virtual">
+                <scope>space::particle_set::SizeParticles::Particle</scope>
+                <name>vel</name>
+            </member>
+        </listofallmembers>
+    </compounddef>
+</doxygen>

@@ -21,7 +21,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="228" column="1" bodyfile="orbits/orbits.hpp" bodystart="228" bodyend="-1"/>
+          <location file="orbits/orbits.hpp" line="254" column="1" bodyfile="orbits/orbits.hpp" bodystart="254"
+                    bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-type">
@@ -36,7 +37,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="231" column="1" bodyfile="orbits/orbits.hpp" bodystart="231" bodyend="-1"/>
+          <location file="orbits/orbits.hpp" line="257" column="1" bodyfile="orbits/orbits.hpp" bodystart="257"
+                    bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -51,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="233" column="1"/>
+          <location file="orbits/orbits.hpp" line="259" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1orbit_1_1_hyper_orbit_args_1a46752510aaa1ba5656f44865361dcbb4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -96,7 +98,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="235" column="1" bodyfile="orbits/orbits.hpp" bodystart="235" bodyend="243"/>
+          <location file="orbits/orbits.hpp" line="261" column="1" bodyfile="orbits/orbits.hpp" bodystart="261"
+                    bodyend="269"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -112,30 +115,31 @@
 </parameterlist>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="143">
+        <node id="142">
         <label>space::orbit::OrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_orbit_args"/>
       </node>
-      <node id="142">
+        <node id="141">
         <label>space::orbit::HyperOrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_hyper_orbit_args"/>
-        <childnode refid="143" relation="public-inheritance">
+            <childnode refid="142" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="145">
+        <node id="144">
         <label>space::orbit::OrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_orbit_args"/>
       </node>
-      <node id="144">
+        <node id="143">
         <label>space::orbit::HyperOrbitArgs&lt; Real &gt;</label>
         <link refid="structspace_1_1orbit_1_1_hyper_orbit_args"/>
-        <childnode refid="145" relation="public-inheritance">
+            <childnode refid="144" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="orbits/orbits.hpp" line="226" column="1" bodyfile="orbits/orbits.hpp" bodystart="226" bodyend="244"/>
+      <location file="orbits/orbits.hpp" line="252" column="1" bodyfile="orbits/orbits.hpp" bodystart="252"
+                bodyend="270"/>
     <listofallmembers>
       <member refid="structspace_1_1orbit_1_1_orbit_args_1aa08aac46eea7ca745948313b160bd06c" prot="public" virt="non-virtual"><scope>space::orbit::HyperOrbitArgs</scope><name>e</name></member>
       <member refid="structspace_1_1orbit_1_1_hyper_orbit_args_1ab994e67bf9d8d4da7e202f27da0b5d54" prot="public" virt="non-virtual"><scope>space::orbit::HyperOrbitArgs</scope><name>HyperOrbitArgs</name></member>

@@ -6,7 +6,7 @@
 #include <mutex>
 #include <condition_variable>
 
-namespace space::multiThread {
+namespace space::multi_thread {
 
   template<typename T>
   class ConcurrentDeque {

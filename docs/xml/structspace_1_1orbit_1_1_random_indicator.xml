@@ -8,12 +8,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="280">
+        <node id="274">
         <label>space::orbit::RandomIndicator</label>
         <link refid="structspace_1_1orbit_1_1_random_indicator"/>
       </node>
     </collaborationgraph>
-    <location file="orbits/orbits.hpp" line="101" column="1" bodyfile="orbits/orbits.hpp" bodystart="101" bodyend="102"/>
+      <location file="orbits/orbits.hpp" line="127" column="1" bodyfile="orbits/orbits.hpp" bodystart="127"
+                bodyend="128"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>
