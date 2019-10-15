@@ -93,23 +93,11 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">using</span> <a class="code" href="structspace_1_1_vec3.html">Vector</a> = <a class="code" href="structspace_1_1_vec3.html">Vec3&lt;Scalar&gt;</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-    <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; SPACEHUB_MAKE_CONSTRUCTORS(<a
-            class="code" href="structspace_1_1_point_particle.html">PointParticle</a>, <span
-            class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>,
-        <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);
-    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    SPACEHUB_MAKE_CONSTRUCTORS(<a class="code" href="structspace_1_1_point_particle.html">PointParticle</a>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-    <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">explicit</span>
-        <a class="code" href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">PointParticle</a>(Scalar
-        mass, <a class="code" href="structspace_1_1_vec3.html">Vector</a> position, <a class="code"
-                                                                                       href="structspace_1_1_vec3.html">Vector</a>
-        velocity);
-    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">PointParticle</a>(Scalar mass, <a class="code" href="structspace_1_1_vec3.html">Vector</a> position, <a class="code" href="structspace_1_1_vec3.html">Vector</a> velocity);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-    <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="keyword">explicit</span>
-        <a class="code" href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">PointParticle</a>(Scalar
-        mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
-    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">PointParticle</a>(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                           Scalar vz = 0);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// public members</span></div>
@@ -137,48 +125,20 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SPACEHUB_MAKE_CONSTRUCTORS(<a class="code" href="classspace_1_1_point_particles.html">PointParticles</a>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> STL&gt;</div>
-    <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <a class="code"
-                                                                                      href="classspace_1_1_point_particles.html#a86ec59de4b9c7f255c82704404f014d4">PointParticles</a>(Scalar
-        t, STL <span class="keyword">const</span> &amp;particle_set);
-    </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classspace_1_1_point_particles.html#a86ec59de4b9c7f255c82704404f014d4">PointParticles</a>(Scalar t, STL <span class="keyword">const</span> &amp;particle_set);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    CRTP_IMPL :</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// CRTP implementation</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-    <div class="line"><a name="l00087"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_point_particles.html#aaf65d33065e68a1e58a69fdc50121c1e">   87</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_point_particles.html#ae7e1a03581b2793703ee81ffad563191">impl_mass</a>,
-        mass_);
-    </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classspace_1_1_point_particles.html#aaf65d33065e68a1e58a69fdc50121c1e">   87</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_point_particles.html#ae7e1a03581b2793703ee81ffad563191">impl_mass</a>, mass_);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-    <div class="line"><a name="l00089"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_point_particles.html#ae637eb218c28595e99c2615290e5ab8f">   89</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_point_particles.html#a7eb213216695ab9cef53f14144723e36">impl_idn</a>,
-        idn_);
-    </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classspace_1_1_point_particles.html#ae637eb218c28595e99c2615290e5ab8f">   89</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_point_particles.html#a7eb213216695ab9cef53f14144723e36">impl_idn</a>, idn_);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-    <div class="line"><a name="l00091"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_point_particles.html#a206da3c826306940d1bd9641df819f65">   91</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_point_particles.html#a1fd90d159f8b5dca130887f217387b12">impl_time</a>,
-        time_);
-    </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classspace_1_1_point_particles.html#a206da3c826306940d1bd9641df819f65">   91</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_point_particles.html#a1fd90d159f8b5dca130887f217387b12">impl_time</a>, time_);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-    <div class="line"><a name="l00093"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_point_particles.html#a49004a3150f2f2c9cb579314c3d4d13d">   93</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_point_particles.html#a6b76b69b56e5cbf59304400b1db6ee2d">impl_pos</a>,
-        pos_);
-    </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classspace_1_1_point_particles.html#a49004a3150f2f2c9cb579314c3d4d13d">   93</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_point_particles.html#a6b76b69b56e5cbf59304400b1db6ee2d">impl_pos</a>, pos_);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-    <div class="line"><a name="l00095"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_point_particles.html#a4f6fa5d0ccfc560c914e1ce4976231fa">   95</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_point_particles.html#a27e204c69987c726a325a8bb5dffd799">impl_vel</a>,
-        vel_);
-    </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classspace_1_1_point_particles.html#a4f6fa5d0ccfc560c914e1ce4976231fa">   95</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_point_particles.html#a27e204c69987c726a325a8bb5dffd799">impl_vel</a>, vel_);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> impl_resize(<span class="keywordtype">size_t</span> new_sz);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
@@ -211,13 +171,7 @@ $(function() {
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">    Class PointParticle Implementation</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
-    <div class="line"><a name="l00128"></a><span class="lineno"><a class="line"
-                                                                   href="structspace_1_1_point_particle.html#ac0f213b4f8a499cc9fe6b824b43675ad">  128</a></span>&#160;
-        <a class="code" href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">PointParticle&lt;Real&gt;::PointParticle</a>(Scalar
-        m, <a class="code" href="structspace_1_1_vec3.html">PointParticle::Vector</a> p, <a class="code"
-                                                                                            href="structspace_1_1_vec3.html">PointParticle::Vector</a>
-        v)
-    </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="structspace_1_1_point_particle.html#ac0f213b4f8a499cc9fe6b824b43675ad">  128</a></span>&#160;  <a class="code" href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">PointParticle&lt;Real&gt;::PointParticle</a>(Scalar m, <a class="code" href="structspace_1_1_vec3.html">PointParticle::Vector</a> p, <a class="code" href="structspace_1_1_vec3.html">PointParticle::Vector</a> v)</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;          : pos(p), vel(v), mass(m) {}</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
@@ -310,53 +264,16 @@ $(function() {
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#endif  //SPACEHUB_POINT_PARTICLES_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassspace_1_1_point_particles_html_ae7e1a03581b2793703ee81ffad563191">
-    <div class="ttname"><a href="classspace_1_1_point_particles.html#ae7e1a03581b2793703ee81ffad563191">space::PointParticles::impl_mass</a>
-    </div>
-    <div class="ttdeci">auto &amp; impl_mass() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> point-particles.hpp:87</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_point_particles_html_ae7e1a03581b2793703ee81ffad563191"><div class="ttname"><a href="classspace_1_1_point_particles.html#ae7e1a03581b2793703ee81ffad563191">space::PointParticles::impl_mass</a></div><div class="ttdeci">auto &amp; impl_mass() noexcept</div><div class="ttdef"><b>Definition:</b> point-particles.hpp:87</div></div>
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
-<div class="ttc" id="aclassspace_1_1_point_particles_html_a27e204c69987c726a325a8bb5dffd799">
-    <div class="ttname"><a href="classspace_1_1_point_particles.html#a27e204c69987c726a325a8bb5dffd799">space::PointParticles::impl_vel</a>
-    </div>
-    <div class="ttdeci">auto &amp; impl_vel() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> point-particles.hpp:95</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_point_particles_html_a86ec59de4b9c7f255c82704404f014d4">
-    <div class="ttname"><a href="classspace_1_1_point_particles.html#a86ec59de4b9c7f255c82704404f014d4">space::PointParticles::PointParticles</a>
-    </div>
-    <div class="ttdeci">PointParticles()=default</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_point_particles_html_a7eb213216695ab9cef53f14144723e36">
-    <div class="ttname"><a href="classspace_1_1_point_particles.html#a7eb213216695ab9cef53f14144723e36">space::PointParticles::impl_idn</a>
-    </div>
-    <div class="ttdeci">auto &amp; impl_idn() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> point-particles.hpp:89</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html">
-    <div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:19</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_point_particles_html_a27e204c69987c726a325a8bb5dffd799"><div class="ttname"><a href="classspace_1_1_point_particles.html#a27e204c69987c726a325a8bb5dffd799">space::PointParticles::impl_vel</a></div><div class="ttdeci">auto &amp; impl_vel() noexcept</div><div class="ttdef"><b>Definition:</b> point-particles.hpp:95</div></div>
+<div class="ttc" id="aclassspace_1_1_point_particles_html_a86ec59de4b9c7f255c82704404f014d4"><div class="ttname"><a href="classspace_1_1_point_particles.html#a86ec59de4b9c7f255c82704404f014d4">space::PointParticles::PointParticles</a></div><div class="ttdeci">PointParticles()=default</div></div>
+<div class="ttc" id="aclassspace_1_1_point_particles_html_a7eb213216695ab9cef53f14144723e36"><div class="ttname"><a href="classspace_1_1_point_particles.html#a7eb213216695ab9cef53f14144723e36">space::PointParticles::impl_idn</a></div><div class="ttdeci">auto &amp; impl_idn() noexcept</div><div class="ttdef"><b>Definition:</b> point-particles.hpp:89</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdef"><b>Definition:</b> particles.hpp:19</div></div>
 <div class="ttc" id="astructspace_1_1_point_particle_html"><div class="ttname"><a href="structspace_1_1_point_particle.html">space::PointParticle</a></div><div class="ttdef"><b>Definition:</b> point-particles.hpp:21</div></div>
-<div class="ttc" id="aclassspace_1_1_point_particles_html_a6b76b69b56e5cbf59304400b1db6ee2d">
-    <div class="ttname"><a href="classspace_1_1_point_particles.html#a6b76b69b56e5cbf59304400b1db6ee2d">space::PointParticles::impl_pos</a>
-    </div>
-    <div class="ttdeci">auto &amp; impl_pos() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> point-particles.hpp:93</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_point_particles_html_a1fd90d159f8b5dca130887f217387b12">
-    <div class="ttname"><a href="classspace_1_1_point_particles.html#a1fd90d159f8b5dca130887f217387b12">space::PointParticles::impl_time</a>
-    </div>
-    <div class="ttdeci">auto &amp; impl_time() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> point-particles.hpp:91</div>
-</div>
-<div class="ttc" id="astructspace_1_1_point_particle_html_a30b98a3bc0fea896fd938749e731806a">
-    <div class="ttname"><a href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">space::PointParticle::PointParticle</a>
-    </div>
-    <div class="ttdeci">PointParticle()=default</div>
-    <div class="ttdoc">Construct a new Point Particle object.</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_point_particles_html_a6b76b69b56e5cbf59304400b1db6ee2d"><div class="ttname"><a href="classspace_1_1_point_particles.html#a6b76b69b56e5cbf59304400b1db6ee2d">space::PointParticles::impl_pos</a></div><div class="ttdeci">auto &amp; impl_pos() noexcept</div><div class="ttdef"><b>Definition:</b> point-particles.hpp:93</div></div>
+<div class="ttc" id="aclassspace_1_1_point_particles_html_a1fd90d159f8b5dca130887f217387b12"><div class="ttname"><a href="classspace_1_1_point_particles.html#a1fd90d159f8b5dca130887f217387b12">space::PointParticles::impl_time</a></div><div class="ttdeci">auto &amp; impl_time() noexcept</div><div class="ttdef"><b>Definition:</b> point-particles.hpp:91</div></div>
+<div class="ttc" id="astructspace_1_1_point_particle_html_a30b98a3bc0fea896fd938749e731806a"><div class="ttname"><a href="structspace_1_1_point_particle.html#a30b98a3bc0fea896fd938749e731806a">space::PointParticle::PointParticle</a></div><div class="ttdeci">PointParticle()=default</div><div class="ttdoc">Construct a new Point Particle object.</div></div>
 <div class="ttc" id="astructspace_1_1_vec3_html"><div class="ttname"><a href="structspace_1_1_vec3.html">space::Vec3&lt; Scalar &gt;</a></div></div>
 <div class="ttc" id="aclassspace_1_1_point_particles_html"><div class="ttname"><a href="classspace_1_1_point_particles.html">space::PointParticles</a></div><div class="ttdef"><b>Definition:</b> point-particles.hpp:69</div></div>
 <!-- start footer part -->

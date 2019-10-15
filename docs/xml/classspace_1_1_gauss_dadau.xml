@@ -9,139 +9,117 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a756fa98b22145d41a9580a1a2a477a33" prot="public"
-                     static="no">
-              <templateparamlist>
-                  <param>
-                      <type>typename ...</type>
-                      <declname>_T_</declname>
-                      <defname>_T_</defname>
-                  </param>
-              </templateparamlist>
-              <type>typename ParticSys ::template Container&lt; _T_... &gt;</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::Container = typename ParticSys ::template
-                  Container&lt;_T_...&gt;
-              </definition>
-              <argsstring></argsstring>
-              <name>Container</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="18" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1affa6959e99084c204b76bb519d0a6499" prot="public"
-                     static="no">
-              <type>typename ParticSys ::Scalar</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::Scalar = typename ParticSys ::Scalar</definition>
-              <argsstring></argsstring>
-              <name>Scalar</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="38" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1ab43cb6f197b615a7b2c6791efe6cedab" prot="public"
-                     static="no">
-              <type>typename ParticSys ::ScalarArray</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::ScalarArray = typename ParticSys ::ScalarArray
-              </definition>
-              <argsstring></argsstring>
-              <name>ScalarArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="53" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1aa438384b005893a7e7aaa965ed98a584" prot="public"
-                     static="no">
-              <type>typename ParticSys ::IdxArray</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::IdxArray = typename ParticSys ::IdxArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IdxArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="73" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a3942e9a364cae308609c65796ba7312b" prot="public"
-                     static="no">
-              <type>typename ParticSys ::IntArray</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::IntArray = typename ParticSys ::IntArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IntArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="90" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a2d243f48881618e6e297306c4ae10634" prot="public"
-                     static="no">
-              <type>typename ParticSys ::Vector</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::Vector = typename ParticSys ::Vector</definition>
-              <argsstring></argsstring>
-              <name>Vector</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="107" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a6bc187b982e9292e7c7291a71587c6d0" prot="public"
-                     static="no">
-              <type>typename ParticSys ::VectorArray</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::VectorArray = typename ParticSys ::VectorArray
-              </definition>
-              <argsstring></argsstring>
-              <name>VectorArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="122" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1ac8612c3a6c20aed0552952f58c60fe2f" prot="public"
-                     static="no">
-              <type>typename ParticSys ::Coord</type>
-              <definition>using space::GaussDadau&lt; ParticSys &gt;::Coord = typename ParticSys ::Coord</definition>
-              <argsstring></argsstring>
-              <name>Coord</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="integrator/Gauss-Dadau.h" line="102" column="142" bodyfile="integrator/Gauss-Dadau.h"
-                        bodystart="102" bodyend="-1"/>
-          </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a756fa98b22145d41a9580a1a2a477a33" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>_T_</declname>
+            <defname>_T_</defname>
+          </param>
+        </templateparamlist>
+        <type>typename ParticSys ::template Container&lt; _T_... &gt;</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::Container =  typename ParticSys ::template Container&lt;_T_...&gt;</definition>
+        <argsstring></argsstring>
+        <name>Container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="18" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1affa6959e99084c204b76bb519d0a6499" prot="public" static="no">
+        <type>typename ParticSys ::Scalar</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::Scalar =  typename ParticSys ::Scalar</definition>
+        <argsstring></argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="38" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1ab43cb6f197b615a7b2c6791efe6cedab" prot="public" static="no">
+        <type>typename ParticSys ::ScalarArray</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::ScalarArray =  typename ParticSys ::ScalarArray</definition>
+        <argsstring></argsstring>
+        <name>ScalarArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="53" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1aa438384b005893a7e7aaa965ed98a584" prot="public" static="no">
+        <type>typename ParticSys ::IdxArray</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::IdxArray =  typename ParticSys ::IdxArray</definition>
+        <argsstring></argsstring>
+        <name>IdxArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="73" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a3942e9a364cae308609c65796ba7312b" prot="public" static="no">
+        <type>typename ParticSys ::IntArray</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::IntArray =  typename ParticSys ::IntArray</definition>
+        <argsstring></argsstring>
+        <name>IntArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="90" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a2d243f48881618e6e297306c4ae10634" prot="public" static="no">
+        <type>typename ParticSys ::Vector</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::Vector =  typename ParticSys ::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="107" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1a6bc187b982e9292e7c7291a71587c6d0" prot="public" static="no">
+        <type>typename ParticSys ::VectorArray</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::VectorArray =  typename ParticSys ::VectorArray</definition>
+        <argsstring></argsstring>
+        <name>VectorArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="122" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1ac8612c3a6c20aed0552952f58c60fe2f" prot="public" static="no">
+        <type>typename ParticSys ::Coord</type>
+        <definition>using space::GaussDadau&lt; ParticSys &gt;::Coord =  typename ParticSys ::Coord</definition>
+        <argsstring></argsstring>
+        <name>Coord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="integrator/Gauss-Dadau.h" line="102" column="142" bodyfile="integrator/Gauss-Dadau.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_gauss_dadau_1ac28b3c480cf1ae769da5dbc05a2809fa" prot="public" static="no">
         <type>Container&lt; Vector, 7 &gt;</type>
         <definition>using space::GaussDadau&lt; ParticSys &gt;::RadauArray =  Container&lt;Vector, 7&gt;</definition>
@@ -598,28 +576,16 @@
       <member refid="classspace_1_1_gauss_dadau_1a9cd9378f66da4ace3c1200482496a774" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>calcuBTab</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a4165eeeb35b5bf948e858cfd1f5c9075" prot="private" virt="non-virtual"><scope>space::GaussDadau</scope><name>calcuGTab</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a43a4ed21df5d484f05c5b156814aae00" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>checkTabVolume</name></member>
-        <member refid="classspace_1_1_gauss_dadau_1a756fa98b22145d41a9580a1a2a477a33" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>Container</name>
-        </member>
-        <member refid="classspace_1_1_gauss_dadau_1ac8612c3a6c20aed0552952f58c60fe2f" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>Coord</name>
-        </member>
+      <member refid="classspace_1_1_gauss_dadau_1a756fa98b22145d41a9580a1a2a477a33" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>Container</name></member>
+      <member refid="classspace_1_1_gauss_dadau_1ac8612c3a6c20aed0552952f58c60fe2f" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>Coord</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a1a02b888d69296a6c2e6cbbe3247693a" prot="private" virt="non-virtual"><scope>space::GaussDadau</scope><name>evaluatePosIncrement</name></member>
       <member refid="classspace_1_1_gauss_dadau_1ac5c9176c9dca785449710b3715e16654" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>evaluateSystemAt</name></member>
       <member refid="classspace_1_1_gauss_dadau_1ab6250265692c7264f1a5cb16c4552ff9" prot="private" virt="non-virtual"><scope>space::GaussDadau</scope><name>evaluateVelIncrement</name></member>
       <member refid="classspace_1_1_gauss_dadau_1ae88a3879789fe5743d9017b5f86f6f66" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>finalPoint</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a30d7bd1c32d27ed7e53a54ae1818b002" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>getBTab</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a71ba9437aa0eb76a6854f90806e390c4" prot="private" virt="non-virtual"><scope>space::GaussDadau</scope><name>Gtab_</name></member>
-        <member refid="classspace_1_1_gauss_dadau_1aa438384b005893a7e7aaa965ed98a584" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>IdxArray</name>
-        </member>
-        <member refid="classspace_1_1_gauss_dadau_1a3942e9a364cae308609c65796ba7312b" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>IntArray</name>
-        </member>
+      <member refid="classspace_1_1_gauss_dadau_1aa438384b005893a7e7aaa965ed98a584" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>IdxArray</name></member>
+      <member refid="classspace_1_1_gauss_dadau_1a3942e9a364cae308609c65796ba7312b" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>IntArray</name></member>
       <member refid="classspace_1_1_gauss_dadau_1aba82c30a0d594104c3abed72b6f79098" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>integrate</name></member>
       <member refid="classspace_1_1_gauss_dadau_1adf17c663420129c967088df0897bfa77" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>localAcc</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a61d1b0b24b8780d033b8b6a5525b0148" prot="private" virt="non-virtual"><scope>space::GaussDadau</scope><name>localSystem_</name></member>
@@ -629,22 +595,10 @@
       <member refid="classspace_1_1_gauss_dadau_1a49d0f17bbd53c6cc9ad347d6c3a84d83" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>predictNewB</name></member>
       <member refid="classspace_1_1_gauss_dadau_1ac28b3c480cf1ae769da5dbc05a2809fa" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>RadauArray</name></member>
       <member refid="classspace_1_1_gauss_dadau_1a705e773dc91296ae0e709a45f048cbb4" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>RadauTab</name></member>
-        <member refid="classspace_1_1_gauss_dadau_1affa6959e99084c204b76bb519d0a6499" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>Scalar</name>
-        </member>
-        <member refid="classspace_1_1_gauss_dadau_1ab43cb6f197b615a7b2c6791efe6cedab" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>ScalarArray</name>
-        </member>
-        <member refid="classspace_1_1_gauss_dadau_1a2d243f48881618e6e297306c4ae10634" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>Vector</name>
-        </member>
-        <member refid="classspace_1_1_gauss_dadau_1a6bc187b982e9292e7c7291a71587c6d0" prot="public" virt="non-virtual">
-            <scope>space::GaussDadau</scope>
-            <name>VectorArray</name>
-        </member>
+      <member refid="classspace_1_1_gauss_dadau_1affa6959e99084c204b76bb519d0a6499" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>Scalar</name></member>
+      <member refid="classspace_1_1_gauss_dadau_1ab43cb6f197b615a7b2c6791efe6cedab" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>ScalarArray</name></member>
+      <member refid="classspace_1_1_gauss_dadau_1a2d243f48881618e6e297306c4ae10634" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>Vector</name></member>
+      <member refid="classspace_1_1_gauss_dadau_1a6bc187b982e9292e7c7291a71587c6d0" prot="public" virt="non-virtual"><scope>space::GaussDadau</scope><name>VectorArray</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

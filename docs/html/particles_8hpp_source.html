@@ -77,208 +77,83 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    Class Particles Declaration</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div>
-    <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html">   19</a></span>&#160;
-        <span class="keyword">class </span><a class="code" href="classspace_1_1_particles.html">Particles</a> {
-    </div>
-    <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <span class="keyword">public</span>:
-    </div>
-    <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="comment">// public methods</span>
-    </div>
-    <div class="line"><a name="l00022"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a54a4876043317dcf84231b82babcb3d8">   22</a></span>&#160;
-        DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code"
-                                                                             href="classspace_1_1_particles.html#a964b67a83c8728c11b07448d472f0577">idn</a>);
-    </div>
-    <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-    <div class="line"><a name="l00024"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#ae0f67e101ca6099b72a198130b295400">   24</a></span>&#160;
-        DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code"
-                                                                             href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>);
-    </div>
-    <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-    <div class="line"><a name="l00026"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#ab4adc005f0b607b96c5f6ebc494c3d99">   26</a></span>&#160;
-        DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code"
-                                                                             href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>);
-    </div>
-    <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-    <div class="line"><a name="l00028"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a8d5470c95c29216ed74c377102caf6e9">   28</a></span>&#160;
-        DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code"
-                                                                             href="classspace_1_1_particles.html#ab7706ec2697aff1972f6b17248354ffa">time</a>);
-    </div>
-    <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-    <div class="line"><a name="l00030"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a592e5621e12b5ccc79b3364294543ef9">   30</a></span>&#160;
-        DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code"
-                                                                             href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>);
-    </div>
-    <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-    <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; Derived &amp;<a class="code"
-                                                                                                   href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">derived</a>();
-    </div>
-    <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-    <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; [[nodiscard]] <span
-            class="keywordtype">size_t</span> <a class="code"
-                                                 href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">number</a>()
-        <span class="keyword">const</span>;
-    </div>
-    <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-    <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; [[nodiscard]] <span
-            class="keywordtype">size_t</span> <a class="code"
-                                                 href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">capacity</a>()
-        <span class="keyword">const</span>;
-    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html">   19</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classspace_1_1_particles.html">Particles</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// public methods</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a54a4876043317dcf84231b82babcb3d8">   22</a></span>&#160;    DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code" href="classspace_1_1_particles.html#a964b67a83c8728c11b07448d472f0577">idn</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#ae0f67e101ca6099b72a198130b295400">   24</a></span>&#160;    DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#ab4adc005f0b607b96c5f6ebc494c3d99">   26</a></span>&#160;    DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a8d5470c95c29216ed74c377102caf6e9">   28</a></span>&#160;    DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code" href="classspace_1_1_particles.html#ab7706ec2697aff1972f6b17248354ffa">time</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a592e5621e12b5ccc79b3364294543ef9">   30</a></span>&#160;    DECLARE_CRTP_ACCESSOR(Derived, <span class="keyword">auto</span>, <a class="code" href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    Derived &amp;<a class="code" href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">derived</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    [[nodiscard]] <span class="keywordtype">size_t</span> <a class="code" href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">number</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    [[nodiscard]] <span class="keywordtype">size_t</span> <a class="code" href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">capacity</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-    <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; <span class="keywordtype">void</span>
-        <a class="code" href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">reserve</a>(<span
-                class="keywordtype">size_t</span> new_cap);
-    </div>
-    <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-    <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; <span class="keywordtype">void</span>
-        <a class="code" href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">resize</a>(<span
-                class="keywordtype">size_t</span> new_sz);
-    </div>
-    <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-    <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; <span class="keywordtype">void</span>
-        <a class="code" href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">clear</a>();
-    </div>
-    <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-    <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Particle&gt;
-    </div>
-    <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span class="keywordtype">void</span>
-        <a class="code" href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">emplace_back</a>(Particle
-        <span class="keyword">const</span> &amp;new_particle);
-    </div>
-    <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-    <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; <span class="keyword">private</span>:
-    </div>
-    <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; <a class="code"
-                                                                                      href="classspace_1_1_particles.html">Particles</a>()
-        = <span class="keywordflow">default</span>;
-    </div>
-    <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-    <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span class="keyword">friend</span>
-        Derived;
-    </div>
-    <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; };</div>
-    <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-    <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
-    </div>
-    <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">    Class Particles Implementation</span>
-    </div>
-    <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
-    </div>
-    <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00106"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">  106</a></span>&#160;
-        Derived &amp;<a class="code" href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">Particles&lt;Derived&gt;::derived</a>()
-        {
-    </div>
-    <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; <span
-            class="keywordflow">return</span> static_cast&lt;Derived &amp;&gt;(*<span class="keyword">this</span>);
-    </div>
-    <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; }</div>
-    <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-    <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00111"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">  111</a></span>&#160;
-        <span class="keywordtype">size_t</span> <a class="code"
-                                                   href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">Particles&lt;Derived&gt;::number</a>()<span
-                class="keyword"> const </span>{
-    </div>
-    <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; <span
-            class="keywordflow">return</span> static_cast&lt;Derived const *&gt;(<span class="keyword">this</span>)-&gt;impl_number();
-    </div>
-    <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; }</div>
-    <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-    <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00116"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">  116</a></span>&#160;
-        <span class="keywordtype">size_t</span> <a class="code"
-                                                   href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">Particles&lt;Derived&gt;::capacity</a>()<span
-                class="keyword"> const </span>{
-    </div>
-    <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; <span
-            class="keywordflow">return</span> static_cast&lt;Derived const *&gt;(<span class="keyword">this</span>)-&gt;impl_capacity();
-    </div>
-    <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; }</div>
-    <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-    <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00121"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">  121</a></span>&#160;
-        <span class="keywordtype">void</span> <a class="code"
-                                                 href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">Particles&lt;Derived&gt;::reserve</a>(<span
-                class="keywordtype">size_t</span> new_cap) {
-    </div>
-    <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; static_cast&lt;Derived *&gt;(<span
-            class="keyword">this</span>)-&gt;impl_reserve(new_cap);
-    </div>
-    <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; }</div>
-    <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-    <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00126"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">  126</a></span>&#160;
-        <span class="keywordtype">void</span> <a class="code"
-                                                 href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">Particles&lt;Derived&gt;::resize</a>(<span
-                class="keywordtype">size_t</span> new_sz) {
-    </div>
-    <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; static_cast&lt;Derived *&gt;(<span
-            class="keyword">this</span>)-&gt;impl_resize(new_sz);
-    </div>
-    <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; }</div>
-    <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-    <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00131"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">  131</a></span>&#160;
-        <span class="keywordtype">void</span> <a class="code"
-                                                 href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">Particles&lt;Derived&gt;::clear</a>()
-        {
-    </div>
-    <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; static_cast&lt;Derived *&gt;(<span
-            class="keyword">this</span>)-&gt;impl_clear();
-    </div>
-    <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; }</div>
-    <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-    <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Derived&gt;
-    </div>
-    <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; <span class="keyword">template</span>&lt;<span
-            class="keyword">typename</span> Particle&gt;
-    </div>
-    <div class="line"><a name="l00137"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">  137</a></span>&#160;
-        <span class="keywordtype">void</span> <a class="code"
-                                                 href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">Particles&lt;Derived&gt;::emplace_back</a>(Particle
-        <span class="keyword">const</span> &amp;particle) {
-    </div>
-    <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; static_cast&lt;Derived *&gt;(<span
-            class="keyword">this</span>)-&gt;impl_emplace_back(particle);
-    </div>
-    <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; }</div>
-    <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-    <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span>
-    </div>
-    <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">    Help functions and tools</span>
-    </div>
-    <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span>
-    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">reserve</a>(<span class="keywordtype">size_t</span> new_cap);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">resize</a>(<span class="keywordtype">size_t</span> new_sz);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">clear</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particle&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">emplace_back</a>(Particle <span class="keyword">const</span> &amp;new_particle);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="classspace_1_1_particles.html">Particles</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">friend</span> Derived;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  };</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">    Class Particles Implementation</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">  106</a></span>&#160;  Derived &amp;<a class="code" href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">Particles&lt;Derived&gt;::derived</a>() {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> static_cast&lt;Derived &amp;&gt;(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">  111</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">Particles&lt;Derived&gt;::number</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> static_cast&lt;Derived const *&gt;(<span class="keyword">this</span>)-&gt;impl_number();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">  116</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">Particles&lt;Derived&gt;::capacity</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> static_cast&lt;Derived const *&gt;(<span class="keyword">this</span>)-&gt;impl_capacity();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">  121</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">Particles&lt;Derived&gt;::reserve</a>(<span class="keywordtype">size_t</span> new_cap) {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    static_cast&lt;Derived *&gt;(<span class="keyword">this</span>)-&gt;impl_reserve(new_cap);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">  126</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">Particles&lt;Derived&gt;::resize</a>(<span class="keywordtype">size_t</span> new_sz) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    static_cast&lt;Derived *&gt;(<span class="keyword">this</span>)-&gt;impl_resize(new_sz);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">  131</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">Particles&lt;Derived&gt;::clear</a>() {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    static_cast&lt;Derived *&gt;(<span class="keyword">this</span>)-&gt;impl_clear();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Derived&gt;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particle&gt;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">  137</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">Particles&lt;Derived&gt;::emplace_back</a>(Particle <span class="keyword">const</span> &amp;particle) {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    static_cast&lt;Derived *&gt;(<span class="keyword">this</span>)-&gt;impl_emplace_back(particle);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*\</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">    Help functions and tools</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">\*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  constexpr <span class="keywordtype">bool</span> is_soa_particles_v = std::is_base_of_v&lt;Particles&lt;T&gt;, T&gt;;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
@@ -290,82 +165,19 @@ $(function() {
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html_ab7706ec2697aff1972f6b17248354ffa">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#ab7706ec2697aff1972f6b17248354ffa">space::Particles::time</a></div>
-    <div class="ttdeci">auto &amp; time() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:28</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a8d4572f516edfeb65457ccb21fa62de6">
-    <div class="ttname"><a href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">space::Particles::derived</a>
-    </div>
-    <div class="ttdeci">Derived &amp; derived()</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:106</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_aa34fcf3707da6d94091d75e235687267">
-    <div class="ttname"><a href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">space::Particles::capacity</a>
-    </div>
-    <div class="ttdeci">size_t capacity() const</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:116</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_aa6bbc1f7954d0991ca411ba7041969c6">
-    <div class="ttname"><a href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">space::Particles::clear</a>
-    </div>
-    <div class="ttdeci">void clear()</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:131</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a928e0065624cc688216c09f312e7a1df">
-    <div class="ttname"><a href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">space::Particles::reserve</a>
-    </div>
-    <div class="ttdeci">void reserve(size_t new_cap)</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:121</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_aac4152046aebc0f7735ec475a472b698">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">space::Particles::vel</a></div>
-    <div class="ttdeci">auto &amp; vel() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:30</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a8be4d54604402eccaa9b50b6bb7783d8">
-    <div class="ttname"><a href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">space::Particles::resize</a>
-    </div>
-    <div class="ttdeci">void resize(size_t new_sz)</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:126</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div>
-    <div class="ttdeci">auto &amp; mass() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:24</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div>
-    <div class="ttdeci">auto &amp; pos() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:26</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html">
-    <div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:19</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a964b67a83c8728c11b07448d472f0577">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a964b67a83c8728c11b07448d472f0577">space::Particles::idn</a></div>
-    <div class="ttdeci">auto &amp; idn() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:22</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a4a5558934deec20dc500a3f8ff981e14">
-    <div class="ttname"><a href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">space::Particles::emplace_back</a>
-    </div>
-    <div class="ttdeci">void emplace_back(Particle const &amp;new_particle)</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:137</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32">
-    <div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a>
-    </div>
-    <div class="ttdeci">size_t number() const</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:111</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_particles_html_ab7706ec2697aff1972f6b17248354ffa"><div class="ttname"><a href="classspace_1_1_particles.html#ab7706ec2697aff1972f6b17248354ffa">space::Particles::time</a></div><div class="ttdeci">auto &amp; time() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:28</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a8d4572f516edfeb65457ccb21fa62de6"><div class="ttname"><a href="classspace_1_1_particles.html#a8d4572f516edfeb65457ccb21fa62de6">space::Particles::derived</a></div><div class="ttdeci">Derived &amp; derived()</div><div class="ttdef"><b>Definition:</b> particles.hpp:106</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_aa34fcf3707da6d94091d75e235687267"><div class="ttname"><a href="classspace_1_1_particles.html#aa34fcf3707da6d94091d75e235687267">space::Particles::capacity</a></div><div class="ttdeci">size_t capacity() const</div><div class="ttdef"><b>Definition:</b> particles.hpp:116</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_aa6bbc1f7954d0991ca411ba7041969c6"><div class="ttname"><a href="classspace_1_1_particles.html#aa6bbc1f7954d0991ca411ba7041969c6">space::Particles::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> particles.hpp:131</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a928e0065624cc688216c09f312e7a1df"><div class="ttname"><a href="classspace_1_1_particles.html#a928e0065624cc688216c09f312e7a1df">space::Particles::reserve</a></div><div class="ttdeci">void reserve(size_t new_cap)</div><div class="ttdef"><b>Definition:</b> particles.hpp:121</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_aac4152046aebc0f7735ec475a472b698"><div class="ttname"><a href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">space::Particles::vel</a></div><div class="ttdeci">auto &amp; vel() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:30</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a8be4d54604402eccaa9b50b6bb7783d8"><div class="ttname"><a href="classspace_1_1_particles.html#a8be4d54604402eccaa9b50b6bb7783d8">space::Particles::resize</a></div><div class="ttdeci">void resize(size_t new_sz)</div><div class="ttdef"><b>Definition:</b> particles.hpp:126</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa"><div class="ttname"><a href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div><div class="ttdeci">auto &amp; mass() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:24</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543"><div class="ttname"><a href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div><div class="ttdeci">auto &amp; pos() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:26</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdef"><b>Definition:</b> particles.hpp:19</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a964b67a83c8728c11b07448d472f0577"><div class="ttname"><a href="classspace_1_1_particles.html#a964b67a83c8728c11b07448d472f0577">space::Particles::idn</a></div><div class="ttdeci">auto &amp; idn() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:22</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a4a5558934deec20dc500a3f8ff981e14"><div class="ttname"><a href="classspace_1_1_particles.html#a4a5558934deec20dc500a3f8ff981e14">space::Particles::emplace_back</a></div><div class="ttdeci">void emplace_back(Particle const &amp;new_particle)</div><div class="ttdef"><b>Definition:</b> particles.hpp:137</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32"><div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a></div><div class="ttdeci">size_t number() const</div><div class="ttdef"><b>Definition:</b> particles.hpp:111</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

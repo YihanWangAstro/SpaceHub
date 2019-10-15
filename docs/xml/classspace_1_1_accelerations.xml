@@ -27,8 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="accelerations.hpp" line="44" column="11" bodyfile="accelerations.hpp" bodystart="41"
-                    bodyend="-1"/>
+        <location file="accelerations.hpp" line="44" column="11" bodyfile="accelerations.hpp" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_accelerations_1a9fb5f435feade35462f4e8144a7ef2e6" prot="private" static="no" mutable="no">
         <type>Coord</type>
@@ -84,117 +83,93 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a494a58741396f7345ac30f202c12a416" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a494a58741396f7345ac30f202c12a416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
-              <argsstring>()=default</argsstring>
-              <name>Accelerations</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="21" column="9"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a293d5b1518c5777d4815d50470e0179f" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
-              <argsstring>(Accelerations const &amp;)=default</argsstring>
-              <name>Accelerations</name>
+        <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
+        <argsstring>()=default</argsstring>
+        <name>Accelerations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a293d5b1518c5777d4815d50470e0179f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
+        <argsstring>(Accelerations const &amp;)=default</argsstring>
+        <name>Accelerations</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref>
-                const &amp;
-            </type>
+          <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> const &amp;</type>
         </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="21" column="41"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1aebb41e2607bca30139ed23f76d082af5" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
-              <argsstring>(Accelerations &amp;&amp;)=default</argsstring>
-              <name>Accelerations</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move constructor
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="21" column="76"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a888b2c990eaf49cf694cb3480ac6bbca" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;
-              </type>
-              <definition>Accelerations&amp; space::Accelerations&lt; Interactions, Coord &gt;::operator=</definition>
-              <argsstring>(Accelerations const &amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref>
-                      const &amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="21" column="126"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;
-              </type>
-              <definition>Accelerations&amp; space::Accelerations&lt; Interactions, Coord &gt;::operator=</definition>
-              <argsstring>(Accelerations &amp;&amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="21" column="172"/>
-          </memberdef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="21" column="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1aebb41e2607bca30139ed23f76d082af5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
+        <argsstring>(Accelerations &amp;&amp;)=default</argsstring>
+        <name>Accelerations</name>
+        <param>
+          <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move constructor <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="21" column="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a888b2c990eaf49cf694cb3480ac6bbca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;</type>
+        <definition>Accelerations&amp; space::Accelerations&lt; Interactions, Coord &gt;::operator=</definition>
+        <argsstring>(Accelerations const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="21" column="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;</type>
+        <definition>Accelerations&amp; space::Accelerations&lt; Interactions, Coord &gt;::operator=</definition>
+        <argsstring>(Accelerations &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="21" column="172"/>
+      </memberdef>
       <memberdef kind="function" id="classspace_1_1_accelerations_1a149aa0d9b75cc17087099441dda0aa27" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>space::Accelerations&lt; Interactions, Coord &gt;::Accelerations</definition>
@@ -212,238 +187,175 @@
         </inbodydescription>
         <location file="accelerations.hpp" line="23" column="14" bodyfile="accelerations.hpp" bodystart="23" bodyend="30"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::acc</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>acc</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>acc_</computeroutput> in name of <computeroutput>
-                      acc</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="33" column="23" bodyfile="accelerations.hpp" bodystart="33"
-                        bodyend="33"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" prot="public"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::acc</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>acc</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>acc_</computeroutput> in name of <computeroutput>
-                      acc</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="33" column="83" bodyfile="accelerations.hpp" bodystart="33"
-                        bodyend="33"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::newtonian_acc</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>newtonian_acc</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>newtonian_acc_</computeroutput> in name
-                      of <computeroutput>newtonian_acc</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="35" column="23" bodyfile="accelerations.hpp" bodystart="35"
-                        bodyend="35"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" prot="public"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::newtonian_acc</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>newtonian_acc</name>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::acc</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>acc</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>newtonian_acc_</computeroutput> in name
-                of <computeroutput>newtonian_acc</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>acc_</computeroutput> in name of <computeroutput>acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="accelerations.hpp" line="35" column="103" bodyfile="accelerations.hpp" bodystart="35"
-                        bodyend="35"/>
+        <location file="accelerations.hpp" line="33" column="23" bodyfile="accelerations.hpp" bodystart="33" bodyend="33"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::tot_vel_indep_acc</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>tot_vel_indep_acc</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>tot_vel_indep_acc_</computeroutput> in name
-                      of <computeroutput>tot_vel_indep_acc</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="37" column="23" bodyfile="accelerations.hpp" bodystart="37"
-                        bodyend="37"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" prot="public"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::tot_vel_indep_acc
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>tot_vel_indep_acc</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>tot_vel_indep_acc_</computeroutput> in name
-                      of <computeroutput>tot_vel_indep_acc</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="accelerations.hpp" line="37" column="111" bodyfile="accelerations.hpp" bodystart="37"
-                        bodyend="37"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_indep_acc</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>ext_vel_indep_acc</name>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::acc</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>acc</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>ext_vel_indep_acc_</computeroutput> in name
-                of <computeroutput>ext_vel_indep_acc</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The getter interface of member <computeroutput>acc_</computeroutput> in name of <computeroutput>acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="accelerations.hpp" line="39" column="23" bodyfile="accelerations.hpp" bodystart="39"
-                        bodyend="39"/>
+        <location file="accelerations.hpp" line="33" column="83" bodyfile="accelerations.hpp" bodystart="33" bodyend="33"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" prot="public"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_indep_acc
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>ext_vel_indep_acc</name>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::newtonian_acc</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>newtonian_acc</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>ext_vel_indep_acc_</computeroutput> in name
-                of <computeroutput>ext_vel_indep_acc</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>newtonian_acc_</computeroutput> in name of <computeroutput>newtonian_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="accelerations.hpp" line="39" column="111" bodyfile="accelerations.hpp" bodystart="39"
-                        bodyend="39"/>
+        <location file="accelerations.hpp" line="35" column="23" bodyfile="accelerations.hpp" bodystart="35" bodyend="35"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_dep_acc</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>ext_vel_dep_acc</name>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::newtonian_acc</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>newtonian_acc</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>ext_vel_dep_acc_</computeroutput> in name
-                of <computeroutput>ext_vel_dep_acc</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The getter interface of member <computeroutput>newtonian_acc_</computeroutput> in name of <computeroutput>newtonian_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="accelerations.hpp" line="41" column="23" bodyfile="accelerations.hpp" bodystart="41"
-                        bodyend="41"/>
+        <location file="accelerations.hpp" line="35" column="103" bodyfile="accelerations.hpp" bodystart="35" bodyend="35"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" prot="public"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_dep_acc
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>ext_vel_dep_acc</name>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::tot_vel_indep_acc</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>tot_vel_indep_acc</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>ext_vel_dep_acc_</computeroutput> in name
-                of <computeroutput>ext_vel_dep_acc</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>tot_vel_indep_acc_</computeroutput> in name of <computeroutput>tot_vel_indep_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="accelerations.hpp" line="41" column="107" bodyfile="accelerations.hpp" bodystart="41"
-                        bodyend="41"/>
+        <location file="accelerations.hpp" line="37" column="23" bodyfile="accelerations.hpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::tot_vel_indep_acc</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>tot_vel_indep_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>tot_vel_indep_acc_</computeroutput> in name of <computeroutput>tot_vel_indep_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="37" column="111" bodyfile="accelerations.hpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_indep_acc</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>ext_vel_indep_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>ext_vel_indep_acc_</computeroutput> in name of <computeroutput>ext_vel_indep_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="39" column="23" bodyfile="accelerations.hpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_indep_acc</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>ext_vel_indep_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>ext_vel_indep_acc_</computeroutput> in name of <computeroutput>ext_vel_indep_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="39" column="111" bodyfile="accelerations.hpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_dep_acc</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>ext_vel_dep_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>ext_vel_dep_acc_</computeroutput> in name of <computeroutput>ext_vel_dep_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="41" column="23" bodyfile="accelerations.hpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_dep_acc</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>ext_vel_dep_acc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>ext_vel_dep_acc_</computeroutput> in name of <computeroutput>ext_vel_dep_acc</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="accelerations.hpp" line="41" column="107" bodyfile="accelerations.hpp" bodystart="41" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -470,86 +382,26 @@
     </detaileddescription>
     <location file="accelerations.hpp" line="18" column="22" bodyfile="accelerations.hpp" bodystart="18" bodyend="53"/>
     <listofallmembers>
-        <member refid="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>acc</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>acc</name>
-        </member>
+      <member refid="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>acc</name></member>
+      <member refid="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>acc</name></member>
       <member refid="classspace_1_1_accelerations_1a4b7cd4db21673e67224bde869e82d4b7" prot="private" virt="non-virtual"><scope>space::Accelerations</scope><name>acc_</name></member>
-        <member refid="classspace_1_1_accelerations_1a494a58741396f7345ac30f202c12a416" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>Accelerations</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1a293d5b1518c5777d4815d50470e0179f" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>Accelerations</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1aebb41e2607bca30139ed23f76d082af5" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>Accelerations</name>
-        </member>
+      <member refid="classspace_1_1_accelerations_1a494a58741396f7345ac30f202c12a416" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>Accelerations</name></member>
+      <member refid="classspace_1_1_accelerations_1a293d5b1518c5777d4815d50470e0179f" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>Accelerations</name></member>
+      <member refid="classspace_1_1_accelerations_1aebb41e2607bca30139ed23f76d082af5" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>Accelerations</name></member>
       <member refid="classspace_1_1_accelerations_1a149aa0d9b75cc17087099441dda0aa27" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>Accelerations</name></member>
-        <member refid="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>ext_vel_dep_acc</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>ext_vel_dep_acc</name>
-        </member>
+      <member refid="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>ext_vel_dep_acc</name></member>
+      <member refid="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>ext_vel_dep_acc</name></member>
       <member refid="classspace_1_1_accelerations_1a9cf30c0196304167c7e24ac057b8c72c" prot="private" virt="non-virtual"><scope>space::Accelerations</scope><name>ext_vel_dep_acc_</name></member>
-        <member refid="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>ext_vel_indep_acc</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>ext_vel_indep_acc</name>
-        </member>
+      <member refid="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>ext_vel_indep_acc</name></member>
+      <member refid="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>ext_vel_indep_acc</name></member>
       <member refid="classspace_1_1_accelerations_1afd85ad12d0d726803fbed36b23412f2a" prot="private" virt="non-virtual"><scope>space::Accelerations</scope><name>ext_vel_indep_acc_</name></member>
-        <member refid="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>newtonian_acc</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>newtonian_acc</name>
-        </member>
+      <member refid="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>newtonian_acc</name></member>
+      <member refid="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>newtonian_acc</name></member>
       <member refid="classspace_1_1_accelerations_1a9fb5f435feade35462f4e8144a7ef2e6" prot="private" virt="non-virtual"><scope>space::Accelerations</scope><name>newtonian_acc_</name></member>
-        <member refid="classspace_1_1_accelerations_1a888b2c990eaf49cf694cb3480ac6bbca" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>tot_vel_indep_acc</name>
-        </member>
-        <member refid="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" prot="public"
-                virt="non-virtual">
-            <scope>space::Accelerations</scope>
-            <name>tot_vel_indep_acc</name>
-        </member>
+      <member refid="classspace_1_1_accelerations_1a888b2c990eaf49cf694cb3480ac6bbca" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>tot_vel_indep_acc</name></member>
+      <member refid="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" prot="public" virt="non-virtual"><scope>space::Accelerations</scope><name>tot_vel_indep_acc</name></member>
       <member refid="classspace_1_1_accelerations_1a3bebe7b27b11f3f8adca027549905866" prot="private" virt="non-virtual"><scope>space::Accelerations</scope><name>tot_vel_indep_acc_</name></member>
     </listofallmembers>
   </compounddef>

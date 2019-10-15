@@ -114,12 +114,8 @@
       </node>
     </invincdepgraph>
     <innerclass refid="classspace_1_1interactions_1_1_newtonian_grav" prot="public">space::interactions::NewtonianGrav</innerclass>
-      <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" prot="private">
-          space::interactions::NewtonianGrav::has_method_chain_pos
-      </innerclass>
-      <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" prot="private">
-          space::interactions::NewtonianGrav::has_method_index
-      </innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" prot="private">space::interactions::NewtonianGrav::has_method_chain_pos</innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" prot="private">space::interactions::NewtonianGrav::has_method_index</innerclass>
     <innernamespace refid="namespacespace_1_1interactions">space::interactions</innernamespace>
     <innernamespace refid="namespacespace">space</innernamespace>
     <briefdescription>

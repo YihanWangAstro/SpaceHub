@@ -46,8 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="lazy-evaluation/lazy_array.h" line="123" column="29" bodyfile="lazy-evaluation/lazy_array.h"
-                    bodystart="121" bodyend="-1"/>
+        <location file="lazy-evaluation/lazy_array.h" line="123" column="29" bodyfile="lazy-evaluation/lazy_array.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -302,48 +301,41 @@
         </inbodydescription>
         <location file="lazy-evaluation/lazy_array.h" line="117" column="18" bodyfile="lazy-evaluation/lazy_array.h" bodystart="117" bodyend="119"/>
       </memberdef>
-          <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_larray_1a4231d8c1259b3426d291aaefe5639567"
-                     prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>int</type>
-                      <declname>Begin__LINE__</declname>
-                      <defname>Begin__LINE__</defname>
-                  </param>
-                  <param>
-                      <type>int</type>
-                      <declname>End__LINE__</declname>
-                      <defname>End__LINE__</defname>
-                  </param>
-                  <param>
-                      <type>int</type>
-                      <declname>Stride__LINE__</declname>
-                      <defname>Stride__LINE__</defname>
-                      <defval>1</defval>
-                  </param>
-              </templateparamlist>
-              <type>constexpr auto</type>
-              <definition>constexpr auto SpaceH::Lazy::Larray&lt; T, Len, IsSmall &gt;::operator[]</definition>
-              <argsstring>(const Slice&lt; Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;slice) -&gt; Slice_Expr&lt;
-                  typename std::remove_reference&lt; decltype(*this)&gt;::type, Begin__LINE__, End__LINE__,
-                  Stride__LINE__, std::remove_reference&lt; decltype(*this)&gt;::type ::size()&gt;
-              </argsstring>
-              <name>operator[]</name>
-              <param>
-                  <type>const <ref refid="struct_space_h_1_1_lazy_1_1_slice" kindref="compound">Slice</ref>&lt;
-                      Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;
-                  </type>
-                  <declname>slice</declname>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="lazy-evaluation/lazy_array.h" line="121" column="61"
-                        bodyfile="lazy-evaluation/lazy_array.h" bodystart="121" bodyend="121"/>
-          </memberdef>
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_larray_1a4231d8c1259b3426d291aaefe5639567" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>Begin__LINE__</declname>
+            <defname>Begin__LINE__</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>End__LINE__</declname>
+            <defname>End__LINE__</defname>
+          </param>
+          <param>
+            <type>int</type>
+            <declname>Stride__LINE__</declname>
+            <defname>Stride__LINE__</defname>
+            <defval>1</defval>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto SpaceH::Lazy::Larray&lt; T, Len, IsSmall &gt;::operator[]</definition>
+        <argsstring>(const Slice&lt; Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;slice) -&gt; Slice_Expr&lt; typename std::remove_reference&lt; decltype(*this)&gt;::type, Begin__LINE__, End__LINE__, Stride__LINE__, std::remove_reference&lt; decltype(*this)&gt;::type ::size()&gt;</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const <ref refid="struct_space_h_1_1_lazy_1_1_slice" kindref="compound">Slice</ref>&lt; Begin__LINE__, End__LINE__, Stride__LINE__ &gt; &amp;</type>
+          <declname>slice</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lazy-evaluation/lazy_array.h" line="121" column="61" bodyfile="lazy-evaluation/lazy_array.h" bodystart="121" bodyend="121"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_larray_1ac1011d0f1f436dc1a25525f793027bbf" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
@@ -405,11 +397,7 @@
       <member refid="struct_space_h_1_1_lazy_1_1_larray_1acd1b91227afa2bb47207c0dab609105a" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>operator=</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_1a90352b271436cefe70f1751fe5721856" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>operator[]</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_1a1bb157870d4e1e8cfd8e435766917457" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>operator[]</name></member>
-        <member refid="struct_space_h_1_1_lazy_1_1_larray_1a4231d8c1259b3426d291aaefe5639567" prot="public"
-                virt="non-virtual">
-            <scope>SpaceH::Lazy::Larray</scope>
-            <name>operator[]</name>
-        </member>
+      <member refid="struct_space_h_1_1_lazy_1_1_larray_1a4231d8c1259b3426d291aaefe5639567" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>operator[]</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_1ac1011d0f1f436dc1a25525f793027bbf" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>size</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_1a01ce8987c40d762c9bf9203e4c0a7710" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>sort</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_larray_1a58b606df0deb55f1998a294840bed019" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Larray</scope><name>value_type</name></member>

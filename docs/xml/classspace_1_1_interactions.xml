@@ -3,12 +3,8 @@
   <compounddef id="classspace_1_1_interactions" kind="class" language="C++" prot="public">
     <compoundname>space::Interactions</compoundname>
     <includes refid="interaction_8hpp" local="no">interaction.hpp</includes>
-      <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" prot="private">
-          space::Interactions::has_method_impl_eval_extra_vel_dep_acc
-      </innerclass>
-      <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc"
-                  prot="private">space::Interactions::has_method_impl_eval_extra_vel_indep_acc
-      </innerclass>
+    <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" prot="private">space::Interactions::has_method_impl_eval_extra_vel_dep_acc</innerclass>
+    <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" prot="private">space::Interactions::has_method_impl_eval_extra_vel_indep_acc</innerclass>
     <templateparamlist>
       <param>
         <type>typename</type>
@@ -22,7 +18,7 @@
         <definition>constexpr bool space::Interactions&lt; Derived &gt;::ext_vel_dep</definition>
         <argsstring></argsstring>
         <name>ext_vel_dep</name>
-          <initializer>{has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</initializer>
+        <initializer>{has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -36,7 +32,7 @@
         <definition>constexpr bool space::Interactions&lt; Derived &gt;::ext_vel_indep</definition>
         <argsstring></argsstring>
         <name>ext_vel_indep</name>
-          <initializer>{has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</initializer>
+        <initializer>{has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -276,20 +272,19 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-          <memberdef kind="function" id="classspace_1_1_interactions_1ae8bd165e3715550c9541ea0087729610" prot="private"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::Interactions&lt; Derived &gt;::Interactions</definition>
-              <argsstring>()=default</argsstring>
-              <name>Interactions</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="interaction.hpp" line="79" column="5"/>
-          </memberdef>
+      <memberdef kind="function" id="classspace_1_1_interactions_1ae8bd165e3715550c9541ea0087729610" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::Interactions&lt; Derived &gt;::Interactions</definition>
+        <argsstring>()=default</argsstring>
+        <name>Interactions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction.hpp" line="79" column="5"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>

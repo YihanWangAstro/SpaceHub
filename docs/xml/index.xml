@@ -6,52 +6,22 @@
     <member refid="classspace_1_1_accelerations_1a3bebe7b27b11f3f8adca027549905866" kind="variable"><name>tot_vel_indep_acc_</name></member>
     <member refid="classspace_1_1_accelerations_1afd85ad12d0d726803fbed36b23412f2a" kind="variable"><name>ext_vel_indep_acc_</name></member>
     <member refid="classspace_1_1_accelerations_1a9cf30c0196304167c7e24ac057b8c72c" kind="variable"><name>ext_vel_dep_acc_</name></member>
-      <member refid="classspace_1_1_accelerations_1a494a58741396f7345ac30f202c12a416" kind="function">
-          <name>Accelerations</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1a293d5b1518c5777d4815d50470e0179f" kind="function">
-          <name>Accelerations</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1aebb41e2607bca30139ed23f76d082af5" kind="function">
-          <name>Accelerations</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1a888b2c990eaf49cf694cb3480ac6bbca" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_accelerations_1a494a58741396f7345ac30f202c12a416" kind="function"><name>Accelerations</name></member>
+    <member refid="classspace_1_1_accelerations_1a293d5b1518c5777d4815d50470e0179f" kind="function"><name>Accelerations</name></member>
+    <member refid="classspace_1_1_accelerations_1aebb41e2607bca30139ed23f76d082af5" kind="function"><name>Accelerations</name></member>
+    <member refid="classspace_1_1_accelerations_1a888b2c990eaf49cf694cb3480ac6bbca" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_accelerations_1a149aa0d9b75cc17087099441dda0aa27" kind="function"><name>Accelerations</name></member>
-      <member refid="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" kind="function">
-          <name>acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" kind="function">
-          <name>acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" kind="function">
-          <name>newtonian_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" kind="function">
-          <name>newtonian_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" kind="function">
-          <name>tot_vel_indep_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" kind="function">
-          <name>tot_vel_indep_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" kind="function">
-          <name>ext_vel_indep_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" kind="function">
-          <name>ext_vel_indep_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" kind="function">
-          <name>ext_vel_dep_acc</name>
-      </member>
-      <member refid="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" kind="function">
-          <name>ext_vel_dep_acc</name>
-      </member>
+    <member refid="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" kind="function"><name>acc</name></member>
+    <member refid="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" kind="function"><name>acc</name></member>
+    <member refid="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" kind="function"><name>newtonian_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" kind="function"><name>newtonian_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" kind="function"><name>tot_vel_indep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" kind="function"><name>tot_vel_indep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" kind="function"><name>ext_vel_indep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" kind="function"><name>ext_vel_indep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" kind="function"><name>ext_vel_dep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" kind="function"><name>ext_vel_dep_acc</name></member>
   </compound>
   <compound refid="class_any_vector" kind="class"><name>AnyVector</name>
     <member refid="class_any_vector_1a716a27148a6b2cec4b0eb0ef722b55e6" kind="variable"><name>vec_</name></member>
@@ -68,36 +38,18 @@
     <member refid="class_any_vector_1ab59de64b998f21af0a5eaf1772d20a61" kind="function"><name>emplace_back</name></member>
   </compound>
   <compound refid="classspace_1_1_a_rchain_system" kind="class"><name>space::ARchainSystem</name>
-      <member refid="classspace_1_1_a_rchain_system_1a8389eb3454c6b56edbb00518a8d89fdd" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a31caef0c4ab216e170c448f79fe183a0" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1abc6f8ef6077aa4a721c466d8419f71ed" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1aa244ae2b1aee9e51384a4c2d254e3709" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a8f4769f2fede4e69b425f58166683a36" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_a_rchain_system_1a8389eb3454c6b56edbb00518a8d89fdd" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a31caef0c4ab216e170c448f79fe183a0" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1abc6f8ef6077aa4a721c466d8419f71ed" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1aa244ae2b1aee9e51384a4c2d254e3709" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a8f4769f2fede4e69b425f58166683a36" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a1ccaba54a5f551176da5bb478e3a8169" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a7c71b612e7db885103c76e308acb8895" kind="typedef"><name>Particle</name></member>
     <member refid="classspace_1_1_a_rchain_system_1ada825d683e0de14974af1154729b1fa0" kind="variable"><name>regu_type</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a52e6a226eaafe73810b3218c8af76a65" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_a_rchain_system_1a52e6a226eaafe73810b3218c8af76a65" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a8469dc441c5d10fe2201803269a55e53" kind="variable"><name>ptcl_</name></member>
     <member refid="classspace_1_1_a_rchain_system_1aaad241c55b5978b5907f7558f6838f08" kind="variable"><name>interactions_</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a2317cccf875a80487c03d9bfa87208f6" kind="variable"><name>accels_</name></member>
@@ -109,82 +61,32 @@
     <member refid="classspace_1_1_a_rchain_system_1af155f62665fe032ed19af5ab7d99b649" kind="variable"><name>new_index_</name></member>
     <member refid="classspace_1_1_a_rchain_system_1ae76b9655858d608d7602d30133eb3004" kind="variable"><name>aux_vel_</name></member>
     <member refid="classspace_1_1_a_rchain_system_1adad7444d346057c45943741fa3c8ba7a" kind="variable"><name>chain_aux_vel_</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1ae57f2ed4ae122899e21df71e2f0f8a62" kind="function">
-          <name>ARchainSystem</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a2f1fd3aa88442f13d02d5ae6c37be8f1" kind="function">
-          <name>ARchainSystem</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a0f2febf1bbf4923995a2536561a99d6b" kind="function">
-          <name>ARchainSystem</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a30b07f96b9969f815bea1b117b66fc3f" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a12f66d7a7057d04678fbb8098a42eec8" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_a_rchain_system_1ae57f2ed4ae122899e21df71e2f0f8a62" kind="function"><name>ARchainSystem</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a2f1fd3aa88442f13d02d5ae6c37be8f1" kind="function"><name>ARchainSystem</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a0f2febf1bbf4923995a2536561a99d6b" kind="function"><name>ARchainSystem</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a30b07f96b9969f815bea1b117b66fc3f" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a12f66d7a7057d04678fbb8098a42eec8" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_a_rchain_system_1aaf57fa45ed46c628296fe70324a9a6cc" kind="function"><name>ARchainSystem</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1acab3eb7ebc77853acecec5ec903e52e0" kind="function">
-          <name>chain_pos</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1aae51571485231689377c25e0b3ea2782" kind="function">
-          <name>chain_pos</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1ab76190264bfa1f0348e18309da23b3e0" kind="function">
-          <name>chain_vel</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a82865ecdf66d8a510fd33ab0002baeb2" kind="function">
-          <name>chain_vel</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1afc6de4abbd3816262629a503edff1079" kind="function">
-          <name>index</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1af6948a52d0f59d0cc4ca0fae4c2ca56d" kind="function">
-          <name>index</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a65b3d6e985c82ebb6220d9cde6902c3e" kind="function">
-          <name>omega</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1afaa2a7b4c94ee15bcf81d1e14942b417" kind="function">
-          <name>omega</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1aafba9b1939a9f180d849e2e8f4de446f" kind="function">
-          <name>bindE</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1ada30bd69aa9887d2c7fdb40708a2c304" kind="function">
-          <name>bindE</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a2aa38e81ff6d36f6a7262576654de39a" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a72ff861e181be4d9f0f94e23025ff8aa" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a20ec784cd351e3fb17bf50680960dd8a" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a13a0de11776efd7910c4cab464eacb47" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a73ccf5425a5f66f02dde0d30782a7f66" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a90b04c1b473d21931396643b4bff7d30" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1af0d241b99d1b93f93e844a1ecfb4b65d" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a038623aed4ff848acb286ffd2c2ef5a7" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1ac9977a1bc6995af4ce27e82737bd4b42" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_a_rchain_system_1a2a16ae46625dcdcf95be44e9b497dbaf" kind="function">
-          <name>impl_time</name>
-      </member>
+    <member refid="classspace_1_1_a_rchain_system_1acab3eb7ebc77853acecec5ec903e52e0" kind="function"><name>chain_pos</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1aae51571485231689377c25e0b3ea2782" kind="function"><name>chain_pos</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1ab76190264bfa1f0348e18309da23b3e0" kind="function"><name>chain_vel</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a82865ecdf66d8a510fd33ab0002baeb2" kind="function"><name>chain_vel</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1afc6de4abbd3816262629a503edff1079" kind="function"><name>index</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1af6948a52d0f59d0cc4ca0fae4c2ca56d" kind="function"><name>index</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a65b3d6e985c82ebb6220d9cde6902c3e" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1afaa2a7b4c94ee15bcf81d1e14942b417" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1aafba9b1939a9f180d849e2e8f4de446f" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1ada30bd69aa9887d2c7fdb40708a2c304" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a2aa38e81ff6d36f6a7262576654de39a" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a72ff861e181be4d9f0f94e23025ff8aa" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a20ec784cd351e3fb17bf50680960dd8a" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a13a0de11776efd7910c4cab464eacb47" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a73ccf5425a5f66f02dde0d30782a7f66" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a90b04c1b473d21931396643b4bff7d30" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1af0d241b99d1b93f93e844a1ecfb4b65d" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a038623aed4ff848acb286ffd2c2ef5a7" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1ac9977a1bc6995af4ce27e82737bd4b42" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a2a16ae46625dcdcf95be44e9b497dbaf" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a14911337daa4c4b9b56743979146d29b" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_a_rchain_system_1afb996c9c982f88cc857719734fc28ba1" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a0da82ee7b7da273bad5bdcf1fee222b2" kind="function"><name>impl_advance_pos</name></member>
@@ -223,9 +125,7 @@
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a384389b21db53809b17f7869876ef8cc" kind="typedef"><name>StepController</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6bae9d555eafc39eeec1e8bea24f9087" kind="variable"><name>max_depth</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a33907349fe38ce4f5940c793b712f1fd" kind="variable"><name>max_try_num</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11dfb819f78e1cf4730df5a2b8205541" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11dfb819f78e1cf4730df5a2b8205541" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae6eebb9e987f24b89b794c576b833152" kind="variable"><name>parameters_</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a5b846f7d34f42fa00df53f42f0369188" kind="variable"><name>extrap_list_</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8616262dc7d90ffa8f8cb318e2ee2dc2" kind="variable"><name>err_checker_</name></member>
@@ -239,9 +139,7 @@
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae1790fda2456cb5f224c7bda6afc4bca" kind="variable"><name>rej_num_</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac9db318f6abb1c0f9bf0510a08455b9f" kind="variable"><name>iter_num_</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a17366962b7fb4f314eee94eadb240502" kind="variable"><name>last_step_reject_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8c6d41930936033627a73ae2d16d3bcc" kind="function">
-          <name>impl_iterate</name>
-      </member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8c6d41930936033627a73ae2d16d3bcc" kind="function"><name>impl_iterate</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad8147621abeac8afda970ecefa5b662b" kind="function"><name>impl_set_atol</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aecd145e37a43030f1f9abb8099364bbc" kind="function"><name>impl_set_rtol</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a2729e8df1e5eae390a7f4afbdc54279e" kind="function"><name>check_variable_size</name></member>
@@ -270,21 +168,11 @@
   </compound>
   <compound refid="classspace_1_1_chain" kind="class"><name>space::Chain</name>
     <member refid="classspace_1_1_chain_1aba4c65e72d4505d19850f0a94b7ca875" kind="variable"><name>auto_centre_of_mass_move_</name></member>
-      <member refid="classspace_1_1_chain_1ae570df3513d4daecd23b54ca4548f07c" kind="function">
-          <name>Chain</name>
-      </member>
-      <member refid="classspace_1_1_chain_1aae885fbe1f31d0d903995ee96c2294c5" kind="function">
-          <name>Chain</name>
-      </member>
-      <member refid="classspace_1_1_chain_1ade5f7ba028ee32b540cd62e32800de61" kind="function">
-          <name>Chain</name>
-      </member>
-      <member refid="classspace_1_1_chain_1aba865aabd5f1b0dbddcad4aa26c80e24" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_chain_1a3397dd1dc4dab782cada71b2272d70a1" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_chain_1ae570df3513d4daecd23b54ca4548f07c" kind="function"><name>Chain</name></member>
+    <member refid="classspace_1_1_chain_1aae885fbe1f31d0d903995ee96c2294c5" kind="function"><name>Chain</name></member>
+    <member refid="classspace_1_1_chain_1ade5f7ba028ee32b540cd62e32800de61" kind="function"><name>Chain</name></member>
+    <member refid="classspace_1_1_chain_1aba865aabd5f1b0dbddcad4aa26c80e24" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_chain_1a3397dd1dc4dab782cada71b2272d70a1" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_chain_1a4f44ee0689a33aa23882156b984be73d" kind="function"><name>calc_chain_index</name></member>
     <member refid="classspace_1_1_chain_1a8be57fe30008ac3a24578f34367ef978" kind="function"><name>update_chain</name></member>
     <member refid="classspace_1_1_chain_1aedc972ea5d90f1f2e2f95c139a0dd5a4" kind="function"><name>calc_cartesian</name></member>
@@ -299,35 +187,17 @@
     <member refid="classspace_1_1_chain_1a83c87541ba09eb6cdf611f88ae47ffd3" kind="function"><name>to_cartesian</name></member>
   </compound>
   <compound refid="classspace_1_1_chain_system" kind="class"><name>space::ChainSystem</name>
-      <member refid="classspace_1_1_chain_system_1a120b67a32c87704d3cac47994d50eb1c" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1afb1fb8f7de7a1bd240c9f064adeb68c2" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a98cf380ab07f155d058a1235f2cfb650" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a1e8c7db0d3c5aed23114e2cc20793b6b" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a6f851e9902da51d0149ce4214f776731" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1ad7da6d35d221214c6df70c5a4dcc9f03" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1afeb80de8263b28d425111171c89389d3" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1ab5e1fd4141d996ce3fadc94668ece5a7" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_chain_system_1a120b67a32c87704d3cac47994d50eb1c" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_chain_system_1afb1fb8f7de7a1bd240c9f064adeb68c2" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_chain_system_1a98cf380ab07f155d058a1235f2cfb650" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_chain_system_1a1e8c7db0d3c5aed23114e2cc20793b6b" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_chain_system_1a6f851e9902da51d0149ce4214f776731" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_chain_system_1ad7da6d35d221214c6df70c5a4dcc9f03" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_chain_system_1afeb80de8263b28d425111171c89389d3" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_chain_system_1ab5e1fd4141d996ce3fadc94668ece5a7" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_chain_system_1ac99ca2662e77a7b03e9d0818d72c96d4" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_chain_system_1a8e4f9d85b3cc034a5a5ee49db3a6c5df" kind="typedef"><name>Particle</name></member>
-      <member refid="classspace_1_1_chain_system_1af5e9ed8219b6bcafdeefacd51d7ef35b" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_chain_system_1af5e9ed8219b6bcafdeefacd51d7ef35b" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_chain_system_1a6a12cec0875c3b3a39e159b10ed70bca" kind="variable"><name>ptcl_</name></member>
     <member refid="classspace_1_1_chain_system_1a3a2bdd9bd83cd97583feaf87d583b235" kind="variable"><name>interactions_</name></member>
     <member refid="classspace_1_1_chain_system_1a37bb448d331757da80c09e987f17ea9b" kind="variable"><name>accels_</name></member>
@@ -338,76 +208,30 @@
     <member refid="classspace_1_1_chain_system_1aacec18e041266d421ac4527db1be8e34" kind="variable"><name>new_index_</name></member>
     <member refid="classspace_1_1_chain_system_1a0403fde260ae3591dd978f78df769b64" kind="variable"><name>aux_vel_</name></member>
     <member refid="classspace_1_1_chain_system_1a538a9a333fa6c866dcf9f8e6f2a71b22" kind="variable"><name>chain_aux_vel_</name></member>
-      <member refid="classspace_1_1_chain_system_1a8a3ee89ecdb57265e177685fe797a34b" kind="function">
-          <name>ChainSystem</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a668e666a3e861ef77748f041341e8465" kind="function">
-          <name>ChainSystem</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a5b9afbe37d16fab11af5b77a66b10065" kind="function">
-          <name>ChainSystem</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a0e3f7e0e7efbe84036f5d5b0cc08e700" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a06c568b919a54ab43ec7845c92c19d51" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_chain_system_1a8a3ee89ecdb57265e177685fe797a34b" kind="function"><name>ChainSystem</name></member>
+    <member refid="classspace_1_1_chain_system_1a668e666a3e861ef77748f041341e8465" kind="function"><name>ChainSystem</name></member>
+    <member refid="classspace_1_1_chain_system_1a5b9afbe37d16fab11af5b77a66b10065" kind="function"><name>ChainSystem</name></member>
+    <member refid="classspace_1_1_chain_system_1a0e3f7e0e7efbe84036f5d5b0cc08e700" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_chain_system_1a06c568b919a54ab43ec7845c92c19d51" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_chain_system_1a483c30a3b7580fccf99a5608352d3759" kind="function"><name>ChainSystem</name></member>
-      <member refid="classspace_1_1_chain_system_1a2ee2191d0de27baffed5ab05c9d6b4ef" kind="function">
-          <name>chain_pos</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1aaf5993d9adfaa969a57238b7a32f2534" kind="function">
-          <name>chain_pos</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1ab1f5be564113f902ec8dedd8070d39de" kind="function">
-          <name>chain_vel</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a9bcff70ce45f346c8ca5fcdd331021ce" kind="function">
-          <name>chain_vel</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1acdf71004fee347a028e372f9e57686ba" kind="function">
-          <name>index</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a9f6e9569e817878bdc4d2ee2ccf3319d" kind="function">
-          <name>index</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1ae6489af7c22ee2b13dca45bf1b282072" kind="friend">
-          <name>operator&lt;&lt;</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a5a128d62a6716b95ff048a4f381fc24c" kind="friend">
-          <name>operator&gt;&gt;</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a8973754d21804430f41e10363429c449" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a760f1c909e91b0899cb8d3290452dc42" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1ad61c17d0fa52fd56187918fbcd940362" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1aac48a597bf72a3ca5072f401a591ba18" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a69bcf473df7448a44300e34895904ab1" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a6e47652835e3423e7bbdd57304fbd082" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a5720c619f1e59f4356f45538f1351d21" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1ac9b9a6f60d6f1d9f0209752ab45bc3d9" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a1b4cfc2fcfa8b776b20d67a9bc4a558f" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_chain_system_1a2b1c63589db85d31ba050ad81c9c4f61" kind="function">
-          <name>impl_time</name>
-      </member>
+    <member refid="classspace_1_1_chain_system_1a2ee2191d0de27baffed5ab05c9d6b4ef" kind="function"><name>chain_pos</name></member>
+    <member refid="classspace_1_1_chain_system_1aaf5993d9adfaa969a57238b7a32f2534" kind="function"><name>chain_pos</name></member>
+    <member refid="classspace_1_1_chain_system_1ab1f5be564113f902ec8dedd8070d39de" kind="function"><name>chain_vel</name></member>
+    <member refid="classspace_1_1_chain_system_1a9bcff70ce45f346c8ca5fcdd331021ce" kind="function"><name>chain_vel</name></member>
+    <member refid="classspace_1_1_chain_system_1acdf71004fee347a028e372f9e57686ba" kind="function"><name>index</name></member>
+    <member refid="classspace_1_1_chain_system_1a9f6e9569e817878bdc4d2ee2ccf3319d" kind="function"><name>index</name></member>
+    <member refid="classspace_1_1_chain_system_1ae6489af7c22ee2b13dca45bf1b282072" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="classspace_1_1_chain_system_1a5a128d62a6716b95ff048a4f381fc24c" kind="friend"><name>operator&gt;&gt;</name></member>
+    <member refid="classspace_1_1_chain_system_1a8973754d21804430f41e10363429c449" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_chain_system_1a760f1c909e91b0899cb8d3290452dc42" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_chain_system_1ad61c17d0fa52fd56187918fbcd940362" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_chain_system_1aac48a597bf72a3ca5072f401a591ba18" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_chain_system_1a69bcf473df7448a44300e34895904ab1" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_chain_system_1a6e47652835e3423e7bbdd57304fbd082" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_chain_system_1a5720c619f1e59f4356f45538f1351d21" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_chain_system_1ac9b9a6f60d6f1d9f0209752ab45bc3d9" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_chain_system_1a1b4cfc2fcfa8b776b20d67a9bc4a558f" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_chain_system_1a2b1c63589db85d31ba050ad81c9c4f61" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_chain_system_1aec1f22b879398f7f3d028a9e04fee7b7" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_chain_system_1ab07a0719d22db2e5d6285c547498da38" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_chain_system_1a0fc622eed05b67f0ff6eeac0781ee5db" kind="function"><name>impl_advance_pos</name></member>
@@ -463,15 +287,9 @@
   </compound>
   <compound refid="classspace_1_1ode_iterator_1_1_const_ode_iterator" kind="class"><name>space::odeIterator::ConstOdeIterator</name>
     <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1ade51217e98fc0b97d34a63caba47526c" kind="typedef"><name>Base</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a56f7b0b302dfe77df7669969b4c57928"
-              kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a56f7b0b302dfe77df7669969b4c57928" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a27c17658e08e1144a7ffb3588a5cc5f8" kind="variable"><name>integrator_</name></member>
-      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a6a7e751c418463a6b435bc83374ec15b"
-              kind="function">
-          <name>impl_iterate</name>
-      </member>
+    <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a6a7e751c418463a6b435bc83374ec15b" kind="function"><name>impl_iterate</name></member>
   </compound>
   <compound refid="structspace_1_1_coords" kind="struct"><name>space::Coords</name>
     <member refid="structspace_1_1_coords_1aad183bdb28bbffba831152075debe228" kind="typedef"><name>Scalar</name></member>
@@ -513,18 +331,10 @@
   </compound>
   <compound refid="classspace_1_1_error_checker" kind="class"><name>space::ErrorChecker</name>
     <member refid="classspace_1_1_error_checker_1ab8d93f54ecf15f2f131d7411de8115d8" kind="variable"><name>Derived</name></member>
-      <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" kind="function">
-          <name>atol</name>
-      </member>
-      <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" kind="function">
-          <name>atol</name>
-      </member>
-      <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" kind="function">
-          <name>rtol</name>
-      </member>
-      <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" kind="function">
-          <name>rtol</name>
-      </member>
+    <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" kind="function"><name>atol</name></member>
+    <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" kind="function"><name>atol</name></member>
+    <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" kind="function"><name>rtol</name></member>
+    <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" kind="function"><name>rtol</name></member>
     <member refid="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" kind="function"><name>derived</name></member>
     <member refid="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" kind="function"><name>set_atol</name></member>
     <member refid="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" kind="function"><name>set_rtol</name></member>
@@ -536,30 +346,14 @@
     <member refid="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" kind="function"><name>cast</name></member>
   </compound>
   <compound refid="classspace_1_1_gauss_dadau" kind="class"><name>space::GaussDadau</name>
-      <member refid="classspace_1_1_gauss_dadau_1a756fa98b22145d41a9580a1a2a477a33" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1affa6959e99084c204b76bb519d0a6499" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1ab43cb6f197b615a7b2c6791efe6cedab" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1aa438384b005893a7e7aaa965ed98a584" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1a3942e9a364cae308609c65796ba7312b" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1a2d243f48881618e6e297306c4ae10634" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1a6bc187b982e9292e7c7291a71587c6d0" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_gauss_dadau_1ac8612c3a6c20aed0552952f58c60fe2f" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_gauss_dadau_1a756fa98b22145d41a9580a1a2a477a33" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1affa6959e99084c204b76bb519d0a6499" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1ab43cb6f197b615a7b2c6791efe6cedab" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1aa438384b005893a7e7aaa965ed98a584" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1a3942e9a364cae308609c65796ba7312b" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1a2d243f48881618e6e297306c4ae10634" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1a6bc187b982e9292e7c7291a71587c6d0" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_gauss_dadau_1ac8612c3a6c20aed0552952f58c60fe2f" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_gauss_dadau_1ac28b3c480cf1ae769da5dbc05a2809fa" kind="typedef"><name>RadauArray</name></member>
     <member refid="classspace_1_1_gauss_dadau_1a705e773dc91296ae0e709a45f048cbb4" kind="typedef"><name>RadauTab</name></member>
     <member refid="classspace_1_1_gauss_dadau_1a2abe1550f71fac107ccff4dabb130e80" kind="variable"><name>order</name></member>
@@ -585,267 +379,96 @@
     <member refid="structspace_1_1get__value__type_1a8d0bcef058ab37175f23eb6f9e1eddc4" kind="function"><name>check</name></member>
     <member refid="structspace_1_1get__value__type_1aaf0d70b6d2d8d320f153a1a0d5e7856a" kind="function"><name>check</name></member>
   </compound>
-    <compound refid="structspace_1_1calc_1_1has__method__bind_e" kind="struct">
-        <name>space::calc::has_method_bindE</name>
-        <member refid="structspace_1_1calc_1_1has__method__bind_e_1ac5a40b2eb1eaefaca716855370b2f656" kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__bind_e_1af7521107e6cd9bd00762ea118fa37a7b" kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__bind_e_1abf2868b964c9daa011a687f45865764c" kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1calc_1_1has__method__chain__pos" kind="struct">
-        <name>space::calc::has_method_chain_pos</name>
-        <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a1aea680c1f2042b33b415d3040d42bf6"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a2c14901b6b6088a15ab490a5bd0c0839"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__chain__pos_1ac37b876aed6c99c04a0fd76f9288325d"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" kind="struct">
-        <name>space::interactions::NewtonianGrav::has_method_chain_pos</name>
-        <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a9fccaa02beff0994a2cf20e729cb926e"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a1da7c1f65d4943b696fc4e6bf2b0c284"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a63c97c474bb0e92a163d245f9f8dc0e3"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos" kind="struct">
-        <name>space::interactions::PostNewtonianGrav::has_method_chain_pos</name>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a4f1a09b55597f598e3274fe61bae285f"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a63069140f17a22134e778a13e7f1597d"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a641c65dc49dfbed9366284cab3469b8c"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" kind="struct">
-        <name>space::TidalForce::has_method_chain_pos</name>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ac1a99e2e2e8139ce9ca08e30e0c22b14"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1a41fcce9e24b90144be01013b65deb4f3"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ad6ff53993cd0988db5217b1570e50764"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" kind="struct">
-        <name>space::interactions::PostNewtonianGrav::has_method_chain_vel</name>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1aca94596b85436c0a3007e26e2f7e8ea9"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1ad1b95f0dd58aee1033e3205f49f04ab2"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7fb0ce0a082b912a83afb3344df43f1c"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" kind="struct">
-        <name>space::TidalForce::has_method_chain_vel</name>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a8c36751ae922b38ca55f32aba677abe9"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a1642339cc943260160406c4d47a12350"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a6b792433553dc97f61b914442d849a16"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" kind="struct">
-        <name>space::Interactions::has_method_impl_eval_extra_vel_dep_acc</name>
-        <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a6540d8c45fcc45822ac6278e5c8363c0"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1af8ba4516958f227ae5e8f0c269b070d5"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a7b70f9876cd6eecddf7071772a8f6218"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" kind="struct">
-        <name>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</name>
-        <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a39c88efc8b526096c33271db407f0c69"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a203049171bdfea45bf805c6016869e3b"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a942a83467f185b29908e9b3df73131cc"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1calc_1_1has__method__index" kind="struct">
-        <name>space::calc::has_method_index</name>
-        <member refid="structspace_1_1calc_1_1has__method__index_1a7fdc531531c914b88fec14d1c90b298f" kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__index_1a9936d936f6090ccd8c6f30dddd78d859" kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__index_1adea3d47b8efae846e8edda14976abb1d" kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" kind="struct">
-        <name>space::interactions::NewtonianGrav::has_method_index</name>
-        <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1ace687614158720b081f9844585d491d2"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a652ca1b40418eb2a421ea03822e65ace"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a188058c45c1c869d143f52f0ac9b31ac"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index" kind="struct">
-        <name>space::interactions::PostNewtonianGrav::has_method_index</name>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a30ffa50eb34a1fa995b9a4a21626ecff"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a6d61c530aa49c9cefe8fd6da4b9c132d"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a26bab821098f039a0be0f829dd52564e"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_tidal_force_1_1has__method__index" kind="struct">
-        <name>space::TidalForce::has_method_index</name>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__index_1aaad1c6770cfb69abc122292cb0e5213c"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__index_1aeadd0d6a8c700488a22bd36f6d7165e7"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_tidal_force_1_1has__method__index_1af7c56d854b96dd54f0440ce8ebaa03d9"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1calc_1_1has__method__omega" kind="struct">
-        <name>space::calc::has_method_omega</name>
-        <member refid="structspace_1_1calc_1_1has__method__omega_1a90dd8bf394204370ec3585c24a9f4867" kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__omega_1a49057ef03bf0abc6e5f4ae86262dd69f" kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1calc_1_1has__method__omega_1a4fef1d71fa4a1f87cac375723e32d877" kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_simulator_1_1has__method__set__atol" kind="struct">
-        <name>space::Simulator::has_method_set_atol</name>
-        <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a42f98f1e20db6cc0c15c461cc8d6c2dd"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1ad4961a67e1161ac9ab6f3cd06520c84a"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a07fab7aeb9b714c75eb976d67d126128"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_simulator_1_1has__method__set__rtol" kind="struct">
-        <name>space::Simulator::has_method_set_rtol</name>
-        <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a76b6deb93f951b42adee9c7dd0e5a11b"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a73e55d5cd7a66e6c3cae8e7bf5bcbdb0"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a2911646dd5257fbcf315f64472655ad2"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol" kind="struct">
-        <name>space::Simulator::has_protected_method_impl_set_atol</name>
-        <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a9ccad3aafef148cec0f1c9494aed4e7b"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a8077a3e8f8e39f8b8330537b8fde644d"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a7dd234ec3a91c2ddbbfabdd24a6fd3e1"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
-    <compound refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol" kind="struct">
-        <name>space::Simulator::has_protected_method_impl_set_rtol</name>
-        <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a0171903ce1c6bb6b04ab7b022be73d4f"
-                kind="variable">
-            <name>value</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a6e7ccca7d18aa631941d4d7c4c8308e6"
-                kind="function">
-            <name>check</name>
-        </member>
-        <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a70f0c28f8fb260ca8265a0952c0c604f"
-                kind="function">
-            <name>check</name>
-        </member>
-    </compound>
+  <compound refid="structspace_1_1calc_1_1has__method__bind_e" kind="struct"><name>space::calc::has_method_bindE</name>
+    <member refid="structspace_1_1calc_1_1has__method__bind_e_1ac5a40b2eb1eaefaca716855370b2f656" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__bind_e_1af7521107e6cd9bd00762ea118fa37a7b" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__bind_e_1abf2868b964c9daa011a687f45865764c" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1calc_1_1has__method__chain__pos" kind="struct"><name>space::calc::has_method_chain_pos</name>
+    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a1aea680c1f2042b33b415d3040d42bf6" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a2c14901b6b6088a15ab490a5bd0c0839" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1ac37b876aed6c99c04a0fd76f9288325d" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" kind="struct"><name>space::interactions::NewtonianGrav::has_method_chain_pos</name>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a9fccaa02beff0994a2cf20e729cb926e" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a1da7c1f65d4943b696fc4e6bf2b0c284" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a63c97c474bb0e92a163d245f9f8dc0e3" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos" kind="struct"><name>space::interactions::PostNewtonianGrav::has_method_chain_pos</name>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a4f1a09b55597f598e3274fe61bae285f" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a63069140f17a22134e778a13e7f1597d" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a641c65dc49dfbed9366284cab3469b8c" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" kind="struct"><name>space::TidalForce::has_method_chain_pos</name>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ac1a99e2e2e8139ce9ca08e30e0c22b14" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1a41fcce9e24b90144be01013b65deb4f3" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ad6ff53993cd0988db5217b1570e50764" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" kind="struct"><name>space::interactions::PostNewtonianGrav::has_method_chain_vel</name>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1aca94596b85436c0a3007e26e2f7e8ea9" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1ad1b95f0dd58aee1033e3205f49f04ab2" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7fb0ce0a082b912a83afb3344df43f1c" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" kind="struct"><name>space::TidalForce::has_method_chain_vel</name>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a8c36751ae922b38ca55f32aba677abe9" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a1642339cc943260160406c4d47a12350" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a6b792433553dc97f61b914442d849a16" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" kind="struct"><name>space::Interactions::has_method_impl_eval_extra_vel_dep_acc</name>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a6540d8c45fcc45822ac6278e5c8363c0" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1af8ba4516958f227ae5e8f0c269b070d5" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a7b70f9876cd6eecddf7071772a8f6218" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" kind="struct"><name>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</name>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a39c88efc8b526096c33271db407f0c69" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a203049171bdfea45bf805c6016869e3b" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a942a83467f185b29908e9b3df73131cc" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1calc_1_1has__method__index" kind="struct"><name>space::calc::has_method_index</name>
+    <member refid="structspace_1_1calc_1_1has__method__index_1a7fdc531531c914b88fec14d1c90b298f" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__index_1a9936d936f6090ccd8c6f30dddd78d859" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__index_1adea3d47b8efae846e8edda14976abb1d" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" kind="struct"><name>space::interactions::NewtonianGrav::has_method_index</name>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1ace687614158720b081f9844585d491d2" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a652ca1b40418eb2a421ea03822e65ace" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a188058c45c1c869d143f52f0ac9b31ac" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index" kind="struct"><name>space::interactions::PostNewtonianGrav::has_method_index</name>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a30ffa50eb34a1fa995b9a4a21626ecff" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a6d61c530aa49c9cefe8fd6da4b9c132d" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a26bab821098f039a0be0f829dd52564e" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_tidal_force_1_1has__method__index" kind="struct"><name>space::TidalForce::has_method_index</name>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1aaad1c6770cfb69abc122292cb0e5213c" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1aeadd0d6a8c700488a22bd36f6d7165e7" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1af7c56d854b96dd54f0440ce8ebaa03d9" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1calc_1_1has__method__omega" kind="struct"><name>space::calc::has_method_omega</name>
+    <member refid="structspace_1_1calc_1_1has__method__omega_1a90dd8bf394204370ec3585c24a9f4867" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__omega_1a49057ef03bf0abc6e5f4ae86262dd69f" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__omega_1a4fef1d71fa4a1f87cac375723e32d877" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_simulator_1_1has__method__set__atol" kind="struct"><name>space::Simulator::has_method_set_atol</name>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a42f98f1e20db6cc0c15c461cc8d6c2dd" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1ad4961a67e1161ac9ab6f3cd06520c84a" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a07fab7aeb9b714c75eb976d67d126128" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_simulator_1_1has__method__set__rtol" kind="struct"><name>space::Simulator::has_method_set_rtol</name>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a76b6deb93f951b42adee9c7dd0e5a11b" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a73e55d5cd7a66e6c3cae8e7bf5bcbdb0" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a2911646dd5257fbcf315f64472655ad2" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol" kind="struct"><name>space::Simulator::has_protected_method_impl_set_atol</name>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a9ccad3aafef148cec0f1c9494aed4e7b" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a8077a3e8f8e39f8b8330537b8fde644d" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a7dd234ec3a91c2ddbbfabdd24a6fd3e1" kind="function"><name>check</name></member>
+  </compound>
+  <compound refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol" kind="struct"><name>space::Simulator::has_protected_method_impl_set_rtol</name>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a0171903ce1c6bb6b04ab7b022be73d4f" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a6e7ccca7d18aa631941d4d7c4c8308e6" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a70f0c28f8fb260ca8265a0952c0c604f" kind="function"><name>check</name></member>
+  </compound>
   <compound refid="structspace_1_1orbit_1_1_hyper_orbit_args" kind="struct"><name>space::orbit::HyperOrbitArgs</name>
     <member refid="structspace_1_1orbit_1_1_hyper_orbit_args_1a2f4a337f2882aa572edfa06489b4c8f6" kind="typedef"><name>Variant</name></member>
     <member refid="structspace_1_1orbit_1_1_hyper_orbit_args_1a10786b47923eadaa51d05d6b22a662f4" kind="typedef"><name>Scalar</name></member>
@@ -853,30 +476,14 @@
     <member refid="structspace_1_1orbit_1_1_hyper_orbit_args_1a46752510aaa1ba5656f44865361dcbb4" kind="function"><name>HyperOrbitArgs</name></member>
   </compound>
   <compound refid="classspace_1_1_i_a_s15" kind="class"><name>space::IAS15</name>
-      <member refid="classspace_1_1_i_a_s15_1a04be655f39bacb5c68cc2e14235693dd" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1ae254bea8045abad249eb8d3099838d9c" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1a62d5ad068f7f17961bdcb72e7b7947dc" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1ae5cfe71b5b48c588367eb4c92ea5a1a7" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1ab8199e1e04a3190ecd53069d0b5700b8" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1a52defc0d0ab04ff72d2f50fdd0e7bbda" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1a1f52c530b754045a8470bd4fb3654e13" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_i_a_s15_1a72f723819a3bb65478e2492a1d85537f" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_i_a_s15_1a04be655f39bacb5c68cc2e14235693dd" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_i_a_s15_1ae254bea8045abad249eb8d3099838d9c" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_i_a_s15_1a62d5ad068f7f17961bdcb72e7b7947dc" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_i_a_s15_1ae5cfe71b5b48c588367eb4c92ea5a1a7" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_i_a_s15_1ab8199e1e04a3190ecd53069d0b5700b8" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_i_a_s15_1a52defc0d0ab04ff72d2f50fdd0e7bbda" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_i_a_s15_1a1f52c530b754045a8470bd4fb3654e13" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_i_a_s15_1a72f723819a3bb65478e2492a1d85537f" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_i_a_s15_1a74c58634a69cfafa36bc126978d8022b" kind="typedef"><name>RadauArray</name></member>
     <member refid="classspace_1_1_i_a_s15_1ac1fb21e42d0701d10e5cdd83939bb88c" kind="typedef"><name>RadauTab</name></member>
     <member refid="classspace_1_1_i_a_s15_1a000761edc630b82a2a4accfd2d869be8" kind="variable"><name>integrator_</name></member>
@@ -901,9 +508,7 @@
     <member refid="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" kind="function"><name>eval_extra_vel_dep_acc</name></member>
     <member refid="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" kind="function"><name>eval_extra_vel_indep_acc</name></member>
     <member refid="classspace_1_1_interactions_1ae8ccb90af06fe343684870d2c93a54fd" kind="function"><name>eval_newtonian_acc</name></member>
-      <member refid="classspace_1_1_interactions_1ae8bd165e3715550c9541ea0087729610" kind="function">
-          <name>Interactions</name>
-      </member>
+    <member refid="classspace_1_1_interactions_1ae8bd165e3715550c9541ea0087729610" kind="function"><name>Interactions</name></member>
   </compound>
   <compound refid="classspace_1_1multi_thread_1_1_ipip" kind="class"><name>space::multiThread::Ipip</name>
     <member refid="classspace_1_1multi_thread_1_1_ipip_1a6aa14b18b5c301ad31b35d0f77baa289" kind="variable"><name>queue_</name></member>
@@ -970,9 +575,7 @@
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a37b99c87f4a42c148b8f27ee09625b0f" kind="function"><name>max</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1ae1815700419e72b0e99f4a38dd31e5eb" kind="function"><name>min</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a01ce8987c40d762c9bf9203e4c0a7710" kind="function"><name>sort</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_larray_1a4231d8c1259b3426d291aaefe5639567" kind="function">
-          <name>operator[]</name>
-      </member>
+    <member refid="struct_space_h_1_1_lazy_1_1_larray_1a4231d8c1259b3426d291aaefe5639567" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1ac1011d0f1f436dc1a25525f793027bbf" kind="function"><name>size</name></member>
   </compound>
   <compound refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4" kind="struct"><name>SpaceH::Lazy::Larray&lt; T, Len, true &gt;</name>
@@ -990,10 +593,7 @@
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1af7dedfb0b0ab07607cbbb6997aff9eb3" kind="function"><name>max</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ad54640c35e3caf9b982e8cf562d333df" kind="function"><name>min</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a479369b9e3f4a47ae81ea7fc6d59ebea" kind="function"><name>sort</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ae1dcf1ad4231ce1b8a2a507a80ca5668"
-              kind="function">
-          <name>operator[]</name>
-      </member>
+    <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ae1dcf1ad4231ce1b8a2a507a80ca5668" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ab24463e509ac53af5aa5496b1a1115cd" kind="function"><name>size</name></member>
   </compound>
   <compound refid="structspace_1_1orbit_1_1_lock_random" kind="struct"><name>space::orbit::LockRandom</name>
@@ -1038,12 +638,8 @@
   </compound>
   <compound refid="classspace_1_1interactions_1_1_newtonian_grav" kind="class"><name>space::interactions::NewtonianGrav</name>
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a7749cba6fb3e7cd236c536df8cd3f4c6" kind="typedef"><name>Base</name></member>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a024aa0573cc7c567cb4962e838692a46" kind="variable">
-          <name>Base</name>
-      </member>
-      <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5" kind="function">
-          <name>impl_eval_acc</name>
-      </member>
+    <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a024aa0573cc7c567cb4962e838692a46" kind="variable"><name>Base</name></member>
+    <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5" kind="function"><name>impl_eval_acc</name></member>
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" kind="function"><name>impl_eval_newtonian_acc</name></member>
   </compound>
   <compound refid="structspace_1_1_chain_1_1_node" kind="struct"><name>space::Chain::Node</name>
@@ -1129,21 +725,11 @@
     <member refid="structspace_1_1_size_particles_1_1_particle_1aa4cbf862e183f62aa5d72f73660fa23b" kind="typedef"><name>Scalar</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1aa88f5dad8bf67818c825fb029b7a9409" kind="typedef"><name>Vector</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1ae94945ff9e4a365885f1a2f5778ea82d" kind="variable"><name>radius</name></member>
-      <member refid="structspace_1_1_size_particles_1_1_particle_1a342b03714a957fbe2dba6b38022489a1" kind="function">
-          <name>Particle</name>
-      </member>
-      <member refid="structspace_1_1_size_particles_1_1_particle_1a308d33f918dd5f923ce2c030c6f24780" kind="function">
-          <name>Particle</name>
-      </member>
-      <member refid="structspace_1_1_size_particles_1_1_particle_1af7596d6747032db95575b65912f92adc" kind="function">
-          <name>Particle</name>
-      </member>
-      <member refid="structspace_1_1_size_particles_1_1_particle_1a35e4f99faa6de7ca8a64ba2fef46f9f3" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="structspace_1_1_size_particles_1_1_particle_1ae50644906b4cf5542b2e185242740ea7" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="structspace_1_1_size_particles_1_1_particle_1a342b03714a957fbe2dba6b38022489a1" kind="function"><name>Particle</name></member>
+    <member refid="structspace_1_1_size_particles_1_1_particle_1a308d33f918dd5f923ce2c030c6f24780" kind="function"><name>Particle</name></member>
+    <member refid="structspace_1_1_size_particles_1_1_particle_1af7596d6747032db95575b65912f92adc" kind="function"><name>Particle</name></member>
+    <member refid="structspace_1_1_size_particles_1_1_particle_1a35e4f99faa6de7ca8a64ba2fef46f9f3" kind="function"><name>operator=</name></member>
+    <member refid="structspace_1_1_size_particles_1_1_particle_1ae50644906b4cf5542b2e185242740ea7" kind="function"><name>operator=</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1afde65f796a15d9bad3428733728aacc9" kind="function"><name>Particle</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1a221256e2409259863864cdabd0846b49" kind="function"><name>Particle</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1a2809bf39e022e551b2b9e1458013f151" kind="friend"><name>operator&lt;&lt;</name></member>
@@ -1151,36 +737,16 @@
   </compound>
   <compound refid="classspace_1_1_particles" kind="class"><name>space::Particles</name>
     <member refid="classspace_1_1_particles_1afe3912f5c4b7b4f64b13479088ea8603" kind="variable"><name>Derived</name></member>
-      <member refid="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" kind="function">
-          <name>idn</name>
-      </member>
-      <member refid="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" kind="function">
-          <name>idn</name>
-      </member>
-      <member refid="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" kind="function">
-          <name>mass</name>
-      </member>
-      <member refid="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" kind="function">
-          <name>mass</name>
-      </member>
-      <member refid="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" kind="function">
-          <name>pos</name>
-      </member>
-      <member refid="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" kind="function">
-          <name>pos</name>
-      </member>
-      <member refid="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" kind="function">
-          <name>time</name>
-      </member>
-      <member refid="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" kind="function">
-          <name>time</name>
-      </member>
-      <member refid="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" kind="function">
-          <name>vel</name>
-      </member>
-      <member refid="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" kind="function">
-          <name>vel</name>
-      </member>
+    <member refid="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" kind="function"><name>idn</name></member>
+    <member refid="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" kind="function"><name>idn</name></member>
+    <member refid="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" kind="function"><name>mass</name></member>
+    <member refid="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" kind="function"><name>mass</name></member>
+    <member refid="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" kind="function"><name>pos</name></member>
+    <member refid="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" kind="function"><name>pos</name></member>
+    <member refid="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" kind="function"><name>time</name></member>
+    <member refid="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" kind="function"><name>time</name></member>
+    <member refid="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" kind="function"><name>vel</name></member>
+    <member refid="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" kind="function"><name>vel</name></member>
     <member refid="classspace_1_1_particles_1a8d4572f516edfeb65457ccb21fa62de6" kind="function"><name>derived</name></member>
     <member refid="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" kind="function"><name>number</name></member>
     <member refid="classspace_1_1_particles_1aa34fcf3707da6d94091d75e235687267" kind="function"><name>capacity</name></member>
@@ -1192,36 +758,16 @@
   </compound>
   <compound refid="classspace_1_1_particle_system" kind="class"><name>space::ParticleSystem</name>
     <member refid="classspace_1_1_particle_system_1af9791fd034c4b1b10ee3798c9c35ed6c" kind="variable"><name>Derived</name></member>
-      <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" kind="function">
-          <name>mass</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" kind="function">
-          <name>mass</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" kind="function">
-          <name>idn</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" kind="function">
-          <name>idn</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" kind="function">
-          <name>time</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" kind="function">
-          <name>time</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" kind="function">
-          <name>pos</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" kind="function">
-          <name>pos</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" kind="function">
-          <name>vel</name>
-      </member>
-      <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" kind="function">
-          <name>vel</name>
-      </member>
+    <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" kind="function"><name>mass</name></member>
+    <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" kind="function"><name>mass</name></member>
+    <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" kind="function"><name>idn</name></member>
+    <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" kind="function"><name>idn</name></member>
+    <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" kind="function"><name>time</name></member>
+    <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" kind="function"><name>time</name></member>
+    <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" kind="function"><name>pos</name></member>
+    <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" kind="function"><name>pos</name></member>
+    <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" kind="function"><name>vel</name></member>
+    <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" kind="function"><name>vel</name></member>
     <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" kind="function"><name>number</name></member>
     <member refid="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" kind="function"><name>advance_time</name></member>
     <member refid="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" kind="function"><name>advance_pos</name></member>
@@ -1242,9 +788,7 @@
     <member refid="classspace_1_1_p_i_d_controller_1a9dc417dca8aec7143be16997c418fe5f" kind="typedef"><name>Scalar</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a0f64304989f42062274f7a39d46ed1ca" kind="typedef"><name>value_type</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1af929894705189fbcdc085141712e4a69" kind="variable"><name>max_order</name></member>
-      <member refid="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a55998118ef5e51d1ac845ae605311e77" kind="variable"><name>limiter_max_</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1ad5155afc5f2046db49b0fd5da086f2a1" kind="variable"><name>limiter_min_</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1ab8e226996c028b36fd2ebb358b27d387" kind="variable"><name>expon_</name></member>
@@ -1258,13 +802,9 @@
     <member refid="classspace_1_1_p_i_d_controller_1aecae02fc193e189bae53f8025f9e255a" kind="function"><name>PIDController</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a7af09229ee7a03a117034db39c1935bc" kind="function"><name>set_PID_coefficients</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a0cfc8b16b2c7bc303affa92100012b67" kind="function"><name>set_safe_guards</name></member>
-      <member refid="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44" kind="function">
-          <name>impl_next_step_size</name>
-      </member>
+    <member refid="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44" kind="function"><name>impl_next_step_size</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a4bbff2234d6e13285f9e654fddc5d1d1" kind="function"><name>impl_next_step_size</name></member>
-      <member refid="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" kind="function">
-          <name>impl_next_step_size</name>
-      </member>
+    <member refid="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" kind="function"><name>impl_next_step_size</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a94a0de7e4b40d52828931c4ed46336bd" kind="function"><name>step_limiter</name></member>
   </compound>
   <compound refid="structspace_1_1_point_particle" kind="struct"><name>space::PointParticle</name>
@@ -1273,106 +813,48 @@
     <member refid="structspace_1_1_point_particle_1af536a4faa674ae695f0e7f2561376f27" kind="variable"><name>pos</name></member>
     <member refid="structspace_1_1_point_particle_1abd1118535da76308239551fc5fbdedef" kind="variable"><name>vel</name></member>
     <member refid="structspace_1_1_point_particle_1a8b240331fde57f80170f72a97427d747" kind="variable"><name>mass</name></member>
-      <member refid="structspace_1_1_point_particle_1a30b98a3bc0fea896fd938749e731806a" kind="function">
-          <name>PointParticle</name>
-      </member>
-      <member refid="structspace_1_1_point_particle_1af649105460c5420b9c6d3eb49ade323d" kind="function">
-          <name>PointParticle</name>
-      </member>
-      <member refid="structspace_1_1_point_particle_1a99e8775d321591f19db74aa41ada8702" kind="function">
-          <name>PointParticle</name>
-      </member>
-      <member refid="structspace_1_1_point_particle_1a9e638adc8a91703dd3ad4c88be558f0a" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="structspace_1_1_point_particle_1abac49aab20583ce49a7fffd4e7e2dcf7" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="structspace_1_1_point_particle_1a30b98a3bc0fea896fd938749e731806a" kind="function"><name>PointParticle</name></member>
+    <member refid="structspace_1_1_point_particle_1af649105460c5420b9c6d3eb49ade323d" kind="function"><name>PointParticle</name></member>
+    <member refid="structspace_1_1_point_particle_1a99e8775d321591f19db74aa41ada8702" kind="function"><name>PointParticle</name></member>
+    <member refid="structspace_1_1_point_particle_1a9e638adc8a91703dd3ad4c88be558f0a" kind="function"><name>operator=</name></member>
+    <member refid="structspace_1_1_point_particle_1abac49aab20583ce49a7fffd4e7e2dcf7" kind="function"><name>operator=</name></member>
     <member refid="structspace_1_1_point_particle_1ac0f213b4f8a499cc9fe6b824b43675ad" kind="function"><name>PointParticle</name></member>
     <member refid="structspace_1_1_point_particle_1a1d59149edd7d01c13ba93b54e899bb64" kind="function"><name>PointParticle</name></member>
   </compound>
   <compound refid="classspace_1_1_point_particles" kind="class"><name>space::PointParticles</name>
-      <member refid="classspace_1_1_point_particles_1a1abebf154e7a7e1ff88889a9637d7da0" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1acad8f458587ff9e09f517f0a8e1075c1" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a6efca40809b14eaf44c8d7f17f0cd6d0" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a33e1fa91db9b1b07720276d5dd6b52c2" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a4aa3602e0724fe2608968f388a52b465" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1af76b07d66eaa79e7ffae029c00c84886" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a44bae3f84867115a8167332ac3c69b46" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a1fcc00c04f890846bb2c4dce57e501bb" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_point_particles_1a1abebf154e7a7e1ff88889a9637d7da0" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_point_particles_1acad8f458587ff9e09f517f0a8e1075c1" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_point_particles_1a6efca40809b14eaf44c8d7f17f0cd6d0" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_point_particles_1a33e1fa91db9b1b07720276d5dd6b52c2" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_point_particles_1a4aa3602e0724fe2608968f388a52b465" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_point_particles_1af76b07d66eaa79e7ffae029c00c84886" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_point_particles_1a44bae3f84867115a8167332ac3c69b46" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_point_particles_1a1fcc00c04f890846bb2c4dce57e501bb" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_point_particles_1a008dae88d4165dd1c632cef60a66f853" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_point_particles_1a19967875e46fb50b64e4dca3f50ffd40" kind="typedef"><name>Particle</name></member>
-      <member refid="classspace_1_1_point_particles_1a9bfb3fd01046029fe17f09b22c269e8a" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_point_particles_1a9bfb3fd01046029fe17f09b22c269e8a" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_point_particles_1aa4a374ba18742749fb8356eb1f388a2d" kind="variable"><name>pos_</name></member>
     <member refid="classspace_1_1_point_particles_1a527809b21c292b6b40b4fb6b6c0c35a3" kind="variable"><name>vel_</name></member>
     <member refid="classspace_1_1_point_particles_1af0480f0f7e9b5ebed901e7ae9f2f8ee3" kind="variable"><name>mass_</name></member>
     <member refid="classspace_1_1_point_particles_1a00f7a2b3f1b42d4423a36e6bb9d68385" kind="variable"><name>idn_</name></member>
     <member refid="classspace_1_1_point_particles_1ac312800131a3e29317a1dff1a189e800" kind="variable"><name>time_</name></member>
     <member refid="classspace_1_1_point_particles_1a2b96f6639134d5e4e5aeeecc038c6cc5" kind="variable"><name>active_num_</name></member>
-      <member refid="classspace_1_1_point_particles_1a86ec59de4b9c7f255c82704404f014d4" kind="function">
-          <name>PointParticles</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a3459b47dd89086643b613c14b5860308" kind="function">
-          <name>PointParticles</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a3f7085ef0facdbe20524c3fc3fb3ac05" kind="function">
-          <name>PointParticles</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a0dc679bb5e9c554bbb9679ee5b476abe" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_point_particles_1a86ec59de4b9c7f255c82704404f014d4" kind="function"><name>PointParticles</name></member>
+    <member refid="classspace_1_1_point_particles_1a3459b47dd89086643b613c14b5860308" kind="function"><name>PointParticles</name></member>
+    <member refid="classspace_1_1_point_particles_1a3f7085ef0facdbe20524c3fc3fb3ac05" kind="function"><name>PointParticles</name></member>
+    <member refid="classspace_1_1_point_particles_1a0dc679bb5e9c554bbb9679ee5b476abe" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_point_particles_1ad6a280fb54f9bdaeb481705d59717210" kind="function"><name>PointParticles</name></member>
-      <member refid="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa" kind="function">
-          <name>impl_vel</name>
-      </member>
+    <member refid="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_point_particles_1a2b91850d907c50f3068374c5c49b880f" kind="function"><name>impl_resize</name></member>
     <member refid="classspace_1_1_point_particles_1a77027a5cce185052caa1c4a883e653c3" kind="function"><name>impl_reserve</name></member>
     <member refid="classspace_1_1_point_particles_1a128013365330947c592d543f507747bc" kind="function"><name>impl_emplace_back</name></member>
@@ -1381,18 +863,9 @@
     <member refid="classspace_1_1_point_particles_1a1679a4e3d504472702698ea0eef5614d" kind="function"><name>impl_clear</name></member>
   </compound>
   <compound refid="classspace_1_1interactions_1_1_post_newtonian_grav" kind="class"><name>space::interactions::PostNewtonianGrav</name>
-      <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1ab44622d4e6ae5808105efbaacce42dd6"
-              kind="function">
-          <name>impl_eval_acc</name>
-      </member>
-      <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1ab7c793e43392921af600643e802bd047"
-              kind="function">
-          <name>impl_eval_newtonian_acc</name>
-      </member>
-      <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a74ec3a5160ae03ad03c43e5fbb66d5a9"
-              kind="function">
-          <name>impl_eval_extra_vel_dep_acc</name>
-      </member>
+    <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1ab44622d4e6ae5808105efbaacce42dd6" kind="function"><name>impl_eval_acc</name></member>
+    <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1ab7c793e43392921af600643e802bd047" kind="function"><name>impl_eval_newtonian_acc</name></member>
+    <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a74ec3a5160ae03ad03c43e5fbb66d5a9" kind="function"><name>impl_eval_extra_vel_dep_acc</name></member>
     <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a69ea0af3f7affa691b6d6cb31bb5a790" kind="function"><name>add_newtonian_acc</name></member>
     <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1af87aca7f4b4c1577efe88e645d5e6abf" kind="function"><name>add_extra_vel_dep_acc</name></member>
     <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a1a50a76b2ed50e98a6e8644349bf8d16" kind="function"><name>add_1st_order_acc</name></member>
@@ -1416,122 +889,54 @@
     <member refid="classspace_1_1_regularization_1a1bd9c3f1b17ece5bc1e5bbf1277b4f9d" kind="variable"><name>omega_</name></member>
     <member refid="classspace_1_1_regularization_1a86b4b9da87fe49f7994994b9caf25ca7" kind="variable"><name>bindE_</name></member>
     <member refid="classspace_1_1_regularization_1a19a66927c37fd45a422b7648eb138179" kind="function"><name>Regularization</name></member>
-      <member refid="classspace_1_1_regularization_1a974700ff971d4d240b9fbdc1fecb2993" kind="function">
-          <name>omega</name>
-      </member>
-      <member refid="classspace_1_1_regularization_1aa5addbe2a3c0609c8317de46a6d42ea8" kind="function">
-          <name>omega</name>
-      </member>
-      <member refid="classspace_1_1_regularization_1afe751a9d3503e55523043e358a7ce56b" kind="function">
-          <name>bindE</name>
-      </member>
-      <member refid="classspace_1_1_regularization_1ae35b2a31d97f1a458a70d0c63c5fc408" kind="function">
-          <name>bindE</name>
-      </member>
+    <member refid="classspace_1_1_regularization_1a974700ff971d4d240b9fbdc1fecb2993" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_regularization_1aa5addbe2a3c0609c8317de46a6d42ea8" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_regularization_1afe751a9d3503e55523043e358a7ce56b" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_regularization_1ae35b2a31d97f1a458a70d0c63c5fc408" kind="function"><name>bindE</name></member>
     <member refid="classspace_1_1_regularization_1a7cf88d50112204e2dac372aa21bad13e" kind="function"><name>eval_pos_phy_time</name></member>
     <member refid="classspace_1_1_regularization_1afc86775fec5638c5a1ebed78d5db39f1" kind="function"><name>eval_vel_phy_time</name></member>
     <member refid="classspace_1_1_regularization_1a8126bf883277e8980c7b968e528e548c" kind="function"><name>capital_omega</name></member>
   </compound>
   <compound refid="classspace_1_1_regularized_system" kind="class"><name>space::RegularizedSystem</name>
-      <member refid="classspace_1_1_regularized_system_1a1c5f8e7d63fec3abe61166be56a4bdd3" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_regularized_system_1a1c5f8e7d63fec3abe61166be56a4bdd3" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_regularized_system_1a9e662c5eeece87a9b78ad762969e8ef5" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_regularized_system_1a92a08d143c071573ae12242faaadd377" kind="typedef"><name>Particle</name></member>
     <member refid="classspace_1_1_regularized_system_1af5c95e0810d7f571e2059035cb53f54e" kind="variable"><name>regu_type</name></member>
-      <member refid="classspace_1_1_regularized_system_1ada324a04573b6f57318a8debf2f46237" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_regularized_system_1ada324a04573b6f57318a8debf2f46237" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_regularized_system_1ae4897c80f8a068a27099a714ae4e0430" kind="variable"><name>ptcl_</name></member>
     <member refid="classspace_1_1_regularized_system_1a4faace636abae81700f5dd6cb2d06028" kind="variable"><name>interactions_</name></member>
     <member refid="classspace_1_1_regularized_system_1a990dfb8ed88db8be7f409e9b7a4098ec" kind="variable"><name>accels_</name></member>
     <member refid="classspace_1_1_regularized_system_1ad241a7b7964f09a7ad4a8f2f0c164210" kind="variable"><name>regu_</name></member>
     <member refid="classspace_1_1_regularized_system_1a40be29dfb283477a61efbd36faf8ee2e" kind="variable"><name>aux_vel_</name></member>
-      <member refid="classspace_1_1_regularized_system_1ac46577f637b3b6434527246e8532f934" kind="function">
-          <name>RegularizedSystem</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0" kind="function">
-          <name>RegularizedSystem</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd" kind="function">
-          <name>RegularizedSystem</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_regularized_system_1ac46577f637b3b6434527246e8532f934" kind="function"><name>RegularizedSystem</name></member>
+    <member refid="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0" kind="function"><name>RegularizedSystem</name></member>
+    <member refid="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd" kind="function"><name>RegularizedSystem</name></member>
+    <member refid="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_regularized_system_1a5461fd02126cffd25534b3b92a401d3e" kind="function"><name>RegularizedSystem</name></member>
-      <member refid="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" kind="function">
-          <name>omega</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" kind="function">
-          <name>omega</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" kind="function">
-          <name>bindE</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" kind="function">
-          <name>bindE</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1af2a766e888f178d151d31aee767d69a6" kind="friend">
-          <name>operator&lt;&lt;</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09" kind="friend">
-          <name>operator&gt;&gt;</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" kind="function">
-          <name>impl_time</name>
-      </member>
+    <member refid="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_regularized_system_1af2a766e888f178d151d31aee767d69a6" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09" kind="friend"><name>operator&gt;&gt;</name></member>
+    <member refid="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487" kind="function"><name>impl_advance_pos</name></member>
@@ -1552,69 +957,33 @@
     <member refid="classspace_1_1_r_m_s_1a636f7d42e98426b7e3648fceb573d937" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_r_m_s_1af64b033bf094a07eca8bec50621872fb" kind="typedef"><name>Scalar</name></member>
     <member refid="classspace_1_1_r_m_s_1a879757fa5beb44165477ec65a6fed4c7" kind="typedef"><name>value_type</name></member>
-      <member refid="classspace_1_1_r_m_s_1addeeb02e1502b505a2a290c0e61575f4" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_r_m_s_1addeeb02e1502b505a2a290c0e61575f4" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_r_m_s_1a07249c6db7853b97c21e838e61c15a6f" kind="variable"><name>atol_</name></member>
     <member refid="classspace_1_1_r_m_s_1a4d59853d94ffd62dc177ff0173eff92f" kind="variable"><name>rtol_</name></member>
-      <member refid="classspace_1_1_r_m_s_1aaea812b4ded21952fe777c107bdbd3ae" kind="function">
-          <name>RMS</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1ad4f67f63189b91845241286cb2e999d9" kind="function">
-          <name>RMS</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1aa555257897ad63a34d0776e595c1fd49" kind="function">
-          <name>RMS</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_r_m_s_1aaea812b4ded21952fe777c107bdbd3ae" kind="function"><name>RMS</name></member>
+    <member refid="classspace_1_1_r_m_s_1ad4f67f63189b91845241286cb2e999d9" kind="function"><name>RMS</name></member>
+    <member refid="classspace_1_1_r_m_s_1aa555257897ad63a34d0776e595c1fd49" kind="function"><name>RMS</name></member>
+    <member refid="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_r_m_s_1a0a62e9ff014b2dd36c262b18ba26da74" kind="function"><name>RMS</name></member>
-      <member refid="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" kind="function">
-          <name>impl_atol</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" kind="function">
-          <name>impl_atol</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" kind="function">
-          <name>impl_rtol</name>
-      </member>
-      <member refid="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" kind="function">
-          <name>impl_rtol</name>
-      </member>
+    <member refid="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" kind="function"><name>impl_atol</name></member>
+    <member refid="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" kind="function"><name>impl_atol</name></member>
+    <member refid="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" kind="function"><name>impl_rtol</name></member>
+    <member refid="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" kind="function"><name>impl_rtol</name></member>
     <member refid="classspace_1_1_r_m_s_1a2cc67079020ff0fa1fbf8a85916684c5" kind="function"><name>impl_set_atol</name></member>
     <member refid="classspace_1_1_r_m_s_1adcf94c009434aab255c6a9bdd3c3de7f" kind="function"><name>impl_set_rtol</name></member>
     <member refid="classspace_1_1_r_m_s_1ad28ed800a8d59f97dadfe1e6f36b058a" kind="function"><name>impl_error</name></member>
     <member refid="classspace_1_1_r_m_s_1abdaa79657fa6eadfbaccaa5d2340f91d" kind="function"><name>impl_error</name></member>
   </compound>
   <compound refid="classspace_1_1_run_args" kind="class"><name>space::RunArgs</name>
-      <member refid="classspace_1_1_run_args_1a46fb7c229ea0286d1a1659856c975867" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_run_args_1a46fb7c229ea0286d1a1659856c975867" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_run_args_1ab2ae5d33c6cfb8573ce977e9820f0938" kind="typedef"><name>Callback</name></member>
     <member refid="classspace_1_1_run_args_1ad706d387865fd3b6399a0d67be56f079" kind="typedef"><name>StopCall</name></member>
     <member refid="classspace_1_1_run_args_1a918fcf4f601c96b9aaf477fb8e26e510" kind="variable"><name>step_size</name></member>
@@ -1655,91 +1024,39 @@
     <member refid="structsecular_1_1_secular_1a0dbcd52074efd1ec7799061c010d8586" kind="function"><name>calc_a_out</name></member>
   </compound>
   <compound refid="classspace_1_1_simple_system" kind="class"><name>space::SimpleSystem</name>
-      <member refid="classspace_1_1_simple_system_1a8f537203d652e0ed6bb540a383a6d098" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1abeef05ec6e95b56763ee4b48f4e3e072" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a7ea257444122c0a5757daec878af07c0" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a5f7aa70e77303f186c5a47b5ed0e06cb" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a53add3bf9dd807a7a8911da3646d6055" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1ab9934cb536e808ebb7463cbaf06a4a2a" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a04c5c352d87d1764b2f61b0e9ca82558" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a70507e312e0f18ee781acfb8ba221d99" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_simple_system_1a8f537203d652e0ed6bb540a383a6d098" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_simple_system_1abeef05ec6e95b56763ee4b48f4e3e072" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_simple_system_1a7ea257444122c0a5757daec878af07c0" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_simple_system_1a5f7aa70e77303f186c5a47b5ed0e06cb" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_simple_system_1a53add3bf9dd807a7a8911da3646d6055" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_simple_system_1ab9934cb536e808ebb7463cbaf06a4a2a" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_simple_system_1a04c5c352d87d1764b2f61b0e9ca82558" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_simple_system_1a70507e312e0f18ee781acfb8ba221d99" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_simple_system_1a7c280cc736259912059cddc62cd74ce4" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_simple_system_1abe9343e6073b3eddedba4e4299936851" kind="typedef"><name>Particle</name></member>
-      <member refid="classspace_1_1_simple_system_1a8dd7281e52bbd7da6ea3f55db034b1ba" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_simple_system_1a8dd7281e52bbd7da6ea3f55db034b1ba" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_simple_system_1a3ed0305ad01797ac791f9fa8ff52a697" kind="variable"><name>ptcl_</name></member>
     <member refid="classspace_1_1_simple_system_1a74b82544a8dbe0c168f8627fc374ec86" kind="variable"><name>interactions_</name></member>
     <member refid="classspace_1_1_simple_system_1afb22318de37c56ea5ab8c3f4dda5da40" kind="variable"><name>accels_</name></member>
     <member refid="classspace_1_1_simple_system_1ae0339d057a98449c8d1fff9238185504" kind="variable"><name>aux_vel_</name></member>
-      <member refid="classspace_1_1_simple_system_1a391d2233baa0b0bd186f2d6c7860882f" kind="function">
-          <name>SimpleSystem</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a4cc4393605037bfa05201af03114e6c4" kind="function">
-          <name>SimpleSystem</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1af5d7b829888d65f3db1e1b5ccef6e931" kind="function">
-          <name>SimpleSystem</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a33ab4567878d98db38f0702801b0c299" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a4caa5ab7bacdb71690b9a8414107bef8" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_simple_system_1a391d2233baa0b0bd186f2d6c7860882f" kind="function"><name>SimpleSystem</name></member>
+    <member refid="classspace_1_1_simple_system_1a4cc4393605037bfa05201af03114e6c4" kind="function"><name>SimpleSystem</name></member>
+    <member refid="classspace_1_1_simple_system_1af5d7b829888d65f3db1e1b5ccef6e931" kind="function"><name>SimpleSystem</name></member>
+    <member refid="classspace_1_1_simple_system_1a33ab4567878d98db38f0702801b0c299" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_simple_system_1a4caa5ab7bacdb71690b9a8414107bef8" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_simple_system_1a20bf361e689d28fd2dba85e1d97e8b55" kind="function"><name>SimpleSystem</name></member>
-      <member refid="classspace_1_1_simple_system_1a4e048ab9386feb43a2c631285a02c69f" kind="friend">
-          <name>operator&lt;&lt;</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a6c3448dbfa080f2f381bff34663a9953" kind="friend">
-          <name>operator&gt;&gt;</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a266bf82600759168e1968b703125c07a" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a2b84eb11cae1ff0981ece40a81ab2b62" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1ade5d2b6fb17fcab706a5659845888cf5" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a32e144e7a7d6eec154406eee1fb3d54c" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a4dec706185faa5997e4f02e9bca69f89" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1aa5b43fd7f345964f2b1bb95e4d6fbbb0" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a78b78ec46d96059ec0874a715203a385" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a378a529dd0cfec49151f1385139c207a" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1a29f13663d781fe79c05fb4c017b0229e" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_simple_system_1ae15b6669e5fc5ac0803182540f649ef4" kind="function">
-          <name>impl_time</name>
-      </member>
+    <member refid="classspace_1_1_simple_system_1a4e048ab9386feb43a2c631285a02c69f" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="classspace_1_1_simple_system_1a6c3448dbfa080f2f381bff34663a9953" kind="friend"><name>operator&gt;&gt;</name></member>
+    <member refid="classspace_1_1_simple_system_1a266bf82600759168e1968b703125c07a" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_simple_system_1a2b84eb11cae1ff0981ece40a81ab2b62" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_simple_system_1ade5d2b6fb17fcab706a5659845888cf5" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_simple_system_1a32e144e7a7d6eec154406eee1fb3d54c" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_simple_system_1a4dec706185faa5997e4f02e9bca69f89" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_simple_system_1aa5b43fd7f345964f2b1bb95e4d6fbbb0" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_simple_system_1a78b78ec46d96059ec0874a715203a385" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_simple_system_1a378a529dd0cfec49151f1385139c207a" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_simple_system_1a29f13663d781fe79c05fb4c017b0229e" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_simple_system_1ae15b6669e5fc5ac0803182540f649ef4" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_simple_system_1a0c2ea6535c72f108b43eb552ae949832" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_simple_system_1a83a186f6e7c91dbbb50629bb20a88313" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_simple_system_1a157aef344aabace4e2ab0dcf04108c92" kind="function"><name>impl_advance_pos</name></member>
@@ -1755,53 +1072,25 @@
     <member refid="classspace_1_1_simple_system_1af9ec3d20412f1cb0eb554a80ca317c50" kind="function"><name>kick_real_vel</name></member>
   </compound>
   <compound refid="classspace_1_1_simulator" kind="class"><name>space::Simulator</name>
-      <member refid="classspace_1_1_simulator_1a408412892df3fe3e641a82e4ef69bd07" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1ad5076aec593fbf1fa71f5d442b594929" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a415dc74d3deff46d221e800a8439caab" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a00324d26ea7c2a7bc2e90ec479a07ed1" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a44655dfcb5bac88f2c287a655a141c2a" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a3aec408c7ee34273538db101596a5b0a" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1ac0b14ac8119b1d4ceefc728217fbb5bf" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a83ccd382bd9f922d520d52d77067bcd1" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_simulator_1a408412892df3fe3e641a82e4ef69bd07" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_simulator_1ad5076aec593fbf1fa71f5d442b594929" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_simulator_1a415dc74d3deff46d221e800a8439caab" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_simulator_1a00324d26ea7c2a7bc2e90ec479a07ed1" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_simulator_1a44655dfcb5bac88f2c287a655a141c2a" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_simulator_1a3aec408c7ee34273538db101596a5b0a" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_simulator_1ac0b14ac8119b1d4ceefc728217fbb5bf" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_simulator_1a83ccd382bd9f922d520d52d77067bcd1" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_simulator_1ad9c952d1fcbc6ac963a537e6707a4057" kind="typedef"><name>RunArgs</name></member>
     <member refid="classspace_1_1_simulator_1a5f4e451f81cb1e587a97b556075986c3" kind="typedef"><name>Particle</name></member>
     <member refid="classspace_1_1_simulator_1a7897d9d11ae472483d47a185d50e8e69" kind="variable"><name>step_size_</name></member>
     <member refid="classspace_1_1_simulator_1a2931c37149600eb406178498316477ef" kind="variable"><name>particles_</name></member>
     <member refid="classspace_1_1_simulator_1a0f65eae562796706d34c40808971d55b" kind="variable"><name>iterator_</name></member>
-      <member refid="classspace_1_1_simulator_1af6d11515e1cf7ad7dfe6da01c63dcb8a" kind="function">
-          <name>particles</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a6c9ebf6f677d6260d0fa02754947a75e" kind="function">
-          <name>Simulator</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a32d79232bb1c647ecbc1c7e73f078735" kind="function">
-          <name>Simulator</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1ab522c2ca3d315e52aa8c82027fc04e0f" kind="function">
-          <name>Simulator</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1a432ccf9e9fa0c5162d27af24f53b2d17" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_simulator_1adbe59c582df5dbf16be5add9519c4469" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_simulator_1af6d11515e1cf7ad7dfe6da01c63dcb8a" kind="function"><name>particles</name></member>
+    <member refid="classspace_1_1_simulator_1a6c9ebf6f677d6260d0fa02754947a75e" kind="function"><name>Simulator</name></member>
+    <member refid="classspace_1_1_simulator_1a32d79232bb1c647ecbc1c7e73f078735" kind="function"><name>Simulator</name></member>
+    <member refid="classspace_1_1_simulator_1ab522c2ca3d315e52aa8c82027fc04e0f" kind="function"><name>Simulator</name></member>
+    <member refid="classspace_1_1_simulator_1a432ccf9e9fa0c5162d27af24f53b2d17" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_simulator_1adbe59c582df5dbf16be5add9519c4469" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_simulator_1ad4135964c5e41e60e213835642131822" kind="function"><name>Simulator</name></member>
     <member refid="classspace_1_1_simulator_1ad9795f5cf3e9882fa0748d887a397372" kind="function"><name>Simulator</name></member>
     <member refid="classspace_1_1_simulator_1aedd59ea3b5b1fff4b5993769687476b8" kind="function"><name>run</name></member>
@@ -1809,34 +1098,16 @@
     <member refid="classspace_1_1_simulator_1a638f1b4633f11eeece624ec48ea2f774" kind="function"><name>advance_one_step</name></member>
   </compound>
   <compound refid="classspace_1_1_size_particles" kind="class"><name>space::SizeParticles</name>
-      <member refid="classspace_1_1_size_particles_1a8b46ff97ddea222f4b84869392ea5d03" kind="typedef">
-          <name>Container</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1af3c03cff2f04b31a7cb34684ae6acd31" kind="typedef">
-          <name>Scalar</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1ac1af208bba2d61228b6edabc565eca66" kind="typedef">
-          <name>ScalarArray</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a2b3e8e4df22e972873162bc6d55270c1" kind="typedef">
-          <name>IdxArray</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a0819a49442a4f35476b82c123fd92ac6" kind="typedef">
-          <name>IntArray</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1aa6af4b48fbea8b1dd1798feaa0bae4b0" kind="typedef">
-          <name>Vector</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1ac4845e8178154b314f5a67ed9e161cce" kind="typedef">
-          <name>VectorArray</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a78c30cbd2f1c7c7c2bc37c966bc0f68c" kind="typedef">
-          <name>Coord</name>
-      </member>
+    <member refid="classspace_1_1_size_particles_1a8b46ff97ddea222f4b84869392ea5d03" kind="typedef"><name>Container</name></member>
+    <member refid="classspace_1_1_size_particles_1af3c03cff2f04b31a7cb34684ae6acd31" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1_size_particles_1ac1af208bba2d61228b6edabc565eca66" kind="typedef"><name>ScalarArray</name></member>
+    <member refid="classspace_1_1_size_particles_1a2b3e8e4df22e972873162bc6d55270c1" kind="typedef"><name>IdxArray</name></member>
+    <member refid="classspace_1_1_size_particles_1a0819a49442a4f35476b82c123fd92ac6" kind="typedef"><name>IntArray</name></member>
+    <member refid="classspace_1_1_size_particles_1aa6af4b48fbea8b1dd1798feaa0bae4b0" kind="typedef"><name>Vector</name></member>
+    <member refid="classspace_1_1_size_particles_1ac4845e8178154b314f5a67ed9e161cce" kind="typedef"><name>VectorArray</name></member>
+    <member refid="classspace_1_1_size_particles_1a78c30cbd2f1c7c7c2bc37c966bc0f68c" kind="typedef"><name>Coord</name></member>
     <member refid="classspace_1_1_size_particles_1a0c5f9e6da6aea05709180baf6c05bf44" kind="typedef"><name>Base</name></member>
-      <member refid="classspace_1_1_size_particles_1aeb969d1a6cc2b97f7ef0fcca53c26b30" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_size_particles_1aeb969d1a6cc2b97f7ef0fcca53c26b30" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_size_particles_1a1d8fb92b47a84d70aea1d58088087162" kind="variable"><name>pos_</name></member>
     <member refid="classspace_1_1_size_particles_1af7744d2e3507d728c9824f1101b6002d" kind="variable"><name>vel_</name></member>
     <member refid="classspace_1_1_size_particles_1ae02964c18b96f0f0d3cabb8b30d6d42b" kind="variable"><name>mass_</name></member>
@@ -1844,58 +1115,24 @@
     <member refid="classspace_1_1_size_particles_1ae2de537179c3d3f4fa8eaa147692c214" kind="variable"><name>idn_</name></member>
     <member refid="classspace_1_1_size_particles_1aa777138b72c2b2ccfb19156a31e04293" kind="variable"><name>time_</name></member>
     <member refid="classspace_1_1_size_particles_1a95b3a4a2e8a2b500170b9edfbc759d89" kind="variable"><name>active_num_</name></member>
-      <member refid="classspace_1_1_size_particles_1aed776b2eeded4e4eb9b84b0e166adcab" kind="function">
-          <name>SizeParticles</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1afea6fcb9428b2c18922afb769323515e" kind="function">
-          <name>SizeParticles</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a6163d0040695ca6b583af03ba5ab8106" kind="function">
-          <name>SizeParticles</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1ae538f580855ed1f4ecf6fdcad0660fbb" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1ae177b8337927bcf0f8661f8931c30bee" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_size_particles_1aed776b2eeded4e4eb9b84b0e166adcab" kind="function"><name>SizeParticles</name></member>
+    <member refid="classspace_1_1_size_particles_1afea6fcb9428b2c18922afb769323515e" kind="function"><name>SizeParticles</name></member>
+    <member refid="classspace_1_1_size_particles_1a6163d0040695ca6b583af03ba5ab8106" kind="function"><name>SizeParticles</name></member>
+    <member refid="classspace_1_1_size_particles_1ae538f580855ed1f4ecf6fdcad0660fbb" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_size_particles_1ae177b8337927bcf0f8661f8931c30bee" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_size_particles_1aaf1aed8b88d09c43caba2f7e509fb3e5" kind="function"><name>SizeParticles</name></member>
-      <member refid="classspace_1_1_size_particles_1a88e854086d72ae84f7c71f5a64b9f02b" kind="function">
-          <name>radius</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1aae58d22a7107f521bc81da245e3d0bc0" kind="function">
-          <name>radius</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1ac1d1ce24016b5943dd31a7bf2abea477" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a34faaccf6378103eb18ff385ed69ecbc" kind="function">
-          <name>impl_mass</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1abee81b7a5e01c61d981a56b898ec760f" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a170d26cf7bdcf16cc92f22a6f4974c77" kind="function">
-          <name>impl_idn</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1ab4dcd807187bbbc3218ef949c2a68903" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a60168d8e7cc4381cfe96cd536d3761ba" kind="function">
-          <name>impl_time</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a9b2b25d8a80559edb420a50695c31017" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1adcdc4f58253755e412fd99f3ca7c97e8" kind="function">
-          <name>impl_pos</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1aed0dbd19a28270aa08a60798c48654c7" kind="function">
-          <name>impl_vel</name>
-      </member>
-      <member refid="classspace_1_1_size_particles_1a524c9391fa8b2e27916ef71ba8415e8a" kind="function">
-          <name>impl_vel</name>
-      </member>
+    <member refid="classspace_1_1_size_particles_1a88e854086d72ae84f7c71f5a64b9f02b" kind="function"><name>radius</name></member>
+    <member refid="classspace_1_1_size_particles_1aae58d22a7107f521bc81da245e3d0bc0" kind="function"><name>radius</name></member>
+    <member refid="classspace_1_1_size_particles_1ac1d1ce24016b5943dd31a7bf2abea477" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_size_particles_1a34faaccf6378103eb18ff385ed69ecbc" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_size_particles_1abee81b7a5e01c61d981a56b898ec760f" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_size_particles_1a170d26cf7bdcf16cc92f22a6f4974c77" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_size_particles_1ab4dcd807187bbbc3218ef949c2a68903" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_size_particles_1a60168d8e7cc4381cfe96cd536d3761ba" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_size_particles_1a9b2b25d8a80559edb420a50695c31017" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_size_particles_1adcdc4f58253755e412fd99f3ca7c97e8" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_size_particles_1aed0dbd19a28270aa08a60798c48654c7" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_size_particles_1a524c9391fa8b2e27916ef71ba8415e8a" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_size_particles_1a9eeba3f48784792a709543478609a0a1" kind="function"><name>impl_resize</name></member>
     <member refid="classspace_1_1_size_particles_1a4489da7395703ab2eb9ae68dfb89184f" kind="function"><name>impl_reserve</name></member>
     <member refid="classspace_1_1_size_particles_1a123bc93506407d18942fdf6eeb384cf2" kind="function"><name>impl_emplace_back</name></member>
@@ -1915,9 +1152,7 @@
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a2411acbcb2265fe7cf9ca2b1afef6875" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab1104037b93baa734f225a4aa01a0108" kind="function"><name>max</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a8de487fed4f00ca7603a6326cca38fe0" kind="function"><name>min</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" kind="function">
-          <name>operator[]</name>
-      </member>
+    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a5dc48b5baaca706112f65502346a0295" kind="function"><name>operator=</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a6eca9207127464b5fa31de2071ff95a8" kind="function"><name>size</name></member>
   </compound>
@@ -1984,12 +1219,8 @@
     <member refid="classspace_1_1_tidal_force_1ac1f51d613bfd1711de0149e928c5cfd2" kind="function"><name>impl_eval_acc</name></member>
     <member refid="classspace_1_1_tidal_force_1a3884814331a629df5de8d4f1c40bd5dc" kind="function"><name>impl_eval_extra_vel_dep_acc</name></member>
     <member refid="classspace_1_1_tidal_force_1a410b7c28bac7e271df651d4cc31c622c" kind="function"><name>impl_eval_newtonian_acc</name></member>
-      <member refid="classspace_1_1_tidal_force_1a7140c6678469ea76eb807fd69fa17cfb" kind="function">
-          <name>tidal_T</name>
-      </member>
-      <member refid="classspace_1_1_tidal_force_1a0e9532e3c9fe8a477e8863d43da03899" kind="function">
-          <name>calc_e_loss</name>
-      </member>
+    <member refid="classspace_1_1_tidal_force_1a7140c6678469ea76eb807fd69fa17cfb" kind="function"><name>tidal_T</name></member>
+    <member refid="classspace_1_1_tidal_force_1a0e9532e3c9fe8a477e8863d43da03899" kind="function"><name>calc_e_loss</name></member>
   </compound>
   <compound refid="classspace_1_1tools_1_1_timer" kind="class"><name>space::tools::Timer</name>
     <member refid="classspace_1_1tools_1_1_timer_1a2b2c749b82312ad22d3e7e0a746e7049" kind="typedef"><name>Time</name></member>
@@ -2142,154 +1373,61 @@
     <member refid="structspace_1_1vec3_1af5e1bcad9d3d484d6f4e6b3f8949f5cf" kind="friend"><name>operator&lt;&lt;</name></member>
     <member refid="structspace_1_1vec3_1a72f92578884bd68e0747871acd8545fd" kind="friend"><name>operator&gt;&gt;</name></member>
   </compound>
-    <compound refid="structspace_1_1_vec3" kind="struct">
-        <name>space::Vec3</name>
-        <member refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kind="typedef">
-            <name>value_type</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a6d6c4c97cc18849edf19eb8daba16880" kind="variable">
-            <name>x</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a76efe024b049c2421f570b34fd8f2cc1" kind="variable">
-            <name>y</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a6255056eeef7277f8eb91017ca133583" kind="variable">
-            <name>z</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1af567714a0a7c71e670bace7e033685c1" kind="function">
-            <name>SPACEHUB_MAKE_CONSTRUCTORS</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1ac1652482d342e5b46428a9511c0ea50c" kind="function">
-            <name>Vec3</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a3dd56dca767af34c18158657fdd18d3a" kind="function">
-            <name>Vec3</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1ab5a76efdecb18a6adae7a24bbf110eb5" kind="function">
-            <name>operator+</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1aec692d7885c8f31277ad56ab813dfbc5" kind="function">
-            <name>operator-</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a93535ab0834671708426f40bc2539725" kind="function">
-            <name>operator*</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a9ce129bff290eec2c0ce5654aefc705c" kind="function">
-            <name>operator/</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a288d66bdf0f1387668b8bb03c4c70d07" kind="function">
-            <name>operator+</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a9956167f3c4490a29430847fb53053ca" kind="function">
-            <name>operator-</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a892f3219c463b6c23a48effa688c0150" kind="function">
-            <name>operator*</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1aef574070c1be0db8e0c87b3e5d2f558e" kind="function">
-            <name>operator/</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1ae3bbf760d37476f20acc676b3d0342ef" kind="function">
-            <name>operator-</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1acdb0073664210d36a69df4ea851ed023" kind="function">
-            <name>abs</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1ace56a1a857a8ff587ee821c73408bd43" kind="function">
-            <name>operator+=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a86776e38f0b42ee7abeb1158a85cfe69" kind="function">
-            <name>operator-=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a9cf8001d77fcb599db14df7585edd9f8" kind="function">
-            <name>operator*=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a8187d5f047c7c111daef43b0a58d45d0" kind="function">
-            <name>operator/=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1ac2c753320f34325af4361c11402fa8bf" kind="function">
-            <name>operator+=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1addd08416db87fabba98eb525968ac073" kind="function">
-            <name>operator-=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a8b351f2bfe43e0dfd5d2a0d7f5bfb8db" kind="function">
-            <name>operator*=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a7046f4257cf0a029455c130612e132f2" kind="function">
-            <name>operator/=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1af48a24fadea92b1f1ae73a15e63a3dcf" kind="function">
-            <name>operator=</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a69d1115b0654ab307c3277ddf766282d" kind="function">
-            <name>norm</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1af7d2b77f54d5cd2bcb634eb284c5e047" kind="function">
-            <name>norm2</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a10f46b0edf358c9e5226c1fb4d837200" kind="function">
-            <name>max_component</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a1d2b0550efdf32220a052211394b48f6" kind="function">
-            <name>re_norm</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1ab677ea3e65bcb9739f883f0fcd11f859" kind="friend">
-            <name>operator+</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a9ca5385d84264a3a33798fc2730b229d" kind="friend">
-            <name>operator-</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a9d80600cbc524ebacf7b91444bc2ab09" kind="friend">
-            <name>operator*</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a84a76da624a5240998fd8b09290d162d" kind="friend">
-            <name>operator/</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1a46215beb5e7387eeb465edbbdaf7dccf" kind="friend">
-            <name>operator&lt;&lt;</name>
-        </member>
-        <member refid="structspace_1_1_vec3_1add63778c3d77375a67809c8265513bea" kind="friend">
-            <name>operator&gt;&gt;</name>
-        </member>
-    </compound>
+  <compound refid="structspace_1_1_vec3" kind="struct"><name>space::Vec3</name>
+    <member refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kind="typedef"><name>value_type</name></member>
+    <member refid="structspace_1_1_vec3_1a6d6c4c97cc18849edf19eb8daba16880" kind="variable"><name>x</name></member>
+    <member refid="structspace_1_1_vec3_1a76efe024b049c2421f570b34fd8f2cc1" kind="variable"><name>y</name></member>
+    <member refid="structspace_1_1_vec3_1a6255056eeef7277f8eb91017ca133583" kind="variable"><name>z</name></member>
+    <member refid="structspace_1_1_vec3_1af567714a0a7c71e670bace7e033685c1" kind="function"><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
+    <member refid="structspace_1_1_vec3_1ac1652482d342e5b46428a9511c0ea50c" kind="function"><name>Vec3</name></member>
+    <member refid="structspace_1_1_vec3_1a3dd56dca767af34c18158657fdd18d3a" kind="function"><name>Vec3</name></member>
+    <member refid="structspace_1_1_vec3_1ab5a76efdecb18a6adae7a24bbf110eb5" kind="function"><name>operator+</name></member>
+    <member refid="structspace_1_1_vec3_1aec692d7885c8f31277ad56ab813dfbc5" kind="function"><name>operator-</name></member>
+    <member refid="structspace_1_1_vec3_1a93535ab0834671708426f40bc2539725" kind="function"><name>operator*</name></member>
+    <member refid="structspace_1_1_vec3_1a9ce129bff290eec2c0ce5654aefc705c" kind="function"><name>operator/</name></member>
+    <member refid="structspace_1_1_vec3_1a288d66bdf0f1387668b8bb03c4c70d07" kind="function"><name>operator+</name></member>
+    <member refid="structspace_1_1_vec3_1a9956167f3c4490a29430847fb53053ca" kind="function"><name>operator-</name></member>
+    <member refid="structspace_1_1_vec3_1a892f3219c463b6c23a48effa688c0150" kind="function"><name>operator*</name></member>
+    <member refid="structspace_1_1_vec3_1aef574070c1be0db8e0c87b3e5d2f558e" kind="function"><name>operator/</name></member>
+    <member refid="structspace_1_1_vec3_1ae3bbf760d37476f20acc676b3d0342ef" kind="function"><name>operator-</name></member>
+    <member refid="structspace_1_1_vec3_1acdb0073664210d36a69df4ea851ed023" kind="function"><name>abs</name></member>
+    <member refid="structspace_1_1_vec3_1ace56a1a857a8ff587ee821c73408bd43" kind="function"><name>operator+=</name></member>
+    <member refid="structspace_1_1_vec3_1a86776e38f0b42ee7abeb1158a85cfe69" kind="function"><name>operator-=</name></member>
+    <member refid="structspace_1_1_vec3_1a9cf8001d77fcb599db14df7585edd9f8" kind="function"><name>operator*=</name></member>
+    <member refid="structspace_1_1_vec3_1a8187d5f047c7c111daef43b0a58d45d0" kind="function"><name>operator/=</name></member>
+    <member refid="structspace_1_1_vec3_1ac2c753320f34325af4361c11402fa8bf" kind="function"><name>operator+=</name></member>
+    <member refid="structspace_1_1_vec3_1addd08416db87fabba98eb525968ac073" kind="function"><name>operator-=</name></member>
+    <member refid="structspace_1_1_vec3_1a8b351f2bfe43e0dfd5d2a0d7f5bfb8db" kind="function"><name>operator*=</name></member>
+    <member refid="structspace_1_1_vec3_1a7046f4257cf0a029455c130612e132f2" kind="function"><name>operator/=</name></member>
+    <member refid="structspace_1_1_vec3_1af48a24fadea92b1f1ae73a15e63a3dcf" kind="function"><name>operator=</name></member>
+    <member refid="structspace_1_1_vec3_1a69d1115b0654ab307c3277ddf766282d" kind="function"><name>norm</name></member>
+    <member refid="structspace_1_1_vec3_1af7d2b77f54d5cd2bcb634eb284c5e047" kind="function"><name>norm2</name></member>
+    <member refid="structspace_1_1_vec3_1a10f46b0edf358c9e5226c1fb4d837200" kind="function"><name>max_component</name></member>
+    <member refid="structspace_1_1_vec3_1a1d2b0550efdf32220a052211394b48f6" kind="function"><name>re_norm</name></member>
+    <member refid="structspace_1_1_vec3_1ab677ea3e65bcb9739f883f0fcd11f859" kind="friend"><name>operator+</name></member>
+    <member refid="structspace_1_1_vec3_1a9ca5385d84264a3a33798fc2730b229d" kind="friend"><name>operator-</name></member>
+    <member refid="structspace_1_1_vec3_1a9d80600cbc524ebacf7b91444bc2ab09" kind="friend"><name>operator*</name></member>
+    <member refid="structspace_1_1_vec3_1a84a76da624a5240998fd8b09290d162d" kind="friend"><name>operator/</name></member>
+    <member refid="structspace_1_1_vec3_1a46215beb5e7387eeb465edbbdaf7dccf" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="structspace_1_1_vec3_1add63778c3d77375a67809c8265513bea" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
   <compound refid="classspace_1_1_worst_offender" kind="class"><name>space::WorstOffender</name>
     <member refid="classspace_1_1_worst_offender_1a8d1232a3d9f70a98a3ac942e24ceb578" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_worst_offender_1aba6941c9c23aa161f8038414521163d5" kind="typedef"><name>Scalar</name></member>
     <member refid="classspace_1_1_worst_offender_1a15431cbf949f531283aca90ccccd2b30" kind="typedef"><name>value_type</name></member>
-      <member refid="classspace_1_1_worst_offender_1ac2c71a5121fb6b62eefb6908def5800b" kind="variable">
-          <name>Base</name>
-      </member>
+    <member refid="classspace_1_1_worst_offender_1ac2c71a5121fb6b62eefb6908def5800b" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_worst_offender_1a9df0e6ab2cd081e29249228c23620fba" kind="variable"><name>atol_</name></member>
     <member refid="classspace_1_1_worst_offender_1a8056fde389461f71626071cef9aaddaf" kind="variable"><name>rtol_</name></member>
-      <member refid="classspace_1_1_worst_offender_1a5ee7c897b598ef2d93ff017045a10b67" kind="function">
-          <name>WorstOffender</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1a5a67143ea0f748e96c61bc55a2042276" kind="function">
-          <name>WorstOffender</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1a973bebe07b67530aaef5243c0dfe17e6" kind="function">
-          <name>WorstOffender</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" kind="function">
-          <name>operator=</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" kind="function">
-          <name>operator=</name>
-      </member>
+    <member refid="classspace_1_1_worst_offender_1a5ee7c897b598ef2d93ff017045a10b67" kind="function"><name>WorstOffender</name></member>
+    <member refid="classspace_1_1_worst_offender_1a5a67143ea0f748e96c61bc55a2042276" kind="function"><name>WorstOffender</name></member>
+    <member refid="classspace_1_1_worst_offender_1a973bebe07b67530aaef5243c0dfe17e6" kind="function"><name>WorstOffender</name></member>
+    <member refid="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" kind="function"><name>operator=</name></member>
+    <member refid="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_worst_offender_1adcccea4e90b1effa6e15b78219b379b3" kind="function"><name>WorstOffender</name></member>
-      <member refid="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1" kind="function">
-          <name>impl_atol</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6" kind="function">
-          <name>impl_atol</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183" kind="function">
-          <name>impl_rtol</name>
-      </member>
-      <member refid="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f" kind="function">
-          <name>impl_rtol</name>
-      </member>
+    <member refid="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1" kind="function"><name>impl_atol</name></member>
+    <member refid="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6" kind="function"><name>impl_atol</name></member>
+    <member refid="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183" kind="function"><name>impl_rtol</name></member>
+    <member refid="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f" kind="function"><name>impl_rtol</name></member>
     <member refid="classspace_1_1_worst_offender_1a87ee50041de4ce71138e6c9c40cb9a24" kind="function"><name>impl_set_atol</name></member>
     <member refid="classspace_1_1_worst_offender_1afb3858c89b0a6f62ff9a26a5e45d4d63" kind="function"><name>impl_set_rtol</name></member>
     <member refid="classspace_1_1_worst_offender_1ac4d1ba452ff1b5a4e0b159896b1ffce3" kind="function"><name>impl_error</name></member>
@@ -2343,30 +1481,14 @@
     <member refid="namespacespace_1a9fd7aa5e5798898136db4ed6480f2468" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacespace_1a5a057e80264f1bbc39d5db42a7fbb403" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacespace_1a77c671e9eda1f141c1ee2dbdb381c383" kind="function"><name>operator&lt;&lt;</name></member>
-      <member refid="namespacespace_1aac174a0cc1a2348338fbe270b275dccb" kind="function">
-          <name>operator+</name>
-      </member>
-      <member refid="namespacespace_1a64c299f9e182f777b522fda7fc1632b7" kind="function">
-          <name>operator-</name>
-      </member>
-      <member refid="namespacespace_1a71880002b8c40a02f798ca9a96d6d786" kind="function">
-          <name>operator*</name>
-      </member>
-      <member refid="namespacespace_1a768d0e58550d7ae2291be5f4c49ac146" kind="function">
-          <name>operator/</name>
-      </member>
-      <member refid="namespacespace_1abe514c511ccce757d571022517cd014f" kind="function">
-          <name>operator+</name>
-      </member>
-      <member refid="namespacespace_1a0f157c54041bd93935747f70b044c474" kind="function">
-          <name>operator-</name>
-      </member>
-      <member refid="namespacespace_1a14ead9434d2100411feb631da671b473" kind="function">
-          <name>operator*</name>
-      </member>
-      <member refid="namespacespace_1a7ad7c1e4d2d8eac0dfa7c46f387d5c98" kind="function">
-          <name>operator/</name>
-      </member>
+    <member refid="namespacespace_1aac174a0cc1a2348338fbe270b275dccb" kind="function"><name>operator+</name></member>
+    <member refid="namespacespace_1a64c299f9e182f777b522fda7fc1632b7" kind="function"><name>operator-</name></member>
+    <member refid="namespacespace_1a71880002b8c40a02f798ca9a96d6d786" kind="function"><name>operator*</name></member>
+    <member refid="namespacespace_1a768d0e58550d7ae2291be5f4c49ac146" kind="function"><name>operator/</name></member>
+    <member refid="namespacespace_1abe514c511ccce757d571022517cd014f" kind="function"><name>operator+</name></member>
+    <member refid="namespacespace_1a0f157c54041bd93935747f70b044c474" kind="function"><name>operator-</name></member>
+    <member refid="namespacespace_1a14ead9434d2100411feb631da671b473" kind="function"><name>operator*</name></member>
+    <member refid="namespacespace_1a7ad7c1e4d2d8eac0dfa7c46f387d5c98" kind="function"><name>operator/</name></member>
     <member refid="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" kind="function"><name>min</name></member>
     <member refid="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" kind="function"><name>max</name></member>
     <member refid="namespacespace_1a38e2c327d558183010000c0213658b4a" kind="function"><name>abs</name></member>
@@ -2581,225 +1703,81 @@
   <compound refid="namespace_space_h" kind="namespace"><name>SpaceH</name>
   </compound>
   <compound refid="namespace_space_h_1_1_lazy" kind="namespace"><name>SpaceH::Lazy</name>
-      <member refid="lazy__expr_8h_1a279d033332d618b8fe5935fc0bd2615d" kind="variable">
-          <name>OP__LINE__</name>
-      </member>
+    <member refid="lazy__expr_8h_1a279d033332d618b8fe5935fc0bd2615d" kind="variable"><name>OP__LINE__</name></member>
     <member refid="lazy__array_8h_1a2e9fc8a531a641d52ae48dd739b15076" kind="function"><name>leq_cache_line</name></member>
     <member refid="lazy__expr_8h_1aeb257316187aeda2523266d9879718b4" kind="function"><name>eval_at</name></member>
     <member refid="lazy__expr_8h_1a8b63f7f18bba2a2104de6ec4a38d752b" kind="function"><name>eval_at</name></member>
-      <member refid="lazy__expr_8h_1a7eca1aaecebef4e4b13c4e5d8ea6a3b5" kind="function">
-          <name>operator+</name>
-      </member>
-      <member refid="lazy__expr_8h_1a229ad375ecfa1eb16df325960ed8838b" kind="function">
-          <name>operator+</name>
-      </member>
-      <member refid="lazy__expr_8h_1a85dad28c588527f3385cb68a2d554433" kind="function">
-          <name>operator+</name>
-      </member>
-      <member refid="lazy__expr_8h_1a3a8d4d6f8a5c2b20775f484c88490c80" kind="function">
-          <name>operator-</name>
-      </member>
-      <member refid="lazy__expr_8h_1a225606e16b3e38da3878149cad2c62d6" kind="function">
-          <name>operator-</name>
-      </member>
-      <member refid="lazy__expr_8h_1a48b2b3840e8ab95e0d5b47096b2cfd10" kind="function">
-          <name>operator-</name>
-      </member>
-      <member refid="lazy__expr_8h_1a715d571c28ef6b2c588b6b334051d96d" kind="function">
-          <name>operator*</name>
-      </member>
-      <member refid="lazy__expr_8h_1a506da0d467cf1c9111d61e5eda6f9890" kind="function">
-          <name>operator*</name>
-      </member>
-      <member refid="lazy__expr_8h_1acdccb6e8e32db9902aad46b76586c13e" kind="function">
-          <name>operator*</name>
-      </member>
-      <member refid="lazy__expr_8h_1aee0cfb13cc5ee0a267e2a65603e02ff0" kind="function">
-          <name>operator/</name>
-      </member>
-      <member refid="lazy__expr_8h_1a7fffe107bb23ef589cb12c2635cc1532" kind="function">
-          <name>operator/</name>
-      </member>
-      <member refid="lazy__expr_8h_1aab9fe8c5ae348556ae2be43ca4a7d069" kind="function">
-          <name>operator/</name>
-      </member>
-      <member refid="lazy__expr_8h_1a66085f75cca9acc0e9aa13849e68d23b" kind="function">
-          <name>operator%</name>
-      </member>
-      <member refid="lazy__expr_8h_1aee6b3f24996f9b4584442b6f2bf93f86" kind="function">
-          <name>operator%</name>
-      </member>
-      <member refid="lazy__expr_8h_1a402a52d9f15792a08e28c1918a209c58" kind="function">
-          <name>operator%</name>
-      </member>
-      <member refid="lazy__expr_8h_1aa9d2e45f4ab1a65e6f4eee6dfbdfcde4" kind="function">
-          <name>operator==</name>
-      </member>
-      <member refid="lazy__expr_8h_1af1489bb4487a34a4a2f51536b32b08b9" kind="function">
-          <name>operator==</name>
-      </member>
-      <member refid="lazy__expr_8h_1a4f46f60044d1cdd6632c85d8dfc97769" kind="function">
-          <name>operator==</name>
-      </member>
-      <member refid="lazy__expr_8h_1aabb16a9e93a31b107a45d42e8a1da676" kind="function">
-          <name>operator!=</name>
-      </member>
-      <member refid="lazy__expr_8h_1af947ac6977c556b4352c7a7f7459faca" kind="function">
-          <name>operator!=</name>
-      </member>
-      <member refid="lazy__expr_8h_1acec8c8438ebed2a695c95aef15fb50b7" kind="function">
-          <name>operator!=</name>
-      </member>
-      <member refid="lazy__expr_8h_1a38a42c862506241e4f8973e26d1691f7" kind="function">
-          <name>operator&lt;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a2ab2076029c37c6618251768cd5841f5" kind="function">
-          <name>operator&lt;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a7d601229647d2ed95c2bfbd84483d8c4" kind="function">
-          <name>operator&lt;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a855e2df47d842963ba769cb4f3c9f191" kind="function">
-          <name>operator&gt;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a31586fd154fbc622269ec5513eed5ce9" kind="function">
-          <name>operator&gt;</name>
-      </member>
-      <member refid="lazy__expr_8h_1ac3402ac154983ca216293aac0f3372d5" kind="function">
-          <name>operator&gt;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a82cf2db802999b22a7fad1a22daa7124" kind="function">
-          <name>operator&lt;=</name>
-      </member>
-      <member refid="lazy__expr_8h_1a35cb4846b5eb1c0b7d44c9a7bfdc028d" kind="function">
-          <name>operator&lt;=</name>
-      </member>
-      <member refid="lazy__expr_8h_1ac0c05592eb27752053e882a1dbb18f5e" kind="function">
-          <name>operator&lt;=</name>
-      </member>
-      <member refid="lazy__expr_8h_1acf2422f09fcf41cbcc145367a5340cb9" kind="function">
-          <name>operator&gt;=</name>
-      </member>
-      <member refid="lazy__expr_8h_1a16dd56acd7953e2f164ecf1c92fac3b3" kind="function">
-          <name>operator&gt;=</name>
-      </member>
-      <member refid="lazy__expr_8h_1a64f88a51b9c1c98ed816cee6a89837b9" kind="function">
-          <name>operator&gt;=</name>
-      </member>
-      <member refid="lazy__expr_8h_1ab693d6900c8625dbe0326a8188310601" kind="function">
-          <name>operator&amp;&amp;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a449c938f3d50f06499be8b6440dff5c5" kind="function">
-          <name>operator&amp;&amp;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a672f9d1ac5c241c0eb42ba07aec061ad" kind="function">
-          <name>operator&amp;&amp;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a8058d96ec41b3127aee4f0fed84b444d" kind="function">
-          <name>operator||</name>
-      </member>
-      <member refid="lazy__expr_8h_1af65f7c046155d0ae3bed24913fbaca57" kind="function">
-          <name>operator||</name>
-      </member>
-      <member refid="lazy__expr_8h_1ac7235e2eebc70e441a8f2a733e3080d6" kind="function">
-          <name>operator||</name>
-      </member>
-      <member refid="lazy__expr_8h_1a170d6ccca80ad287c313c4d4607ffa63" kind="function">
-          <name>operator&amp;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a17e8e5d410e9dcb279fbc225af92b754" kind="function">
-          <name>operator&amp;</name>
-      </member>
-      <member refid="lazy__expr_8h_1a9222215fb0e46e3fa79eeb75fcc6d601" kind="function">
-          <name>operator&amp;</name>
-      </member>
-      <member refid="lazy__expr_8h_1ab2db8074cb71c651266ec737ce048d3e" kind="function">
-          <name>operator^</name>
-      </member>
-      <member refid="lazy__expr_8h_1a036fd0bd35239c7ee0089102b0b7b7de" kind="function">
-          <name>operator^</name>
-      </member>
-      <member refid="lazy__expr_8h_1a9fd726579e72369534a87a6ada0c8e32" kind="function">
-          <name>operator^</name>
-      </member>
-      <member refid="lazy__expr_8h_1a6924b352c43fbe8f17dbf32131ff20fe" kind="function">
-          <name>operator|</name>
-      </member>
-      <member refid="lazy__expr_8h_1a7275c084eb7c8620c567a4dd177a9952" kind="function">
-          <name>operator|</name>
-      </member>
-      <member refid="lazy__expr_8h_1a85b4db00a1ba2299af09ca6f6e3b6827" kind="function">
-          <name>operator|</name>
-      </member>
-      <member refid="lazy__expr_8h_1a34c7bc183e083e0841cf230bb0ea6f9c" kind="function">
-          <name>pow</name>
-      </member>
-      <member refid="lazy__expr_8h_1abc7a3dd7f9e9de9eccd441b4cf659332" kind="function">
-          <name>pow</name>
-      </member>
-      <member refid="lazy__expr_8h_1a66697f3f317b349bbff0175097dbc942" kind="function">
-          <name>pow</name>
-      </member>
-      <member refid="lazy__expr_8h_1a07b8da2398e07fa52127b33f0cb48cc7" kind="function">
-          <name>exp</name>
-      </member>
-      <member refid="lazy__expr_8h_1a0c0a35e25db25d015506b51a973e5813" kind="function">
-          <name>exp</name>
-      </member>
-      <member refid="lazy__expr_8h_1a7ff70b47f06de88dffe582837c680cfa" kind="function">
-          <name>exp</name>
-      </member>
-      <member refid="lazy__expr_8h_1accbaeee7892349d1835e238d886a3ab9" kind="function">
-          <name>operator+</name>
-      </member>
-      <member refid="lazy__expr_8h_1afe246cf52d1b8e6c6480c00078459b4f" kind="function">
-          <name>operator-</name>
-      </member>
-      <member refid="lazy__expr_8h_1a0a6f435f2b345687c72556552642d4f9" kind="function">
-          <name>operator*</name>
-      </member>
-      <member refid="lazy__expr_8h_1a164429e78d6098438316b13695c8e2bb" kind="function">
-          <name>operator!</name>
-      </member>
-      <member refid="lazy__expr_8h_1aa3fb1649248dddffd45eb3feb697d0be" kind="function">
-          <name>operator~</name>
-      </member>
-      <member refid="lazy__expr_8h_1aff4e45f98de5e5c3f549ee6179a7a552" kind="function">
-          <name>abs</name>
-      </member>
-      <member refid="lazy__expr_8h_1a7cb44bbd0fd0d7ea550c510e0bdbb1f0" kind="function">
-          <name>log</name>
-      </member>
-      <member refid="lazy__expr_8h_1aefaed9e2a7523b473eecebb53ec91263" kind="function">
-          <name>log10</name>
-      </member>
-      <member refid="lazy__expr_8h_1a4453625bbb1c7f315145f28668b4f3e3" kind="function">
-          <name>sin</name>
-      </member>
-      <member refid="lazy__expr_8h_1aaceb6a39308fb02610d144db3ad90944" kind="function">
-          <name>cos</name>
-      </member>
-      <member refid="lazy__expr_8h_1a2e9f07cc876e7379e16a970b4359d2cc" kind="function">
-          <name>tan</name>
-      </member>
-      <member refid="lazy__expr_8h_1a200166966304fe12c853f97faac55fc8" kind="function">
-          <name>asin</name>
-      </member>
-      <member refid="lazy__expr_8h_1a51e60901d011376fb3960f85d608d841" kind="function">
-          <name>acos</name>
-      </member>
-      <member refid="lazy__expr_8h_1a3512ecc8ba490789397be7cd2de13238" kind="function">
-          <name>atan</name>
-      </member>
-      <member refid="lazy__expr_8h_1a817bb1cf740aba1b2ff2f4a1f01c4cf2" kind="function">
-          <name>sinh</name>
-      </member>
-      <member refid="lazy__expr_8h_1a6fa82ee0507c93a10486491440ff9074" kind="function">
-          <name>cosh</name>
-      </member>
-      <member refid="lazy__expr_8h_1abc73d2c8ac779b23217088f7c5cdcc90" kind="function">
-          <name>tanh</name>
-      </member>
+    <member refid="lazy__expr_8h_1a7eca1aaecebef4e4b13c4e5d8ea6a3b5" kind="function"><name>operator+</name></member>
+    <member refid="lazy__expr_8h_1a229ad375ecfa1eb16df325960ed8838b" kind="function"><name>operator+</name></member>
+    <member refid="lazy__expr_8h_1a85dad28c588527f3385cb68a2d554433" kind="function"><name>operator+</name></member>
+    <member refid="lazy__expr_8h_1a3a8d4d6f8a5c2b20775f484c88490c80" kind="function"><name>operator-</name></member>
+    <member refid="lazy__expr_8h_1a225606e16b3e38da3878149cad2c62d6" kind="function"><name>operator-</name></member>
+    <member refid="lazy__expr_8h_1a48b2b3840e8ab95e0d5b47096b2cfd10" kind="function"><name>operator-</name></member>
+    <member refid="lazy__expr_8h_1a715d571c28ef6b2c588b6b334051d96d" kind="function"><name>operator*</name></member>
+    <member refid="lazy__expr_8h_1a506da0d467cf1c9111d61e5eda6f9890" kind="function"><name>operator*</name></member>
+    <member refid="lazy__expr_8h_1acdccb6e8e32db9902aad46b76586c13e" kind="function"><name>operator*</name></member>
+    <member refid="lazy__expr_8h_1aee0cfb13cc5ee0a267e2a65603e02ff0" kind="function"><name>operator/</name></member>
+    <member refid="lazy__expr_8h_1a7fffe107bb23ef589cb12c2635cc1532" kind="function"><name>operator/</name></member>
+    <member refid="lazy__expr_8h_1aab9fe8c5ae348556ae2be43ca4a7d069" kind="function"><name>operator/</name></member>
+    <member refid="lazy__expr_8h_1a66085f75cca9acc0e9aa13849e68d23b" kind="function"><name>operator%</name></member>
+    <member refid="lazy__expr_8h_1aee6b3f24996f9b4584442b6f2bf93f86" kind="function"><name>operator%</name></member>
+    <member refid="lazy__expr_8h_1a402a52d9f15792a08e28c1918a209c58" kind="function"><name>operator%</name></member>
+    <member refid="lazy__expr_8h_1aa9d2e45f4ab1a65e6f4eee6dfbdfcde4" kind="function"><name>operator==</name></member>
+    <member refid="lazy__expr_8h_1af1489bb4487a34a4a2f51536b32b08b9" kind="function"><name>operator==</name></member>
+    <member refid="lazy__expr_8h_1a4f46f60044d1cdd6632c85d8dfc97769" kind="function"><name>operator==</name></member>
+    <member refid="lazy__expr_8h_1aabb16a9e93a31b107a45d42e8a1da676" kind="function"><name>operator!=</name></member>
+    <member refid="lazy__expr_8h_1af947ac6977c556b4352c7a7f7459faca" kind="function"><name>operator!=</name></member>
+    <member refid="lazy__expr_8h_1acec8c8438ebed2a695c95aef15fb50b7" kind="function"><name>operator!=</name></member>
+    <member refid="lazy__expr_8h_1a38a42c862506241e4f8973e26d1691f7" kind="function"><name>operator&lt;</name></member>
+    <member refid="lazy__expr_8h_1a2ab2076029c37c6618251768cd5841f5" kind="function"><name>operator&lt;</name></member>
+    <member refid="lazy__expr_8h_1a7d601229647d2ed95c2bfbd84483d8c4" kind="function"><name>operator&lt;</name></member>
+    <member refid="lazy__expr_8h_1a855e2df47d842963ba769cb4f3c9f191" kind="function"><name>operator&gt;</name></member>
+    <member refid="lazy__expr_8h_1a31586fd154fbc622269ec5513eed5ce9" kind="function"><name>operator&gt;</name></member>
+    <member refid="lazy__expr_8h_1ac3402ac154983ca216293aac0f3372d5" kind="function"><name>operator&gt;</name></member>
+    <member refid="lazy__expr_8h_1a82cf2db802999b22a7fad1a22daa7124" kind="function"><name>operator&lt;=</name></member>
+    <member refid="lazy__expr_8h_1a35cb4846b5eb1c0b7d44c9a7bfdc028d" kind="function"><name>operator&lt;=</name></member>
+    <member refid="lazy__expr_8h_1ac0c05592eb27752053e882a1dbb18f5e" kind="function"><name>operator&lt;=</name></member>
+    <member refid="lazy__expr_8h_1acf2422f09fcf41cbcc145367a5340cb9" kind="function"><name>operator&gt;=</name></member>
+    <member refid="lazy__expr_8h_1a16dd56acd7953e2f164ecf1c92fac3b3" kind="function"><name>operator&gt;=</name></member>
+    <member refid="lazy__expr_8h_1a64f88a51b9c1c98ed816cee6a89837b9" kind="function"><name>operator&gt;=</name></member>
+    <member refid="lazy__expr_8h_1ab693d6900c8625dbe0326a8188310601" kind="function"><name>operator&amp;&amp;</name></member>
+    <member refid="lazy__expr_8h_1a449c938f3d50f06499be8b6440dff5c5" kind="function"><name>operator&amp;&amp;</name></member>
+    <member refid="lazy__expr_8h_1a672f9d1ac5c241c0eb42ba07aec061ad" kind="function"><name>operator&amp;&amp;</name></member>
+    <member refid="lazy__expr_8h_1a8058d96ec41b3127aee4f0fed84b444d" kind="function"><name>operator||</name></member>
+    <member refid="lazy__expr_8h_1af65f7c046155d0ae3bed24913fbaca57" kind="function"><name>operator||</name></member>
+    <member refid="lazy__expr_8h_1ac7235e2eebc70e441a8f2a733e3080d6" kind="function"><name>operator||</name></member>
+    <member refid="lazy__expr_8h_1a170d6ccca80ad287c313c4d4607ffa63" kind="function"><name>operator&amp;</name></member>
+    <member refid="lazy__expr_8h_1a17e8e5d410e9dcb279fbc225af92b754" kind="function"><name>operator&amp;</name></member>
+    <member refid="lazy__expr_8h_1a9222215fb0e46e3fa79eeb75fcc6d601" kind="function"><name>operator&amp;</name></member>
+    <member refid="lazy__expr_8h_1ab2db8074cb71c651266ec737ce048d3e" kind="function"><name>operator^</name></member>
+    <member refid="lazy__expr_8h_1a036fd0bd35239c7ee0089102b0b7b7de" kind="function"><name>operator^</name></member>
+    <member refid="lazy__expr_8h_1a9fd726579e72369534a87a6ada0c8e32" kind="function"><name>operator^</name></member>
+    <member refid="lazy__expr_8h_1a6924b352c43fbe8f17dbf32131ff20fe" kind="function"><name>operator|</name></member>
+    <member refid="lazy__expr_8h_1a7275c084eb7c8620c567a4dd177a9952" kind="function"><name>operator|</name></member>
+    <member refid="lazy__expr_8h_1a85b4db00a1ba2299af09ca6f6e3b6827" kind="function"><name>operator|</name></member>
+    <member refid="lazy__expr_8h_1a34c7bc183e083e0841cf230bb0ea6f9c" kind="function"><name>pow</name></member>
+    <member refid="lazy__expr_8h_1abc7a3dd7f9e9de9eccd441b4cf659332" kind="function"><name>pow</name></member>
+    <member refid="lazy__expr_8h_1a66697f3f317b349bbff0175097dbc942" kind="function"><name>pow</name></member>
+    <member refid="lazy__expr_8h_1a07b8da2398e07fa52127b33f0cb48cc7" kind="function"><name>exp</name></member>
+    <member refid="lazy__expr_8h_1a0c0a35e25db25d015506b51a973e5813" kind="function"><name>exp</name></member>
+    <member refid="lazy__expr_8h_1a7ff70b47f06de88dffe582837c680cfa" kind="function"><name>exp</name></member>
+    <member refid="lazy__expr_8h_1accbaeee7892349d1835e238d886a3ab9" kind="function"><name>operator+</name></member>
+    <member refid="lazy__expr_8h_1afe246cf52d1b8e6c6480c00078459b4f" kind="function"><name>operator-</name></member>
+    <member refid="lazy__expr_8h_1a0a6f435f2b345687c72556552642d4f9" kind="function"><name>operator*</name></member>
+    <member refid="lazy__expr_8h_1a164429e78d6098438316b13695c8e2bb" kind="function"><name>operator!</name></member>
+    <member refid="lazy__expr_8h_1aa3fb1649248dddffd45eb3feb697d0be" kind="function"><name>operator~</name></member>
+    <member refid="lazy__expr_8h_1aff4e45f98de5e5c3f549ee6179a7a552" kind="function"><name>abs</name></member>
+    <member refid="lazy__expr_8h_1a7cb44bbd0fd0d7ea550c510e0bdbb1f0" kind="function"><name>log</name></member>
+    <member refid="lazy__expr_8h_1aefaed9e2a7523b473eecebb53ec91263" kind="function"><name>log10</name></member>
+    <member refid="lazy__expr_8h_1a4453625bbb1c7f315145f28668b4f3e3" kind="function"><name>sin</name></member>
+    <member refid="lazy__expr_8h_1aaceb6a39308fb02610d144db3ad90944" kind="function"><name>cos</name></member>
+    <member refid="lazy__expr_8h_1a2e9f07cc876e7379e16a970b4359d2cc" kind="function"><name>tan</name></member>
+    <member refid="lazy__expr_8h_1a200166966304fe12c853f97faac55fc8" kind="function"><name>asin</name></member>
+    <member refid="lazy__expr_8h_1a51e60901d011376fb3960f85d608d841" kind="function"><name>acos</name></member>
+    <member refid="lazy__expr_8h_1a3512ecc8ba490789397be7cd2de13238" kind="function"><name>atan</name></member>
+    <member refid="lazy__expr_8h_1a817bb1cf740aba1b2ff2f4a1f01c4cf2" kind="function"><name>sinh</name></member>
+    <member refid="lazy__expr_8h_1a6fa82ee0507c93a10486491440ff9074" kind="function"><name>cosh</name></member>
+    <member refid="lazy__expr_8h_1abc73d2c8ac779b23217088f7c5cdcc90" kind="function"><name>tanh</name></member>
     <member refid="slice_8h_1ae692630f6e945e4f0538c0b95ccecbb0" kind="function"><name>constexpr_slice_len</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
@@ -2827,9 +1805,7 @@
     <member refid="dev-tools_8hpp_1ac2bdf3bcd9a8848f9533cb143fea0a3a" kind="define"><name>SPACEHUB_MAKE_CONSTRUCTORS</name></member>
     <member refid="dev-tools_8hpp_1a0f585cf51c90e87b303299d7e5901c62" kind="define"><name>SPACEHUB_USING_TYPE_SYSTEM_OF</name></member>
     <member refid="dev-tools_8hpp_1ae057e45edf56a31a4859f89e6bba2100" kind="define"><name>DECLARE_CRTP_ACCESSOR</name></member>
-      <member refid="dev-tools_8hpp_1a681c127002bf82b9b09dbd0545db1646" kind="define">
-          <name>DECLARE_CRTP_READ_ACCESSOR</name>
-      </member>
+    <member refid="dev-tools_8hpp_1a681c127002bf82b9b09dbd0545db1646" kind="define"><name>DECLARE_CRTP_READ_ACCESSOR</name></member>
     <member refid="dev-tools_8hpp_1a7048ff21fd022abe7a131342f2fed10d" kind="define"><name>SPACEHUB_STD_ACCESSOR</name></member>
     <member refid="dev-tools_8hpp_1a6e8dcb3772ed46afbe5b83c269336181" kind="define"><name>SPACEHUB_READ_ACCESSOR</name></member>
     <member refid="dev-tools_8hpp_1a043ac749777107d34e02197c9942ac3d" kind="define"><name>CREATE_METHOD_CHECK</name></member>

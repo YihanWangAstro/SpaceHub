@@ -9,139 +9,117 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1a46fb7c229ea0286d1a1659856c975867" prot="public"
-                     static="no">
-              <templateparamlist>
-                  <param>
-                      <type>typename ...</type>
-                      <declname>_T_</declname>
-                      <defname>_T_</defname>
-                  </param>
-              </templateparamlist>
-              <type>typename ParticleSys ::template Container&lt; _T_... &gt;</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::Container = typename ParticleSys ::template
-                  Container&lt;_T_...&gt;
-              </definition>
-              <argsstring></argsstring>
-              <name>Container</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="18" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::Scalar</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::Scalar = typename ParticleSys ::Scalar</definition>
-              <argsstring></argsstring>
-              <name>Scalar</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="38" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::ScalarArray</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::ScalarArray = typename ParticleSys ::ScalarArray
-              </definition>
-              <argsstring></argsstring>
-              <name>ScalarArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="53" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::IdxArray</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::IdxArray = typename ParticleSys ::IdxArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IdxArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="73" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::IntArray</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::IntArray = typename ParticleSys ::IntArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IntArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="90" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::Vector</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::Vector = typename ParticleSys ::Vector</definition>
-              <argsstring></argsstring>
-              <name>Vector</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="107" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::VectorArray</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::VectorArray = typename ParticleSys ::VectorArray
-              </definition>
-              <argsstring></argsstring>
-              <name>VectorArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="122" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" prot="public"
-                     static="no">
-              <type>typename ParticleSys ::Coord</type>
-              <definition>using space::RunArgs&lt; ParticleSys &gt;::Coord = typename ParticleSys ::Coord</definition>
-              <argsstring></argsstring>
-              <name>Coord</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="simulator.hpp" line="23" column="142" bodyfile="simulator.hpp" bodystart="23"
-                        bodyend="-1"/>
-          </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1a46fb7c229ea0286d1a1659856c975867" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>_T_</declname>
+            <defname>_T_</defname>
+          </param>
+        </templateparamlist>
+        <type>typename ParticleSys ::template Container&lt; _T_... &gt;</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::Container =  typename ParticleSys ::template Container&lt;_T_...&gt;</definition>
+        <argsstring></argsstring>
+        <name>Container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="18" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" prot="public" static="no">
+        <type>typename ParticleSys ::Scalar</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::Scalar =  typename ParticleSys ::Scalar</definition>
+        <argsstring></argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="38" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" prot="public" static="no">
+        <type>typename ParticleSys ::ScalarArray</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::ScalarArray =  typename ParticleSys ::ScalarArray</definition>
+        <argsstring></argsstring>
+        <name>ScalarArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="53" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" prot="public" static="no">
+        <type>typename ParticleSys ::IdxArray</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::IdxArray =  typename ParticleSys ::IdxArray</definition>
+        <argsstring></argsstring>
+        <name>IdxArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="73" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" prot="public" static="no">
+        <type>typename ParticleSys ::IntArray</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::IntArray =  typename ParticleSys ::IntArray</definition>
+        <argsstring></argsstring>
+        <name>IntArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="90" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" prot="public" static="no">
+        <type>typename ParticleSys ::Vector</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::Vector =  typename ParticleSys ::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="107" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" prot="public" static="no">
+        <type>typename ParticleSys ::VectorArray</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::VectorArray =  typename ParticleSys ::VectorArray</definition>
+        <argsstring></argsstring>
+        <name>VectorArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="122" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" prot="public" static="no">
+        <type>typename ParticleSys ::Coord</type>
+        <definition>using space::RunArgs&lt; ParticleSys &gt;::Coord =  typename ParticleSys ::Coord</definition>
+        <argsstring></argsstring>
+        <name>Coord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulator.hpp" line="23" column="142" bodyfile="simulator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_run_args_1ab2ae5d33c6cfb8573ce977e9820f0938" prot="public" static="no">
         <type>std::function&lt; void(ParticleSys &amp;)&gt;</type>
         <definition>using space::RunArgs&lt; ParticleSys &gt;::Callback =  std::function&lt;void(ParticleSys &amp;)&gt;</definition>
@@ -767,23 +745,11 @@
       <member refid="classspace_1_1_run_args_1a0f130e30d4bdb4b1fbfd3e067ac0eea9" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>atol</name></member>
       <member refid="classspace_1_1_run_args_1ab2ae5d33c6cfb8573ce977e9820f0938" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>Callback</name></member>
       <member refid="classspace_1_1_run_args_1a5f6d9c34a5998231505583ffd2fd4df7" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>check_stops</name></member>
-        <member refid="classspace_1_1_run_args_1a46fb7c229ea0286d1a1659856c975867" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>Container</name>
-        </member>
-        <member refid="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>Coord</name>
-        </member>
+      <member refid="classspace_1_1_run_args_1a46fb7c229ea0286d1a1659856c975867" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>Container</name></member>
+      <member refid="classspace_1_1_run_args_1affdb79111542448d328bcc0d0ffd105b" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>Coord</name></member>
       <member refid="classspace_1_1_run_args_1a4f43bc396d42b099ecfb41bdb2d78d7d" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>end_time</name></member>
-        <member refid="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>IdxArray</name>
-        </member>
-        <member refid="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>IntArray</name>
-        </member>
+      <member refid="classspace_1_1_run_args_1ab5386117761e5b4eb52e243912a9c502" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>IdxArray</name></member>
+      <member refid="classspace_1_1_run_args_1af82e73ab9f0c400a9cde0575d829517a" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>IntArray</name></member>
       <member refid="classspace_1_1_run_args_1aee5ebfc0b21db4a01f5269adfc8e9441" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>is_end_time_set</name></member>
       <member refid="classspace_1_1_run_args_1ab04556c795d6957ca8b2fbc36ddd5384" prot="private" virt="non-virtual"><scope>space::RunArgs</scope><name>is_end_time_set_</name></member>
       <member refid="classspace_1_1_run_args_1aace390d73a2eef9effb0443eb27657ed" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>is_stop_condition_set</name></member>
@@ -792,27 +758,15 @@
       <member refid="classspace_1_1_run_args_1a5b7abe613e970c74f62846be03f9734d" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>pre_operations</name></member>
       <member refid="classspace_1_1_run_args_1a5feb787410f3b0f25682cfae6bd05cd4" prot="private" virt="non-virtual"><scope>space::RunArgs</scope><name>pre_opts_</name></member>
       <member refid="classspace_1_1_run_args_1abd0b0970bbfc5f62d7e7ac07a2f54c71" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>rtol</name></member>
-        <member refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>Scalar</name>
-        </member>
-        <member refid="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>ScalarArray</name>
-        </member>
+      <member refid="classspace_1_1_run_args_1ac50cd2f6cb422e2d1fdaa37d0afc48d0" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>Scalar</name></member>
+      <member refid="classspace_1_1_run_args_1ad4b83219b5ce45849ff5cc682274f011" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>ScalarArray</name></member>
       <member refid="classspace_1_1_run_args_1a918fcf4f601c96b9aaf477fb8e26e510" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>step_size</name></member>
       <member refid="classspace_1_1_run_args_1a04921230c25ee65ef160f2b7ad295f84" prot="private" virt="non-virtual"><scope>space::RunArgs</scope><name>stop_cond_</name></member>
       <member refid="classspace_1_1_run_args_1ab3a245733eb8a0cf2e23e62ecedb3bd7" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>stop_operations</name></member>
       <member refid="classspace_1_1_run_args_1a04410ba0463f8c760db7385b07da4204" prot="private" virt="non-virtual"><scope>space::RunArgs</scope><name>stop_opts_</name></member>
       <member refid="classspace_1_1_run_args_1ad706d387865fd3b6399a0d67be56f079" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>StopCall</name></member>
-        <member refid="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>Vector</name>
-        </member>
-        <member refid="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" prot="public" virt="non-virtual">
-            <scope>space::RunArgs</scope>
-            <name>VectorArray</name>
-        </member>
+      <member refid="classspace_1_1_run_args_1a3d8afaf1311019a3c2fb27734937bd2c" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>Vector</name></member>
+      <member refid="classspace_1_1_run_args_1abad11eb69b51816f44b2e05b17230852" prot="public" virt="non-virtual"><scope>space::RunArgs</scope><name>VectorArray</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

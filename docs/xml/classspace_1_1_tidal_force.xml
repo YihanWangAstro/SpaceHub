@@ -3,39 +3,27 @@
   <compounddef id="classspace_1_1_tidal_force" kind="class" language="C++" prot="public">
     <compoundname>space::TidalForce</compoundname>
     <basecompoundref refid="classspace_1_1_interactions" prot="public" virt="non-virtual">space::Interactions&lt; TidalForce &gt;</basecompoundref>
-      <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" prot="private">
-          space::TidalForce::has_method_chain_pos
-      </innerclass>
-      <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" prot="private">
-          space::TidalForce::has_method_chain_vel
-      </innerclass>
-      <innerclass refid="structspace_1_1_tidal_force_1_1has__method__index" prot="private">
-          space::TidalForce::has_method_index
-      </innerclass>
+    <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" prot="private">space::TidalForce::has_method_chain_pos</innerclass>
+    <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" prot="private">space::TidalForce::has_method_chain_vel</innerclass>
+    <innerclass refid="structspace_1_1_tidal_force_1_1has__method__index" prot="private">space::TidalForce::has_method_index</innerclass>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_tidal_force_1ac1f51d613bfd1711de0149e928c5cfd2" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename
-                          <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                      </type>
-                  </param>
-              </templateparamlist>
-              <type>void</type>
-              <definition>void space::TidalForce::impl_eval_acc</definition>
-              <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
-              <name>impl_eval_acc</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                      const &amp;
-                  </type>
-                  <declname>partc</declname>
-              </param>
+      <memberdef kind="function" id="classspace_1_1_tidal_force_1ac1f51d613bfd1711de0149e928c5cfd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::TidalForce::impl_eval_acc</definition>
+        <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
+        <name>impl_eval_acc</name>
         <param>
-            <type>typename Particles::Coord &amp;</type>
-            <declname>acc</declname>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>partc</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acc</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -43,32 +31,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/tidal.hpp" line="24" column="10" bodyfile="interaction/tidal.hpp"
-                        bodystart="24" bodyend="26"/>
+        <location file="interaction/tidal.hpp" line="24" column="10" bodyfile="interaction/tidal.hpp" bodystart="24" bodyend="26"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_tidal_force_1a3884814331a629df5de8d4f1c40bd5dc" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename
-                          <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                      </type>
-                  </param>
-              </templateparamlist>
-              <type>void</type>
-              <definition>void space::TidalForce::impl_eval_extra_vel_dep_acc</definition>
-              <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
-              <name>impl_eval_extra_vel_dep_acc</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                      const &amp;
-                  </type>
-                  <declname>partc</declname>
-              </param>
-              <param>
-                  <type>typename Particles::Coord &amp;</type>
-                  <declname>acc</declname>
+      <memberdef kind="function" id="classspace_1_1_tidal_force_1a3884814331a629df5de8d4f1c40bd5dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::TidalForce::impl_eval_extra_vel_dep_acc</definition>
+        <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
+        <name>impl_eval_extra_vel_dep_acc</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>partc</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acc</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -76,32 +57,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/tidal.hpp" line="29" column="10" bodyfile="interaction/tidal.hpp"
-                        bodystart="29" bodyend="31"/>
+        <location file="interaction/tidal.hpp" line="29" column="10" bodyfile="interaction/tidal.hpp" bodystart="29" bodyend="31"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_tidal_force_1a410b7c28bac7e271df651d4cc31c622c" prot="public"
-                     static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename
-                          <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                      </type>
-                  </param>
-              </templateparamlist>
-              <type>void</type>
-              <definition>void space::TidalForce::impl_eval_newtonian_acc</definition>
-              <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
-              <name>impl_eval_newtonian_acc</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                      const &amp;
-                  </type>
-                  <declname>partc</declname>
-              </param>
-              <param>
-                  <type>typename Particles::Coord &amp;</type>
-                  <declname>acc</declname>
+      <memberdef kind="function" id="classspace_1_1_tidal_force_1a410b7c28bac7e271df651d4cc31c622c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::TidalForce::impl_eval_newtonian_acc</definition>
+        <argsstring>(Particles const &amp;partc, typename Particles::Coord &amp;acc)</argsstring>
+        <name>impl_eval_newtonian_acc</name>
+        <param>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>partc</declname>
+        </param>
+        <param>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acc</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -109,75 +83,74 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/tidal.hpp" line="34" column="10" bodyfile="interaction/tidal.hpp"
-                        bodystart="34" bodyend="82"/>
+        <location file="interaction/tidal.hpp" line="34" column="10" bodyfile="interaction/tidal.hpp" bodystart="34" bodyend="82"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-          <memberdef kind="function" id="classspace_1_1_tidal_force_1a7140c6678469ea76eb807fd69fa17cfb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename Scalar</type>
-                  </param>
-              </templateparamlist>
-              <type>auto</type>
-              <definition>auto space::TidalForce::tidal_T</definition>
-              <argsstring>(Scalar eta)</argsstring>
-              <name>tidal_T</name>
-              <param>
-                  <type>Scalar</type>
-                  <declname>eta</declname>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="interaction/tidal.hpp" line="86" column="10" bodyfile="interaction/tidal.hpp" bodystart="86" bodyend="96"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_tidal_force_1a0e9532e3c9fe8a477e8863d43da03899" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename Scalar</type>
-                  </param>
-              </templateparamlist>
-              <type>auto</type>
-              <definition>auto space::TidalForce::calc_e_loss</definition>
-              <argsstring>(Scalar mt, Scalar mp, Scalar Rt, Scalar Rp, Scalar a, Scalar e)</argsstring>
-              <name>calc_e_loss</name>
-              <param>
-                  <type>Scalar</type>
-                  <declname>mt</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>mp</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>Rt</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>Rp</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>a</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>e</declname>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="interaction/tidal.hpp" line="99" column="10" bodyfile="interaction/tidal.hpp" bodystart="99" bodyend="106"/>
-          </memberdef>
+      <memberdef kind="function" id="classspace_1_1_tidal_force_1a7140c6678469ea76eb807fd69fa17cfb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::TidalForce::tidal_T</definition>
+        <argsstring>(Scalar eta)</argsstring>
+        <name>tidal_T</name>
+        <param>
+          <type>Scalar</type>
+          <declname>eta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction/tidal.hpp" line="86" column="10" bodyfile="interaction/tidal.hpp" bodystart="86" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_tidal_force_1a0e9532e3c9fe8a477e8863d43da03899" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Scalar</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::TidalForce::calc_e_loss</definition>
+        <argsstring>(Scalar mt, Scalar mp, Scalar Rt, Scalar Rp, Scalar a, Scalar e)</argsstring>
+        <name>calc_e_loss</name>
+        <param>
+          <type>Scalar</type>
+          <declname>mt</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>mp</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>Rt</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>Rp</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="interaction/tidal.hpp" line="99" column="10" bodyfile="interaction/tidal.hpp" bodystart="99" bodyend="106"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>

@@ -105,18 +105,10 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles&gt;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> impl_eval_newtonian_acc(<a class="code" href="classspace_1_1_particles.html">Particles</a> <span class="keyword">const</span> &amp;partc, <span class="keyword">typename</span> Particles::Coord &amp;acc) {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordtype">size_t</span> num = partc.<a class="code" href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">number</a>();</div>
-    <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">auto</span>
-        &amp;px = partc.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().x;
-    </div>
-    <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="keyword">auto</span>
-        &amp;py = partc.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().y;
-    </div>
-    <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">auto</span>
-        &amp;pz = partc.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().z;
-    </div>
-    <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">auto</span>
-        &amp;m = partc.<a class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>();
-    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">auto</span> &amp;px = partc.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().x;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">auto</span> &amp;py = partc.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().y;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">auto</span> &amp;pz = partc.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>().z;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">auto</span> &amp;m = partc.<a class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      calc::set_arrays_zero(acc.x, acc.y, acc.z);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
@@ -190,28 +182,10 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
 <div class="ttc" id="aclassspace_1_1_interactions_html"><div class="ttname"><a href="classspace_1_1_interactions.html">space::Interactions</a></div><div class="ttdef"><b>Definition:</b> interaction.hpp:21</div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div>
-    <div class="ttdeci">auto &amp; mass() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:24</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div>
-    <div class="ttdeci">auto &amp; pos() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:26</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html">
-    <div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:19</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32">
-    <div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a>
-    </div>
-    <div class="ttdeci">size_t number() const</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:111</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa"><div class="ttname"><a href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div><div class="ttdeci">auto &amp; mass() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:24</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543"><div class="ttname"><a href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div><div class="ttdeci">auto &amp; pos() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:26</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdef"><b>Definition:</b> particles.hpp:19</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32"><div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a></div><div class="ttdeci">size_t number() const</div><div class="ttdef"><b>Definition:</b> particles.hpp:111</div></div>
 <div class="ttc" id="aclassspace_1_1_tidal_force_html"><div class="ttname"><a href="classspace_1_1_tidal_force.html">space::TidalForce</a></div><div class="ttdef"><b>Definition:</b> tidal.hpp:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

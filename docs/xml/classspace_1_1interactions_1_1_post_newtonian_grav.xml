@@ -4,15 +4,9 @@
     <compoundname>space::interactions::PostNewtonianGrav</compoundname>
     <basecompoundref refid="classspace_1_1_interactions" prot="public" virt="non-virtual">space::Interactions&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</basecompoundref>
     <includes refid="post-newtonian_8hpp" local="no">post-newtonian.hpp</includes>
-      <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos" prot="private">
-          space::interactions::PostNewtonianGrav::has_method_chain_pos
-      </innerclass>
-      <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" prot="private">
-          space::interactions::PostNewtonianGrav::has_method_chain_vel
-      </innerclass>
-      <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index" prot="private">
-          space::interactions::PostNewtonianGrav::has_method_index
-      </innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos" prot="private">space::interactions::PostNewtonianGrav::has_method_chain_pos</innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" prot="private">space::interactions::PostNewtonianGrav::has_method_chain_vel</innerclass>
+    <innerclass refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index" prot="private">space::interactions::PostNewtonianGrav::has_method_index</innerclass>
     <templateparamlist>
       <param>
         <type>bool</type>
@@ -31,18 +25,16 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-func">
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1ab44622d4e6ae5808105efbaacce42dd6"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1ab44622d4e6ae5808105efbaacce42dd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::impl_eval_acc</definition>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::impl_eval_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>impl_eval_acc</name>
+        <name>impl_eval_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -57,21 +49,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="28" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="28" bodyend="32"/>
+        <location file="interaction/post-newtonian.hpp" line="28" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="28" bodyend="32"/>
       </memberdef>
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1ab7c793e43392921af600643e802bd047"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1ab7c793e43392921af600643e802bd047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::impl_eval_newtonian_acc</definition>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::impl_eval_newtonian_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>impl_eval_newtonian_acc</name>
+        <name>impl_eval_newtonian_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -86,33 +75,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="35" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="35" bodyend="38"/>
+        <location file="interaction/post-newtonian.hpp" line="35" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="35" bodyend="38"/>
       </memberdef>
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1a74ec3a5160ae03ad03c43e5fbb66d5a9"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a74ec3a5160ae03ad03c43e5fbb66d5a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename
-                  <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-              </type>
+            <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::impl_eval_extra_vel_dep_acc</definition>
-              <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>impl_eval_extra_vel_dep_acc</name>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::impl_eval_extra_vel_dep_acc</definition>
+        <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
+        <name>impl_eval_extra_vel_dep_acc</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>
-                const &amp;
-            </type>
-            <declname>particles</declname>
+          <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
+          <declname>particles</declname>
         </param>
         <param>
-            <type>typename Particles::Coord &amp;</type>
-            <declname>acceleration</declname>
+          <type>typename Particles::Coord &amp;</type>
+          <declname>acceleration</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -120,23 +101,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="41" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="41" bodyend="44"/>
+        <location file="interaction/post-newtonian.hpp" line="41" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="41" bodyend="44"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1a69ea0af3f7affa691b6d6cb31bb5a790"
-                     prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a69ea0af3f7affa691b6d6cb31bb5a790" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_newtonian_acc</definition>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_newtonian_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>add_newtonian_acc</name>
+        <name>add_newtonian_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -151,21 +129,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="48" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="48" bodyend="90"/>
+        <location file="interaction/post-newtonian.hpp" line="48" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="48" bodyend="90"/>
       </memberdef>
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1af87aca7f4b4c1577efe88e645d5e6abf"
-                     prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1af87aca7f4b4c1577efe88e645d5e6abf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_extra_vel_dep_acc</definition>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_extra_vel_dep_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>add_extra_vel_dep_acc</name>
+        <name>add_extra_vel_dep_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -180,32 +155,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="93" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="93" bodyend="174"/>
+        <location file="interaction/post-newtonian.hpp" line="93" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="93" bodyend="174"/>
       </memberdef>
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1a1a50a76b2ed50e98a6e8644349bf8d16"
-                     prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a1a50a76b2ed50e98a6e8644349bf8d16" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-              <type>typename Scalar</type>
+            <type>typename Scalar</type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_1st_order_acc</definition>
-              <argsstring>(Scalar dx, Scalar dy, Scalar dz)</argsstring>
-              <name>add_1st_order_acc</name>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_1st_order_acc</definition>
+        <argsstring>(Scalar dx, Scalar dy, Scalar dz)</argsstring>
+        <name>add_1st_order_acc</name>
         <param>
-            <type>Scalar</type>
-            <declname>dx</declname>
+          <type>Scalar</type>
+          <declname>dx</declname>
         </param>
         <param>
-            <type>Scalar</type>
-            <declname>dy</declname>
+          <type>Scalar</type>
+          <declname>dy</declname>
         </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>dz</declname>
+        <param>
+          <type>Scalar</type>
+          <declname>dz</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -213,21 +185,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="177" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="177" bodyend="179"/>
+        <location file="interaction/post-newtonian.hpp" line="177" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="177" bodyend="179"/>
       </memberdef>
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1a8b4e84695e14cb1128138b9490e76449"
-                     prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a8b4e84695e14cb1128138b9490e76449" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add__2nd_order_acc</definition>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add__2nd_order_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>add__2nd_order_acc</name>
+        <name>add__2nd_order_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -242,21 +211,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="182" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="182" bodyend="184"/>
+        <location file="interaction/post-newtonian.hpp" line="182" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="182" bodyend="184"/>
       </memberdef>
-          <memberdef kind="function"
-                     id="classspace_1_1interactions_1_1_post_newtonian_grav_1aa90b32264013aa2a7f74b12716dd974e"
-                     prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1aa90b32264013aa2a7f74b12716dd974e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
           </param>
         </templateparamlist>
         <type>void</type>
-              <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_2_5th_order_acc</definition>
+        <definition>void space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::add_2_5th_order_acc</definition>
         <argsstring>(Particles const &amp;particles, typename Particles::Coord &amp;acceleration)</argsstring>
-              <name>add_2_5th_order_acc</name>
+        <name>add_2_5th_order_acc</name>
         <param>
           <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> const &amp;</type>
           <declname>particles</declname>
@@ -271,8 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="interaction/post-newtonian.hpp" line="187" column="10"
-                        bodyfile="interaction/post-newtonian.hpp" bodystart="187" bodyend="189"/>
+        <location file="interaction/post-newtonian.hpp" line="187" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="187" bodyend="189"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

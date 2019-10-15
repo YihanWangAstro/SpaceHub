@@ -51,20 +51,18 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-          <memberdef kind="variable" id="classspace_1_1_r_m_s_1addeeb02e1502b505a2a290c0e61575f4" prot="public"
-                     static="no" mutable="no">
-              <type>friend</type>
-              <definition>friend space::RMS&lt; T &gt;::Base</definition>
+      <memberdef kind="variable" id="classspace_1_1_r_m_s_1addeeb02e1502b505a2a290c0e61575f4" prot="public" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::RMS&lt; T &gt;::Base</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="31" column="13" bodyfile="error-checker/RMS.hpp"
-                        bodystart="31" bodyend="-1"/>
+        <location file="error-checker/RMS.hpp" line="31" column="13" bodyfile="error-checker/RMS.hpp" bodystart="31" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -98,117 +96,93 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1aaea812b4ded21952fe777c107bdbd3ae" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::RMS&lt; T &gt;::RMS</definition>
-              <argsstring>()=default</argsstring>
-              <name>RMS</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="27" column="9"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1ad4f67f63189b91845241286cb2e999d9" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1aaea812b4ded21952fe777c107bdbd3ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::RMS&lt; T &gt;::RMS</definition>
-              <argsstring>(RMS const &amp;)=default</argsstring>
-              <name>RMS</name>
+        <definition>space::RMS&lt; T &gt;::RMS</definition>
+        <argsstring>()=default</argsstring>
+        <name>RMS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1ad4f67f63189b91845241286cb2e999d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::RMS&lt; T &gt;::RMS</definition>
+        <argsstring>(RMS const &amp;)=default</argsstring>
+        <name>RMS</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref>
-                const &amp;
-            </type>
+          <type><ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> const &amp;</type>
         </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="27" column="31"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1aa555257897ad63a34d0776e595c1fd49" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::RMS&lt; T &gt;::RMS</definition>
-              <argsstring>(RMS &amp;&amp;)=default</argsstring>
-              <name>RMS</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move constructor
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="27" column="56"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;
-              </type>
-              <definition>RMS&amp; space::RMS&lt; T &gt;::operator=</definition>
-              <argsstring>(RMS const &amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref>
-                      const &amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="27" column="86"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;
-              </type>
-              <definition>RMS&amp; space::RMS&lt; T &gt;::operator=</definition>
-              <argsstring>(RMS &amp;&amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="27" column="122"/>
-          </memberdef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="27" column="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1aa555257897ad63a34d0776e595c1fd49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::RMS&lt; T &gt;::RMS</definition>
+        <argsstring>(RMS &amp;&amp;)=default</argsstring>
+        <name>RMS</name>
+        <param>
+          <type><ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move constructor <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="27" column="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;</type>
+        <definition>RMS&amp; space::RMS&lt; T &gt;::operator=</definition>
+        <argsstring>(RMS const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="27" column="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;</type>
+        <definition>RMS&amp; space::RMS&lt; T &gt;::operator=</definition>
+        <argsstring>(RMS &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="27" column="122"/>
+      </memberdef>
       <memberdef kind="function" id="classspace_1_1_r_m_s_1a0a62e9ff014b2dd36c262b18ba26da74" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>space::RMS&lt; T &gt;::RMS</definition>
@@ -232,100 +206,75 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" prot="protected"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RMS&lt; T &gt;::impl_atol</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_atol</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>atol_</computeroutput> in name
-                      of <computeroutput>impl_atol</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="34" column="23" bodyfile="error-checker/RMS.hpp"
-                        bodystart="34" bodyend="34"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" prot="protected"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RMS&lt; T &gt;::impl_atol</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_atol</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>atol_</computeroutput> in name
-                      of <computeroutput>impl_atol</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="34" column="90" bodyfile="error-checker/RMS.hpp"
-                        bodystart="34" bodyend="34"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" prot="protected"
-                     static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RMS&lt; T &gt;::impl_rtol</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_rtol</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>rtol_</computeroutput> in name
-                      of <computeroutput>impl_rtol</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="36" column="23" bodyfile="error-checker/RMS.hpp"
-                        bodystart="36" bodyend="36"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" prot="protected"
-                     static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RMS&lt; T &gt;::impl_rtol</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_rtol</name>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RMS&lt; T &gt;::impl_atol</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_atol</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>
-                impl_rtol</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>atol_</computeroutput> in name of <computeroutput>impl_atol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="error-checker/RMS.hpp" line="36" column="90" bodyfile="error-checker/RMS.hpp"
-                        bodystart="36" bodyend="36"/>
+        <location file="error-checker/RMS.hpp" line="34" column="23" bodyfile="error-checker/RMS.hpp" bodystart="34" bodyend="34"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1a2cc67079020ff0fa1fbf8a85916684c5" prot="protected"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RMS&lt; T &gt;::impl_atol</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_atol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>atol_</computeroutput> in name of <computeroutput>impl_atol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="34" column="90" bodyfile="error-checker/RMS.hpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RMS&lt; T &gt;::impl_rtol</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_rtol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>impl_rtol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="36" column="23" bodyfile="error-checker/RMS.hpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RMS&lt; T &gt;::impl_rtol</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_rtol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>impl_rtol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/RMS.hpp" line="36" column="90" bodyfile="error-checker/RMS.hpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1a2cc67079020ff0fa1fbf8a85916684c5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RMS&lt; T &gt;::impl_set_atol</definition>
         <argsstring>(Scalar)</argsstring>
@@ -342,8 +291,7 @@
         </inbodydescription>
         <location file="error-checker/RMS.hpp" line="38" column="10" bodyfile="error-checker/RMS.hpp" bodystart="55" bodyend="57"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1adcf94c009434aab255c6a9bdd3c3de7f" prot="protected"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1adcf94c009434aab255c6a9bdd3c3de7f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RMS&lt; T &gt;::impl_set_rtol</definition>
         <argsstring>(Scalar)</argsstring>
@@ -360,8 +308,7 @@
         </inbodydescription>
         <location file="error-checker/RMS.hpp" line="40" column="10" bodyfile="error-checker/RMS.hpp" bodystart="60" bodyend="62"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1ad28ed800a8d59f97dadfe1e6f36b058a" prot="protected"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1ad28ed800a8d59f97dadfe1e6f36b058a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename Array</type>
@@ -387,8 +334,7 @@
         </inbodydescription>
         <location file="error-checker/RMS.hpp" line="43" column="10" bodyfile="error-checker/RMS.hpp" bodystart="66" bodyend="74"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_r_m_s_1abdaa79657fa6eadfbaccaa5d2340f91d" prot="protected"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_r_m_s_1abdaa79657fa6eadfbaccaa5d2340f91d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename Array</type>
@@ -459,88 +405,30 @@
     </collaborationgraph>
     <location file="error-checker/RMS.hpp" line="17" column="34" bodyfile="error-checker/RMS.hpp" bodystart="17" bodyend="52"/>
     <listofallmembers>
-        <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public"
-                virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>atol</name>
-        </member>
-        <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public"
-                virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>atol</name>
-        </member>
+      <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>atol</name></member>
+      <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>atol</name></member>
       <member refid="classspace_1_1_r_m_s_1a07249c6db7853b97c21e838e61c15a6f" prot="private" virt="non-virtual"><scope>space::RMS</scope><name>atol_</name></member>
       <member refid="classspace_1_1_r_m_s_1a636f7d42e98426b7e3648fceb573d937" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>Base</name></member>
-        <member refid="classspace_1_1_r_m_s_1addeeb02e1502b505a2a290c0e61575f4" prot="public" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>Base</name>
-        </member>
+      <member refid="classspace_1_1_r_m_s_1addeeb02e1502b505a2a290c0e61575f4" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>Base</name></member>
       <member refid="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>derived</name></member>
       <member refid="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>error</name></member>
       <member refid="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>error</name></member>
-        <member refid="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_atol</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_atol</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1ad28ed800a8d59f97dadfe1e6f36b058a" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_error</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1abdaa79657fa6eadfbaccaa5d2340f91d" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_error</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_rtol</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_rtol</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1a2cc67079020ff0fa1fbf8a85916684c5" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_set_atol</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1adcf94c009434aab255c6a9bdd3c3de7f" prot="protected" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>impl_set_rtol</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" prot="public" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" prot="public" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1aaea812b4ded21952fe777c107bdbd3ae" prot="public" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>RMS</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1ad4f67f63189b91845241286cb2e999d9" prot="public" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>RMS</name>
-        </member>
-        <member refid="classspace_1_1_r_m_s_1aa555257897ad63a34d0776e595c1fd49" prot="public" virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>RMS</name>
-        </member>
+      <member refid="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_atol</name></member>
+      <member refid="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_atol</name></member>
+      <member refid="classspace_1_1_r_m_s_1ad28ed800a8d59f97dadfe1e6f36b058a" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_error</name></member>
+      <member refid="classspace_1_1_r_m_s_1abdaa79657fa6eadfbaccaa5d2340f91d" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_error</name></member>
+      <member refid="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_rtol</name></member>
+      <member refid="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_rtol</name></member>
+      <member refid="classspace_1_1_r_m_s_1a2cc67079020ff0fa1fbf8a85916684c5" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_set_atol</name></member>
+      <member refid="classspace_1_1_r_m_s_1adcf94c009434aab255c6a9bdd3c3de7f" prot="protected" virt="non-virtual"><scope>space::RMS</scope><name>impl_set_rtol</name></member>
+      <member refid="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_r_m_s_1aaea812b4ded21952fe777c107bdbd3ae" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>RMS</name></member>
+      <member refid="classspace_1_1_r_m_s_1ad4f67f63189b91845241286cb2e999d9" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>RMS</name></member>
+      <member refid="classspace_1_1_r_m_s_1aa555257897ad63a34d0776e595c1fd49" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>RMS</name></member>
       <member refid="classspace_1_1_r_m_s_1a0a62e9ff014b2dd36c262b18ba26da74" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>RMS</name></member>
-        <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public"
-                virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>rtol</name>
-        </member>
-        <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public"
-                virt="non-virtual">
-            <scope>space::RMS</scope>
-            <name>rtol</name>
-        </member>
+      <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>rtol</name></member>
+      <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>rtol</name></member>
       <member refid="classspace_1_1_r_m_s_1a4d59853d94ffd62dc177ff0173eff92f" prot="private" virt="non-virtual"><scope>space::RMS</scope><name>rtol_</name></member>
       <member refid="classspace_1_1_r_m_s_1af64b033bf094a07eca8bec50621872fb" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>Scalar</name></member>
       <member refid="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" prot="public" virt="non-virtual"><scope>space::RMS</scope><name>set_atol</name></member>

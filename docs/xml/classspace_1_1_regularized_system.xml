@@ -22,158 +22,117 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a1c5f8e7d63fec3abe61166be56a4bdd3"
-                     prot="public" static="no">
-              <templateparamlist>
-                  <param>
-                      <type>typename ...</type>
-                      <declname>_T_</declname>
-                      <defname>_T_</defname>
-                  </param>
-              </templateparamlist>
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::template
-                  Container&lt; _T_... &gt;
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Container = typename
-                  Particles ::template Container&lt;_T_...&gt;
-              </definition>
-              <argsstring></argsstring>
-              <name>Container</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="18"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Scalar
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Scalar = typename
-                  Particles ::Scalar
-              </definition>
-              <argsstring></argsstring>
-              <name>Scalar</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="38"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::ScalarArray
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::ScalarArray =
-                  typename Particles ::ScalarArray
-              </definition>
-              <argsstring></argsstring>
-              <name>ScalarArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="53"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IdxArray
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::IdxArray = typename
-                  Particles ::IdxArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IdxArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="73"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IntArray
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::IntArray = typename
-                  Particles ::IntArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IntArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="90"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Vector
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Vector = typename
-                  Particles ::Vector
-              </definition>
-              <argsstring></argsstring>
-              <name>Vector</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="107"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::VectorArray
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::VectorArray =
-                  typename Particles ::VectorArray
-              </definition>
-              <argsstring></argsstring>
-              <name>VectorArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="122"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213"
-                     prot="public" static="no">
-              <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Coord
-              </type>
-              <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Coord = typename
-                  Particles ::Coord
-              </definition>
-              <argsstring></argsstring>
-              <name>Coord</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="72" column="142"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a1c5f8e7d63fec3abe61166be56a4bdd3" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>_T_</declname>
+            <defname>_T_</defname>
+          </param>
+        </templateparamlist>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::template Container&lt; _T_... &gt;</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Container =  typename Particles ::template Container&lt;_T_...&gt;</definition>
+        <argsstring></argsstring>
+        <name>Container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="18" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Scalar</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Scalar =  typename Particles ::Scalar</definition>
+        <argsstring></argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="38" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::ScalarArray</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::ScalarArray =  typename Particles ::ScalarArray</definition>
+        <argsstring></argsstring>
+        <name>ScalarArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="53" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IdxArray</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::IdxArray =  typename Particles ::IdxArray</definition>
+        <argsstring></argsstring>
+        <name>IdxArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="73" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IntArray</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::IntArray =  typename Particles ::IntArray</definition>
+        <argsstring></argsstring>
+        <name>IntArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="90" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Vector</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Vector =  typename Particles ::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="107" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::VectorArray</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::VectorArray =  typename Particles ::VectorArray</definition>
+        <argsstring></argsstring>
+        <name>VectorArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="122" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213" prot="public" static="no">
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Coord</type>
+        <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Coord =  typename Particles ::Coord</definition>
+        <argsstring></argsstring>
+        <name>Coord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="72" column="142" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a9e662c5eeece87a9b78ad762969e8ef5" prot="public" static="no">
         <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; &gt;</type>
         <definition>using space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Base =  ParticleSystem&lt;RegularizedSystem&lt;Particles, Interactions, RegType&gt; &gt;</definition>
@@ -218,20 +177,18 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-          <memberdef kind="variable" id="classspace_1_1_regularized_system_1ada324a04573b6f57318a8debf2f46237"
-                     prot="public" static="no" mutable="no">
-              <type>friend</type>
-              <definition>friend space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Base</definition>
+      <memberdef kind="variable" id="classspace_1_1_regularized_system_1ada324a04573b6f57318a8debf2f46237" prot="public" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::Base</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="99" column="13"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="99" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="99" column="13" bodyfile="particle-system/regu-system.hpp" bodystart="99" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -302,120 +259,93 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ac46577f637b3b6434527246e8532f934"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::RegularizedSystem
-              </definition>
-              <argsstring>()=delete</argsstring>
-              <name>RegularizedSystem</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="79" column="9"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ac46577f637b3b6434527246e8532f934" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::RegularizedSystem
-              </definition>
-              <argsstring>(RegularizedSystem const &amp;)=default</argsstring>
-              <name>RegularizedSystem</name>
+        <definition>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::RegularizedSystem</definition>
+        <argsstring>()=delete</argsstring>
+        <name>RegularizedSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="79" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::RegularizedSystem</definition>
+        <argsstring>(RegularizedSystem const &amp;)=default</argsstring>
+        <name>RegularizedSystem</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>
-                const &amp;
-            </type>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> const &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>Default copy constructor.
-                <linebreak/>
-            </para>
+<para>Default copy constructor. <linebreak/>
+ </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="79" column="44"/>
+        <location file="particle-system/regu-system.hpp" line="79" column="44"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::RegularizedSystem
-              </definition>
-              <argsstring>(RegularizedSystem &amp;&amp;)=default</argsstring>
-              <name>RegularizedSystem</name>
+        <definition>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::RegularizedSystem</definition>
+        <argsstring>(RegularizedSystem &amp;&amp;)=default</argsstring>
+        <name>RegularizedSystem</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;&amp;
-            </type>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;&amp;</type>
         </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move constructor
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="79" column="83"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;
-              </type>
-              <definition>RegularizedSystem&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::operator=</definition>
-              <argsstring>(RegularizedSystem const &amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>
-                      const &amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="79" column="141"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;
-              </type>
-              <definition>RegularizedSystem&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::operator=</definition>
-              <argsstring>(RegularizedSystem &amp;&amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="79" column="191"/>
-          </memberdef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move constructor <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="79" column="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;</type>
+        <definition>RegularizedSystem&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::operator=</definition>
+        <argsstring>(RegularizedSystem const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="79" column="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;</type>
+        <definition>RegularizedSystem&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::operator=</definition>
+        <argsstring>(RegularizedSystem &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="79" column="191"/>
+      </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a5461fd02126cffd25534b3b92a401d3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -442,132 +372,101 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="82" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="158" bodyend="164"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::omega
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>omega</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>regu_.omega()</computeroutput> in name
-                      of <computeroutput>omega</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="88" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="88" bodyend="88"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::omega
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>omega</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>regu_.omega()</computeroutput> in name
-                      of <computeroutput>omega</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="88" column="94"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="88" bodyend="88"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::bindE
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>bindE</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>regu_.bindE()</computeroutput> in name
-                      of <computeroutput>bindE</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="90" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="90" bodyend="90"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::bindE
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>bindE</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>regu_.bindE()</computeroutput> in name
-                      of <computeroutput>bindE</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="90" column="94"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="90" bodyend="90"/>
-          </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::omega</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>regu_.omega()</computeroutput> in name of <computeroutput>omega</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="88" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::omega</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>omega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>regu_.omega()</computeroutput> in name of <computeroutput>omega</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="88" column="94" bodyfile="particle-system/regu-system.hpp" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::bindE</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>bindE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>regu_.bindE()</computeroutput> in name of <computeroutput>bindE</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="90" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::bindE</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>bindE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>regu_.bindE()</computeroutput> in name of <computeroutput>bindE</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="90" column="94" bodyfile="particle-system/regu-system.hpp" bodystart="90" bodyend="90"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
-          <memberdef kind="friend" id="classspace_1_1_regularized_system_1af2a766e888f178d151d31aee767d69a6"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename P</type>
-                  </param>
-                  <param>
-                      <type>typename F</type>
-                  </param>
-                  <param>
-                      <type>ReguType</type>
-                      <declname>R</declname>
-                      <defname>R</defname>
-                  </param>
-              </templateparamlist>
-              <type>friend std::ostream &amp;</type>
-              <definition>std::ostream&amp; operator&lt;&lt;</definition>
-              <argsstring>(std::ostream &amp;os, RegularizedSystem&lt; P, F, R &gt; const &amp;ps)</argsstring>
-              <name>operator&lt;&lt;</name>
+      <memberdef kind="friend" id="classspace_1_1_regularized_system_1af2a766e888f178d151d31aee767d69a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>ReguType</type>
+            <declname>R</declname>
+            <defname>R</defname>
+          </param>
+        </templateparamlist>
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, RegularizedSystem&lt; P, F, R &gt; const &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
         <param>
-            <type>std::ostream &amp;</type>
-            <declname>os</declname>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
         </param>
         <param>
-            <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; P, F, R
-                &gt; const &amp;
-            </type>
-            <declname>ps</declname>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; P, F, R &gt; const &amp;</type>
+          <declname>ps</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -575,36 +474,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="94" column="12"/>
+        <location file="particle-system/regu-system.hpp" line="94" column="12"/>
       </memberdef>
-          <memberdef kind="friend" id="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename P</type>
-                  </param>
-                  <param>
-                      <type>typename F</type>
-                  </param>
-                  <param>
-                      <type>ReguType</type>
-                      <declname>R</declname>
-                      <defname>R</defname>
-                  </param>
-              </templateparamlist>
-              <type>friend std::istream &amp;</type>
-              <definition>std::istream&amp; operator&gt;&gt;</definition>
-              <argsstring>(std::istream &amp;is, RegularizedSystem&lt; P, F, R &gt; &amp;ps)</argsstring>
-              <name>operator&gt;&gt;</name>
-              <param>
-                  <type>std::istream &amp;</type>
-                  <declname>is</declname>
-              </param>
-              <param>
-                  <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; P,
-                      F, R &gt; &amp;
-                  </type>
-                  <declname>ps</declname>
+      <memberdef kind="friend" id="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename P</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>ReguType</type>
+            <declname>R</declname>
+            <defname>R</defname>
+          </param>
+        </templateparamlist>
+        <type>friend std::istream &amp;</type>
+        <definition>std::istream&amp; operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, RegularizedSystem&lt; P, F, R &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; P, F, R &gt; &amp;</type>
+          <declname>ps</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -612,264 +508,181 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="97" column="25"/>
+        <location file="particle-system/regu-system.hpp" line="97" column="25"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_mass
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_mass</name>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_mass</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name
-                of <computeroutput>impl_mass</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
-        </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="101" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="101" bodyend="101"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType
-                  &gt;::impl_mass
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_mass</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name
-                      of <computeroutput>impl_mass</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="101" column="97"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="101" bodyend="101"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_idn
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_idn</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name
-                      of <computeroutput>impl_idn</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="103" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="103" bodyend="103"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_idn
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_idn</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name
-                      of <computeroutput>impl_idn</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="103" column="95"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="103" bodyend="103"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_pos
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_pos</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-            <para>The setter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name
-                of <computeroutput>impl_pos</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="105" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="105" bodyend="105"/>
+        <location file="particle-system/regu-system.hpp" line="101" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="101" bodyend="101"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_pos
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_pos</name>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_mass</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name
-                of <computeroutput>impl_pos</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The getter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="105" column="95"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="105" bodyend="105"/>
+        <location file="particle-system/regu-system.hpp" line="101" column="97" bodyfile="particle-system/regu-system.hpp" bodystart="101" bodyend="101"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_vel
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_vel</name>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_idn</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name
-                of <computeroutput>impl_vel</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="107" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="107" bodyend="107"/>
+        <location file="particle-system/regu-system.hpp" line="103" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="103" bodyend="103"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_vel
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_vel</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name
-                      of <computeroutput>impl_vel</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="107" column="95"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="107" bodyend="107"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_time
-              </definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_time</name>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_idn</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>ptcl_.time()</computeroutput> in name
-                of <computeroutput>impl_time</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The getter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="109" column="23"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="109" bodyend="109"/>
+        <location file="particle-system/regu-system.hpp" line="103" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="103" bodyend="103"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType
-                  &gt;::impl_time
-              </definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_time</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>ptcl_.time()</computeroutput> in name
-                      of <computeroutput>impl_time</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system/regu-system.hpp" line="109" column="97"
-                        bodyfile="particle-system/regu-system.hpp" bodystart="109" bodyend="109"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3"
-                     prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_pos</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="105" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_pos</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="105" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_vel</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="107" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_vel</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="107" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_time</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.time()</computeroutput> in name of <computeroutput>impl_time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="109" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_time</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.time()</computeroutput> in name of <computeroutput>impl_time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/regu-system.hpp" line="109" column="97" bodyfile="particle-system/regu-system.hpp" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
         <definition>size_t space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_number</definition>
         <argsstring>() const</argsstring>
@@ -882,8 +695,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="111" column="13" bodyfile="particle-system/regu-system.hpp" bodystart="179" bodyend="181"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_advance_time</definition>
         <argsstring>(Scalar step_size)</argsstring>
@@ -900,8 +712,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="113" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="184" bodyend="187"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_advance_pos</definition>
         <argsstring>(Coord const &amp;velocity, Scalar step_size)</argsstring>
@@ -922,8 +733,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="115" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="190" bodyend="193"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a7c227c41617a5dce7c35affce4130f19"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a7c227c41617a5dce7c35affce4130f19" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_advance_vel</definition>
         <argsstring>(Coord const &amp;acceleration, Scalar step_size)</argsstring>
@@ -944,8 +754,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="117" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="197" bodyend="200"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1aa2676f5ff801e12be2a86679c7347c16"
-                     prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1aa2676f5ff801e12be2a86679c7347c16" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_evaluate_acc</definition>
         <argsstring>(Coord &amp;acceleration) const</argsstring>
@@ -962,8 +771,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="119" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="203" bodyend="205"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a2873f64a12f14051fc634c6c8d379d78"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a2873f64a12f14051fc634c6c8d379d78" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_drift</definition>
         <argsstring>(Scalar step_size)</argsstring>
@@ -980,8 +788,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="121" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="208" bodyend="212"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a3c8a37943e26c25c0d5e050baafd03de"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a3c8a37943e26c25c0d5e050baafd03de" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_kick</definition>
         <argsstring>(Scalar step_size)</argsstring>
@@ -998,8 +805,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="123" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="215" bodyend="242"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a700159d161c55d26e141e995e0230411"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a700159d161c55d26e141e995e0230411" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::impl_pre_iter_process</definition>
         <argsstring>()</argsstring>
@@ -1012,8 +818,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="125" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="245" bodyend="249"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1a0af4bcb966b78052933f1b62159cdf8f"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1a0af4bcb966b78052933f1b62159cdf8f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename STL</type>
@@ -1035,8 +840,7 @@
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="128" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="253" bodyend="261"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_regularized_system_1ada56faa365fc45f8adc5ada04ed1bfbd"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_regularized_system_1ada56faa365fc45f8adc5ada04ed1bfbd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename STL</type>
@@ -1215,265 +1019,73 @@
       <member refid="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>advance_vel</name></member>
       <member refid="classspace_1_1_regularized_system_1a40be29dfb283477a61efbd36faf8ee2e" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>aux_vel_</name></member>
       <member refid="classspace_1_1_regularized_system_1a9e662c5eeece87a9b78ad762969e8ef5" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Base</name></member>
-        <member refid="classspace_1_1_regularized_system_1ada324a04573b6f57318a8debf2f46237" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>Base</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>bindE</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>bindE</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a1c5f8e7d63fec3abe61166be56a4bdd3" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>Container</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>Coord</name>
-        </member>
+      <member refid="classspace_1_1_regularized_system_1ada324a04573b6f57318a8debf2f46237" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Base</name></member>
+      <member refid="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>bindE</name></member>
+      <member refid="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>bindE</name></member>
+      <member refid="classspace_1_1_regularized_system_1a1c5f8e7d63fec3abe61166be56a4bdd3" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Container</name></member>
+      <member refid="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Coord</name></member>
       <member refid="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>drift</name></member>
       <member refid="classspace_1_1_regularized_system_1a0afe89ce40cfa3c9afa4a8eb3c558107" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>eval_vel_indep_acc</name></member>
       <member refid="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>evaluate_acc</name></member>
-        <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>idn</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>idn</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>IdxArray</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_advance_pos</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_advance_time</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a7c227c41617a5dce7c35affce4130f19" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_advance_vel</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a2873f64a12f14051fc634c6c8d379d78" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_drift</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1aa2676f5ff801e12be2a86679c7347c16" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_evaluate_acc</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_idn</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_idn</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a3c8a37943e26c25c0d5e050baafd03de" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_kick</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ada56faa365fc45f8adc5ada04ed1bfbd" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_load_from_linear_container</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_mass</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_mass</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_number</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_pos</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_pos</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a700159d161c55d26e141e995e0230411" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_pre_iter_process</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_time</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_time</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a0af4bcb966b78052933f1b62159cdf8f" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_to_linear_container</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_vel</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" prot="protected"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>impl_vel</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>IntArray</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>idn</name></member>
+      <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>idn</name></member>
+      <member refid="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>IdxArray</name></member>
+      <member refid="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_advance_pos</name></member>
+      <member refid="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_advance_time</name></member>
+      <member refid="classspace_1_1_regularized_system_1a7c227c41617a5dce7c35affce4130f19" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_advance_vel</name></member>
+      <member refid="classspace_1_1_regularized_system_1a2873f64a12f14051fc634c6c8d379d78" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_drift</name></member>
+      <member refid="classspace_1_1_regularized_system_1aa2676f5ff801e12be2a86679c7347c16" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_evaluate_acc</name></member>
+      <member refid="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_idn</name></member>
+      <member refid="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_idn</name></member>
+      <member refid="classspace_1_1_regularized_system_1a3c8a37943e26c25c0d5e050baafd03de" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_kick</name></member>
+      <member refid="classspace_1_1_regularized_system_1ada56faa365fc45f8adc5ada04ed1bfbd" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_load_from_linear_container</name></member>
+      <member refid="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_mass</name></member>
+      <member refid="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_mass</name></member>
+      <member refid="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_number</name></member>
+      <member refid="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_pos</name></member>
+      <member refid="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_pos</name></member>
+      <member refid="classspace_1_1_regularized_system_1a700159d161c55d26e141e995e0230411" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_pre_iter_process</name></member>
+      <member refid="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_time</name></member>
+      <member refid="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_time</name></member>
+      <member refid="classspace_1_1_regularized_system_1a0af4bcb966b78052933f1b62159cdf8f" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_to_linear_container</name></member>
+      <member refid="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_vel</name></member>
+      <member refid="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" prot="protected" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>impl_vel</name></member>
+      <member refid="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>IntArray</name></member>
       <member refid="classspace_1_1_regularized_system_1a4faace636abae81700f5dd6cb2d06028" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>interactions_</name></member>
       <member refid="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>kick</name></member>
       <member refid="classspace_1_1_regularized_system_1ae0d1a3dbfd8e5086424306b3a8d8c5bf" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>kick_pseu_vel</name></member>
       <member refid="classspace_1_1_regularized_system_1a100fc03950c4ba8e99a23c5675c885c2" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>kick_real_vel</name></member>
       <member refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>load_from_linear_container</name></member>
-        <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>mass</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>mass</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>mass</name></member>
+      <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>mass</name></member>
       <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>number</name></member>
-        <member refid="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>omega</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>omega</name>
-        </member>
+      <member refid="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>omega</name></member>
+      <member refid="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>omega</name></member>
       <member refid="classspace_1_1_regularized_system_1af2a766e888f178d151d31aee767d69a6" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>operator&lt;&lt;</name></member>
-        <member refid="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>operator=</name>
-        </member>
+      <member refid="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>operator=</name></member>
       <member refid="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>operator&gt;&gt;</name></member>
       <member refid="classspace_1_1_regularized_system_1a92a08d143c071573ae12242faaadd377" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Particle</name></member>
-        <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>pos</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>pos</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>pos</name></member>
+      <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>pos</name></member>
       <member refid="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>pre_iter_process</name></member>
       <member refid="classspace_1_1_regularized_system_1ae4897c80f8a068a27099a714ae4e0430" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>ptcl_</name></member>
       <member refid="classspace_1_1_regularized_system_1ad241a7b7964f09a7ad4a8f2f0c164210" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>regu_</name></member>
       <member refid="classspace_1_1_regularized_system_1af5c95e0810d7f571e2059035cb53f54e" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>regu_type</name></member>
-        <member refid="classspace_1_1_regularized_system_1ac46577f637b3b6434527246e8532f934" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>RegularizedSystem</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>RegularizedSystem</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>RegularizedSystem</name>
-        </member>
+      <member refid="classspace_1_1_regularized_system_1ac46577f637b3b6434527246e8532f934" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>RegularizedSystem</name></member>
+      <member refid="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>RegularizedSystem</name></member>
+      <member refid="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>RegularizedSystem</name></member>
       <member refid="classspace_1_1_regularized_system_1a5461fd02126cffd25534b3b92a401d3e" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>RegularizedSystem</name></member>
-        <member refid="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>Scalar</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>ScalarArray</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>time</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>time</name>
-        </member>
+      <member refid="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Scalar</name></member>
+      <member refid="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>ScalarArray</name></member>
+      <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>time</name></member>
+      <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>time</name></member>
       <member refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>to_linear_container</name></member>
-        <member refid="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>Vector</name>
-        </member>
-        <member refid="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>VectorArray</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>vel</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public"
-                virt="non-virtual">
-            <scope>space::RegularizedSystem</scope>
-            <name>vel</name>
-        </member>
+      <member refid="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>Vector</name></member>
+      <member refid="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>VectorArray</name></member>
+      <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>vel</name></member>
+      <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>vel</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

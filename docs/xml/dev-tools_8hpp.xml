@@ -486,25 +486,25 @@
         <param><defname>ATTR3</defname></param>
         <param><defname>ATTR4</defname></param>
         <param><defname>ATTR5</defname></param>
-          <initializer>/** \
-              Default constructor. \
-              */ \
-              CLASS() = ATTR1; \
-              /** \
-              Default copy constructor. \
-              */ \
+        <initializer>/**                                                                                                                    \
+   Default constructor.                                                                                               \
+ */                                                                                                                    \
+    CLASS() = ATTR1;                                                                                                   \
+/**                                                                                                                    \
+   Default copy constructor.                                                                                          \
+ */                                                                                                                    \
     CLASS(CLASS const&amp;) = ATTR2;                                                                                       \
-              /** \
-              Default move constructor \
-              */ \
+/**                                                                                                                    \
+   Default move constructor                                                                                           \
+ */                                                                                                                    \
     CLASS(CLASS &amp;&amp;) = ATTR3;                                                                                           \
-              /** \
-              Default copy assignment operator \
-              */ \
+/**                                                                                                                    \
+   Default copy assignment operator                                                                                   \
+ */                                                                                                                    \
     CLASS &amp;operator=(CLASS const &amp;) = ATTR4;                                                                           \
-              /** \
-              Default move assignment operator \
-              */ \
+/**                                                                                                                    \
+   Default move assignment operator                                                                                   \
+ */                                                                                                                    \
     CLASS &amp;operator=(CLASS &amp;&amp;) = ATTR5;                                                                                \</initializer>
         <briefdescription>
         </briefdescription>
@@ -533,28 +533,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="175" column="9" bodyfile="dev-tools.hpp" bodystart="175" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="175" column="9" bodyfile="dev-tools.hpp" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ae057e45edf56a31a4859f89e6bba2100" prot="public" static="no">
         <name>DECLARE_CRTP_ACCESSOR</name>
         <param><defname>DERIVED</defname></param>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
-          <initializer>/** \
-              @must_impl \
-              \
-              The setter interface of member `NAME`. \
-              @return TYPE Depend on implementation. \
-              */ \
-              inline TYPE &amp; NAME () noexcept { \
+        <initializer>/**                                                                                                                    \
+  @must_impl                                                                                                          \
+                                                                                                                      \
+  The setter interface of member `NAME`.                                                                              \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
+inline TYPE &amp; NAME () noexcept {                                                                                       \
     return static_cast&lt;Derived*&gt;(this)-&gt;impl_##NAME();                                                                 \
 };                                                                                                                     \
-              /** \
-              @must_impl \
-              \
-              The getter interface of member `NAME`. \
-              @return TYPE Depend on implementation. \
-              */ \
+/**                                                                                                                    \
+  @must_impl                                                                                                          \
+                                                                                                                       \
+  The getter interface of member `NAME`.                                                                              \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return static_cast&lt;Derived const*&gt;(this)-&gt;impl_##NAME();                                                           \
 };</initializer>
@@ -564,23 +564,19 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="187" column="9" bodyfile="dev-tools.hpp" bodystart="187" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="187" column="9" bodyfile="dev-tools.hpp" bodystart="187" bodyend="-1"/>
       </memberdef>
-          <memberdef kind="define" id="dev-tools_8hpp_1a681c127002bf82b9b09dbd0545db1646" prot="public" static="no">
-              <name>DECLARE_CRTP_READ_ACCESSOR</name>
-              <param>
-                  <defname>DERIVED</defname>
-              </param>
-              <param>
-                  <defname>TYPE</defname>
-              </param>
+      <memberdef kind="define" id="dev-tools_8hpp_1a681c127002bf82b9b09dbd0545db1646" prot="public" static="no">
+        <name>DECLARE_CRTP_READ_ACCESSOR</name>
+        <param><defname>DERIVED</defname></param>
+        <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
-              <initializer>/** \
-                  @must_impl \
-                  \
-                  The getter interface of member `NAME`. \
-                  @return TYPE Depend on implementation. \
-                  */ \
+        <initializer>/**                                                                                                                    \
+  @must_impl                                                                                                          \
+                                                                                                                       \
+  The getter interface of member `NAME`.                                                                              \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return static_cast&lt;Derived*&gt;(this)-&gt;impl_##NAME();                                                                 \
 };</initializer>
@@ -590,25 +586,24 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="dev-tools.hpp" line="207" column="9" bodyfile="dev-tools.hpp" bodystart="207"
-                        bodyend="-1"/>
+        <location file="dev-tools.hpp" line="207" column="9" bodyfile="dev-tools.hpp" bodystart="207" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a7048ff21fd022abe7a131342f2fed10d" prot="public" static="no">
         <name>SPACEHUB_STD_ACCESSOR</name>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>MEMBER</defname></param>
-          <initializer>/** \
-              The setter interface of member `MEMBER` in name of `NAME`. \
-              @return TYPE Depend on implementation. \
-              */ \
-              inline TYPE &amp; NAME () noexcept { \
+        <initializer>/**                                                                                                                    \
+  The setter interface of member `MEMBER` in name of `NAME`.                                                          \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
+inline TYPE &amp; NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-              /** \
-              The getter interface of member `MEMBER` in name of `NAME`. \
-              @return TYPE Depend on implementation. \
-              */ \
+/**                                                                                                                    \
+  The getter interface of member `MEMBER` in name of `NAME`.                                                          \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };</initializer>
@@ -618,18 +613,18 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="218" column="9" bodyfile="dev-tools.hpp" bodystart="218" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="218" column="9" bodyfile="dev-tools.hpp" bodystart="218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a6e8dcb3772ed46afbe5b83c269336181" prot="public" static="no">
         <name>SPACEHUB_READ_ACCESSOR</name>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>MEMBER</defname></param>
-          <initializer>/** \
-              The getter interface of member NAME. \
-              @return TYPE Depend on implementation. \
-              */ \
-              inline TYPE const &amp; NAME () const noexcept { \
+        <initializer>/**                                                                                                                    \
+  The getter interface of member NAME.                                                                                \
+  @return TYPE Depend on implementation.                                                                              \
+ */                                                                                                                    \
+inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };</initializer>
         <briefdescription>
@@ -638,7 +633,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="234" column="9" bodyfile="dev-tools.hpp" bodystart="234" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="234" column="9" bodyfile="dev-tools.hpp" bodystart="234" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a043ac749777107d34e02197c9942ac3d" prot="public" static="no">
         <name>CREATE_METHOD_CHECK</name>
@@ -661,7 +656,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="243" column="9" bodyfile="dev-tools.hpp" bodystart="243" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="243" column="9" bodyfile="dev-tools.hpp" bodystart="243" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a01123b58bcb865a870641e5f30ce8ed2" prot="public" static="no">
         <name>HAS_METHOD</name>
@@ -675,7 +670,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="257" column="9" bodyfile="dev-tools.hpp" bodystart="257" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="257" column="9" bodyfile="dev-tools.hpp" bodystart="257" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a002df30e7890bdb68e3693ca94c9e684" prot="public" static="no">
         <name>CREATE_PROTECTED_METHOD_CHECK</name>
@@ -698,7 +693,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="260" column="9" bodyfile="dev-tools.hpp" bodystart="260" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="260" column="9" bodyfile="dev-tools.hpp" bodystart="260" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a1c72db210bcf48a1b855a5e83e78e840" prot="public" static="no">
         <name>HAS_PROTECTED_METHOD</name>
@@ -712,7 +707,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="274" column="9" bodyfile="dev-tools.hpp" bodystart="274" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="274" column="9" bodyfile="dev-tools.hpp" bodystart="274" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a4250abbdfc25337cd0dca29f9b55ff47" prot="public" static="no">
         <name>CREATE_CRTP_IMPLEMENTATION_CHECK</name>
@@ -724,7 +719,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="276" column="9" bodyfile="dev-tools.hpp" bodystart="276" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="276" column="9" bodyfile="dev-tools.hpp" bodystart="276" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a71c2a282f291770b45b3f1cef8c19f75" prot="public" static="no">
         <name>HAS_CRTP_IMPLEMENTATION</name>
@@ -738,7 +733,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="278" column="9" bodyfile="dev-tools.hpp" bodystart="278" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="278" column="9" bodyfile="dev-tools.hpp" bodystart="278" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a86408b2e79be508b3c8b8c90f66e89a7" prot="public" static="no">
         <name>CREATE_MEMBER_CHECK</name>
@@ -762,7 +757,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="281" column="9" bodyfile="dev-tools.hpp" bodystart="281" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="281" column="9" bodyfile="dev-tools.hpp" bodystart="281" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a4e050f8974fcc0ca3e7ecfee0558f4f2" prot="public" static="no">
         <name>HAS_MEMBER</name>
@@ -775,7 +770,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="295" column="9" bodyfile="dev-tools.hpp" bodystart="295" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="295" column="9" bodyfile="dev-tools.hpp" bodystart="295" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1acd50abf2f60a8ebc7dcc2a94bda2d7ca" prot="public" static="no">
         <name>CREATE_STATIC_MEMBER_CHECK</name>
@@ -801,7 +796,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="298" column="9" bodyfile="dev-tools.hpp" bodystart="298" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="298" column="9" bodyfile="dev-tools.hpp" bodystart="298" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a53374bd759b4f29eaec7c33870b03da5" prot="public" static="no">
         <name>HAS_STATIC_MEMBER</name>
@@ -814,7 +809,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="313" column="9" bodyfile="dev-tools.hpp" bodystart="313" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="313" column="9" bodyfile="dev-tools.hpp" bodystart="313" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac2fd4f3ea0b555c107cad2c9430717f8" prot="public" static="no">
         <name>CHECK_METHOD</name>
@@ -831,7 +826,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="316" column="9" bodyfile="dev-tools.hpp" bodystart="316" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="316" column="9" bodyfile="dev-tools.hpp" bodystart="316" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a3004813da8a05abadaad077b5cacbc6f" prot="public" static="no">
         <name>CHECK_MEMBER</name>
@@ -846,7 +841,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="322" column="9" bodyfile="dev-tools.hpp" bodystart="322" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="322" column="9" bodyfile="dev-tools.hpp" bodystart="322" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac10c0f62e719b8f64c36b62dfacfbd82" prot="public" static="no">
         <name>CHECK_STATIC_MEMBER</name>
@@ -862,7 +857,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="327" column="9" bodyfile="dev-tools.hpp" bodystart="327" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="327" column="9" bodyfile="dev-tools.hpp" bodystart="327" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a9165bf60ffe95b57b3a1deb24f92b7f7" prot="public" static="no">
         <name>CHECK_TYPE</name>
@@ -877,7 +872,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="333" column="9" bodyfile="dev-tools.hpp" bodystart="333" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="333" column="9" bodyfile="dev-tools.hpp" bodystart="333" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ad76c4399904c876b0fde01a7edbaf093" prot="public" static="no">
         <name>CHECK_POD</name>
@@ -889,7 +884,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="338" column="9" bodyfile="dev-tools.hpp" bodystart="338" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="338" column="9" bodyfile="dev-tools.hpp" bodystart="338" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a8a3f3c65b4167fb7188576cfa5e2ca44" prot="public" static="no">
         <name>IS_BASE_OF</name>
@@ -902,7 +897,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="422" column="9" bodyfile="dev-tools.hpp" bodystart="422" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="422" column="9" bodyfile="dev-tools.hpp" bodystart="422" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a16d2c5a0818a4356eb912b06c8b0a0e3" prot="public" static="no">
         <name>TYPE_OF_SELF</name>
@@ -913,7 +908,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="424" column="9" bodyfile="dev-tools.hpp" bodystart="424" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="424" column="9" bodyfile="dev-tools.hpp" bodystart="424" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

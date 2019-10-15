@@ -25,7 +25,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="350" column="27" bodyfile="dev-tools.hpp" bodystart="350" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="350" column="27" bodyfile="dev-tools.hpp" bodystart="350" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="344" column="27"/>
+        <location file="dev-tools.hpp" line="344" column="27"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1is__indexable_1a40b79106540a129098e4a0faa0017fe5" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -69,14 +69,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="348" column="38"/>
+        <location file="dev-tools.hpp" line="348" column="38"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-      <location file="dev-tools.hpp" line="342" column="21" bodyfile="dev-tools.hpp" bodystart="342" bodyend="351"/>
+    <location file="dev-tools.hpp" line="342" column="21" bodyfile="dev-tools.hpp" bodystart="342" bodyend="351"/>
     <listofallmembers>
       <member refid="structspace_1_1is__indexable_1a90c355a37650a94aea017c6905055722" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>
       <member refid="structspace_1_1is__indexable_1a40b79106540a129098e4a0faa0017fe5" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>

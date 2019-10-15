@@ -22,250 +22,179 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="121" column="12" bodyfile="particle-system.hpp" bodystart="121"
-                    bodyend="-1"/>
+        <location file="particle-system.hpp" line="121" column="12" bodyfile="particle-system.hpp" bodystart="121" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>mass</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>
-                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                      <bold>must impl</bold> The setter interface of member <computeroutput>mass</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system.hpp" line="23" column="23" bodyfile="particle-system.hpp" bodystart="23"
-                        bodyend="23"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>mass</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>
-                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                      <bold>must impl</bold> The getter interface of member <computeroutput>mass</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system.hpp" line="23" column="118" bodyfile="particle-system.hpp" bodystart="23"
-                        bodyend="23"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>idn</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>
-                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                      <bold>must impl</bold> The setter interface of member <computeroutput>idn</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system.hpp" line="25" column="23" bodyfile="particle-system.hpp" bodystart="25"
-                        bodyend="25"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>idn</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>
-                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                      <bold>must impl</bold> The getter interface of member <computeroutput>idn</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system.hpp" line="25" column="116" bodyfile="particle-system.hpp" bodystart="25"
-                        bodyend="25"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>time</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>
-                      <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                      <bold>must impl</bold> The setter interface of member <computeroutput>time</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particle-system.hpp" line="27" column="23" bodyfile="particle-system.hpp" bodystart="27"
-                        bodyend="27"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>time</name>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>
-                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                <bold>must impl</bold> The getter interface of member <computeroutput>time</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The setter interface of member <computeroutput>mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system.hpp" line="27" column="118" bodyfile="particle-system.hpp" bodystart="27"
-                        bodyend="27"/>
+        <location file="particle-system.hpp" line="23" column="23" bodyfile="particle-system.hpp" bodystart="23" bodyend="23"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>pos</name>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>
-                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                <bold>must impl</bold> The setter interface of member <computeroutput>pos</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The getter interface of member <computeroutput>mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system.hpp" line="29" column="23" bodyfile="particle-system.hpp" bodystart="29"
-                        bodyend="29"/>
+        <location file="particle-system.hpp" line="23" column="118" bodyfile="particle-system.hpp" bodystart="23" bodyend="23"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>pos</name>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>
-                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                <bold>must impl</bold> The getter interface of member <computeroutput>pos</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The setter interface of member <computeroutput>idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system.hpp" line="29" column="116" bodyfile="particle-system.hpp" bodystart="29"
-                        bodyend="29"/>
+        <location file="particle-system.hpp" line="25" column="23" bodyfile="particle-system.hpp" bodystart="25" bodyend="25"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57"
-                     prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>vel</name>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>
-                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                <bold>must impl</bold> The setter interface of member <computeroutput>vel</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The getter interface of member <computeroutput>idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system.hpp" line="31" column="23" bodyfile="particle-system.hpp" bodystart="31"
-                        bodyend="31"/>
+        <location file="particle-system.hpp" line="25" column="116" bodyfile="particle-system.hpp" bodystart="25" bodyend="25"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29"
-                     prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>vel</name>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>time</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>
-                <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning"/>
-                <bold>must impl</bold> The getter interface of member <computeroutput>vel</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The setter interface of member <computeroutput>time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particle-system.hpp" line="31" column="116" bodyfile="particle-system.hpp" bodystart="31"
-                        bodyend="31"/>
+        <location file="particle-system.hpp" line="27" column="23" bodyfile="particle-system.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The getter interface of member <computeroutput>time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="27" column="118" bodyfile="particle-system.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The setter interface of member <computeroutput>pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="29" column="23" bodyfile="particle-system.hpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The getter interface of member <computeroutput>pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="29" column="116" bodyfile="particle-system.hpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The setter interface of member <computeroutput>vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="31" column="23" bodyfile="particle-system.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-warning" /> <bold>must impl</bold> The getter interface of member <computeroutput>vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="31" column="116" bodyfile="particle-system.hpp" bodystart="31" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -281,8 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="37" column="13" bodyfile="particle-system.hpp" bodystart="133"
-                    bodyend="135"/>
+        <location file="particle-system.hpp" line="37" column="13" bodyfile="particle-system.hpp" bodystart="133" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -323,8 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="45" column="10" bodyfile="particle-system.hpp" bodystart="139"
-                    bodyend="141"/>
+        <location file="particle-system.hpp" line="45" column="10" bodyfile="particle-system.hpp" bodystart="139" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -388,8 +315,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="55" column="10" bodyfile="particle-system.hpp" bodystart="145"
-                    bodyend="147"/>
+        <location file="particle-system.hpp" line="55" column="10" bodyfile="particle-system.hpp" bodystart="145" bodyend="147"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -453,8 +379,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="65" column="10" bodyfile="particle-system.hpp" bodystart="151"
-                    bodyend="153"/>
+        <location file="particle-system.hpp" line="65" column="10" bodyfile="particle-system.hpp" bodystart="151" bodyend="153"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -495,8 +420,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="73" column="10" bodyfile="particle-system.hpp" bodystart="157"
-                    bodyend="159"/>
+        <location file="particle-system.hpp" line="73" column="10" bodyfile="particle-system.hpp" bodystart="157" bodyend="159"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -537,8 +461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="81" column="10" bodyfile="particle-system.hpp" bodystart="163"
-                    bodyend="165"/>
+        <location file="particle-system.hpp" line="81" column="10" bodyfile="particle-system.hpp" bodystart="163" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -579,8 +502,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="89" column="10" bodyfile="particle-system.hpp" bodystart="169"
-                    bodyend="171"/>
+        <location file="particle-system.hpp" line="89" column="10" bodyfile="particle-system.hpp" bodystart="169" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -593,8 +515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="94" column="10" bodyfile="particle-system.hpp" bodystart="174"
-                    bodyend="176"/>
+        <location file="particle-system.hpp" line="94" column="10" bodyfile="particle-system.hpp" bodystart="174" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -607,8 +528,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="99" column="10" bodyfile="particle-system.hpp" bodystart="179"
-                    bodyend="181"/>
+        <location file="particle-system.hpp" line="99" column="10" bodyfile="particle-system.hpp" bodystart="179" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -649,8 +569,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="107" column="10" bodyfile="particle-system.hpp" bodystart="185"
-                    bodyend="188"/>
+        <location file="particle-system.hpp" line="107" column="10" bodyfile="particle-system.hpp" bodystart="185" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -691,8 +610,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="115" column="10" bodyfile="particle-system.hpp" bodystart="192"
-                    bodyend="195"/>
+        <location file="particle-system.hpp" line="115" column="10" bodyfile="particle-system.hpp" bodystart="192" bodyend="195"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -707,7 +625,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="119" column="5"/>
+        <location file="particle-system.hpp" line="119" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a7c205436f025ab607db33f53a8af59c6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -720,8 +638,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="124" column="10" bodyfile="particle-system.hpp" bodystart="124"
-                    bodyend="124"/>
+        <location file="particle-system.hpp" line="124" column="10" bodyfile="particle-system.hpp" bodystart="124" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1addeff3b1be80f3b8ac64f62218fdd6ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -734,8 +651,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="particle-system.hpp" line="126" column="10" bodyfile="particle-system.hpp" bodystart="126"
-                    bodyend="126"/>
+        <location file="particle-system.hpp" line="126" column="10" bodyfile="particle-system.hpp" bodystart="126" bodyend="126"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -752,8 +668,7 @@
 </parameterlist>
 </para>
     </detaileddescription>
-      <location file="particle-system.hpp" line="19" column="23" bodyfile="particle-system.hpp" bodystart="19"
-                bodyend="127"/>
+    <location file="particle-system.hpp" line="19" column="23" bodyfile="particle-system.hpp" bodystart="19" bodyend="127"/>
     <listofallmembers>
       <member refid="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_pos</name></member>
       <member refid="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_time</name></member>
@@ -761,65 +676,25 @@
       <member refid="classspace_1_1_particle_system_1af9791fd034c4b1b10ee3798c9c35ed6c" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>Derived</name></member>
       <member refid="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>drift</name></member>
       <member refid="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>evaluate_acc</name></member>
-        <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>idn</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>idn</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>idn</name></member>
+      <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>idn</name></member>
       <member refid="classspace_1_1_particle_system_1addeff3b1be80f3b8ac64f62218fdd6ec" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>impl_post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a7c205436f025ab607db33f53a8af59c6" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>impl_pre_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>kick</name></member>
       <member refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>load_from_linear_container</name></member>
-        <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>mass</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>mass</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>mass</name></member>
+      <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>mass</name></member>
       <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>number</name></member>
       <member refid="classspace_1_1_particle_system_1a0004ebcbfd0c2af9e7dfdf13b015bf0b" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>ParticleSystem</name></member>
-        <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>pos</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>pos</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pos</name></member>
+      <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pos</name></member>
       <member refid="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pre_iter_process</name></member>
-        <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>time</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>time</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>time</name></member>
+      <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>time</name></member>
       <member refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>to_linear_container</name></member>
-        <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>vel</name>
-        </member>
-        <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public"
-                virt="non-virtual">
-            <scope>space::ParticleSystem</scope>
-            <name>vel</name>
-        </member>
+      <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>vel</name></member>
+      <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>vel</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

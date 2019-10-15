@@ -51,20 +51,18 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-          <memberdef kind="variable" id="classspace_1_1_worst_offender_1ac2c71a5121fb6b62eefb6908def5800b" prot="public"
-                     static="no" mutable="no">
-              <type>friend</type>
-              <definition>friend space::WorstOffender&lt; T &gt;::Base</definition>
+      <memberdef kind="variable" id="classspace_1_1_worst_offender_1ac2c71a5121fb6b62eefb6908def5800b" prot="public" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::WorstOffender&lt; T &gt;::Base</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="32" column="13"
-                        bodyfile="error-checker/worst-offender.hpp" bodystart="32" bodyend="-1"/>
+        <location file="error-checker/worst-offender.hpp" line="32" column="13" bodyfile="error-checker/worst-offender.hpp" bodystart="32" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -98,117 +96,93 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a5ee7c897b598ef2d93ff017045a10b67" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
-              <argsstring>()=default</argsstring>
-              <name>WorstOffender</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="28" column="9"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a5a67143ea0f748e96c61bc55a2042276" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a5ee7c897b598ef2d93ff017045a10b67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
-              <argsstring>(WorstOffender const &amp;)=default</argsstring>
-              <name>WorstOffender</name>
+        <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
+        <argsstring>()=default</argsstring>
+        <name>WorstOffender</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a5a67143ea0f748e96c61bc55a2042276" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
+        <argsstring>(WorstOffender const &amp;)=default</argsstring>
+        <name>WorstOffender</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref>
-                const &amp;
-            </type>
+          <type><ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> const &amp;</type>
         </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="28" column="41"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a973bebe07b67530aaef5243c0dfe17e6" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
-              <argsstring>(WorstOffender &amp;&amp;)=default</argsstring>
-              <name>WorstOffender</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move constructor
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="28" column="76"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;
-              </type>
-              <definition>WorstOffender&amp; space::WorstOffender&lt; T &gt;::operator=</definition>
-              <argsstring>(WorstOffender const &amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref>
-                      const &amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="28" column="126"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" prot="public"
-                     static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;
-              </type>
-              <definition>WorstOffender&amp; space::WorstOffender&lt; T &gt;::operator=</definition>
-              <argsstring>(WorstOffender &amp;&amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="28" column="172"/>
-          </memberdef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="28" column="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a973bebe07b67530aaef5243c0dfe17e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
+        <argsstring>(WorstOffender &amp;&amp;)=default</argsstring>
+        <name>WorstOffender</name>
+        <param>
+          <type><ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move constructor <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="28" column="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;</type>
+        <definition>WorstOffender&amp; space::WorstOffender&lt; T &gt;::operator=</definition>
+        <argsstring>(WorstOffender const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="28" column="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;</type>
+        <definition>WorstOffender&amp; space::WorstOffender&lt; T &gt;::operator=</definition>
+        <argsstring>(WorstOffender &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="28" column="172"/>
+      </memberdef>
       <memberdef kind="function" id="classspace_1_1_worst_offender_1adcccea4e90b1effa6e15b78219b379b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>space::WorstOffender&lt; T &gt;::WorstOffender</definition>
@@ -232,104 +206,75 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::WorstOffender&lt; T &gt;::impl_atol</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_atol</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>atol_</computeroutput> in name
-                      of <computeroutput>impl_atol</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="35" column="23"
-                        bodyfile="error-checker/worst-offender.hpp" bodystart="35" bodyend="35"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::WorstOffender&lt; T &gt;::impl_atol</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_atol</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>atol_</computeroutput> in name
-                      of <computeroutput>impl_atol</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="35" column="90"
-                        bodyfile="error-checker/worst-offender.hpp" bodystart="35" bodyend="35"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::WorstOffender&lt; T &gt;::impl_rtol</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_rtol</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>rtol_</computeroutput> in name
-                      of <computeroutput>impl_rtol</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="37" column="23"
-                        bodyfile="error-checker/worst-offender.hpp" bodystart="37" bodyend="37"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::WorstOffender&lt; T &gt;::impl_rtol</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_rtol</name>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::WorstOffender&lt; T &gt;::impl_atol</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_atol</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>
-                impl_rtol</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>atol_</computeroutput> in name of <computeroutput>impl_atol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="error-checker/worst-offender.hpp" line="37" column="90"
-                        bodyfile="error-checker/worst-offender.hpp" bodystart="37" bodyend="37"/>
+        <location file="error-checker/worst-offender.hpp" line="35" column="23" bodyfile="error-checker/worst-offender.hpp" bodystart="35" bodyend="35"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1a87ee50041de4ce71138e6c9c40cb9a24"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::WorstOffender&lt; T &gt;::impl_atol</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_atol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>atol_</computeroutput> in name of <computeroutput>impl_atol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="35" column="90" bodyfile="error-checker/worst-offender.hpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::WorstOffender&lt; T &gt;::impl_rtol</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_rtol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>impl_rtol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="37" column="23" bodyfile="error-checker/worst-offender.hpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::WorstOffender&lt; T &gt;::impl_rtol</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_rtol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>impl_rtol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker/worst-offender.hpp" line="37" column="90" bodyfile="error-checker/worst-offender.hpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1a87ee50041de4ce71138e6c9c40cb9a24" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::WorstOffender&lt; T &gt;::impl_set_atol</definition>
         <argsstring>(Scalar)</argsstring>
@@ -346,8 +291,7 @@
         </inbodydescription>
         <location file="error-checker/worst-offender.hpp" line="39" column="10" bodyfile="error-checker/worst-offender.hpp" bodystart="57" bodyend="59"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1afb3858c89b0a6f62ff9a26a5e45d4d63"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1afb3858c89b0a6f62ff9a26a5e45d4d63" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::WorstOffender&lt; T &gt;::impl_set_rtol</definition>
         <argsstring>(Scalar)</argsstring>
@@ -364,8 +308,7 @@
         </inbodydescription>
         <location file="error-checker/worst-offender.hpp" line="41" column="10" bodyfile="error-checker/worst-offender.hpp" bodystart="63" bodyend="65"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1ac4d1ba452ff1b5a4e0b159896b1ffce3"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1ac4d1ba452ff1b5a4e0b159896b1ffce3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename Array</type>
@@ -391,8 +334,7 @@
         </inbodydescription>
         <location file="error-checker/worst-offender.hpp" line="44" column="10" bodyfile="error-checker/worst-offender.hpp" bodystart="69" bodyend="76"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_worst_offender_1abc6b49039b0a93975c68420358c855f2"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_worst_offender_1abc6b49039b0a93975c68420358c855f2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename Array</type>
@@ -463,106 +405,34 @@
     </collaborationgraph>
     <location file="error-checker/worst-offender.hpp" line="18" column="44" bodyfile="error-checker/worst-offender.hpp" bodystart="18" bodyend="53"/>
     <listofallmembers>
-        <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>atol</name>
-        </member>
-        <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>atol</name>
-        </member>
+      <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>atol</name></member>
+      <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>atol</name></member>
       <member refid="classspace_1_1_worst_offender_1a9df0e6ab2cd081e29249228c23620fba" prot="private" virt="non-virtual"><scope>space::WorstOffender</scope><name>atol_</name></member>
       <member refid="classspace_1_1_worst_offender_1a8d1232a3d9f70a98a3ac942e24ceb578" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>Base</name></member>
-        <member refid="classspace_1_1_worst_offender_1ac2c71a5121fb6b62eefb6908def5800b" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>Base</name>
-        </member>
+      <member refid="classspace_1_1_worst_offender_1ac2c71a5121fb6b62eefb6908def5800b" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>Base</name></member>
       <member refid="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>derived</name></member>
       <member refid="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>error</name></member>
       <member refid="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>error</name></member>
-        <member refid="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_atol</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_atol</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1ac4d1ba452ff1b5a4e0b159896b1ffce3" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_error</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1abc6b49039b0a93975c68420358c855f2" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_error</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_rtol</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_rtol</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a87ee50041de4ce71138e6c9c40cb9a24" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_set_atol</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1afb3858c89b0a6f62ff9a26a5e45d4d63" prot="protected"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>impl_set_rtol</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>rtol</name>
-        </member>
-        <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>rtol</name>
-        </member>
+      <member refid="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_atol</name></member>
+      <member refid="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_atol</name></member>
+      <member refid="classspace_1_1_worst_offender_1ac4d1ba452ff1b5a4e0b159896b1ffce3" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_error</name></member>
+      <member refid="classspace_1_1_worst_offender_1abc6b49039b0a93975c68420358c855f2" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_error</name></member>
+      <member refid="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_rtol</name></member>
+      <member refid="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_rtol</name></member>
+      <member refid="classspace_1_1_worst_offender_1a87ee50041de4ce71138e6c9c40cb9a24" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_set_atol</name></member>
+      <member refid="classspace_1_1_worst_offender_1afb3858c89b0a6f62ff9a26a5e45d4d63" prot="protected" virt="non-virtual"><scope>space::WorstOffender</scope><name>impl_set_rtol</name></member>
+      <member refid="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>rtol</name></member>
+      <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>rtol</name></member>
       <member refid="classspace_1_1_worst_offender_1a8056fde389461f71626071cef9aaddaf" prot="private" virt="non-virtual"><scope>space::WorstOffender</scope><name>rtol_</name></member>
       <member refid="classspace_1_1_worst_offender_1aba6941c9c23aa161f8038414521163d5" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>Scalar</name></member>
       <member refid="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>set_atol</name></member>
       <member refid="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>set_rtol</name></member>
       <member refid="classspace_1_1_worst_offender_1a15431cbf949f531283aca90ccccd2b30" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>value_type</name></member>
-        <member refid="classspace_1_1_worst_offender_1a5ee7c897b598ef2d93ff017045a10b67" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>WorstOffender</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a5a67143ea0f748e96c61bc55a2042276" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>WorstOffender</name>
-        </member>
-        <member refid="classspace_1_1_worst_offender_1a973bebe07b67530aaef5243c0dfe17e6" prot="public"
-                virt="non-virtual">
-            <scope>space::WorstOffender</scope>
-            <name>WorstOffender</name>
-        </member>
+      <member refid="classspace_1_1_worst_offender_1a5ee7c897b598ef2d93ff017045a10b67" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>WorstOffender</name></member>
+      <member refid="classspace_1_1_worst_offender_1a5a67143ea0f748e96c61bc55a2042276" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>WorstOffender</name></member>
+      <member refid="classspace_1_1_worst_offender_1a973bebe07b67530aaef5243c0dfe17e6" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>WorstOffender</name></member>
       <member refid="classspace_1_1_worst_offender_1adcccea4e90b1effa6e15b78219b379b3" prot="public" virt="non-virtual"><scope>space::WorstOffender</scope><name>WorstOffender</name></member>
     </listofallmembers>
   </compounddef>

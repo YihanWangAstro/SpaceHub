@@ -9,197 +9,157 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a1abebf154e7a7e1ff88889a9637d7da0" prot="public"
-                     static="no">
-              <templateparamlist>
-                  <param>
-                      <type>typename ...</type>
-                      <declname>_T_</declname>
-                      <defname>_T_</defname>
-                  </param>
-              </templateparamlist>
-              <type>typename TypeSystem ::template Container&lt; _T_... &gt;</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::Container = typename TypeSystem ::template
-                  Container&lt;_T_...&gt;
-              </definition>
-              <argsstring></argsstring>
-              <name>Container</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="18"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1acad8f458587ff9e09f517f0a8e1075c1" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::Scalar</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::Scalar = typename TypeSystem ::Scalar
-              </definition>
-              <argsstring></argsstring>
-              <name>Scalar</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="38"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a6efca40809b14eaf44c8d7f17f0cd6d0" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::ScalarArray</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::ScalarArray = typename TypeSystem
-                  ::ScalarArray
-              </definition>
-              <argsstring></argsstring>
-              <name>ScalarArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="53"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a33e1fa91db9b1b07720276d5dd6b52c2" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::IdxArray</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::IdxArray = typename TypeSystem ::IdxArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IdxArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="73"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a4aa3602e0724fe2608968f388a52b465" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::IntArray</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::IntArray = typename TypeSystem ::IntArray
-              </definition>
-              <argsstring></argsstring>
-              <name>IntArray</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="90"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1af76b07d66eaa79e7ffae029c00c84886" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::Vector</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::Vector = typename TypeSystem ::Vector
-              </definition>
-              <argsstring></argsstring>
-              <name>Vector</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="107"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
-          </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a44bae3f84867115a8167332ac3c69b46" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::VectorArray</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::VectorArray = typename TypeSystem
-                  ::VectorArray
-              </definition>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a1abebf154e7a7e1ff88889a9637d7da0" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>_T_</declname>
+            <defname>_T_</defname>
+          </param>
+        </templateparamlist>
+        <type>typename TypeSystem ::template Container&lt; _T_... &gt;</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::Container =  typename TypeSystem ::template Container&lt;_T_...&gt;</definition>
         <argsstring></argsstring>
-              <name>VectorArray</name>
+        <name>Container</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="122"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="72" column="18" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a1fcc00c04f890846bb2c4dce57e501bb" prot="public"
-                     static="no">
-              <type>typename TypeSystem ::Coord</type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::Coord = typename TypeSystem ::Coord
-              </definition>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1acad8f458587ff9e09f517f0a8e1075c1" prot="public" static="no">
+        <type>typename TypeSystem ::Scalar</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::Scalar =  typename TypeSystem ::Scalar</definition>
         <argsstring></argsstring>
-              <name>Coord</name>
+        <name>Scalar</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="72" column="142"
-                        bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="72" column="38" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a008dae88d4165dd1c632cef60a66f853" prot="public"
-                     static="no">
-              <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>&lt; <ref
-                      refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref>&lt; TypeSystem &gt;
-                  &gt;
-              </type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::Base = Particles&lt;PointParticles&lt;TypeSystem&gt;
-                  &gt;
-              </definition>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a6efca40809b14eaf44c8d7f17f0cd6d0" prot="public" static="no">
+        <type>typename TypeSystem ::ScalarArray</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::ScalarArray =  typename TypeSystem ::ScalarArray</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>ScalarArray</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="74" column="5"
-                        bodyfile="particles/point-particles.hpp" bodystart="74" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="72" column="53" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
-          <memberdef kind="typedef" id="classspace_1_1_point_particles_1a19967875e46fb50b64e4dca3f50ffd40" prot="public"
-                     static="no">
-              <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref>&lt; Scalar &gt;
-              </type>
-              <definition>using space::PointParticles&lt; TypeSystem &gt;::Particle = PointParticle&lt;Scalar&gt;
-              </definition>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a33e1fa91db9b1b07720276d5dd6b52c2" prot="public" static="no">
+        <type>typename TypeSystem ::IdxArray</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::IdxArray =  typename TypeSystem ::IdxArray</definition>
         <argsstring></argsstring>
-              <name>Particle</name>
+        <name>IdxArray</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="76" column="5"
-                        bodyfile="particles/point-particles.hpp" bodystart="76" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="72" column="73" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a4aa3602e0724fe2608968f388a52b465" prot="public" static="no">
+        <type>typename TypeSystem ::IntArray</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::IntArray =  typename TypeSystem ::IntArray</definition>
+        <argsstring></argsstring>
+        <name>IntArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="72" column="90" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1af76b07d66eaa79e7ffae029c00c84886" prot="public" static="no">
+        <type>typename TypeSystem ::Vector</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::Vector =  typename TypeSystem ::Vector</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="72" column="107" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a44bae3f84867115a8167332ac3c69b46" prot="public" static="no">
+        <type>typename TypeSystem ::VectorArray</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::VectorArray =  typename TypeSystem ::VectorArray</definition>
+        <argsstring></argsstring>
+        <name>VectorArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="72" column="122" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a1fcc00c04f890846bb2c4dce57e501bb" prot="public" static="no">
+        <type>typename TypeSystem ::Coord</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::Coord =  typename TypeSystem ::Coord</definition>
+        <argsstring></argsstring>
+        <name>Coord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="72" column="142" bodyfile="particles/point-particles.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a008dae88d4165dd1c632cef60a66f853" prot="public" static="no">
+        <type><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>&lt; <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref>&lt; TypeSystem &gt; &gt;</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::Base =  Particles&lt;PointParticles&lt;TypeSystem&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>Base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="74" column="5" bodyfile="particles/point-particles.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classspace_1_1_point_particles_1a19967875e46fb50b64e4dca3f50ffd40" prot="public" static="no">
+        <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref>&lt; Scalar &gt;</type>
+        <definition>using space::PointParticles&lt; TypeSystem &gt;::Particle =  PointParticle&lt;Scalar&gt;</definition>
+        <argsstring></argsstring>
+        <name>Particle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="76" column="5" bodyfile="particles/point-particles.hpp" bodystart="76" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-          <memberdef kind="variable" id="classspace_1_1_point_particles_1a9bfb3fd01046029fe17f09b22c269e8a"
-                     prot="public" static="no" mutable="no">
-              <type>friend</type>
-              <definition>friend space::PointParticles&lt; TypeSystem &gt;::Base</definition>
+      <memberdef kind="variable" id="classspace_1_1_point_particles_1a9bfb3fd01046029fe17f09b22c269e8a" prot="public" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::PointParticles&lt; TypeSystem &gt;::Base</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="84" column="13"
-                        bodyfile="particles/point-particles.hpp" bodystart="84" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="84" column="13" bodyfile="particles/point-particles.hpp" bodystart="84" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -284,117 +244,93 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a86ec59de4b9c7f255c82704404f014d4"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a86ec59de4b9c7f255c82704404f014d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::PointParticles&lt; TypeSystem &gt;::PointParticles</definition>
-              <argsstring>()=default</argsstring>
-              <name>PointParticles</name>
+        <definition>space::PointParticles&lt; TypeSystem &gt;::PointParticles</definition>
+        <argsstring>()=default</argsstring>
+        <name>PointParticles</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>Default constructor.
-                <linebreak/>
-            </para>
+<para>Default constructor. <linebreak/>
+ </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="79" column="9"/>
+        <location file="particles/point-particles.hpp" line="79" column="9"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a3459b47dd89086643b613c14b5860308"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a3459b47dd89086643b613c14b5860308" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-              <definition>space::PointParticles&lt; TypeSystem &gt;::PointParticles</definition>
-              <argsstring>(PointParticles const &amp;)=default</argsstring>
-              <name>PointParticles</name>
+        <definition>space::PointParticles&lt; TypeSystem &gt;::PointParticles</definition>
+        <argsstring>(PointParticles const &amp;)=default</argsstring>
+        <name>PointParticles</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref>
-                const &amp;
-            </type>
+          <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> const &amp;</type>
         </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy constructor.
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="79" column="42"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a3f7085ef0facdbe20524c3fc3fb3ac05"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type></type>
-              <definition>space::PointParticles&lt; TypeSystem &gt;::PointParticles</definition>
-              <argsstring>(PointParticles &amp;&amp;)=default</argsstring>
-              <name>PointParticles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy constructor. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="79" column="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a3f7085ef0facdbe20524c3fc3fb3ac05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>space::PointParticles&lt; TypeSystem &gt;::PointParticles</definition>
+        <argsstring>(PointParticles &amp;&amp;)=default</argsstring>
+        <name>PointParticles</name>
         <param>
-            <type>
-                <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;&amp;
-            </type>
+          <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;&amp;</type>
         </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move constructor
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="79" column="78"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a0dc679bb5e9c554bbb9679ee5b476abe"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;
-              </type>
-              <definition>PointParticles&amp; space::PointParticles&lt; TypeSystem &gt;::operator=</definition>
-              <argsstring>(PointParticles const &amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref>
-                      const &amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default copy assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="79" column="130"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad"
-                     prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <type>
-                  <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;
-              </type>
-              <definition>PointParticles&amp; space::PointParticles&lt; TypeSystem &gt;::operator=</definition>
-              <argsstring>(PointParticles &amp;&amp;)=default</argsstring>
-              <name>operator=</name>
-              <param>
-                  <type>
-                      <ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;&amp;
-                  </type>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>Default move assignment operator
-                      <linebreak/>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="79" column="177"/>
-          </memberdef>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move constructor <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="79" column="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a0dc679bb5e9c554bbb9679ee5b476abe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;</type>
+        <definition>PointParticles&amp; space::PointParticles&lt; TypeSystem &gt;::operator=</definition>
+        <argsstring>(PointParticles const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default copy assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="79" column="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;</type>
+        <definition>PointParticles&amp; space::PointParticles&lt; TypeSystem &gt;::operator=</definition>
+        <argsstring>(PointParticles &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classspace_1_1_point_particles" kindref="compound">PointParticles</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default move assignment operator <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="79" column="177"/>
+      </memberdef>
       <memberdef kind="function" id="classspace_1_1_point_particles_1ad6a280fb54f9bdaeb481705d59717210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -423,248 +359,177 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-          <memberdef kind="function" id="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_mass</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_mass</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>mass_</computeroutput> in name
-                      of <computeroutput>impl_mass</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="87" column="23"
-                        bodyfile="particles/point-particles.hpp" bodystart="87" bodyend="87"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_mass</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_mass</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>mass_</computeroutput> in name
-                      of <computeroutput>impl_mass</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="87" column="90"
-                        bodyfile="particles/point-particles.hpp" bodystart="87" bodyend="87"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_idn</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_idn</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>idn_</computeroutput> in name of <computeroutput>
-                      impl_idn</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="89" column="23"
-                        bodyfile="particles/point-particles.hpp" bodystart="89" bodyend="89"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_idn</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_idn</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>idn_</computeroutput> in name of <computeroutput>
-                      impl_idn</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="89" column="88"
-                        bodyfile="particles/point-particles.hpp" bodystart="89" bodyend="89"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_time</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_time</name>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_mass</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>time_</computeroutput> in name of <computeroutput>
-                impl_time</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>mass_</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="91" column="23"
-                        bodyfile="particles/point-particles.hpp" bodystart="91" bodyend="91"/>
+        <location file="particles/point-particles.hpp" line="87" column="23" bodyfile="particles/point-particles.hpp" bodystart="87" bodyend="87"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_time</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_time</name>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_mass</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>time_</computeroutput> in name of <computeroutput>
-                impl_time</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The getter interface of member <computeroutput>mass_</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="91" column="90"
-                        bodyfile="particles/point-particles.hpp" bodystart="91" bodyend="91"/>
+        <location file="particles/point-particles.hpp" line="87" column="90" bodyfile="particles/point-particles.hpp" bodystart="87" bodyend="87"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_pos</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_pos</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The setter interface of member <computeroutput>pos_</computeroutput> in name of <computeroutput>
-                      impl_pos</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="93" column="23"
-                        bodyfile="particles/point-particles.hpp" bodystart="93" bodyend="93"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_pos</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_pos</name>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-                  <para>The getter interface of member <computeroutput>pos_</computeroutput> in name of <computeroutput>
-                      impl_pos</computeroutput>.
-                      <simplesect kind="return">
-                          <para>auto Depend on implementation.
-                              <linebreak/>
-                          </para>
-                      </simplesect>
-                  </para>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="particles/point-particles.hpp" line="93" column="88"
-                        bodyfile="particles/point-particles.hpp" bodystart="93" bodyend="93"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799"
-                     prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>auto &amp;</type>
-              <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_vel</definition>
-              <argsstring>() noexcept</argsstring>
-              <name>impl_vel</name>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_idn</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The setter interface of member <computeroutput>vel_</computeroutput> in name of <computeroutput>
-                impl_vel</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The setter interface of member <computeroutput>idn_</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="95" column="23"
-                        bodyfile="particles/point-particles.hpp" bodystart="95" bodyend="95"/>
+        <location file="particles/point-particles.hpp" line="89" column="23" bodyfile="particles/point-particles.hpp" bodystart="89" bodyend="89"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa"
-                     prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes"
-                     virt="non-virtual">
-              <type>const auto &amp;</type>
-              <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_vel</definition>
-              <argsstring>() const noexcept</argsstring>
-              <name>impl_vel</name>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_idn</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-            <para>The getter interface of member <computeroutput>vel_</computeroutput> in name of <computeroutput>
-                impl_vel</computeroutput>.
-                <simplesect kind="return">
-                    <para>auto Depend on implementation.
-                        <linebreak/>
-                    </para>
-                </simplesect>
-            </para>
+<para>The getter interface of member <computeroutput>idn_</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="particles/point-particles.hpp" line="95" column="88"
-                        bodyfile="particles/point-particles.hpp" bodystart="95" bodyend="95"/>
+        <location file="particles/point-particles.hpp" line="89" column="88" bodyfile="particles/point-particles.hpp" bodystart="89" bodyend="89"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a2b91850d907c50f3068374c5c49b880f"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_time</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>time_</computeroutput> in name of <computeroutput>impl_time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="91" column="23" bodyfile="particles/point-particles.hpp" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_time</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>time_</computeroutput> in name of <computeroutput>impl_time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="91" column="90" bodyfile="particles/point-particles.hpp" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_pos</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>pos_</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="93" column="23" bodyfile="particles/point-particles.hpp" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_pos</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>pos_</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="93" column="88" bodyfile="particles/point-particles.hpp" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto &amp;</type>
+        <definition>auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_vel</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>impl_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The setter interface of member <computeroutput>vel_</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="95" column="23" bodyfile="particles/point-particles.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; space::PointParticles&lt; TypeSystem &gt;::impl_vel</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>impl_vel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The getter interface of member <computeroutput>vel_</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particles/point-particles.hpp" line="95" column="88" bodyfile="particles/point-particles.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a2b91850d907c50f3068374c5c49b880f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::PointParticles&lt; TypeSystem &gt;::impl_resize</definition>
         <argsstring>(size_t new_sz)</argsstring>
@@ -681,8 +546,7 @@
         </inbodydescription>
         <location file="particles/point-particles.hpp" line="97" column="10" bodyfile="particles/point-particles.hpp" bodystart="170" bodyend="173"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a77027a5cce185052caa1c4a883e653c3"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a77027a5cce185052caa1c4a883e653c3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::PointParticles&lt; TypeSystem &gt;::impl_reserve</definition>
         <argsstring>(size_t new_cap)</argsstring>
@@ -699,8 +563,7 @@
         </inbodydescription>
         <location file="particles/point-particles.hpp" line="99" column="10" bodyfile="particles/point-particles.hpp" bodystart="176" bodyend="178"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a128013365330947c592d543f507747bc"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a128013365330947c592d543f507747bc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::PointParticles&lt; TypeSystem &gt;::impl_emplace_back</definition>
         <argsstring>(Particle const &amp;new_particle)</argsstring>
@@ -717,8 +580,7 @@
         </inbodydescription>
         <location file="particles/point-particles.hpp" line="101" column="10" bodyfile="particles/point-particles.hpp" bodystart="188" bodyend="194"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a1451e0fa0bba374c520780c05080f4e7"
-                     prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a1451e0fa0bba374c520780c05080f4e7" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
         <definition>size_t space::PointParticles&lt; TypeSystem &gt;::impl_number</definition>
         <argsstring>() const</argsstring>
@@ -731,8 +593,7 @@
         </inbodydescription>
         <location file="particles/point-particles.hpp" line="103" column="13" bodyfile="particles/point-particles.hpp" bodystart="197" bodyend="199"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a54a45518c2c2d31b5d535314cda5dfb4"
-                     prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a54a45518c2c2d31b5d535314cda5dfb4" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
         <definition>size_t space::PointParticles&lt; TypeSystem &gt;::impl_capacity</definition>
         <argsstring>() const</argsstring>
@@ -745,8 +606,7 @@
         </inbodydescription>
         <location file="particles/point-particles.hpp" line="105" column="13" bodyfile="particles/point-particles.hpp" bodystart="202" bodyend="204"/>
       </memberdef>
-          <memberdef kind="function" id="classspace_1_1_point_particles_1a1679a4e3d504472702698ea0eef5614d"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_point_particles_1a1679a4e3d504472702698ea0eef5614d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void space::PointParticles&lt; TypeSystem &gt;::impl_clear</definition>
         <argsstring>()</argsstring>
@@ -792,209 +652,59 @@
     <listofallmembers>
       <member refid="classspace_1_1_point_particles_1a2b96f6639134d5e4e5aeeecc038c6cc5" prot="private" virt="non-virtual"><scope>space::PointParticles</scope><name>active_num_</name></member>
       <member refid="classspace_1_1_point_particles_1a008dae88d4165dd1c632cef60a66f853" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Base</name></member>
-        <member refid="classspace_1_1_point_particles_1a9bfb3fd01046029fe17f09b22c269e8a" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>Base</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1a9bfb3fd01046029fe17f09b22c269e8a" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Base</name></member>
       <member refid="classspace_1_1_particles_1aa34fcf3707da6d94091d75e235687267" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>capacity</name></member>
       <member refid="classspace_1_1_particles_1aa6bbc1f7954d0991ca411ba7041969c6" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>clear</name></member>
-        <member refid="classspace_1_1_point_particles_1a1abebf154e7a7e1ff88889a9637d7da0" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>Container</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a1fcc00c04f890846bb2c4dce57e501bb" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>Coord</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1a1abebf154e7a7e1ff88889a9637d7da0" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Container</name></member>
+      <member refid="classspace_1_1_point_particles_1a1fcc00c04f890846bb2c4dce57e501bb" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Coord</name></member>
       <member refid="classspace_1_1_particles_1a8d4572f516edfeb65457ccb21fa62de6" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>derived</name></member>
       <member refid="classspace_1_1_particles_1a4a5558934deec20dc500a3f8ff981e14" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>emplace_back</name></member>
-        <member refid="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>idn</name>
-        </member>
-        <member refid="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>idn</name>
-        </member>
+      <member refid="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>idn</name></member>
+      <member refid="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>idn</name></member>
       <member refid="classspace_1_1_point_particles_1a00f7a2b3f1b42d4423a36e6bb9d68385" prot="private" virt="non-virtual"><scope>space::PointParticles</scope><name>idn_</name></member>
-        <member refid="classspace_1_1_point_particles_1a33e1fa91db9b1b07720276d5dd6b52c2" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>IdxArray</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a54a45518c2c2d31b5d535314cda5dfb4" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_capacity</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a1679a4e3d504472702698ea0eef5614d" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_clear</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a128013365330947c592d543f507747bc" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_emplace_back</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_idn</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_idn</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_mass</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_mass</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a1451e0fa0bba374c520780c05080f4e7" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_number</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_pos</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_pos</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a77027a5cce185052caa1c4a883e653c3" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_reserve</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a2b91850d907c50f3068374c5c49b880f" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_resize</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_time</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_time</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_vel</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa" prot="protected"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>impl_vel</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a4aa3602e0724fe2608968f388a52b465" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>IntArray</name>
-        </member>
-        <member refid="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>mass</name>
-        </member>
-        <member refid="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>mass</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1a33e1fa91db9b1b07720276d5dd6b52c2" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>IdxArray</name></member>
+      <member refid="classspace_1_1_point_particles_1a54a45518c2c2d31b5d535314cda5dfb4" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_capacity</name></member>
+      <member refid="classspace_1_1_point_particles_1a1679a4e3d504472702698ea0eef5614d" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_clear</name></member>
+      <member refid="classspace_1_1_point_particles_1a128013365330947c592d543f507747bc" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_emplace_back</name></member>
+      <member refid="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_idn</name></member>
+      <member refid="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_idn</name></member>
+      <member refid="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_mass</name></member>
+      <member refid="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_mass</name></member>
+      <member refid="classspace_1_1_point_particles_1a1451e0fa0bba374c520780c05080f4e7" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_number</name></member>
+      <member refid="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_pos</name></member>
+      <member refid="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_pos</name></member>
+      <member refid="classspace_1_1_point_particles_1a77027a5cce185052caa1c4a883e653c3" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_reserve</name></member>
+      <member refid="classspace_1_1_point_particles_1a2b91850d907c50f3068374c5c49b880f" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_resize</name></member>
+      <member refid="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_time</name></member>
+      <member refid="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_time</name></member>
+      <member refid="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_vel</name></member>
+      <member refid="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa" prot="protected" virt="non-virtual"><scope>space::PointParticles</scope><name>impl_vel</name></member>
+      <member refid="classspace_1_1_point_particles_1a4aa3602e0724fe2608968f388a52b465" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>IntArray</name></member>
+      <member refid="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>mass</name></member>
+      <member refid="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>mass</name></member>
       <member refid="classspace_1_1_point_particles_1af0480f0f7e9b5ebed901e7ae9f2f8ee3" prot="private" virt="non-virtual"><scope>space::PointParticles</scope><name>mass_</name></member>
       <member refid="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>number</name></member>
-        <member refid="classspace_1_1_point_particles_1a0dc679bb5e9c554bbb9679ee5b476abe" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>operator=</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>operator=</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1a0dc679bb5e9c554bbb9679ee5b476abe" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>operator=</name></member>
+      <member refid="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>operator=</name></member>
       <member refid="classspace_1_1_point_particles_1a19967875e46fb50b64e4dca3f50ffd40" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Particle</name></member>
-        <member refid="classspace_1_1_point_particles_1a86ec59de4b9c7f255c82704404f014d4" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>PointParticles</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a3459b47dd89086643b613c14b5860308" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>PointParticles</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a3f7085ef0facdbe20524c3fc3fb3ac05" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>PointParticles</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1a86ec59de4b9c7f255c82704404f014d4" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>PointParticles</name></member>
+      <member refid="classspace_1_1_point_particles_1a3459b47dd89086643b613c14b5860308" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>PointParticles</name></member>
+      <member refid="classspace_1_1_point_particles_1a3f7085ef0facdbe20524c3fc3fb3ac05" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>PointParticles</name></member>
       <member refid="classspace_1_1_point_particles_1ad6a280fb54f9bdaeb481705d59717210" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>PointParticles</name></member>
-        <member refid="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>pos</name>
-        </member>
-        <member refid="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>pos</name>
-        </member>
+      <member refid="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>pos</name></member>
+      <member refid="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>pos</name></member>
       <member refid="classspace_1_1_point_particles_1aa4a374ba18742749fb8356eb1f388a2d" prot="private" virt="non-virtual"><scope>space::PointParticles</scope><name>pos_</name></member>
       <member refid="classspace_1_1_particles_1a928e0065624cc688216c09f312e7a1df" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>reserve</name></member>
       <member refid="classspace_1_1_particles_1a8be4d54604402eccaa9b50b6bb7783d8" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>resize</name></member>
-        <member refid="classspace_1_1_point_particles_1acad8f458587ff9e09f517f0a8e1075c1" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>Scalar</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a6efca40809b14eaf44c8d7f17f0cd6d0" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>ScalarArray</name>
-        </member>
-        <member refid="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>time</name>
-        </member>
-        <member refid="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>time</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1acad8f458587ff9e09f517f0a8e1075c1" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Scalar</name></member>
+      <member refid="classspace_1_1_point_particles_1a6efca40809b14eaf44c8d7f17f0cd6d0" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>ScalarArray</name></member>
+      <member refid="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>time</name></member>
+      <member refid="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>time</name></member>
       <member refid="classspace_1_1_point_particles_1ac312800131a3e29317a1dff1a189e800" prot="private" virt="non-virtual"><scope>space::PointParticles</scope><name>time_</name></member>
-        <member refid="classspace_1_1_point_particles_1af76b07d66eaa79e7ffae029c00c84886" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>Vector</name>
-        </member>
-        <member refid="classspace_1_1_point_particles_1a44bae3f84867115a8167332ac3c69b46" prot="public"
-                virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>VectorArray</name>
-        </member>
-        <member refid="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>vel</name>
-        </member>
-        <member refid="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" prot="public" virt="non-virtual">
-            <scope>space::PointParticles</scope>
-            <name>vel</name>
-        </member>
+      <member refid="classspace_1_1_point_particles_1af76b07d66eaa79e7ffae029c00c84886" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>Vector</name></member>
+      <member refid="classspace_1_1_point_particles_1a44bae3f84867115a8167332ac3c69b46" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>VectorArray</name></member>
+      <member refid="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>vel</name></member>
+      <member refid="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" prot="public" virt="non-virtual"><scope>space::PointParticles</scope><name>vel</name></member>
       <member refid="classspace_1_1_point_particles_1a527809b21c292b6b40b4fb6b6c0c35a3" prot="private" virt="non-virtual"><scope>space::PointParticles</scope><name>vel_</name></member>
     </listofallmembers>
   </compounddef>

@@ -2,15 +2,10 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
   <compounddef id="namespacespace_1_1calc" kind="namespace" language="C++">
     <compoundname>space::calc</compoundname>
-      <innerclass refid="structspace_1_1calc_1_1has__method__bind_e" prot="public">space::calc::has_method_bindE
-      </innerclass>
-      <innerclass refid="structspace_1_1calc_1_1has__method__chain__pos" prot="public">
-          space::calc::has_method_chain_pos
-      </innerclass>
-      <innerclass refid="structspace_1_1calc_1_1has__method__index" prot="public">space::calc::has_method_index
-      </innerclass>
-      <innerclass refid="structspace_1_1calc_1_1has__method__omega" prot="public">space::calc::has_method_omega
-      </innerclass>
+    <innerclass refid="structspace_1_1calc_1_1has__method__bind_e" prot="public">space::calc::has_method_bindE</innerclass>
+    <innerclass refid="structspace_1_1calc_1_1has__method__chain__pos" prot="public">space::calc::has_method_chain_pos</innerclass>
+    <innerclass refid="structspace_1_1calc_1_1has__method__index" prot="public">space::calc::has_method_index</innerclass>
+    <innerclass refid="structspace_1_1calc_1_1has__method__omega" prot="public">space::calc::has_method_omega</innerclass>
       <sectiondef kind="func">
       <memberdef kind="function" id="namespacespace_1_1calc_1ab1eb54b1b30947e6b678b543a9c2322e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

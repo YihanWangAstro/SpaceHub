@@ -129,12 +129,8 @@
       </node>
     </invincdepgraph>
     <innerclass refid="classspace_1_1_interactions" prot="public">space::Interactions</innerclass>
-      <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc"
-                  prot="private">space::Interactions::has_method_impl_eval_extra_vel_indep_acc
-      </innerclass>
-      <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" prot="private">
-          space::Interactions::has_method_impl_eval_extra_vel_dep_acc
-      </innerclass>
+    <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" prot="private">space::Interactions::has_method_impl_eval_extra_vel_indep_acc</innerclass>
+    <innerclass refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" prot="private">space::Interactions::has_method_impl_eval_extra_vel_dep_acc</innerclass>
     <innernamespace refid="namespacespace">space</innernamespace>
     <briefdescription>
     </briefdescription>

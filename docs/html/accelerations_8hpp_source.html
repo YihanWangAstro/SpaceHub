@@ -83,11 +83,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// Constructors</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    SPACEHUB_MAKE_CONSTRUCTORS(<a class="code" href="classspace_1_1_accelerations.html">Accelerations</a>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>, <span class="keywordflow">default</span>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-    <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; <span class="keyword">explicit</span>
-        <a class="code"
-           href="classspace_1_1_accelerations.html#a494a58741396f7345ac30f202c12a416">Accelerations</a>(<span
-                class="keywordtype">size_t</span> size) : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {
-    </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classspace_1_1_accelerations.html#a494a58741396f7345ac30f202c12a416">Accelerations</a>(<span class="keywordtype">size_t</span> size) : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_indep) {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        ext_vel_indep_acc_.resize(size);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      }</div>
@@ -97,40 +93,15 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//Public methods</span></div>
-    <div class="line"><a name="l00033"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_accelerations.html#a148072ef35a5426e003a91ba452a8416">   33</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_accelerations.html#a33f4209d477db92eaef003c36ce1037b">acc</a>,
-        acc_);
-    </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classspace_1_1_accelerations.html#a148072ef35a5426e003a91ba452a8416">   33</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_accelerations.html#a33f4209d477db92eaef003c36ce1037b">acc</a>, acc_);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-    <div class="line"><a name="l00035"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_accelerations.html#ad9fbf7e55355617a6dcb2554d7b456a3">   35</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_accelerations.html#adb69f6c6fab79d47e1917f165811b028">newtonian_acc</a>,
-        newtonian_acc_);
-    </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classspace_1_1_accelerations.html#ad9fbf7e55355617a6dcb2554d7b456a3">   35</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_accelerations.html#adb69f6c6fab79d47e1917f165811b028">newtonian_acc</a>, newtonian_acc_);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-    <div class="line"><a name="l00037"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_accelerations.html#a7ac292ea6d4c7a723019c0117f81a6ca">   37</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_accelerations.html#ab1c2b9a56d0ce70d69aae6f3d6e9b3a3">tot_vel_indep_acc</a>,
-        tot_vel_indep_acc_);
-    </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classspace_1_1_accelerations.html#a7ac292ea6d4c7a723019c0117f81a6ca">   37</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_accelerations.html#ab1c2b9a56d0ce70d69aae6f3d6e9b3a3">tot_vel_indep_acc</a>, tot_vel_indep_acc_);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-    <div class="line"><a name="l00039"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_accelerations.html#ac3c8d14a8f0e372d161230d484e767d2">   39</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_accelerations.html#ac1a628d0b74e17d1092b17cbb490e466">ext_vel_indep_acc</a>,
-        ext_vel_indep_acc_);
-    </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classspace_1_1_accelerations.html#ac3c8d14a8f0e372d161230d484e767d2">   39</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_accelerations.html#ac1a628d0b74e17d1092b17cbb490e466">ext_vel_indep_acc</a>, ext_vel_indep_acc_);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-    <div class="line"><a name="l00041"></a><span class="lineno"><a class="line"
-                                                                   href="classspace_1_1_accelerations.html#a9d53ce5815d836ee7c3b4e04b9bc611b">   41</a></span>&#160;
-        SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code"
-                                                                    href="classspace_1_1_accelerations.html#aca7dcc41a3326ab0161678eb834fd103">ext_vel_dep_acc</a>,
-        ext_vel_dep_acc_);
-    </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classspace_1_1_accelerations.html#a9d53ce5815d836ee7c3b4e04b9bc611b">   41</a></span>&#160;    SPACEHUB_STD_ACCESSOR(<span class="keyword">auto</span>, <a class="code" href="classspace_1_1_accelerations.html#aca7dcc41a3326ab0161678eb834fd103">ext_vel_dep_acc</a>, ext_vel_dep_acc_);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    Coord acc_;</div>
@@ -152,41 +123,12 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
 <div class="ttc" id="aclassspace_1_1_accelerations_html"><div class="ttname"><a href="classspace_1_1_accelerations.html">space::Accelerations</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:18</div></div>
-<div class="ttc" id="aclassspace_1_1_accelerations_html_ab1c2b9a56d0ce70d69aae6f3d6e9b3a3">
-    <div class="ttname"><a href="classspace_1_1_accelerations.html#ab1c2b9a56d0ce70d69aae6f3d6e9b3a3">space::Accelerations::tot_vel_indep_acc</a>
-    </div>
-    <div class="ttdeci">auto &amp; tot_vel_indep_acc() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> accelerations.hpp:37</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_accelerations_html_adb69f6c6fab79d47e1917f165811b028">
-    <div class="ttname"><a href="classspace_1_1_accelerations.html#adb69f6c6fab79d47e1917f165811b028">space::Accelerations::newtonian_acc</a>
-    </div>
-    <div class="ttdeci">auto &amp; newtonian_acc() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> accelerations.hpp:35</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_accelerations_html_a494a58741396f7345ac30f202c12a416">
-    <div class="ttname"><a href="classspace_1_1_accelerations.html#a494a58741396f7345ac30f202c12a416">space::Accelerations::Accelerations</a>
-    </div>
-    <div class="ttdeci">Accelerations()=default</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_accelerations_html_a33f4209d477db92eaef003c36ce1037b">
-    <div class="ttname"><a href="classspace_1_1_accelerations.html#a33f4209d477db92eaef003c36ce1037b">space::Accelerations::acc</a>
-    </div>
-    <div class="ttdeci">auto &amp; acc() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> accelerations.hpp:33</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_accelerations_html_ac1a628d0b74e17d1092b17cbb490e466">
-    <div class="ttname"><a href="classspace_1_1_accelerations.html#ac1a628d0b74e17d1092b17cbb490e466">space::Accelerations::ext_vel_indep_acc</a>
-    </div>
-    <div class="ttdeci">auto &amp; ext_vel_indep_acc() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> accelerations.hpp:39</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_accelerations_html_aca7dcc41a3326ab0161678eb834fd103">
-    <div class="ttname"><a href="classspace_1_1_accelerations.html#aca7dcc41a3326ab0161678eb834fd103">space::Accelerations::ext_vel_dep_acc</a>
-    </div>
-    <div class="ttdeci">auto &amp; ext_vel_dep_acc() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> accelerations.hpp:41</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_accelerations_html_ab1c2b9a56d0ce70d69aae6f3d6e9b3a3"><div class="ttname"><a href="classspace_1_1_accelerations.html#ab1c2b9a56d0ce70d69aae6f3d6e9b3a3">space::Accelerations::tot_vel_indep_acc</a></div><div class="ttdeci">auto &amp; tot_vel_indep_acc() noexcept</div><div class="ttdef"><b>Definition:</b> accelerations.hpp:37</div></div>
+<div class="ttc" id="aclassspace_1_1_accelerations_html_adb69f6c6fab79d47e1917f165811b028"><div class="ttname"><a href="classspace_1_1_accelerations.html#adb69f6c6fab79d47e1917f165811b028">space::Accelerations::newtonian_acc</a></div><div class="ttdeci">auto &amp; newtonian_acc() noexcept</div><div class="ttdef"><b>Definition:</b> accelerations.hpp:35</div></div>
+<div class="ttc" id="aclassspace_1_1_accelerations_html_a494a58741396f7345ac30f202c12a416"><div class="ttname"><a href="classspace_1_1_accelerations.html#a494a58741396f7345ac30f202c12a416">space::Accelerations::Accelerations</a></div><div class="ttdeci">Accelerations()=default</div></div>
+<div class="ttc" id="aclassspace_1_1_accelerations_html_a33f4209d477db92eaef003c36ce1037b"><div class="ttname"><a href="classspace_1_1_accelerations.html#a33f4209d477db92eaef003c36ce1037b">space::Accelerations::acc</a></div><div class="ttdeci">auto &amp; acc() noexcept</div><div class="ttdef"><b>Definition:</b> accelerations.hpp:33</div></div>
+<div class="ttc" id="aclassspace_1_1_accelerations_html_ac1a628d0b74e17d1092b17cbb490e466"><div class="ttname"><a href="classspace_1_1_accelerations.html#ac1a628d0b74e17d1092b17cbb490e466">space::Accelerations::ext_vel_indep_acc</a></div><div class="ttdeci">auto &amp; ext_vel_indep_acc() noexcept</div><div class="ttdef"><b>Definition:</b> accelerations.hpp:39</div></div>
+<div class="ttc" id="aclassspace_1_1_accelerations_html_aca7dcc41a3326ab0161678eb834fd103"><div class="ttname"><a href="classspace_1_1_accelerations.html#aca7dcc41a3326ab0161678eb834fd103">space::Accelerations::ext_vel_dep_acc</a></div><div class="ttdeci">auto &amp; ext_vel_dep_acc() noexcept</div><div class="ttdef"><b>Definition:</b> accelerations.hpp:41</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

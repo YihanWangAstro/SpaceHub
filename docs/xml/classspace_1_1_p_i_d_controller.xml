@@ -72,20 +72,18 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-          <memberdef kind="variable" id="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86"
-                     prot="public" static="no" mutable="no">
-              <type>friend</type>
-              <definition>friend space::PIDController&lt; Max_order, T &gt;::Base</definition>
+      <memberdef kind="variable" id="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86" prot="public" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::PIDController&lt; Max_order, T &gt;::Base</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="step-controller/PID-controller.hpp" line="45" column="13"
-                        bodyfile="step-controller/PID-controller.hpp" bodystart="45" bodyend="-1"/>
+        <location file="step-controller/PID-controller.hpp" line="45" column="13" bodyfile="step-controller/PID-controller.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -297,39 +295,37 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-          <memberdef kind="function" id="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename ArrayLike</type>
-                  </param>
-              </templateparamlist>
-              <type>Scalar</type>
-              <definition>Scalar space::PIDController&lt; Max_order, T &gt;::impl_next_step_size</definition>
-              <argsstring>(size_t order, Scalar old_step, ArrayLike const &amp;errors)</argsstring>
-              <name>impl_next_step_size</name>
-              <param>
-                  <type>size_t</type>
-                  <declname>order</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>old_step</declname>
-              </param>
-              <param>
-                  <type>ArrayLike const &amp;</type>
-                  <declname>errors</declname>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="step-controller/PID-controller.hpp" line="49" column="12"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_p_i_d_controller_1a4bbff2234d6e13285f9e654fddc5d1d1"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ArrayLike</type>
+          </param>
+        </templateparamlist>
+        <type>Scalar</type>
+        <definition>Scalar space::PIDController&lt; Max_order, T &gt;::impl_next_step_size</definition>
+        <argsstring>(size_t order, Scalar old_step, ArrayLike const &amp;errors)</argsstring>
+        <name>impl_next_step_size</name>
+        <param>
+          <type>size_t</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>old_step</declname>
+        </param>
+        <param>
+          <type>ArrayLike const &amp;</type>
+          <declname>errors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="step-controller/PID-controller.hpp" line="49" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_p_i_d_controller_1a4bbff2234d6e13285f9e654fddc5d1d1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Scalar</type>
         <definition>auto space::PIDController&lt; Max_order, T &gt;::impl_next_step_size</definition>
         <argsstring>(size_t order, Scalar old_step, Scalar error)</argsstring>
@@ -352,40 +348,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="step-controller/PID-controller.hpp" line="52" column="12"
-                        bodyfile="step-controller/PID-controller.hpp" bodystart="121" bodyend="127"/>
-          </memberdef>
-          <memberdef kind="function" id="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename ArrayLike</type>
-                  </param>
-              </templateparamlist>
-              <type>auto</type>
-              <definition>auto space::PIDController&lt; Max_order, T &gt;::impl_next_step_size</definition>
-              <argsstring>(size_t order, Scalar old_step, ArrayLike const &amp;errors) -&gt; Scalar</argsstring>
-              <name>impl_next_step_size</name>
-              <param>
-                  <type>size_t</type>
-                  <declname>order</declname>
-              </param>
-              <param>
-                  <type>Scalar</type>
-                  <declname>old_step</declname>
-              </param>
-              <param>
-                  <type>ArrayLike const &amp;</type>
-                  <declname>errors</declname>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="step-controller/PID-controller.hpp" line="100" column="17"
-                        bodyfile="step-controller/PID-controller.hpp" bodystart="100" bodyend="117"/>
+        <location file="step-controller/PID-controller.hpp" line="52" column="12" bodyfile="step-controller/PID-controller.hpp" bodystart="121" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ArrayLike</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::PIDController&lt; Max_order, T &gt;::impl_next_step_size</definition>
+        <argsstring>(size_t order, Scalar old_step, ArrayLike const &amp;errors) -&gt; Scalar</argsstring>
+        <name>impl_next_step_size</name>
+        <param>
+          <type>size_t</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>Scalar</type>
+          <declname>old_step</declname>
+        </param>
+        <param>
+          <type>ArrayLike const &amp;</type>
+          <declname>errors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="step-controller/PID-controller.hpp" line="100" column="17" bodyfile="step-controller/PID-controller.hpp" bodystart="100" bodyend="117"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -460,28 +453,12 @@
     <location file="step-controller/PID-controller.hpp" line="19" column="47" bodyfile="step-controller/PID-controller.hpp" bodystart="19" bodyend="77"/>
     <listofallmembers>
       <member refid="classspace_1_1_p_i_d_controller_1aec0f91516488e50495f8269156a72919" prot="public" virt="non-virtual"><scope>space::PIDController</scope><name>Base</name></member>
-        <member refid="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86" prot="public"
-                virt="non-virtual">
-            <scope>space::PIDController</scope>
-            <name>Base</name>
-        </member>
+      <member refid="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86" prot="public" virt="non-virtual"><scope>space::PIDController</scope><name>Base</name></member>
       <member refid="classspace_1_1_step_controller_1a1d227d201a424a7a7b118e25b693c046" prot="public" virt="non-virtual"><scope>space::PIDController</scope><name>derived</name></member>
       <member refid="classspace_1_1_p_i_d_controller_1ab8e226996c028b36fd2ebb358b27d387" prot="private" virt="non-virtual"><scope>space::PIDController</scope><name>expon_</name></member>
-        <member refid="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44" prot="protected"
-                virt="non-virtual">
-            <scope>space::PIDController</scope>
-            <name>impl_next_step_size</name>
-        </member>
-        <member refid="classspace_1_1_p_i_d_controller_1a4bbff2234d6e13285f9e654fddc5d1d1" prot="protected"
-                virt="non-virtual">
-            <scope>space::PIDController</scope>
-            <name>impl_next_step_size</name>
-        </member>
-        <member refid="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" prot="protected"
-                virt="non-virtual">
-            <scope>space::PIDController</scope>
-            <name>impl_next_step_size</name>
-        </member>
+      <member refid="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44" prot="protected" virt="non-virtual"><scope>space::PIDController</scope><name>impl_next_step_size</name></member>
+      <member refid="classspace_1_1_p_i_d_controller_1a4bbff2234d6e13285f9e654fddc5d1d1" prot="protected" virt="non-virtual"><scope>space::PIDController</scope><name>impl_next_step_size</name></member>
+      <member refid="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" prot="protected" virt="non-virtual"><scope>space::PIDController</scope><name>impl_next_step_size</name></member>
       <member refid="classspace_1_1_p_i_d_controller_1a05a42f34cf7ff8c7fb052197adabe4c3" prot="private" virt="non-virtual"><scope>space::PIDController</scope><name>Kd_</name></member>
       <member refid="classspace_1_1_p_i_d_controller_1ae988bf3dc051549e51b73bded956c7a5" prot="private" virt="non-virtual"><scope>space::PIDController</scope><name>Ki_</name></member>
       <member refid="classspace_1_1_p_i_d_controller_1ab1d11a7a237bf547cae511b512a4d2eb" prot="private" virt="non-virtual"><scope>space::PIDController</scope><name>Kp_</name></member>

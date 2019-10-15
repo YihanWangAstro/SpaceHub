@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="362" column="27" bodyfile="dev-tools.hpp" bodystart="362" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="362" column="27" bodyfile="dev-tools.hpp" bodystart="362" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="356" column="27"/>
+        <location file="dev-tools.hpp" line="356" column="27"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1is__reservable_1a72d2bcb9c62bb9d9a385e1acf6db5b60" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -64,14 +64,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-          <location file="dev-tools.hpp" line="360" column="38"/>
+        <location file="dev-tools.hpp" line="360" column="38"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-      <location file="dev-tools.hpp" line="354" column="22" bodyfile="dev-tools.hpp" bodystart="354" bodyend="363"/>
+    <location file="dev-tools.hpp" line="354" column="22" bodyfile="dev-tools.hpp" bodystart="354" bodyend="363"/>
     <listofallmembers>
       <member refid="structspace_1_1is__reservable_1a62d772bf4de337330b2d2c4cf1f8a78c" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>check</name></member>
       <member refid="structspace_1_1is__reservable_1a72d2bcb9c62bb9d9a385e1acf6db5b60" prot="public" virt="non-virtual"><scope>space::is_reservable</scope><name>check</name></member>

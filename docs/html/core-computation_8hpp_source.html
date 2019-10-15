@@ -253,44 +253,20 @@ $(function() {
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">return</span> 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-    <div class="line"><a name="l00192"></a><span class="lineno"><a class="line"
-                                                                   href="structspace_1_1calc_1_1has__method__chain__pos.html">  192</a></span>&#160;
-        CREATE_METHOD_CHECK(chain_pos);
-    </div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="structspace_1_1calc_1_1has__method__chain__pos.html">  192</a></span>&#160;  CREATE_METHOD_CHECK(chain_pos);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-    <div class="line"><a name="l00194"></a><span class="lineno"><a class="line"
-                                                                   href="structspace_1_1calc_1_1has__method__index.html">  194</a></span>&#160;
-        CREATE_METHOD_CHECK(index);
-    </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="structspace_1_1calc_1_1has__method__index.html">  194</a></span>&#160;  CREATE_METHOD_CHECK(index);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles&gt;</div>
-    <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; <span class="keyword">auto</span>
-        calc_potential_energy(<a class="code" href="classspace_1_1_particles.html">Particles</a> <span class="keyword">const</span>
-        &amp;particles) {
-    </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keyword">auto</span> calc_potential_energy(<a class="code" href="classspace_1_1_particles.html">Particles</a> <span class="keyword">const</span> &amp;particles) {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">typename</span> Particles::Scalar potential_eng{0};</div>
-    <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; <span
-            class="keywordtype">size_t</span> <span class="keyword">const</span> size = particles.<a class="code"
-                                                                                                     href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">number</a>();
-    </div>
-    <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; <span class="keyword">auto</span>
-        <span class="keyword">const</span> &amp;m = particles.<a class="code"
-                                                                 href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>();
-    </div>
-    <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; <span class="keyword">auto</span>
-        <span class="keyword">const</span> &amp;v = particles.<a class="code"
-                                                                 href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>();
-    </div>
-    <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; <span class="keyword">auto</span>
-        <span class="keyword">const</span> &amp;p = particles.<a class="code"
-                                                                 href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>();
-    </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">size_t</span> <span class="keyword">const</span> size = particles.<a class="code" href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">number</a>();</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">auto</span> <span class="keyword">const</span> &amp;m = particles.<a class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">auto</span> <span class="keyword">const</span> &amp;v = particles.<a class="code" href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>();</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">auto</span> <span class="keyword">const</span> &amp;p = particles.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>();</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-    <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; <span class="keywordflow">if</span>
-        constexpr (HAS_METHOD(<a class="code" href="classspace_1_1_particles.html">Particles</a>, chain_pos) &amp;&amp;
-        HAS_METHOD(<a class="code" href="classspace_1_1_particles.html">Particles</a>, index)) {
-    </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">if</span> constexpr (HAS_METHOD(<a class="code" href="classspace_1_1_particles.html">Particles</a>, chain_pos) &amp;&amp; HAS_METHOD(<a class="code" href="classspace_1_1_particles.html">Particles</a>, index)) {</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> &amp;ch_px = particles.chain_pos().x;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> &amp;ch_py = particles.chain_pos().y;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> &amp;ch_pz = particles.chain_pos().z;</div>
@@ -353,33 +329,16 @@ $(function() {
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">return</span> min_fall_free * space::consts::pi * 0.5 / sqrt(2 * space::consts::G);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  }</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-    <div class="line"><a name="l00274"></a><span class="lineno"><a class="line"
-                                                                   href="structspace_1_1calc_1_1has__method__omega.html">  274</a></span>&#160;
-        CREATE_METHOD_CHECK(omega);
-    </div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="structspace_1_1calc_1_1has__method__omega.html">  274</a></span>&#160;  CREATE_METHOD_CHECK(omega);</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-    <div class="line"><a name="l00276"></a><span class="lineno"><a class="line"
-                                                                   href="structspace_1_1calc_1_1has__method__bind_e.html">  276</a></span>&#160;
-        CREATE_METHOD_CHECK(bindE);
-    </div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="structspace_1_1calc_1_1has__method__bind_e.html">  276</a></span>&#160;  CREATE_METHOD_CHECK(bindE);</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles&gt;</div>
 <div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="namespacespace_1_1calc.html#a3f014dcdcc83e6975bdc75598a85bb51">  285</a></span>&#160;  <span class="keyword">auto</span> <a class="code" href="namespacespace_1_1calc.html#a3f014dcdcc83e6975bdc75598a85bb51">calc_step_scale</a>(<a class="code" href="classspace_1_1_particles.html">Particles</a> <span class="keyword">const</span> &amp;particles) {</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">if</span> constexpr (HAS_METHOD(<a class="code" href="classspace_1_1_particles.html">Particles</a>, omega)) {</div>
-    <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; <span
-            class="keywordflow">return</span> <a class="code"
-                                                 href="namespacespace_1_1calc.html#a803024b9c9a7c28844d9932f4ebecf92">calc_fall_free_time</a>(particles.<a
-            class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>(), particles.<a
-            class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>()) *
-        particles.omega();
-    </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacespace_1_1calc.html#a803024b9c9a7c28844d9932f4ebecf92">calc_fall_free_time</a>(particles.<a class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>(), particles.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>()) * particles.omega();</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    } <span class="keywordflow">else</span> {</div>
-    <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; <span
-            class="keywordflow">return</span> <a class="code"
-                                                 href="namespacespace_1_1calc.html#a803024b9c9a7c28844d9932f4ebecf92">calc_fall_free_time</a>(particles.<a
-            class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>(), particles.<a
-            class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>());
-    </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacespace_1_1calc.html#a803024b9c9a7c28844d9932f4ebecf92">calc_fall_free_time</a>(particles.<a class="code" href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">mass</a>(), particles.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>());</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  }</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
@@ -397,38 +356,15 @@ $(function() {
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;}  <span class="comment">// namespace space::calc</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassspace_1_1_particles_html_aac4152046aebc0f7735ec475a472b698">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">space::Particles::vel</a></div>
-    <div class="ttdeci">auto &amp; vel() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:30</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div>
-    <div class="ttdeci">auto &amp; mass() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:24</div>
-</div>
-<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543">
-    <div class="ttname"><a
-            href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div>
-    <div class="ttdeci">auto &amp; pos() noexcept</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:26</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_particles_html_aac4152046aebc0f7735ec475a472b698"><div class="ttname"><a href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">space::Particles::vel</a></div><div class="ttdeci">auto &amp; vel() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:30</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a1be68a05d871298fc3829457d6cf77fa"><div class="ttname"><a href="classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa">space::Particles::mass</a></div><div class="ttdeci">auto &amp; mass() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:24</div></div>
+<div class="ttc" id="aclassspace_1_1_particles_html_a88b14a9d84c8887f5a95c4ecc8922543"><div class="ttname"><a href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">space::Particles::pos</a></div><div class="ttdeci">auto &amp; pos() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:26</div></div>
 <div class="ttc" id="anamespacespace_1_1calc_html_a803024b9c9a7c28844d9932f4ebecf92"><div class="ttname"><a href="namespacespace_1_1calc.html#a803024b9c9a7c28844d9932f4ebecf92">space::calc::calc_fall_free_time</a></div><div class="ttdeci">auto calc_fall_free_time(ScalarArray const &amp;mass, Coord const &amp;position)</div><div class="ttdoc">Calculate the minimal fall free time of two particles.</div><div class="ttdef"><b>Definition:</b> core-computation.hpp:255</div></div>
 <div class="ttc" id="anamespacespace_1_1calc_html_a3f014dcdcc83e6975bdc75598a85bb51"><div class="ttname"><a href="namespacespace_1_1calc.html#a3f014dcdcc83e6975bdc75598a85bb51">space::calc::calc_step_scale</a></div><div class="ttdeci">auto calc_step_scale(Particles const &amp;particles)</div><div class="ttdef"><b>Definition:</b> core-computation.hpp:285</div></div>
 <div class="ttc" id="astructspace_1_1max__value_html"><div class="ttname"><a href="structspace_1_1max__value.html">space::max_value</a></div><div class="ttdef"><b>Definition:</b> own-math.hpp:78</div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html">
-    <div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:19</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdef"><b>Definition:</b> particles.hpp:19</div></div>
 <div class="ttc" id="anamespacespace_1_1calc_html"><div class="ttname"><a href="namespacespace_1_1calc.html">space::calc</a></div></div>
-<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32">
-    <div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a>
-    </div>
-    <div class="ttdeci">size_t number() const</div>
-    <div class="ttdef"><b>Definition:</b> particles.hpp:111</div>
-</div>
+<div class="ttc" id="aclassspace_1_1_particles_html_ac7f2786d692d170715b1643846eece32"><div class="ttname"><a href="classspace_1_1_particles.html#ac7f2786d692d170715b1643846eece32">space::Particles::number</a></div><div class="ttdeci">size_t number() const</div><div class="ttdef"><b>Definition:</b> particles.hpp:111</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

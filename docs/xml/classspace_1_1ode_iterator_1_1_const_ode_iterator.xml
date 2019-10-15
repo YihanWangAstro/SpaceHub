@@ -25,21 +25,18 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
-          <memberdef kind="variable"
-                     id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a56f7b0b302dfe77df7669969b4c57928"
-                     prot="public" static="no" mutable="no">
-              <type>friend</type>
-              <definition>friend space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::Base</definition>
+      <memberdef kind="variable" id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a56f7b0b302dfe77df7669969b4c57928" prot="public" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::Base</definition>
         <argsstring></argsstring>
-              <name>Base</name>
+        <name>Base</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-              <location file="ode-iterator/const-iterator.hpp" line="22" column="13"
-                        bodyfile="ode-iterator/const-iterator.hpp" bodystart="22" bodyend="-1"/>
+        <location file="ode-iterator/const-iterator.hpp" line="22" column="13" bodyfile="ode-iterator/const-iterator.hpp" bodystart="22" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -58,35 +55,32 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-          <memberdef kind="function"
-                     id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a6a7e751c418463a6b435bc83374ec15b"
-                     prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-              <templateparamlist>
-                  <param>
-                      <type>typename T</type>
-                  </param>
-              </templateparamlist>
-              <type>auto</type>
-              <definition>auto space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::impl_iterate</definition>
-              <argsstring>(T &amp;particles, typename T::Scalar macro_step_size) -&gt; typename T::Scalar</argsstring>
-              <name>impl_iterate</name>
-              <param>
-                  <type>T &amp;</type>
-                  <declname>particles</declname>
-              </param>
-              <param>
-                  <type>typename T::Scalar</type>
-                  <declname>macro_step_size</declname>
-              </param>
-              <briefdescription>
-              </briefdescription>
-              <detaileddescription>
-              </detaileddescription>
-              <inbodydescription>
-              </inbodydescription>
-              <location file="ode-iterator/const-iterator.hpp" line="26" column="10"
-                        bodyfile="ode-iterator/const-iterator.hpp" bodystart="39" bodyend="43"/>
-          </memberdef>
+      <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a6a7e751c418463a6b435bc83374ec15b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto space::odeIterator::ConstOdeIterator&lt; Integrator &gt;::impl_iterate</definition>
+        <argsstring>(T &amp;particles, typename T::Scalar macro_step_size) -&gt; typename T::Scalar</argsstring>
+        <name>impl_iterate</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>typename T::Scalar</type>
+          <declname>macro_step_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ode-iterator/const-iterator.hpp" line="26" column="10" bodyfile="ode-iterator/const-iterator.hpp" bodystart="39" bodyend="43"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
@@ -129,16 +123,8 @@
     <location file="ode-iterator/const-iterator.hpp" line="17" column="46" bodyfile="ode-iterator/const-iterator.hpp" bodystart="17" bodyend="31"/>
     <listofallmembers>
       <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1ade51217e98fc0b97d34a63caba47526c" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>Base</name></member>
-        <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a56f7b0b302dfe77df7669969b4c57928"
-                prot="public" virt="non-virtual">
-            <scope>space::odeIterator::ConstOdeIterator</scope>
-            <name>Base</name>
-        </member>
-        <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a6a7e751c418463a6b435bc83374ec15b"
-                prot="protected" virt="non-virtual">
-            <scope>space::odeIterator::ConstOdeIterator</scope>
-            <name>impl_iterate</name>
-        </member>
+      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a56f7b0b302dfe77df7669969b4c57928" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>Base</name></member>
+      <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a6a7e751c418463a6b435bc83374ec15b" prot="protected" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>impl_iterate</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_const_ode_iterator_1a27c17658e08e1144a7ffb3588a5cc5f8" prot="private" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>integrator_</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a415466d750c7405d63b72089535a2520" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>iterate</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1aa9481da6ee6d141407470f53be24e10d" prot="public" virt="non-virtual"><scope>space::odeIterator::ConstOdeIterator</scope><name>set_atol</name></member>
