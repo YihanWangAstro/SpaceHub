@@ -310,7 +310,7 @@
         <location file="particle-system/archain.hpp" line="126" column="14" bodyfile="particle-system/archain.hpp" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1ae76b9655858d608d7602d30133eb3004" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; Interactions::ext_vel_dep, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::aux_vel_</definition>
         <argsstring></argsstring>
         <name>aux_vel_</name>
@@ -323,7 +323,7 @@
         <location file="particle-system/archain.hpp" line="128" column="24" bodyfile="particle-system/archain.hpp" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1adad7444d346057c45943741fa3c8ba7a" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; Interactions::ext_vel_dep, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_aux_vel_</definition>
         <argsstring></argsstring>
         <name>chain_aux_vel_</name>

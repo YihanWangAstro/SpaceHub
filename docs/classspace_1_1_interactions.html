@@ -54,7 +54,7 @@
           <tbody>
             <tr>
               <td style="width: 1%">Derived</td>
-              <td></td>
+              <td>The implement class in CRTP idiom.</td>
             </tr>
           </tbody>
         </table>
@@ -64,11 +64,26 @@
             <li>
               Reference
               <ul>
+                <li><a href="#pub-static-attribs">Public static variables</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
               </ul>
             </li>
           </ul>
         </div>
+<p>Abstract class of interactions. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as interaction of the concept <code><a href="classspace_1_1_interactions.html" class="m-doc">Interactions</a></code>.</p>
+        <section id="pub-static-attribs">
+          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              static bool <a href="#a722a9fafdf2e329951f30daa07f0fbe8" class="m-doc">ext_vel_dep</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              static bool <a href="#ad8453af189e176a74e97e536c5bff568" class="m-doc">ext_vel_indep</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
@@ -115,15 +130,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td></td>
+                  <td style="width: 1%">particles&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system need to be evaluated.</td>
                 </tr>
                 <tr>
-                  <td>acceleration</td>
-                  <td></td>
+                  <td>acceleration&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>The output of the evaluated acceleration.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Evaluate the total acceleration of the current state of a given particle system.</p>
           </div></section>
           <section class="m-doc-details" id="a2eaa8fc6ade5e5d127d5d93f6e75663e"><div>
             <h3>
@@ -140,15 +156,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td></td>
+                  <td style="width: 1%">particles&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system need to be evaluated.</td>
                 </tr>
                 <tr>
-                  <td>acceleration</td>
-                  <td></td>
+                  <td>acceleration&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>The output of the evaluated acceleration.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-flat m-warning">optional impl</strong> <code>&gt; external velocity dependent forces exist.</code></p><p>Evaluate the external velocity dependent acceleration of the current state of a given particle system.</p>
           </div></section>
           <section class="m-doc-details" id="a42e012c717f1ac61c401e7492203ea1e"><div>
             <h3>
@@ -165,15 +182,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td></td>
+                  <td style="width: 1%">particles&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system need to be evaluated.</td>
                 </tr>
                 <tr>
-                  <td>acceleration</td>
-                  <td></td>
+                  <td>acceleration&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>The output of the evaluated acceleration.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-flat m-warning">optional impl</strong> <code>&gt; external velocity independent forces exist.</code></p><p>Evaluate the external velocity independent acceleration of the current state of a given particle system.</p>
           </div></section>
           <section class="m-doc-details" id="ae8ccb90af06fe343684870d2c93a54fd"><div>
             <h3>
@@ -190,15 +208,37 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td></td>
+                  <td style="width: 1%">particles&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system need to be evaluated.</td>
                 </tr>
                 <tr>
-                  <td>acceleration</td>
-                  <td></td>
+                  <td>acceleration&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>The output of the evaluated acceleration.</td>
                 </tr>
               </tbody>
             </table>
+<p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Evaluate the internal newtonian acceleration of the current state of a given particle system.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a722a9fafdf2e329951f30daa07f0fbe8"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              static bool space::<wbr />Interactions&lt;Derived&gt;::<wbr /><a href="#a722a9fafdf2e329951f30daa07f0fbe8" class="m-doc-self">ext_vel_dep</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+<p><strong class="m-label m-flat m-success">auto impl</strong></p><p>Variable to check if external velocity dependent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_dep_acc(). The value is <code>true</code>, otherwise this value is <code>false</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="ad8453af189e176a74e97e536c5bff568"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              static bool space::<wbr />Interactions&lt;Derived&gt;::<wbr /><a href="#ad8453af189e176a74e97e536c5bff568" class="m-doc-self">ext_vel_indep</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+<p><strong class="m-label m-flat m-success">auto impl</strong></p><p>Variable to check if external velocity independent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_indep_acc(). The value is <code>true</code>, otherwise this value is <code>false</code>.</p>
           </div></section>
         </section>
       </div>

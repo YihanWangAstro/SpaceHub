@@ -18,6 +18,8 @@ var searchData=
   ['expr_3c_20larray_3c_20t_2c_20len_2c_20true_20_3e_20_3e_61',['Expr&lt; Larray&lt; T, Len, true &gt; &gt;',['../struct_space_h_1_1_lazy_1_1_expr.html',1,'SpaceH::Lazy']]],
   ['expr_3c_20slice_5fexpr_3c_20t_2c_20begin_2c_20end_2c_20stride_2c_20srcsize_20_3e_20_3e_62',['Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;',['../struct_space_h_1_1_lazy_1_1_expr.html',1,'SpaceH::Lazy']]],
   ['expr_3c_20unary_5fexpr_3c_20operator_2c_20unary_20_3e_20_3e_63',['Expr&lt; Unary_Expr&lt; Operator, Unary &gt; &gt;',['../struct_space_h_1_1_lazy_1_1_expr.html',1,'SpaceH::Lazy']]],
-  ['ext_5fvel_5fdep_5facc_64',['ext_vel_dep_acc',['../classspace_1_1_accelerations.html#aca7dcc41a3326ab0161678eb834fd103',1,'space::Accelerations::ext_vel_dep_acc() noexcept'],['../classspace_1_1_accelerations.html#a9d53ce5815d836ee7c3b4e04b9bc611b',1,'space::Accelerations::ext_vel_dep_acc() const noexcept']]],
-  ['ext_5fvel_5findep_5facc_65',['ext_vel_indep_acc',['../classspace_1_1_accelerations.html#ac1a628d0b74e17d1092b17cbb490e466',1,'space::Accelerations::ext_vel_indep_acc() noexcept'],['../classspace_1_1_accelerations.html#ac3c8d14a8f0e372d161230d484e767d2',1,'space::Accelerations::ext_vel_indep_acc() const noexcept']]]
+  ['ext_5fvel_5fdep_64',['ext_vel_dep',['../classspace_1_1_interactions.html#a722a9fafdf2e329951f30daa07f0fbe8',1,'space::Interactions']]],
+  ['ext_5fvel_5fdep_5facc_65',['ext_vel_dep_acc',['../classspace_1_1_accelerations.html#aca7dcc41a3326ab0161678eb834fd103',1,'space::Accelerations::ext_vel_dep_acc() noexcept'],['../classspace_1_1_accelerations.html#a9d53ce5815d836ee7c3b4e04b9bc611b',1,'space::Accelerations::ext_vel_dep_acc() const noexcept']]],
+  ['ext_5fvel_5findep_66',['ext_vel_indep',['../classspace_1_1_interactions.html#ad8453af189e176a74e97e536c5bff568',1,'space::Interactions']]],
+  ['ext_5fvel_5findep_5facc_67',['ext_vel_indep_acc',['../classspace_1_1_accelerations.html#ac1a628d0b74e17d1092b17cbb490e466',1,'space::Accelerations::ext_vel_indep_acc() noexcept'],['../classspace_1_1_accelerations.html#ac3c8d14a8f0e372d161230d484e767d2',1,'space::Accelerations::ext_vel_indep_acc() const noexcept']]]
 ];

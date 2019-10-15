@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['r_482',['r',['../structspace_1_1_chain_1_1_node.html#a3c3d8bddf52fe496c93abfaec4341035',1,'space::Chain::Node']]]
+  ['order_503',['order',['../classspace_1_1_gauss_dadau.html#a2abe1550f71fac107ccff4dabb130e80',1,'space::GaussDadau']]]
 ];

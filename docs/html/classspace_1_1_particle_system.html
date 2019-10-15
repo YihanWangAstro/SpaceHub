@@ -132,10 +132,10 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class space::ParticleSystem&lt; Derived &gt;</h3>
 
-<p>Abstract class of Particle System. A class implements(partly/fully) the interfaces of this class via CRTP idioms can be used cross the system as an implementation of the concept <code>Particle System</code>. The particle System integrates the data set of a particle set and provides interface to evolve the internal particles.</p>
+<p>Abstract class of Particle System. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <code><a class="el" href="classspace_1_1_particle_system.html">ParticleSystem</a></code>. The particle System integrates the data set of a particle set and provides interface to evolve the internal particles.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>The implement class in CRTP idioms. </td></tr>
+    <tr><td class="paramname">Derived</td><td>The implement class in CRTP idiom. </td></tr>
   </table>
   </dd>
 </dl>
@@ -457,7 +457,7 @@ template&lt;typename STL &gt; </div>
       </table>
 </div><div class="memdoc">
 <p> <b>must impl</b></p>
-<p>Reconstruct the particle system from a 1-d linear Container(i.e std::vector, std::array, etc,.). Used for general integration modules. The method should keep consistence with <code>to_linear_container</code>.</p>
+<p>Reconstruct the particle system from a 1-d iterable Container(i.e <code>std::vector</code>, <code>std::array</code>, etc,.). Used for general integration modules.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">STL</td><td>1-d iterable Container. </td></tr>
@@ -470,6 +470,7 @@ template&lt;typename STL &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The method should keep consistence with <a class="el" href="classspace_1_1_particle_system.html#a1e33bfd67792a3b0242f575553bed151">to_linear_container()</a>. </dd></dl>
 
 </div>
 </div>
@@ -730,7 +731,7 @@ template&lt;typename STL &gt; </div>
       </table>
 </div><div class="memdoc">
 <p> <b>must impl</b></p>
-<p>Map all evolved data domain to a 1-d linear Container(i.e std::vector, std::array, etc,.). Used for general integration modules. The method should keep consistence with <code>load_from_linear_container</code>.</p>
+<p>Map all evolved data domain to a 1-d iterable Container(i.e <code>std::vector</code>, <code>std::array</code>, etc,.). Used for general integration modules.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">STL</td><td>1-d iterable Container. </td></tr>
@@ -743,6 +744,7 @@ template&lt;typename STL &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The method should keep consistence with <a class="el" href="classspace_1_1_particle_system.html#a8fe7b476281b0a3793d123bc33eb1211">load_from_linear_container()</a>. </dd></dl>
 
 </div>
 </div>

@@ -56,7 +56,7 @@
         <location file="accelerations.hpp" line="48" column="11" bodyfile="accelerations.hpp" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_accelerations_1afd85ad12d0d726803fbed36b23412f2a" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; Interactions::ext_vel_indep, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1ad8453af189e176a74e97e536c5bff568" kindref="member">Interactions::ext_vel_indep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_indep, Coord, Empty&gt; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_indep_acc_</definition>
         <argsstring></argsstring>
         <name>ext_vel_indep_acc_</name>
@@ -69,7 +69,7 @@
         <location file="accelerations.hpp" line="50" column="24" bodyfile="accelerations.hpp" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_accelerations_1a9cf30c0196304167c7e24ac057b8c72c" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; Interactions::ext_vel_dep, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::Accelerations&lt; Interactions, Coord &gt;::ext_vel_dep_acc_</definition>
         <argsstring></argsstring>
         <name>ext_vel_dep_acc_</name>

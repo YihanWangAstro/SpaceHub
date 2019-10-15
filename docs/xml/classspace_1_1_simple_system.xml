@@ -211,7 +211,7 @@
         <location file="particle-system/base-system.hpp" line="170" column="20" bodyfile="particle-system/base-system.hpp" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_simple_system_1ae0339d057a98449c8d1fff9238185504" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; Interactions::ext_vel_dep, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::SimpleSystem&lt; Particles, Interactions &gt;::aux_vel_</definition>
         <argsstring></argsstring>
         <name>aux_vel_</name>

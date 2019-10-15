@@ -116,7 +116,6 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1epsilon.html">epsilon</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_error_checker.html">ErrorChecker</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base class of a 'Structure of Array' kind particle set.  <a href="classspace_1_1_error_checker.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_gauss_dadau.html">GaussDadau</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gauss-Dadau integrator.  <a href="classspace_1_1_gauss_dadau.html#details">More...</a><br /></td></tr>
@@ -177,10 +176,6 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_types.html">Types</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_vec3.html">Vec3</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Self 3D vector class.  <a href="structspace_1_1_vec3.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1vec3.html">vec3</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Self 3D vector class.  <a href="structspace_1_1vec3.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_worst_offender.html">WorstOffender</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,24 +195,18 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DefaultTypes</b> = <
 template&lt;template&lt; class &gt; class Paticles = PointParticles, typename Force  = interactions::NewtonianGrav&gt; </td></tr>
 <tr class="memitem:ad2ef35cee56ad99f746840675de3fd70"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>DefaultSolver</b> = <a class="el" href="classspace_1_1_simulator.html">Simulator</a>&lt; <a class="el" href="classspace_1_1_a_rchain_system.html">ARchainSystem</a>&lt; Paticles&lt; <a class="el" href="structspace_1_1_types.html">DefaultTypes</a> &gt;, Force, ReguType::LogH &gt;, <a class="el" href="classspace_1_1ode_iterator_1_1_burlish_stoer.html">odeIterator::BurlishStoer</a>&lt; double, <a class="el" href="classspace_1_1_r_m_s.html">RMS</a>, <a class="el" href="classspace_1_1_p_i_d_controller.html">PIDController</a> &gt; &gt;</td></tr>
 <tr class="separator:ad2ef35cee56ad99f746840675de3fd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b9ee91bd17fc9aa56d2cf7467900fce"><td class="memItemLeft" align="right" valign="top"><a id="a0b9ee91bd17fc9aa56d2cf7467900fce"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>vec3ld</b> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; long double &gt;</td></tr>
-<tr class="separator:a0b9ee91bd17fc9aa56d2cf7467900fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1be55951f75940bbdd74d26a30aa7df3"><td class="memItemLeft" align="right" valign="top"><a id="a1be55951f75940bbdd74d26a30aa7df3"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>vec3d</b> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; double &gt;</td></tr>
-<tr class="separator:a1be55951f75940bbdd74d26a30aa7df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef134f80296acbb9c1d2ab5ff4fc4b8b"><td class="memItemLeft" align="right" valign="top"><a id="aef134f80296acbb9c1d2ab5ff4fc4b8b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>vec3f</b> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; float &gt;</td></tr>
-<tr class="separator:aef134f80296acbb9c1d2ab5ff4fc4b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba2aef33549766dafc3a3a5134651622"><td class="memItemLeft" align="right" valign="top"><a id="aba2aef33549766dafc3a3a5134651622"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>vec3i</b> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; int &gt;</td></tr>
-<tr class="separator:aba2aef33549766dafc3a3a5134651622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a433328f837c233654c381b1db0349778"><td class="memItemLeft" align="right" valign="top"><a id="a433328f837c233654c381b1db0349778"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>vec3c</b> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; char &gt;</td></tr>
-<tr class="separator:a433328f837c233654c381b1db0349778"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cb2cfd21ce83f3f8925c6bedaece223"><td class="memItemLeft" align="right" valign="top"><a id="a7cb2cfd21ce83f3f8925c6bedaece223"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>vec3b</b> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; bool &gt;</td></tr>
-<tr class="separator:a7cb2cfd21ce83f3f8925c6bedaece223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048d540ea29aff679591a1b5b9303497"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespace.html#a048d540ea29aff679591a1b5b9303497">vec3ld</a> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; long double &gt;</td></tr>
+<tr class="separator:a048d540ea29aff679591a1b5b9303497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19a48ecf1339c52009ccb6934cf799bd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespace.html#a19a48ecf1339c52009ccb6934cf799bd">vec3d</a> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; double &gt;</td></tr>
+<tr class="separator:a19a48ecf1339c52009ccb6934cf799bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67fb2a2bc7af0f2c219853cda7be35d3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespace.html#a67fb2a2bc7af0f2c219853cda7be35d3">vec3f</a> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; float &gt;</td></tr>
+<tr class="separator:a67fb2a2bc7af0f2c219853cda7be35d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa23d52e014eb76d5d9929854718d9c1e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespace.html#aa23d52e014eb76d5d9929854718d9c1e">vec3i</a> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; int &gt;</td></tr>
+<tr class="separator:aa23d52e014eb76d5d9929854718d9c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a026d91839a4aecf0564d111622a38351"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespace.html#a026d91839a4aecf0564d111622a38351">vec3c</a> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; char &gt;</td></tr>
+<tr class="separator:a026d91839a4aecf0564d111622a38351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00335c4bf483b31127c2757316593d6b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespace.html#a00335c4bf483b31127c2757316593d6b">vec3b</a> = <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; bool &gt;</td></tr>
+<tr class="separator:a00335c4bf483b31127c2757316593d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -449,48 +438,24 @@ template&lt;typename Real &gt; </td></tr>
 template&lt;typename TypeSystem &gt; </td></tr>
 <tr class="memitem:a5a2f00008399bbdfb4d8f7142937aaba"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, <a class="el" href="classspace_1_1_point_particles.html">PointParticles</a>&lt; TypeSystem &gt; const &amp;particle_system)</td></tr>
 <tr class="separator:a5a2f00008399bbdfb4d8f7142937aaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2963cbc658d86ae899c08372a618f3fe"><td class="memTemplParams" colspan="2"><a id="a2963cbc658d86ae899c08372a618f3fe"></a>
-template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2963cbc658d86ae899c08372a618f3fe"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2963cbc658d86ae899c08372a618f3fe"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#a2963cbc658d86ae899c08372a618f3fe">distance</a> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v1, const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a2963cbc658d86ae899c08372a618f3fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Euclid distance of two vectors. <br /></td></tr>
 <tr class="separator:a2963cbc658d86ae899c08372a618f3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9471e13d1110601d090fb498061e55f5"><td class="memTemplParams" colspan="2"><a id="a9471e13d1110601d090fb498061e55f5"></a>
-template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9471e13d1110601d090fb498061e55f5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9471e13d1110601d090fb498061e55f5"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#a9471e13d1110601d090fb498061e55f5">dot</a> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v1, const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a9471e13d1110601d090fb498061e55f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the inner product of two vectors. <br /></td></tr>
 <tr class="separator:a9471e13d1110601d090fb498061e55f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af528f519f6072ce27becb1d2acc270ad"><td class="memTemplParams" colspan="2"><a id="af528f519f6072ce27becb1d2acc270ad"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af528f519f6072ce27becb1d2acc270ad"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>norm</b> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:af528f519f6072ce27becb1d2acc270ad"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af528f519f6072ce27becb1d2acc270ad"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#af528f519f6072ce27becb1d2acc270ad">norm</a> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:af528f519f6072ce27becb1d2acc270ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a336c4b7ef644a2d2e28cb69c1e3d8dc5"><td class="memTemplParams" colspan="2"><a id="a336c4b7ef644a2d2e28cb69c1e3d8dc5"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a336c4b7ef644a2d2e28cb69c1e3d8dc5"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>re_norm</b> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:a336c4b7ef644a2d2e28cb69c1e3d8dc5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a336c4b7ef644a2d2e28cb69c1e3d8dc5"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#a336c4b7ef644a2d2e28cb69c1e3d8dc5">re_norm</a> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:a336c4b7ef644a2d2e28cb69c1e3d8dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbb0245be78abc3f96541898d1aeced4"><td class="memTemplParams" colspan="2"><a id="afbb0245be78abc3f96541898d1aeced4"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:afbb0245be78abc3f96541898d1aeced4"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>norm2</b> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:afbb0245be78abc3f96541898d1aeced4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afbb0245be78abc3f96541898d1aeced4"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#afbb0245be78abc3f96541898d1aeced4">norm2</a> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:afbb0245be78abc3f96541898d1aeced4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba641f0ea9662b2a002b7321ac18d46b"><td class="memTemplParams" colspan="2"><a id="aba641f0ea9662b2a002b7321ac18d46b"></a>
-template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aba641f0ea9662b2a002b7321ac18d46b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aba641f0ea9662b2a002b7321ac18d46b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#aba641f0ea9662b2a002b7321ac18d46b">cross</a> (const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v1, const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:aba641f0ea9662b2a002b7321ac18d46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the cross product of two vectors. <br /></td></tr>
 <tr class="separator:aba641f0ea9662b2a002b7321ac18d46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86bda8692fc2d75619d57fbdb23be089"><td class="memTemplParams" colspan="2"><a id="a86bda8692fc2d75619d57fbdb23be089"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a86bda8692fc2d75619d57fbdb23be089"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#a86bda8692fc2d75619d57fbdb23be089">distance</a> (const <a class="el" href="structspace_1_1vec3.html">vec3</a>&lt; T &gt; &amp;v1, const <a class="el" href="structspace_1_1vec3.html">vec3</a>&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a86bda8692fc2d75619d57fbdb23be089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Euclid distance of two vectors. <br /></td></tr>
-<tr class="separator:a86bda8692fc2d75619d57fbdb23be089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcb12df6c0b9bdba80f49503496dd2d7"><td class="memTemplParams" colspan="2"><a id="afcb12df6c0b9bdba80f49503496dd2d7"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:afcb12df6c0b9bdba80f49503496dd2d7"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#afcb12df6c0b9bdba80f49503496dd2d7">dot</a> (const <a class="el" href="structspace_1_1vec3.html">vec3</a>&lt; T &gt; &amp;v1, const <a class="el" href="structspace_1_1vec3.html">vec3</a>&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:afcb12df6c0b9bdba80f49503496dd2d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the inner product of two vectors. <br /></td></tr>
-<tr class="separator:afcb12df6c0b9bdba80f49503496dd2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a389923b3aa7c850e6a39f198861fc3b0"><td class="memTemplParams" colspan="2"><a id="a389923b3aa7c850e6a39f198861fc3b0"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a389923b3aa7c850e6a39f198861fc3b0"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacespace.html#a389923b3aa7c850e6a39f198861fc3b0">cross</a> (const <a class="el" href="structspace_1_1vec3.html">vec3</a>&lt; T &gt; &amp;v1, const <a class="el" href="structspace_1_1vec3.html">vec3</a>&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a389923b3aa7c850e6a39f198861fc3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the cross product of two vectors. <br /></td></tr>
-<tr class="separator:a389923b3aa7c850e6a39f198861fc3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -517,7 +482,302 @@ template&lt;typename T &gt; </td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Documentation for space </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a00335c4bf483b31127c2757316593d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00335c4bf483b31127c2757316593d6b">&#9670;&nbsp;</a></span>vec3b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacespace.html#a00335c4bf483b31127c2757316593d6b">space::vec3b</a> = typedef <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;bool&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alias for bool 3-d vector </p>
+
+</div>
+</div>
+<a id="a026d91839a4aecf0564d111622a38351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a026d91839a4aecf0564d111622a38351">&#9670;&nbsp;</a></span>vec3c</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacespace.html#a026d91839a4aecf0564d111622a38351">space::vec3c</a> = typedef <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;char&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alias for char 3-d vector </p>
+
+</div>
+</div>
+<a id="a19a48ecf1339c52009ccb6934cf799bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19a48ecf1339c52009ccb6934cf799bd">&#9670;&nbsp;</a></span>vec3d</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacespace.html#a19a48ecf1339c52009ccb6934cf799bd">space::vec3d</a> = typedef <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;double&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alias for double 3-d vector </p>
+
+</div>
+</div>
+<a id="a67fb2a2bc7af0f2c219853cda7be35d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67fb2a2bc7af0f2c219853cda7be35d3">&#9670;&nbsp;</a></span>vec3f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacespace.html#a67fb2a2bc7af0f2c219853cda7be35d3">space::vec3f</a> = typedef <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;float&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alias for float 3-d vector </p>
+
+</div>
+</div>
+<a id="aa23d52e014eb76d5d9929854718d9c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23d52e014eb76d5d9929854718d9c1e">&#9670;&nbsp;</a></span>vec3i</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacespace.html#aa23d52e014eb76d5d9929854718d9c1e">space::vec3i</a> = typedef <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;int&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alias for int 3-d vector </p>
+
+</div>
+</div>
+<a id="a048d540ea29aff679591a1b5b9303497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a048d540ea29aff679591a1b5b9303497">&#9670;&nbsp;</a></span>vec3ld</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacespace.html#a048d540ea29aff679591a1b5b9303497">space::vec3ld</a> = typedef <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;long double&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Alias for long double 3-d vector </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aba641f0ea9662b2a002b7321ac18d46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba641f0ea9662b2a002b7321ac18d46b">&#9670;&nbsp;</a></span>cross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt;T&gt; space::cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the cross product of two vectors </p>
+
+</div>
+</div>
+<a id="a2963cbc658d86ae899c08372a618f3fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2963cbc658d86ae899c08372a618f3fe">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T space::distance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the Euclid distance of two vectors </p>
+
+</div>
+</div>
+<a id="a9471e13d1110601d090fb498061e55f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9471e13d1110601d090fb498061e55f5">&#9670;&nbsp;</a></span>dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T space::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the inner product of two vectors </p>
+
+</div>
+</div>
+<a id="af528f519f6072ce27becb1d2acc270ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af528f519f6072ce27becb1d2acc270ad">&#9670;&nbsp;</a></span>norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T space::norm </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the length of a vector </p>
+
+</div>
+</div>
+<a id="afbb0245be78abc3f96541898d1aeced4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbb0245be78abc3f96541898d1aeced4">&#9670;&nbsp;</a></span>norm2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T space::norm2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the length square of a vector </p>
+
+</div>
+</div>
+<a id="a336c4b7ef644a2d2e28cb69c1e3d8dc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336c4b7ef644a2d2e28cb69c1e3d8dc5">&#9670;&nbsp;</a></span>re_norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T space::re_norm </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structspace_1_1_vec3.html">Vec3</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculate the inverse lenght of a vector </p>
+
+</div>
+</div>
 <a id="a39eb2a86b90fb45dee58f5e92a447612"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39eb2a86b90fb45dee58f5e92a447612">&#9670;&nbsp;</a></span>root_bisection()</h2>
 

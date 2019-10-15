@@ -39,7 +39,6 @@
     <innerclass refid="classspace_1_1_tidal_force" prot="public">space::TidalForce</innerclass>
     <innerclass refid="structspace_1_1_types" prot="public">space::Types</innerclass>
     <innerclass refid="structspace_1_1_vec3" prot="public">space::Vec3</innerclass>
-    <innerclass refid="structspace_1_1vec3" prot="public">space::vec3</innerclass>
     <innerclass refid="classspace_1_1_worst_offender" prot="public">space::WorstOffender</innerclass>
     <innernamespace refid="namespacespace_1_1args_opt">space::argsOpt</innernamespace>
     <innernamespace refid="namespacespace_1_1calc">space::calc</innernamespace>
@@ -155,83 +154,89 @@
         </inbodydescription>
         <location file="spaceHub.hpp" line="42" column="3" bodyfile="spaceHub.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacespace_1a0b9ee91bd17fc9aa56d2cf7467900fce" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacespace_1a048d540ea29aff679591a1b5b9303497" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; long double &gt;</type>
-        <definition>typedef vec3&lt; long double &gt; space::vec3ld</definition>
+        <definition>using space::vec3ld = typedef Vec3&lt;long double&gt;</definition>
         <argsstring></argsstring>
         <name>vec3ld</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Alias for long double 3-d vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="171" column="3" bodyfile="vector/vector3.h" bodystart="171" bodyend="-1"/>
+        <location file="vector/vector3.h" line="202" column="3" bodyfile="vector/vector3.h" bodystart="202" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacespace_1a1be55951f75940bbdd74d26a30aa7df3" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacespace_1a19a48ecf1339c52009ccb6934cf799bd" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; double &gt;</type>
-        <definition>typedef vec3&lt; double &gt; space::vec3d</definition>
+        <definition>using space::vec3d = typedef Vec3&lt;double&gt;</definition>
         <argsstring></argsstring>
         <name>vec3d</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Alias for double 3-d vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="172" column="3" bodyfile="vector/vector3.h" bodystart="172" bodyend="-1"/>
+        <location file="vector/vector3.h" line="206" column="3" bodyfile="vector/vector3.h" bodystart="206" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacespace_1aef134f80296acbb9c1d2ab5ff4fc4b8b" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacespace_1a67fb2a2bc7af0f2c219853cda7be35d3" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; float &gt;</type>
-        <definition>typedef vec3&lt; float &gt; space::vec3f</definition>
+        <definition>using space::vec3f = typedef Vec3&lt;float&gt;</definition>
         <argsstring></argsstring>
         <name>vec3f</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Alias for float 3-d vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="173" column="3" bodyfile="vector/vector3.h" bodystart="173" bodyend="-1"/>
+        <location file="vector/vector3.h" line="210" column="3" bodyfile="vector/vector3.h" bodystart="210" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacespace_1aba2aef33549766dafc3a3a5134651622" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacespace_1aa23d52e014eb76d5d9929854718d9c1e" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; int &gt;</type>
-        <definition>typedef vec3&lt; int &gt; space::vec3i</definition>
+        <definition>using space::vec3i = typedef Vec3&lt;int&gt;</definition>
         <argsstring></argsstring>
         <name>vec3i</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Alias for int 3-d vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="174" column="3" bodyfile="vector/vector3.h" bodystart="174" bodyend="-1"/>
+        <location file="vector/vector3.h" line="214" column="3" bodyfile="vector/vector3.h" bodystart="214" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacespace_1a433328f837c233654c381b1db0349778" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacespace_1a026d91839a4aecf0564d111622a38351" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; char &gt;</type>
-        <definition>typedef vec3&lt; char &gt; space::vec3c</definition>
+        <definition>using space::vec3c = typedef Vec3&lt;char&gt;</definition>
         <argsstring></argsstring>
         <name>vec3c</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Alias for char 3-d vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="175" column="3" bodyfile="vector/vector3.h" bodystart="175" bodyend="-1"/>
+        <location file="vector/vector3.h" line="218" column="3" bodyfile="vector/vector3.h" bodystart="218" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacespace_1a7cb2cfd21ce83f3f8925c6bedaece223" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacespace_1a00335c4bf483b31127c2757316593d6b" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; bool &gt;</type>
-        <definition>typedef vec3&lt; bool &gt; space::vec3b</definition>
+        <definition>using space::vec3b = typedef Vec3&lt;bool&gt;</definition>
         <argsstring></argsstring>
         <name>vec3b</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Alias for bool 3-d vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="176" column="3" bodyfile="vector/vector3.h" bodystart="176" bodyend="-1"/>
+        <location file="vector/vector3.h" line="222" column="3" bodyfile="vector/vector3.h" bodystart="222" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -271,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="115" column="18" bodyfile="interaction.hpp" bodystart="115" bodyend="-1"/>
+        <location file="interaction.hpp" line="139" column="18" bodyfile="interaction.hpp" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacespace_1aca418903124fbea5621539bacf958f04" prot="public" static="no" constexpr="yes" mutable="no">
         <templateparamlist>
@@ -309,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="247" column="18" bodyfile="particle-system.hpp" bodystart="247" bodyend="-1"/>
+        <location file="particle-system.hpp" line="249" column="18" bodyfile="particle-system.hpp" bodystart="249" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacespace_1a97968c526d2b2fc010cd5ed92d4b68ba" prot="public" static="no" constexpr="yes" mutable="no">
         <templateparamlist>
@@ -1731,7 +1736,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="167" column="16" bodyfile="particle-system/regu-system.hpp" bodystart="167" bodyend="170"/>
+        <location file="particle-system/regu-system.hpp" line="168" column="16" bodyfile="particle-system/regu-system.hpp" bodystart="168" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a418040ff3b0a206c7a76379475df434a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1765,7 +1770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="173" column="3" bodyfile="particle-system/regu-system.hpp" bodystart="173" bodyend="176"/>
+        <location file="particle-system/regu-system.hpp" line="174" column="3" bodyfile="particle-system/regu-system.hpp" bodystart="174" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1abd2edab3ff47043885a5fbb9d964a55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1791,7 +1796,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="232" column="3" bodyfile="particle-system.hpp" bodystart="232" bodyend="235"/>
+        <location file="particle-system.hpp" line="234" column="3" bodyfile="particle-system.hpp" bodystart="234" bodyend="237"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ae74ac57858b0c2dbb3d2ea5013770677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1817,7 +1822,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="238" column="16" bodyfile="particle-system.hpp" bodystart="238" bodyend="241"/>
+        <location file="particle-system.hpp" line="240" column="16" bodyfile="particle-system.hpp" bodystart="240" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a7e0961d075d0802bb77d2c92203ecab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1942,13 +1947,13 @@
           <declname>v2</declname>
         </param>
         <briefdescription>
-<para>Calculate the Euclid distance of two vectors. </para>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the Euclid distance of two vectors </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="140" column="12" bodyfile="vector/vector3.h" bodystart="140" bodyend="142"/>
+        <location file="vector/vector3.h" line="167" column="12" bodyfile="vector/vector3.h" bodystart="167" bodyend="169"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a9471e13d1110601d090fb498061e55f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1969,13 +1974,13 @@
           <declname>v2</declname>
         </param>
         <briefdescription>
-<para>Calculate the inner product of two vectors. </para>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the inner product of two vectors </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="146" column="12" bodyfile="vector/vector3.h" bodystart="146" bodyend="148"/>
+        <location file="vector/vector3.h" line="173" column="12" bodyfile="vector/vector3.h" bodystart="173" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1af528f519f6072ce27becb1d2acc270ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1994,10 +1999,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the length of a vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="151" column="12" bodyfile="vector/vector3.h" bodystart="151" bodyend="153"/>
+        <location file="vector/vector3.h" line="179" column="12" bodyfile="vector/vector3.h" bodystart="179" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a336c4b7ef644a2d2e28cb69c1e3d8dc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2016,10 +2022,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the inverse lenght of a vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="156" column="12" bodyfile="vector/vector3.h" bodystart="156" bodyend="158"/>
+        <location file="vector/vector3.h" line="184" column="12" bodyfile="vector/vector3.h" bodystart="184" bodyend="186"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1afbb0245be78abc3f96541898d1aeced4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2038,10 +2045,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the length square of a vector </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="161" column="12" bodyfile="vector/vector3.h" bodystart="161" bodyend="163"/>
+        <location file="vector/vector3.h" line="189" column="12" bodyfile="vector/vector3.h" bodystart="189" bodyend="191"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aba641f0ea9662b2a002b7321ac18d46b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2062,94 +2070,13 @@
           <declname>v2</declname>
         </param>
         <briefdescription>
-<para>Calculate the cross product of two vectors. </para>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the cross product of two vectors </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="167" column="15" bodyfile="vector/vector3.h" bodystart="167" bodyend="169"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1a86bda8692fc2d75619d57fbdb23be089" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>T</type>
-        <definition>T space::distance</definition>
-        <argsstring>(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)</argsstring>
-        <name>distance</name>
-        <param>
-          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
-          <declname>v1</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
-          <declname>v2</declname>
-        </param>
-        <briefdescription>
-<para>Calculate the Euclid distance of two vectors. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="vector/vector3f.h" line="105" column="10" bodyfile="vector/vector3f.h" bodystart="105" bodyend="107"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1afcb12df6c0b9bdba80f49503496dd2d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>T</type>
-        <definition>T space::dot</definition>
-        <argsstring>(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)</argsstring>
-        <name>dot</name>
-        <param>
-          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
-          <declname>v1</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
-          <declname>v2</declname>
-        </param>
-        <briefdescription>
-<para>Calculate the inner product of two vectors. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="vector/vector3f.h" line="110" column="10" bodyfile="vector/vector3f.h" bodystart="110" bodyend="112"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1a389923b3aa7c850e6a39f198861fc3b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>T</type>
-        <definition>T space::cross</definition>
-        <argsstring>(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)</argsstring>
-        <name>cross</name>
-        <param>
-          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
-          <declname>v1</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structspace_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
-          <declname>v2</declname>
-        </param>
-        <briefdescription>
-<para>Calculate the cross product of two vectors. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="vector/vector3f.h" line="115" column="10" bodyfile="vector/vector3f.h" bodystart="115" bodyend="117"/>
+        <location file="vector/vector3.h" line="195" column="15" bodyfile="vector/vector3.h" bodystart="195" bodyend="197"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

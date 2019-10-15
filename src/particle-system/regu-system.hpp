@@ -59,9 +59,10 @@ namespace space {
 /**
  * @brief Regularized particle System.
  *
- * Regularied particle system. See details in https://link.springer.com/article/10.1023%2FA%3A1008368322547 ,
- * http://iopscience.iop.org/article/10.1086/301102/meta and
- * https://link.springer.com/article/10.1023%2FA%3A1021149313347.
+ * Regularied particle system.
+ * See details [Explicit Symplectic Algorithms For Time‐Transformed Hamiltonians](https://link.springer.com/article/10.1023%2FA%3A1008368322547) ,
+ * [A Class of Symplectic Integrators with Adaptive Time Step for Separable Hamiltonian Systems](http://iopscience.iop.org/article/10.1086/301102/meta) and
+ * [A Time-Transformed Leapfrog Scheme](https://link.springer.com/article/10.1023%2FA%3A1021149313347).
  * @tparam Particles
  * @tparam Interactions
  */

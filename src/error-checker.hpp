@@ -13,7 +13,6 @@ namespace space {
     Class Error_checker Declaration
 \*---------------------------------------------------------------------------*/
 /**
- * @brief CRTP base class of a 'Structure of Array' kind particle set.
  *
  * @tparam Derived
  */
@@ -52,7 +51,7 @@ namespace space {
 
   private:
     /**
-     * @brief Construct a new ErrorChecker object
+     * Construct a new ErrorChecker object
      *
      */
     ErrorChecker() = default;

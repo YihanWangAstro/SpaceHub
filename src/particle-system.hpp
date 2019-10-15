@@ -13,10 +13,10 @@ namespace space {
 \*---------------------------------------------------------------------------*/
 /**
  * Abstract class of Particle System. A class implements(partly/fully) the interfaces of this
- * class via CRTP idioms can be used cross the system as an implementation of the concept `Particle System`. The particle
+ * class via CRTP idiom can be used cross the system as an implementation of the concept `ParticleSystem`. The particle
  * System integrates the data set of a particle set and provides interface to evolve the internal particles.
  *
- * @tparam Derived The implement class in CRTP idioms.
+ * @tparam Derived The implement class in CRTP idiom.
  */
   template<typename Derived>
   class ParticleSystem {
@@ -128,10 +128,11 @@ namespace space {
      * @must_impl
      *
      * Map all evolved data domain to a 1-d iterable Container(i.e `std::vector`, `std::array`, etc,.). Used for general
-     * integration modules. The method should keep consistence with `load_from_linear_container`.
+     * integration modules.
      *
      * @tparam STL 1-d iterable Container.
      * @param[out] stl_ranges Target container to store the evolved data domain.
+     * @note The method should keep consistence with load_from_linear_container().
      */
     template<typename STL>
     void to_linear_container(STL &stl_ranges);
@@ -140,10 +141,11 @@ namespace space {
      * @must_impl
      *
      * Reconstruct the particle system from a 1-d iterable Container(i.e `std::vector`, `std::array`, etc,.). Used for general
-     * integration modules. The method should keep consistence with `to_linear_container`.
+     * integration modules.
      *
      * @tparam STL 1-d iterable Container.
      * @param[in] stl_ranges Container that store the particle information for reconstruction.
+     * @note The method should keep consistence with to_linear_container().
      */
     template<typename STL>
     void load_from_linear_container(STL const &stl_ranges);

@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="18" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="18" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a6efafc5cb08deaf5c3aa92f38e2e8b83" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Scalar</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="38" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="38" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1ac700cf91610326f924556131dbfa05ee" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::ScalarArray</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="53" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="53" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a59d61f1a27f1d41c0c5af0f2061498b2" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IdxArray</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="73" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="73" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a0f5fdff31cd80ad9b2fd1ac31037e194" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IntArray</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="90" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="90" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1ac46d7674258ba1f523271cdee56792dd" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Vector</type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="107" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="107" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1acf1d5630273f7982a2b9fc5e95a47b06" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::VectorArray</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="122" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="122" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a3eec86ff7fe2b1b70c5abe314c773213" prot="public" static="no">
         <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Coord</type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="72" column="142" bodyfile="particle-system/regu-system.hpp" bodystart="72" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="73" column="142" bodyfile="particle-system/regu-system.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a9e662c5eeece87a9b78ad762969e8ef5" prot="public" static="no">
         <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; <ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; &gt;</type>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="74" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="74" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="75" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_regularized_system_1a92a08d143c071573ae12242faaadd377" prot="public" static="no">
         <type>typename Particles::Particle</type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="76" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="76" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="77" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="85" column="31" bodyfile="particle-system/regu-system.hpp" bodystart="85" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="86" column="31" bodyfile="particle-system/regu-system.hpp" bodystart="86" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -188,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="99" column="13" bodyfile="particle-system/regu-system.hpp" bodystart="99" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="100" column="13" bodyfile="particle-system/regu-system.hpp" bodystart="100" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="146" column="15" bodyfile="particle-system/regu-system.hpp" bodystart="146" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="147" column="15" bodyfile="particle-system/regu-system.hpp" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_regularized_system_1a4faace636abae81700f5dd6cb2d06028" prot="private" static="no" mutable="no">
         <type><ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref></type>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="147" column="18" bodyfile="particle-system/regu-system.hpp" bodystart="147" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="148" column="18" bodyfile="particle-system/regu-system.hpp" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_regularized_system_1a990dfb8ed88db8be7f409e9b7a4098ec" prot="private" static="no" mutable="no">
         <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref>&lt; <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, Coord &gt;</type>
@@ -229,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="148" column="19" bodyfile="particle-system/regu-system.hpp" bodystart="148" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="149" column="19" bodyfile="particle-system/regu-system.hpp" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_regularized_system_1ad241a7b7964f09a7ad4a8f2f0c164210" prot="private" static="no" mutable="no">
         <type><ref refid="classspace_1_1_regularization" kindref="compound">Regularization</ref>&lt; Scalar, RegType &gt;</type>
@@ -242,10 +242,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="149" column="20" bodyfile="particle-system/regu-system.hpp" bodystart="149" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="150" column="20" bodyfile="particle-system/regu-system.hpp" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_regularized_system_1a40be29dfb283477a61efbd36faf8ee2e" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; Interactions::ext_vel_dep, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;::aux_vel_</definition>
         <argsstring></argsstring>
         <name>aux_vel_</name>
@@ -255,7 +255,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="150" column="24" bodyfile="particle-system/regu-system.hpp" bodystart="150" bodyend="-1"/>
+        <location file="particle-system/regu-system.hpp" line="151" column="24" bodyfile="particle-system/regu-system.hpp" bodystart="151" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -272,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="79" column="9"/>
+        <location file="particle-system/regu-system.hpp" line="80" column="9"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a06971b935f7cfb55cf0fe232555459d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -290,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="79" column="44"/>
+        <location file="particle-system/regu-system.hpp" line="80" column="44"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a59e0a8f79a45f0c6e7e63b9f18b53dbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -308,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="79" column="83"/>
+        <location file="particle-system/regu-system.hpp" line="80" column="83"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a5e7a9739ad0b11498207fcf85556c38a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;</type>
@@ -326,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="79" column="141"/>
+        <location file="particle-system/regu-system.hpp" line="80" column="141"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1_regularized_system" kindref="compound">RegularizedSystem</ref> &amp;</type>
@@ -344,7 +344,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="79" column="191"/>
+        <location file="particle-system/regu-system.hpp" line="80" column="191"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a5461fd02126cffd25534b3b92a401d3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -370,7 +370,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="82" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="158" bodyend="164"/>
+        <location file="particle-system/regu-system.hpp" line="83" column="5" bodyfile="particle-system/regu-system.hpp" bodystart="159" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -387,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="88" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="88" bodyend="88"/>
+        <location file="particle-system/regu-system.hpp" line="89" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="89" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -404,7 +404,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="88" column="94" bodyfile="particle-system/regu-system.hpp" bodystart="88" bodyend="88"/>
+        <location file="particle-system/regu-system.hpp" line="89" column="94" bodyfile="particle-system/regu-system.hpp" bodystart="89" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -421,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="90" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="90" bodyend="90"/>
+        <location file="particle-system/regu-system.hpp" line="91" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="91" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -438,7 +438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="90" column="94" bodyfile="particle-system/regu-system.hpp" bodystart="90" bodyend="90"/>
+        <location file="particle-system/regu-system.hpp" line="91" column="94" bodyfile="particle-system/regu-system.hpp" bodystart="91" bodyend="91"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -474,7 +474,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="94" column="12"/>
+        <location file="particle-system/regu-system.hpp" line="95" column="12"/>
       </memberdef>
       <memberdef kind="friend" id="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -508,7 +508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="97" column="25"/>
+        <location file="particle-system/regu-system.hpp" line="98" column="25"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -527,7 +527,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="101" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="101" bodyend="101"/>
+        <location file="particle-system/regu-system.hpp" line="102" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="102" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -544,7 +544,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="101" column="97" bodyfile="particle-system/regu-system.hpp" bodystart="101" bodyend="101"/>
+        <location file="particle-system/regu-system.hpp" line="102" column="97" bodyfile="particle-system/regu-system.hpp" bodystart="102" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -561,7 +561,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="103" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="103" bodyend="103"/>
+        <location file="particle-system/regu-system.hpp" line="104" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="104" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -578,7 +578,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="103" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="103" bodyend="103"/>
+        <location file="particle-system/regu-system.hpp" line="104" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="104" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -595,7 +595,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="105" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="105" bodyend="105"/>
+        <location file="particle-system/regu-system.hpp" line="106" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="106" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -612,7 +612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="105" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="105" bodyend="105"/>
+        <location file="particle-system/regu-system.hpp" line="106" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="106" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -629,7 +629,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="107" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="107" bodyend="107"/>
+        <location file="particle-system/regu-system.hpp" line="108" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="108" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -646,7 +646,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="107" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="107" bodyend="107"/>
+        <location file="particle-system/regu-system.hpp" line="108" column="95" bodyfile="particle-system/regu-system.hpp" bodystart="108" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -663,7 +663,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="109" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="109" bodyend="109"/>
+        <location file="particle-system/regu-system.hpp" line="110" column="23" bodyfile="particle-system/regu-system.hpp" bodystart="110" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const auto &amp;</type>
@@ -680,7 +680,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="109" column="97" bodyfile="particle-system/regu-system.hpp" bodystart="109" bodyend="109"/>
+        <location file="particle-system/regu-system.hpp" line="110" column="97" bodyfile="particle-system/regu-system.hpp" bodystart="110" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -693,7 +693,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="111" column="13" bodyfile="particle-system/regu-system.hpp" bodystart="179" bodyend="181"/>
+        <location file="particle-system/regu-system.hpp" line="112" column="13" bodyfile="particle-system/regu-system.hpp" bodystart="180" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -710,7 +710,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="113" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="184" bodyend="187"/>
+        <location file="particle-system/regu-system.hpp" line="114" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="185" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -731,7 +731,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="115" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="190" bodyend="193"/>
+        <location file="particle-system/regu-system.hpp" line="116" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="191" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a7c227c41617a5dce7c35affce4130f19" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -752,7 +752,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="117" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="197" bodyend="200"/>
+        <location file="particle-system/regu-system.hpp" line="118" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="198" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1aa2676f5ff801e12be2a86679c7347c16" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -769,7 +769,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="119" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="203" bodyend="205"/>
+        <location file="particle-system/regu-system.hpp" line="120" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="204" bodyend="206"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a2873f64a12f14051fc634c6c8d379d78" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -786,7 +786,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="121" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="208" bodyend="212"/>
+        <location file="particle-system/regu-system.hpp" line="122" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="209" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a3c8a37943e26c25c0d5e050baafd03de" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -803,7 +803,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="123" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="215" bodyend="242"/>
+        <location file="particle-system/regu-system.hpp" line="124" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="216" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a700159d161c55d26e141e995e0230411" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -816,7 +816,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="125" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="245" bodyend="249"/>
+        <location file="particle-system/regu-system.hpp" line="126" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="246" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a0af4bcb966b78052933f1b62159cdf8f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -838,7 +838,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="128" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="253" bodyend="261"/>
+        <location file="particle-system/regu-system.hpp" line="129" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="254" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ada56faa365fc45f8adc5ada04ed1bfbd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -860,7 +860,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="131" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="265" bodyend="279"/>
+        <location file="particle-system/regu-system.hpp" line="132" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="266" bodyend="280"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -875,7 +875,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="135" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="282" bodyend="289"/>
+        <location file="particle-system/regu-system.hpp" line="136" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="283" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a7c433c43b251024d3b3b1e2aef706546" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -900,7 +900,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="137" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="293" bodyend="297"/>
+        <location file="particle-system/regu-system.hpp" line="138" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="294" bodyend="298"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ad6a57556dec261862ae009340d4c326c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -925,7 +925,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="139" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="301" bodyend="305"/>
+        <location file="particle-system/regu-system.hpp" line="140" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="302" bodyend="306"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1ae0d1a3dbfd8e5086424306b3a8d8c5bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -942,7 +942,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="141" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="308" bodyend="312"/>
+        <location file="particle-system/regu-system.hpp" line="142" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="309" bodyend="313"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularized_system_1a100fc03950c4ba8e99a23c5675c885c2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -959,14 +959,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="143" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="315" bodyend="331"/>
+        <location file="particle-system/regu-system.hpp" line="144" column="10" bodyfile="particle-system/regu-system.hpp" bodystart="316" bodyend="332"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Regularized particle System. </para>
     </briefdescription>
     <detaileddescription>
-<para>Regularied particle system. See details in <ulink url="https://link.springer.com/article/10.1023%2FA%3A1008368322547">https://link.springer.com/article/10.1023%2FA%3A1008368322547</ulink> , <ulink url="http://iopscience.iop.org/article/10.1086/301102/meta">http://iopscience.iop.org/article/10.1086/301102/meta</ulink> and <ulink url="https://link.springer.com/article/10.1023%2FA%3A1021149313347">https://link.springer.com/article/10.1023%2FA%3A1021149313347</ulink>. <parameterlist kind="templateparam"><parameteritem>
+<para>Regularied particle system. See details <ulink url="https://link.springer.com/article/10.1023%2FA%3A1008368322547">Explicit Symplectic Algorithms For Time‐Transformed Hamiltonians</ulink> , <ulink url="http://iopscience.iop.org/article/10.1086/301102/meta">A Class of Symplectic Integrators with Adaptive Time Step for Separable Hamiltonian Systems</ulink> and <ulink url="https://link.springer.com/article/10.1023%2FA%3A1021149313347">A Time-Transformed Leapfrog Scheme</ulink>. <parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
 </parameternamelist>
@@ -1009,7 +1009,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="particle-system/regu-system.hpp" line="69" column="52" bodyfile="particle-system/regu-system.hpp" bodystart="69" bodyend="151"/>
+    <location file="particle-system/regu-system.hpp" line="70" column="52" bodyfile="particle-system/regu-system.hpp" bodystart="70" bodyend="152"/>
     <listofallmembers>
       <member refid="classspace_1_1_regularized_system_1a990dfb8ed88db8be7f409e9b7a4098ec" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>accels_</name></member>
       <member refid="classspace_1_1_regularized_system_1ad6a57556dec261862ae009340d4c326c" prot="private" virt="non-virtual"><scope>space::RegularizedSystem</scope><name>advance_bindE</name></member>

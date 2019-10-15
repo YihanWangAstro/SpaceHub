@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="31" column="14" bodyfile="particle-system/regu-system.hpp" bodystart="338" bodyend="341"/>
+        <location file="particle-system/regu-system.hpp" line="31" column="14" bodyfile="particle-system/regu-system.hpp" bodystart="339" bodyend="342"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularization_1a974700ff971d4d240b9fbdc1fecb2993" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="39" column="12" bodyfile="particle-system/regu-system.hpp" bodystart="345" bodyend="355"/>
+        <location file="particle-system/regu-system.hpp" line="39" column="12" bodyfile="particle-system/regu-system.hpp" bodystart="346" bodyend="356"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_regularization_1afc86775fec5638c5a1ebed78d5db39f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="42" column="12" bodyfile="particle-system/regu-system.hpp" bodystart="359" bodyend="369"/>
+        <location file="particle-system/regu-system.hpp" line="42" column="12" bodyfile="particle-system/regu-system.hpp" bodystart="360" bodyend="370"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="47" column="19" bodyfile="particle-system/regu-system.hpp" bodystart="373" bodyend="375"/>
+        <location file="particle-system/regu-system.hpp" line="47" column="19" bodyfile="particle-system/regu-system.hpp" bodystart="374" bodyend="376"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

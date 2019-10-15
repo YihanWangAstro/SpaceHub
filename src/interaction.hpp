@@ -14,8 +14,10 @@ namespace space {
     Class Interactions Declaration
 \*---------------------------------------------------------------------------*/
 /**
+ * Abstract class of interactions. A class implements(partly/fully) the interfaces of this
+ * class via CRTP idiom can be used cross the system as interaction of the concept `Interactions`.
  *
- * @tparam Derived
+ * @tparam Derived The implement class in CRTP idiom.
  */
   template<typename Derived>
   class Interactions {
@@ -28,48 +30,70 @@ namespace space {
   public:
     // public static members
     /**
+     * @auto_impl
      *
+     * Variable to check if external velocity dependent forces exist the interaction. If the Derived class implements method
+     * impl_eval_extra_vel_dep_acc(). The value is `true`, otherwise this value is `false`.
      */
     static constexpr bool ext_vel_dep{HAS_METHOD(Derived, impl_eval_extra_vel_dep_acc)};
 
     /**
+     * @auto_impl
      *
+     * Variable to check if external velocity independent forces exist the interaction. If the Derived class implements method
+     * impl_eval_extra_vel_indep_acc(). The value is `true`, otherwise this value is `false`.
      */
     static constexpr bool ext_vel_indep{HAS_METHOD(Derived, impl_eval_extra_vel_indep_acc)};
 
     // public method
     /**
+     * @must_impl
      *
-     * @tparam Particles
-     * @param particles
-     * @param acceleration
+     * Evaluate the total acceleration of the current state of a given particle system.
+     *
+     * @tparam Particles Type of the particle system. This type must have method mass(), pos(), vel(), time(); type member `Coord`.
+     *
+     * @param[in] particles The particle system need to be evaluated.
+     * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
     void eval_acc(Particles const &particles, typename Particles::Coord &acceleration);
 
     /**
+     * @opt_impl{external velocity dependent forces exist.}
      *
-     * @tparam Particles
-     * @param particles
-     * @param acceleration
+     * Evaluate the external velocity dependent acceleration of the current state of a given particle system.
+     *
+     * @tparam Particles Type of the particle system. This type must have method mass(), pos(), vel(); type member `Coord`.
+     *
+     * @param[in] particles The particle system need to be evaluated.
+     * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
     void eval_extra_vel_dep_acc(Particles const &particles, typename Particles::Coord &acceleration);
 
     /**
+     * @opt_impl{external velocity independent forces exist.}
      *
-     * @tparam Particles
-     * @param particles
-     * @param acceleration
+     * Evaluate the external velocity independent acceleration of the current state of a given particle system.
+     *
+     * @tparam Particles Type of the particle system. This type must have method mass(), pos(); type member `Coord`.
+     *
+     * @param[in] particles The particle system need to be evaluated.
+     * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
     void eval_extra_vel_indep_acc(Particles const &particles, typename Particles::Coord &acceleration);
 
     /**
+     * @must_impl
      *
-     * @tparam Particles
-     * @param particles
-     * @param acceleration
+     * Evaluate the internal newtonian acceleration of the current state of a given particle system.
+     *
+     * @tparam Particles Type of the particle system. This type must have method mass(), pos(); type member `Coord`.
+     *
+     * @param[in] particles The particle system need to be evaluated.
+     * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
     void eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration);

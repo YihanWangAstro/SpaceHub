@@ -94,20 +94,19 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a722a9fafdf2e329951f30daa07f0fbe8"><td class="memItemLeft" align="right" valign="top"><a id="a722a9fafdf2e329951f30daa07f0fbe8"></a>
-static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>ext_vel_dep</b> {has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</td></tr>
+<tr class="memitem:a722a9fafdf2e329951f30daa07f0fbe8"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_interactions.html#a722a9fafdf2e329951f30daa07f0fbe8">ext_vel_dep</a> {has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</td></tr>
 <tr class="separator:a722a9fafdf2e329951f30daa07f0fbe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8453af189e176a74e97e536c5bff568"><td class="memItemLeft" align="right" valign="top"><a id="ad8453af189e176a74e97e536c5bff568"></a>
-static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>ext_vel_indep</b> {has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</td></tr>
+<tr class="memitem:ad8453af189e176a74e97e536c5bff568"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classspace_1_1_interactions.html#ad8453af189e176a74e97e536c5bff568">ext_vel_indep</a> {has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</td></tr>
 <tr class="separator:ad8453af189e176a74e97e536c5bff568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename Derived&gt;<br />
 class space::Interactions&lt; Derived &gt;</h3>
 
+<p>Abstract class of interactions. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as interaction of the concept <code><a class="el" href="classspace_1_1_interactions.html">Interactions</a></code>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td></td></tr>
+    <tr><td class="paramname">Derived</td><td>The implement class in CRTP idiom. </td></tr>
   </table>
   </dd>
 </dl>
@@ -141,16 +140,18 @@ template&lt;typename Particles &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Evaluate the total acceleration of the current state of a given particle system.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td>Type of the particle system. This type must have method mass(), pos(), vel(), time(); type member <code>Coord</code>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particles</td><td></td></tr>
-    <tr><td class="paramname">acceleration</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">particles</td><td>The particle system need to be evaluated. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>The output of the evaluated acceleration. </td></tr>
   </table>
   </dd>
 </dl>
@@ -186,16 +187,18 @@ template&lt;typename Particles &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>optional impl</b> <code>&gt; external velocity dependent forces exist.</code></p>
+<p>Evaluate the external velocity dependent acceleration of the current state of a given particle system.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td>Type of the particle system. This type must have method mass(), pos(), vel(); type member <code>Coord</code>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particles</td><td></td></tr>
-    <tr><td class="paramname">acceleration</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">particles</td><td>The particle system need to be evaluated. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>The output of the evaluated acceleration. </td></tr>
   </table>
   </dd>
 </dl>
@@ -231,16 +234,18 @@ template&lt;typename Particles &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>optional impl</b> <code>&gt; external velocity independent forces exist.</code></p>
+<p>Evaluate the external velocity independent acceleration of the current state of a given particle system.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td>Type of the particle system. This type must have method mass(), pos(); type member <code>Coord</code>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particles</td><td></td></tr>
-    <tr><td class="paramname">acceleration</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">particles</td><td>The particle system need to be evaluated. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>The output of the evaluated acceleration. </td></tr>
   </table>
   </dd>
 </dl>
@@ -276,19 +281,74 @@ template&lt;typename Particles &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p> <b>must impl</b></p>
+<p>Evaluate the internal newtonian acceleration of the current state of a given particle system.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="classspace_1_1_particles.html">Particles</a></td><td>Type of the particle system. This type must have method mass(), pos(); type member <code>Coord</code>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particles</td><td></td></tr>
-    <tr><td class="paramname">acceleration</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">particles</td><td>The particle system need to be evaluated. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>The output of the evaluated acceleration. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="a722a9fafdf2e329951f30daa07f0fbe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a722a9fafdf2e329951f30daa07f0fbe8">&#9670;&nbsp;</a></span>ext_vel_dep</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="classspace_1_1_interactions.html">space::Interactions</a>&lt; Derived &gt;::ext_vel_dep {has_method_impl_eval_extra_vel_dep_acc &lt; Derived ,&gt;::value}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p> <b>auto impl</b></p>
+<p>Variable to check if external velocity dependent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_dep_acc(). The value is <code>true</code>, otherwise this value is <code>false</code>. </p>
+
+</div>
+</div>
+<a id="ad8453af189e176a74e97e536c5bff568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8453af189e176a74e97e536c5bff568">&#9670;&nbsp;</a></span>ext_vel_indep</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="classspace_1_1_interactions.html">space::Interactions</a>&lt; Derived &gt;::ext_vel_indep {has_method_impl_eval_extra_vel_indep_acc &lt; Derived ,&gt;::value}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p> <b>auto impl</b></p>
+<p>Variable to check if external velocity independent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_indep_acc(). The value is <code>true</code>, otherwise this value is <code>false</code>. </p>
 
 </div>
 </div>

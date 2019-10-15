@@ -642,12 +642,6 @@
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5" kind="function"><name>impl_eval_acc</name></member>
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" kind="function"><name>impl_eval_newtonian_acc</name></member>
   </compound>
-  <compound refid="structspace_1_1_chain_1_1_node" kind="struct"><name>space::Chain::Node</name>
-    <member refid="structspace_1_1_chain_1_1_node_1a3c3d8bddf52fe496c93abfaec4341035" kind="variable"><name>r</name></member>
-    <member refid="structspace_1_1_chain_1_1_node_1ace54e4ed7a3fce6fc707019a632e708b" kind="variable"><name>i</name></member>
-    <member refid="structspace_1_1_chain_1_1_node_1afd2257d3b178e0eb7e9ffe09e78f5e9f" kind="variable"><name>j</name></member>
-    <member refid="structspace_1_1_chain_1_1_node_1ae9b63e24a0c952190ecbf64669d51725" kind="variable"><name>avail</name></member>
-  </compound>
   <compound refid="classspace_1_1octree_1_1_node" kind="class"><name>space::octree::Node</name>
     <member refid="classspace_1_1octree_1_1_node_1a11465f99d2f3e26a9128e25c0d0ad362" kind="variable"><name>data</name></member>
     <member refid="classspace_1_1octree_1_1_node_1aed22e0e94f5c91255945265af8f407a7" kind="variable"><name>flu</name></member>
@@ -658,6 +652,12 @@
     <member refid="classspace_1_1octree_1_1_node_1aa48fc561c413f2edb09de5fe711fe0fd" kind="variable"><name>bld</name></member>
     <member refid="classspace_1_1octree_1_1_node_1ae41f44e5b1642954b511d1e334c22eac" kind="variable"><name>bru</name></member>
     <member refid="classspace_1_1octree_1_1_node_1a2edb837431805ae450861d08f78b2948" kind="variable"><name>brd</name></member>
+  </compound>
+  <compound refid="structspace_1_1_chain_1_1_node" kind="struct"><name>space::Chain::Node</name>
+    <member refid="structspace_1_1_chain_1_1_node_1a3c3d8bddf52fe496c93abfaec4341035" kind="variable"><name>r</name></member>
+    <member refid="structspace_1_1_chain_1_1_node_1ace54e4ed7a3fce6fc707019a632e708b" kind="variable"><name>i</name></member>
+    <member refid="structspace_1_1_chain_1_1_node_1afd2257d3b178e0eb7e9ffe09e78f5e9f" kind="variable"><name>j</name></member>
+    <member refid="structspace_1_1_chain_1_1_node_1ae9b63e24a0c952190ecbf64669d51725" kind="variable"><name>avail</name></member>
   </compound>
   <compound refid="classspace_1_1random_gen_1_1_normal" kind="class"><name>space::randomGen::Normal</name>
     <member refid="classspace_1_1random_gen_1_1_normal_1a5a4ab7043537a74b09babfd184c10682" kind="variable"><name>rd_</name></member>
@@ -1272,107 +1272,6 @@
     <member refid="classspace_1_1random_gen_1_1_uniform_1ad4cae8c125269da58f95167b300ca409" kind="function"><name>lock_get</name></member>
     <member refid="classspace_1_1random_gen_1_1_uniform_1a6d69d75dfb0eedceeab532bbb908f1db" kind="function"><name>get</name></member>
   </compound>
-  <compound refid="structspace_1_1vec3" kind="struct"><name>space::vec3</name>
-    <member refid="structspace_1_1vec3_1a1fe804bab41b812241c4fb23aa6e4362" kind="typedef"><name>value_type</name></member>
-    <member refid="structspace_1_1vec3_1a1fe804bab41b812241c4fb23aa6e4362" kind="typedef"><name>value_type</name></member>
-    <member refid="structspace_1_1vec3_1a1fe804bab41b812241c4fb23aa6e4362" kind="typedef"><name>value_type</name></member>
-    <member refid="structspace_1_1vec3_1a7cad49e6cc773c5dc27e116eca3ebf48" kind="variable"><name>x</name></member>
-    <member refid="structspace_1_1vec3_1aa7a537b6e6fe9837f30340db963851ae" kind="variable"><name>y</name></member>
-    <member refid="structspace_1_1vec3_1aabd6cf23fc975cad7091400148ab9bd9" kind="variable"><name>z</name></member>
-    <member refid="structspace_1_1vec3_1abff63f0e46f72872cde6ef76c7d23987" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1a3a75245d69de37517118e14ca25fcedb" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1a241b2b1b61ba5744ece12b0d0120b0a4" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1abb1c9284e116a52b5283b8626406bec5" kind="function"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1a1dbc37c3e553c222f64282041bd54ceb" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1af153265c79cab6ac077143339f6527d5" kind="function"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1aedaf078335791935603beaf91bc00738" kind="function"><name>operator/</name></member>
-    <member refid="structspace_1_1vec3_1a63d3432b1039fd82ab346be6ad507399" kind="function"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1ae028ba5159da9beeb797d8be875eba32" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a3faa8e40c3049772a1278cc30999e3f7" kind="function"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1adef26e4b1df6b66f1c4841d5b6a6f53b" kind="function"><name>operator/</name></member>
-    <member refid="structspace_1_1vec3_1aff77e8d020494fbb0dc9a9dad416c06b" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a3fda08b74e86c640cbd40def9b8ef6be" kind="function"><name>abs</name></member>
-    <member refid="structspace_1_1vec3_1a251fc2b82caee22ff9ba4b0ed1e7dd51" kind="function"><name>operator+=</name></member>
-    <member refid="structspace_1_1vec3_1a28ca6393d8aa683d5184c0304c71c67e" kind="function"><name>operator-=</name></member>
-    <member refid="structspace_1_1vec3_1a9e9953e5c0ed2b9198439f5b2b093286" kind="function"><name>operator/=</name></member>
-    <member refid="structspace_1_1vec3_1a0593020b4c2fc92e2a23a43ff4d91170" kind="function"><name>operator+=</name></member>
-    <member refid="structspace_1_1vec3_1a0e2f07639de2d4987cba1e10690f8a46" kind="function"><name>operator-=</name></member>
-    <member refid="structspace_1_1vec3_1a057697b8a9d7b964724467a4611280cc" kind="function"><name>operator*=</name></member>
-    <member refid="structspace_1_1vec3_1a48fb178f68b0908886d939643a5ca9a2" kind="function"><name>operator/=</name></member>
-    <member refid="structspace_1_1vec3_1aabddb2575735a95a387eda185c404cf2" kind="function"><name>operator=</name></member>
-    <member refid="structspace_1_1vec3_1aa9129aa5d54a4b810c0cb12d99e4c774" kind="function"><name>norm</name></member>
-    <member refid="structspace_1_1vec3_1a87c11509121e27285c638e9dbdba5813" kind="function"><name>norm2</name></member>
-    <member refid="structspace_1_1vec3_1aab8274e4a2b8099b913755c3cd515082" kind="function"><name>max_component</name></member>
-    <member refid="structspace_1_1vec3_1a8341929b135c150114f3b350ab8166e2" kind="function"><name>reNorm</name></member>
-    <member refid="structspace_1_1vec3_1a8a0e7859adeb355118305d4a3a60251c" kind="function"><name>setZero</name></member>
-    <member refid="structspace_1_1vec3_1abff63f0e46f72872cde6ef76c7d23987" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1a3a75245d69de37517118e14ca25fcedb" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1a241b2b1b61ba5744ece12b0d0120b0a4" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1abb1c9284e116a52b5283b8626406bec5" kind="function"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1a1dbc37c3e553c222f64282041bd54ceb" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1af153265c79cab6ac077143339f6527d5" kind="function"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1aedaf078335791935603beaf91bc00738" kind="function"><name>operator/</name></member>
-    <member refid="structspace_1_1vec3_1a63d3432b1039fd82ab346be6ad507399" kind="function"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1ae028ba5159da9beeb797d8be875eba32" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a3faa8e40c3049772a1278cc30999e3f7" kind="function"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1adef26e4b1df6b66f1c4841d5b6a6f53b" kind="function"><name>operator/</name></member>
-    <member refid="structspace_1_1vec3_1aff77e8d020494fbb0dc9a9dad416c06b" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a3fda08b74e86c640cbd40def9b8ef6be" kind="function"><name>abs</name></member>
-    <member refid="structspace_1_1vec3_1a251fc2b82caee22ff9ba4b0ed1e7dd51" kind="function"><name>operator+=</name></member>
-    <member refid="structspace_1_1vec3_1a28ca6393d8aa683d5184c0304c71c67e" kind="function"><name>operator-=</name></member>
-    <member refid="structspace_1_1vec3_1a9e9953e5c0ed2b9198439f5b2b093286" kind="function"><name>operator/=</name></member>
-    <member refid="structspace_1_1vec3_1a0593020b4c2fc92e2a23a43ff4d91170" kind="function"><name>operator+=</name></member>
-    <member refid="structspace_1_1vec3_1a0e2f07639de2d4987cba1e10690f8a46" kind="function"><name>operator-=</name></member>
-    <member refid="structspace_1_1vec3_1a057697b8a9d7b964724467a4611280cc" kind="function"><name>operator*=</name></member>
-    <member refid="structspace_1_1vec3_1a48fb178f68b0908886d939643a5ca9a2" kind="function"><name>operator/=</name></member>
-    <member refid="structspace_1_1vec3_1aabddb2575735a95a387eda185c404cf2" kind="function"><name>operator=</name></member>
-    <member refid="structspace_1_1vec3_1aa9129aa5d54a4b810c0cb12d99e4c774" kind="function"><name>norm</name></member>
-    <member refid="structspace_1_1vec3_1a87c11509121e27285c638e9dbdba5813" kind="function"><name>norm2</name></member>
-    <member refid="structspace_1_1vec3_1aab8274e4a2b8099b913755c3cd515082" kind="function"><name>max_component</name></member>
-    <member refid="structspace_1_1vec3_1a8341929b135c150114f3b350ab8166e2" kind="function"><name>reNorm</name></member>
-    <member refid="structspace_1_1vec3_1a8a0e7859adeb355118305d4a3a60251c" kind="function"><name>setZero</name></member>
-    <member refid="structspace_1_1vec3_1abff63f0e46f72872cde6ef76c7d23987" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1a3a75245d69de37517118e14ca25fcedb" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1a241b2b1b61ba5744ece12b0d0120b0a4" kind="function"><name>vec3</name></member>
-    <member refid="structspace_1_1vec3_1abb1c9284e116a52b5283b8626406bec5" kind="function"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1a1dbc37c3e553c222f64282041bd54ceb" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1af153265c79cab6ac077143339f6527d5" kind="function"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1aedaf078335791935603beaf91bc00738" kind="function"><name>operator/</name></member>
-    <member refid="structspace_1_1vec3_1a63d3432b1039fd82ab346be6ad507399" kind="function"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1ae028ba5159da9beeb797d8be875eba32" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a3faa8e40c3049772a1278cc30999e3f7" kind="function"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1adef26e4b1df6b66f1c4841d5b6a6f53b" kind="function"><name>operator/</name></member>
-    <member refid="structspace_1_1vec3_1aff77e8d020494fbb0dc9a9dad416c06b" kind="function"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a3fda08b74e86c640cbd40def9b8ef6be" kind="function"><name>abs</name></member>
-    <member refid="structspace_1_1vec3_1a251fc2b82caee22ff9ba4b0ed1e7dd51" kind="function"><name>operator+=</name></member>
-    <member refid="structspace_1_1vec3_1a28ca6393d8aa683d5184c0304c71c67e" kind="function"><name>operator-=</name></member>
-    <member refid="structspace_1_1vec3_1a9e9953e5c0ed2b9198439f5b2b093286" kind="function"><name>operator/=</name></member>
-    <member refid="structspace_1_1vec3_1a0593020b4c2fc92e2a23a43ff4d91170" kind="function"><name>operator+=</name></member>
-    <member refid="structspace_1_1vec3_1a0e2f07639de2d4987cba1e10690f8a46" kind="function"><name>operator-=</name></member>
-    <member refid="structspace_1_1vec3_1a057697b8a9d7b964724467a4611280cc" kind="function"><name>operator*=</name></member>
-    <member refid="structspace_1_1vec3_1a48fb178f68b0908886d939643a5ca9a2" kind="function"><name>operator/=</name></member>
-    <member refid="structspace_1_1vec3_1aabddb2575735a95a387eda185c404cf2" kind="function"><name>operator=</name></member>
-    <member refid="structspace_1_1vec3_1aa9129aa5d54a4b810c0cb12d99e4c774" kind="function"><name>norm</name></member>
-    <member refid="structspace_1_1vec3_1a87c11509121e27285c638e9dbdba5813" kind="function"><name>norm2</name></member>
-    <member refid="structspace_1_1vec3_1aab8274e4a2b8099b913755c3cd515082" kind="function"><name>max_component</name></member>
-    <member refid="structspace_1_1vec3_1a8341929b135c150114f3b350ab8166e2" kind="function"><name>reNorm</name></member>
-    <member refid="structspace_1_1vec3_1a8a0e7859adeb355118305d4a3a60251c" kind="function"><name>setZero</name></member>
-    <member refid="structspace_1_1vec3_1a04165a00cae4ce5d2f5e142cc177a720" kind="friend"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1a6252e85a538cca25b99107166be778b1" kind="friend"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a4f0b2685679a321b6c43a7406719c3a5" kind="friend"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1af5e1bcad9d3d484d6f4e6b3f8949f5cf" kind="friend"><name>operator&lt;&lt;</name></member>
-    <member refid="structspace_1_1vec3_1a72f92578884bd68e0747871acd8545fd" kind="friend"><name>operator&gt;&gt;</name></member>
-    <member refid="structspace_1_1vec3_1a04165a00cae4ce5d2f5e142cc177a720" kind="friend"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1a6252e85a538cca25b99107166be778b1" kind="friend"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a4f0b2685679a321b6c43a7406719c3a5" kind="friend"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1af5e1bcad9d3d484d6f4e6b3f8949f5cf" kind="friend"><name>operator&lt;&lt;</name></member>
-    <member refid="structspace_1_1vec3_1a72f92578884bd68e0747871acd8545fd" kind="friend"><name>operator&gt;&gt;</name></member>
-    <member refid="structspace_1_1vec3_1a04165a00cae4ce5d2f5e142cc177a720" kind="friend"><name>operator+</name></member>
-    <member refid="structspace_1_1vec3_1a6252e85a538cca25b99107166be778b1" kind="friend"><name>operator-</name></member>
-    <member refid="structspace_1_1vec3_1a4f0b2685679a321b6c43a7406719c3a5" kind="friend"><name>operator*</name></member>
-    <member refid="structspace_1_1vec3_1af5e1bcad9d3d484d6f4e6b3f8949f5cf" kind="friend"><name>operator&lt;&lt;</name></member>
-    <member refid="structspace_1_1vec3_1a72f92578884bd68e0747871acd8545fd" kind="friend"><name>operator&gt;&gt;</name></member>
-  </compound>
   <compound refid="structspace_1_1_vec3" kind="struct"><name>space::Vec3</name>
     <member refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kind="typedef"><name>value_type</name></member>
     <member refid="structspace_1_1_vec3_1a6d6c4c97cc18849edf19eb8daba16880" kind="variable"><name>x</name></member>
@@ -1449,12 +1348,12 @@
     <member refid="namespacespace_1a54aebfe3aa3980061d97b59d9bc812e7" kind="typedef"><name>precise_f</name></member>
     <member refid="namespacespace_1a49d7d5fcc8177f9c1e92b48b75c0835c" kind="typedef"><name>DefaultTypes</name></member>
     <member refid="namespacespace_1ad2ef35cee56ad99f746840675de3fd70" kind="typedef"><name>DefaultSolver</name></member>
-    <member refid="namespacespace_1a0b9ee91bd17fc9aa56d2cf7467900fce" kind="typedef"><name>vec3ld</name></member>
-    <member refid="namespacespace_1a1be55951f75940bbdd74d26a30aa7df3" kind="typedef"><name>vec3d</name></member>
-    <member refid="namespacespace_1aef134f80296acbb9c1d2ab5ff4fc4b8b" kind="typedef"><name>vec3f</name></member>
-    <member refid="namespacespace_1aba2aef33549766dafc3a3a5134651622" kind="typedef"><name>vec3i</name></member>
-    <member refid="namespacespace_1a433328f837c233654c381b1db0349778" kind="typedef"><name>vec3c</name></member>
-    <member refid="namespacespace_1a7cb2cfd21ce83f3f8925c6bedaece223" kind="typedef"><name>vec3b</name></member>
+    <member refid="namespacespace_1a048d540ea29aff679591a1b5b9303497" kind="typedef"><name>vec3ld</name></member>
+    <member refid="namespacespace_1a19a48ecf1339c52009ccb6934cf799bd" kind="typedef"><name>vec3d</name></member>
+    <member refid="namespacespace_1a67fb2a2bc7af0f2c219853cda7be35d3" kind="typedef"><name>vec3f</name></member>
+    <member refid="namespacespace_1aa23d52e014eb76d5d9929854718d9c1e" kind="typedef"><name>vec3i</name></member>
+    <member refid="namespacespace_1a026d91839a4aecf0564d111622a38351" kind="typedef"><name>vec3c</name></member>
+    <member refid="namespacespace_1a00335c4bf483b31127c2757316593d6b" kind="typedef"><name>vec3b</name></member>
     <member refid="namespacespace_1a1013e1dc47dc2b7d2a90bb1e19cba4ef" kind="variable"><name>is_container_v</name></member>
     <member refid="namespacespace_1adef73637c574d3c8bdee43f4fab29c8a" kind="variable"><name>is_interactions_v</name></member>
     <member refid="namespacespace_1aca418903124fbea5621539bacf958f04" kind="variable"><name>epsilon_v</name></member>
@@ -1521,9 +1420,6 @@
     <member refid="namespacespace_1a336c4b7ef644a2d2e28cb69c1e3d8dc5" kind="function"><name>re_norm</name></member>
     <member refid="namespacespace_1afbb0245be78abc3f96541898d1aeced4" kind="function"><name>norm2</name></member>
     <member refid="namespacespace_1aba641f0ea9662b2a002b7321ac18d46b" kind="function"><name>cross</name></member>
-    <member refid="namespacespace_1a86bda8692fc2d75619d57fbdb23be089" kind="function"><name>distance</name></member>
-    <member refid="namespacespace_1afcb12df6c0b9bdba80f49503496dd2d7" kind="function"><name>dot</name></member>
-    <member refid="namespacespace_1a389923b3aa7c850e6a39f198861fc3b0" kind="function"><name>cross</name></member>
   </compound>
   <compound refid="namespacespace_1_1args_opt" kind="namespace"><name>space::argsOpt</name>
   </compound>
@@ -1937,13 +1833,7 @@
   </compound>
   <compound refid="vector3d_8h" kind="file"><name>vector3d.h</name>
   </compound>
-  <compound refid="vector3f_8h" kind="file"><name>vector3f.h</name>
-  </compound>
-  <compound refid="vector3ld_8h" kind="file"><name>vector3ld.h</name>
-  </compound>
   <compound refid="vector3pd_8h" kind="file"><name>vector3pd.h</name>
-  </compound>
-  <compound refid="vector3pf_8h" kind="file"><name>vector3pf.h</name>
   </compound>
   <compound refid="dir_dd1824b078262f556a617b0afd53aa22" kind="dir"><name>args-callback</name>
   </compound>

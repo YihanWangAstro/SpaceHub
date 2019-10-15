@@ -19,5 +19,5 @@ var searchData=
   ['coord_37',['Coord',['../structspace_1_1_types.html#a92ab981bb0ac9ba49ffb6ae5506d21fc',1,'space::Types']]],
   ['coords_38',['Coords',['../structspace_1_1_coords.html',1,'space::Coords&lt; T &gt;'],['../structspace_1_1_coords.html#a8847cd19bce595b3c1884af35575cdf8',1,'space::Coords::Coords()']]],
   ['costream_39',['Costream',['../classspace_1_1multi_thread_1_1_costream.html',1,'space::multiThread']]],
-  ['cross_40',['cross',['../namespacespace.html#aba641f0ea9662b2a002b7321ac18d46b',1,'space::cross(const Vec3&lt; T &gt; &amp;v1, const Vec3&lt; T &gt; &amp;v2)'],['../namespacespace.html#a389923b3aa7c850e6a39f198861fc3b0',1,'space::cross(const vec3&lt; T &gt; &amp;v1, const vec3&lt; T &gt; &amp;v2)']]]
+  ['cross_40',['cross',['../namespacespace.html#aba641f0ea9662b2a002b7321ac18d46b',1,'space']]]
 ];

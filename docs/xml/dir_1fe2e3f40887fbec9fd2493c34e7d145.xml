@@ -4,10 +4,7 @@
     <compoundname>vector</compoundname>
     <innerfile refid="vector3_8h">vector3.h</innerfile>
     <innerfile refid="vector3d_8h">vector3d.h</innerfile>
-    <innerfile refid="vector3f_8h">vector3f.h</innerfile>
-    <innerfile refid="vector3ld_8h">vector3ld.h</innerfile>
     <innerfile refid="vector3pd_8h">vector3pd.h</innerfile>
-    <innerfile refid="vector3pf_8h">vector3pf.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

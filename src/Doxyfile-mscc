@@ -3,6 +3,7 @@ GENERATE_HTML           = YES
 GENERATE_XML            = YES
 XML_PROGRAMLISTING      = NO
 SHOW_INCLUDE_FILES      = YES
+DOT_FONTSIZE            = 10
 ALIASES += \
     "m_div{1}=@xmlonly<mcss:div xmlns:mcss=\"http://mcss.mosra.cz/doxygen/\" mcss:class=\"\1\">@endxmlonly" \
     "m_enddiv=@xmlonly</mcss:div>@endxmlonly" \
@@ -16,7 +17,9 @@ ALIASES += \
     "m_enum_values_as_keywords=@xmlonly<mcss:search xmlns:mcss=\"http://mcss.mosra.cz/doxygen/\" mcss:enum-values-as-keywords=\"true\" />@endxmlonly"\
     "glabel{1}=@m_class{m-label m-success} **\1**"\
     "ylabel{1}=@m_class{m-label m-warning} **\1**"\
-    "must_impl=@ylabel{must impl}"\
-    "opt_impl{1}=@glabel{optional impl} `> \1 `"
+    "rlabel{1}=@m_class{m-label m-danger} **\1**"\
+    "must_impl=@m_class{m-label m-flat m-danger} **must impl**"\
+    "opt_impl{1}=@m_class{m-label m-flat m-warning} **optional impl** `> \1 `"\
+    "auto_impl=@m_class{m-label m-flat m-success} **auto impl**"\
 
 

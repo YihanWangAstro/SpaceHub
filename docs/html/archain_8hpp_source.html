@@ -214,7 +214,7 @@ $(function() {
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    Chain::calc_chain_index(ptcl_.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>(), index_);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    Chain::calc_chain(ptcl_.<a class="code" href="classspace_1_1_particles.html#a88b14a9d84c8887f5a95c4ecc8922543">pos</a>(), <a class="code" href="classspace_1_1_a_rchain_system.html#acab3eb7ebc77853acecec5ec903e52e0">chain_pos</a>(), <a class="code" href="classspace_1_1_a_rchain_system.html#afc6de4abbd3816262629a503edff1079">index</a>());</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    Chain::calc_chain(ptcl_.<a class="code" href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>(), <a class="code" href="classspace_1_1_a_rchain_system.html#ab76190264bfa1f0348e18309da23b3e0">chain_vel</a>(), <a class="code" href="classspace_1_1_a_rchain_system.html#afc6de4abbd3816262629a503edff1079">index</a>());</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_dep) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">if</span> constexpr (<a class="code" href="classspace_1_1_interactions.html#a722a9fafdf2e329951f30daa07f0fbe8">Interactions::ext_vel_dep</a>) {</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      aux_vel_ = ptcl_.<a class="code" href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">vel</a>();</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      chain_aux_vel_ = chain_vel_;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
@@ -263,7 +263,7 @@ $(function() {
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    Scalar half_time = 0.5 * phy_time;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    eval_vel_indep_acc();</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_dep) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> constexpr (<a class="code" href="classspace_1_1_interactions.html#a722a9fafdf2e329951f30daa07f0fbe8">Interactions::ext_vel_dep</a>) {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      kick_pseu_vel(half_time);</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      kick_real_vel(phy_time);</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      kick_pseu_vel(half_time);</div>
@@ -271,7 +271,7 @@ $(function() {
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      Chain::calc_chain(accels_.tot_vel_indep_acc(), chain_acc_, index());</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_indep) {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keywordflow">if</span> constexpr (<a class="code" href="classspace_1_1_interactions.html#ad8453af189e176a74e97e536c5bff568">Interactions::ext_vel_indep</a>) {</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      }</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);</div>
@@ -293,7 +293,7 @@ $(function() {
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Particles, <span class="keyword">typename</span> Interactions, ReguType RegType&gt;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordtype">void</span> ARchainSystem&lt;Particles, Interactions, RegType&gt;::impl_pre_iter_process() {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_dep) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">if</span> constexpr (<a class="code" href="classspace_1_1_interactions.html#a722a9fafdf2e329951f30daa07f0fbe8">Interactions::ext_vel_dep</a>) {</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      aux_vel_ = ptcl_.vel();</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      chain_aux_vel_ = chain_vel_;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
@@ -367,7 +367,7 @@ $(function() {
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keywordtype">void</span> ARchainSystem&lt;Particles, Interactions, RegType&gt;::eval_vel_indep_acc() {</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    interactions_.eval_newtonian_acc(*<span class="keyword">this</span>, accels_.newtonian_acc());</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    accels_.tot_vel_indep_acc() = accels_.newtonian_acc();</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_indep) {</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">if</span> constexpr (<a class="code" href="classspace_1_1_interactions.html#ad8453af189e176a74e97e536c5bff568">Interactions::ext_vel_indep</a>) {</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      interactions_.eval_extra_vel_indep_acc(*<span class="keyword">this</span>, accels_.ext_vel_indep_acc());</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonian_acc());</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    }</div>
@@ -409,7 +409,7 @@ $(function() {
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    advance_omega(aux_vel_, accels_.newtonian_acc(), phy_time);</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">if</span> constexpr (Interactions::ext_vel_indep) {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">if</span> constexpr (<a class="code" href="classspace_1_1_interactions.html#ad8453af189e176a74e97e536c5bff568">Interactions::ext_vel_indep</a>) {</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      calc::coord_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      advance_bindE(aux_vel_, accels_.acc(), phy_time);</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    } <span class="keywordflow">else</span> {</div>
@@ -420,11 +420,12 @@ $(function() {
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="preprocessor">#endif //SPACEHUB_ARCHAIN_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacespace_html"><div class="ttname"><a href="namespacespace.html">space</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:8</div></div>
-<div class="ttc" id="aclassspace_1_1_interactions_html"><div class="ttname"><a href="classspace_1_1_interactions.html">space::Interactions</a></div><div class="ttdef"><b>Definition:</b> interaction.hpp:21</div></div>
+<div class="ttc" id="aclassspace_1_1_interactions_html"><div class="ttname"><a href="classspace_1_1_interactions.html">space::Interactions</a></div><div class="ttdef"><b>Definition:</b> interaction.hpp:23</div></div>
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html_ae57f2ed4ae122899e21df71e2f0f8a62"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html#ae57f2ed4ae122899e21df71e2f0f8a62">space::ARchainSystem::ARchainSystem</a></div><div class="ttdeci">ARchainSystem()=delete</div></div>
 <div class="ttc" id="aclassspace_1_1_accelerations_html"><div class="ttname"><a href="classspace_1_1_accelerations.html">space::Accelerations</a></div><div class="ttdef"><b>Definition:</b> accelerations.hpp:18</div></div>
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html_a20ec784cd351e3fb17bf50680960dd8a"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html#a20ec784cd351e3fb17bf50680960dd8a">space::ARchainSystem::impl_idn</a></div><div class="ttdeci">auto &amp; impl_idn() noexcept</div><div class="ttdef"><b>Definition:</b> archain.hpp:56</div></div>
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html_ac9977a1bc6995af4ce27e82737bd4b42"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html#ac9977a1bc6995af4ce27e82737bd4b42">space::ARchainSystem::impl_time</a></div><div class="ttdeci">auto &amp; impl_time() noexcept</div><div class="ttdef"><b>Definition:</b> archain.hpp:62</div></div>
+<div class="ttc" id="aclassspace_1_1_interactions_html_a722a9fafdf2e329951f30daa07f0fbe8"><div class="ttname"><a href="classspace_1_1_interactions.html#a722a9fafdf2e329951f30daa07f0fbe8">space::Interactions::ext_vel_dep</a></div><div class="ttdeci">static constexpr bool ext_vel_dep</div><div class="ttdef"><b>Definition:</b> interaction.hpp:38</div></div>
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html_acab3eb7ebc77853acecec5ec903e52e0"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html#acab3eb7ebc77853acecec5ec903e52e0">space::ARchainSystem::chain_pos</a></div><div class="ttdeci">auto &amp; chain_pos() noexcept</div><div class="ttdef"><b>Definition:</b> archain.hpp:42</div></div>
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html">space::ARchainSystem</a></div><div class="ttdef"><b>Definition:</b> archain.hpp:23</div></div>
 <div class="ttc" id="aclassspace_1_1_particles_html_aac4152046aebc0f7735ec475a472b698"><div class="ttname"><a href="classspace_1_1_particles.html#aac4152046aebc0f7735ec475a472b698">space::Particles::vel</a></div><div class="ttdeci">auto &amp; vel() noexcept</div><div class="ttdef"><b>Definition:</b> particles.hpp:30</div></div>
@@ -439,6 +440,7 @@ $(function() {
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html_af0d241b99d1b93f93e844a1ecfb4b65d"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html#af0d241b99d1b93f93e844a1ecfb4b65d">space::ARchainSystem::impl_vel</a></div><div class="ttdeci">auto &amp; impl_vel() noexcept</div><div class="ttdef"><b>Definition:</b> archain.hpp:60</div></div>
 <div class="ttc" id="aclassspace_1_1_a_rchain_system_html_afc6de4abbd3816262629a503edff1079"><div class="ttname"><a href="classspace_1_1_a_rchain_system.html#afc6de4abbd3816262629a503edff1079">space::ARchainSystem::index</a></div><div class="ttdeci">auto &amp; index() noexcept</div><div class="ttdef"><b>Definition:</b> archain.hpp:46</div></div>
 <div class="ttc" id="aclassspace_1_1_particles_html"><div class="ttname"><a href="classspace_1_1_particles.html">space::Particles</a></div><div class="ttdef"><b>Definition:</b> particles.hpp:19</div></div>
+<div class="ttc" id="aclassspace_1_1_interactions_html_ad8453af189e176a74e97e536c5bff568"><div class="ttname"><a href="classspace_1_1_interactions.html#ad8453af189e176a74e97e536c5bff568">space::Interactions::ext_vel_indep</a></div><div class="ttdeci">static constexpr bool ext_vel_indep</div><div class="ttdef"><b>Definition:</b> interaction.hpp:46</div></div>
 <div class="ttc" id="aclassspace_1_1_particle_system_html"><div class="ttname"><a href="classspace_1_1_particle_system.html">space::ParticleSystem</a></div><div class="ttdef"><b>Definition:</b> particle-system.hpp:22</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

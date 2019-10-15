@@ -10,10 +10,10 @@ namespace space {
     Class Particles Declaration
 \*---------------------------------------------------------------------------*/
 /**
- * Abstract class of a 'Structure of Array(SoA)' kind SoA particle set. A class implements(partly/fully) the interfaces of this
- * class via CRTP idioms can be used cross the system as an implementation of the concept `Particles`.
+ * Abstract class of a 'Structure of Array(SoA)' particle set. A class implements(partly/fully) the interfaces of this
+ * class via CRTP idiom can be used cross the system as an implementation of the concept `Particles`.
  *
- * @tparam Derived The implement class in CRTP idioms.
+ * @tparam Derived The implement class in CRTP idiom.
  */
   template<typename Derived>
   class Particles {
