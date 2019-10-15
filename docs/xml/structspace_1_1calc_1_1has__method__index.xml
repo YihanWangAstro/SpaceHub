@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1calc_1_1has__method__index" kind="struct" language="C++" prot="public">
     <compoundname>space::calc::has_method_index</compoundname>
+    <includes refid="core-computation_8hpp" local="no">core-computation.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -13,30 +14,30 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1calc_1_1has__method__index_1a7fdc531531c914b88fec14d1c90b298f" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1calc_1_1has__method__index_1a7fdc531531c914b88fec14d1c90b298f" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::calc::has_method_index&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
         <name>value</name>
-        <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
+        <initializer>= decltype(<ref refid="structspace_1_1calc_1_1has__method__index_1ad6f4e9da19416da14965013445651cb4" kindref="member">check</ref>&lt;T&gt;(nullptr))::value</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="194" column="169" bodyfile="core-computation.hpp" bodystart="194" bodyend="-1"/>
+        <location file="core-computation.hpp" line="194" column="1" bodyfile="core-computation.hpp" bodystart="194" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__index_1a9936d936f6090ccd8c6f30dddd78d859" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__index_1ad6f4e9da19416da14965013445651cb4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::calc::has_method_index&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::calc::has_method_index&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). index(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +49,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="194" column="75"/>
+        <location file="core-computation.hpp" line="194" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__index_1adea3d47b8efae846e8edda14976abb1d" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__index_1af7c47a6a20aa4d86734ebdb5455dd2d7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::calc::has_method_index&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::calc::has_method_index&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +70,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="194" column="137"/>
+        <location file="core-computation.hpp" line="194" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="core-computation.hpp" line="194" column="40" bodyfile="core-computation.hpp" bodystart="194" bodyend="194"/>
+    <collaborationgraph>
+      <node id="121">
+        <label>space::calc::has_method_index&lt; T, Args &gt;</label>
+        <link refid="structspace_1_1calc_1_1has__method__index"/>
+      </node>
+    </collaborationgraph>
+    <location file="core-computation.hpp" line="194" column="1" bodyfile="core-computation.hpp" bodystart="194" bodyend="194"/>
     <listofallmembers>
-      <member refid="structspace_1_1calc_1_1has__method__index_1a9936d936f6090ccd8c6f30dddd78d859" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>check</name></member>
-      <member refid="structspace_1_1calc_1_1has__method__index_1adea3d47b8efae846e8edda14976abb1d" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>check</name></member>
+      <member refid="structspace_1_1calc_1_1has__method__index_1ad6f4e9da19416da14965013445651cb4" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>check</name></member>
+      <member refid="structspace_1_1calc_1_1has__method__index_1af7c47a6a20aa4d86734ebdb5455dd2d7" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>check</name></member>
       <member refid="structspace_1_1calc_1_1has__method__index_1a7fdc531531c914b88fec14d1c90b298f" prot="public" virt="non-virtual"><scope>space::calc::has_method_index</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

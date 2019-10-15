@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_chain" kind="class" language="C++" prot="public">
     <compoundname>space::Chain</compoundname>
+    <includes refid="chain_8hpp" local="no">chain.hpp</includes>
     <innerclass refid="structspace_1_1_chain_1_1_node" prot="public">space::Chain::Node</innerclass>
       <sectiondef kind="private-static-attrib">
-      <memberdef kind="variable" id="classspace_1_1_chain_1aba4c65e72d4505d19850f0a94b7ca875" prot="private" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="classspace_1_1_chain_1aba4c65e72d4505d19850f0a94b7ca875" prot="private" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::Chain::auto_centre_of_mass_move_</definition>
         <argsstring></argsstring>
@@ -16,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="77" column="27" bodyfile="particle-system/chain.hpp" bodystart="77" bodyend="-1"/>
+        <location file="particle-system/chain.hpp" line="77" column="1" bodyfile="particle-system/chain.hpp" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -28,12 +29,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default constructor. <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="23" column="9"/>
+        <location file="particle-system/chain.hpp" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1aae885fbe1f31d0d903995ee96c2294c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -46,12 +45,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default copy constructor. <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default copy constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="23" column="33"/>
+        <location file="particle-system/chain.hpp" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1ade5f7ba028ee32b540cd62e32800de61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -64,12 +61,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default move constructor <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default move constructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="23" column="60"/>
+        <location file="particle-system/chain.hpp" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1aba865aabd5f1b0dbddcad4aa26c80e24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1_chain" kindref="compound">Chain</ref> &amp;</type>
@@ -82,12 +77,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default copy assignment operator <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default copy assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="23" column="94"/>
+        <location file="particle-system/chain.hpp" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a3397dd1dc4dab782cada71b2272d70a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1_chain" kindref="compound">Chain</ref> &amp;</type>
@@ -100,12 +93,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default move assignment operator <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default move assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="23" column="132"/>
+        <location file="particle-system/chain.hpp" line="23" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -136,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="26" column="17" bodyfile="particle-system/chain.hpp" bodystart="26" bodyend="31"/>
+        <location file="particle-system/chain.hpp" line="26" column="1" bodyfile="particle-system/chain.hpp" bodystart="26" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a8be57fe30008ac3a24578f34367ef978" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -169,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="34" column="17" bodyfile="particle-system/chain.hpp" bodystart="34" bodyend="57"/>
+        <location file="particle-system/chain.hpp" line="34" column="1" bodyfile="particle-system/chain.hpp" bodystart="34" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1aedc972ea5d90f1f2e2f95c139a0dd5a4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -209,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="60" column="17" bodyfile="particle-system/chain.hpp" bodystart="60" bodyend="67"/>
+        <location file="particle-system/chain.hpp" line="60" column="1" bodyfile="particle-system/chain.hpp" bodystart="60" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a7c4fa4fd9fa9375ff206f46a9cb1c0d3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -242,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="70" column="17" bodyfile="particle-system/chain.hpp" bodystart="70" bodyend="74"/>
+        <location file="particle-system/chain.hpp" line="70" column="1" bodyfile="particle-system/chain.hpp" bodystart="70" bodyend="74"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -270,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="80" column="17" bodyfile="particle-system/chain.hpp" bodystart="80" bodyend="82"/>
+        <location file="particle-system/chain.hpp" line="80" column="1" bodyfile="particle-system/chain.hpp" bodystart="80" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a7467e134dbc8bad1156de81212ced941" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -308,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="85" column="17" bodyfile="particle-system/chain.hpp" bodystart="85" bodyend="94"/>
+        <location file="particle-system/chain.hpp" line="85" column="1" bodyfile="particle-system/chain.hpp" bodystart="85" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1acb107f1d075808d4271ab23d47fa8bea" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -337,7 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="96" column="17" bodyfile="particle-system/chain.hpp" bodystart="96" bodyend="107"/>
+        <location file="particle-system/chain.hpp" line="96" column="1" bodyfile="particle-system/chain.hpp" bodystart="96" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1ac8bc24b492e66b368f451a530d604a9f" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -366,7 +357,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="110" column="17" bodyfile="particle-system/chain.hpp" bodystart="110" bodyend="121"/>
+        <location file="particle-system/chain.hpp" line="110" column="1" bodyfile="particle-system/chain.hpp" bodystart="110" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a06065990580d5ce0c021251f1d16badb" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -396,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="124" column="17" bodyfile="particle-system/chain.hpp" bodystart="124" bodyend="151"/>
+        <location file="particle-system/chain.hpp" line="124" column="1" bodyfile="particle-system/chain.hpp" bodystart="124" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a9b951383bf5553f4443ec69f58e53bce" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -426,7 +417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="154" column="17" bodyfile="particle-system/chain.hpp" bodystart="154" bodyend="176"/>
+        <location file="particle-system/chain.hpp" line="154" column="1" bodyfile="particle-system/chain.hpp" bodystart="154" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a5056f223cadd6c52178bf3aee514af63" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -459,7 +450,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="179" column="17" bodyfile="particle-system/chain.hpp" bodystart="179" bodyend="188"/>
+        <location file="particle-system/chain.hpp" line="179" column="1" bodyfile="particle-system/chain.hpp" bodystart="179" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_chain_1a83c87541ba09eb6cdf611f88ae47ffd3" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -492,14 +483,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain.hpp" line="191" column="17" bodyfile="particle-system/chain.hpp" bodystart="191" bodyend="200"/>
+        <location file="particle-system/chain.hpp" line="191" column="1" bodyfile="particle-system/chain.hpp" bodystart="191" bodyend="200"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="particle-system/chain.hpp" line="13" column="14" bodyfile="particle-system/chain.hpp" bodystart="13" bodyend="201"/>
+    <collaborationgraph>
+      <node id="48">
+        <label>space::Chain</label>
+        <link refid="classspace_1_1_chain"/>
+      </node>
+    </collaborationgraph>
+    <location file="particle-system/chain.hpp" line="13" column="1" bodyfile="particle-system/chain.hpp" bodystart="13" bodyend="201"/>
     <listofallmembers>
       <member refid="classspace_1_1_chain_1aba4c65e72d4505d19850f0a94b7ca875" prot="private" virt="non-virtual"><scope>space::Chain</scope><name>auto_centre_of_mass_move_</name></member>
       <member refid="classspace_1_1_chain_1aedc972ea5d90f1f2e2f95c139a0dd5a4" prot="public" virt="non-virtual"><scope>space::Chain</scope><name>calc_cartesian</name></member>

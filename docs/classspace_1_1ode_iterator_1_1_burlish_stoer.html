@@ -44,7 +44,7 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-template">template&lt;typename Real, template&lt;typename&gt; typename ErrChecker, template&lt;size_t, typename&gt; typename StepControl&gt;</div>
+          <div class="m-doc-template">template&lt;typename Real&gt;</div>
           <span class="m-breadcrumb"><a href="namespacespace.html">space</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacespace_1_1ode_iterator.html">odeIterator</a>::<wbr/></span>BurlishStoer <span class="m-thin">class</span>
         </h1>
         <table class="m-table m-fullwidth m-flat">
@@ -56,16 +56,163 @@
               <td style="width: 1%">Real</td>
               <td></td>
             </tr>
-            <tr>
-              <td>ErrChecker</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>StepControl</td>
-              <td></td>
-            </tr>
           </tbody>
         </table>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-types">Public types</a></li>
+                <li><a href="#pub-static-attribs">Public static variables</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
+                <li><a href="#pro-methods">Protected functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt>
+              using <a href="#ac0d0a602d3d9aad96cc45a97141ed984" class="m-doc">Base</a> = <a href="classspace_1_1ode_iterator_1_1_ode_iterator.html" class="m-doc">OdeIterator</a>&lt;<a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html" class="m-doc">BurlishStoer</a>&lt;Real, ErrChecker, StepControl&gt;&gt;
+            </dt>
+            <dd></dd>
+            <dt>
+              using <a href="#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a> = Real
+            </dt>
+            <dd></dd>
+            <dt>
+              using <a href="#a0f978415d7f0befa3bf5d8359a636eb9" class="m-doc">BSConsts</a> = <a href="classspace_1_1ode_iterator_1_1_burlish_stoer_consts.html" class="m-doc">BurlishStoerConsts</a>&lt;<a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a>, max_depth+1&gt;
+            </dt>
+            <dd></dd>
+            <dt>
+              using <a href="#aed977dd8091b49e5278336d91c1eb4c8" class="m-doc">StepController</a> = StepControl&lt;2*max_depth+3, <a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a>&gt;
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pub-static-attribs">
+          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              static size_t <a href="#a33d661689594e7addac035f86b8a3a6a" class="m-doc">max_try_num</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              friend <a href="#a48430eb52c224128b8a30e8463d11a6e" class="m-doc">Base</a>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pro-methods">
+          <h2><a href="#pro-methods">Protected functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename U&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa7477ef5e6f4c5606d05a91486fd75a0" class="m-doc">impl_iterate</a>(</span><span class="m-doc-wrap">U&amp; particles,
+              typename U::Scalar macro_step_size) -&gt; typename U::Scalar -&gt; auto</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#aad8021e63d65c4808a4a0ad8d00ae133" class="m-doc">impl_set_atol</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a> atol)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#af8b270283d102a6a549176e82db1008f" class="m-doc">impl_set_rtol</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a> rtol)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Typedef documentation</h2>
+          <section class="m-doc-details" id="ac0d0a602d3d9aad96cc45a97141ed984"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              using space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /><a href="#ac0d0a602d3d9aad96cc45a97141ed984" class="m-doc-self">Base</a> = <a href="classspace_1_1ode_iterator_1_1_ode_iterator.html" class="m-doc">OdeIterator</a>&lt;<a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html" class="m-doc">BurlishStoer</a>&lt;Real, ErrChecker, StepControl&gt;&gt;
+            </h3>
+          </div></section>
+          <section class="m-doc-details" id="ab0f705ce74953834c7e38353f673c8d7"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              using space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /><a href="#ab0f705ce74953834c7e38353f673c8d7" class="m-doc-self">Scalar</a> = Real
+            </h3>
+          </div></section>
+          <section class="m-doc-details" id="a0f978415d7f0befa3bf5d8359a636eb9"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              using space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /><a href="#a0f978415d7f0befa3bf5d8359a636eb9" class="m-doc-self">BSConsts</a> = <a href="classspace_1_1ode_iterator_1_1_burlish_stoer_consts.html" class="m-doc">BurlishStoerConsts</a>&lt;<a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a>, max_depth+1&gt;
+            </h3>
+          </div></section>
+          <section class="m-doc-details" id="aed977dd8091b49e5278336d91c1eb4c8"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              using space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /><a href="#aed977dd8091b49e5278336d91c1eb4c8" class="m-doc-self">StepController</a> = StepControl&lt;2*max_depth+3, <a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a>&gt;
+            </h3>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="aa7477ef5e6f4c5606d05a91486fd75a0"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+                template&lt;typename U&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa7477ef5e6f4c5606d05a91486fd75a0" class="m-doc-self">impl_iterate</a>(</span><span class="m-doc-wrap">U&amp; particles,
+              typename U::Scalar macro_step_size) -&gt; typename U::Scalar <span class="m-label m-warning">protected</span></span></span>
+            </h3>
+          </div></section>
+          <section class="m-doc-details" id="aad8021e63d65c4808a4a0ad8d00ae133"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aad8021e63d65c4808a4a0ad8d00ae133" class="m-doc-self">impl_set_atol</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a> atol) <span class="m-label m-warning">protected</span></span></span>
+            </h3>
+          </div></section>
+          <section class="m-doc-details" id="af8b270283d102a6a549176e82db1008f"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af8b270283d102a6a549176e82db1008f" class="m-doc-self">impl_set_rtol</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1ode_iterator_1_1_burlish_stoer.html#ab0f705ce74953834c7e38353f673c8d7" class="m-doc">Scalar</a> rtol) <span class="m-label m-warning">protected</span></span></span>
+            </h3>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a33d661689594e7addac035f86b8a3a6a"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              static size_t space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /><a href="#a33d661689594e7addac035f86b8a3a6a" class="m-doc-self">max_try_num</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+          </div></section>
+          <section class="m-doc-details" id="a48430eb52c224128b8a30e8463d11a6e"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Real&gt;
+              </div>
+              friend space::<wbr />odeIterator::<wbr />BurlishStoer&lt;Real&gt;::<wbr /><a href="#a48430eb52c224128b8a30e8463d11a6e" class="m-doc-self">Base</a>
+            </h3>
+          </div></section>
+        </section>
       </div>
     </div>
   </div>
@@ -110,7 +257,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

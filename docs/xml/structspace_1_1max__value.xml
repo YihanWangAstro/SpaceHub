@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1max__value" kind="struct" language="C++" prot="public">
     <compoundname>space::max_value</compoundname>
     <includes refid="own-math_8hpp" local="no">own-math.hpp</includes>
@@ -20,23 +20,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="79" column="5" bodyfile="own-math.hpp" bodystart="79" bodyend="-1"/>
+        <location file="own-math.hpp" line="79" column="1" bodyfile="own-math.hpp" bodystart="79" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1max__value_1a3618074798d29514c1f30d47ecbbd808" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr static value_type</type>
-        <definition>constexpr static value_type space::max_value&lt; Dtype &gt;::value</definition>
+      <memberdef kind="variable" id="structspace_1_1max__value_1a9b5d634b4765683c560b670bd851ce67" prot="public" static="yes" mutable="no">
+        <type>constexpr <ref refid="structspace_1_1max__value_1ac71b02c5533e24497a861349009c1dcb" kindref="member">value_type</ref></type>
+        <definition>constexpr value_type space::max_value&lt; Dtype &gt;::value</definition>
         <argsstring></argsstring>
         <name>value</name>
-        <initializer>= std::numeric_limits&lt;value_type&gt;::<ref refid="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" kindref="member">max</ref>()</initializer>
+        <initializer>= std::numeric_limits&lt;<ref refid="structspace_1_1max__value_1ac71b02c5533e24497a861349009c1dcb" kindref="member">value_type</ref>&gt;::<ref refid="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" kindref="member">max</ref>()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="80" column="33" bodyfile="own-math.hpp" bodystart="80" bodyend="-1"/>
+        <location file="own-math.hpp" line="80" column="1" bodyfile="own-math.hpp" bodystart="80" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -47,15 +47,19 @@
 <parametername>Dtype</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
-    <location file="own-math.hpp" line="78" column="18" bodyfile="own-math.hpp" bodystart="78" bodyend="81"/>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="192">
+        <label>space::max_value&lt; Dtype &gt;</label>
+        <link refid="structspace_1_1max__value"/>
+      </node>
+    </collaborationgraph>
+    <location file="own-math.hpp" line="78" column="1" bodyfile="own-math.hpp" bodystart="78" bodyend="81"/>
     <listofallmembers>
-      <member refid="structspace_1_1max__value_1a3618074798d29514c1f30d47ecbbd808" prot="public" virt="non-virtual"><scope>space::max_value</scope><name>value</name></member>
+      <member refid="structspace_1_1max__value_1a9b5d634b4765683c560b670bd851ce67" prot="public" virt="non-virtual"><scope>space::max_value</scope><name>value</name></member>
       <member refid="structspace_1_1max__value_1ac71b02c5533e24497a861349009c1dcb" prot="public" virt="non-virtual"><scope>space::max_value</scope><name>value_type</name></member>
     </listofallmembers>
   </compounddef>

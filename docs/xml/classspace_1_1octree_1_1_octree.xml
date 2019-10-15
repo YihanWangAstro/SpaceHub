@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1octree_1_1_octree" kind="class" language="C++" prot="public">
     <compoundname>space::octree::Octree</compoundname>
+    <includes refid="octree_8hpp" local="no">octree.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -19,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/octree.hpp" line="31" column="9" bodyfile="particle-system/octree.hpp" bodystart="31" bodyend="-1"/>
+        <location file="particle-system/octree.hpp" line="31" column="1" bodyfile="particle-system/octree.hpp" bodystart="31" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -35,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/octree.hpp" line="108" column="25" bodyfile="particle-system/octree.hpp" bodystart="108" bodyend="-1"/>
+        <location file="particle-system/octree.hpp" line="108" column="1" bodyfile="particle-system/octree.hpp" bodystart="108" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -59,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/octree.hpp" line="34" column="9" bodyfile="particle-system/octree.hpp" bodystart="34" bodyend="38"/>
+        <location file="particle-system/octree.hpp" line="34" column="1" bodyfile="particle-system/octree.hpp" bodystart="34" bodyend="38"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -82,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/octree.hpp" line="40" column="14" bodyfile="particle-system/octree.hpp" bodystart="40" bodyend="73"/>
+        <location file="particle-system/octree.hpp" line="40" column="1" bodyfile="particle-system/octree.hpp" bodystart="40" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1octree_1_1_octree_1a0ae6030a638817c5a7652db483865f3e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -90,7 +91,7 @@
             <type>typename Vector</type>
           </param>
         </templateparamlist>
-        <type>region</type>
+        <type><ref refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35" kindref="member">region</ref></type>
         <definition>region space::octree::Octree&lt; T &gt;::get_region</definition>
         <argsstring>(Vector const &amp;loc, Vector const &amp;p)</argsstring>
         <name>get_region</name>
@@ -108,14 +109,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/octree.hpp" line="76" column="16" bodyfile="particle-system/octree.hpp" bodystart="76" bodyend="106"/>
+        <location file="particle-system/octree.hpp" line="76" column="1" bodyfile="particle-system/octree.hpp" bodystart="76" bodyend="106"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="particle-system/octree.hpp" line="29" column="17" bodyfile="particle-system/octree.hpp" bodystart="29" bodyend="109"/>
+    <collaborationgraph>
+      <node id="210">
+        <label>space::octree::Octree&lt; T &gt;</label>
+        <link refid="classspace_1_1octree_1_1_octree"/>
+      </node>
+    </collaborationgraph>
+    <location file="particle-system/octree.hpp" line="29" column="1" bodyfile="particle-system/octree.hpp" bodystart="29" bodyend="109"/>
     <listofallmembers>
       <member refid="classspace_1_1octree_1_1_octree_1a0ae6030a638817c5a7652db483865f3e" prot="private" virt="non-virtual"><scope>space::octree::Octree</scope><name>get_region</name></member>
       <member refid="classspace_1_1octree_1_1_octree_1aab0feab92e933b41312eaf3325e8ab73" prot="private" virt="non-virtual"><scope>space::octree::Octree</scope><name>insert</name></member>

@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_tidal_force" kind="class" language="C++" prot="public">
     <compoundname>space::TidalForce</compoundname>
     <basecompoundref refid="classspace_1_1_interactions" prot="public" virt="non-virtual">space::Interactions&lt; TidalForce &gt;</basecompoundref>
+    <includes refid="tidal_8hpp" local="no">tidal.hpp</includes>
     <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" prot="private">space::TidalForce::has_method_chain_pos</innerclass>
     <innerclass refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" prot="private">space::TidalForce::has_method_chain_vel</innerclass>
     <innerclass refid="structspace_1_1_tidal_force_1_1has__method__index" prot="private">space::TidalForce::has_method_index</innerclass>
@@ -31,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="24" column="10" bodyfile="interaction/tidal.hpp" bodystart="24" bodyend="26"/>
+        <location file="interaction/tidal.hpp" line="24" column="1" bodyfile="interaction/tidal.hpp" bodystart="24" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_tidal_force_1a3884814331a629df5de8d4f1c40bd5dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -57,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="29" column="10" bodyfile="interaction/tidal.hpp" bodystart="29" bodyend="31"/>
+        <location file="interaction/tidal.hpp" line="29" column="1" bodyfile="interaction/tidal.hpp" bodystart="29" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_tidal_force_1a410b7c28bac7e271df651d4cc31c622c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -83,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="34" column="10" bodyfile="interaction/tidal.hpp" bodystart="34" bodyend="82"/>
+        <location file="interaction/tidal.hpp" line="34" column="1" bodyfile="interaction/tidal.hpp" bodystart="34" bodyend="82"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -107,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="86" column="10" bodyfile="interaction/tidal.hpp" bodystart="86" bodyend="96"/>
+        <location file="interaction/tidal.hpp" line="86" column="1" bodyfile="interaction/tidal.hpp" bodystart="86" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_tidal_force_1a0e9532e3c9fe8a477e8863d43da03899" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -149,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="99" column="10" bodyfile="interaction/tidal.hpp" bodystart="99" bodyend="106"/>
+        <location file="interaction/tidal.hpp" line="99" column="1" bodyfile="interaction/tidal.hpp" bodystart="99" bodyend="106"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -157,32 +158,47 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1">
+      <node id="372">
         <label>space::TidalForce</label>
         <link refid="classspace_1_1_tidal_force"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="373" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="2">
+      <node id="373">
         <label>space::Interactions&lt; TidalForce &gt;</label>
+        <link refid="classspace_1_1_interactions"/>
+        <childnode refid="374" relation="template-instance">
+          <edgelabel>&lt; TidalForce &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="374">
+        <label>space::Interactions&lt; Derived &gt;</label>
         <link refid="classspace_1_1_interactions"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="1">
+      <node id="375">
         <label>space::TidalForce</label>
         <link refid="classspace_1_1_tidal_force"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="376" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="2">
+      <node id="376">
         <label>space::Interactions&lt; TidalForce &gt;</label>
+        <link refid="classspace_1_1_interactions"/>
+        <childnode refid="377" relation="template-instance">
+          <edgelabel>&lt; TidalForce &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="377">
+        <label>space::Interactions&lt; Derived &gt;</label>
         <link refid="classspace_1_1_interactions"/>
       </node>
     </collaborationgraph>
-    <location file="interaction/tidal.hpp" line="14" column="40" bodyfile="interaction/tidal.hpp" bodystart="14" bodyend="107"/>
+    <location file="interaction/tidal.hpp" line="14" column="1" bodyfile="interaction/tidal.hpp" bodystart="14" bodyend="107"/>
     <listofallmembers>
       <member refid="classspace_1_1_tidal_force_1a0e9532e3c9fe8a477e8863d43da03899" prot="private" virt="non-virtual"><scope>space::TidalForce</scope><name>calc_e_loss</name></member>
+      <member refid="classspace_1_1_interactions_1a5c1fd12a58850802821dd492396e8138" prot="public" virt="non-virtual"><scope>space::TidalForce</scope><name>derived</name></member>
       <member refid="classspace_1_1_interactions_1a6688576102282c07dc5c7b6b2745be5f" prot="public" virt="non-virtual"><scope>space::TidalForce</scope><name>eval_acc</name></member>
       <member refid="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" prot="public" virt="non-virtual"><scope>space::TidalForce</scope><name>eval_extra_vel_dep_acc</name></member>
       <member refid="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" prot="public" virt="non-virtual"><scope>space::TidalForce</scope><name>eval_extra_vel_indep_acc</name></member>

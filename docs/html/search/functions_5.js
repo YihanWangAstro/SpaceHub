@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['get_5ftime_419',['get_time',['../classspace_1_1tools_1_1_timer.html#ae26d63313a7416a2dddd6bcf6a4e4b77',1,'space::tools::Timer']]],
-  ['getbtab_420',['getBTab',['../classspace_1_1_gauss_dadau.html#a30d7bd1c32d27ed7e53a54ae1818b002',1,'space::GaussDadau']]]
+  ['flush',['flush',['../classspace_1_1multi_thread_1_1_concurrent_file.html#a4a261ac14ef0f7826f026be96df7f6c5',1,'space::multiThread::ConcurrentFile']]]
 ];

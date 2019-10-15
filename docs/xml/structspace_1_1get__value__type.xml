@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1get__value__type" kind="struct" language="C++" prot="public">
     <compoundname>space::get_value_type</compoundname>
+    <includes refid="dev-tools_8hpp" local="no">dev-tools.hpp</includes>
     <templateparamlist>
       <param>
-        <type>typename</type>
-        <declname>T</declname>
-        <defname>T</defname>
+        <type>typename T</type>
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
@@ -21,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="114" column="5" bodyfile="dev-tools.hpp" bodystart="114" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="114" column="1" bodyfile="dev-tools.hpp" bodystart="114" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -44,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="107" column="35"/>
+        <location file="dev-tools.hpp" line="107" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1get__value__type_1aaf0d70b6d2d8d320f153a1a0d5e7856a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -65,14 +64,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="111" column="14"/>
+        <location file="dev-tools.hpp" line="111" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="dev-tools.hpp" line="103" column="23" bodyfile="dev-tools.hpp" bodystart="103" bodyend="115"/>
+    <collaborationgraph>
+      <node id="101">
+        <label>space::get_value_type&lt; T &gt;</label>
+        <link refid="structspace_1_1get__value__type"/>
+      </node>
+    </collaborationgraph>
+    <location file="dev-tools.hpp" line="103" column="1" bodyfile="dev-tools.hpp" bodystart="103" bodyend="115"/>
     <listofallmembers>
       <member refid="structspace_1_1get__value__type_1a8d0bcef058ab37175f23eb6f9e1eddc4" prot="private" virt="non-virtual"><scope>space::get_value_type</scope><name>check</name></member>
       <member refid="structspace_1_1get__value__type_1aaf0d70b6d2d8d320f153a1a0d5e7856a" prot="private" virt="non-virtual"><scope>space::get_value_type</scope><name>check</name></member>

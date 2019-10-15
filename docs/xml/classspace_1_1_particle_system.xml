@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_particle_system" kind="class" language="C++" prot="public">
     <compoundname>space::ParticleSystem</compoundname>
     <includes refid="particle-system_8hpp" local="no">particle-system.hpp</includes>
@@ -22,11 +22,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="157" column="12" bodyfile="particle-system.hpp" bodystart="157" bodyend="-1"/>
+        <location file="particle-system.hpp" line="165" column="1" bodyfile="particle-system.hpp" bodystart="165" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
         <argsstring>() noexcept</argsstring>
@@ -34,33 +34,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>mass</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="26" column="23" bodyfile="particle-system.hpp" bodystart="26" bodyend="26"/>
+        <location file="particle-system.hpp" line="26" column="1" bodyfile="particle-system.hpp" bodystart="26" bodyend="26"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a568128f35a138ebfa0b337dd7bc8a9c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ParticleSystem&lt; Derived &gt;::mass</definition>
         <argsstring>() const noexcept</argsstring>
         <name>mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>mass</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="26" column="118" bodyfile="particle-system.hpp" bodystart="26" bodyend="26"/>
+        <location file="particle-system.hpp" line="26" column="1" bodyfile="particle-system.hpp" bodystart="26" bodyend="26"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
         <argsstring>() noexcept</argsstring>
@@ -68,33 +60,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>idn</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="28" column="23" bodyfile="particle-system.hpp" bodystart="28" bodyend="28"/>
+        <location file="particle-system.hpp" line="28" column="1" bodyfile="particle-system.hpp" bodystart="28" bodyend="28"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a92803bfe1059aae8726f119a64d732d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ParticleSystem&lt; Derived &gt;::idn</definition>
         <argsstring>() const noexcept</argsstring>
         <name>idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>idn</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="28" column="116" bodyfile="particle-system.hpp" bodystart="28" bodyend="28"/>
+        <location file="particle-system.hpp" line="28" column="1" bodyfile="particle-system.hpp" bodystart="28" bodyend="28"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
         <argsstring>() noexcept</argsstring>
@@ -102,33 +86,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>time</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="30" column="23" bodyfile="particle-system.hpp" bodystart="30" bodyend="30"/>
+        <location file="particle-system.hpp" line="30" column="1" bodyfile="particle-system.hpp" bodystart="30" bodyend="30"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a0178bbec054b9e0306babcc8292b417c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ParticleSystem&lt; Derived &gt;::time</definition>
         <argsstring>() const noexcept</argsstring>
         <name>time</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>time</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="30" column="118" bodyfile="particle-system.hpp" bodystart="30" bodyend="30"/>
+        <location file="particle-system.hpp" line="30" column="1" bodyfile="particle-system.hpp" bodystart="30" bodyend="30"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
         <argsstring>() noexcept</argsstring>
@@ -136,33 +112,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="32" column="23" bodyfile="particle-system.hpp" bodystart="32" bodyend="32"/>
+        <location file="particle-system.hpp" line="32" column="1" bodyfile="particle-system.hpp" bodystart="32" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a3a927a129c57d857baa79562ddce5e9f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ParticleSystem&lt; Derived &gt;::pos</definition>
         <argsstring>() const noexcept</argsstring>
         <name>pos</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="32" column="116" bodyfile="particle-system.hpp" bodystart="32" bodyend="32"/>
+        <location file="particle-system.hpp" line="32" column="1" bodyfile="particle-system.hpp" bodystart="32" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
         <argsstring>() noexcept</argsstring>
@@ -170,31 +138,37 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="34" column="23" bodyfile="particle-system.hpp" bodystart="34" bodyend="34"/>
+        <location file="particle-system.hpp" line="34" column="1" bodyfile="particle-system.hpp" bodystart="34" bodyend="34"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1a04488af1a73fcbcf2133f81d09a2a8f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ParticleSystem&lt; Derived &gt;::vel</definition>
         <argsstring>() const noexcept</argsstring>
         <name>vel</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="34" column="116" bodyfile="particle-system.hpp" bodystart="34" bodyend="34"/>
+        <location file="particle-system.hpp" line="34" column="1" bodyfile="particle-system.hpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_particle_system_1afa856953dcd12c93e5030e82b4f40afd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Derived &amp;</type>
+        <definition>Derived &amp; space::ParticleSystem&lt; Derived &gt;::derived</definition>
+        <argsstring>()</argsstring>
+        <name>derived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>The downcast interface of Base class to Derived class. <simplesect kind="return"><para>Derived </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system.hpp" line="42" column="1" bodyfile="particle-system.hpp" bodystart="177" bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -204,14 +178,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Get the (active) particle number of the SoA particle set. <simplesect kind="return"><para>size_t the number of the particles. </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Get the (active) particle number of the SoA particle set. <simplesect kind="return"><para>size_t the number of the particles. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="42" column="13" bodyfile="particle-system.hpp" bodystart="169" bodyend="171"/>
+        <location file="particle-system.hpp" line="50" column="1" bodyfile="particle-system.hpp" bodystart="182" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -230,14 +201,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Advance the internal time of the particle system with given time interval. <parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Advance the internal time of the particle system with given time interval. <parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Scalar</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Floating point like type type. </para>
-</parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -245,15 +214,13 @@
 <parametername direction="in">dt</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Avanced time interval. </para>
-</parameterdescription>
+<para>Avanced time interval. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="52" column="10" bodyfile="particle-system.hpp" bodystart="175" bodyend="177"/>
+        <location file="particle-system.hpp" line="60" column="1" bodyfile="particle-system.hpp" bodystart="188" bodyend="190"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -279,23 +246,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Advance the interval position of all particles by providing all corresponding velocity with given step size.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Advance the interval position of all particles by providing all corresponding velocity with given step size.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Coord</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The Coordinates Type. </para>
-</parameterdescription>
+<para>The Coordinates Type. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>Scalar</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Floating point like type type. </para>
-</parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -303,23 +266,20 @@
 <parametername direction="in">step_size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Advance step_size. </para>
-</parameterdescription>
+<para>Advance step_size. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername direction="in">velocity</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Corresponding velocity of all particles. </para>
-</parameterdescription>
+<para>Corresponding velocity of all particles. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="65" column="10" bodyfile="particle-system.hpp" bodystart="181" bodyend="183"/>
+        <location file="particle-system.hpp" line="73" column="1" bodyfile="particle-system.hpp" bodystart="194" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -345,23 +305,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Advance the interval velocity of all particles by providing all corresponding acceleration with given step size.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Advance the interval velocity of all particles by providing all corresponding acceleration with given step size.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Coord</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The Coordinates Type. </para>
-</parameterdescription>
+<para>The Coordinates Type. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>Scalar</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Floating point like type type. </para>
-</parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -369,23 +325,20 @@
 <parametername direction="in">step_size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Advance step_size. </para>
-</parameterdescription>
+<para>Advance step_size. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername direction="in">acceleration</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Corresponding acceleration of all particles. </para>
-</parameterdescription>
+<para>Corresponding acceleration of all particles. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="78" column="10" bodyfile="particle-system.hpp" bodystart="187" bodyend="189"/>
+        <location file="particle-system.hpp" line="86" column="1" bodyfile="particle-system.hpp" bodystart="200" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -404,15 +357,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Evaluate the acceleration for current state of the particle system.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Evaluate the acceleration for current state of the particle system.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Coord</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The Coordinates Type. </para>
-</parameterdescription>
+<para>The Coordinates Type. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -420,15 +370,13 @@
 <parametername direction="out">acceleration</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The calculated acceleration. </para>
-</parameterdescription>
+<para>The calculated acceleration. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="89" column="10" bodyfile="particle-system.hpp" bodystart="193" bodyend="195"/>
+        <location file="particle-system.hpp" line="97" column="1" bodyfile="particle-system.hpp" bodystart="206" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -447,15 +395,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; Symplectic integration is required.</computeroutput></para>
-<para>Drift the particle system with given step size.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; Symplectic integration is required.</computeroutput></para><para>Drift the particle system with given step size.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Scalar</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Floating point like type type. </para>
-</parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -463,15 +408,13 @@
 <parametername direction="in">step_size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Drift step size. </para>
-</parameterdescription>
+<para>Drift step size. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="100" column="10" bodyfile="particle-system.hpp" bodystart="199" bodyend="201"/>
+        <location file="particle-system.hpp" line="108" column="1" bodyfile="particle-system.hpp" bodystart="212" bodyend="214"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -490,15 +433,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; Symplectic integration is required.</computeroutput></para>
-<para>Kick the particle system with given step size.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; Symplectic integration is required.</computeroutput></para><para>Kick the particle system with given step size.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Scalar</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Floating point like type type. </para>
-</parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -506,15 +446,13 @@
 <parametername direction="in">step_size</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Drift step size. </para>
-</parameterdescription>
+<para>Drift step size. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="111" column="10" bodyfile="particle-system.hpp" bodystart="205" bodyend="207"/>
+        <location file="particle-system.hpp" line="119" column="1" bodyfile="particle-system.hpp" bodystart="218" bodyend="220"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -524,12 +462,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; For specific required.</computeroutput></para>
-<para>Pre-process of the particle system before each step iteration. </para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; For specific required.</computeroutput></para><para>Pre-process of the particle system before each step iteration. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="118" column="10" bodyfile="particle-system.hpp" bodystart="210" bodyend="212"/>
+        <location file="particle-system.hpp" line="126" column="1" bodyfile="particle-system.hpp" bodystart="223" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -539,12 +475,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; For specific required.</computeroutput></para>
-<para>Post-process of the particle system after each step iteration. </para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; For specific required.</computeroutput></para><para>Post-process of the particle system after each step iteration. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="125" column="10" bodyfile="particle-system.hpp" bodystart="215" bodyend="217"/>
+        <location file="particle-system.hpp" line="133" column="1" bodyfile="particle-system.hpp" bodystart="228" bodyend="230"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -563,15 +497,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Map all evolved data domain to a 1-d iterable Container(i.e <computeroutput>std::vector</computeroutput>, <computeroutput>std::array</computeroutput>, etc,.). Used for general integration modules.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Map all evolved data domain to a 1-d iterable Container(i.e <computeroutput>std::vector</computeroutput>, <computeroutput>std::array</computeroutput>, etc,.). Used for general integration modules.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>STL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>1-d iterable Container. </para>
-</parameterdescription>
+<para>1-d iterable Container. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -579,17 +510,14 @@
 <parametername direction="out">stl_ranges</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Target container to store the evolved data domain. </para>
-</parameterdescription>
+<para>Target container to store the evolved data domain. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>The method should keep consistence with <ref refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" kindref="member">load_from_linear_container()</ref>. </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="note"><para>The method should keep consistence with <ref refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" kindref="member">load_from_linear_container()</ref>. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="138" column="10" bodyfile="particle-system.hpp" bodystart="221" bodyend="224"/>
+        <location file="particle-system.hpp" line="146" column="1" bodyfile="particle-system.hpp" bodystart="234" bodyend="237"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -608,15 +536,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para>
-<para>Reconstruct the particle system from a 1-d iterable Container(i.e <computeroutput>std::vector</computeroutput>, <computeroutput>std::array</computeroutput>, etc,.). Used for general integration modules.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Reconstruct the particle system from a 1-d iterable Container(i.e <computeroutput>std::vector</computeroutput>, <computeroutput>std::array</computeroutput>, etc,.). Used for general integration modules.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>STL</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>1-d iterable Container. </para>
-</parameterdescription>
+<para>1-d iterable Container. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -624,17 +549,14 @@
 <parametername direction="in">stl_ranges</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Container that store the particle information for reconstruction. </para>
-</parameterdescription>
+<para>Container that store the particle information for reconstruction. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>The method should keep consistence with <ref refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" kindref="member">to_linear_container()</ref>. </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="note"><para>The method should keep consistence with <ref refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" kindref="member">to_linear_container()</ref>. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="151" column="10" bodyfile="particle-system.hpp" bodystart="228" bodyend="231"/>
+        <location file="particle-system.hpp" line="159" column="1" bodyfile="particle-system.hpp" bodystart="241" bodyend="244"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -649,7 +571,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="155" column="5"/>
+        <location file="particle-system.hpp" line="163" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1a7c205436f025ab607db33f53a8af59c6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -662,7 +584,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="160" column="10" bodyfile="particle-system.hpp" bodystart="160" bodyend="160"/>
+        <location file="particle-system.hpp" line="168" column="1" bodyfile="particle-system.hpp" bodystart="168" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_particle_system_1addeff3b1be80f3b8ac64f62218fdd6ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -675,51 +597,113 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="162" column="10" bodyfile="particle-system.hpp" bodystart="162" bodyend="162"/>
+        <location file="particle-system.hpp" line="170" column="1" bodyfile="particle-system.hpp" bodystart="170" bodyend="170"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Abstract class of Particle System. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <computeroutput><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref></computeroutput>. The particle System integrates the data set of a particle set and provides interface to evolve the internal particles.</para>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para>Abstract class of Particle System. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <computeroutput><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref></computeroutput>. The particle System integrates the data set of a particle set and provides interface to evolve the internal particles.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Derived</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The implement class in CRTP idiom. </para>
-</parameterdescription>
+<para>The implement class in CRTP idiom. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
-    <location file="particle-system.hpp" line="22" column="23" bodyfile="particle-system.hpp" bodystart="22" bodyend="163"/>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="248">
+        <label>space::ParticleSystem&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+        <childnode refid="241" relation="template-instance">
+          <edgelabel>&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="241">
+        <label>space::ParticleSystem&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+      </node>
+      <node id="246">
+        <label>space::ParticleSystem&lt; RegularizedSystem&lt; Particles, Interactions, RegType &gt; &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+        <childnode refid="241" relation="template-instance">
+          <edgelabel>&lt; RegularizedSystem&lt; Particles, Interactions, RegType &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="245">
+        <label>space::SimpleSystem&lt; Particles, Interactions &gt;</label>
+        <link refid="classspace_1_1_simple_system"/>
+        <childnode refid="244" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="242">
+        <label>space::ParticleSystem&lt; ChainSystem&lt; Particles, Interactions &gt; &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+        <childnode refid="241" relation="template-instance">
+          <edgelabel>&lt; ChainSystem&lt; Particles, Interactions &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="244">
+        <label>space::ParticleSystem&lt; SimpleSystem&lt; Particles, Interactions &gt; &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+        <childnode refid="241" relation="template-instance">
+          <edgelabel>&lt; SimpleSystem&lt; Particles, Interactions &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="249">
+        <label>space::ARchainSystem&lt; Particles, Interactions, RegType &gt;</label>
+        <link refid="classspace_1_1_a_rchain_system"/>
+        <childnode refid="248" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="243">
+        <label>space::ChainSystem&lt; Particles, Interactions &gt;</label>
+        <link refid="classspace_1_1_chain_system"/>
+        <childnode refid="242" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="247">
+        <label>space::RegularizedSystem&lt; Particles, Interactions, RegType &gt;</label>
+        <link refid="classspace_1_1_regularized_system"/>
+        <childnode refid="246" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="250">
+        <label>space::ParticleSystem&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+      </node>
+    </collaborationgraph>
+    <location file="particle-system.hpp" line="22" column="1" bodyfile="particle-system.hpp" bodystart="22" bodyend="171"/>
     <listofallmembers>
       <member refid="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_pos</name></member>
       <member refid="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_time</name></member>
       <member refid="classspace_1_1_particle_system_1a725e1999204d5cd73f9b0f6fe53bacc4" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>advance_vel</name></member>
       <member refid="classspace_1_1_particle_system_1af9791fd034c4b1b10ee3798c9c35ed6c" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>Derived</name></member>
+      <member refid="classspace_1_1_particle_system_1afa856953dcd12c93e5030e82b4f40afd" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>derived</name></member>
       <member refid="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>drift</name></member>
       <member refid="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>evaluate_acc</name></member>
       <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>idn</name></member>
-      <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>idn</name></member>
+      <member refid="classspace_1_1_particle_system_1a92803bfe1059aae8726f119a64d732d0" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>idn</name></member>
       <member refid="classspace_1_1_particle_system_1addeff3b1be80f3b8ac64f62218fdd6ec" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>impl_post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a7c205436f025ab607db33f53a8af59c6" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>impl_pre_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a040e62f9f12ea1da654bbf3fdf4606ec" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>kick</name></member>
       <member refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>load_from_linear_container</name></member>
       <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>mass</name></member>
-      <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>mass</name></member>
+      <member refid="classspace_1_1_particle_system_1a568128f35a138ebfa0b337dd7bc8a9c8" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>mass</name></member>
       <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>number</name></member>
       <member refid="classspace_1_1_particle_system_1a0004ebcbfd0c2af9e7dfdf13b015bf0b" prot="private" virt="non-virtual"><scope>space::ParticleSystem</scope><name>ParticleSystem</name></member>
       <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pos</name></member>
-      <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pos</name></member>
+      <member refid="classspace_1_1_particle_system_1a3a927a129c57d857baa79562ddce5e9f" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pos</name></member>
       <member refid="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>pre_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>time</name></member>
-      <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>time</name></member>
+      <member refid="classspace_1_1_particle_system_1a0178bbec054b9e0306babcc8292b417c" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>time</name></member>
       <member refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>to_linear_container</name></member>
       <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>vel</name></member>
-      <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>vel</name></member>
+      <member refid="classspace_1_1_particle_system_1a04488af1a73fcbcf2133f81d09a2a8f2" prot="public" virt="non-virtual"><scope>space::ParticleSystem</scope><name>vel</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

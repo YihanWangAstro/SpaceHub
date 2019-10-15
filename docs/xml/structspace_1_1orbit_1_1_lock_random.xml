@@ -1,12 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1orbit_1_1_lock_random" kind="struct" language="C++" prot="public">
     <compoundname>space::orbit::LockRandom</compoundname>
+    <includes refid="orbits_8hpp" local="no">orbits.hpp</includes>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="orbits/orbits.hpp" line="104" column="19" bodyfile="orbits/orbits.hpp" bodystart="104" bodyend="105"/>
+    <collaborationgraph>
+      <node id="188">
+        <label>space::orbit::LockRandom</label>
+        <link refid="structspace_1_1orbit_1_1_lock_random"/>
+      </node>
+    </collaborationgraph>
+    <location file="orbits/orbits.hpp" line="104" column="1" bodyfile="orbits/orbits.hpp" bodystart="104" bodyend="105"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

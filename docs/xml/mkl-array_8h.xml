@@ -1,284 +1,68 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="mkl-array_8h" kind="file" language="C++">
     <compoundname>mkl-array.h</compoundname>
     <includes refid="lazy__expr_8h" local="yes">lazy_expr.h</includes>
     <includes local="no">string.h</includes>
     <includes local="yes">/opt/intel/mkl/include/mkl.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_version.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_types.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_blas.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_trans.h</includes>
-    <includes local="no">stddef.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_cblas.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_spblas.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_lapack.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_lapacke.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_pardiso.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_dss.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_sparse_handle.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_rci.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_service.h</includes>
-    <includes local="no">stdlib.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vml.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vml_defines.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vml_types.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vml_functions.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vsl.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vsl_defines.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vsl_functions.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_vsl_types.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_df.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_df_defines.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_df_functions.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_df_types.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_dfti.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_trig_transforms.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_poisson.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_solvers_ee.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_direct_call.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_dnn.h</includes>
-    <includes local="no">stdarg.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_dnn_types.h</includes>
-    <includes local="yes">/opt/intel/mkl/include/mkl_compact.h</includes>
     <includes refid="timer_8hpp" local="yes">../tools/timer.hpp</includes>
     <incdepgraph>
-      <node id="9">
+      <node id="267">
         <label>/opt/intel/mkl/include/mkl.h</label>
       </node>
-      <node id="27">
-        <label>/opt/intel/mkl/include/mkl_vml_types.h</label>
-      </node>
-      <node id="45">
-        <label>/opt/intel/mkl/include/mkl_compact.h</label>
-      </node>
-      <node id="43">
-        <label>stdarg.h</label>
-      </node>
-      <node id="46">
-        <label>../tools/timer.hpp</label>
-        <link refid="timer_8hpp_source"/>
-        <childnode refid="47" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>/opt/intel/mkl/include/mkl_pardiso.h</label>
-      </node>
-      <node id="44">
-        <label>/opt/intel/mkl/include/mkl_dnn_types.h</label>
-      </node>
-      <node id="24">
-        <label>stdlib.h</label>
-      </node>
-      <node id="35">
-        <label>/opt/intel/mkl/include/mkl_df_functions.h</label>
-      </node>
-      <node id="1">
+      <node id="259">
         <label>lazy-evaluation/mkl-array.h</label>
         <link refid="mkl-array_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="260" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="266" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="267" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
+        <childnode refid="268" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="265">
         <label>cmath</label>
       </node>
-      <node id="13">
-        <label>/opt/intel/mkl/include/mkl_trans.h</label>
+      <node id="268">
+        <label>../tools/timer.hpp</label>
+        <link refid="timer_8hpp"/>
+        <childnode refid="269" relation="include">
+        </childnode>
       </node>
-      <node id="25">
-        <label>/opt/intel/mkl/include/mkl_vml.h</label>
-      </node>
-      <node id="21">
-        <label>/opt/intel/mkl/include/mkl_sparse_handle.h</label>
-      </node>
-      <node id="10">
-        <label>/opt/intel/mkl/include/mkl_version.h</label>
-      </node>
-      <node id="34">
-        <label>/opt/intel/mkl/include/mkl_df_defines.h</label>
-      </node>
-      <node id="3">
+      <node id="261">
         <label>../dev-tools.hpp</label>
-        <link refid="dev-tools_8hpp_source"/>
-        <childnode refid="4" relation="include">
+        <link refid="dev-tools_8hpp"/>
+        <childnode refid="262" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="263" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="264" relation="include">
         </childnode>
       </node>
-      <node id="38">
-        <label>/opt/intel/mkl/include/mkl_trig_transforms.h</label>
-      </node>
-      <node id="14">
-        <label>stddef.h</label>
-      </node>
-      <node id="30">
-        <label>/opt/intel/mkl/include/mkl_vsl_defines.h</label>
-      </node>
-      <node id="32">
-        <label>/opt/intel/mkl/include/mkl_vsl_types.h</label>
-      </node>
-      <node id="18">
-        <label>/opt/intel/mkl/include/mkl_lapacke.h</label>
-      </node>
-      <node id="37">
-        <label>/opt/intel/mkl/include/mkl_dfti.h</label>
-      </node>
-      <node id="16">
-        <label>/opt/intel/mkl/include/mkl_spblas.h</label>
-      </node>
-      <node id="8">
+      <node id="266">
         <label>string.h</label>
       </node>
-      <node id="17">
-        <label>/opt/intel/mkl/include/mkl_lapack.h</label>
-      </node>
-      <node id="40">
-        <label>/opt/intel/mkl/include/mkl_solvers_ee.h</label>
-      </node>
-      <node id="33">
-        <label>/opt/intel/mkl/include/mkl_df.h</label>
-      </node>
-      <node id="2">
+      <node id="260">
         <label>lazy_expr.h</label>
-        <link refid="lazy__expr_8h_source"/>
-        <childnode refid="3" relation="include">
+        <link refid="lazy__expr_8h"/>
+        <childnode refid="261" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="265" relation="include">
         </childnode>
       </node>
-      <node id="42">
-        <label>/opt/intel/mkl/include/mkl_dnn.h</label>
-      </node>
-      <node id="5">
+      <node id="263">
         <label>tuple</label>
       </node>
-      <node id="31">
-        <label>/opt/intel/mkl/include/mkl_vsl_functions.h</label>
-      </node>
-      <node id="20">
-        <label>/opt/intel/mkl/include/mkl_dss.h</label>
-      </node>
-      <node id="11">
-        <label>/opt/intel/mkl/include/mkl_types.h</label>
-      </node>
-      <node id="23">
-        <label>/opt/intel/mkl/include/mkl_service.h</label>
-      </node>
-      <node id="36">
-        <label>/opt/intel/mkl/include/mkl_df_types.h</label>
-      </node>
-      <node id="6">
+      <node id="264">
         <label>array</label>
       </node>
-      <node id="28">
-        <label>/opt/intel/mkl/include/mkl_vml_functions.h</label>
-      </node>
-      <node id="41">
-        <label>/opt/intel/mkl/include/mkl_direct_call.h</label>
-      </node>
-      <node id="29">
-        <label>/opt/intel/mkl/include/mkl_vsl.h</label>
-      </node>
-      <node id="22">
-        <label>/opt/intel/mkl/include/mkl_rci.h</label>
-      </node>
-      <node id="39">
-        <label>/opt/intel/mkl/include/mkl_poisson.h</label>
-      </node>
-      <node id="26">
-        <label>/opt/intel/mkl/include/mkl_vml_defines.h</label>
-      </node>
-      <node id="4">
+      <node id="262">
         <label>iostream</label>
       </node>
-      <node id="15">
-        <label>/opt/intel/mkl/include/mkl_cblas.h</label>
-      </node>
-      <node id="47">
+      <node id="269">
         <label>chrono</label>
-      </node>
-      <node id="12">
-        <label>/opt/intel/mkl/include/mkl_blas.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="structspace_1_1_m_k_l_array" prot="public">space::MKLArray</innerclass>

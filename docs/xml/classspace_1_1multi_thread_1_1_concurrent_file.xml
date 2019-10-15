@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1multi_thread_1_1_concurrent_file" kind="class" language="C++" prot="public">
     <compoundname>space::multiThread::ConcurrentFile</compoundname>
+    <includes refid="multi-thread_8hpp" local="no">multi-thread.hpp</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_concurrent_file_1a1c6a2b7e9b59bd9c31a2e3c22a4c820b" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; std::fstream &gt;</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="109" column="21" bodyfile="multi-thread/multi-thread.hpp" bodystart="109" bodyend="-1"/>
+        <location file="multi-thread/multi-thread.hpp" line="109" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="109" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_concurrent_file_1acde41820b68bb693422c7f913a56ea60" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; std::mutex &gt;</type>
@@ -27,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="110" column="21" bodyfile="multi-thread/multi-thread.hpp" bodystart="110" bodyend="-1"/>
+        <location file="multi-thread/multi-thread.hpp" line="110" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="110" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -50,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="66" column="5" bodyfile="multi-thread/multi-thread.hpp" bodystart="66" bodyend="71"/>
+        <location file="multi-thread/multi-thread.hpp" line="66" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="66" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_concurrent_file_1aaf395220e1b6d6c9e43294ccd92bbd2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -71,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="73" column="5" bodyfile="multi-thread/multi-thread.hpp" bodystart="73" bodyend="74"/>
+        <location file="multi-thread/multi-thread.hpp" line="73" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="73" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_concurrent_file_1a4bf3e75dcc4f732100b893c1a6701793" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -102,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="77" column="10" bodyfile="multi-thread/multi-thread.hpp" bodystart="77" bodyend="80"/>
+        <location file="multi-thread/multi-thread.hpp" line="77" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="77" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_concurrent_file_1a4a261ac14ef0f7826f026be96df7f6c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -115,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="82" column="10" bodyfile="multi-thread/multi-thread.hpp" bodystart="82" bodyend="85"/>
+        <location file="multi-thread/multi-thread.hpp" line="82" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="82" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_concurrent_file_1a47ec83871fb6bfc9cde525cda3d0ca9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -128,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="87" column="10" bodyfile="multi-thread/multi-thread.hpp" bodystart="87" bodyend="90"/>
+        <location file="multi-thread/multi-thread.hpp" line="87" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="87" bodyend="90"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -156,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="93" column="12" bodyfile="multi-thread/multi-thread.hpp" bodystart="93" bodyend="97"/>
+        <location file="multi-thread/multi-thread.hpp" line="93" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="93" bodyend="97"/>
       </memberdef>
       <memberdef kind="friend" id="classspace_1_1multi_thread_1_1_concurrent_file_1a989ac6f685c3d26fb0e66c800d194644" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -182,14 +183,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="100" column="17" bodyfile="multi-thread/multi-thread.hpp" bodystart="100" bodyend="105"/>
+        <location file="multi-thread/multi-thread.hpp" line="100" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="100" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="multi-thread/multi-thread.hpp" line="64" column="23" bodyfile="multi-thread/multi-thread.hpp" bodystart="64" bodyend="111"/>
+    <collaborationgraph>
+      <node id="60">
+        <label>space::multiThread::ConcurrentFile</label>
+        <link refid="classspace_1_1multi_thread_1_1_concurrent_file"/>
+      </node>
+    </collaborationgraph>
+    <location file="multi-thread/multi-thread.hpp" line="64" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="64" bodyend="111"/>
     <listofallmembers>
       <member refid="classspace_1_1multi_thread_1_1_concurrent_file_1a3a3d0062fa2fa134ced4833200b098c7" prot="public" virt="non-virtual"><scope>space::multiThread::ConcurrentFile</scope><name>ConcurrentFile</name></member>
       <member refid="classspace_1_1multi_thread_1_1_concurrent_file_1aaf395220e1b6d6c9e43294ccd92bbd2d" prot="public" virt="non-virtual"><scope>space::multiThread::ConcurrentFile</scope><name>ConcurrentFile</name></member>

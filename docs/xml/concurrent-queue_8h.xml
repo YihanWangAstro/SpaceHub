@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="concurrent-queue_8h" kind="file" language="C++">
     <compoundname>concurrent-queue.h</compoundname>
     <includes local="no">atomic</includes>
@@ -7,33 +7,32 @@
     <includes local="no">mutex</includes>
     <includes local="no">condition_variable</includes>
     <incdepgraph>
-      <node id="2">
+      <node id="307">
         <label>atomic</label>
       </node>
-      <node id="1">
-        <label>multi-thread/concurrent-queue.h</label>
-        <link refid="concurrent-queue_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
+      <node id="310">
         <label>condition_variable</label>
       </node>
-      <node id="3">
+      <node id="306">
+        <label>multi-thread/concurrent-queue.h</label>
+        <link refid="concurrent-queue_8h"/>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+      </node>
+      <node id="308">
         <label>deque</label>
       </node>
-      <node id="4">
+      <node id="309">
         <label>mutex</label>
       </node>
     </incdepgraph>
     <innerclass refid="classspace_1_1multi_thread_1_1_concurrent_deque" prot="public">space::multiThread::ConcurrentDeque</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
     <innernamespace refid="namespacespace_1_1multi_thread">space::multiThread</innernamespace>
     <briefdescription>
     </briefdescription>

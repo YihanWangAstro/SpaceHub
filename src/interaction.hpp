@@ -47,6 +47,14 @@ namespace space {
 
     // public method
     /**
+     * @auto_impl
+     *
+     * The downcast interface of Base class to Derived class.
+     * @return Derived
+     */
+    Derived &derived();
+
+    /**
      * @must_impl
      *
      * Evaluate the total acceleration of the current state of a given particle system.
@@ -109,6 +117,11 @@ namespace space {
     Class Interactions Implementation
 \*---------------------------------------------------------------------------*/
   template<typename Derived>
+  Derived &Interactions<Derived>::derived() {
+    return static_cast<Derived &>(*this);
+  }
+
+  template<typename Derived>
   template<typename Particles>
   void Interactions<Derived>::eval_acc(const Particles &particles, typename Particles::Coord &acceleration) {
     static_cast<Derived *>(this)->impl_eval_acc(particles, acceleration);
@@ -116,13 +129,15 @@ namespace space {
 
   template<typename Derived>
   template<typename Particles>
-  void Interactions<Derived>::eval_extra_vel_dep_acc(const Particles &particles, typename Particles::Coord &acceleration) {
+  void
+  Interactions<Derived>::eval_extra_vel_dep_acc(const Particles &particles, typename Particles::Coord &acceleration) {
     static_cast<Derived *>(this)->impl_eval_extra_vel_dep_acc(particles, acceleration);
   }
 
   template<typename Derived>
   template<typename Particles>
-  void Interactions<Derived>::eval_extra_vel_indep_acc(const Particles &particles, typename Particles::Coord &acceleration) {
+  void
+  Interactions<Derived>::eval_extra_vel_indep_acc(const Particles &particles, typename Particles::Coord &acceleration) {
     static_cast<Derived *>(this)->impl_eval_extra_vel_indep_acc(particles, acceleration);
   }
 

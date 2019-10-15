@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.16">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
   <compound refid="classspace_1_1_accelerations" kind="class"><name>space::Accelerations</name>
     <member refid="classspace_1_1_accelerations_1a4b7cd4db21673e67224bde869e82d4b7" kind="variable"><name>acc_</name></member>
     <member refid="classspace_1_1_accelerations_1a9fb5f435feade35462f4e8144a7ef2e6" kind="variable"><name>newtonian_acc_</name></member>
@@ -13,15 +13,15 @@
     <member refid="classspace_1_1_accelerations_1a1d184e5db9233fe3bdad2a6584167260" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_accelerations_1a149aa0d9b75cc17087099441dda0aa27" kind="function"><name>Accelerations</name></member>
     <member refid="classspace_1_1_accelerations_1a33f4209d477db92eaef003c36ce1037b" kind="function"><name>acc</name></member>
-    <member refid="classspace_1_1_accelerations_1a148072ef35a5426e003a91ba452a8416" kind="function"><name>acc</name></member>
+    <member refid="classspace_1_1_accelerations_1a3d642a245d8b9d508b3e4b214e50bd6f" kind="function"><name>acc</name></member>
     <member refid="classspace_1_1_accelerations_1adb69f6c6fab79d47e1917f165811b028" kind="function"><name>newtonian_acc</name></member>
-    <member refid="classspace_1_1_accelerations_1ad9fbf7e55355617a6dcb2554d7b456a3" kind="function"><name>newtonian_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1a9f664c15c1ed5d1bc44bb51b44a9002a" kind="function"><name>newtonian_acc</name></member>
     <member refid="classspace_1_1_accelerations_1ab1c2b9a56d0ce70d69aae6f3d6e9b3a3" kind="function"><name>tot_vel_indep_acc</name></member>
-    <member refid="classspace_1_1_accelerations_1a7ac292ea6d4c7a723019c0117f81a6ca" kind="function"><name>tot_vel_indep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1a112cf423252ea5bdbac7d5f806af8924" kind="function"><name>tot_vel_indep_acc</name></member>
     <member refid="classspace_1_1_accelerations_1ac1a628d0b74e17d1092b17cbb490e466" kind="function"><name>ext_vel_indep_acc</name></member>
-    <member refid="classspace_1_1_accelerations_1ac3c8d14a8f0e372d161230d484e767d2" kind="function"><name>ext_vel_indep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1acfb13bb94e32ed89fb921a6f2dea1ec4" kind="function"><name>ext_vel_indep_acc</name></member>
     <member refid="classspace_1_1_accelerations_1aca7dcc41a3326ab0161678eb834fd103" kind="function"><name>ext_vel_dep_acc</name></member>
-    <member refid="classspace_1_1_accelerations_1a9d53ce5815d836ee7c3b4e04b9bc611b" kind="function"><name>ext_vel_dep_acc</name></member>
+    <member refid="classspace_1_1_accelerations_1af2a870618c0279fc99e52bb66710e22f" kind="function"><name>ext_vel_dep_acc</name></member>
   </compound>
   <compound refid="class_any_vector" kind="class"><name>AnyVector</name>
     <member refid="class_any_vector_1a716a27148a6b2cec4b0eb0ef722b55e6" kind="variable"><name>vec_</name></member>
@@ -68,25 +68,25 @@
     <member refid="classspace_1_1_a_rchain_system_1a12f66d7a7057d04678fbb8098a42eec8" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_a_rchain_system_1aaf57fa45ed46c628296fe70324a9a6cc" kind="function"><name>ARchainSystem</name></member>
     <member refid="classspace_1_1_a_rchain_system_1acab3eb7ebc77853acecec5ec903e52e0" kind="function"><name>chain_pos</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1aae51571485231689377c25e0b3ea2782" kind="function"><name>chain_pos</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a79df69bd0718cba22509f0fa7fa63a23" kind="function"><name>chain_pos</name></member>
     <member refid="classspace_1_1_a_rchain_system_1ab76190264bfa1f0348e18309da23b3e0" kind="function"><name>chain_vel</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1a82865ecdf66d8a510fd33ab0002baeb2" kind="function"><name>chain_vel</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a66522e76cc202b8044b61f63b750ed6d" kind="function"><name>chain_vel</name></member>
     <member refid="classspace_1_1_a_rchain_system_1afc6de4abbd3816262629a503edff1079" kind="function"><name>index</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1af6948a52d0f59d0cc4ca0fae4c2ca56d" kind="function"><name>index</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1af332a78000353b1d568bd4ff5147763a" kind="function"><name>index</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a65b3d6e985c82ebb6220d9cde6902c3e" kind="function"><name>omega</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1afaa2a7b4c94ee15bcf81d1e14942b417" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a5a078243b18a1bc2249d0abe833de9aa" kind="function"><name>omega</name></member>
     <member refid="classspace_1_1_a_rchain_system_1aafba9b1939a9f180d849e2e8f4de446f" kind="function"><name>bindE</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1ada30bd69aa9887d2c7fdb40708a2c304" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a5a4cdd2445eec66e9d5d209170fcd15a" kind="function"><name>bindE</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a2aa38e81ff6d36f6a7262576654de39a" kind="function"><name>impl_mass</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1a72ff861e181be4d9f0f94e23025ff8aa" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a8f8a9af09de22df7bf2431e0ad28476d" kind="function"><name>impl_mass</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a20ec784cd351e3fb17bf50680960dd8a" kind="function"><name>impl_idn</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1a13a0de11776efd7910c4cab464eacb47" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a7b2b2e8323fb04e768a4f0156986a55d" kind="function"><name>impl_idn</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a73ccf5425a5f66f02dde0d30782a7f66" kind="function"><name>impl_pos</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1a90b04c1b473d21931396643b4bff7d30" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a988fd04c159dd1350d381da78ac682b7" kind="function"><name>impl_pos</name></member>
     <member refid="classspace_1_1_a_rchain_system_1af0d241b99d1b93f93e844a1ecfb4b65d" kind="function"><name>impl_vel</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1a038623aed4ff848acb286ffd2c2ef5a7" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a824e4e00a96baa957181606d62646ada" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_a_rchain_system_1ac9977a1bc6995af4ce27e82737bd4b42" kind="function"><name>impl_time</name></member>
-    <member refid="classspace_1_1_a_rchain_system_1a2a16ae46625dcdcf95be44e9b497dbaf" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_a_rchain_system_1a6a92ba70967281dd4ffeef460d838fc0" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a14911337daa4c4b9b56743979146d29b" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_a_rchain_system_1afb996c9c982f88cc857719734fc28ba1" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_a_rchain_system_1a0da82ee7b7da273bad5bdcf1fee222b2" kind="function"><name>impl_advance_pos</name></member>
@@ -109,7 +109,7 @@
   </compound>
   <compound refid="structspace_1_1big__value" kind="struct"><name>space::big_value</name>
     <member refid="structspace_1_1big__value_1a3839a0f998917d07e10e662245c18fad" kind="typedef"><name>value_type</name></member>
-    <member refid="structspace_1_1big__value_1a69d954e50d788e349e82846c368f8163" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1big__value_1a7a13d49b6cefe1ff541f1a2afe44ebbe" kind="variable"><name>value</name></member>
   </compound>
   <compound refid="struct_space_h_1_1_lazy_1_1_binary___expr" kind="struct"><name>SpaceH::Lazy::Binary_Expr</name>
     <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a7ca0e4ca67365a153c347aa1ea66f9d6" kind="variable"><name>opt_</name></member>
@@ -118,44 +118,130 @@
     <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a160b8c1a4277418c605dfeb6bd62f82b" kind="function"><name>Binary_Expr</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_binary___expr_1a847b7eefdbe247bd88614edceffcd707" kind="function"><name>eval</name></member>
   </compound>
+  <compound refid="classspace_1_1ode_iterator_1_1_b_s_iterator" kind="class"><name>space::odeIterator::BSIterator</name>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a2748ca3cde4be586ef918736dbf43b3e" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1ada1b51891bd99ab14b0a2bab66b7f396" kind="variable"><name>max_depth_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a028b09101801d9a9b5fbb0985675c6f4" kind="variable"><name>BS_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1aa493afe40ce4b97abc54284fe1c2de6c" kind="variable"><name>extrap_tab_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1ac5ee1a714750f5ed7bea7a96c02879c1" kind="variable"><name>optm_step_coef_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a2fe8877012ff6c86ff9a60cf34e3085a" kind="variable"><name>work_per_len_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a9f13db95a1ce5dce7033cc0715940028" kind="variable"><name>abs_error_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1acd1bb94dd0b195fd48bfc647c2bf43f6" kind="variable"><name>rel_error_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a969484a658478a6b6186ad11281c15ef" kind="variable"><name>ideal_iter_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1ade37cd1d3b47f3a52de8f3cd2ba2c994" kind="variable"><name>var_num_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1aaa8a9de61326c38de5870b2285eb4a13" kind="variable"><name>rej_num_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a37baa63498d3238eb236e4478611299c" kind="variable"><name>iter_num_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1ada3a7d6113d600e05c16e4c482ccb192" kind="function"><name>impl_iterate</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a8c0755e69f05edf46b1a1ea72babf3f2" kind="function"><name>set_abs_err</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a4fa6c612fdd15e36a518084555d042d9" kind="function"><name>set_rel_err</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1ad6046d7c29d341c99c35ee3c188d800c" kind="function"><name>at</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a7f17b715aefbd60230e4d3e9ef9a6c8d" kind="function"><name>evolve_by_n_steps</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a9114b62462cd5227944c1c16cbbac173" kind="function"><name>extrapolate_tab</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1aac28955815f50a0ea13ab32226e5afde" kind="function"><name>calc_error_of_row</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1aab3cc2f15190303dd914f1b73a7a7cc0" kind="function"><name>calc_ideal_step_coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1abe541c50f370d9ab7f91054b1af2684c" kind="function"><name>in_converged_window</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1aebb2a35a1e0593808707f65d54a46917" kind="function"><name>is_diverged_anyhow</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1aa587405601f7e7d20158ce4a2e405b91" kind="function"><name>step_coef_limiter</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a370c153c9af67b0e43c90d2af0aa7026" kind="function"><name>reduced_step_coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a1d6a9ee1b9d5741d41af7e04be492077" kind="function"><name>allowed</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_b_s_iterator_1a34ee5f1499396b2f7980ec94994f045b" kind="function"><name>prepare_next_iter</name></member>
+  </compound>
+  <compound refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab" kind="class"><name>space::odeIterator::BurlishStoer::BStab</name>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a1d733165593046bd38b0a561080ccb0b" kind="variable"><name>coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a6a9cf588b629d3b002cbd9c39221d94f" kind="variable"><name>expon</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1aa31913edddc73fddab9abcb0584cfedc" kind="variable"><name>min_step_coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a5a4ab2c9ff78655308e0f1c986d03bdb" kind="variable"><name>max_step_coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a84ffa00eb18f0d8deb5bbc62bcdc92b1" kind="variable"><name>work</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a96ace86cc21ba070a2aec5b03e829177" kind="variable"><name>work_ratio</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a0390da3d8f14bf6fb3d24d1b403c8f8b" kind="variable"><name>step_ratio</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1ad0d8922b85c1ea9862bf6a87045f1750" kind="variable"><name>step</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a69cea830e9c1693ed3a31a4b1e593ca0" kind="variable"><name>S3</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a408c79b6d2153e8b0f492616eac5d4e0" kind="variable"><name>S4</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a358a25a80269255d21ed2ed8d29d9188" kind="function"><name>BStab</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1_1_b_stab_1a8a1030a4c88bb35a64ba2958b4124250" kind="function"><name>at</name></member>
+  </compound>
+  <compound refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab" kind="class"><name>space::odeIterator::Burlish_Stoer_tab</name>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a5cc5068df881b3be562e7856677d347c" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a98329685c8ce25274626fecc2656d134" kind="variable"><name>extrap_coef_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a6b789eb2189f75103fb8e12402655c76" kind="variable"><name>err_expon_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a952450dacb7431553321775343ad2b77" kind="variable"><name>limiter_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a9cc62ac119ab51d849476ff532c71104" kind="variable"><name>work_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a0433e63845a40ffef3825461551efeb4" kind="variable"><name>sub_steps_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1aba1b0fe4fcc9501e00fc97d1e0b26530" kind="function"><name>expon</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a4e45c24680ed3179f605c4ff62ba7ed9" kind="function"><name>limiter</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1adf9cbadc82fcce03d0d58aa384c227cb" kind="function"><name>work</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a61079f6561b1900f7e4cceaa6ed312ac" kind="function"><name>step</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1acd57580b48705518d28d391ff8a28d8c" kind="function"><name>coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a803efc9a897ffe4ce1e3041bd1aaedb9" kind="function"><name>coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a286283a68bb124a3b6df0d9bb27a305d" kind="function"><name>Burlish_Stoer_tab</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish___stoer__tab_1a63d55a47a658b574906203618b708887" kind="function"><name>at</name></member>
+  </compound>
   <compound refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kind="class"><name>space::odeIterator::BurlishStoer</name>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a3cde5642d5bf0996653fa7114452ad4d" kind="typedef"><name>Base</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a19246e4e8c2443e765a9313d2777c0ec" kind="typedef"><name>Scalar</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a57e8185402d2241bd0371156832b4a01" kind="typedef"><name>BSConsts</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a384389b21db53809b17f7869876ef8cc" kind="typedef"><name>StepController</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6bae9d555eafc39eeec1e8bea24f9087" kind="variable"><name>max_depth</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a33907349fe38ce4f5940c793b712f1fd" kind="variable"><name>max_try_num</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11dfb819f78e1cf4730df5a2b8205541" kind="variable"><name>Base</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae6eebb9e987f24b89b794c576b833152" kind="variable"><name>parameters_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a5b846f7d34f42fa00df53f42f0369188" kind="variable"><name>extrap_list_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8616262dc7d90ffa8f8cb318e2ee2dc2" kind="variable"><name>err_checker_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9f7dd04e15cbdc2d1dac265666780ef6" kind="variable"><name>step_controller_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a5ac9d313ff787dbcd91ac247eac8d2ab" kind="variable"><name>input_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a10a6054fa28097880619500a022ad9b8" kind="variable"><name>ideal_step_size_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7b44cfa58cd092cc5b5b2051c79dec76" kind="variable"><name>cost_per_len_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a31615b93f39a2c6ba0d448e068132c99" kind="variable"><name>last_error_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a04afbfb61b49616803ba0597a7ed4547" kind="variable"><name>ideal_rank_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a63a7b5984f37a2e83343ee80ea39c84c" kind="variable"><name>var_num_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae1790fda2456cb5f224c7bda6afc4bca" kind="variable"><name>rej_num_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac9db318f6abb1c0f9bf0510a08455b9f" kind="variable"><name>iter_num_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a17366962b7fb4f314eee94eadb240502" kind="variable"><name>last_step_reject_</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8c6d41930936033627a73ae2d16d3bcc" kind="function"><name>impl_iterate</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad8147621abeac8afda970ecefa5b662b" kind="function"><name>impl_set_atol</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aecd145e37a43030f1f9abb8099364bbc" kind="function"><name>impl_set_rtol</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a2729e8df1e5eae390a7f4afbdc54279e" kind="function"><name>check_variable_size</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9ca21722090287718205db74ef5f217b" kind="function"><name>at</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6cc6f3ce94cb6c568099936487725521" kind="function"><name>integrate_by_n_steps</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a17c2bed71a3821f2b080c3dedbc4ca0e" kind="function"><name>extrapolate</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad3f47e3b361158e873eb97b734614c98" kind="function"><name>in_converged_window</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a684ffd2d9fd5aad5283f3139eaf85afd" kind="function"><name>get_next_try_step</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1adb8183f8fa0ed9c4dd8831165ae8ccd6" kind="function"><name>allowed</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab8919f95f2cabec836538574372d2030" kind="function"><name>set_next_iteration</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a97dbfa8900280365b81f420b0e0e0c61" kind="function"><name>is_diverged_anyhow</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a77262a8f084fc073f3211db83c41ff64" kind="typedef"><name>Base</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac0d0a602d3d9aad96cc45a97141ed984" kind="typedef"><name>Base</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0f705ce74953834c7e38353f673c8d7" kind="typedef"><name>Scalar</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f978415d7f0befa3bf5d8359a636eb9" kind="typedef"><name>BSConsts</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aed977dd8091b49e5278336d91c1eb4c8" kind="typedef"><name>StepController</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6a4fe0ae857350b67e582569e8a662b6" kind="variable"><name>__pad0__</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac5eba7423145a9ac928be011af469fb6" kind="variable"><name>macro_step_size</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a48430eb52c224128b8a30e8463d11a6e" kind="variable"><name>Base</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a85c954188429c2af6870253116c464f5" kind="variable"><name>S1</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a945bd9faeb687786f3896a4161d94789" kind="variable"><name>S2</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad3672cbcef43b6ecaaca72a2c2bf7ca4" kind="variable"><name>max_depth</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afd24580426870463b98fd70e37ffb78d" kind="variable"><name>most_offensive_err</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a45917c0c872c64c7ec71aa1f3fc2173f" kind="variable"><name>BS_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a66111b4e92fdb8c62875f78fdc5cc774" kind="variable"><name>extrap_tab_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7395e41b40aede814064cce08a002074" kind="variable"><name>optm_step_coef_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad3a87ca473739339ee8c112e6eecb108" kind="variable"><name>work_per_len_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab7e3cde60fb51cbf2381a682df6b6aba" kind="variable"><name>abs_error_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a299c22efe4646d9b8f555fd60346c8c1" kind="variable"><name>rel_error_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a522d232df556aba72a562137e20fafbc" kind="variable"><name>ideal_iter_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1acb573753970530a4e4766c7008d14f5d" kind="variable"><name>var_num_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8357e184681ca0c51cfa5f2a26fbea16" kind="variable"><name>rej_num_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a90a0207bc39328d5333d701a1089c8b0" kind="variable"><name>iter_num_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad4d12381a4fc0a77bcaa95d910127638" kind="variable"><name>parameters_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afc0be4fb76bdff05b97547298f653243" kind="variable"><name>extrap_list_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0f2714929d878efadfc7103d7a0f709f" kind="variable"><name>err_checker_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9fe475cbed212bf6bdcbbaea515dcce3" kind="variable"><name>step_controller_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a5b3aa2de0bfa0f36c0e356b9b64d07c6" kind="variable"><name>input_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8e1c9d6c4fb6c7d4a8e763d7399b58e8" kind="variable"><name>ideal_step_size_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a7c30e21e8abe9c056ffd91187d4a5fc8" kind="variable"><name>cost_per_len_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a9cc0ab78e5cddd569911d37c3f569e06" kind="variable"><name>last_error_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aaa99acfa3308efec9a2b5af5f2db4cc6" kind="variable"><name>ideal_rank_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad0f0ebf78414273e6d1890bcb79664e7" kind="variable"><name>last_step_reject_</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a33d661689594e7addac035f86b8a3a6a" kind="variable"><name>max_try_num</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a638985d8a272f437af3f119dfe7a21ab" kind="function"><name>set_abs_err</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aecdd64b1a2205a0b6890a14f478160ad" kind="function"><name>set_rel_err</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0be007d08450c6b4b9e1ff25bcdcb699" kind="function"><name>impl_iterate</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aebe2911453d07d42bb21d4544d0f29cd" kind="function"><name>evolve_by_n_steps</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a51366a8e962ea9f101138a8dc9f9f8ab" kind="function"><name>extrapolate_tab</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a0edcbc477b21156f11df5e1fa59a096b" kind="function"><name>calc_error_of_row</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aca63989172dfa384cf10970c458304a5" kind="function"><name>calc_ideal_step_coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ac433857389d59b2af32a5d0299383851" kind="function"><name>step_coef_limiter</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1afc51016931163ed73f51bfb86a5c6cb0" kind="function"><name>ideal_step_coef</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a8d6a6d52c973d48754a7cb6cc4ea7eea" kind="function"><name>prepare_next_iter</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad70b7a2a944a5dd9e5676cbe7b8dccc1" kind="function"><name>at</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11c9c67fcc67e8d2d090c4f249f80f08" kind="function"><name>allowed</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad0f11b0dbf75c13b727de37b9a605b42" kind="function"><name>is_diverged_anyhow</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a936ee8597e347566b9c3044850bee37b" kind="function"><name>in_converged_window</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a351debb4bc8d571e8f0ccfa797180e90" kind="function"><name>check_variable_size</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad70b7a2a944a5dd9e5676cbe7b8dccc1" kind="function"><name>at</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ab0c31d1fdddeaab00ab060ce0db77604" kind="function"><name>integrate_by_n_steps</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6c0af3328f039a6f7664cae79de89542" kind="function"><name>extrapolate</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a438e910c532ec4deb8fe6ae877b0f10b" kind="function"><name>in_converged_window</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ad46d628468c06a57ec3d949ea8bf3d1e" kind="function"><name>get_next_try_step</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a11c9c67fcc67e8d2d090c4f249f80f08" kind="function"><name>allowed</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1ae78a0047313350b96637a8eb854d306c" kind="function"><name>set_next_iteration</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1a6c6867e3df413077e8fd0f2486f0b7d7" kind="function"><name>is_diverged_anyhow</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aa7477ef5e6f4c5606d05a91486fd75a0" kind="function"><name>impl_iterate</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1aad8021e63d65c4808a4a0ad8d00ae133" kind="function"><name>impl_set_atol</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_1af8b270283d102a6a549176e82db1008f" kind="function"><name>impl_set_rtol</name></member>
   </compound>
   <compound refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts" kind="class"><name>space::odeIterator::BurlishStoerConsts</name>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1a7b1f8f54eb4d1e1c2a37d366b65dcd50" kind="typedef"><name>Scalar</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1a69264b895fc78ef59926d9c2cd548665" kind="variable"><name>max_iter</name></member>
-    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1a2f4d38f805c0b3ea28a4b269f3f59392" kind="variable"><name>cost_tol</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1a853326a0ca7a8bdf3dca539c8925b8ff" kind="variable"><name>max_iter</name></member>
+    <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1aea22fb780260a69d04d9f5dc8cefb7ba" kind="variable"><name>cost_tol</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1ae894a112ee72594882da0640e4d9e28d" kind="variable"><name>extrap_coef_</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1aa9783c6d869e46e546f623613c412627" kind="variable"><name>cost_</name></member>
     <member refid="classspace_1_1ode_iterator_1_1_burlish_stoer_consts_1ae420d2836839510ee48fd447355079dc" kind="variable"><name>sub_steps_</name></member>
@@ -215,23 +301,23 @@
     <member refid="classspace_1_1_chain_system_1a06c568b919a54ab43ec7845c92c19d51" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_chain_system_1a483c30a3b7580fccf99a5608352d3759" kind="function"><name>ChainSystem</name></member>
     <member refid="classspace_1_1_chain_system_1a2ee2191d0de27baffed5ab05c9d6b4ef" kind="function"><name>chain_pos</name></member>
-    <member refid="classspace_1_1_chain_system_1aaf5993d9adfaa969a57238b7a32f2534" kind="function"><name>chain_pos</name></member>
+    <member refid="classspace_1_1_chain_system_1ad1018fb01af447632fbef085cad13fb4" kind="function"><name>chain_pos</name></member>
     <member refid="classspace_1_1_chain_system_1ab1f5be564113f902ec8dedd8070d39de" kind="function"><name>chain_vel</name></member>
-    <member refid="classspace_1_1_chain_system_1a9bcff70ce45f346c8ca5fcdd331021ce" kind="function"><name>chain_vel</name></member>
+    <member refid="classspace_1_1_chain_system_1adcc923b5e42882b18a01a028c3586b50" kind="function"><name>chain_vel</name></member>
     <member refid="classspace_1_1_chain_system_1acdf71004fee347a028e372f9e57686ba" kind="function"><name>index</name></member>
-    <member refid="classspace_1_1_chain_system_1a9f6e9569e817878bdc4d2ee2ccf3319d" kind="function"><name>index</name></member>
+    <member refid="classspace_1_1_chain_system_1aa39a3f420e3f8ebfae8ce71b0d9b21e7" kind="function"><name>index</name></member>
     <member refid="classspace_1_1_chain_system_1ae6489af7c22ee2b13dca45bf1b282072" kind="friend"><name>operator&lt;&lt;</name></member>
     <member refid="classspace_1_1_chain_system_1a5a128d62a6716b95ff048a4f381fc24c" kind="friend"><name>operator&gt;&gt;</name></member>
     <member refid="classspace_1_1_chain_system_1a8973754d21804430f41e10363429c449" kind="function"><name>impl_mass</name></member>
-    <member refid="classspace_1_1_chain_system_1a760f1c909e91b0899cb8d3290452dc42" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_chain_system_1a9eb2e596b83803b566c84ad94d838922" kind="function"><name>impl_mass</name></member>
     <member refid="classspace_1_1_chain_system_1ad61c17d0fa52fd56187918fbcd940362" kind="function"><name>impl_idn</name></member>
-    <member refid="classspace_1_1_chain_system_1aac48a597bf72a3ca5072f401a591ba18" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_chain_system_1a136cb35e64c879d777cd7528d423a264" kind="function"><name>impl_idn</name></member>
     <member refid="classspace_1_1_chain_system_1a69bcf473df7448a44300e34895904ab1" kind="function"><name>impl_pos</name></member>
-    <member refid="classspace_1_1_chain_system_1a6e47652835e3423e7bbdd57304fbd082" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_chain_system_1a0a5ce40dd1ae04df4fceed7e3074000f" kind="function"><name>impl_pos</name></member>
     <member refid="classspace_1_1_chain_system_1a5720c619f1e59f4356f45538f1351d21" kind="function"><name>impl_vel</name></member>
-    <member refid="classspace_1_1_chain_system_1ac9b9a6f60d6f1d9f0209752ab45bc3d9" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_chain_system_1a57f00626599f7a164316674f750d0bb6" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_chain_system_1a1b4cfc2fcfa8b776b20d67a9bc4a558f" kind="function"><name>impl_time</name></member>
-    <member refid="classspace_1_1_chain_system_1a2b1c63589db85d31ba050ad81c9c4f61" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_chain_system_1a735e94c8369c695b4ee6dd7688d05fe9" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_chain_system_1aec1f22b879398f7f3d028a9e04fee7b7" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_chain_system_1ab07a0719d22db2e5d6285c547498da38" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_chain_system_1a0fc622eed05b67f0ff6eeac0781ee5db" kind="function"><name>impl_advance_pos</name></member>
@@ -327,19 +413,19 @@
   </compound>
   <compound refid="structspace_1_1epsilon" kind="struct"><name>space::epsilon</name>
     <member refid="structspace_1_1epsilon_1add53d4d777a0484caa7095e348f4dd49" kind="typedef"><name>value_type</name></member>
-    <member refid="structspace_1_1epsilon_1a2007355a394bc10c6f6a132a2c9d0e0a" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1epsilon_1ac0d9c9841416d52821794c2137394129" kind="variable"><name>value</name></member>
   </compound>
   <compound refid="classspace_1_1_error_checker" kind="class"><name>space::ErrorChecker</name>
     <member refid="classspace_1_1_error_checker_1ab8d93f54ecf15f2f131d7411de8115d8" kind="variable"><name>Derived</name></member>
-    <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" kind="function"><name>atol</name></member>
-    <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" kind="function"><name>atol</name></member>
-    <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" kind="function"><name>rtol</name></member>
-    <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" kind="function"><name>rtol</name></member>
+    <member refid="classspace_1_1_error_checker_1a654027488409a6df5304611c450d52a2" kind="function"><name>atol</name></member>
+    <member refid="classspace_1_1_error_checker_1a959e14c98dfd76e77416378223d14214" kind="function"><name>rtol</name></member>
     <member refid="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" kind="function"><name>derived</name></member>
-    <member refid="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" kind="function"><name>set_atol</name></member>
-    <member refid="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" kind="function"><name>set_rtol</name></member>
+    <member refid="classspace_1_1_error_checker_1a6b5e3188e976d46f99ff41f8e920a7d2" kind="function"><name>set_atol</name></member>
+    <member refid="classspace_1_1_error_checker_1a582ae24846280588b727ee289c8e1267" kind="function"><name>set_rtol</name></member>
     <member refid="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" kind="function"><name>error</name></member>
     <member refid="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" kind="function"><name>error</name></member>
+    <member refid="classspace_1_1_error_checker_1a1493a2a21b1171bcf8d4fbd5e9b8bc0c" kind="function"><name>set_atol</name></member>
+    <member refid="classspace_1_1_error_checker_1ae9276861c1171b159fd61fe71410c915" kind="function"><name>set_rtol</name></member>
     <member refid="classspace_1_1_error_checker_1a4dd0d0422ef946fcc1460b076f7eb049" kind="function"><name>ErrorChecker</name></member>
   </compound>
   <compound refid="struct_space_h_1_1_lazy_1_1_expr" kind="struct"><name>SpaceH::Lazy::Expr</name>
@@ -381,93 +467,93 @@
   </compound>
   <compound refid="structspace_1_1calc_1_1has__method__bind_e" kind="struct"><name>space::calc::has_method_bindE</name>
     <member refid="structspace_1_1calc_1_1has__method__bind_e_1ac5a40b2eb1eaefaca716855370b2f656" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__bind_e_1af7521107e6cd9bd00762ea118fa37a7b" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__bind_e_1abf2868b964c9daa011a687f45865764c" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__bind_e_1a04dfb054061e9c7fe9fa780b169cc8b4" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__bind_e_1a2b2591de81f72ff1d168a28532689cc8" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1calc_1_1has__method__chain__pos" kind="struct"><name>space::calc::has_method_chain_pos</name>
     <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a1aea680c1f2042b33b415d3040d42bf6" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a2c14901b6b6088a15ab490a5bd0c0839" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1ac37b876aed6c99c04a0fd76f9288325d" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a4c5d70188a3a86544cd536bdce1561b8" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__chain__pos_1a90f54b3f156bf3836e582ad91e743bd9" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos" kind="struct"><name>space::interactions::NewtonianGrav::has_method_chain_pos</name>
     <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a9fccaa02beff0994a2cf20e729cb926e" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a1da7c1f65d4943b696fc4e6bf2b0c284" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a63c97c474bb0e92a163d245f9f8dc0e3" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a87cc0d4ba4cd8a350a2601c916df10a5" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__chain__pos_1a1e934316e226b6b9dd93dcee354b7b72" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos" kind="struct"><name>space::interactions::PostNewtonianGrav::has_method_chain_pos</name>
     <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a4f1a09b55597f598e3274fe61bae285f" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a63069140f17a22134e778a13e7f1597d" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a641c65dc49dfbed9366284cab3469b8c" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a9ff9c12c17fd82cb0fa0f075f6c2707b" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__pos_1a3d72b842b1d1289b67c75fb693afca99" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_tidal_force_1_1has__method__chain__pos" kind="struct"><name>space::TidalForce::has_method_chain_pos</name>
     <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ac1a99e2e2e8139ce9ca08e30e0c22b14" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1a41fcce9e24b90144be01013b65deb4f3" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ad6ff53993cd0988db5217b1570e50764" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1aafd9b40a4c53cd1c7e066694a7e8820e" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__pos_1ada08f9f612e3896fecb137221ebbac18" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" kind="struct"><name>space::interactions::PostNewtonianGrav::has_method_chain_vel</name>
     <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1aca94596b85436c0a3007e26e2f7e8ea9" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1ad1b95f0dd58aee1033e3205f49f04ab2" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7fb0ce0a082b912a83afb3344df43f1c" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7db9a74f35ea16d2afc1ab7fddcf7093" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a64a0c566641be85947b7508c35cff0cb" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_tidal_force_1_1has__method__chain__vel" kind="struct"><name>space::TidalForce::has_method_chain_vel</name>
     <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a8c36751ae922b38ca55f32aba677abe9" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a1642339cc943260160406c4d47a12350" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a6b792433553dc97f61b914442d849a16" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a54feaceb9ad7042eb696f7fecf63be7a" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a0bc8baabb0d78aeb36209f20fe8ef1e1" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc" kind="struct"><name>space::Interactions::has_method_impl_eval_extra_vel_dep_acc</name>
     <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a6540d8c45fcc45822ac6278e5c8363c0" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1af8ba4516958f227ae5e8f0c269b070d5" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a7b70f9876cd6eecddf7071772a8f6218" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a9c007b4da1c248d5bc2b6cd64a253383" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a853e8cfa26149b6da3657adc81ea604f" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc" kind="struct"><name>space::Interactions::has_method_impl_eval_extra_vel_indep_acc</name>
     <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a39c88efc8b526096c33271db407f0c69" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a203049171bdfea45bf805c6016869e3b" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a942a83467f185b29908e9b3df73131cc" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1afc3be0a49b4a4507267b9f7baa54859c" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_interactions_1_1has__method__impl__eval__extra__vel__indep__acc_1a167268fa0b14565c412203b6a4d81844" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1calc_1_1has__method__index" kind="struct"><name>space::calc::has_method_index</name>
     <member refid="structspace_1_1calc_1_1has__method__index_1a7fdc531531c914b88fec14d1c90b298f" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__index_1a9936d936f6090ccd8c6f30dddd78d859" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__index_1adea3d47b8efae846e8edda14976abb1d" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__index_1ad6f4e9da19416da14965013445651cb4" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__index_1af7c47a6a20aa4d86734ebdb5455dd2d7" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" kind="struct"><name>space::interactions::NewtonianGrav::has_method_index</name>
     <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1ace687614158720b081f9844585d491d2" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a652ca1b40418eb2a421ea03822e65ace" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a188058c45c1c869d143f52f0ac9b31ac" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1afa778f0d2a3a3571171f6313ac024d61" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a52afc5b45172d87248a336836396d98e" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index" kind="struct"><name>space::interactions::PostNewtonianGrav::has_method_index</name>
     <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a30ffa50eb34a1fa995b9a4a21626ecff" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a6d61c530aa49c9cefe8fd6da4b9c132d" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a26bab821098f039a0be0f829dd52564e" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a3cb17ff669553fe0d421b1539b49f761" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__index_1a5996ed5bc6dac8f95a2139c5c2e785c4" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_tidal_force_1_1has__method__index" kind="struct"><name>space::TidalForce::has_method_index</name>
     <member refid="structspace_1_1_tidal_force_1_1has__method__index_1aaad1c6770cfb69abc122292cb0e5213c" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1aeadd0d6a8c700488a22bd36f6d7165e7" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1af7c56d854b96dd54f0440ce8ebaa03d9" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1a7adc92c51aea5dc6faa5ee4fb99070fd" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_tidal_force_1_1has__method__index_1a1080cad7ab4c5859deacc6a0f920a42f" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1calc_1_1has__method__omega" kind="struct"><name>space::calc::has_method_omega</name>
     <member refid="structspace_1_1calc_1_1has__method__omega_1a90dd8bf394204370ec3585c24a9f4867" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__omega_1a49057ef03bf0abc6e5f4ae86262dd69f" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1calc_1_1has__method__omega_1a4fef1d71fa4a1f87cac375723e32d877" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__omega_1a259363253648c0627dc4663d64f09809" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1calc_1_1has__method__omega_1aa51031e051cec699092bb093534b2bc7" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_simulator_1_1has__method__set__atol" kind="struct"><name>space::Simulator::has_method_set_atol</name>
     <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a42f98f1e20db6cc0c15c461cc8d6c2dd" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1ad4961a67e1161ac9ab6f3cd06520c84a" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a07fab7aeb9b714c75eb976d67d126128" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a22ec56d5f952148615297286fa76fd80" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a01e13e23aa0235a355e19ddcbb3ba9b2" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_simulator_1_1has__method__set__rtol" kind="struct"><name>space::Simulator::has_method_set_rtol</name>
     <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a76b6deb93f951b42adee9c7dd0e5a11b" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a73e55d5cd7a66e6c3cae8e7bf5bcbdb0" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a2911646dd5257fbcf315f64472655ad2" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1aab304e1563b8b3d7225d33d8b93db47c" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__method__set__rtol_1a60e61b163774777ce5a505c384934845" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol" kind="struct"><name>space::Simulator::has_protected_method_impl_set_atol</name>
     <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a9ccad3aafef148cec0f1c9494aed4e7b" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a8077a3e8f8e39f8b8330537b8fde644d" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a7dd234ec3a91c2ddbbfabdd24a6fd3e1" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a7ec0ba9b597d7bd461337504633feea0" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__atol_1a618b37fe754d538abc209a0981868ab5" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol" kind="struct"><name>space::Simulator::has_protected_method_impl_set_rtol</name>
     <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a0171903ce1c6bb6b04ab7b022be73d4f" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a6e7ccca7d18aa631941d4d7c4c8308e6" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a70f0c28f8fb260ca8265a0952c0c604f" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1af4e6a147c9917b8007869b7a41dc9ed7" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1_simulator_1_1has__protected__method__impl__set__rtol_1a946b7fa5c69de4987a8e20b4b4c63291" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1orbit_1_1_hyper_orbit_args" kind="struct"><name>space::orbit::HyperOrbitArgs</name>
     <member refid="structspace_1_1orbit_1_1_hyper_orbit_args_1a2f4a337f2882aa572edfa06489b4c8f6" kind="typedef"><name>Variant</name></member>
@@ -491,7 +577,7 @@
     <member refid="classspace_1_1_i_a_s15_1a8d685275f0463a16b838b9495843d232" kind="variable"><name>convergent_limit_</name></member>
     <member refid="classspace_1_1_i_a_s15_1a36429aeda50fdaa222edf22926fdbb70" kind="variable"><name>last_convergence_</name></member>
     <member refid="classspace_1_1_i_a_s15_1ab50f66241553b99bd206f40c6aaa16ac" kind="variable"><name>particleNum_</name></member>
-    <member refid="classspace_1_1_i_a_s15_1a24856330ddc5a6f2340384cdbae0e3ff" kind="variable"><name>max_iter_</name></member>
+    <member refid="classspace_1_1_i_a_s15_1a6258c932e0e88dd61924665a1745f39e" kind="variable"><name>max_iter_</name></member>
     <member refid="classspace_1_1_i_a_s15_1a1167d6465a34b45725bc269b7aef9ccc" kind="function"><name>iterate</name></member>
     <member refid="classspace_1_1_i_a_s15_1a3a3caa50326f535fee171cba6fb3a130" kind="function"><name>setRelativeError</name></member>
     <member refid="classspace_1_1_i_a_s15_1a5f01ce9046fd087793c5548af18abef5" kind="function"><name>SetConvergentLimit</name></member>
@@ -504,6 +590,7 @@
     <member refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kind="variable"><name>ext_vel_dep</name></member>
     <member refid="classspace_1_1_interactions_1ad8453af189e176a74e97e536c5bff568" kind="variable"><name>ext_vel_indep</name></member>
     <member refid="classspace_1_1_interactions_1ac8442b99470b79176e5c1cdd3415fc4d" kind="variable"><name>Derived</name></member>
+    <member refid="classspace_1_1_interactions_1a5c1fd12a58850802821dd492396e8138" kind="function"><name>derived</name></member>
     <member refid="classspace_1_1_interactions_1a6688576102282c07dc5c7b6b2745be5f" kind="function"><name>eval_acc</name></member>
     <member refid="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" kind="function"><name>eval_extra_vel_dep_acc</name></member>
     <member refid="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" kind="function"><name>eval_extra_vel_indep_acc</name></member>
@@ -531,13 +618,13 @@
   </compound>
   <compound refid="structspace_1_1is__indexable" kind="struct"><name>space::is_indexable</name>
     <member refid="structspace_1_1is__indexable_1abb1d9b371ddc6a642fe07db90287377e" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1is__indexable_1a90c355a37650a94aea017c6905055722" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1is__indexable_1a40b79106540a129098e4a0faa0017fe5" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1is__indexable_1a54916ba9d0bafbe3f6c43a227eee23d7" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1is__indexable_1a9c3a7863cdb7e9e3bcdd1d013f52d481" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1is__reservable" kind="struct"><name>space::is_reservable</name>
     <member refid="structspace_1_1is__reservable_1a9b93498db562c05b94ff77a94fd5079c" kind="variable"><name>value</name></member>
-    <member refid="structspace_1_1is__reservable_1a62d772bf4de337330b2d2c4cf1f8a78c" kind="function"><name>check</name></member>
-    <member refid="structspace_1_1is__reservable_1a72d2bcb9c62bb9d9a385e1acf6db5b60" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1is__reservable_1aeb2ae61e2b1974fa2c0cedbafdd645ca" kind="function"><name>check</name></member>
+    <member refid="structspace_1_1is__reservable_1af5358a243f35ba51dbee47bf8c12218b" kind="function"><name>check</name></member>
   </compound>
   <compound refid="structspace_1_1_kahan" kind="struct"><name>space::Kahan</name>
     <member refid="structspace_1_1_kahan_1a38d613eef4851e327d29beb17d40cbbb" kind="typedef"><name>value_type</name></member>
@@ -565,7 +652,7 @@
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a461ffe14903a59348166fe616b65a3f8" kind="function"><name>Larray</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1ab758ebb88eee9506de28470f81f6032c" kind="function"><name>Larray</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a9462248effb1bebc3d6ac5926a45d8d7" kind="function"><name>Larray</name></member>
-    <member refid="struct_space_h_1_1_lazy_1_1_larray_1a91df3ceed29fe1a5c46af747f17136d1" kind="function"><name>eval</name></member>
+    <member refid="struct_space_h_1_1_lazy_1_1_larray_1a129be90f636bcabdac5880c421753298" kind="function"><name>eval</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a90352b271436cefe70f1751fe5721856" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a1bb157870d4e1e8cfd8e435766917457" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_1a7f0960c8fcb30c27d153b3b456bb0540" kind="function"><name>operator=</name></member>
@@ -584,7 +671,7 @@
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a16aaef56f92a1c8119ebff58464e3a01" kind="function"><name>Larray</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1ae4553b20e07d41b977a21e7cbe541551" kind="function"><name>Larray</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a499d851b45888fcc19138ec09b6919c3" kind="function"><name>Larray</name></member>
-    <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a2d2347b60a94bb443b4f0adc267a0b5d" kind="function"><name>eval</name></member>
+    <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a6f02b366ceaa90a97a77a30997b3c8e6" kind="function"><name>eval</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1af1641e402ae5b8af958281366bac2e58" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1a4f7d37dcd829896ae75388029955879b" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_larray_3_01_t_00_01_len_00_01true_01_4_1af54a7b1a9433f47dd09862ccffd066f8" kind="function"><name>operator=</name></member>
@@ -611,7 +698,7 @@
   </compound>
   <compound refid="structspace_1_1max__value" kind="struct"><name>space::max_value</name>
     <member refid="structspace_1_1max__value_1ac71b02c5533e24497a861349009c1dcb" kind="typedef"><name>value_type</name></member>
-    <member refid="structspace_1_1max__value_1a3618074798d29514c1f30d47ecbbd808" kind="variable"><name>value</name></member>
+    <member refid="structspace_1_1max__value_1a9b5d634b4765683c560b670bd851ce67" kind="variable"><name>value</name></member>
   </compound>
   <compound refid="classspace_1_1random_gen_1_1_maxwell" kind="class"><name>space::randomGen::Maxwell</name>
     <member refid="classspace_1_1random_gen_1_1_maxwell_1a4ab715694bd7f3eeadf5c854eaad5f19" kind="variable"><name>rd_</name></member>
@@ -632,7 +719,7 @@
     <member refid="structspace_1_1_m_k_l_array_1a2bc38bbcc14b169155bd2448ab6d7f40" kind="function"><name>operator=</name></member>
     <member refid="structspace_1_1_m_k_l_array_1a83b608b6cad7813702f030bd11e165c1" kind="function"><name>MKLArray</name></member>
     <member refid="structspace_1_1_m_k_l_array_1a9231b07bff7d4e9dd9ce693f945a8e01" kind="function"><name>operator=</name></member>
-    <member refid="structspace_1_1_m_k_l_array_1ac298e839a300da05e97a7b0aa641a40d" kind="function"><name>operator[]</name></member>
+    <member refid="structspace_1_1_m_k_l_array_1a22791fd75530d1df0dcc36901f9d2cdd" kind="function"><name>operator[]</name></member>
     <member refid="structspace_1_1_m_k_l_array_1aa7dc3a9fffc3e9126e1442b1689c9dd1" kind="function"><name>operator[]</name></member>
     <member refid="structspace_1_1_m_k_l_array_1a2724c5b75e92cec2527f9569d537c39f" kind="function"><name>get</name></member>
   </compound>
@@ -641,6 +728,12 @@
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a024aa0573cc7c567cb4962e838692a46" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1a745bc979d3fd0897e55d2c7a56d39da5" kind="function"><name>impl_eval_acc</name></member>
     <member refid="classspace_1_1interactions_1_1_newtonian_grav_1ab068f2a0a42660ab505a953cbf6a3b06" kind="function"><name>impl_eval_newtonian_acc</name></member>
+  </compound>
+  <compound refid="structspace_1_1_chain_1_1_node" kind="struct"><name>space::Chain::Node</name>
+    <member refid="structspace_1_1_chain_1_1_node_1a3c3d8bddf52fe496c93abfaec4341035" kind="variable"><name>r</name></member>
+    <member refid="structspace_1_1_chain_1_1_node_1ace54e4ed7a3fce6fc707019a632e708b" kind="variable"><name>i</name></member>
+    <member refid="structspace_1_1_chain_1_1_node_1afd2257d3b178e0eb7e9ffe09e78f5e9f" kind="variable"><name>j</name></member>
+    <member refid="structspace_1_1_chain_1_1_node_1ae9b63e24a0c952190ecbf64669d51725" kind="variable"><name>avail</name></member>
   </compound>
   <compound refid="classspace_1_1octree_1_1_node" kind="class"><name>space::octree::Node</name>
     <member refid="classspace_1_1octree_1_1_node_1a11465f99d2f3e26a9128e25c0d0ad362" kind="variable"><name>data</name></member>
@@ -652,12 +745,6 @@
     <member refid="classspace_1_1octree_1_1_node_1aa48fc561c413f2edb09de5fe711fe0fd" kind="variable"><name>bld</name></member>
     <member refid="classspace_1_1octree_1_1_node_1ae41f44e5b1642954b511d1e334c22eac" kind="variable"><name>bru</name></member>
     <member refid="classspace_1_1octree_1_1_node_1a2edb837431805ae450861d08f78b2948" kind="variable"><name>brd</name></member>
-  </compound>
-  <compound refid="structspace_1_1_chain_1_1_node" kind="struct"><name>space::Chain::Node</name>
-    <member refid="structspace_1_1_chain_1_1_node_1a3c3d8bddf52fe496c93abfaec4341035" kind="variable"><name>r</name></member>
-    <member refid="structspace_1_1_chain_1_1_node_1ace54e4ed7a3fce6fc707019a632e708b" kind="variable"><name>i</name></member>
-    <member refid="structspace_1_1_chain_1_1_node_1afd2257d3b178e0eb7e9ffe09e78f5e9f" kind="variable"><name>j</name></member>
-    <member refid="structspace_1_1_chain_1_1_node_1ae9b63e24a0c952190ecbf64669d51725" kind="variable"><name>avail</name></member>
   </compound>
   <compound refid="classspace_1_1random_gen_1_1_normal" kind="class"><name>space::randomGen::Normal</name>
     <member refid="classspace_1_1random_gen_1_1_normal_1a5a4ab7043537a74b09babfd184c10682" kind="variable"><name>rd_</name></member>
@@ -724,29 +811,26 @@
   <compound refid="structspace_1_1_size_particles_1_1_particle" kind="struct"><name>space::SizeParticles::Particle</name>
     <member refid="structspace_1_1_size_particles_1_1_particle_1aa4cbf862e183f62aa5d72f73660fa23b" kind="typedef"><name>Scalar</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1aa88f5dad8bf67818c825fb029b7a9409" kind="typedef"><name>Vector</name></member>
-    <member refid="structspace_1_1_size_particles_1_1_particle_1ae94945ff9e4a365885f1a2f5778ea82d" kind="variable"><name>radius</name></member>
+    <member refid="structspace_1_1_size_particles_1_1_particle_1acc4b831692a789cf02e8b9072dc8e329" kind="variable"><name>radius</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1a342b03714a957fbe2dba6b38022489a1" kind="function"><name>Particle</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1a308d33f918dd5f923ce2c030c6f24780" kind="function"><name>Particle</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1af7596d6747032db95575b65912f92adc" kind="function"><name>Particle</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1a35e4f99faa6de7ca8a64ba2fef46f9f3" kind="function"><name>operator=</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1ae50644906b4cf5542b2e185242740ea7" kind="function"><name>operator=</name></member>
     <member refid="structspace_1_1_size_particles_1_1_particle_1afde65f796a15d9bad3428733728aacc9" kind="function"><name>Particle</name></member>
-    <member refid="structspace_1_1_size_particles_1_1_particle_1a221256e2409259863864cdabd0846b49" kind="function"><name>Particle</name></member>
-    <member refid="structspace_1_1_size_particles_1_1_particle_1a2809bf39e022e551b2b9e1458013f151" kind="friend"><name>operator&lt;&lt;</name></member>
-    <member refid="structspace_1_1_size_particles_1_1_particle_1a866517e81867565df43c6a098e7c4d67" kind="friend"><name>operator&gt;&gt;</name></member>
   </compound>
   <compound refid="classspace_1_1_particles" kind="class"><name>space::Particles</name>
     <member refid="classspace_1_1_particles_1afe3912f5c4b7b4f64b13479088ea8603" kind="variable"><name>Derived</name></member>
     <member refid="classspace_1_1_particles_1a964b67a83c8728c11b07448d472f0577" kind="function"><name>idn</name></member>
-    <member refid="classspace_1_1_particles_1a54a4876043317dcf84231b82babcb3d8" kind="function"><name>idn</name></member>
+    <member refid="classspace_1_1_particles_1ab6b11dc108add4468ecc00a0f34146d1" kind="function"><name>idn</name></member>
     <member refid="classspace_1_1_particles_1a1be68a05d871298fc3829457d6cf77fa" kind="function"><name>mass</name></member>
-    <member refid="classspace_1_1_particles_1ae0f67e101ca6099b72a198130b295400" kind="function"><name>mass</name></member>
+    <member refid="classspace_1_1_particles_1a1de61e4cda77080be2a82a7aea2ca471" kind="function"><name>mass</name></member>
     <member refid="classspace_1_1_particles_1a88b14a9d84c8887f5a95c4ecc8922543" kind="function"><name>pos</name></member>
-    <member refid="classspace_1_1_particles_1ab4adc005f0b607b96c5f6ebc494c3d99" kind="function"><name>pos</name></member>
+    <member refid="classspace_1_1_particles_1a4724ee70f03c1b291a9376ba9d622f31" kind="function"><name>pos</name></member>
     <member refid="classspace_1_1_particles_1ab7706ec2697aff1972f6b17248354ffa" kind="function"><name>time</name></member>
-    <member refid="classspace_1_1_particles_1a8d5470c95c29216ed74c377102caf6e9" kind="function"><name>time</name></member>
+    <member refid="classspace_1_1_particles_1a1f63df8d055c79da2910f5c082d0921c" kind="function"><name>time</name></member>
     <member refid="classspace_1_1_particles_1aac4152046aebc0f7735ec475a472b698" kind="function"><name>vel</name></member>
-    <member refid="classspace_1_1_particles_1a592e5621e12b5ccc79b3364294543ef9" kind="function"><name>vel</name></member>
+    <member refid="classspace_1_1_particles_1a764a4af1c283b5273025db65ed42eeb7" kind="function"><name>vel</name></member>
     <member refid="classspace_1_1_particles_1a8d4572f516edfeb65457ccb21fa62de6" kind="function"><name>derived</name></member>
     <member refid="classspace_1_1_particles_1ac7f2786d692d170715b1643846eece32" kind="function"><name>number</name></member>
     <member refid="classspace_1_1_particles_1aa34fcf3707da6d94091d75e235687267" kind="function"><name>capacity</name></member>
@@ -759,15 +843,16 @@
   <compound refid="classspace_1_1_particle_system" kind="class"><name>space::ParticleSystem</name>
     <member refid="classspace_1_1_particle_system_1af9791fd034c4b1b10ee3798c9c35ed6c" kind="variable"><name>Derived</name></member>
     <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" kind="function"><name>mass</name></member>
-    <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" kind="function"><name>mass</name></member>
+    <member refid="classspace_1_1_particle_system_1a568128f35a138ebfa0b337dd7bc8a9c8" kind="function"><name>mass</name></member>
     <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" kind="function"><name>idn</name></member>
-    <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" kind="function"><name>idn</name></member>
+    <member refid="classspace_1_1_particle_system_1a92803bfe1059aae8726f119a64d732d0" kind="function"><name>idn</name></member>
     <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" kind="function"><name>time</name></member>
-    <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" kind="function"><name>time</name></member>
+    <member refid="classspace_1_1_particle_system_1a0178bbec054b9e0306babcc8292b417c" kind="function"><name>time</name></member>
     <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" kind="function"><name>pos</name></member>
-    <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" kind="function"><name>pos</name></member>
+    <member refid="classspace_1_1_particle_system_1a3a927a129c57d857baa79562ddce5e9f" kind="function"><name>pos</name></member>
     <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" kind="function"><name>vel</name></member>
-    <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" kind="function"><name>vel</name></member>
+    <member refid="classspace_1_1_particle_system_1a04488af1a73fcbcf2133f81d09a2a8f2" kind="function"><name>vel</name></member>
+    <member refid="classspace_1_1_particle_system_1afa856953dcd12c93e5030e82b4f40afd" kind="function"><name>derived</name></member>
     <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" kind="function"><name>number</name></member>
     <member refid="classspace_1_1_particle_system_1a06f59e07f2ed6ef0b74cf04aab2314b5" kind="function"><name>advance_time</name></member>
     <member refid="classspace_1_1_particle_system_1a2aa924fe50893957b6c2c4adc3715a59" kind="function"><name>advance_pos</name></member>
@@ -787,7 +872,7 @@
     <member refid="classspace_1_1_p_i_d_controller_1aec0f91516488e50495f8269156a72919" kind="typedef"><name>Base</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a9dc417dca8aec7143be16997c418fe5f" kind="typedef"><name>Scalar</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a0f64304989f42062274f7a39d46ed1ca" kind="typedef"><name>value_type</name></member>
-    <member refid="classspace_1_1_p_i_d_controller_1af929894705189fbcdc085141712e4a69" kind="variable"><name>max_order</name></member>
+    <member refid="classspace_1_1_p_i_d_controller_1ae3ee90e53ee1978553debc71f18a9ce6" kind="variable"><name>max_order</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1adaed299f3a972a8a8be9c78b27101f86" kind="variable"><name>Base</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a55998118ef5e51d1ac845ae605311e77" kind="variable"><name>limiter_max_</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1ad5155afc5f2046db49b0fd5da086f2a1" kind="variable"><name>limiter_min_</name></member>
@@ -802,9 +887,9 @@
     <member refid="classspace_1_1_p_i_d_controller_1aecae02fc193e189bae53f8025f9e255a" kind="function"><name>PIDController</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a7af09229ee7a03a117034db39c1935bc" kind="function"><name>set_PID_coefficients</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a0cfc8b16b2c7bc303affa92100012b67" kind="function"><name>set_safe_guards</name></member>
+    <member refid="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" kind="function"><name>impl_next_step_size</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a6293c8ba248c57c738fa929567549b44" kind="function"><name>impl_next_step_size</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a4bbff2234d6e13285f9e654fddc5d1d1" kind="function"><name>impl_next_step_size</name></member>
-    <member refid="classspace_1_1_p_i_d_controller_1a3e61270b286be8d703189a9e1fe0646b" kind="function"><name>impl_next_step_size</name></member>
     <member refid="classspace_1_1_p_i_d_controller_1a94a0de7e4b40d52828931c4ed46336bd" kind="function"><name>step_limiter</name></member>
   </compound>
   <compound refid="structspace_1_1_point_particle" kind="struct"><name>space::PointParticle</name>
@@ -846,15 +931,15 @@
     <member refid="classspace_1_1_point_particles_1ac2ba4bd69c7a9894be9a8f160747a4ad" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_point_particles_1ad6a280fb54f9bdaeb481705d59717210" kind="function"><name>PointParticles</name></member>
     <member refid="classspace_1_1_point_particles_1ae7e1a03581b2793703ee81ffad563191" kind="function"><name>impl_mass</name></member>
-    <member refid="classspace_1_1_point_particles_1aaf65d33065e68a1e58a69fdc50121c1e" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_point_particles_1ab5aefe91a4d3e8e39d6a57a72b0a3f57" kind="function"><name>impl_mass</name></member>
     <member refid="classspace_1_1_point_particles_1a7eb213216695ab9cef53f14144723e36" kind="function"><name>impl_idn</name></member>
-    <member refid="classspace_1_1_point_particles_1ae637eb218c28595e99c2615290e5ab8f" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_point_particles_1a47bbe570f85084b5a55b84b952c324fc" kind="function"><name>impl_idn</name></member>
     <member refid="classspace_1_1_point_particles_1a1fd90d159f8b5dca130887f217387b12" kind="function"><name>impl_time</name></member>
-    <member refid="classspace_1_1_point_particles_1a206da3c826306940d1bd9641df819f65" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_point_particles_1aad71ab53d14e0e428a7c8c98e6275fd9" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_point_particles_1a6b76b69b56e5cbf59304400b1db6ee2d" kind="function"><name>impl_pos</name></member>
-    <member refid="classspace_1_1_point_particles_1a49004a3150f2f2c9cb579314c3d4d13d" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_point_particles_1add3d879d8f1dcb982d35f201e485d726" kind="function"><name>impl_pos</name></member>
     <member refid="classspace_1_1_point_particles_1a27e204c69987c726a325a8bb5dffd799" kind="function"><name>impl_vel</name></member>
-    <member refid="classspace_1_1_point_particles_1a4f6fa5d0ccfc560c914e1ce4976231fa" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_point_particles_1a4017e1249fe198d53065a56faf1c091a" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_point_particles_1a2b91850d907c50f3068374c5c49b880f" kind="function"><name>impl_resize</name></member>
     <member refid="classspace_1_1_point_particles_1a77027a5cce185052caa1c4a883e653c3" kind="function"><name>impl_reserve</name></member>
     <member refid="classspace_1_1_point_particles_1a128013365330947c592d543f507747bc" kind="function"><name>impl_emplace_back</name></member>
@@ -890,9 +975,9 @@
     <member refid="classspace_1_1_regularization_1a86b4b9da87fe49f7994994b9caf25ca7" kind="variable"><name>bindE_</name></member>
     <member refid="classspace_1_1_regularization_1a19a66927c37fd45a422b7648eb138179" kind="function"><name>Regularization</name></member>
     <member refid="classspace_1_1_regularization_1a974700ff971d4d240b9fbdc1fecb2993" kind="function"><name>omega</name></member>
-    <member refid="classspace_1_1_regularization_1aa5addbe2a3c0609c8317de46a6d42ea8" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_regularization_1ae3005971b0a96e4bc5ae9d40100d00a8" kind="function"><name>omega</name></member>
     <member refid="classspace_1_1_regularization_1afe751a9d3503e55523043e358a7ce56b" kind="function"><name>bindE</name></member>
-    <member refid="classspace_1_1_regularization_1ae35b2a31d97f1a458a70d0c63c5fc408" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_regularization_1a1ce316398539615908229156ee01becd" kind="function"><name>bindE</name></member>
     <member refid="classspace_1_1_regularization_1a7cf88d50112204e2dac372aa21bad13e" kind="function"><name>eval_pos_phy_time</name></member>
     <member refid="classspace_1_1_regularization_1afc86775fec5638c5a1ebed78d5db39f1" kind="function"><name>eval_vel_phy_time</name></member>
     <member refid="classspace_1_1_regularization_1a8126bf883277e8980c7b968e528e548c" kind="function"><name>capital_omega</name></member>
@@ -922,21 +1007,21 @@
     <member refid="classspace_1_1_regularized_system_1a37cfcf4271064778315baefa4541aafa" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_regularized_system_1a5461fd02126cffd25534b3b92a401d3e" kind="function"><name>RegularizedSystem</name></member>
     <member refid="classspace_1_1_regularized_system_1af875559084edf49acb4023b0eb06090a" kind="function"><name>omega</name></member>
-    <member refid="classspace_1_1_regularized_system_1a8253991af985abb20647397ccb3ad314" kind="function"><name>omega</name></member>
+    <member refid="classspace_1_1_regularized_system_1a974ef2b38bdb4dcdf0257f771d6d0dac" kind="function"><name>omega</name></member>
     <member refid="classspace_1_1_regularized_system_1ac0a1fc21f863f4f586e6a6704c09927c" kind="function"><name>bindE</name></member>
-    <member refid="classspace_1_1_regularized_system_1adb57fda560e2f05a68c0e87b47b2fba5" kind="function"><name>bindE</name></member>
+    <member refid="classspace_1_1_regularized_system_1a2280ce0023fe5ca725b04c75c6f63c39" kind="function"><name>bindE</name></member>
     <member refid="classspace_1_1_regularized_system_1af2a766e888f178d151d31aee767d69a6" kind="friend"><name>operator&lt;&lt;</name></member>
     <member refid="classspace_1_1_regularized_system_1aeacb3810dbf383caa0d7ae0b9ee38c09" kind="friend"><name>operator&gt;&gt;</name></member>
     <member refid="classspace_1_1_regularized_system_1a4496b6aa55c080b27389b87472033720" kind="function"><name>impl_mass</name></member>
-    <member refid="classspace_1_1_regularized_system_1a437594951667c2af5e7651c3d6bb3bdd" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_regularized_system_1a0405bf51e38f166925090abc3443d44a" kind="function"><name>impl_mass</name></member>
     <member refid="classspace_1_1_regularized_system_1a983d7741e9f018fd81655da7cc05205f" kind="function"><name>impl_idn</name></member>
-    <member refid="classspace_1_1_regularized_system_1ab5dd9fc61923a7db0ae47c612c049896" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_regularized_system_1a3ad1706567dda66bd35db230a180fa22" kind="function"><name>impl_idn</name></member>
     <member refid="classspace_1_1_regularized_system_1ac31ddf4edc35754a90327b801cba4d6a" kind="function"><name>impl_pos</name></member>
-    <member refid="classspace_1_1_regularized_system_1a6ab8dbe690ad7b9c6043bc4ad4eda2b7" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_regularized_system_1a9daa53b5f61fccfdfb69bf73ec06dcbd" kind="function"><name>impl_pos</name></member>
     <member refid="classspace_1_1_regularized_system_1ae73d2e53d5efe55714e36e92521b0515" kind="function"><name>impl_vel</name></member>
-    <member refid="classspace_1_1_regularized_system_1a26a4b19c8801307a328354fb828fd60f" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_regularized_system_1a52bd4074c73fe7c396a70578c4b55d29" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_regularized_system_1a79389cba5c60e9f67d331362368ae628" kind="function"><name>impl_time</name></member>
-    <member refid="classspace_1_1_regularized_system_1a5ffc975821a471f084da4344ec1a4d10" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_regularized_system_1a1c0fb98a9c2a6639c773a0e37d5ddf91" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_regularized_system_1a6471341e5bd5bfe0cddb3298376499c3" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_regularized_system_1a7b2bab60e41da7bf1fab5f71cc274f0c" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_regularized_system_1ad6c4fa3a3a945337b9c5245753c59487" kind="function"><name>impl_advance_pos</name></member>
@@ -966,10 +1051,8 @@
     <member refid="classspace_1_1_r_m_s_1ab989235771ef09f7c0e97ac23aa35e86" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_r_m_s_1ab30d576b8f8bac993aaa8ab44beb38e3" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_r_m_s_1a0a62e9ff014b2dd36c262b18ba26da74" kind="function"><name>RMS</name></member>
-    <member refid="classspace_1_1_r_m_s_1a89673bd36afa8dfcb4df261caeda45c5" kind="function"><name>impl_atol</name></member>
-    <member refid="classspace_1_1_r_m_s_1a6646376c02536f3d16552621589e0fef" kind="function"><name>impl_atol</name></member>
-    <member refid="classspace_1_1_r_m_s_1a59ff55527368f7fec34c93ff14296a77" kind="function"><name>impl_rtol</name></member>
-    <member refid="classspace_1_1_r_m_s_1a4c38c3b326254f283cde8d6edaaebadf" kind="function"><name>impl_rtol</name></member>
+    <member refid="classspace_1_1_r_m_s_1a8aed5baa792ee503f1e39706877b6ed9" kind="function"><name>impl_atol</name></member>
+    <member refid="classspace_1_1_r_m_s_1ad7bc5e79a2ca2d88be88297d02dad9e2" kind="function"><name>impl_rtol</name></member>
     <member refid="classspace_1_1_r_m_s_1a2cc67079020ff0fa1fbf8a85916684c5" kind="function"><name>impl_set_atol</name></member>
     <member refid="classspace_1_1_r_m_s_1adcf94c009434aab255c6a9bdd3c3de7f" kind="function"><name>impl_set_rtol</name></member>
     <member refid="classspace_1_1_r_m_s_1ad28ed800a8d59f97dadfe1e6f36b058a" kind="function"><name>impl_error</name></member>
@@ -1048,15 +1131,15 @@
     <member refid="classspace_1_1_simple_system_1a4e048ab9386feb43a2c631285a02c69f" kind="friend"><name>operator&lt;&lt;</name></member>
     <member refid="classspace_1_1_simple_system_1a6c3448dbfa080f2f381bff34663a9953" kind="friend"><name>operator&gt;&gt;</name></member>
     <member refid="classspace_1_1_simple_system_1a266bf82600759168e1968b703125c07a" kind="function"><name>impl_mass</name></member>
-    <member refid="classspace_1_1_simple_system_1a2b84eb11cae1ff0981ece40a81ab2b62" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_simple_system_1a5fcc6f192974113e0d1fd4d255b229fb" kind="function"><name>impl_mass</name></member>
     <member refid="classspace_1_1_simple_system_1ade5d2b6fb17fcab706a5659845888cf5" kind="function"><name>impl_idn</name></member>
-    <member refid="classspace_1_1_simple_system_1a32e144e7a7d6eec154406eee1fb3d54c" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_simple_system_1acc94b227eb503912a1b8d2b2a9382f1b" kind="function"><name>impl_idn</name></member>
     <member refid="classspace_1_1_simple_system_1a4dec706185faa5997e4f02e9bca69f89" kind="function"><name>impl_pos</name></member>
-    <member refid="classspace_1_1_simple_system_1aa5b43fd7f345964f2b1bb95e4d6fbbb0" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_simple_system_1adc7a689a62863e4e4b91a1fb33192940" kind="function"><name>impl_pos</name></member>
     <member refid="classspace_1_1_simple_system_1a78b78ec46d96059ec0874a715203a385" kind="function"><name>impl_vel</name></member>
-    <member refid="classspace_1_1_simple_system_1a378a529dd0cfec49151f1385139c207a" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_simple_system_1aa5b9e3e094fdb5e23709b831b99a24fd" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_simple_system_1a29f13663d781fe79c05fb4c017b0229e" kind="function"><name>impl_time</name></member>
-    <member refid="classspace_1_1_simple_system_1ae15b6669e5fc5ac0803182540f649ef4" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_simple_system_1ab5d93e5acc99a1430757c7777cd53260" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_simple_system_1a0c2ea6535c72f108b43eb552ae949832" kind="function"><name>impl_number</name></member>
     <member refid="classspace_1_1_simple_system_1a83a186f6e7c91dbbb50629bb20a88313" kind="function"><name>impl_advance_time</name></member>
     <member refid="classspace_1_1_simple_system_1a157aef344aabace4e2ab0dcf04108c92" kind="function"><name>impl_advance_pos</name></member>
@@ -1085,7 +1168,7 @@
     <member refid="classspace_1_1_simulator_1a7897d9d11ae472483d47a185d50e8e69" kind="variable"><name>step_size_</name></member>
     <member refid="classspace_1_1_simulator_1a2931c37149600eb406178498316477ef" kind="variable"><name>particles_</name></member>
     <member refid="classspace_1_1_simulator_1a0f65eae562796706d34c40808971d55b" kind="variable"><name>iterator_</name></member>
-    <member refid="classspace_1_1_simulator_1af6d11515e1cf7ad7dfe6da01c63dcb8a" kind="function"><name>particles</name></member>
+    <member refid="classspace_1_1_simulator_1ab1f91be54441cf13999de40606bf839c" kind="function"><name>particles</name></member>
     <member refid="classspace_1_1_simulator_1a6c9ebf6f677d6260d0fa02754947a75e" kind="function"><name>Simulator</name></member>
     <member refid="classspace_1_1_simulator_1a32d79232bb1c647ecbc1c7e73f078735" kind="function"><name>Simulator</name></member>
     <member refid="classspace_1_1_simulator_1ab522c2ca3d315e52aa8c82027fc04e0f" kind="function"><name>Simulator</name></member>
@@ -1122,17 +1205,17 @@
     <member refid="classspace_1_1_size_particles_1ae177b8337927bcf0f8661f8931c30bee" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_size_particles_1aaf1aed8b88d09c43caba2f7e509fb3e5" kind="function"><name>SizeParticles</name></member>
     <member refid="classspace_1_1_size_particles_1a88e854086d72ae84f7c71f5a64b9f02b" kind="function"><name>radius</name></member>
-    <member refid="classspace_1_1_size_particles_1aae58d22a7107f521bc81da245e3d0bc0" kind="function"><name>radius</name></member>
+    <member refid="classspace_1_1_size_particles_1ace6b0a27543bb8484af0018bbc4ea9ea" kind="function"><name>radius</name></member>
     <member refid="classspace_1_1_size_particles_1ac1d1ce24016b5943dd31a7bf2abea477" kind="function"><name>impl_mass</name></member>
-    <member refid="classspace_1_1_size_particles_1a34faaccf6378103eb18ff385ed69ecbc" kind="function"><name>impl_mass</name></member>
+    <member refid="classspace_1_1_size_particles_1a68a5e6b180845405bb8de43c51181309" kind="function"><name>impl_mass</name></member>
     <member refid="classspace_1_1_size_particles_1abee81b7a5e01c61d981a56b898ec760f" kind="function"><name>impl_idn</name></member>
-    <member refid="classspace_1_1_size_particles_1a170d26cf7bdcf16cc92f22a6f4974c77" kind="function"><name>impl_idn</name></member>
+    <member refid="classspace_1_1_size_particles_1adc2404ab4429f8fd17960b954f838258" kind="function"><name>impl_idn</name></member>
     <member refid="classspace_1_1_size_particles_1ab4dcd807187bbbc3218ef949c2a68903" kind="function"><name>impl_time</name></member>
-    <member refid="classspace_1_1_size_particles_1a60168d8e7cc4381cfe96cd536d3761ba" kind="function"><name>impl_time</name></member>
+    <member refid="classspace_1_1_size_particles_1a3a95ed2e1e01b79fb757fa0e06ca9de0" kind="function"><name>impl_time</name></member>
     <member refid="classspace_1_1_size_particles_1a9b2b25d8a80559edb420a50695c31017" kind="function"><name>impl_pos</name></member>
-    <member refid="classspace_1_1_size_particles_1adcdc4f58253755e412fd99f3ca7c97e8" kind="function"><name>impl_pos</name></member>
+    <member refid="classspace_1_1_size_particles_1a41b924f7f84609dab04cd6a2a8d0c2e9" kind="function"><name>impl_pos</name></member>
     <member refid="classspace_1_1_size_particles_1aed0dbd19a28270aa08a60798c48654c7" kind="function"><name>impl_vel</name></member>
-    <member refid="classspace_1_1_size_particles_1a524c9391fa8b2e27916ef71ba8415e8a" kind="function"><name>impl_vel</name></member>
+    <member refid="classspace_1_1_size_particles_1ac5afdb87747e87afcf8fe41e8344fc9d" kind="function"><name>impl_vel</name></member>
     <member refid="classspace_1_1_size_particles_1a9eeba3f48784792a709543478609a0a1" kind="function"><name>impl_resize</name></member>
     <member refid="classspace_1_1_size_particles_1a4489da7395703ab2eb9ae68dfb89184f" kind="function"><name>impl_reserve</name></member>
     <member refid="classspace_1_1_size_particles_1a123bc93506407d18942fdf6eeb384cf2" kind="function"><name>impl_emplace_back</name></member>
@@ -1147,14 +1230,14 @@
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1af6cdf5b8352304847ae70cf406e20afd" kind="variable"><name>src_</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ae7807a24ac3b7d5b94b294d863c1687e" kind="function"><name>Slice_Expr</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a453f84adc5053709a73682f1ee2fec1b" kind="function"><name>operator=</name></member>
-    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1adf4ef281b9f1726aadbfe2a72e28207b" kind="function"><name>eval</name></member>
-    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab39be14d6286c12344c877fac3085db9" kind="function"><name>operator[]</name></member>
+    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab6d1685013c079e79c643bbddf47344a" kind="function"><name>eval</name></member>
+    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a385299e6f9ff338b0231e9f8e7a87495" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a2411acbcb2265fe7cf9ca2b1afef6875" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab1104037b93baa734f225a4aa01a0108" kind="function"><name>max</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a8de487fed4f00ca7603a6326cca38fe0" kind="function"><name>min</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" kind="function"><name>operator[]</name></member>
     <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a5dc48b5baaca706112f65502346a0295" kind="function"><name>operator=</name></member>
-    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a6eca9207127464b5fa31de2071ff95a8" kind="function"><name>size</name></member>
+    <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a4cf6fa1921d6922f4f09fb0e89faa2a0" kind="function"><name>size</name></member>
   </compound>
   <compound refid="classspace_1_1_step_controller" kind="class"><name>space::StepController</name>
     <member refid="classspace_1_1_step_controller_1abacc71e672169245708e3915471ef035" kind="variable"><name>Derived</name></member>
@@ -1323,10 +1406,8 @@
     <member refid="classspace_1_1_worst_offender_1a31c451867a992f5be0131e63e2f568ae" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_worst_offender_1a8438a003f34366b57804bc5c17309aee" kind="function"><name>operator=</name></member>
     <member refid="classspace_1_1_worst_offender_1adcccea4e90b1effa6e15b78219b379b3" kind="function"><name>WorstOffender</name></member>
-    <member refid="classspace_1_1_worst_offender_1abc5529f5068b25bf71b089eb8427b7b1" kind="function"><name>impl_atol</name></member>
-    <member refid="classspace_1_1_worst_offender_1af3b6261d5c2182e2b3a3cd87f12063c6" kind="function"><name>impl_atol</name></member>
-    <member refid="classspace_1_1_worst_offender_1a841552c6549114f53e108d4f16331183" kind="function"><name>impl_rtol</name></member>
-    <member refid="classspace_1_1_worst_offender_1a010045f20ef572b5011557fc78ac922f" kind="function"><name>impl_rtol</name></member>
+    <member refid="classspace_1_1_worst_offender_1a1eeb18abd30e66fd02de50294bc05317" kind="function"><name>impl_atol</name></member>
+    <member refid="classspace_1_1_worst_offender_1a2483e9262d298084ddbb30d751cbe8f5" kind="function"><name>impl_rtol</name></member>
     <member refid="classspace_1_1_worst_offender_1a87ee50041de4ce71138e6c9c40cb9a24" kind="function"><name>impl_set_atol</name></member>
     <member refid="classspace_1_1_worst_offender_1afb3858c89b0a6f62ff9a26a5e45d4d63" kind="function"><name>impl_set_rtol</name></member>
     <member refid="classspace_1_1_worst_offender_1ac4d1ba452ff1b5a4e0b159896b1ffce3" kind="function"><name>impl_error</name></member>
@@ -1335,9 +1416,9 @@
   <compound refid="namespaceboost_1_1numeric_1_1odeint" kind="namespace"><name>boost::numeric::odeint</name>
   </compound>
   <compound refid="namespacesecular" kind="namespace"><name>secular</name>
-    <member refid="secular_8h_1a2325df9e23243185fd062b7010e1f4c4" kind="variable"><name>pi</name></member>
-    <member refid="secular_8h_1a87db980e5cbd6052849e7c33acfc34c7" kind="variable"><name>G</name></member>
-    <member refid="secular_8h_1ad0c122c910730efad2e29f2573eb3e2e" kind="function"><name>t_k_quad</name></member>
+    <member refid="namespacesecular_1a2325df9e23243185fd062b7010e1f4c4" kind="variable"><name>pi</name></member>
+    <member refid="namespacesecular_1a87db980e5cbd6052849e7c33acfc34c7" kind="variable"><name>G</name></member>
+    <member refid="namespacesecular_1ad0c122c910730efad2e29f2573eb3e2e" kind="function"><name>t_k_quad</name></member>
   </compound>
   <compound refid="namespacespace" kind="namespace"><name>space</name>
     <member refid="namespacespace_1aeae90fe24a996e141e44212e2161584f" kind="enum"><name>ReguType</name></member>
@@ -1377,9 +1458,7 @@
     <member refid="namespacespace_1a31e63f1ffbf6d7b9e51838b57de6c74a" kind="function"><name>clear_all</name></member>
     <member refid="namespacespace_1a3e07eb66af61266dbc425dc2b7686ce8" kind="function"><name>shrink_to_fit_all</name></member>
     <member refid="namespacespace_1a34ee00c2009d3625b40b22952b312575" kind="function"><name>spacehub_abort</name></member>
-    <member refid="namespacespace_1a9fd7aa5e5798898136db4ed6480f2468" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacespace_1a5a057e80264f1bbc39d5db42a7fbb403" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespacespace_1a77c671e9eda1f141c1ee2dbdb381c383" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacespace_1aac174a0cc1a2348338fbe270b275dccb" kind="function"><name>operator+</name></member>
     <member refid="namespacespace_1a64c299f9e182f777b522fda7fc1632b7" kind="function"><name>operator-</name></member>
     <member refid="namespacespace_1a71880002b8c40a02f798ca9a96d6d786" kind="function"><name>operator*</name></member>
@@ -1482,15 +1561,15 @@
     <member refid="namespacespace_1_1multi_thread_1ac70c8b812d85907b7d67030ec0241f87" kind="function"><name>make_thread_safe_fstream</name></member>
   </compound>
   <compound refid="namespacespace_1_1octree" kind="namespace"><name>space::octree</name>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35" kind="enum"><name>region</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a9fe934c7a727864763bff7eddba8bd49" kind="enumvalue"><name>flu</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a39b7b22d803b1a0270c9c6c6f8a3b4cb" kind="enumvalue"><name>fld</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a8d276b234bb8ebe920aab27a756f1cd9" kind="enumvalue"><name>fru</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a2cd6c10d55c39a6f6c3e8ce73545906f" kind="enumvalue"><name>frd</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a6f2fb2d3def4f99053edab239195f146" kind="enumvalue"><name>blu</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35a3f641f36cdee11944705fad10214252e" kind="enumvalue"><name>bld</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35af9dd4ecba5e25999ab63a9aa968c939d" kind="enumvalue"><name>bru</name></member>
-    <member refid="octree_8hpp_1ab2b2971972f1b34511452015ddebca35ab213e73e577729cd2a09f49ac5e04b29" kind="enumvalue"><name>brd</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35" kind="enum"><name>region</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35a9fe934c7a727864763bff7eddba8bd49" kind="enumvalue"><name>flu</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35a39b7b22d803b1a0270c9c6c6f8a3b4cb" kind="enumvalue"><name>fld</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35a8d276b234bb8ebe920aab27a756f1cd9" kind="enumvalue"><name>fru</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35a2cd6c10d55c39a6f6c3e8ce73545906f" kind="enumvalue"><name>frd</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35a6f2fb2d3def4f99053edab239195f146" kind="enumvalue"><name>blu</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35a3f641f36cdee11944705fad10214252e" kind="enumvalue"><name>bld</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35af9dd4ecba5e25999ab63a9aa968c939d" kind="enumvalue"><name>bru</name></member>
+    <member refid="namespacespace_1_1octree_1ab2b2971972f1b34511452015ddebca35ab213e73e577729cd2a09f49ac5e04b29" kind="enumvalue"><name>brd</name></member>
   </compound>
   <compound refid="namespacespace_1_1ode_iterator" kind="namespace"><name>space::odeIterator</name>
     <member refid="namespacespace_1_1ode_iterator_1ac59ca83f468838ce0193ad38623b2ddc" kind="variable"><name>is_ode_iterator_v</name></member>
@@ -1529,42 +1608,42 @@
     <member refid="namespacespace_1_1orbit_1a175e58f69dd07bee0ffc3adaba9a1796" kind="function"><name>total_mass</name></member>
   </compound>
   <compound refid="namespacespace_1_1_radau" kind="namespace"><name>space::Radau</name>
-    <member refid="_gauss-_dadau_8h_1ab9c3b0cfb1c06672c77a78631b50a88e" kind="variable"><name>interplt</name></member>
-    <member refid="_gauss-_dadau_8h_1ab0d77db32f0cada9b6aa82792fe31ae4" kind="variable"><name>VC</name></member>
-    <member refid="_gauss-_dadau_8h_1a93cccae36acc6cdbf2c51d865e644e9a" kind="variable"><name>PC</name></member>
-    <member refid="_gauss-_dadau_8h_1a756b869c9735a14e445e2e8ffae2ad30" kind="variable"><name>gg</name></member>
-    <member refid="_gauss-_dadau_8h_1ad51f0de73d25eccaf05402efde59e894" kind="variable"><name>c</name></member>
-    <member refid="_i_a_s15_8h_1aedd7cfdda0eba7a1b5d1b77b3c0d3b0e" kind="variable"><name>maxStepCof</name></member>
-    <member refid="_i_a_s15_8h_1ac179ae2272a9e3578523eddbba652d1b" kind="variable"><name>minStepCof</name></member>
-    <member refid="_i_a_s15_8h_1a52f52652fd86e89de9a226e82327e710" kind="variable"><name>maxFloat</name></member>
-    <member refid="_gauss-_dadau_8h_1a344a83b808ef259e8d95b80306e0ea19" kind="function"><name>transG2B</name></member>
+    <member refid="namespacespace_1_1_radau_1ab9c3b0cfb1c06672c77a78631b50a88e" kind="variable"><name>interplt</name></member>
+    <member refid="namespacespace_1_1_radau_1ab0d77db32f0cada9b6aa82792fe31ae4" kind="variable"><name>VC</name></member>
+    <member refid="namespacespace_1_1_radau_1a93cccae36acc6cdbf2c51d865e644e9a" kind="variable"><name>PC</name></member>
+    <member refid="namespacespace_1_1_radau_1a756b869c9735a14e445e2e8ffae2ad30" kind="variable"><name>gg</name></member>
+    <member refid="namespacespace_1_1_radau_1ad51f0de73d25eccaf05402efde59e894" kind="variable"><name>c</name></member>
+    <member refid="namespacespace_1_1_radau_1aedd7cfdda0eba7a1b5d1b77b3c0d3b0e" kind="variable"><name>maxStepCof</name></member>
+    <member refid="namespacespace_1_1_radau_1ac179ae2272a9e3578523eddbba652d1b" kind="variable"><name>minStepCof</name></member>
+    <member refid="namespacespace_1_1_radau_1a52f52652fd86e89de9a226e82327e710" kind="variable"><name>maxFloat</name></member>
+    <member refid="namespacespace_1_1_radau_1a344a83b808ef259e8d95b80306e0ea19" kind="function"><name>transG2B</name></member>
   </compound>
   <compound refid="namespacespace_1_1random" kind="namespace"><name>space::random</name>
-    <member refid="rand-generator_8hpp_1a415913c8616220e00c31ac0b184a98f8" kind="typedef"><name>Uniform</name></member>
-    <member refid="rand-generator_8hpp_1abd4a78e42351ab62ed4bd100ddc1d871" kind="typedef"><name>Logarithm</name></member>
-    <member refid="rand-generator_8hpp_1ad0e4e852d5b51c96d70ff46ff328228b" kind="typedef"><name>PowerLaw</name></member>
-    <member refid="rand-generator_8hpp_1a220ab406e1e28adeb5e42fd8ab9f7865" kind="typedef"><name>Normal</name></member>
-    <member refid="rand-generator_8hpp_1a5444cf3952f5cb8fd6e39a4d957eed90" kind="typedef"><name>Maxwell</name></member>
+    <member refid="namespacespace_1_1random_1a415913c8616220e00c31ac0b184a98f8" kind="typedef"><name>Uniform</name></member>
+    <member refid="namespacespace_1_1random_1abd4a78e42351ab62ed4bd100ddc1d871" kind="typedef"><name>Logarithm</name></member>
+    <member refid="namespacespace_1_1random_1ad0e4e852d5b51c96d70ff46ff328228b" kind="typedef"><name>PowerLaw</name></member>
+    <member refid="namespacespace_1_1random_1a220ab406e1e28adeb5e42fd8ab9f7865" kind="typedef"><name>Normal</name></member>
+    <member refid="namespacespace_1_1random_1a5444cf3952f5cb8fd6e39a4d957eed90" kind="typedef"><name>Maxwell</name></member>
   </compound>
   <compound refid="namespacespace_1_1random_gen" kind="namespace"><name>space::randomGen</name>
   </compound>
   <compound refid="namespacespace_1_1stellar" kind="namespace"><name>space::stellar</name>
-    <member refid="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8" kind="enum"><name>StarType</name></member>
-    <member refid="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8a1baa5a77aeff33338948c1e0c4466462" kind="enumvalue"><name>BH</name></member>
-    <member refid="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8a53c8d15a175221d2127083e66a8cc937" kind="enumvalue"><name>NS</name></member>
-    <member refid="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8a8ab2630ada18b94a005a0c5399d9d483" kind="enumvalue"><name>STAR</name></member>
-    <member refid="stellar_8hpp_1a591f260bdbbffc9c9308b68169c366b8aa8522b770693a6c14a26f3aeeec134a9" kind="enumvalue"><name>WD</name></member>
-    <member refid="stellar_8hpp_1a39134fbabd6f1d47b4cf9f9cad48c8c5" kind="function"><name>calc_obj_radius</name></member>
+    <member refid="namespacespace_1_1stellar_1a591f260bdbbffc9c9308b68169c366b8" kind="enum"><name>StarType</name></member>
+    <member refid="namespacespace_1_1stellar_1a591f260bdbbffc9c9308b68169c366b8a1baa5a77aeff33338948c1e0c4466462" kind="enumvalue"><name>BH</name></member>
+    <member refid="namespacespace_1_1stellar_1a591f260bdbbffc9c9308b68169c366b8a53c8d15a175221d2127083e66a8cc937" kind="enumvalue"><name>NS</name></member>
+    <member refid="namespacespace_1_1stellar_1a591f260bdbbffc9c9308b68169c366b8a8ab2630ada18b94a005a0c5399d9d483" kind="enumvalue"><name>STAR</name></member>
+    <member refid="namespacespace_1_1stellar_1a591f260bdbbffc9c9308b68169c366b8aa8522b770693a6c14a26f3aeeec134a9" kind="enumvalue"><name>WD</name></member>
+    <member refid="namespacespace_1_1stellar_1a39134fbabd6f1d47b4cf9f9cad48c8c5" kind="function"><name>calc_obj_radius</name></member>
   </compound>
   <compound refid="namespacespace_1_1tools" kind="namespace"><name>space::tools</name>
-    <member refid="config-reader_8hpp_1a5dc6be58712a7905fc890d2a227c9487" kind="enum"><name>ConfigDtype</name></member>
-    <member refid="config-reader_8hpp_1a5dc6be58712a7905fc890d2a227c9487aa0faef0851b4294c06f2b94bb1cb2044" kind="enumvalue"><name>Integer</name></member>
-    <member refid="config-reader_8hpp_1a5dc6be58712a7905fc890d2a227c9487a22ae0e2b89e5e3d477f988cc36d3272b" kind="enumvalue"><name>Float</name></member>
-    <member refid="config-reader_8hpp_1a5dc6be58712a7905fc890d2a227c9487a27118326006d3829667a400ad23d5d98" kind="enumvalue"><name>String</name></member>
-    <member refid="config-reader_8hpp_1a5dc6be58712a7905fc890d2a227c9487ace2c8aed9c2fa0cfbed56cbda4d8bf07" kind="enumvalue"><name>Empty</name></member>
-    <member refid="auto-name_8hpp_1aff852de3bafc7767ca53576bee912d36" kind="function"><name>auto_name</name></member>
-    <member refid="auto-name_8hpp_1a638de251cb4a5271d8fa461296f66902" kind="function"><name>make_name</name></member>
-    <member refid="config-reader_8hpp_1ae5735d7945a146d2e25aa12e46f3699e" kind="function"><name>read_command_line</name></member>
+    <member refid="namespacespace_1_1tools_1a5dc6be58712a7905fc890d2a227c9487" kind="enum"><name>ConfigDtype</name></member>
+    <member refid="namespacespace_1_1tools_1a5dc6be58712a7905fc890d2a227c9487aa0faef0851b4294c06f2b94bb1cb2044" kind="enumvalue"><name>Integer</name></member>
+    <member refid="namespacespace_1_1tools_1a5dc6be58712a7905fc890d2a227c9487a22ae0e2b89e5e3d477f988cc36d3272b" kind="enumvalue"><name>Float</name></member>
+    <member refid="namespacespace_1_1tools_1a5dc6be58712a7905fc890d2a227c9487a27118326006d3829667a400ad23d5d98" kind="enumvalue"><name>String</name></member>
+    <member refid="namespacespace_1_1tools_1a5dc6be58712a7905fc890d2a227c9487ace2c8aed9c2fa0cfbed56cbda4d8bf07" kind="enumvalue"><name>Empty</name></member>
+    <member refid="namespacespace_1_1tools_1aff852de3bafc7767ca53576bee912d36" kind="function"><name>auto_name</name></member>
+    <member refid="namespacespace_1_1tools_1a638de251cb4a5271d8fa461296f66902" kind="function"><name>make_name</name></member>
+    <member refid="namespacespace_1_1tools_1ae5735d7945a146d2e25aa12e46f3699e" kind="function"><name>read_command_line</name></member>
   </compound>
   <compound refid="namespacespace_1_1unit" kind="namespace"><name>space::unit</name>
     <member refid="namespacespace_1_1unit_1ace4f7e3b11e370c6c6911aa1d78869bc" kind="variable"><name>au</name></member>
@@ -1599,82 +1678,82 @@
   <compound refid="namespace_space_h" kind="namespace"><name>SpaceH</name>
   </compound>
   <compound refid="namespace_space_h_1_1_lazy" kind="namespace"><name>SpaceH::Lazy</name>
-    <member refid="lazy__expr_8h_1a279d033332d618b8fe5935fc0bd2615d" kind="variable"><name>OP__LINE__</name></member>
-    <member refid="lazy__array_8h_1a2e9fc8a531a641d52ae48dd739b15076" kind="function"><name>leq_cache_line</name></member>
-    <member refid="lazy__expr_8h_1aeb257316187aeda2523266d9879718b4" kind="function"><name>eval_at</name></member>
-    <member refid="lazy__expr_8h_1a8b63f7f18bba2a2104de6ec4a38d752b" kind="function"><name>eval_at</name></member>
-    <member refid="lazy__expr_8h_1a7eca1aaecebef4e4b13c4e5d8ea6a3b5" kind="function"><name>operator+</name></member>
-    <member refid="lazy__expr_8h_1a229ad375ecfa1eb16df325960ed8838b" kind="function"><name>operator+</name></member>
-    <member refid="lazy__expr_8h_1a85dad28c588527f3385cb68a2d554433" kind="function"><name>operator+</name></member>
-    <member refid="lazy__expr_8h_1a3a8d4d6f8a5c2b20775f484c88490c80" kind="function"><name>operator-</name></member>
-    <member refid="lazy__expr_8h_1a225606e16b3e38da3878149cad2c62d6" kind="function"><name>operator-</name></member>
-    <member refid="lazy__expr_8h_1a48b2b3840e8ab95e0d5b47096b2cfd10" kind="function"><name>operator-</name></member>
-    <member refid="lazy__expr_8h_1a715d571c28ef6b2c588b6b334051d96d" kind="function"><name>operator*</name></member>
-    <member refid="lazy__expr_8h_1a506da0d467cf1c9111d61e5eda6f9890" kind="function"><name>operator*</name></member>
-    <member refid="lazy__expr_8h_1acdccb6e8e32db9902aad46b76586c13e" kind="function"><name>operator*</name></member>
-    <member refid="lazy__expr_8h_1aee0cfb13cc5ee0a267e2a65603e02ff0" kind="function"><name>operator/</name></member>
-    <member refid="lazy__expr_8h_1a7fffe107bb23ef589cb12c2635cc1532" kind="function"><name>operator/</name></member>
-    <member refid="lazy__expr_8h_1aab9fe8c5ae348556ae2be43ca4a7d069" kind="function"><name>operator/</name></member>
-    <member refid="lazy__expr_8h_1a66085f75cca9acc0e9aa13849e68d23b" kind="function"><name>operator%</name></member>
-    <member refid="lazy__expr_8h_1aee6b3f24996f9b4584442b6f2bf93f86" kind="function"><name>operator%</name></member>
-    <member refid="lazy__expr_8h_1a402a52d9f15792a08e28c1918a209c58" kind="function"><name>operator%</name></member>
-    <member refid="lazy__expr_8h_1aa9d2e45f4ab1a65e6f4eee6dfbdfcde4" kind="function"><name>operator==</name></member>
-    <member refid="lazy__expr_8h_1af1489bb4487a34a4a2f51536b32b08b9" kind="function"><name>operator==</name></member>
-    <member refid="lazy__expr_8h_1a4f46f60044d1cdd6632c85d8dfc97769" kind="function"><name>operator==</name></member>
-    <member refid="lazy__expr_8h_1aabb16a9e93a31b107a45d42e8a1da676" kind="function"><name>operator!=</name></member>
-    <member refid="lazy__expr_8h_1af947ac6977c556b4352c7a7f7459faca" kind="function"><name>operator!=</name></member>
-    <member refid="lazy__expr_8h_1acec8c8438ebed2a695c95aef15fb50b7" kind="function"><name>operator!=</name></member>
-    <member refid="lazy__expr_8h_1a38a42c862506241e4f8973e26d1691f7" kind="function"><name>operator&lt;</name></member>
-    <member refid="lazy__expr_8h_1a2ab2076029c37c6618251768cd5841f5" kind="function"><name>operator&lt;</name></member>
-    <member refid="lazy__expr_8h_1a7d601229647d2ed95c2bfbd84483d8c4" kind="function"><name>operator&lt;</name></member>
-    <member refid="lazy__expr_8h_1a855e2df47d842963ba769cb4f3c9f191" kind="function"><name>operator&gt;</name></member>
-    <member refid="lazy__expr_8h_1a31586fd154fbc622269ec5513eed5ce9" kind="function"><name>operator&gt;</name></member>
-    <member refid="lazy__expr_8h_1ac3402ac154983ca216293aac0f3372d5" kind="function"><name>operator&gt;</name></member>
-    <member refid="lazy__expr_8h_1a82cf2db802999b22a7fad1a22daa7124" kind="function"><name>operator&lt;=</name></member>
-    <member refid="lazy__expr_8h_1a35cb4846b5eb1c0b7d44c9a7bfdc028d" kind="function"><name>operator&lt;=</name></member>
-    <member refid="lazy__expr_8h_1ac0c05592eb27752053e882a1dbb18f5e" kind="function"><name>operator&lt;=</name></member>
-    <member refid="lazy__expr_8h_1acf2422f09fcf41cbcc145367a5340cb9" kind="function"><name>operator&gt;=</name></member>
-    <member refid="lazy__expr_8h_1a16dd56acd7953e2f164ecf1c92fac3b3" kind="function"><name>operator&gt;=</name></member>
-    <member refid="lazy__expr_8h_1a64f88a51b9c1c98ed816cee6a89837b9" kind="function"><name>operator&gt;=</name></member>
-    <member refid="lazy__expr_8h_1ab693d6900c8625dbe0326a8188310601" kind="function"><name>operator&amp;&amp;</name></member>
-    <member refid="lazy__expr_8h_1a449c938f3d50f06499be8b6440dff5c5" kind="function"><name>operator&amp;&amp;</name></member>
-    <member refid="lazy__expr_8h_1a672f9d1ac5c241c0eb42ba07aec061ad" kind="function"><name>operator&amp;&amp;</name></member>
-    <member refid="lazy__expr_8h_1a8058d96ec41b3127aee4f0fed84b444d" kind="function"><name>operator||</name></member>
-    <member refid="lazy__expr_8h_1af65f7c046155d0ae3bed24913fbaca57" kind="function"><name>operator||</name></member>
-    <member refid="lazy__expr_8h_1ac7235e2eebc70e441a8f2a733e3080d6" kind="function"><name>operator||</name></member>
-    <member refid="lazy__expr_8h_1a170d6ccca80ad287c313c4d4607ffa63" kind="function"><name>operator&amp;</name></member>
-    <member refid="lazy__expr_8h_1a17e8e5d410e9dcb279fbc225af92b754" kind="function"><name>operator&amp;</name></member>
-    <member refid="lazy__expr_8h_1a9222215fb0e46e3fa79eeb75fcc6d601" kind="function"><name>operator&amp;</name></member>
-    <member refid="lazy__expr_8h_1ab2db8074cb71c651266ec737ce048d3e" kind="function"><name>operator^</name></member>
-    <member refid="lazy__expr_8h_1a036fd0bd35239c7ee0089102b0b7b7de" kind="function"><name>operator^</name></member>
-    <member refid="lazy__expr_8h_1a9fd726579e72369534a87a6ada0c8e32" kind="function"><name>operator^</name></member>
-    <member refid="lazy__expr_8h_1a6924b352c43fbe8f17dbf32131ff20fe" kind="function"><name>operator|</name></member>
-    <member refid="lazy__expr_8h_1a7275c084eb7c8620c567a4dd177a9952" kind="function"><name>operator|</name></member>
-    <member refid="lazy__expr_8h_1a85b4db00a1ba2299af09ca6f6e3b6827" kind="function"><name>operator|</name></member>
-    <member refid="lazy__expr_8h_1a34c7bc183e083e0841cf230bb0ea6f9c" kind="function"><name>pow</name></member>
-    <member refid="lazy__expr_8h_1abc7a3dd7f9e9de9eccd441b4cf659332" kind="function"><name>pow</name></member>
-    <member refid="lazy__expr_8h_1a66697f3f317b349bbff0175097dbc942" kind="function"><name>pow</name></member>
-    <member refid="lazy__expr_8h_1a07b8da2398e07fa52127b33f0cb48cc7" kind="function"><name>exp</name></member>
-    <member refid="lazy__expr_8h_1a0c0a35e25db25d015506b51a973e5813" kind="function"><name>exp</name></member>
-    <member refid="lazy__expr_8h_1a7ff70b47f06de88dffe582837c680cfa" kind="function"><name>exp</name></member>
-    <member refid="lazy__expr_8h_1accbaeee7892349d1835e238d886a3ab9" kind="function"><name>operator+</name></member>
-    <member refid="lazy__expr_8h_1afe246cf52d1b8e6c6480c00078459b4f" kind="function"><name>operator-</name></member>
-    <member refid="lazy__expr_8h_1a0a6f435f2b345687c72556552642d4f9" kind="function"><name>operator*</name></member>
-    <member refid="lazy__expr_8h_1a164429e78d6098438316b13695c8e2bb" kind="function"><name>operator!</name></member>
-    <member refid="lazy__expr_8h_1aa3fb1649248dddffd45eb3feb697d0be" kind="function"><name>operator~</name></member>
-    <member refid="lazy__expr_8h_1aff4e45f98de5e5c3f549ee6179a7a552" kind="function"><name>abs</name></member>
-    <member refid="lazy__expr_8h_1a7cb44bbd0fd0d7ea550c510e0bdbb1f0" kind="function"><name>log</name></member>
-    <member refid="lazy__expr_8h_1aefaed9e2a7523b473eecebb53ec91263" kind="function"><name>log10</name></member>
-    <member refid="lazy__expr_8h_1a4453625bbb1c7f315145f28668b4f3e3" kind="function"><name>sin</name></member>
-    <member refid="lazy__expr_8h_1aaceb6a39308fb02610d144db3ad90944" kind="function"><name>cos</name></member>
-    <member refid="lazy__expr_8h_1a2e9f07cc876e7379e16a970b4359d2cc" kind="function"><name>tan</name></member>
-    <member refid="lazy__expr_8h_1a200166966304fe12c853f97faac55fc8" kind="function"><name>asin</name></member>
-    <member refid="lazy__expr_8h_1a51e60901d011376fb3960f85d608d841" kind="function"><name>acos</name></member>
-    <member refid="lazy__expr_8h_1a3512ecc8ba490789397be7cd2de13238" kind="function"><name>atan</name></member>
-    <member refid="lazy__expr_8h_1a817bb1cf740aba1b2ff2f4a1f01c4cf2" kind="function"><name>sinh</name></member>
-    <member refid="lazy__expr_8h_1a6fa82ee0507c93a10486491440ff9074" kind="function"><name>cosh</name></member>
-    <member refid="lazy__expr_8h_1abc73d2c8ac779b23217088f7c5cdcc90" kind="function"><name>tanh</name></member>
-    <member refid="slice_8h_1ae692630f6e945e4f0538c0b95ccecbb0" kind="function"><name>constexpr_slice_len</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a279d033332d618b8fe5935fc0bd2615d" kind="variable"><name>OP__LINE__</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a2e9fc8a531a641d52ae48dd739b15076" kind="function"><name>leq_cache_line</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aeb257316187aeda2523266d9879718b4" kind="function"><name>eval_at</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a8b63f7f18bba2a2104de6ec4a38d752b" kind="function"><name>eval_at</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7eca1aaecebef4e4b13c4e5d8ea6a3b5" kind="function"><name>operator+</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a229ad375ecfa1eb16df325960ed8838b" kind="function"><name>operator+</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a85dad28c588527f3385cb68a2d554433" kind="function"><name>operator+</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a3a8d4d6f8a5c2b20775f484c88490c80" kind="function"><name>operator-</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a225606e16b3e38da3878149cad2c62d6" kind="function"><name>operator-</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a48b2b3840e8ab95e0d5b47096b2cfd10" kind="function"><name>operator-</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a715d571c28ef6b2c588b6b334051d96d" kind="function"><name>operator*</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a506da0d467cf1c9111d61e5eda6f9890" kind="function"><name>operator*</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1acdccb6e8e32db9902aad46b76586c13e" kind="function"><name>operator*</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aee0cfb13cc5ee0a267e2a65603e02ff0" kind="function"><name>operator/</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7fffe107bb23ef589cb12c2635cc1532" kind="function"><name>operator/</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aab9fe8c5ae348556ae2be43ca4a7d069" kind="function"><name>operator/</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a66085f75cca9acc0e9aa13849e68d23b" kind="function"><name>operator%</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aee6b3f24996f9b4584442b6f2bf93f86" kind="function"><name>operator%</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a402a52d9f15792a08e28c1918a209c58" kind="function"><name>operator%</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aa9d2e45f4ab1a65e6f4eee6dfbdfcde4" kind="function"><name>operator==</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1af1489bb4487a34a4a2f51536b32b08b9" kind="function"><name>operator==</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a4f46f60044d1cdd6632c85d8dfc97769" kind="function"><name>operator==</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aabb16a9e93a31b107a45d42e8a1da676" kind="function"><name>operator!=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1af947ac6977c556b4352c7a7f7459faca" kind="function"><name>operator!=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1acec8c8438ebed2a695c95aef15fb50b7" kind="function"><name>operator!=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a38a42c862506241e4f8973e26d1691f7" kind="function"><name>operator&lt;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a2ab2076029c37c6618251768cd5841f5" kind="function"><name>operator&lt;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7d601229647d2ed95c2bfbd84483d8c4" kind="function"><name>operator&lt;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a855e2df47d842963ba769cb4f3c9f191" kind="function"><name>operator&gt;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a31586fd154fbc622269ec5513eed5ce9" kind="function"><name>operator&gt;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ac3402ac154983ca216293aac0f3372d5" kind="function"><name>operator&gt;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a82cf2db802999b22a7fad1a22daa7124" kind="function"><name>operator&lt;=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a35cb4846b5eb1c0b7d44c9a7bfdc028d" kind="function"><name>operator&lt;=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ac0c05592eb27752053e882a1dbb18f5e" kind="function"><name>operator&lt;=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1acf2422f09fcf41cbcc145367a5340cb9" kind="function"><name>operator&gt;=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a16dd56acd7953e2f164ecf1c92fac3b3" kind="function"><name>operator&gt;=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a64f88a51b9c1c98ed816cee6a89837b9" kind="function"><name>operator&gt;=</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ad4668682077286b2dc62463e73604a48" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7f595492525235ca3b71465af356e1a5" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ac76f7621e8e2b909fd9ec9215adbcfd6" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a8058d96ec41b3127aee4f0fed84b444d" kind="function"><name>operator||</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1af65f7c046155d0ae3bed24913fbaca57" kind="function"><name>operator||</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ac7235e2eebc70e441a8f2a733e3080d6" kind="function"><name>operator||</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a1884f8a8ebfe8f6270095dd4622bf496" kind="function"><name>operator &amp;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a41289ad7e8813ac3b9367c894aca7a09" kind="function"><name>operator &amp;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a007f8421f46efe1e883e2c1bfcdde280" kind="function"><name>operator &amp;</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ab2db8074cb71c651266ec737ce048d3e" kind="function"><name>operator^</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a036fd0bd35239c7ee0089102b0b7b7de" kind="function"><name>operator^</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a9fd726579e72369534a87a6ada0c8e32" kind="function"><name>operator^</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a6924b352c43fbe8f17dbf32131ff20fe" kind="function"><name>operator|</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7275c084eb7c8620c567a4dd177a9952" kind="function"><name>operator|</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a85b4db00a1ba2299af09ca6f6e3b6827" kind="function"><name>operator|</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a34c7bc183e083e0841cf230bb0ea6f9c" kind="function"><name>pow</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1abc7a3dd7f9e9de9eccd441b4cf659332" kind="function"><name>pow</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a66697f3f317b349bbff0175097dbc942" kind="function"><name>pow</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a07b8da2398e07fa52127b33f0cb48cc7" kind="function"><name>exp</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a0c0a35e25db25d015506b51a973e5813" kind="function"><name>exp</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7ff70b47f06de88dffe582837c680cfa" kind="function"><name>exp</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1accbaeee7892349d1835e238d886a3ab9" kind="function"><name>operator+</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1afe246cf52d1b8e6c6480c00078459b4f" kind="function"><name>operator-</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a0a6f435f2b345687c72556552642d4f9" kind="function"><name>operator*</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a164429e78d6098438316b13695c8e2bb" kind="function"><name>operator!</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aa3fb1649248dddffd45eb3feb697d0be" kind="function"><name>operator~</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aff4e45f98de5e5c3f549ee6179a7a552" kind="function"><name>abs</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a7cb44bbd0fd0d7ea550c510e0bdbb1f0" kind="function"><name>log</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aefaed9e2a7523b473eecebb53ec91263" kind="function"><name>log10</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a4453625bbb1c7f315145f28668b4f3e3" kind="function"><name>sin</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1aaceb6a39308fb02610d144db3ad90944" kind="function"><name>cos</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a2e9f07cc876e7379e16a970b4359d2cc" kind="function"><name>tan</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a200166966304fe12c853f97faac55fc8" kind="function"><name>asin</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a51e60901d011376fb3960f85d608d841" kind="function"><name>acos</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a3512ecc8ba490789397be7cd2de13238" kind="function"><name>atan</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a817bb1cf740aba1b2ff2f4a1f01c4cf2" kind="function"><name>sinh</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1a6fa82ee0507c93a10486491440ff9074" kind="function"><name>cosh</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1abc73d2c8ac779b23217088f7c5cdcc90" kind="function"><name>tanh</name></member>
+    <member refid="namespace_space_h_1_1_lazy_1ae692630f6e945e4f0538c0b95ccecbb0" kind="function"><name>constexpr_slice_len</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
@@ -1766,6 +1845,10 @@
   <compound refid="multi-thread_8hpp" kind="file"><name>multi-thread.hpp</name>
   </compound>
   <compound refid="thread__pool_8h" kind="file"><name>thread_pool.h</name>
+  </compound>
+  <compound refid="_b_s-iterator0_8hpp" kind="file"><name>BS-iterator0.hpp</name>
+  </compound>
+  <compound refid="_b_s-iterator__bk_8hpp" kind="file"><name>BS-iterator_bk.hpp</name>
   </compound>
   <compound refid="_burlish-_stoer_8hpp" kind="file"><name>Burlish-Stoer.hpp</name>
   </compound>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['order_503',['order',['../classspace_1_1_gauss_dadau.html#a2abe1550f71fac107ccff4dabb130e80',1,'space::GaussDadau']]]
+  ['day',['day',['../namespacespace_1_1unit.html#aed1606d2d29735b0da5980642bcf0ba6',1,'space::unit']]],
+  ['deg',['deg',['../namespacespace_1_1unit.html#a9a70961c217cbd1f7057b7286e73530a',1,'space::unit']]]
 ];

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1_tidal_force_1_1has__method__chain__vel" kind="struct" language="C++" prot="private">
     <compoundname>space::TidalForce::has_method_chain_vel</compoundname>
     <templateparamlist>
@@ -13,7 +13,7 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a8c36751ae922b38ca55f32aba677abe9" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a8c36751ae922b38ca55f32aba677abe9" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::TidalForce::has_method_chain_vel&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
@@ -25,18 +25,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="18" column="175" bodyfile="interaction/tidal.hpp" bodystart="18" bodyend="-1"/>
+        <location file="interaction/tidal.hpp" line="18" column="1" bodyfile="interaction/tidal.hpp" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a1642339cc943260160406c4d47a12350" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a54feaceb9ad7042eb696f7fecf63be7a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::TidalForce::has_method_chain_vel&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::TidalForce::has_method_chain_vel&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). chain_vel(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +48,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="18" column="81"/>
+        <location file="interaction/tidal.hpp" line="18" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a6b792433553dc97f61b914442d849a16" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a0bc8baabb0d78aeb36209f20fe8ef1e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::TidalForce::has_method_chain_vel&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::TidalForce::has_method_chain_vel&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +69,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/tidal.hpp" line="18" column="143"/>
+        <location file="interaction/tidal.hpp" line="18" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="interaction/tidal.hpp" line="18" column="46" bodyfile="interaction/tidal.hpp" bodystart="18" bodyend="18"/>
+    <collaborationgraph>
+      <node id="115">
+        <label>space::TidalForce::has_method_chain_vel&lt; T, Args &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="interaction/tidal.hpp" line="18" column="1" bodyfile="interaction/tidal.hpp" bodystart="18" bodyend="18"/>
     <listofallmembers>
-      <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a1642339cc943260160406c4d47a12350" prot="public" virt="non-virtual"><scope>space::TidalForce::has_method_chain_vel</scope><name>check</name></member>
-      <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a6b792433553dc97f61b914442d849a16" prot="public" virt="non-virtual"><scope>space::TidalForce::has_method_chain_vel</scope><name>check</name></member>
+      <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a54feaceb9ad7042eb696f7fecf63be7a" prot="public" virt="non-virtual"><scope>space::TidalForce::has_method_chain_vel</scope><name>check</name></member>
+      <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a0bc8baabb0d78aeb36209f20fe8ef1e1" prot="public" virt="non-virtual"><scope>space::TidalForce::has_method_chain_vel</scope><name>check</name></member>
       <member refid="structspace_1_1_tidal_force_1_1has__method__chain__vel_1a8c36751ae922b38ca55f32aba677abe9" prot="public" virt="non-virtual"><scope>space::TidalForce::has_method_chain_vel</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

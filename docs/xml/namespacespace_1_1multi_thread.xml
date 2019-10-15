@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespacespace_1_1multi_thread" kind="namespace" language="C++">
     <compoundname>space::multiThread</compoundname>
     <innerclass refid="classspace_1_1multi_thread_1_1_cistream" prot="public">space::multiThread::Cistream</innerclass>
@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="22" column="16" bodyfile="multi-thread/multi-thread.hpp" bodystart="22" bodyend="-1"/>
+        <location file="multi-thread/multi-thread.hpp" line="22" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacespace_1_1multi_thread_1ae75c85134749f3d5a0b4cc1fe693ab99" prot="public" static="no" mutable="no">
         <type>const size_t</type>
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="24" column="16" bodyfile="multi-thread/multi-thread.hpp" bodystart="24" bodyend="-1"/>
+        <location file="multi-thread/multi-thread.hpp" line="24" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="24" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="27" column="8" bodyfile="multi-thread/multi-thread.hpp" bodystart="27" bodyend="43"/>
+        <location file="multi-thread/multi-thread.hpp" line="27" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="27" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1multi_thread_1a7c2380e468c16bba70fce92cae55d2cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="46" column="8" bodyfile="multi-thread/multi-thread.hpp" bodystart="46" bodyend="57"/>
+        <location file="multi-thread/multi-thread.hpp" line="46" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="46" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1multi_thread_1a55562dd560725d1e9d7407181ec770be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="60" column="8" bodyfile="multi-thread/multi-thread.hpp" bodystart="60" bodyend="62"/>
+        <location file="multi-thread/multi-thread.hpp" line="60" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="60" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1multi_thread_1ac70c8b812d85907b7d67030ec0241f87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1multi_thread_1_1_concurrent_file" kindref="compound">ConcurrentFile</ref></type>
@@ -148,14 +148,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/multi-thread.hpp" line="113" column="18" bodyfile="multi-thread/multi-thread.hpp" bodystart="113" bodyend="115"/>
+        <location file="multi-thread/multi-thread.hpp" line="113" column="1" bodyfile="multi-thread/multi-thread.hpp" bodystart="113" bodyend="115"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Documentation for Foo here. More docs for Foo here, and down here. </para>
-    </detaileddescription>
-    <location file="multi-thread/ciostream.hpp" line="12" column="28"/>
+<para>Documentation for Foo here. More docs for Foo here, and down here. </para>    </detaileddescription>
+    <location file="multi-thread/ciostream.hpp" line="12" column="1"/>
   </compounddef>
 </doxygen>

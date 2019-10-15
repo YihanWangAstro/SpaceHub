@@ -151,25 +151,15 @@ namespace space {
   return result;}()
 
 #define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
-/**                                                                                                                    \
-   Default constructor.                                                                                               \
- */                                                                                                                    \
+/** Default constructor. */                                                                                            \
     CLASS() = ATTR1;                                                                                                   \
-/**                                                                                                                    \
-   Default copy constructor.                                                                                          \
- */                                                                                                                    \
+/** Default copy constructor. */                                                                                       \
     CLASS(CLASS const&) = ATTR2;                                                                                       \
-/**                                                                                                                    \
-   Default move constructor                                                                                           \
- */                                                                                                                    \
+/** Default move constructor */                                                                                        \
     CLASS(CLASS &&) = ATTR3;                                                                                           \
-/**                                                                                                                    \
-   Default copy assignment operator                                                                                   \
- */                                                                                                                    \
+/** Default copy assignment operator */                                                                                \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
-/**                                                                                                                    \
-   Default move assignment operator                                                                                   \
- */                                                                                                                    \
+/** Default move assignment operator */                                                                                \
     CLASS &operator=(CLASS &&) = ATTR5;                                                                                \
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
@@ -185,57 +175,33 @@ namespace space {
     using Coord       = typename CLASS::Coord
 
 #define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                                                     \
-/**                                                                                                                    \
-  @must_impl                                                                                                          \
-                                                                                                                      \
-  The setter interface of member `NAME`.                                                                              \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/**@must_impl The setter interface of member `NAME`. */                                                                \
 inline TYPE & NAME () noexcept {                                                                                       \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };                                                                                                                     \
-/**                                                                                                                    \
-  @must_impl                                                                                                          \
-                                                                                                                       \
-  The getter interface of member `NAME`.                                                                              \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/**@must_impl The getter interface of member `NAME`. */                                                                \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return static_cast<Derived const*>(this)->impl_##NAME();                                                           \
 };
 
 #define DECLARE_CRTP_READ_ACCESSOR(DERIVED, TYPE, NAME)                                                                \
-/**                                                                                                                    \
-  @must_impl                                                                                                          \
-                                                                                                                       \
-  The getter interface of member `NAME`.                                                                              \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/**@must_impl The getter interface of member `NAME`. */                                                                \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return static_cast<Derived*>(this)->impl_##NAME();                                                                 \
 };
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                                                                      \
-/**                                                                                                                    \
-  The setter interface of member `MEMBER` in name of `NAME`.                                                          \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/** The setter interface of member `MEMBER` in name of `NAME`.*/                                                       \
 inline TYPE & NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-/**                                                                                                                    \
-  The getter interface of member `MEMBER` in name of `NAME`.                                                          \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/** The getter interface of member `MEMBER` in name of `NAME`.*/                                                       \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };
 
 #define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
-/**                                                                                                                    \
-  The getter interface of member NAME.                                                                                \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/** The getter interface of member NAME. */                                                                            \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };
@@ -294,7 +260,7 @@ inline TYPE const & NAME () const noexcept {                                    
 
 #define HAS_MEMBER(C, member) has_ ## member<C>::value
 
-/** @brief Macros used to check if a class has a static member.  */
+/**  Macros used to check if a class has a static member.  */
 #define CREATE_STATIC_MEMBER_CHECK(MEMBER)                                                                             \
                                                                                                                        \
     template<typename T, typename V = bool>                                                                            \
@@ -395,26 +361,11 @@ inline TYPE const & NAME () const noexcept {                                    
   template<typename T>
   constexpr bool is_container_v = is_container<T>::value;
 
-  template<template<typename ...> typename T, typename ...Args>
-  std::enable_if_t<is_container_v<T<Args...>>, std::ostream &> operator<<(std::ostream &os, T<Args...> const &container) {
-    for (auto const &c : container) {
-      os << c << ' ';
-    }
-    return os;
-  }
 
   template<typename T, size_t N>
   std::ostream &operator<<(std::ostream &os, std::array<T, N> const &container) {
     for (auto const &c : container) {
       os << c << ' ';
-    }
-    return os;
-  }
-
-  template<typename T, size_t N>
-  std::ostream &operator<<(std::ostream &os, const T (&carray)[N]) {
-    for (size_t i = 0; i < N; ++i) {
-      os << carray[i] << ' ';
     }
     return os;
   }

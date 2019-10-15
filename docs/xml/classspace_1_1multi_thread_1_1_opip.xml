@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1multi_thread_1_1_opip" kind="class" language="C++" prot="public">
     <compoundname>space::multiThread::Opip</compoundname>
+    <includes refid="ciostream_8hpp" local="no">ciostream.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -19,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="61" column="16" bodyfile="multi-thread/ciostream.hpp" bodystart="61" bodyend="-1"/>
+        <location file="multi-thread/ciostream.hpp" line="61" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_opip_1ab0e3159a7c3782c139ab71eb7ca8d214" prot="private" static="no" mutable="no">
         <type>std::mutex</type>
@@ -32,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="62" column="16" bodyfile="multi-thread/ciostream.hpp" bodystart="62" bodyend="-1"/>
+        <location file="multi-thread/ciostream.hpp" line="62" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_opip_1a845335d29fcda76896621203b61d007e" prot="private" static="no" mutable="no">
         <type>std::condition_variable</type>
@@ -45,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="63" column="29" bodyfile="multi-thread/ciostream.hpp" bodystart="63" bodyend="-1"/>
+        <location file="multi-thread/ciostream.hpp" line="63" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_opip_1a5bf63ef93c13d38f9bcc23551fb2af04" prot="private" static="no" mutable="no">
         <type>std::fstream</type>
@@ -58,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="64" column="18" bodyfile="multi-thread/ciostream.hpp" bodystart="64" bodyend="-1"/>
+        <location file="multi-thread/ciostream.hpp" line="64" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_opip_1a4633c43710858724da8d4a584e2012c1" prot="private" static="no" mutable="no">
         <type>std::thread</type>
@@ -71,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="65" column="17" bodyfile="multi-thread/ciostream.hpp" bodystart="65" bodyend="-1"/>
+        <location file="multi-thread/ciostream.hpp" line="65" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_opip_1a8090f41d43a0fcbaa27337cbdc68ffbb" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -85,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="66" column="10" bodyfile="multi-thread/ciostream.hpp" bodystart="66" bodyend="-1"/>
+        <location file="multi-thread/ciostream.hpp" line="66" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="66" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -104,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="16" column="14" bodyfile="multi-thread/ciostream.hpp" bodystart="16" bodyend="39"/>
+        <location file="multi-thread/ciostream.hpp" line="16" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="16" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_opip_1a94878874f8852012c508c7f1b60c9d27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -117,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="41" column="5" bodyfile="multi-thread/ciostream.hpp" bodystart="41" bodyend="50"/>
+        <location file="multi-thread/ciostream.hpp" line="41" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="41" bodyend="50"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -140,14 +141,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/ciostream.hpp" line="52" column="12" bodyfile="multi-thread/ciostream.hpp" bodystart="52" bodyend="58"/>
+        <location file="multi-thread/ciostream.hpp" line="52" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="52" bodyend="58"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="multi-thread/ciostream.hpp" line="14" column="13" bodyfile="multi-thread/ciostream.hpp" bodystart="14" bodyend="67"/>
+    <collaborationgraph>
+      <node id="221">
+        <label>space::multiThread::Opip&lt; T &gt;</label>
+        <link refid="classspace_1_1multi_thread_1_1_opip"/>
+      </node>
+    </collaborationgraph>
+    <location file="multi-thread/ciostream.hpp" line="14" column="1" bodyfile="multi-thread/ciostream.hpp" bodystart="14" bodyend="67"/>
     <listofallmembers>
       <member refid="classspace_1_1multi_thread_1_1_opip_1a845335d29fcda76896621203b61d007e" prot="private" virt="non-virtual"><scope>space::multiThread::Opip</scope><name>cv_</name></member>
       <member refid="classspace_1_1multi_thread_1_1_opip_1a5bf63ef93c13d38f9bcc23551fb2af04" prot="private" virt="non-virtual"><scope>space::multiThread::Opip</scope><name>file_</name></member>

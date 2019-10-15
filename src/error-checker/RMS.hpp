@@ -31,9 +31,9 @@ namespace space {
     CRTP_IMPL :
     // CRTP implementation
 
-    SPACEHUB_STD_ACCESSOR(auto, impl_atol, atol_);
+    SPACEHUB_READ_ACCESSOR(auto, impl_atol, atol_);
 
-    SPACEHUB_STD_ACCESSOR(auto, impl_rtol, rtol_);
+    SPACEHUB_READ_ACCESSOR(auto, impl_rtol, rtol_);
 
     void impl_set_atol(Scalar);
 

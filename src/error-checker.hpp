@@ -13,46 +13,86 @@ namespace space {
     Class Error_checker Declaration
 \*---------------------------------------------------------------------------*/
 /**
+ * Abstract class of step error estimator. A class implements(partly/fully) the interfaces of this
+ * class via CRTP idiom can be used cross the system as an implementation of the concept `ErrorChecker`. The error estimator
+ * provides the interface to estimate the error of an integration system.
  *
- * @tparam Derived
+ * @tparam Derived The implement class in CRTP idiom.
  */
   template<typename Derived>
   class ErrorChecker {
   public:
     // public methods
+    DECLARE_CRTP_READ_ACCESSOR(Derived, auto, atol);
 
-    DECLARE_CRTP_ACCESSOR(Derived, auto, atol);
-
-    DECLARE_CRTP_ACCESSOR(Derived, auto, rtol);
+    DECLARE_CRTP_READ_ACCESSOR(Derived, auto, rtol);
 
     /**
+     * @auto_impl
      *
-     * @return
+     * The downcast interface of Base class to Derived class.
+     * @return Derived
      */
     Derived &derived();
 
     /**
+     * @opt_impl{Absolute error is required.}
      *
+     * Set the absolute error of the error estimator.
+     *
+     * @tparam Scalar Floating point like type type.
+     * @param[in] abs_error Absolute error.
      */
-    template<typename T>
-    void set_atol(T);
+    template<typename Scalar>
+    void set_atol(Scalar abs_error);
 
     /**
+     * @opt_impl{Relative error is required.}
      *
+     * Set the relative error of the error estimator.
+     *
+     * @tparam Scalar Floating point like type type.
+     * @param rel_error Relative error.
      */
-    template<typename T>
-    void set_rtol(T);
+    template<typename Scalar>
+    void set_rtol(Scalar rel_error);
 
+    /**
+     * @must_impl
+     *
+     * Estimate the error between two results. For example,
+     * @f[\mathrm
+     *   error = {|y_0 -y_1|/|y_0|}
+     * @f]
+     *
+     * @tparam Array Iterable array like type.
+     * @param[in] y0 The first result.
+     * @param[in] y1 The second result.
+     * @return The estimated error.
+     */
     template<typename Array>
     auto error(Array const &y0, Array const &y1) -> typename Array::value_type;
 
+    /**
+     * @must_impl
+     *
+     * Estimate the error between two results with given scale. For example
+     * @f[\mathrm
+     *   error = {|y_0 -y_1|/scale}
+     * @f]
+     *
+     * @tparam Array Iterable array like type.
+     * @param[in] scale The provided scale for the results.
+     * @param[in] y0 The first result.
+     * @param[in] y1 The second result.
+     * @return
+     */
     template<typename Array>
     auto error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
   private:
     /**
      * Construct a new ErrorChecker object
-     *
      */
     ErrorChecker() = default;
 

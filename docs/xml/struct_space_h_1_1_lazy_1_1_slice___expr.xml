@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="struct_space_h_1_1_lazy_1_1_slice___expr" kind="struct" language="C++" prot="public">
     <compoundname>SpaceH::Lazy::Slice_Expr</compoundname>
     <basecompoundref refid="struct_space_h_1_1_lazy_1_1_expr" prot="public" virt="non-virtual">SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</basecompoundref>
+    <includes refid="slice_8h" local="no">slice.h</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -40,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="49" column="13" bodyfile="lazy-evaluation/slice.h" bodystart="49" bodyend="-1"/>
+        <location file="lazy-evaluation/slice.h" line="49" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -55,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="47" column="15" bodyfile="lazy-evaluation/slice.h" bodystart="47" bodyend="-1"/>
+        <location file="lazy-evaluation/slice.h" line="47" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -74,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="51" column="22" bodyfile="lazy-evaluation/slice.h" bodystart="51" bodyend="51"/>
+        <location file="lazy-evaluation/slice.h" line="51" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="51" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a453f84adc5053709a73682f1ee2fec1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="struct_space_h_1_1_lazy_1_1_slice___expr" kindref="compound">Slice_Expr</ref> &amp;</type>
@@ -82,7 +83,7 @@
         <argsstring>(const value_type &amp;scalar)</argsstring>
         <name>operator=</name>
         <param>
-          <type>const value_type &amp;</type>
+          <type>const <ref refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ad7a1357901f2c23ce9c865590e617c27" kindref="member">value_type</ref> &amp;</type>
           <declname>scalar</declname>
         </param>
         <briefdescription>
@@ -91,11 +92,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="57" column="24" bodyfile="lazy-evaluation/slice.h" bodystart="57" bodyend="62"/>
+        <location file="lazy-evaluation/slice.h" line="57" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="57" bodyend="62"/>
       </memberdef>
-      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1adf4ef281b9f1726aadbfe2a72e28207b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const value_type &amp;</type>
-        <definition>const value_type&amp; SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::eval</definition>
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ab6d1685013c079e79c643bbddf47344a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ad7a1357901f2c23ce9c865590e617c27" kindref="member">value_type</ref> const  &amp;</type>
+        <definition>value_type const&amp; SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::eval</definition>
         <argsstring>(size_t i) const</argsstring>
         <name>eval</name>
         <param>
@@ -108,11 +109,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="64" column="37" bodyfile="lazy-evaluation/slice.h" bodystart="64" bodyend="66"/>
+        <location file="lazy-evaluation/slice.h" line="64" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="64" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ab39be14d6286c12344c877fac3085db9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const value_type &amp;</type>
-        <definition>const value_type&amp; SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::operator[]</definition>
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a385299e6f9ff338b0231e9f8e7a87495" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ad7a1357901f2c23ce9c865590e617c27" kindref="member">value_type</ref> const  &amp;</type>
+        <definition>value_type const&amp; SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::operator[]</definition>
         <argsstring>(size_t i) const</argsstring>
         <name>operator[]</name>
         <param>
@@ -125,10 +126,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="68" column="37" bodyfile="lazy-evaluation/slice.h" bodystart="68" bodyend="70"/>
+        <location file="lazy-evaluation/slice.h" line="68" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="68" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a2411acbcb2265fe7cf9ca2b1afef6875" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>value_type &amp;</type>
+        <type><ref refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ad7a1357901f2c23ce9c865590e617c27" kindref="member">value_type</ref> &amp;</type>
         <definition>value_type&amp; SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::operator[]</definition>
         <argsstring>(size_t i)</argsstring>
         <name>operator[]</name>
@@ -142,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="72" column="31" bodyfile="lazy-evaluation/slice.h" bodystart="72" bodyend="74"/>
+        <location file="lazy-evaluation/slice.h" line="72" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="72" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ab1104037b93baa734f225a4aa01a0108" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>T</type>
@@ -155,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="76" column="15" bodyfile="lazy-evaluation/slice.h" bodystart="76" bodyend="83"/>
+        <location file="lazy-evaluation/slice.h" line="76" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="76" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a8de487fed4f00ca7603a6326cca38fe0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>T</type>
@@ -168,9 +169,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="85" column="15" bodyfile="lazy-evaluation/slice.h" bodystart="85" bodyend="92"/>
+        <location file="lazy-evaluation/slice.h" line="85" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="85" bodyend="92"/>
       </memberdef>
-      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>int</type>
@@ -203,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="94" column="61" bodyfile="lazy-evaluation/slice.h" bodystart="94" bodyend="94"/>
+        <location file="lazy-evaluation/slice.h" line="94" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="94" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a5dc48b5baaca706112f65502346a0295" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -225,13 +226,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="97" column="24" bodyfile="lazy-evaluation/slice.h" bodystart="97" bodyend="104"/>
+        <location file="lazy-evaluation/slice.h" line="97" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="97" bodyend="104"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a6eca9207127464b5fa31de2071ff95a8" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr static size_t</type>
-        <definition>constexpr static size_t SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::size</definition>
+      <memberdef kind="function" id="struct_space_h_1_1_lazy_1_1_slice___expr_1a4cf6fa1921d6922f4f09fb0e89faa2a0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr size_t</type>
+        <definition>static constexpr size_t SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;::size</definition>
         <argsstring>()</argsstring>
         <name>size</name>
         <briefdescription>
@@ -240,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/slice.h" line="53" column="37" bodyfile="lazy-evaluation/slice.h" bodystart="53" bodyend="55"/>
+        <location file="lazy-evaluation/slice.h" line="53" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="53" bodyend="55"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -248,41 +249,55 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1">
+      <node id="318">
+        <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
+      </node>
+      <node id="316">
         <label>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_slice___expr"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="317" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="2">
+      <node id="317">
         <label>SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
+        <childnode refid="318" relation="template-instance">
+          <edgelabel>&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</edgelabel>
+        </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="1">
-        <label>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;</label>
-        <link refid="struct_space_h_1_1_lazy_1_1_slice___expr"/>
-        <childnode refid="2" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</label>
+      <node id="321">
+        <label>SpaceH::Lazy::Expr&lt; Derived &gt;</label>
         <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
       </node>
+      <node id="319">
+        <label>SpaceH::Lazy::Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_slice___expr"/>
+        <childnode refid="320" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="320">
+        <label>SpaceH::Lazy::Expr&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</label>
+        <link refid="struct_space_h_1_1_lazy_1_1_expr"/>
+        <childnode refid="321" relation="template-instance">
+          <edgelabel>&lt; Slice_Expr&lt; T, Begin, End, Stride, SrcSize &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
     </collaborationgraph>
-    <location file="lazy-evaluation/slice.h" line="45" column="43" bodyfile="lazy-evaluation/slice.h" bodystart="45" bodyend="105"/>
+    <location file="lazy-evaluation/slice.h" line="45" column="1" bodyfile="lazy-evaluation/slice.h" bodystart="45" bodyend="105"/>
     <listofallmembers>
       <member refid="struct_space_h_1_1_lazy_1_1_expr_1ada9ca100b1aa730e95c0ee6bf802d340" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>cast</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1adf4ef281b9f1726aadbfe2a72e28207b" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>eval</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab6d1685013c079e79c643bbddf47344a" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>eval</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab1104037b93baa734f225a4aa01a0108" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>max</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a8de487fed4f00ca7603a6326cca38fe0" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>min</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a453f84adc5053709a73682f1ee2fec1b" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator=</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a5dc48b5baaca706112f65502346a0295" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator=</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab39be14d6286c12344c877fac3085db9" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator[]</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a385299e6f9ff338b0231e9f8e7a87495" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator[]</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a2411acbcb2265fe7cf9ca2b1afef6875" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator[]</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ab5b65c0ee2959e752b07e5436a0715e9" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>operator[]</name></member>
-      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a6eca9207127464b5fa31de2071ff95a8" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>size</name></member>
+      <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1a4cf6fa1921d6922f4f09fb0e89faa2a0" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>size</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ae7807a24ac3b7d5b94b294d863c1687e" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>Slice_Expr</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1af6cdf5b8352304847ae70cf406e20afd" prot="private" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>src_</name></member>
       <member refid="struct_space_h_1_1_lazy_1_1_slice___expr_1ad7a1357901f2c23ce9c865590e617c27" prot="public" virt="non-virtual"><scope>SpaceH::Lazy::Slice_Expr</scope><name>value_type</name></member>

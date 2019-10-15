@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1args_opt_1_1_default_writer" kind="class" language="C++" prot="public">
     <compoundname>space::argsOpt::DefaultWriter</compoundname>
+    <includes refid="callbacks_8hpp" local="no">callbacks.hpp</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classspace_1_1args_opt_1_1_default_writer_1aad2ac2ea22742711527b8f76df661369" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; std::ofstream &gt;</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="117" column="21" bodyfile="args-callback/callbacks.hpp" bodystart="117" bodyend="-1"/>
+        <location file="args-callback/callbacks.hpp" line="117" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="117" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -33,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="96" column="14" bodyfile="args-callback/callbacks.hpp" bodystart="96" bodyend="103"/>
+        <location file="args-callback/callbacks.hpp" line="96" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="96" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1args_opt_1_1_default_writer_1a05c147ea1142a0d90c2179902b1738ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -55,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="106" column="17" bodyfile="args-callback/callbacks.hpp" bodystart="106" bodyend="108"/>
+        <location file="args-callback/callbacks.hpp" line="106" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="106" bodyend="108"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -83,14 +84,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="111" column="12" bodyfile="args-callback/callbacks.hpp" bodystart="111" bodyend="114"/>
+        <location file="args-callback/callbacks.hpp" line="111" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="111" bodyend="114"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="args-callback/callbacks.hpp" line="94" column="22" bodyfile="args-callback/callbacks.hpp" bodystart="94" bodyend="118"/>
+    <collaborationgraph>
+      <node id="75">
+        <label>space::argsOpt::DefaultWriter</label>
+        <link refid="classspace_1_1args_opt_1_1_default_writer"/>
+      </node>
+    </collaborationgraph>
+    <location file="args-callback/callbacks.hpp" line="94" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="94" bodyend="118"/>
     <listofallmembers>
       <member refid="classspace_1_1args_opt_1_1_default_writer_1a4b15caa383d256bf97a6a8ad9df71cb8" prot="public" virt="non-virtual"><scope>space::argsOpt::DefaultWriter</scope><name>DefaultWriter</name></member>
       <member refid="classspace_1_1args_opt_1_1_default_writer_1aad2ac2ea22742711527b8f76df661369" prot="private" virt="non-virtual"><scope>space::argsOpt::DefaultWriter</scope><name>fstream_</name></member>

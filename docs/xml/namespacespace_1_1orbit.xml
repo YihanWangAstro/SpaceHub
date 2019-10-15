@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespacespace_1_1orbit" kind="namespace" language="C++">
     <compoundname>space::orbit</compoundname>
     <innerclass refid="structspace_1_1orbit_1_1_hyper_orbit_args" prot="public">space::orbit::HyperOrbitArgs</innerclass>
@@ -7,8 +7,7 @@
     <innerclass refid="structspace_1_1orbit_1_1_orbit_args" prot="public">space::orbit::OrbitArgs</innerclass>
     <innerclass refid="structspace_1_1orbit_1_1_random_indicator" prot="public">space::orbit::RandomIndicator</innerclass>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="namespacespace_1_1orbit_1a5b218ab4c1cd5603e9dfb9e657297ff5" prot="public" static="no" strong="yes">
-        <type></type>
+      <memberdef kind="enum" id="namespacespace_1_1orbit_1a5b218ab4c1cd5603e9dfb9e657297ff5" prot="public" static="no">
         <name>OrbitType</name>
         <enumvalue id="namespacespace_1_1orbit_1a5b218ab4c1cd5603e9dfb9e657297ff5a119518c2134c46108179369f0ce81fa2" prot="public">
           <name>Ellipse</name>
@@ -44,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="84" column="23" bodyfile="orbits/orbits.hpp" bodystart="84" bodyend="86"/>
+        <location file="orbits/orbits.hpp" line="84" column="1" bodyfile="orbits/orbits.hpp" bodystart="84" bodyend="86"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -59,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="219" column="3" bodyfile="orbits/orbits.hpp" bodystart="219" bodyend="-1"/>
+        <location file="orbits/orbits.hpp" line="219" column="1" bodyfile="orbits/orbits.hpp" bodystart="219" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -74,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="102" column="11"/>
+        <location file="orbits/orbits.hpp" line="102" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -98,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="15" column="17" bodyfile="orbits/orbits.hpp" bodystart="15" bodyend="17"/>
+        <location file="orbits/orbits.hpp" line="15" column="1" bodyfile="orbits/orbits.hpp" bodystart="15" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a95676ada3e97610dea9a0260651ba437" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -135,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="20" column="8" bodyfile="orbits/orbits.hpp" bodystart="20" bodyend="37"/>
+        <location file="orbits/orbits.hpp" line="20" column="1" bodyfile="orbits/orbits.hpp" bodystart="20" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a17659422e3f2634e2a33a45b76e575c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -161,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="40" column="10" bodyfile="orbits/orbits.hpp" bodystart="40" bodyend="50"/>
+        <location file="orbits/orbits.hpp" line="40" column="1" bodyfile="orbits/orbits.hpp" bodystart="40" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1aeaf980cd69ebd77a87ab2884e82a64cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -187,15 +186,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="67" column="10" bodyfile="orbits/orbits.hpp" bodystart="67" bodyend="82"/>
+        <location file="orbits/orbits.hpp" line="67" column="1" bodyfile="orbits/orbits.hpp" bodystart="67" bodyend="82"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1orbit_1ac639ca4751557b8a5dd59e452344fdc4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacespace_1_1orbit_1ac639ca4751557b8a5dd59e452344fdc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type>constexpr OrbitType</type>
+        <type>constexpr <ref refid="namespacespace_1_1orbit_1a5b218ab4c1cd5603e9dfb9e657297ff5" kindref="member">OrbitType</ref></type>
         <definition>constexpr OrbitType space::orbit::classify_orbit</definition>
         <argsstring>(T eccentricity)</argsstring>
         <name>classify_orbit</name>
@@ -209,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="89" column="23" bodyfile="orbits/orbits.hpp" bodystart="89" bodyend="99"/>
+        <location file="orbits/orbits.hpp" line="89" column="1" bodyfile="orbits/orbits.hpp" bodystart="89" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1afd3dcc312283744b6ec15f11841db3e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -250,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="247" column="8" bodyfile="orbits/orbits.hpp" bodystart="247" bodyend="292"/>
+        <location file="orbits/orbits.hpp" line="247" column="1" bodyfile="orbits/orbits.hpp" bodystart="247" bodyend="292"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a2255a6d1d572a1ed5314ebb9d5890840" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -283,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="295" column="8" bodyfile="orbits/orbits.hpp" bodystart="295" bodyend="309"/>
+        <location file="orbits/orbits.hpp" line="295" column="1" bodyfile="orbits/orbits.hpp" bodystart="295" bodyend="309"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1ae41962b8e0f0addde53edc56fe9171bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -314,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="312" column="8" bodyfile="orbits/orbits.hpp" bodystart="312" bodyend="343"/>
+        <location file="orbits/orbits.hpp" line="312" column="1" bodyfile="orbits/orbits.hpp" bodystart="312" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a5f0c8fc0e79a9bb647c968231ced2e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -356,7 +355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="346" column="8" bodyfile="orbits/orbits.hpp" bodystart="346" bodyend="362"/>
+        <location file="orbits/orbits.hpp" line="346" column="1" bodyfile="orbits/orbits.hpp" bodystart="346" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a2fe00383192f08f48719d8b842625d09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -374,7 +373,7 @@
         <argsstring>(Kepler const &amp;args, Particle &amp;ptc, Args &amp;... ptcs)</argsstring>
         <name>move_particles_to</name>
         <param>
-          <type><ref refid="structspace_1_1orbit_1_1_orbit_args" kindref="compound">Kepler</ref> const &amp;</type>
+          <type><ref refid="namespacespace_1_1orbit_1aedf6623ebb465a158de649daaf3ed1ce" kindref="member">Kepler</ref> const &amp;</type>
           <declname>args</declname>
         </param>
         <param>
@@ -391,9 +390,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="365" column="8" bodyfile="orbits/orbits.hpp" bodystart="365" bodyend="370"/>
+        <location file="orbits/orbits.hpp" line="365" column="1" bodyfile="orbits/orbits.hpp" bodystart="365" bodyend="370"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1orbit_1afe2f5846e68cbd436925e553686533ff" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacespace_1_1orbit_1afe2f5846e68cbd436925e553686533ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename Scalar</type>
@@ -417,7 +416,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="373" column="25" bodyfile="orbits/orbits.hpp" bodystart="373" bodyend="375"/>
+        <location file="orbits/orbits.hpp" line="373" column="1" bodyfile="orbits/orbits.hpp" bodystart="373" bodyend="375"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1af559e3bfe01ebd1ea5b0b7cf91d9a1b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -450,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="378" column="17" bodyfile="orbits/orbits.hpp" bodystart="378" bodyend="380"/>
+        <location file="orbits/orbits.hpp" line="378" column="1" bodyfile="orbits/orbits.hpp" bodystart="378" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a4e547b3a0a6d5133eb38c6548172c867" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -496,7 +495,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="383" column="15" bodyfile="orbits/orbits.hpp" bodystart="383" bodyend="386"/>
+        <location file="orbits/orbits.hpp" line="383" column="1" bodyfile="orbits/orbits.hpp" bodystart="383" bodyend="386"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1af6241336b276c04f77ceff7c7932d0f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -522,7 +521,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="389" column="15" bodyfile="orbits/orbits.hpp" bodystart="389" bodyend="391"/>
+        <location file="orbits/orbits.hpp" line="389" column="1" bodyfile="orbits/orbits.hpp" bodystart="389" bodyend="391"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1ac766a365db0f96da95764a569ca27810" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -555,7 +554,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="394" column="17" bodyfile="orbits/orbits.hpp" bodystart="394" bodyend="397"/>
+        <location file="orbits/orbits.hpp" line="394" column="1" bodyfile="orbits/orbits.hpp" bodystart="394" bodyend="397"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a1b58851ecb7a98faaaef30f809b08362" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -601,7 +600,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="400" column="17" bodyfile="orbits/orbits.hpp" bodystart="400" bodyend="403"/>
+        <location file="orbits/orbits.hpp" line="400" column="1" bodyfile="orbits/orbits.hpp" bodystart="400" bodyend="403"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1ad47e2359941431cfd7af5a0a64cc1f78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -627,7 +626,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="406" column="15" bodyfile="orbits/orbits.hpp" bodystart="406" bodyend="408"/>
+        <location file="orbits/orbits.hpp" line="406" column="1" bodyfile="orbits/orbits.hpp" bodystart="406" bodyend="408"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1adb8a9f565c97cb198ec36ae657b9efe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -660,7 +659,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="411" column="8" bodyfile="orbits/orbits.hpp" bodystart="411" bodyend="420"/>
+        <location file="orbits/orbits.hpp" line="411" column="1" bodyfile="orbits/orbits.hpp" bodystart="411" bodyend="420"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1ab429eb4e43b25ce8ad7bd0b53d502ca8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -706,7 +705,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="423" column="15" bodyfile="orbits/orbits.hpp" bodystart="423" bodyend="426"/>
+        <location file="orbits/orbits.hpp" line="423" column="1" bodyfile="orbits/orbits.hpp" bodystart="423" bodyend="426"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a0188ecf5ffad7fe2a972b1efd13d57c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -732,7 +731,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="429" column="15" bodyfile="orbits/orbits.hpp" bodystart="429" bodyend="431"/>
+        <location file="orbits/orbits.hpp" line="429" column="1" bodyfile="orbits/orbits.hpp" bodystart="429" bodyend="431"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a7d42477cca9ad77ca08f3d266ce3f66b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -762,7 +761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="434" column="15" bodyfile="orbits/orbits.hpp" bodystart="434" bodyend="440"/>
+        <location file="orbits/orbits.hpp" line="434" column="1" bodyfile="orbits/orbits.hpp" bodystart="434" bodyend="440"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a77c1590a7bfeb4d3df6f9c4ef3a9ff61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto</type>
@@ -770,7 +769,7 @@
         <argsstring>(Kepler const &amp;args)</argsstring>
         <name>calc_period</name>
         <param>
-          <type><ref refid="structspace_1_1orbit_1_1_orbit_args" kindref="compound">Kepler</ref> const &amp;</type>
+          <type><ref refid="namespacespace_1_1orbit_1aedf6623ebb465a158de649daaf3ed1ce" kindref="member">Kepler</ref> const &amp;</type>
           <declname>args</declname>
         </param>
         <briefdescription>
@@ -779,7 +778,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="442" column="15" bodyfile="orbits/orbits.hpp" bodystart="442" bodyend="442"/>
+        <location file="orbits/orbits.hpp" line="442" column="1" bodyfile="orbits/orbits.hpp" bodystart="442" bodyend="442"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1acfe9abfa163bae45e9165c5af93c64e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -805,7 +804,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="445" column="15" bodyfile="orbits/orbits.hpp" bodystart="445" bodyend="447"/>
+        <location file="orbits/orbits.hpp" line="445" column="1" bodyfile="orbits/orbits.hpp" bodystart="445" bodyend="447"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1_1orbit_1a175e58f69dd07bee0ffc3adaba9a1796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -836,14 +835,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="orbits/orbits.hpp" line="450" column="8" bodyfile="orbits/orbits.hpp" bodystart="450" bodyend="462"/>
+        <location file="orbits/orbits.hpp" line="450" column="1" bodyfile="orbits/orbits.hpp" bodystart="450" bodyend="462"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Documentation for space </para>
-    </detaileddescription>
-    <location file="orbits/orbits.hpp" line="8" column="1"/>
+<para>Documentation for space </para>    </detaileddescription>
+    <location file="orbits/orbits.hpp" line="9" column="1"/>
   </compounddef>
 </doxygen>

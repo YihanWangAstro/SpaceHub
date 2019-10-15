@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespacespace" kind="namespace" language="C++">
     <compoundname>space</compoundname>
     <innerclass refid="classspace_1_1_accelerations" prot="public">space::Accelerations</innerclass>
@@ -56,8 +56,7 @@
     <innernamespace refid="namespacespace_1_1tools">space::tools</innernamespace>
     <innernamespace refid="namespacespace_1_1unit">space::unit</innernamespace>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="namespacespace_1aeae90fe24a996e141e44212e2161584f" prot="public" static="no" strong="yes">
-        <type></type>
+      <memberdef kind="enum" id="namespacespace_1aeae90fe24a996e141e44212e2161584f" prot="public" static="no">
         <name>ReguType</name>
         <enumvalue id="namespacespace_1aeae90fe24a996e141e44212e2161584fa360c009cc18cabba43fcbfe53c5f61ef" prot="public">
           <name>LogH</name>
@@ -86,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="14" column="22" bodyfile="particle-system/regu-system.hpp" bodystart="14" bodyend="16"/>
+        <location file="particle-system/regu-system.hpp" line="14" column="1" bodyfile="particle-system/regu-system.hpp" bodystart="14" bodyend="16"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -101,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="90" column="3" bodyfile="kahan-number.hpp" bodystart="90" bodyend="-1"/>
+        <location file="kahan-number.hpp" line="90" column="1" bodyfile="kahan-number.hpp" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a54aebfe3aa3980061d97b59d9bc812e7" prot="public" static="no">
         <type><ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref>&lt; float &gt;</type>
@@ -114,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="91" column="3" bodyfile="kahan-number.hpp" bodystart="91" bodyend="-1"/>
+        <location file="kahan-number.hpp" line="91" column="1" bodyfile="kahan-number.hpp" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a49d7d5fcc8177f9c1e92b48b75c0835c" prot="public" static="no">
         <type><ref refid="structspace_1_1_types" kindref="compound">Types</ref>&lt; double, std::vector &gt;</type>
@@ -127,22 +126,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spaceHub.hpp" line="39" column="3" bodyfile="spaceHub.hpp" bodystart="39" bodyend="-1"/>
+        <location file="spaceHub.hpp" line="39" column="1" bodyfile="spaceHub.hpp" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1ad2ef35cee56ad99f746840675de3fd70" prot="public" static="no">
-        <templateparamlist>
-          <param>
-            <type>template&lt; class &gt; class</type>
-            <declname>Paticles</declname>
-            <defname>Paticles</defname>
-            <defval>PointParticles</defval>
-          </param>
-          <param>
-            <type>typename Force</type>
-            <defval>interactions::NewtonianGrav</defval>
-          </param>
-        </templateparamlist>
-        <type><ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref>&lt; <ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref>&lt; Paticles&lt; <ref refid="structspace_1_1_types" kindref="compound">DefaultTypes</ref> &gt;, Force, ReguType::LogH &gt;, <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">odeIterator::BurlishStoer</ref>&lt; double, <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref>, <ref refid="classspace_1_1_p_i_d_controller" kindref="compound">PIDController</ref> &gt; &gt;</type>
+        <type><ref refid="classspace_1_1_simulator" kindref="compound">Simulator</ref>&lt; <ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref>&lt; Paticles&lt; <ref refid="namespacespace_1a49d7d5fcc8177f9c1e92b48b75c0835c" kindref="member">DefaultTypes</ref> &gt;, Force, <ref refid="namespacespace_1aeae90fe24a996e141e44212e2161584fa360c009cc18cabba43fcbfe53c5f61ef" kindref="member">ReguType::LogH</ref> &gt;, <ref refid="classspace_1_1ode_iterator_1_1_burlish_stoer" kindref="compound">odeIterator::BurlishStoer</ref>&lt; double, <ref refid="classspace_1_1_r_m_s" kindref="compound">RMS</ref>, <ref refid="classspace_1_1_p_i_d_controller" kindref="compound">PIDController</ref> &gt; &gt;</type>
         <definition>using space::DefaultSolver = typedef Simulator&lt;ARchainSystem&lt;Paticles&lt;DefaultTypes&gt;, Force, ReguType::LogH&gt;, odeIterator::BurlishStoer&lt;double, RMS, PIDController&gt; &gt;</definition>
         <argsstring></argsstring>
         <name>DefaultSolver</name>
@@ -152,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spaceHub.hpp" line="42" column="3" bodyfile="spaceHub.hpp" bodystart="43" bodyend="-1"/>
+        <location file="spaceHub.hpp" line="42" column="1" bodyfile="spaceHub.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a048d540ea29aff679591a1b5b9303497" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; long double &gt;</type>
@@ -162,11 +149,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alias for long double 3-d vector </para>
-        </detaileddescription>
+<para>Alias for long double 3-d vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="202" column="3" bodyfile="vector/vector3.h" bodystart="202" bodyend="-1"/>
+        <location file="vector/vector3.h" line="202" column="1" bodyfile="vector/vector3.h" bodystart="202" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a19a48ecf1339c52009ccb6934cf799bd" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; double &gt;</type>
@@ -176,11 +162,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alias for double 3-d vector </para>
-        </detaileddescription>
+<para>Alias for double 3-d vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="206" column="3" bodyfile="vector/vector3.h" bodystart="206" bodyend="-1"/>
+        <location file="vector/vector3.h" line="206" column="1" bodyfile="vector/vector3.h" bodystart="206" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a67fb2a2bc7af0f2c219853cda7be35d3" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; float &gt;</type>
@@ -190,11 +175,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alias for float 3-d vector </para>
-        </detaileddescription>
+<para>Alias for float 3-d vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="210" column="3" bodyfile="vector/vector3.h" bodystart="210" bodyend="-1"/>
+        <location file="vector/vector3.h" line="210" column="1" bodyfile="vector/vector3.h" bodystart="210" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1aa23d52e014eb76d5d9929854718d9c1e" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; int &gt;</type>
@@ -204,11 +188,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alias for int 3-d vector </para>
-        </detaileddescription>
+<para>Alias for int 3-d vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="214" column="3" bodyfile="vector/vector3.h" bodystart="214" bodyend="-1"/>
+        <location file="vector/vector3.h" line="214" column="1" bodyfile="vector/vector3.h" bodystart="214" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a026d91839a4aecf0564d111622a38351" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; char &gt;</type>
@@ -218,11 +201,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alias for char 3-d vector </para>
-        </detaileddescription>
+<para>Alias for char 3-d vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="218" column="3" bodyfile="vector/vector3.h" bodystart="218" bodyend="-1"/>
+        <location file="vector/vector3.h" line="218" column="1" bodyfile="vector/vector3.h" bodystart="218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacespace_1a00335c4bf483b31127c2757316593d6b" prot="public" static="no">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; bool &gt;</type>
@@ -232,15 +214,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alias for bool 3-d vector </para>
-        </detaileddescription>
+<para>Alias for bool 3-d vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="222" column="3" bodyfile="vector/vector3.h" bodystart="222" bodyend="-1"/>
+        <location file="vector/vector3.h" line="222" column="1" bodyfile="vector/vector3.h" bodystart="222" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="namespacespace_1a1013e1dc47dc2b7d2a90bb1e19cba4ef" prot="public" static="no" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="namespacespace_1a1013e1dc47dc2b7d2a90bb1e19cba4ef" prot="public" static="no" mutable="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -257,9 +238,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="396" column="18" bodyfile="dev-tools.hpp" bodystart="396" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="362" column="1" bodyfile="dev-tools.hpp" bodystart="362" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespacespace_1adef73637c574d3c8bdee43f4fab29c8a" prot="public" static="no" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="namespacespace_1adef73637c574d3c8bdee43f4fab29c8a" prot="public" static="no" mutable="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -276,9 +257,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="139" column="18" bodyfile="interaction.hpp" bodystart="139" bodyend="-1"/>
+        <location file="interaction.hpp" line="154" column="1" bodyfile="interaction.hpp" bodystart="154" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespacespace_1aca418903124fbea5621539bacf958f04" prot="public" static="no" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="namespacespace_1aca418903124fbea5621539bacf958f04" prot="public" static="no" mutable="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -295,9 +276,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="66" column="15" bodyfile="own-math.hpp" bodystart="66" bodyend="-1"/>
+        <location file="own-math.hpp" line="66" column="1" bodyfile="own-math.hpp" bodystart="66" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespacespace_1a0f777c4034f7bc9abab6bcf4a8b427dd" prot="public" static="no" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="namespacespace_1a0f777c4034f7bc9abab6bcf4a8b427dd" prot="public" static="no" mutable="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -314,9 +295,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="249" column="18" bodyfile="particle-system.hpp" bodystart="249" bodyend="-1"/>
+        <location file="particle-system.hpp" line="262" column="1" bodyfile="particle-system.hpp" bodystart="262" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespacespace_1a97968c526d2b2fc010cd5ed92d4b68ba" prot="public" static="no" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="namespacespace_1a97968c526d2b2fc010cd5ed92d4b68ba" prot="public" static="no" mutable="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -333,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="146" column="18" bodyfile="particles.hpp" bodystart="146" bodyend="-1"/>
+        <location file="particles.hpp" line="146" column="1" bodyfile="particles.hpp" bodystart="146" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -364,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="137" column="8" bodyfile="coords.hpp" bodystart="137" bodyend="142"/>
+        <location file="coords.hpp" line="137" column="1" bodyfile="coords.hpp" bodystart="137" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a4606cc6c62a632506125d8ba2bc3ae86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -397,7 +378,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="145" column="6" bodyfile="coords.hpp" bodystart="145" bodyend="158"/>
+        <location file="coords.hpp" line="145" column="1" bodyfile="coords.hpp" bodystart="145" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a56a7205312bc74520aad69dbc1e1b93f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -427,7 +408,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="coords.hpp" line="161" column="6" bodyfile="coords.hpp" bodystart="161" bodyend="166"/>
+        <location file="coords.hpp" line="161" column="1" bodyfile="coords.hpp" bodystart="161" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a9225df04790836d3a9dce8f94ce4d15b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -455,7 +436,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="10" column="8" bodyfile="dev-tools.hpp" bodystart="10" bodyend="13"/>
+        <location file="dev-tools.hpp" line="10" column="1" bodyfile="dev-tools.hpp" bodystart="10" bodyend="13"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a4dfbbf0c49a0ab8474512e3080b66bfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -483,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="16" column="8" bodyfile="dev-tools.hpp" bodystart="16" bodyend="19"/>
+        <location file="dev-tools.hpp" line="16" column="1" bodyfile="dev-tools.hpp" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aa711c0aa2909a0a48b579033b7cb4499" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -507,7 +488,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="22" column="8" bodyfile="dev-tools.hpp" bodystart="22" bodyend="25"/>
+        <location file="dev-tools.hpp" line="22" column="1" bodyfile="dev-tools.hpp" bodystart="22" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a423503d664e1b35744da843e92d598ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -531,7 +512,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="28" column="8" bodyfile="dev-tools.hpp" bodystart="28" bodyend="31"/>
+        <location file="dev-tools.hpp" line="28" column="1" bodyfile="dev-tools.hpp" bodystart="28" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a4e5b361d3829ded8a1e85d1b972c25f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -566,7 +547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="34" column="8" bodyfile="dev-tools.hpp" bodystart="34" bodyend="38"/>
+        <location file="dev-tools.hpp" line="34" column="1" bodyfile="dev-tools.hpp" bodystart="34" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ab24fac92f9401f4375076dbc541494ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -594,7 +575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="41" column="8" bodyfile="dev-tools.hpp" bodystart="41" bodyend="43"/>
+        <location file="dev-tools.hpp" line="41" column="1" bodyfile="dev-tools.hpp" bodystart="41" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aa8d480c947cb519f52178c5a193f87e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -622,7 +603,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="46" column="3" bodyfile="dev-tools.hpp" bodystart="46" bodyend="52"/>
+        <location file="dev-tools.hpp" line="46" column="1" bodyfile="dev-tools.hpp" bodystart="46" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a3f7b720c88795f6a4091efb732967e52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -650,7 +631,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="55" column="16" bodyfile="dev-tools.hpp" bodystart="55" bodyend="60"/>
+        <location file="dev-tools.hpp" line="55" column="1" bodyfile="dev-tools.hpp" bodystart="55" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aed12b8f4a16d159f377a64a2fe8b4ea7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -681,7 +662,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="63" column="8" bodyfile="dev-tools.hpp" bodystart="63" bodyend="65"/>
+        <location file="dev-tools.hpp" line="63" column="1" bodyfile="dev-tools.hpp" bodystart="63" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ab18ef7ad843fd44458401037a3b717cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -712,7 +693,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="68" column="8" bodyfile="dev-tools.hpp" bodystart="68" bodyend="70"/>
+        <location file="dev-tools.hpp" line="68" column="1" bodyfile="dev-tools.hpp" bodystart="68" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a398177de9db360b7fd651350a38d45c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -740,7 +721,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="73" column="8" bodyfile="dev-tools.hpp" bodystart="73" bodyend="75"/>
+        <location file="dev-tools.hpp" line="73" column="1" bodyfile="dev-tools.hpp" bodystart="73" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a0426cf18d918efe6a70d54dd3f21f17f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -768,7 +749,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="78" column="8" bodyfile="dev-tools.hpp" bodystart="78" bodyend="80"/>
+        <location file="dev-tools.hpp" line="78" column="1" bodyfile="dev-tools.hpp" bodystart="78" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a31e63f1ffbf6d7b9e51838b57de6c74a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -792,7 +773,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="83" column="8" bodyfile="dev-tools.hpp" bodystart="83" bodyend="85"/>
+        <location file="dev-tools.hpp" line="83" column="1" bodyfile="dev-tools.hpp" bodystart="83" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a3e07eb66af61266dbc425dc2b7686ce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -816,7 +797,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="88" column="8" bodyfile="dev-tools.hpp" bodystart="88" bodyend="90"/>
+        <location file="dev-tools.hpp" line="88" column="1" bodyfile="dev-tools.hpp" bodystart="88" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a34ee00c2009d3625b40b22952b312575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -840,40 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="93" column="9" bodyfile="dev-tools.hpp" bodystart="93" bodyend="97"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1a9fd7aa5e5798898136db4ed6480f2468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>template&lt; typename ... &gt; typename</type>
-            <declname>T</declname>
-            <defname>T</defname>
-          </param>
-          <param>
-            <type>typename ...</type>
-            <declname>Args</declname>
-            <defname>Args</defname>
-          </param>
-        </templateparamlist>
-        <type>std::enable_if_t&lt; is_container_v&lt; T&lt; Args... &gt; &gt;, std::ostream &amp; &gt;</type>
-        <definition>std::enable_if_t&lt;is_container_v&lt;T&lt;Args...&gt; &gt;, std::ostream &amp;&gt; space::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;os, T&lt; Args... &gt; const &amp;container)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type>T&lt; Args... &gt; const &amp;</type>
-          <declname>container</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="dev-tools.hpp" line="396" column="18" bodyfile="dev-tools.hpp" bodystart="399" bodyend="404"/>
+        <location file="dev-tools.hpp" line="93" column="1" bodyfile="dev-tools.hpp" bodystart="93" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a5a057e80264f1bbc39d5db42a7fbb403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -904,39 +852,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="407" column="3" bodyfile="dev-tools.hpp" bodystart="407" bodyend="412"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1a77c671e9eda1f141c1ee2dbdb381c383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-          <param>
-            <type>size_t</type>
-            <declname>N</declname>
-            <defname>N</defname>
-          </param>
-        </templateparamlist>
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; space::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;os, const T(&amp;carray)[N])</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type>const T(&amp;)</type>
-          <declname>carray</declname>
-          <array>[N]</array>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="dev-tools.hpp" line="415" column="3" bodyfile="dev-tools.hpp" bodystart="415" bodyend="420"/>
+        <location file="dev-tools.hpp" line="366" column="1" bodyfile="dev-tools.hpp" bodystart="366" bodyend="371"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aac174a0cc1a2348338fbe270b275dccb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -964,7 +880,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="65" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="65" bodyend="65"/>
+        <location file="lazy-evaluation/mkl-array.h" line="65" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="65" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a64c299f9e182f777b522fda7fc1632b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -992,7 +908,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="67" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="67" bodyend="67"/>
+        <location file="lazy-evaluation/mkl-array.h" line="67" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="67" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a71880002b8c40a02f798ca9a96d6d786" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1020,7 +936,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="69" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="69" bodyend="69"/>
+        <location file="lazy-evaluation/mkl-array.h" line="69" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="69" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a768d0e58550d7ae2291be5f4c49ac146" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1048,7 +964,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="71" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="71" bodyend="71"/>
+        <location file="lazy-evaluation/mkl-array.h" line="71" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="71" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1abe514c511ccce757d571022517cd014f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1076,7 +992,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="73" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="73" bodyend="73"/>
+        <location file="lazy-evaluation/mkl-array.h" line="73" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="73" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a0f157c54041bd93935747f70b044c474" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1104,7 +1020,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="75" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="75" bodyend="75"/>
+        <location file="lazy-evaluation/mkl-array.h" line="75" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="75" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a14ead9434d2100411feb631da671b473" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1132,7 +1048,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="77" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="77" bodyend="77"/>
+        <location file="lazy-evaluation/mkl-array.h" line="77" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="77" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a7ad7c1e4d2d8eac0dfa7c46f387d5c98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1160,7 +1076,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="79" column="34" bodyfile="lazy-evaluation/mkl-array.h" bodystart="79" bodyend="79"/>
+        <location file="lazy-evaluation/mkl-array.h" line="79" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="79" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1184,13 +1100,12 @@
           <declname>y</declname>
         </param>
         <briefdescription>
-<para>Self <ref refid="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" kindref="member">min()</ref> </para>
-        </briefdescription>
+<para>Self <ref refid="namespacespace_1af82c0e7ed03d03accf59391663c1f72b" kindref="member">min()</ref> </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="11" column="13" bodyfile="own-math.hpp" bodystart="11" bodyend="13"/>
+        <location file="own-math.hpp" line="11" column="1" bodyfile="own-math.hpp" bodystart="11" bodyend="13"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1214,13 +1129,12 @@
           <declname>y</declname>
         </param>
         <briefdescription>
-<para>Self <ref refid="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" kindref="member">max()</ref> </para>
-        </briefdescription>
+<para>Self <ref refid="namespacespace_1a23b3a7b6bd57409f91a6cad1a9b852f4" kindref="member">max()</ref> </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="17" column="13" bodyfile="own-math.hpp" bodystart="17" bodyend="19"/>
+        <location file="own-math.hpp" line="17" column="1" bodyfile="own-math.hpp" bodystart="17" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a38e2c327d558183010000c0213658b4a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1237,13 +1151,12 @@
           <declname>x</declname>
         </param>
         <briefdescription>
-<para>Self <ref refid="namespacespace_1a38e2c327d558183010000c0213658b4a" kindref="member">abs()</ref> </para>
-        </briefdescription>
+<para>Self <ref refid="namespacespace_1a38e2c327d558183010000c0213658b4a" kindref="member">abs()</ref> </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="23" column="12" bodyfile="own-math.hpp" bodystart="23" bodyend="25"/>
+        <location file="own-math.hpp" line="23" column="1" bodyfile="own-math.hpp" bodystart="23" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a18bf1b62ee0d594afd8c21ead44e3282" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1273,9 +1186,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="28" column="12" bodyfile="own-math.hpp" bodystart="28" bodyend="31"/>
+        <location file="own-math.hpp" line="28" column="1" bodyfile="own-math.hpp" bodystart="28" bodyend="31"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1a0a207b752e72eee8d6c546c8beb63f09" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacespace_1a0a207b752e72eee8d6c546c8beb63f09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1297,8 +1210,7 @@
 <parametername>T</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -1306,19 +1218,16 @@
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para></para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="40" column="22" bodyfile="own-math.hpp" bodystart="40" bodyend="42"/>
+        <location file="own-math.hpp" line="40" column="1" bodyfile="own-math.hpp" bodystart="40" bodyend="42"/>
       </memberdef>
-      <memberdef kind="function" id="namespacespace_1abe73681680cf6baecce2543c3fbe05c7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacespace_1abe73681680cf6baecce2543c3fbe05c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -1340,8 +1249,7 @@
 <parametername>T</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -1349,17 +1257,14 @@
 <parametername>x</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para></para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="51" column="22" bodyfile="own-math.hpp" bodystart="51" bodyend="53"/>
+        <location file="own-math.hpp" line="51" column="1" bodyfile="own-math.hpp" bodystart="51" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aba36b8226a478451143614d2ceede527" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1385,7 +1290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="69" column="15" bodyfile="own-math.hpp" bodystart="69" bodyend="71"/>
+        <location file="own-math.hpp" line="69" column="1" bodyfile="own-math.hpp" bodystart="69" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a5ab583df5703addfa74f8fe1eab55c1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1407,7 +1312,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="94" column="12" bodyfile="own-math.hpp" bodystart="94" bodyend="96"/>
+        <location file="own-math.hpp" line="94" column="1" bodyfile="own-math.hpp" bodystart="94" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a279f21598079d1b4352976c68ab27242" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1426,7 +1331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="99" column="10" bodyfile="own-math.hpp" bodystart="99" bodyend="108"/>
+        <location file="own-math.hpp" line="99" column="1" bodyfile="own-math.hpp" bodystart="99" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a8a3fe7149ea1af4bd2f544833ed9c4c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1445,7 +1350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="111" column="10" bodyfile="own-math.hpp" bodystart="111" bodyend="119"/>
+        <location file="own-math.hpp" line="111" column="1" bodyfile="own-math.hpp" bodystart="111" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a39eb2a86b90fb45dee58f5e92a447612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1477,8 +1382,7 @@
 <parametername>Fun</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <parameterlist kind="param"><parameteritem>
@@ -1486,17 +1390,14 @@
 <parametername>f</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para></para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="128" column="8" bodyfile="own-math.hpp" bodystart="128" bodyend="139"/>
+        <location file="own-math.hpp" line="128" column="1" bodyfile="own-math.hpp" bodystart="128" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a768daee35e068885d9f10a755d3ccc3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1518,7 +1419,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="own-math.hpp" line="142" column="12" bodyfile="own-math.hpp" bodystart="142" bodyend="156"/>
+        <location file="own-math.hpp" line="142" column="1" bodyfile="own-math.hpp" bodystart="142" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a469373e39503d8103410f95a3c6976c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1552,7 +1453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="282" column="3" bodyfile="particle-system/archain.hpp" bodystart="282" bodyend="285"/>
+        <location file="particle-system/archain.hpp" line="282" column="1" bodyfile="particle-system/archain.hpp" bodystart="282" bodyend="285"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1af461eec404596481de968fd0be0f7593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1586,7 +1487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="288" column="16" bodyfile="particle-system/archain.hpp" bodystart="288" bodyend="291"/>
+        <location file="particle-system/archain.hpp" line="288" column="1" bodyfile="particle-system/archain.hpp" bodystart="288" bodyend="291"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a91a038d7b3cdcdff7c6932e2226c912c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1615,7 +1516,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/base-system.hpp" line="290" column="3" bodyfile="particle-system/base-system.hpp" bodystart="290" bodyend="293"/>
+        <location file="particle-system/base-system.hpp" line="290" column="1" bodyfile="particle-system/base-system.hpp" bodystart="290" bodyend="293"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ace0c605baca0a7891a87844024e5ab16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1644,7 +1545,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/base-system.hpp" line="296" column="16" bodyfile="particle-system/base-system.hpp" bodystart="296" bodyend="299"/>
+        <location file="particle-system/base-system.hpp" line="296" column="1" bodyfile="particle-system/base-system.hpp" bodystart="296" bodyend="299"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a06390303b3a675ad8dd74646f4328e7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1673,7 +1574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="234" column="16" bodyfile="particle-system/chain-system.hpp" bodystart="234" bodyend="237"/>
+        <location file="particle-system/chain-system.hpp" line="234" column="1" bodyfile="particle-system/chain-system.hpp" bodystart="234" bodyend="237"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aa110088df84bc47c226836379fdc5004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1702,7 +1603,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/chain-system.hpp" line="240" column="3" bodyfile="particle-system/chain-system.hpp" bodystart="240" bodyend="243"/>
+        <location file="particle-system/chain-system.hpp" line="240" column="1" bodyfile="particle-system/chain-system.hpp" bodystart="240" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a0decbcf1e20d1e8cb224c19d043eb345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1736,7 +1637,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="168" column="16" bodyfile="particle-system/regu-system.hpp" bodystart="168" bodyend="171"/>
+        <location file="particle-system/regu-system.hpp" line="168" column="1" bodyfile="particle-system/regu-system.hpp" bodystart="168" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a418040ff3b0a206c7a76379475df434a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1770,7 +1671,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/regu-system.hpp" line="174" column="3" bodyfile="particle-system/regu-system.hpp" bodystart="174" bodyend="177"/>
+        <location file="particle-system/regu-system.hpp" line="174" column="1" bodyfile="particle-system/regu-system.hpp" bodystart="174" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1abd2edab3ff47043885a5fbb9d964a55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1796,7 +1697,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="234" column="3" bodyfile="particle-system.hpp" bodystart="234" bodyend="237"/>
+        <location file="particle-system.hpp" line="247" column="1" bodyfile="particle-system.hpp" bodystart="247" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1ae74ac57858b0c2dbb3d2ea5013770677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1822,7 +1723,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="240" column="16" bodyfile="particle-system.hpp" bodystart="240" bodyend="243"/>
+        <location file="particle-system.hpp" line="253" column="1" bodyfile="particle-system.hpp" bodystart="253" bodyend="256"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a7e0961d075d0802bb77d2c92203ecab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1848,7 +1749,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/finite-size.hpp" line="172" column="3" bodyfile="particles/finite-size.hpp" bodystart="172" bodyend="180"/>
+        <location file="particles/finite-size.hpp" line="172" column="1" bodyfile="particles/finite-size.hpp" bodystart="172" bodyend="180"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a0bc4429812f32185e411978b4fe5664a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1874,7 +1775,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="136" column="3" bodyfile="particles/point-particles.hpp" bodystart="136" bodyend="139"/>
+        <location file="particles/point-particles.hpp" line="136" column="1" bodyfile="particles/point-particles.hpp" bodystart="136" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a85899eadb3856c8e5bf1fe135c3fd7c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1900,7 +1801,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="142" column="16" bodyfile="particles/point-particles.hpp" bodystart="142" bodyend="145"/>
+        <location file="particles/point-particles.hpp" line="142" column="1" bodyfile="particles/point-particles.hpp" bodystart="142" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a5a2f00008399bbdfb4d8f7142937aaba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1926,7 +1827,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="207" column="3" bodyfile="particles/point-particles.hpp" bodystart="207" bodyend="216"/>
+        <location file="particles/point-particles.hpp" line="207" column="1" bodyfile="particles/point-particles.hpp" bodystart="207" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a2963cbc658d86ae899c08372a618f3fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1949,11 +1850,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the Euclid distance of two vectors </para>
-        </detaileddescription>
+<para>Calculate the Euclid distance of two vectors </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="167" column="12" bodyfile="vector/vector3.h" bodystart="167" bodyend="169"/>
+        <location file="vector/vector3.h" line="167" column="1" bodyfile="vector/vector3.h" bodystart="167" bodyend="169"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a9471e13d1110601d090fb498061e55f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1976,11 +1876,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the inner product of two vectors </para>
-        </detaileddescription>
+<para>Calculate the inner product of two vectors </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="173" column="12" bodyfile="vector/vector3.h" bodystart="173" bodyend="175"/>
+        <location file="vector/vector3.h" line="173" column="1" bodyfile="vector/vector3.h" bodystart="173" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1af528f519f6072ce27becb1d2acc270ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1999,11 +1898,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the length of a vector </para>
-        </detaileddescription>
+<para>Calculate the length of a vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="179" column="12" bodyfile="vector/vector3.h" bodystart="179" bodyend="181"/>
+        <location file="vector/vector3.h" line="179" column="1" bodyfile="vector/vector3.h" bodystart="179" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1a336c4b7ef644a2d2e28cb69c1e3d8dc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2022,11 +1920,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the inverse lenght of a vector </para>
-        </detaileddescription>
+<para>Calculate the inverse lenght of a vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="184" column="12" bodyfile="vector/vector3.h" bodystart="184" bodyend="186"/>
+        <location file="vector/vector3.h" line="184" column="1" bodyfile="vector/vector3.h" bodystart="184" bodyend="186"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1afbb0245be78abc3f96541898d1aeced4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2045,11 +1942,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the length square of a vector </para>
-        </detaileddescription>
+<para>Calculate the length square of a vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="189" column="12" bodyfile="vector/vector3.h" bodystart="189" bodyend="191"/>
+        <location file="vector/vector3.h" line="189" column="1" bodyfile="vector/vector3.h" bodystart="189" bodyend="191"/>
       </memberdef>
       <memberdef kind="function" id="namespacespace_1aba641f0ea9662b2a002b7321ac18d46b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2072,18 +1968,16 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the cross product of two vectors </para>
-        </detaileddescription>
+<para>Calculate the cross product of two vectors </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="195" column="15" bodyfile="vector/vector3.h" bodystart="195" bodyend="197"/>
+        <location file="vector/vector3.h" line="195" column="1" bodyfile="vector/vector3.h" bodystart="195" bodyend="197"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Documentation for space </para>
-    </detaileddescription>
-    <location file="accelerations.hpp" line="8" column="15"/>
+<para>Documentation for space </para>    </detaileddescription>
+    <location file="accelerations.hpp" line="8" column="1"/>
   </compounddef>
 </doxygen>

@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1multi_thread_1_1_thread_pool" kind="class" language="C++" prot="public">
     <compoundname>space::multiThread::ThreadPool</compoundname>
+    <includes refid="thread__pool_8h" local="no">thread_pool.h</includes>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classspace_1_1multi_thread_1_1_thread_pool_1a067d3fb4b7179e86dfe9fc94bf85d6f2" prot="public" static="no">
         <type>std::function&lt; void()&gt;</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="17" column="5" bodyfile="multi-thread/thread_pool.h" bodystart="17" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="17" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -29,10 +30,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="75" column="17" bodyfile="multi-thread/thread_pool.h" bodystart="75" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="75" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a2b7eecc3f4c1fabe8606f88d259ebc5d" prot="private" static="no" mutable="no">
-        <type>std::queue&lt; Task &gt;</type>
+        <type>std::queue&lt; <ref refid="classspace_1_1multi_thread_1_1_thread_pool_1a067d3fb4b7179e86dfe9fc94bf85d6f2" kindref="member">Task</ref> &gt;</type>
         <definition>std::queue&lt;Task&gt; space::multiThread::ThreadPool::tasks_</definition>
         <argsstring></argsstring>
         <name>tasks_</name>
@@ -42,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="76" column="16" bodyfile="multi-thread/thread_pool.h" bodystart="76" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="76" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1af05c41467f1bde7a707e3d9e4f31e168" prot="private" static="no" mutable="no">
         <type>std::mutex</type>
@@ -55,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="77" column="16" bodyfile="multi-thread/thread_pool.h" bodystart="77" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="77" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a8b71dd67a7928cbd59dfa50d5034582e" prot="private" static="no" mutable="no">
         <type>std::condition_variable</type>
@@ -68,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="78" column="29" bodyfile="multi-thread/thread_pool.h" bodystart="78" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="78" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1ab826ff077b829d4b0805576ed7e34f04" prot="private" static="no" mutable="no">
         <type>std::atomic_bool</type>
@@ -81,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="79" column="22" bodyfile="multi-thread/thread_pool.h" bodystart="79" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="79" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1multi_thread_1_1_thread_pool_1a290b003f2afc25b18395fffe00dd00cc" prot="private" static="no" mutable="no">
         <type>const size_t</type>
@@ -94,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="80" column="18" bodyfile="multi-thread/thread_pool.h" bodystart="80" bodyend="-1"/>
+        <location file="multi-thread/thread_pool.h" line="80" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -109,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="19" column="5"/>
+        <location file="multi-thread/thread_pool.h" line="19" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a5e6521815906952ed488827a026bec91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -125,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="21" column="5"/>
+        <location file="multi-thread/thread_pool.h" line="21" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a674021617cd15feb787809e5b0688efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1multi_thread_1_1_thread_pool" kindref="compound">ThreadPool</ref> &amp;</type>
@@ -141,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="23" column="16"/>
+        <location file="multi-thread/thread_pool.h" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a2f553495abe857375f51150f2ae0fc1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -162,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="25" column="5" bodyfile="multi-thread/thread_pool.h" bodystart="25" bodyend="44"/>
+        <location file="multi-thread/thread_pool.h" line="25" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="25" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a63d3ecca0d3d5a76e31ffa82937aee5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -175,7 +176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="46" column="5" bodyfile="multi-thread/thread_pool.h" bodystart="46" bodyend="53"/>
+        <location file="multi-thread/thread_pool.h" line="46" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="46" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1multi_thread_1_1_thread_pool_1a9db3e104e1fbff08270fa1a982157432" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -206,14 +207,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="multi-thread/thread_pool.h" line="56" column="10" bodyfile="multi-thread/thread_pool.h" bodystart="56" bodyend="72"/>
+        <location file="multi-thread/thread_pool.h" line="56" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="56" bodyend="72"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="multi-thread/thread_pool.h" line="15" column="19" bodyfile="multi-thread/thread_pool.h" bodystart="15" bodyend="81"/>
+    <collaborationgraph>
+      <node id="371">
+        <label>space::multiThread::ThreadPool</label>
+        <link refid="classspace_1_1multi_thread_1_1_thread_pool"/>
+      </node>
+    </collaborationgraph>
+    <location file="multi-thread/thread_pool.h" line="15" column="1" bodyfile="multi-thread/thread_pool.h" bodystart="15" bodyend="81"/>
     <listofallmembers>
       <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a9db3e104e1fbff08270fa1a982157432" prot="public" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>commit</name></member>
       <member refid="classspace_1_1multi_thread_1_1_thread_pool_1a8b71dd67a7928cbd59dfa50d5034582e" prot="private" virt="non-virtual"><scope>space::multiThread::ThreadPool</scope><name>cv_</name></member>

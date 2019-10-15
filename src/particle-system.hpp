@@ -34,6 +34,14 @@ namespace space {
     DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
     /**
+     * @auto_impl
+     *
+     * The downcast interface of Base class to Derived class.
+     * @return Derived
+     */
+    Derived &derived();
+
+    /**
      * @must_impl
      *
      * Get the (active) particle number of the SoA particle set.
@@ -165,6 +173,11 @@ namespace space {
 /*---------------------------------------------------------------------------*\
     Class ParticleSystem Implementation
 \*---------------------------------------------------------------------------*/
+  template<typename Derived>
+  Derived &ParticleSystem<Derived>::derived() {
+    return static_cast<Derived &>(*this);
+  }
+
   template<typename Derived>
   size_t ParticleSystem<Derived>::number() const {
     return static_cast<Derived const *>(this)->impl_number();

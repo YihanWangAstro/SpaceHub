@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1_m_k_l_array" kind="struct" language="C++" prot="public">
     <compoundname>space::MKLArray</compoundname>
+    <includes refid="mkl-array_8h" local="no">mkl-array.h</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -25,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="54" column="7" bodyfile="lazy-evaluation/mkl-array.h" bodystart="54" bodyend="-1"/>
+        <location file="lazy-evaluation/mkl-array.h" line="54" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -40,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="16" column="5" bodyfile="lazy-evaluation/mkl-array.h" bodystart="16" bodyend="16"/>
+        <location file="lazy-evaluation/mkl-array.h" line="16" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="16" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a031d22d6a80fdee38e5d019e9ef794db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -53,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="18" column="5" bodyfile="lazy-evaluation/mkl-array.h" bodystart="18" bodyend="18"/>
+        <location file="lazy-evaluation/mkl-array.h" line="18" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="18" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a5487071bbe2d57affc462f27588aafda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -70,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="20" column="5" bodyfile="lazy-evaluation/mkl-array.h" bodystart="20" bodyend="22"/>
+        <location file="lazy-evaluation/mkl-array.h" line="20" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="20" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a2bc38bbcc14b169155bd2448ab6d7f40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref> &amp;</type>
@@ -87,9 +88,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="24" column="14" bodyfile="lazy-evaluation/mkl-array.h" bodystart="24" bodyend="27"/>
+        <location file="lazy-evaluation/mkl-array.h" line="24" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="24" bodyend="27"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a83b608b6cad7813702f030bd11e165c1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a83b608b6cad7813702f030bd11e165c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>space::MKLArray&lt; T, Size &gt;::MKLArray</definition>
         <argsstring>(MKLArray &amp;&amp;src) noexcept</argsstring>
@@ -104,9 +105,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="29" column="5" bodyfile="lazy-evaluation/mkl-array.h" bodystart="29" bodyend="32"/>
+        <location file="lazy-evaluation/mkl-array.h" line="29" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="29" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a9231b07bff7d4e9dd9ce693f945a8e01" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a9231b07bff7d4e9dd9ce693f945a8e01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_m_k_l_array" kindref="compound">MKLArray</ref> &amp;</type>
         <definition>MKLArray&amp; space::MKLArray&lt; T, Size &gt;::operator=</definition>
         <argsstring>(MKLArray &amp;&amp;src) noexcept</argsstring>
@@ -121,11 +122,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="34" column="14" bodyfile="lazy-evaluation/mkl-array.h" bodystart="34" bodyend="39"/>
+        <location file="lazy-evaluation/mkl-array.h" line="34" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="34" bodyend="39"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1_m_k_l_array_1ac298e839a300da05e97a7b0aa641a40d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const T &amp;</type>
-        <definition>const T&amp; space::MKLArray&lt; T, Size &gt;::operator[]</definition>
+      <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a22791fd75530d1df0dcc36901f9d2cdd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T const  &amp;</type>
+        <definition>T const&amp; space::MKLArray&lt; T, Size &gt;::operator[]</definition>
         <argsstring>(size_t i) const</argsstring>
         <name>operator[]</name>
         <param>
@@ -138,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="41" column="13" bodyfile="lazy-evaluation/mkl-array.h" bodystart="41" bodyend="43"/>
+        <location file="lazy-evaluation/mkl-array.h" line="41" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="41" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_m_k_l_array_1aa7dc3a9fffc3e9126e1442b1689c9dd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>T &amp;</type>
@@ -155,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="45" column="7" bodyfile="lazy-evaluation/mkl-array.h" bodystart="45" bodyend="47"/>
+        <location file="lazy-evaluation/mkl-array.h" line="45" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="45" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_m_k_l_array_1a2724c5b75e92cec2527f9569d537c39f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>T *</type>
@@ -168,14 +169,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="lazy-evaluation/mkl-array.h" line="49" column="7" bodyfile="lazy-evaluation/mkl-array.h" bodystart="49" bodyend="51"/>
+        <location file="lazy-evaluation/mkl-array.h" line="49" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="49" bodyend="51"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="lazy-evaluation/mkl-array.h" line="12" column="17" bodyfile="lazy-evaluation/mkl-array.h" bodystart="12" bodyend="55"/>
+    <collaborationgraph>
+      <node id="196">
+        <label>space::MKLArray&lt; T, Size &gt;</label>
+        <link refid="structspace_1_1_m_k_l_array"/>
+      </node>
+    </collaborationgraph>
+    <location file="lazy-evaluation/mkl-array.h" line="12" column="1" bodyfile="lazy-evaluation/mkl-array.h" bodystart="12" bodyend="55"/>
     <listofallmembers>
       <member refid="structspace_1_1_m_k_l_array_1adf77c294eec553583242c23937379df8" prot="private" virt="non-virtual"><scope>space::MKLArray</scope><name>data_</name></member>
       <member refid="structspace_1_1_m_k_l_array_1a2724c5b75e92cec2527f9569d537c39f" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>get</name></member>
@@ -184,7 +191,7 @@
       <member refid="structspace_1_1_m_k_l_array_1a83b608b6cad7813702f030bd11e165c1" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>MKLArray</name></member>
       <member refid="structspace_1_1_m_k_l_array_1a2bc38bbcc14b169155bd2448ab6d7f40" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>operator=</name></member>
       <member refid="structspace_1_1_m_k_l_array_1a9231b07bff7d4e9dd9ce693f945a8e01" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>operator=</name></member>
-      <member refid="structspace_1_1_m_k_l_array_1ac298e839a300da05e97a7b0aa641a40d" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>operator[]</name></member>
+      <member refid="structspace_1_1_m_k_l_array_1a22791fd75530d1df0dcc36901f9d2cdd" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>operator[]</name></member>
       <member refid="structspace_1_1_m_k_l_array_1aa7dc3a9fffc3e9126e1442b1689c9dd1" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>operator[]</name></member>
       <member refid="structspace_1_1_m_k_l_array_1a031d22d6a80fdee38e5d019e9ef794db" prot="public" virt="non-virtual"><scope>space::MKLArray</scope><name>~MKLArray</name></member>
     </listofallmembers>

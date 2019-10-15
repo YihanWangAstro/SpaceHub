@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel" kind="struct" language="C++" prot="private">
     <compoundname>space::interactions::PostNewtonianGrav::has_method_chain_vel</compoundname>
     <templateparamlist>
@@ -13,7 +13,7 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1aca94596b85436c0a3007e26e2f7e8ea9" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1aca94596b85436c0a3007e26e2f7e8ea9" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
@@ -25,18 +25,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="23" column="175" bodyfile="interaction/post-newtonian.hpp" bodystart="23" bodyend="-1"/>
+        <location file="interaction/post-newtonian.hpp" line="23" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1ad1b95f0dd58aee1033e3205f49f04ab2" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7db9a74f35ea16d2afc1ab7fddcf7093" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). chain_vel(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +48,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="23" column="81"/>
+        <location file="interaction/post-newtonian.hpp" line="23" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7fb0ce0a082b912a83afb3344df43f1c" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a64a0c566641be85947b7508c35cff0cb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +69,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="23" column="143"/>
+        <location file="interaction/post-newtonian.hpp" line="23" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="interaction/post-newtonian.hpp" line="23" column="46" bodyfile="interaction/post-newtonian.hpp" bodystart="23" bodyend="23"/>
+    <collaborationgraph>
+      <node id="113">
+        <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;::has_method_chain_vel&lt; T, Args &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="interaction/post-newtonian.hpp" line="23" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="23" bodyend="23"/>
     <listofallmembers>
-      <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1ad1b95f0dd58aee1033e3205f49f04ab2" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav::has_method_chain_vel</scope><name>check</name></member>
-      <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7fb0ce0a082b912a83afb3344df43f1c" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav::has_method_chain_vel</scope><name>check</name></member>
+      <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a7db9a74f35ea16d2afc1ab7fddcf7093" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav::has_method_chain_vel</scope><name>check</name></member>
+      <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1a64a0c566641be85947b7508c35cff0cb" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav::has_method_chain_vel</scope><name>check</name></member>
       <member refid="structspace_1_1interactions_1_1_post_newtonian_grav_1_1has__method__chain__vel_1aca94596b85436c0a3007e26e2f7e8ea9" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav::has_method_chain_vel</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1_simulator_1_1has__method__set__atol" kind="struct" language="C++" prot="private">
     <compoundname>space::Simulator::has_method_set_atol</compoundname>
     <templateparamlist>
@@ -13,7 +13,7 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1_simulator_1_1has__method__set__atol_1a42f98f1e20db6cc0c15c461cc8d6c2dd" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1_simulator_1_1has__method__set__atol_1a42f98f1e20db6cc0c15c461cc8d6c2dd" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_atol&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
@@ -25,18 +25,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="198" column="239" bodyfile="simulator.hpp" bodystart="198" bodyend="-1"/>
+        <location file="simulator.hpp" line="226" column="1" bodyfile="simulator.hpp" bodystart="226" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1_simulator_1_1has__method__set__atol_1ad4961a67e1161ac9ab6f3cd06520c84a" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1_simulator_1_1has__method__set__atol_1a22ec56d5f952148615297286fa76fd80" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_atol&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_atol&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). set_atol(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +48,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="198" column="145"/>
+        <location file="simulator.hpp" line="226" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1_simulator_1_1has__method__set__atol_1a07fab7aeb9b714c75eb976d67d126128" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1_simulator_1_1has__method__set__atol_1a01e13e23aa0235a355e19ddcbb3ba9b2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_atol&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_atol&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +69,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="simulator.hpp" line="198" column="207"/>
+        <location file="simulator.hpp" line="226" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="simulator.hpp" line="198" column="110" bodyfile="simulator.hpp" bodystart="198" bodyend="198"/>
+    <collaborationgraph>
+      <node id="131">
+        <label>space::Simulator&lt; ParticSys, OdeIterator &gt;::has_method_set_atol&lt; T, Args &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="simulator.hpp" line="226" column="1" bodyfile="simulator.hpp" bodystart="226" bodyend="226"/>
     <listofallmembers>
-      <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1ad4961a67e1161ac9ab6f3cd06520c84a" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_atol</scope><name>check</name></member>
-      <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a07fab7aeb9b714c75eb976d67d126128" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_atol</scope><name>check</name></member>
+      <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a22ec56d5f952148615297286fa76fd80" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_atol</scope><name>check</name></member>
+      <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a01e13e23aa0235a355e19ddcbb3ba9b2" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_atol</scope><name>check</name></member>
       <member refid="structspace_1_1_simulator_1_1has__method__set__atol_1a42f98f1e20db6cc0c15c461cc8d6c2dd" prot="public" virt="non-virtual"><scope>space::Simulator::has_method_set_atol</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

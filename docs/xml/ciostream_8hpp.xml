@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="ciostream_8hpp" kind="file" language="C++">
     <compoundname>ciostream.hpp</compoundname>
     <includes local="no">thread</includes>
@@ -9,54 +9,54 @@
     <includes local="no">queue</includes>
     <includes refid="dev-tools_8hpp" local="yes">../dev-tools.hpp</includes>
     <incdepgraph>
-      <node id="6">
+      <node id="300">
         <label>queue</label>
       </node>
-      <node id="7">
-        <label>../dev-tools.hpp</label>
-        <link refid="dev-tools_8hpp_source"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>fstream</label>
-      </node>
-      <node id="4">
-        <label>condition_variable</label>
-      </node>
-      <node id="9">
-        <label>tuple</label>
-      </node>
-      <node id="1">
+      <node id="295">
         <label>multi-thread/ciostream.hpp</label>
         <link refid="ciostream_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="296" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="297" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="298" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="299" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="300" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="301" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="299">
+        <label>fstream</label>
+      </node>
+      <node id="301">
+        <label>../dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp"/>
+        <childnode refid="302" relation="include">
+        </childnode>
+        <childnode refid="303" relation="include">
+        </childnode>
+        <childnode refid="304" relation="include">
+        </childnode>
+      </node>
+      <node id="298">
+        <label>condition_variable</label>
+      </node>
+      <node id="303">
+        <label>tuple</label>
+      </node>
+      <node id="304">
         <label>array</label>
       </node>
-      <node id="8">
+      <node id="302">
         <label>iostream</label>
       </node>
-      <node id="3">
+      <node id="297">
         <label>mutex</label>
       </node>
-      <node id="2">
+      <node id="296">
         <label>thread</label>
       </node>
     </incdepgraph>
@@ -64,7 +64,6 @@
     <innerclass refid="classspace_1_1multi_thread_1_1_ipip" prot="public">space::multiThread::Ipip</innerclass>
     <innerclass refid="classspace_1_1multi_thread_1_1_costream" prot="public">space::multiThread::Costream</innerclass>
     <innerclass refid="classspace_1_1multi_thread_1_1_cistream" prot="public">space::multiThread::Cistream</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
     <innernamespace refid="namespacespace_1_1multi_thread">space::multiThread</innernamespace>
     <briefdescription>
     </briefdescription>

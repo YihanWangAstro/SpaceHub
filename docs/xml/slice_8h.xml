@@ -1,63 +1,63 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="slice_8h" kind="file" language="C++">
     <compoundname>slice.h</compoundname>
     <includes local="no">cstddef</includes>
     <includes refid="lazy__expr_8h" local="yes">lazy_expr.h</includes>
     <includedby refid="lazy__array_8h" local="yes">lazy-evaluation/lazy_array.h</includedby>
     <incdepgraph>
-      <node id="8">
+      <node id="278">
         <label>cmath</label>
       </node>
-      <node id="4">
-        <label>../dev-tools.hpp</label>
-        <link refid="dev-tools_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
+      <node id="271">
         <label>lazy-evaluation/slice.h</label>
         <link refid="slice_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="272" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="273" relation="include">
         </childnode>
       </node>
-      <node id="3">
+      <node id="274">
+        <label>../dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp"/>
+        <childnode refid="275" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+      </node>
+      <node id="273">
         <label>lazy_expr.h</label>
-        <link refid="lazy__expr_8h_source"/>
-        <childnode refid="4" relation="include">
+        <link refid="lazy__expr_8h"/>
+        <childnode refid="274" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="278" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="276">
         <label>tuple</label>
       </node>
-      <node id="7">
+      <node id="277">
         <label>array</label>
       </node>
-      <node id="5">
+      <node id="275">
         <label>iostream</label>
       </node>
-      <node id="2">
+      <node id="272">
         <label>cstddef</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
-        <label>lazy-evaluation/lazy_array.h</label>
-        <link refid="lazy__array_8h_source"/>
-      </node>
-      <node id="1">
+      <node id="279">
         <label>lazy-evaluation/slice.h</label>
         <link refid="slice_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="280" relation="include">
         </childnode>
+      </node>
+      <node id="280">
+        <label>lazy-evaluation/lazy_array.h</label>
+        <link refid="lazy__array_8h"/>
       </node>
     </invincdepgraph>
     <innerclass refid="struct_space_h_1_1_lazy_1_1_slice" prot="public">SpaceH::Lazy::Slice</innerclass>
@@ -81,14 +81,14 @@
       </memberdef>
       <memberdef kind="define" id="slice_8h_1a65fd0989cf17a9954e67fbe210677e14" prot="public" static="no">
         <name>EXPR_CREATE_SLICE_INTERFACE</name>
-        <initializer>template&lt;int UNIQ(Begin), int UNIQ(End), int UNIQ(Stride) = 1&gt;                                                     \
-    inline constexpr auto operator[](const Slice&lt;UNIQ(Begin), UNIQ(End), UNIQ(Stride)&gt;&amp; slice)                         \
-    -&gt;Slice_Expr&lt;typename TYPE_OF_SELF, UNIQ(Begin), UNIQ(End), UNIQ(Stride), TYPE_OF_SELF::size()&gt;{                   \
-        static_assert(UNIQ(Begin) &lt;= static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                    \
-        static_assert(UNIQ(Begin) &gt;= -static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                   \
-        static_assert(UNIQ(End)   &lt;= static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                    \
-        static_assert(UNIQ(End)   &gt;= -static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                   \
-        return Slice_Expr&lt;typename TYPE_OF_SELF, UNIQ(Begin), UNIQ(End), UNIQ(Stride), TYPE_OF_SELF::size()&gt;(*this);   \
+        <initializer>template&lt;int <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Begin), int <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(End), int <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Stride) = 1&gt;                                                     \
+    inline constexpr auto operator[](const Slice&lt;<ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Begin), <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(End), <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Stride)&gt;&amp; <ref refid="slice_8h_1a0cca9dd020b1187d28afa82cca006fa9" kindref="member">slice</ref>)                         \
+    -&gt;Slice_Expr&lt;typename <ref refid="dev-tools_8hpp_1a16d2c5a0818a4356eb912b06c8b0a0e3" kindref="member">TYPE_OF_SELF</ref>, <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Begin), <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(End), <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Stride), TYPE_OF_SELF::size()&gt;{                   \
+        static_assert(<ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Begin) &lt;= static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                    \
+        static_assert(<ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Begin) &gt;= -static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                   \
+        static_assert(<ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(End)   &lt;= static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                    \
+        static_assert(<ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(End)   &gt;= -static_cast&lt;int&gt;(TYPE_OF_SELF::size()), &quot;Slice out of range&quot;);                   \
+        return Slice_Expr&lt;typename <ref refid="dev-tools_8hpp_1a16d2c5a0818a4356eb912b06c8b0a0e3" kindref="member">TYPE_OF_SELF</ref>, <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Begin), <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(End), <ref refid="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" kindref="member">UNIQ</ref>(Stride), TYPE_OF_SELF::size()&gt;(*this);   \
     }</initializer>
         <briefdescription>
         </briefdescription>

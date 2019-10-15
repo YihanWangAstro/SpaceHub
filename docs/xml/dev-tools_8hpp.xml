@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="dev-tools_8hpp" kind="file" language="C++">
     <compoundname>dev-tools.hpp</compoundname>
     <includes local="no">iostream</includes>
@@ -21,323 +21,339 @@
     <includedby refid="stepsize-controller_8hpp" local="yes">stepsize-controller.hpp</includedby>
     <includedby refid="config-reader_8hpp" local="yes">tools/config-reader.hpp</includedby>
     <incdepgraph>
-      <node id="1">
+      <node id="52">
         <label>dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="53" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="54" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="55" relation="include">
         </childnode>
       </node>
-      <node id="3">
+      <node id="54">
         <label>tuple</label>
       </node>
-      <node id="4">
+      <node id="55">
         <label>array</label>
       </node>
-      <node id="2">
+      <node id="53">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="20">
-        <label>step-controller/PID-controller.hpp</label>
-        <link refid="_p_i_d-controller_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="36">
-        <label>particles.hpp</label>
-        <link refid="particles_8hpp_source"/>
-        <childnode refid="37" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>interaction/newtonian.hpp</label>
-        <link refid="newtonian_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>rand-generator.hpp</label>
-        <link refid="rand-generator_8hpp_source"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>ode-iterator/ode-iterator.hpp</label>
-        <link refid="ode-iterator_8hpp_source"/>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
+      <node id="76">
         <label>ode-iterator/IAS15.h</label>
-        <link refid="_i_a_s15_8h_source"/>
+        <link refid="_i_a_s15_8h"/>
       </node>
-      <node id="34">
-        <label>multi-thread/multi-thread.hpp</label>
-        <link refid="multi-thread_8hpp_source"/>
-        <childnode refid="31" relation="include">
-        </childnode>
+      <node id="75">
+        <label>ode-iterator/BS-iterator_bk.hpp</label>
+        <link refid="_b_s-iterator__bk_8hpp"/>
       </node>
-      <node id="26">
-        <label>integrator/symplectic/symplectic-integrator.hpp</label>
-        <link refid="symplectic-integrator_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="38">
-        <label>particles/finite-size.hpp</label>
-        <link refid="finite-size_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>interaction/post-newtonian.hpp</label>
-        <link refid="post-newtonian_8hpp_source"/>
-      </node>
-      <node id="33">
+      <node id="90">
         <label>lazy-evaluation/mkl-array.h</label>
-        <link refid="mkl-array_8h_source"/>
+        <link refid="mkl-array_8h"/>
       </node>
-      <node id="28">
-        <label>ode-iterator/Burlish-Stoer.hpp</label>
-        <link refid="_burlish-_stoer_8hpp_source"/>
-        <childnode refid="5" relation="include">
+      <node id="92">
+        <label>multi-thread/ciostream.hpp</label>
+        <link refid="ciostream_8hpp"/>
+      </node>
+      <node id="72">
+        <label>orbits/orbits.hpp</label>
+        <link refid="orbits_8hpp"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>particle-system/base-system.hpp</label>
-        <link refid="base-system_8hpp_source"/>
-        <childnode refid="5" relation="include">
+      <node id="79">
+        <label>error-checker/RMS.hpp</label>
+        <link refid="_r_m_s_8hpp"/>
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>spaceHub.hpp</label>
-        <link refid="space_hub_8hpp_source"/>
-      </node>
-      <node id="31">
-        <label>lazy-evaluation/lazy_array.h</label>
-        <link refid="lazy__array_8h_source"/>
-      </node>
-      <node id="14">
-        <label>particle-system/chain-system.hpp</label>
-        <link refid="chain-system_8hpp_source"/>
-        <childnode refid="5" relation="include">
+      <node id="65">
+        <label>interaction/newtonian.hpp</label>
+        <link refid="newtonian_8hpp"/>
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="73">
+        <label>kahan-number.hpp</label>
+        <link refid="kahan-number_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>step-controller/PID-controller.hpp</label>
+        <link refid="_p_i_d-controller_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
         <label>ode-iterator/const-iterator.hpp</label>
-        <link refid="const-iterator_8hpp_source"/>
-        <childnode refid="5" relation="include">
+        <link refid="const-iterator_8hpp"/>
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="68">
+        <label>particle-system/chain.hpp</label>
+        <link refid="chain_8hpp"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>particle-system/archain.hpp</label>
+        <link refid="archain_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>lazy-evaluation/slice.h</label>
+        <link refid="slice_8h"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
         <label>own-math.hpp</label>
-        <link refid="own-math_8hpp_source"/>
-        <childnode refid="8" relation="include">
+        <link refid="own-math_8hpp"/>
+        <childnode refid="63" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="71" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="73" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="74" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="75" relation="include">
         </childnode>
-      </node>
-      <node id="9">
-        <label>interaction.hpp</label>
-        <link refid="interaction_8hpp_source"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="76" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="77" relation="include">
         </childnode>
       </node>
-      <node id="1">
+      <node id="70">
+        <label>simulator.hpp</label>
+        <link refid="simulator_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp"/>
+      </node>
+      <node id="69">
+        <label>particle-system/chain-system.hpp</label>
+        <link refid="chain-system_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>integrator/symplectic/symplectic-integrator.hpp</label>
+        <link refid="symplectic-integrator_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>tools/config-reader.hpp</label>
+        <link refid="config-reader_8hpp"/>
+      </node>
+      <node id="78">
+        <label>error-checker.hpp</label>
+        <link refid="error-checker_8hpp"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>particles/finite-size.hpp</label>
+        <link refid="finite-size_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
         <label>dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="57" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="62" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="78" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="81" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="82" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="67" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="87" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="91" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="92" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="76" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="93" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="70" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
+        <childnode refid="96" relation="include">
         </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>lazy-evaluation/slice.h</label>
-        <link refid="slice_8h_source"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="97" relation="include">
         </childnode>
       </node>
-      <node id="3">
+      <node id="88">
+        <label>lazy-evaluation/lazy_array.h</label>
+        <link refid="lazy__array_8h"/>
+      </node>
+      <node id="58">
         <label>particle-system/regu-system.hpp</label>
-        <link refid="regu-system_8hpp_source"/>
-        <childnode refid="4" relation="include">
+        <link refid="regu-system_8hpp"/>
+        <childnode refid="59" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="40">
-        <label>tools/config-reader.hpp</label>
-        <link refid="config-reader_8hpp_source"/>
-      </node>
-      <node id="8">
-        <label>core-computation.hpp</label>
-        <link refid="core-computation_8hpp_source"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="24">
-        <label>integrator/Gauss-Dadau.h</label>
-        <link refid="_gauss-_dadau_8h_source"/>
+      <node id="85">
+        <label>ode-iterator/Burlish-Stoer.hpp</label>
+        <link refid="_burlish-_stoer_8hpp"/>
+        <childnode refid="60" relation="include">
+        </childnode>
       </node>
-      <node id="30">
+      <node id="74">
+        <label>ode-iterator/BS-iterator0.hpp</label>
+        <link refid="_b_s-iterator0_8hpp"/>
+      </node>
+      <node id="84">
+        <label>ode-iterator/ode-iterator.hpp</label>
+        <link refid="ode-iterator_8hpp"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
         <label>lazy-evaluation/lazy_expr.h</label>
-        <link refid="lazy__expr_8h_source"/>
-        <childnode refid="31" relation="include">
+        <link refid="lazy__expr_8h"/>
+        <childnode refid="88" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
+        <childnode refid="89" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>particle-system.hpp</label>
-        <link refid="particle-system_8hpp_source"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="90" relation="include">
         </childnode>
       </node>
-      <node id="39">
-        <label>stepsize-controller.hpp</label>
-        <link refid="stepsize-controller_8hpp_source"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>simulator.hpp</label>
-        <link refid="simulator_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
+      <node id="57">
         <label>accelerations.hpp</label>
-        <link refid="accelerations_8hpp_source"/>
-        <childnode refid="3" relation="include">
+        <link refid="accelerations_8hpp"/>
+        <childnode refid="58" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="35">
-        <label>multi-thread/ciostream.hpp</label>
-        <link refid="ciostream_8hpp_source"/>
-      </node>
-      <node id="37">
-        <label>particles/point-particles.hpp</label>
-        <link refid="point-particles_8hpp_source"/>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="61" relation="include">
         </childnode>
       </node>
-      <node id="22">
-        <label>error-checker/RMS.hpp</label>
-        <link refid="_r_m_s_8hpp_source"/>
-        <childnode refid="5" relation="include">
+      <node id="64">
+        <label>interaction.hpp</label>
+        <link refid="interaction_8hpp"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
         </childnode>
       </node>
-      <node id="23">
+      <node id="80">
         <label>error-checker/worst-offender.hpp</label>
-        <link refid="worst-offender_8hpp_source"/>
-        <childnode refid="5" relation="include">
+        <link refid="worst-offender_8hpp"/>
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>orbits/orbits.hpp</label>
-        <link refid="orbits_8hpp_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
+      <node id="96">
+        <label>stepsize-controller.hpp</label>
+        <link refid="stepsize-controller_8hpp"/>
+        <childnode refid="77" relation="include">
         </childnode>
       </node>
-      <node id="13">
-        <label>particle-system/chain.hpp</label>
-        <link refid="chain_8hpp_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
+      <node id="93">
+        <label>particles.hpp</label>
+        <link refid="particles_8hpp"/>
+        <childnode refid="94" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>error-checker.hpp</label>
-        <link refid="error-checker_8hpp_source"/>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
+      <node id="66">
+        <label>interaction/post-newtonian.hpp</label>
+        <link refid="post-newtonian_8hpp"/>
+      </node>
+      <node id="61">
+        <label>particle-system/base-system.hpp</label>
+        <link refid="base-system_8hpp"/>
+        <childnode refid="60" relation="include">
         </childnode>
       </node>
-      <node id="18">
-        <label>kahan-number.hpp</label>
-        <link refid="kahan-number_8hpp_source"/>
-        <childnode refid="5" relation="include">
+      <node id="63">
+        <label>core-computation.hpp</label>
+        <link refid="core-computation_8hpp"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="67">
         <label>interaction/tidal.hpp</label>
-        <link refid="tidal_8hpp_source"/>
+        <link refid="tidal_8hpp"/>
       </node>
-      <node id="4">
-        <label>particle-system/archain.hpp</label>
-        <link refid="archain_8hpp_source"/>
-        <childnode refid="5" relation="include">
+      <node id="81">
+        <label>integrator/Gauss-Dadau.h</label>
+        <link refid="_gauss-_dadau_8h"/>
+      </node>
+      <node id="91">
+        <label>multi-thread/multi-thread.hpp</label>
+        <link refid="multi-thread_8hpp"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>particles/point-particles.hpp</label>
+        <link refid="point-particles_8hpp"/>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>rand-generator.hpp</label>
+        <link refid="rand-generator_8hpp"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>particle-system.hpp</label>
+        <link refid="particle-system_8hpp"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -365,7 +381,7 @@
         <name>MACRO_CAT</name>
         <param><defname>A</defname></param>
         <param><defname>B</defname></param>
-        <initializer>MACRO_CAT_I(A, B)</initializer>
+        <initializer><ref refid="dev-tools_8hpp_1a73b71c9cec23232564276263c3c36b67" kindref="member">MACRO_CAT_I</ref>(A, B)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -378,7 +394,7 @@
         <name>MACRO_CAT_I</name>
         <param><defname>A</defname></param>
         <param><defname>B</defname></param>
-        <initializer>MACRO_CAT_II(~, A ## B)</initializer>
+        <initializer><ref refid="dev-tools_8hpp_1ac0633fcb84d102fae11cf1915d380ae4" kindref="member">MACRO_CAT_II</ref>(~, A ## B)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -403,7 +419,7 @@
       <memberdef kind="define" id="dev-tools_8hpp_1addeaa2230f7e557c339dd2a7a37d62f2" prot="public" static="no">
         <name>UNIQ</name>
         <param><defname>BASE</defname></param>
-        <initializer>MACRO_CAT(BASE, __LINE__)</initializer>
+        <initializer><ref refid="dev-tools_8hpp_1acdfe40b6293bb934c6e9b3a8e3446647" kindref="member">MACRO_CAT</ref>(BASE, __LINE__)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -440,9 +456,7 @@
         <param><defname>EXPR</defname></param>
         <param><defname>...</defname></param>
         <briefdescription>
-<para>Macros used to output debuf info. <linebreak/>
- </para>
-        </briefdescription>
+<para>Macros used to output debuf info. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -486,25 +500,15 @@
         <param><defname>ATTR3</defname></param>
         <param><defname>ATTR4</defname></param>
         <param><defname>ATTR5</defname></param>
-        <initializer>/**                                                                                                                    \
-   Default constructor.                                                                                               \
- */                                                                                                                    \
+        <initializer>/** Default constructor. */                                                                                            \
     CLASS() = ATTR1;                                                                                                   \
-/**                                                                                                                    \
-   Default copy constructor.                                                                                          \
- */                                                                                                                    \
+/** Default copy constructor. */                                                                                       \
     CLASS(CLASS const&amp;) = ATTR2;                                                                                       \
-/**                                                                                                                    \
-   Default move constructor                                                                                           \
- */                                                                                                                    \
+/** Default move constructor */                                                                                        \
     CLASS(CLASS &amp;&amp;) = ATTR3;                                                                                           \
-/**                                                                                                                    \
-   Default copy assignment operator                                                                                   \
- */                                                                                                                    \
+/** Default copy assignment operator */                                                                                \
     CLASS &amp;operator=(CLASS const &amp;) = ATTR4;                                                                           \
-/**                                                                                                                    \
-   Default move assignment operator                                                                                   \
- */                                                                                                                    \
+/** Default move assignment operator */                                                                                \
     CLASS &amp;operator=(CLASS &amp;&amp;) = ATTR5;                                                                                \</initializer>
         <briefdescription>
         </briefdescription>
@@ -533,28 +537,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="175" column="9" bodyfile="dev-tools.hpp" bodystart="175" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="165" column="9" bodyfile="dev-tools.hpp" bodystart="165" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ae057e45edf56a31a4859f89e6bba2100" prot="public" static="no">
         <name>DECLARE_CRTP_ACCESSOR</name>
         <param><defname>DERIVED</defname></param>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
-        <initializer>/**                                                                                                                    \
-  @must_impl                                                                                                          \
-                                                                                                                      \
-  The setter interface of member `NAME`.                                                                              \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+        <initializer>/**@must_impl The setter interface of member `NAME`. */                                                                \
 inline TYPE &amp; NAME () noexcept {                                                                                       \
     return static_cast&lt;Derived*&gt;(this)-&gt;impl_##NAME();                                                                 \
 };                                                                                                                     \
-/**                                                                                                                    \
-  @must_impl                                                                                                          \
-                                                                                                                       \
-  The getter interface of member `NAME`.                                                                              \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/**@must_impl The getter interface of member `NAME`. */                                                                \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return static_cast&lt;Derived const*&gt;(this)-&gt;impl_##NAME();                                                           \
 };</initializer>
@@ -564,19 +558,14 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="187" column="9" bodyfile="dev-tools.hpp" bodystart="187" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="177" column="9" bodyfile="dev-tools.hpp" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a681c127002bf82b9b09dbd0545db1646" prot="public" static="no">
         <name>DECLARE_CRTP_READ_ACCESSOR</name>
         <param><defname>DERIVED</defname></param>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
-        <initializer>/**                                                                                                                    \
-  @must_impl                                                                                                          \
-                                                                                                                       \
-  The getter interface of member `NAME`.                                                                              \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+        <initializer>/**@must_impl The getter interface of member `NAME`. */                                                                \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return static_cast&lt;Derived*&gt;(this)-&gt;impl_##NAME();                                                                 \
 };</initializer>
@@ -586,24 +575,18 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="207" column="9" bodyfile="dev-tools.hpp" bodystart="207" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="187" column="9" bodyfile="dev-tools.hpp" bodystart="187" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a7048ff21fd022abe7a131342f2fed10d" prot="public" static="no">
         <name>SPACEHUB_STD_ACCESSOR</name>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>MEMBER</defname></param>
-        <initializer>/**                                                                                                                    \
-  The setter interface of member `MEMBER` in name of `NAME`.                                                          \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+        <initializer>/** The setter interface of member `MEMBER` in name of `NAME`.*/                                                       \
 inline TYPE &amp; NAME () noexcept {                                                                                       \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-/**                                                                                                                    \
-  The getter interface of member `MEMBER` in name of `NAME`.                                                          \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+/** The getter interface of member `MEMBER` in name of `NAME`.*/                                                       \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };</initializer>
@@ -613,17 +596,14 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="218" column="9" bodyfile="dev-tools.hpp" bodystart="218" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="193" column="9" bodyfile="dev-tools.hpp" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a6e8dcb3772ed46afbe5b83c269336181" prot="public" static="no">
         <name>SPACEHUB_READ_ACCESSOR</name>
         <param><defname>TYPE</defname></param>
         <param><defname>NAME</defname></param>
         <param><defname>MEMBER</defname></param>
-        <initializer>/**                                                                                                                    \
-  The getter interface of member NAME.                                                                                \
-  @return TYPE Depend on implementation.                                                                              \
- */                                                                                                                    \
+        <initializer>/** The getter interface of member NAME. */                                                                            \
 inline TYPE const &amp; NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };</initializer>
@@ -633,7 +613,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="234" column="9" bodyfile="dev-tools.hpp" bodystart="234" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="203" column="9" bodyfile="dev-tools.hpp" bodystart="203" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a043ac749777107d34e02197c9942ac3d" prot="public" static="no">
         <name>CREATE_METHOD_CHECK</name>
@@ -656,7 +636,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="243" column="9" bodyfile="dev-tools.hpp" bodystart="243" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="209" column="9" bodyfile="dev-tools.hpp" bodystart="209" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a01123b58bcb865a870641e5f30ce8ed2" prot="public" static="no">
         <name>HAS_METHOD</name>
@@ -670,7 +650,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="257" column="9" bodyfile="dev-tools.hpp" bodystart="257" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="223" column="9" bodyfile="dev-tools.hpp" bodystart="223" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a002df30e7890bdb68e3693ca94c9e684" prot="public" static="no">
         <name>CREATE_PROTECTED_METHOD_CHECK</name>
@@ -693,7 +673,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="260" column="9" bodyfile="dev-tools.hpp" bodystart="260" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="226" column="9" bodyfile="dev-tools.hpp" bodystart="226" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a1c72db210bcf48a1b855a5e83e78e840" prot="public" static="no">
         <name>HAS_PROTECTED_METHOD</name>
@@ -707,19 +687,19 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="274" column="9" bodyfile="dev-tools.hpp" bodystart="274" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="240" column="9" bodyfile="dev-tools.hpp" bodystart="240" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a4250abbdfc25337cd0dca29f9b55ff47" prot="public" static="no">
         <name>CREATE_CRTP_IMPLEMENTATION_CHECK</name>
         <param><defname>NAME</defname></param>
-        <initializer>CREATE_PROTECTED_METHOD_CHECK(impl_##NAME) CREATE_METHOD_CHECK(NAME)</initializer>
+        <initializer><ref refid="dev-tools_8hpp_1a002df30e7890bdb68e3693ca94c9e684" kindref="member">CREATE_PROTECTED_METHOD_CHECK</ref>(impl_##NAME) <ref refid="dev-tools_8hpp_1a043ac749777107d34e02197c9942ac3d" kindref="member">CREATE_METHOD_CHECK</ref>(NAME)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="276" column="9" bodyfile="dev-tools.hpp" bodystart="276" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="242" column="9" bodyfile="dev-tools.hpp" bodystart="242" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a71c2a282f291770b45b3f1cef8c19f75" prot="public" static="no">
         <name>HAS_CRTP_IMPLEMENTATION</name>
@@ -733,7 +713,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="278" column="9" bodyfile="dev-tools.hpp" bodystart="278" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="244" column="9" bodyfile="dev-tools.hpp" bodystart="244" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a86408b2e79be508b3c8b8c90f66e89a7" prot="public" static="no">
         <name>CREATE_MEMBER_CHECK</name>
@@ -751,13 +731,12 @@ inline TYPE const &amp; NAME () const noexcept {                                
         &gt;::type                                                                                                        \
     &gt;: std::true_type { };</initializer>
         <briefdescription>
-<para>Macros used to check if a class has a member. </para>
-        </briefdescription>
+<para>Macros used to check if a class has a member. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="281" column="9" bodyfile="dev-tools.hpp" bodystart="281" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="247" column="9" bodyfile="dev-tools.hpp" bodystart="247" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a4e050f8974fcc0ca3e7ecfee0558f4f2" prot="public" static="no">
         <name>HAS_MEMBER</name>
@@ -770,7 +749,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="295" column="9" bodyfile="dev-tools.hpp" bodystart="295" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="261" column="9" bodyfile="dev-tools.hpp" bodystart="261" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1acd50abf2f60a8ebc7dcc2a94bda2d7ca" prot="public" static="no">
         <name>CREATE_STATIC_MEMBER_CHECK</name>
@@ -789,14 +768,12 @@ inline TYPE const &amp; NAME () const noexcept {                                
         &gt;::type                                                                                                        \
     &gt;: std::true_type { };</initializer>
         <briefdescription>
-<para>Macros used to check if a class has a static member. <linebreak/>
- </para>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Macros used to check if a class has a static member. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="298" column="9" bodyfile="dev-tools.hpp" bodystart="298" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="264" column="9" bodyfile="dev-tools.hpp" bodystart="264" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a53374bd759b4f29eaec7c33870b03da5" prot="public" static="no">
         <name>HAS_STATIC_MEMBER</name>
@@ -809,7 +786,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="313" column="9" bodyfile="dev-tools.hpp" bodystart="313" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="279" column="9" bodyfile="dev-tools.hpp" bodystart="279" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac2fd4f3ea0b555c107cad2c9430717f8" prot="public" static="no">
         <name>CHECK_METHOD</name>
@@ -820,13 +797,12 @@ inline TYPE const &amp; NAME () const noexcept {                                
             static_assert(has_method_##METHOD&lt;CLASS, ##__VA_ARGS__&gt;::value,                                            \
             &quot;Template argument &apos;&quot; # CLASS  &quot;&apos; must have method &apos;&quot;  # METHOD  &quot;(&quot;  #__VA_ARGS__  &quot;)&apos;. &quot;);</initializer>
         <briefdescription>
-<para>Macros used to static_assert if a class has a specific method. </para>
-        </briefdescription>
+<para>Macros used to static_assert if a class has a specific method. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="316" column="9" bodyfile="dev-tools.hpp" bodystart="316" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="282" column="9" bodyfile="dev-tools.hpp" bodystart="282" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a3004813da8a05abadaad077b5cacbc6f" prot="public" static="no">
         <name>CHECK_MEMBER</name>
@@ -835,13 +811,12 @@ inline TYPE const &amp; NAME () const noexcept {                                
         <initializer>static_assert(has_ ## MB&lt;C&gt;::value,                                                                        \
             &quot;Template argument &apos;&quot; # CLASS  &quot;&apos; must have member &apos;&quot;  # MB  &quot;&apos;. &quot;);</initializer>
         <briefdescription>
-<para>Macros used to static_assert if a class has a member. </para>
-        </briefdescription>
+<para>Macros used to static_assert if a class has a member. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="322" column="9" bodyfile="dev-tools.hpp" bodystart="322" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="288" column="9" bodyfile="dev-tools.hpp" bodystart="288" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ac10c0f62e719b8f64c36b62dfacfbd82" prot="public" static="no">
         <name>CHECK_STATIC_MEMBER</name>
@@ -851,13 +826,12 @@ inline TYPE const &amp; NAME () const noexcept {                                
             static_assert(has_static ## MB&lt;CLASS&gt;::value,                                                              \
             &quot;Template argument &apos;&quot; # CLASS  &quot;&apos; must have static member &apos;&quot;  # MB  &quot;&apos;. &quot;);</initializer>
         <briefdescription>
-<para>Macros used to static_assert if a class has a static member. </para>
-        </briefdescription>
+<para>Macros used to static_assert if a class has a static member. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="327" column="9" bodyfile="dev-tools.hpp" bodystart="327" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="293" column="9" bodyfile="dev-tools.hpp" bodystart="293" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a9165bf60ffe95b57b3a1deb24f92b7f7" prot="public" static="no">
         <name>CHECK_TYPE</name>
@@ -866,13 +840,12 @@ inline TYPE const &amp; NAME () const noexcept {                                
         <initializer>static_assert(std::is_same&lt; typename T1::Types, typename T2::Types&gt;::value,                                \
             &quot;Template argument &apos;&quot; #T1 &quot;&apos; and &apos;&quot; #T2 &quot;&apos; must have the same type of the type member(space::ProtoType&lt;...&gt;)&quot;);</initializer>
         <briefdescription>
-<para>Macros used to static_assert if two class have the same base type set. </para>
-        </briefdescription>
+<para>Macros used to static_assert if two class have the same base type set. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="333" column="9" bodyfile="dev-tools.hpp" bodystart="333" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="299" column="9" bodyfile="dev-tools.hpp" bodystart="299" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1ad76c4399904c876b0fde01a7edbaf093" prot="public" static="no">
         <name>CHECK_POD</name>
@@ -884,7 +857,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="338" column="9" bodyfile="dev-tools.hpp" bodystart="338" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="304" column="9" bodyfile="dev-tools.hpp" bodystart="304" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a8a3f3c65b4167fb7188576cfa5e2ca44" prot="public" static="no">
         <name>IS_BASE_OF</name>
@@ -897,7 +870,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="422" column="9" bodyfile="dev-tools.hpp" bodystart="422" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="373" column="9" bodyfile="dev-tools.hpp" bodystart="373" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="dev-tools_8hpp_1a16d2c5a0818a4356eb912b06c8b0a0e3" prot="public" static="no">
         <name>TYPE_OF_SELF</name>
@@ -908,7 +881,7 @@ inline TYPE const &amp; NAME () const noexcept {                                
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="424" column="9" bodyfile="dev-tools.hpp" bodystart="424" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="375" column="9" bodyfile="dev-tools.hpp" bodystart="375" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

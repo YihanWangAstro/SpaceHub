@@ -1,36 +1,25 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_a_rchain_system" kind="class" language="C++" prot="public">
     <compoundname>space::ARchainSystem</compoundname>
     <basecompoundref refid="classspace_1_1_particle_system" prot="public" virt="non-virtual">space::ParticleSystem&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</basecompoundref>
     <includes refid="archain_8hpp" local="no">archain.hpp</includes>
     <templateparamlist>
       <param>
-        <type>typename</type>
-        <declname>Particles</declname>
-        <defname>Particles</defname>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></type>
       </param>
       <param>
-        <type>typename</type>
-        <declname>Interactions</declname>
-        <defname>Interactions</defname>
+        <type>typename <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref></type>
       </param>
       <param>
-        <type>ReguType</type>
+        <type><ref refid="namespacespace_1aeae90fe24a996e141e44212e2161584f" kindref="member">ReguType</ref></type>
         <declname>RegType</declname>
         <defname>RegType</defname>
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a8389eb3454c6b56edbb00518a8d89fdd" prot="public" static="no">
-        <templateparamlist>
-          <param>
-            <type>typename ...</type>
-            <declname>_T_</declname>
-            <defname>_T_</defname>
-          </param>
-        </templateparamlist>
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::template Container&lt; _T_... &gt;</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::template <ref refid="classspace_1_1_a_rchain_system_1a8389eb3454c6b56edbb00518a8d89fdd" kindref="member">Container</ref>&lt; _T_... &gt;</type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::Container =  typename Particles ::template Container&lt;_T_...&gt;</definition>
         <argsstring></argsstring>
         <name>Container</name>
@@ -40,10 +29,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="18" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Scalar</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::Scalar =  typename Particles ::Scalar</definition>
         <argsstring></argsstring>
         <name>Scalar</name>
@@ -53,10 +42,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="38" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a31caef0c4ab216e170c448f79fe183a0" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::ScalarArray</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1a31caef0c4ab216e170c448f79fe183a0" kindref="member">ScalarArray</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::ScalarArray =  typename Particles ::ScalarArray</definition>
         <argsstring></argsstring>
         <name>ScalarArray</name>
@@ -66,10 +55,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="53" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IdxArray</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" kindref="member">IdxArray</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::IdxArray =  typename Particles ::IdxArray</definition>
         <argsstring></argsstring>
         <name>IdxArray</name>
@@ -79,10 +68,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="73" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1abc6f8ef6077aa4a721c466d8419f71ed" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::IntArray</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1abc6f8ef6077aa4a721c466d8419f71ed" kindref="member">IntArray</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::IntArray =  typename Particles ::IntArray</definition>
         <argsstring></argsstring>
         <name>IntArray</name>
@@ -92,10 +81,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="90" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1aa244ae2b1aee9e51384a4c2d254e3709" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Vector</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1aa244ae2b1aee9e51384a4c2d254e3709" kindref="member">Vector</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::Vector =  typename Particles ::Vector</definition>
         <argsstring></argsstring>
         <name>Vector</name>
@@ -105,10 +94,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="107" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a8f4769f2fede4e69b425f58166683a36" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::VectorArray</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1a8f4769f2fede4e69b425f58166683a36" kindref="member">VectorArray</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::VectorArray =  typename Particles ::VectorArray</definition>
         <argsstring></argsstring>
         <name>VectorArray</name>
@@ -118,10 +107,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="122" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" prot="public" static="no">
-        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::Coord</type>
+        <type>typename <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref> ::<ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref></type>
         <definition>using space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::Coord =  typename Particles ::Coord</definition>
         <argsstring></argsstring>
         <name>Coord</name>
@@ -131,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="26" column="142" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="26" column="1" bodyfile="particle-system/archain.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a1ccaba54a5f551176da5bb478e3a8169" prot="public" static="no">
         <type><ref refid="classspace_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; <ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref>&lt; <ref refid="classspace_1_1_particles" kindref="compound">Particles</ref>, <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, RegType &gt; &gt;</type>
@@ -144,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="28" column="5" bodyfile="particle-system/archain.hpp" bodystart="28" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="28" column="1" bodyfile="particle-system/archain.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1_a_rchain_system_1a7c71b612e7db885103c76e308acb8895" prot="public" static="no">
         <type>typename Particles::Particle</type>
@@ -157,12 +146,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="30" column="5" bodyfile="particle-system/archain.hpp" bodystart="30" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="30" column="1" bodyfile="particle-system/archain.hpp" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1ada825d683e0de14974af1154729b1fa0" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr ReguType</type>
+      <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1ada825d683e0de14974af1154729b1fa0" prot="public" static="yes" mutable="no">
+        <type>constexpr <ref refid="namespacespace_1aeae90fe24a996e141e44212e2161584f" kindref="member">ReguType</ref></type>
         <definition>constexpr ReguType space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::regu_type</definition>
         <argsstring></argsstring>
         <name>regu_type</name>
@@ -173,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="33" column="31" bodyfile="particle-system/archain.hpp" bodystart="33" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="33" column="1" bodyfile="particle-system/archain.hpp" bodystart="33" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -188,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="52" column="13" bodyfile="particle-system/archain.hpp" bodystart="50" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="52" column="1" bodyfile="particle-system/archain.hpp" bodystart="50" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -203,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="110" column="15" bodyfile="particle-system/archain.hpp" bodystart="110" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="110" column="1" bodyfile="particle-system/archain.hpp" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1aaad241c55b5978b5907f7558f6838f08" prot="private" static="no" mutable="no">
         <type><ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref></type>
@@ -216,10 +205,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="112" column="18" bodyfile="particle-system/archain.hpp" bodystart="112" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="112" column="1" bodyfile="particle-system/archain.hpp" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1a2317cccf875a80487c03d9bfa87208f6" prot="private" static="no" mutable="no">
-        <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref>&lt; <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, Coord &gt;</type>
+        <type><ref refid="classspace_1_1_accelerations" kindref="compound">Accelerations</ref>&lt; <ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref>, <ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> &gt;</type>
         <definition>Accelerations&lt;Interactions, Coord&gt; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::accels_</definition>
         <argsstring></argsstring>
         <name>accels_</name>
@@ -229,10 +218,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="114" column="19" bodyfile="particle-system/archain.hpp" bodystart="114" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="114" column="1" bodyfile="particle-system/archain.hpp" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1a07ab53b1cdbcb4c686b1e27b0e7fef91" prot="private" static="no" mutable="no">
-        <type><ref refid="classspace_1_1_regularization" kindref="compound">Regularization</ref>&lt; Scalar, RegType &gt;</type>
+        <type><ref refid="classspace_1_1_regularization" kindref="compound">Regularization</ref>&lt; <ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref>, RegType &gt;</type>
         <definition>Regularization&lt;Scalar, RegType&gt; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::regu_</definition>
         <argsstring></argsstring>
         <name>regu_</name>
@@ -242,10 +231,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="116" column="20" bodyfile="particle-system/archain.hpp" bodystart="116" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="116" column="1" bodyfile="particle-system/archain.hpp" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1a697ff74d79dd1d5fcde989d08f63393d" prot="private" static="no" mutable="no">
-        <type>Coord</type>
+        <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref></type>
         <definition>Coord space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_pos_</definition>
         <argsstring></argsstring>
         <name>chain_pos_</name>
@@ -255,10 +244,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="118" column="11" bodyfile="particle-system/archain.hpp" bodystart="118" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="118" column="1" bodyfile="particle-system/archain.hpp" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1a4df3f9ebea812928438cbd98587eec11" prot="private" static="no" mutable="no">
-        <type>Coord</type>
+        <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref></type>
         <definition>Coord space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_vel_</definition>
         <argsstring></argsstring>
         <name>chain_vel_</name>
@@ -268,10 +257,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="120" column="11" bodyfile="particle-system/archain.hpp" bodystart="120" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="120" column="1" bodyfile="particle-system/archain.hpp" bodystart="120" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1af42980d7dc06d2be107ac55c4eff87e6" prot="private" static="no" mutable="no">
-        <type>Coord</type>
+        <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref></type>
         <definition>Coord space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_acc_</definition>
         <argsstring></argsstring>
         <name>chain_acc_</name>
@@ -281,10 +270,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="122" column="11" bodyfile="particle-system/archain.hpp" bodystart="122" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="122" column="1" bodyfile="particle-system/archain.hpp" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1a622d5eabaa54facff66954dc23dca1b0" prot="private" static="no" mutable="no">
-        <type>IdxArray</type>
+        <type><ref refid="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" kindref="member">IdxArray</ref></type>
         <definition>IdxArray space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::index_</definition>
         <argsstring></argsstring>
         <name>index_</name>
@@ -294,10 +283,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="124" column="14" bodyfile="particle-system/archain.hpp" bodystart="124" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="124" column="1" bodyfile="particle-system/archain.hpp" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1af155f62665fe032ed19af5ab7d99b649" prot="private" static="no" mutable="no">
-        <type>IdxArray</type>
+        <type><ref refid="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" kindref="member">IdxArray</ref></type>
         <definition>IdxArray space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::new_index_</definition>
         <argsstring></argsstring>
         <name>new_index_</name>
@@ -307,10 +296,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="126" column="14" bodyfile="particle-system/archain.hpp" bodystart="126" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="126" column="1" bodyfile="particle-system/archain.hpp" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1ae76b9655858d608d7602d30133eb3004" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, <ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref>, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::aux_vel_</definition>
         <argsstring></argsstring>
         <name>aux_vel_</name>
@@ -320,10 +309,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="128" column="24" bodyfile="particle-system/archain.hpp" bodystart="128" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="128" column="1" bodyfile="particle-system/archain.hpp" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1_a_rchain_system_1adad7444d346057c45943741fa3c8ba7a" prot="private" static="no" mutable="no">
-        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
+        <type>std::conditional_t&lt; <ref refid="classspace_1_1_interactions_1a722a9fafdf2e329951f30daa07f0fbe8" kindref="member">Interactions::ext_vel_dep</ref>, <ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref>, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
         <definition>std::conditional_t&lt;Interactions::ext_vel_dep, Coord, Empty&gt; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_aux_vel_</definition>
         <argsstring></argsstring>
         <name>chain_aux_vel_</name>
@@ -333,7 +322,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="130" column="24" bodyfile="particle-system/archain.hpp" bodystart="130" bodyend="-1"/>
+        <location file="particle-system/archain.hpp" line="130" column="1" bodyfile="particle-system/archain.hpp" bodystart="130" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -345,12 +334,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default constructor. <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="36" column="9"/>
+        <location file="particle-system/archain.hpp" line="36" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a2f1fd3aa88442f13d02d5ae6c37be8f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -363,12 +350,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default copy constructor. <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default copy constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="36" column="40"/>
+        <location file="particle-system/archain.hpp" line="36" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a0f2febf1bbf4923995a2536561a99d6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -381,12 +366,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default move constructor <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default move constructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="36" column="75"/>
+        <location file="particle-system/archain.hpp" line="36" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a30b07f96b9969f815bea1b117b66fc3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref> &amp;</type>
@@ -399,12 +382,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default copy assignment operator <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default copy assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="36" column="125"/>
+        <location file="particle-system/archain.hpp" line="36" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a12f66d7a7057d04678fbb8098a42eec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1_a_rchain_system" kindref="compound">ARchainSystem</ref> &amp;</type>
@@ -417,12 +398,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default move assignment operator <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default move assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="36" column="171"/>
+        <location file="particle-system/archain.hpp" line="36" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1aaf57fa45ed46c628296fe70324a9a6cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -435,7 +414,7 @@
         <argsstring>(Scalar time, STL const &amp;particle_set)</argsstring>
         <name>ARchainSystem</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>time</declname>
         </param>
         <param>
@@ -448,9 +427,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="39" column="5" bodyfile="particle-system/archain.hpp" bodystart="138" bodyend="155"/>
+        <location file="particle-system/archain.hpp" line="39" column="1" bodyfile="particle-system/archain.hpp" bodystart="138" bodyend="155"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1acab3eb7ebc77853acecec5ec903e52e0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1acab3eb7ebc77853acecec5ec903e52e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_pos</definition>
         <argsstring>() noexcept</argsstring>
@@ -458,33 +437,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>chain_pos_</computeroutput> in name of <computeroutput>chain_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>chain_pos_</computeroutput> in name of <computeroutput>chain_pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="42" column="23" bodyfile="particle-system/archain.hpp" bodystart="42" bodyend="42"/>
+        <location file="particle-system/archain.hpp" line="42" column="1" bodyfile="particle-system/archain.hpp" bodystart="42" bodyend="42"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1aae51571485231689377c25e0b3ea2782" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_pos</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a79df69bd0718cba22509f0fa7fa63a23" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_pos</definition>
         <argsstring>() const noexcept</argsstring>
         <name>chain_pos</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>chain_pos_</computeroutput> in name of <computeroutput>chain_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>chain_pos_</computeroutput> in name of <computeroutput>chain_pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="42" column="95" bodyfile="particle-system/archain.hpp" bodystart="42" bodyend="42"/>
+        <location file="particle-system/archain.hpp" line="42" column="1" bodyfile="particle-system/archain.hpp" bodystart="42" bodyend="42"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1ab76190264bfa1f0348e18309da23b3e0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1ab76190264bfa1f0348e18309da23b3e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_vel</definition>
         <argsstring>() noexcept</argsstring>
@@ -492,33 +463,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>chain_vel_</computeroutput> in name of <computeroutput>chain_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>chain_vel_</computeroutput> in name of <computeroutput>chain_vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="44" column="23" bodyfile="particle-system/archain.hpp" bodystart="44" bodyend="44"/>
+        <location file="particle-system/archain.hpp" line="44" column="1" bodyfile="particle-system/archain.hpp" bodystart="44" bodyend="44"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a82865ecdf66d8a510fd33ab0002baeb2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_vel</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a66522e76cc202b8044b61f63b750ed6d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::chain_vel</definition>
         <argsstring>() const noexcept</argsstring>
         <name>chain_vel</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>chain_vel_</computeroutput> in name of <computeroutput>chain_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>chain_vel_</computeroutput> in name of <computeroutput>chain_vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="44" column="95" bodyfile="particle-system/archain.hpp" bodystart="44" bodyend="44"/>
+        <location file="particle-system/archain.hpp" line="44" column="1" bodyfile="particle-system/archain.hpp" bodystart="44" bodyend="44"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1afc6de4abbd3816262629a503edff1079" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1afc6de4abbd3816262629a503edff1079" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::index</definition>
         <argsstring>() noexcept</argsstring>
@@ -526,33 +489,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>index_</computeroutput> in name of <computeroutput>index</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>index_</computeroutput> in name of <computeroutput>index</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="46" column="23" bodyfile="particle-system/archain.hpp" bodystart="46" bodyend="46"/>
+        <location file="particle-system/archain.hpp" line="46" column="1" bodyfile="particle-system/archain.hpp" bodystart="46" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1af6948a52d0f59d0cc4ca0fae4c2ca56d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::index</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1af332a78000353b1d568bd4ff5147763a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::index</definition>
         <argsstring>() const noexcept</argsstring>
         <name>index</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>index_</computeroutput> in name of <computeroutput>index</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>index_</computeroutput> in name of <computeroutput>index</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="46" column="87" bodyfile="particle-system/archain.hpp" bodystart="46" bodyend="46"/>
+        <location file="particle-system/archain.hpp" line="46" column="1" bodyfile="particle-system/archain.hpp" bodystart="46" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a65b3d6e985c82ebb6220d9cde6902c3e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a65b3d6e985c82ebb6220d9cde6902c3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::omega</definition>
         <argsstring>() noexcept</argsstring>
@@ -560,33 +515,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>regu_.omega()</computeroutput> in name of <computeroutput>omega</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>regu_.omega()</computeroutput> in name of <computeroutput>omega</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="48" column="23" bodyfile="particle-system/archain.hpp" bodystart="48" bodyend="48"/>
+        <location file="particle-system/archain.hpp" line="48" column="1" bodyfile="particle-system/archain.hpp" bodystart="48" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1afaa2a7b4c94ee15bcf81d1e14942b417" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::omega</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a5a078243b18a1bc2249d0abe833de9aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::omega</definition>
         <argsstring>() const noexcept</argsstring>
         <name>omega</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>regu_.omega()</computeroutput> in name of <computeroutput>omega</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>regu_.omega()</computeroutput> in name of <computeroutput>omega</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="48" column="94" bodyfile="particle-system/archain.hpp" bodystart="48" bodyend="48"/>
+        <location file="particle-system/archain.hpp" line="48" column="1" bodyfile="particle-system/archain.hpp" bodystart="48" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1aafba9b1939a9f180d849e2e8f4de446f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1aafba9b1939a9f180d849e2e8f4de446f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::bindE</definition>
         <argsstring>() noexcept</argsstring>
@@ -594,35 +541,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>regu_.bindE()</computeroutput> in name of <computeroutput>bindE</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>regu_.bindE()</computeroutput> in name of <computeroutput>bindE</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="50" column="23" bodyfile="particle-system/archain.hpp" bodystart="50" bodyend="50"/>
+        <location file="particle-system/archain.hpp" line="50" column="1" bodyfile="particle-system/archain.hpp" bodystart="50" bodyend="50"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1ada30bd69aa9887d2c7fdb40708a2c304" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::bindE</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a5a4cdd2445eec66e9d5d209170fcd15a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::bindE</definition>
         <argsstring>() const noexcept</argsstring>
         <name>bindE</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>regu_.bindE()</computeroutput> in name of <computeroutput>bindE</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>regu_.bindE()</computeroutput> in name of <computeroutput>bindE</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="50" column="94" bodyfile="particle-system/archain.hpp" bodystart="50" bodyend="50"/>
+        <location file="particle-system/archain.hpp" line="50" column="1" bodyfile="particle-system/archain.hpp" bodystart="50" bodyend="50"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a2aa38e81ff6d36f6a7262576654de39a" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a2aa38e81ff6d36f6a7262576654de39a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_mass</definition>
         <argsstring>() noexcept</argsstring>
@@ -630,33 +569,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="54" column="23" bodyfile="particle-system/archain.hpp" bodystart="54" bodyend="54"/>
+        <location file="particle-system/archain.hpp" line="54" column="1" bodyfile="particle-system/archain.hpp" bodystart="54" bodyend="54"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a72ff861e181be4d9f0f94e23025ff8aa" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_mass</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a8f8a9af09de22df7bf2431e0ad28476d" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_mass</definition>
         <argsstring>() const noexcept</argsstring>
         <name>impl_mass</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.mass()</computeroutput> in name of <computeroutput>impl_mass</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="54" column="97" bodyfile="particle-system/archain.hpp" bodystart="54" bodyend="54"/>
+        <location file="particle-system/archain.hpp" line="54" column="1" bodyfile="particle-system/archain.hpp" bodystart="54" bodyend="54"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a20ec784cd351e3fb17bf50680960dd8a" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a20ec784cd351e3fb17bf50680960dd8a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_idn</definition>
         <argsstring>() noexcept</argsstring>
@@ -664,33 +595,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="56" column="23" bodyfile="particle-system/archain.hpp" bodystart="56" bodyend="56"/>
+        <location file="particle-system/archain.hpp" line="56" column="1" bodyfile="particle-system/archain.hpp" bodystart="56" bodyend="56"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a13a0de11776efd7910c4cab464eacb47" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_idn</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a7b2b2e8323fb04e768a4f0156986a55d" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_idn</definition>
         <argsstring>() const noexcept</argsstring>
         <name>impl_idn</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.idn()</computeroutput> in name of <computeroutput>impl_idn</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="56" column="95" bodyfile="particle-system/archain.hpp" bodystart="56" bodyend="56"/>
+        <location file="particle-system/archain.hpp" line="56" column="1" bodyfile="particle-system/archain.hpp" bodystart="56" bodyend="56"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a73ccf5425a5f66f02dde0d30782a7f66" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a73ccf5425a5f66f02dde0d30782a7f66" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_pos</definition>
         <argsstring>() noexcept</argsstring>
@@ -698,33 +621,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="58" column="23" bodyfile="particle-system/archain.hpp" bodystart="58" bodyend="58"/>
+        <location file="particle-system/archain.hpp" line="58" column="1" bodyfile="particle-system/archain.hpp" bodystart="58" bodyend="58"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a90b04c1b473d21931396643b4bff7d30" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_pos</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a988fd04c159dd1350d381da78ac682b7" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_pos</definition>
         <argsstring>() const noexcept</argsstring>
         <name>impl_pos</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.pos()</computeroutput> in name of <computeroutput>impl_pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="58" column="95" bodyfile="particle-system/archain.hpp" bodystart="58" bodyend="58"/>
+        <location file="particle-system/archain.hpp" line="58" column="1" bodyfile="particle-system/archain.hpp" bodystart="58" bodyend="58"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1af0d241b99d1b93f93e844a1ecfb4b65d" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1af0d241b99d1b93f93e844a1ecfb4b65d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_vel</definition>
         <argsstring>() noexcept</argsstring>
@@ -732,33 +647,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="60" column="23" bodyfile="particle-system/archain.hpp" bodystart="60" bodyend="60"/>
+        <location file="particle-system/archain.hpp" line="60" column="1" bodyfile="particle-system/archain.hpp" bodystart="60" bodyend="60"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a038623aed4ff848acb286ffd2c2ef5a7" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_vel</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a824e4e00a96baa957181606d62646ada" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_vel</definition>
         <argsstring>() const noexcept</argsstring>
         <name>impl_vel</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.vel()</computeroutput> in name of <computeroutput>impl_vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="60" column="95" bodyfile="particle-system/archain.hpp" bodystart="60" bodyend="60"/>
+        <location file="particle-system/archain.hpp" line="60" column="1" bodyfile="particle-system/archain.hpp" bodystart="60" bodyend="60"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1ac9977a1bc6995af4ce27e82737bd4b42" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1ac9977a1bc6995af4ce27e82737bd4b42" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
         <definition>auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_time</definition>
         <argsstring>() noexcept</argsstring>
@@ -766,31 +673,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The setter interface of member <computeroutput>ptcl_.time()</computeroutput> in name of <computeroutput>impl_time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The setter interface of member <computeroutput>ptcl_.time()</computeroutput> in name of <computeroutput>impl_time</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="62" column="23" bodyfile="particle-system/archain.hpp" bodystart="62" bodyend="62"/>
+        <location file="particle-system/archain.hpp" line="62" column="1" bodyfile="particle-system/archain.hpp" bodystart="62" bodyend="62"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a2a16ae46625dcdcf95be44e9b497dbaf" prot="protected" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_time</definition>
+      <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a6a92ba70967281dd4ffeef460d838fc0" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ARchainSystem&lt; Particles, Interactions, RegType &gt;::impl_time</definition>
         <argsstring>() const noexcept</argsstring>
         <name>impl_time</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The getter interface of member <computeroutput>ptcl_.time()</computeroutput> in name of <computeroutput>impl_time</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para>The getter interface of member <computeroutput>ptcl_.time()</computeroutput> in name of <computeroutput>impl_time</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="62" column="97" bodyfile="particle-system/archain.hpp" bodystart="62" bodyend="62"/>
+        <location file="particle-system/archain.hpp" line="62" column="1" bodyfile="particle-system/archain.hpp" bodystart="62" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a14911337daa4c4b9b56743979146d29b" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -803,7 +702,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="64" column="13" bodyfile="particle-system/archain.hpp" bodystart="158" bodyend="160"/>
+        <location file="particle-system/archain.hpp" line="64" column="1" bodyfile="particle-system/archain.hpp" bodystart="158" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1afb996c9c982f88cc857719734fc28ba1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -811,7 +710,7 @@
         <argsstring>(Scalar step_size)</argsstring>
         <name>impl_advance_time</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>step_size</declname>
         </param>
         <briefdescription>
@@ -820,7 +719,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="66" column="10" bodyfile="particle-system/archain.hpp" bodystart="163" bodyend="166"/>
+        <location file="particle-system/archain.hpp" line="66" column="1" bodyfile="particle-system/archain.hpp" bodystart="163" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a0da82ee7b7da273bad5bdcf1fee222b2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -828,11 +727,11 @@
         <argsstring>(Coord const &amp;velocity, Scalar step_size)</argsstring>
         <name>impl_advance_pos</name>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>velocity</declname>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>step_size</declname>
         </param>
         <briefdescription>
@@ -841,7 +740,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="68" column="10" bodyfile="particle-system/archain.hpp" bodystart="169" bodyend="173"/>
+        <location file="particle-system/archain.hpp" line="68" column="1" bodyfile="particle-system/archain.hpp" bodystart="169" bodyend="173"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a176323d268147181d21150a9e5fe6b2b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -849,11 +748,11 @@
         <argsstring>(Coord const &amp;acceleration, Scalar step_size)</argsstring>
         <name>impl_advance_vel</name>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>acceleration</declname>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>step_size</declname>
         </param>
         <briefdescription>
@@ -862,7 +761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="70" column="10" bodyfile="particle-system/archain.hpp" bodystart="176" bodyend="180"/>
+        <location file="particle-system/archain.hpp" line="70" column="1" bodyfile="particle-system/archain.hpp" bodystart="176" bodyend="180"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a951d23ed66a75b765ea6ad2c1b34d413" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -870,7 +769,7 @@
         <argsstring>(Coord &amp;acceleration) const</argsstring>
         <name>impl_evaluate_acc</name>
         <param>
-          <type>Coord &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> &amp;</type>
           <declname>acceleration</declname>
         </param>
         <briefdescription>
@@ -879,7 +778,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="72" column="10" bodyfile="particle-system/archain.hpp" bodystart="183" bodyend="185"/>
+        <location file="particle-system/archain.hpp" line="72" column="1" bodyfile="particle-system/archain.hpp" bodystart="183" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a7583d89b83d826062d233f2fc3e02cd7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -887,7 +786,7 @@
         <argsstring>(Scalar step_size)</argsstring>
         <name>impl_drift</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>step_size</declname>
         </param>
         <briefdescription>
@@ -896,7 +795,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="74" column="10" bodyfile="particle-system/archain.hpp" bodystart="188" bodyend="192"/>
+        <location file="particle-system/archain.hpp" line="74" column="1" bodyfile="particle-system/archain.hpp" bodystart="188" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a4ad9c1f0e39e81b75471bb507612443e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -904,7 +803,7 @@
         <argsstring>(Scalar step_size)</argsstring>
         <name>impl_kick</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>step_size</declname>
         </param>
         <briefdescription>
@@ -913,7 +812,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="76" column="10" bodyfile="particle-system/archain.hpp" bodystart="195" bodyend="226"/>
+        <location file="particle-system/archain.hpp" line="76" column="1" bodyfile="particle-system/archain.hpp" bodystart="195" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a43d8ac3e882b7137be0897e7c1c49987" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -926,7 +825,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="78" column="10" bodyfile="particle-system/archain.hpp" bodystart="229" bodyend="234"/>
+        <location file="particle-system/archain.hpp" line="78" column="1" bodyfile="particle-system/archain.hpp" bodystart="229" bodyend="234"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a7311b49a8f546b7f1e54e97272bb5bba" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -939,7 +838,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="80" column="10" bodyfile="particle-system/archain.hpp" bodystart="237" bodyend="246"/>
+        <location file="particle-system/archain.hpp" line="80" column="1" bodyfile="particle-system/archain.hpp" bodystart="237" bodyend="246"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a999d7a2da6563378baabe72abd3e31d8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -961,7 +860,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="83" column="10" bodyfile="particle-system/archain.hpp" bodystart="250" bodyend="258"/>
+        <location file="particle-system/archain.hpp" line="83" column="1" bodyfile="particle-system/archain.hpp" bodystart="250" bodyend="258"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a5b7729a9af5da0c25cabbb32f0be39d8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -983,7 +882,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="86" column="10" bodyfile="particle-system/archain.hpp" bodystart="262" bodyend="279"/>
+        <location file="particle-system/archain.hpp" line="86" column="1" bodyfile="particle-system/archain.hpp" bodystart="262" bodyend="279"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -996,7 +895,7 @@
             <type>typename F</type>
           </param>
           <param>
-            <type>ReguType</type>
+            <type><ref refid="namespacespace_1aeae90fe24a996e141e44212e2161584f" kindref="member">ReguType</ref></type>
             <declname>R</declname>
             <defname>R</defname>
           </param>
@@ -1019,7 +918,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="90" column="12"/>
+        <location file="particle-system/archain.hpp" line="90" column="1"/>
       </memberdef>
       <memberdef kind="friend" id="classspace_1_1_a_rchain_system_1aa9138604aa5fb76160aea784ae94b501" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1030,7 +929,7 @@
             <type>typename F</type>
           </param>
           <param>
-            <type>ReguType</type>
+            <type><ref refid="namespacespace_1aeae90fe24a996e141e44212e2161584f" kindref="member">ReguType</ref></type>
             <declname>R</declname>
             <defname>R</defname>
           </param>
@@ -1053,7 +952,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="93" column="25"/>
+        <location file="particle-system/archain.hpp" line="93" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -1063,19 +962,19 @@
         <argsstring>(Coord &amp;var, Coord &amp;chain_var, Coord const &amp;chain_increment, Scalar phy_time)</argsstring>
         <name>chain_advance</name>
         <param>
-          <type>Coord &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> &amp;</type>
           <declname>var</declname>
         </param>
         <param>
-          <type>Coord &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> &amp;</type>
           <declname>chain_var</declname>
         </param>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>chain_increment</declname>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>phy_time</declname>
         </param>
         <briefdescription>
@@ -1084,7 +983,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="97" column="10" bodyfile="particle-system/archain.hpp" bodystart="294" bodyend="298"/>
+        <location file="particle-system/archain.hpp" line="97" column="1" bodyfile="particle-system/archain.hpp" bodystart="294" bodyend="298"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1ad8c46abb8a96eb9eaed306d704875720" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1097,7 +996,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="99" column="10" bodyfile="particle-system/archain.hpp" bodystart="301" bodyend="308"/>
+        <location file="particle-system/archain.hpp" line="99" column="1" bodyfile="particle-system/archain.hpp" bodystart="301" bodyend="308"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1aa7fff22e5d4af7396da8836e3cafc92f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1105,15 +1004,15 @@
         <argsstring>(Coord const &amp;velocity, Coord const &amp;d_omega_dr, Scalar phy_time)</argsstring>
         <name>advance_omega</name>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>velocity</declname>
         </param>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>d_omega_dr</declname>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>phy_time</declname>
         </param>
         <briefdescription>
@@ -1122,7 +1021,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="101" column="10" bodyfile="particle-system/archain.hpp" bodystart="311" bodyend="315"/>
+        <location file="particle-system/archain.hpp" line="101" column="1" bodyfile="particle-system/archain.hpp" bodystart="311" bodyend="315"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1af9c1c9b1f9433a6b8ddb9243c3e18072" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1130,15 +1029,15 @@
         <argsstring>(Coord const &amp;velocity, Coord const &amp;d_bindE_dr, Scalar phy_time)</argsstring>
         <name>advance_bindE</name>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>velocity</declname>
         </param>
         <param>
-          <type>Coord const &amp;</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" kindref="member">Coord</ref> const &amp;</type>
           <declname>d_bindE_dr</declname>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>phy_time</declname>
         </param>
         <briefdescription>
@@ -1147,7 +1046,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="103" column="10" bodyfile="particle-system/archain.hpp" bodystart="318" bodyend="322"/>
+        <location file="particle-system/archain.hpp" line="103" column="1" bodyfile="particle-system/archain.hpp" bodystart="318" bodyend="322"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a418badd9741691a6628ffc85103d5676" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1155,7 +1054,7 @@
         <argsstring>(Scalar phy_time)</argsstring>
         <name>kick_pseu_vel</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>phy_time</declname>
         </param>
         <briefdescription>
@@ -1164,7 +1063,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="105" column="10" bodyfile="particle-system/archain.hpp" bodystart="325" bodyend="330"/>
+        <location file="particle-system/archain.hpp" line="105" column="1" bodyfile="particle-system/archain.hpp" bodystart="325" bodyend="330"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_a_rchain_system_1a3d62f92305aeac41f40848c5b0a54df9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1172,7 +1071,7 @@
         <argsstring>(Scalar phy_time)</argsstring>
         <name>kick_real_vel</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" kindref="member">Scalar</ref></type>
           <declname>phy_time</declname>
         </param>
         <briefdescription>
@@ -1181,7 +1080,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system/archain.hpp" line="107" column="10" bodyfile="particle-system/archain.hpp" bodystart="333" bodyend="352"/>
+        <location file="particle-system/archain.hpp" line="107" column="1" bodyfile="particle-system/archain.hpp" bodystart="333" bodyend="352"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1192,53 +1091,63 @@
 <parametername><ref refid="classspace_1_1_particles" kindref="compound">Particles</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername><ref refid="classspace_1_1_interactions" kindref="compound">Interactions</ref></parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>RegType</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
+</para>    </detaileddescription>
     <inheritancegraph>
-      <node id="2">
+      <node id="6">
         <label>space::ParticleSystem&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</label>
         <link refid="classspace_1_1_particle_system"/>
+        <childnode refid="7" relation="template-instance">
+          <edgelabel>&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</edgelabel>
+        </childnode>
       </node>
-      <node id="1">
+      <node id="7">
+        <label>space::ParticleSystem&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+      </node>
+      <node id="5">
         <label>space::ARchainSystem&lt; Particles, Interactions, RegType &gt;</label>
         <link refid="classspace_1_1_a_rchain_system"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="6" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="2">
+      <node id="9">
         <label>space::ParticleSystem&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</label>
         <link refid="classspace_1_1_particle_system"/>
+        <childnode refid="10" relation="template-instance">
+          <edgelabel>&lt; ARchainSystem&lt; Particles, Interactions, RegType &gt; &gt;</edgelabel>
+        </childnode>
       </node>
-      <node id="1">
+      <node id="10">
+        <label>space::ParticleSystem&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_particle_system"/>
+      </node>
+      <node id="8">
         <label>space::ARchainSystem&lt; Particles, Interactions, RegType &gt;</label>
         <link refid="classspace_1_1_a_rchain_system"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="9" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="particle-system/archain.hpp" line="23" column="48" bodyfile="particle-system/archain.hpp" bodystart="23" bodyend="131"/>
+    <location file="particle-system/archain.hpp" line="23" column="1" bodyfile="particle-system/archain.hpp" bodystart="23" bodyend="131"/>
     <listofallmembers>
       <member refid="classspace_1_1_a_rchain_system_1a2317cccf875a80487c03d9bfa87208f6" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>accels_</name></member>
       <member refid="classspace_1_1_a_rchain_system_1af9c1c9b1f9433a6b8ddb9243c3e18072" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>advance_bindE</name></member>
@@ -1254,23 +1163,24 @@
       <member refid="classspace_1_1_a_rchain_system_1a1ccaba54a5f551176da5bb478e3a8169" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Base</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a52e6a226eaafe73810b3218c8af76a65" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Base</name></member>
       <member refid="classspace_1_1_a_rchain_system_1aafba9b1939a9f180d849e2e8f4de446f" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>bindE</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1ada30bd69aa9887d2c7fdb40708a2c304" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>bindE</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a5a4cdd2445eec66e9d5d209170fcd15a" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>bindE</name></member>
       <member refid="classspace_1_1_a_rchain_system_1af42980d7dc06d2be107ac55c4eff87e6" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_acc_</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a363625c3b02d34d36e14afbb77ccef0b" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_advance</name></member>
       <member refid="classspace_1_1_a_rchain_system_1adad7444d346057c45943741fa3c8ba7a" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_aux_vel_</name></member>
       <member refid="classspace_1_1_a_rchain_system_1acab3eb7ebc77853acecec5ec903e52e0" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_pos</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1aae51571485231689377c25e0b3ea2782" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_pos</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a79df69bd0718cba22509f0fa7fa63a23" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_pos</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a697ff74d79dd1d5fcde989d08f63393d" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_pos_</name></member>
       <member refid="classspace_1_1_a_rchain_system_1ab76190264bfa1f0348e18309da23b3e0" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_vel</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a82865ecdf66d8a510fd33ab0002baeb2" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_vel</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a66522e76cc202b8044b61f63b750ed6d" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_vel</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a4df3f9ebea812928438cbd98587eec11" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>chain_vel_</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a8389eb3454c6b56edbb00518a8d89fdd" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Container</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a2ddc1ee4c5dc0dd7722b517b0526cee6" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Coord</name></member>
+      <member refid="classspace_1_1_particle_system_1afa856953dcd12c93e5030e82b4f40afd" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>derived</name></member>
       <member refid="classspace_1_1_particle_system_1a9f8e3f2fa7f41577688a83f09ad245ea" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>drift</name></member>
       <member refid="classspace_1_1_a_rchain_system_1ad8c46abb8a96eb9eaed306d704875720" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>eval_vel_indep_acc</name></member>
       <member refid="classspace_1_1_particle_system_1afcffe317de92a41955bfcdafc4277fac" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>evaluate_acc</name></member>
       <member refid="classspace_1_1_particle_system_1a21c98618f41e1e55a1d71e7983d9c1e2" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>idn</name></member>
-      <member refid="classspace_1_1_particle_system_1a27c54605bbcc37c09d9a93cdfccb6c83" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>idn</name></member>
+      <member refid="classspace_1_1_particle_system_1a92803bfe1059aae8726f119a64d732d0" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>idn</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a806f987655cae5a29e3e322d964dcf32" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>IdxArray</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a0da82ee7b7da273bad5bdcf1fee222b2" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_advance_pos</name></member>
       <member refid="classspace_1_1_a_rchain_system_1afb996c9c982f88cc857719734fc28ba1" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_advance_time</name></member>
@@ -1278,23 +1188,23 @@
       <member refid="classspace_1_1_a_rchain_system_1a7583d89b83d826062d233f2fc3e02cd7" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_drift</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a951d23ed66a75b765ea6ad2c1b34d413" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_evaluate_acc</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a20ec784cd351e3fb17bf50680960dd8a" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_idn</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a13a0de11776efd7910c4cab464eacb47" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_idn</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a7b2b2e8323fb04e768a4f0156986a55d" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_idn</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a4ad9c1f0e39e81b75471bb507612443e" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_kick</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a5b7729a9af5da0c25cabbb32f0be39d8" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_load_from_linear_container</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a2aa38e81ff6d36f6a7262576654de39a" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_mass</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a72ff861e181be4d9f0f94e23025ff8aa" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_mass</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a8f8a9af09de22df7bf2431e0ad28476d" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_mass</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a14911337daa4c4b9b56743979146d29b" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_number</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a73ccf5425a5f66f02dde0d30782a7f66" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_pos</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a90b04c1b473d21931396643b4bff7d30" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_pos</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a988fd04c159dd1350d381da78ac682b7" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_pos</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a7311b49a8f546b7f1e54e97272bb5bba" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_post_iter_process</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a43d8ac3e882b7137be0897e7c1c49987" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_pre_iter_process</name></member>
       <member refid="classspace_1_1_a_rchain_system_1ac9977a1bc6995af4ce27e82737bd4b42" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_time</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a2a16ae46625dcdcf95be44e9b497dbaf" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_time</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a6a92ba70967281dd4ffeef460d838fc0" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_time</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a999d7a2da6563378baabe72abd3e31d8" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_to_linear_container</name></member>
       <member refid="classspace_1_1_a_rchain_system_1af0d241b99d1b93f93e844a1ecfb4b65d" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_vel</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1a038623aed4ff848acb286ffd2c2ef5a7" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_vel</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a824e4e00a96baa957181606d62646ada" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>impl_vel</name></member>
       <member refid="classspace_1_1_a_rchain_system_1afc6de4abbd3816262629a503edff1079" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>index</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1af6948a52d0f59d0cc4ca0fae4c2ca56d" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>index</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1af332a78000353b1d568bd4ff5147763a" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>index</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a622d5eabaa54facff66954dc23dca1b0" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>index_</name></member>
       <member refid="classspace_1_1_a_rchain_system_1abc6f8ef6077aa4a721c466d8419f71ed" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>IntArray</name></member>
       <member refid="classspace_1_1_a_rchain_system_1aaad241c55b5978b5907f7558f6838f08" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>interactions_</name></member>
@@ -1303,18 +1213,18 @@
       <member refid="classspace_1_1_a_rchain_system_1a3d62f92305aeac41f40848c5b0a54df9" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>kick_real_vel</name></member>
       <member refid="classspace_1_1_particle_system_1a8fe7b476281b0a3793d123bc33eb1211" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>load_from_linear_container</name></member>
       <member refid="classspace_1_1_particle_system_1abecb6bc83c665d844dbd353493ca8578" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>mass</name></member>
-      <member refid="classspace_1_1_particle_system_1a6aed19be5fc9f27445ea414767e57d84" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>mass</name></member>
+      <member refid="classspace_1_1_particle_system_1a568128f35a138ebfa0b337dd7bc8a9c8" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>mass</name></member>
       <member refid="classspace_1_1_a_rchain_system_1af155f62665fe032ed19af5ab7d99b649" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>new_index_</name></member>
       <member refid="classspace_1_1_particle_system_1afcf1ce0901ca8aadd08d2a05cbdb95db" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>number</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a65b3d6e985c82ebb6220d9cde6902c3e" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>omega</name></member>
-      <member refid="classspace_1_1_a_rchain_system_1afaa2a7b4c94ee15bcf81d1e14942b417" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>omega</name></member>
+      <member refid="classspace_1_1_a_rchain_system_1a5a078243b18a1bc2249d0abe833de9aa" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>omega</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a1b8e17c1039b41c3c654c754ca0ce5ed" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>operator&lt;&lt;</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a30b07f96b9969f815bea1b117b66fc3f" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>operator=</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a12f66d7a7057d04678fbb8098a42eec8" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>operator=</name></member>
       <member refid="classspace_1_1_a_rchain_system_1aa9138604aa5fb76160aea784ae94b501" prot="protected" virt="non-virtual"><scope>space::ARchainSystem</scope><name>operator&gt;&gt;</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a7c71b612e7db885103c76e308acb8895" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Particle</name></member>
       <member refid="classspace_1_1_particle_system_1ab996f7192019cfa588b881524d0cb560" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>pos</name></member>
-      <member refid="classspace_1_1_particle_system_1a25b9bebaf00d9470de9bf7db61e74d76" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>pos</name></member>
+      <member refid="classspace_1_1_particle_system_1a3a927a129c57d857baa79562ddce5e9f" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>pos</name></member>
       <member refid="classspace_1_1_particle_system_1a5c91987e0659ef74244aeec676e3218d" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>post_iter_process</name></member>
       <member refid="classspace_1_1_particle_system_1a1bfa0b1bf933d9a3a00937ebfa052e0c" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>pre_iter_process</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a8469dc441c5d10fe2201803269a55e53" prot="private" virt="non-virtual"><scope>space::ARchainSystem</scope><name>ptcl_</name></member>
@@ -1323,12 +1233,12 @@
       <member refid="classspace_1_1_a_rchain_system_1a9157949d30fb3ec4d33d52ffe823f8ae" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Scalar</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a31caef0c4ab216e170c448f79fe183a0" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>ScalarArray</name></member>
       <member refid="classspace_1_1_particle_system_1a333441c5101a535ef02dc1f257378394" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>time</name></member>
-      <member refid="classspace_1_1_particle_system_1a8b08e76b065b525b7ee5c866d8b21ea2" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>time</name></member>
+      <member refid="classspace_1_1_particle_system_1a0178bbec054b9e0306babcc8292b417c" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>time</name></member>
       <member refid="classspace_1_1_particle_system_1a1e33bfd67792a3b0242f575553bed151" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>to_linear_container</name></member>
       <member refid="classspace_1_1_a_rchain_system_1aa244ae2b1aee9e51384a4c2d254e3709" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>Vector</name></member>
       <member refid="classspace_1_1_a_rchain_system_1a8f4769f2fede4e69b425f58166683a36" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>VectorArray</name></member>
       <member refid="classspace_1_1_particle_system_1a4976a72808fcd07371a72a76d0f64a57" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>vel</name></member>
-      <member refid="classspace_1_1_particle_system_1a73ee57b602fef0917934e80481a88a29" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>vel</name></member>
+      <member refid="classspace_1_1_particle_system_1a04488af1a73fcbcf2133f81d09a2a8f2" prot="public" virt="non-virtual"><scope>space::ARchainSystem</scope><name>vel</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

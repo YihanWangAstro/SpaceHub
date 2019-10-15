@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="type-class_8hpp" kind="file" language="C++">
     <compoundname>type-class.hpp</compoundname>
     <includes local="no">vector</includes>
@@ -8,92 +8,92 @@
     <includedby refid="_gauss-_dadau_8h" local="yes">integrator/Gauss-Dadau.h</includedby>
     <includedby refid="interaction_8hpp" local="yes">interaction.hpp</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>coords.hpp</label>
-        <link refid="coords_8hpp_source"/>
-        <childnode refid="4" relation="include">
+      <node id="714">
+        <label>vector/vector3.h</label>
+        <link refid="vector3_8h"/>
+        <childnode refid="715" relation="include">
+        </childnode>
+        <childnode refid="716" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="718" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="715">
         <label>cmath</label>
       </node>
-      <node id="4">
-        <label>vector/vector3.h</label>
-        <link refid="vector3_8h_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
+      <node id="718">
         <label>vector3pd.h</label>
-        <link refid="vector3pd_8h_source"/>
+        <link refid="vector3pd_8h"/>
       </node>
-      <node id="2">
+      <node id="712">
         <label>vector</label>
       </node>
-      <node id="1">
+      <node id="716">
+        <label>iostream</label>
+      </node>
+      <node id="711">
         <label>type-class.hpp</label>
         <link refid="type-class_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="712" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="713" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="714" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="717">
         <label>vector3d.h</label>
-        <link refid="vector3d_8h_source"/>
+        <link refid="vector3d_8h"/>
       </node>
-      <node id="6">
-        <label>iostream</label>
+      <node id="713">
+        <label>coords.hpp</label>
+        <link refid="coords_8hpp"/>
+        <childnode refid="714" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="4">
+      <node id="722">
         <label>interaction/newtonian.hpp</label>
-        <link refid="newtonian_8hpp_source"/>
-        <childnode refid="5" relation="include">
+        <link refid="newtonian_8hpp"/>
+        <childnode refid="723" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>interaction/post-newtonian.hpp</label>
-        <link refid="post-newtonian_8hpp_source"/>
-      </node>
-      <node id="5">
+      <node id="723">
         <label>spaceHub.hpp</label>
-        <link refid="space_hub_8hpp_source"/>
+        <link refid="space_hub_8hpp"/>
       </node>
-      <node id="3">
+      <node id="721">
         <label>interaction.hpp</label>
-        <link refid="interaction_8hpp_source"/>
-        <childnode refid="4" relation="include">
+        <link refid="interaction_8hpp"/>
+        <childnode refid="722" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="724" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="725" relation="include">
         </childnode>
       </node>
-      <node id="2">
+      <node id="724">
+        <label>interaction/post-newtonian.hpp</label>
+        <link refid="post-newtonian_8hpp"/>
+      </node>
+      <node id="725">
+        <label>interaction/tidal.hpp</label>
+        <link refid="tidal_8hpp"/>
+      </node>
+      <node id="720">
         <label>integrator/Gauss-Dadau.h</label>
-        <link refid="_gauss-_dadau_8h_source"/>
+        <link refid="_gauss-_dadau_8h"/>
       </node>
-      <node id="1">
+      <node id="719">
         <label>type-class.hpp</label>
         <link refid="type-class_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="720" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="721" relation="include">
         </childnode>
-      </node>
-      <node id="7">
-        <label>interaction/tidal.hpp</label>
-        <link refid="tidal_8hpp_source"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structspace_1_1_types" prot="public">space::Types</innerclass>

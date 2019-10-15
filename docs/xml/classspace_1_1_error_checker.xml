@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_error_checker" kind="class" language="C++" prot="public">
     <compoundname>space::ErrorChecker</compoundname>
     <includes refid="error-checker_8hpp" local="no">error-checker.hpp</includes>
@@ -22,77 +22,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="59" column="12" bodyfile="error-checker.hpp" bodystart="59" bodyend="-1"/>
+        <location file="error-checker.hpp" line="99" column="1" bodyfile="error-checker.hpp" bodystart="99" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>auto &amp;</type>
-        <definition>auto&amp; space::ErrorChecker&lt; Derived &gt;::atol</definition>
-        <argsstring>() noexcept</argsstring>
-        <name>atol</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>atol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="error-checker.hpp" line="24" column="23" bodyfile="error-checker.hpp" bodystart="24" bodyend="24"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ErrorChecker&lt; Derived &gt;::atol</definition>
+      <memberdef kind="function" id="classspace_1_1_error_checker_1a654027488409a6df5304611c450d52a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ErrorChecker&lt; Derived &gt;::atol</definition>
         <argsstring>() const noexcept</argsstring>
         <name>atol</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>atol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>atol</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="24" column="118" bodyfile="error-checker.hpp" bodystart="24" bodyend="24"/>
+        <location file="error-checker.hpp" line="26" column="1" bodyfile="error-checker.hpp" bodystart="26" bodyend="26"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>auto &amp;</type>
-        <definition>auto&amp; space::ErrorChecker&lt; Derived &gt;::rtol</definition>
-        <argsstring>() noexcept</argsstring>
-        <name>rtol</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>rtol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="error-checker.hpp" line="26" column="23" bodyfile="error-checker.hpp" bodystart="26" bodyend="26"/>
-      </memberdef>
-      <memberdef kind="function" id="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>const auto &amp;</type>
-        <definition>const auto&amp; space::ErrorChecker&lt; Derived &gt;::rtol</definition>
+      <memberdef kind="function" id="classspace_1_1_error_checker_1a959e14c98dfd76e77416378223d14214" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto const  &amp;</type>
+        <definition>auto const&amp; space::ErrorChecker&lt; Derived &gt;::rtol</definition>
         <argsstring>() const noexcept</argsstring>
         <name>rtol</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>rtol</computeroutput>. <simplesect kind="return"><para>auto Depend on implementation. <linebreak/>
- </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>rtol</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="26" column="118" bodyfile="error-checker.hpp" bodystart="26" bodyend="26"/>
+        <location file="error-checker.hpp" line="28" column="1" bodyfile="error-checker.hpp" bodystart="28" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Derived &amp;</type>
@@ -102,57 +60,87 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>The downcast interface of Base class to Derived class. <simplesect kind="return"><para>Derived </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="32" column="13" bodyfile="error-checker.hpp" bodystart="66" bodyend="68"/>
+        <location file="error-checker.hpp" line="36" column="1" bodyfile="error-checker.hpp" bodystart="106" bodyend="108"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_error_checker_1a6b5e3188e976d46f99ff41f8e920a7d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename T</type>
+            <type>typename Scalar</type>
           </param>
         </templateparamlist>
         <type>void</type>
         <definition>void space::ErrorChecker&lt; Derived &gt;::set_atol</definition>
-        <argsstring>(T)</argsstring>
+        <argsstring>(Scalar abs_error)</argsstring>
         <name>set_atol</name>
         <param>
-          <type>T</type>
-          <defname>atol</defname>
+          <type>Scalar</type>
+          <declname>abs_error</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; Absolute error is required.</computeroutput></para><para>Set the absolute error of the error estimator.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">abs_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Absolute error. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="38" column="10" bodyfile="error-checker.hpp" bodystart="72" bodyend="74"/>
+        <location file="error-checker.hpp" line="47" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1_error_checker_1a582ae24846280588b727ee289c8e1267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename T</type>
+            <type>typename Scalar</type>
           </param>
         </templateparamlist>
         <type>void</type>
         <definition>void space::ErrorChecker&lt; Derived &gt;::set_rtol</definition>
-        <argsstring>(T)</argsstring>
+        <argsstring>(Scalar rel_error)</argsstring>
         <name>set_rtol</name>
         <param>
-          <type>T</type>
-          <defname>rtol</defname>
+          <type>Scalar</type>
+          <declname>rel_error</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-warning" /> <bold>optional impl</bold> <computeroutput>&gt; Relative error is required.</computeroutput></para><para>Set the relative error of the error estimator.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rel_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative error. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="44" column="10" bodyfile="error-checker.hpp" bodystart="78" bodyend="80"/>
+        <location file="error-checker.hpp" line="58" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -175,10 +163,34 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Estimate the error between two results. For example, <formula id="2">\[\mathrm error = {|y_0 -y_1|/|y_0|} \]</formula></para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Iterable array like type. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">y0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first result. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second result. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The estimated error. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="47" column="10" bodyfile="error-checker.hpp" bodystart="84" bodyend="86"/>
+        <location file="error-checker.hpp" line="74" column="1" bodyfile="error-checker.hpp" bodystart="124" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -205,10 +217,85 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Estimate the error between two results with given scale. For example <formula id="1">\[\mathrm error = {|y_0 -y_1|/scale} \]</formula></para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Iterable array like type. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided scale for the results. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first result. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second result. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker.hpp" line="91" column="1" bodyfile="error-checker.hpp" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_error_checker_1a1493a2a21b1171bcf8d4fbd5e9b8bc0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ErrorChecker&lt; Derived &gt;::set_atol</definition>
+        <argsstring>(T atol)</argsstring>
+        <name>set_atol</name>
+        <param>
+          <type>T</type>
+          <declname>atol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="50" column="10" bodyfile="error-checker.hpp" bodystart="91" bodyend="93"/>
+        <location file="error-checker.hpp" line="112" column="1" bodyfile="error-checker.hpp" bodystart="112" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classspace_1_1_error_checker_1ae9276861c1171b159fd61fe71410c915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void space::ErrorChecker&lt; Derived &gt;::set_rtol</definition>
+        <argsstring>(T rtol)</argsstring>
+        <name>set_rtol</name>
+        <param>
+          <type>T</type>
+          <declname>rtol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="error-checker.hpp" line="118" column="1" bodyfile="error-checker.hpp" bodystart="118" bodyend="120"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -220,40 +307,75 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Construct a new <ref refid="classspace_1_1_error_checker" kindref="compound">ErrorChecker</ref> object </para>
-        </detaileddescription>
+<para>Construct a new <ref refid="classspace_1_1_error_checker" kindref="compound">ErrorChecker</ref> object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker.hpp" line="57" column="5"/>
+        <location file="error-checker.hpp" line="97" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para>Abstract class of step error estimator. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <computeroutput><ref refid="classspace_1_1_error_checker" kindref="compound">ErrorChecker</ref></computeroutput>. The error estimator provides the interface to estimate the error of an integration system.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Derived</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para>The implement class in CRTP idiom. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
-    <location file="error-checker.hpp" line="20" column="21" bodyfile="error-checker.hpp" bodystart="20" bodyend="60"/>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="80">
+        <label>space::ErrorChecker&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_error_checker"/>
+      </node>
+      <node id="81">
+        <label>space::ErrorChecker&lt; RMS&lt; T &gt; &gt;</label>
+        <link refid="classspace_1_1_error_checker"/>
+        <childnode refid="80" relation="template-instance">
+          <edgelabel>&lt; RMS&lt; T &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="84">
+        <label>space::WorstOffender&lt; T &gt;</label>
+        <link refid="classspace_1_1_worst_offender"/>
+        <childnode refid="83" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>space::RMS&lt; T &gt;</label>
+        <link refid="classspace_1_1_r_m_s"/>
+        <childnode refid="81" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>space::ErrorChecker&lt; WorstOffender&lt; T &gt; &gt;</label>
+        <link refid="classspace_1_1_error_checker"/>
+        <childnode refid="80" relation="template-instance">
+          <edgelabel>&lt; WorstOffender&lt; T &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="85">
+        <label>space::ErrorChecker&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_error_checker"/>
+      </node>
+    </collaborationgraph>
+    <location file="error-checker.hpp" line="23" column="1" bodyfile="error-checker.hpp" bodystart="23" bodyend="100"/>
     <listofallmembers>
-      <member refid="classspace_1_1_error_checker_1a0dd6badf2ac473672d1b042d47fe1b96" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>atol</name></member>
-      <member refid="classspace_1_1_error_checker_1a9893afbf988705b92fc4a50bee7b6031" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>atol</name></member>
+      <member refid="classspace_1_1_error_checker_1a654027488409a6df5304611c450d52a2" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>atol</name></member>
       <member refid="classspace_1_1_error_checker_1ab8d93f54ecf15f2f131d7411de8115d8" prot="private" virt="non-virtual"><scope>space::ErrorChecker</scope><name>Derived</name></member>
       <member refid="classspace_1_1_error_checker_1abadc5f31586cfa7a244eb8ceda54b16e" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>derived</name></member>
       <member refid="classspace_1_1_error_checker_1ae7a9fcd1c9454461e3f954f0f54d81a8" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>error</name></member>
       <member refid="classspace_1_1_error_checker_1a841109edd38025b449347fee4b67c245" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>error</name></member>
       <member refid="classspace_1_1_error_checker_1a4dd0d0422ef946fcc1460b076f7eb049" prot="private" virt="non-virtual"><scope>space::ErrorChecker</scope><name>ErrorChecker</name></member>
-      <member refid="classspace_1_1_error_checker_1aca17cff839756bc95d0aad1096ccffdf" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>rtol</name></member>
-      <member refid="classspace_1_1_error_checker_1ad0814e413f0281caaf44942fe9483319" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>rtol</name></member>
-      <member refid="classspace_1_1_error_checker_1ab49f3e7167d721787bc4942b652513b1" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_atol</name></member>
-      <member refid="classspace_1_1_error_checker_1a4afa46b4bf4dc6e85d09f47bdf07088a" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_rtol</name></member>
+      <member refid="classspace_1_1_error_checker_1a959e14c98dfd76e77416378223d14214" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>rtol</name></member>
+      <member refid="classspace_1_1_error_checker_1a6b5e3188e976d46f99ff41f8e920a7d2" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_atol</name></member>
+      <member refid="classspace_1_1_error_checker_1a1493a2a21b1171bcf8d4fbd5e9b8bc0c" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_atol</name></member>
+      <member refid="classspace_1_1_error_checker_1a582ae24846280588b727ee289c8e1267" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_rtol</name></member>
+      <member refid="classspace_1_1_error_checker_1ae9276861c1171b159fd61fe71410c915" prot="public" virt="non-virtual"><scope>space::ErrorChecker</scope><name>set_rtol</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

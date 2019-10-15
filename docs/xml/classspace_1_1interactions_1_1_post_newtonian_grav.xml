@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1interactions_1_1_post_newtonian_grav" kind="class" language="C++" prot="public">
     <compoundname>space::interactions::PostNewtonianGrav</compoundname>
     <basecompoundref refid="classspace_1_1_interactions" prot="public" virt="non-virtual">space::Interactions&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</basecompoundref>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="28" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="28" bodyend="32"/>
+        <location file="interaction/post-newtonian.hpp" line="28" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="28" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1ab7c793e43392921af600643e802bd047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="35" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="35" bodyend="38"/>
+        <location file="interaction/post-newtonian.hpp" line="35" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="35" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a74ec3a5160ae03ad03c43e5fbb66d5a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="41" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="41" bodyend="44"/>
+        <location file="interaction/post-newtonian.hpp" line="41" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="41" bodyend="44"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="48" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="48" bodyend="90"/>
+        <location file="interaction/post-newtonian.hpp" line="48" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="48" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1af87aca7f4b4c1577efe88e645d5e6abf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="93" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="93" bodyend="174"/>
+        <location file="interaction/post-newtonian.hpp" line="93" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="93" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a1a50a76b2ed50e98a6e8644349bf8d16" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="177" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="177" bodyend="179"/>
+        <location file="interaction/post-newtonian.hpp" line="177" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="177" bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1a8b4e84695e14cb1128138b9490e76449" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -211,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="182" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="182" bodyend="184"/>
+        <location file="interaction/post-newtonian.hpp" line="182" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="182" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_post_newtonian_grav_1aa90b32264013aa2a7f74b12716dd974e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/post-newtonian.hpp" line="187" column="10" bodyfile="interaction/post-newtonian.hpp" bodystart="187" bodyend="189"/>
+        <location file="interaction/post-newtonian.hpp" line="187" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="187" bodyend="189"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -248,59 +248,70 @@
 <parametername>_1st_order</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>_2nd_order</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>_2_5th_order</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
+</para>    </detaileddescription>
     <inheritancegraph>
-      <node id="2">
+      <node id="272">
         <label>space::Interactions&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</label>
         <link refid="classspace_1_1_interactions"/>
+        <childnode refid="273" relation="template-instance">
+          <edgelabel>&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</edgelabel>
+        </childnode>
       </node>
-      <node id="1">
+      <node id="271">
         <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;</label>
         <link refid="classspace_1_1interactions_1_1_post_newtonian_grav"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="272" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="273">
+        <label>space::Interactions&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_interactions"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="2">
+      <node id="275">
         <label>space::Interactions&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</label>
         <link refid="classspace_1_1_interactions"/>
-      </node>
-      <node id="1">
-        <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;</label>
-        <link refid="classspace_1_1interactions_1_1_post_newtonian_grav"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="276" relation="template-instance">
+          <edgelabel>&lt; PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt; &gt;</edgelabel>
         </childnode>
       </node>
+      <node id="274">
+        <label>space::interactions::PostNewtonianGrav&lt; _1st_order, _2nd_order, _2_5th_order &gt;</label>
+        <link refid="classspace_1_1interactions_1_1_post_newtonian_grav"/>
+        <childnode refid="275" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="276">
+        <label>space::Interactions&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_interactions"/>
+      </node>
     </collaborationgraph>
-    <location file="interaction/post-newtonian.hpp" line="19" column="50" bodyfile="interaction/post-newtonian.hpp" bodystart="19" bodyend="190"/>
+    <location file="interaction/post-newtonian.hpp" line="19" column="1" bodyfile="interaction/post-newtonian.hpp" bodystart="19" bodyend="190"/>
     <listofallmembers>
       <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a1a50a76b2ed50e98a6e8644349bf8d16" prot="private" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>add_1st_order_acc</name></member>
       <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1aa90b32264013aa2a7f74b12716dd974e" prot="private" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>add_2_5th_order_acc</name></member>
       <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a8b4e84695e14cb1128138b9490e76449" prot="private" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>add__2nd_order_acc</name></member>
       <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1af87aca7f4b4c1577efe88e645d5e6abf" prot="private" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>add_extra_vel_dep_acc</name></member>
       <member refid="classspace_1_1interactions_1_1_post_newtonian_grav_1a69ea0af3f7affa691b6d6cb31bb5a790" prot="private" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>add_newtonian_acc</name></member>
+      <member refid="classspace_1_1_interactions_1a5c1fd12a58850802821dd492396e8138" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>derived</name></member>
       <member refid="classspace_1_1_interactions_1a6688576102282c07dc5c7b6b2745be5f" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>eval_acc</name></member>
       <member refid="classspace_1_1_interactions_1a2eaa8fc6ade5e5d127d5d93f6e75663e" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>eval_extra_vel_dep_acc</name></member>
       <member refid="classspace_1_1_interactions_1a42e012c717f1ac61c401e7492203ea1e" prot="public" virt="non-virtual"><scope>space::interactions::PostNewtonianGrav</scope><name>eval_extra_vel_indep_acc</name></member>

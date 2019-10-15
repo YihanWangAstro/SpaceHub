@@ -1,52 +1,52 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="symplectic-integrator_8hpp" kind="file" language="C++">
     <compoundname>symplectic-integrator.hpp</compoundname>
     <includes refid="particle-system_8hpp" local="yes">../../particle-system.hpp</includes>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-      <node id="1">
+      <node id="136">
         <label>integrator/symplectic/symplectic-integrator.hpp</label>
         <link refid="symplectic-integrator_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="137" relation="include">
         </childnode>
       </node>
-      <node id="3">
+      <node id="138">
         <label>dev-tools.hpp</label>
-        <link refid="dev-tools_8hpp_source"/>
-        <childnode refid="4" relation="include">
+        <link refid="dev-tools_8hpp"/>
+        <childnode refid="139" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="140" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="141" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="140">
         <label>tuple</label>
       </node>
-      <node id="2">
-        <label>../../particle-system.hpp</label>
-        <link refid="particle-system_8hpp_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
+      <node id="141">
         <label>array</label>
       </node>
-      <node id="4">
+      <node id="139">
         <label>iostream</label>
+      </node>
+      <node id="137">
+        <label>../../particle-system.hpp</label>
+        <link refid="particle-system_8hpp"/>
+        <childnode refid="138" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1">
+      <node id="143">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp"/>
+      </node>
+      <node id="142">
         <label>integrator/symplectic/symplectic-integrator.hpp</label>
         <link refid="symplectic-integrator_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="143" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>spaceHub.hpp</label>
-        <link refid="space_hub_8hpp_source"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classspace_1_1integrator_1_1_sym_integrator" prot="public">space::integrator::SymIntegrator</innerclass>
@@ -56,7 +56,6 @@
     <innerclass refid="classspace_1_1integrator_1_1symplectic8th" prot="public">space::integrator::symplectic8th</innerclass>
     <innerclass refid="classspace_1_1integrator_1_1symplectic10th" prot="public">space::integrator::symplectic10th</innerclass>
     <innernamespace refid="namespacespace_1_1integrator">space::integrator</innernamespace>
-    <innernamespace refid="namespacespace">space</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

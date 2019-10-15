@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1tools_1_1_timer" kind="class" language="C++" prot="public">
     <compoundname>space::tools::Timer</compoundname>
+    <includes refid="timer_8hpp" local="no">timer.hpp</includes>
       <sectiondef kind="private-type">
       <memberdef kind="typedef" id="classspace_1_1tools_1_1_timer_1a2b2c749b82312ad22d3e7e0a746e7049" prot="private" static="no">
         <type>std::chrono::time_point&lt; std::chrono::high_resolution_clock &gt;</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="9" column="5" bodyfile="tools/timer.hpp" bodystart="9" bodyend="-1"/>
+        <location file="tools/timer.hpp" line="9" column="1" bodyfile="tools/timer.hpp" bodystart="9" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -29,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="51" column="10" bodyfile="tools/timer.hpp" bodystart="51" bodyend="-1"/>
+        <location file="tools/timer.hpp" line="51" column="1" bodyfile="tools/timer.hpp" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1tools_1_1_timer_1aea33a2ec56f8d3b2b5cac72338ac8533" prot="private" static="no" mutable="no">
         <type>float</type>
@@ -43,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="52" column="11" bodyfile="tools/timer.hpp" bodystart="52" bodyend="-1"/>
+        <location file="tools/timer.hpp" line="52" column="1" bodyfile="tools/timer.hpp" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1tools_1_1_timer_1a51c102564c585720c86552b8588bf036" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -57,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="53" column="10" bodyfile="tools/timer.hpp" bodystart="53" bodyend="-1"/>
+        <location file="tools/timer.hpp" line="53" column="1" bodyfile="tools/timer.hpp" bodystart="53" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -72,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="15" column="10" bodyfile="tools/timer.hpp" bodystart="15" bodyend="18"/>
+        <location file="tools/timer.hpp" line="15" column="1" bodyfile="tools/timer.hpp" bodystart="15" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1ae26d63313a7416a2dddd6bcf6a4e4b77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -82,13 +83,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="24" column="11" bodyfile="tools/timer.hpp" bodystart="24" bodyend="32"/>
+        <location file="tools/timer.hpp" line="24" column="1" bodyfile="tools/timer.hpp" bodystart="24" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1abe4da3e4edb19f7984ca350e7ca67ee6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -101,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="37" column="10" bodyfile="tools/timer.hpp" bodystart="37" bodyend="40"/>
+        <location file="tools/timer.hpp" line="37" column="1" bodyfile="tools/timer.hpp" bodystart="37" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1tools_1_1_timer_1a80e6ff22760a000254bb1e98ccc08bfd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -114,14 +113,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="tools/timer.hpp" line="45" column="10" bodyfile="tools/timer.hpp" bodystart="45" bodyend="48"/>
+        <location file="tools/timer.hpp" line="45" column="1" bodyfile="tools/timer.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="tools/timer.hpp" line="8" column="14" bodyfile="tools/timer.hpp" bodystart="8" bodyend="54"/>
+    <collaborationgraph>
+      <node id="379">
+        <label>space::tools::Timer</label>
+        <link refid="classspace_1_1tools_1_1_timer"/>
+      </node>
+    </collaborationgraph>
+    <location file="tools/timer.hpp" line="8" column="1" bodyfile="tools/timer.hpp" bodystart="8" bodyend="54"/>
     <listofallmembers>
       <member refid="classspace_1_1tools_1_1_timer_1a51c102564c585720c86552b8588bf036" prot="private" virt="non-virtual"><scope>space::tools::Timer</scope><name>active_</name></member>
       <member refid="classspace_1_1tools_1_1_timer_1aea33a2ec56f8d3b2b5cac72338ac8533" prot="private" virt="non-virtual"><scope>space::tools::Timer</scope><name>duration_</name></member>

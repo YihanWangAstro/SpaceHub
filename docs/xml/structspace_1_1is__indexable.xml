@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1is__indexable" kind="struct" language="C++" prot="public">
     <compoundname>space::is_indexable</compoundname>
+    <includes refid="dev-tools_8hpp" local="no">dev-tools.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -13,30 +14,30 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1is__indexable_1abb1d9b371ddc6a642fe07db90287377e" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1is__indexable_1abb1d9b371ddc6a642fe07db90287377e" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::is_indexable&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
         <name>value</name>
-        <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
+        <initializer>= decltype(<ref refid="structspace_1_1is__indexable_1a54916ba9d0bafbe3f6c43a227eee23d7" kindref="member">check</ref>&lt;T&gt;(nullptr))::value</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="350" column="27" bodyfile="dev-tools.hpp" bodystart="350" bodyend="-1"/>
+        <location file="dev-tools.hpp" line="316" column="1" bodyfile="dev-tools.hpp" bodystart="316" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1is__indexable_1a90c355a37650a94aea017c6905055722" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1is__indexable_1a54916ba9d0bafbe3f6c43a227eee23d7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::is_indexable&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::is_indexable&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;().operator[](std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +49,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="344" column="27"/>
+        <location file="dev-tools.hpp" line="310" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1is__indexable_1a40b79106540a129098e4a0faa0017fe5" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1is__indexable_1a9c3a7863cdb7e9e3bcdd1d013f52d481" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::is_indexable&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::is_indexable&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +70,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="dev-tools.hpp" line="348" column="38"/>
+        <location file="dev-tools.hpp" line="314" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="dev-tools.hpp" line="342" column="21" bodyfile="dev-tools.hpp" bodystart="342" bodyend="351"/>
+    <collaborationgraph>
+      <node id="169">
+        <label>space::is_indexable&lt; T, Args &gt;</label>
+        <link refid="structspace_1_1is__indexable"/>
+      </node>
+    </collaborationgraph>
+    <location file="dev-tools.hpp" line="308" column="1" bodyfile="dev-tools.hpp" bodystart="308" bodyend="317"/>
     <listofallmembers>
-      <member refid="structspace_1_1is__indexable_1a90c355a37650a94aea017c6905055722" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>
-      <member refid="structspace_1_1is__indexable_1a40b79106540a129098e4a0faa0017fe5" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>
+      <member refid="structspace_1_1is__indexable_1a54916ba9d0bafbe3f6c43a227eee23d7" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>
+      <member refid="structspace_1_1is__indexable_1a9c3a7863cdb7e9e3bcdd1d013f52d481" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>check</name></member>
       <member refid="structspace_1_1is__indexable_1abb1d9b371ddc6a642fe07db90287377e" prot="public" virt="non-virtual"><scope>space::is_indexable</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

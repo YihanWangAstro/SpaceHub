@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1_point_particle" kind="struct" language="C++" prot="public">
     <compoundname>space::PointParticle</compoundname>
     <includes refid="point-particles_8hpp" local="no">point-particles.hpp</includes>
@@ -22,10 +22,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="24" column="5" bodyfile="particles/point-particles.hpp" bodystart="24" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="24" column="1" bodyfile="particles/point-particles.hpp" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structspace_1_1_point_particle_1aa4fd4a33cdacb79d0759ac2438af02c8" prot="public" static="no">
-        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; Scalar &gt;</type>
+        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref>&lt; <ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref> &gt;</type>
         <definition>using space::PointParticle&lt; Real &gt;::Vector =  Vec3&lt;Scalar&gt;</definition>
         <argsstring></argsstring>
         <name>Vector</name>
@@ -35,12 +35,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="26" column="5" bodyfile="particles/point-particles.hpp" bodystart="26" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="26" column="1" bodyfile="particles/point-particles.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structspace_1_1_point_particle_1af536a4faa674ae695f0e7f2561376f27" prot="public" static="no" mutable="no">
-        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vector</ref></type>
+        <type><ref refid="structspace_1_1_point_particle_1aa4fd4a33cdacb79d0759ac2438af02c8" kindref="member">Vector</ref></type>
         <definition>Vector space::PointParticle&lt; Real &gt;::pos</definition>
         <argsstring></argsstring>
         <name>pos</name>
@@ -50,10 +50,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="58" column="12" bodyfile="particles/point-particles.hpp" bodystart="58" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="58" column="1" bodyfile="particles/point-particles.hpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_point_particle_1abd1118535da76308239551fc5fbdedef" prot="public" static="no" mutable="no">
-        <type><ref refid="structspace_1_1_vec3" kindref="compound">Vector</ref></type>
+        <type><ref refid="structspace_1_1_point_particle_1aa4fd4a33cdacb79d0759ac2438af02c8" kindref="member">Vector</ref></type>
         <definition>Vector space::PointParticle&lt; Real &gt;::vel</definition>
         <argsstring></argsstring>
         <name>vel</name>
@@ -63,10 +63,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="60" column="12" bodyfile="particles/point-particles.hpp" bodystart="60" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="60" column="1" bodyfile="particles/point-particles.hpp" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_point_particle_1a8b240331fde57f80170f72a97427d747" prot="public" static="no" mutable="no">
-        <type>Scalar</type>
+        <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
         <definition>Scalar space::PointParticle&lt; Real &gt;::mass</definition>
         <argsstring></argsstring>
         <name>mass</name>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="62" column="12" bodyfile="particles/point-particles.hpp" bodystart="62" bodyend="-1"/>
+        <location file="particles/point-particles.hpp" line="62" column="1" bodyfile="particles/point-particles.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -86,15 +86,12 @@
         <argsstring>()=default</argsstring>
         <name>PointParticle</name>
         <briefdescription>
-<para>Construct a new Point Particle object. </para>
-        </briefdescription>
+<para>Construct a new Point Particle object. </para>        </briefdescription>
         <detaileddescription>
-<para>Default constructor. <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="32" column="9"/>
+        <location file="particles/point-particles.hpp" line="32" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1af649105460c5420b9c6d3eb49ade323d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -107,12 +104,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default copy constructor. <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default copy constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="32" column="41"/>
+        <location file="particles/point-particles.hpp" line="32" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1a99e8775d321591f19db74aa41ada8702" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -125,12 +120,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default move constructor <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default move constructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="32" column="76"/>
+        <location file="particles/point-particles.hpp" line="32" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1a9e638adc8a91703dd3ad4c88be558f0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref> &amp;</type>
@@ -143,12 +136,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default copy assignment operator <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default copy assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="32" column="126"/>
+        <location file="particles/point-particles.hpp" line="32" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1abac49aab20583ce49a7fffd4e7e2dcf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structspace_1_1_point_particle" kindref="compound">PointParticle</ref> &amp;</type>
@@ -161,12 +152,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Default move assignment operator <linebreak/>
- </para>
-        </detaileddescription>
+<para>Default move assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="32" column="172"/>
+        <location file="particles/point-particles.hpp" line="32" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1ac0f213b4f8a499cc9fe6b824b43675ad" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -174,53 +163,48 @@
         <argsstring>(Scalar mass, Vector position, Vector velocity)</argsstring>
         <name>PointParticle</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>mass</declname>
         </param>
         <param>
-          <type><ref refid="structspace_1_1_vec3" kindref="compound">Vector</ref></type>
+          <type><ref refid="structspace_1_1_point_particle_1aa4fd4a33cdacb79d0759ac2438af02c8" kindref="member">Vector</ref></type>
           <declname>position</declname>
           <defname>p</defname>
         </param>
         <param>
-          <type><ref refid="structspace_1_1_vec3" kindref="compound">Vector</ref></type>
+          <type><ref refid="structspace_1_1_point_particle_1aa4fd4a33cdacb79d0759ac2438af02c8" kindref="member">Vector</ref></type>
           <declname>velocity</declname>
           <defname>v</defname>
         </param>
         <briefdescription>
-<para>Construct a new Point Particle object. </para>
-        </briefdescription>
+<para>Construct a new Point Particle object. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mass</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The mass of the particle </para>
-</parameterdescription>
+<para>The mass of the particle </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>position</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The 3d vector position of the particle </para>
-</parameterdescription>
+<para>The 3d vector position of the particle </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>velocity</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The 3d vector velocity of the particle </para>
-</parameterdescription>
+<para>The 3d vector velocity of the particle </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="41" column="14" bodyfile="particles/point-particles.hpp" bodystart="128" bodyend="129"/>
+        <location file="particles/point-particles.hpp" line="41" column="1" bodyfile="particles/point-particles.hpp" bodystart="128" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_point_particle_1a1d59149edd7d01c13ba93b54e899bb64" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -228,105 +212,96 @@
         <argsstring>(Scalar mass, Scalar px=0, Scalar py=0, Scalar pz=0, Scalar vx=0, Scalar vy=0, Scalar vz=0)</argsstring>
         <name>PointParticle</name>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>mass</declname>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>px</declname>
           <defval>0</defval>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>py</declname>
           <defval>0</defval>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>pz</declname>
           <defval>0</defval>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>vx</declname>
           <defval>0</defval>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>vy</declname>
           <defval>0</defval>
         </param>
         <param>
-          <type>Scalar</type>
+          <type><ref refid="structspace_1_1_point_particle_1acd66a180712713bec2933cc6f3a548e1" kindref="member">Scalar</ref></type>
           <declname>vz</declname>
           <defval>0</defval>
         </param>
         <briefdescription>
-<para>Construct a new Point Particle object. </para>
-        </briefdescription>
+<para>Construct a new Point Particle object. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>mass</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The mass fof the particle </para>
-</parameterdescription>
+<para>The mass fof the particle </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>px</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The x-component of the position vector </para>
-</parameterdescription>
+<para>The x-component of the position vector </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>py</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The y-component of the position vector </para>
-</parameterdescription>
+<para>The y-component of the position vector </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pz</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The z-component of the position vector </para>
-</parameterdescription>
+<para>The z-component of the position vector </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>vx</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The x-component of the velocity vector </para>
-</parameterdescription>
+<para>The x-component of the velocity vector </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>vy</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The y-component of the velocity vector </para>
-</parameterdescription>
+<para>The y-component of the velocity vector </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>vz</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The z-component of the velocity vector </para>
-</parameterdescription>
+<para>The z-component of the velocity vector </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles/point-particles.hpp" line="54" column="14" bodyfile="particles/point-particles.hpp" bodystart="132" bodyend="133"/>
+        <location file="particles/point-particles.hpp" line="54" column="1" bodyfile="particles/point-particles.hpp" bodystart="132" bodyend="133"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -337,33 +312,65 @@
 <parametername>Real</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
-    <collaborationgraph>
-      <node id="2">
-        <label>space::Vec3&lt; Scalar &gt;</label>
-        <link refid="structspace_1_1_vec3"/>
-      </node>
-      <node id="1">
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="257">
         <label>space::PointParticle&lt; Real &gt;</label>
         <link refid="structspace_1_1_point_particle"/>
-        <childnode refid="2" relation="usage">
-          <edgelabel>vel</edgelabel>
-          <edgelabel>pos</edgelabel>
-        </childnode>
-        <childnode refid="3" relation="usage">
-          <edgelabel>mass</edgelabel>
+      </node>
+      <node id="259">
+        <label>space::SizeParticles&lt; TypeSystem &gt;::Particle</label>
+        <link refid="structspace_1_1_size_particles_1_1_particle"/>
+        <childnode refid="258" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="3">
+      <node id="258">
+        <label>space::PointParticle&lt; Scalar &gt;</label>
+        <link refid="structspace_1_1_point_particle"/>
+        <childnode refid="257" relation="template-instance">
+          <edgelabel>&lt; Scalar &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="261">
+        <label>space::Vec3&lt; Scalar &gt;</label>
+        <link refid="structspace_1_1_vec3"/>
+        <childnode refid="262" relation="template-instance">
+          <edgelabel>&lt; Scalar &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="260">
+        <label>space::PointParticle&lt; Real &gt;</label>
+        <link refid="structspace_1_1_point_particle"/>
+        <childnode refid="261" relation="usage">
+          <edgelabel>+pos</edgelabel>
+          <edgelabel>+vel</edgelabel>
+        </childnode>
+        <childnode refid="264" relation="usage">
+          <edgelabel>+mass</edgelabel>
+        </childnode>
+      </node>
+      <node id="263">
+        <label>T</label>
+      </node>
+      <node id="264">
         <label>Real</label>
       </node>
+      <node id="262">
+        <label>space::Vec3&lt; T &gt;</label>
+        <link refid="structspace_1_1_vec3"/>
+        <childnode refid="263" relation="usage">
+          <edgelabel>+x</edgelabel>
+          <edgelabel>+y</edgelabel>
+          <edgelabel>+z</edgelabel>
+        </childnode>
+      </node>
     </collaborationgraph>
-    <location file="particles/point-particles.hpp" line="21" column="22" bodyfile="particles/point-particles.hpp" bodystart="21" bodyend="63"/>
+    <location file="particles/point-particles.hpp" line="21" column="1" bodyfile="particles/point-particles.hpp" bodystart="21" bodyend="63"/>
     <listofallmembers>
       <member refid="structspace_1_1_point_particle_1a8b240331fde57f80170f72a97427d747" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>mass</name></member>
       <member refid="structspace_1_1_point_particle_1a9e638adc8a91703dd3ad4c88be558f0a" prot="public" virt="non-virtual"><scope>space::PointParticle</scope><name>operator=</name></member>

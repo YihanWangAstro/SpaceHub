@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="config-reader_8hpp" kind="file" language="C++">
     <compoundname>config-reader.hpp</compoundname>
     <includes local="no">algorithm</includes>
@@ -8,54 +8,53 @@
     <includes local="no">unordered_map</includes>
     <includes refid="dev-tools_8hpp" local="yes">../dev-tools.hpp</includes>
     <incdepgraph>
-      <node id="6">
-        <label>../dev-tools.hpp</label>
-        <link refid="dev-tools_8hpp_source"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>fstream</label>
-      </node>
-      <node id="1">
+      <node id="695">
         <label>tools/config-reader.hpp</label>
         <link refid="config-reader_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="696" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="697" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="698" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="699" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="700" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="697">
+        <label>fstream</label>
+      </node>
+      <node id="700">
+        <label>../dev-tools.hpp</label>
+        <link refid="dev-tools_8hpp"/>
+        <childnode refid="701" relation="include">
+        </childnode>
+        <childnode refid="702" relation="include">
+        </childnode>
+        <childnode refid="703" relation="include">
+        </childnode>
+      </node>
+      <node id="702">
         <label>tuple</label>
       </node>
-      <node id="9">
+      <node id="703">
         <label>array</label>
       </node>
-      <node id="4">
+      <node id="698">
         <label>sstream</label>
       </node>
-      <node id="7">
+      <node id="701">
         <label>iostream</label>
       </node>
-      <node id="5">
+      <node id="699">
         <label>unordered_map</label>
       </node>
-      <node id="2">
+      <node id="696">
         <label>algorithm</label>
       </node>
     </incdepgraph>
     <innerclass refid="classspace_1_1tools_1_1_config_reader" prot="public">space::tools::ConfigReader</innerclass>
-    <innernamespace refid="namespacespace">space</innernamespace>
     <innernamespace refid="namespacespace_1_1tools">space::tools</innernamespace>
     <briefdescription>
     </briefdescription>

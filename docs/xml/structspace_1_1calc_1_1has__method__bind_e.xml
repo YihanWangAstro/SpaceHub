@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1calc_1_1has__method__bind_e" kind="struct" language="C++" prot="public">
     <compoundname>space::calc::has_method_bindE</compoundname>
+    <includes refid="core-computation_8hpp" local="no">core-computation.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -13,30 +14,30 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1calc_1_1has__method__bind_e_1ac5a40b2eb1eaefaca716855370b2f656" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1calc_1_1has__method__bind_e_1ac5a40b2eb1eaefaca716855370b2f656" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::calc::has_method_bindE&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
         <name>value</name>
-        <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
+        <initializer>= decltype(<ref refid="structspace_1_1calc_1_1has__method__bind_e_1a04dfb054061e9c7fe9fa780b169cc8b4" kindref="member">check</ref>&lt;T&gt;(nullptr))::value</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="276" column="169" bodyfile="core-computation.hpp" bodystart="276" bodyend="-1"/>
+        <location file="core-computation.hpp" line="276" column="1" bodyfile="core-computation.hpp" bodystart="276" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__bind_e_1af7521107e6cd9bd00762ea118fa37a7b" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__bind_e_1a04dfb054061e9c7fe9fa780b169cc8b4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::calc::has_method_bindE&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::calc::has_method_bindE&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). bindE(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +49,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="276" column="75"/>
+        <location file="core-computation.hpp" line="276" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__bind_e_1abf2868b964c9daa011a687f45865764c" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__bind_e_1a2b2591de81f72ff1d168a28532689cc8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::calc::has_method_bindE&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::calc::has_method_bindE&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +70,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="276" column="137"/>
+        <location file="core-computation.hpp" line="276" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="core-computation.hpp" line="276" column="40" bodyfile="core-computation.hpp" bodystart="276" bodyend="276"/>
+    <collaborationgraph>
+      <node id="103">
+        <label>space::calc::has_method_bindE&lt; T, Args &gt;</label>
+        <link refid="structspace_1_1calc_1_1has__method__bind_e"/>
+      </node>
+    </collaborationgraph>
+    <location file="core-computation.hpp" line="276" column="1" bodyfile="core-computation.hpp" bodystart="276" bodyend="276"/>
     <listofallmembers>
-      <member refid="structspace_1_1calc_1_1has__method__bind_e_1af7521107e6cd9bd00762ea118fa37a7b" prot="public" virt="non-virtual"><scope>space::calc::has_method_bindE</scope><name>check</name></member>
-      <member refid="structspace_1_1calc_1_1has__method__bind_e_1abf2868b964c9daa011a687f45865764c" prot="public" virt="non-virtual"><scope>space::calc::has_method_bindE</scope><name>check</name></member>
+      <member refid="structspace_1_1calc_1_1has__method__bind_e_1a04dfb054061e9c7fe9fa780b169cc8b4" prot="public" virt="non-virtual"><scope>space::calc::has_method_bindE</scope><name>check</name></member>
+      <member refid="structspace_1_1calc_1_1has__method__bind_e_1a2b2591de81f72ff1d168a28532689cc8" prot="public" virt="non-virtual"><scope>space::calc::has_method_bindE</scope><name>check</name></member>
       <member refid="structspace_1_1calc_1_1has__method__bind_e_1ac5a40b2eb1eaefaca716855370b2f656" prot="public" virt="non-virtual"><scope>space::calc::has_method_bindE</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

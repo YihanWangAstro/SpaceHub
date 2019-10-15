@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1is__container__helper" kind="struct" language="C++" prot="public">
     <compoundname>space::is_container_helper</compoundname>
+    <includes refid="dev-tools_8hpp" local="no">dev-tools.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename...</type>
@@ -13,7 +14,13 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="dev-tools.hpp" line="370" column="28" bodyfile="dev-tools.hpp" bodystart="370" bodyend="371"/>
+    <collaborationgraph>
+      <node id="167">
+        <label>space::is_container_helper&lt; Ts &gt;</label>
+        <link refid="structspace_1_1is__container__helper"/>
+      </node>
+    </collaborationgraph>
+    <location file="dev-tools.hpp" line="336" column="1" bodyfile="dev-tools.hpp" bodystart="336" bodyend="337"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

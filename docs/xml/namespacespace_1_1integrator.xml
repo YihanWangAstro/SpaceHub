@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="namespacespace_1_1integrator" kind="namespace" language="C++">
     <compoundname>space::integrator</compoundname>
     <innerclass refid="classspace_1_1integrator_1_1_sym_integrator" prot="public">space::integrator::SymIntegrator</innerclass>
@@ -9,7 +9,7 @@
     <innerclass refid="classspace_1_1integrator_1_1symplectic6th" prot="public">space::integrator::symplectic6th</innerclass>
     <innerclass refid="classspace_1_1integrator_1_1symplectic8th" prot="public">space::integrator::symplectic8th</innerclass>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="namespacespace_1_1integrator_1a5d56e284f1dad79884875428d5b98bd5" prot="public" static="no" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="namespacespace_1_1integrator_1a5d56e284f1dad79884875428d5b98bd5" prot="public" static="no" mutable="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
@@ -26,14 +26,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="integrator/symplectic/symplectic-integrator.hpp" line="219" column="18" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="219" bodyend="-1"/>
+        <location file="integrator/symplectic/symplectic-integrator.hpp" line="219" column="1" bodyfile="integrator/symplectic/symplectic-integrator.hpp" bodystart="219" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Documentation for space </para>
-    </detaileddescription>
-    <location file="integrator/symplectic/symplectic-integrator.hpp" line="9" column="1"/>
+<para>Documentation for space </para>    </detaileddescription>
+    <location file="integrator/symplectic/symplectic-integrator.hpp" line="10" column="1"/>
   </compounddef>
 </doxygen>

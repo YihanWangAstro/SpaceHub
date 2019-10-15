@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['mass_445',['mass',['../classspace_1_1_particle_system.html#abecb6bc83c665d844dbd353493ca8578',1,'space::ParticleSystem::mass() noexcept'],['../classspace_1_1_particle_system.html#a6aed19be5fc9f27445ea414767e57d84',1,'space::ParticleSystem::mass() const noexcept'],['../classspace_1_1_particles.html#a1be68a05d871298fc3829457d6cf77fa',1,'space::Particles::mass() noexcept'],['../classspace_1_1_particles.html#ae0f67e101ca6099b72a198130b295400',1,'space::Particles::mass() const noexcept']]],
-  ['max_446',['max',['../namespacespace.html#a23b3a7b6bd57409f91a6cad1a9b852f4',1,'space']]],
-  ['max_5fcomponent_447',['max_component',['../structspace_1_1_vec3.html#a10f46b0edf358c9e5226c1fb4d837200',1,'space::Vec3']]],
-  ['min_448',['min',['../namespacespace.html#af82c0e7ed03d03accf59391663c1f72b',1,'space']]]
+  ['kahan',['Kahan',['../structspace_1_1_kahan.html#ab3ba063dc78de38e5d8d8e04624548f7',1,'space::Kahan::Kahan()=default'],['../structspace_1_1_kahan.html#a328f3dc3ff71f5be0443949207b77a1c',1,'space::Kahan::Kahan(T r)'],['../structspace_1_1_kahan.html#a459fc7e196eba6aff66b2c8c1d00fd77',1,'space::Kahan::Kahan(const Kahan &amp;k)']]],
+  ['karmack_5ffast_5finverse_5fsquare_5froot',['karmack_fast_inverse_square_root',['../namespacespace.html#a5ab583df5703addfa74f8fe1eab55c1b',1,'space']]],
+  ['karmack_5ffast_5finverse_5fsquare_5froot_3c_20double_20_3e',['karmack_fast_inverse_square_root&lt; double &gt;',['../namespacespace.html#a8a3fe7149ea1af4bd2f544833ed9c4c7',1,'space']]],
+  ['karmack_5ffast_5finverse_5fsquare_5froot_3c_20float_20_3e',['karmack_fast_inverse_square_root&lt; float &gt;',['../namespacespace.html#a279f21598079d1b4352976c68ab27242',1,'space']]],
+  ['kick',['kick',['../classspace_1_1_particle_system.html#a040e62f9f12ea1da654bbf3fdf4606ec',1,'space::ParticleSystem']]]
 ];

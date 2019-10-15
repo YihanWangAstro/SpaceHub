@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="auto-name_8hpp" kind="file" language="C++">
     <compoundname>auto-name.hpp</compoundname>
     <includes local="no">string</includes>
@@ -8,44 +8,43 @@
     <includes local="no">sstream</includes>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-      <node id="3">
+      <node id="690">
         <label>iomanip</label>
       </node>
-      <node id="2">
+      <node id="689">
         <label>string</label>
       </node>
-      <node id="1">
-        <label>tools/auto-name.hpp</label>
-        <link refid="auto-name_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
+      <node id="691">
         <label>ctime</label>
       </node>
-      <node id="5">
+      <node id="688">
+        <label>tools/auto-name.hpp</label>
+        <link refid="auto-name_8hpp"/>
+        <childnode refid="689" relation="include">
+        </childnode>
+        <childnode refid="690" relation="include">
+        </childnode>
+        <childnode refid="691" relation="include">
+        </childnode>
+        <childnode refid="692" relation="include">
+        </childnode>
+      </node>
+      <node id="692">
         <label>sstream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
+      <node id="694">
         <label>spaceHub.hpp</label>
-        <link refid="space_hub_8hpp_source"/>
+        <link refid="space_hub_8hpp"/>
       </node>
-      <node id="1">
+      <node id="693">
         <label>tools/auto-name.hpp</label>
         <link refid="auto-name_8hpp"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="694" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
-    <innernamespace refid="namespacespace">space</innernamespace>
     <innernamespace refid="namespacespace_1_1tools">space::tools</innernamespace>
     <briefdescription>
     </briefdescription>

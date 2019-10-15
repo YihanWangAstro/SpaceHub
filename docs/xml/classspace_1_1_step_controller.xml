@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1_step_controller" kind="class" language="C++" prot="public">
     <compoundname>space::StepController</compoundname>
     <includes refid="stepsize-controller_8hpp" local="no">stepsize-controller.hpp</includes>
@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="43" column="12" bodyfile="stepsize-controller.hpp" bodystart="43" bodyend="-1"/>
+        <location file="stepsize-controller.hpp" line="58" column="1" bodyfile="stepsize-controller.hpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -34,13 +34,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para>
-</simplesect>
-</para>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>The downcast interface of Base class to Derived class. <simplesect kind="return"><para>Derived </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="30" column="13" bodyfile="stepsize-controller.hpp" bodystart="50" bodyend="52"/>
+        <location file="stepsize-controller.hpp" line="34" column="1" bodyfile="stepsize-controller.hpp" bodystart="65" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1_step_controller_1a95ef77bd76659d4db2c6ff732672dfb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -70,10 +68,48 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold></para><para>Estimate the step size of the next step from errors in previous steps and current step size of an integration system.</para><para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Floating point like type type. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tuple/array like type. i.e <computeroutput>std::tuple</computeroutput>, <computeroutput>std::array</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">order</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Order of the integration method. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">old_step</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current step size of the integration system. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Errors of previous steps. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The estimated step size of the next step. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="34" column="12" bodyfile="stepsize-controller.hpp" bodystart="56" bodyend="58"/>
+        <location file="stepsize-controller.hpp" line="50" column="1" bodyfile="stepsize-controller.hpp" bodystart="71" bodyend="73"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -83,30 +119,52 @@
         <argsstring>()=default</argsstring>
         <name>StepController</name>
         <briefdescription>
-<para>Construct a new <ref refid="classspace_1_1_step_controller" kindref="compound">StepController</ref> object. </para>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Construct a new <ref refid="classspace_1_1_step_controller" kindref="compound">StepController</ref> object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="41" column="5"/>
+        <location file="stepsize-controller.hpp" line="56" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><parameterlist kind="templateparam"><parameteritem>
+<para>Abstract class of step size controller. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <computeroutput><ref refid="classspace_1_1_step_controller" kindref="compound">StepController</ref></computeroutput>. The step size controller provides the interface to estimate the next step size with current step size and errors in previous steps.</para><para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
 <parametername>Derived</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para>The implement class in CRTP idiom. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
-    <location file="stepsize-controller.hpp" line="22" column="23" bodyfile="stepsize-controller.hpp" bodystart="22" bodyend="44"/>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="322">
+        <label>space::StepController&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_step_controller"/>
+      </node>
+      <node id="323">
+        <label>space::StepController&lt; PIDController&lt; Max_order, T &gt; &gt;</label>
+        <link refid="classspace_1_1_step_controller"/>
+        <childnode refid="322" relation="template-instance">
+          <edgelabel>&lt; PIDController&lt; Max_order, T &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="324">
+        <label>space::PIDController&lt; Max_order, T &gt;</label>
+        <link refid="classspace_1_1_p_i_d_controller"/>
+        <childnode refid="323" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="325">
+        <label>space::StepController&lt; Derived &gt;</label>
+        <link refid="classspace_1_1_step_controller"/>
+      </node>
+    </collaborationgraph>
+    <location file="stepsize-controller.hpp" line="24" column="1" bodyfile="stepsize-controller.hpp" bodystart="24" bodyend="59"/>
     <listofallmembers>
       <member refid="classspace_1_1_step_controller_1abacc71e672169245708e3915471ef035" prot="private" virt="non-virtual"><scope>space::StepController</scope><name>Derived</name></member>
       <member refid="classspace_1_1_step_controller_1a1d227d201a424a7a7b118e25b693c046" prot="public" virt="non-virtual"><scope>space::StepController</scope><name>derived</name></member>

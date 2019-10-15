@@ -18,8 +18,9 @@ ALIASES += \
     "glabel{1}=@m_class{m-label m-success} **\1**"\
     "ylabel{1}=@m_class{m-label m-warning} **\1**"\
     "rlabel{1}=@m_class{m-label m-danger} **\1**"\
-    "must_impl=@m_class{m-label m-flat m-danger} **must impl**"\
-    "opt_impl{1}=@m_class{m-label m-flat m-warning} **optional impl** `> \1 `"\
-    "auto_impl=@m_class{m-label m-flat m-success} **auto impl**"\
+    "must_impl=@m_class{m-label m-flat m-danger} **must impl**" \
+    "opt_impl{1}=@m_class{m-label m-flat m-warning} **optional impl** `> \1 `" \
+    "auto_impl=@m_class{m-label m-flat m-success} **auto impl** " \
+    "impl{1,2}=@m_class{m-label m-flat m-success} **implementation** of \2 in \1" \
 
 

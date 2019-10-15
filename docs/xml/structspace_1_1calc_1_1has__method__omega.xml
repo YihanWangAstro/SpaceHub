@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1calc_1_1has__method__omega" kind="struct" language="C++" prot="public">
     <compoundname>space::calc::has_method_omega</compoundname>
+    <includes refid="core-computation_8hpp" local="no">core-computation.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -13,30 +14,30 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1calc_1_1has__method__omega_1a90dd8bf394204370ec3585c24a9f4867" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1calc_1_1has__method__omega_1a90dd8bf394204370ec3585c24a9f4867" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::calc::has_method_omega&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
         <name>value</name>
-        <initializer>= decltype(check&lt;T&gt;(nullptr))::value</initializer>
+        <initializer>= decltype(<ref refid="structspace_1_1calc_1_1has__method__omega_1a259363253648c0627dc4663d64f09809" kindref="member">check</ref>&lt;T&gt;(nullptr))::value</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="274" column="169" bodyfile="core-computation.hpp" bodystart="274" bodyend="-1"/>
+        <location file="core-computation.hpp" line="274" column="1" bodyfile="core-computation.hpp" bodystart="274" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__omega_1a49057ef03bf0abc6e5f4ae86262dd69f" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__omega_1a259363253648c0627dc4663d64f09809" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::calc::has_method_omega&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::calc::has_method_omega&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). omega(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +49,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="274" column="75"/>
+        <location file="core-computation.hpp" line="274" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__omega_1a4fef1d71fa4a1f87cac375723e32d877" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1calc_1_1has__method__omega_1aa51031e051cec699092bb093534b2bc7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::calc::has_method_omega&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::calc::has_method_omega&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +70,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="core-computation.hpp" line="274" column="137"/>
+        <location file="core-computation.hpp" line="274" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="core-computation.hpp" line="274" column="40" bodyfile="core-computation.hpp" bodystart="274" bodyend="274"/>
+    <collaborationgraph>
+      <node id="129">
+        <label>space::calc::has_method_omega&lt; T, Args &gt;</label>
+        <link refid="structspace_1_1calc_1_1has__method__omega"/>
+      </node>
+    </collaborationgraph>
+    <location file="core-computation.hpp" line="274" column="1" bodyfile="core-computation.hpp" bodystart="274" bodyend="274"/>
     <listofallmembers>
-      <member refid="structspace_1_1calc_1_1has__method__omega_1a49057ef03bf0abc6e5f4ae86262dd69f" prot="public" virt="non-virtual"><scope>space::calc::has_method_omega</scope><name>check</name></member>
-      <member refid="structspace_1_1calc_1_1has__method__omega_1a4fef1d71fa4a1f87cac375723e32d877" prot="public" virt="non-virtual"><scope>space::calc::has_method_omega</scope><name>check</name></member>
+      <member refid="structspace_1_1calc_1_1has__method__omega_1a259363253648c0627dc4663d64f09809" prot="public" virt="non-virtual"><scope>space::calc::has_method_omega</scope><name>check</name></member>
+      <member refid="structspace_1_1calc_1_1has__method__omega_1aa51031e051cec699092bb093534b2bc7" prot="public" virt="non-virtual"><scope>space::calc::has_method_omega</scope><name>check</name></member>
       <member refid="structspace_1_1calc_1_1has__method__omega_1a90dd8bf394204370ec3585c24a9f4867" prot="public" virt="non-virtual"><scope>space::calc::has_method_omega</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1args_opt_1_1_time_slice" kind="class" language="C++" prot="public">
     <compoundname>space::argsOpt::TimeSlice</compoundname>
     <includes refid="callbacks_8hpp" local="no">callbacks.hpp</includes>
@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="54" column="15" bodyfile="args-callback/callbacks.hpp" bodystart="54" bodyend="-1"/>
+        <location file="args-callback/callbacks.hpp" line="54" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1args_opt_1_1_time_slice_1a573dbef65ec53a3f07fb38efccb9cd56" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="55" column="12" bodyfile="args-callback/callbacks.hpp" bodystart="55" bodyend="-1"/>
+        <location file="args-callback/callbacks.hpp" line="55" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1args_opt_1_1_time_slice_1a916cf4c207c9b62ebda4c2272c4e0612" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="56" column="12" bodyfile="args-callback/callbacks.hpp" bodystart="56" bodyend="-1"/>
+        <location file="args-callback/callbacks.hpp" line="56" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1args_opt_1_1_time_slice_1a6adb12f71d5f846684b6851cfec35358" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="57" column="12" bodyfile="args-callback/callbacks.hpp" bodystart="57" bodyend="-1"/>
+        <location file="args-callback/callbacks.hpp" line="57" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="24" column="5" bodyfile="args-callback/callbacks.hpp" bodystart="24" bodyend="28"/>
+        <location file="args-callback/callbacks.hpp" line="24" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="24" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1ac4c2dbc1b5857663630cef3437d35de4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -116,9 +116,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="31" column="17" bodyfile="args-callback/callbacks.hpp" bodystart="31" bodyend="37"/>
+        <location file="args-callback/callbacks.hpp" line="31" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="31" bodyend="37"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1aaebb33cb2e82aba0e69c1cbe81757389" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1aaebb33cb2e82aba0e69c1cbe81757389" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>space::argsOpt::TimeSlice&lt; Operation &gt;::TimeSlice</definition>
         <argsstring>(TimeSlice &amp;&amp;other) noexcept=default</argsstring>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="39" column="5"/>
+        <location file="args-callback/callbacks.hpp" line="39" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1ae9b255ac7eadfa4c0d8ecfbb8c01f711" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="41" column="5"/>
+        <location file="args-callback/callbacks.hpp" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1abc39e8f55a5a2169c2463b1932b9fa25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1args_opt_1_1_time_slice" kindref="compound">TimeSlice</ref> &amp;</type>
@@ -166,9 +166,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="43" column="15"/>
+        <location file="args-callback/callbacks.hpp" line="43" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1ad80e06a6f76553570cfbc8cb9c65d263" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1ad80e06a6f76553570cfbc8cb9c65d263" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1args_opt_1_1_time_slice" kindref="compound">TimeSlice</ref> &amp;</type>
         <definition>TimeSlice&amp; space::argsOpt::TimeSlice&lt; Operation &gt;::operator=</definition>
         <argsstring>(TimeSlice &amp;&amp;) noexcept=default</argsstring>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="45" column="15"/>
+        <location file="args-callback/callbacks.hpp" line="45" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1args_opt_1_1_time_slice_1aeae4aaab00616cdd198348ffa1252378" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -208,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="args-callback/callbacks.hpp" line="47" column="10" bodyfile="args-callback/callbacks.hpp" bodystart="47" bodyend="51"/>
+        <location file="args-callback/callbacks.hpp" line="47" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="47" bodyend="51"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -219,13 +219,17 @@
 <parametername>Operation</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-    </detaileddescription>
-    <location file="args-callback/callbacks.hpp" line="22" column="18" bodyfile="args-callback/callbacks.hpp" bodystart="22" bodyend="58"/>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="381">
+        <label>space::argsOpt::TimeSlice&lt; Operation &gt;</label>
+        <link refid="classspace_1_1args_opt_1_1_time_slice"/>
+      </node>
+    </collaborationgraph>
+    <location file="args-callback/callbacks.hpp" line="22" column="1" bodyfile="args-callback/callbacks.hpp" bodystart="22" bodyend="58"/>
     <listofallmembers>
       <member refid="classspace_1_1args_opt_1_1_time_slice_1a916cf4c207c9b62ebda4c2272c4e0612" prot="private" virt="non-virtual"><scope>space::argsOpt::TimeSlice</scope><name>end_time_</name></member>
       <member refid="classspace_1_1args_opt_1_1_time_slice_1ac4c2dbc1b5857663630cef3437d35de4" prot="public" virt="non-virtual"><scope>space::argsOpt::TimeSlice</scope><name>operator()</name></member>

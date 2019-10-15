@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1_vec3" kind="struct" language="C++" prot="public">
     <compoundname>space::Vec3</compoundname>
     <includes refid="vector3_8h" local="no">vector3.h</includes>
@@ -22,12 +22,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="15" column="5" bodyfile="vector/vector3.h" bodystart="15" bodyend="-1"/>
+        <location file="vector/vector3.h" line="15" column="1" bodyfile="vector/vector3.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structspace_1_1_vec3_1a6d6c4c97cc18849edf19eb8daba16880" prot="public" static="no" mutable="no">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::x</definition>
         <argsstring></argsstring>
         <name>x</name>
@@ -35,14 +35,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>x component. </para>
-        </detaileddescription>
+<para>x component. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="21" column="16" bodyfile="vector/vector3.h" bodystart="21" bodyend="-1"/>
+        <location file="vector/vector3.h" line="21" column="1" bodyfile="vector/vector3.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_vec3_1a76efe024b049c2421f570b34fd8f2cc1" prot="public" static="no" mutable="no">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::y</definition>
         <argsstring></argsstring>
         <name>y</name>
@@ -50,14 +49,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>y component. </para>
-        </detaileddescription>
+<para>y component. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="25" column="16" bodyfile="vector/vector3.h" bodystart="25" bodyend="-1"/>
+        <location file="vector/vector3.h" line="25" column="1" bodyfile="vector/vector3.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_vec3_1a6255056eeef7277f8eb91017ca133583" prot="public" static="no" mutable="no">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::z</definition>
         <argsstring></argsstring>
         <name>z</name>
@@ -65,11 +63,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>z component. </para>
-        </detaileddescription>
+<para>z component. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="30" column="16" bodyfile="vector/vector3.h" bodystart="30" bodyend="-1"/>
+        <location file="vector/vector3.h" line="30" column="1" bodyfile="vector/vector3.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -102,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="32" column="5"/>
+        <location file="vector/vector3.h" line="32" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1ac1652482d342e5b46428a9511c0ea50c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -110,7 +107,7 @@
         <argsstring>(value_type s)</argsstring>
         <name>Vec3</name>
         <param>
-          <type>value_type</type>
+          <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -121,15 +118,13 @@
 <parametername direction="in">s</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>single scalar. </para>
-</parameterdescription>
+<para>single scalar. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="38" column="14" bodyfile="vector/vector3.h" bodystart="38" bodyend="38"/>
+        <location file="vector/vector3.h" line="38" column="1" bodyfile="vector/vector3.h" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a3dd56dca767af34c18158657fdd18d3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -137,51 +132,46 @@
         <argsstring>(value_type vx, value_type vy, value_type vz)</argsstring>
         <name>Vec3</name>
         <param>
-          <type>value_type</type>
+          <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>vx</declname>
         </param>
         <param>
-          <type>value_type</type>
+          <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>vy</declname>
         </param>
         <param>
-          <type>value_type</type>
+          <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>vz</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Create a vector from 3 scalar.</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Create a vector from 3 scalar.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername direction="in">vx</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>x component. </para>
-</parameterdescription>
+<para>x component. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername direction="in">vy</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>y component. </para>
-</parameterdescription>
+<para>y component. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername direction="in">vz</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>z component. </para>
-</parameterdescription>
+<para>z component. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>
-        </detaileddescription>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="47" column="5" bodyfile="vector/vector3.h" bodystart="47" bodyend="47"/>
+        <location file="vector/vector3.h" line="47" column="1" bodyfile="vector/vector3.h" bodystart="47" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1ab5a76efdecb18a6adae7a24bbf110eb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -195,11 +185,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Addition by wise </para>
-        </detaileddescription>
+<para>Addition by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="50" column="17" bodyfile="vector/vector3.h" bodystart="50" bodyend="50"/>
+        <location file="vector/vector3.h" line="50" column="1" bodyfile="vector/vector3.h" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1aec692d7885c8f31277ad56ab813dfbc5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -213,11 +202,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Subtraction by wise </para>
-        </detaileddescription>
+<para>Subtraction by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="53" column="17" bodyfile="vector/vector3.h" bodystart="53" bodyend="53"/>
+        <location file="vector/vector3.h" line="53" column="1" bodyfile="vector/vector3.h" bodystart="53" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a93535ab0834671708426f40bc2539725" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -231,11 +219,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Product by wise </para>
-        </detaileddescription>
+<para>Product by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="56" column="17" bodyfile="vector/vector3.h" bodystart="56" bodyend="56"/>
+        <location file="vector/vector3.h" line="56" column="1" bodyfile="vector/vector3.h" bodystart="56" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a9ce129bff290eec2c0ce5654aefc705c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -249,11 +236,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Divition by wise </para>
-        </detaileddescription>
+<para>Divition by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="59" column="17" bodyfile="vector/vector3.h" bodystart="59" bodyend="59"/>
+        <location file="vector/vector3.h" line="59" column="1" bodyfile="vector/vector3.h" bodystart="59" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a288d66bdf0f1387668b8bb03c4c70d07" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -261,17 +247,16 @@
         <argsstring>(const value_type c) const</argsstring>
         <name>operator+</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Add scalar by wise </para>
-        </detaileddescription>
+<para>Add scalar by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="62" column="17" bodyfile="vector/vector3.h" bodystart="62" bodyend="62"/>
+        <location file="vector/vector3.h" line="62" column="1" bodyfile="vector/vector3.h" bodystart="62" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a9956167f3c4490a29430847fb53053ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -279,17 +264,16 @@
         <argsstring>(const value_type c) const</argsstring>
         <name>operator-</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Subtract scalar by wise </para>
-        </detaileddescription>
+<para>Subtract scalar by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="65" column="17" bodyfile="vector/vector3.h" bodystart="65" bodyend="65"/>
+        <location file="vector/vector3.h" line="65" column="1" bodyfile="vector/vector3.h" bodystart="65" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a892f3219c463b6c23a48effa688c0150" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -297,17 +281,16 @@
         <argsstring>(const value_type c) const</argsstring>
         <name>operator*</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Multiply scalar by wise </para>
-        </detaileddescription>
+<para>Multiply scalar by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="68" column="17" bodyfile="vector/vector3.h" bodystart="68" bodyend="68"/>
+        <location file="vector/vector3.h" line="68" column="1" bodyfile="vector/vector3.h" bodystart="68" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1aef574070c1be0db8e0c87b3e5d2f558e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -315,17 +298,16 @@
         <argsstring>(const value_type c) const</argsstring>
         <name>operator/</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Divide scalar by wise </para>
-        </detaileddescription>
+<para>Divide scalar by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="71" column="17" bodyfile="vector/vector3.h" bodystart="71" bodyend="71"/>
+        <location file="vector/vector3.h" line="71" column="1" bodyfile="vector/vector3.h" bodystart="71" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1ae3bbf760d37476f20acc676b3d0342ef" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -335,11 +317,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Opposite vector </para>
-        </detaileddescription>
+<para>Opposite vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="74" column="17" bodyfile="vector/vector3.h" bodystart="74" bodyend="74"/>
+        <location file="vector/vector3.h" line="74" column="1" bodyfile="vector/vector3.h" bodystart="74" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1acdb0073664210d36a69df4ea851ed023" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -349,11 +330,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Absolute value by wise </para>
-        </detaileddescription>
+<para>Absolute value by wise </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="77" column="17" bodyfile="vector/vector3.h" bodystart="77" bodyend="77"/>
+        <location file="vector/vector3.h" line="77" column="1" bodyfile="vector/vector3.h" bodystart="77" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1ace56a1a857a8ff587ee821c73408bd43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -367,11 +347,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Addition assignment for vector </para>
-        </detaileddescription>
+<para>Addition assignment for vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="80" column="23" bodyfile="vector/vector3.h" bodystart="80" bodyend="83"/>
+        <location file="vector/vector3.h" line="80" column="1" bodyfile="vector/vector3.h" bodystart="80" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a86776e38f0b42ee7abeb1158a85cfe69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -385,11 +364,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Subtraction assignment for vector </para>
-        </detaileddescription>
+<para>Subtraction assignment for vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="85" column="23" bodyfile="vector/vector3.h" bodystart="85" bodyend="88"/>
+        <location file="vector/vector3.h" line="85" column="1" bodyfile="vector/vector3.h" bodystart="85" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a9cf8001d77fcb599db14df7585edd9f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -403,11 +381,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Multiple assignment for vector </para>
-        </detaileddescription>
+<para>Multiple assignment for vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="90" column="23" bodyfile="vector/vector3.h" bodystart="90" bodyend="93"/>
+        <location file="vector/vector3.h" line="90" column="1" bodyfile="vector/vector3.h" bodystart="90" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a8187d5f047c7c111daef43b0a58d45d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -421,11 +398,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Division assignment for vector </para>
-        </detaileddescription>
+<para>Division assignment for vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="95" column="23" bodyfile="vector/vector3.h" bodystart="95" bodyend="98"/>
+        <location file="vector/vector3.h" line="95" column="1" bodyfile="vector/vector3.h" bodystart="95" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1ac2c753320f34325af4361c11402fa8bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -433,17 +409,16 @@
         <argsstring>(const value_type c)</argsstring>
         <name>operator+=</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Addition assignment for scalar </para>
-        </detaileddescription>
+<para>Addition assignment for scalar </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="100" column="23" bodyfile="vector/vector3.h" bodystart="100" bodyend="103"/>
+        <location file="vector/vector3.h" line="100" column="1" bodyfile="vector/vector3.h" bodystart="100" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1addd08416db87fabba98eb525968ac073" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -451,17 +426,16 @@
         <argsstring>(const value_type c)</argsstring>
         <name>operator-=</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Subtraction assignment for scalar </para>
-        </detaileddescription>
+<para>Subtraction assignment for scalar </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="105" column="23" bodyfile="vector/vector3.h" bodystart="105" bodyend="108"/>
+        <location file="vector/vector3.h" line="105" column="1" bodyfile="vector/vector3.h" bodystart="105" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a8b351f2bfe43e0dfd5d2a0d7f5bfb8db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -469,17 +443,16 @@
         <argsstring>(const value_type c)</argsstring>
         <name>operator*=</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Multiple assignment for scalar </para>
-        </detaileddescription>
+<para>Multiple assignment for scalar </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="110" column="23" bodyfile="vector/vector3.h" bodystart="110" bodyend="113"/>
+        <location file="vector/vector3.h" line="110" column="1" bodyfile="vector/vector3.h" bodystart="110" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a7046f4257cf0a029455c130612e132f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -487,17 +460,16 @@
         <argsstring>(const value_type c)</argsstring>
         <name>operator/=</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Division assignment for scalar </para>
-        </detaileddescription>
+<para>Division assignment for scalar </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="115" column="23" bodyfile="vector/vector3.h" bodystart="115" bodyend="118"/>
+        <location file="vector/vector3.h" line="115" column="1" bodyfile="vector/vector3.h" bodystart="115" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1af48a24fadea92b1f1ae73a15e63a3dcf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
@@ -505,73 +477,68 @@
         <argsstring>(const value_type s)</argsstring>
         <name>operator=</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>s</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Assignment operator for scalar </para>
-        </detaileddescription>
+<para>Assignment operator for scalar </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="120" column="17" bodyfile="vector/vector3.h" bodystart="120" bodyend="123"/>
+        <location file="vector/vector3.h" line="120" column="1" bodyfile="vector/vector3.h" bodystart="120" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a69d1115b0654ab307c3277ddf766282d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::norm</definition>
         <argsstring>() const</argsstring>
         <name>norm</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the length of the vector </para>
-        </detaileddescription>
+<para>Calculate the length of the vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="126" column="23" bodyfile="vector/vector3.h" bodystart="126" bodyend="126"/>
+        <location file="vector/vector3.h" line="126" column="1" bodyfile="vector/vector3.h" bodystart="126" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1af7d2b77f54d5cd2bcb634eb284c5e047" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::norm2</definition>
         <argsstring>() const</argsstring>
         <name>norm2</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the length squre of the vector </para>
-        </detaileddescription>
+<para>Calculate the length squre of the vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="129" column="23" bodyfile="vector/vector3.h" bodystart="129" bodyend="129"/>
+        <location file="vector/vector3.h" line="129" column="1" bodyfile="vector/vector3.h" bodystart="129" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a10f46b0edf358c9e5226c1fb4d837200" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::max_component</definition>
         <argsstring>() const</argsstring>
         <name>max_component</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Find the max component of a vector </para>
-        </detaileddescription>
+<para>Find the max component of a vector </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="132" column="23" bodyfile="vector/vector3.h" bodystart="132" bodyend="135"/>
+        <location file="vector/vector3.h" line="132" column="1" bodyfile="vector/vector3.h" bodystart="132" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_vec3_1a1d2b0550efdf32220a052211394b48f6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>value_type</type>
+        <type><ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
         <definition>value_type space::Vec3&lt; T &gt;::re_norm</definition>
         <argsstring>() const</argsstring>
         <name>re_norm</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the inverse of the vector length </para>
-        </detaileddescription>
+<para>Calculate the inverse of the vector length </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="138" column="23" bodyfile="vector/vector3.h" bodystart="138" bodyend="138"/>
+        <location file="vector/vector3.h" line="138" column="1" bodyfile="vector/vector3.h" bodystart="138" bodyend="138"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -581,7 +548,7 @@
         <argsstring>(const value_type c, const Vec3 &amp;v)</argsstring>
         <name>operator+</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <param>
@@ -591,11 +558,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>operator+ for left scalar operation </para>
-        </detaileddescription>
+<para>operator+ for left scalar operation </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="141" column="17" bodyfile="vector/vector3.h" bodystart="141" bodyend="141"/>
+        <location file="vector/vector3.h" line="141" column="1" bodyfile="vector/vector3.h" bodystart="141" bodyend="141"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_vec3_1a9ca5385d84264a3a33798fc2730b229d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -603,7 +569,7 @@
         <argsstring>(const value_type c, const Vec3 &amp;v)</argsstring>
         <name>operator-</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <param>
@@ -613,11 +579,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>operator- for left scalar operation </para>
-        </detaileddescription>
+<para>operator- for left scalar operation </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="144" column="17" bodyfile="vector/vector3.h" bodystart="144" bodyend="144"/>
+        <location file="vector/vector3.h" line="144" column="1" bodyfile="vector/vector3.h" bodystart="144" bodyend="144"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_vec3_1a9d80600cbc524ebacf7b91444bc2ab09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -625,7 +590,7 @@
         <argsstring>(const value_type c, const Vec3 &amp;v)</argsstring>
         <name>operator*</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <param>
@@ -635,11 +600,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>operator* for left scalar operation </para>
-        </detaileddescription>
+<para>operator* for left scalar operation </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="147" column="17" bodyfile="vector/vector3.h" bodystart="147" bodyend="147"/>
+        <location file="vector/vector3.h" line="147" column="1" bodyfile="vector/vector3.h" bodystart="147" bodyend="147"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_vec3_1a84a76da624a5240998fd8b09290d162d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -647,7 +611,7 @@
         <argsstring>(const value_type c, const Vec3 &amp;v)</argsstring>
         <name>operator/</name>
         <param>
-          <type>const value_type</type>
+          <type>const <ref refid="structspace_1_1_vec3_1aac1339d64f1c4754765b1fd0fb9f89a1" kindref="member">value_type</ref></type>
           <declname>c</declname>
         </param>
         <param>
@@ -657,11 +621,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>operator/ for left scalar operation </para>
-        </detaileddescription>
+<para>operator/ for left scalar operation </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="150" column="17" bodyfile="vector/vector3.h" bodystart="150" bodyend="150"/>
+        <location file="vector/vector3.h" line="150" column="1" bodyfile="vector/vector3.h" bodystart="150" bodyend="150"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_vec3_1a46215beb5e7387eeb465edbbdaf7dccf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend std::ostream &amp;</type>
@@ -679,11 +642,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>output stream </para>
-        </detaileddescription>
+<para>output stream </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="153" column="12" bodyfile="vector/vector3.h" bodystart="153" bodyend="156"/>
+        <location file="vector/vector3.h" line="153" column="1" bodyfile="vector/vector3.h" bodystart="153" bodyend="156"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_vec3_1add63778c3d77375a67809c8265513bea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend std::istream &amp;</type>
@@ -701,33 +663,44 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>input stream </para>
-        </detaileddescription>
+<para>input stream </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vector/vector3.h" line="159" column="25" bodyfile="vector/vector3.h" bodystart="159" bodyend="162"/>
+        <location file="vector/vector3.h" line="159" column="1" bodyfile="vector/vector3.h" bodystart="159" bodyend="162"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Generic 3-d vector (x,y,z) with Scalar x, y, z. </para>
-    </detaileddescription>
-    <collaborationgraph>
-      <node id="2">
-        <label>T</label>
+<para>Generic 3-d vector (x,y,z) with Scalar x, y, z. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="393">
+        <label>space::Vec3&lt; Scalar &gt;</label>
+        <link refid="structspace_1_1_vec3"/>
+        <childnode refid="392" relation="template-instance">
+          <edgelabel>&lt; Scalar &gt;</edgelabel>
+        </childnode>
       </node>
-      <node id="1">
+      <node id="392">
         <label>space::Vec3&lt; T &gt;</label>
         <link refid="structspace_1_1_vec3"/>
-        <childnode refid="2" relation="usage">
-          <edgelabel>x</edgelabel>
-          <edgelabel>y</edgelabel>
-          <edgelabel>z</edgelabel>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="395">
+        <label>T</label>
+      </node>
+      <node id="394">
+        <label>space::Vec3&lt; T &gt;</label>
+        <link refid="structspace_1_1_vec3"/>
+        <childnode refid="395" relation="usage">
+          <edgelabel>+x</edgelabel>
+          <edgelabel>+y</edgelabel>
+          <edgelabel>+z</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="vector/vector3.h" line="12" column="13" bodyfile="vector/vector3.h" bodystart="12" bodyend="163"/>
+    <location file="vector/vector3.h" line="12" column="1" bodyfile="vector/vector3.h" bodystart="12" bodyend="163"/>
     <listofallmembers>
       <member refid="structspace_1_1_vec3_1acdb0073664210d36a69df4ea851ed023" prot="public" virt="non-virtual"><scope>space::Vec3</scope><name>abs</name></member>
       <member refid="structspace_1_1_vec3_1a10f46b0edf358c9e5226c1fb4d837200" prot="public" virt="non-virtual"><scope>space::Vec3</scope><name>max_component</name></member>

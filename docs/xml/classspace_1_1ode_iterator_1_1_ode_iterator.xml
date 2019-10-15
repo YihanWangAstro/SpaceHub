@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1ode_iterator_1_1_ode_iterator" kind="class" language="C++" prot="public">
     <compoundname>space::odeIterator::OdeIterator</compoundname>
+    <includes refid="ode-iterator_8hpp" local="no">ode-iterator.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename</type>
@@ -21,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="37" column="12" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="37" bodyend="-1"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="37" column="1" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="37" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -49,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="25" column="10" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="45" bodyend="48"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="25" column="1" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_ode_iterator_1aa9481da6ee6d141407470f53be24e10d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -71,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="28" column="10"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="28" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_ode_iterator_1abb6991b00bf41b2f37a7516cb3da7af5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -93,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="31" column="10"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="31" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_ode_iterator_1a873d6066bec6938b499b396f7df08b7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -115,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="52" column="20" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="52" bodyend="54"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="52" column="1" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="52" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode_iterator_1_1_ode_iterator_1ace1ee0d8fd523857e850afbcfa97d84f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -137,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="58" column="20" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="58" bodyend="60"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="58" column="1" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="58" bodyend="60"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -152,14 +153,74 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ode-iterator/ode-iterator.hpp" line="35" column="5"/>
+        <location file="ode-iterator/ode-iterator.hpp" line="35" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="ode-iterator/ode-iterator.hpp" line="21" column="20" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="21" bodyend="38"/>
+    <inheritancegraph>
+      <node id="218">
+        <label>space::odeIterator::ConstOdeIterator&lt; Integrator &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_const_ode_iterator"/>
+        <childnode refid="217" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="211">
+        <label>space::odeIterator::OdeIterator&lt; Derived &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+      </node>
+      <node id="212">
+        <label>space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+        <childnode refid="211" relation="template-instance">
+          <edgelabel>&lt; BurlishStoer&lt; Real, ErrChecker, StepControl &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="213">
+        <label>space::odeIterator::BurlishStoer&lt; Real &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_burlish_stoer"/>
+        <childnode refid="212" relation="public-inheritance">
+        </childnode>
+        <childnode refid="214" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="215">
+        <label>space::odeIterator::OdeIterator&lt; BSIterator&lt; Real &gt; &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+        <childnode refid="211" relation="template-instance">
+          <edgelabel>&lt; BSIterator&lt; Real &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="217">
+        <label>space::odeIterator::OdeIterator&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+        <childnode refid="211" relation="template-instance">
+          <edgelabel>&lt; ConstOdeIterator&lt; Integrator &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="214">
+        <label>space::odeIterator::OdeIterator&lt; BurlishStoer&lt; Real &gt; &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+        <childnode refid="211" relation="template-instance">
+          <edgelabel>&lt; BurlishStoer&lt; Real &gt; &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="216">
+        <label>space::odeIterator::BSIterator&lt; Real &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_b_s_iterator"/>
+        <childnode refid="215" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="219">
+        <label>space::odeIterator::OdeIterator&lt; Derived &gt;</label>
+        <link refid="classspace_1_1ode_iterator_1_1_ode_iterator"/>
+      </node>
+    </collaborationgraph>
+    <location file="ode-iterator/ode-iterator.hpp" line="21" column="1" bodyfile="ode-iterator/ode-iterator.hpp" bodystart="21" bodyend="38"/>
     <listofallmembers>
       <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a8a2c5e912635aa3f651e7136180bc394" prot="private" virt="non-virtual"><scope>space::odeIterator::OdeIterator</scope><name>Derived</name></member>
       <member refid="classspace_1_1ode_iterator_1_1_ode_iterator_1a415466d750c7405d63b72089535a2520" prot="public" virt="non-virtual"><scope>space::odeIterator::OdeIterator</scope><name>iterate</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1_kahan" kind="struct" language="C++" prot="public">
     <compoundname>space::Kahan</compoundname>
     <includes refid="kahan-number_8hpp" local="no">kahan-number.hpp</includes>
@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="17" column="5" bodyfile="kahan-number.hpp" bodystart="17" bodyend="-1"/>
+        <location file="kahan-number.hpp" line="17" column="1" bodyfile="kahan-number.hpp" bodystart="17" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="19" column="7" bodyfile="kahan-number.hpp" bodystart="19" bodyend="-1"/>
+        <location file="kahan-number.hpp" line="19" column="1" bodyfile="kahan-number.hpp" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structspace_1_1_kahan_1aee92462f32c8f2e5809ba16348d13fc9" prot="public" static="no" mutable="no">
         <type>T</type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="19" column="12" bodyfile="kahan-number.hpp" bodystart="19" bodyend="-1"/>
+        <location file="kahan-number.hpp" line="19" column="1" bodyfile="kahan-number.hpp" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="21" column="5"/>
+        <location file="kahan-number.hpp" line="21" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_kahan_1a328f3dc3ff71f5be0443949207b77a1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="23" column="5" bodyfile="kahan-number.hpp" bodystart="23" bodyend="23"/>
+        <location file="kahan-number.hpp" line="23" column="1" bodyfile="kahan-number.hpp" bodystart="23" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_kahan_1a459fc7e196eba6aff66b2c8c1d00fd77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="25" column="5" bodyfile="kahan-number.hpp" bodystart="25" bodyend="25"/>
+        <location file="kahan-number.hpp" line="25" column="1" bodyfile="kahan-number.hpp" bodystart="25" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_kahan_1ae64ef997d272e3fd7fc0054c2e9019f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> &amp;</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="27" column="18" bodyfile="kahan-number.hpp" bodystart="27" bodyend="30"/>
+        <location file="kahan-number.hpp" line="27" column="1" bodyfile="kahan-number.hpp" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_kahan_1add0630c162e7c1d5976d989c4b6b6090" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="32" column="12" bodyfile="kahan-number.hpp" bodystart="32" bodyend="32"/>
+        <location file="kahan-number.hpp" line="32" column="1" bodyfile="kahan-number.hpp" bodystart="32" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_kahan_1a6abfdf394b576a4d03fa0d6e31f746b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="34" column="12" bodyfile="kahan-number.hpp" bodystart="34" bodyend="34"/>
+        <location file="kahan-number.hpp" line="34" column="1" bodyfile="kahan-number.hpp" bodystart="34" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1_kahan_1afe17ba875e782d46327b8a3cc2bf6ee8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="36" column="17" bodyfile="kahan-number.hpp" bodystart="36" bodyend="36"/>
+        <location file="kahan-number.hpp" line="36" column="1" bodyfile="kahan-number.hpp" bodystart="36" bodyend="36"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="38" column="25" bodyfile="kahan-number.hpp" bodystart="38" bodyend="38"/>
+        <location file="kahan-number.hpp" line="38" column="1" bodyfile="kahan-number.hpp" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_kahan_1a9d45869504dd4bd5f5523157f8f9c67e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> &amp;</type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="40" column="25" bodyfile="kahan-number.hpp" bodystart="40" bodyend="51"/>
+        <location file="kahan-number.hpp" line="40" column="1" bodyfile="kahan-number.hpp" bodystart="40" bodyend="51"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_kahan_1ab4c370bcb1c296cbb649a4095b09d913" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> &amp;</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="53" column="25" bodyfile="kahan-number.hpp" bodystart="53" bodyend="64"/>
+        <location file="kahan-number.hpp" line="53" column="1" bodyfile="kahan-number.hpp" bodystart="53" bodyend="64"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_kahan_1a5759f7653b5003e23ee886ab7d902990" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> &amp;</type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="66" column="25" bodyfile="kahan-number.hpp" bodystart="66" bodyend="69"/>
+        <location file="kahan-number.hpp" line="66" column="1" bodyfile="kahan-number.hpp" bodystart="66" bodyend="69"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_kahan_1a42e4f8216229b2e3f6ab1b9be7adbfff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend <ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> &amp;</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="71" column="25" bodyfile="kahan-number.hpp" bodystart="71" bodyend="74"/>
+        <location file="kahan-number.hpp" line="71" column="1" bodyfile="kahan-number.hpp" bodystart="71" bodyend="74"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_kahan_1ab7a20a2939e89b95217bfd9c6a2845a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend std::ostream &amp;</type>
@@ -272,13 +272,12 @@
           <declname>v</declname>
         </param>
         <briefdescription>
-<para>Output to ostream. </para>
-        </briefdescription>
+<para>Output to ostream. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="77" column="12" bodyfile="kahan-number.hpp" bodystart="77" bodyend="80"/>
+        <location file="kahan-number.hpp" line="77" column="1" bodyfile="kahan-number.hpp" bodystart="77" bodyend="80"/>
       </memberdef>
       <memberdef kind="friend" id="structspace_1_1_kahan_1a23c0f55b05b750986ccf7e1b6d436590" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>friend std::istream &amp;</type>
@@ -294,35 +293,32 @@
           <declname>v</declname>
         </param>
         <briefdescription>
-<para>Input from istream. </para>
-        </briefdescription>
+<para>Input from istream. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="kahan-number.hpp" line="83" column="25" bodyfile="kahan-number.hpp" bodystart="83" bodyend="87"/>
+        <location file="kahan-number.hpp" line="83" column="1" bodyfile="kahan-number.hpp" bodystart="83" bodyend="87"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para><ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> number. </para>
     </briefdescription>
     <detaileddescription>
-<para>A way to reduce the round off error when adding a small number to a big one. See details in <ulink url="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">https://en.wikipedia.org/wiki/Kahan_summation_algorithm</ulink> </para>
-    </detaileddescription>
+<para><ref refid="structspace_1_1_kahan" kindref="compound">Kahan</ref> number</para><para>A way to reduce the round off error when adding a small number to a big one. See details in <ulink url="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan summation</ulink> </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="2">
+      <node id="174">
         <label>T</label>
       </node>
-      <node id="1">
+      <node id="173">
         <label>space::Kahan&lt; T &gt;</label>
         <link refid="structspace_1_1_kahan"/>
-        <childnode refid="2" relation="usage">
-          <edgelabel>real</edgelabel>
-          <edgelabel>err</edgelabel>
+        <childnode refid="174" relation="usage">
+          <edgelabel>+err</edgelabel>
+          <edgelabel>+real</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="kahan-number.hpp" line="15" column="14" bodyfile="kahan-number.hpp" bodystart="15" bodyend="88"/>
+    <location file="kahan-number.hpp" line="15" column="1" bodyfile="kahan-number.hpp" bodystart="15" bodyend="88"/>
     <listofallmembers>
       <member refid="structspace_1_1_kahan_1aee92462f32c8f2e5809ba16348d13fc9" prot="public" virt="non-virtual"><scope>space::Kahan</scope><name>err</name></member>
       <member refid="structspace_1_1_kahan_1ab3ba063dc78de38e5d8d8e04624548f7" prot="public" virt="non-virtual"><scope>space::Kahan</scope><name>Kahan</name></member>

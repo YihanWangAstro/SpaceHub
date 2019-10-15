@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index" kind="struct" language="C++" prot="private">
     <compoundname>space::interactions::NewtonianGrav::has_method_index</compoundname>
     <templateparamlist>
@@ -13,7 +13,7 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1ace687614158720b081f9844585d491d2" prot="public" static="yes" constexpr="yes" mutable="no">
+      <memberdef kind="variable" id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1ace687614158720b081f9844585d491d2" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
         <definition>constexpr bool space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;::value</definition>
         <argsstring></argsstring>
@@ -25,18 +25,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="36" column="171" bodyfile="interaction/newtonian.hpp" bodystart="36" bodyend="-1"/>
+        <location file="interaction/newtonian.hpp" line="36" column="1" bodyfile="interaction/newtonian.hpp" bodystart="36" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a652ca1b40418eb2a421ea03822e65ace" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1afa778f0d2a3a3571171f6313ac024d61" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static auto</type>
-        <definition>constexpr static auto space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;::check</definition>
+        <type>constexpr auto</type>
+        <definition>static constexpr auto space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;::check</definition>
         <argsstring>(const void *) -&gt; decltype(std::declval&lt; U &gt;(). index(std::declval&lt; Args &gt;()...), std::true_type())</argsstring>
         <name>check</name>
         <param>
@@ -48,16 +48,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="36" column="77"/>
+        <location file="interaction/newtonian.hpp" line="36" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a188058c45c1c869d143f52f0ac9b31ac" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a52afc5b45172d87248a336836396d98e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename U</type>
           </param>
         </templateparamlist>
-        <type>constexpr static std::false_type</type>
-        <definition>constexpr static std::false_type space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;::check</definition>
+        <type>constexpr std::false_type</type>
+        <definition>static constexpr std::false_type space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;::check</definition>
         <argsstring>(...)</argsstring>
         <name>check</name>
         <param>
@@ -69,17 +69,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction/newtonian.hpp" line="36" column="139"/>
+        <location file="interaction/newtonian.hpp" line="36" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="interaction/newtonian.hpp" line="36" column="42" bodyfile="interaction/newtonian.hpp" bodystart="36" bodyend="36"/>
+    <collaborationgraph>
+      <node id="123">
+        <label>space::interactions::NewtonianGrav::has_method_index&lt; T, Args &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="interaction/newtonian.hpp" line="36" column="1" bodyfile="interaction/newtonian.hpp" bodystart="36" bodyend="36"/>
     <listofallmembers>
-      <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a652ca1b40418eb2a421ea03822e65ace" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav::has_method_index</scope><name>check</name></member>
-      <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a188058c45c1c869d143f52f0ac9b31ac" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav::has_method_index</scope><name>check</name></member>
+      <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1afa778f0d2a3a3571171f6313ac024d61" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav::has_method_index</scope><name>check</name></member>
+      <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1a52afc5b45172d87248a336836396d98e" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav::has_method_index</scope><name>check</name></member>
       <member refid="structspace_1_1interactions_1_1_newtonian_grav_1_1has__method__index_1ace687614158720b081f9844585d491d2" prot="public" virt="non-virtual"><scope>space::interactions::NewtonianGrav::has_method_index</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

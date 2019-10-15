@@ -6,10 +6,10 @@
 #include "own-math.hpp"
 
 namespace space {
-/** @brief Kahan number
+/** Kahan number
  *
  *  A way to reduce the round off error when adding a small number to a big one.
- *  See details in https://en.wikipedia.org/wiki/Kahan_summation_algorithm
+ *  See details in [Kahan summation](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)
  */
   template<typename T>
   struct Kahan {

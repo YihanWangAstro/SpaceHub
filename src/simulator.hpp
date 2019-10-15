@@ -4,17 +4,17 @@
 #include <functional>
 #include "core-computation.hpp"
 #include "dev-tools.hpp"
-/**
- *
- */
+
+
 namespace space {
 
 /*---------------------------------------------------------------------------*\
     Class RunArgs Declaration
 \*---------------------------------------------------------------------------*/
 /**
+ * Run arguments that is used to set all arguments needed by Simulator.
  *
- * @tparam ParticleSys
+ * @tparam ParticleSys Any implementation of concept ParticleSystem.
  */
   template<typename ParticleSys>
   class RunArgs {
@@ -22,101 +22,129 @@ namespace space {
     // type members
     SPACEHUB_USING_TYPE_SYSTEM_OF(ParticleSys);
 
+    /**
+     * Callback function type for pre-operation, pos-operation and stop operation.
+     */
     using Callback = std::function<void(ParticleSys &)>;
 
+    /**
+     * Callback function type for stop condition.
+     */
     using StopCall = std::function<bool(ParticleSys &)>;
 
     // public members
+
+    /**
+     * Initial step size for the integration of the Simulator.
+     */
     Scalar step_size{0};
 
+    /**
+     * The time duration for the integration of the Simulator.
+     */
     Scalar end_time{0};
 
-    Scalar atol{6e-14};
+    /**
+     * The absolute error tolerance.
+     */
+    Scalar atol{1e-12};
 
-    Scalar rtol{1e-13};
+    /**
+     * The relative error tolerance.
+     */
+    Scalar rtol{1e-12};
 
     // public methods
     /**
+     * Call the all registered pre-operation functions by sequence.
      *
-     * @param particle_system
+     * @param[in] particle_system The particle system that is going to be operated.
      */
     void pre_operations(ParticleSys &particle_system) const;
 
     /**
+     * Call the all registered pos-operation functions by sequence.
      *
-     * @param particle_system
+     * @param[in] particle_system The particle system that is going to be operated.
      */
     void post_operations(ParticleSys &particle_system) const;
 
     /**
+     * Call the all registered stop-operation functions by sequence.
      *
-     * @param particle_system
+     * @param[in] particle_system The particle system that is going to be operated.
      */
     void stop_operations(ParticleSys &particle_system) const;
 
     /**
+     * Check the all registered stop condition functions by sequence. If any of them is satisfied, return `true`.
      *
-     * @param particle_system
-     * @return
+     * @param[in] particle_system The particle system that is going to be checked
      */
     bool check_stops(ParticleSys &particle_system) const;
 
     /**
+     * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.
      *
-     * @tparam Func
-     * @tparam Args
-     * @param func
-     * @param args
+     * @tparam Func Callable type that is conversional to `Callback`.
+     * @tparam Args Type of the binding arguments.
+     * @param[in] func Callable object.
+     * @param[in] args Binding arguments.
      */
     template<typename Func, typename... Args>
     void add_pre_step_operation(Func func, Args &&... args);
 
     /**
+     * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.
      *
-     * @tparam Func
-     * @tparam Args
-     * @param func
-     * @param args
+     * @tparam Func Callable type that is conversional to `Callback`.
+     * @tparam Args Type of the binding arguments.
+     * @param[in] func Callable object.
+     * @param[in] args Binding arguments.
      */
     template<typename Func, typename... Args>
     void add_post_step_operation(Func func, Args &&... args);
 
     /**
+     * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.
      *
-     * @tparam Func
-     * @tparam Args
-     * @param func
-     * @param args
+     * @tparam Func Callable type that is conversional to `Callback`.
+     * @tparam Args Type of the binding arguments.
+     * @param[in] func Callable object.
+     * @param[in] args Binding arguments.
      */
     template<typename Func, typename... Args>
     void add_stop_point_operation(Func func, Args &&... args);
 
     /**
+     * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.
      *
-     * @tparam Func
-     * @tparam Args
-     * @param func
-     * @param args
+     * @tparam Func Callable type that is conversional to `StopCall`.
+     * @tparam Args Type of the binding arguments.
+     * @param[in] func Callable object.
+     * @param[in] args Binding arguments.
      */
     template<typename Func, typename... Args>
     void add_stop_condition(Func func, Args &&... args);
 
     /**
-     *
-     * @tparam Scalar
-     * @param end
+     * Add the duration time of the integration as a stop condition.
+     * @tparam T Floating point like scalar.
+     * @param[in] end Duration time of the integration.
      */
     template<typename T>
     void add_stop_condition(T end);
 
     /**
-     * @brief
-     *
-     * @return true
-     * @return false
+     * Check if the integration duration time is set.
+     * @return boolean
      */
     [[nodiscard]] bool is_end_time_set() const { return is_end_time_set_; }
 
+    /**
+     * Check if any of the stop condition(except the duration time) is set.
+     * @return boolean
+     */
     [[nodiscard]] bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
 
   private:
@@ -136,7 +164,7 @@ namespace space {
     Class Simulator Declaration
 \*---------------------------------------------------------------------------*/
 /**
- *
+ * 
  * @tparam ParticSys
  * @tparam OdeIterator
  */

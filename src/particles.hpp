@@ -30,7 +30,7 @@ namespace space {
     DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
     /**
-     * @glabel{auto impl}
+     * @auto_impl
      *
      * The downcast interface of Base class to Derived class.
      * @return Derived

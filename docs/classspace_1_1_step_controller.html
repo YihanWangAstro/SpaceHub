@@ -54,10 +54,108 @@
           <tbody>
             <tr>
               <td style="width: 1%">Derived</td>
-              <td></td>
+              <td>The implement class in CRTP idiom.</td>
             </tr>
           </tbody>
         </table>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Abstract class of step size controller. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <code><a href="classspace_1_1_step_controller.html" class="m-doc">StepController</a></code>. The step size controller provides the interface to estimate the next step size with current step size and errors in previous steps.</p>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a1d227d201a424a7a7b118e25b693c046" class="m-doc">derived</a>(</span><span class="m-doc-wrap">) -&gt; Derived&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Scalar, typename Array&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a95ef77bd76659d4db2c6ff732672dfb6" class="m-doc">next_step_size</a>(</span><span class="m-doc-wrap">size_t order,
+              Scalar old_step,
+              Array const&amp; errors) -&gt; Scalar</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a1d227d201a424a7a7b118e25b693c046"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">Derived&amp; space::<wbr />StepController&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1d227d201a424a7a7b118e25b693c046" class="m-doc-self">derived</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Derived</td>
+                </tr>
+              </tfoot>
+            </table>
+<p><strong class="m-label m-flat m-success">auto impl</strong></p><p>The downcast interface of Base class to Derived class.</p>
+          </div></section>
+          <section class="m-doc-details" id="a95ef77bd76659d4db2c6ff732672dfb6"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+                template&lt;typename Scalar, typename Array&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">Scalar space::<wbr />StepController&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a95ef77bd76659d4db2c6ff732672dfb6" class="m-doc-self">next_step_size</a>(</span><span class="m-doc-wrap">size_t order,
+              Scalar old_step,
+              Array const&amp; errors)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Scalar</td>
+                  <td>Floating point like type type.</td>
+                </tr>
+                <tr>
+                  <td>Array</td>
+                  <td>Tuple/array like type. i.e <code>std::tuple</code>, <code>std::array</code>.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>order&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Order of the integration method.</td>
+                </tr>
+                <tr>
+                  <td>old_step&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The current step size of the integration system.</td>
+                </tr>
+                <tr>
+                  <td>errors&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Errors of previous steps.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>The estimated step size of the next step.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Estimate the step size of the next step from errors in previous steps and current step size of an integration system.</p>
+          </div></section>
+        </section>
       </div>
     </div>
   </div>
@@ -102,7 +200,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

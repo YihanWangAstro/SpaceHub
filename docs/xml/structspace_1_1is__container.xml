@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structspace_1_1is__container" kind="struct" language="C++" prot="public">
     <compoundname>space::is_container</compoundname>
     <basecompoundref prot="public" virt="non-virtual">false_type</basecompoundref>
+    <includes refid="dev-tools_8hpp" local="no">dev-tools.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>
@@ -17,28 +18,28 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="1">
+      <node id="158">
         <label>space::is_container&lt; T, _ &gt;</label>
         <link refid="structspace_1_1is__container"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="159" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="2">
+      <node id="159">
         <label>std::false_type</label>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="1">
+      <node id="160">
         <label>space::is_container&lt; T, _ &gt;</label>
         <link refid="structspace_1_1is__container"/>
-        <childnode refid="2" relation="public-inheritance">
+        <childnode refid="161" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="2">
+      <node id="161">
         <label>std::false_type</label>
       </node>
     </collaborationgraph>
-    <location file="dev-tools.hpp" line="366" column="37" bodyfile="dev-tools.hpp" bodystart="366" bodyend="367"/>
+    <location file="dev-tools.hpp" line="332" column="1" bodyfile="dev-tools.hpp" bodystart="332" bodyend="333"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

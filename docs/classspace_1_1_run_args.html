@@ -54,7 +54,7 @@
           <tbody>
             <tr>
               <td style="width: 1%">ParticleSys</td>
-              <td></td>
+              <td>Any implementation of concept <a href="classspace_1_1_particle_system.html" class="m-doc">ParticleSystem</a>.</td>
             </tr>
           </tbody>
         </table>
@@ -64,11 +64,27 @@
             <li>
               Reference
               <ul>
+                <li><a href="#pub-types">Public types</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
+                <li><a href="#pub-attribs">Public variables</a></li>
               </ul>
             </li>
           </ul>
         </div>
+<p>Run arguments that is used to set all arguments needed by <a href="classspace_1_1_simulator.html" class="m-doc">Simulator</a>.</p>
+        <section id="pub-types">
+          <h2><a href="#pub-types">Public types</a></h2>
+          <dl class="m-doc">
+            <dt>
+              using <a href="#ab2ae5d33c6cfb8573ce977e9820f0938" class="m-doc">Callback</a> = std::function&lt;void(ParticleSys&amp;)&gt;
+            </dt>
+            <dd></dd>
+            <dt>
+              using <a href="#ad706d387865fd3b6399a0d67be56f079" class="m-doc">StopCall</a> = std::function&lt;bool(ParticleSys&amp;)&gt;
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
@@ -121,7 +137,53 @@
               <span class="m-doc-wrap-bumper">auto <a href="#aee5ebfc0b21db4a01f5269adfc8e9441" class="m-doc">is_end_time_set</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aace390d73a2eef9effb0443eb27657ed" class="m-doc">is_stop_condition_set</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd></dd>
           </dl>
+        </section>
+        <section id="pub-attribs">
+          <h2><a href="#pub-attribs">Public variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> <a href="#a918fcf4f601c96b9aaf477fb8e26e510" class="m-doc">step_size</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> <a href="#a4f43bc396d42b099ecfb41bdb2d78d7d" class="m-doc">end_time</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> <a href="#a0f130e30d4bdb4b1fbfd3e067ac0eea9" class="m-doc">atol</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> <a href="#abd0b0970bbfc5f62d7e7ac07a2f54c71" class="m-doc">rtol</a>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Typedef documentation</h2>
+          <section class="m-doc-details" id="ab2ae5d33c6cfb8573ce977e9820f0938"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              using space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /><a href="#ab2ae5d33c6cfb8573ce977e9820f0938" class="m-doc-self">Callback</a> = std::function&lt;void(ParticleSys&amp;)&gt;
+            </h3>
+<p>Callback function type for pre-operation, pos-operation and stop operation.</p>
+          </div></section>
+          <section class="m-doc-details" id="ad706d387865fd3b6399a0d67be56f079"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              using space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /><a href="#ad706d387865fd3b6399a0d67be56f079" class="m-doc-self">StopCall</a> = std::function&lt;bool(ParticleSys&amp;)&gt;
+            </h3>
+<p>Callback function type for stop condition.</p>
+          </div></section>
         </section>
         <section>
           <h2>Function documentation</h2>
@@ -138,11 +200,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particle_system</td>
-                  <td></td>
+                  <td style="width: 1%">particle_system&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system that is going to be operated.</td>
                 </tr>
               </tbody>
             </table>
+<p>Call the all registered pre-operation functions by sequence.</p>
           </div></section>
           <section class="m-doc-details" id="af3a00bc9788de7eba958b457441b7063"><div>
             <h3>
@@ -157,11 +220,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particle_system</td>
-                  <td></td>
+                  <td style="width: 1%">particle_system&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system that is going to be operated.</td>
                 </tr>
               </tbody>
             </table>
+<p>Call the all registered pos-operation functions by sequence.</p>
           </div></section>
           <section class="m-doc-details" id="ab3a245733eb8a0cf2e23e62ecedb3bd7"><div>
             <h3>
@@ -176,11 +240,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particle_system</td>
-                  <td></td>
+                  <td style="width: 1%">particle_system&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system that is going to be operated.</td>
                 </tr>
               </tbody>
             </table>
+<p>Call the all registered stop-operation functions by sequence.</p>
           </div></section>
           <section class="m-doc-details" id="a5f6d9c34a5998231505583ffd2fd4df7"><div>
             <h3>
@@ -195,11 +260,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particle_system</td>
-                  <td></td>
+                  <td style="width: 1%">particle_system&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The particle system that is going to be checked</td>
                 </tr>
               </tbody>
             </table>
+<p>Check the all registered stop condition functions by sequence. If any of them is satisfied, return <code>true</code>.</p>
           </div></section>
           <section class="m-doc-details" id="a40dd8e75c3602befb2ea3a54f850a3de"><div>
             <h3>
@@ -217,11 +283,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Func</td>
-                  <td></td>
+                  <td>Callable type that is conversional to <code>Callback</code>.</td>
                 </tr>
                 <tr>
                   <td>Args</td>
-                  <td></td>
+                  <td>Type of the binding arguments.</td>
                 </tr>
               </tbody>
               <thead>
@@ -229,15 +295,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>func</td>
-                  <td></td>
+                  <td>func&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Callable object.</td>
                 </tr>
                 <tr>
-                  <td>args</td>
-                  <td></td>
+                  <td>args&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Binding arguments.</td>
                 </tr>
               </tbody>
             </table>
+<p>Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.</p>
           </div></section>
           <section class="m-doc-details" id="a356e0a6fb304ecbd7c649ae3a0486594"><div>
             <h3>
@@ -255,11 +322,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Func</td>
-                  <td></td>
+                  <td>Callable type that is conversional to <code>Callback</code>.</td>
                 </tr>
                 <tr>
                   <td>Args</td>
-                  <td></td>
+                  <td>Type of the binding arguments.</td>
                 </tr>
               </tbody>
               <thead>
@@ -267,15 +334,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>func</td>
-                  <td></td>
+                  <td>func&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Callable object.</td>
                 </tr>
                 <tr>
-                  <td>args</td>
-                  <td></td>
+                  <td>args&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Binding arguments.</td>
                 </tr>
               </tbody>
             </table>
+<p>Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.</p>
           </div></section>
           <section class="m-doc-details" id="a202c1480767ceb6d2873f9383d21145b"><div>
             <h3>
@@ -293,11 +361,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Func</td>
-                  <td></td>
+                  <td>Callable type that is conversional to <code>Callback</code>.</td>
                 </tr>
                 <tr>
                   <td>Args</td>
-                  <td></td>
+                  <td>Type of the binding arguments.</td>
                 </tr>
               </tbody>
               <thead>
@@ -305,15 +373,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>func</td>
-                  <td></td>
+                  <td>func&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Callable object.</td>
                 </tr>
                 <tr>
-                  <td>args</td>
-                  <td></td>
+                  <td>args&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Binding arguments.</td>
                 </tr>
               </tbody>
             </table>
+<p>Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.</p>
           </div></section>
           <section class="m-doc-details" id="a1f7732aa10f12671047acd41f43b7035"><div>
             <h3>
@@ -331,11 +400,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">Func</td>
-                  <td></td>
+                  <td>Callable type that is conversional to <code>StopCall</code>.</td>
                 </tr>
                 <tr>
                   <td>Args</td>
-                  <td></td>
+                  <td>Type of the binding arguments.</td>
                 </tr>
               </tbody>
               <thead>
@@ -343,15 +412,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>func</td>
-                  <td></td>
+                  <td>func&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Callable object.</td>
                 </tr>
                 <tr>
-                  <td>args</td>
-                  <td></td>
+                  <td>args&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Binding arguments.</td>
                 </tr>
               </tbody>
             </table>
+<p>Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.</p>
           </div></section>
           <section class="m-doc-details" id="a05a043ed2282f9529f326c5e665e93e7"><div>
             <h3>
@@ -363,15 +433,25 @@
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>Floating point like scalar.</td>
+                </tr>
+              </tbody>
+              <thead>
                 <tr><th colspan="2">Parameters</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">end</td>
-                  <td></td>
+                  <td>end&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Duration time of the integration.</td>
                 </tr>
               </tbody>
             </table>
+<p>Add the duration time of the integration as a stop condition.</p>
           </div></section>
           <section class="m-doc-details" id="aee5ebfc0b21db4a01f5269adfc8e9441"><div>
             <h3>
@@ -384,10 +464,67 @@
               <tfoot>
                 <tr>
                   <th style="width: 1%">Returns</th>
-                  <td>true</td>
+                  <td>boolean</td>
                 </tr>
               </tfoot>
             </table>
+<p>Check if the integration duration time is set.</p>
+          </div></section>
+          <section class="m-doc-details" id="aace390d73a2eef9effb0443eb27657ed"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">bool space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aace390d73a2eef9effb0443eb27657ed" class="m-doc-self">is_stop_condition_set</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>boolean</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Check if any of the stop condition(except the duration time) is set.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a918fcf4f601c96b9aaf477fb8e26e510"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /><a href="#a918fcf4f601c96b9aaf477fb8e26e510" class="m-doc-self">step_size</a>
+            </h3>
+<p>Initial step size for the integration of the <a href="classspace_1_1_simulator.html" class="m-doc">Simulator</a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="a4f43bc396d42b099ecfb41bdb2d78d7d"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /><a href="#a4f43bc396d42b099ecfb41bdb2d78d7d" class="m-doc-self">end_time</a>
+            </h3>
+<p>The time duration for the integration of the <a href="classspace_1_1_simulator.html" class="m-doc">Simulator</a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="a0f130e30d4bdb4b1fbfd3e067ac0eea9"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /><a href="#a0f130e30d4bdb4b1fbfd3e067ac0eea9" class="m-doc-self">atol</a>
+            </h3>
+<p>The absolute error tolerance.</p>
+          </div></section>
+          <section class="m-doc-details" id="abd0b0970bbfc5f62d7e7ac07a2f54c71"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <a href="classspace_1_1_run_args.html#ac50cd2f6cb422e2d1fdaa37d0afc48d0" class="m-doc">Scalar</a> space::<wbr />RunArgs&lt;ParticleSys&gt;::<wbr /><a href="#abd0b0970bbfc5f62d7e7ac07a2f54c71" class="m-doc-self">rtol</a>
+            </h3>
+<p>The relative error tolerance.</p>
           </div></section>
         </section>
       </div>
@@ -434,7 +571,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>Space Hub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

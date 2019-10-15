@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classspace_1_1random_gen_1_1_normal" kind="class" language="C++" prot="public">
     <compoundname>space::randomGen::Normal</compoundname>
+    <includes refid="rand-generator_8hpp" local="no">rand-generator.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename Dtype</type>
@@ -19,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="169" column="24" bodyfile="rand-generator.hpp" bodystart="169" bodyend="-1"/>
+        <location file="rand-generator.hpp" line="169" column="1" bodyfile="rand-generator.hpp" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1random_gen_1_1_normal_1af2e01cc37a22d95fd3a536c189bc5437" prot="private" static="no" mutable="no">
         <type>std::mt19937</type>
@@ -32,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="170" column="18" bodyfile="rand-generator.hpp" bodystart="170" bodyend="-1"/>
+        <location file="rand-generator.hpp" line="170" column="1" bodyfile="rand-generator.hpp" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1random_gen_1_1_normal_1add7b62d604c44c48ee4da2e0dd7f74f1" prot="private" static="no" mutable="no">
         <type>std::normal_distribution&lt; Dtype &gt;</type>
@@ -45,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="171" column="30" bodyfile="rand-generator.hpp" bodystart="171" bodyend="-1"/>
+        <location file="rand-generator.hpp" line="171" column="1" bodyfile="rand-generator.hpp" bodystart="171" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
@@ -60,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="172" column="23" bodyfile="rand-generator.hpp" bodystart="172" bodyend="-1"/>
+        <location file="rand-generator.hpp" line="172" column="1" bodyfile="rand-generator.hpp" bodystart="172" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -75,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="165" column="5" bodyfile="rand-generator.hpp" bodystart="165" bodyend="165"/>
+        <location file="rand-generator.hpp" line="165" column="1" bodyfile="rand-generator.hpp" bodystart="165" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_normal_1a24d5a19b6830811a7cbf5331b1702c30" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -91,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="167" column="5"/>
+        <location file="rand-generator.hpp" line="167" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -116,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="175" column="25" bodyfile="rand-generator.hpp" bodystart="175" bodyend="178"/>
+        <location file="rand-generator.hpp" line="175" column="1" bodyfile="rand-generator.hpp" bodystart="175" bodyend="178"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_normal_1a0487efb2868aca762840be592edb4fa7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Dtype</type>
@@ -139,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="180" column="25" bodyfile="rand-generator.hpp" bodystart="180" bodyend="189"/>
+        <location file="rand-generator.hpp" line="180" column="1" bodyfile="rand-generator.hpp" bodystart="180" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1random_gen_1_1_normal_1aa2e4bcaaf53e99b1324b1f597f3d5922" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -171,14 +172,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="rand-generator.hpp" line="192" column="25" bodyfile="rand-generator.hpp" bodystart="192" bodyend="195"/>
+        <location file="rand-generator.hpp" line="192" column="1" bodyfile="rand-generator.hpp" bodystart="192" bodyend="195"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="rand-generator.hpp" line="163" column="15" bodyfile="rand-generator.hpp" bodystart="163" bodyend="196"/>
+    <collaborationgraph>
+      <node id="208">
+        <label>space::randomGen::Normal&lt; Dtype &gt;</label>
+        <link refid="classspace_1_1random_gen_1_1_normal"/>
+      </node>
+    </collaborationgraph>
+    <location file="rand-generator.hpp" line="163" column="1" bodyfile="rand-generator.hpp" bodystart="163" bodyend="196"/>
     <listofallmembers>
       <member refid="classspace_1_1random_gen_1_1_normal_1add7b62d604c44c48ee4da2e0dd7f74f1" prot="private" virt="non-virtual"><scope>space::randomGen::Normal</scope><name>dist_</name></member>
       <member refid="classspace_1_1random_gen_1_1_normal_1af2e01cc37a22d95fd3a536c189bc5437" prot="private" virt="non-virtual"><scope>space::randomGen::Normal</scope><name>gen_</name></member>
