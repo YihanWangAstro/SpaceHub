@@ -23,7 +23,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="64" column="1" bodyfile="accelerations.hpp" bodystart="61" bodyend="-1"/>
+        <location file="interaction/accelerations.hpp" line="64" column="1" bodyfile="interaction/accelerations.hpp" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1interactions_1_1_accelerations_1a59d993a48a93a062291b56a59b75f313" prot="private" static="no" mutable="no">
         <type>Coord</type>
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="66" column="1" bodyfile="accelerations.hpp" bodystart="66" bodyend="-1"/>
+        <location file="interaction/accelerations.hpp" line="66" column="1" bodyfile="interaction/accelerations.hpp" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1interactions_1_1_accelerations_1a9c74c7dacd9d6f143dd007062b722f48" prot="private" static="no" mutable="no">
         <type>Coord</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="68" column="1" bodyfile="accelerations.hpp" bodystart="68" bodyend="-1"/>
+        <location file="interaction/accelerations.hpp" line="68" column="1" bodyfile="interaction/accelerations.hpp" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1interactions_1_1_accelerations_1a1a8ed12a854f2dac8cb93d15c492271b" prot="private" static="no" mutable="no">
         <type>std::conditional_t&lt; <ref refid="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" kindref="member">Interactions::ext_vel_indep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="70" column="1" bodyfile="accelerations.hpp" bodystart="70" bodyend="-1"/>
+        <location file="interaction/accelerations.hpp" line="70" column="1" bodyfile="interaction/accelerations.hpp" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1interactions_1_1_accelerations_1a033b3413aa00001fc910b6b4fad6a0d1" prot="private" static="no" mutable="no">
         <type>std::conditional_t&lt; <ref refid="classspace_1_1interactions_1_1_interactions_1a2926f9cbc06d40f916cc67e32e3df880" kindref="member">Interactions::ext_vel_dep</ref>, Coord, <ref refid="classspace_1_1_empty" kindref="compound">Empty</ref> &gt;</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="72" column="1" bodyfile="accelerations.hpp" bodystart="72" bodyend="-1"/>
+        <location file="interaction/accelerations.hpp" line="72" column="1" bodyfile="interaction/accelerations.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -90,7 +90,7 @@
 <para>Default constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="41" column="1"/>
+        <location file="interaction/accelerations.hpp" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a5469a65edb850ad9792b76318c0afcb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -106,7 +106,7 @@
 <para>Default copy constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="41" column="1"/>
+        <location file="interaction/accelerations.hpp" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a7ea590cb463a00549f2cd44aec051a5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -122,7 +122,7 @@
 <para>Default move constructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="41" column="1"/>
+        <location file="interaction/accelerations.hpp" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a7bff3c7effe122092e4966b014f814b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1interactions_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;</type>
@@ -138,7 +138,7 @@
 <para>Default copy assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="41" column="1"/>
+        <location file="interaction/accelerations.hpp" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a8687d8c9e5ae0d4280ce408aea7af8b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1interactions_1_1_accelerations" kindref="compound">Accelerations</ref> &amp;</type>
@@ -154,7 +154,7 @@
 <para>Default move assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="41" column="1"/>
+        <location file="interaction/accelerations.hpp" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1acfded7207ce6137b1dddda10d2981315" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="43" column="1" bodyfile="accelerations.hpp" bodystart="43" bodyend="50"/>
+        <location file="interaction/accelerations.hpp" line="43" column="1" bodyfile="interaction/accelerations.hpp" bodystart="43" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a2a52a12aa0487db0eab2795d1bebfd5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -184,7 +184,7 @@
 <para>The setter interface of member <computeroutput>acc_</computeroutput> in name of <computeroutput>acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="53" column="1" bodyfile="accelerations.hpp" bodystart="53" bodyend="53"/>
+        <location file="interaction/accelerations.hpp" line="53" column="1" bodyfile="interaction/accelerations.hpp" bodystart="53" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a42f00143454ebc375b8b698c9ee95a5d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -197,7 +197,7 @@
 <para>The getter interface of member <computeroutput>acc_</computeroutput> in name of <computeroutput>acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="53" column="1" bodyfile="accelerations.hpp" bodystart="53" bodyend="53"/>
+        <location file="interaction/accelerations.hpp" line="53" column="1" bodyfile="interaction/accelerations.hpp" bodystart="53" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a51c863ddbb14b26504bc2987c27d73e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -210,7 +210,7 @@
 <para>The setter interface of member <computeroutput>newtonian_acc_</computeroutput> in name of <computeroutput>newtonian_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="55" column="1" bodyfile="accelerations.hpp" bodystart="55" bodyend="55"/>
+        <location file="interaction/accelerations.hpp" line="55" column="1" bodyfile="interaction/accelerations.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a23dda93f475d79655bdab96494da030e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -223,7 +223,7 @@
 <para>The getter interface of member <computeroutput>newtonian_acc_</computeroutput> in name of <computeroutput>newtonian_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="55" column="1" bodyfile="accelerations.hpp" bodystart="55" bodyend="55"/>
+        <location file="interaction/accelerations.hpp" line="55" column="1" bodyfile="interaction/accelerations.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a18a9ea4f0fc2e0bc26d29d45d788f549" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -236,7 +236,7 @@
 <para>The setter interface of member <computeroutput>tot_vel_indep_acc_</computeroutput> in name of <computeroutput>tot_vel_indep_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="57" column="1" bodyfile="accelerations.hpp" bodystart="57" bodyend="57"/>
+        <location file="interaction/accelerations.hpp" line="57" column="1" bodyfile="interaction/accelerations.hpp" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a4649ca490644d97c5f60df75502d34d2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -249,7 +249,7 @@
 <para>The getter interface of member <computeroutput>tot_vel_indep_acc_</computeroutput> in name of <computeroutput>tot_vel_indep_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="57" column="1" bodyfile="accelerations.hpp" bodystart="57" bodyend="57"/>
+        <location file="interaction/accelerations.hpp" line="57" column="1" bodyfile="interaction/accelerations.hpp" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a52187c67dc06436663f389c8f31f8884" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -262,7 +262,7 @@
 <para>The setter interface of member <computeroutput>ext_vel_indep_acc_</computeroutput> in name of <computeroutput>ext_vel_indep_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="59" column="1" bodyfile="accelerations.hpp" bodystart="59" bodyend="59"/>
+        <location file="interaction/accelerations.hpp" line="59" column="1" bodyfile="interaction/accelerations.hpp" bodystart="59" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a79ccd935e0ed0fd416b7e1d9e04e0a43" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -275,7 +275,7 @@
 <para>The getter interface of member <computeroutput>ext_vel_indep_acc_</computeroutput> in name of <computeroutput>ext_vel_indep_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="59" column="1" bodyfile="accelerations.hpp" bodystart="59" bodyend="59"/>
+        <location file="interaction/accelerations.hpp" line="59" column="1" bodyfile="interaction/accelerations.hpp" bodystart="59" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1a6810f22799fa3f2019f299bdd6190254" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -288,7 +288,7 @@
 <para>The setter interface of member <computeroutput>ext_vel_dep_acc_</computeroutput> in name of <computeroutput>ext_vel_dep_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="61" column="1" bodyfile="accelerations.hpp" bodystart="61" bodyend="61"/>
+        <location file="interaction/accelerations.hpp" line="61" column="1" bodyfile="interaction/accelerations.hpp" bodystart="61" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_accelerations_1afc7db19a387110d94ed73a3974a894db" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -301,7 +301,7 @@
 <para>The getter interface of member <computeroutput>ext_vel_dep_acc_</computeroutput> in name of <computeroutput>ext_vel_dep_acc</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="accelerations.hpp" line="61" column="1" bodyfile="accelerations.hpp" bodystart="61" bodyend="61"/>
+        <location file="interaction/accelerations.hpp" line="61" column="1" bodyfile="interaction/accelerations.hpp" bodystart="61" bodyend="61"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -329,7 +329,7 @@
         <link refid="classspace_1_1interactions_1_1_accelerations"/>
       </node>
     </collaborationgraph>
-    <location file="accelerations.hpp" line="38" column="1" bodyfile="accelerations.hpp" bodystart="38" bodyend="73"/>
+    <location file="interaction/accelerations.hpp" line="38" column="1" bodyfile="interaction/accelerations.hpp" bodystart="38" bodyend="73"/>
     <listofallmembers>
       <member refid="classspace_1_1interactions_1_1_accelerations_1a2a52a12aa0487db0eab2795d1bebfd5d" prot="public" virt="non-virtual"><scope>space::interactions::Accelerations</scope><name>acc</name></member>
       <member refid="classspace_1_1interactions_1_1_accelerations_1a42f00143454ebc375b8b698c9ee95a5d" prot="public" virt="non-virtual"><scope>space::interactions::Accelerations</scope><name>acc</name></member>

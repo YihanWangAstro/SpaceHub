@@ -2,14 +2,14 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="ode-iterator_8hpp" kind="file" language="C++">
     <compoundname>ode-iterator.hpp</compoundname>
-    <includes refid="particle-system_8hpp" local="yes">../particle-system.hpp</includes>
+    <includes refid="particle-system_8hpp" local="yes">../particle-system/particle-system.hpp</includes>
     <includedby refid="_b_s-iterator0_8hpp" local="yes">ode-iterator/BS-iterator0.hpp</includedby>
     <includedby refid="_b_s-iterator__bk_8hpp" local="yes">ode-iterator/BS-iterator_bk.hpp</includedby>
     <includedby refid="_burlish-_stoer_8hpp" local="yes">ode-iterator/Burlish-Stoer.hpp</includedby>
     <includedby refid="const-iterator_8hpp" local="yes">ode-iterator/const-iterator.hpp</includedby>
     <incdepgraph>
       <node id="387">
-        <label>dev-tools.hpp</label>
+        <label>../dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
         <childnode refid="388" relation="include">
         </childnode>
@@ -34,7 +34,7 @@
         <label>iostream</label>
       </node>
       <node id="386">
-        <label>../particle-system.hpp</label>
+        <label>../particle-system/particle-system.hpp</label>
         <link refid="particle-system_8hpp"/>
         <childnode refid="387" relation="include">
         </childnode>

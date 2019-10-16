@@ -36,6 +36,6 @@
     </briefdescription>
     <detaileddescription>
 <para>space name for ode-iterator </para>    </detaileddescription>
-    <location file="error-checker/RMS.hpp" line="30" column="1"/>
+    <location file="ode-iterator/Burlish-Stoer.hpp" line="33" column="1"/>
   </compounddef>
 </doxygen>

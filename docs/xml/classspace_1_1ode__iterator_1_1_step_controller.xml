@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="78" column="1" bodyfile="stepsize-controller.hpp" bodystart="78" bodyend="-1"/>
+        <location file="ode-iterator/step-controller/stepsize-controller.hpp" line="78" column="1" bodyfile="ode-iterator/step-controller/stepsize-controller.hpp" bodystart="78" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="54" column="1" bodyfile="stepsize-controller.hpp" bodystart="85" bodyend="87"/>
+        <location file="ode-iterator/step-controller/stepsize-controller.hpp" line="54" column="1" bodyfile="ode-iterator/step-controller/stepsize-controller.hpp" bodystart="85" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_step_controller_1afc3107c25916e0df4f87c08bc3e9b36a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -109,7 +109,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="70" column="1" bodyfile="stepsize-controller.hpp" bodystart="91" bodyend="93"/>
+        <location file="ode-iterator/step-controller/stepsize-controller.hpp" line="70" column="1" bodyfile="ode-iterator/step-controller/stepsize-controller.hpp" bodystart="91" bodyend="93"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -124,7 +124,7 @@
 <para>Construct a new <ref refid="classspace_1_1ode__iterator_1_1_step_controller" kindref="compound">StepController</ref> object </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="stepsize-controller.hpp" line="76" column="1"/>
+        <location file="ode-iterator/step-controller/stepsize-controller.hpp" line="76" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -164,7 +164,7 @@
         <link refid="classspace_1_1ode__iterator_1_1_step_controller"/>
       </node>
     </collaborationgraph>
-    <location file="stepsize-controller.hpp" line="44" column="1" bodyfile="stepsize-controller.hpp" bodystart="44" bodyend="79"/>
+    <location file="ode-iterator/step-controller/stepsize-controller.hpp" line="44" column="1" bodyfile="ode-iterator/step-controller/stepsize-controller.hpp" bodystart="44" bodyend="79"/>
     <listofallmembers>
       <member refid="classspace_1_1ode__iterator_1_1_step_controller_1ab61ed7b32550b8e349764d82a009804a" prot="private" virt="non-virtual"><scope>space::ode_iterator::StepController</scope><name>Derived</name></member>
       <member refid="classspace_1_1ode__iterator_1_1_step_controller_1a61baae0392981b2929a2b937704bda9e" prot="public" virt="non-virtual"><scope>space::ode_iterator::StepController</scope><name>derived</name></member>

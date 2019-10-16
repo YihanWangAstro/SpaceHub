@@ -2,50 +2,50 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="symplectic-integrator_8hpp" kind="file" language="C++">
     <compoundname>symplectic-integrator.hpp</compoundname>
-    <includes refid="particle-system_8hpp" local="yes">../../particle-system.hpp</includes>
+    <includes refid="particle-system_8hpp" local="yes">../../particle-system/particle-system.hpp</includes>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-      <node id="136">
+      <node id="101">
         <label>integrator/symplectic/symplectic-integrator.hpp</label>
         <link refid="symplectic-integrator_8hpp"/>
-        <childnode refid="137" relation="include">
+        <childnode refid="102" relation="include">
         </childnode>
       </node>
-      <node id="138">
-        <label>dev-tools.hpp</label>
+      <node id="103">
+        <label>../dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
-        <childnode refid="139" relation="include">
+        <childnode refid="104" relation="include">
         </childnode>
-        <childnode refid="140" relation="include">
+        <childnode refid="105" relation="include">
         </childnode>
-        <childnode refid="141" relation="include">
+        <childnode refid="106" relation="include">
         </childnode>
       </node>
-      <node id="140">
+      <node id="105">
         <label>tuple</label>
       </node>
-      <node id="141">
+      <node id="106">
         <label>array</label>
       </node>
-      <node id="139">
+      <node id="104">
         <label>iostream</label>
       </node>
-      <node id="137">
-        <label>../../particle-system.hpp</label>
+      <node id="102">
+        <label>../../particle-system/particle-system.hpp</label>
         <link refid="particle-system_8hpp"/>
-        <childnode refid="138" relation="include">
+        <childnode refid="103" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="143">
+      <node id="108">
         <label>spaceHub.hpp</label>
         <link refid="space_hub_8hpp"/>
       </node>
-      <node id="142">
+      <node id="107">
         <label>integrator/symplectic/symplectic-integrator.hpp</label>
         <link refid="symplectic-integrator_8hpp"/>
-        <childnode refid="143" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

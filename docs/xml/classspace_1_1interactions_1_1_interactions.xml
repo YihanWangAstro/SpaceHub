@@ -25,7 +25,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>Variable to check if external velocity dependent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_dep_acc(). The value is <computeroutput>true</computeroutput>, otherwise this value is <computeroutput>false</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="58" column="1" bodyfile="interaction.hpp" bodystart="58" bodyend="-1"/>
+        <location file="interaction/interaction.hpp" line="58" column="1" bodyfile="interaction/interaction.hpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1interactions_1_1_interactions_1acd2d1b058e66a83074b876957cd8f40b" prot="public" static="yes" mutable="no">
         <type>constexpr bool</type>
@@ -39,7 +39,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-success" /> <bold>auto impl</bold></para><para>Variable to check if external velocity independent forces exist the interaction. If the Derived class implements method impl_eval_extra_vel_indep_acc(). The value is <computeroutput>true</computeroutput>, otherwise this value is <computeroutput>false</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="66" column="1" bodyfile="interaction.hpp" bodystart="66" bodyend="-1"/>
+        <location file="interaction/interaction.hpp" line="66" column="1" bodyfile="interaction/interaction.hpp" bodystart="66" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="133" column="1" bodyfile="interaction.hpp" bodystart="133" bodyend="-1"/>
+        <location file="interaction/interaction.hpp" line="133" column="1" bodyfile="interaction/interaction.hpp" bodystart="133" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -70,7 +70,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="75" column="1" bodyfile="interaction.hpp" bodystart="140" bodyend="142"/>
+        <location file="interaction/interaction.hpp" line="75" column="1" bodyfile="interaction/interaction.hpp" bodystart="140" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a50e89318bff5916460aaa44fc602dcb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -119,7 +119,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="88" column="1" bodyfile="interaction.hpp" bodystart="146" bodyend="148"/>
+        <location file="interaction/interaction.hpp" line="88" column="1" bodyfile="interaction/interaction.hpp" bodystart="146" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1acabdf2658353fa826c375c1735e064cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -168,7 +168,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="101" column="1" bodyfile="interaction.hpp" bodystart="153" bodyend="155"/>
+        <location file="interaction/interaction.hpp" line="101" column="1" bodyfile="interaction/interaction.hpp" bodystart="153" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a5bbc521c8391a2243b61c23a774bcbc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -217,7 +217,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="114" column="1" bodyfile="interaction.hpp" bodystart="160" bodyend="162"/>
+        <location file="interaction/interaction.hpp" line="114" column="1" bodyfile="interaction/interaction.hpp" bodystart="160" bodyend="162"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1interactions_1_1_interactions_1a75ebb1df656e5a7df68ee35f3f80504d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -266,7 +266,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="127" column="1" bodyfile="interaction.hpp" bodystart="166" bodyend="168"/>
+        <location file="interaction/interaction.hpp" line="127" column="1" bodyfile="interaction/interaction.hpp" bodystart="166" bodyend="168"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="131" column="1"/>
+        <location file="interaction/interaction.hpp" line="131" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -334,7 +334,7 @@
         <link refid="classspace_1_1interactions_1_1_interactions"/>
       </node>
     </collaborationgraph>
-    <location file="interaction.hpp" line="43" column="1" bodyfile="interaction.hpp" bodystart="43" bodyend="134"/>
+    <location file="interaction/interaction.hpp" line="43" column="1" bodyfile="interaction/interaction.hpp" bodystart="43" bodyend="134"/>
     <listofallmembers>
       <member refid="classspace_1_1interactions_1_1_interactions_1a43dba0a79005ad55e26516e26007648a" prot="private" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>Derived</name></member>
       <member refid="classspace_1_1interactions_1_1_interactions_1adc58de8f16344845c4a1176a95fe2bb9" prot="public" virt="non-virtual"><scope>space::interactions::Interactions</scope><name>derived</name></member>

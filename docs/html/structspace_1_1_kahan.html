@@ -20,7 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo1.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SpaceHub
    &#160;<span id="projectnumber">1.0</span>
@@ -123,10 +123,8 @@ Friends</h2></td></tr>
 <tr class="memitem:a42e4f8216229b2e3f6ab1b9be7adbfff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_kahan.html#a42e4f8216229b2e3f6ab1b9be7adbfff">operator*=</a> (<a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;lhs, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;rhs)</td></tr>
 <tr class="separator:a42e4f8216229b2e3f6ab1b9be7adbfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a20a2939e89b95217bfd9c6a2845a6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_kahan.html#ab7a20a2939e89b95217bfd9c6a2845a6">operator&lt;&lt;</a> (std::ostream &amp;output, const <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;v)</td></tr>
-<tr class="memdesc:ab7a20a2939e89b95217bfd9c6a2845a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to ostream.  <a href="#ab7a20a2939e89b95217bfd9c6a2845a6">More...</a><br /></td></tr>
 <tr class="separator:ab7a20a2939e89b95217bfd9c6a2845a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23c0f55b05b750986ccf7e1b6d436590"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspace_1_1_kahan.html#a23c0f55b05b750986ccf7e1b6d436590">operator&gt;&gt;</a> (std::istream &amp;<a class="el" href="namespacespace.html#a4dfbbf0c49a0ab8474512e3080b66bfc">input</a>, <a class="el" href="structspace_1_1_kahan.html">Kahan</a> &amp;v)</td></tr>
-<tr class="memdesc:a23c0f55b05b750986ccf7e1b6d436590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input from istream.  <a href="#a23c0f55b05b750986ccf7e1b6d436590">More...</a><br /></td></tr>
 <tr class="separator:a23c0f55b05b750986ccf7e1b6d436590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -177,6 +175,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Default constructor </p>
 
 </div>
 </div>
@@ -205,6 +204,12 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Single parameter constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>Scalar </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -233,6 +238,12 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Copy constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -261,6 +272,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Conversion operator. Convert Khan number to Scalar i.e <code>double</code>, <code>float</code>,... </p>
 
 </div>
 </div>
@@ -288,6 +300,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Conversion operator. Convert Khan number to Scalar i.e <code>double</code>, <code>float</code>,... </p>
 
 </div>
 </div>
@@ -316,6 +329,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Assignment operator. </p>
 
 </div>
 </div>
@@ -343,6 +357,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set error to 0. </p>
 
 </div>
 </div>
@@ -382,6 +397,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Multiple assignment operator. </p>
 
 </div>
 </div>
@@ -420,6 +436,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Addition assignment operator. </p>
 
 </div>
 </div>
@@ -448,6 +465,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Opposite operator. </p>
 
 </div>
 </div>
@@ -486,6 +504,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Subtraction assignment operator. </p>
 
 </div>
 </div>
@@ -524,6 +543,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Division assignment operator. </p>
 
 </div>
 </div>
@@ -562,8 +582,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Output to ostream. </p>
+<p>Output stream </p>
 
 </div>
 </div>
@@ -602,8 +621,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Input from istream. </p>
+<p>Input stream </p>
 
 </div>
 </div>

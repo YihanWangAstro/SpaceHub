@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="126" column="1" bodyfile="particles.hpp" bodystart="126" bodyend="-1"/>
+        <location file="particles/particles.hpp" line="126" column="1" bodyfile="particles/particles.hpp" bodystart="126" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -37,7 +37,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>idn</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="49" column="1" bodyfile="particles.hpp" bodystart="49" bodyend="49"/>
+        <location file="particles/particles.hpp" line="49" column="1" bodyfile="particles/particles.hpp" bodystart="49" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1aebd2aaaf9f5d9933fda2c1e05c0148f6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -50,7 +50,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>idn</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="49" column="1" bodyfile="particles.hpp" bodystart="49" bodyend="49"/>
+        <location file="particles/particles.hpp" line="49" column="1" bodyfile="particles/particles.hpp" bodystart="49" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a10121dc019d3a70a5dd718fcb6c14b46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -63,7 +63,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>mass</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="51" column="1" bodyfile="particles.hpp" bodystart="51" bodyend="51"/>
+        <location file="particles/particles.hpp" line="51" column="1" bodyfile="particles/particles.hpp" bodystart="51" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1aef17d9f3ebadd7353c0a66af29b53aaf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -76,7 +76,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>mass</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="51" column="1" bodyfile="particles.hpp" bodystart="51" bodyend="51"/>
+        <location file="particles/particles.hpp" line="51" column="1" bodyfile="particles/particles.hpp" bodystart="51" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a141109c26bd5ab4c283eb8d9259d1b78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -89,7 +89,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="53" column="1" bodyfile="particles.hpp" bodystart="53" bodyend="53"/>
+        <location file="particles/particles.hpp" line="53" column="1" bodyfile="particles/particles.hpp" bodystart="53" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a90c17e9ade3a79cbab7d22350d4d4e1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -102,7 +102,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>pos</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="53" column="1" bodyfile="particles.hpp" bodystart="53" bodyend="53"/>
+        <location file="particles/particles.hpp" line="53" column="1" bodyfile="particles/particles.hpp" bodystart="53" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1ad8f44a494a805d454fa3a2b3f3967088" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -115,7 +115,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>time</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="55" column="1" bodyfile="particles.hpp" bodystart="55" bodyend="55"/>
+        <location file="particles/particles.hpp" line="55" column="1" bodyfile="particles/particles.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a19d88f547ae6af7869670b4460003c15" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -128,7 +128,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>time</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="55" column="1" bodyfile="particles.hpp" bodystart="55" bodyend="55"/>
+        <location file="particles/particles.hpp" line="55" column="1" bodyfile="particles/particles.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a4c206bfebf1f290ef01397cfc94bd9ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>auto &amp;</type>
@@ -141,7 +141,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The setter interface of member <computeroutput>vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="57" column="1" bodyfile="particles.hpp" bodystart="57" bodyend="57"/>
+        <location file="particles/particles.hpp" line="57" column="1" bodyfile="particles/particles.hpp" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1adb61dd7ea71b5fb78fc0e2dba5cea06f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -154,7 +154,7 @@
 <para> <mcss:class xmlns:mcss="http://mcss.mosra.cz/doxygen/" mcss:class="m-label m-flat m-danger" /> <bold>must impl</bold> The getter interface of member <computeroutput>vel</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="57" column="1" bodyfile="particles.hpp" bodystart="57" bodyend="57"/>
+        <location file="particles/particles.hpp" line="57" column="1" bodyfile="particles/particles.hpp" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a245ecb69dca54f735ad508257cc2c9b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Derived &amp;</type>
@@ -168,7 +168,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="65" column="1" bodyfile="particles.hpp" bodystart="133" bodyend="135"/>
+        <location file="particles/particles.hpp" line="65" column="1" bodyfile="particles/particles.hpp" bodystart="133" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a2c2283739306b6a990d1e9cb012432af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -182,7 +182,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="73" column="1" bodyfile="particles.hpp" bodystart="138" bodyend="140"/>
+        <location file="particles/particles.hpp" line="73" column="1" bodyfile="particles/particles.hpp" bodystart="138" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a5eaa7257f965dc28bf5f4ec310c2980e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -197,7 +197,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="82" column="1" bodyfile="particles.hpp" bodystart="143" bodyend="145"/>
+        <location file="particles/particles.hpp" line="82" column="1" bodyfile="particles/particles.hpp" bodystart="143" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a119f7dc027bfb14909a8ce0585348605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -222,7 +222,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="91" column="1" bodyfile="particles.hpp" bodystart="148" bodyend="150"/>
+        <location file="particles/particles.hpp" line="91" column="1" bodyfile="particles/particles.hpp" bodystart="148" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a8fa9b783ab2f05e96f83c15103de51ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -247,7 +247,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="100" column="1" bodyfile="particles.hpp" bodystart="153" bodyend="155"/>
+        <location file="particles/particles.hpp" line="100" column="1" bodyfile="particles/particles.hpp" bodystart="153" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1ae3ab65c8ce8b7267988b1955b80501bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -261,7 +261,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="108" column="1" bodyfile="particles.hpp" bodystart="158" bodyend="160"/>
+        <location file="particles/particles.hpp" line="108" column="1" bodyfile="particles/particles.hpp" bodystart="158" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1particle__set_1_1_particles_1a839bfe959f17a5732f055abb5495b1f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -299,7 +299,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="118" column="1" bodyfile="particles.hpp" bodystart="164" bodyend="166"/>
+        <location file="particles/particles.hpp" line="118" column="1" bodyfile="particles/particles.hpp" bodystart="164" bodyend="166"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -314,7 +314,7 @@
 <para>Construct a new <ref refid="classspace_1_1particle__set_1_1_particles" kindref="compound">Particles</ref> object. Set to be private to avoid outside access. Only implement class can access. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="124" column="1"/>
+        <location file="particles/particles.hpp" line="124" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -367,7 +367,7 @@
         <link refid="classspace_1_1particle__set_1_1_particles"/>
       </node>
     </collaborationgraph>
-    <location file="particles.hpp" line="46" column="1" bodyfile="particles.hpp" bodystart="46" bodyend="127"/>
+    <location file="particles/particles.hpp" line="46" column="1" bodyfile="particles/particles.hpp" bodystart="46" bodyend="127"/>
     <listofallmembers>
       <member refid="classspace_1_1particle__set_1_1_particles_1a5eaa7257f965dc28bf5f4ec310c2980e" prot="public" virt="non-virtual"><scope>space::particle_set::Particles</scope><name>capacity</name></member>
       <member refid="classspace_1_1particle__set_1_1_particles_1ae3ab65c8ce8b7267988b1955b80501bc" prot="public" virt="non-virtual"><scope>space::particle_set::Particles</scope><name>clear</name></member>

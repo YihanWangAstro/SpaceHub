@@ -7,6 +7,7 @@
     <innerfile refid="chain-system_8hpp">chain-system.hpp</innerfile>
     <innerfile refid="chain_8hpp">chain.hpp</innerfile>
     <innerfile refid="octree_8hpp">octree.hpp</innerfile>
+    <innerfile refid="particle-system_8hpp">particle-system.hpp</innerfile>
     <innerfile refid="regu-system_8hpp">regu-system.hpp</innerfile>
     <briefdescription>
     </briefdescription>

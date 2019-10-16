@@ -15,7 +15,7 @@ var searchData=
   ['lock_5fisothermal',['LOCK_ISOTHERMAL',['../orbits_8hpp.html#ac5d1af83aa891813baea00cdf423102f',1,'orbits.hpp']]],
   ['lock_5fshuffle_5fi',['lock_shuffle_i',['../structspace_1_1orbit_1_1_orbit_args.html#a152ae74a06730952b3c86e4ba695b848',1,'space::orbit::OrbitArgs']]],
   ['lock_5fshuffle_5fnu',['lock_shuffle_nu',['../structspace_1_1orbit_1_1_orbit_args.html#af2bdd4650b0f5187c2842f789cc1754c',1,'space::orbit::OrbitArgs']]],
-  ['lock_5fshuffle_5fomega',['lock_shuffle_Omega',['../structspace_1_1orbit_1_1_orbit_args.html#ad64f288f2a5572c9879bd69cd5e5cab1',1,'space::orbit::OrbitArgs::lock_shuffle_Omega()'],['../structspace_1_1orbit_1_1_orbit_args.html#a58cac0aa929af0e17bff1986c52ed9a8',1,'space::orbit::OrbitArgs::lock_shuffle_omega()']]],
+  ['lock_5fshuffle_5fomega',['lock_shuffle_omega',['../structspace_1_1orbit_1_1_orbit_args.html#a58cac0aa929af0e17bff1986c52ed9a8',1,'space::orbit::OrbitArgs::lock_shuffle_omega()'],['../structspace_1_1orbit_1_1_orbit_args.html#ad64f288f2a5572c9879bd69cd5e5cab1',1,'space::orbit::OrbitArgs::lock_shuffle_Omega()']]],
   ['lockrandom',['LockRandom',['../structspace_1_1orbit_1_1_lock_random.html',1,'space::orbit']]],
   ['log',['log',['../namespace_space_h_1_1_lazy.html#a7cb44bbd0fd0d7ea550c510e0bdbb1f0',1,'SpaceH::Lazy']]],
   ['log10',['log10',['../namespace_space_h_1_1_lazy.html#aefaed9e2a7523b473eecebb53ec91263',1,'SpaceH::Lazy']]],

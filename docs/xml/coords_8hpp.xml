@@ -5,84 +5,84 @@
     <includes refid="vector3_8hpp" local="yes">vector/vector3.hpp</includes>
     <includedby refid="type-class_8hpp" local="yes">type-class.hpp</includedby>
     <incdepgraph>
-      <node id="22">
+      <node id="12">
         <label>vector3d.hpp</label>
         <link refid="vector3d_8hpp"/>
       </node>
-      <node id="20">
+      <node id="10">
         <label>cmath</label>
       </node>
-      <node id="19">
+      <node id="9">
         <label>vector/vector3.hpp</label>
         <link refid="vector3_8hpp"/>
-        <childnode refid="20" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="11">
         <label>iostream</label>
       </node>
-      <node id="23">
+      <node id="13">
         <label>vector3pd.hpp</label>
         <link refid="vector3pd_8hpp"/>
       </node>
-      <node id="18">
+      <node id="8">
         <label>coords.hpp</label>
         <link refid="coords_8hpp"/>
-        <childnode refid="19" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="28">
+      <node id="18">
         <label>interaction/newtonian.hpp</label>
         <link refid="newtonian_8hpp"/>
-        <childnode refid="29" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="17">
+        <label>interaction/interaction.hpp</label>
+        <link refid="interaction_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
         <label>spaceHub.hpp</label>
         <link refid="space_hub_8hpp"/>
       </node>
-      <node id="27">
-        <label>interaction.hpp</label>
-        <link refid="interaction_8hpp"/>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
+      <node id="20">
         <label>interaction/post-newtonian.hpp</label>
         <link refid="post-newtonian_8hpp"/>
       </node>
-      <node id="31">
+      <node id="21">
         <label>interaction/tidal.hpp</label>
         <link refid="tidal_8hpp"/>
       </node>
-      <node id="26">
+      <node id="16">
         <label>integrator/Gauss-Dadau.h</label>
         <link refid="_gauss-_dadau_8h"/>
       </node>
-      <node id="25">
+      <node id="15">
         <label>type-class.hpp</label>
         <link refid="type-class_8hpp"/>
-        <childnode refid="26" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="14">
         <label>coords.hpp</label>
         <link refid="coords_8hpp"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

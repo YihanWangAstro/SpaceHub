@@ -24,7 +24,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particles.hpp" line="173" column="1" bodyfile="particles.hpp" bodystart="173" bodyend="-1"/>
+        <location file="particles/particles.hpp" line="173" column="1" bodyfile="particles/particles.hpp" bodystart="173" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">

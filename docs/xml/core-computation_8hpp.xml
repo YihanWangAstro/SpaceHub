@@ -4,138 +4,138 @@
     <compoundname>core-computation.hpp</compoundname>
     <includes refid="macros_8hpp" local="yes">macros.hpp</includes>
     <includes refid="own-math_8hpp" local="yes">own-math.hpp</includes>
-    <includedby refid="interaction_8hpp" local="yes">interaction.hpp</includedby>
+    <includedby refid="interaction_8hpp" local="yes">interaction/interaction.hpp</includedby>
     <includedby refid="regu-system_8hpp" local="yes">particle-system/regu-system.hpp</includedby>
     <includedby refid="chain_8hpp" local="yes">particle-system/chain.hpp</includedby>
     <includedby refid="base-system_8hpp" local="yes">particle-system/base-system.hpp</includedby>
     <includedby refid="chain-system_8hpp" local="yes">particle-system/chain-system.hpp</includedby>
     <includedby refid="simulator_8hpp" local="yes">simulator.hpp</includedby>
     <incdepgraph>
-      <node id="35">
+      <node id="25">
         <label>cmath</label>
       </node>
-      <node id="34">
+      <node id="24">
         <label>own-math.hpp</label>
         <link refid="own-math_8hpp"/>
-        <childnode refid="35" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="33">
+      <node id="23">
         <label>macros.hpp</label>
         <link refid="macros_8hpp"/>
       </node>
-      <node id="36">
+      <node id="26">
         <label>dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
-        <childnode refid="37" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="38">
+      <node id="28">
         <label>tuple</label>
       </node>
-      <node id="39">
+      <node id="29">
         <label>array</label>
       </node>
-      <node id="32">
+      <node id="22">
         <label>core-computation.hpp</label>
         <link refid="core-computation_8hpp"/>
-        <childnode refid="33" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="37">
+      <node id="27">
         <label>iostream</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="42">
+      <node id="32">
         <label>interaction/newtonian.hpp</label>
         <link refid="newtonian_8hpp"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="48">
+      <node id="38">
         <label>particle-system/chain.hpp</label>
         <link refid="chain_8hpp"/>
-        <childnode refid="47" relation="include">
+        <childnode refid="37" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
-      <node id="47">
+      <node id="37">
         <label>particle-system/archain.hpp</label>
         <link refid="archain_8hpp"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="51">
-        <label>simulator.hpp</label>
-        <link refid="simulator_8hpp"/>
-        <childnode refid="43" relation="include">
+      <node id="31">
+        <label>interaction/interaction.hpp</label>
+        <link refid="interaction_8hpp"/>
+        <childnode refid="32" relation="include">
         </childnode>
-      </node>
-      <node id="43">
-        <label>spaceHub.hpp</label>
-        <link refid="space_hub_8hpp"/>
-      </node>
-      <node id="49">
-        <label>particle-system/chain-system.hpp</label>
-        <link refid="chain-system_8hpp"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
-      </node>
-      <node id="46">
-        <label>particle-system/regu-system.hpp</label>
-        <link refid="regu-system_8hpp"/>
-        <childnode refid="47" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
       </node>
       <node id="41">
-        <label>interaction.hpp</label>
-        <link refid="interaction_8hpp"/>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
+        <label>simulator.hpp</label>
+        <link refid="simulator_8hpp"/>
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="44">
+      <node id="33">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp"/>
+      </node>
+      <node id="39">
+        <label>particle-system/chain-system.hpp</label>
+        <link refid="chain-system_8hpp"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>particle-system/regu-system.hpp</label>
+        <link refid="regu-system_8hpp"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
         <label>interaction/post-newtonian.hpp</label>
         <link refid="post-newtonian_8hpp"/>
       </node>
-      <node id="50">
+      <node id="40">
         <label>particle-system/base-system.hpp</label>
         <link refid="base-system_8hpp"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="40">
+      <node id="30">
         <label>core-computation.hpp</label>
         <link refid="core-computation_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
         <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="46" relation="include">
-        </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
-        </childnode>
-        <childnode refid="51" relation="include">
-        </childnode>
       </node>
-      <node id="45">
+      <node id="35">
         <label>interaction/tidal.hpp</label>
         <link refid="tidal_8hpp"/>
       </node>

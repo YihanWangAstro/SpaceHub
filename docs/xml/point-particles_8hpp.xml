@@ -2,85 +2,85 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="point-particles_8hpp" kind="file" language="C++">
     <compoundname>point-particles.hpp</compoundname>
-    <includes refid="particles_8hpp" local="yes">../particles.hpp</includes>
+    <includes refid="particles_8hpp" local="yes">particles.hpp</includes>
     <includes refid="vector3_8hpp" local="yes">../vector/vector3.hpp</includes>
     <includedby refid="finite-size_8hpp" local="yes">particles/finite-size.hpp</includedby>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-      <node id="568">
+      <node id="586">
         <label>vector3d.hpp</label>
         <link refid="vector3d_8hpp"/>
       </node>
-      <node id="567">
+      <node id="585">
         <label>cmath</label>
       </node>
-      <node id="566">
+      <node id="584">
         <label>../vector/vector3.hpp</label>
         <link refid="vector3_8hpp"/>
-        <childnode refid="567" relation="include">
+        <childnode refid="585" relation="include">
         </childnode>
-        <childnode refid="563" relation="include">
+        <childnode refid="581" relation="include">
         </childnode>
-        <childnode refid="568" relation="include">
+        <childnode refid="586" relation="include">
         </childnode>
-        <childnode refid="569" relation="include">
+        <childnode refid="587" relation="include">
         </childnode>
       </node>
-      <node id="562">
-        <label>dev-tools.hpp</label>
+      <node id="580">
+        <label>../dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
-        <childnode refid="563" relation="include">
+        <childnode refid="581" relation="include">
         </childnode>
-        <childnode refid="564" relation="include">
+        <childnode refid="582" relation="include">
         </childnode>
-        <childnode refid="565" relation="include">
+        <childnode refid="583" relation="include">
         </childnode>
       </node>
-      <node id="564">
+      <node id="579">
+        <label>particles.hpp</label>
+        <link refid="particles_8hpp"/>
+        <childnode refid="580" relation="include">
+        </childnode>
+      </node>
+      <node id="582">
         <label>tuple</label>
       </node>
-      <node id="565">
+      <node id="583">
         <label>array</label>
       </node>
-      <node id="561">
-        <label>../particles.hpp</label>
-        <link refid="particles_8hpp"/>
-        <childnode refid="562" relation="include">
-        </childnode>
-      </node>
-      <node id="563">
+      <node id="581">
         <label>iostream</label>
       </node>
-      <node id="560">
+      <node id="578">
         <label>particles/point-particles.hpp</label>
         <link refid="point-particles_8hpp"/>
-        <childnode refid="561" relation="include">
+        <childnode refid="579" relation="include">
         </childnode>
-        <childnode refid="566" relation="include">
+        <childnode refid="584" relation="include">
         </childnode>
       </node>
-      <node id="569">
+      <node id="587">
         <label>vector3pd.hpp</label>
         <link refid="vector3pd_8hpp"/>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="572">
+      <node id="590">
         <label>spaceHub.hpp</label>
         <link refid="space_hub_8hpp"/>
       </node>
-      <node id="571">
+      <node id="589">
         <label>particles/finite-size.hpp</label>
         <link refid="finite-size_8hpp"/>
-        <childnode refid="572" relation="include">
+        <childnode refid="590" relation="include">
         </childnode>
       </node>
-      <node id="570">
+      <node id="588">
         <label>particles/point-particles.hpp</label>
         <link refid="point-particles_8hpp"/>
-        <childnode refid="571" relation="include">
+        <childnode refid="589" relation="include">
         </childnode>
-        <childnode refid="572" relation="include">
+        <childnode refid="590" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
