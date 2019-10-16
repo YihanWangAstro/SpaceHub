@@ -84,7 +84,7 @@ using DefaultTypes = Types<double, std::vector>;
 template <template <class> class Paticles = particle_set::PointParticles, typename Force = interactions::NewtonianGrav>
 using DefaultSolver =
     Simulator<particle_system::ARchainSystem<Paticles<DefaultTypes>, Force, particle_system::ReguType::LogH>,
-              ode_iterator::BurlishStoer<double, ode_iterator::RMS, ode_iterator::PIDController>>;
+              ode_iterator::BurlishStoer<double, ode_iterator::worstOffender, ode_iterator::PIDController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
