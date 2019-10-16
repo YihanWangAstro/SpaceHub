@@ -18,6 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
+ * @dir src @brief Root
  * @folder{vector}
  * @folder{tools}
  * @folder{stellar}
@@ -60,8 +61,8 @@ License
 
 #include "integrator/symplectic/symplectic-integrator.hpp"
 
-#include "ode-iterator/error-checker/worst-offender.hpp"
 #include "ode-iterator/error-checker/RMS.hpp"
+#include "ode-iterator/error-checker/worst-offender.hpp"
 
 #include "ode-iterator/step-controller/PID-controller.hpp"
 
@@ -78,11 +79,12 @@ License
  * Documentation for space
  */
 namespace space {
-  using DefaultTypes = Types<double, std::vector>;
+using DefaultTypes = Types<double, std::vector>;
 
-  template<template<class> class Paticles = particle_set::PointParticles, typename Force = interactions::NewtonianGrav>
-  using DefaultSolver =
-  Simulator<particle_system::ARchainSystem<Paticles<DefaultTypes>, Force, particle_system::ReguType::LogH>, ode_iterator::BurlishStoer<double, ode_iterator::RMS, ode_iterator::PIDController>>;
+template <template <class> class Paticles = particle_set::PointParticles, typename Force = interactions::NewtonianGrav>
+using DefaultSolver =
+    Simulator<particle_system::ARchainSystem<Paticles<DefaultTypes>, Force, particle_system::ReguType::LogH>,
+              ode_iterator::BurlishStoer<double, ode_iterator::RMS, ode_iterator::PIDController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
