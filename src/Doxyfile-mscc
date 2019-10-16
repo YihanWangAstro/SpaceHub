@@ -1,9 +1,12 @@
-@INCLUDE                = Doxyfile
-GENERATE_HTML           = YES
-GENERATE_XML            = YES
-XML_PROGRAMLISTING      = NO
-SHOW_INCLUDE_FILES      = YES
-DOT_FONTSIZE            = 10
+@INCLUDE                   = Doxyfile
+GENERATE_HTML              = YES
+GENERATE_XML               = YES
+XML_PROGRAMLISTING         = NO
+SHOW_INCLUDE_FILES         = YES
+DOT_FONTSIZE               = 10
+M_CLASS_TREE_EXPAND_LEVELS = 6
+M_FILE_TREE_EXPAND_LEVELS  = 6
+M_EXPAND_INNER_TYPES       = YES
 ALIASES += \
     "m_div{1}=@xmlonly<mcss:div xmlns:mcss=\"http://mcss.mosra.cz/doxygen/\" mcss:class=\"\1\">@endxmlonly" \
     "m_enddiv=@xmlonly</mcss:div>@endxmlonly" \
