@@ -18,7 +18,10 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file vector/vector3.hpp
+ * @dir vector @brief Directory
+ *
+ *
+ * @file vector3.hpp
  *
  * Header file.
  */
