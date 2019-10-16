@@ -8,7 +8,7 @@ M_CLASS_TREE_EXPAND_LEVELS = 6
 M_FILE_TREE_EXPAND_LEVELS  = 6
 M_EXPAND_INNER_TYPES       = YES
 M_LINKS_NAVBAR1 = start pages namespaces
-M_LINKS_NAVBAR2 = annotated files
+M_LINKS_NAVBAR2 = annotated files changelog
 
 ALIASES += \
     "m_div{1}=@xmlonly<mcss:div xmlns:mcss=\"http://mcss.mosra.cz/doxygen/\" mcss:class=\"\1\">@endxmlonly" \
@@ -24,10 +24,15 @@ ALIASES += \
     "glabel{1}=@m_class{m-label m-success} **\1**"\
     "ylabel{1}=@m_class{m-label m-warning} **\1**"\
     "rlabel{1}=@m_class{m-label m-danger} **\1**"\
+    "blabel{1}=@m_class{m-label m-info} **\1**"\
+    "gflabel{1}=@m_class{m-label m-flat m-success} **\1**"\
+    "yflabel{1}=@m_class{m-label m-flat m-warning} **\1**"\
+    "rflabel{1}=@m_class{m-label m-flat m-danger} **\1**"\
+    "bflabel{1}=@m_class{m-label m-flat m-info} **\1**"\
     "must_impl=@m_class{m-label m-flat m-danger} **must impl**" \
-    "opt_impl{1}=@m_class{m-label m-flat m-warning} **optional impl** `> \1 `" \
+    "opt_impl{1}=@m_class{m-label m-flat m-info} **optional impl** `> \1 `" \
     "auto_impl=@m_class{m-label m-flat m-success} **auto impl** " \
-    "impl{1,2}=@m_class{m-label m-flat m-success} **implementation** of \2 in \1" \
+    "impl{2}=@m_class{m-label m-flat m-warning} **implementation** of \2 in \1" \
     "folder{1}=@dir src/\1 @brief Directory of \1"
 
 
