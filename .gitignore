@@ -3,5 +3,5 @@
 googletest/
 build
 docs/html/
-doc/xml/
+docs/xml/
 cmake-build-debug
