@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>space::ode_iterator::ErrorChecker class | SpaceHub</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">SpaceHub</a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="start.html">Getting started</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="namespaces.html">Namespaces</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="4">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="error-checker_8hpp.html">&lt;src/ode-iterator/error-checker/error-checker.hpp&gt;</a></div>
+          <div class="m-doc-template">template&lt;typename Derived&gt;</div>
+          <span class="m-breadcrumb"><a href="namespacespace.html">space</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacespace_1_1ode__iterator.html">ode_iterator</a>::<wbr/></span>ErrorChecker <span class="m-thin">class</span>
+        </h1>
+        <table class="m-table m-fullwidth m-flat">
+          <thead>
+            <tr><th colspan="2">Template parameters</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 1%">Derived</td>
+              <td>The implement class in CRTP idiom.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Abstract class of step error estimator. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <code><a href="classspace_1_1ode__iterator_1_1_error_checker.html" class="m-doc">ErrorChecker</a></code>. The error estimator provides the interface to estimate the error of an integration system.</p>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ab595d8b44e36594e174e71af36bc0217" class="m-doc">atol</a>(</span><span class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9aa73c7df45017e93423bfcabe1db3a9" class="m-doc">rtol</a>(</span><span class="m-doc-wrap">) const -&gt; const auto&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a792b9fc0a077429cb686224089b9ae8b" class="m-doc">derived</a>(</span><span class="m-doc-wrap">) -&gt; Derived&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Scalar&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a1f767e96bfc475742126d0894a6ad389" class="m-doc">set_atol</a>(</span><span class="m-doc-wrap">Scalar abs_error)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Scalar&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#ac302adc424db45e707b444935dbf619d" class="m-doc">set_rtol</a>(</span><span class="m-doc-wrap">Scalar rel_error)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Array&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa2b9db1883ea5804246d138dcdda9fbb" class="m-doc">error</a>(</span><span class="m-doc-wrap">Array const&amp; y0,
+              Array const&amp; y1) -&gt; typename Array::value_type -&gt; auto</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Array&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#af219d44501ea532d0349dfe991fd45cf" class="m-doc">error</a>(</span><span class="m-doc-wrap">Array const&amp; scale,
+              Array const&amp; y0,
+              Array const&amp; y1) -&gt; typename Array::value_type -&gt; auto</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="ab595d8b44e36594e174e71af36bc0217"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab595d8b44e36594e174e71af36bc0217" class="m-doc-self">atol</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p><strong class="m-label m-flat m-danger">must impl</strong> The getter interface of member <code>atol</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="a9aa73c7df45017e93423bfcabe1db3a9"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">const auto&amp; space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9aa73c7df45017e93423bfcabe1db3a9" class="m-doc-self">rtol</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p><strong class="m-label m-flat m-danger">must impl</strong> The getter interface of member <code>rtol</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="a792b9fc0a077429cb686224089b9ae8b"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">Derived&amp; space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a792b9fc0a077429cb686224089b9ae8b" class="m-doc-self">derived</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Derived</td>
+                </tr>
+              </tfoot>
+            </table>
+<p><strong class="m-label m-flat m-success">auto impl</strong></p><p>The downcast interface of Base class to Derived class.</p>
+          </div></section>
+          <section class="m-doc-details" id="a1f767e96bfc475742126d0894a6ad389"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+                template&lt;typename Scalar&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1f767e96bfc475742126d0894a6ad389" class="m-doc-self">set_atol</a>(</span><span class="m-doc-wrap">Scalar abs_error)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Scalar</td>
+                  <td>Floating point like type type.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>abs_error&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Absolute error.</td>
+                </tr>
+              </tbody>
+            </table>
+<p><strong class="m-label m-flat m-warning">optional impl</strong> <code>&gt; Absolute error is required.</code></p><p>Set the absolute error of the error estimator.</p>
+          </div></section>
+          <section class="m-doc-details" id="ac302adc424db45e707b444935dbf619d"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+                template&lt;typename Scalar&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac302adc424db45e707b444935dbf619d" class="m-doc-self">set_rtol</a>(</span><span class="m-doc-wrap">Scalar rel_error)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Scalar</td>
+                  <td>Floating point like type type.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>rel_error</td>
+                  <td>Relative error.</td>
+                </tr>
+              </tbody>
+            </table>
+<p><strong class="m-label m-flat m-warning">optional impl</strong> <code>&gt; Relative error is required.</code></p><p>Set the relative error of the error estimator.</p>
+          </div></section>
+          <section class="m-doc-details" id="aa2b9db1883ea5804246d138dcdda9fbb"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+                template&lt;typename Array&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa2b9db1883ea5804246d138dcdda9fbb" class="m-doc-self">error</a>(</span><span class="m-doc-wrap">Array const&amp; y0,
+              Array const&amp; y1) -&gt; typename Array::value_type</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Array</td>
+                  <td>Iterable array like type.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>y0&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The first result.</td>
+                </tr>
+                <tr>
+                  <td>y1&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The second result.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>The estimated error.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Estimate the error between two results. For example,</p><div class="m-math"><svg style="width: 11.296em; height: 1.245em;" viewBox="140.048381 -11.955168 108.446255 11.955168">
+<title>
+\[\mathrm error = {|y_0 -y_1|/|y_0|} \]
+</title>
+<defs>
+<path id='eq1-g2-48' d='M3.897385 -2.542466C3.897385 -3.395268 3.809714 -3.913325 3.5467 -4.423412C3.196015 -5.124782 2.550436 -5.300125 2.11208 -5.300125C1.107846 -5.300125 0.74122 -4.550934 0.629639 -4.327771C0.342715 -3.745953 0.326775 -2.956912 0.326775 -2.542466C0.326775 -2.016438 0.350685 -1.211457 0.73325 -0.573848C1.099875 0.01594 1.689664 0.167372 2.11208 0.167372C2.494645 0.167372 3.180075 0.047821 3.57858 -0.74122C3.873474 -1.315068 3.897385 -2.024408 3.897385 -2.542466ZM2.11208 -0.055791C1.841096 -0.055791 1.291158 -0.183313 1.123786 -1.020174C1.036115 -1.474471 1.036115 -2.223661 1.036115 -2.638107C1.036115 -3.188045 1.036115 -3.745953 1.123786 -4.184309C1.291158 -4.99726 1.912827 -5.076961 2.11208 -5.076961C2.383064 -5.076961 2.933001 -4.941469 3.092403 -4.216189C3.188045 -3.777833 3.188045 -3.180075 3.188045 -2.638107C3.188045 -2.16787 3.188045 -1.45056 3.092403 -1.004234C2.925031 -0.167372 2.375093 -0.055791 2.11208 -0.055791Z'/>
+<path id='eq1-g2-49' d='M2.502615 -5.076961C2.502615 -5.292154 2.486675 -5.300125 2.271482 -5.300125C1.944707 -4.98132 1.522291 -4.790037 0.765131 -4.790037V-4.527024C0.980324 -4.527024 1.41071 -4.527024 1.872976 -4.742217V-0.653549C1.872976 -0.358655 1.849066 -0.263014 1.091905 -0.263014H0.812951V0C1.139726 -0.02391 1.825156 -0.02391 2.183811 -0.02391S3.235866 -0.02391 3.56264 0V-0.263014H3.283686C2.526526 -0.263014 2.502615 -0.358655 2.502615 -0.653549V-5.076961Z'/>
+<path id='eq1-g0-0' d='M7.878456 -2.749689C8.081694 -2.749689 8.296887 -2.749689 8.296887 -2.988792S8.081694 -3.227895 7.878456 -3.227895H1.41071C1.207472 -3.227895 0.992279 -3.227895 0.992279 -2.988792S1.207472 -2.749689 1.41071 -2.749689H7.878456Z'/>
+<path id='eq1-g0-106' d='M1.900872 -8.53599C1.900872 -8.751183 1.900872 -8.966376 1.661768 -8.966376S1.422665 -8.751183 1.422665 -8.53599V2.558406C1.422665 2.773599 1.422665 2.988792 1.661768 2.988792S1.900872 2.773599 1.900872 2.558406V-8.53599Z'/>
+<path id='eq1-g1-61' d='M5.128767 -8.524035C5.128767 -8.53599 5.200498 -8.715318 5.200498 -8.739228C5.200498 -8.88269 5.080946 -8.966376 4.985305 -8.966376C4.925529 -8.966376 4.817933 -8.966376 4.722291 -8.703362L0.71731 2.546451C0.71731 2.558406 0.645579 2.737733 0.645579 2.761644C0.645579 2.905106 0.765131 2.988792 0.860772 2.988792C0.932503 2.988792 1.0401 2.976837 1.123786 2.725778L5.128767 -8.524035Z'/>
+<path id='eq1-g1-111' d='M5.451557 -3.287671C5.451557 -4.423412 4.710336 -5.272229 3.622416 -5.272229C2.044334 -5.272229 0.490162 -3.550685 0.490162 -1.865006C0.490162 -0.729265 1.231382 0.119552 2.319303 0.119552C3.90934 0.119552 5.451557 -1.601993 5.451557 -3.287671ZM2.331258 -0.119552C1.733499 -0.119552 1.291158 -0.597758 1.291158 -1.43462C1.291158 -1.984558 1.578082 -3.203985 1.912827 -3.801743C2.450809 -4.722291 3.120299 -5.033126 3.610461 -5.033126C4.196264 -5.033126 4.65056 -4.554919 4.65056 -3.718057C4.65056 -3.239851 4.399502 -1.960648 3.945205 -1.231382C3.455044 -0.430386 2.797509 -0.119552 2.331258 -0.119552Z'/>
+<path id='eq1-g1-114' d='M4.65056 -4.889664C4.27995 -4.817933 4.088667 -4.554919 4.088667 -4.291905C4.088667 -4.004981 4.315816 -3.90934 4.483188 -3.90934C4.817933 -3.90934 5.092902 -4.196264 5.092902 -4.554919C5.092902 -4.937484 4.722291 -5.272229 4.124533 -5.272229C3.646326 -5.272229 3.096389 -5.057036 2.594271 -4.327771C2.510585 -4.961395 2.032379 -5.272229 1.554172 -5.272229C1.08792 -5.272229 0.848817 -4.913574 0.705355 -4.65056C0.502117 -4.220174 0.32279 -3.502864 0.32279 -3.443088C0.32279 -3.395268 0.37061 -3.335492 0.454296 -3.335492C0.549938 -3.335492 0.561893 -3.347447 0.633624 -3.622416C0.812951 -4.339726 1.0401 -5.033126 1.518306 -5.033126C1.80523 -5.033126 1.888917 -4.829888 1.888917 -4.483188C1.888917 -4.220174 1.769365 -3.753923 1.685679 -3.383313L1.350934 -2.092154C1.303113 -1.865006 1.171606 -1.327024 1.111831 -1.111831C1.028144 -0.800996 0.896638 -0.239103 0.896638 -0.179328C0.896638 -0.011955 1.028144 0.119552 1.207472 0.119552C1.338979 0.119552 1.566127 0.035866 1.637858 -0.203238C1.673724 -0.298879 2.116065 -2.10411 2.187796 -2.379078C2.247572 -2.642092 2.319303 -2.893151 2.379078 -3.156164C2.426899 -3.323537 2.47472 -3.514819 2.510585 -3.670237C2.546451 -3.777833 2.86924 -4.363636 3.16812 -4.62665C3.311582 -4.758157 3.622416 -5.033126 4.112578 -5.033126C4.303861 -5.033126 4.495143 -4.99726 4.65056 -4.889664Z'/>
+<path id='eq1-g1-121' d='M3.144209 1.338979C2.82142 1.793275 2.355168 2.199751 1.769365 2.199751C1.625903 2.199751 1.052055 2.175841 0.872727 1.625903C0.908593 1.637858 0.968369 1.637858 0.992279 1.637858C1.350934 1.637858 1.590037 1.327024 1.590037 1.052055S1.362889 0.681445 1.183562 0.681445C0.992279 0.681445 0.573848 0.824907 0.573848 1.41071C0.573848 2.020423 1.08792 2.438854 1.769365 2.438854C2.964882 2.438854 4.172354 1.338979 4.507098 0.011955L5.678705 -4.65056C5.69066 -4.710336 5.71457 -4.782067 5.71457 -4.853798C5.71457 -5.033126 5.571108 -5.152677 5.391781 -5.152677C5.284184 -5.152677 5.033126 -5.104857 4.937484 -4.746202L4.052802 -1.231382C3.993026 -1.016189 3.993026 -0.992279 3.897385 -0.860772C3.658281 -0.526027 3.263761 -0.119552 2.689913 -0.119552C2.020423 -0.119552 1.960648 -0.777086 1.960648 -1.099875C1.960648 -1.78132 2.283437 -2.701868 2.606227 -3.56264C2.737733 -3.90934 2.809465 -4.076712 2.809465 -4.315816C2.809465 -4.817933 2.450809 -5.272229 1.865006 -5.272229C0.765131 -5.272229 0.32279 -3.53873 0.32279 -3.443088C0.32279 -3.395268 0.37061 -3.335492 0.454296 -3.335492C0.561893 -3.335492 0.573848 -3.383313 0.621669 -3.550685C0.908593 -4.554919 1.362889 -5.033126 1.829141 -5.033126C1.936737 -5.033126 2.139975 -5.033126 2.139975 -4.638605C2.139975 -4.327771 2.008468 -3.981071 1.829141 -3.526775C1.243337 -1.960648 1.243337 -1.566127 1.243337 -1.279203C1.243337 -0.143462 2.056289 0.119552 2.654047 0.119552C3.000747 0.119552 3.431133 0.011955 3.849564 -0.430386L3.861519 -0.418431C3.682192 0.286924 3.56264 0.753176 3.144209 1.338979Z'/>
+<path id='eq1-g3-61' d='M8.069738 -3.873474C8.237111 -3.873474 8.452304 -3.873474 8.452304 -4.088667C8.452304 -4.315816 8.249066 -4.315816 8.069738 -4.315816H1.028144C0.860772 -4.315816 0.645579 -4.315816 0.645579 -4.100623C0.645579 -3.873474 0.848817 -3.873474 1.028144 -3.873474H8.069738ZM8.069738 -1.649813C8.237111 -1.649813 8.452304 -1.649813 8.452304 -1.865006C8.452304 -2.092154 8.249066 -2.092154 8.069738 -2.092154H1.028144C0.860772 -2.092154 0.645579 -2.092154 0.645579 -1.876961C0.645579 -1.649813 0.848817 -1.649813 1.028144 -1.649813H8.069738Z'/>
+<path id='eq1-g3-101' d='M4.578829 -2.773599C4.841843 -2.773599 4.865753 -2.773599 4.865753 -3.000747C4.865753 -4.208219 4.220174 -5.332005 2.773599 -5.332005C1.41071 -5.332005 0.358655 -4.100623 0.358655 -2.618182C0.358655 -1.0401 1.578082 0.119552 2.905106 0.119552C4.327771 0.119552 4.865753 -1.171606 4.865753 -1.422665C4.865753 -1.494396 4.805978 -1.542217 4.734247 -1.542217C4.638605 -1.542217 4.614695 -1.482441 4.590785 -1.422665C4.27995 -0.418431 3.478954 -0.143462 2.976837 -0.143462S1.267248 -0.478207 1.267248 -2.546451V-2.773599H4.578829ZM1.279203 -3.000747C1.374844 -4.877709 2.426899 -5.092902 2.761644 -5.092902C4.040847 -5.092902 4.112578 -3.407223 4.124533 -3.000747H1.279203Z'/>
+</defs>
+<g id='eq1-page1'>
+<use x='140.048381' y='-2.988792' xlink:href='#eq1-g3-101'/>
+<use x='145.251039' y='-2.988792' xlink:href='#eq1-g1-114'/>
+<use x='150.851513' y='-2.988792' xlink:href='#eq1-g1-114'/>
+<use x='156.451986' y='-2.988792' xlink:href='#eq1-g1-111'/>
+<use x='162.079424' y='-2.988792' xlink:href='#eq1-g1-114'/>
+<use x='171.000726' y='-2.988792' xlink:href='#eq1-g3-61'/>
+<use x='183.426207' y='-2.988792' xlink:href='#eq1-g0-106'/>
+<use x='186.747098' y='-2.988792' xlink:href='#eq1-g1-121'/>
+<use x='192.454801' y='-1.195529' xlink:href='#eq1-g2-48'/>
+<use x='199.843779' y='-2.988792' xlink:href='#eq1-g0-0'/>
+<use x='211.798939' y='-2.988792' xlink:href='#eq1-g1-121'/>
+<use x='217.506642' y='-1.195529' xlink:href='#eq1-g2-49'/>
+<use x='222.238957' y='-2.988792' xlink:href='#eq1-g0-106'/>
+<use x='225.559847' y='-2.988792' xlink:href='#eq1-g1-61'/>
+<use x='231.412838' y='-2.988792' xlink:href='#eq1-g0-106'/>
+<use x='234.733728' y='-2.988792' xlink:href='#eq1-g1-121'/>
+<use x='240.441431' y='-1.195529' xlink:href='#eq1-g2-48'/>
+<use x='245.173746' y='-2.988792' xlink:href='#eq1-g0-106'/>
+</g>
+</svg></div>
+          </div></section>
+          <section class="m-doc-details" id="af219d44501ea532d0349dfe991fd45cf"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+                template&lt;typename Array&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto space::<wbr />ode_iterator::<wbr />ErrorChecker&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af219d44501ea532d0349dfe991fd45cf" class="m-doc-self">error</a>(</span><span class="m-doc-wrap">Array const&amp; scale,
+              Array const&amp; y0,
+              Array const&amp; y1) -&gt; typename Array::value_type</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Array</td>
+                  <td>Iterable array like type.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>scale&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The provided scale for the results.</td>
+                </tr>
+                <tr>
+                  <td>y0&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The first result.</td>
+                </tr>
+                <tr>
+                  <td>y1&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The second result.</td>
+                </tr>
+              </tbody>
+            </table>
+<p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Estimate the error between two results with given scale. For example</p><div class="m-math"><svg style="width: 12.212em; height: 1.245em;" viewBox="135.653196 -11.955168 117.236644 11.955168">
+<title>
+\[\mathrm error = {|y_0 -y_1|/scale} \]
+</title>
+<defs>
+<path id='eq2-g2-48' d='M3.897385 -2.542466C3.897385 -3.395268 3.809714 -3.913325 3.5467 -4.423412C3.196015 -5.124782 2.550436 -5.300125 2.11208 -5.300125C1.107846 -5.300125 0.74122 -4.550934 0.629639 -4.327771C0.342715 -3.745953 0.326775 -2.956912 0.326775 -2.542466C0.326775 -2.016438 0.350685 -1.211457 0.73325 -0.573848C1.099875 0.01594 1.689664 0.167372 2.11208 0.167372C2.494645 0.167372 3.180075 0.047821 3.57858 -0.74122C3.873474 -1.315068 3.897385 -2.024408 3.897385 -2.542466ZM2.11208 -0.055791C1.841096 -0.055791 1.291158 -0.183313 1.123786 -1.020174C1.036115 -1.474471 1.036115 -2.223661 1.036115 -2.638107C1.036115 -3.188045 1.036115 -3.745953 1.123786 -4.184309C1.291158 -4.99726 1.912827 -5.076961 2.11208 -5.076961C2.383064 -5.076961 2.933001 -4.941469 3.092403 -4.216189C3.188045 -3.777833 3.188045 -3.180075 3.188045 -2.638107C3.188045 -2.16787 3.188045 -1.45056 3.092403 -1.004234C2.925031 -0.167372 2.375093 -0.055791 2.11208 -0.055791Z'/>
+<path id='eq2-g2-49' d='M2.502615 -5.076961C2.502615 -5.292154 2.486675 -5.300125 2.271482 -5.300125C1.944707 -4.98132 1.522291 -4.790037 0.765131 -4.790037V-4.527024C0.980324 -4.527024 1.41071 -4.527024 1.872976 -4.742217V-0.653549C1.872976 -0.358655 1.849066 -0.263014 1.091905 -0.263014H0.812951V0C1.139726 -0.02391 1.825156 -0.02391 2.183811 -0.02391S3.235866 -0.02391 3.56264 0V-0.263014H3.283686C2.526526 -0.263014 2.502615 -0.358655 2.502615 -0.653549V-5.076961Z'/>
+<path id='eq2-g0-0' d='M7.878456 -2.749689C8.081694 -2.749689 8.296887 -2.749689 8.296887 -2.988792S8.081694 -3.227895 7.878456 -3.227895H1.41071C1.207472 -3.227895 0.992279 -3.227895 0.992279 -2.988792S1.207472 -2.749689 1.41071 -2.749689H7.878456Z'/>
+<path id='eq2-g0-106' d='M1.900872 -8.53599C1.900872 -8.751183 1.900872 -8.966376 1.661768 -8.966376S1.422665 -8.751183 1.422665 -8.53599V2.558406C1.422665 2.773599 1.422665 2.988792 1.661768 2.988792S1.900872 2.773599 1.900872 2.558406V-8.53599Z'/>
+<path id='eq2-g1-61' d='M5.128767 -8.524035C5.128767 -8.53599 5.200498 -8.715318 5.200498 -8.739228C5.200498 -8.88269 5.080946 -8.966376 4.985305 -8.966376C4.925529 -8.966376 4.817933 -8.966376 4.722291 -8.703362L0.71731 2.546451C0.71731 2.558406 0.645579 2.737733 0.645579 2.761644C0.645579 2.905106 0.765131 2.988792 0.860772 2.988792C0.932503 2.988792 1.0401 2.976837 1.123786 2.725778L5.128767 -8.524035Z'/>
+<path id='eq2-g1-97' d='M3.598506 -1.422665C3.53873 -1.219427 3.53873 -1.195517 3.371357 -0.968369C3.108344 -0.633624 2.582316 -0.119552 2.020423 -0.119552C1.530262 -0.119552 1.255293 -0.561893 1.255293 -1.267248C1.255293 -1.924782 1.625903 -3.263761 1.853051 -3.765878C2.259527 -4.60274 2.82142 -5.033126 3.287671 -5.033126C4.076712 -5.033126 4.23213 -4.052802 4.23213 -3.957161C4.23213 -3.945205 4.196264 -3.789788 4.184309 -3.765878L3.598506 -1.422665ZM4.363636 -4.483188C4.23213 -4.794022 3.90934 -5.272229 3.287671 -5.272229C1.936737 -5.272229 0.478207 -3.526775 0.478207 -1.75741C0.478207 -0.573848 1.171606 0.119552 1.984558 0.119552C2.642092 0.119552 3.203985 -0.394521 3.53873 -0.789041C3.658281 -0.083686 4.220174 0.119552 4.578829 0.119552S5.224408 -0.095641 5.439601 -0.526027C5.630884 -0.932503 5.798257 -1.661768 5.798257 -1.709589C5.798257 -1.769365 5.750436 -1.817186 5.678705 -1.817186C5.571108 -1.817186 5.559153 -1.75741 5.511333 -1.578082C5.332005 -0.872727 5.104857 -0.119552 4.614695 -0.119552C4.267995 -0.119552 4.244085 -0.430386 4.244085 -0.669489C4.244085 -0.944458 4.27995 -1.075965 4.387547 -1.542217C4.471233 -1.841096 4.531009 -2.10411 4.62665 -2.450809C5.068991 -4.244085 5.176588 -4.674471 5.176588 -4.746202C5.176588 -4.913574 5.045081 -5.045081 4.865753 -5.045081C4.483188 -5.045081 4.387547 -4.62665 4.363636 -4.483188Z'/>
+<path id='eq2-g1-99' d='M4.674471 -4.495143C4.447323 -4.495143 4.339726 -4.495143 4.172354 -4.351681C4.100623 -4.291905 3.969116 -4.112578 3.969116 -3.921295C3.969116 -3.682192 4.148443 -3.53873 4.375592 -3.53873C4.662516 -3.53873 4.985305 -3.777833 4.985305 -4.25604C4.985305 -4.829888 4.435367 -5.272229 3.610461 -5.272229C2.044334 -5.272229 0.478207 -3.56264 0.478207 -1.865006C0.478207 -0.824907 1.123786 0.119552 2.343213 0.119552C3.969116 0.119552 4.99726 -1.147696 4.99726 -1.303113C4.99726 -1.374844 4.925529 -1.43462 4.877709 -1.43462C4.841843 -1.43462 4.829888 -1.422665 4.722291 -1.315068C3.957161 -0.298879 2.82142 -0.119552 2.367123 -0.119552C1.542217 -0.119552 1.279203 -0.836862 1.279203 -1.43462C1.279203 -1.853051 1.482441 -3.012702 1.912827 -3.825654C2.223661 -4.387547 2.86924 -5.033126 3.622416 -5.033126C3.777833 -5.033126 4.435367 -5.009215 4.674471 -4.495143Z'/>
+<path id='eq2-g1-101' d='M2.139975 -2.773599C2.462765 -2.773599 3.275716 -2.797509 3.849564 -3.012702C4.758157 -3.359402 4.841843 -4.052802 4.841843 -4.267995C4.841843 -4.794022 4.387547 -5.272229 3.598506 -5.272229C2.343213 -5.272229 0.537983 -4.136488 0.537983 -2.008468C0.537983 -0.753176 1.255293 0.119552 2.343213 0.119552C3.969116 0.119552 4.99726 -1.147696 4.99726 -1.303113C4.99726 -1.374844 4.925529 -1.43462 4.877709 -1.43462C4.841843 -1.43462 4.829888 -1.422665 4.722291 -1.315068C3.957161 -0.298879 2.82142 -0.119552 2.367123 -0.119552C1.685679 -0.119552 1.327024 -0.657534 1.327024 -1.542217C1.327024 -1.709589 1.327024 -2.008468 1.506351 -2.773599H2.139975ZM1.566127 -3.012702C2.080199 -4.853798 3.21594 -5.033126 3.598506 -5.033126C4.124533 -5.033126 4.483188 -4.722291 4.483188 -4.267995C4.483188 -3.012702 2.570361 -3.012702 2.068244 -3.012702H1.566127Z'/>
+<path id='eq2-g1-108' d='M3.036613 -7.998007C3.048568 -8.045828 3.072478 -8.117559 3.072478 -8.177335C3.072478 -8.296887 2.952927 -8.296887 2.929016 -8.296887C2.917061 -8.296887 2.486675 -8.261021 2.271482 -8.237111C2.068244 -8.225156 1.888917 -8.201245 1.673724 -8.18929C1.3868 -8.16538 1.303113 -8.153425 1.303113 -7.938232C1.303113 -7.81868 1.422665 -7.81868 1.542217 -7.81868C2.15193 -7.81868 2.15193 -7.711083 2.15193 -7.591532C2.15193 -7.543711 2.15193 -7.519801 2.092154 -7.304608L0.609714 -1.374844C0.573848 -1.243337 0.549938 -1.147696 0.549938 -0.956413C0.549938 -0.358655 0.992279 0.119552 1.601993 0.119552C1.996513 0.119552 2.259527 -0.143462 2.450809 -0.514072C2.654047 -0.908593 2.82142 -1.661768 2.82142 -1.709589C2.82142 -1.769365 2.773599 -1.817186 2.701868 -1.817186C2.594271 -1.817186 2.582316 -1.75741 2.534496 -1.578082C2.319303 -0.753176 2.10411 -0.119552 1.625903 -0.119552C1.267248 -0.119552 1.267248 -0.502117 1.267248 -0.669489C1.267248 -0.71731 1.267248 -0.968369 1.350934 -1.303113L3.036613 -7.998007Z'/>
+<path id='eq2-g1-111' d='M5.451557 -3.287671C5.451557 -4.423412 4.710336 -5.272229 3.622416 -5.272229C2.044334 -5.272229 0.490162 -3.550685 0.490162 -1.865006C0.490162 -0.729265 1.231382 0.119552 2.319303 0.119552C3.90934 0.119552 5.451557 -1.601993 5.451557 -3.287671ZM2.331258 -0.119552C1.733499 -0.119552 1.291158 -0.597758 1.291158 -1.43462C1.291158 -1.984558 1.578082 -3.203985 1.912827 -3.801743C2.450809 -4.722291 3.120299 -5.033126 3.610461 -5.033126C4.196264 -5.033126 4.65056 -4.554919 4.65056 -3.718057C4.65056 -3.239851 4.399502 -1.960648 3.945205 -1.231382C3.455044 -0.430386 2.797509 -0.119552 2.331258 -0.119552Z'/>
+<path id='eq2-g1-114' d='M4.65056 -4.889664C4.27995 -4.817933 4.088667 -4.554919 4.088667 -4.291905C4.088667 -4.004981 4.315816 -3.90934 4.483188 -3.90934C4.817933 -3.90934 5.092902 -4.196264 5.092902 -4.554919C5.092902 -4.937484 4.722291 -5.272229 4.124533 -5.272229C3.646326 -5.272229 3.096389 -5.057036 2.594271 -4.327771C2.510585 -4.961395 2.032379 -5.272229 1.554172 -5.272229C1.08792 -5.272229 0.848817 -4.913574 0.705355 -4.65056C0.502117 -4.220174 0.32279 -3.502864 0.32279 -3.443088C0.32279 -3.395268 0.37061 -3.335492 0.454296 -3.335492C0.549938 -3.335492 0.561893 -3.347447 0.633624 -3.622416C0.812951 -4.339726 1.0401 -5.033126 1.518306 -5.033126C1.80523 -5.033126 1.888917 -4.829888 1.888917 -4.483188C1.888917 -4.220174 1.769365 -3.753923 1.685679 -3.383313L1.350934 -2.092154C1.303113 -1.865006 1.171606 -1.327024 1.111831 -1.111831C1.028144 -0.800996 0.896638 -0.239103 0.896638 -0.179328C0.896638 -0.011955 1.028144 0.119552 1.207472 0.119552C1.338979 0.119552 1.566127 0.035866 1.637858 -0.203238C1.673724 -0.298879 2.116065 -2.10411 2.187796 -2.379078C2.247572 -2.642092 2.319303 -2.893151 2.379078 -3.156164C2.426899 -3.323537 2.47472 -3.514819 2.510585 -3.670237C2.546451 -3.777833 2.86924 -4.363636 3.16812 -4.62665C3.311582 -4.758157 3.622416 -5.033126 4.112578 -5.033126C4.303861 -5.033126 4.495143 -4.99726 4.65056 -4.889664Z'/>
+<path id='eq2-g1-115' d='M2.725778 -2.391034C2.929016 -2.355168 3.251806 -2.283437 3.323537 -2.271482C3.478954 -2.223661 4.016936 -2.032379 4.016936 -1.458531C4.016936 -1.08792 3.682192 -0.119552 2.295392 -0.119552C2.044334 -0.119552 1.147696 -0.155417 0.908593 -0.812951C1.3868 -0.753176 1.625903 -1.123786 1.625903 -1.3868C1.625903 -1.637858 1.458531 -1.769365 1.219427 -1.769365C0.956413 -1.769365 0.609714 -1.566127 0.609714 -1.028144C0.609714 -0.32279 1.327024 0.119552 2.283437 0.119552C4.100623 0.119552 4.638605 -1.219427 4.638605 -1.841096C4.638605 -2.020423 4.638605 -2.355168 4.25604 -2.737733C3.957161 -3.024658 3.670237 -3.084433 3.024658 -3.21594C2.701868 -3.287671 2.187796 -3.395268 2.187796 -3.93325C2.187796 -4.172354 2.402989 -5.033126 3.53873 -5.033126C4.040847 -5.033126 4.531009 -4.841843 4.65056 -4.411457C4.124533 -4.411457 4.100623 -3.957161 4.100623 -3.945205C4.100623 -3.694147 4.327771 -3.622416 4.435367 -3.622416C4.60274 -3.622416 4.937484 -3.753923 4.937484 -4.25604S4.483188 -5.272229 3.550685 -5.272229C1.984558 -5.272229 1.566127 -4.040847 1.566127 -3.550685C1.566127 -2.642092 2.450809 -2.450809 2.725778 -2.391034Z'/>
+<path id='eq2-g1-121' d='M3.144209 1.338979C2.82142 1.793275 2.355168 2.199751 1.769365 2.199751C1.625903 2.199751 1.052055 2.175841 0.872727 1.625903C0.908593 1.637858 0.968369 1.637858 0.992279 1.637858C1.350934 1.637858 1.590037 1.327024 1.590037 1.052055S1.362889 0.681445 1.183562 0.681445C0.992279 0.681445 0.573848 0.824907 0.573848 1.41071C0.573848 2.020423 1.08792 2.438854 1.769365 2.438854C2.964882 2.438854 4.172354 1.338979 4.507098 0.011955L5.678705 -4.65056C5.69066 -4.710336 5.71457 -4.782067 5.71457 -4.853798C5.71457 -5.033126 5.571108 -5.152677 5.391781 -5.152677C5.284184 -5.152677 5.033126 -5.104857 4.937484 -4.746202L4.052802 -1.231382C3.993026 -1.016189 3.993026 -0.992279 3.897385 -0.860772C3.658281 -0.526027 3.263761 -0.119552 2.689913 -0.119552C2.020423 -0.119552 1.960648 -0.777086 1.960648 -1.099875C1.960648 -1.78132 2.283437 -2.701868 2.606227 -3.56264C2.737733 -3.90934 2.809465 -4.076712 2.809465 -4.315816C2.809465 -4.817933 2.450809 -5.272229 1.865006 -5.272229C0.765131 -5.272229 0.32279 -3.53873 0.32279 -3.443088C0.32279 -3.395268 0.37061 -3.335492 0.454296 -3.335492C0.561893 -3.335492 0.573848 -3.383313 0.621669 -3.550685C0.908593 -4.554919 1.362889 -5.033126 1.829141 -5.033126C1.936737 -5.033126 2.139975 -5.033126 2.139975 -4.638605C2.139975 -4.327771 2.008468 -3.981071 1.829141 -3.526775C1.243337 -1.960648 1.243337 -1.566127 1.243337 -1.279203C1.243337 -0.143462 2.056289 0.119552 2.654047 0.119552C3.000747 0.119552 3.431133 0.011955 3.849564 -0.430386L3.861519 -0.418431C3.682192 0.286924 3.56264 0.753176 3.144209 1.338979Z'/>
+<path id='eq2-g3-61' d='M8.069738 -3.873474C8.237111 -3.873474 8.452304 -3.873474 8.452304 -4.088667C8.452304 -4.315816 8.249066 -4.315816 8.069738 -4.315816H1.028144C0.860772 -4.315816 0.645579 -4.315816 0.645579 -4.100623C0.645579 -3.873474 0.848817 -3.873474 1.028144 -3.873474H8.069738ZM8.069738 -1.649813C8.237111 -1.649813 8.452304 -1.649813 8.452304 -1.865006C8.452304 -2.092154 8.249066 -2.092154 8.069738 -2.092154H1.028144C0.860772 -2.092154 0.645579 -2.092154 0.645579 -1.876961C0.645579 -1.649813 0.848817 -1.649813 1.028144 -1.649813H8.069738Z'/>
+<path id='eq2-g3-101' d='M4.578829 -2.773599C4.841843 -2.773599 4.865753 -2.773599 4.865753 -3.000747C4.865753 -4.208219 4.220174 -5.332005 2.773599 -5.332005C1.41071 -5.332005 0.358655 -4.100623 0.358655 -2.618182C0.358655 -1.0401 1.578082 0.119552 2.905106 0.119552C4.327771 0.119552 4.865753 -1.171606 4.865753 -1.422665C4.865753 -1.494396 4.805978 -1.542217 4.734247 -1.542217C4.638605 -1.542217 4.614695 -1.482441 4.590785 -1.422665C4.27995 -0.418431 3.478954 -0.143462 2.976837 -0.143462S1.267248 -0.478207 1.267248 -2.546451V-2.773599H4.578829ZM1.279203 -3.000747C1.374844 -4.877709 2.426899 -5.092902 2.761644 -5.092902C4.040847 -5.092902 4.112578 -3.407223 4.124533 -3.000747H1.279203Z'/>
+</defs>
+<g id='eq2-page1'>
+<use x='135.653196' y='-2.988792' xlink:href='#eq2-g3-101'/>
+<use x='140.855854' y='-2.988792' xlink:href='#eq2-g1-114'/>
+<use x='146.456328' y='-2.988792' xlink:href='#eq2-g1-114'/>
+<use x='152.056801' y='-2.988792' xlink:href='#eq2-g1-111'/>
+<use x='157.684239' y='-2.988792' xlink:href='#eq2-g1-114'/>
+<use x='166.605542' y='-2.988792' xlink:href='#eq2-g3-61'/>
+<use x='179.031022' y='-2.988792' xlink:href='#eq2-g0-106'/>
+<use x='182.351913' y='-2.988792' xlink:href='#eq2-g1-121'/>
+<use x='188.059616' y='-1.195529' xlink:href='#eq2-g2-48'/>
+<use x='195.448594' y='-2.988792' xlink:href='#eq2-g0-0'/>
+<use x='207.403754' y='-2.988792' xlink:href='#eq2-g1-121'/>
+<use x='213.111457' y='-1.195529' xlink:href='#eq2-g2-49'/>
+<use x='217.843772' y='-2.988792' xlink:href='#eq2-g0-106'/>
+<use x='221.164663' y='-2.988792' xlink:href='#eq2-g1-61'/>
+<use x='227.017653' y='-2.988792' xlink:href='#eq2-g1-115'/>
+<use x='232.531658' y='-2.988792' xlink:href='#eq2-g1-99'/>
+<use x='237.569647' y='-2.988792' xlink:href='#eq2-g1-97'/>
+<use x='243.714591' y='-2.988792' xlink:href='#eq2-g1-108'/>
+<use x='247.4644' y='-2.988792' xlink:href='#eq2-g1-101'/>
+</g>
+</svg></div>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>SpaceHub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
