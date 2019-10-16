@@ -18,6 +18,23 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
+ * @folder{vector}
+ * @folder{tools}
+ * @folder{stellar}
+ * @folder{particles}
+ * @folder{particle-system}
+ * @folder{orbits}
+ * @folder{ode-iterator}
+ *   @folder{ode-iterator/error-checker}
+ *   @folder{ode-iterator/step-controller}
+ * @folder{multi-thread}
+ * @folder{lazy-evaluation}
+ * @folder{interaction}
+ * @folder{integrator}
+ *   @folder{integrator/symplectic}
+ * @folder{args-callback}
+ *
+ *
  * @file spaceHub.hpp
  *
  * Giant header file.
