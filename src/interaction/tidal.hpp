@@ -5,7 +5,7 @@
 #ifndef SPACEHUB_TIDAL_H
 #define SPACEHUB_TIDAL_H
 
-#include "../interaction.hpp"
+#include "interaction.hpp"
 #include "../dev-tools.hpp"
 #include "../macros.hpp"
 #include "../orbits/orbits.hpp"

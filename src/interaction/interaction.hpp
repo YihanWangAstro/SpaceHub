@@ -25,8 +25,8 @@ License
 #ifndef SPACEHUB_INTERACTION_HPP
 #define SPACEHUB_INTERACTION_HPP
 
-#include "core-computation.hpp"
-#include "type-class.hpp"
+#include "../core-computation.hpp"
+#include "../type-class.hpp"
 
 namespace space::interactions {
 

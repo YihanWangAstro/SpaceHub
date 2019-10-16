@@ -21,7 +21,7 @@ License
  * @file accelerations.hpp
  * Header file.
  */
-#include "dev-tools.hpp"
+#include "../dev-tools.hpp"
 
 #ifndef SPACEHUB_ACCELERATIONS_H
 #define SPACEHUB_ACCELERATIONS_H

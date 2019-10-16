@@ -37,6 +37,9 @@ License
  */
 namespace space::tools {
 
+  /**
+   *
+   */
   enum class ConfigDtype {
     Integer, Float, String, Empty
   };

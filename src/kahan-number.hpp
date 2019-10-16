@@ -40,25 +40,54 @@ namespace space {
 
     T real, err;
 
+    /**
+     * Default constructor
+     */
     Kahan() = default;
 
+    /**
+     * Single parameter constructor.
+     * @param r Scalar
+     */
     Kahan(T r) : real(r), err(0) {};
 
+    /**
+     * Copy constructor.
+     * @param k
+     */
     Kahan(const Kahan &k) : real(k.real), err(k.err) {};
 
+    /**
+     * Assignment operator.
+     */
     inline Kahan &operator=(const Kahan &hs) {
       real = hs.real, err = 0;
       return *this;
     }
 
+    /**
+     * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+     */
     inline operator T() { return real; }
 
+    /**
+     * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+     */
     inline operator T() const { return real; }
 
+    /**
+     * Set error to 0.
+     */
     inline void zero_err() { err = 0; }
 
+    /**
+     * Opposite operator.
+     */
     friend inline Kahan operator-(const Kahan &hs) { return Kahan(-hs.real); }
 
+    /**
+     * Addition assignment operator.
+     */
     friend inline Kahan &operator+=(Kahan &lhs, const Kahan &rhs) {
       T add = rhs.real - lhs.err;
       T sum = lhs.real + add;
@@ -72,6 +101,9 @@ namespace space {
       return lhs;
     }
 
+    /**
+     * Subtraction assignment operator.
+     */
     friend inline Kahan &operator-=(Kahan &lhs, const Kahan &rhs) {
       T add = -rhs.real - lhs.err;
       T sum = lhs.real + add;
@@ -85,23 +117,33 @@ namespace space {
       return lhs;
     }
 
+    /**
+     * Division assignment operator.
+     */
     friend inline Kahan &operator/=(Kahan &lhs, const Kahan &rhs) {
       lhs.real /= rhs.real;
       return lhs;
     }
 
+    /**
+     * Multiple assignment operator.
+     */
     friend inline Kahan &operator*=(Kahan &lhs, const Kahan &rhs) {
       lhs.real *= rhs.real;
       return lhs;
     }
 
-    /** @brief Output to ostream */
+    /**
+     * Output stream
+     */
     friend std::ostream &operator<<(std::ostream &output, const Kahan &v) {
       output << v.real;
       return output;
     }
 
-    /** @brief Input from istream */
+    /**
+     * Input stream
+     */
     friend std::istream &operator>>(std::istream &input, Kahan &v) {
       input >> v.real;
       v.err = 0;

@@ -25,8 +25,8 @@ License
 #ifndef SPACEHUB_PID_CONTROLLER_HPP
 #define SPACEHUB_PID_CONTROLLER_HPP
 
-#include "../stepsize-controller.hpp"
-#include "../own-math.hpp"
+#include "stepsize-controller.hpp"
+#include "../../own-math.hpp"
 
 namespace space::ode_iterator {
 

@@ -27,8 +27,8 @@ License
 
 #include <type_traits>
 #include "../core-computation.hpp"
-#include "../particle-system.hpp"
-#include "../accelerations.hpp"
+#include "particle-system.hpp"
+#include "../interaction/accelerations.hpp"
 
 namespace space::particle_system {
   /**

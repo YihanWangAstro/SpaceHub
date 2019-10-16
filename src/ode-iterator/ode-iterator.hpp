@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_ODE_ITERATOR_HPP
 #define SPACEHUB_ODE_ITERATOR_HPP
 
-#include "../particle-system.hpp"
+#include "../particle-system/particle-system.hpp"
 
 
 /**

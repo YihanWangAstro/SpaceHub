@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_WORST_OFFENDER_HPP
 #define SPACEHUB_WORST_OFFENDER_HPP
 
-#include "../error-checker.hpp"
+#include "error-checker.hpp"
 
 
 namespace space::ode_iterator {

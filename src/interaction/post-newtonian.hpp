@@ -5,7 +5,7 @@
 #ifndef SPACEHUB_POST_NEWTONIAN_HPP
 #define SPACEHUB_POST_NEWTONIAN_HPP
 
-#include "../interaction.hpp"
+#include "interaction.hpp"
 #include "../dev-tools.hpp"
 
 namespace space::interactions {

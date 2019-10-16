@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_ERROR_CHECKER_HPP
 #define SPACEHUB_ERROR_CHECKER_HPP
 
-#include "dev-tools.hpp"
+#include "../../dev-tools.hpp"
 
 namespace space::ode_iterator {
 

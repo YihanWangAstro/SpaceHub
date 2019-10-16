@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_PARTICLES_HPP
 #define SPACEHUB_PARTICLES_HPP
 
-#include "dev-tools.hpp"
+#include "../dev-tools.hpp"
 
 /**
  * @namespace space::particle_set

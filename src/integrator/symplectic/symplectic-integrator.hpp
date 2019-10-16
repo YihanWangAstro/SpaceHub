@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 #define SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 
-#include "../../particle-system.hpp"
+#include "../../particle-system/particle-system.hpp"
 /**
  * @namespace space::integrator
  * Documentation for space

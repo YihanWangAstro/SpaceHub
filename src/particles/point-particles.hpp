@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_POINT_PARTICLES_HPP
 #define SPACEHUB_POINT_PARTICLES_HPP
 
-#include "../particles.hpp"
+#include "particles.hpp"
 #include "../vector/vector3.hpp"
 
 namespace space::particle_set {

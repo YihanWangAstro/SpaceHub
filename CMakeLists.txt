@@ -57,25 +57,25 @@ set(TMP_HEADER_FILES
         src/vector/vector3d.hpp
         src/vector/vector3pd.hpp
 
-        src/accelerations.hpp
+        src/interaction/accelerations.hpp
         src/coords.hpp
-        src/interaction.hpp
-        src/particle-system.hpp
+        src/interaction/interaction.hpp
+        src/particle-system/particle-system.hpp
         src/rand-generator.hpp
         src/core-computation.hpp
         src/dev-tools.hpp
         src/kahan-number.hpp
         src/macros.hpp
         src/own-math.hpp
-        src/particles.hpp
+        src/particles/particles.hpp
         src/simulator.hpp
         src/spaceHub.hpp
         src/type-class.hpp
-        src/error-checker.hpp
-        src/error-checker/worst-offender.hpp
-        src/error-checker/RMS.hpp
-        src/stepsize-controller.hpp
-        src/step-controller/PID-controller.hpp)
+        src/ode-iterator/error-checker/error-checker.hpp
+        src/ode-iterator/error-checker/worst-offender.hpp
+        src/ode-iterator/error-checker/RMS.hpp
+        src/ode-iterator/step-controller/stepsize-controller.hpp
+        src/ode-iterator/step-controller/PID-controller.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

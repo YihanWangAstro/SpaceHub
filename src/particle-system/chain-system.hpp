@@ -26,7 +26,7 @@ License
 #define SPACEHUB_CHAIN_SYSTEM_HPP
 
 #include "../core-computation.hpp"
-#include "../particle-system.hpp"
+#include "particle-system.hpp"
 #include "chain.hpp"
 #include <type_traits>
 
