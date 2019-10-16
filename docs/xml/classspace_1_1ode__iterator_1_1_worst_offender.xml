@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="41" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="41" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="41" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1ode__iterator_1_1_worst_offender_1a6c2cd875e41be55e19b351695e59b58f" prot="public" static="no">
         <type>T</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="43" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="43" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="43" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1ode__iterator_1_1_worst_offender_1a72a5bfa1f49efbaf5a5c926d58335ab7" prot="public" static="no">
         <type>T</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="45" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="45" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="45" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="52" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="52" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="52" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="70" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="70" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="70" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1ode__iterator_1_1_worst_offender_1a19ea972efb669d8ce3fcc1c96020a56f" prot="private" static="no" mutable="no">
         <type><ref refid="classspace_1_1ode__iterator_1_1_worst_offender_1a6c2cd875e41be55e19b351695e59b58f" kindref="member">Scalar</ref></type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="72" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="72" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="72" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -107,7 +107,7 @@
 <para>Default constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="48" column="1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1addb3aa4728c6bf56c3fb324bdafe7efd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -123,7 +123,7 @@
 <para>Default copy constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="48" column="1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1aac0d2b355ff49b23d5fadf7af4b4bcf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -139,7 +139,7 @@
 <para>Default move constructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="48" column="1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1ad0478f8674bea0a7644d185618984966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1ode__iterator_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;</type>
@@ -155,7 +155,7 @@
 <para>Default copy assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="48" column="1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1af781f5b9afc6c4f69f8e87036a0b4afd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1ode__iterator_1_1_worst_offender" kindref="compound">WorstOffender</ref> &amp;</type>
@@ -171,7 +171,7 @@
 <para>Default move assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="48" column="1"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1aa10d5bdf77a6e7c9279488d2581f4aa6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -192,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="50" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="50" bodyend="50"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="50" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="50" bodyend="50"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -207,7 +207,7 @@
 <para>The getter interface of member <computeroutput>atol_</computeroutput> in name of <computeroutput>impl_atol</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="55" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="55" bodyend="55"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="55" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1a2464bd4613f835b553bc26bb6d808433" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -220,7 +220,7 @@
 <para>The getter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>impl_rtol</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="57" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="57" bodyend="57"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="57" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1a8444b26b259548191190d1e5a0b2b60c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="59" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="77" bodyend="79"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="59" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="77" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1a7f41f14072ffe0376055a54b210cee41" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="61" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="83" bodyend="85"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="61" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="83" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1aa75a5a31dc1c3416352944ed54ffca56" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="64" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="89" bodyend="96"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="64" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="89" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_worst_offender_1a7f1c0590cfb945b8b3eea54e437eb40f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/worst-offender.hpp" line="67" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="101" bodyend="108"/>
+        <location file="ode-iterator/error-checker/worst-offender.hpp" line="67" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="101" bodyend="108"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -363,7 +363,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="error-checker/worst-offender.hpp" line="38" column="1" bodyfile="error-checker/worst-offender.hpp" bodystart="38" bodyend="73"/>
+    <location file="ode-iterator/error-checker/worst-offender.hpp" line="38" column="1" bodyfile="ode-iterator/error-checker/worst-offender.hpp" bodystart="38" bodyend="73"/>
     <listofallmembers>
       <member refid="classspace_1_1ode__iterator_1_1_error_checker_1a563a4c2559d79f569369cde381541b86" prot="public" virt="non-virtual"><scope>space::ode_iterator::WorstOffender</scope><name>atol</name></member>
       <member refid="classspace_1_1ode__iterator_1_1_worst_offender_1a085ae999606cb13c014824ba88256ecc" prot="private" virt="non-virtual"><scope>space::ode_iterator::WorstOffender</scope><name>atol_</name></member>

@@ -2,113 +2,113 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="newtonian_8hpp" kind="file" language="C++">
     <compoundname>newtonian.hpp</compoundname>
-    <includes refid="interaction_8hpp" local="yes">../interaction.hpp</includes>
+    <includes refid="interaction_8hpp" local="yes">interaction.hpp</includes>
     <includedby refid="space_hub_8hpp" local="yes">spaceHub.hpp</includedby>
     <incdepgraph>
-      <node id="178">
+      <node id="153">
         <label>vector3d.hpp</label>
         <link refid="vector3d_8hpp"/>
       </node>
-      <node id="164">
+      <node id="139">
         <label>interaction/newtonian.hpp</label>
         <link refid="newtonian_8hpp"/>
-        <childnode refid="165" relation="include">
+        <childnode refid="140" relation="include">
         </childnode>
       </node>
-      <node id="169">
+      <node id="144">
         <label>cmath</label>
       </node>
-      <node id="168">
+      <node id="140">
+        <label>interaction.hpp</label>
+        <link refid="interaction_8hpp"/>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+      </node>
+      <node id="143">
         <label>own-math.hpp</label>
         <link refid="own-math_8hpp"/>
-        <childnode refid="169" relation="include">
+        <childnode refid="144" relation="include">
         </childnode>
-        <childnode refid="170" relation="include">
+        <childnode refid="145" relation="include">
         </childnode>
       </node>
-      <node id="177">
+      <node id="152">
         <label>vector/vector3.hpp</label>
         <link refid="vector3_8hpp"/>
-        <childnode refid="169" relation="include">
+        <childnode refid="144" relation="include">
         </childnode>
-        <childnode refid="171" relation="include">
+        <childnode refid="146" relation="include">
         </childnode>
-        <childnode refid="178" relation="include">
+        <childnode refid="153" relation="include">
         </childnode>
-        <childnode refid="179" relation="include">
+        <childnode refid="154" relation="include">
         </childnode>
       </node>
-      <node id="167">
+      <node id="142">
         <label>macros.hpp</label>
         <link refid="macros_8hpp"/>
       </node>
-      <node id="170">
+      <node id="145">
         <label>dev-tools.hpp</label>
         <link refid="dev-tools_8hpp"/>
-        <childnode refid="171" relation="include">
+        <childnode refid="146" relation="include">
         </childnode>
-        <childnode refid="172" relation="include">
+        <childnode refid="147" relation="include">
         </childnode>
-        <childnode refid="173" relation="include">
-        </childnode>
-      </node>
-      <node id="165">
-        <label>../interaction.hpp</label>
-        <link refid="interaction_8hpp"/>
-        <childnode refid="166" relation="include">
-        </childnode>
-        <childnode refid="174" relation="include">
+        <childnode refid="148" relation="include">
         </childnode>
       </node>
-      <node id="172">
+      <node id="147">
         <label>tuple</label>
       </node>
-      <node id="175">
+      <node id="150">
         <label>vector</label>
       </node>
-      <node id="173">
+      <node id="148">
         <label>array</label>
       </node>
-      <node id="166">
-        <label>core-computation.hpp</label>
+      <node id="141">
+        <label>../core-computation.hpp</label>
         <link refid="core-computation_8hpp"/>
-        <childnode refid="167" relation="include">
+        <childnode refid="142" relation="include">
         </childnode>
-        <childnode refid="168" relation="include">
+        <childnode refid="143" relation="include">
         </childnode>
       </node>
-      <node id="171">
+      <node id="146">
         <label>iostream</label>
       </node>
-      <node id="174">
-        <label>type-class.hpp</label>
+      <node id="149">
+        <label>../type-class.hpp</label>
         <link refid="type-class_8hpp"/>
-        <childnode refid="175" relation="include">
+        <childnode refid="150" relation="include">
         </childnode>
-        <childnode refid="176" relation="include">
+        <childnode refid="151" relation="include">
         </childnode>
-        <childnode refid="177" relation="include">
+        <childnode refid="152" relation="include">
         </childnode>
       </node>
-      <node id="179">
+      <node id="154">
         <label>vector3pd.hpp</label>
         <link refid="vector3pd_8hpp"/>
       </node>
-      <node id="176">
+      <node id="151">
         <label>coords.hpp</label>
         <link refid="coords_8hpp"/>
-        <childnode refid="177" relation="include">
+        <childnode refid="152" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="180">
+      <node id="155">
         <label>interaction/newtonian.hpp</label>
         <link refid="newtonian_8hpp"/>
-        <childnode refid="181" relation="include">
+        <childnode refid="156" relation="include">
         </childnode>
       </node>
-      <node id="181">
+      <node id="156">
         <label>spaceHub.hpp</label>
         <link refid="space_hub_8hpp"/>
       </node>

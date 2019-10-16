@@ -25,7 +25,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="48" column="1" bodyfile="interaction.hpp" bodystart="48" bodyend="-1"/>
+        <location file="interaction/interaction.hpp" line="48" column="1" bodyfile="interaction/interaction.hpp" bodystart="48" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="48" column="1"/>
+        <location file="interaction/interaction.hpp" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1ab22ec553bc564238356109bba17dd025" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="interaction.hpp" line="48" column="1"/>
+        <location file="interaction/interaction.hpp" line="48" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -81,7 +81,7 @@
         <label>space::interactions::Interactions&lt; Derived &gt;::has_method_impl_eval_extra_vel_dep_acc&lt; T, Args &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="interaction.hpp" line="48" column="1" bodyfile="interaction.hpp" bodystart="48" bodyend="48"/>
+    <location file="interaction/interaction.hpp" line="48" column="1" bodyfile="interaction/interaction.hpp" bodystart="48" bodyend="48"/>
     <listofallmembers>
       <member refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1a3b6728a448ed157e4d7d6feadc13094c" prot="public" virt="non-virtual"><scope>space::interactions::Interactions::has_method_impl_eval_extra_vel_dep_acc</scope><name>check</name></member>
       <member refid="structspace_1_1interactions_1_1_interactions_1_1has__method__impl__eval__extra__vel__dep__acc_1ab22ec553bc564238356109bba17dd025" prot="public" virt="non-virtual"><scope>space::interactions::Interactions::has_method_impl_eval_extra_vel_dep_acc</scope><name>check</name></member>

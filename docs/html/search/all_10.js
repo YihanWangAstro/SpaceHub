@@ -15,7 +15,7 @@ var searchData=
   ['particlesystem_3c_20regularizedsystem_3c_20particles_2c_20interactions_2c_20regtype_20_3e_20_3e',['ParticleSystem&lt; RegularizedSystem&lt; Particles, Interactions, RegType &gt; &gt;',['../classspace_1_1particle__system_1_1_particle_system.html',1,'space::particle_system']]],
   ['particlesystem_3c_20simplesystem_3c_20particles_2c_20interactions_20_3e_20_3e',['ParticleSystem&lt; SimpleSystem&lt; Particles, Interactions &gt; &gt;',['../classspace_1_1particle__system_1_1_particle_system.html',1,'space::particle_system']]],
   ['pause',['pause',['../classspace_1_1tools_1_1_timer.html#abe4da3e4edb19f7984ca350e7ca67ee6',1,'space::tools::Timer']]],
-  ['pc',['PC',['../namespacespace_1_1_radau.html#a93cccae36acc6cdbf2c51d865e644e9a',1,'space::Radau::PC()'],['../namespacespace_1_1unit.html#ad0db1a5a2107bbbd7a10877f3ba8416b',1,'space::unit::pc()']]],
+  ['pc',['pc',['../namespacespace_1_1unit.html#ad0db1a5a2107bbbd7a10877f3ba8416b',1,'space::unit::pc()'],['../namespacespace_1_1_radau.html#a93cccae36acc6cdbf2c51d865e644e9a',1,'space::Radau::PC()']]],
   ['pi',['pi',['../namespacespace_1_1consts.html#a436bead862d0e0b42edd61c233628d20',1,'space::consts::pi()'],['../namespacesecular.html#a2325df9e23243185fd062b7010e1f4c4',1,'secular::pi()']]],
   ['pid_2dcontroller_2ehpp',['PID-controller.hpp',['../_p_i_d-controller_8hpp.html',1,'']]],
   ['pidcontroller',['PIDController',['../classspace_1_1ode__iterator_1_1_p_i_d_controller.html',1,'space::ode_iterator::PIDController&lt; Max_order, T &gt;'],['../classspace_1_1ode__iterator_1_1_p_i_d_controller.html#a63d5a897e556cea97d4cdc81b3ae2682',1,'space::ode_iterator::PIDController::PIDController()']]],

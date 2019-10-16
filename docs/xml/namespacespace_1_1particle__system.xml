@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="particle-system.hpp" line="286" column="1" bodyfile="particle-system.hpp" bodystart="286" bodyend="-1"/>
+        <location file="particle-system/particle-system.hpp" line="286" column="1" bodyfile="particle-system/particle-system.hpp" bodystart="286" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -247,6 +247,58 @@
         </inbodydescription>
         <location file="particle-system/chain-system.hpp" line="260" column="1" bodyfile="particle-system/chain-system.hpp" bodystart="260" bodyend="263"/>
       </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1particle__system_1a482c590fed1c31fdfcd05165bfad6b2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Derived</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, ParticleSystem&lt; Derived &gt; const &amp;ps)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1particle__system_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; Derived &gt; const &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/particle-system.hpp" line="271" column="1" bodyfile="particle-system/particle-system.hpp" bodystart="271" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacespace_1_1particle__system_1acba86c9d9ab42f3157555c31715a833b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Derived</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, ParticleSystem&lt; Derived &gt; &amp;ps)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classspace_1_1particle__system_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; Derived &gt; &amp;</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="particle-system/particle-system.hpp" line="277" column="1" bodyfile="particle-system/particle-system.hpp" bodystart="277" bodyend="280"/>
+      </memberdef>
       <memberdef kind="function" id="namespacespace_1_1particle__system_1a5690419f29383d3527b99135a3807737" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -314,58 +366,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="particle-system/regu-system.hpp" line="197" column="1" bodyfile="particle-system/regu-system.hpp" bodystart="197" bodyend="200"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1particle__system_1a482c590fed1c31fdfcd05165bfad6b2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename Derived</type>
-          </param>
-        </templateparamlist>
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; space::particle_system::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;os, ParticleSystem&lt; Derived &gt; const &amp;ps)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type><ref refid="classspace_1_1particle__system_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; Derived &gt; const &amp;</type>
-          <declname>ps</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system.hpp" line="271" column="1" bodyfile="particle-system.hpp" bodystart="271" bodyend="274"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacespace_1_1particle__system_1acba86c9d9ab42f3157555c31715a833b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename Derived</type>
-          </param>
-        </templateparamlist>
-        <type>std::istream &amp;</type>
-        <definition>std::istream&amp; space::particle_system::operator&gt;&gt;</definition>
-        <argsstring>(std::istream &amp;is, ParticleSystem&lt; Derived &gt; &amp;ps)</argsstring>
-        <name>operator&gt;&gt;</name>
-        <param>
-          <type>std::istream &amp;</type>
-          <declname>is</declname>
-        </param>
-        <param>
-          <type><ref refid="classspace_1_1particle__system_1_1_particle_system" kindref="compound">ParticleSystem</ref>&lt; Derived &gt; &amp;</type>
-          <declname>ps</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="particle-system.hpp" line="277" column="1" bodyfile="particle-system.hpp" bodystart="277" bodyend="280"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

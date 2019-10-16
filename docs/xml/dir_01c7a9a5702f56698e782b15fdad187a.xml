@@ -2,6 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="dir_01c7a9a5702f56698e782b15fdad187a" kind="dir">
     <compoundname>interaction</compoundname>
+    <innerfile refid="accelerations_8hpp">accelerations.hpp</innerfile>
+    <innerfile refid="interaction_8hpp">interaction.hpp</innerfile>
     <innerfile refid="newtonian_8hpp">newtonian.hpp</innerfile>
     <innerfile refid="post-newtonian_8hpp">post-newtonian.hpp</innerfile>
     <innerfile refid="tidal_8hpp">tidal.hpp</innerfile>

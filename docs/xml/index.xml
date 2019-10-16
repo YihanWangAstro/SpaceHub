@@ -1612,10 +1612,10 @@
     <member refid="namespacespace_1_1particle__system_1a153c902952b7375522fd64216b07eb78" kind="function"><name>operator&gt;&gt;</name></member>
     <member refid="namespacespace_1_1particle__system_1a740760ae2cd8c4348377ccf438d95aff" kind="function"><name>operator&gt;&gt;</name></member>
     <member refid="namespacespace_1_1particle__system_1a564bceda97e7591778849d2038c542fa" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespacespace_1_1particle__system_1a5690419f29383d3527b99135a3807737" kind="function"><name>operator&gt;&gt;</name></member>
-    <member refid="namespacespace_1_1particle__system_1a87366d656151e2403f98f594db3a765f" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacespace_1_1particle__system_1a482c590fed1c31fdfcd05165bfad6b2e" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacespace_1_1particle__system_1acba86c9d9ab42f3157555c31715a833b" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="namespacespace_1_1particle__system_1a5690419f29383d3527b99135a3807737" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="namespacespace_1_1particle__system_1a87366d656151e2403f98f594db3a765f" kind="function"><name>operator&lt;&lt;</name></member>
   </compound>
   <compound refid="namespacespace_1_1_radau" kind="namespace"><name>space::Radau</name>
     <member refid="namespacespace_1_1_radau_1ab9c3b0cfb1c06672c77a78631b50a88e" kind="variable"><name>interplt</name></member>
@@ -1769,9 +1769,6 @@
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
-  <compound refid="accelerations_8hpp" kind="file"><name>accelerations.hpp</name>
-    <member refid="accelerations_8hpp_1a42046844e6f6a0fb9875406a0fd442f4" kind="define"><name>SPACEHUB_ACCELERATIONS_H</name></member>
-  </compound>
   <compound refid="callbacks_8hpp" kind="file"><name>callbacks.hpp</name>
   </compound>
   <compound refid="coords_8hpp" kind="file"><name>coords.hpp</name>
@@ -1813,15 +1810,11 @@
     <member refid="dev-tools_8hpp_1a8a3f3c65b4167fb7188576cfa5e2ca44" kind="define"><name>IS_BASE_OF</name></member>
     <member refid="dev-tools_8hpp_1a16d2c5a0818a4356eb912b06c8b0a0e3" kind="define"><name>TYPE_OF_SELF</name></member>
   </compound>
-  <compound refid="error-checker_8hpp" kind="file"><name>error-checker.hpp</name>
-  </compound>
-  <compound refid="_r_m_s_8hpp" kind="file"><name>RMS.hpp</name>
-  </compound>
-  <compound refid="worst-offender_8hpp" kind="file"><name>worst-offender.hpp</name>
-  </compound>
   <compound refid="_gauss-_dadau_8h" kind="file"><name>Gauss-Dadau.h</name>
   </compound>
   <compound refid="symplectic-integrator_8hpp" kind="file"><name>symplectic-integrator.hpp</name>
+  </compound>
+  <compound refid="accelerations_8hpp" kind="file"><name>accelerations.hpp</name>
   </compound>
   <compound refid="interaction_8hpp" kind="file"><name>interaction.hpp</name>
   </compound>
@@ -1866,17 +1859,25 @@
   </compound>
   <compound refid="const-iterator_8hpp" kind="file"><name>const-iterator.hpp</name>
   </compound>
+  <compound refid="error-checker_8hpp" kind="file"><name>error-checker.hpp</name>
+  </compound>
+  <compound refid="_r_m_s_8hpp" kind="file"><name>RMS.hpp</name>
+  </compound>
+  <compound refid="worst-offender_8hpp" kind="file"><name>worst-offender.hpp</name>
+  </compound>
   <compound refid="_i_a_s15_8h" kind="file"><name>IAS15.h</name>
   </compound>
   <compound refid="ode-iterator_8hpp" kind="file"><name>ode-iterator.hpp</name>
+  </compound>
+  <compound refid="_p_i_d-controller_8hpp" kind="file"><name>PID-controller.hpp</name>
+  </compound>
+  <compound refid="stepsize-controller_8hpp" kind="file"><name>stepsize-controller.hpp</name>
   </compound>
   <compound refid="orbits_8hpp" kind="file"><name>orbits.hpp</name>
     <member refid="orbits_8hpp_1a62a0bac635c4ff2708112c7c1f90e1ce" kind="define"><name>ISOTHERMAL</name></member>
     <member refid="orbits_8hpp_1ac5d1af83aa891813baea00cdf423102f" kind="define"><name>LOCK_ISOTHERMAL</name></member>
   </compound>
   <compound refid="own-math_8hpp" kind="file"><name>own-math.hpp</name>
-  </compound>
-  <compound refid="particle-system_8hpp" kind="file"><name>particle-system.hpp</name>
   </compound>
   <compound refid="archain_8hpp" kind="file"><name>archain.hpp</name>
   </compound>
@@ -1888,12 +1889,14 @@
   </compound>
   <compound refid="octree_8hpp" kind="file"><name>octree.hpp</name>
   </compound>
+  <compound refid="particle-system_8hpp" kind="file"><name>particle-system.hpp</name>
+  </compound>
   <compound refid="regu-system_8hpp" kind="file"><name>regu-system.hpp</name>
+  </compound>
+  <compound refid="finite-size_8hpp" kind="file"><name>finite-size.hpp</name>
   </compound>
   <compound refid="particles_8hpp" kind="file"><name>particles.hpp</name>
     <member refid="particles_8hpp_1a89c368e13a9bed5d13ed5e4381bb44d9" kind="define"><name>SPACEHUB_PARTICLE_TYPE_CHECK</name></member>
-  </compound>
-  <compound refid="finite-size_8hpp" kind="file"><name>finite-size.hpp</name>
   </compound>
   <compound refid="point-particles_8hpp" kind="file"><name>point-particles.hpp</name>
   </compound>
@@ -1908,10 +1911,6 @@
   <compound refid="space_hub_8hpp" kind="file"><name>spaceHub.hpp</name>
   </compound>
   <compound refid="stellar_8hpp" kind="file"><name>stellar.hpp</name>
-  </compound>
-  <compound refid="_p_i_d-controller_8hpp" kind="file"><name>PID-controller.hpp</name>
-  </compound>
-  <compound refid="stepsize-controller_8hpp" kind="file"><name>stepsize-controller.hpp</name>
   </compound>
   <compound refid="any-vector_8hpp" kind="file"><name>any-vector.hpp</name>
     <member refid="any-vector_8hpp_1a8aac1fc1b7e33e22b78f4f564690d1bb" kind="function"><name>operator&lt;&lt;</name></member>
@@ -1932,7 +1931,7 @@
   </compound>
   <compound refid="dir_dd1824b078262f556a617b0afd53aa22" kind="dir"><name>args-callback</name>
   </compound>
-  <compound refid="dir_36b5589217d7227c76c9c9e54dc8312c" kind="dir"><name>error-checker</name>
+  <compound refid="dir_c49ff69fa676f083b4ecd39819afffdf" kind="dir"><name>ode-iterator/error-checker</name>
   </compound>
   <compound refid="dir_f9bcbf53301e967616513e8c91fd67f1" kind="dir"><name>integrator</name>
   </compound>
@@ -1952,7 +1951,7 @@
   </compound>
   <compound refid="dir_cfb2f186c6998c22076312400228c3e9" kind="dir"><name>stellar</name>
   </compound>
-  <compound refid="dir_766c4bcf0e437112b3340b2914923597" kind="dir"><name>step-controller</name>
+  <compound refid="dir_e05a151662240a727c3ea751c8c101b0" kind="dir"><name>ode-iterator/step-controller</name>
   </compound>
   <compound refid="dir_542dfdbb9533d1f1ceaace3a43b9ea6e" kind="dir"><name>integrator/symplectic</name>
   </compound>

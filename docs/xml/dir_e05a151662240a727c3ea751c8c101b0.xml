@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_e05a151662240a727c3ea751c8c101b0" kind="dir">
+    <compoundname>ode-iterator/step-controller</compoundname>
+    <innerfile refid="_p_i_d-controller_8hpp">PID-controller.hpp</innerfile>
+    <innerfile refid="stepsize-controller_8hpp">stepsize-controller.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ode-iterator/step-controller/"/>
+  </compounddef>
+</doxygen>

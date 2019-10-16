@@ -2,6 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="dir_946c204254ebefe77271651df40ac55e" kind="dir">
     <compoundname>ode-iterator</compoundname>
+    <innerdir refid="dir_c49ff69fa676f083b4ecd39819afffdf">ode-iterator/error-checker</innerdir>
+    <innerdir refid="dir_e05a151662240a727c3ea751c8c101b0">ode-iterator/step-controller</innerdir>
     <innerfile refid="_b_s-iterator0_8hpp">BS-iterator0.hpp</innerfile>
     <innerfile refid="_b_s-iterator__bk_8hpp">BS-iterator_bk.hpp</innerfile>
     <innerfile refid="_burlish-_stoer_8hpp">Burlish-Stoer.hpp</innerfile>

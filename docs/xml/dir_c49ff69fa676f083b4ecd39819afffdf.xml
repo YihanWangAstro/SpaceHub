@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_c49ff69fa676f083b4ecd39819afffdf" kind="dir">
+    <compoundname>ode-iterator/error-checker</compoundname>
+    <innerfile refid="error-checker_8hpp">error-checker.hpp</innerfile>
+    <innerfile refid="_r_m_s_8hpp">RMS.hpp</innerfile>
+    <innerfile refid="worst-offender_8hpp">worst-offender.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ode-iterator/error-checker/"/>
+  </compounddef>
+</doxygen>

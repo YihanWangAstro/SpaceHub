@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="40" column="1" bodyfile="error-checker/RMS.hpp" bodystart="40" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="40" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1ode__iterator_1_1_r_m_s_1a3b225aa93518909e535c0441411983af" prot="public" static="no">
         <type>T</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="42" column="1" bodyfile="error-checker/RMS.hpp" bodystart="42" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="42" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classspace_1_1ode__iterator_1_1_r_m_s_1ab0fe8e98aee377c30a4f780229baf2a2" prot="public" static="no">
         <type>T</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="44" column="1" bodyfile="error-checker/RMS.hpp" bodystart="44" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="44" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="44" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="51" column="1" bodyfile="error-checker/RMS.hpp" bodystart="51" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="51" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="51" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="69" column="1" bodyfile="error-checker/RMS.hpp" bodystart="69" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="69" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classspace_1_1ode__iterator_1_1_r_m_s_1a1373628b594c3c166e64f7d80a7221c6" prot="private" static="no" mutable="no">
         <type><ref refid="classspace_1_1ode__iterator_1_1_r_m_s_1a3b225aa93518909e535c0441411983af" kindref="member">Scalar</ref></type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="71" column="1" bodyfile="error-checker/RMS.hpp" bodystart="71" bodyend="-1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="71" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="71" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -107,7 +107,7 @@
 <para>Default constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="47" column="1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a4d0492c54be6d9050a4095a8b039148b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -123,7 +123,7 @@
 <para>Default copy constructor. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="47" column="1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a7157e1766e18572fce56370e3a36c93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -139,7 +139,7 @@
 <para>Default move constructor </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="47" column="1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1ab46b10fafe2d028809cfe49fc4fd8778" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1ode__iterator_1_1_r_m_s" kindref="compound">RMS</ref> &amp;</type>
@@ -155,7 +155,7 @@
 <para>Default copy assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="47" column="1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a7f08503f273359fd47b07dd50125cf98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classspace_1_1ode__iterator_1_1_r_m_s" kindref="compound">RMS</ref> &amp;</type>
@@ -171,7 +171,7 @@
 <para>Default move assignment operator </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="47" column="1"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1acf7af51b7d1512d45908b75a981e1877" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -192,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="49" column="1" bodyfile="error-checker/RMS.hpp" bodystart="49" bodyend="49"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="49" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="49" bodyend="49"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -207,7 +207,7 @@
 <para>The getter interface of member <computeroutput>atol_</computeroutput> in name of <computeroutput>impl_atol</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="54" column="1" bodyfile="error-checker/RMS.hpp" bodystart="54" bodyend="54"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="54" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="54" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a023a74a18798be67d98081fe8734d283" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>auto const  &amp;</type>
@@ -220,7 +220,7 @@
 <para>The getter interface of member <computeroutput>rtol_</computeroutput> in name of <computeroutput>impl_rtol</computeroutput>. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="56" column="1" bodyfile="error-checker/RMS.hpp" bodystart="56" bodyend="56"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="56" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="56" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a4629d1199987e74242470b1c7f1c735d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="58" column="1" bodyfile="error-checker/RMS.hpp" bodystart="75" bodyend="77"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="58" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="75" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a646ed83633a3e3dcca81533405a6d3d5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="60" column="1" bodyfile="error-checker/RMS.hpp" bodystart="80" bodyend="82"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="60" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="80" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a4517c8d562f1f44dbd02c4eda0cd7e98" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="63" column="1" bodyfile="error-checker/RMS.hpp" bodystart="86" bodyend="94"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="63" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="86" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classspace_1_1ode__iterator_1_1_r_m_s_1a64c99d930ed478bd44d58e4e029b38b3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="error-checker/RMS.hpp" line="66" column="1" bodyfile="error-checker/RMS.hpp" bodystart="98" bodyend="106"/>
+        <location file="ode-iterator/error-checker/RMS.hpp" line="66" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="98" bodyend="106"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -363,7 +363,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="error-checker/RMS.hpp" line="37" column="1" bodyfile="error-checker/RMS.hpp" bodystart="37" bodyend="72"/>
+    <location file="ode-iterator/error-checker/RMS.hpp" line="37" column="1" bodyfile="ode-iterator/error-checker/RMS.hpp" bodystart="37" bodyend="72"/>
     <listofallmembers>
       <member refid="classspace_1_1ode__iterator_1_1_error_checker_1a563a4c2559d79f569369cde381541b86" prot="public" virt="non-virtual"><scope>space::ode_iterator::RMS</scope><name>atol</name></member>
       <member refid="classspace_1_1ode__iterator_1_1_r_m_s_1a0ffe6387211147c0367c1bdc85898124" prot="private" virt="non-virtual"><scope>space::ode_iterator::RMS</scope><name>atol_</name></member>

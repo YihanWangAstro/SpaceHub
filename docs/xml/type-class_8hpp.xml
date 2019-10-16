@@ -6,7 +6,7 @@
     <includes refid="coords_8hpp" local="yes">coords.hpp</includes>
     <includes refid="vector3_8hpp" local="yes">vector/vector3.hpp</includes>
     <includedby refid="_gauss-_dadau_8h" local="yes">integrator/Gauss-Dadau.h</includedby>
-    <includedby refid="interaction_8hpp" local="yes">interaction.hpp</includedby>
+    <includedby refid="interaction_8hpp" local="yes">interaction/interaction.hpp</includedby>
     <incdepgraph>
       <node id="717">
         <label>vector3d.hpp</label>
@@ -61,12 +61,8 @@
         <childnode refid="723" relation="include">
         </childnode>
       </node>
-      <node id="723">
-        <label>spaceHub.hpp</label>
-        <link refid="space_hub_8hpp"/>
-      </node>
       <node id="721">
-        <label>interaction.hpp</label>
+        <label>interaction/interaction.hpp</label>
         <link refid="interaction_8hpp"/>
         <childnode refid="722" relation="include">
         </childnode>
@@ -74,6 +70,10 @@
         </childnode>
         <childnode refid="725" relation="include">
         </childnode>
+      </node>
+      <node id="723">
+        <label>spaceHub.hpp</label>
+        <link refid="space_hub_8hpp"/>
       </node>
       <node id="724">
         <label>interaction/post-newtonian.hpp</label>
