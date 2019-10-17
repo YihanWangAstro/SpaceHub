@@ -75,6 +75,8 @@
             <dd></dd>
             <dt>namespace <a href="namespacespace_1_1interactions.html" class="m-doc">interactions</a></dt>
             <dd></dd>
+            <dt>namespace <a href="namespacespace_1_1math.html" class="m-doc">math</a></dt>
+            <dd></dd>
             <dt>namespace <a href="namespacespace_1_1multi__thread.html" class="m-doc">multi_thread</a></dt>
             <dd></dd>
             <dt>namespace <a href="namespacespace_1_1ode__iterator.html" class="m-doc">ode_iterator</a></dt>
@@ -85,9 +87,11 @@
             <dd></dd>
             <dt>namespace <a href="namespacespace_1_1particle__system.html" class="m-doc">particle_system</a></dt>
             <dd></dd>
-            <dt>namespace <a href="namespacespace_1_1random_gen.html" class="m-doc">randomGen</a></dt>
+            <dt>namespace <a href="namespacespace_1_1random.html" class="m-doc">random</a></dt>
             <dd></dd>
             <dt>namespace <a href="namespacespace_1_1run__operations.html" class="m-doc">run_operations</a></dt>
+            <dd></dd>
+            <dt>namespace <a href="namespacespace_1_1scattering.html" class="m-doc">scattering</a></dt>
             <dd></dd>
             <dt>namespace <a href="namespacespace_1_1tools.html" class="m-doc">tools</a></dt>
             <dd></dd>
@@ -99,18 +103,8 @@
           <h2><a href="#nested-classes">Classes</a></h2>
           <dl class="m-doc">
             <dt>
-              <div class="m-doc-template">template&lt;typename Dtype&gt;</div>
-              struct <a href="structspace_1_1big__value.html" class="m-doc">big_value</a>
-            </dt>
-            <dd></dd>
-            <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               struct <a href="structspace_1_1_coords.html" class="m-doc">Coords</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename Dtype&gt;</div>
-              struct <a href="structspace_1_1epsilon.html" class="m-doc">epsilon</a>
             </dt>
             <dd></dd>
             <dt>
@@ -126,11 +120,6 @@
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               struct <a href="structspace_1_1_kahan.html" class="m-doc">Kahan</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename Dtype&gt;</div>
-              struct <a href="structspace_1_1max__value.html" class="m-doc">max_value</a>
             </dt>
             <dd></dd>
             <dt>
@@ -188,37 +177,25 @@
           <h2><a href="#func-members">Functions</a></h2>
           <dl class="m-doc">
             <dt>
-              <div class="m-doc-template">template&lt;typename T1, typename T2&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#af82c0e7ed03d03accf59391663c1f72b" class="m-doc">min</a>(</span><span class="m-doc-wrap">const T1&amp; x,
-              const T2&amp; y) -&gt; T2</span>
-            </dt>
-            <dd>Self <a href="namespacespace.html#af82c0e7ed03d03accf59391663c1f72b" class="m-doc">min()</a></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename T1, typename T2&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a23b3a7b6bd57409f91a6cad1a9b852f4" class="m-doc">max</a>(</span><span class="m-doc-wrap">const T1&amp; x,
-              const T2&amp; y) -&gt; T2</span>
-            </dt>
-            <dd>Self <a href="namespacespace.html#a23b3a7b6bd57409f91a6cad1a9b852f4" class="m-doc">max()</a></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a38e2c327d558183010000c0213658b4a" class="m-doc">abs</a>(</span><span class="m-doc-wrap">const T&amp; x) -&gt; T</span>
-            </dt>
-            <dd>Self <a href="namespacespace.html#a38e2c327d558183010000c0213658b4a" class="m-doc">abs()</a></dd>
-            <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a0a207b752e72eee8d6c546c8beb63f09" class="m-doc">stepfunction</a>(</span><span class="m-doc-wrap">T x) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+              <div class="m-doc-template">template&lt;typename... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9225df04790836d3a9dce8f94ce4d15b" class="m-doc">print</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              Args &amp;&amp; ... args) -&gt; auto&amp;</span>
             </dt>
             <dd></dd>
             <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#abe73681680cf6baecce2543c3fbe05c7" class="m-doc">sign</a>(</span><span class="m-doc-wrap">T x) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+              <div class="m-doc-template">template&lt;typename... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a4dfbbf0c49a0ab8474512e3080b66bfc" class="m-doc">input</a>(</span><span class="m-doc-wrap">std::istream&amp; is,
+              Args &amp;&amp; ... args) -&gt; auto&amp;</span>
             </dt>
             <dd></dd>
             <dt>
-              <div class="m-doc-template">template&lt;typename Fun&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#a39eb2a86b90fb45dee58f5e92a447612" class="m-doc">root_bisection</a>(</span><span class="m-doc-wrap">Fun f,
-              decltype(f(0)) low,
-              decltype(f(0)) high) -&gt; auto</span>
+              <div class="m-doc-template">template&lt;typename... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#aa711c0aa2909a0a48b579033b7cb4499" class="m-doc">std_print</a>(</span><span class="m-doc-wrap">Args &amp;&amp; ... args) -&gt; auto&amp;</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename... Args&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a423503d664e1b35744da843e92d598ac" class="m-doc">std_input</a>(</span><span class="m-doc-wrap">Args &amp;&amp; ... args) -&gt; auto&amp;</span>
             </dt>
             <dd></dd>
             <dt>
@@ -303,45 +280,14 @@
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="af82c0e7ed03d03accf59391663c1f72b"><div>
+          <section class="m-doc-details" id="a9225df04790836d3a9dce8f94ce4d15b"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="own-math_8hpp.html">&lt;src/own-math.hpp&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dev-tools_8hpp.html">&lt;src/dev-tools.hpp&gt;</a></div>
               <div class="m-doc-template">
-                template&lt;typename T1, typename T2&gt;
+                template&lt;typename... Args&gt;
               </div>
-              <span class="m-doc-wrap-bumper">T2 space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af82c0e7ed03d03accf59391663c1f72b" class="m-doc-self">min</a>(</span><span class="m-doc-wrap">const T1&amp; x,
-              const T2&amp; y)</span></span>
-            </h3>
-            <p>Self <a href="namespacespace.html#af82c0e7ed03d03accf59391663c1f72b" class="m-doc">min()</a></p>
-          </div></section>
-          <section class="m-doc-details" id="a23b3a7b6bd57409f91a6cad1a9b852f4"><div>
-            <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="own-math_8hpp.html">&lt;src/own-math.hpp&gt;</a></div>
-              <div class="m-doc-template">
-                template&lt;typename T1, typename T2&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">T2 space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a23b3a7b6bd57409f91a6cad1a9b852f4" class="m-doc-self">max</a>(</span><span class="m-doc-wrap">const T1&amp; x,
-              const T2&amp; y)</span></span>
-            </h3>
-            <p>Self <a href="namespacespace.html#a23b3a7b6bd57409f91a6cad1a9b852f4" class="m-doc">max()</a></p>
-          </div></section>
-          <section class="m-doc-details" id="a38e2c327d558183010000c0213658b4a"><div>
-            <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="own-math_8hpp.html">&lt;src/own-math.hpp&gt;</a></div>
-              <div class="m-doc-template">
-                template&lt;typename T&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">T space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a38e2c327d558183010000c0213658b4a" class="m-doc-self">abs</a>(</span><span class="m-doc-wrap">const T&amp; x)</span></span>
-            </h3>
-            <p>Self <a href="namespacespace.html#a38e2c327d558183010000c0213658b4a" class="m-doc">abs()</a></p>
-          </div></section>
-          <section class="m-doc-details" id="a0a207b752e72eee8d6c546c8beb63f09"><div>
-            <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="own-math_8hpp.html">&lt;src/own-math.hpp&gt;</a></div>
-              <div class="m-doc-template">
-                template&lt;typename T&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">T space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0a207b752e72eee8d6c546c8beb63f09" class="m-doc-self">stepfunction</a>(</span><span class="m-doc-wrap">T x) <span class="m-label m-primary">constexpr</span></span></span>
+              <span class="m-doc-wrap-bumper">auto&amp; space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9225df04790836d3a9dce8f94ce4d15b" class="m-doc-self">print</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              Args &amp;&amp; ... args)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -349,28 +295,21 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">T</td>
-                  <td></td>
-                </tr>
-              </tbody>
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>x</td>
-                  <td></td>
+                  <td style="width: 1%">Args</td>
+                  <td>Variadic type(any).</td>
                 </tr>
               </tbody>
             </table>
+<p>Print variables to an output stream</p>
           </div></section>
-          <section class="m-doc-details" id="abe73681680cf6baecce2543c3fbe05c7"><div>
+          <section class="m-doc-details" id="a4dfbbf0c49a0ab8474512e3080b66bfc"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="own-math_8hpp.html">&lt;src/own-math.hpp&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dev-tools_8hpp.html">&lt;src/dev-tools.hpp&gt;</a></div>
               <div class="m-doc-template">
-                template&lt;typename T&gt;
+                template&lt;typename... Args&gt;
               </div>
-              <span class="m-doc-wrap-bumper">T space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abe73681680cf6baecce2543c3fbe05c7" class="m-doc-self">sign</a>(</span><span class="m-doc-wrap">T x) <span class="m-label m-primary">constexpr</span></span></span>
+              <span class="m-doc-wrap-bumper">auto&amp; space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4dfbbf0c49a0ab8474512e3080b66bfc" class="m-doc-self">input</a>(</span><span class="m-doc-wrap">std::istream&amp; is,
+              Args &amp;&amp; ... args)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -378,30 +317,20 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">T</td>
-                  <td></td>
-                </tr>
-              </tbody>
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>x</td>
-                  <td></td>
+                  <td style="width: 1%">Args</td>
+                  <td>Variadic type(any).</td>
                 </tr>
               </tbody>
             </table>
+<p>Input variables from an input stream</p>
           </div></section>
-          <section class="m-doc-details" id="a39eb2a86b90fb45dee58f5e92a447612"><div>
+          <section class="m-doc-details" id="aa711c0aa2909a0a48b579033b7cb4499"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="own-math_8hpp.html">&lt;src/own-math.hpp&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dev-tools_8hpp.html">&lt;src/dev-tools.hpp&gt;</a></div>
               <div class="m-doc-template">
-                template&lt;typename Fun&gt;
+                template&lt;typename... Args&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a39eb2a86b90fb45dee58f5e92a447612" class="m-doc-self">root_bisection</a>(</span><span class="m-doc-wrap">Fun f,
-              decltype(f(0)) low,
-              decltype(f(0)) high)</span></span>
+              <span class="m-doc-wrap-bumper">auto&amp; space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa711c0aa2909a0a48b579033b7cb4499" class="m-doc-self">std_print</a>(</span><span class="m-doc-wrap">Args &amp;&amp; ... args)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -409,8 +338,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">Fun</td>
-                  <td></td>
+                  <td style="width: 1%">Args</td>
+                  <td>Variadic type(any).</td>
                 </tr>
               </tbody>
               <thead>
@@ -418,19 +347,54 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>f</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>low</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>high</td>
-                  <td></td>
+                  <td>args&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Variables.</td>
                 </tr>
               </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>std::cout.</td>
+                </tr>
+              </tfoot>
             </table>
+<p>Print variables to std::cout.</p>
+          </div></section>
+          <section class="m-doc-details" id="a423503d664e1b35744da843e92d598ac"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dev-tools_8hpp.html">&lt;src/dev-tools.hpp&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename... Args&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto&amp; space::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a423503d664e1b35744da843e92d598ac" class="m-doc-self">std_input</a>(</span><span class="m-doc-wrap">Args &amp;&amp; ... args)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Args</td>
+                  <td>Variadic type(any).</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>args&nbsp;<span class="m-label m-flat m-warning">out</span></td>
+                  <td>Variables.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>std::cin.</td>
+                </tr>
+              </tfoot>
+            </table>
+<p>Input variables from std::cin.</p>
           </div></section>
           <section class="m-doc-details" id="a2963cbc658d86ae899c08372a618f3fe"><div>
             <h3>
