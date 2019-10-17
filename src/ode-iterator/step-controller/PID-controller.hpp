@@ -26,7 +26,7 @@ License
 #define SPACEHUB_PID_CONTROLLER_HPP
 
 #include "stepsize-controller.hpp"
-#include "../../own-math.hpp"
+#include "../../math.hpp"
 
 namespace space::ode_iterator {
 
@@ -98,7 +98,7 @@ namespace space::ode_iterator {
 
   template<size_t Max_order, typename T>
   inline auto PIDController<Max_order, T>::step_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
-    return space::in_range(limiter_min_[order], step_size_ratio, limiter_max_[order]);
+    return math::in_range(limiter_min_[order], step_size_ratio, limiter_max_[order]);
   }
 
   template<size_t Max_order, typename T>

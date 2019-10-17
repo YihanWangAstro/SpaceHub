@@ -1,5 +1,5 @@
 #include "../../src/kahan-number.hpp"
-#include "../../src/own-math.hpp"
+#include "../../src/math.hpp"
 #include "../../src/rand-generator.hpp"
 #include "gtest/gtest.h"
 

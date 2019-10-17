@@ -22,13 +22,17 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_OWN_MATH_HPP
-#define SPACEHUB_OWN_MATH_HPP
+#ifndef SPACEHUB_MATH_HPP
+#define SPACEHUB_MATH_HPP
 
 #include <cmath>
 #include "dev-tools.hpp"
 
-namespace space {
+/**
+ * @namespace space::math
+ * namespace for math
+ */
+namespace space::math {
 /** @brief Self min()*/
   template<typename T1, typename T2>
   inline T2 min(const T1 &x, const T2 &y) {
@@ -60,7 +64,7 @@ namespace space {
  * @return
  */
   template<typename T>
-  inline constexpr T stepfunction(T x) {
+  inline constexpr T step(T x) {
     return static_cast<T>(x > 0);
   }
 
@@ -151,7 +155,7 @@ namespace space {
   auto root_bisection(Fun f, decltype(f(0)) low, decltype(f(0)) high) -> decltype(f(0)) {
     using Scalar = decltype(f(0));
 
-    for (; fabs((high - low)) > fabs(high) * space::epsilon<Scalar>::value;) {
+    for (; fabs((high - low)) > fabs(high) * math::epsilon<Scalar>::value;) {
       Scalar mid = 0.5 * (high + low);
       if (f(mid) > 0)
         high = mid;
@@ -169,7 +173,7 @@ namespace space {
     Scalar x = 1;
     for (size_t i = 0; i < max_iter; ++i) {
       x = x0 - f(x0);
-      if (fabs(x - x0) <= space::epsilon<Scalar>::value) {
+      if (fabs(x - x0) <= math::epsilon<Scalar>::value) {
         break;
       } else {
         x0 = x;

@@ -54,7 +54,7 @@ namespace space::integrator {
   };
 
   /**
-   *
+   * Second order symplectic method.
    */
   class symplectic2nd : public SymIntegrator<symplectic2nd> {
   public:
@@ -69,7 +69,7 @@ namespace space::integrator {
   };
 
   /**
-   *
+   * Fourth order symplectic method.
    */
   class symplectic4th : public SymIntegrator<symplectic4th> {
   public:
@@ -88,7 +88,7 @@ namespace space::integrator {
   };
 
   /**
-   *
+   * Sixth order symplectic method.
    */
   class symplectic6th : public SymIntegrator<symplectic6th> {
   public:
@@ -116,7 +116,7 @@ namespace space::integrator {
   };
 
   /**
-   *
+   * Eighth order symplectic method.
    */
   class symplectic8th : public SymIntegrator<symplectic8th> {
   public:
@@ -160,7 +160,7 @@ namespace space::integrator {
   };
 
   /**
-   *
+   * Tenth order symplectic method.
    */
   class symplectic10th : public SymIntegrator<symplectic10th> {
   public:

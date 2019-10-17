@@ -27,12 +27,9 @@ License
 
 #include <mutex>
 #include <random>
-#include "own-math.hpp"
+#include "math.hpp"
 
-/**
- * @namespace space::randomGen
- * Documentation for space
- */
+
 namespace space::randomGen {
 
   template<typename Dtype>
@@ -132,10 +129,10 @@ namespace space::randomGen {
     static std::mutex mutex_;
 
   public:
-    inline static Dtype get(Dtype alpha, Dtype low, Dtype high) {
+    inline static Dtype get(Dtype power, Dtype low, Dtype high) {
       static PowerLaw singleton;
-      if (!space::iseq(alpha, -1.0)) {
-        auto beta = alpha + 1;
+      if (!math::iseq(power, -1.0)) {
+        auto beta = power + 1;
         auto f_low = pow(low, beta);
         auto f_high = pow(high, beta);
         return pow(f_low + (f_high - f_low) * singleton.dist_(singleton.gen_), 1.0 / beta);
@@ -144,10 +141,10 @@ namespace space::randomGen {
       }
     }
 
-    inline static Dtype lock_get(Dtype alpha, Dtype low, Dtype high) {
+    inline static Dtype lock_get(Dtype power, Dtype low, Dtype high) {
       static PowerLaw singleton;
-      if (!space::iseq(alpha, -1.0)) {
-        auto beta = alpha + 1;
+      if (!math::iseq(power, -1.0)) {
+        auto beta = power + 1;
         auto f_low = pow(low, beta);
         auto f_high = pow(high, beta);
 
@@ -163,10 +160,10 @@ namespace space::randomGen {
     }
 
     template<typename RandGen>
-    inline static Dtype get(RandGen &gen, Dtype alpha, Dtype low, Dtype high) {
+    inline static Dtype get(RandGen &gen, Dtype power, Dtype low, Dtype high) {
       static PowerLaw singleton;
-      if (!space::iseq(alpha, -1.0)) {
-        auto beta = alpha + 1;
+      if (!math::iseq(power, -1.0)) {
+        auto beta = power + 1;
         auto f_low = pow(low, beta);
         auto f_high = pow(high, beta);
         return pow(f_low + (f_high - f_low) * singleton.dist_(gen), 1.0 / beta);
@@ -268,6 +265,10 @@ namespace space::randomGen {
   std::mutex Maxwell<Dtype>::mutex_;
 }  // namespace space::randomGen
 
+/**
+ * @namespace space::random
+ * Documentation for space
+ */
 namespace space::random {
   using Uniform = space::randomGen::Uniform<double>;
   using Logarithm = space::randomGen::Logarithm<double>;

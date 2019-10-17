@@ -25,7 +25,7 @@ License
 #ifndef SPACEHUB_KAHAN_NUMBER_HPP
 #define SPACEHUB_KAHAN_NUMBER_HPP
 
-#include "own-math.hpp"
+#include "math.hpp"
 
 namespace space {
 /** Kahan number
@@ -92,7 +92,7 @@ namespace space {
       T add = rhs.real - lhs.err;
       T sum = lhs.real + add;
 
-      if (space::abs(add) < space::abs(lhs.real))
+      if (math::abs(add) < math::abs(lhs.real))
         lhs.err = (sum - lhs.real) - add;
       else
         lhs.err = (sum - add) - lhs.real;
@@ -108,7 +108,7 @@ namespace space {
       T add = -rhs.real - lhs.err;
       T sum = lhs.real + add;
 
-      if (space::abs(add) < space::abs(lhs.real))
+      if (math::abs(add) < math::abs(lhs.real))
         lhs.err = (sum - lhs.real) - add;
       else
         lhs.err = (sum - add) - lhs.real;

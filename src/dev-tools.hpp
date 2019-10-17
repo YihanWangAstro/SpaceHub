@@ -30,24 +30,50 @@ License
 #include <array>
 
 namespace space {
+  /**
+   * Print variables to an output stream
+   * @tparam Args Variadic type(any).
+   * @param[in/out] os Output stream.
+   * @param[in] args Variables.
+   * @return Output stream.
+   */
   template<typename... Args>
   auto &print(std::ostream &os, Args &&... args) {
     (os << ...<< std::forward<Args>(args));
     return os;
   }
 
+  /**
+   * Input variables from an input stream
+   * @tparam Args Variadic type(any).
+   * @param[in/out] is Input stream.
+   * @param[out] args Variables.
+   * @return Input stream.
+   */
   template<typename... Args>
   auto &input(std::istream &is, Args &&... args) {
     (is >> ... >> std::forward<Args>(args));
     return is;
   }
 
+  /**
+   * Print variables to std::cout.
+   * @tparam Args Variadic type(any).
+   * @param[in] args Variables.
+   * @return std::cout.
+   */
   template<typename... Args>
   auto &std_print(Args &&... args) {
     (std::cout << ...<< std::forward<Args>(args));
     return std::cout;
   }
 
+  /**
+   * Input variables from std::cin.
+   * @tparam Args Variadic type(any).
+   * @param[out] args Variables.
+   * @return std::cin.
+   */
   template<typename... Args>
   auto &std_input(Args &&... args) {
     (std::cin >> ...>> std::forward<Args>(args));

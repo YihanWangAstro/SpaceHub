@@ -3,7 +3,7 @@
 #define IAS15ITERATOR_H
 
 #include "../dev-tools.hpp"
-#include "../own-math.hpp"
+#include "../math.hpp"
 namespace space {
 
     namespace Radau {

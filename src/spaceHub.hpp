@@ -34,7 +34,7 @@ License
  * @folder{integrator}
  *   @folder{integrator/symplectic}
  * @folder{args-callback}
- *
+ * @folder{scattering}
  *
  * @file spaceHub.hpp
  *
@@ -79,12 +79,11 @@ License
  * Documentation for space
  */
 namespace space {
-using DefaultTypes = Types<double, std::vector>;
+  using DefaultTypes = Types<double, std::vector>;
 
-template <template <class> class Paticles = particle_set::PointParticles, typename Force = interactions::NewtonianGrav>
-using DefaultSolver =
-    Simulator<particle_system::ARchainSystem<Paticles<DefaultTypes>, Force, particle_system::ReguType::LogH>,
-              ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
+  using DefaultSolver =
+  Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>, interactions::NewtonianGrav, particle_system::ReguType::LogH>,
+          ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;

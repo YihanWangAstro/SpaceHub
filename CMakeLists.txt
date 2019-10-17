@@ -66,7 +66,7 @@ set(TMP_HEADER_FILES
         src/dev-tools.hpp
         src/kahan-number.hpp
         src/macros.hpp
-        src/own-math.hpp
+        src/math.hpp
         src/particles/particles.hpp
         src/simulator.hpp
         src/spaceHub.hpp
@@ -75,7 +75,7 @@ set(TMP_HEADER_FILES
         src/ode-iterator/error-checker/worst-offender.hpp
         src/ode-iterator/error-checker/RMS.hpp
         src/ode-iterator/step-controller/stepsize-controller.hpp
-        src/ode-iterator/step-controller/PID-controller.hpp)
+        src/ode-iterator/step-controller/PID-controller.hpp src/scattering/cross-section.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp
@@ -99,7 +99,6 @@ set(KOZAI_TEST
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES})
 target_link_libraries(SpaceHub_unit_test gtest gtest_main)
 target_link_libraries(SpaceHub_unit_test gmock gmock_main)
-
 
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})

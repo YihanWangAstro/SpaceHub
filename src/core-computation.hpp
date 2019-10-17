@@ -26,7 +26,7 @@ License
 #define SPACEHUB_CORE_COMPUTATION_HPP
 
 #include "macros.hpp"
-#include "own-math.hpp"
+#include "math.hpp"
 
 /**
  * @namespace space::calc
@@ -216,6 +216,37 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
 
   CREATE_METHOD_CHECK(index);
 
+  CREATE_METHOD_CHECK(omega);
+
+  CREATE_METHOD_CHECK(bindE);
+
+  CREATE_METHOD_CHECK(mass);
+
+  CREATE_METHOD_CHECK(pos);
+
+  CREATE_METHOD_CHECK(vel);
+
+  template<typename Particle>
+  auto calc_potential_energy(Particle const &particle1, Particle const &particle2) {
+    if constexpr (HAS_METHOD(Particle, mass) && HAS_METHOD(Particle, pos)) {
+      auto potential_eng = -consts::G * particle1.mass() * particle2.mass();
+
+      auto dx = particle1.pos().x - particle2.pos().x;
+      auto dy = particle1.pos().y - particle2.pos().y;
+      auto dz = particle1.pos().z - particle2.pos().z;
+
+      return potential_eng / sqrt(dx * dx + dy * dy + dz * dz);
+    } else {
+      auto potential_eng = -consts::G * particle1.mass * particle2.mass;
+
+      auto dx = particle1.pos.x - particle2.pos.x;
+      auto dy = particle1.pos.y - particle2.pos.y;
+      auto dz = particle1.pos.z - particle2.pos.z;
+
+      return potential_eng / sqrt(dx * dx + dy * dy + dz * dz);
+    }
+  }
+
   template<typename Particles>
   auto calc_potential_energy(Particles const &particles) {
 
@@ -260,7 +291,7 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
           potential_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
         }
     }
-    return potential_eng;
+    return potential_eng * consts::G;
   }
 
   template<typename Particles>
@@ -278,7 +309,7 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
   inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &position) {
     using Scalar = typename ScalarArray::value_type;
     size_t const size = mass.size();
-    Scalar min_fall_free = max_value<Scalar>::value;
+    Scalar min_fall_free = math::max_value<Scalar>::value;
 
     for (size_t i = 0; i < size; i++) {
       for (size_t j = i + 1; j < size; j++) {
@@ -294,9 +325,6 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
     return min_fall_free * space::consts::pi * 0.5 / sqrt(2 * space::consts::G);
   }
 
-  CREATE_METHOD_CHECK(omega);
-
-  CREATE_METHOD_CHECK(bindE);
 
 /**
  *

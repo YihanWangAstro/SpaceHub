@@ -8,7 +8,10 @@ using namespace space;
 using namespace space::ode_iterator;
 using namespace space::integrator;
 using namespace space::orbit;
-using namespace unit;
+using namespace space::unit;
+using namespace space::particle_set;
+using namespace space::particle_system;
+
 using scalar = double;
 using type = Types<scalar, std::vector>;
 

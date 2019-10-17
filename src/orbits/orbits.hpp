@@ -27,8 +27,9 @@ License
 
 #include <cmath>
 #include <variant>
+#include "../core-computation.hpp"
 #include "../rand-generator.hpp"
-
+#include "../vector/vector3.hpp"
 /**
  * @namespace space::orbit
  * Documentation for space
@@ -37,7 +38,7 @@ namespace space::orbit {
 
   template<typename Scalar>
   inline Scalar myacos(Scalar x) {
-    return acos(space::min(space::max(-1.0, x), 1.0));
+    return acos(math::min(math::max(-1.0, x), 1.0));
   }
 
   template<typename Vector, typename Scalar>
@@ -66,7 +67,7 @@ namespace space::orbit {
       return 2 * atan2(sqrt(1 + e) * sin(eccentric_anomaly * 0.5), sqrt(1 - e) * cos(0.5 * eccentric_anomaly));
     else if (e > 1)
       return 2 * atan2(sqrt(1 + e) * sinh(eccentric_anomaly * 0.5), sqrt(e - 1) * cosh(0.5 * eccentric_anomaly));
-    else if (iseq(e, 1.0))
+    else if (math::iseq(e, 1.0))
       return 2 * atan(0.5 * eccentric_anomaly);
     else {
       spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
@@ -89,19 +90,20 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 }*/
   template<typename Scalar>
   Scalar calc_eccentric_anomaly(Scalar mean_anomaly, Scalar e) {
-    if (fabs(mean_anomaly) <= space::epsilon<Scalar>::value) return 0;
+    if (fabs(mean_anomaly) <= math::epsilon<Scalar>::value) return 0;
 
     if (0 <= e && e < 1)
-      return space::root_bisection(
+      return math::root_bisection(
               [&](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
               -space::consts::pi, space::consts::pi);  // find this function in ownMath.h
     else if (e > 1)
-      return space::root_bisection(
+      return math::root_bisection(
               [&](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); },
-              -space::consts::pi, space::consts::pi);
-    else if (fabs(e - 1) < space::epsilon<Scalar>::value)
-      return space::root_bisection([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
-                                   -space::consts::pi, space::consts::pi);
+              -space::consts::pi,
+              space::consts::pi);
+    else if (fabs(e - 1) < math::epsilon<Scalar>::value)
+      return math::root_bisection([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
+                                  -space::consts::pi, space::consts::pi);
     else {
       spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
     }
@@ -115,7 +117,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
   constexpr OrbitType classify_orbit(T eccentricity) {
     if (0 <= eccentricity && eccentricity < 1) {
       return OrbitType::Ellipse;
-    } else if (iseq(eccentricity, 1.0)) {
+    } else if (math::iseq(eccentricity, 1.0)) {
       return OrbitType::Parabola;
     } else if (eccentricity > 1) {
       return OrbitType::Hyperbola;
@@ -134,10 +136,10 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
 #define LOCK_ISOTHERMAL LockRandom()
 
-  /**
-   *
-   * @tparam Real
-   */
+/**
+ *
+ * @tparam Real
+ */
   template<typename Real>
   struct OrbitArgs {
   private:
@@ -158,7 +160,8 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
     OrbitArgs() = default;
 
-    OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant tilt, Variant LoAN, Variant AoP,
+    OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant inclination,
+              Variant longitude_of_ascending_node, Variant argument_of_periapsis,
               Variant true_anomaly) {
       if (periastron < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
@@ -171,25 +174,25 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
       p = periastron;
       e = eccentricity;
 
-      if (std::holds_alternative<Scalar>(tilt)) {
-        i = std::get<Scalar>(tilt);
-      } else if (std::holds_alternative<LockRandom>(tilt)) {
+      if (std::holds_alternative<Scalar>(inclination)) {
+        i = std::get<Scalar>(inclination);
+      } else if (std::holds_alternative<LockRandom>(inclination)) {
         lock_shuffle_i();
       } else {
         shuffle_i();
       }
 
-      if (std::holds_alternative<Scalar>(LoAN)) {
-        Omega = std::get<Scalar>(LoAN);
-      } else if (std::holds_alternative<LockRandom>(LoAN)) {
+      if (std::holds_alternative<Scalar>(longitude_of_ascending_node)) {
+        Omega = std::get<Scalar>(longitude_of_ascending_node);
+      } else if (std::holds_alternative<LockRandom>(longitude_of_ascending_node)) {
         lock_shuffle_Omega();
       } else {
         shuffle_Omega();
       }
 
-      if (std::holds_alternative<Scalar>(AoP)) {
-        omega = std::get<Scalar>(AoP);
-      } else if (std::holds_alternative<LockRandom>(AoP)) {
+      if (std::holds_alternative<Scalar>(argument_of_periapsis)) {
+        omega = std::get<Scalar>(argument_of_periapsis);
+      } else if (std::holds_alternative<LockRandom>(argument_of_periapsis)) {
         lock_shuffle_omega();
       } else {
         shuffle_omega();
@@ -244,30 +247,55 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
   using Kepler = OrbitArgs<double>;
 
-  /**
-   *
-   * @tparam Real
-   */
-  template<typename Real>
-  struct HyperOrbitArgs : public OrbitArgs<Real> {
+  enum class Hyper {
+    in, out
+  };
+
+  struct HyperOrbit : public OrbitArgs<double> {
   private:
-    using Variant = typename OrbitArgs<Real>::Variant;
+    using Variant = std::variant<double, RandomIndicator, LockRandom>;
 
   public:
-    using Scalar = Real;
+    using Scalar = double;
 
-    HyperOrbitArgs() = default;
+    HyperOrbit() = default;
 
-    HyperOrbitArgs(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant tilt, Variant LoAN,
-                   Variant AoP) {
+    HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
+               Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in)
+            : OrbitArgs<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
       Scalar u = space::consts::G * (m_1 + m_2);
       Scalar a = -u / (v_inf * v_inf);
-      Scalar e = sqrt(1 + b * b / (a * a));
-      Scalar p = a * (1 - e * e);
-      Scalar true_anomaly = acos((p - r) / (e * r));
-      OrbitArgs<Real>(m_1, m_2, p, e, tilt, LoAN, AoP, true_anomaly);
+      this->e = sqrt(1 + b * b / (a * a));
+      this->p = a * (1 - e * e);
+      this->nu = -acos((p - r) / (e * r));
+      if (in_out == Hyper::out)
+        this->nu *= -1;
     }
   };
+
+
+  struct EllipOrbit : public OrbitArgs<double> {
+  private:
+    using Variant = std::variant<double, RandomIndicator, LockRandom>;
+
+  public:
+    using Scalar = double;
+
+    Scalar a{0};
+
+    EllipOrbit() = default;
+
+    EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
+               Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly)
+            : OrbitArgs<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity,
+                                inclination, longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
+      if (this->orbit_type != OrbitType::Ellipse) {
+        spacehub_abort("The given parameters don't give an elliptic orbit.");
+      }
+      a = semi_major_axis;
+    }
+  };
+
 
   template<typename Vector, typename Scalar>
   void coord_to_oribt_args(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
@@ -295,24 +323,24 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     args.i = acos(L.z / l);
 
     if (args.e != 0) {
-      args.nu = space::sign(rv) * myacos(dot(E / args.e, dr / r));
+      args.nu = math::sign(rv) * myacos(dot(E / args.e, dr / r));
 
       if (n != 0) {
-        args.Omega = space::sign(N.y) * myacos(N.x / n);
-        args.omega = space::sign(E.z) * myacos(dot(E / args.e, N / n));
+        args.Omega = math::sign(N.y) * myacos(N.x / n);
+        args.omega = math::sign(E.z) * myacos(dot(E / args.e, N / n));
       } else {
-        args.omega = -space::sign(E.y) * myacos(-E.x / args.e);
+        args.omega = -math::sign(E.y) * myacos(-E.x / args.e);
         args.Omega = args.omega;
       }
     } else {
       if (n != 0) {
-        args.Omega = space::sign(N.y) * myacos(N.x / n);
+        args.Omega = math::sign(N.y) * myacos(N.x / n);
         args.omega = 0;
         Vector peri = cross(L, N);
-        args.nu = -space::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
+        args.nu = -math::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
       } else {
         args.Omega = args.omega = 0;
-        args.nu = space::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
+        args.nu = math::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
       }
     }
   }

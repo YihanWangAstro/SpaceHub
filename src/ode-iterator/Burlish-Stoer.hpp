@@ -238,7 +238,7 @@ namespace space::ode_iterator {
     }
 
     [[nodiscard]] inline size_t allowed(size_t i) const {
-      return space::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
+      return math::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
 
     Scalar set_next_iteration(size_t k, bool last_reject) {

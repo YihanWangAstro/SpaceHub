@@ -147,29 +147,27 @@ int main(){
     auto moon_orbit = orbit::Kepler{earth.mass, moon.mass, 268782 * km, 0.055, 1.543 * deg, 0.0, 0.0, 0.0};
 
     //move the moon to the moon orbit
-    move_particles_to(moon_orbit, moon);
+    orbit::move_particles_to(moon_orbit, moon);
 
     //create a Kepler orbit of (moon mass + earth mass, solar mass) pair with semi_latus_rectum = 1 au,
     //eccentricity = 0.016, inclination = 7.155 degree and other parameters = 0
     auto earth_orbit = orbit::Kepler{sun.mass, earth.mass+moon.mass, au, 0.016, 7.155 * deg, 0.0, 0.0, 0.0};
 
     //move the centre of mass of the moon and earth to the earth orbit.
-    move_particles_to(earth_orbit, earth, moon);
+    orbit::move_particles_to(earth_orbit, earth, moon);
 
     //move the three objects to the centre of mass reference frame
-    move_to_com_coord(sun, earth, moon);
+    orbit::move_to_com_coord(sun, earth, moon);
 
     //Initialize the system with the three particles and set the time of the system to be 0.
     DefaultSolver sim{0, sun, earth, moon};
 
     DefaultSolver::RunArgs args;
 
-    auto end_time = 100 * unit::year;
-
     //add a default output printer
-    args.add_pre_step_operation(run_operations::DefaultWriter("solar.dat"), 0, end_time); 
+    args.add_pre_step_operation(run_operations::DefaultWriter("solar.dat")); 
 
-    args.add_stop_condition(end_time);
+    args.add_stop_condition(100 * unit::year);
 
     //run simulation with arguments.
     sim.run(args);
