@@ -17,8 +17,8 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 
-#CLANG_ASSISTED_PARSING = YES
-#CLANG_OPTIONS  = -std=c++17
+CLANG_ASSISTED_PARSING = YES
+CLANG_OPTIONS  = -std=c++17
 
 # This tag specifies the encoding used for all characters in the configuration
 # file that follow. The default is UTF-8 which is also the encoding used for all
