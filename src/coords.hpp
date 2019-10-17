@@ -26,6 +26,7 @@ License
 #define SPACEHUB_COORDS_HPP
 
 #include "vector/vector3.hpp"
+#include "dev-tools.hpp"
 
 namespace space {
 
@@ -45,7 +46,7 @@ struct Coords {
 
   // constructors
   SPACEHUB_MAKE_CONSTRUCTORS(Coords, default, default, default, default, default);
-  
+
   /**
    *
    * @param count

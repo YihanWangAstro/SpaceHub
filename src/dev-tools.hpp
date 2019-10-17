@@ -174,7 +174,7 @@ namespace space {
   std::transform(std::begin(CONTAINER), std::end(CONTAINER), std::back_inserter(result), [](auto& X) { return EXPR; });\
   return result;}()
 
-#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
+#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                         \
 /** Default constructor. */                                                                                            \
     CLASS() = ATTR1;                                                                                                   \
 /** Default copy constructor. */                                                                                       \
@@ -184,7 +184,8 @@ namespace space {
 /** Default copy assignment operator */                                                                                \
     CLASS &operator=(CLASS const &) = ATTR4;                                                                           \
 /** Default move assignment operator */                                                                                \
-    CLASS &operator=(CLASS &&) = ATTR5;                                                                                \
+    CLASS &operator=(CLASS &&) = ATTR5;
+
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                                                                           \
     template<typename ..._T_>                                                                                          \

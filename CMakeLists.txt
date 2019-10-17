@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O0")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O2")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
 
 
@@ -88,14 +88,19 @@ set(TWOBODY_TEST
         test/regression_test/two-body-test.cpp
         )
 
+
 set(SOLAR_TEST
         test/regression_test/solar_system.cpp)
 
 set(KOZAI_TEST
         test/regression_test/kozai.cpp)
+
+
 add_executable(SpaceHub_unit_test ${SOURCE_FILES} ${TMP_HEADER_FILES})
 target_link_libraries(SpaceHub_unit_test gtest gtest_main)
 target_link_libraries(SpaceHub_unit_test gmock gmock_main)
+
+
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 

@@ -1,7 +1,7 @@
 //
 // Created by 王艺涵 on 10/5/19.
 //
-
+#include "../../src/type-class.hpp"
 #include "../../src/particles/point-particles.hpp"
 #include "../../src/particles/finite-size.hpp"
 #include "../../src/rand-generator.hpp"
@@ -14,7 +14,7 @@ namespace UnitTest {
     using Particles = TParticles<types>;
     using Particle = typename Particles::Particle;
 
-    space::PointParticles<types> particles;
+    space::particle_set::PointParticles<types> particles;
 
     EXPECT_EQ(particles.number(), 0);
 
@@ -37,7 +37,7 @@ namespace UnitTest {
     using Particles = TParticles<types>;
     using Particle = typename Particles::Particle;
 
-    space::PointParticles<types> particles;
+    space::particle_set::PointParticles<types> particles;
 
     EXPECT_EQ(particles.capacity(), 0);
 
@@ -53,7 +53,7 @@ namespace UnitTest {
   template<typename types>
   void test_point_particles_ctor(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::PointParticles<types>;
+    using Particles = space::particle_set::PointParticles<types>;
     using Particle = typename Particles::Particle;
     Scalar high = space::big_value<Scalar>::value;
 
@@ -97,7 +97,7 @@ namespace UnitTest {
   template<typename types>
   void test_point_particles_emplace_back(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::PointParticles<types>;
+    using Particles = space::particle_set::PointParticles<types>;
     using Particle = typename Particles::Particle;
     Scalar high = space::big_value<Scalar>::value;
 
@@ -146,7 +146,7 @@ namespace UnitTest {
   template<typename types>
   void test_finite_particles_ctor(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::SizeParticles<types>;
+    using Particles = space::particle_set::SizeParticles<types>;
     using Particle = typename Particles::Particle;
     Scalar high = space::big_value<Scalar>::value;
 
@@ -193,7 +193,7 @@ namespace UnitTest {
   template<typename types>
   void test_finite_particles_emplace_back(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::SizeParticles<types>;
+    using Particles = space::particle_set::SizeParticles<types>;
     using Particle = typename Particles::Particle;
     Scalar high = space::big_value<Scalar>::value;
 
@@ -241,15 +241,15 @@ namespace UnitTest {
   }
 }
 TEST(ParticleTest, Point_Size) {
-  constexpr size_t sample_num = 1000000;
-  UnitTest::test_particles_size<space::PointParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_size<space::PointParticles, space::Types<float>>(sample_num);
+  constexpr size_t sample_num = 100000;
+  UnitTest::test_particles_size<space::particle_set::PointParticles, space::Types<double>>(sample_num);
+  UnitTest::test_particles_size<space::particle_set::PointParticles, space::Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Point_Capacity) {
-  constexpr size_t sample_num = 1000000;
-  UnitTest::test_particles_capacity<space::PointParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_capacity<space::PointParticles, space::Types<float>>(sample_num);
+  constexpr size_t sample_num = 100000;
+  UnitTest::test_particles_capacity<space::particle_set::PointParticles, space::Types<double>>(sample_num);
+  UnitTest::test_particles_capacity<space::particle_set::PointParticles, space::Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Point_Ctor) {
@@ -265,15 +265,15 @@ TEST(ParticleTest, Point_emplace) {
 }
 
 TEST(ParticleTest, Finite_Size) {
-  constexpr size_t sample_num = 1000000;
-  UnitTest::test_particles_size<space::SizeParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_size<space::SizeParticles, space::Types<float>>(sample_num);
+  constexpr size_t sample_num = 100000;
+  UnitTest::test_particles_size<space::particle_set::SizeParticles, space::Types<double>>(sample_num);
+  UnitTest::test_particles_size<space::particle_set::SizeParticles, space::Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Finite_Capacity) {
-  constexpr size_t sample_num = 1000000;
-  UnitTest::test_particles_capacity<space::SizeParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_capacity<space::SizeParticles, space::Types<float>>(sample_num);
+  constexpr size_t sample_num = 100000;
+  UnitTest::test_particles_capacity<space::particle_set::SizeParticles, space::Types<double>>(sample_num);
+  UnitTest::test_particles_capacity<space::particle_set::SizeParticles, space::Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Finite_Ctor) {

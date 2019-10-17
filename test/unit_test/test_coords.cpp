@@ -165,13 +165,13 @@ namespace UnitTest {
 }
 
 TEST(CoordsTest, Reserve) {
-  constexpr size_t sample_num = 1000000;
+  constexpr size_t sample_num = 100000;
   UnitTest::test_coords_reserve<std::vector<double>>(sample_num);
   UnitTest::test_coords_reserve<std::vector<float>>(sample_num);
 }
 
 TEST(CoordsTest, Resize) {
-  constexpr size_t sample_num = 1000000;
+  constexpr size_t sample_num = 100000;
   UnitTest::test_coords_resize<std::vector<double>>(sample_num);
   UnitTest::test_coords_resize<std::vector<float>>(sample_num);
 }

@@ -27,6 +27,7 @@ License
 
 #include <cmath>
 #include <iostream>
+#include "../dev-tools.hpp"
 
 namespace space {
 /**
