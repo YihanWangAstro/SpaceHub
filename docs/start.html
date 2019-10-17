@@ -63,42 +63,40 @@
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">space</span><span class="p">;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">unit</span><span class="p">;</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="k">using</span> <span class="n">Particle</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">DefaultSolver</span><span class="o">::</span><span class="n">Particle</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">Particle</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">DefaultSolver</span><span class="o">::</span><span class="n">Particle</span><span class="p">;</span>
 
-    <span class="c1">//create three particle with solar mass, earth mass and moon mass; particles is rest at original point.</span>
-    <span class="n">Particle</span> <span class="n">sun</span><span class="p">{</span><span class="n">m_solar</span><span class="p">},</span> <span class="n">earth</span><span class="p">{</span><span class="n">m_earth</span><span class="p">},</span> <span class="n">moon</span><span class="p">{</span><span class="n">m_moon</span><span class="p">};</span>
+  <span class="c1">// create three particles. particles is rest at original point.</span>
+  <span class="n">Particle</span> <span class="n">sun</span><span class="p">{</span><span class="n">m_solar</span><span class="p">},</span> <span class="n">earth</span><span class="p">{</span><span class="n">m_earth</span><span class="p">},</span> <span class="n">moon</span><span class="p">{</span><span class="n">m_moon</span><span class="p">};</span>
 
-    <span class="c1">//create a Kepler orbit of (moon mass, earth mass) pair with semi_latus_rectum = 268782 km, </span>
-    <span class="c1">//eccentricity = 0.055, inclination = 1.543 degree and other parameters = 0</span>
-    <span class="k">auto</span> <span class="n">moon_orbit</span> <span class="o">=</span> <span class="n">orbit</span><span class="o">::</span><span class="n">Kepler</span><span class="p">{</span><span class="n">earth</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">moon</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="mi">268782</span> <span class="o">*</span> <span class="n">km</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">1.543</span> <span class="o">*</span> <span class="n">deg</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
+  <span class="c1">// create a Kepler orbit of (moon mass, earth mass) with a = 268782 km, e = 0.055 and i = 1.543 degree.</span>
+  <span class="k">auto</span> <span class="n">moon_orbit</span> <span class="o">=</span> <span class="n">orbit</span><span class="o">::</span><span class="n">EllipOrbit</span><span class="p">{</span><span class="n">earth</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">moon</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="mi">268782</span> <span class="o">*</span> <span class="n">km</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">1.543</span> <span class="o">*</span> <span class="n">deg</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
 
-    <span class="c1">//move the moon to the moon orbit</span>
-    <span class="n">orbit</span><span class="o">::</span><span class="n">move_particles_to</span><span class="p">(</span><span class="n">moon_orbit</span><span class="p">,</span> <span class="n">moon</span><span class="p">);</span>
+  <span class="c1">// move the moon to the moon orbit</span>
+  <span class="n">orbit</span><span class="o">::</span><span class="n">move_particles_to</span><span class="p">(</span><span class="n">moon_orbit</span><span class="p">,</span> <span class="n">moon</span><span class="p">);</span>
 
-    <span class="c1">//create a Kepler orbit of (moon mass + earth mass, solar mass) pair with semi_latus_rectum = 1 au,</span>
-    <span class="c1">//eccentricity = 0.016, inclination = 7.155 degree and other parameters = 0</span>
-    <span class="k">auto</span> <span class="n">earth_orbit</span> <span class="o">=</span> <span class="n">orbit</span><span class="o">::</span><span class="n">Kepler</span><span class="p">{</span><span class="n">sun</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">earth</span><span class="p">.</span><span class="n">mass</span><span class="o">+</span><span class="n">moon</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">au</span><span class="p">,</span> <span class="mf">0.016</span><span class="p">,</span> <span class="mf">7.155</span> <span class="o">*</span> <span class="n">deg</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
+  <span class="c1">// create a Kepler orbit of (moon mass + earth mass, solar mass) a = 1 au, e = 0.016 and i = 7.155 degree.</span>
+  <span class="k">auto</span> <span class="n">earth_orbit</span> <span class="o">=</span> <span class="n">orbit</span><span class="o">::</span><span class="n">EllipOrbit</span><span class="p">{</span><span class="n">sun</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">earth</span><span class="p">.</span><span class="n">mass</span> <span class="o">+</span> <span class="n">moon</span><span class="p">.</span><span class="n">mass</span><span class="p">,</span> <span class="n">au</span><span class="p">,</span> <span class="mf">0.016</span><span class="p">,</span> <span class="mf">7.155</span> <span class="o">*</span> <span class="n">deg</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
 
-    <span class="c1">//move the centre of mass of the moon and earth to the earth orbit.</span>
-    <span class="n">orbit</span><span class="o">::</span><span class="n">move_particles_to</span><span class="p">(</span><span class="n">earth_orbit</span><span class="p">,</span> <span class="n">earth</span><span class="p">,</span> <span class="n">moon</span><span class="p">);</span>
+  <span class="c1">// move the centre of mass of the moon and earth to the earth orbit.</span>
+  <span class="n">orbit</span><span class="o">::</span><span class="n">move_particles_to</span><span class="p">(</span><span class="n">earth_orbit</span><span class="p">,</span> <span class="n">earth</span><span class="p">,</span> <span class="n">moon</span><span class="p">);</span>
 
-    <span class="c1">//move the three objects to the centre of mass reference frame</span>
-    <span class="n">orbit</span><span class="o">::</span><span class="n">move_to_com_coord</span><span class="p">(</span><span class="n">sun</span><span class="p">,</span> <span class="n">earth</span><span class="p">,</span> <span class="n">moon</span><span class="p">);</span>
+  <span class="c1">// move the three objects to the centre of mass reference frame</span>
+  <span class="n">orbit</span><span class="o">::</span><span class="n">move_to_com_coord</span><span class="p">(</span><span class="n">sun</span><span class="p">,</span> <span class="n">earth</span><span class="p">,</span> <span class="n">moon</span><span class="p">);</span>
 
-    <span class="c1">//Initialize the system with the three particles and set the time of the system to be 0.</span>
-    <span class="n">DefaultSolver</span> <span class="n">sim</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="n">sun</span><span class="p">,</span> <span class="n">earth</span><span class="p">,</span> <span class="n">moon</span><span class="p">};</span>
+  <span class="c1">// Initialize the system with the three particles and set the time = 0.</span>
+  <span class="n">DefaultSolver</span> <span class="n">sim</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="n">sun</span><span class="p">,</span> <span class="n">earth</span><span class="p">,</span> <span class="n">moon</span><span class="p">};</span>
 
-    <span class="n">DefaultSolver</span><span class="o">::</span><span class="n">RunArgs</span> <span class="n">args</span><span class="p">;</span>
+  <span class="n">DefaultSolver</span><span class="o">::</span><span class="n">RunArgs</span> <span class="n">args</span><span class="p">;</span>
 
-    <span class="c1">//add a default output printer</span>
-    <span class="n">args</span><span class="p">.</span><span class="n">add_pre_step_operation</span><span class="p">(</span><span class="n">run_operations</span><span class="o">::</span><span class="n">DefaultWriter</span><span class="p">(</span><span class="s">&quot;solar.dat&quot;</span><span class="p">));</span> 
+  <span class="c1">// add a default output printer</span>
+  <span class="n">args</span><span class="p">.</span><span class="n">add_pre_step_operation</span><span class="p">(</span><span class="n">run_operations</span><span class="o">::</span><span class="n">DefaultWriter</span><span class="p">(</span><span class="s">&quot;solar.dat&quot;</span><span class="p">));</span>
 
-    <span class="n">args</span><span class="p">.</span><span class="n">add_stop_condition</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">unit</span><span class="o">::</span><span class="n">year</span><span class="p">);</span>
+  <span class="n">args</span><span class="p">.</span><span class="n">add_stop_condition</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">unit</span><span class="o">::</span><span class="n">year</span><span class="p">);</span>
 
-    <span class="c1">//run simulation with arguments.</span>
-    <span class="n">sim</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+  <span class="c1">// run simulation with arguments.</span>
+  <span class="n">sim</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span></pre><p>compile it with</p><pre class="m-code"><span class="o">&gt;</span> <span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">17</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">o</span> <span class="n">test</span> <span class="n">main</span><span class="p">.</span><span class="n">cpp</span></pre><p>and run</p><pre class="m-code"><span class="o">&gt;</span> <span class="p">.</span><span class="o">/</span><span class="n">test</span></pre><p>Enjoy!</p></section>
       </div>
     </div>
