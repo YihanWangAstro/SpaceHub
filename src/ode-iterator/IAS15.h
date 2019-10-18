@@ -4,13 +4,53 @@
 
 #include "../dev-tools.hpp"
 #include "../math.hpp"
-namespace space {
+#include "ode-iterator.hpp"
+#include "../integrator/Gauss-Dadau.h"
+
+namespace space::ode_iterator {
 
     namespace Radau {
         constexpr double maxStepCof = 1.74867862159014;// = 1/pow(0.02,1/7)
         constexpr double minStepCof = 0.5718603679678214;// = pow(0.02,1/7)
         constexpr double maxFloat = 1e100;
     }
+    template<typename Real, template<typename> typename ErrChecker, template<size_t, typename> typename StepControl>
+    class IAS15 : public OdeIterator<IAS15<Real, ErrChecker, StepControl>> {
+    public:
+      using Scalar = Real;
+
+      template<typename U>
+      auto impl_iterate(U &particles, typename U::Scalar macro_step_size) -> typename U::Scalar {
+        Scalar iter_h = macro_step_size;
+
+        for(size_t k = 0 ; k < max_iter_ ; ++k){
+          integrator_.calcuBTab(particles, iter_h);
+
+          if (in_converged_window()) {
+            Scalar error = err_checker_.error();//calcuBError(integrator_.getBTab(), integrator_.localAcc());
+            Scalar new_iter_h  = step_controller_.next_step_size(7,iter_h, error);
+
+            if (error < 1) {
+              integrator_.evaluateSystemAt(particles, iterH, Integrator::finalPoint);
+              integrator_.predictNewB(stepQ);
+
+              return new_iter_h;
+            } else {//current stepSize is too large, restart the iteration with smaller iterH that has been determined by current error.
+              iter_h = new_iter_h;
+              integrator_.predictNewB(stepQ);
+              k = 0;
+            }
+          }
+          iterBTab = integrator_.getBTab();
+        }
+      }
+    private:
+      bool in_converged_window(){return true;};
+      integrator::GaussDadau integrator_;
+      StepControl<7, Scalar> step_controller_;
+      ErrChecker<Scalar> err_checker_;
+      static constexpr size_t max_iter_{12};
+    };
 
 /** @brief IAS15 iterator see details in https://arxiv.org/abs/1409.4779 .
  *
@@ -32,13 +72,13 @@ namespace space {
         /** @brief interface to iterate particle system for one step
          *  @param particles  Particle system needs evolution.
          *  @param integrator Integrator to integrate the particle system.
-         *  @param stepLength Macro step length for iteration(Here, the step length of the integrator).
+         *  @param step_size Macro step length for iteration(Here, the step length of the integrator).
          *  @return step length for next iteration.
          */
-        Scalar iterate(ParticSys &particles, Scalar stepLength) {
+        Scalar iterate(ParticSys &particles, Scalar step_size) {
             integrator_.checkTabVolume(particles.particleNumber());
 
-            Scalar iterH = stepLength;
+            Scalar iterH = step_size;
             RadauTab iterBTab = integrator_.getBTab();//get the b value of the last step_sequence.
 
             resetLastConvergence();

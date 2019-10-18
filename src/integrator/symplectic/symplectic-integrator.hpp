@@ -25,38 +25,20 @@ License
 #ifndef SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 #define SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 
-#include "../../particle-system/particle-system.hpp"
+#include "../integrator.hpp"
+
 /**
  * @namespace space::integrator
  * Documentation for space
  */
 namespace space::integrator {
 
-  /**
-   *
-   * @tparam Derived
-   */
-  template<typename Derived>
-  class SymIntegrator {
-  public:
-    static constexpr size_t order{Derived::order};
 
-    template<typename T>
-    void integrate(T &particle_system, typename T::Scalar step_size) {
-      static_assert(particle_system::is_particle_system_v<T>, "Passing non paritcle-system-type!");
-      static_cast<Derived *>(this)->impl_integrate(particle_system, step_size);
-    }
-
-  private:
-    SymIntegrator() = default;
-
-    friend Derived;
-  };
 
   /**
    * Second order symplectic method.
    */
-  class symplectic2nd : public SymIntegrator<symplectic2nd> {
+  class symplectic2nd : public Integrator<symplectic2nd> {
   public:
     static constexpr size_t order{2};
 
@@ -71,7 +53,7 @@ namespace space::integrator {
   /**
    * Fourth order symplectic method.
    */
-  class symplectic4th : public SymIntegrator<symplectic4th> {
+  class symplectic4th : public Integrator<symplectic4th> {
   public:
     static constexpr size_t order{4};
 
@@ -90,7 +72,7 @@ namespace space::integrator {
   /**
    * Sixth order symplectic method.
    */
-  class symplectic6th : public SymIntegrator<symplectic6th> {
+  class symplectic6th : public Integrator<symplectic6th> {
   public:
     static constexpr size_t order{6};
 
@@ -118,7 +100,7 @@ namespace space::integrator {
   /**
    * Eighth order symplectic method.
    */
-  class symplectic8th : public SymIntegrator<symplectic8th> {
+  class symplectic8th : public Integrator<symplectic8th> {
   public:
     static constexpr size_t order{8};
 
@@ -162,7 +144,7 @@ namespace space::integrator {
   /**
    * Tenth order symplectic method.
    */
-  class symplectic10th : public SymIntegrator<symplectic10th> {
+  class symplectic10th : public Integrator<symplectic10th> {
   public:
     static constexpr size_t order{10};
 
@@ -236,6 +218,6 @@ namespace space::integrator {
   };
 
   template<typename T>
-  constexpr bool is_sym_integrator_v = std::is_base_of_v<SymIntegrator<T>, T>;
+  constexpr bool is_sym_integrator_v = std::is_base_of_v<Integrator<T>, T>;
 }
 #endif //SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP

@@ -2,10 +2,12 @@
 #ifndef GAUSSDADAU_H
 #define GAUSSDADAU_H
 
-#include "../dev-tools.hpp"
-#include "../type-class.hpp"
 
-namespace space {
+#include "../dev-tools.hpp"
+#include "integrator.hpp"
+#include <array>
+
+namespace space::integrator {
   namespace Radau {
     /** Gauss radau stepping. see details in
      https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
@@ -94,14 +96,22 @@ namespace space {
     }
   }
 
+  class GaussDadau : public Integrator<GaussDadau>{
+  public:
+    using Base = Integrator<GaussDadau>;
+
+    static constexpr size_t order{15};
+
+  };
+
   /** @brief Gauss-Dadau integrator */
   template<typename ParticSys>
   class GaussDadau {
   public:
     /* Typedef */
     SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
-    using RadauArray = Container<Vector, 7>;
-    using RadauTab   = Container<RadauArray, ParticSys::arraySize>;
+    using RadauArray = std::array<Vector, 7>;
+    using RadauTab   = Container<RadauArray>;
     /* Typedef */
 
     /*Template parameter check*/
