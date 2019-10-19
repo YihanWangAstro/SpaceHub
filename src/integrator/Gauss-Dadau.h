@@ -2,157 +2,269 @@
 #ifndef GAUSSDADAU_H
 #define GAUSSDADAU_H
 
-
+#include "../core-computation.hpp"
 #include "../dev-tools.hpp"
 #include "integrator.hpp"
 #include <array>
+#include <vector>
 
 namespace space::integrator {
-  namespace Radau {
-    /** Gauss radau stepping. see details in
-     https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
-     */
 
-    constexpr double interplt[8] = {5.62625605369221465e-02, 1.80240691736892365e-01, 3.52624717113169637e-01,
-                                    5.47153626330555383e-01, 7.34210177215410532e-01, 8.85320946839095768e-01,
-                                    9.77520613561287502e-01};
+  class RadauConsts {
+  public:
+    [[nodiscard]] static constexpr double step_sequence(size_t i) { return sub_steps_[i]; }
 
-    constexpr double VC[8][8] =
-            {
-                    {5.62625605369221488e-02, 1.58273785908541475e-03, 5.93659230739144700e-05, 2.50505913058228221e-06, 1.12752832786364175e-07, 5.28646923362689570e-09, 2.54940253100151135e-10, 1.25506424954273193e-11},
-                    {1.80240691736892361e-01, 1.62433534788967291e-02, 1.95180884477546898e-03, 2.63846532240386473e-04, 3.80447051867100241e-05, 5.71433664981562616e-06, 8.82819420497352435e-07, 1.39229985150554597e-07},
-                    {3.52624717113169617e-01, 6.21720955595714486e-02, 1.46156117393512206e-02, 3.86536946626848384e-03, 1.09041985166464603e-03, 3.20424159773191819e-04, 9.68481245967829960e-05, 2.98821622215214072e-05},
-                    {5.47153626330555420e-01, 1.49688545403338535e-01, 5.46017536250551146e-02, 2.24066606249673420e-02, 9.80790849192716036e-03, 4.47202724839682903e-03, 2.09733079372232617e-03, 1.00411688072492376e-03},
-                    {7.34210177215410487e-01, 2.69532292163342236e-01, 1.31928901329682199e-01, 7.26476565188252785e-02, 4.26709190135767829e-02, 2.61078525090855322e-02, 1.64302723006367039e-02, 1.05553639953544340e-02},
-                    {8.85320946839095790e-01, 3.91896589456036537e-01, 2.31302839760153781e-01, 1.53582936827273248e-01, 1.08776152840200469e-01, 8.02515055216670650e-02, 6.08985761603187514e-02, 4.71754369689804106e-02},
-                    {9.77520613561287499e-01, 4.77773274968617985e-01, 3.11355483260339450e-01, 2.28267302274238649e-01, 1.78508794700074913e-01, 1.45413355434419279e-01, 1.21838187792222097e-01, 1.04211922575117274e-01},
-                    {1.00000000000000000e+00, 5.00000000000000000e-01, 3.33333333333333333e-01, 2.50000000000000000e-01, 2.00000000000000000e-01, 1.66666666666666667e-01, 1.42857142857142857e-01, 1.25000000000000000e-01}
-            };
+    [[nodiscard]] static constexpr double G_tab(size_t n, size_t j) { return G_coef_[n * (n + 1) / 2 + j]; }
 
-    constexpr double PC[8][9] =
-            {
-                    {5.62625605369221488e-02, 1.58273785908541475e-03, 2.96829615369572350e-05, 8.35019710194094070e-07, 2.81882081965910438e-08, 1.05729384672537914e-09, 4.24900421833585225e-11, 1.79294892791818847e-12, 7.84590314640274681e-14},
-                    {1.80240691736892361e-01, 1.62433534788967291e-02, 9.75904422387734491e-04, 8.79488440801288243e-05, 9.51117629667750602e-06, 1.14286732996312523e-06, 1.47136570082892073e-07, 1.98899978786506567e-08, 2.78832320378369023e-09},
-                    {3.52624717113169617e-01, 6.21720955595714486e-02, 7.30780586967561031e-03, 1.28845648875616128e-03, 2.72604962916161508e-04, 6.40848319546383638e-05, 1.61413540994638327e-05, 4.26888031736020103e-06, 1.17079877778820337e-06},
-                    {5.47153626330555420e-01, 1.49688545403338535e-01, 2.73008768125275573e-02, 7.46888687498911401e-03, 2.45197712298179009e-03, 8.94405449679365805e-04, 3.49555132287054362e-04, 1.43445268674989108e-04, 6.10451325053742022e-05},
-                    {7.34210177215410487e-01, 2.69532292163342236e-01, 6.59644506648410994e-02, 2.42158855062750928e-02, 1.06677297533941957e-02, 5.22157050181710644e-03, 2.73837871677278399e-03, 1.50790914219349057e-03, 8.61095074400260249e-04},
-                    {8.85320946839095790e-01, 3.91896589456036537e-01, 1.15651419880076890e-01, 5.11943122757577493e-02, 2.71940382100501173e-02, 1.60503011043334130e-02, 1.01497626933864586e-02, 6.73934813842577294e-03, 4.64060028054731337e-03},
-                    {9.77520613561287499e-01, 4.77773274968617985e-01, 1.55677741630169725e-01, 7.60891007580795496e-02, 4.46271986750187282e-02, 2.90826710868838558e-02, 2.03063646320370162e-02, 1.48874175107310391e-02, 1.13188113884477806e-02},
-                    {1.00000000000000000e+00, 5.00000000000000000e-01, 1.66666666666666667e-01, 8.33333333333333333e-02, 5.00000000000000000e-02, 3.33333333333333333e-02, 2.38095238095238095e-02, 1.78571428571428571e-02, 1.38888888888888889e-02}
-            };
+    [[nodiscard]] static constexpr double vel_B_tab(size_t stage, size_t i) { return vel_coef_[stage][i]; }
 
-    /*constexpr double r[28] =
-     {
-         1.77738089140780001e+01,
-         5.54813671853721662e+00, 8.06593864838188709e+00,
-         2.83587607864443884e+00, 3.37424997696263552e+00, 5.80100155926406205e+00,
-         1.82764026751759770e+00, 2.03711183535858464e+00, 2.72544221180822598e+00, 5.14062410581093270e+00,
-         1.36200781606246958e+00, 1.47504021756041165e+00, 1.80515358014025139e+00, 2.62064492638703525e+00, 5.34597689987110987e+00,
-         1.12953387533678987e+00, 1.20618766605844559e+00, 1.41827826373473910e+00, 1.87724249618680995e+00, 2.95711601729045588e+00, 6.61766201370242155e+00,
-         1.02299632982348675e+00, 1.08547219393864239e+00, 1.25426462228187776e+00, 1.60026654949081622e+00, 2.32359830021969444e+00, 4.10997577834455837e+00, 1.08460261902368476e+01
-     };*/
+    [[nodiscard]] static constexpr double pos_B_tab(size_t stage, size_t i) { return pos_coef_[stage][i]; }
 
-    /*table_coef for computing g(derived from r)*/
-    constexpr double gg[28] =
-            {
-                    1.77738089140780001e+01,
-                    4.47509303845559954e+01, 8.06593864838188709e+00,
-                    5.55095216749226992e+01, 1.95740293777069741e+01, 5.80100155926406205e+00,
-                    5.21625022561530086e+01, 2.85409022679298973e+01, 1.40104739330160323e+01, 5.14062410581093270e+00,
-                    5.08080910907447823e+01, 3.73038175637124453e+01, 2.52900342103279856e+01, 1.40099072392295156e+01,
-                    5.34597689987110987e+00,
-                    7.09853803416487244e+01, 6.28448441358017857e+01, 5.21020450666394487e+01, 3.67361232269326421e+01,
-                    1.95691943377340431e+01, 6.61766201370242155e+00,
-                    2.30858165231426693e+02, 2.25668615322657310e+02, 2.07899029180855735e+02, 1.65753721732680304e+02,
-                    1.03578820531755138e+02, 4.45769049331641530e+01, 1.08460261902368476e+01
-            };
+    template<typename Tab>
+    void transfer_G_to_B(Tab const &G, Tab &B);
 
-    constexpr double c[21] =
-            {
-                    1.27179030902686775e-03, -1.43653023637089149e-03, 1.95656540994722109e-03,
-                    -3.57589772925161718e-03, 1.01408028300636298e-02, -5.62625605369221488e-02,
-                    -3.87603579159067693e-02, 4.21585277212687057e-02, -5.47553868890686898e-02,
-                    9.35376952594620670e-02, -2.36503252273814524e-01,
-                    3.60962243452845999e-01, -3.60099596502056807e-01, 4.15881200082306890e-01,
-                    -5.89127969386984196e-01,
-                    -1.46688420840042699e+00, 1.25015071184069093e+00, -1.13628159571753962e+00,
-                    2.90613625930842900e+00, -1.87049177293294999e+00,
-                    -2.75581271977204567e+00
-            };
+  private:
+    static constexpr double sub_steps_[8] = {
+            5.62625605369221465e-02, 1.80240691736892365e-01, 3.52624717113169637e-01, 5.47153626330555383e-01,
+            7.34210177215410532e-01, 8.85320946839095768e-01, 9.77520613561287502e-01
+    };
 
-    template<typename RadauTab>
-    void transG2B(const RadauTab &G, RadauTab &B) {
-      size_t size = G.size();
-      for (size_t i = 0; i < size; ++i) {
-        B[i][0] = c[0] * G[i][6] + c[1] * G[i][5] + c[2] * G[i][4] + c[3] * G[i][3] + c[4] * G[i][2] + c[5] * G[i][1] +
-                  G[i][0];
-        B[i][1] = c[6] * G[i][6] + c[7] * G[i][5] + c[8] * G[i][4] + c[9] * G[i][3] + c[10] * G[i][2] + G[i][1];
-        B[i][2] = c[11] * G[i][6] + c[12] * G[i][5] + c[13] * G[i][4] + c[14] * G[i][3] + G[i][2];
-        B[i][3] = c[15] * G[i][6] + c[16] * G[i][5] + c[17] * G[i][4] + G[i][3];
-        B[i][4] = c[18] * G[i][6] + c[19] * G[i][5] + G[i][4];
-        B[i][5] = c[20] * G[i][6] + G[i][5];
-        B[i][6] = G[i][6];
-      }
+    static constexpr double G_coef_[28] = {
+            17.7738089140780001,
+            5.54813671853721663, 8.06593864838188711,
+            2.83587607864443884, 3.37424997696263552, 5.80100155926406203,
+            1.82764026751759771, 2.03711183535858464, 2.72544221180822598, 5.14062410581093269,
+            1.36200781606246958, 1.47504021756041165, 1.80515358014025140, 2.62064492638703525, 5.34597689987110987,
+            1.12953387533678987, 1.20618766605844559, 1.41827826373473910, 1.87724249618680994, 2.95711601729045588,
+            6.61766201370242153,
+            1.02299632982348675, 1.08547219393864239, 1.25426462228187776, 1.60026654949081622, 2.32359830021969444,
+            4.10997577834455837, 10.8460261902368476
+    };
+
+
+    static constexpr double G_to_B_coef_[21] = {
+            1.27179030902686775e-03, -1.43653023637089149e-03, 1.95656540994722109e-03,
+            -3.57589772925161718e-03, 1.01408028300636298e-02, -5.62625605369221488e-02,
+            -3.87603579159067693e-02, 4.21585277212687057e-02, -5.47553868890686898e-02,
+            9.35376952594620670e-02, -2.36503252273814524e-01,
+            3.60962243452845999e-01, -3.60099596502056807e-01, 4.15881200082306890e-01,
+            -5.89127969386984196e-01,
+            -1.46688420840042699e+00, 1.25015071184069093e+00, -1.13628159571753962e+00,
+            2.90613625930842900e+00, -1.87049177293294999e+00,
+            -2.75581271977204567e+00
+    };
+
+    static constexpr double vel_coef_[8][8] = {
+            {5.626256053692214880E-2, 1.582737859085414760E-3, 5.936592307391447020E-5, 2.505059130582282220E-6, 1.127528327863641760E-7, 5.286469233626895740E-9, 2.549402531001511370E-10, 1.255064249542731940E-11},
+            {1.802406917368923610E-1, 1.624335347889672910E-2, 1.951808844775468980E-3, 2.638465322403864740E-4, 3.804470518671002400E-5, 5.714336649815626160E-6, 8.828194204973524360E-7,  1.392299851505545970E-7},
+            {3.526247171131696170E-1, 6.217209555957144850E-2, 1.461561173935122060E-2, 3.865369466268483810E-3, 1.090419851664646030E-3, 3.204241597731918180E-4, 9.684812459678299580E-5,  2.988216222152140710E-5},
+            {5.471536263305554200E-1, 1.496885454033385350E-1, 5.460175362505511470E-2, 2.240666062496734200E-2, 9.807908491927160340E-3, 4.472027248396829020E-3, 2.097330793722326170E-3,  1.004116880724923760E-3},
+            {7.342101772154104870E-1, 2.695322921633422370E-1, 1.319289013296821990E-1, 7.264765651882527860E-2, 4.267091901357678300E-2, 2.610785250908553220E-2, 1.643027230063670390E-2,  1.055536399535443400E-2},
+            {8.853209468390957900E-1, 3.918965894560365370E-1, 2.313028397601537810E-1, 1.535829368272732480E-1, 1.087761528402004690E-1, 8.025150552166706500E-2, 6.089857616031875140E-2,  4.717543696898041060E-2},
+            {9.775206135612874990E-1, 4.777732749686179850E-1, 3.113554832603394500E-1, 2.282673022742386490E-1, 1.785087947000749130E-1, 1.454133554344192790E-1, 1.218381877922220970E-1,  1.042119225751172740E-1},
+            {1.000000000000000000E+0, 5.000000000000000000E-1, 3.333333333333333340E-1, 2.500000000000000000E-1, 2.000000000000000000E-1, 1.666666666666666670E-1, 1.428571428571428570E-1,  1.250000000000000000E-1}
+    };
+
+    static constexpr double pos_coef_[8][9] = {
+            {5.626256053692214880E-2, 1.582737859085414760E-3, 2.968296153695723500E-5, 8.350197101940940710E-7, 2.818820819659104380E-8, 1.057293846725379140E-9, 4.249004218335852240E-11, 1.792948927918188470E-12, 7.845903146402746830E-14},
+            {1.802406917368923610E-1, 1.624335347889672910E-2, 9.759044223877344890E-4, 8.794884408012882400E-5, 9.511176296677506010E-6, 1.142867329963125230E-6, 1.471365700828920740E-7,  1.988999787865065700E-8,  2.788323203783690250E-9},
+            {3.526247171131696170E-1, 6.217209555957144850E-2, 7.307805869675610290E-3, 1.288456488756161280E-3, 2.726049629161615060E-4, 6.408483195463836340E-5, 1.614135409946383260E-5,  4.268880317360200990E-6,  1.170798777788203370E-6},
+            {5.471536263305554200E-1, 1.496885454033385350E-1, 2.730087681252755730E-2, 7.468886874989113980E-3, 2.451977122981790090E-3, 8.944054496793658040E-4, 3.495551322870543610E-4,  1.434452686749891080E-4,  6.104513250537420200E-5},
+            {7.342101772154104870E-1, 2.695322921633422370E-1, 6.596445066484109930E-2, 2.421588550627509280E-2, 1.066772975339419570E-2, 5.221570501817106420E-3, 2.738378716772783980E-3,  1.507909142193490570E-3,  8.610950744002602490E-4},
+            {8.853209468390957900E-1, 3.918965894560365370E-1, 1.156514198800768900E-1, 5.119431227575774920E-2, 2.719403821005011720E-2, 1.605030110433341290E-2, 1.014976269338645850E-2,  6.739348138425772970E-3,  4.640600280547313390E-3},
+            {9.775206135612874990E-1, 4.777732749686179850E-1, 1.556777416301697250E-1, 7.608910075807954960E-2, 4.462719867501872830E-2, 2.908267108688385580E-2, 2.030636463203701620E-2,  1.488741751073103920E-2,  1.131881138844778050E-2},
+            {1.000000000000000000E+0, 5.000000000000000000E-1, 1.666666666666666660E-1, 8.333333333333333300E-2, 4.999999999999999980E-2, 3.333333333333333320E-2, 2.380952380952380940E-2,  1.785714285714285700E-2,  1.388888888888888880E-2}
+    };
+  };
+
+
+  /** Gauss radau stepping. see details in
+   https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
+   */
+
+
+  template<typename RadauTab>
+  void transfer_G_to_B(const RadauTab &G, RadauTab &B) {
+    size_t size = G.size();
+    for (size_t i = 0; i < size; ++i) {
+      B[i][0] = c[0] * G[i][6] + c[1] * G[i][5] + c[2] * G[i][4] + c[3] * G[i][3] + c[4] * G[i][2] + c[5] * G[i][1] +
+                G[i][0];
+      B[i][1] = c[6] * G[i][6] + c[7] * G[i][5] + c[8] * G[i][4] + c[9] * G[i][3] + c[10] * G[i][2] + G[i][1];
+      B[i][2] = c[11] * G[i][6] + c[12] * G[i][5] + c[13] * G[i][4] + c[14] * G[i][3] + G[i][2];
+      B[i][3] = c[15] * G[i][6] + c[16] * G[i][5] + c[17] * G[i][4] + G[i][3];
+      B[i][4] = c[18] * G[i][6] + c[19] * G[i][5] + G[i][4];
+      B[i][5] = c[20] * G[i][6] + G[i][5];
+      B[i][6] = G[i][6];
     }
   }
 
-  class GaussDadau : public Integrator<GaussDadau>{
+  template<typename Coord>
+  class GaussDadau : public Integrator<GaussDadau<Coord>> {
   public:
-    using Base = Integrator<GaussDadau>;
+    using Base = Integrator<GaussDadau<Coord>>;
+    using IterTable = std::array<Coord, 7>;
+    using Scalar = typename Coord::Scalar;
 
     static constexpr size_t order{15};
+    static constexpr size_t final_point{7};
 
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys const &particles, Scalar step_size);
+
+    template<typename Scalar>
+    void predict_new_B(Scalar step_ratio);
+
+  private:
+    template<typename ParticleSys>
+    void integrate_to(ParticleSys const &particles, Scalar step_size, size_t stage);
+
+    template<typename ParticleSys>
+    void calc_B_table(ParticleSys &particles, Scalar step_size);
+
+    void calc_G_table(Coord const &a0, Coord const a, size_t stage);
+
+    void calc_vel_increament(Coord &dvel, Coord const &acc0, size_t stage);
+
+    void calc_pos_increment(Coord &dpos, Coord const &vel0, Coord const &acc0, Scalar step_size, size_t stage);
+
+  private:
+    IterTable b_tab_;
+    IterTable g_tab_;
+    Coord acceleration0_;
+    Coord acceleration_;
+    Coord pos_increment_;
+    Coord vel_increment_;
+    std::vector<Scalar> input_;
   };
 
-  /** @brief Gauss-Dadau integrator */
+  template<typename Coord>
+  template<typename ParticleSys>
+  void GaussDadau<Coord>::impl_integrate(const ParticleSys &particles, Scalar step_size) {
+    particles.to_linear_container(input_);
+    particles.evaluate_acc(acceleration0_);
+
+    calc_B_table(particles, step_size);
+
+    integrate_to(particles, step_size, final_point);
+  }
+
+  template<typename Coord>
+  template<typename ParticleSys>
+  void GaussDadau<Coord>::integrate_to(const ParticleSys &particles, Scalar step_size, size_t stage) {
+    calc_vel_increament(vel_increment_, acceleration0_, stage);
+    calc_pos_increment(pos_increment_, particles.vel(), acceleration0_, step_size, stage);
+
+    particles.advance_vel(step_size, vel_increment_);
+    particles.advance_pos(step_size, pos_increment_);
+    particles.advance_time(step_size);
+  }
+
+  template<typename Coord>
+  void GaussDadau<Coord>::calc_vel_increament(Coord &dvel, const Coord &acc0, size_t stage) {
+    calc::coord_scale(dvel, b_tab_[6], RadauConsts::vel_B_tab(stage, 7));
+    calc::coord_advance(dvel, b_tab_[5], RadauConsts::vel_B_tab(stage, 6));
+    calc::coord_advance(dvel, b_tab_[4], RadauConsts::vel_B_tab(stage, 5));
+    calc::coord_advance(dvel, b_tab_[3], RadauConsts::vel_B_tab(stage, 4));
+    calc::coord_advance(dvel, b_tab_[2], RadauConsts::vel_B_tab(stage, 3));
+    calc::coord_advance(dvel, b_tab_[1], RadauConsts::vel_B_tab(stage, 2));
+    calc::coord_advance(dvel, b_tab_[0], RadauConsts::vel_B_tab(stage, 1));
+    calc::coord_advance(dvel, acc0, RadauConsts::vel_B_tab(stage, 0));
+  }
+
+  template<typename Coord>
+  void GaussDadau<Coord>::calc_pos_increment(Coord &dpos, const Coord &vel0, const Coord &acc0, Scalar step_size,
+                                             size_t stage) {
+    calc::coord_scale(dpos, b_tab_[6], RadauConsts::pos_B_tab(stage, 8));
+    calc::coord_advance(dpos, b_tab_[5], RadauConsts::pos_B_tab(stage, 7));
+    calc::coord_advance(dpos, b_tab_[4], RadauConsts::pos_B_tab(stage, 6));
+    calc::coord_advance(dpos, b_tab_[3], RadauConsts::pos_B_tab(stage, 5));
+    calc::coord_advance(dpos, b_tab_[2], RadauConsts::pos_B_tab(stage, 4));
+    calc::coord_advance(dpos, b_tab_[1], RadauConsts::pos_B_tab(stage, 3));
+    calc::coord_advance(dpos, b_tab_[0], RadauConsts::pos_B_tab(stage, 2));
+    calc::coord_advance(dpos, acc0, RadauConsts::pos_B_tab(stage, 1));
+    calc::coord_scale(dpos, dpos, step_size);
+    calc::coord_advance(dpos, vel0, RadauConsts::pos_B_tab(stage, 0));
+  }
+
+  template<typename Coord>
+  void GaussDadau<Coord>::calc_G_table(Coord const &acc0, Coord const acc, size_t stage) {
+
+    calc::coord_sub(g_tab_[stage], acc, acc0);
+
+    calc::coord_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
+
+    for (size_t j = 0; j < stage; ++j)
+      calc::coord_advance(g_tab_[stage], g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
+
+  }
+
+  template<typename Coord>
+  template<typename ParticleSys>
+  void GaussDadau<Coord>::calc_B_table(ParticleSys &particles, Scalar step_size) {
+    integrate_to(particles, step_size, 0);
+    particles.evaluate_acc(acceleration_);
+    calc_G_table(acceleration0_, acceleration_, 0);
+
+    for (size_t i = 1; i < final_point; ++i) {
+      particles.load_from_linear_container(input_);
+      integrate_to(particles, step_size, i);
+      particles.evaluate_acc(acceleration_);
+      calc_G_table(acceleration0_, acceleration_, i);
+    }
+    Radau::transfer_G_to_B(g_tab_, b_tab_);
+    particles.load_from_linear_container(input_);
+  }
+
+
+/** @brief Gauss-Dadau integrator *//*
   template<typename ParticSys>
   class GaussDadau {
   public:
-    /* Typedef */
+    *//* Typedef *//*
     SPACEHUB_USING_TYPE_SYSTEM_OF(ParticSys);
     using RadauArray = std::array<Vector, 7>;
     using RadauTab   = Container<RadauArray>;
-    /* Typedef */
+    *//* Typedef *//*
 
-    /*Template parameter check*/
-    /*Template parameter check*/
+    *//*Template parameter check*//*
+    *//*Template parameter check*//*
 
-    /** @brief Order of the integrator*/
+    *//** @brief Order of the integrator*//*
     static const int order{15};
     static const size_t finalPoint{7};
 
-    /** @brief Interface to integrate particle system
+    *//** @brief Interface to integrate particle system
      *
      *  This function integrate the particle system for one step with Gauss-Radau stepping.
      *  @param particles  Particle system need to be integrated.
      *  @param stepLength Step size for integration.
-     */
+     *//*
     void integrate(ParticSys &particles, Scalar stepLength) {
       checkTabVolume(particles.particleNumber());
       calcuBTab(particles, stepLength);
       evaluateSystemAt(particles, stepLength, finalPoint);
     }
 
-    /**
+    *//**
      *
      * @param particles
      * @param stepLength
-     */
+     *//*
     void calcuBTab(const ParticSys &particles, Scalar stepLength) {
       for (size_t i = 0; i < finalPoint; ++i) {
         localSystem_ = particles;
         evaluateSystemAt(localSystem_, stepLength, i);
         calcuGTab(particles.acc(), localSystem_.acc(), i);
       }
-      Radau::transG2B(Gtab_, Btab_);
+      Radau::transfer_G_to_B(Gtab_, Btab_);
     }
 
-    /**
+    *//**
      *
      * @param particleSys
      * @param stepLength
      * @param index
-     */
+     *//*
     void evaluateSystemAt(ParticSys &particleSys, Scalar stepLength, size_t index) {
       VectorArray dpos;
       VectorArray dvel;
@@ -164,18 +276,18 @@ namespace space::integrator {
       particleSys.evaluateAcc();
     }
 
-    /**
+    *//**
      *
      * @return
-     */
+     *//*
     inline const RadauTab &getBTab() const {
       return Btab_;
     }
 
-    /**
+    *//**
      *
      * @return
-     */
+     *//*
     inline const VectorArray &localAcc() const {
       return localSystem_.acc();
     }
@@ -201,10 +313,10 @@ namespace space::integrator {
       }
     }
 
-    /**
+    *//**
      *
      * @param Q1
-     */
+     *//*
     void predictNewB(Scalar Q1) {
       Scalar Q2 = Q1 * Q1;
       Scalar Q3 = Q2 * Q1;
@@ -262,12 +374,12 @@ namespace space::integrator {
       }
     }
 
-    /**
+    *//**
      *
      * @param a0
      * @param a
      * @param iter
-     */
+     *//*
     void calcuGTab(const VectorArray &a0, const VectorArray &a, size_t iter) {
       size_t size = a0.size();
       size_t offset = iter * (iter + 1) / 2 + 1;
@@ -287,6 +399,6 @@ namespace space::integrator {
     ParticSys localSystem_;
     size_t particleNumber_{ParticSys::arraySize};
   };
-
+*/
 }
 #endif

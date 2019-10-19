@@ -86,6 +86,16 @@ namespace space::calc {
     }
   }
 
+  template<typename Array, typename Scalar>
+  void array_scale(Array &dst, Array const &a, Scalar scale) {
+    DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
+    size_t const size = dst.size();
+
+    for (size_t i = 0; i < size; i++) {
+      dst[i] = a[i] * scale;
+    }
+  }
+
   template<typename Array, typename... Args>
   void array_mul(Array &dst, Array const &a, Array const &b, Args const &... args) {
     size_t const size = dst.size();
@@ -169,6 +179,20 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
     array_add(dst.x, a.x, b.x, args.x...);
     array_add(dst.y, a.y, b.y, args.y...);
     array_add(dst.z, a.z, b.z, args.z...);
+  }
+
+  template<typename Coord>
+  inline void coord_sub(Coord &dst, Coord const &a, Coord const &b) {
+    array_sub(dst.x, a.x, b.x);
+    array_sub(dst.y, a.y, b.y);
+    array_sub(dst.z, a.z, b.z);
+  }
+
+  template<typename Coord, typename Scalar>
+  inline void coord_scale(Coord &dst, Coord const &a, Scalar scale) {
+    array_add(dst.x, a.x, scale);
+    array_add(dst.y, a.y, scale);
+    array_add(dst.z, a.z, scale);
   }
 
   template<typename Scalar, typename Coord>
