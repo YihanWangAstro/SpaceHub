@@ -220,7 +220,11 @@ namespace space::particle_system {
   void
   RegularizedSystem<Particles, Interactions, RegType>::impl_advance_vel(Scalar step_size, const Coord &acceleration) {
     Scalar phy_time = regu_.eval_vel_phy_time(ptcl_, step_size);
-    calc::coord_advance(ptcl_.vel(), acceleration, phy_time);
+    Scalar half_time = 0.5 * phy_time;
+    calc::coord_advance(ptcl_.vel(), acceleration, half_time);
+    advance_omega(ptcl_.vel(), acceleration, phy_time);
+    //TODO : evolve bindE
+    calc::coord_advance(ptcl_.vel(), acceleration, half_time);
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>

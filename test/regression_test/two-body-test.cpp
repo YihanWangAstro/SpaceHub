@@ -61,16 +61,16 @@ int main(int argc, char **argv) {
   //using iter = ConstOdeIterator<symplectic2nd>;
   //using iter = ConstOdeIterator<GaussDadau<particles::Coord>>;
   using iter = IAS15<typename particles::Coord, IAS15Error, PIDController>;
-  {
-    using sys = SimpleSystem<particles, force>;
+  /* {
+     using sys = SimpleSystem<particles, force>;
 
-    using simulation = Simulator<sys, iter>;
+     using simulation = Simulator<sys, iter>;
 
-    simulation nbody{0.0, sun, earth};
+     simulation nbody{0.0, sun, earth};
 
-    run_two_body_test(nbody, "circular-BS-simple.err");
-  }
-/*
+     run_two_body_test(nbody, "circular-BS-simple.err");
+   }
+*/
   {
     using sys = ChainSystem<particles, force>;
 
@@ -80,74 +80,74 @@ int main(int argc, char **argv) {
 
     run_two_body_test(nbody, "circular-BS-chain.err");
   }
+  /*
+   {
+     using sys = RegularizedSystem<particles, force, ReguType::LogH>;
+
+     using simulation = Simulator<sys, iter>;
+
+     simulation nbody{0.0, sun, earth};
+
+     run_two_body_test(nbody, "circular-BS-regu.err");
+   }
+
+   {
+     using sys = ARchainSystem<particles, force, ReguType::LogH>;
+
+     using Simulation = Simulator<sys, iter>;
+
+     Simulation nbody{0.0, sun, earth};
+
+     run_two_body_test(nbody, "circular-BS-archain.err");
+   }
+   particle ecc_sun{m_solar}, ecc_earth{m_earth};
+
+   auto ecc_orbit = Kepler{ecc_sun.mass, ecc_earth.mass, semi_latus_rectum(au, 0.99), 0.99, 7.155 * deg,
+                           174.9 * deg, 288.1 * deg, 0.0};
+
+   move_particles_to(ecc_orbit, ecc_earth);
+
+   move_to_com_coord(ecc_sun, ecc_earth);
+
+   {
+     using sys = SimpleSystem<particles, force>;
+
+     using simulation = Simulator<sys, iter>;
+
+     simulation nbody{0.0, ecc_sun, ecc_earth};
+
+     run_two_body_test(nbody, "ecc-BS-simple.err");
+   }
 
   {
-    using sys = RegularizedSystem<particles, force, ReguType::LogH>;
+     using sys = ChainSystem<particles, force>;
 
-    using simulation = Simulator<sys, iter>;
+     using simulation = Simulator<sys, iter>;
 
-    simulation nbody{0.0, sun, earth};
+     simulation nbody{0.0, ecc_sun, ecc_earth};
 
-    run_two_body_test(nbody, "circular-BS-regu.err");
-  }
+     run_two_body_test(nbody, "ecc-BS-chain.err");
+   }
 
-  {
-    using sys = ARchainSystem<particles, force, ReguType::LogH>;
+   {
+     using sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
-    using Simulation = Simulator<sys, iter>;
+     using simulation = Simulator<sys, iter>;
 
-    Simulation nbody{0.0, sun, earth};
+     simulation nbody{0.0, ecc_sun, ecc_earth};
 
-    run_two_body_test(nbody, "circular-BS-archain.err");
-  }
-  particle ecc_sun{m_solar}, ecc_earth{m_earth};
+     run_two_body_test(nbody, "ecc-BS-regu.err");
+   }
 
-  auto ecc_orbit = Kepler{ecc_sun.mass, ecc_earth.mass, semi_latus_rectum(au, 0.99), 0.99, 7.155 * deg,
-                          174.9 * deg, 288.1 * deg, 0.0};
+   {
+     using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-  move_particles_to(ecc_orbit, ecc_earth);
+     using simulation = Simulator<sys, iter>;
 
-  move_to_com_coord(ecc_sun, ecc_earth);
+     simulation nbody{0.0, ecc_sun, ecc_earth};
 
-  {
-    using sys = SimpleSystem<particles, force>;
-
-    using simulation = Simulator<sys, iter>;
-
-    simulation nbody{0.0, ecc_sun, ecc_earth};
-
-    run_two_body_test(nbody, "ecc-BS-simple.err");
-  }
-
- {
-    using sys = ChainSystem<particles, force>;
-
-    using simulation = Simulator<sys, iter>;
-
-    simulation nbody{0.0, ecc_sun, ecc_earth};
-
-    run_two_body_test(nbody, "ecc-BS-chain.err");
-  }
-
-  {
-    using sys = RegularizedSystem<particles, force, ReguType::LogH>;
-
-    using simulation = Simulator<sys, iter>;
-
-    simulation nbody{0.0, ecc_sun, ecc_earth};
-
-    run_two_body_test(nbody, "ecc-BS-regu.err");
-  }
-
-  {
-    using sys = ARchainSystem<particles, force, ReguType::LogH>;
-
-    using simulation = Simulator<sys, iter>;
-
-    simulation nbody{0.0, ecc_sun, ecc_earth};
-
-    run_two_body_test(nbody, "ecc-BS-archain.err");
-  }
-*/
+     run_two_body_test(nbody, "ecc-BS-archain.err");
+   }
+ */
   return 0;
 }
