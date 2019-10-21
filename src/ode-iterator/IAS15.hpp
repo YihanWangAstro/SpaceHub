@@ -25,7 +25,7 @@ namespace space::ode_iterator {
 
     IAS15() {
       PC_err_checker_.set_atol(0);
-      PC_err_checker_.set_rtol(10e-16);
+      PC_err_checker_.set_rtol(1e-16);
       err_checker_.set_atol(0);
       err_checker_.set_rtol(1e-9);
       step_controller_.set_safe_guards(0.95, 0.95, 0.02, 4);
