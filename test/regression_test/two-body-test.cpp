@@ -20,16 +20,16 @@ void run_two_body_test(Simulator &nbody, std::string const &file_name) {
 
   std::ofstream eng_file(file_name);
 
-  eng_file << std::setprecision(17);
+  //eng_file << std::setprecision(17);
 
- // auto E0 = calc::calc_total_energy(nbody.particles());
+  auto E0 = calc::calc_total_energy(nbody.particles());
 
-  //args.step_size = 0.0000126357;//0.001 * unit::year;
+  //args.step_size = 0.001 * unit::year;
 
   args.add_pre_step_operation(
           run_operations::TimeSlice(
                   [&](auto &ptc) {
-                    eng_file << ptc.time() << ',' << calc::calc_total_energy(ptc) << '\n';
+                    eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
                   },
                   0, end_time));
 

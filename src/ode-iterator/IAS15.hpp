@@ -39,15 +39,17 @@ namespace space::ode_iterator {
     auto impl_iterate(U &particles, typename U::Scalar macro_step_size) -> typename U::Scalar {
       Scalar iter_h = macro_step_size;
       integrator_.check_particle_size(particles.number());
-      iter_table_ = integrator_.b_tab();
+      last_b_table_ = integrator_.b_tab();
       for (size_t k = 0; k < max_iter_; ++k) {
         integrator_.calc_B_table(particles, iter_h);
         //Scalar error = err_checker_.error(integrator_.init_acc(), integrator_.b_tab()[6]);
-        //space::std_print("stp error ",k, ' ', iter_h, ' ',error,"\n");
-        if (in_converged_window()) {
+        //space::std_print(k, ',', iter_h, '\n');
+        if (in_converged_window(k)) {
           Scalar error = err_checker_.error(integrator_.init_acc(), integrator_.b_tab()[6]);
-          Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
-          if (error < static_cast<Scalar>(1)) {
+          Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h,
+                                                              std::make_tuple(error, last_error_));
+          //space::std_print("stp error ", k, ' ', iter_h, ' ', error, ',', new_iter_h, '\n');
+          if (error < 1) {
             integrator_.integrate_to(particles, iter_h, Integrator::final_point);
             integrator_.predict_new_B(new_iter_h / iter_h);
             last_error_ = error;
@@ -56,9 +58,12 @@ namespace space::ode_iterator {
             integrator_.predict_new_B(new_iter_h / iter_h);
             iter_h = new_iter_h;
             k = 0;
+            reset_PC_iteration();
+            last_b_table_ = integrator_.b_tab();
+            continue;
           }
         }
-        iter_table_ = integrator_.b_tab();
+        last_b_table_ = integrator_.b_tab();
       }
       spacehub_abort("Exceed the max iteration number");
     }
@@ -68,8 +73,8 @@ namespace space::ode_iterator {
       last_PC_error_ = math::max_value<Scalar>::value;
     }
 
-    bool in_converged_window() {
-      Scalar PC_error = PC_err_checker_.error(integrator_.init_acc(), iter_table_[6], integrator_.b_tab()[6]);
+    bool in_converged_window(size_t k) {
+      Scalar PC_error = PC_err_checker_.error(integrator_.init_acc(), last_b_table_[6], integrator_.b_tab()[6]);
       if (PC_error < static_cast<Scalar>(1) || PC_error >= last_PC_error_) {
         reset_PC_iteration();
         return true;
@@ -80,7 +85,7 @@ namespace space::ode_iterator {
     }
 
     Integrator integrator_;
-    typename Integrator::IterTable iter_table_;
+    typename Integrator::IterTable last_b_table_;
     StepControl<7, Scalar> step_controller_;
     ErrChecker<Scalar> err_checker_;
     ErrChecker<Scalar> PC_err_checker_;
