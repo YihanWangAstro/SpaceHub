@@ -35,13 +35,13 @@ License
 namespace space::math {
 /** @brief Self min()*/
   template<typename T1, typename T2>
-  inline T2 min(const T1 &x, const T2 &y) {
+  inline T2 min(T1 const&x, T2 const &y) {
     return x > y ? y : x;
   }
 
 /** @brief Self max()*/
   template<typename T1, typename T2>
-  inline T2 max(const T1 &x, const T2 &y) {
+  inline T2 max(T1 const &x, T2 const &y) {
     return y > x ? y : x;
   }
 

@@ -228,7 +228,7 @@ namespace space::particle_system {
   template<typename Derived>
   template<typename Coord>
   void ParticleSystem<Derived>::evaluate_acc(Coord &acceleration) const {
-    static_cast<Derived const *>(this)->impl_evaluate_acc(acceleration);
+    static_cast<Derived  const*>(this)->impl_evaluate_acc(acceleration);
   }
 
   template<typename Derived>

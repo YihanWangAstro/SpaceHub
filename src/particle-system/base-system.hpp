@@ -118,14 +118,14 @@ namespace space::particle_system {
      * @param velocity
      * @param step_size
      */
-    void impl_advance_pos(Coord const &velocity, Scalar step_size);
+    void impl_advance_pos(Scalar step_size, Coord const &velocity);
 
     /**
      *
      * @param acceleration
      * @param step_size
      */
-    void impl_advance_vel(Coord const &acceleration, Scalar step_size);
+    void impl_advance_vel(Scalar step_size, Coord const &acceleration);
 
     /**
      *
@@ -265,12 +265,12 @@ namespace space::particle_system {
   }
 
   template<typename Particles, typename Interactions>
-  void SimpleSystem<Particles, Interactions>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
+  void SimpleSystem<Particles, Interactions>::impl_advance_vel(Scalar step_size, const Coord &acceleration) {
     calc::coord_advance(ptcl_.vel(), acceleration, step_size);
   }
 
   template<typename Particles, typename Interactions>
-  void SimpleSystem<Particles, Interactions>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
+  void SimpleSystem<Particles, Interactions>::impl_advance_pos(Scalar step_size, const Coord &velocity) {
     calc::coord_advance(ptcl_.pos(), velocity, step_size);
   }
 

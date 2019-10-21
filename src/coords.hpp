@@ -42,6 +42,8 @@ struct Coords {
   // type members
   using Scalar = typename T::value_type;
 
+  using value_type = typename T::value_type;
+
   using Vector = Vec3<Scalar>;
 
   // constructors
@@ -94,6 +96,11 @@ struct Coords {
 
   /**
    *
+   */
+  void set_zero();
+
+  /**
+   *
    * @return
    */
   [[nodiscard]] size_t size() const;
@@ -125,6 +132,11 @@ template <typename T>
 void Coords<T>::resize(size_t new_sz) {
   resize_all(new_sz, x, y, z);
 }
+
+  template <typename T>
+  void Coords<T>::set_zero() {
+    calc::set_arrays_zero(x, y, z);
+  }
 
 template <typename T>
 template <typename GenVector>

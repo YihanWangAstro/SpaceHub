@@ -18,13 +18,12 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file worst-offender.hpp
+ * @file IAS15-error.hpp
  *
  * Header file.
  */
-#ifndef SPACEHUB_WORST_OFFENDER_HPP
-#define SPACEHUB_WORST_OFFENDER_HPP
-
+#ifndef SPACEHUB_IAS15_ERROR_HPP
+#define SPACEHUB_IAS15_ERROR_HPP
 #include "error-checker.hpp"
 
 namespace space::ode_iterator {
@@ -34,19 +33,19 @@ namespace space::ode_iterator {
    * @tparam T
    */
   template<typename T>
-  class WorstOffender : public ErrorChecker<WorstOffender<T>> {
+  class IAS15Error : public ErrorChecker<IAS15Error<T>> {
   public:
     //Type member
-    using Base = ErrorChecker<WorstOffender<T>>;
+    using Base = ErrorChecker<IAS15Error<T>>;
 
     using Scalar = T;
 
     using value_type = T;
 
     // Constructors
-    SPACEHUB_MAKE_CONSTRUCTORS(WorstOffender, default, default, default, default, default);
+    SPACEHUB_MAKE_CONSTRUCTORS(IAS15Error, default, default, default, default, default);
 
-    WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
+    IAS15Error(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 
     CRTP_IMPL :
     // CRTP implementation
@@ -82,60 +81,70 @@ namespace space::ode_iterator {
 
   };
 
-
   template<typename T>
-  void WorstOffender<T>::impl_set_atol(Scalar error) {
+  void IAS15Error<T>::impl_set_atol(Scalar error) {
     atol_ = error;
   }
 
-
   template<typename T>
-  void WorstOffender<T>::impl_set_rtol(Scalar error) {
+  void IAS15Error<T>::impl_set_rtol(Scalar error) {
     rtol_ = error;
   }
 
   template<typename T>
   template<typename Array>
-  auto WorstOffender<T>::impl_error(const Array &scale, const Array &diff) -> typename Array::value_type {
+  auto IAS15Error<T>::impl_error(const Array &scale, const Array &diff) -> typename Array::value_type {
     if constexpr (HAS_MEMBER(Array, x) && HAS_MEMBER(Array, y) && HAS_MEMBER(Array, z)){
-      return std::max(std::max(one_dimension_error(scale.x, diff.x), one_dimension_error(scale.y, diff.y)), one_dimension_error(scale.z, diff.z));
+      auto [max_diff_x, max_scale_x] = one_dimension_error(scale.x, diff.x);
+      auto [max_diff_y, max_scale_y] = one_dimension_error(scale.y, diff.y);
+      auto [max_diff_z, max_scale_z] = one_dimension_error(scale.z, diff.z);
+      return std::max(std::max(max_diff_x, max_diff_y), max_diff_z) / std::max(std::max(max_scale_x, max_scale_y), max_scale_z);
     } else {
-      return one_dimension_error(scale, diff);
+      auto [max_diff, max_scale] = one_dimension_error(scale, diff);
+      return max_diff / max_scale;
     }
   }
 
   template<typename T>
   template<typename Array>
   auto
-  WorstOffender<T>::impl_error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
+  IAS15Error<T>::impl_error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
     if constexpr (HAS_MEMBER(Array, x) && HAS_MEMBER(Array, y) && HAS_MEMBER(Array, z)){
-      return std::max(std::max(one_dimension_error(scale.x, y0.x, y1.x), one_dimension_error(scale.y, y0.y, y1.y)), one_dimension_error(scale.z, y0.z, y1.z));
+      auto [max_diff_x, max_scale_x] = one_dimension_error(scale.x, y0.x, y1.x);
+      auto [max_diff_y, max_scale_y] = one_dimension_error(scale.y, y0.y, y1.y);
+      auto [max_diff_z, max_scale_z] = one_dimension_error(scale.z, y0.z, y1.z);
+      return std::max(std::max(max_diff_x, max_diff_y), max_diff_z) / std::max(std::max(max_scale_x, max_scale_y), max_scale_z);
     } else {
-      return one_dimension_error(scale, y0, y1);
+      auto [max_diff, max_scale] = one_dimension_error(scale, y0, y1);
+      return max_diff / max_scale;
     }
   }
 
   template<typename T>
   template<typename Array>
-  auto WorstOffender<T>::one_dimension_error(const Array &scale, const Array &diff) {
+  auto IAS15Error<T>::one_dimension_error(const Array &scale, const Array &diff) {
     size_t const size = scale.size();
-    Scalar max_err = 0;
+    Scalar max_diff  = 0;
+    Scalar max_scale =0;
     for (size_t i = 0; i < size; ++i) {
-      max_err = std::max(max_err, fabs(diff[i]) / (atol_ + fabs(scale[i]) * rtol_));
+      max_diff = std::max(max_diff, static_cast<Scalar>(fabs(diff[i])));
+      max_scale= std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
     }
-    return max_err;
+    return std::make_tuple(max_diff, max_scale);
   }
 
   template<typename T>
   template<typename Array>
   auto
-  WorstOffender<T>::one_dimension_error(const Array &scale, const Array &y0, const Array &y1) {
+  IAS15Error<T>::one_dimension_error(const Array &scale, const Array &y0, const Array &y1) {
     size_t const size = scale.size();
-    Scalar max_err = 0;
+    Scalar max_diff  = 0;
+    Scalar max_scale = 0;
     for (size_t i = 0; i < size; ++i) {
-      max_err = std::max(max_err, fabs(y0[i] - y1[i]) / (atol_ + fabs(scale[i]) * rtol_));
+      max_diff = std::max(max_diff, static_cast<Scalar>(fabs(y0[i] - y1[i])));
+      max_scale= std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
     }
-    return max_err;
+    return std::make_tuple(max_diff, max_scale);
   }
 }
-#endif //SPACEHUB_WORST_OFFENDER_HPP
+#endif //SPACEHUB_IAS15_ERROR_HPP

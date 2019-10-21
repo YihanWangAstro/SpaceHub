@@ -85,7 +85,7 @@ namespace space::interactions {
      * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
-    void eval_acc(Particles const &particles, typename Particles::Coord &acceleration);
+    void eval_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
 
     /**
      * @opt_impl{external velocity dependent forces exist.}
@@ -98,7 +98,7 @@ namespace space::interactions {
      * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
-    void eval_extra_vel_dep_acc(Particles const &particles, typename Particles::Coord &acceleration);
+    void eval_extra_vel_dep_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
 
     /**
      * @opt_impl{external velocity independent forces exist.}
@@ -111,7 +111,7 @@ namespace space::interactions {
      * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
-    void eval_extra_vel_indep_acc(Particles const &particles, typename Particles::Coord &acceleration);
+    void eval_extra_vel_indep_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
 
     /**
      * @must_impl
@@ -124,7 +124,7 @@ namespace space::interactions {
      * @param[out] acceleration The output of the evaluated acceleration.
      */
     template<typename Particles>
-    void eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration);
+    void eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
 
   private:
     // constructors
@@ -143,28 +143,28 @@ namespace space::interactions {
 
   template<typename Derived>
   template<typename Particles>
-  void Interactions<Derived>::eval_acc(const Particles &particles, typename Particles::Coord &acceleration) {
-    static_cast<Derived *>(this)->impl_eval_acc(particles, acceleration);
+  void Interactions<Derived>::eval_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
+    static_cast<Derived const*>(this)->impl_eval_acc(particles, acceleration);
   }
 
   template<typename Derived>
   template<typename Particles>
   void
-  Interactions<Derived>::eval_extra_vel_dep_acc(const Particles &particles, typename Particles::Coord &acceleration) {
-    static_cast<Derived *>(this)->impl_eval_extra_vel_dep_acc(particles, acceleration);
+  Interactions<Derived>::eval_extra_vel_dep_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
+    static_cast<Derived const *>(this)->impl_eval_extra_vel_dep_acc(particles, acceleration);
   }
 
   template<typename Derived>
   template<typename Particles>
   void
-  Interactions<Derived>::eval_extra_vel_indep_acc(const Particles &particles, typename Particles::Coord &acceleration) {
-    static_cast<Derived *>(this)->impl_eval_extra_vel_indep_acc(particles, acceleration);
+  Interactions<Derived>::eval_extra_vel_indep_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
+    static_cast<Derived const *>(this)->impl_eval_extra_vel_indep_acc(particles, acceleration);
   }
 
   template<typename Derived>
   template<typename Particles>
-  void Interactions<Derived>::eval_newtonian_acc(const Particles &particles, typename Particles::Coord &acceleration) {
-    static_cast<Derived *>(this)->impl_eval_newtonian_acc(particles, acceleration);
+  void Interactions<Derived>::eval_newtonian_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
+    static_cast<Derived const*>(this)->impl_eval_newtonian_acc(particles, acceleration);
   }
 
 /*---------------------------------------------------------------------------*\

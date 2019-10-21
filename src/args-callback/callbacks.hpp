@@ -53,8 +53,9 @@ namespace space::run_operations {
 
     template<typename ParticleSys>
     inline void operator()(ParticleSys &ptc) {
+      using Scalar = typename ParticleSys::Scalar;
       auto t = ptc.time();
-      if (t >= opt_time_ && opt_time_ <= end_time_) {
+      if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
         opt_(ptc);
         opt_time_ += opt_interval_;
       }

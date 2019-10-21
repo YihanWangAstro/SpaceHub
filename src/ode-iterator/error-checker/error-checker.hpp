@@ -82,16 +82,16 @@ namespace space::ode_iterator {
      *
      * Estimate the error between two results. For example,
      * @f[\mathrm
-     *   error = {|y_0 -y_1|/|y_0|}
+     *   error = {|diff|/|scale|}
      * @f]
      *
      * @tparam Array Iterable array like type.
-     * @param[in] y0 The first result.
-     * @param[in] y1 The second result.
+     * @param[in] scale The provided scale for the results.
+     * @param[in] diff The difference between two results.
      * @return The estimated error.
      */
     template<typename Array>
-    auto error(Array const &y0, Array const &y1) -> typename Array::value_type;
+    auto error(Array const &scale, Array const &diff) -> typename Array::value_type;
 
     /**
      * @must_impl
@@ -141,8 +141,8 @@ namespace space::ode_iterator {
 
   template<typename Derived>
   template<typename Array>
-  auto ErrorChecker<Derived>::error(Array const &y0, Array const &y1) -> typename Array::value_type {
-    return static_cast<Derived *>(this)->impl_error(y0, y1);
+  auto ErrorChecker<Derived>::error(Array const &scale, Array const &diff) -> typename Array::value_type {
+    return static_cast<Derived *>(this)->impl_error(scale, diff);
   }
 
   template<typename Derived>

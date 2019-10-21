@@ -77,12 +77,11 @@ namespace space::calc {
   }
 
   template<typename Array, typename... Args>
-  void array_add(Array &dst, Array const &a, Array const &b, Args const &... args) {
-    DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
+  void array_add(Array &dst, Array const &a, Args const &... args) {
     size_t const size = dst.size();
 
     for (size_t i = 0; i < size; i++) {
-      dst[i] = a[i] + b[i] + (args[i] + ...);
+      dst[i] = a[i]  + (args[i] + ...);
     }
   }
 
@@ -190,9 +189,9 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
 
   template<typename Coord, typename Scalar>
   inline void coord_scale(Coord &dst, Coord const &a, Scalar scale) {
-    array_add(dst.x, a.x, scale);
-    array_add(dst.y, a.y, scale);
-    array_add(dst.z, a.z, scale);
+    array_scale(dst.x, a.x, scale);
+    array_scale(dst.y, a.y, scale);
+    array_scale(dst.z, a.z, scale);
   }
 
   template<typename Scalar, typename Coord>

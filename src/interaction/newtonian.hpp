@@ -25,10 +25,10 @@ namespace space::interactions {
 
     //CRTP implementation
     template<typename Particles>
-    void impl_eval_acc(Particles const &particles, typename Particles::Coord &acceleration);
+    void impl_eval_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
 
     template<typename Particles>
-    void impl_eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration);
+    void impl_eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
 
   private:
     CREATE_METHOD_CHECK(chain_pos);
@@ -40,12 +40,12 @@ namespace space::interactions {
       Class NewtonianGrav Implememtation
   \*---------------------------------------------------------------------------*/
   template<typename Particles>
-  void NewtonianGrav::impl_eval_acc(const Particles &particles, typename Particles::Coord &acceleration) {
+  void NewtonianGrav::impl_eval_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
     impl_eval_newtonian_acc(particles, acceleration);
   }
 
   template<typename Particles>
-  void NewtonianGrav::impl_eval_newtonian_acc(const Particles &particles, typename Particles::Coord &acceleration) {
+  void NewtonianGrav::impl_eval_newtonian_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
     size_t num = particles.number();
     auto &px = particles.pos().x;
     auto &py = particles.pos().y;

@@ -22,6 +22,8 @@ void run_two_body_test(Simulator &nbody, std::string const &file_name) {
 
   auto E0 = calc::calc_total_energy(nbody.particles());
 
+  //args.step_size = 0.0000126357;//0.001 * unit::year;
+
   args.add_pre_step_operation(
           run_operations::TimeSlice(
                   [&](auto &ptc) {
@@ -53,8 +55,10 @@ int main(int argc, char **argv) {
 
   move_to_com_coord(sun, earth);
 
-  using iter = BurlishStoer<double, WorstOffender, PIDController>;
+  //using iter = BurlishStoer<double, WorstOffender, PIDController>;
   //using iter = ConstOdeIterator<symplectic2nd>;
+  //using iter = ConstOdeIterator<GaussDadau<particles::Coord>>;
+  using iter = IAS15<typename particles::Coord, IAS15Error, PIDController>;
   {
     using sys = SimpleSystem<particles, force>;
 
@@ -64,7 +68,7 @@ int main(int argc, char **argv) {
 
     run_two_body_test(nbody, "circular-BS-simple.err");
   }
-
+/*
   {
     using sys = ChainSystem<particles, force>;
 
@@ -113,7 +117,7 @@ int main(int argc, char **argv) {
     run_two_body_test(nbody, "ecc-BS-simple.err");
   }
 
-  {
+ {
     using sys = ChainSystem<particles, force>;
 
     using simulation = Simulator<sys, iter>;
@@ -142,6 +146,6 @@ int main(int argc, char **argv) {
 
     run_two_body_test(nbody, "ecc-BS-archain.err");
   }
-
+*/
   return 0;
 }

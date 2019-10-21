@@ -275,17 +275,17 @@ inline TYPE const & NAME () const noexcept {                                    
 
 
 #define CREATE_PROTECTED_METHOD_CHECK(NAME)                                                                            \
-    template<typename T, typename... Args>                                                                             \
-    struct has_protected_method_##NAME : public T                                                                      \
+    template<typename __T, typename... __Args>                                                                         \
+    struct has_protected_method_##NAME : public __T                                                                    \
     {                                                                                                                  \
         template<typename U>                                                                                           \
         constexpr static auto check(const void*)                                                                       \
-        ->decltype(std::declval<has_protected_method_##NAME<U, Args...> >().NAME(std::declval<Args>()...), std::true_type());\
+        ->decltype(std::declval<has_protected_method_##NAME<U, __Args...> >().NAME(std::declval<__Args>()...), std::true_type());\
                                                                                                                        \
         template<typename U>                                                                                           \
         constexpr static std::false_type check(...);                                                                   \
                                                                                                                        \
-        static constexpr bool value = decltype(check<T>(nullptr))::value;                                              \
+        static constexpr bool value = decltype(check<__T>(nullptr))::value;                                            \
     };
 
 #define HAS_PROTECTED_METHOD(CLASS, METHOD, ...) has_protected_method_##METHOD<CLASS, ##__VA_ARGS__>::value
@@ -296,16 +296,16 @@ inline TYPE const & NAME () const noexcept {                                    
 
 /** @brief Macros used to check if a class has a member.*/
 #define CREATE_MEMBER_CHECK(MEMBER)                                                                                    \
-    template<typename T, typename V = bool>                                                                            \
+    template<typename __T, typename __V = bool>                                                                        \
     struct has_ ## MEMBER : std::false_type { };                                                                       \
                                                                                                                        \
-    template<typename T>                                                                                               \
+    template<typename __T>                                                                                             \
     struct has_ ## MEMBER                                                                                              \
     <                                                                                                                  \
-        T,                                                                                                             \
+        __T,                                                                                                           \
         typename std::enable_if                                                                                        \
         <                                                                                                              \
-            !std::is_same<decltype(std::declval<T>().MEMBER), void>::value, bool                                       \
+            !std::is_same<decltype(std::declval<__T>().MEMBER), void>::value, bool                                     \
         >::type                                                                                                        \
     >: std::true_type { };
 

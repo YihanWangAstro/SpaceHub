@@ -85,9 +85,9 @@ namespace space::particle_system {
 
     void impl_advance_time(Scalar step_size);
 
-    void impl_advance_pos(Coord const &velocity, Scalar step_size);
+    void impl_advance_pos(Scalar step_size, Coord const &velocity);
 
-    void impl_advance_vel(Coord const &acceleration, Scalar step_size);
+    void impl_advance_vel(Scalar step_size, Coord const &acceleration);
 
     void impl_evaluate_acc(Coord &acceleration) const;
 
@@ -186,14 +186,14 @@ namespace space::particle_system {
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
-  void ARchainSystem<Particles, Interactions, RegType>::impl_advance_pos(const Coord &velocity, Scalar step_size) {
+  void ARchainSystem<Particles, Interactions, RegType>::impl_advance_pos(Scalar step_size, const Coord &velocity) {
     Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
     Chain::calc_chain(velocity, chain_vel(), index());
     chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), phy_time);
   }
 
   template<typename Particles, typename Interactions, ReguType RegType>
-  void ARchainSystem<Particles, Interactions, RegType>::impl_advance_vel(const Coord &acceleration, Scalar step_size) {
+  void ARchainSystem<Particles, Interactions, RegType>::impl_advance_vel(Scalar step_size, const Coord &acceleration) {
     Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
     Chain::calc_chain(acceleration, chain_acc_, index());
     chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, phy_time);

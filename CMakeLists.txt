@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O2")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
 
 
@@ -16,7 +16,7 @@ set(TMP_HEADER_FILES
         src/args-callback/callbacks.hpp
 
         src/integrator/symplectic/symplectic-integrator.hpp
-        src/integrator/Gauss-Dadau.h
+        src/integrator/Gauss-Dadau.hpp
 
         src/interaction/post-newtonian.hpp
         src/interaction/newtonian.hpp
@@ -35,7 +35,7 @@ set(TMP_HEADER_FILES
         src/ode-iterator/ode-iterator.hpp
         src/ode-iterator/Burlish-Stoer.hpp
         src/ode-iterator/const-iterator.hpp
-        src/ode-iterator/IAS15.h
+        src/ode-iterator/IAS15.hpp
 
         src/orbits/orbits.hpp
 
@@ -75,7 +75,7 @@ set(TMP_HEADER_FILES
         src/ode-iterator/error-checker/worst-offender.hpp
         src/ode-iterator/error-checker/RMS.hpp
         src/ode-iterator/step-controller/stepsize-controller.hpp
-        src/ode-iterator/step-controller/PID-controller.hpp src/scattering/cross-section.hpp src/integrator/integrator.hpp)
+        src/ode-iterator/step-controller/PID-controller.hpp src/scattering/cross-section.hpp src/integrator/integrator.hpp src/ode-iterator/error-checker/IAS15-error.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp

@@ -60,14 +60,17 @@ License
 #include "particle-system/regu-system.hpp"
 
 #include "integrator/symplectic/symplectic-integrator.hpp"
+#include "integrator/Gauss-Dadau.hpp"
 
 #include "ode-iterator/error-checker/RMS.hpp"
 #include "ode-iterator/error-checker/worst-offender.hpp"
+#include "ode-iterator/error-checker/IAS15-error.hpp"
 
 #include "ode-iterator/step-controller/PID-controller.hpp"
 
 #include "ode-iterator/Burlish-Stoer.hpp"
 #include "ode-iterator/const-iterator.hpp"
+#include "ode-iterator/IAS15.hpp"
 
 #include "args-callback/callbacks.hpp"
 
