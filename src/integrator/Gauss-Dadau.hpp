@@ -38,7 +38,7 @@ namespace space::integrator {
       for (size_t stage = 0; stage < 7; ++stage) {
         calc::coord_scale(B[stage], G[6], G2B_tab(6, stage));
         for (size_t j = 6; j > stage; --j) {
-          calc::coord_advance(B[stage], G[j-1], G2B_tab(j-1, stage));
+          calc::coord_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
         }
       }
     }
@@ -75,8 +75,10 @@ namespace space::integrator {
             1.01408028300636298e-02, -2.36503252273814524e-01, 1,
             -3.57589772925161718e-03, 9.35376952594620670e-02, -5.89127969386984196e-01, 1,
             1.95656540994722109e-03, -5.47553868890686898e-02, 4.15881200082306890e-01, -1.13628159571753962e+00, 1,
-            -1.43653023637089149e-03, 4.21585277212687057e-02, -3.60099596502056807e-01, 1.25015071184069093e+00, -1.87049177293294999e+00, 1,
-            1.27179030902686775e-03, -3.87603579159067693e-02, 3.60962243452845999e-01, -1.46688420840042699e+00, 2.90613625930842900e+00, -2.75581271977204567e+00, 1
+            -1.43653023637089149e-03, 4.21585277212687057e-02, -3.60099596502056807e-01, 1.25015071184069093e+00,
+            -1.87049177293294999e+00, 1,
+            1.27179030902686775e-03, -3.87603579159067693e-02, 3.60962243452845999e-01, -1.46688420840042699e+00,
+            2.90613625930842900e+00, -2.75581271977204567e+00, 1
     };
     static constexpr double vel_coef_[8][8] = {
             {5.626256053692214880E-2, 1.582737859085414760E-3, 5.936592307391447020E-5, 2.505059130582282220E-6, 1.127528327863641760E-7, 5.286469233626895740E-9, 2.549402531001511370E-10, 1.255064249542731940E-11},
@@ -126,12 +128,14 @@ namespace space::integrator {
     void integrate_to(ParticleSys &particles, Scalar step_size, size_t stage);
 
     void check_particle_size(size_t particle_num);
+
   private:
     void calc_G_table(Coord const &acc0, Coord const &acc, size_t stage);
 
     void calc_vel_increment(Coord &dvel, Coord const &acc0, size_t stage);
 
     void calc_pos_increment(Coord &dpos, Coord const &vel0, Coord const &acc0, Scalar step_size, size_t stage);
+
   private:
     IterTable b_tab_;
     IterTable old_b_tab_;

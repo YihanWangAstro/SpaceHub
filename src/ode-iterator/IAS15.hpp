@@ -1,7 +1,11 @@
 
 #ifndef IAS15ITERATOR_H
 #define IAS15ITERATOR_H
-
+/**
+ * @file IAS15.hpp
+ *
+ * Header file.
+ */
 #include "../dev-tools.hpp"
 #include "../math.hpp"
 #include "ode-iterator.hpp"

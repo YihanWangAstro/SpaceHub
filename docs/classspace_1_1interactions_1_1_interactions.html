@@ -96,26 +96,26 @@
             <dd></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename Particles&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#a50e89318bff5916460aaa44fc602dcb3" class="m-doc">eval_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#aa4b601c1404eee5d1e1ffab2de2e3207" class="m-doc">eval_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span>
             </dt>
             <dd></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename Particles&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#acabdf2658353fa826c375c1735e064cf" class="m-doc">eval_extra_vel_dep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#af55de022d938426eb812ea976cc22aad" class="m-doc">eval_extra_vel_dep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span>
             </dt>
             <dd></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename Particles&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#a5bbc521c8391a2243b61c23a774bcbc6" class="m-doc">eval_extra_vel_indep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a8a47b1e654e530e6e79699292d0cf8ca" class="m-doc">eval_extra_vel_indep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span>
             </dt>
             <dd></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename Particles&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="#a75ebb1df656e5a7df68ee35f3f80504d" class="m-doc">eval_newtonian_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a3e0f71de3ab38bd0d816cc1646cb36e4" class="m-doc">eval_newtonian_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span>
             </dt>
             <dd></dd>
           </dl>
@@ -139,14 +139,14 @@
             </table>
 <p><strong class="m-label m-flat m-success">auto impl</strong></p><p>The downcast interface of Base class to Derived class.</p>
           </div></section>
-          <section class="m-doc-details" id="a50e89318bff5916460aaa44fc602dcb3"><div>
+          <section class="m-doc-details" id="aa4b601c1404eee5d1e1ffab2de2e3207"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename Derived&gt;
                 template&lt;typename Particles&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a50e89318bff5916460aaa44fc602dcb3" class="m-doc-self">eval_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa4b601c1404eee5d1e1ffab2de2e3207" class="m-doc-self">eval_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -174,14 +174,14 @@
             </table>
 <p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Evaluate the total acceleration of the current state of a given particle system.</p>
           </div></section>
-          <section class="m-doc-details" id="acabdf2658353fa826c375c1735e064cf"><div>
+          <section class="m-doc-details" id="af55de022d938426eb812ea976cc22aad"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename Derived&gt;
                 template&lt;typename Particles&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acabdf2658353fa826c375c1735e064cf" class="m-doc-self">eval_extra_vel_dep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af55de022d938426eb812ea976cc22aad" class="m-doc-self">eval_extra_vel_dep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -209,14 +209,14 @@
             </table>
 <p><strong class="m-label m-flat m-info">optional impl</strong> <code>&gt; external velocity dependent forces exist.</code></p><p>Evaluate the external velocity dependent acceleration of the current state of a given particle system.</p>
           </div></section>
-          <section class="m-doc-details" id="a5bbc521c8391a2243b61c23a774bcbc6"><div>
+          <section class="m-doc-details" id="a8a47b1e654e530e6e79699292d0cf8ca"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename Derived&gt;
                 template&lt;typename Particles&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5bbc521c8391a2243b61c23a774bcbc6" class="m-doc-self">eval_extra_vel_indep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8a47b1e654e530e6e79699292d0cf8ca" class="m-doc-self">eval_extra_vel_indep_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -244,14 +244,14 @@
             </table>
 <p><strong class="m-label m-flat m-info">optional impl</strong> <code>&gt; external velocity independent forces exist.</code></p><p>Evaluate the external velocity independent acceleration of the current state of a given particle system.</p>
           </div></section>
-          <section class="m-doc-details" id="a75ebb1df656e5a7df68ee35f3f80504d"><div>
+          <section class="m-doc-details" id="a3e0f71de3ab38bd0d816cc1646cb36e4"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename Derived&gt;
                 template&lt;typename Particles&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a75ebb1df656e5a7df68ee35f3f80504d" class="m-doc-self">eval_newtonian_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
-              typename Particles::Coord&amp; acceleration)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />interactions::<wbr />Interactions&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3e0f71de3ab38bd0d816cc1646cb36e4" class="m-doc-self">eval_newtonian_acc</a>(</span><span class="m-doc-wrap">Particles const&amp; particles,
+              typename Particles::Coord&amp; acceleration) const</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
