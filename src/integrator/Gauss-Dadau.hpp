@@ -7,9 +7,7 @@
 #include "integrator.hpp"
 #include <array>
 #include <vector>
-/** Gauss radau stepping. see details in
-   https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
-   */
+
 namespace space::integrator {
   /**
    * Constant parameters used in Gauss Radau integration
@@ -38,24 +36,10 @@ namespace space::integrator {
     [[nodiscard]] inline static constexpr double pos_B_tab(size_t stage, size_t i) { return pos_coef_[stage][i]; }
 
     template<typename Tab>
-    static void transfer_G_to_B(Tab const &G, Tab &B) {
-      for (size_t stage = 0; stage < 7; ++stage) {
-        calc::coord_scale(B[stage], G[6], G2B_tab(6, stage));
-        for (size_t j = 6; j > stage; --j) {
-          calc::coord_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
-        }
-      }
-    }
+    static void transfer_G_to_B(Tab const &G, Tab &B);
 
     template<typename Tab>
-    static void transfer_B_to_G(Tab const &B, Tab &G) {
-      for (size_t stage = 0; stage < 7; ++stage) {
-        calc::coord_scale(G[stage], B[6], B2G_tab(6, stage));
-        for (size_t j = 6; j > stage; --j) {
-          calc::coord_advance(G[stage], B[j - 1], B2G_tab(j - 1, stage));
-        }
-      }
-    }
+    static void transfer_B_to_G(Tab const &B, Tab &G);
 
   private:
     static constexpr double sub_steps_[8] = {
@@ -140,6 +124,32 @@ namespace space::integrator {
     };
   };
 
+  template<typename Tab>
+  void RadauConsts::transfer_G_to_B(const Tab &G, Tab &B) {
+    for (size_t stage = 0; stage < 7; ++stage) {
+      calc::coord_scale(B[stage], G[6], G2B_tab(6, stage));
+      for (size_t j = 6; j > stage; --j) {
+        calc::coord_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
+      }
+    }
+  }
+
+  template<typename Tab>
+  void RadauConsts::transfer_B_to_G(const Tab &B, Tab &G) {
+    for (size_t stage = 0; stage < 7; ++stage) {
+      calc::coord_scale(G[stage], B[6], B2G_tab(6, stage));
+      for (size_t j = 6; j > stage; --j) {
+        calc::coord_advance(G[stage], B[j - 1], B2G_tab(j - 1, stage));
+      }
+    }
+  }
+
+  /**
+   * Gauss Radau stepping method. See details in
+   * https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
+   *
+   * @tparam Coord
+   */
   template<typename Coord>
   class GaussDadau : public Integrator<GaussDadau<Coord>> {
   public:
@@ -156,9 +166,13 @@ namespace space::integrator {
 
     SPACEHUB_READ_ACCESSOR(auto, last_acc, acceleration_);
 
-    template<typename ParticleSys>
-    void impl_integrate(ParticleSys &particles, Scalar step_size);
-
+    /**
+     * Calculate the b table
+     *
+     * @tparam ParticleSys
+     * @param particles
+     * @param step_size
+     */
     template<typename ParticleSys>
     void calc_B_table(ParticleSys &particles, Scalar step_size);
 
@@ -168,6 +182,11 @@ namespace space::integrator {
     void integrate_to(ParticleSys &particles, Scalar step_size, size_t stage);
 
     void check_particle_size(size_t particle_num);
+
+    CRTP_IMPL:
+
+    template<typename ParticleSys>
+    void impl_integrate(ParticleSys &particles, Scalar step_size);
 
   private:
     void calc_G_table(Coord const &acc0, Coord const &acc, size_t stage);

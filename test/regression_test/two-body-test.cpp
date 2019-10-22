@@ -35,7 +35,7 @@ void run_two_body_test(Simulator &nbody, std::string const &file_name) {
 
   args.add_stop_condition(end_time);
 
-  args.rtol = 1e-12;
+  args.rtol = 1e-16;
   args.atol = 1e-12;
 
   nbody.run(args);
@@ -61,17 +61,17 @@ int main(int argc, char **argv) {
   //using iter = ConstOdeIterator<symplectic2nd>;
   //using iter = ConstOdeIterator<GaussDadau<particles::Coord>>;
   using iter = IAS15<typename particles::Coord, IAS15Error, PIDController>;
-  /* {
-     using sys = SimpleSystem<particles, force>;
-
-     using simulation = Simulator<sys, iter>;
-
-     simulation nbody{0.0, sun, earth};
-
-     run_two_body_test(nbody, "circular-BS-simple.err");
-   }
-*/
   {
+    using sys = SimpleSystem<particles, force>;
+
+    using simulation = Simulator<sys, iter>;
+
+    simulation nbody{0.0, sun, earth};
+
+    run_two_body_test(nbody, "circular-BS-simple.err");
+  }
+
+  /*{
     using sys = ChainSystem<particles, force>;
 
     using simulation = Simulator<sys, iter>;
@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
 
     run_two_body_test(nbody, "circular-BS-chain.err");
   }
-  /*
+
    {
      using sys = RegularizedSystem<particles, force, ReguType::LogH>;
 

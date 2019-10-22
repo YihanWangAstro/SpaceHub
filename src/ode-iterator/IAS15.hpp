@@ -32,7 +32,7 @@ namespace space::ode_iterator {
       PC_err_checker_.set_rtol(1e-16);
       err_checker_.set_atol(0);
       err_checker_.set_rtol(1e-9);
-      step_controller_.set_safe_guards(0.95, 0.95, 0.02, 4);
+      step_controller_.set_safe_guards(0.95, 0.65, 0.02, 4);
     }
 
     template<typename U>

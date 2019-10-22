@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>space::IAS15 class | SpaceHub</title>
+  <title>space::run_operations::DefaultWriter class | SpaceHub</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -46,109 +46,79 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-template">template&lt;typename ParticSys, typename Integrator&gt;</div>
-          space::IAS15 <span class="m-thin">class</span>
+          <span class="m-breadcrumb"><a href="namespacespace.html">space</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacespace_1_1run__operations.html">run_operations</a>::<wbr/></span>DefaultWriter <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="callbacks_8hpp.html">&lt;src/args-callback/callbacks.hpp&gt;</a></div>
         </h1>
-        <p><a href="classspace_1_1_i_a_s15.html" class="m-doc">IAS15</a> iterator see details in <a href="https://arxiv.org/abs/1409.4779">https:/<wbr />/<wbr />arxiv.org/<wbr />abs/<wbr />1409.4779</a> .</p>
         <div class="m-block m-default">
           <h3>Contents</h3>
           <ul>
             <li>
               Reference
               <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
               </ul>
             </li>
           </ul>
         </div>
+<p>Default outputer for <a href="classspace_1_1_run_args.html" class="m-doc">RunArgs</a>. This class serves as a callable callback object to output data to a file stream.</p>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a41dfe6dfd2fdfd915844ce0cc5af5180" class="m-doc">DefaultWriter</a>(</span><span class="m-doc-wrap">std::string const&amp; file_name) <span class="m-label m-flat m-info">explicit</span> </span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a1167d6465a34b45725bc269b7aef9ccc" class="m-doc">iterate</a>(</span><span class="m-doc-wrap">ParticSys&amp; particles,
-              <a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> stepLength) -&gt; <a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a></span>
-            </dt>
-            <dd>interface to iterate particle system for one step</dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a3a3caa50326f535fee171cba6fb3a130" class="m-doc">setRelativeError</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> rel_tol)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a5f01ce9046fd087793c5548af18abef5" class="m-doc">SetConvergentLimit</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> limit)</span>
+              <div class="m-doc-template">template&lt;typename ParticleSys&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a04d4a12a06a50099d26918cc0628370f" class="m-doc">operator()</a>(</span><span class="m-doc-wrap">ParticleSys&amp; ptc)</span>
             </dt>
             <dd></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="a1167d6465a34b45725bc269b7aef9ccc"><div>
+          <section class="m-doc-details" id="a41dfe6dfd2fdfd915844ce0cc5af5180"><div>
             <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys, typename Integrator&gt;
-              </div>
-              <span class="m-doc-wrap-bumper"><a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> space::<wbr />IAS15&lt;ParticSys, Integrator&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1167d6465a34b45725bc269b7aef9ccc" class="m-doc-self">iterate</a>(</span><span class="m-doc-wrap">ParticSys&amp; particles,
-              <a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> stepLength)</span></span>
+              <span class="m-doc-wrap-bumper"> space::<wbr />run_operations::<wbr />DefaultWriter::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a41dfe6dfd2fdfd915844ce0cc5af5180" class="m-doc-self">DefaultWriter</a>(</span><span class="m-doc-wrap">std::string const&amp; file_name) <span class="m-label m-info">explicit</span> </span></span>
             </h3>
-            <p>interface to iterate particle system for one step</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td>Particle system needs evolution.</td>
-                </tr>
-                <tr>
-                  <td>stepLength</td>
-                  <td>Macro step length for iteration(Here, the step length of the integrator).</td>
+                  <td style="width: 1%">file_name</td>
+                  <td>The file name of the output file stream.</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <th>Returns</th>
-                  <td>step length for next iteration.</td>
-                </tr>
-              </tfoot>
             </table>
+<p>Constructor of the outputer.</p>
           </div></section>
-          <section class="m-doc-details" id="a3a3caa50326f535fee171cba6fb3a130"><div>
+          <section class="m-doc-details" id="a04d4a12a06a50099d26918cc0628370f"><div>
             <h3>
               <div class="m-doc-template">
-                template&lt;typename ParticSys, typename Integrator&gt;
+                template&lt;typename ParticleSys&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />IAS15&lt;ParticSys, Integrator&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3a3caa50326f535fee171cba6fb3a130" class="m-doc-self">setRelativeError</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> rel_tol)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />run_operations::<wbr />DefaultWriter::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a04d4a12a06a50099d26918cc0628370f" class="m-doc-self">operator()</a>(</span><span class="m-doc-wrap">ParticleSys&amp; ptc)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
-                <tr><th colspan="2">Parameters</th></tr>
+                <tr><th colspan="2">Template parameters</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">rel_tol</td>
-                  <td></td>
+                  <td style="width: 1%">ParticleSys</td>
+                  <td>Any type provides method <code>time()</code></td>
                 </tr>
               </tbody>
             </table>
-          </div></section>
-          <section class="m-doc-details" id="a5f01ce9046fd087793c5548af18abef5"><div>
-            <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys, typename Integrator&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />IAS15&lt;ParticSys, Integrator&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5f01ce9046fd087793c5548af18abef5" class="m-doc-self">SetConvergentLimit</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1_i_a_s15.html#ae254bea8045abad249eb8d3099838d9c" class="m-doc">Scalar</a> limit)</span></span>
-            </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">limit</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
+<p>Callable interface.</p>
           </div></section>
         </section>
       </div>

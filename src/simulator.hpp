@@ -97,38 +97,38 @@ namespace space {
     /**
      * Call the all registered pre-operation functions by sequence.
      *
-     * @param[in,out] particle_system The particle system that is going to be operated.
+     * @param[in,out] particle_sys The particle system that is going to be operated.
      */
-    void pre_operations(ParticleSys &particle_system) const;
+    void pre_operations(ParticleSys &particle_sys) const;
 
     /**
      * Call the all registered pos-operation functions by sequence.
      *
-     * @param[in,out] particle_system The particle system that is going to be operated.
+     * @param[in,out] particle_sys The particle system that is going to be operated.
      */
-    void post_operations(ParticleSys &particle_system) const;
+    void post_operations(ParticleSys &particle_sys) const;
 
     /**
      * Call the all registered stop-operation functions by sequence.
      *
-     * @param[in,out] particle_system The particle system that is going to be operated.
+     * @param[in,out] particle_sys The particle system that is going to be operated.
      */
-    void stop_operations(ParticleSys &particle_system) const;
+    void stop_operations(ParticleSys &particle_sys) const;
 
     /**
      * Check the all registered stop condition functions by sequence. If any of them is satisfied, return `true`.
      *
-     * @param[in] particle_system The particle system that is going to be checked
+     * @param[in] particle_sys The particle system that is going to be checked
      */
-    bool check_stops(ParticleSys &particle_system) const;
+    bool check_stops(ParticleSys &particle_sys) const;
 
     /**
      * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.
      *
-     * @tparam Func Callable type that is conversional to `Callback`.
+     * @tparam Func Callable type that is conversional to member type Callback.
      * @tparam Args Type of the binding arguments.
      * @param[in] func Callable object.
-     * @param[in] args Binding arguments.
+     * @param[in] args Binding arguments.If func accepts more than one arguments, you can bind the rest arguments here.
      */
     template<typename Func, typename... Args>
     void add_pre_step_operation(Func func, Args &&... args);
@@ -136,10 +136,10 @@ namespace space {
     /**
      * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.
      *
-     * @tparam Func Callable type that is conversional to `Callback`.
+     * @tparam Func Callable type that is conversional to member type Callback.
      * @tparam Args Type of the binding arguments.
      * @param[in] func Callable object.
-     * @param[in] args Binding arguments.
+     * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments here.
      */
     template<typename Func, typename... Args>
     void add_post_step_operation(Func func, Args &&... args);
@@ -147,10 +147,10 @@ namespace space {
     /**
      * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.
      *
-     * @tparam Func Callable type that is conversional to `Callback`.
+     * @tparam Func Callable type that is conversional to member type Callback.
      * @tparam Args Type of the binding arguments.
      * @param[in] func Callable object.
-     * @param[in] args Binding arguments.
+     * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments here.
      */
     template<typename Func, typename... Args>
     void add_stop_point_operation(Func func, Args &&... args);
@@ -158,10 +158,10 @@ namespace space {
     /**
      * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.
      *
-     * @tparam Func Callable type that is conversional to `StopCall`.
+     * @tparam Func Callable type that is conversional to member type Stopback.
      * @tparam Args Type of the binding arguments.
      * @param[in] func Callable object.
-     * @param[in] args Binding arguments.
+     * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments here.
      */
     template<typename Func, typename... Args>
     void add_stop_condition(Func func, Args &&... args);
@@ -233,10 +233,10 @@ namespace space {
      * Initialize the Simulator with an iterable Particle Container.
      * @tparam STL Iterable Particle Container.
      * @param[in] time Initial time of the particle system.
-     * @param[in] particle_set Particle container.
+     * @param[in] particles_set Particle container.
      */
     template<typename STL>
-    Simulator(Scalar time, STL const &particle_set);
+    Simulator(Scalar time, STL const &particles_set);
 
     /**
      * Initialize the Simulator with an given particles.

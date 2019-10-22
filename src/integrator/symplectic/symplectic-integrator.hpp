@@ -33,13 +33,14 @@ License
  */
 namespace space::integrator {
 
-
-
   /**
    * Second order symplectic method.
    */
   class symplectic2nd : public Integrator<symplectic2nd> {
   public:
+    /**
+     * Order of the integrator.
+     */
     static constexpr size_t order{2};
 
     template<typename ParticleSys>
@@ -55,6 +56,9 @@ namespace space::integrator {
    */
   class symplectic4th : public Integrator<symplectic4th> {
   public:
+    /**
+     * Order of the integrator.
+     */
     static constexpr size_t order{4};
 
     template<typename ParticleSys>
@@ -74,6 +78,9 @@ namespace space::integrator {
    */
   class symplectic6th : public Integrator<symplectic6th> {
   public:
+    /**
+     * Order of the integrator.
+     */
     static constexpr size_t order{6};
 
     template<typename ParticleSys>
@@ -102,6 +109,9 @@ namespace space::integrator {
    */
   class symplectic8th : public Integrator<symplectic8th> {
   public:
+    /**
+     * Order of the integrator.
+     */
     static constexpr size_t order{8};
 
     template<typename ParticleSys>
@@ -146,6 +156,9 @@ namespace space::integrator {
    */
   class symplectic10th : public Integrator<symplectic10th> {
   public:
+    /**
+     * Order of the integrator.
+     */
     static constexpr size_t order{10};
 
     template<typename ParticleSys>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>space::GaussDadau class | SpaceHub</title>
+  <title>space::run_operations::StepSlice class | SpaceHub</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
@@ -46,116 +46,112 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-template">template&lt;typename ParticSys&gt;</div>
-          space::GaussDadau <span class="m-thin">class</span>
+          <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="callbacks_8hpp.html">&lt;src/args-callback/callbacks.hpp&gt;</a></div>
+          <div class="m-doc-template">template&lt;typename Operation&gt;</div>
+          <span class="m-breadcrumb"><a href="namespacespace.html">space</a>::<wbr/></span><span class="m-breadcrumb"><a href="namespacespace_1_1run__operations.html">run_operations</a>::<wbr/></span>StepSlice <span class="m-thin">class</span>
         </h1>
-        <p>Gauss-Dadau integrator.</p>
+        <table class="m-table m-fullwidth m-flat">
+          <thead>
+            <tr><th colspan="2">Template parameters</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 1%">Operation</td>
+              <td>Callable object.</td>
+            </tr>
+          </tbody>
+        </table>
         <div class="m-block m-default">
           <h3>Contents</h3>
           <ul>
             <li>
               Reference
               <ul>
-                <li><a href="#pub-static-attribs">Public static variables</a></li>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
                 <li><a href="#pub-methods">Public functions</a></li>
               </ul>
             </li>
           </ul>
         </div>
-        <section id="pub-static-attribs">
-          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
+<p>Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The wrapped callable object will be invoked for equal spacing steps. This class is basically used to implement equal step operation in simulations. For example, one can provide a printer <code>[](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; std::endl;}</code> as the pre_step_operation in <a href="classspace_1_1_run_args.html" class="m-doc">RunArgs</a> to output the state of the integrated system. This printer then will be invoked before every step integration. The output might be very dense sometimes, thus outputting the result of every step is somewhat heavy. If one wraps the printer with <a href="classspace_1_1run__operations_1_1_step_slice.html" class="m-doc">StepSlice</a>, `StepSlice([](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; &#x27;<br />&#x27;}, 10)`, then the output will be performed every 10 steps.</p>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
-            <dt id="a2abe1550f71fac107ccff4dabb130e80">
-              static const int <a href="#a2abe1550f71fac107ccff4dabb130e80" class="m-doc-self">order</a>
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a38da8fce31fbb7c82ba70a9a0f7e0ee0" class="m-doc">StepSlice</a>(</span><span class="m-doc-wrap">Operation const&amp; opt,
+              size_t step_interval = 1) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
-            <dd>Order of the integrator.</dd>
+            <dd></dd>
           </dl>
         </section>
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#aba82c30a0d594104c3abed72b6f79098" class="m-doc">integrate</a>(</span><span class="m-doc-wrap">ParticSys&amp; particles,
-              <a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> stepLength)</span>
-            </dt>
-            <dd>Interface to integrate particle system.</dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a9cd9378f66da4ace3c1200482496a774" class="m-doc">calcuBTab</a>(</span><span class="m-doc-wrap">const ParticSys&amp; particles,
-              <a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> stepLength)</span>
+              <div class="m-doc-template">template&lt;typename ParticleSys&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#afa47fca16edae6094c2ebe40bcb85892" class="m-doc">operator()</a>(</span><span class="m-doc-wrap">ParticleSys&amp; ptc)</span>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#ac5c9176c9dca785449710b3715e16654" class="m-doc">evaluateSystemAt</a>(</span><span class="m-doc-wrap">ParticSys&amp; particleSys,
-              <a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> stepLength,
-              size_t index)</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#a49d0f17bbd53c6cc9ad347d6c3a84d83" class="m-doc">predictNewB</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> Q1)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#a9e404eac8f9a5fe2ac8ad82478f908b7" class="m-doc">reset_slice_params</a>(</span><span class="m-doc-wrap">size_t step_interval)</span>
             </dt>
             <dd></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="aba82c30a0d594104c3abed72b6f79098"><div>
+          <section class="m-doc-details" id="a38da8fce31fbb7c82ba70a9a0f7e0ee0"><div>
             <h3>
               <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
+                template&lt;typename Operation&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aba82c30a0d594104c3abed72b6f79098" class="m-doc-self">integrate</a>(</span><span class="m-doc-wrap">ParticSys&amp; particles,
-              <a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> stepLength)</span></span>
+              <span class="m-doc-wrap-bumper"> space::<wbr />run_operations::<wbr />StepSlice&lt;Operation&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a38da8fce31fbb7c82ba70a9a0f7e0ee0" class="m-doc-self">StepSlice</a>(</span><span class="m-doc-wrap">Operation const&amp; opt,
+              size_t step_interval = 1) <span class="m-label m-info">explicit</span> </span></span>
             </h3>
-            <p>Interface to integrate particle system.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td>Particle system need to be integrated.</td>
+                  <td style="width: 1%">opt&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Callable object.</td>
                 </tr>
                 <tr>
-                  <td>stepLength</td>
-                  <td>Step size for integration.</td>
+                  <td>step_interval&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Step interval.</td>
                 </tr>
               </tbody>
             </table>
-<p>This function integrate the particle system for one step with Gauss-Radau stepping.</p>
+<p>Constructor of step slice.</p>
           </div></section>
-          <section class="m-doc-details" id="a9cd9378f66da4ace3c1200482496a774"><div>
+          <section class="m-doc-details" id="afa47fca16edae6094c2ebe40bcb85892"><div>
             <h3>
               <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
+                template&lt;typename Operation&gt;
+                template&lt;typename ParticleSys&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9cd9378f66da4ace3c1200482496a774" class="m-doc-self">calcuBTab</a>(</span><span class="m-doc-wrap">const ParticSys&amp; particles,
-              <a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> stepLength)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />run_operations::<wbr />StepSlice&lt;Operation&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#afa47fca16edae6094c2ebe40bcb85892" class="m-doc-self">operator()</a>(</span><span class="m-doc-wrap">ParticleSys&amp; ptc)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
-                <tr><th colspan="2">Parameters</th></tr>
+                <tr><th colspan="2">Template parameters</th></tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particles</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>stepLength</td>
-                  <td></td>
+                  <td style="width: 1%">ParticleSys</td>
+                  <td>Any type provides method <code>time()</code></td>
                 </tr>
               </tbody>
             </table>
+<p>Callable interface.</p>
           </div></section>
-          <section class="m-doc-details" id="ac5c9176c9dca785449710b3715e16654"><div>
+          <section class="m-doc-details" id="a9e404eac8f9a5fe2ac8ad82478f908b7"><div>
             <h3>
               <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
+                template&lt;typename Operation&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac5c9176c9dca785449710b3715e16654" class="m-doc-self">evaluateSystemAt</a>(</span><span class="m-doc-wrap">ParticSys&amp; particleSys,
-              <a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> stepLength,
-              size_t index)</span></span>
+              <span class="m-doc-wrap-bumper">void space::<wbr />run_operations::<wbr />StepSlice&lt;Operation&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9e404eac8f9a5fe2ac8ad82478f908b7" class="m-doc-self">reset_slice_params</a>(</span><span class="m-doc-wrap">size_t step_interval)</span></span>
             </h3>
             <table class="m-table m-fullwidth m-flat">
               <thead>
@@ -163,38 +159,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">particleSys</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>stepLength</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>index</td>
-                  <td></td>
+                  <td style="width: 1%">step_interval&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Step interval.</td>
                 </tr>
               </tbody>
             </table>
-          </div></section>
-          <section class="m-doc-details" id="a49d0f17bbd53c6cc9ad347d6c3a84d83"><div>
-            <h3>
-              <div class="m-doc-template">
-                template&lt;typename ParticSys&gt;
-              </div>
-              <span class="m-doc-wrap-bumper">void space::<wbr />GaussDadau&lt;ParticSys&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a49d0f17bbd53c6cc9ad347d6c3a84d83" class="m-doc-self">predictNewB</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1_gauss_dadau.html#affa6959e99084c204b76bb519d0a6499" class="m-doc">Scalar</a> Q1)</span></span>
-            </h3>
-            <table class="m-table m-fullwidth m-flat">
-              <thead>
-                <tr><th colspan="2">Parameters</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="width: 1%">Q1</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
+<p>Reset the slice parameters.</p>
           </div></section>
         </section>
       </div>

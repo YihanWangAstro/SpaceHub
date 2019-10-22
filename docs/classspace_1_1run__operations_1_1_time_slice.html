@@ -57,10 +57,140 @@
           <tbody>
             <tr>
               <td style="width: 1%">Operation</td>
-              <td></td>
+              <td>Callable object.</td>
             </tr>
           </tbody>
         </table>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, conversion operators</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The type of the parameter must have method <code>time()</code>. The wrapped callable object will be invoked for equal spacing time interval for time provided by time(). This class is basically used to implement equal time operation in simulations. For example, one can provide a printer <code>[](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; std::endl;}</code> as the pre_step_operation in <a href="classspace_1_1_run_args.html" class="m-doc">RunArgs</a> to output the state of the integrated system. This printer then will be invoked before every step integration. The output might be very dense sometimes, thus outputting the result of every step is somewhat heavy. If one wraps the printer with <a href="classspace_1_1run__operations_1_1_time_slice.html" class="m-doc">TimeSlice</a>, `TimeSlice([](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; &#x27;<br />&#x27;}, 0, 100, 10)`, then the output will be performed only at p.time()=[0,100/10, 2*100/10, 3*100/10,...100].</p>
+        <section id="typeless-methods">
+          <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#a8a61ba94ce556c873fdc9040ea36900e" class="m-doc">TimeSlice</a>(</span><span class="m-doc-wrap">Operation const&amp; opt,
+              double start,
+              double end,
+              size_t opt_num = 5000)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename ParticleSys&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a909ab019d7684ba5fb184dd5f560f93b" class="m-doc">operator()</a>(</span><span class="m-doc-wrap">ParticleSys&amp; ptc)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a7d1259b11c13f0e68bf85b9e8b132ebf" class="m-doc">reset_slice_params</a>(</span><span class="m-doc-wrap">double start,
+              double end,
+              size_t opt_num = 5000)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a8a61ba94ce556c873fdc9040ea36900e"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Operation&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"> space::<wbr />run_operations::<wbr />TimeSlice&lt;Operation&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8a61ba94ce556c873fdc9040ea36900e" class="m-doc-self">TimeSlice</a>(</span><span class="m-doc-wrap">Operation const&amp; opt,
+              double start,
+              double end,
+              size_t opt_num = 5000)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">opt&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Callable object</td>
+                </tr>
+                <tr>
+                  <td>start&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The start time of the time slice</td>
+                </tr>
+                <tr>
+                  <td>end&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The end time of the time slice</td>
+                </tr>
+                <tr>
+                  <td>opt_num&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The bin number of the time slice. i.e time interval = (end-start)/opt_num</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Constructor of the time slice</p>
+          </div></section>
+          <section class="m-doc-details" id="a909ab019d7684ba5fb184dd5f560f93b"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Operation&gt;
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />run_operations::<wbr />TimeSlice&lt;Operation&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a909ab019d7684ba5fb184dd5f560f93b" class="m-doc-self">operator()</a>(</span><span class="m-doc-wrap">ParticleSys&amp; ptc)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">ParticleSys</td>
+                  <td>Any type provides method <code>time()</code></td>
+                </tr>
+              </tbody>
+            </table>
+<p>Callable interface.</p>
+          </div></section>
+          <section class="m-doc-details" id="a7d1259b11c13f0e68bf85b9e8b132ebf"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Operation&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />run_operations::<wbr />TimeSlice&lt;Operation&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7d1259b11c13f0e68bf85b9e8b132ebf" class="m-doc-self">reset_slice_params</a>(</span><span class="m-doc-wrap">double start,
+              double end,
+              size_t opt_num = 5000)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">start&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The start time of the time slice.</td>
+                </tr>
+                <tr>
+                  <td>end&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The end time of the time slice.</td>
+                </tr>
+                <tr>
+                  <td>opt_num&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>The bin number of the time slice. i.e time interval = (end-start)/opt_num</td>
+                </tr>
+              </tbody>
+            </table>
+<p>Reset the slice parameters.</p>
+          </div></section>
+        </section>
       </div>
     </div>
   </div>

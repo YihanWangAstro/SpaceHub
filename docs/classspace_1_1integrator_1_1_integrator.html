@@ -57,10 +57,93 @@
           <tbody>
             <tr>
               <td style="width: 1%">Derived</td>
-              <td></td>
+              <td>The implement class in CRTP idiom.</td>
             </tr>
           </tbody>
         </table>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#pub-static-attribs">Public static variables</a></li>
+                <li><a href="#pub-methods">Public functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Abstract class of integrator. A class implements(partly/fully) the interfaces of this class via CRTP idiom can be used cross the system as an implementation of the concept <code><a href="classspace_1_1integrator_1_1_integrator.html" class="m-doc">Integrator</a></code>.</p>
+        <section id="pub-static-attribs">
+          <h2><a href="#pub-static-attribs">Public static variables</a></h2>
+          <dl class="m-doc">
+            <dt>
+              static size_t <a href="#a2c994d7654035915c0436924f1195ccd" class="m-doc">order</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section id="pub-methods">
+          <h2><a href="#pub-methods">Public functions</a></h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a7a799322c0005d6e983f151996ebd126" class="m-doc">integrate</a>(</span><span class="m-doc-wrap">T&amp; particle_sys,
+              typename T::Scalar step_size)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="a7a799322c0005d6e983f151996ebd126"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />integrator::<wbr />Integrator&lt;Derived&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7a799322c0005d6e983f151996ebd126" class="m-doc-self">integrate</a>(</span><span class="m-doc-wrap">T&amp; particle_sys,
+              typename T::Scalar step_size)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">T</td>
+                  <td>Any implementation of concept <a href="classspace_1_1particle__system_1_1_particle_system.html" class="m-doc">particle_system::<wbr />ParticleSystem</a>.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>particle_sys&nbsp;<span class="m-label m-flat m-danger">in/out</span></td>
+                  <td>The particle system that need integration.</td>
+                </tr>
+                <tr>
+                  <td>step_size&nbsp;<span class="m-label m-flat m-info">in</span></td>
+                  <td>Step size.</td>
+                </tr>
+              </tbody>
+            </table>
+<p><strong class="m-label m-flat m-danger">must impl</strong></p><p>Integrate a particle system with given step_size.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+          <section class="m-doc-details" id="a2c994d7654035915c0436924f1195ccd"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Derived&gt;
+              </div>
+              static size_t space::<wbr />integrator::<wbr />Integrator&lt;Derived&gt;::<wbr /><a href="#a2c994d7654035915c0436924f1195ccd" class="m-doc-self">order</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+<p>Order of the integrator.</p>
+          </div></section>
+        </section>
       </div>
     </div>
   </div>
