@@ -42,9 +42,15 @@ License
  */
 namespace space::multi_thread {
 
-  const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
+#if defined (_MSC_VER)  // Visual studio
+#define thread_local __declspec( thread )
+#elif defined (__GCC__) // GCC
+#define thread_local __thread
+#endif
 
-  const size_t machine_thread_num = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
+  inline const size_t auto_thread = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
+
+  inline const size_t machine_thread_num = (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1;
 
   template<typename Lambda>
   void multi_threads_loop(size_t total_len, size_t thread_num, Lambda &&task) {
@@ -86,16 +92,15 @@ namespace space::multi_thread {
 
   class ConcurrentFile {
   public:
-    ConcurrentFile(const char *file_name, std::ios_base::openmode mode);
-
-    ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode);
+    inline ConcurrentFile(const char *file_name, std::ios_base::openmode mode);
+    inline ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode);
 
     template<typename Callback, typename ...Args>
     auto execute(Callback &&func, Args &&...args);
 
-    void flush();
+    inline void flush();
 
-    bool eof();
+    inline bool eof();
 
     template<typename U>
     friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup);
@@ -149,7 +154,7 @@ namespace space::multi_thread {
     return status;
   }
 
-  ConcurrentFile make_thread_safe_fstream(std::string const &name, std::ios_base::openmode mode) {
+  inline ConcurrentFile make_thread_safe_fstream(std::string const &name, std::ios_base::openmode mode) {
     return ConcurrentFile(name, mode);
   }
 }

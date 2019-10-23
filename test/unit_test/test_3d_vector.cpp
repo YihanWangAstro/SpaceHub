@@ -3,10 +3,13 @@
 #include "../../src/rand-generator.hpp"
 #include "../../src/vector/vector3.hpp"
 #include "gtest/gtest.h"
+
+using namespace space;
+using namespace math;
 namespace UnitTest {
 template <typename T>
 void test_vector_init() {
-  space::Vec3<T> v;
+  Vec3<T> v;
   EXPECT_EQ(0, v.x);
   EXPECT_EQ(0, v.y);
   EXPECT_EQ(0, v.z);
@@ -14,32 +17,32 @@ void test_vector_init() {
 
 template <size_t N, typename T>
 void test_vector_construct() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
     EXPECT_EQ(x, v.x);
     EXPECT_EQ(y, v.y);
     EXPECT_EQ(z, v.z);
   }
 
   for (size_t i = 0; i < N; ++i) {
-    T s = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(s);
+    T s = random::Uniform(-high, high);
+    Vec3<T> v(s);
     EXPECT_EQ(s, v.x);
     EXPECT_EQ(s, v.y);
     EXPECT_EQ(s, v.z);
   }
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
-    space::Vec3<T> v2(v);
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
+    Vec3<T> v2(v);
     EXPECT_EQ(x, v2.x);
     EXPECT_EQ(y, v2.y);
     EXPECT_EQ(z, v2.z);
@@ -48,14 +51,14 @@ void test_vector_construct() {
 
 template <size_t N, typename T>
 void test_vector_negative() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
-    space::Vec3<T> nv = -v;
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
+    Vec3<T> nv = -v;
     EXPECT_EQ(-x, nv.x);
     EXPECT_EQ(-y, nv.y);
     ASSERT_EQ(-z, nv.z);
@@ -64,14 +67,14 @@ void test_vector_negative() {
 
 template <size_t N, typename T>
 void test_vector_abs() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
-    space::Vec3<T> abv = v.abs();
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
+    Vec3<T> abv = v.abs();
     EXPECT_EQ(fabs(x), abv.x);
     EXPECT_EQ(fabs(y), abv.y);
     ASSERT_EQ(fabs(z), abv.z);
@@ -80,13 +83,13 @@ void test_vector_abs() {
 
 template <size_t N, typename T>
 void test_vector_norm() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
     T norm = v.norm();
     ASSERT_EQ(sqrt(x * x + y * y + z * z), norm);
   }
@@ -94,13 +97,13 @@ void test_vector_norm() {
 
 template <size_t N, typename T>
 void test_vector_norm2() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
     T norm2 = v.norm2();
     ASSERT_EQ(x * x + y * y + z * z, norm2);
   }
@@ -108,13 +111,13 @@ void test_vector_norm2() {
 
 template <size_t N, typename T>
 void test_vector_reNorm() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
     T rnorm = v.re_norm();
     ASSERT_EQ(1 / sqrt(x * x + y * y + z * z), rnorm);
   }
@@ -122,13 +125,13 @@ void test_vector_reNorm() {
 
 template <size_t N, typename T>
 void test_vector_setzero() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x = space::randomGen::Uniform<T>::get(-high, high);
-    T y = space::randomGen::Uniform<T>::get(-high, high);
-    T z = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v(x, y, z);
+    T x = random::Uniform(-high, high);
+    T y = random::Uniform(-high, high);
+    T z = random::Uniform(-high, high);
+    Vec3<T> v(x, y, z);
     v = 0;
     EXPECT_EQ(0, v.x);
     EXPECT_EQ(0, v.y);
@@ -138,18 +141,18 @@ void test_vector_setzero() {
 
 template <size_t N, typename T>
 void test_vector_add() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
-    space::Vec3<T> v3 = v1 + v2;
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
+    Vec3<T> v3 = v1 + v2;
     EXPECT_EQ(x1 + x2, v3.x);
     EXPECT_EQ(y1 + y2, v3.y);
     ASSERT_EQ(z1 + z2, v3.z);
@@ -158,18 +161,18 @@ void test_vector_add() {
 
 template <size_t N, typename T>
 void test_vector_sub() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
-    space::Vec3<T> v3 = v1 - v2;
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
+    Vec3<T> v3 = v1 - v2;
     EXPECT_EQ(x1 - x2, v3.x);
     EXPECT_EQ(y1 - y2, v3.y);
     ASSERT_EQ(z1 - z2, v3.z);
@@ -178,18 +181,18 @@ void test_vector_sub() {
 
 template <size_t N, typename T>
 void test_vector_mul() {
-  T high = sqrt(space::big_value<T>::value);
+  T high = sqrt(big_value<T>::value);
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
-    space::Vec3<T> v3 = v1 * v2;
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
+    Vec3<T> v3 = v1 * v2;
     EXPECT_EQ(x1 * x2, v3.x);
     EXPECT_EQ(y1 * y2, v3.y);
     ASSERT_EQ(z1 * z2, v3.z);
@@ -198,18 +201,18 @@ void test_vector_mul() {
 
 template <size_t N, typename T>
 void test_vector_div() {
-  T high = space::big_value<T>::value;
+  T high = big_value<T>::value;
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
-    space::Vec3<T> v3 = v1 / v2;
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
+    Vec3<T> v3 = v1 / v2;
     EXPECT_EQ(x1 / x2, v3.x);
     EXPECT_EQ(y1 / y2, v3.y);
     ASSERT_EQ(z1 / z2, v3.z);
@@ -218,17 +221,17 @@ void test_vector_div() {
 
 template <size_t N, typename T>
 void test_vector_dot() {
-  T high = sqrt(space::big_value<T>::value);
+  T high = sqrt(big_value<T>::value);
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
     T product = dot(v1, v2);
     ASSERT_EQ(product, x1 * x2 + y1 * y2 + z1 * z2);
   }
@@ -236,18 +239,18 @@ void test_vector_dot() {
 
 template <size_t N, typename T>
 void test_vector_cross() {
-  T high = sqrt(space::big_value<T>::value);
+  T high = sqrt(big_value<T>::value);
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
-    space::Vec3<T> v3 = cross(v1, v2);
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
+    Vec3<T> v3 = cross(v1, v2);
     EXPECT_EQ(v3.x, y1 * z2 - y2 * z1);
     EXPECT_EQ(v3.y, z1 * x2 - z2 * x1);
     ASSERT_EQ(v3.z, x1 * y2 - x2 * y1);
@@ -256,17 +259,17 @@ void test_vector_cross() {
 
 template <size_t N, typename T>
 void test_vector_dist() {
-  T high = sqrt(space::big_value<T>::value);
+  T high = sqrt(big_value<T>::value);
 
   for (size_t i = 0; i < N; ++i) {
-    T x1 = space::randomGen::Uniform<T>::get(-high, high);
-    T y1 = space::randomGen::Uniform<T>::get(-high, high);
-    T z1 = space::randomGen::Uniform<T>::get(-high, high);
-    T x2 = space::randomGen::Uniform<T>::get(-high, high);
-    T y2 = space::randomGen::Uniform<T>::get(-high, high);
-    T z2 = space::randomGen::Uniform<T>::get(-high, high);
-    space::Vec3<T> v1(x1, y1, z1);
-    space::Vec3<T> v2(x2, y2, z2);
+    T x1 = random::Uniform(-high, high);
+    T y1 = random::Uniform(-high, high);
+    T z1 = random::Uniform(-high, high);
+    T x2 = random::Uniform(-high, high);
+    T y2 = random::Uniform(-high, high);
+    T z2 = random::Uniform(-high, high);
+    Vec3<T> v1(x1, y1, z1);
+    Vec3<T> v2(x2, y2, z2);
     T dist = distance(v1, v2);
     ASSERT_EQ(dist, sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2)));
   }
@@ -285,110 +288,110 @@ TEST(VectorTest, Construction) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_construct<sample_num, float>();
   UnitTest::test_vector_construct<sample_num, double>();
-  // UnitTest::test_vector_construct<sample_num, space::precise_d>();
-  // UnitTest::test_vector_construct<sample_num, space::precise_f>();
+  // UnitTest::test_vector_construct<sample_num, precise_d>();
+  // UnitTest::test_vector_construct<sample_num, precise_f>();
 }
 
 TEST(VectorTest, Addition) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_add<sample_num, float>();
   UnitTest::test_vector_add<sample_num, double>();
-  // UnitTest::test_vector_add<sample_num, space::precise_f>();
-  // UnitTest::test_vector_add<sample_num, space::precise_d>();
+  // UnitTest::test_vector_add<sample_num, precise_f>();
+  // UnitTest::test_vector_add<sample_num, precise_d>();
 }
 
 TEST(VectorTest, Subtraction) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_sub<sample_num, float>();
   UnitTest::test_vector_sub<sample_num, double>();
-  // UnitTest::test_vector_sub<sample_num, space::precise_f>();
-  // UnitTest::test_vector_sub<sample_num, space::precise_d>();
+  // UnitTest::test_vector_sub<sample_num, precise_f>();
+  // UnitTest::test_vector_sub<sample_num, precise_d>();
 }
 
 TEST(VectorTest, Multiplication) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_mul<sample_num, float>();
   UnitTest::test_vector_mul<sample_num, double>();
-  // UnitTest::test_vector_mul<sample_num, space::precise_f>();
-  // UnitTest::test_vector_mul<sample_num, space::precise_d>();
+  // UnitTest::test_vector_mul<sample_num, precise_f>();
+  // UnitTest::test_vector_mul<sample_num, precise_d>();
 }
 
 TEST(VectorTest, Division) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_div<sample_num, float>();
   UnitTest::test_vector_div<sample_num, double>();
-  // UnitTest::test_vector_div<sample_num, space::precise_f>();
-  // UnitTest::test_vector_div<sample_num, space::precise_d>();
+  // UnitTest::test_vector_div<sample_num, precise_f>();
+  // UnitTest::test_vector_div<sample_num, precise_d>();
 }
 
 TEST(VectorTest, Norm) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_norm<sample_num, float>();
   UnitTest::test_vector_norm<sample_num, double>();
-  // UnitTest::test_vector_norm<sample_num, space::precise_f>();
-  // UnitTest::test_vector_norm<sample_num, space::precise_d>();
+  // UnitTest::test_vector_norm<sample_num, precise_f>();
+  // UnitTest::test_vector_norm<sample_num, precise_d>();
 }
 
 TEST(VectorTest, NormSquare) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_norm2<sample_num, float>();
   UnitTest::test_vector_norm2<sample_num, double>();
-  // UnitTest::test_vector_norm2<sample_num, space::precise_f>();
-  // UnitTest::test_vector_norm2<sample_num, space::precise_d>();
+  // UnitTest::test_vector_norm2<sample_num, precise_f>();
+  // UnitTest::test_vector_norm2<sample_num, precise_d>();
 }
 
 TEST(VectorTest, ReciprocalNorm) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_reNorm<sample_num, float>();
   UnitTest::test_vector_reNorm<sample_num, double>();
-  // UnitTest::test_vector_reNorm<sample_num, space::precise_f>();
-  // UnitTest::test_vector_reNorm<sample_num, space::precise_d>();
+  // UnitTest::test_vector_reNorm<sample_num, precise_f>();
+  // UnitTest::test_vector_reNorm<sample_num, precise_d>();
 }
 
 TEST(VectorTest, AbsoluteValue) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_abs<sample_num, float>();
   UnitTest::test_vector_abs<sample_num, double>();
-  // UnitTest::test_vector_abs<sample_num, space::precise_f>();
-  // UnitTest::test_vector_abs<sample_num, space::precise_d>();
+  // UnitTest::test_vector_abs<sample_num, precise_f>();
+  // UnitTest::test_vector_abs<sample_num, precise_d>();
 }
 
 TEST(VectorTest, Opposite) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_negative<sample_num, float>();
   UnitTest::test_vector_negative<sample_num, double>();
-  // UnitTest::test_vector_negative<sample_num, space::precise_f>();
-  // UnitTest::test_vector_negative<sample_num, space::precise_d>();
+  // UnitTest::test_vector_negative<sample_num, precise_f>();
+  // UnitTest::test_vector_negative<sample_num, precise_d>();
 }
 
 TEST(VectorTest, SetZero) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_setzero<sample_num, float>();
   UnitTest::test_vector_setzero<sample_num, double>();
-  // UnitTest::test_vector_setzero<sample_num, space::precise_f>();
-  // UnitTest::test_vector_setzero<sample_num, space::precise_d>();
+  // UnitTest::test_vector_setzero<sample_num, precise_f>();
+  // UnitTest::test_vector_setzero<sample_num, precise_d>();
 }
 
 TEST(VectorTest, DotProduct) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_dot<sample_num, float>();
   UnitTest::test_vector_dot<sample_num, double>();
-  // UnitTest::test_vector_dot<sample_num, space::precise_f>();
-  // UnitTest::test_vector_dot<sample_num, space::precise_d>();
+  // UnitTest::test_vector_dot<sample_num, precise_f>();
+  // UnitTest::test_vector_dot<sample_num, precise_d>();
 }
 
 TEST(VectorTest, CrossProduct) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_cross<sample_num, float>();
   UnitTest::test_vector_cross<sample_num, double>();
-  // UnitTest::test_vector_cross<sample_num, space::precise_f>();
-  // UnitTest::test_vector_cross<sample_num, space::precise_d>();
+  // UnitTest::test_vector_cross<sample_num, precise_f>();
+  // UnitTest::test_vector_cross<sample_num, precise_d>();
 }
 
 TEST(VectorTest, Distance) {
   constexpr size_t sample_num = 1000000;
   UnitTest::test_vector_dist<sample_num, float>();
   UnitTest::test_vector_dist<sample_num, double>();
-  // UnitTest::test_vector_dist<sample_num, space::precise_f>();
-  // UnitTest::test_vector_dist<sample_num, space::precise_d>();
+  // UnitTest::test_vector_dist<sample_num, precise_f>();
+  // UnitTest::test_vector_dist<sample_num, precise_d>();
 }

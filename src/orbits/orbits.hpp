@@ -127,14 +127,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
   }
 
   struct RandomIndicator {
-  } thermal;
-
-  struct LockRandom {
-  };
-
-#define ISOTHERMAL RandomIndicator()
-
-#define LOCK_ISOTHERMAL LockRandom()
+  } isotherm;
 
 /**
  *
@@ -143,7 +136,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
   template<typename Real>
   struct OrbitArgs {
   private:
-    using Variant = std::variant<Real, RandomIndicator, LockRandom>;
+    using Variant = std::variant<Real, RandomIndicator>;
 
   public:
     using Scalar = Real;
@@ -161,8 +154,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     OrbitArgs() = default;
 
     OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant inclination,
-              Variant longitude_of_ascending_node, Variant argument_of_periapsis,
-              Variant true_anomaly);
+              Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
 
     inline void shuffle_i();
 
@@ -171,14 +163,6 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     inline void shuffle_omega();
 
     inline void shuffle_nu();
-
-    inline void lock_shuffle_i();
-
-    inline void lock_shuffle_Omega();
-
-    inline void lock_shuffle_omega();
-
-    inline void lock_shuffle_nu();
 
     friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
       space::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
@@ -203,77 +187,48 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
     if (std::holds_alternative<Scalar>(inclination)) {
       i = std::get<Scalar>(inclination);
-    } else if (std::holds_alternative<LockRandom>(inclination)) {
-      lock_shuffle_i();
     } else {
       shuffle_i();
     }
 
     if (std::holds_alternative<Scalar>(longitude_of_ascending_node)) {
       Omega = std::get<Scalar>(longitude_of_ascending_node);
-    } else if (std::holds_alternative<LockRandom>(longitude_of_ascending_node)) {
-      lock_shuffle_Omega();
     } else {
       shuffle_Omega();
     }
 
     if (std::holds_alternative<Scalar>(argument_of_periapsis)) {
       omega = std::get<Scalar>(argument_of_periapsis);
-    } else if (std::holds_alternative<LockRandom>(argument_of_periapsis)) {
-      lock_shuffle_omega();
-    } else {
+    }  else {
       shuffle_omega();
     }
 
     if (std::holds_alternative<Scalar>(true_anomaly)) {
       nu = std::get<Scalar>(true_anomaly);
-    } else if (std::holds_alternative<LockRandom>(true_anomaly)) {
-      lock_shuffle_nu();
-    } else {
+    }  else {
       shuffle_nu();
     }
   }
 
   template<typename Real>
-  void OrbitArgs<Real>::shuffle_i() { i = acos(randomGen::Uniform<Scalar>::get(-1, 1)); }
+  void OrbitArgs<Real>::shuffle_i() { i = acos(random::Uniform(-1, 1)); }
 
   template<typename Real>
-  void OrbitArgs<Real>::shuffle_Omega() { Omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
+  void OrbitArgs<Real>::shuffle_Omega() { Omega = random::Uniform(-consts::pi, consts::pi); }
 
   template<typename Real>
-  void OrbitArgs<Real>::shuffle_omega() { omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
+  void OrbitArgs<Real>::shuffle_omega() { omega = random::Uniform(-consts::pi, consts::pi); }
 
   template<typename Real>
   void OrbitArgs<Real>::shuffle_nu() {
     if (orbit_type == OrbitType::Ellipse) {
-      Scalar M = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
+      Scalar M = random::Uniform(-consts::pi, consts::pi);
       Scalar E = orbit::calc_eccentric_anomaly(M, e);
       nu = orbit::calc_true_anomaly(E, e);
     } else {
       spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
     }
   }
-
-  template<typename Real>
-  void OrbitArgs<Real>::lock_shuffle_i() { i = acos(randomGen::Uniform<Scalar>::lock_get(-1, 1)); }
-
-  template<typename Real>
-  void OrbitArgs<Real>::lock_shuffle_Omega() { Omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
-
-  template<typename Real>
-  void OrbitArgs<Real>::lock_shuffle_omega() { omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
-
-  template<typename Real>
-  void OrbitArgs<Real>::lock_shuffle_nu() {
-    if (orbit_type == OrbitType::Ellipse) {
-      Scalar M = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi);
-      Scalar E = orbit::calc_eccentric_anomaly(M, e);
-      nu = orbit::calc_true_anomaly(E, e);
-    } else {
-      spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
-    }
-  }
-
 
   using Kepler = OrbitArgs<double>;
 
@@ -283,7 +238,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
   struct HyperOrbit : public OrbitArgs<double> {
   private:
-    using Variant = std::variant<double, RandomIndicator, LockRandom>;
+    using Variant = std::variant<double, RandomIndicator>;
 
   public:
     using Scalar = double;
@@ -311,7 +266,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
   struct EllipOrbit : public OrbitArgs<double> {
   private:
-    using Variant = std::variant<double, RandomIndicator, LockRandom>;
+    using Variant = std::variant<double, RandomIndicator>;
 
   public:
     using Scalar = double;

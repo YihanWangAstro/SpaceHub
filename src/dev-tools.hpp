@@ -200,7 +200,7 @@ namespace space {
   std::transform(std::begin(CONTAINER), std::end(CONTAINER), std::back_inserter(result), [](auto& X) { return EXPR; });\
   return result;}()
 
-#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                         \
+#define SPACEHUB_MAKE_CONSTRUCTORS(CLASS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)                                           \
 /** Default constructor. */                                                                                            \
     CLASS() = ATTR1;                                                                                                   \
 /** Default copy constructor. */                                                                                       \
@@ -252,7 +252,7 @@ inline TYPE const & NAME () const noexcept {                                    
 };
 
 #define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                                                                     \
-/** The getter interface of member `MEMBER` in name of `NAME`. */                                                                            \
+/** The getter interface of member `MEMBER` in name of `NAME`. */                                                      \
 inline TYPE const & NAME () const noexcept {                                                                           \
     return MEMBER;                                                                                                     \
 };

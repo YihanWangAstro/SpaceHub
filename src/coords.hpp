@@ -27,7 +27,7 @@ License
 
 #include "vector/vector3.hpp"
 #include "dev-tools.hpp"
-
+#include "core-computation.hpp"
 namespace space {
 
 /*---------------------------------------------------------------------------*\
