@@ -28,7 +28,7 @@ License
 #include "../particle-system/particle-system.hpp"
 
 namespace space::integrator {
-  /*---------------------------------------------------------------------------*\
+/*---------------------------------------------------------------------------*\
     Class Integrator Declaration
 \*---------------------------------------------------------------------------*/
 
@@ -64,14 +64,17 @@ namespace space::integrator {
     friend Derived;
   };
 
-  /*---------------------------------------------------------------------------*\
-    Class Integrator Definition
+/*---------------------------------------------------------------------------*\
+    Class Integrator Implementation
 \*---------------------------------------------------------------------------*/
   template<typename Derived>
   template<typename T>
-  void Integrator<Derived>::integrate(T &particle_system, Scalar step_size) {
+  void Integrator<Derived>::integrate(T &particle_system, typename T::Scalar step_size) {
     static_assert(particle_system::is_particle_system_v<T>, "Passing non paritcle-system-type!");
     static_cast<Derived *>(this)->impl_integrate(particle_system, step_size);
   }
+
+  template<typename T>
+  constexpr bool is_sym_integrator_v = std::is_base_of_v<Integrator<T>, T>;
 }
 #endif //SPACEHUB_INTEGRATOR_HPP

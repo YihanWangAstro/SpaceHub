@@ -26,211 +26,274 @@ License
 #define SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP
 
 #include "../integrator.hpp"
-
+#include "../../dev-tools.hpp"
 /**
  * @namespace space::integrator
  * Documentation for space
  */
 namespace space::integrator {
 
+/*---------------------------------------------------------------------------*\
+    Class Symplectic2nd Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Second order symplectic method.
    */
-  class symplectic2nd : public Integrator<symplectic2nd> {
+  class Symplectic2nd : public Integrator<Symplectic2nd> {
   public:
+    using Base = Integrator<Symplectic2nd>;
     /**
      * Order of the integrator.
      */
     static constexpr size_t order{2};
 
+    CRTP_IMPL:
+
     template<typename ParticleSys>
-    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
-      system.drift(0.5 * step_size);
-      system.kick(step_size);
-      system.drift(0.5 * step_size);
-    }
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
   };
 
+/*---------------------------------------------------------------------------*\
+    Class Symplectic4th Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Fourth order symplectic method.
    */
-  class symplectic4th : public Integrator<symplectic4th> {
+  class Symplectic4th : public Integrator<Symplectic4th> {
   public:
+    using Base = Integrator<Symplectic4th>;
     /**
      * Order of the integrator.
      */
     static constexpr size_t order{4};
 
+    CRTP_IMPL:
+
     template<typename ParticleSys>
-    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
-      system.drift(6.7560359597983000E-1 * step_size);
-      system.kick(1.3512071919596600E0 * step_size);
-      system.drift(-1.7560359597983000E-1 * step_size);
-      system.kick(-1.7024143839193200E0 * step_size);
-      system.drift(-1.7560359597983000E-1 * step_size);
-      system.kick(1.3512071919596600E0 * step_size);
-      system.drift(6.7560359597983000E-1 * step_size);
-    }
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
   };
 
+/*---------------------------------------------------------------------------*\
+    Class Symplectic6th Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Sixth order symplectic method.
    */
-  class symplectic6th : public Integrator<symplectic6th> {
+  class Symplectic6th : public Integrator<Symplectic6th> {
   public:
+    using Base = Integrator<Symplectic6th>;
     /**
      * Order of the integrator.
      */
     static constexpr size_t order{6};
 
+    CRTP_IMPL:
+
     template<typename ParticleSys>
-    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
-      /*unroll loop manually*/
-      system.drift(3.9225680523877998E-1 * step_size);
-      system.kick(7.8451361047755996E-1 * step_size);
-      system.drift(5.1004341191845848E-1 * step_size);
-      system.kick(2.3557321335935699E-1 * step_size);
-      system.drift(-4.7105338540975655E-1 * step_size);
-      system.kick(-1.1776799841788701E0 * step_size);
-      system.drift(6.8753168252518093E-2 * step_size);
-      system.kick(1.3151863206839063E0 * step_size);
-      system.drift(6.8753168252518093E-2 * step_size);
-      system.kick(-1.1776799841788701E0 * step_size);
-      system.drift(-4.7105338540975655E-1 * step_size);
-      system.kick(2.3557321335935699E-1 * step_size);
-      system.drift(5.1004341191845848E-1 * step_size);
-      system.kick(7.8451361047755996E-1 * step_size);
-      system.drift(3.9225680523877998E-1 * step_size);
-    }
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
   };
 
+/*---------------------------------------------------------------------------*\
+    Class Symplectic8th Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Eighth order symplectic method.
    */
-  class symplectic8th : public Integrator<symplectic8th> {
+  class Symplectic8th : public Integrator<Symplectic8th> {
   public:
+    using Base = Integrator<Symplectic8th>;
     /**
      * Order of the integrator.
      */
     static constexpr size_t order{8};
 
+    CRTP_IMPL:
+
     template<typename ParticleSys>
-    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
-      /*unroll loop manually*/
-      system.drift(5.21213104349955048E-1 * step_size);
-      system.kick(1.04242620869991010E0 * step_size);
-      system.drift(1.43131625920352512E0 * step_size);
-      system.kick(1.82020630970713992E0 * step_size);
-      system.drift(9.88973118915378424E-1 * step_size);
-      system.kick(1.57739928123617007E-1 * step_size);
-      system.drift(1.29888362714548355E0 * step_size);
-      system.kick(2.44002732616735019E0 * step_size);
-      system.drift(1.21642871598513458E0 * step_size);
-      system.kick(-7.16989419708119989E-3 * step_size);
-      system.drift(-1.22708085895116059E0 * step_size);
-      system.kick(-2.44699182370524015E0 * step_size);
-      system.drift(-2.03140778260310517E0 * step_size);
-      system.kick(-1.61582374150096997E0 * step_size);
-      system.drift(-1.69832618404521085E0 * step_size);
-      system.kick(-1.78082862658945151E0 * step_size);
-      system.drift(-1.69832618404521085E0 * step_size);
-      system.kick(-1.61582374150096997E0 * step_size);
-      system.drift(-2.03140778260310517E0 * step_size);
-      system.kick(-2.44699182370524015E0 * step_size);
-      system.drift(-1.22708085895116059E0 * step_size);
-      system.kick(-7.16989419708119989E-3 * step_size);
-      system.drift(1.21642871598513458E0 * step_size);
-      system.kick(2.44002732616735019E0 * step_size);
-      system.drift(1.29888362714548355E0 * step_size);
-      system.kick(1.57739928123617007E-1 * step_size);
-      system.drift(9.88973118915378424E-1 * step_size);
-      system.kick(1.82020630970713992E0 * step_size);
-      system.drift(1.43131625920352512E0 * step_size);
-      system.kick(1.04242620869991010E0 * step_size);
-      system.drift(5.21213104349955048E-1 * step_size);
-    }
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
   };
 
+/*---------------------------------------------------------------------------*\
+    Class Symplectic10th Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Tenth order symplectic method.
    */
-  class symplectic10th : public Integrator<symplectic10th> {
+  class Symplectic10th : public Integrator<Symplectic10th> {
   public:
+    using Base = Integrator<Symplectic10th>;
     /**
      * Order of the integrator.
      */
     static constexpr size_t order{10};
 
+    CRTP_IMPL:
+
     template<typename ParticleSys>
-    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
-      /*unroll loop manually*/
-      system.drift(3.0610967201933609e-01 * step_size);
-      system.kick(6.1221934403867218e-01 * step_size);
-      system.drift(-9.4012698954724694e-02 * step_size);
-      system.kick(-8.0024474194812156e-01 * step_size);
-      system.drift(-6.6002635995076209e-01 * step_size);
-      system.kick(-5.1980797795340250e-01 * step_size);
-      system.drift(-1.5240397828727220e-01 * step_size);
-      system.kick(2.1500002137885812e-01 * step_size);
-      system.drift(-1.1750569210727700e-01 * step_size);
-      system.kick(-4.5001140559341213e-01 * step_size);
-      system.drift(2.2250778443570857e-01 * step_size);
-      system.kick(8.9502697446482926e-01 * step_size);
-      system.drift(5.1288848042847668e-01 * step_size);
-      system.kick(1.3074998639212410e-01 * step_size);
-      system.drift(3.3095796002497074e-01 * step_size);
-      system.kick(5.3116593365781739e-01 * step_size);
-      system.drift(-6.0050191119721985e-02 * step_size);
-      system.kick(-6.5126631589726136e-01 * step_size);
-      system.drift(-7.6956706144236287e-01 * step_size);
-      system.kick(-8.8786780698746448e-01 * step_size);
-      system.drift(-7.6872229417056015e-02 * step_size);
-      system.kick(7.3412334815335245e-01 * step_size);
-      system.drift(4.2477286784491525e-01 * step_size);
-      system.kick(1.1542238753647800e-01 * step_size);
-      system.drift(4.3160892192959932e-01 * step_size);
-      system.kick(7.4779545632272060e-01 * step_size);
-      system.drift(5.5434862753225678e-02 * step_size);
-      system.kick(-6.3692573081626924e-01 * step_size);
-      system.drift(-1.9288621063874828e-01 * step_size);
-      system.kick(2.5115330953877268e-01 * step_size);
-      system.drift(3.3904387248169282e-01 * step_size);
-      system.kick(4.2693443542461296e-01 * step_size);
-      system.drift(3.3904387248169282e-01 * step_size);
-      system.kick(2.5115330953877268e-01 * step_size);
-      system.drift(-1.9288621063874828e-01 * step_size);
-      system.kick(-6.3692573081626924e-01 * step_size);
-      system.drift(5.5434862753225678e-02 * step_size);
-      system.kick(7.4779545632272060e-01 * step_size);
-      system.drift(4.3160892192959932e-01 * step_size);
-      system.kick(1.1542238753647800e-01 * step_size);
-      system.drift(4.2477286784491525e-01 * step_size);
-      system.kick(7.3412334815335245e-01 * step_size);
-      system.drift(-7.6872229417056015e-02 * step_size);
-      system.kick(-8.8786780698746448e-01 * step_size);
-      system.drift(-7.6956706144236287e-01 * step_size);
-      system.kick(-6.5126631589726136e-01 * step_size);
-      system.drift(-6.0050191119721985e-02 * step_size);
-      system.kick(5.3116593365781739e-01 * step_size);
-      system.drift(3.3095796002497074e-01 * step_size);
-      system.kick(1.3074998639212410e-01 * step_size);
-      system.drift(5.1288848042847668e-01 * step_size);
-      system.kick(8.9502697446482926e-01 * step_size);
-      system.drift(2.2250778443570857e-01 * step_size);
-      system.kick(-4.5001140559341213e-01 * step_size);
-      system.drift(-1.1750569210727700e-01 * step_size);
-      system.kick(2.1500002137885812e-01 * step_size);
-      system.drift(-1.5240397828727220e-01 * step_size);
-      system.kick(-5.1980797795340250e-01 * step_size);
-      system.drift(-6.6002635995076209e-01 * step_size);
-      system.kick(-8.0024474194812156e-01 * step_size);
-      system.drift(-9.4012698954724694e-02 * step_size);
-      system.kick(6.1221934403867218e-01 * step_size);
-      system.drift(3.0610967201933609e-01 * step_size);
-    }
+    void impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
   };
 
-  template<typename T>
-  constexpr bool is_sym_integrator_v = std::is_base_of_v<Integrator<T>, T>;
+
+
+/*---------------------------------------------------------------------------*\
+     Class Symplectic2nd Implementation
+\*---------------------------------------------------------------------------*/
+  template<typename ParticleSys>
+  void Symplectic2nd::impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    system.drift(0.5 * step_size);
+    system.kick(step_size);
+    system.drift(0.5 * step_size);
+  }
+
+
+/*---------------------------------------------------------------------------*\
+     Class Symplectic4th Implementation
+\*---------------------------------------------------------------------------*/
+  template<typename ParticleSys>
+  void Symplectic4th::impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    system.drift(6.7560359597983000E-1 * step_size);
+    system.kick(1.3512071919596600E0 * step_size);
+    system.drift(-1.7560359597983000E-1 * step_size);
+    system.kick(-1.7024143839193200E0 * step_size);
+    system.drift(-1.7560359597983000E-1 * step_size);
+    system.kick(1.3512071919596600E0 * step_size);
+    system.drift(6.7560359597983000E-1 * step_size);
+  }
+
+
+/*---------------------------------------------------------------------------*\
+     Class Symplectic6th Implementation
+\*---------------------------------------------------------------------------*/
+  template<typename ParticleSys>
+  void Symplectic6th::impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    /*unroll loop manually*/
+    system.drift(3.9225680523877998E-1 * step_size);
+    system.kick(7.8451361047755996E-1 * step_size);
+    system.drift(5.1004341191845848E-1 * step_size);
+    system.kick(2.3557321335935699E-1 * step_size);
+    system.drift(-4.7105338540975655E-1 * step_size);
+    system.kick(-1.1776799841788701E0 * step_size);
+    system.drift(6.8753168252518093E-2 * step_size);
+    system.kick(1.3151863206839063E0 * step_size);
+    system.drift(6.8753168252518093E-2 * step_size);
+    system.kick(-1.1776799841788701E0 * step_size);
+    system.drift(-4.7105338540975655E-1 * step_size);
+    system.kick(2.3557321335935699E-1 * step_size);
+    system.drift(5.1004341191845848E-1 * step_size);
+    system.kick(7.8451361047755996E-1 * step_size);
+    system.drift(3.9225680523877998E-1 * step_size);
+  }
+
+
+/*---------------------------------------------------------------------------*\
+     Class Symplectic8th Implementation
+\*---------------------------------------------------------------------------*/
+  template<typename ParticleSys>
+  void Symplectic8th::impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    /*unroll loop manually*/
+    system.drift(5.21213104349955048E-1 * step_size);
+    system.kick(1.04242620869991010E0 * step_size);
+    system.drift(1.43131625920352512E0 * step_size);
+    system.kick(1.82020630970713992E0 * step_size);
+    system.drift(9.88973118915378424E-1 * step_size);
+    system.kick(1.57739928123617007E-1 * step_size);
+    system.drift(1.29888362714548355E0 * step_size);
+    system.kick(2.44002732616735019E0 * step_size);
+    system.drift(1.21642871598513458E0 * step_size);
+    system.kick(-7.16989419708119989E-3 * step_size);
+    system.drift(-1.22708085895116059E0 * step_size);
+    system.kick(-2.44699182370524015E0 * step_size);
+    system.drift(-2.03140778260310517E0 * step_size);
+    system.kick(-1.61582374150096997E0 * step_size);
+    system.drift(-1.69832618404521085E0 * step_size);
+    system.kick(-1.78082862658945151E0 * step_size);
+    system.drift(-1.69832618404521085E0 * step_size);
+    system.kick(-1.61582374150096997E0 * step_size);
+    system.drift(-2.03140778260310517E0 * step_size);
+    system.kick(-2.44699182370524015E0 * step_size);
+    system.drift(-1.22708085895116059E0 * step_size);
+    system.kick(-7.16989419708119989E-3 * step_size);
+    system.drift(1.21642871598513458E0 * step_size);
+    system.kick(2.44002732616735019E0 * step_size);
+    system.drift(1.29888362714548355E0 * step_size);
+    system.kick(1.57739928123617007E-1 * step_size);
+    system.drift(9.88973118915378424E-1 * step_size);
+    system.kick(1.82020630970713992E0 * step_size);
+    system.drift(1.43131625920352512E0 * step_size);
+    system.kick(1.04242620869991010E0 * step_size);
+    system.drift(5.21213104349955048E-1 * step_size);
+  }
+
+
+/*---------------------------------------------------------------------------*\
+     Class Symplectic10th Implementation
+\*---------------------------------------------------------------------------*/
+  template<typename ParticleSys>
+  void Symplectic10th::impl_integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    /*unroll loop manually*/
+    system.drift(3.0610967201933609e-01 * step_size);
+    system.kick(6.1221934403867218e-01 * step_size);
+    system.drift(-9.4012698954724694e-02 * step_size);
+    system.kick(-8.0024474194812156e-01 * step_size);
+    system.drift(-6.6002635995076209e-01 * step_size);
+    system.kick(-5.1980797795340250e-01 * step_size);
+    system.drift(-1.5240397828727220e-01 * step_size);
+    system.kick(2.1500002137885812e-01 * step_size);
+    system.drift(-1.1750569210727700e-01 * step_size);
+    system.kick(-4.5001140559341213e-01 * step_size);
+    system.drift(2.2250778443570857e-01 * step_size);
+    system.kick(8.9502697446482926e-01 * step_size);
+    system.drift(5.1288848042847668e-01 * step_size);
+    system.kick(1.3074998639212410e-01 * step_size);
+    system.drift(3.3095796002497074e-01 * step_size);
+    system.kick(5.3116593365781739e-01 * step_size);
+    system.drift(-6.0050191119721985e-02 * step_size);
+    system.kick(-6.5126631589726136e-01 * step_size);
+    system.drift(-7.6956706144236287e-01 * step_size);
+    system.kick(-8.8786780698746448e-01 * step_size);
+    system.drift(-7.6872229417056015e-02 * step_size);
+    system.kick(7.3412334815335245e-01 * step_size);
+    system.drift(4.2477286784491525e-01 * step_size);
+    system.kick(1.1542238753647800e-01 * step_size);
+    system.drift(4.3160892192959932e-01 * step_size);
+    system.kick(7.4779545632272060e-01 * step_size);
+    system.drift(5.5434862753225678e-02 * step_size);
+    system.kick(-6.3692573081626924e-01 * step_size);
+    system.drift(-1.9288621063874828e-01 * step_size);
+    system.kick(2.5115330953877268e-01 * step_size);
+    system.drift(3.3904387248169282e-01 * step_size);
+    system.kick(4.2693443542461296e-01 * step_size);
+    system.drift(3.3904387248169282e-01 * step_size);
+    system.kick(2.5115330953877268e-01 * step_size);
+    system.drift(-1.9288621063874828e-01 * step_size);
+    system.kick(-6.3692573081626924e-01 * step_size);
+    system.drift(5.5434862753225678e-02 * step_size);
+    system.kick(7.4779545632272060e-01 * step_size);
+    system.drift(4.3160892192959932e-01 * step_size);
+    system.kick(1.1542238753647800e-01 * step_size);
+    system.drift(4.2477286784491525e-01 * step_size);
+    system.kick(7.3412334815335245e-01 * step_size);
+    system.drift(-7.6872229417056015e-02 * step_size);
+    system.kick(-8.8786780698746448e-01 * step_size);
+    system.drift(-7.6956706144236287e-01 * step_size);
+    system.kick(-6.5126631589726136e-01 * step_size);
+    system.drift(-6.0050191119721985e-02 * step_size);
+    system.kick(5.3116593365781739e-01 * step_size);
+    system.drift(3.3095796002497074e-01 * step_size);
+    system.kick(1.3074998639212410e-01 * step_size);
+    system.drift(5.1288848042847668e-01 * step_size);
+    system.kick(8.9502697446482926e-01 * step_size);
+    system.drift(2.2250778443570857e-01 * step_size);
+    system.kick(-4.5001140559341213e-01 * step_size);
+    system.drift(-1.1750569210727700e-01 * step_size);
+    system.kick(2.1500002137885812e-01 * step_size);
+    system.drift(-1.5240397828727220e-01 * step_size);
+    system.kick(-5.1980797795340250e-01 * step_size);
+    system.drift(-6.6002635995076209e-01 * step_size);
+    system.kick(-8.0024474194812156e-01 * step_size);
+    system.drift(-9.4012698954724694e-02 * step_size);
+    system.kick(6.1221934403867218e-01 * step_size);
+    system.drift(3.0610967201933609e-01 * step_size);
+  }
 }
 #endif //SPACEHUB_SYMPLECTIC_INTEGRATOR_HPP

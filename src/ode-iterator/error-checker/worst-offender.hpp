@@ -28,7 +28,9 @@ License
 #include "error-checker.hpp"
 
 namespace space::ode_iterator {
-
+/*---------------------------------------------------------------------------*\
+     Class WorstOffender Declaration
+\*---------------------------------------------------------------------------*/
   /**
    *
    * @tparam T
@@ -46,7 +48,7 @@ namespace space::ode_iterator {
     // Constructors
     SPACEHUB_MAKE_CONSTRUCTORS(WorstOffender, default, default, default, default, default);
 
-    WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
+    WorstOffender(Scalar atol, Scalar rtol);
 
     CRTP_IMPL :
     // CRTP implementation
@@ -79,9 +81,11 @@ namespace space::ode_iterator {
 
     template<typename Array>
     auto one_dimension_error(Array const &scale, Array const &y0, Array const &y1);
-
   };
 
+/*---------------------------------------------------------------------------*\
+     Class WorstOffender Implementation
+\*---------------------------------------------------------------------------*/
 
   template<typename T>
   void WorstOffender<T>::impl_set_atol(Scalar error) {
@@ -137,5 +141,8 @@ namespace space::ode_iterator {
     }
     return max_err;
   }
+
+  template<typename T>
+  WorstOffender<T>::WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 }
 #endif //SPACEHUB_WORST_OFFENDER_HPP

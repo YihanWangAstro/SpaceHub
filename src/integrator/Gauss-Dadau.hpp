@@ -9,6 +9,10 @@
 #include <vector>
 
 namespace space::integrator {
+
+/*---------------------------------------------------------------------------*\
+     Class RadauConsts Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Constant parameters used in Gauss Radau integration
    */
@@ -124,26 +128,9 @@ namespace space::integrator {
     };
   };
 
-  template<typename Tab>
-  void RadauConsts::transfer_G_to_B(const Tab &G, Tab &B) {
-    for (size_t stage = 0; stage < 7; ++stage) {
-      calc::coord_scale(B[stage], G[6], G2B_tab(6, stage));
-      for (size_t j = 6; j > stage; --j) {
-        calc::coord_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
-      }
-    }
-  }
-
-  template<typename Tab>
-  void RadauConsts::transfer_B_to_G(const Tab &B, Tab &G) {
-    for (size_t stage = 0; stage < 7; ++stage) {
-      calc::coord_scale(G[stage], B[6], B2G_tab(6, stage));
-      for (size_t j = 6; j > stage; --j) {
-        calc::coord_advance(G[stage], B[j - 1], B2G_tab(j - 1, stage));
-      }
-    }
-  }
-
+/*---------------------------------------------------------------------------*\
+     Class GaussRadau Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * Gauss Radau stepping method. See details in
    * https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
@@ -213,6 +200,33 @@ namespace space::integrator {
     size_t particle_num_{0};
   };
 
+/*---------------------------------------------------------------------------*\
+     Class RadauConsts Implementation
+\*---------------------------------------------------------------------------*/
+
+  template<typename Tab>
+  void RadauConsts::transfer_G_to_B(const Tab &G, Tab &B) {
+    for (size_t stage = 0; stage < 7; ++stage) {
+      calc::coord_scale(B[stage], G[6], G2B_tab(6, stage));
+      for (size_t j = 6; j > stage; --j) {
+        calc::coord_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
+      }
+    }
+  }
+
+  template<typename Tab>
+  void RadauConsts::transfer_B_to_G(const Tab &B, Tab &G) {
+    for (size_t stage = 0; stage < 7; ++stage) {
+      calc::coord_scale(G[stage], B[6], B2G_tab(6, stage));
+      for (size_t j = 6; j > stage; --j) {
+        calc::coord_advance(G[stage], B[j - 1], B2G_tab(j - 1, stage));
+      }
+    }
+  }
+
+/*---------------------------------------------------------------------------*\
+     Class RadauConsts Implementation
+\*---------------------------------------------------------------------------*/
   template<typename Coord>
   void GaussDadau<Coord>::check_particle_size(size_t particle_num) {
     if (particle_num_ != particle_num) {

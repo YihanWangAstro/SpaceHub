@@ -86,52 +86,68 @@ namespace space::multi_thread {
 
   class ConcurrentFile {
   public:
-    ConcurrentFile(const char *file_name, std::ios_base::openmode mode) :
-            file_(std::make_shared<std::fstream>(file_name, mode)), mutex_(std::make_shared<std::mutex>()) {
-      if (!file_->is_open()) {
-        spacehub_abort("Unable to open file: ", file_name);
-      }
-    }
+    ConcurrentFile(const char *file_name, std::ios_base::openmode mode);
 
-    ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode) :
-            ConcurrentFile(file_name.c_str(), mode) {}
+    ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode);
 
     template<typename Callback, typename ...Args>
-    auto execute(Callback &&func, Args &&...args) {
-      std::lock_guard<std::mutex> lock(*mutex_);
-      return func(*file_, std::forward<Args>(args)...);
-    }
+    auto execute(Callback &&func, Args &&...args);
 
-    void flush() {
-      std::lock_guard<std::mutex> lock(*(mutex_));
-      file_->flush();
-    }
+    void flush();
 
-    bool eof() {
-      std::lock_guard<std::mutex> lock(*(mutex_));
-      return file_->eof();
-    }
+    bool eof();
 
     template<typename U>
-    friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup) {
-      std::lock_guard<std::mutex> lock(*(os.mutex_));
-      *(os.file_) << std::forward<U>(tup);
-      return os;
-    }
+    friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup);
 
     template<typename U>
-    friend bool operator>>(ConcurrentFile &is, U &tup) {
-      std::lock_guard<std::mutex> lock(*(is.mutex_));
-      *(is.file_) >> tup;
-      bool status = bool(*(is.file_));
-      return status;
-    }
-
+    friend bool operator>>(ConcurrentFile &is, U &tup);
 
   private:
     std::shared_ptr<std::fstream> file_;
     std::shared_ptr<std::mutex> mutex_;
   };
+
+  ConcurrentFile::ConcurrentFile(const char *file_name, std::ios_base::openmode mode) :
+          file_(std::make_shared<std::fstream>(file_name, mode)), mutex_(std::make_shared<std::mutex>()) {
+    if (!file_->is_open()) {
+      spacehub_abort("Unable to open file: ", file_name);
+    }
+  }
+
+  ConcurrentFile::ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode) :
+          ConcurrentFile(file_name.c_str(), mode) {}
+
+  template<typename Callback, typename... Args>
+  auto ConcurrentFile::execute(Callback &&func, Args &&... args) {
+    std::lock_guard<std::mutex> lock(*mutex_);
+    return func(*file_, std::forward<Args>(args)...);
+  }
+
+  void ConcurrentFile::flush() {
+    std::lock_guard<std::mutex> lock(*(mutex_));
+    file_->flush();
+  }
+
+  bool ConcurrentFile::eof() {
+    std::lock_guard<std::mutex> lock(*(mutex_));
+    return file_->eof();
+  }
+
+  template<typename U>
+  ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup) {
+    std::lock_guard<std::mutex> lock(*(os.mutex_));
+    *(os.file_) << std::forward<U>(tup);
+    return os;
+  }
+
+  template<typename U>
+  bool operator>>(ConcurrentFile &is, U &tup) {
+    std::lock_guard<std::mutex> lock(*(is.mutex_));
+    *(is.file_) >> tup;
+    bool status = bool(*(is.file_));
+    return status;
+  }
 
   ConcurrentFile make_thread_safe_fstream(std::string const &name, std::ios_base::openmode mode) {
     return ConcurrentFile(name, mode);

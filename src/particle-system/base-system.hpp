@@ -71,34 +71,15 @@ namespace space::particle_system {
     CRTP_IMPL :
     // CRTP implementation
 
-    /**
-     *
-     * @return
-     */
+
     SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());
 
-    /**
-     *
-     * @return
-     */
     SPACEHUB_STD_ACCESSOR(auto, impl_idn, ptcl_.idn());
 
-    /**
-     *
-     * @return
-     */
     SPACEHUB_STD_ACCESSOR(auto, impl_pos, ptcl_.pos());
 
-    /**
-     *
-     * @return
-     */
     SPACEHUB_STD_ACCESSOR(auto, impl_vel, ptcl_.vel());
 
-    /**
-     *
-     * @return
-     */
     SPACEHUB_STD_ACCESSOR(auto, impl_time, ptcl_.time());
 
     /**

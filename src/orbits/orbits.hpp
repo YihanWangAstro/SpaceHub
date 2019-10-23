@@ -162,88 +162,118 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
     OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant inclination,
               Variant longitude_of_ascending_node, Variant argument_of_periapsis,
-              Variant true_anomaly) {
-      if (periastron < 0) spacehub_abort("Semi-latus rectum cannot be negative");
+              Variant true_anomaly);
 
-      orbit_type = classify_orbit(eccentricity);
+    inline void shuffle_i();
 
-      if (orbit_type == OrbitType::None) spacehub_abort("Eccentricity cannot be negative or NaN!");
+    inline void shuffle_Omega();
 
-      m1 = m_1;
-      m2 = m_2;
-      p = periastron;
-      e = eccentricity;
+    inline void shuffle_omega();
 
-      if (std::holds_alternative<Scalar>(inclination)) {
-        i = std::get<Scalar>(inclination);
-      } else if (std::holds_alternative<LockRandom>(inclination)) {
-        lock_shuffle_i();
-      } else {
-        shuffle_i();
-      }
+    inline void shuffle_nu();
 
-      if (std::holds_alternative<Scalar>(longitude_of_ascending_node)) {
-        Omega = std::get<Scalar>(longitude_of_ascending_node);
-      } else if (std::holds_alternative<LockRandom>(longitude_of_ascending_node)) {
-        lock_shuffle_Omega();
-      } else {
-        shuffle_Omega();
-      }
+    inline void lock_shuffle_i();
 
-      if (std::holds_alternative<Scalar>(argument_of_periapsis)) {
-        omega = std::get<Scalar>(argument_of_periapsis);
-      } else if (std::holds_alternative<LockRandom>(argument_of_periapsis)) {
-        lock_shuffle_omega();
-      } else {
-        shuffle_omega();
-      }
+    inline void lock_shuffle_Omega();
 
-      if (std::holds_alternative<Scalar>(true_anomaly)) {
-        nu = std::get<Scalar>(true_anomaly);
-      } else if (std::holds_alternative<LockRandom>(true_anomaly)) {
-        lock_shuffle_nu();
-      } else {
-        shuffle_nu();
-      }
-    }
+    inline void lock_shuffle_omega();
 
-    inline void shuffle_i() { i = acos(randomGen::Uniform<Scalar>::get(-1, 1)); }
-
-    inline void shuffle_Omega() { Omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
-
-    inline void shuffle_omega() { omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
-
-    inline void shuffle_nu() {
-      if (orbit_type == OrbitType::Ellipse) {
-        Scalar M = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
-        Scalar E = orbit::calc_eccentric_anomaly(M, e);
-        nu = orbit::calc_true_anomaly(E, e);
-      } else {
-        spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
-      }
-    }
-
-    inline void lock_shuffle_i() { i = acos(randomGen::Uniform<Scalar>::lock_get(-1, 1)); }
-
-    inline void lock_shuffle_Omega() { Omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
-
-    inline void lock_shuffle_omega() { omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
-
-    inline void lock_shuffle_nu() {
-      if (orbit_type == OrbitType::Ellipse) {
-        Scalar M = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi);
-        Scalar E = orbit::calc_eccentric_anomaly(M, e);
-        nu = orbit::calc_true_anomaly(E, e);
-      } else {
-        spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
-      }
-    }
+    inline void lock_shuffle_nu();
 
     friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
       space::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
       return os;
     }
   };
+
+  template<typename Real>
+  OrbitArgs<Real>::OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity,
+                             OrbitArgs::Variant inclination, OrbitArgs::Variant longitude_of_ascending_node,
+                             OrbitArgs::Variant argument_of_periapsis, OrbitArgs::Variant true_anomaly) {
+    if (periastron < 0) spacehub_abort("Semi-latus rectum cannot be negative");
+
+    orbit_type = classify_orbit(eccentricity);
+
+    if (orbit_type == OrbitType::None) spacehub_abort("Eccentricity cannot be negative or NaN!");
+
+    m1 = m_1;
+    m2 = m_2;
+    p = periastron;
+    e = eccentricity;
+
+    if (std::holds_alternative<Scalar>(inclination)) {
+      i = std::get<Scalar>(inclination);
+    } else if (std::holds_alternative<LockRandom>(inclination)) {
+      lock_shuffle_i();
+    } else {
+      shuffle_i();
+    }
+
+    if (std::holds_alternative<Scalar>(longitude_of_ascending_node)) {
+      Omega = std::get<Scalar>(longitude_of_ascending_node);
+    } else if (std::holds_alternative<LockRandom>(longitude_of_ascending_node)) {
+      lock_shuffle_Omega();
+    } else {
+      shuffle_Omega();
+    }
+
+    if (std::holds_alternative<Scalar>(argument_of_periapsis)) {
+      omega = std::get<Scalar>(argument_of_periapsis);
+    } else if (std::holds_alternative<LockRandom>(argument_of_periapsis)) {
+      lock_shuffle_omega();
+    } else {
+      shuffle_omega();
+    }
+
+    if (std::holds_alternative<Scalar>(true_anomaly)) {
+      nu = std::get<Scalar>(true_anomaly);
+    } else if (std::holds_alternative<LockRandom>(true_anomaly)) {
+      lock_shuffle_nu();
+    } else {
+      shuffle_nu();
+    }
+  }
+
+  template<typename Real>
+  void OrbitArgs<Real>::shuffle_i() { i = acos(randomGen::Uniform<Scalar>::get(-1, 1)); }
+
+  template<typename Real>
+  void OrbitArgs<Real>::shuffle_Omega() { Omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
+
+  template<typename Real>
+  void OrbitArgs<Real>::shuffle_omega() { omega = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi); }
+
+  template<typename Real>
+  void OrbitArgs<Real>::shuffle_nu() {
+    if (orbit_type == OrbitType::Ellipse) {
+      Scalar M = randomGen::Uniform<Scalar>::get(-consts::pi, consts::pi);
+      Scalar E = orbit::calc_eccentric_anomaly(M, e);
+      nu = orbit::calc_true_anomaly(E, e);
+    } else {
+      spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
+    }
+  }
+
+  template<typename Real>
+  void OrbitArgs<Real>::lock_shuffle_i() { i = acos(randomGen::Uniform<Scalar>::lock_get(-1, 1)); }
+
+  template<typename Real>
+  void OrbitArgs<Real>::lock_shuffle_Omega() { Omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
+
+  template<typename Real>
+  void OrbitArgs<Real>::lock_shuffle_omega() { omega = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi); }
+
+  template<typename Real>
+  void OrbitArgs<Real>::lock_shuffle_nu() {
+    if (orbit_type == OrbitType::Ellipse) {
+      Scalar M = randomGen::Uniform<Scalar>::lock_get(-consts::pi, consts::pi);
+      Scalar E = orbit::calc_eccentric_anomaly(M, e);
+      nu = orbit::calc_true_anomaly(E, e);
+    } else {
+      spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
+    }
+  }
+
 
   using Kepler = OrbitArgs<double>;
 
@@ -261,17 +291,22 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     HyperOrbit() = default;
 
     HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
-               Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in)
-            : OrbitArgs<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
-      Scalar u = space::consts::G * (m_1 + m_2);
-      Scalar a = -u / (v_inf * v_inf);
-      this->e = sqrt(1 + b * b / (a * a));
-      this->p = a * (1 - e * e);
-      this->nu = -acos((p - r) / (e * r));
-      if (in_out == Hyper::out)
-        this->nu *= -1;
-    }
+               Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in);
   };
+
+  HyperOrbit::HyperOrbit(HyperOrbit::Scalar m_1, HyperOrbit::Scalar m_2, HyperOrbit::Scalar v_inf, HyperOrbit::Scalar b,
+                         HyperOrbit::Scalar r, HyperOrbit::Variant inclination,
+                         HyperOrbit::Variant longitude_of_ascending_node, HyperOrbit::Variant argument_of_periapsis,
+                         Hyper in_out)
+          : OrbitArgs<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
+    Scalar u = space::consts::G * (m_1 + m_2);
+    Scalar a = -u / (v_inf * v_inf);
+    this->e = sqrt(1 + b * b / (a * a));
+    this->p = a * (1 - e * e);
+    this->nu = -acos((p - r) / (e * r));
+    if (in_out == Hyper::out)
+      this->nu *= -1;
+  }
 
 
   struct EllipOrbit : public OrbitArgs<double> {
@@ -286,15 +321,20 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     EllipOrbit() = default;
 
     EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
-               Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly)
-            : OrbitArgs<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity,
-                                inclination, longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
-      if (this->orbit_type != OrbitType::Ellipse) {
-        spacehub_abort("The given parameters don't give an elliptic orbit.");
-      }
-      a = semi_major_axis;
-    }
+               Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
   };
+
+  EllipOrbit::EllipOrbit(EllipOrbit::Scalar m_1, EllipOrbit::Scalar m_2, EllipOrbit::Scalar semi_major_axis,
+                         EllipOrbit::Scalar eccentricity, EllipOrbit::Variant inclination,
+                         EllipOrbit::Variant longitude_of_ascending_node, EllipOrbit::Variant argument_of_periapsis,
+                         EllipOrbit::Variant true_anomaly)
+          : OrbitArgs<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity,
+                              inclination, longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
+    if (this->orbit_type != OrbitType::Ellipse) {
+      spacehub_abort("The given parameters don't give an elliptic orbit.");
+    }
+    a = semi_major_axis;
+  }
 
 
   template<typename Vector, typename Scalar>

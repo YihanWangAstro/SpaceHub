@@ -30,7 +30,7 @@ int main() {
 
   //using sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-  //using iter = ConstOdeIterator<symplectic2nd>;
+  //using iter = ConstOdeIterator<Symplectic2nd>;
 
   using iter = BurlishStoer<double, WorstOffender, PIDController>;
 

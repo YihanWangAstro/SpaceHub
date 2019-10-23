@@ -29,7 +29,9 @@ License
 #include "../../math.hpp"
 
 namespace space::ode_iterator {
-
+/*---------------------------------------------------------------------------*\
+     Class PIDController Declaration
+\*---------------------------------------------------------------------------*/
 /**
  * https://en.wikipedia.org/wiki/PID_controller
  * @tparam Max_order
@@ -50,13 +52,7 @@ namespace space::ode_iterator {
     // Constructors
     //SPACEHUB_MAKE_CONSTRUCTORS(PIDController, delete, default, default, default, default);
 
-    explicit PIDController() {
-      for (size_t i = 1; i <= Max_order; i++) {
-        expon_[i] = 1.0 / static_cast<Scalar>(i);
-        limiter_max_[i] = pow(1.0 / safe_guard3_, expon_[i]);
-        limiter_min_[i] = pow(safe_guard3_, expon_[i]) / safe_guard4_;
-      }
-    }
+    explicit PIDController();
 
     void set_PID_coefficients(Scalar Kp, Scalar Ki, Scalar Kd);
 
@@ -68,9 +64,7 @@ namespace space::ode_iterator {
     template<typename ArrayLike>
     Scalar impl_next_step_size(size_t order, Scalar old_step, ArrayLike const &errors);
 
-
     Scalar impl_next_step_size(size_t order, Scalar old_step, Scalar error);
-
   private:
 
     std::array<Scalar, Max_order + 1> limiter_max_;
@@ -95,7 +89,9 @@ namespace space::ode_iterator {
 
     inline Scalar step_limiter(size_t order, Scalar step_size_ratio);
   };
-
+/*---------------------------------------------------------------------------*\
+     Class PIDController Implementation
+\*---------------------------------------------------------------------------*/
   template<size_t Max_order, typename T>
   inline auto PIDController<Max_order, T>::step_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
     return math::in_range(limiter_min_[order], step_size_ratio, limiter_max_[order]);
@@ -143,6 +139,15 @@ namespace space::ode_iterator {
       return old_step * step_limiter(order, safe_guard1_ * pow(safe_guard2_ / error, expon_[order]));
     } else {
       return old_step * limiter_max_[order];
+    }
+  }
+
+  template<size_t Max_order, typename T>
+  PIDController<Max_order, T>::PIDController() {
+    for (size_t i = 1; i <= Max_order; i++) {
+      expon_[i] = 1.0 / static_cast<Scalar>(i);
+      limiter_max_[i] = pow(1.0 / safe_guard3_, expon_[i]);
+      limiter_min_[i] = pow(safe_guard3_, expon_[i]) / safe_guard4_;
     }
   }
 

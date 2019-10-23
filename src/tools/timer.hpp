@@ -28,7 +28,9 @@ License
 #include <chrono>
 
 namespace space::tools {
-
+/*---------------------------------------------------------------------------*\
+      Class Timer Declaration
+\*---------------------------------------------------------------------------*/
   /**
    * High precision timer for benchmark.
    */
@@ -39,45 +41,55 @@ namespace space::tools {
     /**
      * Start the timer.
      */
-    void start() {
-      active_ = true;
-      start_ = std::chrono::high_resolution_clock::now();
-    }
+    void start();
 
     /**
      * Get the time in milli-second.
      * @return Time duration from start().
      */
-    float get_time() {
-      if (active_) {
-        auto now = std::chrono::high_resolution_clock::now();
-        auto len = std::chrono::duration_cast<std::chrono::milliseconds>(now - start_);
-        return duration_ + static_cast<float>(len.count()) * std::chrono::milliseconds::period::num /
-                           std::chrono::milliseconds::period::den;
-      } else
-        return duration_;
-    }
+    float get_time();
 
     /**
      * Pause the timer.
      */
-    void pause() {
-      duration_ = get_time();
-      active_ = false;
-    }
+    void pause();
 
     /**
      * Reset the timer.
      */
-    void reset() {
-      active_ = false;
-      duration_ = 0;
-    }
+    void reset();
 
   private:
     Time start_;
     float duration_{0};
     bool active_{false};
   };
+/*---------------------------------------------------------------------------*\
+      Class Timer Implementation
+\*---------------------------------------------------------------------------*/
+  void Timer::start() {
+    active_ = true;
+    start_ = std::chrono::high_resolution_clock::now();
+  }
+
+  float Timer::get_time() {
+    if (active_) {
+      auto now = std::chrono::high_resolution_clock::now();
+      auto len = std::chrono::duration_cast<std::chrono::milliseconds>(now - start_);
+      return duration_ + static_cast<float>(len.count()) * std::chrono::milliseconds::period::num /
+                         std::chrono::milliseconds::period::den;
+    } else
+      return duration_;
+  }
+
+  void Timer::pause() {
+    duration_ = get_time();
+    active_ = false;
+  }
+
+  void Timer::reset() {
+    active_ = false;
+    duration_ = 0;
+  }
 }  // namespace space::tools
 #endif
