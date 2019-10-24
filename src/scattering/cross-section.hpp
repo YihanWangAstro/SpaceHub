@@ -38,12 +38,31 @@ namespace space::scattering {
   template<typename Scalar>
   auto random_incident(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max, Scalar r) {
     using Vector = Vec3<Scalar>;
-    auto b = sqrt(random::Uniform::get(0, b_max * b_max));
-    auto w = random::Uniform::get(0, 2 * consts::pi);
+    auto b = sqrt(random::Uniform(0, b_max * b_max));
+    auto w = random::Uniform(0, 2 * consts::pi);
     auto orbit = orbit::HyperOrbit(m_stay, m_incident, v_inf, b, r, w, 0, 0);
     Vector pos, vel;
     orbit::oribt_args_to_coord(orbit, pos, vel);
     return std::make_tuple(pos, vel);
+  }
+
+  template<typename Scalar>
+  auto critical_vel(Scalar m_redu, Scalar E_stay, Scalar E_incident) {
+    return sqrt(-2 * (E_stay + E_incident) / m_redu);
+  }
+
+  template<typename Scalar>
+  auto b_max(Scalar v_c, Scalar v_inf, Scalar a_max) {
+    return a_max * (4 * v_c / v_inf + 3);
+  }
+
+  template <typename Particle>
+  auto tidal_factor(Particle &&m1, typename Particle::value_type::Scalar R1, Particle && m2, typename Particle::value_type::Scalar R2) {
+     if constexpr (is_container_v<Particle>) {//if arguments are two containers
+      auto tot_mass1 = M_tot(m1);
+      auto tot_mass2 = M_tot(m2);
+      return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
+    }
   }
 
 }

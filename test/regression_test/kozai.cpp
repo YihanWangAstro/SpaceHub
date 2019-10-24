@@ -47,7 +47,7 @@ int main() {
 
   move_to_com_coord(m1, m2);
 
-  move_particles_to(Kepler(total_mass(m1, m2), m3.mass, a2, 0, -64.99 * unit::deg, 0, 0, 0.0), m3);
+  move_particles_to(Kepler(M_tot(m1, m2), m3.mass, a2, 0, -64.99 * unit::deg, 0, 0, 0.0), m3);
 
   move_to_com_coord(m1, m2, m3);
 

@@ -87,7 +87,7 @@ namespace space::multi_thread {
 
   template<typename ...Args>
   void auto_multi_thread(Args &&... args) {
-    multi_thread_run(auto_thread, std::forward<Args>(args)...);
+    multi_thread_run(machine_thread_num, std::forward<Args>(args)...);
   }
 
   class ConcurrentFile {

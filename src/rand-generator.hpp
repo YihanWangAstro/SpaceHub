@@ -25,9 +25,8 @@ License
 #ifndef SPACEHUB_RAND_GENERATOR_HPP
 #define SPACEHUB_RAND_GENERATOR_HPP
 
-#include <mutex>
 #include <random>
-#include "math.hpp"
+#include <cmath>
 #include "multi-thread/multi-thread.hpp"
 
 /**
