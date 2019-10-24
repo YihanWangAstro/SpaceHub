@@ -56,14 +56,6 @@ namespace space::scattering {
     return a_max * (4 * v_c / v_inf + 3);
   }
 
-  template <typename Particle>
-  auto tidal_factor(Particle &&m1, typename Particle::value_type::Scalar R1, Particle && m2, typename Particle::value_type::Scalar R2) {
-     if constexpr (is_container_v<Particle>) {//if arguments are two containers
-      auto tot_mass1 = M_tot(m1);
-      auto tot_mass2 = M_tot(m2);
-      return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
-    }
-  }
 
 }
 

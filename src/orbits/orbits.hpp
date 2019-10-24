@@ -199,13 +199,13 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
     if (std::holds_alternative<Scalar>(argument_of_periapsis)) {
       omega = std::get<Scalar>(argument_of_periapsis);
-    }  else {
+    } else {
       shuffle_omega();
     }
 
     if (std::holds_alternative<Scalar>(true_anomaly)) {
       nu = std::get<Scalar>(true_anomaly);
-    }  else {
+    } else {
       shuffle_nu();
     }
   }
@@ -359,13 +359,13 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
 
 
   template<typename Particle, typename... Args>
-  auto group(Particle const &ptc1, Particle const &ptc2, Args const&... ptcs) {
+  auto group(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the arguments must be same!");
     return std::initializer_list<Particle>{ptc1, ptc2, ptcs...};
   }
 
   template<typename Particle, typename... Args>
-  auto P_com(Particle const&ptc, Args const&... ptcs) {
+  auto P_com(Particle const &ptc, Args const &... ptcs) {
     if constexpr (sizeof...(Args) != 0) {
       static_assert(calc::all(std::is_same_v<Args, Particle>...),
                     "Type of the 1st argument and the rest should be same!");
@@ -395,7 +395,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
   }
 
   template<typename Particle, typename... Args>
-  auto V_com(Particle const&ptc, Args const&... ptcs) {
+  auto V_com(Particle const &ptc, Args const &... ptcs) {
     if constexpr (sizeof...(Args) != 0) {
       static_assert(calc::all(std::is_same_v<Args, Particle>...),
                     "Type of the 1st argument and the rest should be same!");
@@ -497,7 +497,7 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
   template<typename Particle, typename... Args>
   void move_particles_to(typename Particle::Vector const &centre_mass_pos, typename Particle::Vector const
   &centre_mass_vel, Particle
-  &ptc, Args &... ptcs) {
+                         &ptc, Args &... ptcs) {
     if constexpr (sizeof...(Args) != 0) {
       static_assert(calc::all(std::is_same_v<Args, Particle>...),
                     "Type of the 1st argument and the rest should be same!");
@@ -620,22 +620,20 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     }
   }
 
-
-
   template<typename Particle, typename... Args>
   auto E_k(Particle &&ptc, Args &&... args) {
     using Scalar = typename Particle::Scalar;
     using Vector = typename Particle::Vector;
     Scalar kinetic_energy = 0;
-    
+
     auto com_vel = V_com(std::forward<Particle>(ptc), std::forward<Args>(args)...);
-    move_particles_vel_to(Vector{0,0,0}, std::forward<Particle>(ptc), std::forward<Args>(args)...);
-    
+    move_particles_vel_to(Vector{0, 0, 0}, std::forward<Particle>(ptc), std::forward<Args>(args)...);
+
     if constexpr (sizeof...(Args) != 0) {
       static_assert(calc::all(std::is_same_v<Args, Particle>...),
                     "Type of the 1st argument and the rest should be same!");
 
-      kinetic_energy = ((args.mass* norm2(args.vel)) + ... + (ptc.mass * norm2(ptc.vel)));
+      kinetic_energy = ((args.mass * norm2(args.vel)) + ... + (ptc.mass * norm2(ptc.vel)));
     } else if constexpr (is_container_v<Particle>) {
       for (auto &p : ptc) {
         kinetic_energy += p.mass * norm2(p.vel);
@@ -655,10 +653,9 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
       return E_p(list);
     } else if constexpr (is_container_v<Particle>) {
       typename Particle::Scaler potential_energy = 0;
-      size_t particle_num = ptc.size();
 
-      for(auto i = ptc.begin(); i < ptc.end(); ++i){
-        for(auto j = i + 1; j < ptc.end(); ++j){
+      for (auto i = ptc.begin(); i < ptc.end(); ++i) {
+        for (auto j = i + 1; j < ptc.end(); ++j) {
           potential_energy -= consts::G * i->mass * j->mass / distance(i->pos, j->pos);
         }
       }
@@ -668,16 +665,18 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     }
   }
 
+  CREATE_MEMBER_CHECK(mass);
+  CREATE_MEMBER_CHECK(radius);
+
   template<typename Particle, typename... Args>
   auto E_tot(Particle &&ptc, Args &&... args) {
     return E_k(std::forward<Particle>(ptc), std::forward<Args>(args)...)
-    + E_p(std::forward<Particle>(ptc), std::forward<Args>(args)...);
+           + E_p(std::forward<Particle>(ptc), std::forward<Args>(args)...);
   }
 
-  CREATE_MEMBER_CHECK(mass);
 
-  template <typename Particle>
-  inline auto M_redu(Particle &&m1, Particle && m2) {
+  template<typename Particle>
+  inline auto M_redu(Particle &&m1, Particle &&m2) {
     if constexpr (HAS_MEMBER(Particle, mass)) {//if arguments are Particle Type
       return m1.mass * m2.mass / (m1.mass + m2.mass);
     } else if constexpr (is_container_v<Particle>) {//if arguments are two containers
@@ -685,8 +684,118 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
       auto tot_mass2 = M_tot(m2);
       return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
     } else {//just two floatint point like arguments
-      return m1 * m2 /(m1 + m2);
+      return m1 * m2 / (m1 + m2);
     }
   }
+
+  template<typename Particle, typename... Args>
+  auto M_cluster_redu(Particle &&ptc, Args &&... args) {
+    if constexpr (sizeof...(Args) != 0) {
+      static_assert(calc::all(std::is_same_v<Args, Particle>...),
+                    "Type of the 1st argument and the rest should be same!");
+      return M_cluster_redu(group(ptc, args...));
+    } else if constexpr (is_container_v<Particle>) {
+      typename Particle::Scaler mass_product = 0;
+
+      size_t particle_num = ptc.size();
+
+      if (particle_num > 1) {
+        for (auto i = ptc.begin(); i < ptc.end(); ++i) {
+          for (auto j = i + 1; j < ptc.end(); ++j) {
+            mass_product += i->mass * j->mass;
+          }
+        }
+        return mass_product / M_tot(ptc);
+      } else if (particle_num == 1) {
+        return ptc.begin()->mass;
+      } else {
+        return static_cast<typename Particle::Scaler>(0);
+      }
+    } else {
+      return ptc.mass;
+    }
+  }
+
+  template<typename Particle, typename... Args>
+  auto cluster_size(Particle &&ptc, Args &&... args) {
+    if constexpr (sizeof...(Args) != 0) {
+      static_assert(calc::all(std::is_same_v<Args, Particle>...),
+                    "Type of the 1st argument and the rest should be same!");
+      return cluster_size(group(ptc, args...));
+    } else if constexpr (is_container_v<Particle>) {
+      typename Particle::Scaler R_max = 0;
+      size_t particle_num = ptc.size();
+
+      if (particle_num > 1) {
+        for (auto i = ptc.begin(); i < ptc.end(); ++i) {
+          for (auto j = i + 1; j < ptc.end(); ++j) {
+            auto r = distance(i->pos, j->pos);
+            if (r > R_max) {
+              R_max = r;
+            }
+          }
+        }
+        return R_max;
+      } else if (particle_num == 1) {
+        return cluster_size(*(ptc.begin()));
+      } else {
+        return static_cast<typename Particle::value_type::Scaler>(0);
+      }
+    } else {
+      if constexpr (HAS_MEMBER(Particle, radius)) {
+        return ptc.radius;
+      } else {
+        return static_cast<typename Particle::Scaler>(0);
+      }
+    }
+  }
+
+  template<typename T1, typename T2, typename Scalar>
+  auto E_tid(T1 &&m1, T2 &&m2, Scalar R2) {
+    auto r = distance(orbit::P_com(m1), orbit::P_com(m2));
+    auto m_tot1 = orbit::M_tot(m1);
+    auto m_tot2 = orbit::M_tot(m2);
+
+    return -consts::G * m_tot1 * m_tot2 * R2 / (r * r);
+  }
+
+  template<typename T1, typename T2>
+  auto E_tid(T1 &&m1, T2 &&m2) {
+    auto R2 = orbit::cluster_size(m2);
+    return E_tid(std::forward<T1>(m1), std::forward<T2>(m2), R2);
+  }
+
+  template<typename T1, typename T2, typename Scalar>
+  auto tidal_factor(T1 &&m1, T2 &&m2, Scalar R2) {
+    auto r = distance(orbit::P_com(m1), orbit::P_com(m2));
+    auto m_tot1 = orbit::M_tot(m1);
+    auto m_tot2 = orbit::M_tot(m2);
+
+    auto ratio = R2 / r;
+
+    return m_tot1 / m_tot2 * ratio * ratio * ratio;
+  }
+
+  template<typename T1, typename T2>
+  auto tidal_factor(T1 &&m1, T2 &&m2) {
+    auto R2 = orbit::cluster_size(m2);
+    return tidal_factor(std::forward<T1>(m1), std::forward<T2>(m2), R2);
+  }
+
+  template<typename T1, typename T2, typename Scalar>
+  auto tidal_radius(Scalar tidal_factor, T1 &&m1, T2 &&m2, Scalar R2) {
+    auto m_tot1 = orbit::M_tot(m1);
+    auto m_tot2 = orbit::M_tot(m2);
+
+    return pow(m_tot1 / (tidal_factor * m_tot2), 1.0 / 3) * R2;
+  }
+
+  template<typename T1, typename T2>
+  auto tidal_radius(T1 &&m1, T2 &&m2) {
+    auto R2 = orbit::cluster_size(m2);
+    return tidal_radius(std::forward<T1>(m1), std::forward<T2>(m2), R2);
+  }
+
+
 }  // namespace space::orbit
 #endif
