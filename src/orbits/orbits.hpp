@@ -790,10 +790,10 @@ Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
     return pow(m_tot1 / (tidal_factor * m_tot2), 1.0 / 3) * R2;
   }
 
-  template<typename T1, typename T2>
-  auto tidal_radius(T1 &&m1, T2 &&m2) {
+  template<typename T1, typename T2, typename Scalar>
+  auto tidal_radius(Scalar tidal_factor, T1 &&m1, T2 &&m2) {
     auto R2 = orbit::cluster_size(m2);
-    return tidal_radius(std::forward<T1>(m1), std::forward<T2>(m2), R2);
+    return tidal_radius(tidal_factor, std::forward<T1>(m1), std::forward<T2>(m2), R2);
   }
 
 
