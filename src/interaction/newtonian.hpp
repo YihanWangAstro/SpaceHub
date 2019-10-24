@@ -11,9 +11,9 @@
  * Documentation for space
  */
 namespace space::interactions {
-  /*---------------------------------------------------------------------------*\
+ /*---------------------------------------------------------------------------*\
       Class NewtonianGrav Declaration
-  \*---------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
   /**
    *
    */
@@ -36,9 +36,9 @@ namespace space::interactions {
     CREATE_METHOD_CHECK(index);
   };
 
-  /*---------------------------------------------------------------------------*\
+/*---------------------------------------------------------------------------*\
       Class NewtonianGrav Implememtation
-  \*---------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
   template<typename Particles>
   void NewtonianGrav::impl_eval_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
     impl_eval_newtonian_acc(particles, acceleration);

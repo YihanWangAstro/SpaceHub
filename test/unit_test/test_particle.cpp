@@ -6,6 +6,8 @@
 #include "../../src/particles/finite-size.hpp"
 #include "../../src/rand-generator.hpp"
 #include "gtest/gtest.h"
+using namespace space;
+using namespace math;
 
 namespace UnitTest {
 
@@ -14,12 +16,12 @@ namespace UnitTest {
     using Particles = TParticles<types>;
     using Particle = typename Particles::Particle;
 
-    space::particle_set::PointParticles<types> particles;
+    particle_set::PointParticles<types> particles;
 
     EXPECT_EQ(particles.number(), 0);
 
     for (size_t i = 0; i < sample_num; ++i) {
-      size_t particle_num = static_cast<size_t >(space::randomGen::Uniform<float>::get(0, 10000));
+      size_t particle_num = static_cast<size_t >(space::random::Uniform(0, 10000));
 
       particles.resize(particle_num);
 
@@ -37,12 +39,12 @@ namespace UnitTest {
     using Particles = TParticles<types>;
     using Particle = typename Particles::Particle;
 
-    space::particle_set::PointParticles<types> particles;
+    particle_set::PointParticles<types> particles;
 
     EXPECT_EQ(particles.capacity(), 0);
 
     for (size_t i = 0; i < sample_num; ++i) {
-      size_t particle_num = static_cast<size_t>(space::randomGen::Uniform<float>::get(0, 10000));
+      size_t particle_num = static_cast<size_t>(space::random::Uniform(0, 10000));
 
       particles.reserve(particle_num);
 
@@ -53,22 +55,22 @@ namespace UnitTest {
   template<typename types>
   void test_point_particles_ctor(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::particle_set::PointParticles<types>;
+    using Particles = particle_set::PointParticles<types>;
     using Particle = typename Particles::Particle;
-    Scalar high = space::big_value<Scalar>::value;
+    Scalar high = big_value<Scalar>::value;
 
     std::vector<Particle> container;
 
     container.reserve(sample_num);
-    auto t = space::randomGen::Uniform<Scalar>::get(-high, high);
+    Scalar t = random::Uniform(-high, high);
     for (size_t i = 0; i < sample_num; ++i) {
-      auto mass = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto px = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto py = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto pz = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vx = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vy = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vz = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar mass = random::Uniform(-high, high);
+      Scalar px = random::Uniform(-high, high);
+      Scalar py = random::Uniform(-high, high);
+      Scalar pz = random::Uniform(-high, high);
+      Scalar vx = random::Uniform(-high, high);
+      Scalar vy = random::Uniform(-high, high);
+      Scalar vz = random::Uniform(-high, high);
       container.emplace_back(Particle{mass, px, py, pz, vx, vy, vz});
     }
 
@@ -97,22 +99,22 @@ namespace UnitTest {
   template<typename types>
   void test_point_particles_emplace_back(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::particle_set::PointParticles<types>;
+    using Particles = particle_set::PointParticles<types>;
     using Particle = typename Particles::Particle;
-    Scalar high = space::big_value<Scalar>::value;
+    Scalar high = big_value<Scalar>::value;
 
     std::vector<Particle> container;
 
     container.reserve(sample_num);
 
     for (size_t i = 0; i < sample_num; ++i) {
-      auto mass = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto px = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto py = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto pz = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vx = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vy = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vz = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar mass = random::Uniform(-high, high);
+      Scalar px = random::Uniform(-high, high);
+      Scalar py = random::Uniform(-high, high);
+      Scalar pz = random::Uniform(-high, high);
+      Scalar vx = random::Uniform(-high, high);
+      Scalar vy = random::Uniform(-high, high);
+      Scalar vz = random::Uniform(-high, high);
       container.emplace_back(Particle{mass, px, py, pz, vx, vy, vz});
     }
 
@@ -146,23 +148,23 @@ namespace UnitTest {
   template<typename types>
   void test_finite_particles_ctor(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::particle_set::SizeParticles<types>;
+    using Particles = particle_set::SizeParticles<types>;
     using Particle = typename Particles::Particle;
-    Scalar high = space::big_value<Scalar>::value;
+    Scalar high = big_value<Scalar>::value;
 
     std::vector<Particle> container;
 
     container.reserve(sample_num);
-    auto t = space::randomGen::Uniform<Scalar>::get(-high, high);
+    Scalar t = random::Uniform(-high, high);
     for (size_t i = 0; i < sample_num; ++i) {
-      auto mass = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto r = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto px = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto py = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto pz = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vx = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vy = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vz = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar mass = random::Uniform(-high, high);
+      Scalar r = random::Uniform(-high, high);
+      Scalar px = random::Uniform(-high, high);
+      Scalar py = random::Uniform(-high, high);
+      Scalar pz = random::Uniform(-high, high);
+      Scalar vx = random::Uniform(-high, high);
+      Scalar vy = random::Uniform(-high, high);
+      Scalar vz = random::Uniform(-high, high);
       container.emplace_back(Particle{mass, r, px, py, pz, vx, vy, vz});
     }
 
@@ -193,23 +195,23 @@ namespace UnitTest {
   template<typename types>
   void test_finite_particles_emplace_back(size_t sample_num) {
     using Scalar = typename types::Scalar;
-    using Particles = space::particle_set::SizeParticles<types>;
+    using Particles = particle_set::SizeParticles<types>;
     using Particle = typename Particles::Particle;
-    Scalar high = space::big_value<Scalar>::value;
+    Scalar high = big_value<Scalar>::value;
 
     std::vector<Particle> container;
 
     container.reserve(sample_num);
 
     for (size_t i = 0; i < sample_num; ++i) {
-      auto mass = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto r = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto px = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto py = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto pz = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vx = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vy = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto vz = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar mass = random::Uniform(-high, high);
+      Scalar r = random::Uniform(-high, high);
+      Scalar px = random::Uniform(-high, high);
+      Scalar py = random::Uniform(-high, high);
+      Scalar pz = random::Uniform(-high, high);
+      Scalar vx = random::Uniform(-high, high);
+      Scalar vy = random::Uniform(-high, high);
+      Scalar vz = random::Uniform(-high, high);
       container.emplace_back(Particle{mass, r, px, py, pz, vx, vy, vz});
     }
     Particles particles;
@@ -242,14 +244,14 @@ namespace UnitTest {
 }
 TEST(ParticleTest, Point_Size) {
   constexpr size_t sample_num = 100000;
-  UnitTest::test_particles_size<space::particle_set::PointParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_size<space::particle_set::PointParticles, space::Types<float>>(sample_num);
+  UnitTest::test_particles_size<space::particle_set::PointParticles, Types<double>>(sample_num);
+  UnitTest::test_particles_size<space::particle_set::PointParticles, Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Point_Capacity) {
   constexpr size_t sample_num = 100000;
-  UnitTest::test_particles_capacity<space::particle_set::PointParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_capacity<space::particle_set::PointParticles, space::Types<float>>(sample_num);
+  UnitTest::test_particles_capacity<space::particle_set::PointParticles, Types<double>>(sample_num);
+  UnitTest::test_particles_capacity<space::particle_set::PointParticles, Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Point_Ctor) {
@@ -266,14 +268,14 @@ TEST(ParticleTest, Point_emplace) {
 
 TEST(ParticleTest, Finite_Size) {
   constexpr size_t sample_num = 100000;
-  UnitTest::test_particles_size<space::particle_set::SizeParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_size<space::particle_set::SizeParticles, space::Types<float>>(sample_num);
+  UnitTest::test_particles_size<space::particle_set::SizeParticles, Types<double>>(sample_num);
+  UnitTest::test_particles_size<space::particle_set::SizeParticles, Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Finite_Capacity) {
   constexpr size_t sample_num = 100000;
-  UnitTest::test_particles_capacity<space::particle_set::SizeParticles, space::Types<double>>(sample_num);
-  UnitTest::test_particles_capacity<space::particle_set::SizeParticles, space::Types<float>>(sample_num);
+  UnitTest::test_particles_capacity<space::particle_set::SizeParticles, Types<double>>(sample_num);
+  UnitTest::test_particles_capacity<space::particle_set::SizeParticles, Types<float>>(sample_num);
 }
 
 TEST(ParticleTest, Finite_Ctor) {

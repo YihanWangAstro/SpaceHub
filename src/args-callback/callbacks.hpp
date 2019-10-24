@@ -167,7 +167,7 @@ namespace space::run_operations {
 
   /*---------------------------------------------------------------------------*\
      Class TimeSlice Definition
- \*---------------------------------------------------------------------------*/
+  \*---------------------------------------------------------------------------*/
   template<typename Operation>
   TimeSlice<Operation>::TimeSlice(const Operation &opt, double start, double end, size_t opt_num)
           : opt_{opt},
@@ -195,8 +195,8 @@ namespace space::run_operations {
 
 
   /*---------------------------------------------------------------------------*\
-     Class StepSlice Definition
- \*---------------------------------------------------------------------------*/
+      Class StepSlice Definition
+  \*---------------------------------------------------------------------------*/
   template<typename Operation>
   StepSlice<Operation>::StepSlice(const Operation &opt, size_t step_interval)
           : opt_{opt},
@@ -217,9 +217,9 @@ namespace space::run_operations {
     step_interval_ = step_interval;
   }
 
-  /*---------------------------------------------------------------------------*\
+/*---------------------------------------------------------------------------*\
      Class DefaultWriter Definition
- \*---------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
   DefaultWriter::DefaultWriter(std::string const &file_name)
           : fstream_{std::make_shared<std::ofstream>(file_name)} {
     if (!fstream_->is_open()) {

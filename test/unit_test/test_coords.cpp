@@ -4,16 +4,17 @@
 #include "../../src/rand-generator.hpp"
 #include "gtest/gtest.h"
 #include "../../src/coords.hpp"
-
+using namespace space;
+using namespace math;
 namespace UnitTest {
 
   template<typename Container>
   void test_coords_reserve(size_t sample_num) {
-    space::Coords<Container> coords;
+    Coords<Container> coords;
     auto high = 10000;
 
     for (size_t i = 0; i < sample_num; ++i) {
-      size_t new_size = static_cast<size_t >(space::randomGen::Uniform<float>::get(0, high));
+      size_t new_size = static_cast<size_t >(random::Uniform(0, high));
 
       coords.resize(new_size);
 
@@ -29,11 +30,11 @@ namespace UnitTest {
 
   template<typename Container>
   void test_coords_resize(size_t sample_num) {
-    space::Coords<Container> coords;
+    Coords<Container> coords;
     auto high = 10000;
 
     for (size_t i = 0; i < sample_num; ++i) {
-      size_t new_size = static_cast<size_t>(space::randomGen::Uniform<float>::get(0, high));
+      size_t new_size = static_cast<size_t>(random::Uniform(0, high));
 
       coords.resize(new_size);
 
@@ -58,18 +59,18 @@ namespace UnitTest {
 
   template<typename Container>
   void test_coords_emplace(size_t sample_num) {
-    using Scalar = typename space::Coords<Container>::Scalar;
-    using Vector = typename space::Coords<Container>::Vector;
+    using Scalar = typename Coords<Container>::Scalar;
+    using Vector = typename Coords<Container>::Vector;
 
-    space::Coords<Container> coords;
-    Scalar high = space::big_value<Scalar>::value;
+    Coords<Container> coords;
+    Scalar high = big_value<Scalar>::value;
 
     coords.reserve(sample_num);
 
     for (size_t i = 0; i < sample_num; ++i) {
-      auto x = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto y = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto z = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar x = random::Uniform(-high, high);
+      Scalar y = random::Uniform(-high, high);
+      Scalar z = random::Uniform(-high, high);
 
       coords.emplace_back(x, y, z);
 
@@ -83,9 +84,9 @@ namespace UnitTest {
     coords.clear();
 
     for (size_t i = 0; i < sample_num; ++i) {
-      auto x = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto y = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto z = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar x = random::Uniform(-high, high);
+      Scalar y = random::Uniform(-high, high);
+      Scalar z = random::Uniform(-high, high);
 
       coords.emplace_back(Vector(x, y, z));
 
@@ -99,20 +100,20 @@ namespace UnitTest {
 
   template<typename Container>
   void test_coords_load(size_t sample_num) {
-    using Scalar = typename space::Coords<Container>::Scalar;
-    using Vector = typename space::Coords<Container>::Vector;
-    Scalar high = space::big_value<Scalar>::value;
+    using Scalar = typename Coords<Container>::Scalar;
+    using Vector = typename Coords<Container>::Vector;
+    Scalar high = big_value<Scalar>::value;
 
     Container container;
 
     container.reserve(sample_num * 3);
 
     for (size_t i = 0; i < sample_num * 3; ++i) {
-      container.emplace_back(space::randomGen::Uniform<Scalar>::get(-high, high));
+      container.emplace_back(random::Uniform(-high, high));
     }
-    space::Coords<Container> coords;
+    Coords<Container> coords;
 
-    space::load_to_coords(container.begin(), container.end(), coords);
+    load_to_coords(container.begin(), container.end(), coords);
 
     auto iter = container.begin();
     for (size_t i = 0; i < sample_num; i++) {
@@ -129,35 +130,35 @@ namespace UnitTest {
 
     Container container1;
 
-    space::add_coords_to(container1, coords);
+    add_coords_to(container1, coords);
 
     ASSERT_TRUE(container == container1);
   }
 
   template<typename Container>
   void test_coords_distance(size_t sample_num) {
-    using Scalar = typename space::Coords<Container>::Scalar;
-    using Vector = typename space::Coords<Container>::Vector;
+    using Scalar = typename Coords<Container>::Scalar;
+    using Vector = typename Coords<Container>::Vector;
 
-    space::Coords<Container> coords;
-    Scalar high = space::big_value<Scalar>::value;
+    Coords<Container> coords;
+    Scalar high = big_value<Scalar>::value;
 
     coords.reserve(sample_num);
 
     for (size_t i = 0; i < sample_num; ++i) {
-      auto x = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto y = space::randomGen::Uniform<Scalar>::get(-high, high);
-      auto z = space::randomGen::Uniform<Scalar>::get(-high, high);
+      Scalar x = random::Uniform(-high, high);
+      Scalar y = random::Uniform(-high, high);
+      Scalar z = random::Uniform(-high, high);
 
       coords.emplace_back(x, y, z);
     }
 
     for (size_t i = 0; i < sample_num; ++i) {
       for (size_t j = 0; j < sample_num; ++j) {
-        auto dis = space::distance(coords, i, j);
-        auto dx = coords.x[i] - coords.x[j];
-        auto dy = coords.y[i] - coords.y[j];
-        auto dz = coords.z[i] - coords.z[j];
+        Scalar dis = distance(coords, i, j);
+        Scalar dx = coords.x[i] - coords.x[j];
+        Scalar dy = coords.y[i] - coords.y[j];
+        Scalar dz = coords.z[i] - coords.z[j];
         ASSERT_EQ(dis, sqrt(dx * dx + dy * dy + dz * dz));
       }
     }

@@ -28,7 +28,9 @@ License
 #include "error-checker.hpp"
 
 namespace space::ode_iterator {
-
+/*---------------------------------------------------------------------------*\
+     Class RMS Declaration
+\*---------------------------------------------------------------------------*/
   /**
    *
    * @tparam T
@@ -46,7 +48,7 @@ namespace space::ode_iterator {
     // Constructors
     SPACEHUB_MAKE_CONSTRUCTORS(RMS, default, default, default, default, default);
 
-    RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
+    RMS(Scalar atol, Scalar rtol);
 
     CRTP_IMPL :
     // CRTP implementation
@@ -80,7 +82,9 @@ namespace space::ode_iterator {
     template<typename Array>
     auto one_dimension_error(Array const &scale, Array const &y0, Array const &y1);
   };
-
+/*---------------------------------------------------------------------------*\
+     Class RMS Implementation
+\*---------------------------------------------------------------------------*/
   template<typename T>
   void RMS<T>::impl_set_atol(Scalar error) {
     atol_ = error;
@@ -134,5 +138,8 @@ namespace space::ode_iterator {
     }
     return error / size;
   }
+
+  template<typename T>
+  RMS<T>::RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 }
 #endif //SPACEHUB_RMS_HPP

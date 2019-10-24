@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
   move_to_com_coord(sun, earth);
 
   //using iter = BurlishStoer<double, WorstOffender, PIDController>;
-  //using iter = ConstOdeIterator<symplectic2nd>;
+  //using iter = ConstOdeIterator<Symplectic2nd>;
   //using iter = ConstOdeIterator<GaussDadau<particles::Coord>>;
   using iter = IAS15<typename particles::Coord, IAS15Error, PIDController>;
   {

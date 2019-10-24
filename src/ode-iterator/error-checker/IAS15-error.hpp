@@ -27,7 +27,9 @@ License
 #include "error-checker.hpp"
 
 namespace space::ode_iterator {
-
+/*---------------------------------------------------------------------------*\
+     Class IAS15Error Declaration
+\*---------------------------------------------------------------------------*/
   /**
    *
    * @tparam T
@@ -78,9 +80,10 @@ namespace space::ode_iterator {
 
     template<typename Array>
     auto one_dimension_error(Array const &scale, Array const &y0, Array const &y1);
-
   };
-
+/*---------------------------------------------------------------------------*\
+     Class IAS15Error Implementation
+\*---------------------------------------------------------------------------*/
   template<typename T>
   void IAS15Error<T>::impl_set_atol(Scalar error) {
     atol_ = error;
