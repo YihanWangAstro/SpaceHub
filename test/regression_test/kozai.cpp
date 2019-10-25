@@ -43,13 +43,13 @@ int main() {
   auto a1 = 0.5 * unit::au;
   auto a2 = 5 * unit::au;
 
-  move_particles_to(Kepler(m1.mass, m2.mass, a1, 0, 25.01 * unit::deg, 0, 90 * unit::deg, 0.0), m2);
+  move_particles(Kepler(m1.mass, m2.mass, a1, 0, 25.01 * unit::deg, 0, 90 * unit::deg, 0.0), m2);
 
-  move_to_com_coord(m1, m2);
+  move_to_COM_frame(m1, m2);
 
-  move_particles_to(Kepler(M_tot(m1, m2), m3.mass, a2, 0, -64.99 * unit::deg, 0, 0, 0.0), m3);
+  move_particles(Kepler(M_tot(m1, m2), m3.mass, a2, 0, -64.99 * unit::deg, 0, 0, 0.0), m3);
 
-  move_to_com_coord(m1, m2, m3);
+  move_to_COM_frame(m1, m2, m3);
 
   Simulation kozai_test{0, m1, m2, m3};
 

@@ -48,9 +48,9 @@ int main(int argc, char **argv) {
   auto earth_orbit = EllipOrbit{
       sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg, 174.9 * deg, 288.1 * deg, 0.0};
 
-  move_particles_to(earth_orbit, earth);
+  move_particles(earth_orbit, earth);
 
-  move_to_com_coord(sun, earth);
+  move_to_COM_frame(sun, earth);
 
   // using iter = BurlishStoer<double, WorstOffender, PIDController>;
   // using iter = ConstOdeIterator<Symplectic2nd>;

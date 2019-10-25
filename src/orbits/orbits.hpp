@@ -38,7 +38,7 @@ namespace space::orbit {
 
 template <typename Scalar>
 inline Scalar myacos(Scalar x) {
-  return acos(math::min(math::max(-1.0, x), 1.0));
+  return acos(math::in_range(-1.0, x, 1.0));
 }
 
 template <typename Vector, typename Scalar>
@@ -74,33 +74,21 @@ Scalar calc_true_anomaly(Scalar eccentric_anomaly, Scalar e) {
   }
 }
 
-/*template<typename Scalar>
-Scalar calc_eccentric_anomaly(Scalar M, Scalar e) {
-    if (0 <= e && e < 1)//newton iteration may encounter stationary point
-        return space::root_dichotom(
-                [&](Scalar x) -> Scalar { return x - e * sin(x) - M; });//find this function in ownMath.h
-    else if (e > 1)
-        return space::root_dichotom([&](Scalar x) -> Scalar { return e * sinh(x) - x - M; });
-    else if (fabs(e - 1) < space::epsilon<Scalar>::value)
-        return space::root_dichotom([&](Scalar x) -> Scalar { return x + x * x * x / 3 - M; });
-    else {
-        spacehub_abort("Eccentrcity cannot be negative, Nan or inf!");
-        return 0;
-    }
-}*/
 template <typename Scalar>
 Scalar calc_eccentric_anomaly(Scalar mean_anomaly, Scalar e) {
-  if (fabs(mean_anomaly) <= math::epsilon<Scalar>::value) return 0;
+  if (fabs(mean_anomaly) <= math::epsilon<Scalar>::value) {
+    return 0;
+  }
 
   if (0 <= e && e < 1)
-    return math::root_bisection([&](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
+    return math::root_bisection([=](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
                                 -space::consts::pi, space::consts::pi);  // find this function in ownMath.h
   else if (e > 1)
     return math::root_bisection(
-        [&](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); }, -space::consts::pi,
+        [=](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); }, -space::consts::pi,
         space::consts::pi);
   else if (fabs(e - 1) < math::epsilon<Scalar>::value)
-    return math::root_bisection([&](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
+    return math::root_bisection([=](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
                                 -space::consts::pi, space::consts::pi);
   else {
     spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
@@ -167,14 +155,15 @@ struct OrbitArgs {
 };
 
 template <typename Real>
-OrbitArgs<Real>::OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity,
-                           OrbitArgs::Variant inclination, OrbitArgs::Variant longitude_of_ascending_node,
-                           OrbitArgs::Variant argument_of_periapsis, OrbitArgs::Variant true_anomaly) {
+OrbitArgs<Real>::OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant inclination,
+                           Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly) {
   if (periastron < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
   orbit_type = classify_orbit(eccentricity);
 
-  if (orbit_type == OrbitType::None) spacehub_abort("Eccentricity cannot be negative or NaN!");
+  if (orbit_type == OrbitType::None) {
+    spacehub_abort("Eccentricity cannot be negative or NaN!");
+  }
 
   m1 = m_1;
   m2 = m_2;
@@ -249,17 +238,18 @@ struct HyperOrbit : public OrbitArgs<double> {
              Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in);
 };
 
-HyperOrbit::HyperOrbit(HyperOrbit::Scalar m_1, HyperOrbit::Scalar m_2, HyperOrbit::Scalar v_inf, HyperOrbit::Scalar b,
-                       HyperOrbit::Scalar r, HyperOrbit::Variant inclination,
-                       HyperOrbit::Variant longitude_of_ascending_node, HyperOrbit::Variant argument_of_periapsis,
-                       Hyper in_out)
+HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
+                       Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out)
     : OrbitArgs<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
+  this->orbit_type = OrbitType::Hyperbola;
   Scalar u = space::consts::G * (m_1 + m_2);
   Scalar a = -u / (v_inf * v_inf);
   this->e = sqrt(1 + b * b / (a * a));
   this->p = a * (1 - e * e);
   this->nu = -acos((p - r) / (e * r));
-  if (in_out == Hyper::out) this->nu *= -1;
+  if (in_out == Hyper::out) {
+    this->nu *= -1;
+  }
 }
 
 struct EllipOrbit : public OrbitArgs<double> {
@@ -277,10 +267,8 @@ struct EllipOrbit : public OrbitArgs<double> {
              Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
 };
 
-EllipOrbit::EllipOrbit(EllipOrbit::Scalar m_1, EllipOrbit::Scalar m_2, EllipOrbit::Scalar semi_major_axis,
-                       EllipOrbit::Scalar eccentricity, EllipOrbit::Variant inclination,
-                       EllipOrbit::Variant longitude_of_ascending_node, EllipOrbit::Variant argument_of_periapsis,
-                       EllipOrbit::Variant true_anomaly)
+EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
+                       Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly)
     : OrbitArgs<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,
                         longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
   if (this->orbit_type != OrbitType::Ellipse) {
@@ -290,7 +278,7 @@ EllipOrbit::EllipOrbit(EllipOrbit::Scalar m_1, EllipOrbit::Scalar m_2, EllipOrbi
 }
 
 template <typename Vector, typename Scalar>
-void coord_to_orbit_args(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
+void coord_to_orbit(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
   Vector L = cross(dr, dv);
   Vector N = cross(Vector(0, 0, 1.0), L);
   Scalar r = norm(dr);
@@ -338,7 +326,7 @@ void coord_to_orbit_args(Scalar m1, Scalar m2, const Vector &dr, const Vector &d
 }
 
 template <typename Vector, typename Scalar>
-void orbit_args_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel) {
+void orbit_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel) {
   Scalar u = (args.m1 + args.m2) * consts::G;
 
   Scalar sin_nu = sin(args.nu);
@@ -354,6 +342,27 @@ void orbit_args_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel
   orbit::euler_rotate(vel, args.Omega, args.i, args.omega + consts::pi);
 }
 
+template <typename Scalar>
+auto orbit_to_coord(OrbitArgs<Scalar> const &args) {
+  using Vector = Vec3<Scalar>;
+
+  Scalar u = (args.m1 + args.m2) * consts::G;
+
+  Scalar sin_nu = sin(args.nu);
+  Scalar cos_nu = cos(args.nu);
+
+  Scalar r = args.p / (1 + args.e * cos_nu);
+  Scalar v = sqrt(u / args.p);
+
+  Vector pos = r * Vector(cos_nu, sin_nu, 0);
+  Vector vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
+
+  orbit::euler_rotate(pos, args.Omega, args.i, args.omega + consts::pi);
+  orbit::euler_rotate(vel, args.Omega, args.i, args.omega + consts::pi);
+
+  return std::make_tuple(pos, vel);
+}
+
 template <typename Particle, typename... Args>
 auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the arguments must be same!");
@@ -361,7 +370,24 @@ auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
 }
 
 template <typename Particle, typename... Args>
-auto P_com(Particle const &ptc, Args const &... ptcs) {
+inline auto M_tot(Particle &&ptc, Args &&... args) {
+  if constexpr (sizeof...(Args) != 0) {
+    static_assert(calc::all(std::is_same_v<Args, Particle>...),
+                  "Type of the 1st argument and the rest should be same!");
+    return (args.mass + ... + ptc.mass);
+  } else if constexpr (is_container_v<Particle>) {
+    typename Particle::Scaler tot_m = 0;
+    for (auto &p : ptc) {
+      tot_m += p.mass;
+    }
+    return tot_m;
+  } else {
+    return ptc.mass;
+  }
+}
+
+template <typename Particle, typename... Args>
+inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
                   "Type of the 1st argument and the rest should be same!");
@@ -391,7 +417,7 @@ auto P_com(Particle const &ptc, Args const &... ptcs) {
 }
 
 template <typename Particle, typename... Args>
-auto V_com(Particle const &ptc, Args const &... ptcs) {
+inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
                   "Type of the 1st argument and the rest should be same!");
@@ -420,103 +446,68 @@ auto V_com(Particle const &ptc, Args const &... ptcs) {
   }
 }
 
-template <typename Particle, typename... Args>
-void move_to_com_coord(Particle &ptc, Args &... ptcs) {
+template <typename Vector, typename Particle, typename... Args>
+void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc, Args &... ptcs) {
+  auto dp = centre_mass_pos - COM_p(ptc, ptcs...);
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
                   "Type of the 1st argument and the rest should be same!");
-    auto tot_mass = (ptcs.mass + ... + ptc.mass);
-    auto cm_pos = ((ptcs.mass * ptcs.pos) + ... + (ptc.mass * ptc.pos)) / tot_mass;
-    auto cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc.mass * ptc.vel)) / tot_mass;
-    ((ptc.pos -= cm_pos), ..., (ptcs.pos -= cm_pos));
-    ((ptc.vel -= cm_vel), ..., (ptcs.vel -= cm_vel));
+    ((ptc.pos += dp), ..., (ptcs.pos += dp));
   } else if constexpr (is_container_v<Particle>) {
-    using sParticle = typename Particle::value_type;
-    using Scalar = typename sParticle::Scalar;
-    using Vector = typename sParticle::Vector;
-
-    Scalar tot_mass{0};
-    Vector cm_pos{0};
-    Vector cm_vel{0};
-
-    for (auto const &p : ptc) {
-      tot_mass += p.mass;
-      cm_pos += p.mass * p.pos;
-      cm_vel += p.mass * p.vel;
-    }
-
-    cm_pos /= tot_mass;
-    cm_vel /= tot_mass;
-
     for (auto &p : ptc) {
-      p.pos -= cm_pos;
-      p.vel -= cm_vel;
+      p.pos += dp;
     }
+  } else {
+    ptc.pos += dp;
   }
 }
 
-template <typename Particle, typename... Args>
-void move_particles_pos_to(typename Particle::Vector const &centre_mass_pos, Particle &ptc, Args &... ptcs) {
+template <typename Vector, typename Particle, typename... Args>
+void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
+  auto dv = centre_mass_vel - COM_v(ptc, ptcs...);
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
                   "Type of the 1st argument and the rest should be same!");
-    move_to_com_coord(ptc, ptcs...);
-    ((ptc.pos += centre_mass_pos), ..., (ptcs.pos += centre_mass_pos));
+    ((ptc.vel += dv), ..., (ptcs.vel += dv));
   } else if constexpr (is_container_v<Particle>) {
-    move_to_com_coord(ptc);
     for (auto &p : ptc) {
-      p.pos += centre_mass_pos;
+      p.vel += dv;
     }
   } else {
-    ptc.pos = centre_mass_pos;
+    ptc.vel += dv;
   }
 }
 
-template <typename Particle, typename... Args>
-void move_particles_vel_to(typename Particle::Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
+template <typename Vector, typename Particle, typename... Args>
+void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
+  auto dp = centre_mass_pos - COM_p(ptc, ptcs...);
+  auto dv = centre_mass_vel - COM_v(ptc, ptcs...);
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
                   "Type of the 1st argument and the rest should be same!");
-    move_to_com_coord(ptc, ptcs...);
-    ((ptc.vel += centre_mass_vel), ..., (ptcs.vel += centre_mass_vel));
+    ((ptc.pos += dp, ptc.vel += dv), ..., (ptcs.pos += dp, ptcs.vel += dv));
   } else if constexpr (is_container_v<Particle>) {
-    move_to_com_coord(ptc);
     for (auto &p : ptc) {
-      p.vel += centre_mass_vel;
+      p.pos += dp;
+      p.vel += dv;
     }
   } else {
-    ptc.vel = centre_mass_vel;
-  }
-}
-
-template <typename Particle, typename... Args>
-void move_particles_to(typename Particle::Vector const &centre_mass_pos,
-                       typename Particle::Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
-  if constexpr (sizeof...(Args) != 0) {
-    static_assert(calc::all(std::is_same_v<Args, Particle>...),
-                  "Type of the 1st argument and the rest should be same!");
-    move_to_com_coord(ptc, ptcs...);
-    ((ptc.pos += centre_mass_pos), ..., (ptcs.pos += centre_mass_pos));
-    ((ptc.vel += centre_mass_vel), ..., (ptcs.vel += centre_mass_vel));
-  } else if constexpr (is_container_v<Particle>) {
-    move_to_com_coord(ptc);
-    for (auto &p : ptc) {
-      p.pos += centre_mass_pos;
-      p.vel += centre_mass_vel;
-    }
-  } else {
-    ptc.pos = centre_mass_pos;
-    ptc.vel = centre_mass_vel;
+    ptc.pos += dp;
+    ptc.vel += dv;
   }
 }
 
 template <typename Scalar, typename Particle, typename... Args>
-void move_particles_to(OrbitArgs<Scalar> const &args, Particle &ptc, Args &... ptcs) {
+void move_particles(OrbitArgs<Scalar> const &args, Particle &ptc, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 2nd argument and the rest should be same!");
-  using Vector = typename Particle::Vector;
-  Vector cm_pos, cm_vel;
-  orbit_args_to_coord(args, cm_pos, cm_vel);
-  move_particles_to(cm_pos, cm_vel, ptc, ptcs...);
+  auto [cm_pos, cm_vel] = orbit_to_coord(args);
+  move_particles(cm_pos, cm_vel, ptc, ptcs...);
+}
+
+template <typename Particle, typename... Args>
+void move_to_COM_frame(Particle &ptc, Args &... ptcs) {
+  using Vector = decltype(COM_v(ptc, ptcs));
+  move_particles(Vector{0, 0, 0}, Vector{0, 0, 0}, ptc, ptcs...);
 }
 
 template <typename Scalar>
@@ -535,9 +526,13 @@ inline auto calc_eccentricity(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar 
   return calc_eccentricity(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
 }
 
-template <typename Particle>
-inline auto calc_eccentricity(Particle const &p1, Particle const &p2) {
-  return calc_eccentricity(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+template <typename Particle1, typename Particle2>
+inline auto calc_eccentricity(Particle1 const &p1, Particle2 const &p2) {
+  auto m1 = M_tot(p1);
+  auto m2 = M_tot(p2);
+  auto dp = COM_p(p1) - COM_p(p2);
+  auto dv = COM_v(p1) - COM_v(p2);
+  return calc_eccentricity(consts::G * (m1 + m2), dp, dv);
 }
 
 template <typename Vector, typename Scalar>
@@ -552,9 +547,13 @@ inline Scalar calc_semi_major_axis(Scalar u, Scalar dx, Scalar dy, Scalar dz, Sc
   return calc_semi_major_axis(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
 }
 
-template <typename Particle>
-inline auto calc_semi_major_axis(Particle const &p1, Particle const &p2) {
-  return calc_semi_major_axis(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+template <typename Particle1, typename Particle2>
+inline auto calc_semi_major_axis(Particle1 const &p1, Particle2 const &p2) {
+  auto m1 = M_tot(p1);
+  auto m2 = M_tot(p2);
+  auto dp = COM_p(p1) - COM_p(p2);
+  auto dv = COM_v(p1) - COM_v(p2);
+  return calc_semi_major_axis(consts::G * (m1 + m2), dp, dv);
 }
 
 template <typename Vector, typename Scalar>
@@ -577,7 +576,11 @@ inline auto calc_a_e(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scal
 
 template <typename Particle>
 inline auto calc_a_e(Particle const &p1, Particle const &p2) {
-  return calc_a_e(consts::G * (p1.mass + p2.mass), p1.pos - p2.pos, p1.vel - p2.vel);
+  auto m1 = M_tot(p1);
+  auto m2 = M_tot(p2);
+  auto dp = COM_p(p1) - COM_p(p2);
+  auto dv = COM_v(p1) - COM_v(p2);
+  return calc_a_e(consts::G * (m1 + m2), dp, dv);
 }
 
 template <typename Scalar>
@@ -589,28 +592,16 @@ inline auto period(Scalar m1, Scalar m2, Scalar a) {
   }
 }
 
-inline auto period(Kepler const &args) { return period(args.m1, args.m2, args.p / (1 - args.e * args.e)); }
+template <typename Scalar>
+inline auto period(OrbitArgs<Scalar> const &args) {
+  return period(args.m1, args.m2, args.p / (1 - args.e * args.e));
+}
 
 template <typename Particle>
 inline auto period(Particle const &p1, Particle const &p2) {
-  return period(p1.mass, p2.mass, calc_semi_major_axis(p1, p2));
-}
-
-template <typename Particle, typename... Args>
-auto M_tot(Particle &&ptc, Args &&... args) {
-  if constexpr (sizeof...(Args) != 0) {
-    static_assert(calc::all(std::is_same_v<Args, Particle>...),
-                  "Type of the 1st argument and the rest should be same!");
-    return (args.mass + ... + ptc.mass);
-  } else if constexpr (is_container_v<Particle>) {
-    typename Particle::Scaler tot_m = 0;
-    for (auto &p : ptc) {
-      tot_m += p.mass;
-    }
-    return tot_m;
-  } else {
-    return ptc.mass;
-  }
+  auto m1 = M_tot(p1);
+  auto m2 = M_tot(p2);
+  return period(m1, m2, calc_semi_major_axis(p1, p2));
 }
 
 template <typename Particle, typename... Args>
@@ -619,8 +610,8 @@ auto E_k(Particle &&ptc, Args &&... args) {
   using Vector = typename Particle::Vector;
   Scalar kinetic_energy = 0;
 
-  auto com_vel = V_com(std::forward<Particle>(ptc), std::forward<Args>(args)...);
-  move_particles_vel_to(Vector{0, 0, 0}, std::forward<Particle>(ptc), std::forward<Args>(args)...);
+  auto com_vel = COM_v(std::forward<Particle>(ptc), std::forward<Args>(args)...);
+  move_particles_vel(Vector{0, 0, 0}, std::forward<Particle>(ptc), std::forward<Args>(args)...);
 
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
@@ -633,7 +624,7 @@ auto E_k(Particle &&ptc, Args &&... args) {
     }
   }
 
-  move_particles_vel_to(com_vel, std::forward<Particle>(ptc), std::forward<Args>(args)...);
+  move_particles_vel(com_vel, std::forward<Particle>(ptc), std::forward<Args>(args)...);
   return kinetic_energy;
 }
 
@@ -669,23 +660,17 @@ auto E_tot(Particle &&ptc, Args &&... args) {
 
 template <typename Particle>
 inline auto M_rdc(Particle &&m1, Particle &&m2) {
-  if constexpr (HAS_MEMBER(Particle, mass)) {  // if arguments are Particle Type
-    return m1.mass * m2.mass / (m1.mass + m2.mass);
-  } else if constexpr (is_container_v<Particle>) {  // if arguments are two containers
-    auto tot_mass1 = M_tot(m1);
-    auto tot_mass2 = M_tot(m2);
-    return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
-  } else {  // just two floatint point like arguments
-    return m1 * m2 / (m1 + m2);
-  }
+  auto tot_mass1 = M_tot(m1);
+  auto tot_mass2 = M_tot(m2);
+  return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
 }
 
 template <typename Particle, typename... Args>
-auto M_cluster_redu(Particle &&ptc, Args &&... args) {
+auto M_cluster_rdc(Particle &&ptc, Args &&... args) {
   if constexpr (sizeof...(Args) != 0) {
     static_assert(calc::all(std::is_same_v<Args, Particle>...),
                   "Type of the 1st argument and the rest should be same!");
-    return M_cluster_redu(cluster(ptc, args...));
+    return M_cluster_rdc(cluster(ptc, args...));
   } else if constexpr (is_container_v<Particle>) {
     typename Particle::Scaler mass_product = 0;
 
@@ -744,7 +729,7 @@ auto cluster_size(Particle &&ptc, Args &&... args) {
 
 template <typename T1, typename T2, typename Scalar>
 auto E_tid(T1 &&m1, T2 &&m2, Scalar R2) {
-  auto r = distance(orbit::P_com(m1), orbit::P_com(m2));
+  auto r = distance(orbit::COM_p(m1), orbit::COM_p(m2));
   auto m_tot1 = orbit::M_tot(m1);
   auto m_tot2 = orbit::M_tot(m2);
 
@@ -759,7 +744,7 @@ auto E_tid(T1 &&m1, T2 &&m2) {
 
 template <typename T1, typename T2, typename Scalar>
 auto tidal_factor(T1 &&m1, T2 &&m2, Scalar R2) {
-  auto r = distance(orbit::P_com(m1), orbit::P_com(m2));
+  auto r = distance(orbit::COM_p(m1), orbit::COM_p(m2));
   auto m_tot1 = orbit::M_tot(m1);
   auto m_tot2 = orbit::M_tot(m2);
 

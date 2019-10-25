@@ -46,11 +46,11 @@ int main(int argc, char **argv) {
     auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
                               174.9 * deg, 288.1 * deg, 0.0};
 
-    move_particles_to(moon_orbit, moon);
+    move_particles(moon_orbit, moon);
 
-    move_particles_to(earth_orbit, earth, moon);
+    move_particles(earth_orbit, earth, moon);
 
-    move_to_com_coord(sun, earth, moon);
+    move_to_COM_frame(sun, earth, moon);
 
     simulation nbody{0, sun, earth, moon};
 
@@ -84,9 +84,9 @@ int main(int argc, char **argv) {
     auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
                               174.9 * deg, 288.1 * deg, 0.0};
 
-    move_particles_to(earth_orbit, earth);
+    move_particles(earth_orbit, earth);
 
-    move_to_com_coord(sun, earth);
+    move_to_COM_frame(sun, earth);
 
     simulation nbody{0, sun, earth};
 
