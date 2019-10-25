@@ -72,16 +72,28 @@ struct Vec3 {
   Vec3(value_type vx, value_type vy, value_type vz) : x(vx), y(vy), z(vz) {}
 
   /** Addition by wise */
-  inline Vec3 operator+(const Vec3 &v) const { return Vec3(x + v.x, y + v.y, z + v.z); }
+  template <typename U>
+  inline Vec3 operator+(const Vec3<U> &v) const {
+    return Vec3(x + v.x, y + v.y, z + v.z);
+  }
 
   /** Subtraction by wise */
-  inline Vec3 operator-(const Vec3 &v) const { return Vec3(x - v.x, y - v.y, z - v.z); }
+  template <typename U>
+  inline Vec3 operator-(const Vec3<U> &v) const {
+    return Vec3(x - v.x, y - v.y, z - v.z);
+  }
 
   /** Product by wise */
-  inline Vec3 operator*(const Vec3 &v) const { return Vec3(x * v.x, y * v.y, z * v.z); }
+  template <typename U>
+  inline Vec3 operator*(const Vec3<U> &v) const {
+    return Vec3(x * v.x, y * v.y, z * v.z);
+  }
 
   /** Divition by wise */
-  inline Vec3 operator/(const Vec3 &v) const { return Vec3(x / v.x, y / v.y, z / v.z); }
+  template <typename U>
+  inline Vec3 operator/(const Vec3<U> &v) const {
+    return Vec3(x / v.x, y / v.y, z / v.z);
+  }
 
   /** Add scalar by wise */
   inline Vec3 operator+(const value_type c) const { return Vec3(x + c, y + c, z + c); }
@@ -102,25 +114,29 @@ struct Vec3 {
   inline Vec3 abs() const { return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z); }
 
   /** Addition assignment for vector*/
-  inline const Vec3 &operator+=(const Vec3 &v) {
+  template <typename U>
+  inline const Vec3 &operator+=(const Vec3<U> &v) {
     x += v.x, y += v.y, z += v.z;
     return *this;
   }
 
   /** Subtraction assignment for vector*/
-  inline const Vec3 &operator-=(const Vec3 &v) {
+  template <typename U>
+  inline const Vec3 &operator-=(const Vec3<U> &v) {
     x -= v.x, y -= v.y, z -= v.z;
     return *this;
   }
 
   /** Multiple assignment for vector*/
-  inline const Vec3 &operator*=(const Vec3 &v) {
+  template <typename U>
+  inline const Vec3 &operator*=(const Vec3<U> &v) {
     x *= v.x, y *= v.y, z *= v.z;
     return *this;
   }
 
   /** Division assignment for vector*/
-  inline const Vec3 &operator/=(const Vec3 &v) {
+  template <typename U>
+  inline const Vec3 &operator/=(const Vec3<U> &v) {
     x /= v.x, y /= v.y, z /= v.z;
     return *this;
   }
@@ -196,14 +212,14 @@ struct Vec3 {
 };
 
 /** Calculate the Euclid distance of two vectors */
-template <typename T>
-inline T distance(const Vec3<T> &v1, const Vec3<T> &v2) {
+template <typename T1, typename T2>
+inline T1 distance(const Vec3<T1> &v1, const Vec3<T2> &v2) {
   return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
 }
 
 /** Calculate the inner product of two vectors */
-template <typename T>
-inline T dot(const Vec3<T> &v1, const Vec3<T> &v2) {
+template <typename T1, typename T2>
+inline T1 dot(const Vec3<T1> &v1, const Vec3<T2> &v2) {
   return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
 
@@ -226,9 +242,9 @@ inline T norm2(const Vec3<T> &v) {
 }
 
 /** Calculate the cross product of two vectors */
-template <typename T>
-inline Vec3<T> cross(const Vec3<T> &v1, const Vec3<T> &v2) {
-  return Vec3<T>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
+template <typename T1, typename T2>
+inline Vec3<T1> cross(const Vec3<T1> &v1, const Vec3<T2> &v2) {
+  return Vec3<T1>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
 }
 
 /**

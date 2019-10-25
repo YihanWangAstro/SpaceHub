@@ -46,6 +46,7 @@ class IAS15 : public OdeIterator<IAS15<Coords, ErrChecker, StepControl>> {
   Scalar last_PC_error_{math::max_value<Scalar>::value};
   Scalar last_error_{1};
   static constexpr size_t max_iter_{12};
+  bool warmed_up{false};
 };
 /*---------------------------------------------------------------------------*\
       Class IAS15 Implementation
@@ -68,9 +69,9 @@ auto IAS15<Coords, ErrChecker, StepControl>::impl_iterate(U &particles, typename
   for (size_t k = 0; k < max_iter_; ++k) {
     integrator_.calc_B_table(particles, iter_h);
     // Scalar error = err_checker_.error(integrator_.init_acc(), integrator_.b_tab()[6]);
-    // space::std_print(k, ',', iter_h, '\n');
+     //space::std_print(k, ',', iter_h, '\n');
     if (in_converged_window(k)) {
-      Scalar error = err_checker_.error(integrator_.init_acc(), integrator_.b_tab()[6]);
+      Scalar error = err_checker_.error(integrator_.last_acc(), integrator_.b_tab()[6]);
       Scalar new_iter_h =
           step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, std::make_tuple(error, last_error_));
       // space::std_print("stp error ", k, ' ', iter_h, ' ', error, ',', new_iter_h, '\n');
@@ -78,10 +79,12 @@ auto IAS15<Coords, ErrChecker, StepControl>::impl_iterate(U &particles, typename
         integrator_.integrate_to(particles, iter_h, Integrator::final_point);
         integrator_.predict_new_B(new_iter_h / iter_h);
         last_error_ = error;
+        warmed_up = true;
         return new_iter_h;
-      } else {  // current step size is too large, restart the iteration with smaller iterH that has been determined by
-                // current error.
-        integrator_.predict_new_B(new_iter_h / iter_h);
+      } else {
+        if (warmed_up) {
+          integrator_.predict_new_B(new_iter_h / iter_h);
+        }
         iter_h = new_iter_h;
         k = 0;
         reset_PC_iteration();
@@ -101,7 +104,7 @@ void IAS15<Coords, ErrChecker, StepControl>::reset_PC_iteration() {
 
 template <typename Coords, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
 bool IAS15<Coords, ErrChecker, StepControl>::in_converged_window(size_t k) {
-  Scalar PC_error = PC_err_checker_.error(integrator_.init_acc(), last_b_table_[6], integrator_.b_tab()[6]);
+  Scalar PC_error = PC_err_checker_.error(integrator_.last_acc(), last_b_table_[6], integrator_.b_tab()[6]);
   if (PC_error < static_cast<Scalar>(1) || PC_error >= last_PC_error_) {
     reset_PC_iteration();
     return true;

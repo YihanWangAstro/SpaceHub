@@ -15,7 +15,7 @@ template <typename Simulator>
 void run_two_body_test(Simulator &nbody, std::string const &file_name) {
   typename Simulator::RunArgs args;
 
-  auto end_time = 1000 * year;
+  auto end_time = 100 * year;
 
   std::ofstream eng_file(file_name);
 

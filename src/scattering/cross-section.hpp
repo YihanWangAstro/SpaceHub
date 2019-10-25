@@ -25,6 +25,7 @@ License
 #ifndef SPACEHUB_CROSS_SECTION_HPP
 #define SPACEHUB_CROSS_SECTION_HPP
 
+#include "../orbits/operations.hpp"
 #include "../orbits/orbits.hpp"
 #include "../rand-generator.hpp"
 #include "../vector/vector3.hpp"
@@ -35,6 +36,23 @@ License
  */
 namespace space::scattering {
 
+/*---------------------------------------------------------------------------*\
+    Functions Declaration
+\*---------------------------------------------------------------------------*/
+template <typename Scalar>
+auto critical_vel(Scalar m_redu, Scalar E_stay, Scalar E_incident);
+
+template <typename Scalar>
+auto b_max(Scalar v_c, Scalar v_inf, Scalar a_max);
+
+template <typename Scalar>
+auto random_incident(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max, Scalar r);
+
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto random_incident(Cluster1&& stay_cluster, Cluster2&& incident_cluster, Scalar v_inf, Scalar tidal_factor);
+/*---------------------------------------------------------------------------*\
+    Functions Implementation
+\*---------------------------------------------------------------------------*/
 template <typename Scalar>
 auto critical_vel(Scalar m_redu, Scalar E_stay, Scalar E_incident) {
   return sqrt(-2 * (E_stay + E_incident) / m_redu);
@@ -56,8 +74,8 @@ auto random_incident(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_ma
   return std::make_tuple(pos, vel);
 }
 
-template <typename Particle1, typename Particle2, typename Scalar>
-auto random_incident(Particle1&& stay_cluster, Particle2&& incident_cluster, Scalar v_inf, Scalar tidal_factor) {
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto random_incident(Cluster1&& stay_cluster, Cluster2&& incident_cluster, Scalar v_inf, Scalar tidal_factor) {
   auto M_stay = orbit::M_tot(stay_cluster);
   auto M_incident = orbit::M_tot(incident_cluster);
   auto M_reduce = orbit::M_rdc(M_stay, M_incident);
