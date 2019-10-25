@@ -25,8 +25,8 @@ License
 #ifndef SPACEHUB_RAND_GENERATOR_HPP
 #define SPACEHUB_RAND_GENERATOR_HPP
 
-#include <random>
 #include <cmath>
+#include <random>
 #include "multi-thread/multi-thread.hpp"
 
 /**
@@ -34,47 +34,47 @@ License
  * Documentation for space
  */
 namespace space::random {
-  static double Uniform(double low, double high) {
-    static thread_local std::mt19937 generator{std::random_device{}()};
-    std::uniform_real_distribution<double> dist{low, high};
-    return dist(generator);
-  }
+static double Uniform(double low, double high) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  std::uniform_real_distribution<double> dist{low, high};
+  return dist(generator);
+}
 
-  static double Logarithm(double low, double high) {
-    static thread_local std::mt19937 generator{std::random_device{}()};
-    double log_low = log10(low);
-    double log_high = log10(high);
-    std::uniform_real_distribution<double> dist{log_low, log_high};
-    return pow(10, dist(generator));
-  }
+static double Logarithm(double low, double high) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  double log_low = log10(low);
+  double log_high = log10(high);
+  std::uniform_real_distribution<double> dist{log_low, log_high};
+  return pow(10, dist(generator));
+}
 
-  static double PowerLaw(double power, double low, double high) {
-    static thread_local std::mt19937 generator{std::random_device{}()};
-    if (!math::iseq(power, -1.0)) {
-      double beta = power + 1;
-      double f_low = pow(low, beta);
-      double f_high = pow(high, beta);
-      std::uniform_real_distribution<double> dist{f_low, f_high};
-      return pow(dist(generator), 1.0 / beta);
-    } else {
-      return Logarithm(low, high);
-    }
+static double PowerLaw(double power, double low, double high) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  if (!math::iseq(power, -1.0)) {
+    double beta = power + 1;
+    double f_low = pow(low, beta);
+    double f_high = pow(high, beta);
+    std::uniform_real_distribution<double> dist{f_low, f_high};
+    return pow(dist(generator), 1.0 / beta);
+  } else {
+    return Logarithm(low, high);
   }
+}
 
-  static double Normal(double mean = 0, double sigma = 1) {
-    static thread_local std::mt19937 generator{std::random_device{}()};
-    std::normal_distribution<double> dist{mean, sigma};
-    return dist(generator);
-  }
+static double Normal(double mean = 0, double sigma = 1) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  std::normal_distribution<double> dist{mean, sigma};
+  return dist(generator);
+}
 
-  static double Maxwellian(double sigma_1d) {
-    static thread_local std::mt19937 generator{std::random_device{}()};
-    std::normal_distribution<double> dist{0.0, sigma_1d};
-    double x = dist(generator);
-    double y = dist(generator);
-    double z = dist(generator);
-    return sqrt(x * x + y * y + z * z);
-  }
+static double Maxwellian(double sigma_1d) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  std::normal_distribution<double> dist{0.0, sigma_1d};
+  double x = dist(generator);
+  double y = dist(generator);
+  double z = dist(generator);
+  return sqrt(x * x + y * y + z * z);
+}
 }  // namespace space::random
 
-#endif  //SPACEHUB_RAND_GENERATOR_HPP
+#endif  // SPACEHUB_RAND_GENERATOR_HPP

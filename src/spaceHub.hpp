@@ -59,18 +59,18 @@ License
 #include "particle-system/chain-system.hpp"
 #include "particle-system/regu-system.hpp"
 
-#include "integrator/symplectic/symplectic-integrator.hpp"
 #include "integrator/Gauss-Dadau.hpp"
+#include "integrator/symplectic/symplectic-integrator.hpp"
 
+#include "ode-iterator/error-checker/IAS15-error.hpp"
 #include "ode-iterator/error-checker/RMS.hpp"
 #include "ode-iterator/error-checker/worst-offender.hpp"
-#include "ode-iterator/error-checker/IAS15-error.hpp"
 
 #include "ode-iterator/step-controller/PID-controller.hpp"
 
 #include "ode-iterator/Burlish-Stoer.hpp"
-#include "ode-iterator/const-iterator.hpp"
 #include "ode-iterator/IAS15.hpp"
+#include "ode-iterator/const-iterator.hpp"
 
 #include "args-callback/callbacks.hpp"
 
@@ -82,11 +82,12 @@ License
  * Documentation for space
  */
 namespace space {
-  using DefaultTypes = Types<double, std::vector>;
+using DefaultTypes = Types<double, std::vector>;
 
-  using DefaultSolver =
-  Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>, interactions::NewtonianGrav, particle_system::ReguType::LogH>,
-          ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
+using DefaultSolver =
+    Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>, interactions::NewtonianGrav,
+                                             particle_system::ReguType::LogH>,
+              ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
 
 // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
 // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;

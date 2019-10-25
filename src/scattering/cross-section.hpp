@@ -42,7 +42,7 @@ auto random_incident(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_ma
   auto w = random::Uniform(0, 2 * consts::pi);
   auto orbit = orbit::HyperOrbit(m_stay, m_incident, v_inf, b, r, w, 0, 0);
   Vector pos, vel;
-  orbit::oribt_args_to_coord(orbit, pos, vel);
+  orbit::orbit_args_to_coord(orbit, pos, vel);
   return std::make_tuple(pos, vel);
 }
 
@@ -60,7 +60,7 @@ template <typename Particle1, typename Particle2, typename Scalar>
 auto random_incident(Particle1&& stay_cluster, Particle2&& incident_cluster, Scalar v_inf, Scalar tidal_factor) {
   auto M_stay = orbit::M_tot(stay_cluster);
   auto M_incident = orbit::M_tot(incident_cluster);
-  auto M_reduce = orbit::M_redu(M_stay, M_incident);
+  auto M_reduce = orbit::M_rdc(M_stay, M_incident);
   auto v_c = critical_vel(M_reduce, orbit::E_tot(stay_cluster), orbit::E_tot(incident_cluster));
   auto R1 = orbit::cluster_size(stay_cluster);
   auto R2 = orbit::cluster_size(incident_cluster);

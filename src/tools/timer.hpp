@@ -31,65 +31,65 @@ namespace space::tools {
 /*---------------------------------------------------------------------------*\
       Class Timer Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ * High precision timer for benchmark.
+ */
+class Timer {
+  using Time = std::chrono::time_point<std::chrono::high_resolution_clock>;
+
+ public:
   /**
-   * High precision timer for benchmark.
+   * Start the timer.
    */
-  class Timer {
-    using Time = std::chrono::time_point<std::chrono::high_resolution_clock>;
+  void start();
 
-  public:
-    /**
-     * Start the timer.
-     */
-    void start();
+  /**
+   * Get the time in milli-second.
+   * @return Time duration from start().
+   */
+  float get_time();
 
-    /**
-     * Get the time in milli-second.
-     * @return Time duration from start().
-     */
-    float get_time();
+  /**
+   * Pause the timer.
+   */
+  void pause();
 
-    /**
-     * Pause the timer.
-     */
-    void pause();
+  /**
+   * Reset the timer.
+   */
+  void reset();
 
-    /**
-     * Reset the timer.
-     */
-    void reset();
-
-  private:
-    Time start_;
-    float duration_{0};
-    bool active_{false};
-  };
+ private:
+  Time start_;
+  float duration_{0};
+  bool active_{false};
+};
 /*---------------------------------------------------------------------------*\
       Class Timer Implementation
 \*---------------------------------------------------------------------------*/
-  void Timer::start() {
-    active_ = true;
-    start_ = std::chrono::high_resolution_clock::now();
-  }
+void Timer::start() {
+  active_ = true;
+  start_ = std::chrono::high_resolution_clock::now();
+}
 
-  float Timer::get_time() {
-    if (active_) {
-      auto now = std::chrono::high_resolution_clock::now();
-      auto len = std::chrono::duration_cast<std::chrono::milliseconds>(now - start_);
-      return duration_ + static_cast<float>(len.count()) * std::chrono::milliseconds::period::num /
-                         std::chrono::milliseconds::period::den;
-    } else
-      return duration_;
-  }
+float Timer::get_time() {
+  if (active_) {
+    auto now = std::chrono::high_resolution_clock::now();
+    auto len = std::chrono::duration_cast<std::chrono::milliseconds>(now - start_);
+    return duration_ + static_cast<float>(len.count()) * std::chrono::milliseconds::period::num /
+                           std::chrono::milliseconds::period::den;
+  } else
+    return duration_;
+}
 
-  void Timer::pause() {
-    duration_ = get_time();
-    active_ = false;
-  }
+void Timer::pause() {
+  duration_ = get_time();
+  active_ = false;
+}
 
-  void Timer::reset() {
-    active_ = false;
-    duration_ = 0;
-  }
+void Timer::reset() {
+  active_ = false;
+  duration_ = 0;
+}
 }  // namespace space::tools
 #endif

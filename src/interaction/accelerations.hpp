@@ -40,7 +40,7 @@ class Accelerations {
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(Accelerations, default, default, default, default, default);
 
-  explicit Accelerations(size_t size);;
+  explicit Accelerations(size_t size);
 
   // Public methods
   SPACEHUB_STD_ACCESSOR(auto, acc, acc_);
@@ -65,15 +65,16 @@ class Accelerations {
   std::conditional_t<Interactions::ext_vel_dep, Coord, Empty> ext_vel_dep_acc_;
 };
 
-  template<typename Interactions, typename Coord>
-  Accelerations<Interactions, Coord>::Accelerations(size_t size) : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {
-    if constexpr (Interactions::ext_vel_indep) {
-      ext_vel_indep_acc_.resize(size);
-    }
-    if constexpr (Interactions::ext_vel_dep) {
-      ext_vel_dep_acc_.resize(size);
-    }
+template <typename Interactions, typename Coord>
+Accelerations<Interactions, Coord>::Accelerations(size_t size)
+    : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {
+  if constexpr (Interactions::ext_vel_indep) {
+    ext_vel_indep_acc_.resize(size);
   }
+  if constexpr (Interactions::ext_vel_dep) {
+    ext_vel_dep_acc_.resize(size);
+  }
+}
 
 /*---------------------------------------------------------------------------*\
     Class Accelerations Implementation

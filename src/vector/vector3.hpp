@@ -33,228 +33,228 @@ namespace space {
 /**
  * Generic 3-d vector (x,y,z) with Scalar x, y, z.
  * */
-  template<typename T>
-  struct Vec3 {
-  public:
-    /* Typedef */
-    using value_type = T;
-    /* Typedef */
+template <typename T>
+struct Vec3 {
+ public:
+  /* Typedef */
+  using value_type = T;
+  /* Typedef */
 
-    /**
-     * x component.
-     */
-    value_type x{0};
-    /**
-     * y component.
-     */
-    value_type y{0};
+  /**
+   * x component.
+   */
+  value_type x{0};
+  /**
+   * y component.
+   */
+  value_type y{0};
 
-    /**
-     * z component.
-     */
-    value_type z{0};
+  /**
+   * z component.
+   */
+  value_type z{0};
 
-    SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
+  SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
 
-    /**
-     * Create a vector (s,s,s)
-     * @param[in] s single scalar.
-     */
-    explicit Vec3(value_type s) : x(s), y(s), z(s) {}
+  /**
+   * Create a vector (s,s,s)
+   * @param[in] s single scalar.
+   */
+  explicit Vec3(value_type s) : x(s), y(s), z(s) {}
 
-    /**
-     * Create a vector from 3 scalar.
-     *
-     * @param[in] vx x component.
-     * @param[in] vy y component.
-     * @param[in] vz z component.
-     */
-    Vec3(value_type vx, value_type vy, value_type vz) : x(vx), y(vy), z(vz) {}
+  /**
+   * Create a vector from 3 scalar.
+   *
+   * @param[in] vx x component.
+   * @param[in] vy y component.
+   * @param[in] vz z component.
+   */
+  Vec3(value_type vx, value_type vy, value_type vz) : x(vx), y(vy), z(vz) {}
 
-    /** Addition by wise */
-    inline Vec3 operator+(const Vec3 &v) const { return Vec3(x + v.x, y + v.y, z + v.z); }
+  /** Addition by wise */
+  inline Vec3 operator+(const Vec3 &v) const { return Vec3(x + v.x, y + v.y, z + v.z); }
 
-    /** Subtraction by wise */
-    inline Vec3 operator-(const Vec3 &v) const { return Vec3(x - v.x, y - v.y, z - v.z); }
+  /** Subtraction by wise */
+  inline Vec3 operator-(const Vec3 &v) const { return Vec3(x - v.x, y - v.y, z - v.z); }
 
-    /** Product by wise */
-    inline Vec3 operator*(const Vec3 &v) const { return Vec3(x * v.x, y * v.y, z * v.z); }
+  /** Product by wise */
+  inline Vec3 operator*(const Vec3 &v) const { return Vec3(x * v.x, y * v.y, z * v.z); }
 
-    /** Divition by wise */
-    inline Vec3 operator/(const Vec3 &v) const { return Vec3(x / v.x, y / v.y, z / v.z); }
+  /** Divition by wise */
+  inline Vec3 operator/(const Vec3 &v) const { return Vec3(x / v.x, y / v.y, z / v.z); }
 
-    /** Add scalar by wise */
-    inline Vec3 operator+(const value_type c) const { return Vec3(x + c, y + c, z + c); }
+  /** Add scalar by wise */
+  inline Vec3 operator+(const value_type c) const { return Vec3(x + c, y + c, z + c); }
 
-    /** Subtract scalar by wise */
-    inline Vec3 operator-(const value_type c) const { return Vec3(x - c, y - c, z - c); }
+  /** Subtract scalar by wise */
+  inline Vec3 operator-(const value_type c) const { return Vec3(x - c, y - c, z - c); }
 
-    /** Multiply scalar by wise */
-    inline Vec3 operator*(const value_type c) const { return Vec3(x * c, y * c, z * c); }
+  /** Multiply scalar by wise */
+  inline Vec3 operator*(const value_type c) const { return Vec3(x * c, y * c, z * c); }
 
-    /** Divide scalar by wise */
-    inline Vec3 operator/(const value_type c) const { return Vec3(x / c, y / c, z / c); }
+  /** Divide scalar by wise */
+  inline Vec3 operator/(const value_type c) const { return Vec3(x / c, y / c, z / c); }
 
-    /** Opposite vector */
-    inline Vec3 operator-() const { return Vec3(-x, -y, -z); }
+  /** Opposite vector */
+  inline Vec3 operator-() const { return Vec3(-x, -y, -z); }
 
-    /** Absolute value by wise */
-    inline Vec3 abs() const { return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z); }
+  /** Absolute value by wise */
+  inline Vec3 abs() const { return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z); }
 
-    /** Addition assignment for vector*/
-    inline const Vec3 &operator+=(const Vec3 &v) {
-      x += v.x, y += v.y, z += v.z;
-      return *this;
-    }
+  /** Addition assignment for vector*/
+  inline const Vec3 &operator+=(const Vec3 &v) {
+    x += v.x, y += v.y, z += v.z;
+    return *this;
+  }
 
-    /** Subtraction assignment for vector*/
-    inline const Vec3 &operator-=(const Vec3 &v) {
-      x -= v.x, y -= v.y, z -= v.z;
-      return *this;
-    }
+  /** Subtraction assignment for vector*/
+  inline const Vec3 &operator-=(const Vec3 &v) {
+    x -= v.x, y -= v.y, z -= v.z;
+    return *this;
+  }
 
-    /** Multiple assignment for vector*/
-    inline const Vec3 &operator*=(const Vec3 &v) {
-      x *= v.x, y *= v.y, z *= v.z;
-      return *this;
-    }
+  /** Multiple assignment for vector*/
+  inline const Vec3 &operator*=(const Vec3 &v) {
+    x *= v.x, y *= v.y, z *= v.z;
+    return *this;
+  }
 
-    /** Division assignment for vector*/
-    inline const Vec3 &operator/=(const Vec3 &v) {
-      x /= v.x, y /= v.y, z /= v.z;
-      return *this;
-    }
+  /** Division assignment for vector*/
+  inline const Vec3 &operator/=(const Vec3 &v) {
+    x /= v.x, y /= v.y, z /= v.z;
+    return *this;
+  }
 
-    /** Addition assignment for scalar*/
-    inline const Vec3 &operator+=(const value_type c) {
-      x += c, y += c, z += c;
-      return *this;
-    }
+  /** Addition assignment for scalar*/
+  inline const Vec3 &operator+=(const value_type c) {
+    x += c, y += c, z += c;
+    return *this;
+  }
 
-    /** Subtraction assignment for scalar*/
-    inline const Vec3 &operator-=(const value_type c) {
-      x -= c, y -= c, z -= c;
-      return *this;
-    }
+  /** Subtraction assignment for scalar*/
+  inline const Vec3 &operator-=(const value_type c) {
+    x -= c, y -= c, z -= c;
+    return *this;
+  }
 
-    /** Multiple assignment for scalar*/
-    inline const Vec3 &operator*=(const value_type c) {
-      x *= c, y *= c, z *= c;
-      return *this;
-    }
+  /** Multiple assignment for scalar*/
+  inline const Vec3 &operator*=(const value_type c) {
+    x *= c, y *= c, z *= c;
+    return *this;
+  }
 
-    /** Division assignment for scalar*/
-    inline const Vec3 &operator/=(const value_type c) {
-      x /= c, y /= c, z /= c;
-      return *this;
-    }
+  /** Division assignment for scalar*/
+  inline const Vec3 &operator/=(const value_type c) {
+    x /= c, y /= c, z /= c;
+    return *this;
+  }
 
-    /** Assignment operator for scalar*/
-    inline Vec3 &operator=(const value_type s) {
-      x = y = z = s;
-      return *this;
-    }
+  /** Assignment operator for scalar*/
+  inline Vec3 &operator=(const value_type s) {
+    x = y = z = s;
+    return *this;
+  }
 
-    /** Calculate the length of the vector */
-    inline value_type norm() const { return sqrt(x * x + y * y + z * z); }
+  /** Calculate the length of the vector */
+  inline value_type norm() const { return sqrt(x * x + y * y + z * z); }
 
-    /** Calculate the length squre of the vector */
-    inline value_type norm2() const { return (x * x + y * y + z * z); }
+  /** Calculate the length squre of the vector */
+  inline value_type norm2() const { return (x * x + y * y + z * z); }
 
-    /** Find the max component of a vector */
-    inline value_type max_component() const {
-      value_type max = (x > y ? x : y);
-      return max > z ? max : z;
-    }
+  /** Find the max component of a vector */
+  inline value_type max_component() const {
+    value_type max = (x > y ? x : y);
+    return max > z ? max : z;
+  }
 
-    /** Calculate the inverse of the vector length */
-    inline value_type re_norm() const { return 1.0 / sqrt(x * x + y * y + z * z); }
+  /** Calculate the inverse of the vector length */
+  inline value_type re_norm() const { return 1.0 / sqrt(x * x + y * y + z * z); }
 
-    /** operator+ for left scalar operation*/
-    friend Vec3 operator+(const value_type c, const Vec3 &v) { return Vec3(v.x + c, v.y + c, v.z + c); }
+  /** operator+ for left scalar operation*/
+  friend Vec3 operator+(const value_type c, const Vec3 &v) { return Vec3(v.x + c, v.y + c, v.z + c); }
 
-    /** operator- for left scalar operation*/
-    friend Vec3 operator-(const value_type c, const Vec3 &v) { return Vec3(c - v.x, c - v.y, c - v.z); }
+  /** operator- for left scalar operation*/
+  friend Vec3 operator-(const value_type c, const Vec3 &v) { return Vec3(c - v.x, c - v.y, c - v.z); }
 
-    /** operator* for left scalar operation*/
-    friend Vec3 operator*(const value_type c, const Vec3 &v) { return Vec3(v.x * c, v.y * c, v.z * c); }
+  /** operator* for left scalar operation*/
+  friend Vec3 operator*(const value_type c, const Vec3 &v) { return Vec3(v.x * c, v.y * c, v.z * c); }
 
-    /** operator/ for left scalar operation*/
-    friend Vec3 operator/(const value_type c, const Vec3 &v) { return Vec3(c / v.x, c / v.y, c / v.z); }
+  /** operator/ for left scalar operation*/
+  friend Vec3 operator/(const value_type c, const Vec3 &v) { return Vec3(c / v.x, c / v.y, c / v.z); }
 
-    /** output stream */
-    friend std::ostream &operator<<(std::ostream &output, const Vec3 &v) {
-      output << v.x << ',' << v.y << ',' << v.z;
-      return output;
-    }
+  /** output stream */
+  friend std::ostream &operator<<(std::ostream &output, const Vec3 &v) {
+    output << v.x << ',' << v.y << ',' << v.z;
+    return output;
+  }
 
-    /** input stream */
-    friend std::istream &operator>>(std::istream &input, Vec3 &v) {
-      input >> v.x >> v.y >> v.z;
-      return input;
-    }
-  };
+  /** input stream */
+  friend std::istream &operator>>(std::istream &input, Vec3 &v) {
+    input >> v.x >> v.y >> v.z;
+    return input;
+  }
+};
 
 /** Calculate the Euclid distance of two vectors */
-  template<typename T>
-  inline T distance(const Vec3<T> &v1, const Vec3<T> &v2) {
-    return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
-  }
+template <typename T>
+inline T distance(const Vec3<T> &v1, const Vec3<T> &v2) {
+  return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
+}
 
 /** Calculate the inner product of two vectors */
-  template<typename T>
-  inline T dot(const Vec3<T> &v1, const Vec3<T> &v2) {
-    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
-  }
+template <typename T>
+inline T dot(const Vec3<T> &v1, const Vec3<T> &v2) {
+  return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+}
 
-  /** Calculate the length of a vector*/
-  template<typename T>
-  inline T norm(const Vec3<T> &v) {
-    return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-  }
+/** Calculate the length of a vector*/
+template <typename T>
+inline T norm(const Vec3<T> &v) {
+  return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+}
 
-  /**  Calculate the inverse lenght of a vector*/
-  template<typename T>
-  inline T re_norm(const Vec3<T> &v) {
-    return 1.0 / sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-  }
+/**  Calculate the inverse lenght of a vector*/
+template <typename T>
+inline T re_norm(const Vec3<T> &v) {
+  return 1.0 / sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+}
 
-  /** Calculate the length square of a vector*/
-  template<typename T>
-  inline T norm2(const Vec3<T> &v) {
-    return v.x * v.x + v.y * v.y + v.z * v.z;
-  }
+/** Calculate the length square of a vector*/
+template <typename T>
+inline T norm2(const Vec3<T> &v) {
+  return v.x * v.x + v.y * v.y + v.z * v.z;
+}
 
 /** Calculate the cross product of two vectors */
-  template<typename T>
-  inline Vec3<T> cross(const Vec3<T> &v1, const Vec3<T> &v2) {
-    return Vec3<T>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
-  }
+template <typename T>
+inline Vec3<T> cross(const Vec3<T> &v1, const Vec3<T> &v2) {
+  return Vec3<T>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
+}
 
-  /**
-   * Alias for long double 3-d vector
-   */
-  using vec3ld = Vec3<long double>;
-  /**
-   * Alias for double 3-d vector
-   */
-  using vec3d = Vec3<double>;
-  /**
-   * Alias for float 3-d vector
-   */
-  using vec3f = Vec3<float>;
-  /**
-   * Alias for int 3-d vector
-   */
-  using vec3i = Vec3<int>;
-  /**
-   * Alias for char 3-d vector
-   */
-  using vec3c = Vec3<char>;
-  /**
-   * Alias for bool 3-d vector
-   */
-  using vec3b = Vec3<bool>;
+/**
+ * Alias for long double 3-d vector
+ */
+using vec3ld = Vec3<long double>;
+/**
+ * Alias for double 3-d vector
+ */
+using vec3d = Vec3<double>;
+/**
+ * Alias for float 3-d vector
+ */
+using vec3f = Vec3<float>;
+/**
+ * Alias for int 3-d vector
+ */
+using vec3i = Vec3<int>;
+/**
+ * Alias for char 3-d vector
+ */
+using vec3c = Vec3<char>;
+/**
+ * Alias for bool 3-d vector
+ */
+using vec3b = Vec3<bool>;
 }  // namespace space
 
 #include "vector3d.hpp"   //Specilization of Vec3<double> with AVX;

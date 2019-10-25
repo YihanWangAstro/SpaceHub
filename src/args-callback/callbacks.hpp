@@ -26,11 +26,10 @@ License
 #ifndef SPACEHUB_CALLBACKS_HPP
 #define SPACEHUB_CALLBACKS_HPP
 
-
-#include "../tools/timer.hpp"
 #include <fstream>
 #include <iomanip>
 #include <memory>
+#include "../tools/timer.hpp"
 
 /**
  * @namespace space::run_operations
@@ -38,207 +37,198 @@ License
  */
 namespace space::run_operations {
 
-  /*---------------------------------------------------------------------------*\
-     Class TimeSlice Declaration
- \*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*\
+   Class TimeSlice Declaration
+\*---------------------------------------------------------------------------*/
+/**
+ * Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The type of
+ * the parameter must have method `time()`. The wrapped callable object will be invoked for equal spacing time interval
+ * for time provided by time(). This class is basically used to implement equal time operation in simulations. For
+ * example, one can provide a printer `[](auto&p){std::cout << p << std::endl;}` as the pre_step_operation in RunArgs to
+ * output the state of the integrated system. This printer then will be invoked before every step integration. The
+ * output might be very dense sometimes, thus outputting the result of every step is somewhat heavy. If one wraps the
+ * printer with TimeSlice, `TimeSlice([](auto&p){std::cout << p << '\n'}, 0, 100, 10)`, then the output will be
+ * performed only at p.time()=[0,100/10, 2*100/10, 3*100/10,...100].
+ * @tparam Operation Callable object.
+ */
+template <typename Operation>
+class TimeSlice {
+ public:
+  SPACEHUB_MAKE_CONSTRUCTORS(TimeSlice, default, default, default, default, default);
+
   /**
-   * Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The type of
-   * the parameter must have method `time()`. The wrapped callable object will be invoked for equal spacing time interval
-   * for time provided by time(). This class is basically used to implement equal time operation in simulations. For example,
-   * one can provide a printer `[](auto&p){std::cout << p << std::endl;}` as the pre_step_operation in RunArgs to output the
-   * state of the integrated system. This printer then will be invoked before every step integration. The output might be
-   * very dense sometimes, thus outputting the result of every step is somewhat heavy. If one wraps the printer with TimeSlice,
-   * `TimeSlice([](auto&p){std::cout << p << '\n'}, 0, 100, 10)`, then the output will be performed only at p.time()=[0,100/10, 2*100/10,
-   * 3*100/10,...100].
-   * @tparam Operation Callable object.
+   * Constructor of the time slice
+   * @param[in] opt Callable object
+   * @param[in] start The start time of the time slice
+   * @param[in] end The end time of the time slice
+   * @param[in] opt_num The bin number of the time slice. i.e time interval = (end-start)/opt_num
    */
-  template<typename Operation>
-  class TimeSlice {
-  public:
-    SPACEHUB_MAKE_CONSTRUCTORS(TimeSlice, default, default, default, default, default);
+  TimeSlice(Operation const &opt, double start, double end, size_t opt_num = 5000);
 
-    /**
-     * Constructor of the time slice
-     * @param[in] opt Callable object
-     * @param[in] start The start time of the time slice
-     * @param[in] end The end time of the time slice
-     * @param[in] opt_num The bin number of the time slice. i.e time interval = (end-start)/opt_num
-     */
-    TimeSlice(Operation const &opt, double start, double end, size_t opt_num = 5000);
-
-    /**
-     * Callable interface.
-     * @tparam ParticleSys Any type provides method `time()`
-     * @param[in/out] ptc Input parameter.
-     */
-    template<typename ParticleSys>
-    inline void operator()(ParticleSys &ptc);
-
-    /**
-     * Reset the slice parameters.
-     * @param[in] start The start time of the time slice.
-     * @param[in] end The end time of the time slice.
-     * @param[in] opt_num The bin number of the time slice. i.e time interval = (end-start)/opt_num
-     */
-    void reset_slice_params(double start, double end, size_t opt_num = 5000);
-
-  private:
-    Operation opt_;
-    double opt_time_{0};
-    double end_time_{0};
-    double opt_interval_{0};
-  };
-
-  /*---------------------------------------------------------------------------*\
-     Class StepSlice Declaration
- \*---------------------------------------------------------------------------*/
   /**
-   * Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The wrapped
-   * callable object will be invoked for equal spacing steps. This class is basically used to implement equal step operation
-   * in simulations. For example, one can provide a printer `[](auto&p){std::cout << p << std::endl;}` as the pre_step_operation
-   * in RunArgs to output the state of the integrated system. This printer then will be invoked before every step
-   * integration. The output might be very dense sometimes, thus outputting the result of every step is somewhat heavy.
-   * If one wraps the printer with StepSlice, `StepSlice([](auto&p){std::cout << p << '\n'}, 10)`, then the output will be
-   * performed every 10 steps.
-   * @tparam Operation Callable object.
+   * Callable interface.
+   * @tparam ParticleSys Any type provides method `time()`
+   * @param[in/out] ptc Input parameter.
    */
-  template<typename Operation>
-  class StepSlice {
-  public:
-    SPACEHUB_MAKE_CONSTRUCTORS(StepSlice, default, default, default, default, default);
+  template <typename ParticleSys>
+  inline void operator()(ParticleSys &ptc);
 
-    /**
-     * Constructor of step slice.
-     * @param[in] opt Callable object.
-     * @param[in] step_interval Step interval.
-     */
-    explicit StepSlice(Operation const &opt, size_t step_interval = 1);
-
-    /**
-     * Callable interface.
-     * @tparam ParticleSys Any type provides method `time()`
-     * @param[in/out] ptc Input parameter.
-     */
-    template<typename ParticleSys>
-    inline void operator()(ParticleSys &ptc);
-
-    /**
-     * Reset the slice parameters.
-     * @param[in] step_interval Step interval.
-     */
-    void reset_slice_params(size_t step_interval);
-
-  private:
-    Operation opt_;
-    size_t step_{0};
-    size_t step_interval_{0};
-  };
-
-  /*---------------------------------------------------------------------------*\
-     Class DefaultWriter Declaration
- \*---------------------------------------------------------------------------*/
   /**
-   * Default outputer for RunArgs. This class serves as a callable callback object to output data to a file stream.
+   * Reset the slice parameters.
+   * @param[in] start The start time of the time slice.
+   * @param[in] end The end time of the time slice.
+   * @param[in] opt_num The bin number of the time slice. i.e time interval = (end-start)/opt_num
    */
-  class DefaultWriter {
-  public:
+  void reset_slice_params(double start, double end, size_t opt_num = 5000);
 
-    /**
-     * Constructor of the outputer.
-     * @param file_name The file name of the output file stream.
-     */
-    explicit DefaultWriter(std::string const &file_name);
+ private:
+  Operation opt_;
+  double opt_time_{0};
+  double end_time_{0};
+  double opt_interval_{0};
+};
 
-    /**
-     * Callable interface.
-     * @tparam ParticleSys Any type provides method `time()`
-     * @param[in/out] ptc Input parameter.
-     */
-    template<typename ParticleSys>
-    inline void operator()(ParticleSys &ptc);
+/*---------------------------------------------------------------------------*\
+   Class StepSlice Declaration
+\*---------------------------------------------------------------------------*/
+/**
+ * Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The wrapped
+ * callable object will be invoked for equal spacing steps. This class is basically used to implement equal step
+ * operation in simulations. For example, one can provide a printer `[](auto&p){std::cout << p << std::endl;}` as the
+ * pre_step_operation in RunArgs to output the state of the integrated system. This printer then will be invoked before
+ * every step integration. The output might be very dense sometimes, thus outputting the result of every step is
+ * somewhat heavy. If one wraps the printer with StepSlice, `StepSlice([](auto&p){std::cout << p << '\n'}, 10)`, then
+ * the output will be performed every 10 steps.
+ * @tparam Operation Callable object.
+ */
+template <typename Operation>
+class StepSlice {
+ public:
+  SPACEHUB_MAKE_CONSTRUCTORS(StepSlice, default, default, default, default, default);
 
-    template<typename T>
-    friend DefaultWriter &operator<<(DefaultWriter &wtr, T const &d);
+  /**
+   * Constructor of step slice.
+   * @param[in] opt Callable object.
+   * @param[in] step_interval Step interval.
+   */
+  explicit StepSlice(Operation const &opt, size_t step_interval = 1);
 
-  private:
-    std::shared_ptr<std::ofstream> fstream_;
-  };
+  /**
+   * Callable interface.
+   * @tparam ParticleSys Any type provides method `time()`
+   * @param[in/out] ptc Input parameter.
+   */
+  template <typename ParticleSys>
+  inline void operator()(ParticleSys &ptc);
 
+  /**
+   * Reset the slice parameters.
+   * @param[in] step_interval Step interval.
+   */
+  void reset_slice_params(size_t step_interval);
 
-  /*---------------------------------------------------------------------------*\
-     Class TimeSlice Definition
-  \*---------------------------------------------------------------------------*/
-  template<typename Operation>
-  TimeSlice<Operation>::TimeSlice(const Operation &opt, double start, double end, size_t opt_num)
-          : opt_{opt},
-            opt_time_{start},
-            end_time_{end},
-            opt_interval_{(end - start) / opt_num} {}
+ private:
+  Operation opt_;
+  size_t step_{0};
+  size_t step_interval_{0};
+};
 
-  template<typename Operation>
-  template<typename ParticleSys>
-  void TimeSlice<Operation>::operator()(ParticleSys &ptc) {
-    using Scalar = typename ParticleSys::Scalar;
-    auto t = ptc.time();
-    if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
-      opt_(ptc);
-      opt_time_ += opt_interval_;
-    }
+/*---------------------------------------------------------------------------*\
+   Class DefaultWriter Declaration
+\*---------------------------------------------------------------------------*/
+/**
+ * Default outputer for RunArgs. This class serves as a callable callback object to output data to a file stream.
+ */
+class DefaultWriter {
+ public:
+  /**
+   * Constructor of the outputer.
+   * @param file_name The file name of the output file stream.
+   */
+  explicit DefaultWriter(std::string const &file_name);
+
+  /**
+   * Callable interface.
+   * @tparam ParticleSys Any type provides method `time()`
+   * @param[in/out] ptc Input parameter.
+   */
+  template <typename ParticleSys>
+  inline void operator()(ParticleSys &ptc);
+
+  template <typename T>
+  friend DefaultWriter &operator<<(DefaultWriter &wtr, T const &d);
+
+ private:
+  std::shared_ptr<std::ofstream> fstream_;
+};
+
+/*---------------------------------------------------------------------------*\
+   Class TimeSlice Definition
+\*---------------------------------------------------------------------------*/
+template <typename Operation>
+TimeSlice<Operation>::TimeSlice(const Operation &opt, double start, double end, size_t opt_num)
+    : opt_{opt}, opt_time_{start}, end_time_{end}, opt_interval_{(end - start) / opt_num} {}
+
+template <typename Operation>
+template <typename ParticleSys>
+void TimeSlice<Operation>::operator()(ParticleSys &ptc) {
+  using Scalar = typename ParticleSys::Scalar;
+  auto t = ptc.time();
+  if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
+    opt_(ptc);
+    opt_time_ += opt_interval_;
   }
+}
 
-  template<typename Operation>
-  void TimeSlice<Operation>::reset_slice_params(double start, double end, size_t opt_num) {
-    opt_time_ = start;
-    end_time_ = end;
-    opt_interval_ = (end - start) / opt_num;
+template <typename Operation>
+void TimeSlice<Operation>::reset_slice_params(double start, double end, size_t opt_num) {
+  opt_time_ = start;
+  end_time_ = end;
+  opt_interval_ = (end - start) / opt_num;
+}
+
+/*---------------------------------------------------------------------------*\
+    Class StepSlice Definition
+\*---------------------------------------------------------------------------*/
+template <typename Operation>
+StepSlice<Operation>::StepSlice(const Operation &opt, size_t step_interval)
+    : opt_{opt}, step_interval_{step_interval} {}
+
+template <typename Operation>
+template <typename ParticleSys>
+void StepSlice<Operation>::operator()(ParticleSys &ptc) {
+  if (step_ % step_interval_ == 0) {
+    opt_(ptc);
   }
+  step_++;
+}
 
-
-  /*---------------------------------------------------------------------------*\
-      Class StepSlice Definition
-  \*---------------------------------------------------------------------------*/
-  template<typename Operation>
-  StepSlice<Operation>::StepSlice(const Operation &opt, size_t step_interval)
-          : opt_{opt},
-            step_interval_{step_interval} {}
-
-  template<typename Operation>
-  template<typename ParticleSys>
-  void StepSlice<Operation>::operator()(ParticleSys &ptc) {
-    if (step_ % step_interval_ == 0) {
-      opt_(ptc);
-    }
-    step_++;
-  }
-
-  template<typename Operation>
-  void StepSlice<Operation>::reset_slice_params(size_t step_interval) {
-    step_ = 0;
-    step_interval_ = step_interval;
-  }
+template <typename Operation>
+void StepSlice<Operation>::reset_slice_params(size_t step_interval) {
+  step_ = 0;
+  step_interval_ = step_interval;
+}
 
 /*---------------------------------------------------------------------------*\
      Class DefaultWriter Definition
 \*---------------------------------------------------------------------------*/
-  DefaultWriter::DefaultWriter(std::string const &file_name)
-          : fstream_{std::make_shared<std::ofstream>(file_name)} {
-    if (!fstream_->is_open()) {
-      spacehub_abort("Fail to open the file " + file_name);
-    } else {
-      (*fstream_) /*<< std::fixed*/ << std::setprecision(16);
-    }
-  }
-
-  template<typename ParticleSys>
-  void DefaultWriter::operator()(ParticleSys &ptc) {
-    *fstream_ << ptc << '\n';
-  }
-
-  template<typename T>
-  DefaultWriter &operator<<(DefaultWriter &wtr, const T &d) {
-    (*wtr.fstream_) << d;
-    return wtr;
+DefaultWriter::DefaultWriter(std::string const &file_name) : fstream_{std::make_shared<std::ofstream>(file_name)} {
+  if (!fstream_->is_open()) {
+    spacehub_abort("Fail to open the file " + file_name);
+  } else {
+    (*fstream_) /*<< std::fixed*/ << std::setprecision(16);
   }
 }
-#endif
 
+template <typename ParticleSys>
+void DefaultWriter::operator()(ParticleSys &ptc) {
+  *fstream_ << ptc << '\n';
+}
+
+template <typename T>
+DefaultWriter &operator<<(DefaultWriter &wtr, const T &d) {
+  (*wtr.fstream_) << d;
+  return wtr;
+}
+}  // namespace space::run_operations
+#endif

@@ -337,7 +337,7 @@ inline TYPE const & NAME () const noexcept {                                    
 
 /** @brief Macros used to static_assert if a class has a member. */
 #define CHECK_MEMBER(CLASS, MB)                                                                                        \
-      static_assert(has_ ## MB<C>::value,                                                                        \
+      static_assert(has_ ## MB<C>::value,                                                                              \
             "Template argument '" # CLASS  "' must have member '"  # MB  "'. ");
 
 /** @brief Macros used to static_assert if a class has a static member.*/
