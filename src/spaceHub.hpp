@@ -74,7 +74,7 @@ License
 
 #include "args-callback/callbacks.hpp"
 
-#include "orbits/operations.hpp"
+#include "orbits/particle-manip.hpp"
 #include "orbits/orbits.hpp"
 
 #include "tools/auto-name.hpp"

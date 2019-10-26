@@ -18,8 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file orbits.hpp
- *
+ * @file orbits/orbits.hpp
  * Header file.
  */
 #ifndef SPACEHUB_ORBITS_HPP
@@ -32,17 +31,226 @@ License
 #include "../vector/vector3.hpp"
 /**
  * @namespace space::orbit
- * Documentation for space
+ * Documentation
  */
 namespace space::orbit {
 
+/*---------------------------------------------------------------------------*\
+     Class OrbitArgs Declaration
+\*---------------------------------------------------------------------------*/
+/**
+ * @brief Enum of kepler orbit type. Possible value: Ellipse, Parabola, Hyperbola, None.
+ */
+enum class OrbitType { Ellipse, Parabola, Hyperbola, None };
+
+/**
+ * @brief A place holder that indicates one of the three angles in orbital parameters will be randomly generaged.
+ */
+struct RandomIndicator {
+} isotherm;
+
+/**
+ * @brief Orbital parameters of the Kepler orbit.
+ *@tparam Real Floating point like type.
+ */
+template <typename Real>
+struct KeplerOrbit {
+ public:
+  /**
+   * @brief Floating point like type.
+   */
+  using Scalar = Real;
+
+  /**
+   * @brief Variant that can hold both a Scalar OR a random indictor.
+   */
+  using Variant = std::variant<Real, RandomIndicator>;
+  /**
+   *  @brief Mass of the primary object.
+   */
+  Scalar m1;
+  /**
+   * @brief Mass of the secondary object.
+   */
+  Scalar m2;
+  /**
+   *  @brief Eccentricity of the orbit.
+   */
+  Scalar e;
+  /**
+   *  @brief Semi-latus rectum of the orbit @f[ a(1-e^2) @f] .
+   *
+   * We don't use semi-major axis for this general orbital type because the semi-major axis for parabolic orbit is
+   * undefined.
+   */
+  Scalar p;
+  /**
+   *  @brief Orbit inclination.
+   */
+  Scalar i;
+  /**
+   *  @brief Longitude of the ascending node.
+   */
+  Scalar Omega;
+  /**
+   *  @brief Argument of periapsis.
+   */
+  Scalar omega;
+  /**
+   *  @brief True anomaly.
+   */
+  Scalar nu;
+  /**
+   *  @brief Orbit type.
+   */
+  OrbitType orbit_type;
+
+  SPACEHUB_MAKE_CONSTRUCTORS(KeplerOrbit, default, default, default, default, default);
+
+  /**
+   * @brief Construct a new Orbit Args object from orbital parameters
+   *
+   * @param[in] m_1 Mass of the primary object.
+   * @param[in] m_2 Mass of the secondary object.
+   * @param[in] semi_latus_rectum Semi-latus rectum.
+   * @param[in] eccentricity Eccentricity.
+   * @param[in] inclination Inclination.
+   * @param[in] longitude_of_ascending_node Longitude of the ascending node.
+   * @param[in] argument_of_periapsis Argument of the periapsis.
+   * @param[in] true_anomaly True anomaly.
+   */
+  KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity, Variant inclination,
+              Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
+
+  /**
+   * @brief Suffle the inclination.
+   */
+  inline void shuffle_i();
+
+  /**
+   * @brief Suffle the Longitude of the ascending node.
+   */
+  inline void shuffle_Omega();
+
+  /**
+   * @brief Suffle the Argument of periapsis.
+   */
+  inline void shuffle_omega();
+
+  /**
+   * @brief Suffle the true anomaly.
+   */
+  inline void shuffle_nu();
+
+  /**
+   * @brief Write the orbit to an ouput stream.
+   *
+   * @param os[out] Output stream
+   * @param obt[in] Orbit parameters.
+   * @return std::ostream& Output stream.
+   */
+  friend std::ostream &operator<<(std::ostream &os, KeplerOrbit const &obt) {
+    space::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
+    return os;
+  }
+};
+
+/**
+ * @brief Alias of OrbitArgs<double>.
+ */
+using Kepler = KeplerOrbit<double>;
+
+/*---------------------------------------------------------------------------*\
+     Class HyperOrbit Declaration
+\*---------------------------------------------------------------------------*/
+/**
+ * @brief Enum type that indicates the trajectory is hyperbolically incident in or hyperbolically eject out.
+ */
+enum class Hyper { in, out };
+
+/**
+ * @brief Derived class of Kepler orbit. Hyperbolic orbit.
+ */
+struct HyperOrbit : public KeplerOrbit<double> {
+ public:
+  /**
+   * @brief Variant that can hold both a Scalar OR a random indictor.
+   */
+  using Variant = typename KeplerOrbit<double>::Variant;
+  /**
+   * @brief Floating point like type.
+   */
+  using Scalar = typename KeplerOrbit<double>::Scalar;
+
+  SPACEHUB_MAKE_CONSTRUCTORS(HyperOrbit, delete, default, default, default, default);
+
+  /**
+   * @brief Construct a new Hyper Orbit object from scattering parameter b:impact parameter, v_inf:velocity at infinity.
+   *
+   * @param[in] m_1 Mass of the primary object: Stayed object.
+   * @param[in] m_2 Mass of the secondary object: incident object.
+   * @param[in]  v_inf Velocity at infinity.
+   * @param[in]  b Impact parameter.
+   * @param[in]  r Distance between the two objects.
+   * @param[in]  inclination Orbit inclination
+   * @param[in]  longitude_of_ascending_node Longitude of the ascending node.
+   * @param[in]  argument_of_periapsis Argument of the periapsis.
+   * @param[in]  in_out  Indicator of incident in or ejected out
+   */
+  HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
+             Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in);
+};
+
+/*---------------------------------------------------------------------------*\
+     Class EllipOrbit Declaration
+\*---------------------------------------------------------------------------*/
+/**
+ * @brief Derived class of Kepler orbit. Elliptical orbit.
+ */
+struct EllipOrbit : public KeplerOrbit<double> {
+ public:
+  /**
+   * @brief Variant that can hold both a Scalar OR a random indictor.
+   */
+  using Variant = typename KeplerOrbit<double>::Variant;
+  /**
+   * @brief Floating point like type.
+   */
+  using Scalar = typename KeplerOrbit<double>::Scalar;
+
+  SPACEHUB_MAKE_CONSTRUCTORS(EllipOrbit, delete, default, default, default, default);
+
+  /**
+   * @brief Construct a new Ellip Orbit object from orbital parameters.
+   *
+   * @param[in] m_1 Mass of the primary object.
+   * @param[in] m_2 Mass of the secondary object.
+   * @param[in] semi_major_axis Semi-major axis.
+   * @param[in] eccentricity Eccentricity.
+   * @param[in] inclination Inclination.
+   * @param[in] longitude_of_ascending_node Longitude of the ascending node.
+   * @param[in] argument_of_periapsis Argument of periapsis.
+   * @param [in]true_anomaly True anomaly.
+   */
+  EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
+             Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
+
+  /**
+   * @brief Semi-major axis.
+   */
+  Scalar a{0};
+};
+
+/*---------------------------------------------------------------------------*\
+     Help functions
+\*---------------------------------------------------------------------------*/
 template <typename Scalar>
-inline Scalar myacos(Scalar x) {
+Scalar myacos(Scalar x) {
   return acos(math::in_range(-1.0, x, 1.0));
 }
 
 template <typename Scalar>
-inline constexpr auto semi_latus_rectum(Scalar a, Scalar e) {
+constexpr auto semi_latus_rectum(Scalar a, Scalar e) {
   return a * (1 - e * e);
 }
 
@@ -100,8 +308,6 @@ Scalar calc_eccentric_anomaly(Scalar mean_anomaly, Scalar e) {
   }
 }
 
-enum class OrbitType { Ellipse, Parabola, Hyperbola, None };
-
 template <typename T>
 constexpr OrbitType classify_orbit(T eccentricity) {
   if (0 <= eccentricity && eccentricity < 1) {
@@ -115,60 +321,14 @@ constexpr OrbitType classify_orbit(T eccentricity) {
   }
 }
 
-struct RandomIndicator {
-} isotherm;
-
-/*---------------------------------------------------------------------------*\
-     Class OrbitArgs Declaration
-\*---------------------------------------------------------------------------*/
-/**
-
- *@tparam Real
- */
-template <typename Real>
-struct OrbitArgs {
- private:
-  using Variant = std::variant<Real, RandomIndicator>;
-
- public:
-  using Scalar = Real;
-  // Scalar u;//gravitational parameter
-  Scalar m1;
-  Scalar m2;
-  Scalar e;      // eccentricity
-  Scalar p;      // semi-latus rectum
-  Scalar i;      // inclination
-  Scalar Omega;  // longitude of the ascending node
-  Scalar omega;  // argument of periapsis
-  Scalar nu;     // true anomaly
-  OrbitType orbit_type;
-
-  OrbitArgs() = default;
-
-  OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant inclination,
-            Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
-
-  inline void shuffle_i();
-
-  inline void shuffle_Omega();
-
-  inline void shuffle_omega();
-
-  inline void shuffle_nu();
-
-  friend std::ostream &operator<<(std::ostream &os, OrbitArgs const &obt) {
-    space::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
-    return os;
-  }
-};
-
 /*---------------------------------------------------------------------------*\
      Class OrbitArgs Implementation
 \*---------------------------------------------------------------------------*/
 template <typename Real>
-OrbitArgs<Real>::OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar eccentricity, Variant inclination,
-                           Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly) {
-  if (periastron < 0) spacehub_abort("Semi-latus rectum cannot be negative");
+KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity,
+                               Variant inclination, Variant longitude_of_ascending_node, Variant argument_of_periapsis,
+                               Variant true_anomaly) {
+  if (semi_latus_rectum < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
   orbit_type = classify_orbit(eccentricity);
 
@@ -178,7 +338,7 @@ OrbitArgs<Real>::OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar ecc
 
   m1 = m_1;
   m2 = m_2;
-  p = periastron;
+  p = semi_latus_rectum;
   e = eccentricity;
 
   if (std::holds_alternative<Scalar>(inclination)) {
@@ -207,22 +367,22 @@ OrbitArgs<Real>::OrbitArgs(Scalar m_1, Scalar m_2, Scalar periastron, Scalar ecc
 }
 
 template <typename Real>
-void OrbitArgs<Real>::shuffle_i() {
+void KeplerOrbit<Real>::shuffle_i() {
   i = acos(random::Uniform(-1, 1));
 }
 
 template <typename Real>
-void OrbitArgs<Real>::shuffle_Omega() {
+void KeplerOrbit<Real>::shuffle_Omega() {
   Omega = random::Uniform(-consts::pi, consts::pi);
 }
 
 template <typename Real>
-void OrbitArgs<Real>::shuffle_omega() {
+void KeplerOrbit<Real>::shuffle_omega() {
   omega = random::Uniform(-consts::pi, consts::pi);
 }
 
 template <typename Real>
-void OrbitArgs<Real>::shuffle_nu() {
+void KeplerOrbit<Real>::shuffle_nu() {
   if (orbit_type == OrbitType::Ellipse) {
     Scalar M = random::Uniform(-consts::pi, consts::pi);
     Scalar E = orbit::calc_eccentric_anomaly(M, e);
@@ -232,32 +392,12 @@ void OrbitArgs<Real>::shuffle_nu() {
   }
 }
 
-using Kepler = OrbitArgs<double>;
-
-enum class Hyper { in, out };
-
 /*---------------------------------------------------------------------------*\
-     Class HyperOrbit Declaration
-\*---------------------------------------------------------------------------*/
-struct HyperOrbit : public OrbitArgs<double> {
- private:
-  using Variant = std::variant<double, RandomIndicator>;
-
- public:
-  using Scalar = double;
-
-  HyperOrbit() = default;
-
-  HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
-             Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in);
-};
-
-/*---------------------------------------------------------------------------*\
-     Class HyperOrbit Implementaion
+     Class HyperOrbit Implementation
 \*---------------------------------------------------------------------------*/
 HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
                        Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out)
-    : OrbitArgs<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
+    : KeplerOrbit<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
   this->orbit_type = OrbitType::Hyperbola;
   Scalar u = space::consts::G * (m_1 + m_2);
   Scalar a = -u / (v_inf * v_inf);
@@ -270,30 +410,12 @@ HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r,
 }
 
 /*---------------------------------------------------------------------------*\
-     Class EllipOrbit Declaration
-\*---------------------------------------------------------------------------*/
-struct EllipOrbit : public OrbitArgs<double> {
- private:
-  using Variant = std::variant<double, RandomIndicator>;
-
- public:
-  using Scalar = double;
-
-  Scalar a{0};
-
-  EllipOrbit() = default;
-
-  EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
-             Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
-};
-
-/*---------------------------------------------------------------------------*\
      Class EllipOrbit Implementation
 \*---------------------------------------------------------------------------*/
 EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
                        Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly)
-    : OrbitArgs<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,
-                        longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
+    : KeplerOrbit<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,
+                          longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
   if (this->orbit_type != OrbitType::Ellipse) {
     spacehub_abort("The given parameters don't give an elliptic orbit.");
   }
@@ -301,10 +423,27 @@ EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar ec
 }
 
 /*---------------------------------------------------------------------------*\
-    Functions Implementation
+    Help functions
 \*---------------------------------------------------------------------------*/
 template <typename Vector, typename Scalar>
-void coord_to_orbit(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, OrbitArgs<Scalar> &args) {
+void orbit_to_coord(const KeplerOrbit<Scalar> &args, Vector &pos, Vector &vel) {
+  Scalar u = (args.m1 + args.m2) * consts::G;
+
+  Scalar sin_nu = sin(args.nu);
+  Scalar cos_nu = cos(args.nu);
+
+  Scalar r = args.p / (1 + args.e * cos_nu);
+  Scalar v = sqrt(u / args.p);
+
+  pos = r * Vector(cos_nu, sin_nu, 0);
+  vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
+
+  orbit::euler_rotate(pos, args.Omega, args.i, args.omega + consts::pi);
+  orbit::euler_rotate(vel, args.Omega, args.i, args.omega + consts::pi);
+}
+
+template <typename Vector, typename Scalar>
+void coord_to_orbit(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, KeplerOrbit<Scalar> &args) {
   Vector L = cross(dr, dv);
   Vector N = cross(Vector(0, 0, 1.0), L);
   Scalar r = norm(dr);
@@ -351,25 +490,8 @@ void coord_to_orbit(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, Or
   }
 }
 
-template <typename Vector, typename Scalar>
-void orbit_to_coord(OrbitArgs<Scalar> const &args, Vector &pos, Vector &vel) {
-  Scalar u = (args.m1 + args.m2) * consts::G;
-
-  Scalar sin_nu = sin(args.nu);
-  Scalar cos_nu = cos(args.nu);
-
-  Scalar r = args.p / (1 + args.e * cos_nu);
-  Scalar v = sqrt(u / args.p);
-
-  pos = r * Vector(cos_nu, sin_nu, 0);
-  vel = v * Vector(-sin_nu, args.e + cos_nu, 0);
-
-  orbit::euler_rotate(pos, args.Omega, args.i, args.omega + consts::pi);
-  orbit::euler_rotate(vel, args.Omega, args.i, args.omega + consts::pi);
-}
-
 template <typename Scalar>
-auto orbit_to_coord(OrbitArgs<Scalar> const &args) {
+auto orbit_to_coord(KeplerOrbit<Scalar> const &args) {
   using Vector = Vec3<Scalar>;
 
   Scalar u = (args.m1 + args.m2) * consts::G;
@@ -440,7 +562,7 @@ inline auto period(Scalar m1, Scalar m2, Scalar a) {
 }
 
 template <typename Scalar>
-inline auto period(OrbitArgs<Scalar> const &args) {
+inline auto period(KeplerOrbit<Scalar> const &args) {
   return period(args.m1, args.m2, args.p / (1 - args.e * args.e));
 }
 

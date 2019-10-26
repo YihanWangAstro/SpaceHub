@@ -183,7 +183,7 @@ namespace space::particle_system {
   template<typename STL>
   SimpleSystem<Particles, Interactions>::SimpleSystem(Scalar time, const STL &particle_set) : ptcl_(time, particle_set),
                                                                                               accels_(particle_set.size()) {
-    static_assert(is_container_v<STL>, "Only STL-like container can be used");
+    static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
     if constexpr (Interactions::ext_vel_dep) {
       aux_vel_ = ptcl_.vel();
     }

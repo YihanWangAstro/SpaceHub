@@ -180,7 +180,7 @@ template <typename Particles, typename Interactions, ReguType RegType>
 template <typename STL>
 RegularizedSystem<Particles, Interactions, RegType>::RegularizedSystem(Scalar time, const STL &particle_set)
     : ptcl_(time, particle_set), accels_(particle_set.size()), regu_(ptcl_) {
-  static_assert(is_container_v<STL>, "Only STL-like container can be used");
+  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
   if constexpr (Interactions::ext_vel_dep) {
     aux_vel_ = ptcl_.vel();
   }

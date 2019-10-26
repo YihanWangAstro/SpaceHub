@@ -345,7 +345,7 @@ void RunArgs<ParticleSys>::add_stop_condition(T end) {
 template <typename ParticleSys, typename OdeIterator>
 template <typename STL>
 Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set) : particles_(time, particle_set) {
-  static_assert(is_container_v<STL>, "Only STL-like container can be used");
+  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
 }
 
 template <typename ParticleSys, typename OdeIterator>

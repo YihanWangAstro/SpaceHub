@@ -34,13 +34,13 @@ License
  * Documentation for space
  */
 namespace space::random {
-static double Uniform(double low, double high) {
+inline static double Uniform(double low, double high) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   std::uniform_real_distribution<double> dist{low, high};
   return dist(generator);
 }
 
-static double Logarithm(double low, double high) {
+inline static double Logarithm(double low, double high) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   double log_low = log10(low);
   double log_high = log10(high);
@@ -48,7 +48,7 @@ static double Logarithm(double low, double high) {
   return pow(10, dist(generator));
 }
 
-static double PowerLaw(double power, double low, double high) {
+inline static double PowerLaw(double power, double low, double high) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   if (!math::iseq(power, -1.0)) {
     double beta = power + 1;
@@ -61,13 +61,13 @@ static double PowerLaw(double power, double low, double high) {
   }
 }
 
-static double Normal(double mean = 0, double sigma = 1) {
+inline static double Normal(double mean = 0, double sigma = 1) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   std::normal_distribution<double> dist{mean, sigma};
   return dist(generator);
 }
 
-static double Maxwellian(double sigma_1d) {
+inline static double Maxwellian(double sigma_1d) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   std::normal_distribution<double> dist{0.0, sigma_1d};
   double x = dist(generator);

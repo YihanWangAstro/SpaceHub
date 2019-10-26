@@ -24,10 +24,10 @@
 
 :root {
   /* Text properties */
-  --font: "Source Sans Pro", sans-serif;
-  --code-font: "Inconsolata", monospace;
+  --font: 'Source Sans Pro', sans-serif;
+  --code-font: 'Source Code Pro', monospace;
   --font-size: 16px;
-  --code-font-size: 0.7em; /* *not* rem, so it follows surrounding font size */
+  --code-font-size: 0.9em; /* *not* rem, so it follows surrounding font size */
   --line-height: normal;
   --paragraph-indent: 1.5rem;
   --paragraph-align: justify;

@@ -18,27 +18,43 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file operations.hpp
+ * @file orbits/particle-manip.hpp
  *
  * Header file.
  */
-#ifndef SPACEHUB_OPERATIONS_HPP
-#define SPACEHUB_OPERATIONS_HPP
+#ifndef SPACEHUB_PARTICLE_MANIP_HPP
+#define SPACEHUB_PARTICLE_MANIP_HPP
 
 #include "../dev-tools.hpp"
 #include "orbits.hpp"
 
 namespace space::orbit {
-
+/**
+ * @brief Create a std::ranges like(Container) from individual particles.
+ *
+ * @tparam Particle Type of particle.
+ * @tparam Args Types of particle, should be same as Particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
+ * @param[in] ptcs The rest if exits.
+ * @return auto The containers contains input particles.
+ */
 template <typename Particle, typename... Args>
 auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the arguments must be same!");
   return std::initializer_list<Particle>{ptc1, ptc2, ptcs...};
 }
 
+/**
+ * @brief Calculate the total mass of a cluster of particles/single particle.
+ *
+ * @tparam[in] Cluster std::ranges(Container) like type/Type of single particle.
+ * @param[in] ptc particle container/single particle.
+ * @return auto The total mass of the particle cluster/single particle.
+ */
 template <typename Cluster>
 inline auto M_tot(Cluster &&ptc) {
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     typename Cluster::value_type::Scalar tot_m = 0;
     for (auto &p : ptc) {
       tot_m += p.mass;
@@ -49,15 +65,31 @@ inline auto M_tot(Cluster &&ptc) {
   }
 }
 
+/**
+ * @brief Calculate the total mass of particles.
+ *
+ * @tparam Particle Type of the particle.
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] args The rest particles if exits.
+ * @return auto The total mass of particles
+ */
 template <typename Particle, typename... Args>
 inline auto M_tot(Particle &&ptc, Args &&... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
   return (args.mass + ... + ptc.mass);
 }
 
+/**
+ * @brief Calculate the centre of mass position of a particle cluster/single particle
+ *
+ * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @param[in] ptc particle container/single particle.
+ * @return auto The centre of mass position of the particle cluster/single particle.
+ */
 template <typename Cluster>
 inline auto COM_p(Cluster const &ptc) {
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     using Particle = typename Cluster::value_type;
     using Scalar = typename Particle::Scalar;
     using Vector = typename Particle::Vector;
@@ -76,6 +108,15 @@ inline auto COM_p(Cluster const &ptc) {
   }
 }
 
+/**
+ * @brief Calculate the centre of mass position of particles.
+ *
+ * @tparam Particle Type of the particle.
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] ptcs The rest particles if exist.
+ * @return auto The centre of mass position of particles.
+ */
 template <typename Particle, typename... Args>
 inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -84,9 +125,16 @@ inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
   return cm_pos;
 }
 
+/**
+ * @brief Calculate the centre of mass velocity of a particle cluster/single particle
+ *
+ * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @param[in] ptc particle container/single particle.
+ * @return auto The centre of mass velocity of the particle cluster/single particle.
+ */
 template <typename Cluster>
 inline auto COM_v(Cluster const &ptc) {
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     using Particle = typename Cluster::value_type;
     using Scalar = typename Particle::Scalar;
     using Vector = typename Particle::Vector;
@@ -107,6 +155,15 @@ inline auto COM_v(Cluster const &ptc) {
   }
 }
 
+/**
+ * @brief Calculate the centre of mass velocity of particles.
+ *
+ * @tparam Particle Type of the particle.
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] ptcs The rest particles if exist.
+ * @return auto The centre of mass velocity of particles.
+ */
 template <typename Particle, typename... Args>
 inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -116,6 +173,15 @@ inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
   return cm_vel;
 }
 
+/**
+ * @brief The reduced mass of two clusters(cluster can also be a single particle).
+ *
+ * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @param m1[in] The first cluster/first single particle.
+ * @param m2[in] The second cluster/second single particle.
+ * @return auto The reduced mass of the two clusters(cluster can also be a single particle).
+ */
 template <typename Cluster1, typename Cluster2>
 inline auto M_rdc(Cluster1 &&m1, Cluster2 &&m2) {
   auto tot_mass1 = M_tot(m1);
@@ -123,10 +189,18 @@ inline auto M_rdc(Cluster1 &&m1, Cluster2 &&m2) {
   return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
 }
 
+/**
+ * @brief Move the centre of mass position of a cluster(can be a single particle) to a specific position.
+ *
+ * @tparam Vector 3-D Vector type.
+ * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @param[in] centre_mass_pos The target centre of mass position.
+ * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
+ */
 template <typename Vector, typename Cluster>
 void move_particles_pos(Vector const &centre_mass_pos, Cluster &ptc) {
   auto dp = centre_mass_pos - COM_p(ptc);
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     for (auto &p : ptc) {
       p.pos += dp;
     }
@@ -135,6 +209,16 @@ void move_particles_pos(Vector const &centre_mass_pos, Cluster &ptc) {
   }
 }
 
+/**
+ * @brief Move the centre of mass position of particles to a specific position.
+ *
+ * @tparam Vector 3-D Vector type.
+ * @tparam Particle Type of the particle.
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] centre_mass_pos The target centre of mass position.
+ * @param[in,out] ptc The first particle needs to be moved.
+ * @param[in,out] ptcs The rest particles need to be moved.
+ */
 template <typename Vector, typename Particle, typename... Args>
 void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -142,10 +226,18 @@ void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc, Args &... 
   ((ptc.pos += dp), ..., (ptcs.pos += dp));
 }
 
+/**
+ * @brief Move the centre of mass velocity of a cluster(can be a single particle) to a specific velocity.
+ *
+ * @tparam Vector 3-D Vector type.
+ * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @param[in] centre_mass_vel The target centre of mass position.
+ * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
+ */
 template <typename Vector, typename Cluster>
 void move_particles_vel(Vector const &centre_mass_vel, Cluster &ptc) {
   auto dv = centre_mass_vel - COM_v(ptc);
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     for (auto &p : ptc) {
       p.vel += dv;
     }
@@ -154,6 +246,16 @@ void move_particles_vel(Vector const &centre_mass_vel, Cluster &ptc) {
   }
 }
 
+/**
+ * @brief Move the centre of mass velocity of particles to a specific velocity.
+ *
+ * @tparam Vector 3-D Vector type.
+ * @tparam Particle Type of the particle.
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] centre_mass_vel The target centre of mass position.
+ * @param[in,out] ptc The first particle needs to be moved.
+ * @param[in,out] ptcs The rest particles need to be moved.
+ */
 template <typename Vector, typename Particle, typename... Args>
 void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -161,11 +263,21 @@ void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc, Args &... 
   ((ptc.vel += dv), ..., (ptcs.vel += dv));
 }
 
+/**
+ * @brief Move the centre of mass position and velocity of a cluster(can be a single particle)  to a specific position
+ * and velocity.
+ *
+ * @tparam Vector 3-D Vector type.
+ * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @param centre_mass_pos[in] The target centre of mass position.
+ * @param centre_mass_vel[in] The target centre of mass velocity.
+ * @param ptc[in,out] The cluster(can be a single particle) needs to be moved.
+ */
 template <typename Vector, typename Cluster>
 void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Cluster &ptc) {
   auto dp = centre_mass_pos - COM_p(ptc);
   auto dv = centre_mass_vel - COM_v(ptc);
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     for (auto &p : ptc) {
       p.pos += dp;
       p.vel += dv;
@@ -176,6 +288,17 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
   }
 }
 
+/**
+ * @brief Move the centre of mass position and velocity of particles to a specific position and velocity.
+ *
+ * @tparam Vector Vector 3-D Vector type.
+ * @tparam Particle Type of the particle.
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param centre_mass_pos[in] The target centre of mass position.
+ * @param centre_mass_vel[in] The target centre of mass velocity.
+ * @param ptc[in,out] The first particle needs to be moved.
+ * @param ptcs[in,out] The rest particles need to be moved.
+ */
 template <typename Vector, typename Particle, typename... Args>
 void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -184,21 +307,51 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
   ((ptc.pos += dp, ptc.vel += dv), ..., (ptcs.pos += dp, ptcs.vel += dv));
 }
 
+/**
+ * @brief Move the centre of mass position and velocity of particles/a cluster of particles/single particle to the
+ * corresponding position and velocity of a Kepler orbit.
+ *
+ * @tparam Scalar Floating point like type for KeplerOrbit.
+ * @tparam Particle Type of the first particle/std::ranges(Container) like type.
+ * @tparam Args Type of the particles if exits, should be same as Particle.
+ * @param[in] orbit The Kepler orbit.
+ * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
+ * @param[in,out] ptcs The rest particles need to be moved.
+ */
 template <typename Scalar, typename Particle, typename... Args>
-void move_particles(OrbitArgs<Scalar> const &args, Particle &ptc, Args &... ptcs) {
+void move_particles(KeplerOrbit<Scalar> const &orbit, Particle &ptc, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 2nd argument and the rest should be same!");
-  auto [cm_pos, cm_vel] = orbit_to_coord(args);
+  auto [cm_pos, cm_vel] = orbit_to_coord(orbit);
   move_particles(cm_pos, cm_vel, ptc, ptcs...);
 }
 
+/**
+ * @brief Move the particles/a cluster of particles/single particle to the centre of mass frame and set the centre of
+ * mass to original point.
+ *
+ * @tparam Particle Type of the first particle/std::ranges(Container) like type.
+ * @tparam Args Type of the particles if exits, should be same as Particle.
+ * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
+ * @param[in,out] ptcs The rest particles need to be moved.
+ */
 template <typename Particle, typename... Args>
 void move_to_COM_frame(Particle &ptc, Args &... ptcs) {
   using Vector = decltype(COM_v(ptc, ptcs...));
   move_particles(Vector{0, 0, 0}, Vector{0, 0, 0}, ptc, ptcs...);
 }
 
-template <typename Particle1, typename Particle2>
-inline auto calc_eccentricity(Particle1 const &p1, Particle2 const &p2) {
+/**
+ * @brief Calculate the eccentricity of two clusters(cluster can also be a single particle) by regarding their centre of
+ * mass as point particle.
+ *
+ * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @param[in] p1 The first cluster/first single particle.
+ * @param[in] p2 The second cluster/first single particle.
+ * @return auto The eccentricity.
+ */
+template <typename Cluster1, typename Cluster2>
+inline auto calc_eccentricity(Cluster1 const &p1, Cluster2 const &p2) {
   auto m1 = M_tot(p1);
   auto m2 = M_tot(p2);
   auto dp = COM_p(p1) - COM_p(p2);
@@ -206,8 +359,18 @@ inline auto calc_eccentricity(Particle1 const &p1, Particle2 const &p2) {
   return calc_eccentricity(consts::G * (m1 + m2), dp, dv);
 }
 
-template <typename Particle1, typename Particle2>
-inline auto calc_semi_major_axis(Particle1 const &p1, Particle2 const &p2) {
+/**
+ * @brief Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre
+ * of mass as point particle.
+ *
+ * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @param p1 The first cluster/first single particle.
+ * @param p2 The second cluster/first single particle.
+ * @return auto The semi-major axis.
+ */
+template <typename Cluster1, typename Cluster2>
+inline auto calc_semi_major_axis(Cluster1 const &p1, Cluster2 const &p2) {
   auto m1 = M_tot(p1);
   auto m2 = M_tot(p2);
   auto dp = COM_p(p1) - COM_p(p2);
@@ -215,8 +378,8 @@ inline auto calc_semi_major_axis(Particle1 const &p1, Particle2 const &p2) {
   return calc_semi_major_axis(consts::G * (m1 + m2), dp, dv);
 }
 
-template <typename Particle1, typename Particle2>
-inline auto calc_a_e(Particle1 const &p1, Particle2 const &p2) {
+template <typename Cluster1, typename Cluster2>
+inline auto calc_a_e(Cluster1 const &p1, Cluster2 const &p2) {
   auto m1 = M_tot(p1);
   auto m2 = M_tot(p2);
   auto dp = COM_p(p1) - COM_p(p2);
@@ -224,8 +387,8 @@ inline auto calc_a_e(Particle1 const &p1, Particle2 const &p2) {
   return calc_a_e(consts::G * (m1 + m2), dp, dv);
 }
 
-template <typename Particle1, typename Particle2>
-inline auto period(Particle1 const &p1, Particle2 const &p2) {
+template <typename Cluster1, typename Cluster2>
+inline auto period(Cluster1 const &p1, Cluster2 const &p2) {
   auto m1 = M_tot(p1);
   auto m2 = M_tot(p2);
   return period(m1, m2, calc_semi_major_axis(p1, p2));
@@ -233,7 +396,7 @@ inline auto period(Particle1 const &p1, Particle2 const &p2) {
 
 template <typename Cluster>
 auto E_k(Cluster &&ptc) {
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     using Scalar = typename Cluster::value_type::Scalar;
     using Vector = typename Cluster::value_type::Vector;
     Scalar kinetic_energy = 0;
@@ -257,7 +420,7 @@ auto E_k(Particle &&ptc, Args &&... args) {
 
 template <typename Cluster>
 auto E_p(Cluster &&ptc) {
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     typename Cluster::value_type::Scaler potential_energy = 0;
 
     for (auto i = ptc.begin(); i < ptc.end(); ++i) {
@@ -277,6 +440,21 @@ auto E_p(Particle &&ptc, Args &&... args) {
   return E_p(cluster(ptc, args...));
 }
 
+template <typename Cluster>
+auto E_k_COM(Cluster &&ptc) {
+  auto m_tot = M_tot(ptc);
+  auto v_com = COM_v(ptc);
+  return 0.5 * m_tot * dot(v_com, v_com);
+}
+
+template <typename Particle, typename... Args>
+auto E_k_COM(Particle &&ptc, Args &&... args) {
+  static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
+  auto m_tot = M_tot(ptc, args...);
+  auto v_com = COM_v(ptc, args...);
+  return 0.5 * m_tot * dot(v_com, v_com);
+}
+
 CREATE_MEMBER_CHECK(mass);
 CREATE_MEMBER_CHECK(radius);
 
@@ -288,7 +466,7 @@ auto E_tot(Particle &&ptc, Args &&... args) {
 
 template <typename Cluster>
 auto cluster_size(Cluster &&ptc) {
-  if constexpr (is_container_v<Cluster>) {
+  if constexpr (is_ranges_v<Cluster>) {
     typename Cluster::value_type::Scaler R_max = 0;
 
     if (ptc.begin() != ptc.end()) {
@@ -366,4 +544,4 @@ auto tidal_radius(Scalar tidal_factor, T1 &&m1, T2 &&m2) {
 }
 
 }  // namespace space::orbit
-#endif  // SPACEHUB_OPERATIONS_HPP
+#endif  // SPACEHUB_PARTICLE_MANIP_HPP

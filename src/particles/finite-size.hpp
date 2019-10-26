@@ -134,7 +134,7 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
 template <typename TypeSystem>
 template <typename STL>
 SizeParticles<TypeSystem>::SizeParticles(Scalar time, const STL &particles_set) {
-  static_assert(is_container_v<STL>, "Only STL-like container can be used");
+  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
   SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
 
   size_t input_num = particles_set.size();

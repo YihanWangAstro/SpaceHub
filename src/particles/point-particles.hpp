@@ -170,7 +170,7 @@ std::istream &operator>>(std::istream &is, PointParticle<Real> &particle) {
 template <typename TypeSystem>
 template <typename STL>
 PointParticles<TypeSystem>::PointParticles(Scalar t, const STL &particle_set) {
-  static_assert(is_container_v<STL>, "Only STL-like container can be used");
+  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
   SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
 
   size_t input_num = particle_set.size();

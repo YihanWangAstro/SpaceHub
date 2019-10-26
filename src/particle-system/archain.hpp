@@ -164,7 +164,7 @@ ARchainSystem<Particles, Interactions, RegType>::ARchainSystem(Scalar time, cons
       new_index_(particle_set.size()),
       accels_(particle_set.size()),
       chain_acc_(particle_set.size()) {
-  static_assert(is_container_v<STL>, "Only STL-like container can be used");
+  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
   Chain::calc_chain_index(ptcl_.pos(), index_);
   Chain::calc_chain(ptcl_.pos(), chain_pos(), index());
   Chain::calc_chain(ptcl_.vel(), chain_vel(), index());

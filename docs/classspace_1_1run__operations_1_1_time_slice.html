@@ -73,7 +73,7 @@
             </li>
           </ul>
         </div>
-<p>Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The type of the parameter must have method <code>time()</code>. The wrapped callable object will be invoked for equal spacing time interval for time provided by time(). This class is basically used to implement equal time operation in simulations. For example, one can provide a printer <code>[](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; std::endl;}</code> as the pre_step_operation in <a href="classspace_1_1_run_args.html" class="m-doc">RunArgs</a> to output the state of the integrated system. This printer then will be invoked before every step integration. The output might be very dense sometimes, thus outputting the result of every step is somewhat heavy. If one wraps the printer with <a href="classspace_1_1run__operations_1_1_time_slice.html" class="m-doc">TimeSlice</a>, `TimeSlice([](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; &#x27;<br />&#x27;}, 0, 100, 10)`, then the output will be performed only at p.time()=[0,100/10, 2*100/10, 3*100/10,...100].</p>
+<p>Create a wrapper on callable object(function pointer, functor, lambda) of which accepts one parameter. The type of the parameter must have method <code>time()</code>. The wrapped callable object will be invoked for equal spacing time interval for time provided by time(). This class is basically used to implement equal time operation in simulations. For example, one can provide a printer <code>[](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; std::endl;}</code> as the pre_step_operation in <a href="classspace_1_1_run_args.html" class="m-doc">RunArgs</a> to output the state of the integrated system. This printer then will be invoked before every step integration. The output might be very dense sometimes, thus outputting the result of every step is somewhat heavy. If one wraps the printer with <a href="classspace_1_1run__operations_1_1_time_slice.html" class="m-doc">TimeSlice</a>, &lsquo;<a href="classspace_1_1run__operations_1_1_time_slice.html" class="m-doc">TimeSlice</a>([](auto&amp;p){std::cout &lt;&lt; p &lt;&lt; &rsquo;<br />&#x27;}, 0, 100, 10)`, then the output will be performed only at p.time()=[0,100/10, 2*100/10, 3*100/10,...100].</p>
         <section id="typeless-methods">
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
@@ -235,7 +235,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>SpaceHub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>SpaceHub. Created with <a href="https://doxygen.org/">Doxygen</a> 1.8.16 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>
