@@ -138,7 +138,7 @@ using namespace unit;
 int main(){
   using Particle = typename DefaultSolver::Particle;
 
-  // create three particles. particles are rest at original point.
+  // create three particles. particles are rest at origin.
   Particle sun{m_solar}, earth{m_earth}, moon{m_moon};
 
   // create a Kepler orbit of (moon mass, earth mass) with a = 268782 km, e = 0.055 and i = 1.543 degree.
@@ -154,7 +154,7 @@ int main(){
   orbit::move_particles_to(earth_orbit, earth, moon);
 
   // move the three objects to the centre of mass reference frame
-  orbit::move_to_com_coord(sun, earth, moon);
+  orbit::move_to_COM_frame(sun, earth, moon);
 
   // Initialize the system with the three particles and set the time = 0.
   DefaultSolver sim{0, sun, earth, moon};
