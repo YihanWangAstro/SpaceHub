@@ -414,13 +414,40 @@ inline auto period(Cluster1 const &p1, Cluster2 const &p2) {
   return period(m1, m2, calc_semi_major_axis(p1, p2));
 }
 
+/**
+ * @brief Calculate the time to the periapsis of two clusters(cluster can also be a single particle) by regarding their
+ * centre of mass as point particle.
+ *
+ * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @param cluster1 first cluster/first single particle.
+ * @param cluster2 The second cluster/first single particle.
+ * @return auto The time to the periapsis.
+ */
 template <typename Cluster1, typename Cluster2>
 inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2) {
   auto m1 = M_tot(cluster1);
   auto m2 = M_tot(cluster2);
+  auto u = consts::G * (m1 + m2);
   auto dr = COM_p(cluster1) - COM_p(cluster2);
   auto dv = COM_v(cluster1) - COM_v(cluster2);
+  auto r = norm(dr);
   auto [a, e] = calc_a_e(consts::G * (m1 + m2), dr, dv);
+
+  auto orbit_type = classify_orbit(e);
+
+  if (orbit_type == OrbitType::Parabola) {
+    auto h2 = norm2(cross(dr, dv));
+    auto p = h2 / u;
+    auto T_anomaly = arccos((p / r - 1));
+    auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
+    return time_to_periapsis(orbit_type, u, a, M_anomaly);
+  } else {
+    auto p = a * (1 - e * e);
+    auto T_anomaly = arccos((p / r - 1) / e);
+    auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
+    return time_to_periapsis(orbit_type, u, a, M_anomaly);
+  }
 }
 
 /**
