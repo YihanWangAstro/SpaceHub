@@ -148,8 +148,8 @@ struct KeplerOrbit {
   /**
    * @brief Write the orbit to an ouput stream.
    *
-   * @param os[out] Output stream
-   * @param obt[in] Orbit parameters.
+   * @param[out] os Output stream
+   * @param[in] obt Orbit parameters.
    * @return std::ostream& Output stream.
    */
   friend std::ostream &operator<<(std::ostream &os, KeplerOrbit const &obt) {

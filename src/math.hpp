@@ -18,7 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file own-math.hpp
+ * @file math.hpp
  *
  * Header file.
  */

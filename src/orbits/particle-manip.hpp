@@ -30,7 +30,7 @@ License
 
 namespace space::orbit {
 /**
- * @brief Create a std::ranges like(Container) from individual particles.
+ * @brief Create a std ranges like(Container) from individual particles.
  *
  * @tparam Particle Type of particle.
  * @tparam Args Types of particle, should be same as Particle.
@@ -48,7 +48,7 @@ auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
 /**
  * @brief Calculate the total mass of a cluster of particles/single particle.
  *
- * @tparam[in] Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam[in] Cluster std ranges(Container) like type/Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The total mass of the particle cluster/single particle.
  */
@@ -83,7 +83,7 @@ inline auto M_tot(Particle &&ptc, Args &&... args) {
 /**
  * @brief Calculate the centre of mass position of a particle cluster/single particle
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std ranges(Container) like type/Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The centre of mass position of the particle cluster/single particle.
  */
@@ -128,7 +128,7 @@ inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
 /**
  * @brief Calculate the centre of mass velocity of a particle cluster/single particle
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std ranges(Container) like type/Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The centre of mass velocity of the particle cluster/single particle.
  */
@@ -176,10 +176,10 @@ inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
 /**
  * @brief The reduced mass of two clusters(cluster can also be a single particle).
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
- * @param m1[in] The first cluster/first single particle.
- * @param m2[in] The second cluster/second single particle.
+ * @tparam Cluster1 std ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std ranges(Container) like type/Type of single particle.
+ * @param[in] m1 The first cluster/first single particle.
+ * @param[in] m2 The second cluster/second single particle.
  * @return auto The reduced mass of the two clusters(cluster can also be a single particle).
  */
 template <typename Cluster1, typename Cluster2>
@@ -193,7 +193,7 @@ inline auto M_rdc(Cluster1 &&m1, Cluster2 &&m2) {
  * @brief Move the centre of mass position of a cluster(can be a single particle) to a specific position.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std ranges(Container) like type/Type of single particle.
  * @param[in] centre_mass_pos The target centre of mass position.
  * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
  */
@@ -230,7 +230,7 @@ void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc, Args &... 
  * @brief Move the centre of mass velocity of a cluster(can be a single particle) to a specific velocity.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std ranges(Container) like type/Type of single particle.
  * @param[in] centre_mass_vel The target centre of mass position.
  * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
  */
@@ -268,10 +268,10 @@ void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc, Args &... 
  * and velocity.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
- * @param centre_mass_pos[in] The target centre of mass position.
- * @param centre_mass_vel[in] The target centre of mass velocity.
- * @param ptc[in,out] The cluster(can be a single particle) needs to be moved.
+ * @tparam Cluster std ranges(Container) like type/Type of single particle.
+ * @param[in] centre_mass_pos The target centre of mass position.
+ * @param[in] centre_mass_vel The target centre of mass velocity.
+ * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
  */
 template <typename Vector, typename Cluster>
 void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Cluster &ptc) {
@@ -294,10 +294,10 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
  * @tparam Vector Vector 3-D Vector type.
  * @tparam Particle Type of the particle.
  * @tparam Args Type of the particles, should be same as Particle.
- * @param centre_mass_pos[in] The target centre of mass position.
- * @param centre_mass_vel[in] The target centre of mass velocity.
- * @param ptc[in,out] The first particle needs to be moved.
- * @param ptcs[in,out] The rest particles need to be moved.
+ * @param[in] centre_mass_pos The target centre of mass position.
+ * @param[in] centre_mass_vel The target centre of mass velocity.
+ * @param[in,out] ptc The first particle needs to be moved.
+ * @param[in,out] ptcs The rest particles need to be moved.
  */
 template <typename Vector, typename Particle, typename... Args>
 void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
@@ -312,7 +312,7 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
  * corresponding position and velocity of a Kepler orbit.
  *
  * @tparam Scalar Floating point like type for KeplerOrbit.
- * @tparam Particle Type of the first particle/std::ranges(Container) like type.
+ * @tparam Particle Type of the first particle/std ranges(Container) like type.
  * @tparam Args Type of the particles if exits, should be same as Particle.
  * @param[in] orbit The Kepler orbit.
  * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
@@ -329,7 +329,7 @@ void move_particles(KeplerOrbit<Scalar> const &orbit, Particle &ptc, Args &... p
  * @brief Move the particles/a cluster of particles/single particle to the centre of mass frame and set the centre of
  * mass to original point.
  *
- * @tparam Particle Type of the first particle/std::ranges(Container) like type.
+ * @tparam Particle Type of the first particle/std ranges(Container) like type.
  * @tparam Args Type of the particles if exits, should be same as Particle.
  * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
  * @param[in,out] ptcs The rest particles need to be moved.
@@ -344,8 +344,8 @@ void move_to_COM_frame(Particle &ptc, Args &... ptcs) {
  * @brief Calculate the eccentricity of two clusters(cluster can also be a single particle) by regarding their centre of
  * mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std ranges(Container) like type/Type of single particle.
  * @param[in] p1 The first cluster/first single particle.
  * @param[in] p2 The second cluster/first single particle.
  * @return auto The eccentricity.
@@ -363,10 +363,10 @@ inline auto calc_eccentricity(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre
  * of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
- * @param p1 The first cluster/first single particle.
- * @param p2 The second cluster/first single particle.
+ * @tparam Cluster1 std ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std ranges(Container) like type/Type of single particle.
+ * @param[in] p1 The first cluster/first single particle.
+ * @param[in] p2 The second cluster/first single particle.
  * @return auto The semi-major axis.
  */
 template <typename Cluster1, typename Cluster2>
@@ -382,10 +382,10 @@ inline auto calc_semi_major_axis(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the semi-major axis and eccentricity of two clusters(cluster can also be a single particle) by
  * regarding their centre of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
- * @param p1 The first cluster/first single particle.
- * @param p2 The second cluster/first single particle.
+ * @tparam Cluster1 std ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std ranges(Container) like type/Type of single particle.
+ * @param[in] p1 The first cluster/first single particle.
+ * @param[in] p2 The second cluster/first single particle.
  * @return auto A tuple of (sem-major axis, eccentricity).
  */
 template <typename Cluster1, typename Cluster2>
@@ -401,10 +401,10 @@ inline auto calc_a_e(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre
  * of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
- * @param p1 The first cluster/first single particle.
- * @param p2 The second cluster/first single particle.
+ * @tparam Cluster1 std ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std ranges(Container) like type/Type of single particle.
+ * @param[in] p1 The first cluster/first single particle.
+ * @param[in] p2 The second cluster/first single particle.
  * @return auto The period.
  */
 template <typename Cluster1, typename Cluster2>
@@ -418,10 +418,10 @@ inline auto period(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the time to the periapsis of two clusters(cluster can also be a single particle) by regarding their
  * centre of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
- * @param cluster1 first cluster/first single particle.
- * @param cluster2 The second cluster/first single particle.
+ * @tparam Cluster1 std ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std ranges(Container) like type/Type of single particle.
+ * @param[in] cluster1 first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
  * @return auto The time to the periapsis.
  */
 template <typename Cluster1, typename Cluster2>
@@ -453,8 +453,8 @@ inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2
 /**
  * @brief Calculate the kinetic energy of a cluster/single particle.
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
- * @param ptc particle container/single particle.
+ * @tparam Cluster std ranges(Container) like type/Type of single particle.
+ * @param[in] ptc particle container/single particle.
  * @return auto The kinetic energy.
  */
 template <typename Cluster>

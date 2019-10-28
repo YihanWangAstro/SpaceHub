@@ -25,9 +25,9 @@ License
 #ifndef SPACEHUB_POINT_PARTICLES_HPP
 #define SPACEHUB_POINT_PARTICLES_HPP
 
+#include "../IO.hpp"
 #include "../vector/vector3.hpp"
 #include "particles.hpp"
-#include "../IO.hpp"
 
 namespace space::particle_set {
 
@@ -55,9 +55,9 @@ struct PointParticle {
   /**
    * @brief Construct a new Point Particle object
    *
-   * @param mass The mass of the particle
-   * @param position The 3d vector position of the particle
-   * @param velocity The 3d vector velocity of the particle
+   * @param[in] mass The mass of the particle
+   * @param[in] position The 3d vector position of the particle
+   * @param[in] velocity The 3d vector velocity of the particle
    */
   explicit PointParticle(Scalar mass, Vector position, Vector velocity);
 
@@ -146,8 +146,8 @@ class PointParticles : public Particles<PointParticles<TypeSystem>> {
     Class PointParticle Implementation
 \*---------------------------------------------------------------------------*/
 template <typename Real>
-PointParticle<Real>::PointParticle(Scalar m, PointParticle::Vector p, PointParticle::Vector v)
-    : pos(p), vel(v), mass(m) {}
+PointParticle<Real>::PointParticle(Scalar m, PointParticle::Vector position, PointParticle::Vector velocity)
+    : pos(position), vel(velocity), mass(m) {}
 
 template <typename Real>
 PointParticle<Real>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)

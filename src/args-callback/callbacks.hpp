@@ -68,7 +68,7 @@ class TimeSlice {
   /**
    * Callable interface.
    * @tparam ParticleSys Any type provides method `time()`
-   * @param[in/out] ptc Input parameter.
+   * @param[in,out] ptc Input parameter.
    */
   template <typename ParticleSys>
   inline auto operator()(ParticleSys &ptc)
@@ -77,7 +77,7 @@ class TimeSlice {
   /**
    * Callable interface.
    * @tparam ParticleSys Any type provides method `time()`
-   * @param[in/out] ptc Input parameter.
+   * @param[in,out] ptc Input parameter.
    * @return auto bool
    */
   template <typename ParticleSys>
@@ -127,7 +127,7 @@ class StepSlice {
   /**
    * Callable interface.
    * @tparam ParticleSys Any type used as call back parameter.
-   * @param[in/out] ptc Input parameter.
+   * @param[in,out] ptc Input parameter.
    */
   template <typename ParticleSys>
   inline auto operator()(ParticleSys &ptc)
@@ -136,7 +136,7 @@ class StepSlice {
   /**
    * Callable interface.
    * @tparam ParticleSys Any type used as call back parameter.
-   * @param[in/out] ptc Input parameter.
+   * @param[in,out] ptc Input parameter.
    * @return auto bool.
    */
   template <typename ParticleSys>
@@ -172,7 +172,7 @@ class DefaultWriter {
   /**
    * Callable interface.
    * @tparam ParticleSys Any type provides method `time()`
-   * @param[in/out] ptc Input parameter.
+   * @param[in,out] ptc Input parameter.
    */
   template <typename ParticleSys>
   inline void operator()(ParticleSys &ptc);
