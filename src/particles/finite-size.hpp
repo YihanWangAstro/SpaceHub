@@ -26,6 +26,7 @@ License
 #define SPACEHUB_FINITE_SIZE_HPP
 
 #include "point-particles.hpp"
+#include "../IO.hpp"
 
 namespace space::particle_set {
 

@@ -378,6 +378,16 @@ inline auto calc_semi_major_axis(Cluster1 const &p1, Cluster2 const &p2) {
   return calc_semi_major_axis(consts::G * (m1 + m2), dp, dv);
 }
 
+/**
+ * @brief Calculate the semi-major axis and eccentricity of two clusters(cluster can also be a single particle) by
+ * regarding their centre of mass as point particle.
+ *
+ * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @param p1 The first cluster/first single particle.
+ * @param p2 The second cluster/first single particle.
+ * @return auto A tuple of (sem-major axis, eccentricity).
+ */
 template <typename Cluster1, typename Cluster2>
 inline auto calc_a_e(Cluster1 const &p1, Cluster2 const &p2) {
   auto m1 = M_tot(p1);
@@ -387,6 +397,16 @@ inline auto calc_a_e(Cluster1 const &p1, Cluster2 const &p2) {
   return calc_a_e(consts::G * (m1 + m2), dp, dv);
 }
 
+/**
+ * @brief Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre
+ * of mass as point particle.
+ *
+ * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @param p1 The first cluster/first single particle.
+ * @param p2 The second cluster/first single particle.
+ * @return auto The period.
+ */
 template <typename Cluster1, typename Cluster2>
 inline auto period(Cluster1 const &p1, Cluster2 const &p2) {
   auto m1 = M_tot(p1);
@@ -394,12 +414,26 @@ inline auto period(Cluster1 const &p1, Cluster2 const &p2) {
   return period(m1, m2, calc_semi_major_axis(p1, p2));
 }
 
+template <typename Cluster1, typename Cluster2>
+inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2) {
+  auto m1 = M_tot(cluster1);
+  auto m2 = M_tot(cluster2);
+  auto dr = COM_p(cluster1) - COM_p(cluster2);
+  auto dv = COM_v(cluster1) - COM_v(cluster2);
+  auto [a, e] = calc_a_e(consts::G * (m1 + m2), dr, dv);
+}
+
+/**
+ * @brief Calculate the kinetic energy of a cluster/single particle.
+ *
+ * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @param ptc particle container/single particle.
+ * @return auto The kinetic energy.
+ */
 template <typename Cluster>
 auto E_k(Cluster &&ptc) {
   if constexpr (is_ranges_v<Cluster>) {
-    using Scalar = typename Cluster::value_type::Scalar;
-    using Vector = typename Cluster::value_type::Vector;
-    Scalar kinetic_energy = 0;
+    decltype(M_tot(ptc)) kinetic_energy = 0;
 
     for (auto &p : ptc) {
       kinetic_energy += p.mass * dot(p.vel, p.vel);

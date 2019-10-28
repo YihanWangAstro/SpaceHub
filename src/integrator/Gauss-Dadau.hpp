@@ -25,23 +25,86 @@ class RadauConsts {
    */
   [[nodiscard]] inline static constexpr double step_sequence(size_t i) { return sub_steps_[i]; }
 
+  /**
+   * @brief
+   *
+   * @param n
+   * @param j
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double G_tab(size_t n, size_t j) { return G_coef_[n * (n + 1) / 2 + j]; }
 
+  /**
+   * @brief
+   *
+   * @param n
+   * @param j
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double R_tab(size_t n, size_t j) { return R_coef_[n * (n + 1) / 2 + j]; }
 
+  /**
+   * @brief
+   *
+   * @param n
+   * @param j
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double B_tab(size_t n, size_t j) { return B_coef_[n * (n + 1) / 2 + j]; }
 
+  /**
+   * @brief
+   *
+   * @param n
+   * @param j
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double G2B_tab(size_t n, size_t j) { return G2B_coef_[n * (n + 1) / 2 + j]; }
 
+  /**
+   * @brief
+   *
+   * @param n
+   * @param j
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double B2G_tab(size_t n, size_t j) { return B2G_coef_[n * (n + 1) / 2 + j]; }
 
+  /**
+   * @brief
+   *
+   * @param stage
+   * @param i
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double vel_B_tab(size_t stage, size_t i) { return vel_coef_[stage][i]; }
 
+  /**
+   * @brief
+   *
+   * @param stage
+   * @param i
+   * @return constexpr double
+   */
   [[nodiscard]] inline static constexpr double pos_B_tab(size_t stage, size_t i) { return pos_coef_[stage][i]; }
 
+  /**
+   * @brief
+   *
+   * @tparam Tab
+   * @param G
+   * @param B
+   */
   template <typename Tab>
   static void transfer_G_to_B(Tab const &G, Tab &B);
 
+  /**
+   * @brief
+   *
+   * @tparam Tab
+   * @param B
+   * @param G
+   */
   template <typename Tab>
   static void transfer_B_to_G(Tab const &B, Tab &G);
 
@@ -202,11 +265,29 @@ class GaussDadau : public Integrator<GaussDadau<Coord>> {
   template <typename ParticleSys>
   void calc_B_table(ParticleSys &particles, Scalar step_size);
 
+  /**
+   * @brief
+   *
+   * @param step_ratio
+   */
   void predict_new_B(Scalar step_ratio);
 
+  /**
+   * @brief
+   *
+   * @tparam ParticleSys
+   * @param particles
+   * @param step_size
+   * @param stage
+   */
   template <typename ParticleSys>
   void integrate_to(ParticleSys &particles, Scalar step_size, size_t stage);
 
+  /**
+   * @brief
+   *
+   * @param particle_num
+   */
   void check_particle_size(size_t particle_num);
 
   CRTP_IMPL :

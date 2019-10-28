@@ -27,6 +27,7 @@ License
 
 #include "../vector/vector3.hpp"
 #include "particles.hpp"
+#include "../IO.hpp"
 
 namespace space::particle_set {
 

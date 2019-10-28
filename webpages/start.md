@@ -4,7 +4,7 @@
 
 @section prerequisite Prerequisite 
 SpaceHub is written based on the morden-ish C++ standard @blabel{c++17}. To make the code compiled, the compiler on the target
-machine need to give full support on at least @blabel{c++17} or later. The lowest compiler version for different OS is listed below.
+machine need to give full support on at least @blabel{c++17}. The lowest compiler version for different OS is listed below.
 
 | Operating System | Compiler             | Lowest Version required | Version recommended    |
 | ---------------- | -------------------- | ----------------------- | ---------------------- |
@@ -136,10 +136,10 @@ Here is a very simple example to integrate a (sun-earth-moon) system. For more i
 using namespace space;
 using namespace unit;
 int main(){
-  using Cluster = typename DefaultSolver::Cluster;
+  using Particle = typename DefaultSolver::Particle;
 
   // create three particles. particles are rest at original point.
-  Cluster sun{m_solar}, earth{m_earth}, moon{m_moon};
+  Particle sun{m_solar}, earth{m_earth}, moon{m_moon};
 
   // create a Kepler orbit of (moon mass, earth mass) with a = 268782 km, e = 0.055 and i = 1.543 degree.
   auto moon_orbit = orbit::EllipOrbit{earth.mass, moon.mass, 268782 * km, 0.055, 1.543 * deg, 0.0, 0.0, 0.0};
@@ -188,18 +188,3 @@ and run
 
 Enjoy!
 
-
-
- |                              Orbit type |                       Elliptical                        |                Parabolic                | Hyperbolic                                                 |
- | --------------------------------------: | :-----------------------------------------------------: | :-------------------------------------: | :--------------------------------------------------------- |
- |                          Eccentricity,e |                   @f[ 0 \leq e <1 @f]                   |              @f[ e = 1 @f]              | @f[ e > 1 @f]                                              |
- |                       Semi-major axis,a |                       @f[ a>0 @f]                       |                undefined                | @f[ a < 0 @f]                                              |
- |                            Periapsis, q |                    @f[ q=a(1-e) @f]                     |          q defining parameter           | @f[ q=a(1-e) @f]                                           |
- |                     Semi-latus rectum,p |                   @f[ p=a(1-e^2) @f]                    |              @f[ p=2q @f]               | @f[ p=a(1-e^2) @f]                                         |
- |                         Total Energy, E |                 @f[ E=-\frac{u}{2a} @f]                 |               @f[ E=0 @f]               | @f[ E=-\frac{u}{2a} @f]                                    |
- |                             Distance, r |           @f[ r=\frac{p}{1+e\cos(\theta)}@f]            |  @f[  r=\frac{p}{1+e\cos(\theta)} @f]   | @f[  r=\frac{p}{1+e\cos(\theta)}@f]                        |
- |                             Velocity, v |      @f[ v=\sqrt{u(\frac{2}{r} - \frac{1}{a})}@f]       |     @f[  v=\sqrt{\frac{2u}{r}} @f]      | @f[  v=\sqrt{u(\frac{2}{r} - \frac{1}{a})}@f]              |
- | Velocity, v; @f[ \theta@f]:true anomaly |       @f[ v=\frac{u(1+e^2+2e\cos(\theta))}{p}@f]        | @f[  v=\frac{2u(1+\cos(\theta))}{p} @f] | @f[  v=\frac{u(1+e^2+2e\cos(\theta))}{p}@f]                |
- |                    Eccentric anomaly, E | @f[ \cos(E)= \frac{e+\cos(\theta)}{1+e\cos(\theta)} @f] |   @f[  E = \tan(\frac{\theta}{2}) @f]   | @f[  \cosh(E)= \frac{e+\cos(\theta)}{1+e\cos(\theta)}  @f] |
- |                         Mean anomaly, M |                 @f[ M = E-e\sin(E) @f]                  |          @f[  M = E+E^3/3 @f]           | @f[  M = e\sinh(E) - E @f]                                 |
- |          Time to periapsis, @f[t-t_0@f] |          @f[ t-t_0 = M\sqrt{\frac{a^3}{u}} @f]          | @f[  t-t_0 = M\sqrt{\frac{2q^3}{u}} @f] | @f[  t-t_0 = M\sqrt{\frac{a^3}{u}} @f]                     |

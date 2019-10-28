@@ -51,14 +51,12 @@ auto random_incident(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_ma
   using Vector = Vec3<Scalar>;
   auto b = sqrt(random::Uniform(0, b_max * b_max));
   auto w = random::Uniform(0, 2 * consts::pi);
-  auto orbit = orbit::HyperOrbit(m_stay, m_incident, v_inf, b, r, w, 0, 0);
-  Vector pos, vel;
-  orbit::orbit_to_coord(orbit, pos, vel);
-  return std::make_tuple(pos, vel);
+  auto orbit = orbit::HyperOrbit(m_stay, m_incident, v_inf, b, w, 0, 0, r, orbit::Hyper::in);
+  return orbit::orbit_to_coord(orbit);
 }
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
-auto random_incident(Cluster1&& stay_cluster, Cluster2&& incident_cluster, Scalar v_inf, Scalar tidal_facto = 1e-4) {
+auto random_incident(Cluster1&& stay_cluster, Cluster2&& incident_cluster, Scalar v_inf, Scalar tidal_factor = 1e-4) {
   auto M_stay = orbit::M_tot(stay_cluster);
   auto M_incident = orbit::M_tot(incident_cluster);
   auto M_reduce = orbit::M_rdc(M_stay, M_incident);
@@ -75,4 +73,8 @@ auto random_incident(Cluster1&& stay_cluster, Cluster2&& incident_cluster, Scala
 
 }  // namespace space::scattering
 
+namespace space::run_operations {
+
+class
+}
 #endif  // SPACEHUB_CROSS_SECTION_HPP

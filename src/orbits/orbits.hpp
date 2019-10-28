@@ -26,6 +26,7 @@ License
 
 #include <cmath>
 #include <variant>
+#include "../IO.hpp"
 #include "../core-computation.hpp"
 #include "../rand-generator.hpp"
 #include "../vector/vector3.hpp"
@@ -191,14 +192,14 @@ struct HyperOrbit : public KeplerOrbit<double> {
    * @param[in] m_2 Mass of the secondary object: incident object.
    * @param[in]  v_inf Velocity at infinity.
    * @param[in]  b Impact parameter.
-   * @param[in]  r Distance between the two objects.
    * @param[in]  inclination Orbit inclination
    * @param[in]  longitude_of_ascending_node Longitude of the ascending node.
    * @param[in]  argument_of_periapsis Argument of the periapsis.
+   * @param[in]  r Distance between the two objects.
    * @param[in]  in_out  Indicator of incident in or ejected out
    */
-  HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
-             Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out = Hyper::in);
+  HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant inclination, Variant longitude_of_ascending_node,
+             Variant argument_of_periapsis, Scalar r, Hyper in_out = Hyper::in);
 };
 
 /*---------------------------------------------------------------------------*\
@@ -230,7 +231,7 @@ struct EllipOrbit : public KeplerOrbit<double> {
    * @param[in] inclination Inclination.
    * @param[in] longitude_of_ascending_node Longitude of the ascending node.
    * @param[in] argument_of_periapsis Argument of periapsis.
-   * @param [in]true_anomaly True anomaly.
+   * @param[in] true_anomaly True anomaly.
    */
   EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
              Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
@@ -275,27 +276,27 @@ void euler_rotate(Vector &v, const Scalar phi, const Scalar theta, const Scalar 
 }
 
 template <typename Scalar>
-Scalar calc_true_anomaly(Scalar eccentric_anomaly, Scalar e) {
+Scalar E_anomaly_to_T_anomaly(Scalar E_anomaly, Scalar e) {
   if (0 <= e && e < 1)
-    return 2 * atan2(sqrt(1 + e) * sin(eccentric_anomaly * 0.5), sqrt(1 - e) * cos(0.5 * eccentric_anomaly));
+    return 2 * atan2(sqrt(1 + e) * sin(E_anomaly * 0.5), sqrt(1 - e) * cos(0.5 * E_anomaly));
   else if (e > 1)
-    return 2 * atan2(sqrt(1 + e) * sinh(eccentric_anomaly * 0.5), sqrt(e - 1) * cosh(0.5 * eccentric_anomaly));
+    return 2 * atan2(sqrt(1 + e) * sinh(E_anomaly * 0.5), sqrt(e - 1) * cosh(0.5 * E_anomaly));
   else if (math::iseq(e, 1.0))
-    return 2 * atan(0.5 * eccentric_anomaly);
+    return 2 * atan(0.5 * E_anomaly);
   else {
     spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
   }
 }
 
 template <typename Scalar>
-Scalar calc_eccentric_anomaly(Scalar mean_anomaly, Scalar e) {
+Scalar M_anomaly_to_E_anomaly(Scalar mean_anomaly, Scalar e) {
   if (fabs(mean_anomaly) <= math::epsilon<Scalar>::value) {
     return 0;
   }
 
   if (0 <= e && e < 1)
     return math::root_bisection([=](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
-                                -space::consts::pi, space::consts::pi);  // find this function in ownMath.h
+                                -space::consts::pi, space::consts::pi);
   else if (e > 1)
     return math::root_bisection(
         [=](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); }, -space::consts::pi,
@@ -304,6 +305,31 @@ Scalar calc_eccentric_anomaly(Scalar mean_anomaly, Scalar e) {
     return math::root_bisection([=](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
                                 -space::consts::pi, space::consts::pi);
   else {
+    spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
+  }
+}
+
+template <typename Scalar>
+Scalar T_anomaly_to_E_anomaly(Scalar T_anomaly, Scalar e) {
+  if (math::iseq(e, 1.0)) {
+    return tan(0.5 * T_anomaly);
+  } else if (e >= 0) {
+    auto cos_T = cos(T_anomaly);
+    return (e + cos_T) / (1 + e * cos_T);
+  } else {
+    spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
+  }
+}
+
+template <typename Scalar>
+Scalar E_anomaly_to_M_anomaly(Scalar E_anomaly, Scalar e) {
+  if (0 <= e && e < 1) {
+    return E_anomaly - e * sin(E_anomaly);
+  } else if (e > 1) {
+    return e * sinh(E_anomaly) - E_anomaly;
+  } else if (math::iseq(e, 1.0)) {
+    return E_anomaly + E_anomaly * E_anomaly * E_anomaly / 3.0;
+  } else {
     spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
   }
 }
@@ -385,8 +411,8 @@ template <typename Real>
 void KeplerOrbit<Real>::shuffle_nu() {
   if (orbit_type == OrbitType::Ellipse) {
     Scalar M = random::Uniform(-consts::pi, consts::pi);
-    Scalar E = orbit::calc_eccentric_anomaly(M, e);
-    nu = orbit::calc_true_anomaly(E, e);
+    Scalar E = orbit::M_anomaly_to_E_anomaly(M, e);
+    nu = orbit::E_anomaly_to_T_anomaly(E, e);
   } else {
     spacehub_abort("Only elliptical orbit provides random anomaly method at this moment!");
   }
@@ -395,8 +421,8 @@ void KeplerOrbit<Real>::shuffle_nu() {
 /*---------------------------------------------------------------------------*\
      Class HyperOrbit Implementation
 \*---------------------------------------------------------------------------*/
-HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Scalar r, Variant inclination,
-                       Variant longitude_of_ascending_node, Variant argument_of_periapsis, Hyper in_out)
+HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant inclination,
+                       Variant longitude_of_ascending_node, Variant argument_of_periapsis, Scalar r, Hyper in_out)
     : KeplerOrbit<double>(m_1, m_2, 0, 0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0) {
   this->orbit_type = OrbitType::Hyperbola;
   Scalar u = space::consts::G * (m_1 + m_2);
@@ -564,6 +590,32 @@ inline auto period(Scalar m1, Scalar m2, Scalar a) {
 template <typename Scalar>
 inline auto period(KeplerOrbit<Scalar> const &args) {
   return period(args.m1, args.m2, args.p / (1 - args.e * args.e));
+}
+
+template <typename Scalar>
+auto time_to_periapsis(OrbitType obt_type, Scalar u, Scalar a, Scalar M_anomaly) {
+  if (obt_type == OrbitType::Ellipse) {
+    return sqrt(a * a * a / u) * M_anomaly;
+  } else if (obt_type == OrbitType::Parabola) {
+    return 0.5 * sqrt(a * a * a / u) * M_anomaly;
+  } else if (obt_type == OrbitType::Hyperbola) {
+    return sqrt(-a * a * a / u) * M_anomaly;
+  }
+}
+
+template <typename Scalar>
+auto time_to_periapsis(KeplerOrbit<Scalar> const &args) {
+  auto M = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(args.nu));
+  auto u = consts::G * (args.m1 + args.m2);
+  if (args.orbit_type == OrbitType::Ellipse) {
+    auto a = args.p / (1 - args.e * args.e);
+    return sqrt(a * a * a / u) * M;
+  } else if (args.orbit_type == OrbitType::Parabola) {
+    return 0.5 * sqrt(args.p * args.p * args.p / u) * M;
+  } else if (args.orbit_type == OrbitType::Hyperbola) {
+    auto a = args.p / (1 - args.e * args.e);
+    return sqrt(-a * a * a / u) * M;
+  }
 }
 
 }  // namespace space::orbit

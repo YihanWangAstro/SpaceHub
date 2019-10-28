@@ -28,86 +28,9 @@ License
 #include <iostream>
 #include <tuple>
 #include <array>
+#include "IO.hpp"
 
 namespace space {
-  /**
-   * Print variables to an output stream
-   * @tparam Args Variadic type(any).
-   * @param[in/out] os Output stream.
-   * @param[in] args Variables.
-   * @return Output stream.
-   */
-  template<typename... Args>
-  auto &print(std::ostream &os, Args &&... args) {
-    (os << ...<< std::forward<Args>(args));
-    return os;
-  }
-
-  /**
-   * Input variables from an input stream
-   * @tparam Args Variadic type(any).
-   * @param[in/out] is Input stream.
-   * @param[out] args Variables.
-   * @return Input stream.
-   */
-  template<typename... Args>
-  auto &input(std::istream &is, Args &&... args) {
-    (is >> ... >> std::forward<Args>(args));
-    return is;
-  }
-
-  /**
-   * Print variables to std::cout.
-   * @tparam Args Variadic type(any).
-   * @param[in] args Variables.
-   * @return std::cout.
-   */
-  template<typename... Args>
-  auto &std_print(Args &&... args) {
-    (std::cout << ...<< std::forward<Args>(args));
-    return std::cout;
-  }
-
-  /**
-   * Input variables from std::cin.
-   * @tparam Args Variadic type(any).
-   * @param[out] args Variables.
-   * @return std::cin.
-   */
-  template<typename... Args>
-  auto &std_input(Args &&... args) {
-    (std::cin >> ...>> std::forward<Args>(args));
-    return std::cin;
-  }
-
-  template<typename Arg, typename... Args>
-  auto &print_csv(std::ostream &out, Arg &&arg, Args &&... args) {
-    out << arg;
-    (..., (out << ',' << std::forward<Args>(args)));
-    return out;
-  }
-
-  template<typename... Args>
-  void display(std::ostream &out, Args &&... args) {
-    (..., (out << std::forward<Args>(args) << ' '));
-  }
-
-  template<typename ...Args>
-  std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
-    std::apply([&](auto &&arg, auto &&...args) {
-      out << arg;
-      (..., (out << ',' << args));
-    }, tup);
-    return out;
-  }
-
-  template<typename ...Args>
-  std::istream &operator>>(std::istream &in, std::tuple<Args...> &&tup) {
-    std::apply([&](auto &&...args) {
-      (..., (in >> args));
-    }, tup);
-    return in;
-  }
 
   template<typename STL, typename ...Args>
   void emplace_back(STL &container, Args &&...args) {
@@ -410,14 +333,6 @@ inline TYPE const & NAME () const noexcept {                                    
   template<typename T>
   constexpr bool is_ranges_v = is_ranges<T>::value;
 
-
-  template<typename T, size_t N>
-  std::ostream &operator<<(std::ostream &os, std::array<T, N> const &container) {
-    for (auto const &c : container) {
-      os << c << ' ';
-    }
-    return os;
-  }
 
 #define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE, DERIVED>::value)
 
