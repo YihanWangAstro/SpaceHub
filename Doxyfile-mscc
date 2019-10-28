@@ -34,7 +34,7 @@ ALIASES += \
     "opt_impl{1}=@m_class{m-label m-flat m-info} **optional impl** `> \1 `" \
     "auto_impl=@m_class{m-label m-flat m-success} **auto impl** " \
     "impl{2}=@m_class{m-label m-flat m-warning} **implementation** of \2 in \1" \
-    "folder{1}=@dir \1 @brief Directory of \1"
+    "folder{1}=@dir src\1 @brief Directory of \1"
 
 
 HTML_EXTRA_STYLESHEET = \
