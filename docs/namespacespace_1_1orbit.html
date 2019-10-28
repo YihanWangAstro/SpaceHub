@@ -62,7 +62,7 @@
             </li>
           </ul>
         </div>
-<p>Documentation for space</p>
+<p>Documentation</p>
         <section id="nested-classes">
           <h2><a href="#nested-classes">Classes</a></h2>
           <dl class="m-doc">
@@ -226,6 +226,23 @@
               Cluster2 const&amp; p2) -&gt; auto</span>
             </dt>
             <dd>Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre of mass as point particle.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Cluster1, typename Cluster2&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9da0f714d9323621a6af19505987188b" class="m-doc">calc_a_e</a>(</span><span class="m-doc-wrap">Cluster1 const&amp; p1,
+              Cluster2 const&amp; p2) -&gt; auto</span>
+            </dt>
+            <dd>Calculate the semi-major axis and eccentricity of two clusters(cluster can also be a single particle) by regarding their centre of mass as point particle.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Cluster1, typename Cluster2&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#a71f4a3021854a242b8146bd54f6e9447" class="m-doc">period</a>(</span><span class="m-doc-wrap">Cluster1 const&amp; p1,
+              Cluster2 const&amp; p2) -&gt; auto</span>
+            </dt>
+            <dd>Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre of mass as point particle.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Cluster&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#abab89661f2ac2942f99e8be9e9889120" class="m-doc">E_k</a>(</span><span class="m-doc-wrap">Cluster&amp;&amp; ptc) -&gt; auto</span>
+            </dt>
+            <dd>Calculate the kinetic energy of a cluster/single particle.</dd>
           </dl>
         </section>
         <section>
@@ -962,6 +979,132 @@
                 <tr>
                   <th>Returns</th>
                   <td>auto The semi-major axis.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a9da0f714d9323621a6af19505987188b"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="particle-manip_8hpp.html">&lt;src/orbits/particle-manip.hpp&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename Cluster1, typename Cluster2&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto space::<wbr />orbit::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9da0f714d9323621a6af19505987188b" class="m-doc-self">calc_a_e</a>(</span><span class="m-doc-wrap">Cluster1 const&amp; p1,
+              Cluster2 const&amp; p2)</span></span>
+            </h3>
+            <p>Calculate the semi-major axis and eccentricity of two clusters(cluster can also be a single particle) by regarding their centre of mass as point particle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Cluster1</td>
+                  <td>std::ranges(Container) like type/Type of single particle.</td>
+                </tr>
+                <tr>
+                  <td>Cluster2</td>
+                  <td>std::ranges(Container) like type/Type of single particle.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>p1</td>
+                  <td>The first cluster/first single particle.</td>
+                </tr>
+                <tr>
+                  <td>p2</td>
+                  <td>The second cluster/first single particle.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>auto A tuple of (sem-major axis, eccentricity).</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a71f4a3021854a242b8146bd54f6e9447"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="particle-manip_8hpp.html">&lt;src/orbits/particle-manip.hpp&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename Cluster1, typename Cluster2&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto space::<wbr />orbit::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a71f4a3021854a242b8146bd54f6e9447" class="m-doc-self">period</a>(</span><span class="m-doc-wrap">Cluster1 const&amp; p1,
+              Cluster2 const&amp; p2)</span></span>
+            </h3>
+            <p>Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre of mass as point particle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Cluster1</td>
+                  <td>std::ranges(Container) like type/Type of single particle.</td>
+                </tr>
+                <tr>
+                  <td>Cluster2</td>
+                  <td>std::ranges(Container) like type/Type of single particle.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>p1</td>
+                  <td>The first cluster/first single particle.</td>
+                </tr>
+                <tr>
+                  <td>p2</td>
+                  <td>The second cluster/first single particle.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>auto The period.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="abab89661f2ac2942f99e8be9e9889120"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="particle-manip_8hpp.html">&lt;src/orbits/particle-manip.hpp&gt;</a></div>
+              <div class="m-doc-template">
+                template&lt;typename Cluster&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto space::<wbr />orbit::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abab89661f2ac2942f99e8be9e9889120" class="m-doc-self">E_k</a>(</span><span class="m-doc-wrap">Cluster&amp;&amp; ptc)</span></span>
+            </h3>
+            <p>Calculate the kinetic energy of a cluster/single particle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Cluster</td>
+                  <td>std::ranges(Container) like type/Type of single particle.</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ptc</td>
+                  <td>particle container/single particle.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>auto The kinetic energy.</td>
                 </tr>
               </tfoot>
             </table>

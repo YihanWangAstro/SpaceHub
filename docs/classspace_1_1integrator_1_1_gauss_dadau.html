@@ -104,6 +104,21 @@
               <a href="classspace_1_1integrator_1_1_gauss_dadau.html#af135009e9b3bda226e6ed7fed0f6fc78" class="m-doc">Scalar</a> step_size)</span>
             </dt>
             <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ad5649344d68790101c7e15916084f83a" class="m-doc">predict_new_B</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1integrator_1_1_gauss_dadau.html#af135009e9b3bda226e6ed7fed0f6fc78" class="m-doc">Scalar</a> step_ratio)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename ParticleSys&gt;</div>
+              <span class="m-doc-wrap-bumper">void <a href="#a418de3a62f7364812561180b3a93727b" class="m-doc">integrate_to</a>(</span><span class="m-doc-wrap">ParticleSys&amp; particles,
+              <a href="classspace_1_1integrator_1_1_gauss_dadau.html#af135009e9b3bda226e6ed7fed0f6fc78" class="m-doc">Scalar</a> step_size,
+              size_t stage)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a0b5e1049d5814722a4e30167c0657901" class="m-doc">check_particle_size</a>(</span><span class="m-doc-wrap">size_t particle_num)</span>
+            </dt>
+            <dd></dd>
           </dl>
         </section>
         <section>
@@ -169,6 +184,83 @@
               </tbody>
             </table>
 <p>Calculate the b table</p>
+          </div></section>
+          <section class="m-doc-details" id="ad5649344d68790101c7e15916084f83a"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Coord&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />integrator::<wbr />GaussDadau&lt;Coord&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad5649344d68790101c7e15916084f83a" class="m-doc-self">predict_new_B</a>(</span><span class="m-doc-wrap"><a href="classspace_1_1integrator_1_1_gauss_dadau.html#af135009e9b3bda226e6ed7fed0f6fc78" class="m-doc">Scalar</a> step_ratio)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">step_ratio</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a418de3a62f7364812561180b3a93727b"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Coord&gt;
+                template&lt;typename ParticleSys&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />integrator::<wbr />GaussDadau&lt;Coord&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a418de3a62f7364812561180b3a93727b" class="m-doc-self">integrate_to</a>(</span><span class="m-doc-wrap">ParticleSys&amp; particles,
+              <a href="classspace_1_1integrator_1_1_gauss_dadau.html#af135009e9b3bda226e6ed7fed0f6fc78" class="m-doc">Scalar</a> step_size,
+              size_t stage)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">ParticleSys</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>particles</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>step_size</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>stage</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a0b5e1049d5814722a4e30167c0657901"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Coord&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">void space::<wbr />integrator::<wbr />GaussDadau&lt;Coord&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0b5e1049d5814722a4e30167c0657901" class="m-doc-self">check_particle_size</a>(</span><span class="m-doc-wrap">size_t particle_num)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">particle_num</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div></section>
         </section>
       </div>

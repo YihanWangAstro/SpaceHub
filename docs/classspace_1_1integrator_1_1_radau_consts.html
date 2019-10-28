@@ -67,6 +67,53 @@
               <span class="m-doc-wrap-bumper">static auto <a href="#a7593a82c603ebcd31e28f9c16471b516" class="m-doc">step_sequence</a>(</span><span class="m-doc-wrap">size_t i) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a4ce949c7fe337e3b3d331d62ed24faf2" class="m-doc">G_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#ae899ae0940746a3d6c483780359d0584" class="m-doc">R_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#acbc7781be5336c743e9a9856f93a6a03" class="m-doc">B_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#aa9f54956ff9a750e85e18ff1b5e70283" class="m-doc">G2B_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a5751a5888b179e443dd5623078f542ba" class="m-doc">B2G_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a6524c9c83381294bf22b50498d542865" class="m-doc">vel_B_tab</a>(</span><span class="m-doc-wrap">size_t stage,
+              size_t i) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#aa427d261b87ca14e34834e9fb767f380" class="m-doc">pos_B_tab</a>(</span><span class="m-doc-wrap">size_t stage,
+              size_t i) -&gt; double <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Tab&gt;</div>
+              <span class="m-doc-wrap-bumper">static void <a href="#a0a0ee17d6c18cf88c768cf8138b0dca3" class="m-doc">transfer_G_to_B</a>(</span><span class="m-doc-wrap">Tab const&amp; G,
+              Tab&amp; B)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename Tab&gt;</div>
+              <span class="m-doc-wrap-bumper">static void <a href="#a2fdfc5100a33ce6c33d46b1e6eb77171" class="m-doc">transfer_B_to_G</a>(</span><span class="m-doc-wrap">Tab const&amp; B,
+              Tab&amp; G)</span>
+            </dt>
+            <dd></dd>
           </dl>
         </section>
         <section>
@@ -93,6 +140,261 @@
               </tfoot>
             </table>
 <p>Get the sub-step of the Gauss Radau integration.</p>
+          </div></section>
+          <section class="m-doc-details" id="a4ce949c7fe337e3b3d331d62ed24faf2"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4ce949c7fe337e3b3d331d62ed24faf2" class="m-doc-self">G_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">n</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>j</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ae899ae0940746a3d6c483780359d0584"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ae899ae0940746a3d6c483780359d0584" class="m-doc-self">R_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">n</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>j</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="acbc7781be5336c743e9a9856f93a6a03"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acbc7781be5336c743e9a9856f93a6a03" class="m-doc-self">B_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">n</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>j</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aa9f54956ff9a750e85e18ff1b5e70283"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa9f54956ff9a750e85e18ff1b5e70283" class="m-doc-self">G2B_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">n</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>j</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a5751a5888b179e443dd5623078f542ba"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a5751a5888b179e443dd5623078f542ba" class="m-doc-self">B2G_tab</a>(</span><span class="m-doc-wrap">size_t n,
+              size_t j) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">n</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>j</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a6524c9c83381294bf22b50498d542865"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6524c9c83381294bf22b50498d542865" class="m-doc-self">vel_B_tab</a>(</span><span class="m-doc-wrap">size_t stage,
+              size_t i) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">stage</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>i</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aa427d261b87ca14e34834e9fb767f380"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static double space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa427d261b87ca14e34834e9fb767f380" class="m-doc-self">pos_B_tab</a>(</span><span class="m-doc-wrap">size_t stage,
+              size_t i) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">stage</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>i</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>constexpr double</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a0a0ee17d6c18cf88c768cf8138b0dca3"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Tab&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static void space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a0a0ee17d6c18cf88c768cf8138b0dca3" class="m-doc-self">transfer_G_to_B</a>(</span><span class="m-doc-wrap">Tab const&amp; G,
+              Tab&amp; B)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Tab</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>G</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a2fdfc5100a33ce6c33d46b1e6eb77171"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Tab&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">static void space::<wbr />integrator::<wbr />RadauConsts::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2fdfc5100a33ce6c33d46b1e6eb77171" class="m-doc-self">transfer_B_to_G</a>(</span><span class="m-doc-wrap">Tab const&amp; B,
+              Tab&amp; G)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Template parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">Tab</td>
+                  <td></td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>B</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>G</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div></section>
         </section>
       </div>

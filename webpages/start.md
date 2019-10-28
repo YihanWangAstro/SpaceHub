@@ -25,15 +25,15 @@ For Linux/MacOS user, check the version of your GCC in terminal,
 
 or check the version of the intel++ via,
 
-```console
+@code{.shell-session}
 > icpc -v
-```
+@endcode
 
 If your compiler version doesn't satisfy the lowest version required by SpaceHub, you need to update/install the new compiler.
 
 You can install the new GCC from scratch by executing the following commands by sequence,
 
-@code{.ansi}
+@code{.shell-session}
 > wget https://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz
 > tar xf gcc-9.1.0.tar.xz
 > cd gcc-9.1.0
@@ -55,19 +55,19 @@ export LD_LIBRARY_PATH=$HOME/GCC-9.1.0/lib64
 
 and source it
 
-@code{.ansi}
+@code{.shell-session}
 > source ~/.bashrc
 @endcode
 
 or
 
-@code{.ansi}
+@code{.shell-session}
 > source ~/.bash_profile
 @endcode
 
 then, check the GCC version again via
 
-@code{.ansi}
+@code{.shell-session}
 > g++ -v
 @endcode
 
@@ -76,7 +76,7 @@ then, check the GCC version again via
 <li>
 For Windows user, if you have installed [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/), check the version of your MSVC in cmd terminal,
 
-@code{.ansi}
+@code{.shell-session}
 path_to_your_installed_dir\Microsoft Visual Studio xxx\VC > cl
 @endcode
 
@@ -90,13 +90,13 @@ If [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/) is too heav
 For cluster user, if the cluster has build system like [EasyBuild](https://easybuild.readthedocs.io/en/latest/), check if any gcc module with version later than 7 is available via
 
 
-@code{.ansi}
+@code{.shell-session}
 > module avail
 @endcode
 
 If any GCC module is available, e.g @blabel{gcc/9.2.0}, you can use 
 
-@code{.ansi}
+@code{.shell-session}
 > module load gcc/9.2.0
 @endcode
 
@@ -114,7 +114,7 @@ SpaceHub is a header only code(In @blabel{c++20}, we will make into [Modules](ht
 For Linux/MacOS user, open the terminal and `cd` to a place where you want to install the SpaceHub,
 
 
-@code{.ansi}
+@code{.shell-session}
 > git clone https://github.com/YihanWangAstro/SpaceHub.git
 @endcode
 
