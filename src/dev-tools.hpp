@@ -181,19 +181,19 @@ inline TYPE const & NAME () const noexcept {                                    
 };
 
 #define SPACEHUB_CONDITIONAL_ACCESSOR(CONDITION,TYPE, NAME, MEMBER)                                                    \
-/** The setter interface of member `MEMBER` in name of `NAME` if `CONDITION` is satisfied.*/                           \
+/** The setter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/                             \
 inline TYPE & NAME () noexcept {                                                                                       \
     static_assert(CONDITION);                                                                                          \
     return MEMBER;                                                                                                     \
 };                                                                                                                     \
-/** The getter interface of member `MEMBER` in name of `NAME` if `CONDITION` is satisfied.*/                           \
+/** The getter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/                             \
 inline TYPE const & NAME () const noexcept {                                                                           \
     static_assert(CONDITION);                                                                                          \
     return MEMBER;                                                                                                     \
 };
 
 #define SPACEHUB_CONDITIONAL_READ_ACCESSOR(CONDITION, TYPE, NAME, MEMBER)                                              \
-/** The getter interface of member `MEMBER` in name of `NAME` if `CONDITION` is satisfied. */                          \
+/** The getter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied. */                            \
 inline TYPE const & NAME () const noexcept {                                                                           \
     static_assert(CONDITION);                                                                                          \
     return MEMBER;                                                                                                     \

@@ -146,10 +146,13 @@ inline double karmack_fast_inverse_square_root<double>(double x) {
 }
 
 /**
+ * @brief find root use bisection method
  *
- * @tparam Fun
- * @param f
- * @return
+ * @tparam Fun Type Callable ojbect.
+ * @param f Callable object/
+ * @param low Lower limit of root range
+ * @param high Upper limit of root range
+ * @return decltype(f(0)) The root.
  */
 template <typename Fun>
 auto root_bisection(Fun f, decltype(f(0)) low, decltype(f(0)) high) -> decltype(f(0)) {
