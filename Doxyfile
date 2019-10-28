@@ -61,7 +61,7 @@ PROJECT_LOGO           = logo.png
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = docs
+OUTPUT_DIRECTORY       = ../SpaceHubWeb
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create 4096 sub-
 # directories (in 2 levels) under the output directory of each output format and
@@ -832,8 +832,8 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  += src \
-                          webpages
+INPUT                  += ./src\
+                            webpages
                          
 
 # This tag can be used to specify the character encoding of the source files
@@ -2244,6 +2244,7 @@ EXTERNAL_PAGES         = YES
 # The default value is: YES.
 
 CLASS_DIAGRAMS         = YES
+
 
 # You can include diagrams made with dia in doxygen documentation. Doxygen will
 # then run dia to produce the diagram and insert it in the documentation. The

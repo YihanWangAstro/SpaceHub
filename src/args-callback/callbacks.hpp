@@ -29,7 +29,7 @@ License
 #include <fstream>
 #include <iomanip>
 #include <memory>
-#include "../tools/timer.hpp"
+#include "../dev-tools.hpp"
 
 /**
  * @namespace space::run_operations
@@ -71,7 +71,18 @@ class TimeSlice {
    * @param[in/out] ptc Input parameter.
    */
   template <typename ParticleSys>
-  inline void operator()(ParticleSys &ptc);
+  inline auto operator()(ParticleSys &ptc)
+      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void>;
+
+  /**
+   * Callable interface.
+   * @tparam ParticleSys Any type provides method `time()`
+   * @param[in/out] ptc Input parameter.
+   * @return auto bool
+   */
+  template <typename ParticleSys>
+  inline auto operator()(ParticleSys &ptc)
+      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool>;
 
   /**
    * Reset the slice parameters.
@@ -115,11 +126,22 @@ class StepSlice {
 
   /**
    * Callable interface.
-   * @tparam ParticleSys Any type provides method `time()`
+   * @tparam ParticleSys Any type used as call back parameter.
    * @param[in/out] ptc Input parameter.
    */
   template <typename ParticleSys>
-  inline void operator()(ParticleSys &ptc);
+  inline auto operator()(ParticleSys &ptc)
+      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void>;
+
+  /**
+   * Callable interface.
+   * @tparam ParticleSys Any type used as call back parameter.
+   * @param[in/out] ptc Input parameter.
+   * @return auto bool.
+   */
+  template <typename ParticleSys>
+  inline auto operator()(ParticleSys &ptc)
+      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool>;
 
   /**
    * Reset the slice parameters.
@@ -171,12 +193,27 @@ TimeSlice<Operation>::TimeSlice(const Operation &opt, double start, double end, 
 
 template <typename Operation>
 template <typename ParticleSys>
-void TimeSlice<Operation>::operator()(ParticleSys &ptc) {
+auto TimeSlice<Operation>::operator()(ParticleSys &ptc)
+    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void> {
   using Scalar = typename ParticleSys::Scalar;
   auto t = ptc.time();
   if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
-    opt_(ptc);
     opt_time_ += opt_interval_;
+    opt_(ptc);
+  }
+}
+
+template <typename Operation>
+template <typename ParticleSys>
+auto TimeSlice<Operation>::operator()(ParticleSys &ptc)
+    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool> {
+  using Scalar = typename ParticleSys::Scalar;
+  auto t = ptc.time();
+  if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
+    opt_time_ += opt_interval_;
+    return opt_(ptc);
+  } else {
+    return false;
   }
 }
 
@@ -196,11 +233,25 @@ StepSlice<Operation>::StepSlice(const Operation &opt, size_t step_interval)
 
 template <typename Operation>
 template <typename ParticleSys>
-void StepSlice<Operation>::operator()(ParticleSys &ptc) {
+auto StepSlice<Operation>::operator()(ParticleSys &ptc)
+    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void> {
   if (step_ % step_interval_ == 0) {
     opt_(ptc);
   }
   step_++;
+}
+
+template <typename Operation>
+template <typename ParticleSys>
+auto StepSlice<Operation>::operator()(ParticleSys &ptc)
+    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool> {
+  if (step_ % step_interval_ == 0) {
+    step_++;
+    return opt_(ptc);
+  } else {
+    step_++;
+    return false;
+  }
 }
 
 template <typename Operation>

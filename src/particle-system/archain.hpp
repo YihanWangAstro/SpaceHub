@@ -69,6 +69,8 @@ class ARchainSystem : public ParticleSystem<ARchainSystem<Particles, Interaction
 
   SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
 
+  SPACEHUB_CONDITIONAL_ACCESSOR(HAS_METHOD(Particles, radius), auto, radius, ptcl_.radius());
+
   CRTP_IMPL :
       // CRTP implementation
       SPACEHUB_STD_ACCESSOR(auto, impl_mass, ptcl_.mass());

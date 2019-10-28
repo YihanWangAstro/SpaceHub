@@ -284,6 +284,8 @@ std::istream &operator>>(std::istream &is, ParticleSystem<Derived> &ps) {
 \*---------------------------------------------------------------------------*/
 template <typename T>
 constexpr bool is_particle_system_v = std::is_base_of_v<ParticleSystem<T>, T>;
+
+CREATE_METHOD_CHECK(radius);
 }  // namespace space::particle_system
 
 #endif  // SPACEHUB_PARTICLE_SYSTEM_HPP

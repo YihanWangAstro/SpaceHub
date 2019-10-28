@@ -63,6 +63,8 @@ class ChainSystem : public ParticleSystem<ChainSystem<Particles, Interactions>> 
 
   SPACEHUB_STD_ACCESSOR(auto, index, index_);
 
+  SPACEHUB_CONDITIONAL_ACCESSOR(HAS_METHOD(Particles, radius), auto, radius, ptcl_.radius());
+
   // Friend functions
   template <typename P, typename F>
   friend std::ostream &operator<<(std::ostream &os, ChainSystem<P, F> const &ps);

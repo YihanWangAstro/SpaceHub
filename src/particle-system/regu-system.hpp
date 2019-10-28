@@ -112,6 +112,8 @@ class RegularizedSystem : public ParticleSystem<RegularizedSystem<Particles, Int
 
   SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
 
+  SPACEHUB_CONDITIONAL_ACCESSOR(HAS_METHOD(Particles, radius), auto, radius, ptcl_.radius());
+
   // Friend functions
   template <typename P, typename F, ReguType R>
   friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<P, F, R> const &ps);

@@ -31,19 +31,26 @@ namespace run_operations {
 CREATE_METHOD_CHECK(radius);
 class StickyCollision {
   template <typename ParticleSys>
-  auto operator()(ParticleSys const& ptc) {
-    static_assert(HAS_METHOD(PartileSys, radius), "Collision detection needs the particles have the radius!");
-    auto const& p = ptc.pos();
-    auto const& r = ptc.radius();
+  bool operator()(ParticleSys const &ptc) {
+    auto const &px = ptc.pos().x;
+    auto const &py = ptc.pos().y;
+    auto const &pz = ptc.pos().z;
+    auto const &r = ptc.radius();
     size_t num = ptc.number();
-    for (size_t i = 0 ; i < num; ++i){
-      for (size_t j  = i+1; j < num ; ++j){
-        if( distance(p[j],p[i]) < r[i] + r[j]) 
+    for (size_t i = 0; i < num; ++i) {
+      for (size_t j = i + 1; j < num; ++j) {
+        auto dx = px[i] - px[j];
+        auto dy = py[i] - py[j];
+        auto dz = pz[i] - pz[j];
+
+        if (sqrt(dx * dx + dy * dy + dz * dz) <= r[i] + r[j]) {
           return true;
+        }
       }
-    } 
-return false;
     }
+    return false;
+  }
 };
+
 }  // namespace run_operations
 #endif  // SPACEHUB_COLLISION_HPP
