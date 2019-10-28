@@ -19,6 +19,7 @@ License
 \*---------------------------------------------------------------------------*/
 /**
  * @file orbits/orbits.hpp
+ *
  * Header file.
  */
 #ifndef SPACEHUB_ORBITS_HPP
@@ -32,6 +33,7 @@ License
 #include "../vector/vector3.hpp"
 /**
  * @namespace space::orbit
+ *
  * Documentation
  */
 namespace space::orbit {
@@ -79,7 +81,7 @@ struct KeplerOrbit {
    */
   Scalar e;
   /**
-   *  @brief Semi-latus rectum of the orbit @f[ a(1-e^2) @f] .
+   * @brief Semi-latus rectum of the orbit  a(1-e^2)  .
    *
    * We don't use semi-major axis for this general orbital type because the semi-major axis for parabolic orbit is
    * undefined.
@@ -222,7 +224,7 @@ struct EllipOrbit : public KeplerOrbit<double> {
   SPACEHUB_MAKE_CONSTRUCTORS(EllipOrbit, delete, default, default, default, default);
 
   /**
-   * @brief Construct a new Ellip Orbit object from orbital parameters.
+   * @brief Construct a new Elliptical Orbit object from orbital parameters.
    *
    * @param[in] m_1 Mass of the primary object.
    * @param[in] m_2 Mass of the secondary object.
