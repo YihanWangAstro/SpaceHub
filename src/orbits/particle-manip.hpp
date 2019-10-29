@@ -29,6 +29,11 @@ License
 #include "orbits.hpp"
 
 namespace space::orbit {
+CREATE_MEMBER_CHECK(mass);
+CREATE_MEMBER_CHECK(pos);
+CREATE_MEMBER_CHECK(vel);
+CREATE_MEMBER_CHECK(radius);
+
 /**
  * @brief Create a std::ranges like(Container) from individual particles.
  *
@@ -48,7 +53,8 @@ auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
 /**
  * @brief Calculate the total mass of a cluster of particles/single particle.
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The total mass of the particle cluster/single particle.
  */
@@ -60,15 +66,17 @@ inline auto M_tot(Cluster &&ptc) {
       tot_m += p.mass;
     }
     return tot_m;
-  } else {
+  } else if constexpr (HAS_MEMBER(Cluster, mass)) {
     return ptc.mass;
+  } else {
+    static_assert(false, "Wrong input type!");
   }
 }
 
 /**
  * @brief Calculate the total mass of particles.
  *
- * @tparam Particle Type of the particle.
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] ptc The first particle.
  * @param[in] args The rest particles if exits.
@@ -83,7 +91,8 @@ inline auto M_tot(Particle &&ptc, Args &&... args) {
 /**
  * @brief Calculate the centre of mass position of a particle cluster/single particle
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The centre of mass position of the particle cluster/single particle.
  */
@@ -103,15 +112,17 @@ inline auto COM_p(Cluster const &ptc) {
 
     cm_pos /= tot_mass;
     return cm_pos;
-  } else {
+  } else if constexpr (HAS_MEMBER(Cluster, pos)) {
     return ptc.pos;
+  } else {
+    static_assert(false, "Wrong input type!");
   }
 }
 
 /**
  * @brief Calculate the centre of mass position of particles.
  *
- * @tparam Particle Type of the particle.
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] ptc The first particle.
  * @param[in] ptcs The rest particles if exist.
@@ -128,7 +139,8 @@ inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
 /**
  * @brief Calculate the centre of mass velocity of a particle cluster/single particle
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The centre of mass velocity of the particle cluster/single particle.
  */
@@ -150,15 +162,17 @@ inline auto COM_v(Cluster const &ptc) {
     cm_vel /= tot_mass;
 
     return cm_vel;
-  } else {
+  } else if constexpr (HAS_MEMBER(Cluster, vel)) {
     return ptc.vel;
+  } else {
+    static_assert(false, "Wrong input type!");
   }
 }
 
 /**
  * @brief Calculate the centre of mass velocity of particles.
  *
- * @tparam Particle Type of the particle.
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] ptc The first particle.
  * @param[in] ptcs The rest particles if exist.
@@ -176,8 +190,10 @@ inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
 /**
  * @brief The reduced mass of two clusters(cluster can also be a single particle).
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] m1 The first cluster/first single particle.
  * @param[in] m2 The second cluster/second single particle.
  * @return auto The reduced mass of the two clusters(cluster can also be a single particle).
@@ -193,7 +209,8 @@ inline auto M_rdc(Cluster1 &&m1, Cluster2 &&m2) {
  * @brief Move the centre of mass position of a cluster(can be a single particle) to a specific position.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] centre_mass_pos The target centre of mass position.
  * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
  */
@@ -213,7 +230,7 @@ void move_particles_pos(Vector const &centre_mass_pos, Cluster &ptc) {
  * @brief Move the centre of mass position of particles to a specific position.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Particle Type of the particle.
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] centre_mass_pos The target centre of mass position.
  * @param[in,out] ptc The first particle needs to be moved.
@@ -230,7 +247,8 @@ void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc, Args &... 
  * @brief Move the centre of mass velocity of a cluster(can be a single particle) to a specific velocity.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] centre_mass_vel The target centre of mass position.
  * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
  */
@@ -250,7 +268,7 @@ void move_particles_vel(Vector const &centre_mass_vel, Cluster &ptc) {
  * @brief Move the centre of mass velocity of particles to a specific velocity.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Particle Type of the particle.
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] centre_mass_vel The target centre of mass position.
  * @param[in,out] ptc The first particle needs to be moved.
@@ -268,7 +286,8 @@ void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc, Args &... 
  * and velocity.
  *
  * @tparam Vector 3-D Vector type.
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] centre_mass_pos The target centre of mass position.
  * @param[in] centre_mass_vel The target centre of mass velocity.
  * @param[in,out] ptc The cluster(can be a single particle) needs to be moved.
@@ -292,7 +311,7 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
  * @brief Move the centre of mass position and velocity of particles to a specific position and velocity.
  *
  * @tparam Vector Vector 3-D Vector type.
- * @tparam Particle Type of the particle.
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] centre_mass_pos The target centre of mass position.
  * @param[in] centre_mass_vel The target centre of mass velocity.
@@ -312,7 +331,8 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
  * corresponding position and velocity of a Kepler orbit.
  *
  * @tparam Scalar Floating point like type for KeplerOrbit.
- * @tparam Particle Type of the first particle/std::ranges(Container) like type.
+ * @tparam Particle Type of the first particle/std::ranges(Container) with element type has public member
+ * `mass`(Scalar), `pos`(Vector) and `vel`(Vector)..
  * @tparam Args Type of the particles if exits, should be same as Particle.
  * @param[in] orbit The Kepler orbit.
  * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
@@ -329,23 +349,24 @@ void move_particles(KeplerOrbit<Scalar> const &orbit, Particle &ptc, Args &... p
  * @brief Move the particles/a cluster of particles/single particle to the centre of mass frame and set the centre of
  * mass to original point.
  *
- * @tparam Particle Type of the first particle/std::ranges(Container) like type.
- * @tparam Args Type of the particles if exits, should be same as Particle.
- * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
- * @param[in,out] ptcs The rest particles need to be moved.
+ * @tparam Particle Type of the first particle/std::ranges(Container) with element type has public member
+ * `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @param[in,out] ptc The particles/The cluster/single particle needs to be moved.
  */
-template <typename Particle, typename... Args>
-void move_to_COM_frame(Particle &ptc, Args &... ptcs) {
-  using Vector = decltype(COM_v(ptc, ptcs...));
-  move_particles(Vector{0, 0, 0}, Vector{0, 0, 0}, ptc, ptcs...);
+template <typename... Particle>
+void move_to_COM_frame(Particle &... ptc) {
+  using Vector = decltype(COM_v(ptc...));
+  move_particles(Vector{0, 0, 0}, Vector{0, 0, 0}, ptc...);
 }
 
 /**
  * @brief Calculate the eccentricity of two clusters(cluster can also be a single particle) by regarding their centre of
  * mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] p1 The first cluster/first single particle.
  * @param[in] p2 The second cluster/first single particle.
  * @return auto The eccentricity.
@@ -363,8 +384,10 @@ inline auto calc_eccentricity(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre
  * of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] p1 The first cluster/first single particle.
  * @param[in] p2 The second cluster/first single particle.
  * @return auto The semi-major axis.
@@ -382,8 +405,10 @@ inline auto calc_semi_major_axis(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the semi-major axis and eccentricity of two clusters(cluster can also be a single particle) by
  * regarding their centre of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] p1 The first cluster/first single particle.
  * @param[in] p2 The second cluster/first single particle.
  * @return auto A tuple of (sem-major axis, eccentricity).
@@ -401,8 +426,10 @@ inline auto calc_a_e(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the semi-major axis of two clusters(cluster can also be a single particle) by regarding their centre
  * of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] p1 The first cluster/first single particle.
  * @param[in] p2 The second cluster/first single particle.
  * @return auto The period.
@@ -418,8 +445,10 @@ inline auto period(Cluster1 const &p1, Cluster2 const &p2) {
  * @brief Calculate the time to the periapsis of two clusters(cluster can also be a single particle) by regarding their
  * centre of mass as point particle.
  *
- * @tparam Cluster1 std::ranges(Container) like type/Type of single particle.
- * @tparam Cluster2 std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] cluster1 first cluster/first single particle.
  * @param[in] cluster2 The second cluster/first single particle.
  * @return auto The time to the periapsis.
@@ -453,7 +482,8 @@ inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2
 /**
  * @brief Calculate the kinetic energy of a cluster/single particle.
  *
- * @tparam Cluster std::ranges(Container) like type/Type of single particle.
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
  * @param[in] ptc particle container/single particle.
  * @return auto The kinetic energy.
  */
@@ -472,6 +502,15 @@ auto E_k(Cluster &&ptc) {
   }
 }
 
+/**
+ * @brief Calculate the kinetic energy of particles.
+ *
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] args The rest particles if exits.
+ * @return auto The kinetic energy of particles.
+ */
 template <typename Particle, typename... Args>
 auto E_k(Particle &&ptc, Args &&... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -479,6 +518,14 @@ auto E_k(Particle &&ptc, Args &&... args) {
   return 0.5 * ((args.mass * dot(args.vel, args.vel)) + ... + (ptc.mass * dot(ptc.vel, ptc.vel)));
 }
 
+/**
+ * @brief  Calculate the potential energy of a cluster/single particle.
+ *
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @param[in] ptc particle container/single particle.
+ * @return auto The potential energy.
+ */
 template <typename Cluster>
 auto E_p(Cluster &&ptc) {
   if constexpr (is_ranges_v<Cluster>) {
@@ -495,12 +542,29 @@ auto E_p(Cluster &&ptc) {
   }
 }
 
+/**
+ * @brief Calculate the kinetic energy of particles.
+ *
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] args The rest particles if exits.
+ * @return auto The potential energy of particles.
+ */
 template <typename Particle, typename... Args>
 auto E_p(Particle &&ptc, Args &&... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
   return E_p(cluster(ptc, args...));
 }
 
+/**
+ * @brief Calculate the kinetic energy of the centre of mass of a cluster/single particle.
+ *
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @param[in] ptc particle container/single particle.
+ * @return auto The kinetic energy of the centre of mass.
+ */
 template <typename Cluster>
 auto E_k_COM(Cluster &&ptc) {
   auto m_tot = M_tot(ptc);
@@ -508,6 +572,15 @@ auto E_k_COM(Cluster &&ptc) {
   return 0.5 * m_tot * dot(v_com, v_com);
 }
 
+/**
+ * @brief Calculate the kinetic energy of the centre of mass of particles.
+ *
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] args The rest particles if exits.
+ * @return auto The kinetic energy of the centre of mass of particles.
+ */
 template <typename Particle, typename... Args>
 auto E_k_COM(Particle &&ptc, Args &&... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
@@ -516,15 +589,42 @@ auto E_k_COM(Particle &&ptc, Args &&... args) {
   return 0.5 * m_tot * dot(v_com, v_com);
 }
 
-CREATE_MEMBER_CHECK(mass);
-CREATE_MEMBER_CHECK(radius);
-
-template <typename Particle, typename... Args>
-auto E_tot(Particle &&ptc, Args &&... args) {
-  return E_k(std::forward<Particle>(ptc), std::forward<Args>(args)...) +
-         E_p(std::forward<Particle>(ptc), std::forward<Args>(args)...);
+/**
+ * @brief Calculate the total energy of particles/a cluster of particles/single particle.
+ *
+ * @tparam Particle Type of the first particle/std::ranges(Container) with element type has public member
+ * `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @param[in] ptc The particles/The cluster/single particle needs to be evaluated.
+ * @return auto The total energy.
+ */
+template <typename... Particle>
+inline auto E_tot(Particle &&... ptc) {
+  return E_k(std::forward<Particle>(ptc)...) + E_p(std::forward<Particle>(ptc)...);
 }
 
+/**
+ * @brief Calculate the inner energy of particles/a cluster of particles/single particle.
+ *
+ * @tparam Particle Type of the first particle/std::ranges(Container) with element type has public member
+ * `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @param[in] ptc The particles/The cluster/single particle needs to be evaluated.
+ * @return auto The inner energy.
+ */
+template <typename... Particle>
+inline auto E_inner(Particle &&... ptc) {
+  return E_tot(std::forward<Particle>(ptc)...) - E_k_COM(std::forward<Particle>(ptc)...);
+}
+
+/**
+ * @brief Calculate the size of a cluster/single particle.
+ *
+ * The size of the cluster are calculated by detecting the farest distance between two particles in this cluster.
+ *
+ * @tparam Cluster std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @param[in] ptc particle container/single particle.
+ * @return auto The size of the cluster.
+ */
 template <typename Cluster>
 auto cluster_size(Cluster &&ptc) {
   if constexpr (is_ranges_v<Cluster>) {
@@ -552,56 +652,154 @@ auto cluster_size(Cluster &&ptc) {
   }
 }
 
+/**
+ * @brief Calculate the size of a set of particles.
+ *
+ * The size of the cluster are calculated by detecting the farest distance between two particles in this cluster.
+ *
+ * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
+ * @tparam Args Type of the particles, should be same as Particle.
+ * @param[in] ptc The first particle.
+ * @param[in] args The rest particles if exits.
+ * @return auto The size of the cluster.
+ */
 template <typename Particle, typename... Args>
 auto cluster_size(Particle &&ptc, Args &&... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
   return cluster_size(cluster(ptc, args...));
 }
 
-template <typename T1, typename T2, typename Scalar>
-auto E_tid(T1 &&m1, T2 &&m2, Scalar R2) {
-  auto r = distance(orbit::COM_p(m1), orbit::COM_p(m2));
-  auto m_tot1 = orbit::M_tot(m1);
-  auto m_tot2 = orbit::M_tot(m2);
+/**
+ * @brief Calculate the tidal potential between two clusters/single particles by providing the size of clusters.
+ *
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Scalar Floating point like type.
+ * @param[in] cluster1 first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
+ * @param[in] R1 The size of the first cluster.
+ * @param[in] R2 The size of the second cluster.
+ * @return auto The tidal potential energy.
+ */
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto E_tid(Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R1, Scalar R2) {
+  auto r = distance(orbit::COM_p(cluster1), orbit::COM_p(cluster2));
+  auto m_tot1 = orbit::M_tot(cluster1);
+  auto m_tot2 = orbit::M_tot(cluster2);
 
-  return -consts::G * m_tot1 * m_tot2 * R2 / (r * r);
+  return -consts::G * m_tot1 * m_tot2 * (R1 + R2) / (r * r);
 }
 
-template <typename T1, typename T2>
-auto E_tid(T1 &&m1, T2 &&m2) {
-  auto R2 = orbit::cluster_size(m2);
-  return E_tid(std::forward<T1>(m1), std::forward<T2>(m2), R2);
+/**
+ * @brief Calculate the tidal potential between two clusters/single particles.
+ *
+ * The size of the clusters will be estimated by cluster_size().
+ *
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Scalar Floating point like type.
+ * @param[in] cluster1 The first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
+ * @return auto The tidal potential energy.
+ */
+template <typename Cluster1, typename Cluster2>
+auto E_tid(Cluster1 &&cluster1, Cluster2 &&cluster2) {
+  auto R1 = orbit::cluster_size(cluster1);
+  auto R2 = orbit::cluster_size(cluster2);
+  return E_tid(std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster2), R1, R2);
 }
 
-template <typename T1, typename T2, typename Scalar>
-auto tidal_factor(T1 &&m1, T2 &&m2, Scalar R2) {
-  auto r = distance(orbit::COM_p(m1), orbit::COM_p(m2));
-  auto m_tot1 = orbit::M_tot(m1);
-  auto m_tot2 = orbit::M_tot(m2);
+/**
+ * @brief Calculate the tidal factors between two clusters/single particles by providing the size of clusters.
+ *
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Scalar Floating point like type.
+ * @param[in] cluster1 The first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
+ * @param[in] R1 The size of the first cluster.
+ * @param[in] R2 The size of the second cluster.
+ * @return auto A tuple of (factor1, factor2), where factor1 is the tidal factor of first cluster and factor2 is for the
+ * second.
+ */
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto tidal_factor(Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R1, Scalar R2) {
+  auto r = distance(orbit::COM_p(cluster1), orbit::COM_p(cluster2));
+  auto m_tot1 = orbit::M_tot(cluster1);
+  auto m_tot2 = orbit::M_tot(cluster2);
 
-  auto ratio = R2 / r;
+  auto ratio1 = R1 / r;
+  auto ratio2 = R2 / r;
 
-  return m_tot1 / m_tot2 * ratio * ratio * ratio;
+  return std::make_tuple(m_tot2 / m_tot1 * ratio1 * ratio1 * ratio1, m_tot1 / m_tot2 * ratio2 * ratio2 * ratio2);
 }
 
-template <typename T1, typename T2>
-auto tidal_factor(T1 &&m1, T2 &&m2) {
-  auto R2 = orbit::cluster_size(m2);
-  return tidal_factor(std::forward<T1>(m1), std::forward<T2>(m2), R2);
+/**
+ * @brief Calculate the tidal factors between two clusters/single particles.
+ *
+ * The size of the clusters will be estimated by cluster_size().
+ *
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @param[in] cluster1 The first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
+ * @return auto A tuple of (factor1, factor2), where factor1 is the tidal factor of first cluster and factor2 is for the
+ * second.
+ */
+template <typename Cluster1, typename Cluster2>
+auto tidal_factor(Cluster1 &&cluster1, Cluster2 &&cluster2) {
+  auto R1 = orbit::cluster_size(cluster1);
+  auto R2 = orbit::cluster_size(cluster2);
+  return tidal_factor(std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster1), R1, R2);
 }
 
-template <typename T1, typename T2, typename Scalar>
-auto tidal_radius(Scalar tidal_factor, T1 &&m1, T2 &&m2, Scalar R2) {
-  auto m_tot1 = orbit::M_tot(m1);
-  auto m_tot2 = orbit::M_tot(m2);
+/**
+ * @brief Calculate the tidal radius between two clusters.
+ *
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Scalar Floating point like type.
+ * @param[in] tidal_factor The tidal factor indicates where the radius is estimated. =1 means tidal disrupted.
+ * @param[in] cluster1 The first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
+ * @param R2 The size of the second cluster.
+ * @return auto The tidal radius of the second cluster tidaled by the first cluster.
+ */
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto tidal_radius(Scalar tidal_factor, Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R2) {
+  auto m_tot1 = orbit::M_tot(cluster1);
+  auto m_tot2 = orbit::M_tot(cluster2);
 
   return pow(m_tot1 / (tidal_factor * m_tot2), 1.0 / 3) * R2;
 }
 
-template <typename T1, typename T2, typename Scalar>
-auto tidal_radius(Scalar tidal_factor, T1 &&m1, T2 &&m2) {
-  auto R2 = orbit::cluster_size(m2);
-  return tidal_radius(tidal_factor, std::forward<T1>(m1), std::forward<T2>(m2), R2);
+/**
+ * @brief Calculate the tidal radius between two clusters.
+ *
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Scalar Floating point like type.
+ * @param[in] tidal_factor The tidal factor indicates where the radius is estimated. =1 means tidal disrupted.
+ * @param[in] cluster1 The first cluster/first single particle.
+ * @param[in] cluster2 The second cluster/first single particle.
+ * @return auto The tidal radius of the second cluster tidaled by the first cluster.
+ */
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto tidal_radius(Scalar tidal_factor, Cluster1 &&cluster1, Cluster2 &&cluster2) {
+  auto R2 = orbit::cluster_size(cluster2);
+  return tidal_radius(tidal_factor, std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster2), R2);
 }
 
 }  // namespace space::orbit

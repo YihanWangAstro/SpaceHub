@@ -41,6 +41,9 @@ namespace space::integrator {
  */
 class Symplectic2nd : public Integrator<Symplectic2nd> {
  public:
+  /**
+   * @brief Base class.
+   */
   using Base = Integrator<Symplectic2nd>;
   /**
    * Order of the integrator.
@@ -62,6 +65,9 @@ class Symplectic2nd : public Integrator<Symplectic2nd> {
  */
 class Symplectic4th : public Integrator<Symplectic4th> {
  public:
+  /**
+   * @brief Base class.
+   */
   using Base = Integrator<Symplectic4th>;
   /**
    * Order of the integrator.
@@ -83,6 +89,9 @@ class Symplectic4th : public Integrator<Symplectic4th> {
  */
 class Symplectic6th : public Integrator<Symplectic6th> {
  public:
+  /**
+   * @brief Base class.
+   */
   using Base = Integrator<Symplectic6th>;
   /**
    * Order of the integrator.
@@ -104,6 +113,9 @@ class Symplectic6th : public Integrator<Symplectic6th> {
  */
 class Symplectic8th : public Integrator<Symplectic8th> {
  public:
+  /**
+   * @brief Base class.
+   */
   using Base = Integrator<Symplectic8th>;
   /**
    * Order of the integrator.
@@ -125,6 +137,9 @@ class Symplectic8th : public Integrator<Symplectic8th> {
  */
 class Symplectic10th : public Integrator<Symplectic10th> {
  public:
+  /**
+   * @brief Base class.
+   */
   using Base = Integrator<Symplectic10th>;
   /**
    * Order of the integrator.

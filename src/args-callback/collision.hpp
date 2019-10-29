@@ -29,7 +29,20 @@ License
 #include "../vector/vector3.hpp"
 namespace run_operations {
 CREATE_METHOD_CHECK(radius);
+
+/**
+ * @brief Detect collisions with sticky radius approximation.
+ *
+ */
 class StickyCollision {
+  /**
+   * @brief Callable interface for collision detection.
+   *
+   * @tparam ParticleSys Any implementation of ParticleSystem.
+   * @param ptc Particle system.
+   * @return true Collision detected.
+   * @return false No collision detected.
+   */
   template <typename ParticleSys>
   bool operator()(ParticleSys const &ptc) {
     auto const &px = ptc.pos().x;
