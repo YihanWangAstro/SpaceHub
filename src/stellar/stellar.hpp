@@ -12,7 +12,7 @@ namespace space::stellar {
 enum class StarType { BH, NS, STAR, WD };
 
 template <typename Scalar>
-auto calc_obj_radius(StarType T, Scalar mass) {
+auto stellar_radius(StarType T, Scalar mass) {
   if (T == StarType::BH) {
     return 2 * consts::G * mass / consts::C / consts::C;
   } else if (T == StarType::NS) {

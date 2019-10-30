@@ -83,9 +83,27 @@ void multi_thread_run(size_t thread_num, Callable &&job, Args &&... args) {
   }
 }
 
+template <typename Callable, typename... Args>
+void indexed_multi_thread_run(size_t thread_num, Callable &&job, Args &&... args) {
+  std::vector<std::thread> threads;
+  threads.reserve(thread_num);
+  for (size_t i = 0; i < thread_num; ++i) {
+    threads.emplace_back(std::thread(std::forward<Callable>(job), i, std::forward<Args>(args)...));
+  }
+
+  for (auto &th : threads) {
+    if (th.joinable()) th.join();
+  }
+}
+
 template <typename... Args>
 void auto_multi_thread(Args &&... args) {
   multi_thread_run(machine_thread_num, std::forward<Args>(args)...);
+}
+
+template <typename... Args>
+void auto_indexed_multi_thread(Args &&... args) {
+  indexed_multi_thread_run(machine_thread_num, std::forward<Args>(args)...);
 }
 
 class ConcurrentFile {
