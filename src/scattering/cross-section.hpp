@@ -48,7 +48,7 @@ auto critical_vel(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster
   auto M_incident = orbit::M_tot(incident_cluster);
   auto E_inner1 = orbit::E_inner(stay_cluster);
   auto E_inner2 = orbit::E_inner(incident_cluster);
-  auto v_c = critical_vel(M_stay, M_incident, E_inner1, E_inner2);
+  return critical_vel(M_stay, M_incident, E_inner1, E_inner2);
 }
 
 template <typename Scalar>

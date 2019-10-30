@@ -482,13 +482,11 @@ inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2
     auto p = h2 / u;
     auto T_anomaly = acos((p / r - 1));
     auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
-    space::display(std::cout, e, T_anomaly, T_anomaly_to_E_anomaly(T_anomaly, e), M_anomaly, '\n');
     return time_to_periapsis(orbit_type, u, a, M_anomaly);
   } else {
     auto p = a * (1 - e * e);
     auto T_anomaly = acos((p / r - 1) / e);
     auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
-    space::display(std::cout, e, T_anomaly, T_anomaly_to_E_anomaly(T_anomaly, e), M_anomaly, '\n');
     return time_to_periapsis(orbit_type, u, a, M_anomaly);
   }
 }
