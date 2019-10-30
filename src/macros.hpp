@@ -30,7 +30,7 @@ License
  * Documentation for space
  */
 namespace space::consts {
-  constexpr double pi = 3.14159265358979323;
+constexpr double pi = 3.14159265358979323;
 }
 
 /**
@@ -38,57 +38,57 @@ namespace space::consts {
  * Documentation for space
  */
 namespace space::unit {
-  constexpr double au = 1;
-  constexpr double m_solar = 1;
-  constexpr double year = 2 * consts::pi;
-  constexpr double deg = consts::pi / 180.0;
 
-  constexpr double kyr = 1e3 * year;
-  constexpr double Myr = 1e6 * year;
-  constexpr double Gyr = 1e9 * year;
-  constexpr double month = year / 12;
-  constexpr double day = year / 365.25636042;
-  constexpr double hr = day / 24;
-  constexpr double min = hr / 60;
-  constexpr double sec = min / 60;
-  constexpr double hubble_t = 13.7 * Gyr;
+#define MAKE_UNIT(NAME, UNIT)                                                                               \
+  constexpr double NAME = UNIT;                                                                             \
+  constexpr double operator"" _##NAME(unsigned long long int x) { return static_cast<double>(x) * (UNIT); } \
+  constexpr double operator"" _##NAME(long double x) { return static_cast<double>(x) * (UNIT); }
 
-  constexpr double km = 1 / 149597870.7;
-  constexpr double pc = 648000 / consts::pi;
-  constexpr double r_solar = 6.957E5 * km;
-  constexpr double r_jupiter = 69911 * km;
-  constexpr double r_neptune = 24622 * km;
+MAKE_UNIT(AU, 1)
+MAKE_UNIT(Ms, 1)
+MAKE_UNIT(year, 2 * consts::pi)
+MAKE_UNIT(deg, consts::pi / 180.0)
 
-  constexpr double v_unit = 2.9784651272402163E1;
-  constexpr double kms = 1 / v_unit;
+MAKE_UNIT(kyr, 1e3_year)
+MAKE_UNIT(Myr, 1e6_year)
+MAKE_UNIT(Gyr, 1e9_year)
+MAKE_UNIT(month, 1_year / 12.0)
+MAKE_UNIT(day, 1_year / 365.25636042)
+MAKE_UNIT(hr, 1_day / 24.0)
+MAKE_UNIT(min, 1_hr / 60.0)
+MAKE_UNIT(sec, 1_min / 60.0)
+MAKE_UNIT(T_hubble, 13.7_Gyr)
 
-  constexpr double m_earth = 3.003E-6 * m_solar;
-  constexpr double m_mercury = 0.055 * m_earth;
-  constexpr double m_venus = 0.815 * m_earth;
-  constexpr double m_mars = 0.107 * m_earth;
-  constexpr double m_jupiter = 317.8 * m_earth;
-  constexpr double m_saturn = 95.16 * m_earth;
-  constexpr double m_neptune = 17.15 * m_earth;
-  constexpr double m_moon = 0.012300 * m_earth;
+MAKE_UNIT(km, 1_AU / 149597870.7)
+MAKE_UNIT(PC, 1_AU * 648000.0 / consts::pi)
+MAKE_UNIT(Rs, 6.957e5_km)
+MAKE_UNIT(Rj, 69911_km)
+
+MAKE_UNIT(kms, km / sec)
+
+MAKE_UNIT(Me, 3.003E-6_Ms)
+MAKE_UNIT(Mj, 317.8_Me)
+MAKE_UNIT(Mmoon, 0.012300_Me)
+
 }  // namespace space::unit
 
 namespace space::consts {
-  constexpr double a_jupiter = 5.2044 * unit::au;
-  constexpr double e_jupiter = 0.0489;
-  constexpr double LoAN_jupiter = 100.464 * unit::deg;
-  constexpr double AoP_jupiter = 273.867 * unit::deg;
-  constexpr double i_jupiter = 6.09 * unit::deg;
+constexpr double a_jupiter = 5.2044 * unit::AU;
+constexpr double e_jupiter = 0.0489;
+constexpr double LoAN_jupiter = 100.464 * unit::deg;
+constexpr double AoP_jupiter = 273.867 * unit::deg;
+constexpr double i_jupiter = 6.09 * unit::deg;
 
-  constexpr double a_neptune = 30.11 * unit::au;
-  constexpr double e_neptune = 0.009456;
-  constexpr double LoAN_neptune = 131.784 * unit::deg;
-  constexpr double AoP_neptune = 276.336 * unit::deg;
-  constexpr double i_neptune = 6.43 * unit::deg;
+constexpr double a_neptune = 30.11 * unit::AU;
+constexpr double e_neptune = 0.009456;
+constexpr double LoAN_neptune = 131.784 * unit::deg;
+constexpr double AoP_neptune = 276.336 * unit::deg;
+constexpr double i_neptune = 6.43 * unit::deg;
 }  // namespace space::consts
 
 namespace space::consts {
-  constexpr double G = 1;
-  constexpr double C = 299792.458 * unit::kms;
+constexpr double G = 1;
+constexpr double C = 299792.458 * unit::kms;
 }  // namespace space::consts
 
 #endif

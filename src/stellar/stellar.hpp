@@ -18,9 +18,9 @@ auto stellar_radius(StarType T, Scalar mass) {
   } else if (T == StarType::NS) {
     return 10 * unit::km;
   } else if (T == StarType::STAR) {
-    return unit::r_solar * pow(mass / unit::m_solar, 0.75);
+    return unit::Rs * pow(mass / unit::Ms, 0.75);
   } else if (T == StarType::WD) {
-    return 0.01 * unit::r_solar * pow(unit::m_solar / mass, 1.0 / 3);
+    return 0.01 * unit::Rs * pow(unit::Ms / mass, 1.0 / 3);
   }
 }
 }  // namespace space::stellar

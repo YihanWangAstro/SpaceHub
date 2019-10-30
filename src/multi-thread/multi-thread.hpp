@@ -71,7 +71,7 @@ void multi_threads_loop(size_t total_len, size_t thread_num, Lambda &&task) {
 }
 
 template <typename Callable, typename... Args>
-void multi_thread_run(size_t thread_num, Callable &&job, Args &&... args) {
+void multi_thread(size_t thread_num, Callable &&job, Args &&... args) {
   std::vector<std::thread> threads;
   threads.reserve(thread_num);
   for (size_t i = 0; i < thread_num; ++i) {
@@ -84,7 +84,7 @@ void multi_thread_run(size_t thread_num, Callable &&job, Args &&... args) {
 }
 
 template <typename Callable, typename... Args>
-void indexed_multi_thread_run(size_t thread_num, Callable &&job, Args &&... args) {
+void indexed_multi_thread(size_t thread_num, Callable &&job, Args &&... args) {
   std::vector<std::thread> threads;
   threads.reserve(thread_num);
   for (size_t i = 0; i < thread_num; ++i) {
@@ -98,12 +98,12 @@ void indexed_multi_thread_run(size_t thread_num, Callable &&job, Args &&... args
 
 template <typename... Args>
 void auto_multi_thread(Args &&... args) {
-  multi_thread_run(machine_thread_num, std::forward<Args>(args)...);
+  multi_thread(machine_thread_num, std::forward<Args>(args)...);
 }
 
 template <typename... Args>
 void auto_indexed_multi_thread(Args &&... args) {
-  indexed_multi_thread_run(machine_thread_num, std::forward<Args>(args)...);
+  indexed_multi_thread(machine_thread_num, std::forward<Args>(args)...);
 }
 
 class ConcurrentFile {

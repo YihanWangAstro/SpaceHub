@@ -77,16 +77,16 @@ struct KeplerOrbit {
    */
   Scalar m2;
   /**
-   *  @brief Eccentricity of the orbit.
-   */
-  Scalar e;
-  /**
    * @brief Semi-latus rectum of the orbit  a(1-e^2)  .
    *
    * We don't use semi-major axis for this general orbital type because the semi-major axis for parabolic orbit is
    * undefined.
    */
   Scalar p;
+  /**
+   *  @brief Eccentricity of the orbit.
+   */
+  Scalar e;
   /**
    *  @brief Orbit inclination.
    */
@@ -153,7 +153,7 @@ struct KeplerOrbit {
    * @return std::ostream& Output stream.
    */
   friend std::ostream &operator<<(std::ostream &os, KeplerOrbit const &obt) {
-    space::display(os, obt.m1, obt.m2, obt.e, obt.p, obt.i, obt.Omega, obt.omega, obt.nu);
+    space::display(os, obt.m1, obt.m2, obt.p, obt.e, obt.i, obt.Omega, obt.omega, obt.nu);
     return os;
   }
 };
@@ -315,9 +315,12 @@ template <typename Scalar>
 Scalar T_anomaly_to_E_anomaly(Scalar T_anomaly, Scalar e) {
   if (math::iseq(e, 1.0)) {
     return tan(0.5 * T_anomaly);
-  } else if (e >= 0) {
+  } else if (0 <= e && e < 1) {
     auto cos_T = cos(T_anomaly);
-    return (e + cos_T) / (1 + e * cos_T);
+    return acos((e + cos_T) / (1 + e * cos_T));
+  } else if (e > 1) {
+    auto cos_T = cos(T_anomaly);
+    return acosh((e + cos_T) / (1 + e * cos_T));
   } else {
     spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
   }
