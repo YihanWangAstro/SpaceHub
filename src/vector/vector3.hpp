@@ -214,7 +214,10 @@ struct Vec3 {
 /** Calculate the Euclid distance of two vectors */
 template <typename T1, typename T2>
 inline T1 distance(const Vec3<T1> &v1, const Vec3<T2> &v2) {
-  return sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y) + (v1.z - v2.z) * (v1.z - v2.z));
+  auto dx = v1.x - v2.x;
+  auto dy = v1.y - v2.y;
+  auto dz = v1.z - v2.z;
+  return sqrt(dx * dx + dy * dy + dz * dz);
 }
 
 /** Calculate the inner product of two vectors */

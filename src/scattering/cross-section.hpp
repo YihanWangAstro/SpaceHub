@@ -43,7 +43,7 @@ auto critical_vel(Scalar m1, Scalar m2, Scalar E1_inner, Scalar E2_inner) {
 }
 
 template <typename Cluster1, typename Cluster2>
-auto critical_vel(Cluster1&& stay_cluster, Cluster2&& incident_cluster) {
+auto critical_vel(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster) {
   auto M_stay = orbit::M_tot(stay_cluster);
   auto M_incident = orbit::M_tot(incident_cluster);
   auto E_inner1 = orbit::E_inner(stay_cluster);
@@ -57,34 +57,30 @@ auto b_max(Scalar v_c, Scalar v_inf, Scalar a_max) {
 }
 
 template <typename Scalar>
-auto random_incident(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max, Scalar r) {
+auto incident_orbit(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max, Scalar r) {
   using Vector = Vec3<Scalar>;
   auto b = sqrt(random::Uniform(0, b_max * b_max));
   auto w = random::Uniform(0, 2 * consts::pi);
-  auto orbit = orbit::HyperOrbit(m_stay, m_incident, v_inf, b, w, 0, 0, r, orbit::Hyper::in);
-  return orbit::orbit_to_coord(orbit);
+  return orbit::HyperOrbit(m_stay, m_incident, v_inf, b, w, 0, 0, r, orbit::Hyper::in);
 }
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
-auto random_incident(Cluster1&& stay_cluster, Cluster2&& incident_cluster, Scalar v_inf, Scalar tidal_factor = 1e-4) {
-  auto M_stay = orbit::M_tot(stay_cluster);
-  auto M_incident = orbit::M_tot(incident_cluster);
-  auto E_inner1 = orbit::E_inner(stay_cluster);
-  auto E_inner2 = orbit::E_inner(incident_cluster);
-  auto v_c = critical_vel(M_stay, M_incident, E_inner1, E_inner2);
-  auto R1 = orbit::cluster_size(stay_cluster);
-  auto R2 = orbit::cluster_size(incident_cluster);
-  auto R_max = math::max(R1, R2);
-  auto b_upper = b_max(v_c, v_inf, R_max);
-  auto r_start1 = orbit::tidal_radius(tidal_factor, stay_cluster, incident_cluster, R2);
-  auto r_start2 = orbit::tidal_radius(tidal_factor, incident_cluster, stay_cluster, R1);
-  return random_incident(M_stay, M_incident, v_inf, b_upper, std::max(r_start1, r_start2));
+auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf,
+                    Scalar tidal_factor = 1e-4) {
+  auto const M_stay = orbit::M_tot(stay_cluster);
+  auto const M_incident = orbit::M_tot(incident_cluster);
+  auto const E_inner1 = orbit::E_inner(stay_cluster);
+  auto const E_inner2 = orbit::E_inner(incident_cluster);
+  auto const v_c = critical_vel(M_stay, M_incident, E_inner1, E_inner2);
+  auto const R1 = orbit::cluster_size(stay_cluster);
+  auto const R2 = orbit::cluster_size(incident_cluster);
+  auto const R_max = math::max(R1, R2);
+  auto const b_upper = b_max(v_c, v_inf, R_max);
+  auto const r_start1 = orbit::tidal_radius(tidal_factor, stay_cluster, incident_cluster, R2);
+  auto const r_start2 = orbit::tidal_radius(tidal_factor, incident_cluster, stay_cluster, R1);
+  return incident_orbit(M_stay, M_incident, v_inf, b_upper, std::max(r_start1, r_start2));
 }
 
 }  // namespace space::scattering
 
-namespace space::run_operations {
-
-class
-}
 #endif  // SPACEHUB_CROSS_SECTION_HPP

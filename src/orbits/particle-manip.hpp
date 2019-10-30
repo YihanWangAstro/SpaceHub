@@ -25,9 +25,9 @@ License
 #ifndef SPACEHUB_PARTICLE_MANIP_HPP
 #define SPACEHUB_PARTICLE_MANIP_HPP
 
+#include <array>
 #include "../dev-tools.hpp"
 #include "orbits.hpp"
-
 namespace space::orbit {
 CREATE_MEMBER_CHECK(mass);
 CREATE_MEMBER_CHECK(pos);
@@ -47,7 +47,7 @@ CREATE_MEMBER_CHECK(radius);
 template <typename Particle, typename... Args>
 auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the arguments must be same!");
-  return std::initializer_list<Particle>{ptc1, ptc2, ptcs...};
+  return std::array{ptc1, ptc2, ptcs...};
 }
 
 /**
@@ -59,17 +59,17 @@ auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
  * @return auto The total mass of the particle cluster/single particle.
  */
 template <typename Cluster>
-inline auto M_tot(Cluster &&ptc) {
+inline auto M_tot(Cluster const &ptc) {
+  static_assert(is_ranges_v<Cluster> || HAS_MEMBER(Cluster, mass), "Wrong input type!");
+
   if constexpr (is_ranges_v<Cluster>) {
     typename Cluster::value_type::Scalar tot_m = 0;
     for (auto &p : ptc) {
       tot_m += p.mass;
     }
     return tot_m;
-  } else if constexpr (HAS_MEMBER(Cluster, mass)) {
-    return ptc.mass;
   } else {
-    static_assert(false, "Wrong input type!");
+    return ptc.mass;
   }
 }
 
@@ -78,14 +78,15 @@ inline auto M_tot(Cluster &&ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] args The rest particles if exits.
  * @return auto The total mass of particles
  */
 template <typename Particle, typename... Args>
-inline auto M_tot(Particle &&ptc, Args &&... args) {
+inline auto M_tot(Particle const &ptc1, Particle const &ptc2, Args const &... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  return (args.mass + ... + ptc.mass);
+  return (args.mass + ... + (ptc2.mass + ptc1.mass));
 }
 
 /**
@@ -98,6 +99,8 @@ inline auto M_tot(Particle &&ptc, Args &&... args) {
  */
 template <typename Cluster>
 inline auto COM_p(Cluster const &ptc) {
+  static_assert(is_ranges_v<Cluster> || HAS_MEMBER(Cluster, pos), "Wrong input type!");
+
   if constexpr (is_ranges_v<Cluster>) {
     using Particle = typename Cluster::value_type;
     using Scalar = typename Particle::Scalar;
@@ -112,10 +115,8 @@ inline auto COM_p(Cluster const &ptc) {
 
     cm_pos /= tot_mass;
     return cm_pos;
-  } else if constexpr (HAS_MEMBER(Cluster, pos)) {
-    return ptc.pos;
   } else {
-    static_assert(false, "Wrong input type!");
+    return ptc.pos;
   }
 }
 
@@ -124,15 +125,16 @@ inline auto COM_p(Cluster const &ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] ptcs The rest particles if exist.
  * @return auto The centre of mass position of particles.
  */
 template <typename Particle, typename... Args>
-inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
+inline auto COM_p(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  decltype(ptc.mass) tot_mass = (ptcs.mass + ... + ptc.mass);
-  decltype(ptc.pos) cm_pos = ((ptcs.mass * ptcs.pos) + ... + (ptc.mass * ptc.pos)) / tot_mass;
+  auto tot_mass = (ptcs.mass + ... + (ptc1.mass + ptc2.mass));
+  auto cm_pos = ((ptcs.mass * ptcs.pos) + ... + (ptc1.mass * ptc1.pos + ptc2.mass * ptc2.pos)) / tot_mass;
   return cm_pos;
 }
 
@@ -146,6 +148,8 @@ inline auto COM_p(Particle const &ptc, Args const &... ptcs) {
  */
 template <typename Cluster>
 inline auto COM_v(Cluster const &ptc) {
+  static_assert(is_ranges_v<Cluster> || HAS_MEMBER(Cluster, vel), "Wrong input type!");
+
   if constexpr (is_ranges_v<Cluster>) {
     using Particle = typename Cluster::value_type;
     using Scalar = typename Particle::Scalar;
@@ -162,10 +166,8 @@ inline auto COM_v(Cluster const &ptc) {
     cm_vel /= tot_mass;
 
     return cm_vel;
-  } else if constexpr (HAS_MEMBER(Cluster, vel)) {
-    return ptc.vel;
   } else {
-    static_assert(false, "Wrong input type!");
+    return ptc.vel;
   }
 }
 
@@ -174,15 +176,16 @@ inline auto COM_v(Cluster const &ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] ptcs The rest particles if exist.
  * @return auto The centre of mass velocity of particles.
  */
 template <typename Particle, typename... Args>
-inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
+inline auto COM_v(Particle const &ptc1, Particle const &ptc2, Args const &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  decltype(ptc.mass) tot_mass = (ptcs.mass + ... + ptc.mass);
-  decltype(ptc.vel) cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc.mass * ptc.vel)) / tot_mass;
+  auto tot_mass = (ptcs.mass + ... + (ptc1.mass + ptc2.mass));
+  auto cm_vel = ((ptcs.mass * ptcs.vel) + ... + (ptc1.mass * ptc1.vel + ptc2.mass * ptc2.vel)) / tot_mass;
 
   return cm_vel;
 }
@@ -199,7 +202,7 @@ inline auto COM_v(Particle const &ptc, Args const &... ptcs) {
  * @return auto The reduced mass of the two clusters(cluster can also be a single particle).
  */
 template <typename Cluster1, typename Cluster2>
-inline auto M_rdc(Cluster1 &&m1, Cluster2 &&m2) {
+inline auto M_rdc(Cluster1 const &m1, Cluster2 const &m2) {
   auto tot_mass1 = M_tot(m1);
   auto tot_mass2 = M_tot(m2);
   return tot_mass1 * tot_mass2 / (tot_mass1 + tot_mass2);
@@ -233,14 +236,16 @@ void move_particles_pos(Vector const &centre_mass_pos, Cluster &ptc) {
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] centre_mass_pos The target centre of mass position.
- * @param[in,out] ptc The first particle needs to be moved.
+ * @param[in,out] ptc1 The first particle needs to be moved.
+ * @param[in,out] ptc2 The second particle needs to be moved.
  * @param[in,out] ptcs The rest particles need to be moved.
  */
 template <typename Vector, typename Particle, typename... Args>
-void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc, Args &... ptcs) {
+void move_particles_pos(Vector const &centre_mass_pos, Particle &ptc1, Particle &ptc2, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  auto dp = centre_mass_pos - COM_p(ptc, ptcs...);
-  ((ptc.pos += dp), ..., (ptcs.pos += dp));
+  auto dp = centre_mass_pos - COM_p(ptc1, ptc2, ptcs...);
+  ptc1.pos += dp, ptc2.pos += dp;
+  (..., (ptcs.pos += dp));
 }
 
 /**
@@ -271,14 +276,16 @@ void move_particles_vel(Vector const &centre_mass_vel, Cluster &ptc) {
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] centre_mass_vel The target centre of mass position.
- * @param[in,out] ptc The first particle needs to be moved.
+ * @param[in,out] ptc1 The first particle needs to be moved.
+ * @param[in,out] ptc2 The first particle needs to be moved.
  * @param[in,out] ptcs The rest particles need to be moved.
  */
 template <typename Vector, typename Particle, typename... Args>
-void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
+void move_particles_vel(Vector const &centre_mass_vel, Particle &ptc1, Particle &ptc2, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  auto dv = centre_mass_vel - COM_v(ptc, ptcs...);
-  ((ptc.vel += dv), ..., (ptcs.vel += dv));
+  auto dv = centre_mass_vel - COM_v(ptc1, ptc2, ptcs...);
+  ptc1.vel += dv, ptc2.vel += dv;
+  (..., (ptcs.vel += dv));
 }
 
 /**
@@ -315,15 +322,19 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
  * @tparam Args Type of the particles, should be same as Particle.
  * @param[in] centre_mass_pos The target centre of mass position.
  * @param[in] centre_mass_vel The target centre of mass velocity.
- * @param[in,out] ptc The first particle needs to be moved.
+ * @param[in,out] ptc1 The first particle needs to be moved.
+ * @param[in,out] ptc2 The second particle needs to be moved.
  * @param[in,out] ptcs The rest particles need to be moved.
  */
 template <typename Vector, typename Particle, typename... Args>
-void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Particle &ptc, Args &... ptcs) {
+void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel, Particle &ptc1, Particle &ptc2,
+                    Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  auto dp = centre_mass_pos - COM_p(ptc, ptcs...);
-  auto dv = centre_mass_vel - COM_v(ptc, ptcs...);
-  ((ptc.pos += dp, ptc.vel += dv), ..., (ptcs.pos += dp, ptcs.vel += dv));
+  auto dp = centre_mass_pos - COM_p(ptc1, ptc2, ptcs...);
+  auto dv = centre_mass_vel - COM_v(ptc1, ptc2, ptcs...);
+  ptc1.pos += dp, ptc1.vel += dv;
+  ptc2.pos += dp, ptc2.vel += dv;
+  (..., (ptcs.pos += dp, ptcs.vel += dv));
 }
 
 /**
@@ -335,14 +346,14 @@ void move_particles(Vector const &centre_mass_pos, Vector const &centre_mass_vel
  * `mass`(Scalar), `pos`(Vector) and `vel`(Vector)..
  * @tparam Args Type of the particles if exits, should be same as Particle.
  * @param[in] orbit The Kepler orbit.
- * @param[in,out] ptc The first particle/The cluster/single particle needs to be moved.
+ * @param[in,out] ptc1 The first particle/The cluster/single particle needs to be moved.
  * @param[in,out] ptcs The rest particles need to be moved.
  */
 template <typename Scalar, typename Particle, typename... Args>
-void move_particles(KeplerOrbit<Scalar> const &orbit, Particle &ptc, Args &... ptcs) {
+void move_particles(KeplerOrbit<Scalar> const &orbit, Particle &ptc1, Args &... ptcs) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 2nd argument and the rest should be same!");
   auto [cm_pos, cm_vel] = orbit_to_coord(orbit);
-  move_particles(cm_pos, cm_vel, ptc, ptcs...);
+  move_particles(cm_pos, cm_vel, ptc1, ptcs...);
 }
 
 /**
@@ -466,14 +477,15 @@ inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2
   auto orbit_type = classify_orbit(e);
 
   if (orbit_type == OrbitType::Parabola) {
-    auto h2 = norm2(cross(dr, dv));
+    auto h = cross(dr, dv);
+    auto h2 = dot(h, h);
     auto p = h2 / u;
-    auto T_anomaly = arccos((p / r - 1));
+    auto T_anomaly = acos((p / r - 1));
     auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
     return time_to_periapsis(orbit_type, u, a, M_anomaly);
   } else {
     auto p = a * (1 - e * e);
-    auto T_anomaly = arccos((p / r - 1) / e);
+    auto T_anomaly = acos((p / r - 1) / e);
     auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
     return time_to_periapsis(orbit_type, u, a, M_anomaly);
   }
@@ -488,7 +500,7 @@ inline auto time_to_periapsis(Cluster1 const &cluster1, Cluster2 const &cluster2
  * @return auto The kinetic energy.
  */
 template <typename Cluster>
-auto E_k(Cluster &&ptc) {
+auto E_k(Cluster const &ptc) {
   if constexpr (is_ranges_v<Cluster>) {
     decltype(M_tot(ptc)) kinetic_energy = 0;
 
@@ -507,15 +519,17 @@ auto E_k(Cluster &&ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] args The rest particles if exits.
  * @return auto The kinetic energy of particles.
  */
 template <typename Particle, typename... Args>
-auto E_k(Particle &&ptc, Args &&... args) {
+auto E_k(Particle const &ptc1, Particle const &ptc2, Args const &... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
 
-  return 0.5 * ((args.mass * dot(args.vel, args.vel)) + ... + (ptc.mass * dot(ptc.vel, ptc.vel)));
+  return 0.5 * ((args.mass * dot(args.vel, args.vel)) + ... +
+                (ptc1.mass * dot(ptc1.vel, ptc1.vel) + ptc2.mass * dot(ptc2.vel, ptc2.vel)));
 }
 
 /**
@@ -527,9 +541,9 @@ auto E_k(Particle &&ptc, Args &&... args) {
  * @return auto The potential energy.
  */
 template <typename Cluster>
-auto E_p(Cluster &&ptc) {
+auto E_p(Cluster const &ptc) {
   if constexpr (is_ranges_v<Cluster>) {
-    typename Cluster::value_type::Scaler potential_energy = 0;
+    typename Cluster::value_type::Scalar potential_energy = 0;
 
     for (auto i = ptc.begin(); i < ptc.end(); ++i) {
       for (auto j = i + 1; j < ptc.end(); ++j) {
@@ -538,7 +552,7 @@ auto E_p(Cluster &&ptc) {
     }
     return potential_energy;
   } else {
-    return static_cast<typename Cluster::Scaler>(0);
+    return static_cast<typename Cluster::Scalar>(0);
   }
 }
 
@@ -547,14 +561,15 @@ auto E_p(Cluster &&ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] args The rest particles if exits.
  * @return auto The potential energy of particles.
  */
 template <typename Particle, typename... Args>
-auto E_p(Particle &&ptc, Args &&... args) {
+auto E_p(Particle const &ptc1, Particle const &ptc2, Args const &... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  return E_p(cluster(ptc, args...));
+  return E_p(cluster(ptc1, ptc2, args...));
 }
 
 /**
@@ -566,7 +581,7 @@ auto E_p(Particle &&ptc, Args &&... args) {
  * @return auto The kinetic energy of the centre of mass.
  */
 template <typename Cluster>
-auto E_k_COM(Cluster &&ptc) {
+auto E_k_COM(Cluster const &ptc) {
   auto m_tot = M_tot(ptc);
   auto v_com = COM_v(ptc);
   return 0.5 * m_tot * dot(v_com, v_com);
@@ -577,15 +592,16 @@ auto E_k_COM(Cluster &&ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] args The rest particles if exits.
  * @return auto The kinetic energy of the centre of mass of particles.
  */
 template <typename Particle, typename... Args>
-auto E_k_COM(Particle &&ptc, Args &&... args) {
+auto E_k_COM(Particle const &ptc1, Particle const &ptc2, Args const &... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  auto m_tot = M_tot(ptc, args...);
-  auto v_com = COM_v(ptc, args...);
+  auto m_tot = M_tot(ptc1, ptc2, args...);
+  auto v_com = COM_v(ptc1, ptc2, args...);
   return 0.5 * m_tot * dot(v_com, v_com);
 }
 
@@ -598,8 +614,8 @@ auto E_k_COM(Particle &&ptc, Args &&... args) {
  * @return auto The total energy.
  */
 template <typename... Particle>
-inline auto E_tot(Particle &&... ptc) {
-  return E_k(std::forward<Particle>(ptc)...) + E_p(std::forward<Particle>(ptc)...);
+inline auto E_tot(Particle const &... ptc) {
+  return E_k(ptc...) + E_p(ptc...);
 }
 
 /**
@@ -611,8 +627,8 @@ inline auto E_tot(Particle &&... ptc) {
  * @return auto The inner energy.
  */
 template <typename... Particle>
-inline auto E_inner(Particle &&... ptc) {
-  return E_tot(std::forward<Particle>(ptc)...) - E_k_COM(std::forward<Particle>(ptc)...);
+inline auto E_inner(Particle const &... ptc) {
+  return E_tot(ptc...) - E_k_COM(ptc...);
 }
 
 /**
@@ -626,9 +642,9 @@ inline auto E_inner(Particle &&... ptc) {
  * @return auto The size of the cluster.
  */
 template <typename Cluster>
-auto cluster_size(Cluster &&ptc) {
+auto cluster_size(Cluster const &ptc) {
   if constexpr (is_ranges_v<Cluster>) {
-    typename Cluster::value_type::Scaler R_max = 0;
+    typename Cluster::value_type::Scalar R_max = 0;
 
     if (ptc.begin() != ptc.end()) {
       R_max = cluster_size(*(ptc.begin()));
@@ -647,7 +663,7 @@ auto cluster_size(Cluster &&ptc) {
     if constexpr (HAS_MEMBER(Cluster, radius)) {
       return ptc.radius;
     } else {
-      return static_cast<typename Cluster::Scaler>(0);
+      return static_cast<typename Cluster::Scalar>(0);
     }
   }
 }
@@ -659,14 +675,15 @@ auto cluster_size(Cluster &&ptc) {
  *
  * @tparam Particle Type of the particle with public member `mass`(Scalar), `pos`(Vector) and `vel`(Vector).
  * @tparam Args Type of the particles, should be same as Particle.
- * @param[in] ptc The first particle.
+ * @param[in] ptc1 The first particle.
+ * @param[in] ptc2 The second particle.
  * @param[in] args The rest particles if exits.
  * @return auto The size of the cluster.
  */
 template <typename Particle, typename... Args>
-auto cluster_size(Particle &&ptc, Args &&... args) {
+auto cluster_size(Particle const &ptc1, Particle const &ptc2, Args const &... args) {
   static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the 1st argument and the rest should be same!");
-  return cluster_size(cluster(ptc, args...));
+  return cluster_size(cluster(ptc1, ptc2, args...));
 }
 
 /**
@@ -684,7 +701,7 @@ auto cluster_size(Particle &&ptc, Args &&... args) {
  * @return auto The tidal potential energy.
  */
 template <typename Cluster1, typename Cluster2, typename Scalar>
-auto E_tid(Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R1, Scalar R2) {
+auto E_tid(Cluster1 const &cluster1, Cluster2 const &cluster2, Scalar R1, Scalar R2) {
   auto r = distance(orbit::COM_p(cluster1), orbit::COM_p(cluster2));
   auto m_tot1 = orbit::M_tot(cluster1);
   auto m_tot2 = orbit::M_tot(cluster2);
@@ -707,7 +724,7 @@ auto E_tid(Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R1, Scalar R2) {
  * @return auto The tidal potential energy.
  */
 template <typename Cluster1, typename Cluster2>
-auto E_tid(Cluster1 &&cluster1, Cluster2 &&cluster2) {
+auto E_tid(Cluster1 const &cluster1, Cluster2 const &cluster2) {
   auto R1 = orbit::cluster_size(cluster1);
   auto R2 = orbit::cluster_size(cluster2);
   return E_tid(std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster2), R1, R2);
@@ -729,7 +746,7 @@ auto E_tid(Cluster1 &&cluster1, Cluster2 &&cluster2) {
  * second.
  */
 template <typename Cluster1, typename Cluster2, typename Scalar>
-auto tidal_factor(Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R1, Scalar R2) {
+auto tidal_factor(Cluster1 const &cluster1, Cluster2 const &cluster2, Scalar R1, Scalar R2) {
   auto r = distance(orbit::COM_p(cluster1), orbit::COM_p(cluster2));
   auto m_tot1 = orbit::M_tot(cluster1);
   auto m_tot2 = orbit::M_tot(cluster2);
@@ -755,7 +772,7 @@ auto tidal_factor(Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R1, Scalar R2
  * second.
  */
 template <typename Cluster1, typename Cluster2>
-auto tidal_factor(Cluster1 &&cluster1, Cluster2 &&cluster2) {
+auto tidal_factor(Cluster1 const &cluster1, Cluster2 const &cluster2) {
   auto R1 = orbit::cluster_size(cluster1);
   auto R2 = orbit::cluster_size(cluster2);
   return tidal_factor(std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster1), R1, R2);
@@ -776,7 +793,7 @@ auto tidal_factor(Cluster1 &&cluster1, Cluster2 &&cluster2) {
  * @return auto The tidal radius of the second cluster tidaled by the first cluster.
  */
 template <typename Cluster1, typename Cluster2, typename Scalar>
-auto tidal_radius(Scalar tidal_factor, Cluster1 &&cluster1, Cluster2 &&cluster2, Scalar R2) {
+auto tidal_radius(Scalar tidal_factor, Cluster1 const &cluster1, Cluster2 const &cluster2, Scalar R2) {
   auto m_tot1 = orbit::M_tot(cluster1);
   auto m_tot2 = orbit::M_tot(cluster2);
 
@@ -797,7 +814,7 @@ auto tidal_radius(Scalar tidal_factor, Cluster1 &&cluster1, Cluster2 &&cluster2,
  * @return auto The tidal radius of the second cluster tidaled by the first cluster.
  */
 template <typename Cluster1, typename Cluster2, typename Scalar>
-auto tidal_radius(Scalar tidal_factor, Cluster1 &&cluster1, Cluster2 &&cluster2) {
+auto tidal_radius(Scalar tidal_factor, Cluster1 const &cluster1, Cluster2 const &cluster2) {
   auto R2 = orbit::cluster_size(cluster2);
   return tidal_radius(tidal_factor, std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster2), R2);
 }
