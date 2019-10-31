@@ -108,6 +108,10 @@ auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_clust
   return incident_orbit(M_stay, M_incident, v_inf, b_max, std::max(r_start1, r_start2));
 }
 
+template <typename Scalar>
+auto hard_radius(Scalar m1, Scalar m2, Scalar sigma) {
+  G* m1* m2 / a = m sigma ^ 2
+}
 }  // namespace space::scattering
 
 #endif  // SPACEHUB_CROSS_SECTION_HPP
