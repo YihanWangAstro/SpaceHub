@@ -623,5 +623,18 @@ auto time_to_periapsis(KeplerOrbit<Scalar> const &args) {
   }
 }
 
+template <typename Scalar>
+auto tidal_factor(Scalar r, Scalar m_tot1, Scalar m_tot2, Scalar R1, Scalar R2) {
+  auto ratio1 = R1 / r;
+  auto ratio2 = R2 / r;
+
+  return std::make_tuple(m_tot2 / m_tot1 * ratio1 * ratio1 * ratio1, m_tot1 / m_tot2 * ratio2 * ratio2 * ratio2);
+}
+
+template <typename Scalar>
+auto tidal_radius(Scalar tidal_factor, Scalar m_tot1, Scalar m_tot2, Scalar R2) {
+  return pow(m_tot1 / (tidal_factor * m_tot2), 1.0 / 3) * R2;
+}
+
 }  // namespace space::orbit
 #endif

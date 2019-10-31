@@ -751,10 +751,7 @@ auto tidal_factor(Cluster1 const &cluster1, Cluster2 const &cluster2, Scalar R1,
   auto m_tot1 = orbit::M_tot(cluster1);
   auto m_tot2 = orbit::M_tot(cluster2);
 
-  auto ratio1 = R1 / r;
-  auto ratio2 = R2 / r;
-
-  return std::make_tuple(m_tot2 / m_tot1 * ratio1 * ratio1 * ratio1, m_tot1 / m_tot2 * ratio2 * ratio2 * ratio2);
+  return tidal_factor(r, m_tot1, m_tot2, R1, R2);
 }
 
 /**
@@ -775,7 +772,7 @@ template <typename Cluster1, typename Cluster2>
 auto tidal_factor(Cluster1 const &cluster1, Cluster2 const &cluster2) {
   auto R1 = orbit::cluster_size(cluster1);
   auto R2 = orbit::cluster_size(cluster2);
-  return tidal_factor(std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster1), R1, R2);
+  return tidal_factor(cluster1, cluster1, R1, R2);
 }
 
 /**
@@ -797,7 +794,7 @@ auto tidal_radius(Scalar tidal_factor, Cluster1 const &cluster1, Cluster2 const 
   auto m_tot1 = orbit::M_tot(cluster1);
   auto m_tot2 = orbit::M_tot(cluster2);
 
-  return pow(m_tot1 / (tidal_factor * m_tot2), 1.0 / 3) * R2;
+  return tidal_radius(tidal_factor, m_tot1, m_tot2, R2);
 }
 
 /**
@@ -816,7 +813,7 @@ auto tidal_radius(Scalar tidal_factor, Cluster1 const &cluster1, Cluster2 const 
 template <typename Cluster1, typename Cluster2, typename Scalar>
 auto tidal_radius(Scalar tidal_factor, Cluster1 const &cluster1, Cluster2 const &cluster2) {
   auto R2 = orbit::cluster_size(cluster2);
-  return tidal_radius(tidal_factor, std::forward<Cluster1>(cluster1), std::forward<Cluster2>(cluster2), R2);
+  return tidal_radius(tidal_factor, cluster1, cluster2, R2);
 }
 
 }  // namespace space::orbit
