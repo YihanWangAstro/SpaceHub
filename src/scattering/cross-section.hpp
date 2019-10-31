@@ -109,8 +109,8 @@ auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_clust
 }
 
 template <typename Scalar>
-auto hard_radius(Scalar m1, Scalar m2, Scalar sigma) {
-  G* m1* m2 / a = m sigma ^ 2
+inline auto hard_radius(Scalar m1, Scalar m2, Scalar m_evn, Scalar sigma) {
+  return consts::G * m1 * m2 / (m_evn * sigma * sigma);
 }
 }  // namespace space::scattering
 
