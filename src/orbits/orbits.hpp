@@ -636,5 +636,12 @@ auto tidal_radius(Scalar tidal_factor, Scalar m_tot1, Scalar m_tot2, Scalar R2) 
   return pow(m_tot1 / (tidal_factor * m_tot2), 1.0 / 3) * R2;
 }
 
+template <typename Scalar>
+auto tidal_radius(Scalar tidal_factor, Scalar m1, Scalar m2, Scalar R1, Scalar R2) {
+  auto r1 = tidal_radius(tidal_factor, m1, m2, R2);
+  auto r2 = tidal_radius(tidal_factor, m2, m1, R1);
+  return std::max(r1, r2);
+}
+
 }  // namespace space::orbit
 #endif

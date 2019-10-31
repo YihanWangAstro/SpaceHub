@@ -73,26 +73,17 @@ template <typename Cluster1, typename Cluster2, typename Scalar>
 auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar tidal_factor) {
   auto const M_stay = orbit::M_tot(stay_cluster);
   auto const M_incident = orbit::M_tot(incident_cluster);
-  // auto const E_inner1 = orbit::E_inner(stay_cluster);
-  // auto const E_inner2 = orbit::E_inner(incident_cluster);
-  // auto const v_c = critical_vel(M_stay, M_incident, E_inner1, E_inner2);
+
   auto const R1 = orbit::cluster_size(stay_cluster);
   auto const R2 = orbit::cluster_size(incident_cluster);
-  // auto const R_max = math::max(R1, R2);
+
   Scalar interact_factor = 0.02;
+  auto const R_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
 
-  auto const rp_1 = orbit::tidal_radius(interact_factor, M_stay, M_incident, R2);
-  auto const rp_2 = orbit::tidal_radius(interact_factor, M_incident, M_stay, R1);
-
-  auto const R_max = std::max(rp_1, rp_2);
-
-  // auto const R_max = (R1 + R2) * 3;
-  // auto const b_upper = b_max(v_c, v_inf, R_max);
   auto const b_upper = b_max(M_stay + M_incident, v_inf, R_max);
 
-  auto const r_start1 = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R2);
-  auto const r_start2 = orbit::tidal_radius(tidal_factor, M_incident, M_stay, R1);
-  return incident_orbit(M_stay, M_incident, v_inf, b_upper, std::max(r_start1, r_start2));
+  auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
+  return incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start);
 }
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
@@ -103,15 +94,16 @@ auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_clust
   auto const R1 = orbit::cluster_size(stay_cluster);
   auto const R2 = orbit::cluster_size(incident_cluster);
 
-  auto const r_start1 = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R2);
-  auto const r_start2 = orbit::tidal_radius(tidal_factor, M_incident, M_stay, R1);
-  return incident_orbit(M_stay, M_incident, v_inf, b_max, std::max(r_start1, r_start2));
+  auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
+
+  return incident_orbit(M_stay, M_incident, v_inf, b_max, r_start);
 }
 
 template <typename Scalar>
 inline auto hard_radius(Scalar m1, Scalar m2, Scalar m_evn, Scalar sigma) {
   return consts::G * m1 * m2 / (m_evn * sigma * sigma);
 }
+
 }  // namespace space::scattering
 
 #endif  // SPACEHUB_CROSS_SECTION_HPP
