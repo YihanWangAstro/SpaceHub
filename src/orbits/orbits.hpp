@@ -202,6 +202,11 @@ struct HyperOrbit : public KeplerOrbit<double> {
    */
   HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant inclination, Variant longitude_of_ascending_node,
              Variant argument_of_periapsis, Scalar r, Hyper in_out = Hyper::in);
+
+  /**
+   * @brief impact parameter.
+   */
+  Scalar b{0};
 };
 
 /*---------------------------------------------------------------------------*\
@@ -277,6 +282,14 @@ void euler_rotate(Vector &v, const Scalar phi, const Scalar theta, const Scalar 
   v.x = x, v.y = y, v.z = z;
 }
 
+/**
+ * @brief Calculate the corresponding true anomaly of the eccentric anomaly.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param E_anomaly Eccentric anomaly.
+ * @param e Eccentricity.
+ * @return Scalar True anomaly.
+ */
 template <typename Scalar>
 Scalar E_anomaly_to_T_anomaly(Scalar E_anomaly, Scalar e) {
   if (0 <= e && e < 1)
@@ -290,9 +303,17 @@ Scalar E_anomaly_to_T_anomaly(Scalar E_anomaly, Scalar e) {
   }
 }
 
+/**
+ * @brief Calculate the corresponding eccentric anomaly of the mean anomaly.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param M_anomaly Mean anomaly.
+ * @param e Eccentricity.
+ * @return Scalar Eccentric anomaly.
+ */
 template <typename Scalar>
-Scalar M_anomaly_to_E_anomaly(Scalar mean_anomaly, Scalar e) {
-  if (fabs(mean_anomaly) <= math::epsilon<Scalar>::value) {
+Scalar M_anomaly_to_E_anomaly(Scalar M_anomaly, Scalar e) {
+  if (fabs(M_anomaly) <= math::epsilon<Scalar>::value) {
     return 0;
   }
 
@@ -311,6 +332,27 @@ Scalar M_anomaly_to_E_anomaly(Scalar mean_anomaly, Scalar e) {
   }
 }
 
+/**
+ * @brief Calculate the corresponding true anomaly of the mean anomaly.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param M_anomaly Mean anomaly.
+ * @param e Eccentricity.
+ * @return Scalar True anomaly.
+ */
+template <typename Scalar>
+Scalar M_anomaly_to_T_anomaly(Scalar M_anomaly, Scalar e) {
+  return E_anomaly_to_T_anomaly(M_anomaly_to_E_anomaly(M_anomaly, e), e);
+}
+
+/**
+ * @brief Calculate the corresponding eccentric anomaly of the true anomaly.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param T_anomaly True anomaly.
+ * @param e Eccentricity.
+ * @return Scalar Eccentric anomaly.
+ */
 template <typename Scalar>
 Scalar T_anomaly_to_E_anomaly(Scalar T_anomaly, Scalar e) {
   if (math::iseq(e, 1.0)) {
@@ -326,6 +368,14 @@ Scalar T_anomaly_to_E_anomaly(Scalar T_anomaly, Scalar e) {
   }
 }
 
+/**
+ * @brief Calculate the corresponding mean anomaly of the eccentric anomaly.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param E_anomaly Eccentric anomaly.
+ * @param e Eccentricity.
+ * @return Scalar Mean anomaly.
+ */
 template <typename Scalar>
 Scalar E_anomaly_to_M_anomaly(Scalar E_anomaly, Scalar e) {
   if (0 <= e && e < 1) {
@@ -339,6 +389,18 @@ Scalar E_anomaly_to_M_anomaly(Scalar E_anomaly, Scalar e) {
   }
 }
 
+/**
+ * @brief Calculate the corresponding mean anomaly of the true anomaly.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param T_anomaly True anomaly.
+ * @param e Eccentricity.
+ * @return Scalar Mean anomaly.
+ */
+template <typename Scalar>
+Scalar T_anomaly_to_M_anomaly(Scalar T_anomaly, Scalar e) {
+  E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
+}
 template <typename T>
 constexpr OrbitType classify_orbit(T eccentricity) {
   if (0 <= eccentricity && eccentricity < 1) {
@@ -435,6 +497,7 @@ HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant i
   this->e = sqrt(1 + b * b / (a * a));
   this->p = a * (1 - e * e);
   this->nu = -acos((p - r) / (e * r));
+  this->b = b;
   if (in_out == Hyper::out) {
     this->nu *= -1;
   }
@@ -521,6 +584,75 @@ void coord_to_orbit(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv, Ke
   }
 }
 
+/**
+ * @brief Tranfer relative position and velocity between two particles to Kepler orbit parameters.
+ *
+ * @tparam Vector
+ * @tparam Scalar
+ * @param m1
+ * @param m2
+ * @param dr
+ * @param dv
+ * @return auto
+ */
+template <typename Vector, typename Scalar>
+auto coord_to_orbit(Scalar m1, Scalar m2, const Vector &dr, const Vector &dv) {
+  Vector L = cross(dr, dv);
+  Vector N = cross(Vector(0, 0, 1.0), L);
+  Scalar r = norm(dr);
+  Scalar n = norm(N);
+  Scalar l = norm(L);
+  Scalar rv = dot(dr, dv);
+  Scalar u = (m1 + m2) * consts::G;
+  Vector E = (dr * (norm2(dv) - u * re_norm(dr)) - dv * rv) / u;
+
+  KeplerOrbit<Scalar> args;
+
+  args.m1 = m1;
+  args.m2 = m2;
+  args.e = norm(E);
+  args.orbit_type = classify_orbit(args.e);
+
+  if (args.orbit_type == OrbitType::Parabola) {
+    Scalar a = -u * r / (r * norm2(dv) - 2.0 * u);
+    args.p = semi_latus_rectum(a, args.e);
+  } else {
+    args.p = l * l / u;
+  }
+
+  args.i = acos(L.z / l);
+
+  if (args.e != 0) {
+    args.nu = math::sign(rv) * myacos(dot(E / args.e, dr / r));
+
+    if (n != 0) {
+      args.Omega = math::sign(N.y) * myacos(N.x / n);
+      args.omega = math::sign(E.z) * myacos(dot(E / args.e, N / n));
+    } else {
+      args.omega = -math::sign(E.y) * myacos(-E.x / args.e);
+      args.Omega = args.omega;
+    }
+  } else {
+    if (n != 0) {
+      args.Omega = math::sign(N.y) * myacos(N.x / n);
+      args.omega = 0;
+      Vector peri = cross(L, N);
+      args.nu = -math::sign(dot(N, dr)) * myacos(dot(peri / norm(peri), dr / r));
+    } else {
+      args.Omega = args.omega = 0;
+      args.nu = math::sign(dr.y) * acos(dot(Vector(1.0, 0, 0), dr / r));
+    }
+  }
+  return args;
+}
+
+/**
+ * @brief Transfer Kepler orbit parameters to relative position and velocity between two component in orbit.
+ *
+ * @tparam Scalar
+ * @param args
+ * @return auto
+ */
 template <typename Scalar>
 auto orbit_to_coord(KeplerOrbit<Scalar> const &args) {
   using Vector = Vec3<Scalar>;
