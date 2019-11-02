@@ -318,14 +318,13 @@ Scalar M_anomaly_to_E_anomaly(Scalar M_anomaly, Scalar e) {
   }
 
   if (0 <= e && e < 1)
-    return math::root_bisection([=](Scalar x) -> Scalar { return (x - e * sin(x) - mean_anomaly) / (1 - e * cos(x)); },
+    return math::root_bisection([=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); },
                                 -space::consts::pi, space::consts::pi);
   else if (e > 1)
-    return math::root_bisection(
-        [=](Scalar x) -> Scalar { return (e * sinh(x) - x - mean_anomaly) / (e * cosh(x) - 1); }, -space::consts::pi,
-        space::consts::pi);
+    return math::root_bisection([=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); },
+                                -space::consts::pi, space::consts::pi);
   else if (fabs(e - 1) < math::epsilon<Scalar>::value)
-    return math::root_bisection([=](Scalar x) -> Scalar { return (x + x * x * x / 3 - mean_anomaly) / (1 + x * x); },
+    return math::root_bisection([=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); },
                                 -space::consts::pi, space::consts::pi);
   else {
     spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
