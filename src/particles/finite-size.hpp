@@ -34,6 +34,7 @@ namespace space::particle_set {
     Class SizeParticles Declaration
 \*---------------------------------------------------------------------------*/
 /**
+ * @brief Finite size particle.
  *
  * @tparam TypeSystem
  */
@@ -48,6 +49,10 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
   /*---------------------------------------------------------------------------*\
   Sub-Class Particle Declaration and Implementation
   \*---------------------------------------------------------------------------*/
+  /**
+   * @brief Embedded Particle of SOA particles `SizeParticles`.
+   *
+   */
   struct Particle : public PointParticle<Scalar> {
    public:
     // Type members
@@ -58,8 +63,28 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
     // Constructors
     SPACEHUB_MAKE_CONSTRUCTORS(Particle, default, default, default, default, default);
 
+    /**
+     * @brief Construct a new Particle object
+     *
+     * @param m
+     * @param r
+     * @param p
+     * @param v
+     */
     Particle(Scalar m, Scalar r, Vector p, Vector v) : PointParticle<Scalar>{m, p, v}, radius{r} {}
 
+    /**
+     * @brief Construct a new Particle object
+     *
+     * @param m
+     * @param r
+     * @param px
+     * @param py
+     * @param pz
+     * @param vx
+     * @param vy
+     * @param vz
+     */
     Particle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
              Scalar vz = 0)
         : PointParticle<Scalar>{m, px, py, pz, vx, vy, vz}, radius{r} {}
