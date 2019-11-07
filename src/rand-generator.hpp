@@ -34,12 +34,27 @@ License
  * Documentation for space
  */
 namespace space::random {
+
+/**
+ * @brief Uniform distributed random number generator
+ *
+ * @param[in] low The lower limit of the distribution.
+ * @param[in] high The higher limit of the distribution.
+ * @return double The generated number.
+ */
 inline static double Uniform(double low, double high) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   std::uniform_real_distribution<double> dist{low, high};
   return dist(generator);
 }
 
+/**
+ * @brief Logarithmic distributed random number generator
+ *
+ * @param[in] low The lower limit of the distribution.
+ * @param[in] high The higher limit of the distribution.
+ * @return double The generated number.
+ */
 inline static double Logarithm(double low, double high) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   double log_low = log10(low);
@@ -48,6 +63,14 @@ inline static double Logarithm(double low, double high) {
   return pow(10, dist(generator));
 }
 
+/**
+ * @brief Power law distributed random number generator
+ *
+ * @param[in] power The power of the power law
+ * @param[in] low The lower limit of the distribution.
+ * @param[in] high The higher limit of the distribution.
+ * @return double The generated number.
+ */
 inline static double PowerLaw(double power, double low, double high) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   if (!math::iseq(power, -1.0)) {
@@ -61,12 +84,46 @@ inline static double PowerLaw(double power, double low, double high) {
   }
 }
 
+/**
+ * @brief Normal distributed random number generator
+ *
+ * @param[in] mean The mean value of the normal distribution.
+ * @param[in] sigma The standard deviation of the normal distribution.
+ * @return double The generated number.
+ */
 inline static double Normal(double mean = 0, double sigma = 1) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   std::normal_distribution<double> dist{mean, sigma};
   return dist(generator);
 }
 
+/**
+ * @brief Truncated normal distribution random number generator
+ *
+ * @param[in] low The lower limit of the distribution.
+ * @param[in] high The higher limit of the distribution.
+ * @param[in] mean The mean value of the untruncated normal distribution.
+ * @param[in] sigma The standard deviation of the untruncated normal distribution.
+ * @return double The generated number.
+ */
+inline static double TruncatedNormal(double low, double high, double mean = 0, double sigma = 1) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  std::normal_distribution<double> dist{mean, sigma};
+  // TODO: can be optimized by using inverse transformed method.
+  for (;;) {
+    auto r = dist(generator);
+    if (low <= r && r <= high) {
+      return r;
+    }
+  }
+}
+
+/**
+ * @brief Maxwellian distributed random number generator
+ *
+ * @param[in] sigma_1d The 1D dispersion of the Maxwellian distribution.
+ * @return double The generated number.
+ */
 inline static double Maxwellian(double sigma_1d) {
   static thread_local std::mt19937 generator{std::random_device{}()};
   std::normal_distribution<double> dist{0.0, sigma_1d};
@@ -74,6 +131,29 @@ inline static double Maxwellian(double sigma_1d) {
   double y = dist(generator);
   double z = dist(generator);
   return sqrt(x * x + y * y + z * z);
+}
+
+/**
+ * @brief Truncated Maxwellian distributed random number generator
+ *
+ * @param[in] low The lower limit of the distribution.
+ * @param[in] high The higher limit of the distribution.
+ * @param[in] sigma_1d The 1D dispersion of the Maxwellian distribution.
+ * @return double The generated number.
+ */
+inline static double TruncatedMaxwellian(double low, double high, double sigma_1d) {
+  static thread_local std::mt19937 generator{std::random_device{}()};
+  std::normal_distribution<double> dist{0.0, sigma_1d};
+  // TODO: can be optimized by using inverse transformed method.
+  for (;;) {
+    double x = dist(generator);
+    double y = dist(generator);
+    double z = dist(generator);
+    double r = sqrt(x * x + y * y + z * z);
+    if (low <= r && r <= high) {
+      return r;
+    }
+  }
 }
 }  // namespace space::random
 

@@ -17,6 +17,11 @@ License
     for more details. You should have received a copy of the MIT License along
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
+/**
+ * @file IO.hpp
+ *
+ * Header file.
+ */
 #ifndef SPACEHUB_IO_HPP
 #define SPACEHUB_IO_HPP
 
@@ -57,7 +62,8 @@ auto &input(Istream &istream, Args &&... args) {
 }
 
 /**
- * Print variables to std::cout.
+ * @brief Print variables to std::cout.
+ *
  * @tparam Args Variadic type(any).
  * @param[in] args Variables.
  * @return std::cout.
@@ -69,7 +75,8 @@ auto &std_print(Args &&... args) {
 }
 
 /**
- * Input variables from std::cin.
+ * @brief Input variables from std::cin.
+ *
  * @tparam Args Variadic type(any).
  * @param[out] args Variables.
  * @return std::cin.
@@ -80,6 +87,17 @@ auto &std_input(Args &&... args) {
   return std::cin;
 }
 
+/**
+ * @brief Print comma seperated value to an ostream.
+ *
+ * @tparam Ostream Type of ostream.
+ * @tparam Arg Variadic type(any).
+ * @tparam Args Variadic type(any).
+ * @param[out] out output stream.
+ * @param[in] arg Variable.
+ * @param[in] args Variables.
+ * @return auto& output stream.
+ */
 template <typename Ostream, typename Arg, typename... Args>
 auto &print_csv(Ostream &out, Arg &&arg, Args &&... args) {
   out << arg;
@@ -87,6 +105,14 @@ auto &print_csv(Ostream &out, Arg &&arg, Args &&... args) {
   return out;
 }
 
+/**
+ * @brief Print space seperated value to an ostream.
+ *
+ * @tparam Ostream Type of ostream.
+ * @tparam Args Variadic type(any).
+ * @param[out] out Output stream
+ * @param[in] args Variables.
+ */
 template <typename Ostream, typename... Args>
 void display(Ostream &out, Args &&... args) {
   (..., (out << std::forward<Args>(args) << ' '));

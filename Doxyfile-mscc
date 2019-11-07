@@ -49,4 +49,3 @@ HTML_EXTRA_FILES = \
     ../css/m-layout.css \
     ../css/pygments-dark.css \
     ../css/pygments-console.css
-M_THEME_COLOR = #22272e

@@ -33,35 +33,69 @@ License
  * namespace for math
  */
 namespace space::math {
-/** @brief Self min()*/
+/**
+ * @brief SpaceHub min
+ *
+ * @tparam T1 Type of the first argument.
+ * @tparam T2 Type of the second argument.
+ * @param[in] x The first argument.
+ * @param[in] y The second argument.
+ * @return T2 The min of x, y;
+ */
 template <typename T1, typename T2>
-inline T2 min(T1 const &x, T2 const &y) {
+inline constexpr T2 min(T1 const &x, T2 const &y) {
   return x > y ? y : x;
 }
 
-/** @brief Self max()*/
+/**
+ * @brief SpaceHub max
+ *
+ * @tparam T1 Type of the first argument.
+ * @tparam T2 Type of the second argument.
+ * @param[in] x The first argument.
+ * @param[in] y The second argument.
+ * @return T2 The max of x, y;
+ */
 template <typename T1, typename T2>
-inline T2 max(T1 const &x, T2 const &y) {
+inline constexpr T2 max(T1 const &x, T2 const &y) {
   return y > x ? y : x;
 }
 
-/** @brief Self abs()*/
+/**
+ * @brief SpaceHub abs
+ *
+ * @tparam T Type of the argument.
+ * @param[in] x The input argument.
+ * @return T The absolute value.
+ */
 template <typename T>
-inline T abs(const T &x) {
+inline constexpr T abs(const T &x) {
   return x > 0 ? x : -x;
 }
 
+/**
+ * @brief Truncate a number in a range.
+ *
+ * @tparam T Type of the truncated variable.
+ * @param[in] low The lower limit.
+ * @param[in] x The variable need to be truncated.
+ * @param[in] high The higher limit.
+ * @return T The truncated value.
+ */
 template <typename T>
-inline T in_range(T low, T x, T high) {
+inline constexpr T in_range(T low, T x, T high) {
   T tmp = low > x ? low : x;
   return tmp > high ? high : tmp;
 }
 
 /**
+ * @brief Step function
  *
- * @tparam T
- * @param x
- * @return
+ * @image html math/step.png width=400px
+ *
+ * @tparam T Type of the x, y.
+ * @param[in] x
+ * @return constexpr T y
  */
 template <typename T>
 inline constexpr T step(T x) {
@@ -69,38 +103,47 @@ inline constexpr T step(T x) {
 }
 
 /**
+ * @brief Sign function
  *
- * @tparam T
- * @param x
- * @return
+ * @image html math/sign.png width=400px
+ *
+ * @tparam T Type of x, y
+ * @param[in] x
+ * @return constexpr T y
  */
 template <typename T>
 inline constexpr T sign(T x) {
   return -1 + 2 * static_cast<T>(x > 0);
 }
 
-/**
- *
- * @tparam Dtype
- */
 template <typename Dtype>
 struct epsilon {
   using value_type = typename space::get_value_type<Dtype>::type;
   constexpr static value_type value = std::numeric_limits<value_type>::epsilon();
 };
 
+/**
+ * @brief Min numerical limit(epsilon) of a floating point type/
+ *
+ * @tparam T
+ */
 template <typename T>
 constexpr T epsilon_v = epsilon<T>::value;
 
+/**
+ * @brief
+ *
+ * @tparam T
+ * @param x
+ * @param y
+ * @return true
+ * @return false
+ */
 template <typename T>
 inline bool iseq(T x, T y) {
   return fabs(x - y) < epsilon_v<T>;
 }
 
-/**
- *
- * @tparam Dtype
- */
 template <typename Dtype>
 struct max_value {
   using value_type = typename space::get_value_type<Dtype>::type;
@@ -108,22 +151,36 @@ struct max_value {
 };
 
 /**
+ * @brief Max value of a specific type.
  *
- * @tparam Dtype
+ * @tparam T
  */
+template <typename T>
+constexpr T max_value_v = max_value<T>::value;
+
 template <typename Dtype>
 struct big_value {
   using value_type = typename space::get_value_type<Dtype>::type;
   constexpr static value_type value = 0.1 * std::numeric_limits<value_type>::max();
 };
 
+/**
+ * @brief A big value of a specifi type.
+ *
+ * 0.1 max_value_v
+ *
+ * @tparam T
+ */
 template <typename T>
-inline T karmack_fast_inverse_square_root(T x) {
+constexpr T big_value_v = big_value<T>::value;
+
+template <typename T>
+inline T karmack_sqrt_inv(T x) {
   return 1 / sqrt(x);
 }
 
 template <>
-inline float karmack_fast_inverse_square_root<float>(float x) {
+inline float karmack_sqrt_inv<float>(float x) {
   float xhalf = 0.5f * x;
   int i = *(int *)&x;
   // i = 0x5f3759df - (i >> 1);
@@ -135,7 +192,7 @@ inline float karmack_fast_inverse_square_root<float>(float x) {
 }
 
 template <>
-inline double karmack_fast_inverse_square_root<double>(double x) {
+inline double karmack_sqrt_inv<double>(double x) {
   double xhalf = 0.5f * x;
   long long i = *(long long *)&x;
   i = 0x5fe6eb50c7aa19f9 - (i >> 1);
@@ -148,8 +205,8 @@ inline double karmack_fast_inverse_square_root<double>(double x) {
 /**
  * @brief find root use bisection method
  *
- * @tparam Fun Type Callable ojbect.
- * @param f Callable object/
+ * @tparam Fun Type of Callable ojbect.
+ * @param f Callable object
  * @param low Lower limit of root range
  * @param high Upper limit of root range
  * @return decltype(f(0)) The root.
@@ -168,6 +225,13 @@ auto root_bisection(Fun f, decltype(f(0)) low, decltype(f(0)) high) -> decltype(
   return 0.5 * (high + low);
 }
 
+/**
+ * @brief Find root with Newton method.
+ *
+ * @tparam Fun Type of callable object.
+ * @param f Callable object.
+ * @return decltype(std::declval<Fun>()(0)) The root.
+ */
 template <typename Fun>
 decltype(std::declval<Fun>()(0)) root_newton(Fun f) {
   using Scalar = decltype(f(0));

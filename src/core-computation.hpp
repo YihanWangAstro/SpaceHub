@@ -33,26 +33,61 @@ License
  * Documentation for space
  */
 namespace space::calc {
+
+/**
+ * @brief Calculate the sum of variables
+ *
+ * @tparam Args The types of variables
+ * @param[in] args Variables.
+ * @return constexpr auto The sum.
+ */
 template <typename... Args>
 constexpr auto add(Args &&... args) {
   return (... + args);
 }
 
+/**
+ * @brief Calculate the product of variables.
+ *
+ * @tparam Args The types of variables.
+ * @param[in] args Variables.
+ * @return constexpr auto The product.
+ */
 template <typename... Args>
 constexpr auto mul(Args &&... args) {
   return (... * args);
 }
 
+/**
+ * @brief Calculate the *logical or* of variables.
+ *
+ * @tparam Args The types of variables.
+ * @param[in] args Variables.
+ * @return constexpr auto The result.
+ */
 template <typename... Args>
 constexpr auto any(Args... args) {
   return (... || args);
 }
 
+/**
+ * @brief Calculate the *logical and* of variables.
+ *
+ * @tparam Args The types of variables.
+ * @param[in] args Variables.
+ * @return constexpr auto The results.
+ */
 template <typename... Args>
 constexpr auto all(Args... args) {
   return (... && args);
 }
 
+/**
+ * @brief Set all elements of a std::ranges(Container) to 0.
+ *
+ * @tparam Array Type of container.
+ * @param[in,out] array Container.
+ */
 template <typename Array>
 void array_set_zero(Array &array) {
   for (auto &a : array) {
@@ -60,11 +95,31 @@ void array_set_zero(Array &array) {
   }
 }
 
+/**
+ * @brief Set all elements of std::ranges(Containers) to 0.
+ *
+ * @tparam Args The types of containers
+ * @param[in,out] args Containers.
+ */
 template <typename... Args>
 void set_arrays_zero(Args &... args) {
   (..., (array_set_zero(args)));
 }
 
+/**
+ * @brief Calculate the (general)dot product of arrays.
+ *
+ *  @f$ \Sigma_{i=0}^n a_ib_ic_i...@f$
+ *
+ * @tparam Array The type of the first two arrays.
+ * @tparam Args The types of the arrays.
+ * @param[in] a The first array.
+ * @param[in] b The second array.
+ * @param[in] args The rest arrays.
+ * @return auto The dot product.
+ *
+ * @note One should ensure the input arrays have method `size()` and they have the same length.
+ */
 template <typename Array, typename... Args>
 auto array_dot(Array const &a, Array const &b, Args const &... args) {
   DEBUG_MODE_ASSERT(b.size() == a.size(), "length of the array mismatch!");
@@ -76,6 +131,17 @@ auto array_dot(Array const &a, Array const &b, Args const &... args) {
   return product;
 }
 
+/**
+ * @brief Element wise addition of arrays.
+ *
+ * @f$ dst[i] = a[i] + b[i] + c[i] + ...@f$
+ *
+ * @tparam Array The type of the first array.
+ * @tparam Args The type of the arrays.
+ * @param[out] dst The destination array to store the result.
+ * @param[in] a The first input array.
+ * @param[in] args The rest arrays.
+ */
 template <typename Array, typename... Args>
 void array_add(Array &dst, Array const &a, Args const &... args) {
   size_t const size = dst.size();
@@ -85,6 +151,17 @@ void array_add(Array &dst, Array const &a, Args const &... args) {
   }
 }
 
+/**
+ * @brief Element wise scale.
+ *
+ * @f$ dst[i] = scale * a[i]@f$
+ *
+ * @tparam Array The type of the array.
+ * @tparam Scalar The type of the scale factor.
+ * @param[out] dst The destination array to store the result.
+ * @param[in] a The input array.
+ * @param[in] scale Scale factor.
+ */
 template <typename Array, typename Scalar>
 void array_scale(Array &dst, Array const &a, Scalar scale) {
   DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
@@ -95,6 +172,18 @@ void array_scale(Array &dst, Array const &a, Scalar scale) {
   }
 }
 
+/**
+ * @brief Element wise multiplication of arrays.
+ *
+ * @f$ dst[i] = a[i] * b[i] * c[i] * ...@f$
+ *
+ * @tparam Array The type of the first array.
+ * @tparam Args The type of the arrays.
+ * @param[out] dst The destination array to store the result.
+ * @param[in] a The first input array.
+ * @param[in] b The second input array.
+ * @param[in] args The rest arrays.
+ */
 template <typename Array, typename... Args>
 void array_mul(Array &dst, Array const &a, Array const &b, Args const &... args) {
   size_t const size = dst.size();

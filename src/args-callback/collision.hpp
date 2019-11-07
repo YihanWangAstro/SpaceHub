@@ -28,6 +28,7 @@ License
 #include "../dev-tools.hpp"
 #include "../vector/vector3.hpp"
 namespace run_operations {
+
 CREATE_METHOD_CHECK(radius);
 
 /**

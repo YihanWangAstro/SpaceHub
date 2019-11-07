@@ -87,7 +87,8 @@ namespace space {
     using type = decltype(check<T>(0));
   };
 
-#define CRTP_IMPL  friend Base; protected
+#define CRTP_IMPL  friend Base;                                                                                     \
+        protected
 
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A ## B)
