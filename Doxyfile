@@ -17,8 +17,8 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 
-#CLANG_ASSISTED_PARSING = YES
-#CLANG_OPTIONS  = -std=c++17
+CLANG_ASSISTED_PARSING = YES
+CLANG_OPTIONS  = -std=c++17
 
 # This tag specifies the encoding used for all characters in the configuration
 # file that follow. The default is UTF-8 which is also the encoding used for all
@@ -1772,7 +1772,7 @@ PAPER_TYPE             = a4
 # If left blank no extra packages will be included.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-EXTRA_PACKAGES         =
+EXTRA_PACKAGES         = times
 
 # The LATEX_HEADER tag can be used to specify a personal LaTeX header for the
 # generated LaTeX document. The header should contain everything until the first
