@@ -368,7 +368,7 @@ void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
     step_size_ = 0.01 * calc::calc_step_scale(particles_);
   }
 
-  Scalar end_time = space::unit::hubble_t;
+  Scalar end_time = space::unit::T_hubble;
 
   if (run_args.is_end_time_set()) {
     end_time = run_args.end_time;

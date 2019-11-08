@@ -43,10 +43,10 @@ int main(int argc, char **argv) {
 
   using particle = typename particles::Particle;
 
-  particle sun{m_solar}, earth{m_earth};
+  particle sun{1_Ms}, earth{1_Me};
 
   auto earth_orbit = EllipOrbit{
-      sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg, 174.9 * deg, 288.1 * deg, 0.0};
+      sun.mass, earth.mass, semi_latus_rectum(1_AU, 0.0167086), 0.0167086, 7.155 * deg, 174.9 * deg, 288.1 * deg, 0.0};
 
   move_particles(earth_orbit, earth);
 
