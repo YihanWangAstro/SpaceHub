@@ -28,7 +28,7 @@ License
 #include <cmath>
 #include <random>
 #include "multi-thread/multi-thread.hpp"
-
+#include "math.hpp"
 /**
  * @namespace space::random
  * Documentation for space
