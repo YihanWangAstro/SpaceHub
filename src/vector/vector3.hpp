@@ -171,19 +171,19 @@ struct Vec3 {
     return *this;
   }
 
-  /** Calculate the length of the vector */
+  /** @deprecated Make it non-member function.*/
   inline value_type norm() const { return sqrt(x * x + y * y + z * z); }
 
-  /** Calculate the length squre of the vector */
+  /** @deprecated Make it non-member function.*/
   inline value_type norm2() const { return (x * x + y * y + z * z); }
 
-  /** Find the max component of a vector */
+  /** @deprecated Make it non-member function.*/
   inline value_type max_component() const {
     value_type max = (x > y ? x : y);
     return max > z ? max : z;
   }
 
-  /** Calculate the inverse of the vector length */
+  /** @deprecated Make it non-member function*/
   inline value_type re_norm() const { return 1.0 / sqrt(x * x + y * y + z * z); }
 
   /** operator+ for left scalar operation*/

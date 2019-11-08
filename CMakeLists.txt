@@ -75,14 +75,13 @@ set(TMP_HEADER_FILES
         src/ode-iterator/error-checker/worst-offender.hpp
         src/ode-iterator/error-checker/RMS.hpp
         src/ode-iterator/step-controller/stepsize-controller.hpp
-        src/ode-iterator/step-controller/PID-controller.hpp src/scattering/cross-section.hpp src/integrator/integrator.hpp src/ode-iterator/error-checker/IAS15-error.hpp src/orbits/particle-manip.hpp src/IO.hpp src/args-callback/collision.hpp)
+        src/ode-iterator/step-controller/PID-controller.hpp src/scattering/cross-section.hpp src/integrator/integrator.hpp src/ode-iterator/error-checker/IAS15-error.hpp src/orbits/particle-manip.hpp src/IO.hpp src/args-callback/collision.hpp test/catch.hpp)
 
 set(SOURCE_FILES
         test/unit_test/main.cpp
-        test/unit_test/test_3d_vector.cpp
         test/unit_test/test_simple_math.cpp
         test/unit_test/test_chain.cpp
-        test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp test/unit_test/test_core_calculations.cpp)
+        test/unit_test/test_particle.cpp test/unit_test/test_coords.cpp test/unit_test/utest_vector3.cpp test/unit_test/utest_math.cpp)
 
 set(TWOBODY_TEST
         test/regression_test/two-body-test.cpp

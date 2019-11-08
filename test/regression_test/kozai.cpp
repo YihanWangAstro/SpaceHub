@@ -4,44 +4,15 @@
 #include <iomanip>
 #include "../../src/spaceHub.hpp"
 
-using namespace space;
-using namespace space::ode_iterator;
-using namespace space::integrator;
-using namespace space::orbit;
-using namespace space::unit;
-using namespace space::particle_set;
-using namespace space::particle_system;
-
-using scalar = double;
-using type = Types<scalar, std::vector>;
+USING_NAMESPACE_ALL
 
 int main() {
-  using force = interactions::NewtonianGrav;
+    using Particle = typename DefaultSolver::Particle;
 
-  using particles = PointParticles<type>;
+    Particle  m1{1_Ms}, m2{0.5_Ms}, m3{0.5_Ms};
 
-  //using particles = SoAFiniteSizeParticles<type>;
-
-  //using sys = SimpleSystem<particles, force>;
-
-  using sys = RegularizedSystem<particles, force, ReguType::LogH>;
-
-  //using sys = ChainSystem<particles, force>;
-
-  //using sys = ARchainSystem<particles, force, ReguType::LogH>;
-
-  //using iter = ConstOdeIterator<Symplectic2nd>;
-
-  using iter = BurlishStoer<double, WorstOffender, PIDController>;
-
-  using Simulation = Simulator<sys, iter>;
-
-  using Particle = Simulation::Particle;
-
-  Particle m1{unit::m_solar}, m2{0.5 * unit::m_solar}, m3{0.5 * unit::m_solar};
-
-  auto a1 = 0.5 * unit::au;
-  auto a2 = 5 * unit::au;
+  auto a1 = 7_AU;
+  auto a2 = 5_AU;
 
   move_particles(Kepler(m1.mass, m2.mass, a1, 0, 25.01 * unit::deg, 0, 90 * unit::deg, 0.0), m2);
 
@@ -51,11 +22,11 @@ int main() {
 
   move_to_COM_frame(m1, m2, m3);
 
-  Simulation kozai_test{0, m1, m2, m3};
+    DefaultSolver kozai_test{0, m1, m2};
 
   auto E0 = calc::calc_total_energy(kozai_test.particles());
 
-  Simulation::RunArgs args;
+    DefaultSolver::RunArgs args;
 
   auto end_time = 3e3 * unit::year;
 

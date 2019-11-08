@@ -161,7 +161,7 @@ constexpr T max_value_v = max_value<T>::value;
 template <typename Dtype>
 struct big_value {
   using value_type = typename space::get_value_type<Dtype>::type;
-  constexpr static value_type value = 0.1 * std::numeric_limits<value_type>::max();
+  constexpr static value_type value = 0.01 * std::numeric_limits<value_type>::max();
 };
 
 /**
