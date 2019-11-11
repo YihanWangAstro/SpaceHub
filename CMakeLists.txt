@@ -109,4 +109,4 @@ add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 
 add_executable(SpaceHub_twobody_test ${TMP_HEADER_FILES} ${TWOBODY_TEST})
 
-add_executable(SpaceHub_solar_test ${TMP_HEADER_FILES} ${SOLAR_TEST})
+add_executable(SpaceHub_solar_test ${TMP_HEADER_FILES} ${SOLAR_TEST} test/regression_test/rtest_samples.hpp)
