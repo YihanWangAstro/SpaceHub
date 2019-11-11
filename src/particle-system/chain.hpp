@@ -36,35 +36,97 @@ namespace space {
       Class Chain Declaration
 \*---------------------------------------------------------------------------*/
 /**
- *
+ * @brief Static class for chain coordinates transformation.
+ * 
  */
 class Chain {
  public:
+  /**
+   * @brief Node used to create chain index.
+   */
   struct Node {
-    double r;   /**< Relative distance of two particles.*/
-    size_t i;   /**< Particle index.*/
-    size_t j;   /**< Particle index.*/
-    bool avail; /**< State of node. If this node can be chained.*/
+    /**
+     * @brief Relative distance between two particles.
+     */
+    double r;   
+    /**
+     * @brief The index of the first particle.
+     */
+    size_t i;   
+    /**
+     * @brief The index of the second particle.
+     */
+    size_t j;
+    /**
+     * @brief Flag indicates if this node has been added to the chain.
+     */
+    bool avail;
   };
 
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(Chain, default, default, default, default, default);
 
+  /**
+   * @brief Calculate the chain index.
+   * 
+   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam IdxArray Type of the index array.
+   * @param[in] pos Input position in Cartesian coordinates. 
+   * @param[out] index Output index array.
+   * @note The memory space of the index need to be allocated in advance. The size of pos and index need to be the same.
+   */
   template <typename Coord, typename IdxArray>
   static void calc_chain_index(Coord const &pos, IdxArray &index);
 
+  /**
+   * @brief Update the chain coordinates from old index array to new index array.
+   * 
+   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam IdxArray Type of the index array.
+   * @param[in,out] chain The chain coordinates.
+   * @param[in] idx Old chain index array.
+   * @param[in] new_idx New chain index array.
+   */
   template <typename Coord, typename IdxArray>
   static void update_chain(Coord &chain, IdxArray const &idx, IdxArray const &new_idx);
 
+ /**
+  * @brief Calculate the corresponding Cartesian coordinates of the chain coordinates.
+  * 
+  * @tparam ScalarArray Type of the mass array.
+  * @tparam Coord Type of the Structure of Array coordinates.
+  * @tparam IdxArray Type of the index array.
+  * @param[in] mass The mass array(needed for centre of mass movement).
+  * @param[in] chain The chain coordinates.
+  * @param[out] cartesian The Cartesian coordinates.
+  * @param[in] index The chain index array.
+  * @note The memory space of the cartesian need to be allocated in advance. The size of the input parameters need to be the same.
+  */
   template <typename ScalarArray, typename Coord, typename IdxArray>
   static void calc_cartesian(ScalarArray const &mass, Coord const &chain, Coord &cartesian, IdxArray const &index);
 
+
+  /**
+   * @brief Calculate the corresponding chain coordinates of the Cartesian coordinates.
+   * 
+   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam IdxArray Type of the index array.
+   * @param[in] cartesian The Cartesian coordinates.
+   * @param[out] chain The chain coordinates.
+   * @param[in] index The chain index array.
+   */
   template <typename Coord, typename IdxArray>
   static void calc_chain(Coord const &cartesian, Coord &chain, IdxArray const &index);
 
- private:
-  static constexpr bool auto_centre_of_mass_move_{true};
-
+  /**
+   * @brief Method flag. Indicates the transformation type;
+   * 
+   * If this flag is true, the transformation between chain coordinates and Cartesian coordinates is bijective mapping,
+   * otherwise, a centre of mass movement will be performed after the transformation from chain coordinates to Cartesian
+   * coordinates.
+   */
+  static constexpr bool bijective_transfer{true};
+private:
   template <typename T>
   static bool not_in_list(std::list<T> &list, T var);
 
@@ -115,7 +177,7 @@ void Chain::update_chain(Coord &chain, const IdxArray &idx, const IdxArray &new_
     new_chain.emplace_back(get_new_node(chain, first, last));
   }
 
-  if constexpr (!auto_centre_of_mass_move_) {
+  if constexpr (!bijective_transfer) {
     new_chain.emplace_back(Vector(0, 0, 0));
   } else {
     Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
@@ -130,7 +192,7 @@ void Chain::calc_cartesian(const ScalarArray &mass, const Coord &chain, Coord &c
   to_cartesian(chain.x, cartesian.x, index);
   to_cartesian(chain.y, cartesian.y, index);
   to_cartesian(chain.z, cartesian.z, index);
-  if constexpr (!auto_centre_of_mass_move_) {
+  if constexpr (!bijective_transfer) {
     calc::coord_move_to_com(mass, cartesian);
   }
 }
@@ -244,7 +306,7 @@ auto Chain::get_new_node(const Coord &chain, size_t head, size_t tail) -> typena
 template <typename Array, typename IdxArray>
 void Chain::to_chain(const Array &cartesian, Array &chain, const IdxArray &index) {
   const size_t size = cartesian.size();
-  if constexpr (!auto_centre_of_mass_move_) {
+  if constexpr (!bijective_transfer) {
     chain[size - 1] = 0;
   } else {
     chain[size - 1] = cartesian[index[0]];
@@ -255,7 +317,7 @@ void Chain::to_chain(const Array &cartesian, Array &chain, const IdxArray &index
 template <typename Array, typename IdxArray>
 void Chain::to_cartesian(const Array &chain, Array &cartesian, const IdxArray &index) {
   const size_t size = cartesian.size();
-  if constexpr (!auto_centre_of_mass_move_) {
+  if constexpr (!bijective_transfer) {
     cartesian[index[0]] = 0;
   } else {
     cartesian[index[0]] = chain[size - 1];
