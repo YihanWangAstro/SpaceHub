@@ -3,4 +3,8 @@
 #include "../catch.hpp"
 #include "utest.hpp"
 
-using namespace space::math;
+using namespace space;
+
+TEST_CASE("Math") {
+  SECTION("min") { REQUIRE(2 == math::min(2, 3)); }
+}

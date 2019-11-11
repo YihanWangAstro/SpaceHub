@@ -35,70 +35,98 @@ namespace space::particle_set {
 Class PointParticle Declaration
 \*---------------------------------------------------------------------------*/
 /**
- *
- * @tparam Real
+ * @brief Point particle
+ * @tparam Real Floating point like type.
  */
 template <typename Real>
 struct PointParticle {
  public:
-  // type members
+  /**
+   * @brief Floating point like type;
+   */
   using Scalar = Real;
 
+ /**
+  * @brief 3D vector type.
+  */
   using Vector = Vec3<Scalar>;
 
-  /**
-   * @brief Construct a new Point Particle object
-   *
-   */
   SPACEHUB_MAKE_CONSTRUCTORS(PointParticle, default, default, default, default, default);
 
   /**
    * @brief Construct a new Point Particle object
    *
    * @param[in] mass The mass of the particle
-   * @param[in] position The 3d vector position of the particle
-   * @param[in] velocity The 3d vector velocity of the particle
+   * @param[in] position The 3D vector position of the particle
+   * @param[in] velocity The 3D vector velocity of the particle
    */
   explicit PointParticle(Scalar mass, Vector position, Vector velocity);
 
   /**
    * @brief Construct a new Point Particle object
    *
-   * @param mass The mass fof the particle
-   * @param px The x-component of the position vector
-   * @param py The y-component of the position vector
-   * @param pz The z-component of the position vector
-   * @param vx The x-component of the velocity vector
-   * @param vy The y-component of the velocity vector
-   * @param vz The z-component of the velocity vector
+   * @param[in] mass The mass fof the particle
+   * @param[in] px The x-component of the position vector
+   * @param[in] py The y-component of the position vector
+   * @param[in] pz The z-component of the position vector
+   * @param[in] vx The x-component of the velocity vector
+   * @param[in] vy The y-component of the velocity vector
+   * @param[in] vz The z-component of the velocity vector
    */
   explicit PointParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                          Scalar vz = 0);
 
   // public members
+  /**
+   * @brief Position of the particle.
+   */
   Vector pos;
-
+  
+  /**
+   * @brief Velocity of the particle.
+   */
   Vector vel;
 
+  /**
+   * @brief Mass of the particle.
+   */
   Scalar mass;
 };
 
 /*---------------------------------------------------------------------------*\
     Class PointParticles Declaration
 \*---------------------------------------------------------------------------*/
+/**
+ * @brief Structure of Array point particle group.
+ * 
+ * @tparam TypeSystem The type system in spaceHub(space::Types).
+ */
 template <typename TypeSystem>
 class PointParticles : public Particles<PointParticles<TypeSystem>> {
  public:
   // Type members
   SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
-
+  
+  /**
+   * @brief Base class.
+   */
   using Base = Particles<PointParticles<TypeSystem>>;
 
+  /**
+   * @brief Embedded Particle type.
+   */
   using Particle = PointParticle<Scalar>;
 
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(PointParticles, default, default, default, default, default);
 
+  /**
+   * @brief Construct a new Point Particles object from std::ranges(Container)
+   * 
+   * @tparam STL std::ranges(Container)
+   * @param[in] t Initial time of the the particle group.
+   * @param[in] particle_set Input particle set.
+   */
   template <typename STL>
   PointParticles(Scalar t, STL const &particle_set);
 
@@ -137,7 +165,7 @@ class PointParticles : public Particles<PointParticles<TypeSystem>> {
 
   IdxArray idn_;
 
-  Scalar time_;
+  Scalar time_{0.0};
 
   size_t active_num_{0};
 };

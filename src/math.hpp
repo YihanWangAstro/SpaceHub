@@ -43,7 +43,7 @@ namespace space::math {
  * @return T2 The min of x, y;
  */
 template <typename T1, typename T2>
-inline constexpr T2 min(T1 const &x, T2 const &y) {
+inline constexpr auto min(T1 const &x, T2 const &y) {
   return x > y ? y : x;
 }
 
@@ -57,7 +57,7 @@ inline constexpr T2 min(T1 const &x, T2 const &y) {
  * @return T2 The max of x, y;
  */
 template <typename T1, typename T2>
-inline constexpr T2 max(T1 const &x, T2 const &y) {
+inline constexpr auto max(T1 const &x, T2 const &y) {
   return y > x ? y : x;
 }
 
@@ -70,7 +70,7 @@ inline constexpr T2 max(T1 const &x, T2 const &y) {
  */
 template <typename T>
 inline constexpr T abs(const T &x) {
-  return x > 0 ? x : -x;
+  return x >= 0 ? x : -x;
 }
 
 /**

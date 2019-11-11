@@ -36,7 +36,7 @@ namespace space::particle_set {
 /**
  * @brief Finite size particle.
  *
- * @tparam TypeSystem
+ * @tparam TypeSystem The type system in spaceHub(space::Types).
  */
 template <typename TypeSystem>
 class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
@@ -44,6 +44,9 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
   // Type members
   SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
+  /**
+   * @brief Base class.
+   */
   using Base = Particles<SizeParticles<TypeSystem>>;
 
   /*---------------------------------------------------------------------------*\
@@ -56,8 +59,14 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
   struct Particle : public PointParticle<Scalar> {
    public:
     // Type members
+    /**
+     * @brief Floating point like type.
+     */
     using Scalar = typename TypeSystem::Scalar;
 
+    /**
+     * @brief 3D vector.
+     */
     using Vector = Vec3<Scalar>;
 
     // Constructors
@@ -66,24 +75,24 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
     /**
      * @brief Construct a new Particle object
      *
-     * @param m
-     * @param r
-     * @param p
-     * @param v
+     * @param[in] m Mass of the particle.
+     * @param[in] r Radius of the particle.
+     * @param[in] p Position of the particle.
+     * @param[in] v Velocity of the particle.
      */
     Particle(Scalar m, Scalar r, Vector p, Vector v) : PointParticle<Scalar>{m, p, v}, radius{r} {}
 
     /**
      * @brief Construct a new Particle object
      *
-     * @param m
-     * @param r
-     * @param px
-     * @param py
-     * @param pz
-     * @param vx
-     * @param vy
-     * @param vz
+     * @param[in] m Mass of the particle.
+     * @param[in] r Radius of the particle.
+     * @param[in] px X component of the position.
+     * @param[in] py Y component of the position.
+     * @param[in] pz Z component of the position.
+     * @param[in] vx X component of the velocity.
+     * @param[in] vy Y component of the velocity.
+     * @param[in] vz Z component of the velocity.
      */
     Particle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
              Scalar vz = 0)
@@ -100,12 +109,22 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
     }
 
     // Public members
+    /**
+     * @brief Radius of the particle.
+     */
     Scalar radius;
   };
 
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(SizeParticles, default, default, default, default, default);
 
+  /**
+   * @brief Construct a new Size Particles object from std::ranges(Container).
+   * 
+   * @tparam STL std::ranges(Container)
+   * @param[in] t Initial time of the the particle group.
+   * @param[in] particle_set Input particle set.
+   */
   template <typename STL>
   SizeParticles(Scalar time, STL const &particles_set);
 
@@ -149,7 +168,7 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
 
   IdxArray idn_;
 
-  Scalar time_;
+  Scalar time_{0};
 
   size_t active_num_{0};
 };

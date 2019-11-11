@@ -34,77 +34,109 @@ namespace space {
     Class Coords Declaration
 \*---------------------------------------------------------------------------*/
 /**
- *
- * @tparam T
+ * @brief Structure of Array 3D vector container.
+ * 
+ * @tparam T Array like type. i.e std::vector
  */
 template <typename T>
 struct Coords {
-  // type members
+  /**
+   * @brief Type of the elements(Scalar).
+   * 
+   */
   using Scalar = typename T::value_type;
 
+  /**
+   * @brief Type of the elements.
+   * 
+   */
   using value_type = typename T::value_type;
 
+  /**
+   * @brief 3D Vector type.
+   * 
+   */
   using Vector = Vec3<Scalar>;
 
-  // constructors
   SPACEHUB_MAKE_CONSTRUCTORS(Coords, default, default, default, default, default);
 
   /**
-   *
-   * @param count
+   * @brief Construct a coord with given size.
+   * 
+   * @param count Size
    */
   explicit Coords(size_t count);
 
   // public methods
   /**
-   *
+   * @brief Clear the element of the coords.
+   * After the method, the size of the coords is 0;
    */
   void clear();
 
   /**
-   *
-   * @tparam GenVector
-   * @param vector
+   * @brief Insert an element(3D Vector) at the end.
+   * 
+   * @tparam GenVector Type of the 3D Vector.
+   * @param vector The input vector.
    */
   template <typename GenVector>
   void emplace_back(GenVector const &vector);
 
   /**
-   *
-   * @param xx
-   * @param yy
-   * @param zz
+   * @brief Insert an element at the end.
+   * 
+   * @param xx x component.
+   * @param yy y component.
+   * @param zz z component.
    */
   void emplace_back(Scalar xx, Scalar yy, Scalar zz);
 
   /**
-   *
-   * @param new_cap
+   * @brief Reserve the space.
+   * This doesn't change the size of the coords.
+   * @param new_cap The size of the space.
    */
   void reserve(size_t new_cap);
 
   /**
-   *
-   * @param new_sz
+   * @brief Resize the coords.
+   * 
+   * @param new_sz The size of the coords.
    */
   void resize(size_t new_sz);
 
   /**
-   *
+   * @brief Shrink the space to the size of the coords.
+   * 
    */
   void shrink_to_fit();
 
   /**
-   *
+   * @brief Set all elements to 0.
    */
   void set_zero();
 
   /**
-   *
-   * @return
+   * @brief Return the size of the coords
+   * 
+   * @return size_t Size of the coords.
    */
   [[nodiscard]] size_t size() const;
 
+  /**
+   * @brief Return the capacity of the coords
+   * 
+   * @return size_t Capacity of the coords.
+   */
+  [[nodiscard]] size_t capacity() const;
+
+  /**
+   * @brief Swap two coords.
+   * 
+   * @param a Coords a.
+   * @param b Coords b.
+   */
   friend void swap(Coords &a, Coords &b) {
     std::swap(a.x, b.x);
     std::swap(a.y, b.y);
@@ -112,8 +144,17 @@ struct Coords {
   }
 
   // public members
+  /**
+   * @brief X components of the coords(An array).
+   */
   T x;
+  /**
+   * @brief Y components of the coords(An array).
+   */
   T y;
+  /**
+   * @brief Z components of the coords(An array).
+   */
   T z;
 };
 
@@ -127,6 +168,11 @@ Coords<T>::Coords(size_t count) : x(count), y(count), z(count) {}
 template <typename T>
 size_t Coords<T>::size() const {
   return x.size();
+}
+
+template <typename T>
+size_t Coords<T>::capacity() const {
+  return x.capacity();
 }
 
 template <typename T>
