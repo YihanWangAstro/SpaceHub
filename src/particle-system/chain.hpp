@@ -125,7 +125,7 @@ class Chain {
    * otherwise, a centre of mass movement will be performed after the transformation from chain coordinates to Cartesian
    * coordinates.
    */
-  static constexpr bool bijective_transfer{true};
+  static constexpr bool bijective_transfer{false};
 private:
   template <typename T>
   static bool not_in_list(std::list<T> &list, T var);
@@ -311,7 +311,9 @@ void Chain::to_chain(const Array &cartesian, Array &chain, const IdxArray &index
   } else {
     chain[size - 1] = cartesian[index[0]];
   }
-  for (size_t i = 0; i < size - 1; ++i) chain[i] = cartesian[index[i + 1]] - cartesian[index[i]];
+  for (size_t i = 0; i < size - 1; ++i) {
+      chain[i] = cartesian[index[i + 1]] - cartesian[index[i]];
+  }
 }
 
 template <typename Array, typename IdxArray>
@@ -322,7 +324,9 @@ void Chain::to_cartesian(const Array &chain, Array &cartesian, const IdxArray &i
   } else {
     cartesian[index[0]] = chain[size - 1];
   }
-  for (size_t i = 1; i < size; ++i) cartesian[index[i]] = cartesian[index[i - 1]] + chain[i - 1];
+  for (size_t i = 1; i < size; ++i) {
+      cartesian[index[i]] = cartesian[index[i - 1]] + chain[i - 1];
+  }
 }
 }  // namespace space
 #endif

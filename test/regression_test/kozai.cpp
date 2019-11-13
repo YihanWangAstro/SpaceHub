@@ -11,7 +11,7 @@ int main() {
 
     Particle  m1{1_Ms}, m2{0.5_Ms}, m3{0.5_Ms};
 
-  auto a1 = 7_AU;
+  auto a1 = 1_AU;
   auto a2 = 5_AU;
 
   move_particles(Kepler(m1.mass, m2.mass, a1, 0, 25.01 * unit::deg, 0, 90 * unit::deg, 0.0), m2);
