@@ -1,44 +1,51 @@
 //
-// Created by yihan on 4/17/19.
+// Created by root on 10/9/19.
 //
-#include <iomanip>
+#include "rtest_samples.hpp"
 #include "../../src/spaceHub.hpp"
 
 USING_NAMESPACE_ALL;
 
-int main() {
-    using Particle = typename DefaultSolver::Particle;
+template<typename simulation>
+void run(std::string const &sim_type) {
+  auto twobody_sys = kozai<simulation>();
 
-    Particle  m1{1_Ms}, m2{0.5_Ms}, m3{0.5_Ms};
+  basic_error_test<simulation>("kozai-" + sim_type, 100000_year, 1e-13,twobody_sys);
 
-  auto a1 = 1_AU;
-  auto a2 = 5_AU;
+  auto[rtol, error] = error_scale<simulation>(1e-15, 1e-11, 100000_year, twobody_sys);
 
-  move_particles(Kepler(m1.mass, m2.mass, a1, 0, 25.01 * unit::deg, 0, 90 * unit::deg, 0.0), m2);
+  std::fstream err_stream{"kozai-" + sim_type + ".scale", std::ios::out};
 
-  move_to_COM_frame(m1, m2);
-
-  move_particles(Kepler(M_tot(m1, m2), m3.mass, a2, 0, -64.99 * unit::deg, 0, 0, 0.0), m3);
-
-  move_to_COM_frame(m1, m2, m3);
-
-    DefaultSolver kozai_test{0, m1, m2};
-
-  auto E0 = calc::calc_total_energy(kozai_test.particles());
-
-    DefaultSolver::RunArgs args;
-
-  auto end_time = 3e3 * unit::year;
-
-  std::ofstream output{"kozai.eng"};
-
-  output << std::setprecision(16);
-
-  auto writer = [&](auto &ptc) { output << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n'; };
-
-  args.add_pre_step_operation(run_operations::TimeSlice(writer, 0, end_time));
-
-  args.add_stop_condition(end_time);
-
-  kozai_test.run(args);
+  err_stream << rtol << '\n' << error;
 }
+
+int main(int argc, char **argv) {
+  using type = Types<double>;
+
+  using force = interactions::NewtonianGrav;
+
+  using particles = PointParticles<type>;
+
+  using sim_sys = SimpleSystem<particles, force>;
+
+  using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
+
+  using chain_sys = ChainSystem<particles, force>;
+
+  using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
+
+  //using iter = ConstOdeIterator<Symplectic2nd>;
+
+  using iter = BurlishStoer<double, WorstOffender, PIDController>;
+
+  run<Simulator<sim_sys, iter>>("sim");
+
+  run<Simulator<regu_sys, iter>>("regu");
+
+  run<Simulator<chain_sys, iter>>("chain");
+
+  run<Simulator<arch_sys, iter>>("arch");
+
+  return 0;
+}
+

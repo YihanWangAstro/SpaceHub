@@ -88,7 +88,7 @@ class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepContr
 
   static constexpr size_t max_depth{7};
 
-  static constexpr size_t max_try_num{500};
+  static constexpr size_t max_try_num{100};
 
   using BSConsts = BurlishStoerConsts<Scalar, max_depth + 1>;
 

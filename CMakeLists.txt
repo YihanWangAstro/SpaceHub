@@ -1,16 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3 -mavx")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread ")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3")
 
-
 set(CMAKE_CXX_STANDARD 17)
-
-#add_subdirectory(./googletest)
-#include_directories(./googletest/googletest/include)
-#link_directories(./googletest/googlemock/include)
 
 set(TMP_HEADER_FILES
         src/args-callback/callbacks.hpp
@@ -86,24 +81,25 @@ set(TMP_HEADER_FILES
 
 set(UNIT_TEST
         test/unit_test/utest_vector3.cpp
-        test/unit_test/utest_math.cpp test/unit_test/utest_coord.cpp test/unit_test/utest_point-particle.cpp test/unit_test/utest_finite-particle.cpp test/unit_test/utest_chain.cpp test/unit_test/utest_base-system.cpp)
+        test/unit_test/utest_math.cpp
+        test/unit_test/utest_coord.cpp
+        test/unit_test/utest_point-particle.cpp
+        test/unit_test/utest_finite-particle.cpp
+        test/unit_test/utest_chain.cpp
+        test/unit_test/utest_base-system.cpp)
 
 set(TWOBODY_TEST
-        test/regression_test/two-body-test.cpp
+        test/regression_test/rtest_two-body.cpp
         )
 
-
 set(SOLAR_TEST
-        test/regression_test/solar_system.cpp)
+        test/regression_test/rtest_solar-system.cpp)
 
 set(KOZAI_TEST
         test/regression_test/kozai.cpp)
 
 
 add_executable(SpaceHub_unit_test ${UNIT_TEST} ${TMP_HEADER_FILES})
-#target_link_libraries(SpaceHub_unit_test gtest gtest_main)
-#target_link_libraries(SpaceHub_unit_test gmock gmock_main)
-
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 

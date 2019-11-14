@@ -68,9 +68,9 @@ class RMS : public ErrorChecker<RMS<T>> {
   auto impl_error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
  private:
-  Scalar atol_{1e-12};
+  Scalar atol_{1e-13};
 
-  Scalar rtol_{1e-12};
+  Scalar rtol_{1e-13};
 
  private:
   CREATE_MEMBER_CHECK(x);

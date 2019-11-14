@@ -8,9 +8,9 @@ USING_NAMESPACE_ALL;
 
 template<typename simulation>
 void run(std::string const &sim_type) {
-  auto twobody_sys = two_body<simulation>();
+  auto twobody_sys = two_body<simulation>(0.999);
 
-  basic_error_test<simulation>("two-body-" + sim_type, 1000_year, twobody_sys);
+  basic_error_test<simulation>("two-body-" + sim_type, 1000_year, 1e-13,twobody_sys);
 
   auto[rtol, error] = error_scale<simulation>(1e-15, 1e-9, 1000_year, twobody_sys);
 
@@ -20,7 +20,7 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
-  using type = Types<double>;
+  using type = Types<double_k>;
 
   using force = interactions::NewtonianGrav;
 

@@ -112,34 +112,7 @@ public:
         mmvalue = v.mmvalue;
         return *this;
     }
-    /** @brief Calculate the norm */
-    inline double norm() const
-    {
-        Vec3  product = _mm256_mul_pd(mmvalue, mmvalue);
-        return sqrt(product.x + product.y + product.z);
-    }
-    /** @brief Calculate the norm */
-    inline double norm2() const
-    {
-        Vec3  product = _mm256_mul_pd(mmvalue, mmvalue);
-        return product.x + product.y + product.z;
-    }
 
-    inline double max_component()
-    {
-        double max = (x > y ? x : y);
-        return max > z ? max : z;
-    }
-    /** @brief Calculate the inverse of the norm */
-    inline double reNorm() const
-    {
-        Vec3  product = _mm256_mul_pd(mmvalue, mmvalue);
-        return 1.0/sqrt(product.x + product.y + product.z);
-    }
-    inline void setZero()
-    {
-        mmvalue = _mm256_setzero_pd();
-    }
     /** @brief Output to ostream */
     friend std::ostream& operator<<(std::ostream& output, const Vec3& v)
     {
