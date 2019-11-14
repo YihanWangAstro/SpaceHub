@@ -125,7 +125,7 @@ class Chain {
    * otherwise, a centre of mass movement will be performed after the transformation from chain coordinates to Cartesian
    * coordinates.
    */
-  static constexpr bool bijective_transfer{false};
+  static constexpr bool bijective_transfer{true};
 private:
   template <typename T>
   static bool not_in_list(std::list<T> &list, T var);
