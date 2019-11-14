@@ -3,19 +3,20 @@
 //
 #include "rtest_samples.hpp"
 #include "../../src/spaceHub.hpp"
+
 USING_NAMESPACE_ALL;
 
-template <typename simulation>
-void run(std::string const& sim_type){
-    auto earth_sys = earth_system<simulation >();
+template<typename simulation>
+void run(std::string const &sim_type) {
+  auto earth_sys = earth_system<simulation>();
 
-    basic_error_test<simulation>("earth-system-"+sim_type, 100_year, earth_sys);
+  basic_error_test<simulation>("earth-system-" + sim_type, 100_year, earth_sys);
 
-    auto[rtol, error] = error_scale<simulation>(1e-15, 1e-9, 100_year, earth_sys);
+  auto[rtol, error] = error_scale<simulation>(1e-15, 1e-9, 100_year, earth_sys);
 
-    std::fstream err_stream{"earth-system-"+sim_type+".scale", std::ios::out};
+  std::fstream err_stream{"earth-system-" + sim_type + ".scale", std::ios::out};
 
-    err_stream << rtol << '\n' << error;
+  err_stream << rtol << '\n' << error;
 }
 
 int main(int argc, char **argv) {

@@ -310,10 +310,12 @@ void RegularizedSystem<Particles, Interactions, RegType>::impl_load_from_linear_
 template <typename Particles, typename Interactions, ReguType RegType>
 void RegularizedSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
   interactions_.eval_newtonian_acc(ptcl_, accels_.newtonian_acc());
-  accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
+
   if constexpr (Interactions::ext_vel_indep) {
     interactions_.eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
     calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonian_acc());
+  } else {
+    accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
   }
 }
 
