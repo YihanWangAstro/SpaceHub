@@ -74,9 +74,9 @@ class PIDController : public StepController<PIDController<Max_order, T>> {
 
   std::array<Scalar, Max_order + 1> expon_;
 
-  Scalar safe_guard1_{0.94};
+  Scalar safe_guard1_{0.95};
 
-  Scalar safe_guard2_{0.65};
+  Scalar safe_guard2_{0.95};
 
   Scalar safe_guard3_{0.02};
 
