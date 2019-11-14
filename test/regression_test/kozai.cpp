@@ -4,7 +4,7 @@
 #include <iomanip>
 #include "../../src/spaceHub.hpp"
 
-USING_NAMESPACE_ALL
+USING_NAMESPACE_ALL;
 
 int main() {
     using Particle = typename DefaultSolver::Particle;

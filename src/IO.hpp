@@ -25,6 +25,7 @@ License
 #ifndef SPACEHUB_IO_HPP
 #define SPACEHUB_IO_HPP
 
+#include <vector>
 #include <array>
 #include <iostream>
 #include <tuple>
@@ -142,6 +143,14 @@ std::ostream &operator<<(Ostream &os, std::array<T, N> const &container) {
   }
   return os;
 }
+
+    template <typename Ostream, typename T>
+    std::ostream &operator<<(Ostream &os, std::vector<T> const &container) {
+        for (auto const &c : container) {
+            os << c << ' ';
+        }
+        return os;
+    }
 }  // namespace space
 
 #endif  // SPACEHUB_IO_HPP

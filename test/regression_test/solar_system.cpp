@@ -1,117 +1,50 @@
 //
 // Created by root on 10/9/19.
 //
+#include "rtest_samples.hpp"
 #include "../../src/spaceHub.hpp"
-#include <vector>
-#include <array>
-#include <iomanip>
+USING_NAMESPACE_ALL;
 
-using namespace space;
-using namespace space::ode_iterator;
-using namespace space::integrator;
-using namespace space::orbit;
-using namespace unit;
-using scalar = double;
-using type = Types<scalar, std::vector>;
+template <typename simulation>
+void run(std::string const& sim_type){
+    auto earth_sys = earth_system<simulation >();
+
+    basic_error_test<simulation>("earth-system-"+sim_type, 100_year, earth_sys);
+
+    auto[rtol, error] = error_scale<simulation>(1e-15, 1e-9, 100_year, earth_sys);
+
+    std::fstream err_stream{"earth-system-"+sim_type+".scale", std::ios::out};
+
+    err_stream << rtol << '\n' << error;
+}
 
 int main(int argc, char **argv) {
+  using type = Types<double>;
+
   using force = interactions::NewtonianGrav;
 
   using particles = PointParticles<type>;
 
-  //using particles = SoAFiniteSizeParticles<type>;
+  using sim_sys = SimpleSystem<particles, force>;
 
-  using sys = SimpleSystem<particles, force>;
+  using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
-  //using sys = RegularizedSystem<particles, force, ReguType::LogH>;
+  using chain_sys = ChainSystem<particles, force>;
 
-  //using sys = ChainSystem<particles, force>;
-
-  //using sys = ARchainSystem<particles, force, ReguType::LogH>;
+  using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
   //using iter = ConstOdeIterator<Symplectic2nd>;
 
   using iter = BurlishStoer<double, WorstOffender, PIDController>;
 
-  using simulation = Simulator<sys, iter>;
+  run<Simulator<sim_sys, iter>>("sim");
 
-  using particle = typename simulation::Particle;
+  run<Simulator<regu_sys, iter>>("regu");
 
-  {
-    particle sun{m_solar}, earth{m_earth}, moon{m_moon};
+  run<Simulator<chain_sys, iter>>("chain");
 
-    auto moon_orbit = Kepler{earth.mass, moon.mass, semi_latus_rectum(384748 * km, 0.0549006), 0.0549006, 1.543 * deg,
-                             0.0, 0.0, 0.0};
+  run<Simulator<arch_sys, iter>>("arch");
 
-    auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
-                              174.9 * deg, 288.1 * deg, 0.0};
-
-    move_particles(moon_orbit, moon);
-
-    move_particles(earth_orbit, earth, moon);
-
-    move_to_COM_frame(sun, earth, moon);
-
-    simulation nbody{0, sun, earth, moon};
-
-    simulation::RunArgs args;
-
-    std::ofstream eng_file("solar.eng");
-
-    eng_file << std::setprecision(16);
-
-    auto end_time = 100 * year;
-    auto E0 = calc::calc_total_energy(nbody.particles());
-
-    args.add_pre_step_operation(run_operations::TimeSlice(run_operations::DefaultWriter("solar.dat"), 0, end_time));
-
-    args.add_pre_step_operation(
-            run_operations::TimeSlice(
-                    [&](auto &ptc) {
-                      eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
-                    },
-                    0, end_time));
-
-    args.add_stop_condition(end_time);
-
-
-    nbody.run(args);
-  }
-  {
-    particle sun{m_solar}, earth{m_earth};
-
-
-    auto earth_orbit = Kepler{sun.mass, earth.mass, semi_latus_rectum(au, 0.0167086), 0.0167086, 7.155 * deg,
-                              174.9 * deg, 288.1 * deg, 0.0};
-
-    move_particles(earth_orbit, earth);
-
-    move_to_COM_frame(sun, earth);
-
-    simulation nbody{0, sun, earth};
-
-    simulation::RunArgs args;
-
-    std::ofstream eng_file("two-body.eng");
-
-    eng_file << std::setprecision(16);
-
-    auto end_time = 100 * year;
-    auto E0 = calc::calc_total_energy(nbody.particles());
-
-    args.add_pre_step_operation(run_operations::TimeSlice(run_operations::DefaultWriter("two-body.dat"), 0, end_time));
-
-    args.add_pre_step_operation(
-            run_operations::TimeSlice(
-                    [&](auto &ptc) {
-                      eng_file << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
-                    },
-                    0, end_time));
-
-    args.add_stop_condition(end_time);
-
-    nbody.run(args);
-  }
   return 0;
 }
 

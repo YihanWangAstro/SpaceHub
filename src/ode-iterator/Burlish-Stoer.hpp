@@ -184,9 +184,9 @@ BurlishStoerConsts<Scalar, MaxIter>::BurlishStoerConsts() {
     sub_steps_[i] = 2 * (i + 1);
 
     if (i == 0) {
-      cost_[i] = sub_steps_[i] + 1;  // The additional 1 is for 'KDK' method.
+      cost_[i] = sub_steps_[i];  // The additional 1 is for 'KDK' method.
     } else {
-      cost_[i] = cost_[i - 1] + sub_steps_[i] + 1;
+      cost_[i] = cost_[i - 1] + sub_steps_[i];
     }
 
     for (size_t j = 0; j < i; ++j) {
@@ -230,7 +230,7 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::impl_iterate(U &particles, typ
 
       Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
 
-      ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
+      ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
 
       cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
       // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
@@ -288,22 +288,23 @@ template <typename U>
 void BurlishStoer<Real, ErrChecker, StepControl>::integrate_by_n_steps(U &particles, Scalar macro_step_size,
                                                                        size_t steps) {
   Scalar h = macro_step_size / steps;
-  particles.kick(0.5 * h);
+  particles.drift(0.5 * h);
   for (size_t i = 1; i < steps; i++) {
-    particles.drift(h);
     particles.kick(h);
+    particles.drift(h);
   }
-  particles.drift(h);
-  particles.kick(0.5 * h);
+  particles.kick(h);
+  particles.drift(0.5 * h);
 }
 
 template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
 void BurlishStoer<Real, ErrChecker, StepControl>::extrapolate(size_t k) {
   for (size_t j = k; j > 0; --j) {
-    auto c_1 = 1 + parameters_.table_coef(k, j - 1);
-    auto c_2 = -parameters_.table_coef(k, j - 1);
+    //auto c_1 = 1 + parameters_.table_coef(k, j - 1);
+    //auto c_2 = -parameters_.table_coef(k, j - 1);
     for (size_t i = 0; i < var_num_; ++i) {
-      extrap_list_[j - 1][i] = c_1 * extrap_list_[j][i] + c_2 * extrap_list_[j - 1][i];
+      //extrap_list_[j - 1][i] = c_1 * extrap_list_[j][i] + c_2 * extrap_list_[j - 1][i];
+        extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * parameters_.table_coef(k, j - 1);
     }
   }
 }

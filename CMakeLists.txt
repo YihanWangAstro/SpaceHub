@@ -86,7 +86,7 @@ set(TMP_HEADER_FILES
 
 set(UNIT_TEST
         test/unit_test/utest_vector3.cpp
-        test/unit_test/utest_math.cpp test/unit_test/utest_coord.cpp test/unit_test/utest_point-particle.cpp test/unit_test/utest_finite-particle.cpp test/unit_test/utest_chain.cpp)
+        test/unit_test/utest_math.cpp test/unit_test/utest_coord.cpp test/unit_test/utest_point-particle.cpp test/unit_test/utest_finite-particle.cpp test/unit_test/utest_chain.cpp test/unit_test/utest_base-system.cpp)
 
 set(TWOBODY_TEST
         test/regression_test/two-body-test.cpp

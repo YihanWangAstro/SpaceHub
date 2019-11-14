@@ -64,12 +64,12 @@ class RunArgs {
   /**
    * Callback function type for pre-operation, pos-operation and stop operation.
    */
-  using Callback = std::function<void(ParticleSys &)>;
+  using Callback = std::function<void(ParticleSys &, Scalar)>;
 
   /**
    * Callback function type for stop condition.
    */
-  using StopCall = std::function<bool(ParticleSys &)>;
+  using StopCall = std::function<bool(ParticleSys &, Scalar)>;
 
   // public members
 
@@ -98,29 +98,33 @@ class RunArgs {
    * Call the all registered pre-operation functions by sequence.
    *
    * @param[in,out] particle_sys The particle system that is going to be operated.
+   * @param[in] step_size The current step size.
    */
-  void pre_operations(ParticleSys &particle_sys) const;
+  void pre_operations(ParticleSys &particle_sys, Scalar step_size) const;
 
   /**
    * Call the all registered pos-operation functions by sequence.
    *
    * @param[in,out] particle_sys The particle system that is going to be operated.
+   * @param[in] step_size The current step size.
    */
-  void post_operations(ParticleSys &particle_sys) const;
+  void post_operations(ParticleSys &particle_sys, Scalar step_size) const;
 
   /**
    * Call the all registered stop-operation functions by sequence.
    *
    * @param[in,out] particle_sys The particle system that is going to be operated.
+   * @param[in] step_size The current step size.
    */
-  void stop_operations(ParticleSys &particle_sys) const;
+  void stop_operations(ParticleSys &particle_sys, Scalar step_size) const;
 
   /**
    * Check the all registered stop condition functions by sequence. If any of them is satisfied, return `true`.
    *
    * @param[in] particle_sys The particle system that is going to be checked
+   * @param[in] step_size The current step size.
    */
-  bool check_stops(ParticleSys &particle_sys) const;
+  bool check_stops(ParticleSys &particle_sys, Scalar step_size) const;
 
   /**
    * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.
@@ -281,30 +285,30 @@ class Simulator {
     Class RunArgs Implementation
 \*---------------------------------------------------------------------------*/
 template <typename ParticleSys>
-void RunArgs<ParticleSys>::pre_operations(ParticleSys &particle_system) const {
+void RunArgs<ParticleSys>::pre_operations(ParticleSys &particle_system, Scalar step_size) const {
   for (auto const &opt : pre_opts_) {
-    opt(particle_system);
+    opt(particle_system, step_size);
   }
 }
 
 template <typename ParticleSys>
-void RunArgs<ParticleSys>::post_operations(ParticleSys &particle_system) const {
+void RunArgs<ParticleSys>::post_operations(ParticleSys &particle_system, Scalar step_size) const {
   for (auto const &opt : post_opts_) {
-    opt(particle_system);
+    opt(particle_system, step_size);
   }
 }
 
 template <typename ParticleSys>
-void RunArgs<ParticleSys>::stop_operations(ParticleSys &particle_system) const {
+void RunArgs<ParticleSys>::stop_operations(ParticleSys &particle_system, Scalar step_size) const {
   for (auto const &opt : stop_opts_) {
-    opt(particle_system);
+    opt(particle_system, step_size);
   }
 }
 
 template <typename ParticleSys>
-bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system) const {
+bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system, Scalar step_size) const {
   for (auto const &check : stop_cond_) {
-    if (check(particle_system)) return true;
+    if (check(particle_system, step_size)) return true;
   }
   return false;
 }
@@ -312,25 +316,25 @@ bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system) const {
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&... args) {
-  pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+  pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&... args) {
-  post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+  post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&... args) {
-  stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+  stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_stop_condition(Func func, Args &&... args) {
-  stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::forward<Args>(args)...));
+  stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
@@ -386,12 +390,12 @@ void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
     iterator_.set_rtol(run_args.rtol);
   }
 
-  for (; particles_.time() < end_time && !run_args.check_stops(particles_);) {
-    run_args.pre_operations(particles_);
+  for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
+    run_args.pre_operations(particles_, step_size_);
     advance_one_step();
-    run_args.post_operations(particles_);
+    run_args.post_operations(particles_, step_size_);
   }
-  run_args.stop_operations(particles_);
+  run_args.stop_operations(particles_, step_size_);
 }
 
 template <typename ParticleSys, typename OdeIterator>

@@ -3,7 +3,7 @@
 #include "utest.hpp"
 #include "../../src/particles/point-particles.hpp"
 #include "../../src/type-class.hpp"
-#include <vector>
+
 
 TEST_CASE("point particle") {
     using namespace space::particle_set;

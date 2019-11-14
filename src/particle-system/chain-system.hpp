@@ -200,7 +200,7 @@ void ChainSystem<Particles, Interactions>::impl_kick(Scalar step_size) {
     kick_pseu_vel(half_step);
   } else {
     interactions_.eval_acc(*this, accels_.acc());
-    impl_advance_vel(accels_.acc(), step_size);
+    impl_advance_vel(step_size, accels_.acc());
   }
 }
 

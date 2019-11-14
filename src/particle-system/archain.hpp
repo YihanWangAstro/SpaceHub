@@ -159,13 +159,13 @@ template <typename Particles, typename Interactions, ReguType RegType>
 template <typename STL>
 ARchainSystem<Particles, Interactions, RegType>::ARchainSystem(Scalar time, const STL &particle_set)
     : ptcl_(time, particle_set),
+      accels_(particle_set.size()),
       regu_(ptcl_),
       chain_pos_(particle_set.size()),
       chain_vel_(particle_set.size()),
+      chain_acc_(particle_set.size()),
       index_(particle_set.size()),
-      new_index_(particle_set.size()),
-      accels_(particle_set.size()),
-      chain_acc_(particle_set.size()) {
+      new_index_(particle_set.size()) {
   static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
   Chain::calc_chain_index(ptcl_.pos(), index_);
   Chain::calc_chain(ptcl_.pos(), chain_pos(), index());
@@ -190,8 +190,8 @@ void ARchainSystem<Particles, Interactions, RegType>::impl_advance_time(Scalar s
 template <typename Particles, typename Interactions, ReguType RegType>
 void ARchainSystem<Particles, Interactions, RegType>::impl_advance_pos(Scalar step_size, const Coord &velocity) {
   Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
-  Chain::calc_chain(velocity, chain_vel(), index());
-  chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), phy_time);
+  Chain::calc_chain(velocity, chain_acc_, index());//borrow chain_acc_ as chain velocity buffer.
+  chain_advance(ptcl_.pos(), chain_pos(), chain_acc_, phy_time);
 }
 
 template <typename Particles, typename Interactions, ReguType RegType>
@@ -224,15 +224,15 @@ void ARchainSystem<Particles, Interactions, RegType>::impl_kick(Scalar step_size
     kick_real_vel(phy_time);
     kick_pseu_vel(half_time);
   } else {
-    Chain::calc_chain(accels_.tot_vel_indep_acc(), chain_acc_, index());
+    /*Chain::calc_chain(accels_.tot_vel_indep_acc(), chain_acc_, index());
     chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);
     advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
     if constexpr (Interactions::ext_vel_indep) {
       advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
     }
-    chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);
+    chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);*/
 
-    /*advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+    advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
     if constexpr (Interactions::ext_vel_indep) {
       advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
     }
@@ -243,7 +243,7 @@ void ARchainSystem<Particles, Interactions, RegType>::impl_kick(Scalar step_size
     advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
     if constexpr (Interactions::ext_vel_indep) {
       advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
-    }*/
+    }
   }
 }
 
@@ -277,6 +277,15 @@ void ARchainSystem<Particles, Interactions, RegType>::impl_to_linear_container(S
   stl_ranges.emplace_back(bindE());
   add_coords_to(stl_ranges, chain_pos_);
   add_coords_to(stl_ranges, chain_vel_);
+
+    /*stl_ranges.reserve(impl_number() * 12 + 3);
+    stl_ranges.emplace_back(impl_time());
+    stl_ranges.emplace_back(omega());
+    stl_ranges.emplace_back(bindE());
+    add_coords_to(stl_ranges, chain_pos_);
+    add_coords_to(stl_ranges, chain_vel_);
+    add_coords_to(stl_ranges, impl_pos());
+    add_coords_to(stl_ranges, impl_vel());*/
 }
 
 template <typename Particles, typename Interactions, ReguType RegType>
@@ -295,6 +304,14 @@ void ARchainSystem<Particles, Interactions, RegType>::impl_load_from_linear_cont
   auto vel_end = vel_begin + len;
   load_to_coords(pos_begin, pos_end, chain_pos_);
   load_to_coords(vel_begin, vel_end, chain_vel_);
+
+  /*auto c_pos_begin = vel_end;
+  auto c_pos_end = c_pos_begin + len;
+  auto c_vel_begin = c_pos_end;
+  auto c_vel_end = c_vel_begin + len;
+
+  load_to_coords(c_pos_begin, c_pos_end, impl_pos());
+  load_to_coords(c_vel_begin, c_vel_end, impl_vel());*/
 
   Chain::calc_cartesian(ptcl_.mass(), chain_pos_, impl_pos(), index());
   Chain::calc_cartesian(ptcl_.mass(), chain_vel_, impl_vel(), index());
@@ -322,10 +339,12 @@ void ARchainSystem<Particles, Interactions, RegType>::chain_advance(Coord &var, 
 template <typename Particles, typename Interactions, ReguType RegType>
 void ARchainSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
   interactions_.eval_newtonian_acc(*this, accels_.newtonian_acc());
-  accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
+
   if constexpr (Interactions::ext_vel_indep) {
     interactions_.eval_extra_vel_indep_acc(*this, accels_.ext_vel_indep_acc());
     calc::coord_add(accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc(), accels_.newtonian_acc());
+  } else {
+    accels_.tot_vel_indep_acc() = accels_.newtonian_acc();
   }
 }
 

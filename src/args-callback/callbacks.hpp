@@ -69,20 +69,22 @@ class TimeSlice {
    * Callable interface.
    * @tparam ParticleSys Any type provides method `time()`
    * @param[in,out] ptc Input parameter.
+   * @param[in] step_size The step size of the integration.
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc)
-      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void>;
 
   /**
    * Callable interface.
    * @tparam ParticleSys Any type provides method `time()`
    * @param[in,out] ptc Input parameter.
+   * @param[in] step_size The step size of the integration.
    * @return auto bool
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc)
-      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool>;
 
   /**
    * Reset the slice parameters.
@@ -128,20 +130,22 @@ class StepSlice {
    * Callable interface.
    * @tparam ParticleSys Any type used as call back parameter.
    * @param[in,out] ptc Input parameter.
+   * @param[in] step_size The step size of the integration.
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc)
-      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &,typename ParticleSys::Scalar)>>, void>;
 
   /**
    * Callable interface.
    * @tparam ParticleSys Any type used as call back parameter.
    * @param[in,out] ptc Input parameter.
+   * @param[in] step_size The step size of the integration.
    * @return auto bool.
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc)
-      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool>;
 
   /**
    * Reset the slice parameters.
@@ -173,9 +177,10 @@ class DefaultWriter {
    * Callable interface.
    * @tparam ParticleSys Any type provides method `time()`
    * @param[in,out] ptc Input parameter.
+   * @param[in] step_size The step size of the integration.
    */
   template <typename ParticleSys>
-  inline void operator()(ParticleSys &ptc);
+  inline void operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size);
 
   template <typename T>
   friend DefaultWriter &operator<<(DefaultWriter &wtr, T const &d);
@@ -193,25 +198,25 @@ TimeSlice<Operation>::TimeSlice(const Operation &opt, double start, double end, 
 
 template <typename Operation>
 template <typename ParticleSys>
-auto TimeSlice<Operation>::operator()(ParticleSys &ptc)
-    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void> {
+auto TimeSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void> {
   using Scalar = typename ParticleSys::Scalar;
   auto t = ptc.time();
   if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
     opt_time_ += opt_interval_;
-    opt_(ptc);
+    opt_(ptc, step_size);
   }
 }
 
 template <typename Operation>
 template <typename ParticleSys>
-auto TimeSlice<Operation>::operator()(ParticleSys &ptc)
-    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool> {
+auto TimeSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool> {
   using Scalar = typename ParticleSys::Scalar;
   auto t = ptc.time();
   if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
     opt_time_ += opt_interval_;
-    return opt_(ptc);
+    return opt_(ptc, step_size);
   } else {
     return false;
   }
@@ -233,21 +238,21 @@ StepSlice<Operation>::StepSlice(const Operation &opt, size_t step_interval)
 
 template <typename Operation>
 template <typename ParticleSys>
-auto StepSlice<Operation>::operator()(ParticleSys &ptc)
-    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &)>>, void> {
+auto StepSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void> {
   if (step_ % step_interval_ == 0) {
-    opt_(ptc);
+    opt_(ptc, step_size);
   }
   step_++;
 }
 
 template <typename Operation>
 template <typename ParticleSys>
-auto StepSlice<Operation>::operator()(ParticleSys &ptc)
-    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &)>>, bool> {
+auto StepSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
+    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool> {
   if (step_ % step_interval_ == 0) {
     step_++;
-    return opt_(ptc);
+    return opt_(ptc, step_size);
   } else {
     step_++;
     return false;
@@ -272,7 +277,7 @@ DefaultWriter::DefaultWriter(std::string const &file_name) : fstream_{std::make_
 }
 
 template <typename ParticleSys>
-void DefaultWriter::operator()(ParticleSys &ptc) {
+void DefaultWriter::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size) {
   *fstream_ << ptc << '\n';
 }
 

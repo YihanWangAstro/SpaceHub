@@ -1,9 +1,11 @@
 
 #ifndef SPACEHUB_RTEST_SAMPLES_HPP
 #define SPACEHUB_RTEST_SAMPLES_HPP
-#include "../../src/orbits/orbits.hpp"
-#include "../../src/orbits/particle-manip.hpp"
-#include "../../src/macros.hpp"
+
+#include "../../src/spaceHub.hpp"
+
+#include <tuple>
+#include <iomanip>
 
 template<typename Solver>
 auto two_body(double e = 0) {
@@ -19,9 +21,30 @@ auto two_body(double e = 0) {
 
   move_to_COM_frame(sun, earth);
 
-  return std::make_tuple(sun, earth);
+  return std::vector{sun, earth};
 }
 
+template<typename Solver>
+auto earth_system() {
+    using Particle = typename Solver::Particle;
+    using namespace space;
+    using namespace space::unit;
+    using namespace space::orbit;
+
+    Particle sun{1_Ms}, earth{1_Me}, moon{1_Mmoon};
+
+    auto moon_orbit = EllipOrbit(earth.mass, moon.mass, 384748_km, 0.0549006, 5.15_deg, 0, 0, 0);
+
+    move_particles(moon_orbit, moon);
+
+    auto orbit = EllipOrbit(sun.mass, earth.mass + moon.mass, 1_AU, 0, 0, 0, 0, 0);
+
+    move_particles(orbit, earth, moon);
+
+    move_to_COM_frame(sun, earth, moon);
+
+    return std::vector{sun, earth, moon};
+}
 
 template<typename Solver>
 auto kozai() {
@@ -44,7 +67,7 @@ auto kozai() {
 
     move_to_COM_frame(m1, m2, m3);
 
-    return std::make_tuple(m1, m2, m3);
+    return std::vector{m1, m2, m3};
 }
 
 template<typename Solver>
@@ -70,7 +93,90 @@ auto outer_solar() {
 
     move_to_COM_frame(sun, jupiter, saturn, uranus, neptune);
 
-    return std::make_tuple(sun, jupiter, saturn, uranus, neptune);
+    return std::vector{sun, jupiter, saturn, uranus, neptune};
 }
 
+template<typename Solver>
+void basic_error_test(std::string const& fname, double end_time, std::vector<typename Solver::Particle> const& p) {
+    using namespace space;
+    using namespace run_operations;
+    using namespace tools;
+
+    Solver sim{0, p};
+
+    typename Solver::RunArgs args;
+
+    std::ofstream err_file(fname+".err");
+
+    err_file << std::setprecision(16);
+
+    auto E0 = calc::calc_total_energy(sim.particles());
+
+    double tot_error = 0;
+
+    size_t error_num = 0;
+
+    args.add_pre_step_operation(
+            TimeSlice(
+                    [&](auto &ptc, auto step_size) {
+                        auto err = calc::calc_energy_error(ptc, E0);
+                        tot_error += err * err;
+                        error_num++;
+                        err_file << ptc.time() << ',' <<  err << '\n';
+                    },
+                    0, end_time));
+
+    args.add_stop_condition(end_time);
+
+    Timer timer;
+
+    timer.start();
+
+    sim.run(args);
+
+    std::cout << "The mean relative error of test: " + fname + " : " << sqrt(tot_error / error_num) << "\n";
+    std::cout << "time : " << timer.get_time() << " s\n";
+}
+
+template<typename Solver>
+auto error_scale(double rtol_start, double rtol_end, double end_time, std::vector<typename Solver::Particle> const& p) {
+    using namespace space;
+    using namespace run_operations;
+    using namespace tools;
+    std::vector<double> rtol;
+    std::vector<double> err;
+    rtol.reserve(100);
+    err.reserve(100);
+
+    typename Solver::RunArgs args;
+
+    double tot_error = 0;
+
+    size_t error_num = 0;
+
+    auto E0 = orbit::E_tot(p);//calc::calc_total_energy(sim.particles());
+
+    args.add_pre_step_operation(
+                    [&](auto &ptc, auto step_size) {
+                        auto err = calc::calc_energy_error(ptc, E0);
+                        tot_error += err * err;
+                        error_num++;
+                    });
+
+    args.add_stop_condition(end_time);
+
+    args.rtol = rtol_start;
+
+    for(;args.rtol < rtol_end ;) {
+        Solver sim{0, p};
+        sim.run(args);
+        rtol.emplace_back(args.rtol);
+        err.emplace_back(sqrt(tot_error/error_num));
+        args.rtol *= 2;
+        tot_error = 0;
+        error_num = 0;
+    }
+
+    return std::make_tuple(rtol, err);
+}
 #endif //SPACEHUB_RTEST_SAMPLES_HPP
