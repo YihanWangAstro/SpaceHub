@@ -4,10 +4,10 @@
 
 #include "../../src/spaceHub.hpp"
 
-#include <tuple>
 #include <iomanip>
+#include <tuple>
 
-template<typename Solver>
+template <typename Solver>
 auto two_body(double e = 0) {
   using Particle = typename Solver::Particle;
   using namespace space;
@@ -24,7 +24,7 @@ auto two_body(double e = 0) {
   return std::vector{sun, earth};
 }
 
-template<typename Solver>
+template <typename Solver>
 auto earth_system() {
   using Particle = typename Solver::Particle;
   using namespace space;
@@ -46,7 +46,7 @@ auto earth_system() {
   return std::vector{sun, earth, moon};
 }
 
-template<typename Solver>
+template <typename Solver>
 auto kozai() {
   using Particle = typename Solver::Particle;
   using namespace space;
@@ -70,7 +70,7 @@ auto kozai() {
   return std::vector{m1, m2, m3};
 }
 
-template<typename Solver>
+template <typename Solver>
 auto outer_solar() {
   using Particle = typename Solver::Particle;
   using namespace space;
@@ -85,12 +85,12 @@ auto outer_solar() {
   auto s_orbit = EllipOrbit(sun.mass, saturn.mass, 9.5826_AU, 0.0565, 5.51_deg, 113.665_deg, 339.392_deg, 317.02_deg);
   move_particles(j_orbit, saturn);
 
-  auto u_orbit = EllipOrbit(sun.mass, uranus.mass, 19.2184_AU, 0.046381, 6.48_deg, 74.006_deg, 96.998857_deg,
-                            142.2386_deg);
+  auto u_orbit =
+      EllipOrbit(sun.mass, uranus.mass, 19.2184_AU, 0.046381, 6.48_deg, 74.006_deg, 96.998857_deg, 142.2386_deg);
   move_particles(j_orbit, uranus);
 
-  auto n_orbit = EllipOrbit(sun.mass, neptune.mass, 30.11_AU, 0.009456, 6.43_deg, 131.784_deg, 276.336_deg,
-                            256.228_deg);
+  auto n_orbit =
+      EllipOrbit(sun.mass, neptune.mass, 30.11_AU, 0.009456, 6.43_deg, 131.784_deg, 276.336_deg, 256.228_deg);
   move_particles(j_orbit, neptune);
 
   move_to_COM_frame(sun, jupiter, saturn, uranus, neptune);
@@ -98,7 +98,7 @@ auto outer_solar() {
   return std::vector{sun, jupiter, saturn, uranus, neptune};
 }
 
-template<typename Solver>
+template <typename Solver>
 void basic_error_test(std::string const &fname, double end_time, double rtol,
                       std::vector<typename Solver::Particle> const &p) {
   using namespace space;
@@ -121,8 +121,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
   args.rtol = rtol;
 
-  args.add_pre_step_operation(
-    TimeSlice(
+  args.add_pre_step_operation(TimeSlice(
       [&](auto &ptc, auto step_size) {
         auto err = calc::calc_energy_error(ptc, E0);
         tot_error += err * err;
@@ -143,7 +142,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
   std::cout << "time : " << timer.get_time() << " s\n";
 }
 
-template<typename Solver>
+template <typename Solver>
 auto error_scale(double rtol_start, double rtol_end, double end_time, std::vector<typename Solver::Particle> const &p) {
   using namespace space;
   using namespace run_operations;
@@ -154,34 +153,33 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
   std::vector<double> rtol(n);
   std::vector<double> err(n);
 
-  multi_thread::indexed_multi_thread(n, [&](size_t thid){
+  multi_thread::indexed_multi_thread(n, [&](size_t thid) {
     typename Solver::RunArgs args;
 
     double tot_error = 0;
 
     size_t error_num = 0;
 
-    auto E0 = orbit::E_tot(p);//calc::calc_total_energy(sim.particles());
+    auto E0 = orbit::E_tot(p);  // calc::calc_total_energy(sim.particles());
 
-    args.add_pre_step_operation(
-      [&](auto &ptc, auto step_size) {
-        auto err = calc::calc_energy_error(ptc, E0);
-        tot_error += err * err;
-        error_num++;
-      });
+    args.add_pre_step_operation([&](auto &ptc, auto step_size) {
+      auto err = calc::calc_energy_error(ptc, E0);
+      tot_error += err * err;
+      error_num++;
+    });
 
     args.add_stop_condition(end_time);
 
-    args.rtol = rtol_start * pow(2,thid);
+    args.rtol = rtol_start * pow(2, thid);
 
     Solver sim{0, p};
     sim.run(args);
 
     rtol[thid] = args.rtol;
     err[thid] = sqrt(tot_error / error_num);
-    });
+  });
 
   return std::make_tuple(rtol, err);
 }
 
-#endif //SPACEHUB_RTEST_SAMPLES_HPP
+#endif  // SPACEHUB_RTEST_SAMPLES_HPP

@@ -47,13 +47,13 @@ class BurlishStoerConsts {
 
   constexpr static Scalar cost_tol{0.9};
 
-  inline Scalar cost(size_t i) const;
+  constexpr inline Scalar cost(size_t i) const;
 
-  [[nodiscard]] inline size_t step_sequence(size_t i) const;
+  [[nodiscard]] constexpr inline size_t step_sequence(size_t i) const;
 
-  inline Scalar table_coef(size_t i, size_t j) const;
+  constexpr inline Scalar table_coef(size_t i, size_t j) const;
 
-  explicit BurlishStoerConsts();
+  constexpr explicit BurlishStoerConsts();
 
  private:
   [[nodiscard]] inline size_t at(size_t i, size_t j) const;
@@ -164,22 +164,22 @@ class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepContr
      Class BurlishStoerConsts Implementation
 \*---------------------------------------------------------------------------*/
 template <typename Scalar, size_t MaxIter>
-Scalar BurlishStoerConsts<Scalar, MaxIter>::cost(size_t i) const {
+constexpr Scalar BurlishStoerConsts<Scalar, MaxIter>::cost(size_t i) const {
   return cost_[i];
 }
 
 template <typename Scalar, size_t MaxIter>
-size_t BurlishStoerConsts<Scalar, MaxIter>::step_sequence(size_t i) const {
+constexpr size_t BurlishStoerConsts<Scalar, MaxIter>::step_sequence(size_t i) const {
   return sub_steps_[i];
 }
 
 template <typename Scalar, size_t MaxIter>
-Scalar BurlishStoerConsts<Scalar, MaxIter>::table_coef(size_t i, size_t j) const {
+constexpr Scalar BurlishStoerConsts<Scalar, MaxIter>::table_coef(size_t i, size_t j) const {
   return extrap_coef_[at(i, j)];
 }
 
 template <typename Scalar, size_t MaxIter>
-BurlishStoerConsts<Scalar, MaxIter>::BurlishStoerConsts() {
+constexpr BurlishStoerConsts<Scalar, MaxIter>::BurlishStoerConsts() {
   for (size_t i = 0; i < MaxIter; ++i) {
     sub_steps_[i] = 2 * (i + 1);
 
@@ -190,8 +190,11 @@ BurlishStoerConsts<Scalar, MaxIter>::BurlishStoerConsts() {
     }
 
     for (size_t j = 0; j < i; ++j) {
-      Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[j]);
-      extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
+      //Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[j]);
+      //extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
+      auto nj2 = sub_steps_[j] * sub_steps_[j];
+      auto ni2 = sub_steps_[i] * sub_steps_[i];
+      extrap_coef_[at(i, j)] = static_cast<double>(nj2) / static_cast<double>(ni2 - nj2);
     }
   }
 }
@@ -300,11 +303,8 @@ void BurlishStoer<Real, ErrChecker, StepControl>::integrate_by_n_steps(U &partic
 template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
 void BurlishStoer<Real, ErrChecker, StepControl>::extrapolate(size_t k) {
   for (size_t j = k; j > 0; --j) {
-    //auto c_1 = 1 + parameters_.table_coef(k, j - 1);
-    //auto c_2 = -parameters_.table_coef(k, j - 1);
     for (size_t i = 0; i < var_num_; ++i) {
-      //extrap_list_[j - 1][i] = c_1 * extrap_list_[j][i] + c_2 * extrap_list_[j - 1][i];
-        extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * parameters_.table_coef(k, j - 1);
+      extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * parameters_.table_coef(k, j - 1);
     }
   }
 }

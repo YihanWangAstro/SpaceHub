@@ -20,7 +20,7 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
-  using type = Types<double_k>;
+  using type = Types<double_p>;
 
   using force = interactions::NewtonianGrav;
 
