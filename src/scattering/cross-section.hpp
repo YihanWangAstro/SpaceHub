@@ -36,12 +36,32 @@ License
  */
 namespace space::scattering {
 
+  /**
+   * @brief Calculate the critical velocity of the scattering between two clusters(can be single particle).
+   *
+   * @tparam Scalar Floating point like type.
+   * @param[in] m1 Mass of the first cluster.
+   * @param[in] m2 Mass of the second cluster.
+   * @param[in] E1_inner The inner mechanical energy(mechanical energy in its own centre of mass frame) of the first cluster.
+   * @param[in] E2_inner The inner mechanical energy(mechanical energy in its own centre of mass frame) of the second cluster.
+   * @return The critical velocity.
+   */
 template <typename Scalar>
 auto critical_vel(Scalar m1, Scalar m2, Scalar E1_inner, Scalar E2_inner) {
   auto m_rdc = m1 * m2 / (m1 + m2);
   return sqrt(-2 * (E1_inner + E2_inner) / m_rdc);
 }
 
+/**
+ * @brief Calculate the critical velocity of the scattering between two clusters(can be single particle).
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @param[in] stay_cluster The scattered cluster/scattered single particle.
+ * @param[in] incident_cluster The incident cluster/incident single particle.
+ * @return The critical velocity.
+ */
 template <typename Cluster1, typename Cluster2>
 auto critical_vel(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster) {
   auto M_stay = orbit::M_tot(stay_cluster);
@@ -61,6 +81,18 @@ auto b_max(Scalar m_tot, Scalar v_inf, Scalar rp_max) {
   return sqrt(rp_max * rp_max + 2 * m_tot * consts::G * rp_max / (v_inf * v_inf));
 }
 
+/**
+ * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area with radius b_max.
+ *
+ * @tparam Scalar Floating point like type.
+ * @param[in] m_stay The mass of the scattered object.
+ * @param[in] m_incident The mass of the incident object.
+ * @param[in] v_inf The relative velocity at infinity between scattering objects.
+ * @param[in] b_max The max impact parameter.
+ * @param[in] r The relative distance between the centre of mass between two objects. Used to generate the phase
+ * (true anomaly of the orbit). The incident object will launch at this distance.
+ * @return The incident hyperbolic orbit.
+ */
 template <typename Scalar>
 auto incident_orbit(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max, Scalar r) {
   using Vector = Vec3<Scalar>;
@@ -68,6 +100,22 @@ auto incident_orbit(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max
   auto w = random::Uniform(0, 2 * consts::pi);
   return orbit::HyperOrbit(m_stay, m_incident, v_inf, b, w, 0, 0, r, orbit::Hyper::in);
 }
+
+/**
+ * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area with radius b_max.
+ * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
+ * `vel`(Vector)./Type of single particle.
+ * @tparam Scalar Floating point like type.
+ * @param[in] stay_cluster The scattered cluster/scattered single particle.
+ * @param[in] incident_cluster The incident cluster/incident single particle.
+ * @param[in] v_inf The relative velocity at infinity between scattering objects.
+ * @param[in] tidal_factor Tidal factor between two clusters. Used to generate the phase
+ * (true anomaly of the orbit). The incident object will launch at the corresponding distance of this tidal factor.
+ * @return The incident hyperbolic orbit.
+ * TODO : b_max selection is implicit, need to be changed.
+ */
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
 auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar tidal_factor) {

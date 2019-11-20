@@ -96,7 +96,7 @@ set(SOLAR_TEST
         test/regression_test/rtest_solar-system.cpp)
 
 set(KOZAI_TEST
-        test/regression_test/kozai.cpp)
+        test/regression_test/rtest_kozai.cpp)
 
 set(IMPROVEMENT_TEST
         test/regression_test/rtest_improvement.cpp)
