@@ -79,13 +79,15 @@ License
 
 #include "tools/auto-name.hpp"
 #include "tools/timer.hpp"
+
+#include "stellar/stellar.hpp"
 /**
  * @namespace space
  * Documentation for space
  */
 namespace space {
 
-#define USING_NAMESPACE_ALL \
+#define USING_NAMESPACE_SPACEHUB_ALL \
     using namespace space;\
     using namespace space::calc;\
     using namespace space::tools;\

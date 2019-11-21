@@ -21,7 +21,7 @@ License
 #include "../../src/spaceHub.hpp"
 #include "rtest_samples.hpp"
 
-USING_NAMESPACE_ALL;
+USING_NAMESPACE_SPACEHUB_ALL;
 
 template <typename simulation>
 void run(std::string const &sim_name) {
