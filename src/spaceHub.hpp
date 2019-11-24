@@ -74,29 +74,32 @@ License
 
 #include "args-callback/callbacks.hpp"
 
-#include "orbits/particle-manip.hpp"
 #include "orbits/orbits.hpp"
+#include "orbits/particle-manip.hpp"
 
 #include "tools/auto-name.hpp"
+#include "tools/config-reader.hpp"
 #include "tools/timer.hpp"
 
 #include "stellar/stellar.hpp"
+
+#include "scattering/cross-section.hpp"
 /**
  * @namespace space
  * Documentation for space
  */
 namespace space {
 
-#define USING_NAMESPACE_SPACEHUB_ALL \
-    using namespace space;\
-    using namespace space::calc;\
-    using namespace space::tools;\
-    using namespace space::ode_iterator;\
-    using namespace space::integrator;\
-    using namespace space::orbit;\
-    using namespace space::unit;\
-    using namespace space::particle_set;\
-    using namespace space::particle_system
+#define USING_NAMESPACE_SPACEHUB_ALL   \
+  using namespace space;               \
+  using namespace space::calc;         \
+  using namespace space::tools;        \
+  using namespace space::ode_iterator; \
+  using namespace space::integrator;   \
+  using namespace space::orbit;        \
+  using namespace space::unit;         \
+  using namespace space::particle_set; \
+  using namespace space::particle_system
 
 using DefaultTypes = Types<double, std::vector>;
 
