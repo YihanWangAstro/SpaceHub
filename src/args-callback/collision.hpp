@@ -40,16 +40,20 @@ class StickyCollision {
    * @brief Callable interface for collision detection.
    *
    * @tparam ParticleSys Any implementation of ParticleSystem.
-   * @param ptc Particle system.
+   * @param[in,out] ptc Particle system.
+   * @param[in] step_size The step size of the integration.
    * @return true Collision detected.
    * @return false No collision detected.
    */
   template <typename ParticleSys>
-  bool operator()(ParticleSys const &ptc) {
+  bool operator()(ParticleSys const &ptc, typename ParticleSys::Scalar step_size) {
+    static_assert(HAS_METHOD(ParticleSys, radius), "Particle system doesn't have method radius()");
+
     auto const &px = ptc.pos().x;
     auto const &py = ptc.pos().y;
     auto const &pz = ptc.pos().z;
     auto const &r = ptc.radius();
+
     size_t num = ptc.number();
     for (size_t i = 0; i < num; ++i) {
       for (size_t j = i + 1; j < num; ++j) {
