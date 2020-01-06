@@ -25,10 +25,10 @@ License
 #ifndef SPACEHUB_IO_HPP
 #define SPACEHUB_IO_HPP
 
-#include <vector>
 #include <array>
 #include <iostream>
 #include <tuple>
+#include <vector>
 
 namespace space {
 
@@ -119,38 +119,38 @@ void display(Ostream &out, Args &&... args) {
   (..., (out << std::forward<Args>(args) << ' '));
 }
 
-template <typename Ostream, typename... Args>
-std::ostream &operator<<(Ostream &out, std::tuple<Args...> const &tup) {
+template <typename... Args>
+std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
   std::apply(
       [&](auto &&arg, auto &&... args) {
         out << arg;
-        (..., (out << ',' << args));
+        (..., (out << ' ' << args));
       },
       tup);
   return out;
 }
 
-template <typename Istream, typename... Args>
-std::istream &operator>>(Istream &in, std::tuple<Args...> &&tup) {
+template <typename... Args>
+std::istream &operator>>(std::istream &in, std::tuple<Args...> &&tup) {
   std::apply([&](auto &&... args) { (..., (in >> args)); }, tup);
   return in;
 }
 
-template <typename Ostream, typename T, size_t N>
-std::ostream &operator<<(Ostream &os, std::array<T, N> const &container) {
+template <typename T, size_t N>
+std::ostream &operator<<(std::ostream &os, std::array<T, N> const &container) {
   for (auto const &c : container) {
     os << c << ' ';
   }
   return os;
 }
 
-    template <typename Ostream, typename T>
-    std::ostream &operator<<(Ostream &os, std::vector<T> const &container) {
-        for (auto const &c : container) {
-            os << c << ' ';
-        }
-        return os;
-    }
+template <typename T>
+std::ostream &operator<<(std::ostream &os, std::vector<T> const &container) {
+  for (auto const &c : container) {
+    os << c << ' ';
+  }
+  return os;
+}
 }  // namespace space
 
 #endif  // SPACEHUB_IO_HPP

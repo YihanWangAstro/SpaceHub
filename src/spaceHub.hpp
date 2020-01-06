@@ -84,6 +84,8 @@ License
 #include "stellar/stellar.hpp"
 
 #include "scattering/cross-section.hpp"
+
+#include "multi-thread/multi-thread.hpp"
 /**
  * @namespace space
  * Documentation for space
@@ -99,6 +101,7 @@ namespace space {
   using namespace space::orbit;        \
   using namespace space::unit;         \
   using namespace space::particle_set; \
+  using namespace space::multi_thread; \
   using namespace space::particle_system
 
 using DefaultTypes = Types<double, std::vector>;

@@ -33,6 +33,7 @@ License
 #include <string>
 #include <thread>
 #include <vector>
+#include "../IO.hpp"
 #include "../dev-tools.hpp"
 
 /**
@@ -119,7 +120,7 @@ class ConcurrentFile {
   inline bool eof();
 
   template <typename U>
-  friend ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup);
+  friend ConcurrentFile &operator<<(ConcurrentFile &os, U const &tup);
 
   template <typename U>
   friend bool operator>>(ConcurrentFile &is, U &tup);
@@ -155,10 +156,23 @@ bool ConcurrentFile::eof() {
   return file_->eof();
 }
 
+
+//TODO: need to figure out why include IO.hpp doesn't work, thus insert explicitly here.
+template <typename... Args>
+std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
+  std::apply(
+      [&](auto &&arg, auto &&... args) {
+        out << arg;
+        (..., (out << ' ' << args));
+      },
+      tup);
+  return out;
+}
+
 template <typename U>
-ConcurrentFile &operator<<(ConcurrentFile &os, U &&tup) {
+ConcurrentFile &operator<<(ConcurrentFile &os, U const &tup) {
   std::lock_guard<std::mutex> lock(*(os.mutex_));
-  *(os.file_) << std::forward<U>(tup);
+  *(os.file_) << tup;
   return os;
 }
 
