@@ -81,6 +81,19 @@ auto b_max(Scalar m_tot, Scalar v_inf, Scalar rp_max) {
   return sqrt(rp_max * rp_max + 2 * m_tot * consts::G * rp_max / (v_inf * v_inf));
 }
 
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto b_max(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar interact_factor) {
+  auto const M_stay = orbit::M_tot(stay_cluster);
+  auto const M_incident = orbit::M_tot(incident_cluster);
+
+  auto const R1 = orbit::cluster_size(stay_cluster);
+  auto const R2 = orbit::cluster_size(incident_cluster);
+
+  auto const R_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
+
+  return b_max(M_stay + M_incident, v_inf, R_max);
+}
+
 /**
  * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area with radius b_max.
  *
@@ -126,12 +139,28 @@ auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_clust
   auto const R2 = orbit::cluster_size(incident_cluster);
 
   Scalar interact_factor = 0.02;
-  auto const R_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
+  auto const closest_approach_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
 
-  auto const b_upper = b_max(M_stay + M_incident, v_inf, R_max);
+  auto const b_upper = b_max(M_stay + M_incident, v_inf, closest_approach_max);
 
   auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
   return incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start);
+}
+
+template <typename Cluster1, typename Cluster2, typename Scalar>
+auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar tidal_factor, Scalar interact_factor) {
+  auto const M_stay = orbit::M_tot(stay_cluster);
+  auto const M_incident = orbit::M_tot(incident_cluster);
+
+  auto const R1 = orbit::cluster_size(stay_cluster);
+  auto const R2 = orbit::cluster_size(incident_cluster);
+
+  auto const closest_approach_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
+
+  auto const b_upper = b_max(M_stay + M_incident, v_inf, closest_approach_max);
+
+  auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
+  return std::make_tuple(b_upper, incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start));
 }
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
