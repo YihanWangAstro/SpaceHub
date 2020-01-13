@@ -128,6 +128,7 @@ auto incident_orbit(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max
  * (true anomaly of the orbit). The incident object will launch at the corresponding distance of this tidal factor.
  * @return The incident hyperbolic orbit.
  * TODO : b_max selection is implicit, need to be changed.
+ * @deprecated
  */
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
@@ -147,21 +148,6 @@ auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_clust
   return incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start);
 }
 
-template <typename Cluster1, typename Cluster2, typename Scalar>
-auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar tidal_factor, Scalar interact_factor) {
-  auto const M_stay = orbit::M_tot(stay_cluster);
-  auto const M_incident = orbit::M_tot(incident_cluster);
-
-  auto const R1 = orbit::cluster_size(stay_cluster);
-  auto const R2 = orbit::cluster_size(incident_cluster);
-
-  auto const closest_approach_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
-
-  auto const b_upper = b_max(M_stay + M_incident, v_inf, closest_approach_max);
-
-  auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
-  return std::make_tuple(b_upper, incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start));
-}
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
 auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar b_max,
