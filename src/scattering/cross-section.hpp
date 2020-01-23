@@ -36,16 +36,18 @@ License
  */
 namespace space::scattering {
 
-  /**
-   * @brief Calculate the critical velocity of the scattering between two clusters(can be single particle).
-   *
-   * @tparam Scalar Floating point like type.
-   * @param[in] m1 Mass of the first cluster.
-   * @param[in] m2 Mass of the second cluster.
-   * @param[in] E1_inner The inner mechanical energy(mechanical energy in its own centre of mass frame) of the first cluster.
-   * @param[in] E2_inner The inner mechanical energy(mechanical energy in its own centre of mass frame) of the second cluster.
-   * @return The critical velocity.
-   */
+/**
+ * @brief Calculate the critical velocity of the scattering between two clusters(can be single particle).
+ *
+ * @tparam Scalar Floating point like type.
+ * @param[in] m1 Mass of the first cluster.
+ * @param[in] m2 Mass of the second cluster.
+ * @param[in] E1_inner The inner mechanical energy(mechanical energy in its own centre of mass frame) of the first
+ * cluster.
+ * @param[in] E2_inner The inner mechanical energy(mechanical energy in its own centre of mass frame) of the second
+ * cluster.
+ * @return The critical velocity.
+ */
 template <typename Scalar>
 auto critical_vel(Scalar m1, Scalar m2, Scalar E1_inner, Scalar E2_inner) {
   auto m_rdc = m1 * m2 / (m1 + m2);
@@ -89,13 +91,21 @@ auto b_max(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scala
   auto const R1 = orbit::cluster_size(stay_cluster);
   auto const R2 = orbit::cluster_size(incident_cluster);
 
-  auto const R_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
+  auto const rp_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
 
-  return b_max(M_stay + M_incident, v_inf, R_max);
+  return b_max(M_stay + M_incident, v_inf, rp_max);
+}
+
+template <typename Scalar>
+auto b_max(Scalar M_stay, Scalar M_incident, Scalar R1, Scalar R2, Scalar v_inf, Scalar interact_factor) {
+  auto const rp_max = orbit::tidal_radius(interact_factor, M_stay, M_incident, R1, R2);
+
+  return b_max(M_stay + M_incident, v_inf, rp_max);
 }
 
 /**
- * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area with radius b_max.
+ * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area
+ * with radius b_max.
  *
  * @tparam Scalar Floating point like type.
  * @param[in] m_stay The mass of the scattered object.
@@ -115,7 +125,8 @@ auto incident_orbit(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max
 }
 
 /**
- * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area with radius b_max.
+ * @brief Randomly create an incident orbit that its infinity incident end is uniformly distributed in a circle area
+ * with radius b_max.
  * @tparam Cluster1 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
  * `vel`(Vector)./Type of single particle.
  * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
@@ -147,7 +158,6 @@ auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_clust
   auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
   return incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start);
 }
-
 
 template <typename Cluster1, typename Cluster2, typename Scalar>
 auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar b_max,
