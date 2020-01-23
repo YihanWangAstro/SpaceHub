@@ -645,8 +645,8 @@ template <typename Cluster>
 auto cluster_size(Cluster const &ptc) {
   if constexpr (is_ranges_v<Cluster>) {
     typename Cluster::value_type::Scalar R_max = 0;
-
-    if (ptc.begin() != ptc.end()) {
+    // if only one particle in the container
+    if (ptc.end() - ptc.begin() == 1) {
       R_max = cluster_size(*(ptc.begin()));
     }
 
