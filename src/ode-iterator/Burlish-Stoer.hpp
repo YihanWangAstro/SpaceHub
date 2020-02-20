@@ -145,13 +145,13 @@ class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepContr
 
   Scalar last_error_{1.0};
 
-  /** @brief Current iteraation depth.*/
+  /** @brief Current iteration depth.*/
   size_t ideal_rank_{4};
 
   /** @brief Total volume of extrapolation table(in scalar).*/
   size_t var_num_{0};
 
-  /** @brief Rejectin number*/
+  /** @brief Rejection number*/
   size_t rej_num_{0};
 
   /** @brief Total iteration number*/

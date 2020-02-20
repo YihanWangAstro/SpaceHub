@@ -254,7 +254,7 @@ void RegularizedSystem<Particles, Interactions, RegType>::impl_kick(Scalar step_
   } else {
     calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), half_time);
     advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
-    if constexpr (Interactions::ext_vel_indep) {
+    if constexpr(Interactions::ext_vel_indep) {
       advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
     }
     calc::coord_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), half_time);
@@ -322,15 +322,19 @@ void RegularizedSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
 template <typename Particles, typename Interactions, ReguType RegType>
 void RegularizedSystem<Particles, Interactions, RegType>::advance_omega(const Coord &velocity, const Coord &d_omega_dr,
                                                                         Scalar phy_time) {
-  Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
-  regu_.omega() += d_omega * phy_time;
+  if constexpr(regu_type == RegType::TTL) {
+    Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
+    regu_.omega() += d_omega * phy_time;
+  }
 }
 
 template <typename Particles, typename Interactions, ReguType RegType>
 void RegularizedSystem<Particles, Interactions, RegType>::advance_bindE(const Coord &velocity, const Coord &d_bindE_dr,
                                                                         Scalar phy_time) {
-  Scalar d_bindE = -calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_bindE_dr);
-  regu_.bindE() += d_bindE * phy_time;
+  if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == RegType::LogH ) {
+    Scalar d_bindE = -calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_bindE_dr);
+    regu_.bindE() += d_bindE * phy_time;
+  }
 }
 
 template <typename Particles, typename Interactions, ReguType RegType>

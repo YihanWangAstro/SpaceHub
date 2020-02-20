@@ -351,15 +351,19 @@ void ARchainSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
 template <typename Particles, typename Interactions, ReguType RegType>
 void ARchainSystem<Particles, Interactions, RegType>::advance_omega(const Coord &velocity, const Coord &d_omega_dr,
                                                                     Scalar phy_time) {
-  Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
-  regu_.omega() += d_omega * phy_time;
+  if constexpr(regu_type == RegType::TTL) {
+    Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
+    regu_.omega() += d_omega * phy_time;
+  }
 }
 
 template <typename Particles, typename Interactions, ReguType RegType>
 void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(const Coord &velocity, const Coord &d_bindE_dr,
                                                                     Scalar phy_time) {
-  Scalar d_bindE = -calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_bindE_dr);
-  regu_.bindE() += d_bindE * phy_time;
+  if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == RegType::LogH ) {
+    Scalar d_bindE = -calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_bindE_dr);
+    regu_.bindE() += d_bindE * phy_time;
+  }
 }
 
 template <typename Particles, typename Interactions, ReguType RegType>
