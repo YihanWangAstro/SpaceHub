@@ -36,7 +36,7 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
-  using type = Types<double_p>;
+  using type = Types<double>;
 
   using force = interactions::NewtonianGrav;
 

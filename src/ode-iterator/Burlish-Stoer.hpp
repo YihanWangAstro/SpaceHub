@@ -233,10 +233,12 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::impl_iterate(U &particles, typ
 
       Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
 //
-      ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
+      //ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
+
+      ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
 
       cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
-      // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
+      //space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
       if (in_converged_window(k)) {
         if (error < 1.0) {
           reject = false;
