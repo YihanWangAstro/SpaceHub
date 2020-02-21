@@ -27,8 +27,8 @@ License
 
 #include <cmath>
 #include <random>
-#include "multi-thread/multi-thread.hpp"
 #include "math.hpp"
+#include "multi-thread/multi-thread.hpp"
 /**
  * @namespace space::random
  * Documentation for space
@@ -155,6 +155,34 @@ inline static double TruncatedMaxwellian(double low, double high, double sigma_1
     }
   }
 }
+
+inline double Fixed(double x) { return x; }
+
+class Parameter {
+ public:
+  template <typename Dist, typename... Args>
+  Parameter(Dist distribution, Args... args) : dist_{std::bind(distribution, args...)} {}
+
+  double draw() const {
+    double r = dist_();
+    for (; r < min_ || r > max_;) {
+      r = dist_();
+    }
+    return r;
+  }
+
+  void set_max(double max) { max_ = max; }
+
+  void set_min(double min) { min_ = min; }
+
+  void set_boundary(double min, double max) { min_ = min, max_ = max; }
+
+ private:
+  double min_{std::numeric_limits<double>::min()};
+  double max_{std::numeric_limits<double>::max()};
+  std::function<double()> dist_;
+};
+
 }  // namespace space::random
 
 #endif  // SPACEHUB_RAND_GENERATOR_HPP

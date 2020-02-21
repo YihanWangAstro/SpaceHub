@@ -102,6 +102,7 @@ namespace space {
   using namespace space::unit;         \
   using namespace space::particle_set; \
   using namespace space::multi_thread; \
+  using namespace space::random;       \
   using namespace space::particle_system
 
 using DefaultTypes = Types<double, std::vector>;
