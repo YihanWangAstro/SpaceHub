@@ -674,6 +674,18 @@ auto orbit_to_coord(KeplerOrbit<Scalar> const &args) {
 }
 
 template <typename Vector, typename Scalar>
+inline auto calc_runge_lenz_vector(Scalar u, Vector const &dr, Vector const &dv) {
+  return (dr * (norm2(dv) - u * re_norm(dr)) - dv * dot(dr, dv)) / u;
+}
+
+template <typename Scalar>
+inline auto calc_runge_lenz_vector(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
+  using Vector = Vec3<Scalar>;
+  return calc_runge_lenz_vector(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
+}
+
+
+template <typename Vector, typename Scalar>
 inline Scalar calc_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
   return norm(dr * (norm2(dv) - u * re_norm(dr)) - dv * dot(dr, dv)) / u;
 }
@@ -713,6 +725,26 @@ inline auto calc_a_e(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scal
   using Vector = Vec3<Scalar>;
   return calc_a_e(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
 }
+
+template <typename Vector, typename Scalar>
+auto calc_a_RL_vector(Scalar u, Vector const &dr, Vector const &dv) {
+  Scalar r = norm(dr);
+  Scalar v = norm(dv);
+  Scalar v2 = v * v;
+  Scalar vr = dot(dr, dv);
+  Scalar vdfs = v2 - u / r;
+  Scalar a = -u / (v2 - 2 * u / r);
+  Vector e =((dr * vdfs - dv * vr) / u);
+  return std::make_tuple(a, e);
+}
+
+template <typename Scalar>
+inline auto calc_a_RL_vector(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
+  using Vector = Vec3<Scalar>;
+  return calc_a_RL_vector(u, Vector(dx, dy, dz), Vector(dvx, dvy, dvz));
+}
+
+
 
 template <typename Scalar>
 inline auto period(Scalar m1, Scalar m2, Scalar a) {
