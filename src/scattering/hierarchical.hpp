@@ -42,7 +42,11 @@ class HierarchicalNode {
   double mass;
   std::string name;
 };
-
+/*template <typename Node>
+void node_swap(Node& n1, Node& n2) {
+  std::swap(n1.mass, n2.mass);
+  std::swap(n1.name, n2.name);
+}*/
 template <typename Particles, typename Node>
 void create_init_list(Particles const& ptc, std::vector<Node>& vec) {
   size_t p_num = ptc.number();
@@ -51,6 +55,19 @@ void create_init_list(Particles const& ptc, std::vector<Node>& vec) {
   for (size_t i = 0; i < p_num; ++i) {
     vec.emplace_back(Node{ptc[i].pos, ptc[i].vel, ptc[i].m, std::to_string(i)});
   }
+}
+
+template <typename Nodes>
+bool check_most_bound(Nodes const& vec, size_t idx, double amin) {
+  for (size_t i = 1; i < vec.size(); i++) {
+    if (i != idx) {
+      auto [a, e] = orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
+      if (0 < a && a < amin) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 template <typename Particles>
@@ -78,14 +95,18 @@ std::string to_hierarchical(Particles const& ptc) {
       out += vec[0].name;
       vec.erase(vec.begin());
     } else {
-      double m1 = vec[idx].mass;
-      double mt = m1 + m0;
-      Vector p1 = vec[idx].pos;
-      Vector v1 = vec[idx].vel;
-      vec.emplace_back(
-          Node{(m0 * p0 + m1 * p1) / mt, (m0 * v0 + m1 * p1) / mt, mt, "(" + vec[0].name + "," + vec[idx].name + ")"});
-      vec.erase(vec.begin() + idx);
-      vec.erase(vec.begin());
+      if (check_most_bound(vec, idx, amin)) {
+        double m1 = vec[idx].mass;
+        double mt = m1 + m0;
+        Vector p1 = vec[idx].pos;
+        Vector v1 = vec[idx].vel;
+        vec.emplace_back(Node{(m0 * p0 + m1 * p1) / mt, (m0 * v0 + m1 * p1) / mt, mt,
+                              "(" + vec[0].name + "," + vec[idx].name + ")"});
+        vec.erase(vec.begin() + idx);
+        vec.erase(vec.begin());
+      } else {
+        std::swap(vec[0], vec[idx]);
+      }
     }
   }
   return out;
