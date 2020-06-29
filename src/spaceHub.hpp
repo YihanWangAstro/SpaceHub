@@ -44,48 +44,35 @@ License
 #ifndef SPACEHUB_SPACEHUB_HPP
 #define SPACEHUB_SPACEHUB_HPP
 
+#include "args-callback/callbacks.hpp"
+#include "integrator/Gauss-Dadau.hpp"
+#include "integrator/symplectic/symplectic-integrator.hpp"
+#include "interaction/newtonian.hpp"
 #include "kahan-number.hpp"
 #include "macros.hpp"
-
-#include "particles/finite-size.hpp"
-#include "particles/point-particles.hpp"
-
-#include "simulator.hpp"
-
-#include "interaction/newtonian.hpp"
-
+#include "multi-thread/multi-thread.hpp"
+#include "ode-iterator/Burlish-Stoer.hpp"
+#include "ode-iterator/IAS15.hpp"
+#include "ode-iterator/const-iterator.hpp"
+#include "ode-iterator/error-checker/IAS15-error.hpp"
+#include "ode-iterator/error-checker/RMS.hpp"
+#include "ode-iterator/error-checker/worst-offender.hpp"
+#include "ode-iterator/step-controller/PID-controller.hpp"
+#include "orbits/orbits.hpp"
+#include "orbits/particle-manip.hpp"
 #include "particle-system/archain.hpp"
 #include "particle-system/base-system.hpp"
 #include "particle-system/chain-system.hpp"
 #include "particle-system/regu-system.hpp"
-
-#include "integrator/Gauss-Dadau.hpp"
-#include "integrator/symplectic/symplectic-integrator.hpp"
-
-#include "ode-iterator/error-checker/IAS15-error.hpp"
-#include "ode-iterator/error-checker/RMS.hpp"
-#include "ode-iterator/error-checker/worst-offender.hpp"
-
-#include "ode-iterator/step-controller/PID-controller.hpp"
-
-#include "ode-iterator/Burlish-Stoer.hpp"
-#include "ode-iterator/IAS15.hpp"
-#include "ode-iterator/const-iterator.hpp"
-
-#include "args-callback/callbacks.hpp"
-
-#include "orbits/orbits.hpp"
-#include "orbits/particle-manip.hpp"
-
+#include "particles/finite-size.hpp"
+#include "particles/point-particles.hpp"
+#include "scattering/cross-section.hpp"
+#include "scattering/hierarchical.hpp"
+#include "simulator.hpp"
+#include "stellar/stellar.hpp"
 #include "tools/auto-name.hpp"
 #include "tools/config-reader.hpp"
 #include "tools/timer.hpp"
-
-#include "stellar/stellar.hpp"
-
-#include "scattering/cross-section.hpp"
-
-#include "multi-thread/multi-thread.hpp"
 /**
  * @namespace space
  * Documentation for space

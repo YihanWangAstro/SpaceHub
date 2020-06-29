@@ -26,9 +26,12 @@ License
 #define SPACEHUB_RAND_GENERATOR_HPP
 
 #include <cmath>
+#include <functional>
 #include <random>
+
 #include "math.hpp"
 #include "multi-thread/multi-thread.hpp"
+
 /**
  * @namespace space::random
  * Documentation for space
