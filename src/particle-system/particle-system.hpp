@@ -57,6 +57,14 @@ class ParticleSystem {
 
   DECLARE_CRTP_ACCESSOR(Derived, auto, vel);
 
+  SPACEHUB_ARRAY_ACCESSOR(auto, mass, this->mass());
+
+  SPACEHUB_ARRAY_ACCESSOR(auto, idn, this->idn());
+
+  SPACEHUB_ARRAY_ACCESSOR(auto, pos, this->pos());
+
+  SPACEHUB_ARRAY_ACCESSOR(auto, vel, this->vel());
+
   /**
    * @auto_impl
    *
