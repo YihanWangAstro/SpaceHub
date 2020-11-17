@@ -22,13 +22,11 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_POINT_PARTICLES_HPP
-#define SPACEHUB_POINT_PARTICLES_HPP
+#pragma once
 
 #include "../IO.hpp"
+#include "../spacehub-concepts.hpp"
 #include "../vector/vector3.hpp"
-#include "particles.hpp"
-
 namespace space::particle_set {
 
 /*---------------------------------------------------------------------------*\
@@ -38,18 +36,18 @@ Class PointParticle Declaration
  * @brief Point particle
  * @tparam Real Floating point like type.
  */
-template <typename Real>
+template <typename Vec3>
 struct PointParticle {
  public:
   /**
+   * @brief 3D vector type.
+   */
+  using Vector = Vec3;
+
+  /**
    * @brief Floating point like type;
    */
-  using Scalar = Real;
-
- /**
-  * @brief 3D vector type.
-  */
-  using Vector = Vec3<Scalar>;
+  using Scalar = typename Vector::value_type;
 
   SPACEHUB_MAKE_CONSTRUCTORS(PointParticle, default, default, default, default, default);
 
@@ -81,7 +79,7 @@ struct PointParticle {
    * @brief Position of the particle.
    */
   Vector pos;
-  
+
   /**
    * @brief Velocity of the particle.
    */
@@ -98,68 +96,61 @@ struct PointParticle {
 \*---------------------------------------------------------------------------*/
 /**
  * @brief Structure of Array point particle group.
- * 
+ *
  * @tparam TypeSystem The type system in spaceHub(space::Types).
  */
 template <typename TypeSystem>
-class PointParticles : public Particles<PointParticles<TypeSystem>> {
+class PointParticles {
  public:
   // Type members
   SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
-  
-  /**
-   * @brief Base class.
-   */
-  using Base = Particles<PointParticles<TypeSystem>>;
 
   /**
    * @brief Embedded Particle type.
    */
-  using Particle = PointParticle<Scalar>;
+  using Particle = PointParticle<Vector>;
 
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(PointParticles, default, default, default, default, default);
 
   /**
    * @brief Construct a new Point Particles object from std::ranges(Container)
-   * 
+   *
    * @tparam STL std::ranges(Container)
    * @param[in] t Initial time of the the particle group.
    * @param[in] particle_set Input particle set.
    */
-  template <typename STL>
+  template <concepts::ParticleContainer STL>
   PointParticles(Scalar t, STL const &particle_set);
 
-  CRTP_IMPL :
-      // CRTP implementation
+  // Public methods
+  SPACEHUB_STD_ACCESSOR(Scalar, time, time_);
 
-      SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
+  SPACEHUB_ARRAY_ACCESSOR(ScalarArray, mass, mass_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_idn, idn_);
+  SPACEHUB_ARRAY_ACCESSOR(IdxArray, idn, idn_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_time, time_);
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, pos, pos_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_pos, pos_);
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, vel, vel_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_vel, vel_);
+  void resize(size_t new_sz);
 
-  void impl_resize(size_t new_sz);
+  void reserve(size_t new_cap);
 
-  void impl_reserve(size_t new_cap);
+  void emplace_back(Particle const &new_particle);
 
-  void impl_emplace_back(Particle const &new_particle);
+  [[nodiscard]] size_t number() const;
 
-  [[nodiscard]] size_t impl_number() const;
+  [[nodiscard]] size_t capacity() const;
 
-  [[nodiscard]] size_t impl_capacity() const;
-
-  void impl_clear();
+  void clear();
 
  private:
   // Private members
-  Coord pos_;
+  VectorArray pos_;
 
-  Coord vel_;
+  VectorArray vel_;
 
   ScalarArray mass_;
 
@@ -169,26 +160,28 @@ class PointParticles : public Particles<PointParticles<TypeSystem>> {
 
   size_t active_num_{0};
 };
+}  // namespace space::particle_set
+
+namespace space::particle_set {
 
 /*---------------------------------------------------------------------------*\
     Class PointParticle Implementation
 \*---------------------------------------------------------------------------*/
-template <typename Real>
-PointParticle<Real>::PointParticle(Scalar m, PointParticle::Vector position, PointParticle::Vector velocity)
-    : pos(position), vel(velocity), mass(m) {}
+template <typename Vec3>
+PointParticle<Vec3>::PointParticle(Scalar m, Vec3 position, Vec3 velocity) : pos(position), vel(velocity), mass(m) {}
 
-template <typename Real>
-PointParticle<Real>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
+template <typename Vec3>
+PointParticle<Vec3>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
     : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
-template <typename Real>
-std::ostream &operator<<(std::ostream &os, PointParticle<Real> const &particle) {
+template <typename Vec3>
+std::ostream &operator<<(std::ostream &os, PointParticle<Vec3> const &particle) {
   space::print_csv(os, particle.mass, particle.pos, particle.vel);
   return os;
 }
 
-template <typename Real>
-std::istream &operator>>(std::istream &is, PointParticle<Real> &particle) {
+template <typename Vec3>
+std::istream &operator>>(std::istream &is, PointParticle<Vec3> &particle) {
   space::input(is, particle.mass, particle.pos, particle.vel);
   return is;
 }
@@ -197,11 +190,8 @@ std::istream &operator>>(std::istream &is, PointParticle<Real> &particle) {
     Class PointParticles Implementation
 \*---------------------------------------------------------------------------*/
 template <typename TypeSystem>
-template <typename STL>
+template <concepts::ParticleContainer STL>
 PointParticles<TypeSystem>::PointParticles(Scalar t, const STL &particle_set) {
-  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
-  SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
-
   size_t input_num = particle_set.size();
   this->reserve(input_num);
   size_t id = 0;
@@ -216,24 +206,24 @@ PointParticles<TypeSystem>::PointParticles(Scalar t, const STL &particle_set) {
 }
 
 template <typename TypeSystem>
-void PointParticles<TypeSystem>::impl_resize(size_t new_sz) {
+void PointParticles<TypeSystem>::resize(size_t new_sz) {
   space::resize_all(new_sz, pos_, vel_, mass_, idn_);
   active_num_ = new_sz;
 }
 
 template <typename TypeSystem>
-void PointParticles<TypeSystem>::impl_reserve(size_t new_cap) {
+void PointParticles<TypeSystem>::reserve(size_t new_cap) {
   space::reserve_all(new_cap, pos_, vel_, mass_, idn_);
 }
 
 template <typename TypeSystem>
-void PointParticles<TypeSystem>::impl_clear() {
+void PointParticles<TypeSystem>::clear() {
   space::clear_all(pos_, vel_, mass_, idn_);
   active_num_ = 0;
 }
 
 template <typename TypeSystem>
-void PointParticles<TypeSystem>::impl_emplace_back(typename PointParticles<TypeSystem>::Particle const &new_particle) {
+void PointParticles<TypeSystem>::emplace_back(typename PointParticles<TypeSystem>::Particle const &new_particle) {
   pos_.emplace_back(new_particle.pos);
   vel_.emplace_back(new_particle.vel);
   mass_.emplace_back(new_particle.mass);
@@ -242,12 +232,12 @@ void PointParticles<TypeSystem>::impl_emplace_back(typename PointParticles<TypeS
 }
 
 template <typename TypeSystem>
-size_t PointParticles<TypeSystem>::impl_number() const {
+size_t PointParticles<TypeSystem>::number() const {
   return active_num_;
 }
 
 template <typename TypeSystem>
-size_t PointParticles<TypeSystem>::impl_capacity() const {
+size_t PointParticles<TypeSystem>::capacity() const {
   return idn_.capacity();
 }
 
@@ -256,12 +246,9 @@ std::ostream &operator<<(std::ostream &os, PointParticles<TypeSystem> const &par
   size_t num = particle_system.number();
   os << particle_system.time();
   for (size_t i = 0; i < num; ++i) {
-    space::print_csv(os, "", particle_system.idn()[i], particle_system.mass()[i], particle_system.pos().x[i],
-                     particle_system.pos().y[i], particle_system.pos().z[i], particle_system.vel().x[i],
-                     particle_system.vel().y[i], particle_system.vel().z[i]);
+    space::print_csv(os, "", particle_system.idn(i), particle_system.mass(i), particle_system.pos(i),
+                     particle_system.vel(i));
   }
   return os;
 }
 }  // namespace space::particle_set
-
-#endif  // SPACEHUB_POINT_PARTICLES_HPP

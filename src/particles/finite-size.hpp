@@ -22,13 +22,73 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_FINITE_SIZE_HPP
-#define SPACEHUB_FINITE_SIZE_HPP
+#pragma once
 
 #include "../IO.hpp"
 #include "point-particles.hpp"
 
 namespace space::particle_set {
+
+template <typename Vec3>
+struct SizeParticle : public PointParticle<Vec3> {
+ public:
+  using Base = PointParticle<Vec3>;
+  // Type members
+  /**
+   * @brief Floating point like type.
+   */
+  using Scalar = typename Vec3::value_type;
+
+  /**
+   * @brief 3D vector.
+   */
+  using Vector = Vec3;
+
+  // Constructors
+  SPACEHUB_MAKE_CONSTRUCTORS(SizeParticle, default, default, default, default, default);
+
+  /**
+   * @brief Construct a new Particle object
+   *
+   * @param[in] m Mass of the particle.
+   * @param[in] r Radius of the particle.
+   * @param[in] p Position of the particle.
+   * @param[in] v Velocity of the particle.
+   */
+  SizeParticle(Scalar m, Scalar r, Vector p, Vector v) : PointParticle<Vector>{m, p, v}, radius{r} {}
+
+  /**
+   * @brief Construct a new Particle object
+   *
+   * @param[in] m Mass of the particle.
+   * @param[in] r Radius of the particle.
+   * @param[in] px X component of the position.
+   * @param[in] py Y component of the position.
+   * @param[in] pz Z component of the position.
+   * @param[in] vx X component of the velocity.
+   * @param[in] vy Y component of the velocity.
+   * @param[in] vz Z component of the velocity.
+   */
+  SizeParticle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
+               Scalar vz = 0)
+      : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
+
+  friend std::ostream &operator<<(std::ostream &os, SizeParticle const &particle) {
+    space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
+    return os;
+  }
+
+  friend std::istream &operator>>(std::istream &is, SizeParticle &particle) {
+    space::input(is, particle.mass, particle.radius, particle.pos, particle.vel);
+    return is;
+  }
+
+  // Public members
+  /**
+   * @brief Radius of the particle.
+   */
+  Scalar radius;
+};
 
 /*---------------------------------------------------------------------------*\
     Class SizeParticles Declaration
@@ -39,16 +99,12 @@ namespace space::particle_set {
  * @tparam TypeSystem The type system in spaceHub(space::Types).
  */
 template <typename TypeSystem>
-class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
+class SizeParticles {
  public:
   // Type members
   SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-  /**
-   * @brief Base class.
-   */
-  using Base = Particles<SizeParticles<TypeSystem>>;
-
+  using Particle = SizeParticle<Vector>;
   /*---------------------------------------------------------------------------*\
   Sub-Class Particle Declaration and Implementation
   \*---------------------------------------------------------------------------*/
@@ -56,111 +112,50 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
    * @brief Embedded Particle of SOA particles `SizeParticles`.
    *
    */
-  struct Particle : public PointParticle<Scalar> {
-   public:
-    // Type members
-    /**
-     * @brief Floating point like type.
-     */
-    using Scalar = typename TypeSystem::Scalar;
-
-    /**
-     * @brief 3D vector.
-     */
-    using Vector = Vec3<Scalar>;
-
-    // Constructors
-    SPACEHUB_MAKE_CONSTRUCTORS(Particle, default, default, default, default, default);
-
-    /**
-     * @brief Construct a new Particle object
-     *
-     * @param[in] m Mass of the particle.
-     * @param[in] r Radius of the particle.
-     * @param[in] p Position of the particle.
-     * @param[in] v Velocity of the particle.
-     */
-    Particle(Scalar m, Scalar r, Vector p, Vector v) : PointParticle<Scalar>{m, p, v}, radius{r} {}
-
-    /**
-     * @brief Construct a new Particle object
-     *
-     * @param[in] m Mass of the particle.
-     * @param[in] r Radius of the particle.
-     * @param[in] px X component of the position.
-     * @param[in] py Y component of the position.
-     * @param[in] pz Z component of the position.
-     * @param[in] vx X component of the velocity.
-     * @param[in] vy Y component of the velocity.
-     * @param[in] vz Z component of the velocity.
-     */
-    Particle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
-             Scalar vz = 0)
-        : PointParticle<Scalar>{m, px, py, pz, vx, vy, vz}, radius{r} {}
-
-    friend std::ostream &operator<<(std::ostream &os, Particle const &particle) {
-      space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
-      return os;
-    }
-
-    friend std::istream &operator>>(std::istream &is, Particle &particle) {
-      space::input(is, particle.mass, particle.radius, particle.pos, particle.vel);
-      return is;
-    }
-
-    // Public members
-    /**
-     * @brief Radius of the particle.
-     */
-    Scalar radius;
-  };
 
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(SizeParticles, default, default, default, default, default);
 
   /**
    * @brief Construct a new Size Particles object from std::ranges(Container).
-   * 
+   *
    * @tparam STL std::ranges(Container)
    * @param[in] t Initial time of the the particle group.
    * @param[in] particle_set Input particle set.
    */
-  template <typename STL>
+  template <concepts::ParticleContainer STL>
   SizeParticles(Scalar time, STL const &particles_set);
 
   // Public methods
-  SPACEHUB_STD_ACCESSOR(auto, radius, radius_);
+  SPACEHUB_ARRAY_ACCESSOR(ScalarArray, radius, radius_);
 
-  CRTP_IMPL :
-      // CRTP implementation
+  SPACEHUB_ARRAY_ACCESSOR(ScalarArray, mass, mass_);
 
-      SPACEHUB_STD_ACCESSOR(auto, impl_mass, mass_);
+  SPACEHUB_ARRAY_ACCESSOR(IdxArray, idn, idn_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_idn, idn_);
+  SPACEHUB_STD_ACCESSOR(Scalar, time, time_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_time, time_);
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, pos, pos_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_pos, pos_);
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, vel, vel_);
 
-  SPACEHUB_STD_ACCESSOR(auto, impl_vel, vel_);
+  void resize(size_t new_sz);
 
-  void impl_resize(size_t new_sz);
+  void reserve(size_t new_cap);
 
-  void impl_reserve(size_t new_cap);
+  void emplace_back(Particle const &new_particle);
 
-  void impl_emplace_back(Particle const &new_particle);
+  [[nodiscard]] size_t number() const;
 
-  [[nodiscard]] size_t impl_number() const;
+  [[nodiscard]] size_t capacity() const;
 
-  [[nodiscard]] size_t impl_capacity() const;
-
-  void impl_clear();
+  void clear();
 
  private:
   // Private members
-  Coord pos_;
+  VectorArray pos_;
 
-  Coord vel_;
+  VectorArray vel_;
 
   ScalarArray mass_;
 
@@ -172,16 +167,15 @@ class SizeParticles : public Particles<SizeParticles<TypeSystem>> {
 
   size_t active_num_{0};
 };
+}  // namespace space::particle_set
 
+namespace space::particle_set {
 /*---------------------------------------------------------------------------*\
     Class SizeParticles Implementation
 \*---------------------------------------------------------------------------*/
 template <typename TypeSystem>
-template <typename STL>
+template <concepts::ParticleContainer STL>
 SizeParticles<TypeSystem>::SizeParticles(Scalar time, const STL &particles_set) {
-  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
-  SPACEHUB_PARTICLE_TYPE_CHECK(STL, Particle);
-
   size_t input_num = particles_set.size();
   this->reserve(input_num);
   size_t id = 0;
@@ -197,34 +191,34 @@ SizeParticles<TypeSystem>::SizeParticles(Scalar time, const STL &particles_set) 
 }
 
 template <typename TypeSystem>
-size_t SizeParticles<TypeSystem>::impl_number() const {
+size_t SizeParticles<TypeSystem>::number() const {
   return active_num_;
 }
 
 template <typename TypeSystem>
-size_t SizeParticles<TypeSystem>::impl_capacity() const {
+size_t SizeParticles<TypeSystem>::capacity() const {
   return idn_.capacity();
 }
 
 template <typename TypeSystem>
-void SizeParticles<TypeSystem>::impl_reserve(size_t new_cap) {
+void SizeParticles<TypeSystem>::reserve(size_t new_cap) {
   space::reserve_all(new_cap, pos_, vel_, mass_, radius_, idn_);
 }
 
 template <typename TypeSystem>
-void SizeParticles<TypeSystem>::impl_clear() {
+void SizeParticles<TypeSystem>::clear() {
   space::clear_all(pos_, vel_, mass_, radius_, idn_);
   active_num_ = 0;
 }
 
 template <typename TypeSystem>
-void SizeParticles<TypeSystem>::impl_resize(size_t new_sz) {
+void SizeParticles<TypeSystem>::resize(size_t new_sz) {
   space::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
   active_num_ = new_sz;
 }
 
 template <typename TypeSystem>
-void SizeParticles<TypeSystem>::impl_emplace_back(typename SizeParticles<TypeSystem>::Particle const &new_particle) {
+void SizeParticles<TypeSystem>::emplace_back(typename SizeParticles<TypeSystem>::Particle const &new_particle) {
   pos_.emplace_back(new_particle.pos);
   vel_.emplace_back(new_particle.vel);
   mass_.emplace_back(new_particle.mass);
@@ -238,10 +232,8 @@ std::ostream &operator<<(std::ostream &os, SizeParticles<TypeSystem> const &ps) 
   size_t num = ps.number();
   os << ps.time();
   for (size_t i = 0; i < num; ++i) {
-    space::print_csv(os, "", ps.idn()[i], ps.mass()[i], ps.radius()[i], ps.pos().x[i], ps.pos().y[i], ps.pos().z[i],
-                     ps.vel().x[i], ps.vel().y[i], ps.vel().z[i]);
+    space::print_csv(os, "", ps.idn(i), ps.mass(i), ps.radius(i), ps.pos(i), ps.vel(i));
   }
   return os;
 }
 }  // namespace space::particle_set
-#endif  // SPACEHUB_FINITE_SIZE_HPP

@@ -150,8 +150,7 @@ struct get_value_type {
   using IdxArray = typename CLASS::IdxArray;                    \
   using IntArray = typename CLASS::IntArray;                    \
   using Vector = typename CLASS::Vector;                        \
-  using VectorArray = typename CLASS::VectorArray;              \
-  using Coord = typename CLASS::Coord
+  using VectorArray = typename CLASS::VectorArray;
 
 #define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                      \
   /**@must_impl The setter interface of member `NAME`. */                               \
@@ -169,15 +168,25 @@ struct get_value_type {
   /** The getter interface of member `MEMBER` in name of `NAME`.*/ \
   inline TYPE const &NAME() const noexcept { return MEMBER; };
 
-#define SPACEHUB_ARRAY_ACCESSOR(TYPE, NAME, MEMBER)                \
-  /** The setter interface of member `MEMBER` in name of `NAME`.*/ \
-  inline TYPE &NAME(size_t i) noexcept { return MEMBER[i]; };      \
-  /** The getter interface of member `MEMBER` in name of `NAME`.*/ \
-  inline TYPE const &NAME(size_t i) const noexcept { return MEMBER[i]; };
-
 #define SPACEHUB_READ_ACCESSOR(TYPE, NAME, MEMBER)                  \
   /** The getter interface of member `MEMBER` in name of `NAME`. */ \
   inline TYPE const &NAME() const noexcept { return MEMBER; };
+
+#define SPACEHUB_ARRAY_ACCESSOR(TYPE, NAME, MEMBER)                                \
+  /** The setter interface of member `MEMBER` in name of `NAME`.*/                 \
+  inline TYPE &NAME() noexcept { return MEMBER; };                                 \
+  /** The getter interface of member `MEMBER` in name of `NAME`.*/                 \
+  inline TYPE const &NAME() const noexcept { return MEMBER; };                     \
+  /** The setter interface of member `MEMBER` in name of `NAME`.*/                 \
+  inline typename TYPE::value_type &NAME(size_t i) noexcept { return MEMBER[i]; }; \
+  /** The getter interface of member `MEMBER` in name of `NAME`.*/                 \
+  inline typename TYPE::value_type const &NAME(size_t i) const noexcept { return MEMBER[i]; };
+
+#define SPACEHUB_ARRAY_READ_ACCESSOR(TYPE, NAME, MEMBER)           \
+  /** The getter interface of member `MEMBER` in name of `NAME`.*/ \
+  inline TYPE const &NAME() const noexcept { return MEMBER; };     \
+  /** The getter interface of member `MEMBER` in name of `NAME`.*/ \
+  inline typename TYPE::value_type const &NAME(size_t i) const noexcept { return MEMBER[i]; };
 
 #define SPACEHUB_CONDITIONAL_ACCESSOR(CONDITION, TYPE, NAME, MEMBER)                         \
   /** The setter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
@@ -196,6 +205,40 @@ struct get_value_type {
   inline TYPE const &NAME() const noexcept {                                                  \
     static_assert(CONDITION);                                                                 \
     return MEMBER;                                                                            \
+  };
+
+#define SPACEHUB_CONDITIONAL_ARRAY_ACCESSOR(CONDITION, TYPE, NAME, MEMBER)                   \
+  /** The setter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
+  inline TYPE &NAME() noexcept {                                                             \
+    static_assert(CONDITION);                                                                \
+    return MEMBER;                                                                           \
+  };                                                                                         \
+  /** The getter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
+  inline TYPE const &NAME() const noexcept {                                                 \
+    static_assert(CONDITION);                                                                \
+    return MEMBER;                                                                           \
+  };                                                                                         \
+  /** The setter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
+  inline typename TYPE::value_type &NAME(size_t i) noexcept {                                \
+    static_assert(CONDITION);                                                                \
+    return MEMBER[i];                                                                        \
+  };                                                                                         \
+  /** The getter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
+  inline typename TYPE::value_type const &NAME(size_t i) const noexcept {                    \
+    static_assert(CONDITION);                                                                \
+    return MEMBER[i];                                                                        \
+  };
+
+#define SPACEHUB_CONDITIONAL_ARRAY_READ_ACCESSOR(CONDITION, TYPE, NAME, MEMBER)              \
+  /** The getter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
+  inline TYPE const &NAME() const noexcept {                                                 \
+    static_assert(CONDITION);                                                                \
+    return MEMBER;                                                                           \
+  };                                                                                         \
+  /** The getter interface of member `MEMBER` in name of `NAME` if CONDITION is satisfied.*/ \
+  inline typename TYPE::value_type const &NAME(size_t i) const noexcept {                    \
+    static_assert(CONDITION);                                                                \
+    return MEMBER[i];                                                                        \
   };
 
 #define CREATE_METHOD_CHECK(NAME)                                                       \

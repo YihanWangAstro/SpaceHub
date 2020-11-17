@@ -27,6 +27,7 @@ License
 #define SPACEHUB_TYPE_CLASS_HPP
 
 #include <vector>
+
 #include "coords.hpp"
 #include "vector/vector3.hpp"
 
@@ -79,11 +80,6 @@ struct Types {
    * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
    */
   using VectorArray = Container<Vector>;
-
-  /**
-   * An **Structure of Array** coordinates system (x, y, z) with x, y, z to be a ScalarArray.
-   */
-  using Coord = Coords<ScalarArray>;
 };
 }  // namespace space
 
