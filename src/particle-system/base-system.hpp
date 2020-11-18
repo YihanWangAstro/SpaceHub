@@ -27,7 +27,7 @@ License
 #include <type_traits>
 
 #include "../core-computation.hpp"
-#include "../interaction/accelerations.hpp"
+#include "../interaction/interaction.hpp"
 #include "../spacehub-concepts.hpp"
 
 namespace space::particle_system {
@@ -56,17 +56,11 @@ class SimpleSystem {
    * @param time
    * @param particle_set
    */
-  template <typename STL>
+  template <concepts::ParticleContainer STL>
   SimpleSystem(Scalar time, STL const &particle_set);
 
   // Public methods
   SPACEHUB_READ_ACCESSOR(Particles, particles, ptcl_);
-
-  /**
-   *
-   * @return
-   */
-  [[nodiscard]] size_t number() const;
 
   /**
    *
@@ -158,9 +152,7 @@ class SimpleSystem {
   // Private members
   Particles ptcl_;
 
-  Interactions interactions_;
-
-  interactions::Accelerations<Interactions, VectorArray> accels_;
+  interactions::InteractionData<Interactions, VectorArray> accels_;
 
   std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> aux_vel_;
 };
@@ -170,48 +162,47 @@ namespace space::particle_system {
 /*---------------------------------------------------------------------------*\
     Class SimpleSystem Implementation
 \*---------------------------------------------------------------------------*/
-template <Concept_Particles Particles, Concept_Interactions Interactions>
-template <typename STL>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
+template <concepts::ParticleContainer STL>
 SimpleSystem<Particles, Interactions>::SimpleSystem(Scalar time, const STL &particle_set)
     : ptcl_(time, particle_set), accels_(particle_set.size()) {
-  static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
   if constexpr (Interactions::ext_vel_dep) {
     aux_vel_ = ptcl_.vel();
   }
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 template <typename STL>
 void SimpleSystem<Particles, Interactions>::load_from_linear_container(const STL &stl_ranges) {
   auto begin = stl_ranges.begin();
-  impl_time() = *begin;
-  size_t len = impl_number() * 3;
+  ptcl_.time() = *begin;
+  size_t len = ptcl_.number() * 3;
   auto pos_begin = begin + 1;
   auto pos_end = pos_begin + len;
   auto vel_begin = pos_end;
   auto vel_end = vel_begin + len;
-  load_to_coords(pos_begin, pos_end, impl_pos());
-  load_to_coords(vel_begin, vel_end, impl_vel());
+  load_to_coords(pos_begin, pos_end, ptcl_.pos());
+  load_to_coords(vel_begin, vel_end, ptcl_.vel());
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 template <typename STL>
 void SimpleSystem<Particles, Interactions>::to_linear_container(STL &stl_ranges) {
   stl_ranges.clear();
-  stl_ranges.reserve(impl_number() * 6 + 1);
-  stl_ranges.emplace_back(impl_time());
-  add_coords_to(stl_ranges, impl_pos());
-  add_coords_to(stl_ranges, impl_vel());
+  stl_ranges.reserve(ptcl_.number() * 6 + 1);
+  stl_ranges.emplace_back(ptcl_.time());
+  add_coords_to(stl_ranges, ptcl_.pos());
+  add_coords_to(stl_ranges, ptcl_.vel());
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::pre_iter_process() {
   if constexpr (Interactions::ext_vel_dep) {
     aux_vel_ = ptcl_.vel();
   }
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::kick(Scalar step_size) {
   if constexpr (Interactions::ext_vel_dep) {
     Scalar half_step = 0.5 * step_size;
@@ -220,74 +211,69 @@ void SimpleSystem<Particles, Interactions>::kick(Scalar step_size) {
     kick_real_vel(step_size);
     kick_pseu_vel(half_step);
   } else {
-    interactions_.eval_acc(ptcl_, accels_.acc());
-    calc::coord_advance(ptcl_.vel(), accels_.acc(), step_size);
+    Interactions::eval_acc(ptcl_, accels_.acc());
+    calc::array_advance(ptcl_.vel(), accels_.acc(), step_size);
   }
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::drift(Scalar step_size) {
   ptcl_.time() += step_size;
-  calc::coord_advance(ptcl_.pos(), ptcl_.vel(), step_size);
+  calc::array_advance(ptcl_.pos(), ptcl_.vel(), step_size);
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::evaluate_acc(VectorArray &acceleration) const {
-  interactions_.eval_acc(ptcl_, acceleration);
+  Interactions::eval_acc(ptcl_, acceleration);
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::advance_vel(Scalar step_size, const VectorArray &acceleration) {
-  calc::coord_advance(ptcl_.vel(), acceleration, step_size);
+  calc::array_advance(ptcl_.vel(), acceleration, step_size);
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::advance_pos(Scalar step_size, const VectorArray &velocity) {
-  calc::coord_advance(ptcl_.pos(), velocity, step_size);
+  calc::array_advance(ptcl_.pos(), velocity, step_size);
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::advance_time(Scalar dt) {
   ptcl_.time() += dt;
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
-size_t SimpleSystem<Particles, Interactions>::number() const {
-  return ptcl_.number();
-}
-
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::kick_real_vel(Scalar step_size) {
   std::swap(aux_vel_, ptcl_.vel());
-  interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+  Interactions::eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
   std::swap(aux_vel_, ptcl_.vel());
-  calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
-  calc::coord_advance(ptcl_.vel(), accels_.acc(), step_size);
+  calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+  calc::array_advance(ptcl_.vel(), accels_.acc(), step_size);
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::kick_pseu_vel(Scalar step_size) {
-  interactions_.eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
-  calc::coord_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
-  calc::coord_advance(aux_vel_, accels_.acc(), step_size);
+  Interactions::eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
+  calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
+  calc::array_advance(aux_vel_, accels_.acc(), step_size);
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 void SimpleSystem<Particles, Interactions>::eval_vel_indep_acc() {
-  interactions_.eval_newtonian_acc(ptcl_, accels_.tot_vel_indep_acc());
+  Interactions::eval_newtonian_acc(ptcl_, accels_.tot_vel_indep_acc());
   if constexpr (Interactions::ext_vel_indep) {
-    interactions_.eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
-    calc::coord_add(accels_.tot_vel_indep_acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc());
+    Interactions::eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
+    calc::array_add(accels_.tot_vel_indep_acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc());
   }
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 std::ostream &operator<<(std::ostream &os, SimpleSystem<Particles, Interactions> const &ps) {
   os << ps.ptcl_;
   return os;
 }
 
-template <Concept_Particles Particles, Concept_Interactions Interactions>
+template <concepts::Particles Particles, concepts::Interaction Interactions>
 std::istream &operator>>(std::istream &is, SimpleSystem<Particles, Interactions> &ps) {
   is >> ps.ptcl_;
   return is;

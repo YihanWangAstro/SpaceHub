@@ -29,6 +29,7 @@ License
 #include <fstream>
 #include <iomanip>
 #include <memory>
+
 #include "../dev-tools.hpp"
 
 /**
@@ -72,8 +73,8 @@ class TimeSlice {
    * @param[in] step_size The step size of the integration.
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
+      std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void>;
 
   /**
    * Callable interface.
@@ -83,8 +84,8 @@ class TimeSlice {
    * @return auto bool
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
+      std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool>;
 
   /**
    * Reset the slice parameters.
@@ -133,8 +134,8 @@ class StepSlice {
    * @param[in] step_size The step size of the integration.
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-      -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &,typename ParticleSys::Scalar)>>, void>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
+      std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void>;
 
   /**
    * Callable interface.
@@ -144,8 +145,8 @@ class StepSlice {
    * @return auto bool.
    */
   template <typename ParticleSys>
-  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-      -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool>;
+  inline auto operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
+      std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool>;
 
   /**
    * Reset the slice parameters.
@@ -199,9 +200,10 @@ TimeSlice<Operation>::TimeSlice(const Operation &opt, double start, double end, 
 template <typename Operation>
 template <typename ParticleSys>
 auto TimeSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void> {
+    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>,
+                        void> {
   using Scalar = typename ParticleSys::Scalar;
-  auto t = ptc.time();
+  auto t = ptc.particles().time();
   if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
     opt_time_ += opt_interval_;
     opt_(ptc, step_size);
@@ -211,7 +213,8 @@ auto TimeSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Sc
 template <typename Operation>
 template <typename ParticleSys>
 auto TimeSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool> {
+    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>,
+                        bool> {
   using Scalar = typename ParticleSys::Scalar;
   auto t = ptc.time();
   if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
@@ -239,7 +242,8 @@ StepSlice<Operation>::StepSlice(const Operation &opt, size_t step_interval)
 template <typename Operation>
 template <typename ParticleSys>
 auto StepSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, void> {
+    -> std::enable_if_t<std::is_same_v<void, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>,
+                        void> {
   if (step_ % step_interval_ == 0) {
     opt_(ptc, step_size);
   }
@@ -249,7 +253,8 @@ auto StepSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Sc
 template <typename Operation>
 template <typename ParticleSys>
 auto StepSlice<Operation>::operator()(ParticleSys &ptc, typename ParticleSys::Scalar step_size)
-    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>, bool> {
+    -> std::enable_if_t<std::is_same_v<bool, std::result_of_t<Operation(ParticleSys &, typename ParticleSys::Scalar)>>,
+                        bool> {
   if (step_ % step_interval_ == 0) {
     step_++;
     return opt_(ptc, step_size);

@@ -22,13 +22,12 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_BURLISH_STOER_HPP
-#define SPACEHUB_BURLISH_STOER_HPP
+#pragma once
 
 #include <array>
 #include <vector>
-#include "ode-iterator.hpp"
 
+#include "../spacehub-concepts.hpp"
 namespace space::ode_iterator {
 /*---------------------------------------------------------------------------*\
      Class BurlishStoerConsts Declaration
@@ -78,12 +77,10 @@ class BurlishStoerConsts {
  * @tparam StepControl
  */
 template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
-class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepControl>> {
+class BurlishStoer {
   static_assert(std::is_floating_point<Real>::value, "Only float-like type can be used!");
 
  public:
-  using Base = OdeIterator<BurlishStoer<Real, ErrChecker, StepControl>>;
-
   using Scalar = Real;
 
   static constexpr size_t max_depth{7};
@@ -94,15 +91,12 @@ class BurlishStoer : public OdeIterator<BurlishStoer<Real, ErrChecker, StepContr
 
   using StepController = StepControl<2 * max_depth + 3, Scalar>;
 
-  CRTP_IMPL :
+  template <concepts::ParticleSystem U>
+  Scalar iterate(U &particles, typename U::Scalar macro_step_size);
 
-      template <typename U>
-      Scalar
-      impl_iterate(U &particles, typename U::Scalar macro_step_size);
+  void set_atol(Scalar atol);
 
-  void impl_set_atol(Scalar atol);
-
-  void impl_set_rtol(Scalar rtol);
+  void set_rtol(Scalar rtol);
 
  private:
   void check_variable_size();
@@ -190,8 +184,8 @@ constexpr BurlishStoerConsts<Scalar, MaxIter>::BurlishStoerConsts() {
     }
 
     for (size_t j = 0; j < i; ++j) {
-      //Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[j]);
-      //extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
+      // Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[j]);
+      // extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
       auto nj2 = sub_steps_[j] * sub_steps_[j];
       auto ni2 = sub_steps_[i] * sub_steps_[i];
       extrap_coef_[at(i, j)] = static_cast<double>(nj2) / static_cast<double>(ni2 - nj2);
@@ -209,11 +203,8 @@ size_t BurlishStoerConsts<Scalar, MaxIter>::at(size_t i, size_t j) const {
      Class BurlishStoer Implementation
 \*---------------------------------------------------------------------------*/
 template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
-template <typename U>
-auto BurlishStoer<Real, ErrChecker, StepControl>::impl_iterate(U &particles, typename U::Scalar macro_step_size)
-    -> Scalar {
-  static_assert(particle_system::is_particle_system_v<U>, "Passing non particle-system-type!");
-
+template <concepts::ParticleSystem U>
+auto BurlishStoer<Real, ErrChecker, StepControl>::iterate(U &particles, typename U::Scalar macro_step_size) -> Scalar {
   Scalar iter_h = macro_step_size;
   particles.to_linear_container(input_);
   check_variable_size();
@@ -232,13 +223,13 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::impl_iterate(U &particles, typ
       extrapolate(k);
 
       Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
-//
-      //ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
+      //
+      // ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
 
       ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
 
       cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
-      //space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
+      // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k],'\n');
       if (in_converged_window(k)) {
         if (error < 1.0) {
           reject = false;
@@ -263,12 +254,12 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::impl_iterate(U &particles, typ
 }
 
 template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
-void BurlishStoer<Real, ErrChecker, StepControl>::impl_set_atol(Scalar atol) {
+void BurlishStoer<Real, ErrChecker, StepControl>::set_atol(Scalar atol) {
   err_checker_.set_atol(atol);
 }
 
 template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
-void BurlishStoer<Real, ErrChecker, StepControl>::impl_set_rtol(Scalar rtol) {
+void BurlishStoer<Real, ErrChecker, StepControl>::set_rtol(Scalar rtol) {
   err_checker_.set_rtol(rtol);
 }
 
@@ -306,7 +297,8 @@ template <typename Real, template <typename> typename ErrChecker, template <size
 void BurlishStoer<Real, ErrChecker, StepControl>::extrapolate(size_t k) {
   for (size_t j = k; j > 0; --j) {
     for (size_t i = 0; i < var_num_; ++i) {
-      extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * parameters_.table_coef(k, j - 1);
+      extrap_list_[j - 1][i] =
+          extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * parameters_.table_coef(k, j - 1);
     }
   }
 }
@@ -381,4 +373,3 @@ bool BurlishStoer<Real, ErrChecker, StepControl>::is_diverged_anyhow(Scalar erro
   return error > r * r;
 }
 }  // namespace space::ode_iterator
-#endif  // SPACEHUB_BURLISH_STOER_HPP

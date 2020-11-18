@@ -73,6 +73,7 @@ License
 #include "tools/auto-name.hpp"
 #include "tools/config-reader.hpp"
 #include "tools/timer.hpp"
+#include "type-class.hpp"
 /**
  * @namespace space
  * Documentation for space

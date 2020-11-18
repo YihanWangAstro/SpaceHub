@@ -1,12 +1,11 @@
 
-#ifndef GAUSSDADAU_H
-#define GAUSSDADAU_H
+#pragma once
 
 #include <array>
 #include <vector>
+
 #include "../core-computation.hpp"
 #include "../dev-tools.hpp"
-#include "integrator.hpp"
 
 namespace space::integrator {
 
@@ -240,9 +239,8 @@ class RadauConsts {
  * @tparam Coord
  */
 template <typename Coord>
-class GaussDadau : public Integrator<GaussDadau<Coord>> {
+class GaussDadau {
  public:
-  using Base = Integrator<GaussDadau<Coord>>;
   using IterTable = std::array<Coord, 7>;
   using Scalar = typename Coord::Scalar;
 
@@ -290,11 +288,8 @@ class GaussDadau : public Integrator<GaussDadau<Coord>> {
    */
   void check_particle_size(size_t particle_num);
 
-  CRTP_IMPL :
-
-      template <typename ParticleSys>
-      void
-      impl_integrate(ParticleSys &particles, Scalar step_size);
+  template <typename ParticleSys>
+  void integrate(ParticleSys &particles, Scalar step_size);
 
  private:
   void calc_G_table(Coord const &acc0, Coord const &acc, size_t stage);
@@ -328,9 +323,9 @@ class GaussDadau : public Integrator<GaussDadau<Coord>> {
 template <typename Tab>
 void RadauConsts::transfer_G_to_B(const Tab &G, Tab &B) {
   for (size_t stage = 0; stage < 7; ++stage) {
-    calc::coord_scale(B[stage], G[6], G2B_tab(6, stage));
+    calc::array_scale(B[stage], G[6], G2B_tab(6, stage));
     for (size_t j = 6; j > stage; --j) {
-      calc::coord_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
+      calc::array_advance(B[stage], G[j - 1], G2B_tab(j - 1, stage));
     }
   }
 }
@@ -338,9 +333,9 @@ void RadauConsts::transfer_G_to_B(const Tab &G, Tab &B) {
 template <typename Tab>
 void RadauConsts::transfer_B_to_G(const Tab &B, Tab &G) {
   for (size_t stage = 0; stage < 7; ++stage) {
-    calc::coord_scale(G[stage], B[6], B2G_tab(6, stage));
+    calc::array_scale(G[stage], B[6], B2G_tab(6, stage));
     for (size_t j = 6; j > stage; --j) {
-      calc::coord_advance(G[stage], B[j - 1], B2G_tab(j - 1, stage));
+      calc::array_advance(G[stage], B[j - 1], B2G_tab(j - 1, stage));
     }
   }
 }
@@ -385,7 +380,7 @@ void GaussDadau<Coord>::check_particle_size(size_t particle_num) {
 
 template <typename Coord>
 template <typename ParticleSys>
-void GaussDadau<Coord>::impl_integrate(ParticleSys &particles, Scalar step_size) {
+void GaussDadau<Coord>::integrate(ParticleSys &particles, Scalar step_size) {
   calc_B_table(particles, step_size);
   integrate_to(particles, step_size, final_point);
 }
@@ -402,44 +397,44 @@ void GaussDadau<Coord>::integrate_to(ParticleSys &particles, Scalar step_size, s
 
 template <typename Coord>
 void GaussDadau<Coord>::calc_vel_increment(Coord &dvel, const Coord &acc0, size_t stage) {
-  calc::coord_scale(dvel, b_tab_[6], RadauConsts::vel_B_tab(stage, 7));
+  calc::array_scale(dvel, b_tab_[6], RadauConsts::vel_B_tab(stage, 7));
   for (size_t i = 6; i > 0; --i) {
-    calc::coord_advance(dvel, b_tab_[i - 1], RadauConsts::vel_B_tab(stage, i));
+    calc::array_advance(dvel, b_tab_[i - 1], RadauConsts::vel_B_tab(stage, i));
   }
-  calc::coord_advance(dvel, acc0, RadauConsts::vel_B_tab(stage, 0));
+  calc::array_advance(dvel, acc0, RadauConsts::vel_B_tab(stage, 0));
 }
 
 template <typename Coord>
 void GaussDadau<Coord>::calc_pos_increment(Coord &dpos, const Coord &vel0, const Coord &acc0, Scalar step_size,
                                            size_t stage) {
-  calc::coord_scale(dpos, b_tab_[6], RadauConsts::pos_B_tab(stage, 8) * step_size);
+  calc::array_scale(dpos, b_tab_[6], RadauConsts::pos_B_tab(stage, 8) * step_size);
   for (size_t i = 7; i > 1; --i) {
-    calc::coord_advance(dpos, b_tab_[i - 2], RadauConsts::pos_B_tab(stage, i) * step_size);
+    calc::array_advance(dpos, b_tab_[i - 2], RadauConsts::pos_B_tab(stage, i) * step_size);
   }
-  calc::coord_advance(dpos, acc0, RadauConsts::pos_B_tab(stage, 1) * step_size);
-  calc::coord_advance(dpos, vel0, RadauConsts::pos_B_tab(stage, 0));
+  calc::array_advance(dpos, acc0, RadauConsts::pos_B_tab(stage, 1) * step_size);
+  calc::array_advance(dpos, vel0, RadauConsts::pos_B_tab(stage, 0));
 }
 
 template <typename Coord>
 void GaussDadau<Coord>::calc_G_table(Coord const &acc0, Coord const &acc, size_t stage) {
-  calc::coord_sub(g_tab_[stage], acc, acc0);
-  calc::coord_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
+  calc::array_sub(g_tab_[stage], acc, acc0);
+  calc::array_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
   for (size_t j = 0; j < stage; ++j) {
-    calc::coord_advance(g_tab_[stage], g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
+    calc::array_advance(g_tab_[stage], g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
   }
 }
 
 template <typename Coord>
 void GaussDadau<Coord>::update_B_table(const Coord &acc0, const Coord &acc, size_t stage) {
-  calc::coord_sub(g_tab_[stage], acc, acc0);
-  calc::coord_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
+  calc::array_sub(g_tab_[stage], acc, acc0);
+  calc::array_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
   for (size_t j = 0; j < stage; ++j) {
-    calc::coord_advance(g_tab_[stage], old_g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
+    calc::array_advance(g_tab_[stage], old_g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
   }
 
-  calc::coord_sub(dg_tab_[stage], g_tab_[stage], old_g_tab_[stage]);
+  calc::array_sub(dg_tab_[stage], g_tab_[stage], old_g_tab_[stage]);
 
-  for (size_t i = 0; i <= stage; ++i) calc::coord_advance(b_tab_[i], dg_tab_[stage], RadauConsts::G2B_tab(stage, i));
+  for (size_t i = 0; i <= stage; ++i) calc::array_advance(b_tab_[i], dg_tab_[stage], RadauConsts::G2B_tab(stage, i));
 
   swap(old_g_tab_[stage], g_tab_[stage]);
 }
@@ -474,21 +469,20 @@ void GaussDadau<Coord>::predict_new_B(Scalar step_ratio) {
   Q[6] = Q[3] * Q[2];
 
   for (size_t j = 0; j < final_point; ++j) {
-    calc::coord_sub(db_tab_[j], b_tab_[j], old_b_tab_[j]);
+    calc::array_sub(db_tab_[j], b_tab_[j], old_b_tab_[j]);
   }
 
   for (size_t stage = 0; stage < final_point; ++stage) {
-    calc::coord_scale(old_b_tab_[stage], b_tab_[6], Q[stage] * RadauConsts::B_tab(6, stage));
+    calc::array_scale(old_b_tab_[stage], b_tab_[6], Q[stage] * RadauConsts::B_tab(6, stage));
     for (size_t j = 6; j > stage; --j) {
-      calc::coord_advance(old_b_tab_[stage], b_tab_[j - 1], Q[stage] * RadauConsts::B_tab(j - 1, stage));
+      calc::array_advance(old_b_tab_[stage], b_tab_[j - 1], Q[stage] * RadauConsts::B_tab(j - 1, stage));
     }
   }
 
   for (size_t j = 0; j < final_point; ++j) {
-    calc::coord_add(b_tab_[j], old_b_tab_[j], db_tab_[j]);
+    calc::array_add(b_tab_[j], old_b_tab_[j], db_tab_[j]);
   }
 
   RadauConsts::transfer_B_to_G(b_tab_, old_g_tab_);
 }
 }  // namespace space::integrator
-#endif

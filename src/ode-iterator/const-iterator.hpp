@@ -22,11 +22,8 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_CONST_ITERATOR_HPP
-#define SPACEHUB_CONST_ITERATOR_HPP
-
-#include "ode-iterator.hpp"
-
+#pragma once
+#include "../spacehub-concepts.hpp"
 namespace space::ode_iterator {
 
 /*---------------------------------------------------------------------------*\
@@ -37,17 +34,10 @@ namespace space::ode_iterator {
  * @tparam Integrator
  */
 template <typename Integrator>
-class ConstOdeIterator : public OdeIterator<ConstOdeIterator<Integrator>> {
+class ConstOdeIterator {
  public:
-  // Type members
-  using Base = OdeIterator<ConstOdeIterator<Integrator>>;
-
-  CRTP_IMPL :
-
-      // CRTP implementation
-      template <typename T>
-      auto
-      impl_iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
+  template <concepts::ParticleSystem T>
+  auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
 
  private:
   // Private members
@@ -58,12 +48,9 @@ class ConstOdeIterator : public OdeIterator<ConstOdeIterator<Integrator>> {
       Class ConstOdeIterator Implementation
 \*---------------------------------------------------------------------------*/
 template <typename Integrator>
-template <typename T>
-auto ConstOdeIterator<Integrator>::impl_iterate(T &particles, typename T::Scalar macro_step_size) ->
-    typename T::Scalar {
-  static_assert(particle_system::is_particle_system_v<T>, "Passing non particle-system-type!");
+template <concepts::ParticleSystem T>
+auto ConstOdeIterator<Integrator>::iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
   integrator_.integrate(particles, macro_step_size);
   return macro_step_size;
 }
 }  // namespace space::ode_iterator
-#endif

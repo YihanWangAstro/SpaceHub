@@ -20,10 +20,10 @@ License
 #ifndef SPACEHUB_RTEST_SAMPLES_HPP
 #define SPACEHUB_RTEST_SAMPLES_HPP
 
-#include "../../src/spaceHub.hpp"
-
 #include <iomanip>
 #include <tuple>
+
+#include "../../src/spaceHub.hpp"
 
 template <typename Solver>
 auto two_body(double e = 0) {
@@ -141,10 +141,10 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
   args.add_pre_step_operation(TimeSlice(
       [&](auto &ptc, auto step_size) {
-        auto err = calc::calc_energy_error(ptc, E0);
+        auto err = calc::calc_energy_error(ptc.particles(), E0);
         tot_error += err * err;
         error_num++;
-        err_file << ptc.time() << ',' << err << '\n';
+        err_file << ptc.particles().time() << ',' << err << '\n';
       },
       0, end_time));
 
@@ -181,7 +181,7 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
     auto E0 = orbit::E_tot(p);  // calc::calc_total_energy(sim.particles());
 
     args.add_pre_step_operation([&](auto &ptc, auto step_size) {
-      auto err = calc::calc_energy_error(ptc, E0);
+      auto err = calc::calc_energy_error(ptc.particles(), E0);
       tot_error += err * err;
       error_num++;
     });

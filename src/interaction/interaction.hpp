@@ -22,159 +22,162 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_INTERACTION_HPP
-#define SPACEHUB_INTERACTION_HPP
+#pragma once
 
 #include "../core-computation.hpp"
-#include "../type-class.hpp"
-
+#include "../spacehub-concepts.hpp"
 namespace space::interactions {
-
 /*---------------------------------------------------------------------------*\
     Class Interactions Declaration
 \*---------------------------------------------------------------------------*/
-/**
- * Abstract class of interactions. A class implements(partly/fully) the interfaces of this
- * class via CRTP idiom can be used cross the system as interaction of the concept `Interactions`.
- *
- * @tparam Derived The implement class in CRTP idiom.
- */
-template <typename Derived>
+template <typename InternalForce, typename ExtraVelDepForce = void, typename ExtraVelIndepForce = void>
 class Interactions {
- private:
-  // special macros to generate compile time method check
-  CREATE_METHOD_CHECK(impl_eval_extra_vel_indep_acc);
-
-  CREATE_METHOD_CHECK(impl_eval_extra_vel_dep_acc);
-
  public:
-  // public static members
-  /**
-   * @auto_impl
-   *
-   * Variable to check if external velocity dependent forces exist the interaction. If the Derived class implements
-   * method impl_eval_extra_vel_dep_acc(). The value is `true`, otherwise this value is `false`.
-   */
-  static constexpr bool ext_vel_dep{HAS_METHOD(Derived, impl_eval_extra_vel_dep_acc)};
+  static constexpr bool ext_vel_dep{!std::same_as<ExtraVelDepForce, void>};
+
+  static constexpr bool ext_vel_indep{!std::same_as<ExtraVelIndepForce, void>};
 
   /**
-   * @auto_impl
-   *
-   * Variable to check if external velocity independent forces exist the interaction. If the Derived class implements
-   * method impl_eval_extra_vel_indep_acc(). The value is `true`, otherwise this value is `false`.
-   */
-  static constexpr bool ext_vel_indep{HAS_METHOD(Derived, impl_eval_extra_vel_indep_acc)};
-
-  // public method
-  /**
-   * @auto_impl
-   *
-   * The downcast interface of Base class to Derived class.
-   * @return Derived
-   */
-  Derived &derived();
-
-  /**
-   * @must_impl
-   *
    * Evaluate the total acceleration of the current state of a given particle system.
    *
-   * @tparam Particles Type of the particle system. This type must have method mass(), pos(), vel(), time(); type member
-   * `Coord`.
+   * @tparam Particles Type of the particle system.
    *
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <typename Particles>
-  void eval_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
+  template <concepts::Particles Particles>
+  static void eval_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
   /**
-   * @opt_impl{external velocity dependent forces exist.}
-   *
    * Evaluate the external velocity dependent acceleration of the current state of a given particle system.
    *
-   * @tparam Particles Type of the particle system. This type must have method mass(), pos(), vel(); type member
-   * `Coord`.
+   * @tparam Particles Type of the particle system.
    *
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <typename Particles>
-  void eval_extra_vel_dep_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
+  template <concepts::Particles Particles>
+  static void eval_extra_vel_dep_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
   /**
-   * @opt_impl{external velocity independent forces exist.}
-   *
    * Evaluate the external velocity independent acceleration of the current state of a given particle system.
    *
-   * @tparam Particles Type of the particle system. This type must have method mass(), pos(); type member `Coord`.
+   * @tparam Particles Type of the particle system.
    *
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <typename Particles>
-  void eval_extra_vel_indep_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
+  template <concepts::Particles Particles>
+  static void eval_extra_vel_indep_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
   /**
-   * @must_impl
-   *
    * Evaluate the internal newtonian acceleration of the current state of a given particle system.
    *
-   * @tparam Particles Type of the particle system. This type must have method mass(), pos(); type member `Coord`.
+   * @tparam Particles Type of the particle system.
    *
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <typename Particles>
-  void eval_newtonian_acc(Particles const &particles, typename Particles::Coord &acceleration) const;
+  template <concepts::Particles Particles>
+  static void eval_newtonian_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
+};
+
+template <typename Arg, typename... Args>
+struct ForceAdd {
+  template <concepts::Particles Particles>
+  static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration) {
+    Arg::add_acc_to(particles, acceleration);
+    if constexpr (sizeof...(Args) > 0) {
+      ForceAdd<Args...>::add_acc_to(particles, acceleration);
+    }
+  }
+};
+
+template <typename Interactions, typename VectorArray>
+class InteractionData {
+ public:
+  // Constructors
+  SPACEHUB_MAKE_CONSTRUCTORS(InteractionData, default, default, default, default, default);
+
+  explicit InteractionData(size_t size);
+
+  // Public methods
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, acc, acc_);
+
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, newtonian_acc, newtonian_acc_);
+
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, tot_vel_indep_acc, tot_vel_indep_acc_);
+
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, ext_vel_indep_acc, ext_vel_indep_acc_);
+
+  SPACEHUB_ARRAY_ACCESSOR(VectorArray, ext_vel_dep_acc, ext_vel_dep_acc_);
 
  private:
-  // constructors
-  Interactions() = default;
+  VectorArray acc_;
 
-  friend Derived;
+  VectorArray newtonian_acc_;
+
+  VectorArray tot_vel_indep_acc_;
+
+  std::conditional_t<Interactions::ext_vel_indep, VectorArray, Empty> ext_vel_indep_acc_;
+
+  std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> ext_vel_dep_acc_;
 };
 
 /*---------------------------------------------------------------------------*\
     Class Interactions Implementation
 \*---------------------------------------------------------------------------*/
-template <typename Derived>
-Derived &Interactions<Derived>::derived() {
-  return static_cast<Derived &>(*this);
+
+template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
+template <concepts::Particles Particles>
+void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_acc(
+    const Particles &particles, typename Particles::VectorArray &acceleration) {
+  calc::array_set_zero(acceleration);
+  InternalForce::add_acc_to(particles, acceleration);
+  if constexpr (ext_vel_dep) {
+    ExtraVelDepForce::add_acc_to(particles, acceleration);
+  }
+  if constexpr (ext_vel_indep) {
+    ExtraVelIndepForce::add_acc_to(particles, acceleration);
+  }
 }
 
-template <typename Derived>
-template <typename Particles>
-void Interactions<Derived>::eval_acc(const Particles &particles, typename Particles::Coord &acceleration) const {
-  static_cast<Derived const *>(this)->impl_eval_acc(particles, acceleration);
+template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
+template <concepts::Particles Particles>
+void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_extra_vel_dep_acc(
+    const Particles &particles, typename Particles::VectorArray &acceleration) {
+  if constexpr (ext_vel_dep) {
+    calc::array_set_zero(acceleration);
+    ExtraVelDepForce::add_acc_to(particles, acceleration);
+  }
 }
 
-template <typename Derived>
-template <typename Particles>
-void Interactions<Derived>::eval_extra_vel_dep_acc(const Particles &particles,
-                                                   typename Particles::Coord &acceleration) const {
-  static_cast<Derived const *>(this)->impl_eval_extra_vel_dep_acc(particles, acceleration);
+template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
+template <concepts::Particles Particles>
+void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_extra_vel_indep_acc(
+    const Particles &particles, typename Particles::VectorArray &acceleration) {
+  if constexpr (ext_vel_indep) {
+    calc::array_set_zero(acceleration);
+    ExtraVelIndepForce::add_acc_to(particles, acceleration);
+  }
 }
 
-template <typename Derived>
-template <typename Particles>
-void Interactions<Derived>::eval_extra_vel_indep_acc(const Particles &particles,
-                                                     typename Particles::Coord &acceleration) const {
-  static_cast<Derived const *>(this)->impl_eval_extra_vel_indep_acc(particles, acceleration);
+template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
+template <concepts::Particles Particles>
+void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_newtonian_acc(
+    const Particles &particles, typename Particles::VectorArray &acceleration) {
+  calc::array_set_zero(acceleration);
+  InternalForce::add_acc_to(particles, acceleration);
 }
 
-template <typename Derived>
-template <typename Particles>
-void Interactions<Derived>::eval_newtonian_acc(const Particles &particles,
-                                               typename Particles::Coord &acceleration) const {
-  static_cast<Derived const *>(this)->impl_eval_newtonian_acc(particles, acceleration);
+template <typename Interactions, typename VectorArray>
+InteractionData<Interactions, VectorArray>::InteractionData(size_t size)
+    : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {
+  if constexpr (Interactions::ext_vel_indep) {
+    ext_vel_indep_acc_.resize(size);
+  }
+  if constexpr (Interactions::ext_vel_dep) {
+    ext_vel_dep_acc_.resize(size);
+  }
 }
-
-/*---------------------------------------------------------------------------*\
-    Help functions and tools
-\*---------------------------------------------------------------------------*/
-template <typename T>
-constexpr bool is_interactions_v = std::is_base_of_v<Interactions<T>, T>;
 }  // namespace space::interactions
-
-#endif  // SPACEHUB_INTERACTION_HPP

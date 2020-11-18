@@ -22,12 +22,11 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_CORE_COMPUTATION_HPP
-#define SPACEHUB_CORE_COMPUTATION_HPP
-
+#pragma once
 #include "macros.hpp"
 #include "math.hpp"
-
+#include "spacehub-concepts.hpp"
+#include "vector/vector3.hpp"
 /**
  * @namespace space::calc
  * Documentation for space
@@ -120,8 +119,8 @@ void set_arrays_zero(Args &... args) {
  *
  * @note One should ensure the input arrays have method `size()` and they have the same length.
  */
-template <typename Array, typename... Args>
-auto array_dot(Array const &a, Array const &b, Args const &... args) {
+template <typename Array, typename Array2, typename... Args>
+auto array_dot(Array const &a, Array2 const &b, Args const &... args) {
   DEBUG_MODE_ASSERT(b.size() == a.size(), "length of the array mismatch!");
   typename Array::value_type product{0};
   size_t const size = a.size();
@@ -221,21 +220,21 @@ void array_advance(Array &var, Array const &increment, Scalar step_size) {
   }
 }
 
-template <typename Array, typename Coord>
-void coord_dot(Array &dst, Coord const &a, Coord const &b) {
+template <typename Array, typename VectorArray>
+void coord_dot(Array &dst, VectorArray const &a, VectorArray const &b) {
   size_t const size = dst.size();
   for (size_t i = 0; i < size; ++i) {
-    dst[i] = a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i];
+    dst[i] = dot(a[i], b[i]);
   }
 }
 
-template <typename Array, typename Coord>
-auto coord_contract_to_scalar(Array &coef, Coord const &a, Coord const &b) {
+template <typename Array, typename VectorArray>
+auto coord_contract_to_scalar(Array &coef, VectorArray const &a, VectorArray const &b) {
   size_t const size = coef.size();
-  typename Coord::Scalar sum{0};
+  typename Array::value_type sum{0};
 
   for (size_t i = 0; i < size; ++i) {
-    sum += (a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i]) * coef[i];
+    sum += dot(a[i], b[i]) * coef[i];
   }
   return sum;
 }
@@ -251,75 +250,29 @@ auto coord_contract_to_scalar(Scalar table_coef, Coord const &a, Coord const &b)
     return sum;
 }*/
 
-template <typename Coord>
-auto coord_contract_to_scalar(Coord const &a, Coord const &b) {
+template <typename VectorArray>
+auto coord_contract_to_scalar(VectorArray const &a, VectorArray const &b) {
   size_t const size = a.size();
-  typename Coord::Scalar sum{0};
+  typename VectorArray::value_type::value_type sum{0};
 
   for (size_t i = 0; i < size; ++i) {
-    sum += (a.x[i] * b.x[i] + a.y[i] * b.y[i] + a.z[i] * b.z[i]);
+    sum += dot(a[i], b[i]);
   }
   return sum;
 }
 
-template <typename Coord, typename... Args>
-inline void coord_add(Coord &dst, Coord const &a, Coord const &b, Args const &... args) {
-  array_add(dst.x, a.x, b.x, args.x...);
-  array_add(dst.y, a.y, b.y, args.y...);
-  array_add(dst.z, a.z, b.z, args.z...);
-}
-
-template <typename Coord>
-inline void coord_sub(Coord &dst, Coord const &a, Coord const &b) {
-  array_sub(dst.x, a.x, b.x);
-  array_sub(dst.y, a.y, b.y);
-  array_sub(dst.z, a.z, b.z);
-}
-
-template <typename Coord, typename Scalar>
-inline void coord_scale(Coord &dst, Coord const &a, Scalar scale) {
-  array_scale(dst.x, a.x, scale);
-  array_scale(dst.y, a.y, scale);
-  array_scale(dst.z, a.z, scale);
-}
-
-template <typename Scalar, typename Coord>
-inline void coord_advance(Coord &var, Coord const &increment, Scalar step_size) {
-  array_advance(var.x, increment.x, step_size);
-  array_advance(var.y, increment.y, step_size);
-  array_advance(var.z, increment.z, step_size);
-}
-
-template <typename Array>
-inline auto calc_com(Array const &mass, Array const &var) {
+template <typename ScalarArray, typename VectorArray>
+inline auto calc_com(ScalarArray const &mass, VectorArray const &var) {
   return array_dot(var, mass) / array_sum(mass);
-}
-
-template <typename Array>
-inline auto calc_com(Array const &mass, Array const &var, typename Array::value_type tot_mass) {
-  return array_dot(var, mass) / tot_mass;
-}
-
-template <typename Array>
-void move_to_com(Array &var, typename Array::value_type const &com_var) {
-  for (auto &v : var) v -= com_var;
 }
 
 template <typename Array1, typename Array2>
 inline void move_to_com(Array1 const &mass, Array2 &var) {
   auto com_var = calc_com(mass, var);
-  move_to_com(var, com_var);
+  for (auto &v : var) v -= com_var;
 }
 
-template <typename Coord, typename ScalarArray>
-inline void coord_move_to_com(ScalarArray const &mass, Coord &var) {
-  auto tot_mass = array_sum(mass);
-  move_to_com(var.x, calc_com(mass, var.x, tot_mass));
-  move_to_com(var.y, calc_com(mass, var.y, tot_mass));
-  move_to_com(var.z, calc_com(mass, var.z, tot_mass));
-}
-
-template <typename Particles>
+template <concepts::Particles Particles>
 inline auto calc_kinetic_energy(Particles const &ptc) {
   return 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
 }
@@ -338,28 +291,13 @@ CREATE_METHOD_CHECK(pos);
 
 CREATE_METHOD_CHECK(vel);
 
-template <typename Particle>
+template <concepts::Particle Particle>
 auto calc_potential_energy(Particle const &particle1, Particle const &particle2) {
-  if constexpr (HAS_METHOD(Particle, mass) && HAS_METHOD(Particle, pos)) {
-    auto potential_eng = -consts::G * particle1.mass() * particle2.mass();
-
-    auto dx = particle1.pos().x - particle2.pos().x;
-    auto dy = particle1.pos().y - particle2.pos().y;
-    auto dz = particle1.pos().z - particle2.pos().z;
-
-    return potential_eng / sqrt(dx * dx + dy * dy + dz * dz);
-  } else {
-    auto potential_eng = -consts::G * particle1.mass * particle2.mass;
-
-    auto dx = particle1.pos.x - particle2.pos.x;
-    auto dy = particle1.pos.y - particle2.pos.y;
-    auto dz = particle1.pos.z - particle2.pos.z;
-
-    return potential_eng / sqrt(dx * dx + dy * dy + dz * dz);
-  }
+  auto potential_eng = -consts::G * particle1.mass * particle2.mass;
+  return potential_eng / norm(particle1.pos - particle2.pos);
 }
 
-template <typename Particles>
+/*template <concepts::Particles Particles>
 auto calc_potential_energy(Particles const &particles) {
   typename Particles::Scalar potential_eng{0};
   size_t const size = particles.number();
@@ -404,6 +342,43 @@ auto calc_potential_energy(Particles const &particles) {
   }
   return potential_eng * consts::G;
 }
+*/
+template <concepts::Particles Particles>
+auto calc_potential_energy(Particles const &particles) {
+  typename Particles::Scalar potential_eng{0};
+  size_t const size = particles.number();
+  auto const &m = particles.mass();
+  auto const &v = particles.vel();
+  auto const &p = particles.pos();
+
+  if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
+    auto const &ch_p = particles.chain_pos();
+    auto const &idx = particles.index();
+
+    for (size_t i = 0; i < size - 1; ++i) {
+      potential_eng -= m[idx[i]] * m[idx[i + 1]] / norm(ch_p[i]);
+    }
+
+    for (size_t i = 0; i < size - 2; ++i) {
+      auto dr = ch_p[i] + ch_p[i + 1];
+      potential_eng -= m[idx[i]] * m[idx[i + 2]] / norm(dr);
+    }
+
+    for (size_t i = 0; i < size; ++i) {
+      for (size_t j = i + 3; j < size; ++j) {
+        auto dr = p[idx[j]] - p[idx[i]];
+        potential_eng -= m[idx[i]] * m[idx[j]] / norm(dr);
+      }
+    }
+  } else {
+    for (size_t i = 0; i < size; ++i)
+      for (size_t j = i + 1; j < size; ++j) {
+        auto dr = p[i] - p[j];
+        potential_eng -= m[i] * m[j] / norm(dr);
+      }
+  }
+  return potential_eng * consts::G;
+}
 
 template <typename Particles>
 inline auto calc_total_energy(Particles const &particles) {
@@ -416,18 +391,15 @@ inline auto calc_total_energy(Particles const &particles) {
  *  @param  position  position array of particle.
  *  @return The minimal fall free time of the two particles
  */
-template <typename ScalarArray, typename Coord>
-inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &position) {
+template <typename ScalarArray, typename VectorArray>
+inline auto calc_fall_free_time(ScalarArray const &mass, VectorArray const &position) {
   using Scalar = typename ScalarArray::value_type;
   size_t const size = mass.size();
   Scalar min_fall_free = math::max_value<Scalar>::value;
 
   for (size_t i = 0; i < size; i++) {
     for (size_t j = i + 1; j < size; j++) {
-      Scalar dx = position.x[i] - position.x[j];
-      Scalar dy = position.y[i] - position.y[j];
-      Scalar dz = position.z[i] - position.z[j];
-      Scalar r = sqrt(dx * dx + dy * dy + dz * dz);
+      Scalar r = distance(position[i], position[j]);
       Scalar fall_free = pow(r, 1.5) / sqrt(mass[i] + mass[j]);
 
       if (fall_free < min_fall_free) min_fall_free = fall_free;
@@ -442,7 +414,7 @@ inline auto calc_fall_free_time(ScalarArray const &mass, Coord const &position) 
  * @param particles
  * @return
  */
-template <typename Particles>
+template <concepts::Particles Particles>
 auto calc_step_scale(Particles const &particles) {
   if constexpr (HAS_METHOD(Particles, omega)) {
     return calc_fall_free_time(particles.mass(), particles.pos()) * particles.omega();
@@ -451,7 +423,7 @@ auto calc_step_scale(Particles const &particles) {
   }
 }
 
-template <typename Particles>
+template <concepts::Particles Particles>
 auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) {
   auto U = -calc_potential_energy(particles);
   auto T = calc_kinetic_energy(particles);
@@ -463,4 +435,3 @@ auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0
   }
 }
 }  // namespace space::calc
-#endif

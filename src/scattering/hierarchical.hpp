@@ -111,7 +111,7 @@ std::string get_hierarchical_struct(Particles const& ptc) {
     Vector p0 = vec[0].pos;
     Vector v0 = vec[0].vel;
     double m0 = vec[0].mass;
-    double amin = 1e999;
+    double amin = 1e99;
     size_t idx = 0;
     for (size_t i = 1; i < vec.size(); i++) {
       auto [a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);

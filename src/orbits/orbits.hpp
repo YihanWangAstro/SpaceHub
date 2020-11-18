@@ -53,6 +53,9 @@ enum class OrbitType { Ellipse, Parabola, Hyperbola, None };
 struct RandomIndicator {
 } isotherm;
 
+template <typename T>
+concept AnomalyIndicator = std::convertible_to<T, double> || std::same_as<T, RandomIndicator>;
+
 /**
  * @brief Orbital parameters of the Kepler orbit.
  *@tparam Real Floating point like type.
@@ -65,10 +68,6 @@ struct KeplerOrbit {
    */
   using Scalar = Real;
 
-  /**
-   * @brief Variant that can hold both a Scalar OR a random indictor.
-   */
-  using Variant = std::variant<Real, RandomIndicator>;
   /**
    *  @brief Mass of the primary object.
    */
@@ -123,8 +122,9 @@ struct KeplerOrbit {
    * @param[in] argument_of_periapsis Argument of the periapsis.
    * @param[in] true_anomaly True anomaly.
    */
-  KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity, Variant inclination,
-              Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
+  template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+  KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity, T1 inclination,
+              T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly);
 
   /**
    * @brief Suffle the inclination.
@@ -178,10 +178,6 @@ enum class Hyper { in, out };
 struct HyperOrbit : public KeplerOrbit<double> {
  public:
   /**
-   * @brief Variant that can hold both a Scalar OR a random indictor.
-   */
-  using Variant = typename KeplerOrbit<double>::Variant;
-  /**
    * @brief Floating point like type.
    */
   using Scalar = typename KeplerOrbit<double>::Scalar;
@@ -201,8 +197,9 @@ struct HyperOrbit : public KeplerOrbit<double> {
    * @param[in]  r Distance between the two objects.
    * @param[in]  in_out  Indicator of incident in or ejected out
    */
-  HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant inclination, Variant longitude_of_ascending_node,
-             Variant argument_of_periapsis, Scalar r, Hyper in_out = Hyper::in);
+  template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3>
+  HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination, T2 longitude_of_ascending_node,
+             T3 argument_of_periapsis, Scalar r, Hyper in_out = Hyper::in);
 
   /**
    * @brief impact parameter.
@@ -218,10 +215,6 @@ struct HyperOrbit : public KeplerOrbit<double> {
  */
 struct EllipOrbit : public KeplerOrbit<double> {
  public:
-  /**
-   * @brief Variant that can hold both a Scalar OR a random indictor.
-   */
-  using Variant = typename KeplerOrbit<double>::Variant;
   /**
    * @brief Floating point like type.
    */
@@ -241,8 +234,9 @@ struct EllipOrbit : public KeplerOrbit<double> {
    * @param[in] argument_of_periapsis Argument of periapsis.
    * @param[in] true_anomaly True anomaly.
    */
-  EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
-             Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly);
+  template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+  EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
+             T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly);
 
   /**
    * @brief Semi-major axis.
@@ -418,9 +412,9 @@ constexpr OrbitType classify_orbit(T eccentricity) {
      Class OrbitArgs Implementation
 \*---------------------------------------------------------------------------*/
 template <typename Real>
-KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity,
-                               Variant inclination, Variant longitude_of_ascending_node, Variant argument_of_periapsis,
-                               Variant true_anomaly) {
+template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity, T1 inclination,
+                               T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly) {
   if (semi_latus_rectum < 0) spacehub_abort("Semi-latus rectum cannot be negative");
 
   orbit_type = classify_orbit(eccentricity);
@@ -434,28 +428,28 @@ KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum,
   p = semi_latus_rectum;
   e = eccentricity;
 
-  if (std::holds_alternative<Scalar>(inclination)) {
-    i = std::get<Scalar>(inclination);
-  } else {
+  if constexpr (std::same_as<T1, RandomIndicator>) {
     shuffle_i();
+  } else {
+    i = inclination;
   }
 
-  if (std::holds_alternative<Scalar>(longitude_of_ascending_node)) {
-    Omega = std::get<Scalar>(longitude_of_ascending_node);
-  } else {
+  if constexpr (std::same_as<T2, RandomIndicator>) {
     shuffle_Omega();
+  } else {
+    Omega = longitude_of_ascending_node;
   }
 
-  if (std::holds_alternative<Scalar>(argument_of_periapsis)) {
-    omega = std::get<Scalar>(argument_of_periapsis);
-  } else {
+  if (std::same_as<T3, RandomIndicator>) {
     shuffle_omega();
+  } else {
+    omega = argument_of_periapsis;
   }
 
-  if (std::holds_alternative<Scalar>(true_anomaly)) {
-    nu = std::get<Scalar>(true_anomaly);
-  } else {
+  if (std::same_as<T4, RandomIndicator>) {
     shuffle_nu();
+  } else {
+    nu = true_anomaly;
   }
 }
 
@@ -488,8 +482,9 @@ void KeplerOrbit<Real>::shuffle_nu() {
 /*---------------------------------------------------------------------------*\
      Class HyperOrbit Implementation
 \*---------------------------------------------------------------------------*/
-HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant inclination,
-                       Variant longitude_of_ascending_node, Variant argument_of_periapsis, Scalar r, Hyper in_out)
+template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3>
+HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination, T2 longitude_of_ascending_node,
+                       T3 argument_of_periapsis, Scalar r, Hyper in_out)
     : KeplerOrbit<double>(m_1, m_2, 0.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis, 0.0) {
   this->orbit_type = OrbitType::Hyperbola;
   Scalar u = space::consts::G * (m_1 + m_2);
@@ -506,8 +501,9 @@ HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, Variant i
 /*---------------------------------------------------------------------------*\
      Class EllipOrbit Implementation
 \*---------------------------------------------------------------------------*/
-EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, Variant inclination,
-                       Variant longitude_of_ascending_node, Variant argument_of_periapsis, Variant true_anomaly)
+template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
+                       T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly)
     : KeplerOrbit<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,
                           longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
   if (this->orbit_type != OrbitType::Ellipse) {

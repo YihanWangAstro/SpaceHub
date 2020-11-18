@@ -52,17 +52,13 @@ set(TMP_HEADER_FILES
         src/vector/vector3d.hpp
         src/vector/vector3pd.hpp
 
-        src/interaction/accelerations.hpp
         src/coords.hpp
-        src/interaction/interaction.hpp
-        src/particle-system/particle-system.hpp
         src/rand-generator.hpp
         src/core-computation.hpp
         src/dev-tools.hpp
         src/kahan-number.hpp
         src/macros.hpp
         src/math.hpp
-        src/particles/particles.hpp
         src/simulator.hpp
         src/spaceHub.hpp
         src/type-class.hpp
@@ -72,7 +68,6 @@ set(TMP_HEADER_FILES
         src/ode-iterator/step-controller/stepsize-controller.hpp
         src/ode-iterator/step-controller/PID-controller.hpp
         src/scattering/cross-section.hpp
-        src/integrator/integrator.hpp
         src/ode-iterator/error-checker/IAS15-error.hpp
         src/orbits/particle-manip.hpp
         src/IO.hpp

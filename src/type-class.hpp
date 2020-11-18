@@ -28,7 +28,6 @@ License
 
 #include <vector>
 
-#include "coords.hpp"
 #include "vector/vector3.hpp"
 
 namespace space {

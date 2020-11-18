@@ -94,14 +94,14 @@ TEST_CASE("point particle") {
     REQUIRE(new_ptc.time() == t0);
     REQUIRE(new_ptc.number() == RAND_TEST_NUM);
     for (size_t i = 0; i < RAND_TEST_NUM; ++i) {
-      REQUIRE(new_ptc.idn()[i] == i);
-      REQUIRE(new_ptc.mass()[i] == init_con[i].mass);
-      REQUIRE(new_ptc.pos().x[i] == init_con[i].pos.x);
-      REQUIRE(new_ptc.pos().y[i] == init_con[i].pos.y);
-      REQUIRE(new_ptc.pos().z[i] == init_con[i].pos.z);
-      REQUIRE(new_ptc.vel().x[i] == init_con[i].vel.x);
-      REQUIRE(new_ptc.vel().y[i] == init_con[i].vel.y);
-      REQUIRE(new_ptc.vel().z[i] == init_con[i].vel.z);
+      REQUIRE(new_ptc.idn(i) == i);
+      REQUIRE(new_ptc.mass(i) == init_con[i].mass);
+      REQUIRE(new_ptc.pos(i).x == init_con[i].pos.x);
+      REQUIRE(new_ptc.pos(i).y == init_con[i].pos.y);
+      REQUIRE(new_ptc.pos(i).z == init_con[i].pos.z);
+      REQUIRE(new_ptc.vel(i).x == init_con[i].vel.x);
+      REQUIRE(new_ptc.vel(i).y == init_con[i].vel.y);
+      REQUIRE(new_ptc.vel(i).z == init_con[i].vel.z);
     }
   }
 }

@@ -26,9 +26,10 @@ License
 #define SPACEHUB_SIMULATOR_HPP
 
 #include <functional>
+
+#include "IO.hpp"
 #include "core-computation.hpp"
 #include "dev-tools.hpp"
-#include "IO.hpp"
 
 namespace space {
 
@@ -184,13 +185,11 @@ class RunArgs {
    */
   [[nodiscard]] bool is_end_time_set() const { return is_end_time_set_; }
 
-      /**
-       * Check if any of the stop condition(except the duration time) is set.
-       * @return boolean
-       */
-      [[nodiscard]] bool is_stop_condition_set() const {
-    return stop_cond_.size() > 0;
-  }
+  /**
+   * Check if any of the stop condition(except the duration time) is set.
+   * @return boolean
+   */
+  [[nodiscard]] bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
 
  private:
   // private members
@@ -230,7 +229,7 @@ class Simulator {
    */
   using Particle = typename ParticleSys::Particle;
 
-  SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
+  SPACEHUB_READ_ACCESSOR(auto, particles, particles_.particles());
 
   // Constructors
   SPACEHUB_MAKE_CONSTRUCTORS(Simulator, delete, default, default, default, default);
@@ -316,25 +315,29 @@ bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system, Scalar step
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&... args) {
-  pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+  pre_opts_.emplace_back(
+      std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&... args) {
-  post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+  post_opts_.emplace_back(
+      std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&... args) {
-  stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+  stop_opts_.emplace_back(
+      std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
 template <typename Func, typename... Args>
 void RunArgs<ParticleSys>::add_stop_condition(Func func, Args &&... args) {
-  stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+  stop_cond_.emplace_back(
+      std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 }
 
 template <typename ParticleSys>
@@ -369,7 +372,7 @@ void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
   step_size_ = run_args.step_size;
 
   if (step_size_ == 0.0) {
-    step_size_ = 0.01 * calc::calc_step_scale(particles_);
+    step_size_ = 0.01 * calc::calc_step_scale(particles_.particles());
   }
 
   Scalar end_time = space::unit::T_hubble;
@@ -378,7 +381,7 @@ void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
     end_time = run_args.end_time;
   }
 
-  if (particles_.time() >= end_time) {
+  if (particles_.particles().time() >= end_time) {
     space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
   }
 
@@ -390,7 +393,7 @@ void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
     iterator_.set_rtol(run_args.rtol);
   }
 
-  for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
+  for (; particles_.particles().time() < end_time && !run_args.check_stops(particles_, step_size_);) {
     run_args.pre_operations(particles_, step_size_);
     advance_one_step();
     run_args.post_operations(particles_, step_size_);

@@ -22,10 +22,7 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_ODE_ITERATOR_HPP
-#define SPACEHUB_ODE_ITERATOR_HPP
-
-#include "../particle-system/particle-system.hpp"
+#pragma once
 
 /**
  * @namespace space::ode_iterator
@@ -96,7 +93,6 @@ class OdeIterator {
 template <typename Derived>
 template <typename T>
 auto OdeIterator<Derived>::iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
-  static_assert(particle_system::is_particle_system_v<T>, "Passing non particle-system-type!");
   return static_cast<Derived *>(this)->impl_iterate(particles, macro_step_size);
 }
 
@@ -118,4 +114,3 @@ void OdeIterator<Derived>::set_rtol(T rtol) {
 template <typename T>
 constexpr bool is_ode_iterator_v = std::is_base_of_v<OdeIterator<T>, T>;
 }  // namespace space::ode_iterator
-#endif  // SPACEHUB_ODE_ITERATOR_HPP
