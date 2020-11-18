@@ -44,23 +44,23 @@ int main(int argc, char **argv) {
 
   using sim_sys = SimpleSystem<particles, force>;
 
-  // using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
+  using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
-  // using chain_sys = ChainSystem<particles, force>;
+  using chain_sys = ChainSystem<particles, force>;
 
-  // using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
+ using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-  // using iter = ConstOdeIterator<Symplectic2nd>;
+   using iter = ConstOdeIterator<Symplectic2nd>;
 
-  using iter = BurlishStoer<double, WorstOffender, PIDController>;
+  //using iter = BurlishStoer<double, WorstOffender, PIDController>;
 
   run<Simulator<sim_sys, iter>>("sim");
 
-  // run<Simulator<regu_sys, iter>>("regu");
+  run<Simulator<regu_sys, iter>>("regu");
 
-  // run<Simulator<chain_sys, iter>>("chain");
+   run<Simulator<chain_sys, iter>>("chain");
 
-  // run<Simulator<arch_sys, iter>>("arch");
+  run<Simulator<arch_sys, iter>>("arch");
 
   return 0;
 }

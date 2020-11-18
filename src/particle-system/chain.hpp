@@ -70,32 +70,32 @@ class Chain {
   /**
    * @brief Calculate the chain index.
    *
-   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam VectorArray Type of the Structure of Array coordinates.
    * @tparam IdxArray Type of the index array.
    * @param[in] pos Input position in Cartesian coordinates.
    * @param[out] index Output index array.
    * @note The memory space of the index need to be allocated in advance. The size of pos and index need to be the same.
    */
-  template <typename Coord, typename IdxArray>
-  static void calc_chain_index(Coord const &pos, IdxArray &index);
+  template <typename VectorArray, typename IdxArray>
+  static void calc_chain_index(VectorArray const &pos, IdxArray &index);
 
   /**
    * @brief Update the chain coordinates from old index array to new index array.
    *
-   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam VectorArray Type of the Structure of Array coordinates.
    * @tparam IdxArray Type of the index array.
    * @param[in,out] chain The chain coordinates.
    * @param[in] idx Old chain index array.
    * @param[in] new_idx New chain index array.
    */
-  template <typename Coord, typename IdxArray>
-  static void update_chain(Coord &chain, IdxArray const &idx, IdxArray const &new_idx);
+  template <typename VectorArray, typename IdxArray>
+  static void update_chain(VectorArray &chain, IdxArray const &idx, IdxArray const &new_idx);
 
   /**
    * @brief Calculate the corresponding Cartesian coordinates of the chain coordinates.
    *
    * @tparam ScalarArray Type of the mass array.
-   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam VectorArray Type of the Structure of Array coordinates.
    * @tparam IdxArray Type of the index array.
    * @param[in] mass The mass array(needed for centre of mass movement).
    * @param[in] chain The chain coordinates.
@@ -104,20 +104,20 @@ class Chain {
    * @note The memory space of the cartesian need to be allocated in advance. The size of the input parameters need to
    * be the same.
    */
-  template <typename ScalarArray, typename Coord, typename IdxArray>
-  static void calc_cartesian(ScalarArray const &mass, Coord const &chain, Coord &cartesian, IdxArray const &index);
+  template <typename ScalarArray, typename VectorArray, typename IdxArray>
+  static void calc_cartesian(ScalarArray const &mass, VectorArray const &chain, VectorArray &cartesian, IdxArray const &index);
 
   /**
    * @brief Calculate the corresponding chain coordinates of the Cartesian coordinates.
    *
-   * @tparam Coord Type of the Structure of Array coordinates.
+   * @tparam VectorArray Type of the Structure of Array coordinates.
    * @tparam IdxArray Type of the index array.
    * @param[in] cartesian The Cartesian coordinates.
    * @param[out] chain The chain coordinates.
    * @param[in] index The chain index array.
    */
-  template <typename Coord, typename IdxArray>
-  static void calc_chain(Coord const &cartesian, Coord &chain, IdxArray const &index);
+  template <typename VectorArray, typename IdxArray>
+  static void calc_chain(VectorArray const &cartesian, VectorArray &chain, IdxArray const &index);
 
   /**
    * @brief Method flag. Indicates the transformation type;
@@ -137,14 +137,14 @@ class Chain {
 
   static bool try_add_to_chain(std::list<size_t> &list, size_t &head, size_t &tail, Node &n);
 
-  template <typename Coord, typename Container>
-  static void create_distances_array(Coord const &pos, Container &vec);
+  template <typename VectorArray, typename Container>
+  static void create_distances_array(VectorArray const &pos, Container &vec);
 
   template <typename IdxArray>
   static void create_index_from_dist_array(std::vector<Node> &dist, IdxArray &idx, size_t num);
 
-  template <typename Coord>
-  static auto get_new_node(Coord const &chain, size_t head, size_t tail) -> typename Coord::Vector;
+  template <typename VectorArray>
+  static auto get_new_node(VectorArray const &chain, size_t head, size_t tail) -> typename VectorArray::value_type;
 
   template <typename Array, typename IdxArray>
   static void to_chain(Array const &cartesian, Array &chain, IdxArray const &index);
@@ -155,20 +155,20 @@ class Chain {
 /*---------------------------------------------------------------------------*\
       Class Chain Implementation
 \*---------------------------------------------------------------------------*/
-template <typename Coord, typename IdxArray>
-void Chain::calc_chain_index(const Coord &pos, IdxArray &index) {
+template <typename VectorArray, typename IdxArray>
+void Chain::calc_chain_index(const VectorArray &pos, IdxArray &index) {
   std::vector<Node> dist;
   create_distances_array(pos, dist);
   std::sort(dist.begin(), dist.end(), [&](Node const &ni, Node const &nj) { return (ni.r < nj.r); });
   create_index_from_dist_array(dist, index, pos.size());
 }
 
-template <typename Coord, typename IdxArray>
-void Chain::update_chain(Coord &chain, const IdxArray &idx, const IdxArray &new_idx) {
-  using Vector = typename Coord::Vector;
+template <typename VectorArray, typename IdxArray>
+void Chain::update_chain(VectorArray &chain, const IdxArray &idx, const IdxArray &new_idx) {
+  using Vector = typename VectorArray::value_type;
   size_t size = chain.size();
 
-  Coord new_chain;
+  VectorArray new_chain;
   new_chain.reserve(size);
 
   auto get_idx = [&](auto var) -> auto { return std::find(idx.begin(), idx.end(), var) - idx.begin(); };
@@ -183,22 +183,22 @@ void Chain::update_chain(Coord &chain, const IdxArray &idx, const IdxArray &new_
     new_chain.emplace_back(Vector(0, 0, 0));
   } else {
     Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
-    new_chain.emplace_back(Vector(chain.x.back(), chain.y.back(), chain.z.back()) + new_head);
+    new_chain.emplace_back(chain.back() + new_head);
   }
 
   chain = std::move(new_chain);
 }
 
-template <typename ScalarArray, typename Coord, typename IdxArray>
-void Chain::calc_cartesian(const ScalarArray &mass, const Coord &chain, Coord &cartesian, const IdxArray &index) {
+template <typename ScalarArray, typename VectorArray, typename IdxArray>
+void Chain::calc_cartesian(const ScalarArray &mass, const VectorArray &chain, VectorArray &cartesian, const IdxArray &index) {
   to_cartesian(chain, cartesian, index);
   if constexpr (!bijective_transfer) {
     calc::move_to_com(mass, cartesian);
   }
 }
 
-template <typename Coord, typename IdxArray>
-void Chain::calc_chain(const Coord &cartesian, Coord &chain, const IdxArray &index) {
+template <typename VectorArray, typename IdxArray>
+void Chain::calc_chain(const VectorArray &cartesian, VectorArray &chain, const IdxArray &index) {
   to_chain(cartesian, chain, index);
 }
 
@@ -232,8 +232,8 @@ bool Chain::try_add_to_chain(std::list<size_t> &list, size_t &head, size_t &tail
   return false;
 }
 
-template <typename Coord, typename Container>
-void Chain::create_distances_array(const Coord &pos, Container &vec) {
+template <typename VectorArray, typename Container>
+void Chain::create_distances_array(const VectorArray &pos, Container &vec) {
   size_t num = pos.size();
   vec.reserve(num * (num - 1));
   for (size_t i = 0; i < num; ++i) {
@@ -275,10 +275,11 @@ void Chain::create_index_from_dist_array(std::vector<Node> &dist, IdxArray &idx,
   }
 }
 
-template <typename Coord>
-auto Chain::get_new_node(const Coord &chain, size_t head, size_t tail) -> typename Coord::Vector {
-  using Scalar = typename Coord::Scalar;
-  using Vector = typename Coord::Vector;
+template <typename VectorArray>
+auto Chain::get_new_node(const VectorArray &chain, size_t head, size_t tail) -> typename VectorArray::value_type {
+  using Vector = typename VectorArray::value_type;
+  using Scalar = typename Vector::value_type;
+  
 
   Scalar sign{1};
 
@@ -296,8 +297,7 @@ auto Chain::get_new_node(const Coord &chain, size_t head, size_t tail) -> typena
     return new_d;
   };
 
-  return Vector(sign * connect(chain.x, head, tail), sign * connect(chain.y, head, tail),
-                sign * connect(chain.z, head, tail));
+  return connect(chain, head, tail)*sign;
 }
 
 template <typename Array, typename IdxArray>

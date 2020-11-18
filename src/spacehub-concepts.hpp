@@ -58,7 +58,7 @@ template <typename T>
 concept ParticleContainer = Container<T> &&Particle<typename T::value_type>;
 
 template <typename T>
-concept Particles = requires(T p, size_t index) {
+concept ParticlesData = requires(T p, size_t index) {
   typename T::Particle;
   typename T::Vector;
   typename T::Scalar;
@@ -69,28 +69,40 @@ concept Particles = requires(T p, size_t index) {
   requires Particle<typename T::Particle>;
 
   { p.time() }
-  ->std::convertible_to<typename T::Scalar &>;
+  ->std::common_reference_with<typename T::Scalar &>;
   { p.idn() }
-  ->std::convertible_to<typename T::IdxArray &>;
+  ->std::common_reference_with<typename T::IdxArray &>;
   { p.mass() }
-  ->std::convertible_to<typename T::ScalarArray &>;
+  ->std::common_reference_with<typename T::ScalarArray &>;
   { p.pos() }
-  ->std::convertible_to<typename T::VectorArray &>;
+  ->std::common_reference_with<typename T::VectorArray &>;
   { p.vel() }
-  ->std::convertible_to<typename T::VectorArray &>;
+  ->std::common_reference_with<typename T::VectorArray &>;
   { p.idn(index) }
-  ->std::convertible_to<size_t &>;
+  ->std::common_reference_with<size_t &>;
   { p.mass(index) }
-  ->std::convertible_to<typename T::Scalar &>;
+  ->std::common_reference_with<typename T::Scalar &>;
   { p.pos(index) }
-  ->std::convertible_to<typename T::Vector &>;
+  ->std::common_reference_with<typename T::Vector &>;
   { p.vel(index) }
-  ->std::convertible_to<typename T::Vector &>;
+  ->std::common_reference_with<typename T::Vector &>;
   { p.number() }
   ->std::convertible_to<size_t> const;
+};
+
+template <typename T>
+concept ParticlesResizable = requires(T p, size_t index) {
+  typename T::Particle;
+  typename T::Vector;
+  typename T::Scalar;
+  typename T::VectorArray;
+  typename T::ScalarArray;
+  typename T::IdxArray;
+
+  requires Particle<typename T::Particle>;
   { p.capacity() }
   ->std::convertible_to<size_t> const;
-  { p.emplace_back(INSTANCE(typename T::Particle)) }
+  { p.emplace_back(INSTANCE(typename T::Particle &)) }
   ->std::same_as<void>;
   { p.reserve(index) }
   ->std::same_as<void>;
@@ -101,7 +113,10 @@ concept Particles = requires(T p, size_t index) {
 };
 
 template <typename T>
-concept ParticleSystem = requires(T p, size_t index) {
+concept Particles = ParticlesData<T> && ParticlesResizable<T>;
+
+template <typename T>
+concept ParticleSystem = ParticlesData<T> && requires(T p, size_t index) {
   typename T::Particle;
   typename T::Vector;
   typename T::Scalar;
@@ -127,9 +142,9 @@ concept ParticleSystem = requires(T p, size_t index) {
   ->std::same_as<void>;
   { p.post_iter_process() }
   ->std::same_as<void>;
-  { p.to_linear_container(INSTANCE(typename T::ScalarArray &)) }
+  { p.write_to_scalar_array(INSTANCE(typename T::ScalarArray &)) }
   ->std::same_as<void>;
-  { p.load_from_linear_container(INSTANCE(typename T::ScalarArray const &)) }
+  { p.read_from_scalar_array(INSTANCE(typename T::ScalarArray const &)) }
   ->std::same_as<void>;
 };
 
@@ -160,38 +175,38 @@ struct TestParticles {
 };
 
 template <typename T>
-concept NewtonianInteraction = requires(T i, TestParticles p) {
-  { i.eval_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
+concept NewtonianInteraction = requires(TestParticles p) {
+  { T::eval_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
   ->std::same_as<void>;
 
-  { i.eval_newtonian_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
+  { T::eval_newtonian_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
   ->std::same_as<void>;
 };
 
 template <typename T>
-concept ExtraVelDepInteraction = requires(T i, TestParticles p) {
+concept ExtraVelDepInteraction = requires(TestParticles p) {
   requires Particles<typename T::Particles>;
 
-  { i.eval_extra_vel_dep_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
+  { T::eval_extra_vel_dep_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
   ->std::same_as<void>;
 };
 
 template <typename T>
-concept ExtraVelIndepInteraction = requires(T i, TestParticles p) {
+concept ExtraVelIndepInteraction = requires(TestParticles p) {
   requires Particles<typename T::Particles>;
 
-  { i.eval_extra_vel_indep_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
+  { T::eval_extra_vel_indep_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
   ->std::same_as<void>;
 };
 
 template <typename T>
-concept Interaction =
-    true;  // NewtonianInteraction<T> && (!T::ext_vel_dep || (T::ext_vel_dep && ExtraVelDepInteraction<T>)) &&
-           //(!T::ext_vel_indep || (T::ext_vel_indep && ExtraVelIndepInteraction<T>));
+concept Interaction = NewtonianInteraction<T> && (!T::ext_vel_dep || (T::ext_vel_dep && ExtraVelDepInteraction<T>)) &&
+                      (!T::ext_vel_indep || (T::ext_vel_indep && ExtraVelIndepInteraction<T>));
 
 template <typename T>
-concept Force = std::same_as<T, void> || requires(T t) {
-  T::add_acc_to();
+concept Force = std::same_as<T, void> || requires(TestParticles p) {
+  { T::add_acc_to(p, INSTANCE(typename TestParticles::VectorArray &)) }
+  ->std::same_as<void>;
 };
 
 }  // namespace space::concepts

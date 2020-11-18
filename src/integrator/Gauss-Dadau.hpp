@@ -442,19 +442,19 @@ void GaussDadau<Coord>::update_B_table(const Coord &acc0, const Coord &acc, size
 template <typename Coord>
 template <typename ParticleSys>
 void GaussDadau<Coord>::calc_B_table(ParticleSys &particles, Scalar step_size) {
-  particles.to_linear_container(input_);
+  particles.write_to_scalar_array(input_);
   check_particle_size(particles.number());
   particles.evaluate_acc(acceleration0_);
   integrate_to(particles, step_size, 0);
   particles.evaluate_acc(acceleration_);
   update_B_table(acceleration0_, acceleration_, 0);
   for (size_t i = 1; i < final_point; ++i) {
-    particles.load_from_linear_container(input_);
+    particles.read_from_scalar_array(input_);
     integrate_to(particles, step_size, i);
     particles.evaluate_acc(acceleration_);
     update_B_table(acceleration0_, acceleration_, i);
   }
-  particles.load_from_linear_container(input_);
+  particles.read_from_scalar_array(input_);
 }
 
 template <typename Coord>

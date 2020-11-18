@@ -52,7 +52,6 @@ set(TMP_HEADER_FILES
         src/vector/vector3d.hpp
         src/vector/vector3pd.hpp
 
-        src/coords.hpp
         src/rand-generator.hpp
         src/core-computation.hpp
         src/dev-tools.hpp
@@ -77,7 +76,6 @@ set(TMP_HEADER_FILES
 set(UNIT_TEST
         test/unit_test/utest_vector3.cpp
         test/unit_test/utest_math.cpp
-        test/unit_test/utest_coord.cpp
         test/unit_test/utest_point-particle.cpp
         test/unit_test/utest_finite-particle.cpp
         test/unit_test/utest_chain.cpp

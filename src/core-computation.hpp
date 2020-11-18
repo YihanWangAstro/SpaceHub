@@ -272,7 +272,7 @@ inline void move_to_com(Array1 const &mass, Array2 &var) {
   for (auto &v : var) v -= com_var;
 }
 
-template <concepts::Particles Particles>
+template <concepts::ParticlesData Particles>
 inline auto calc_kinetic_energy(Particles const &ptc) {
   return 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
 }
@@ -291,7 +291,7 @@ CREATE_METHOD_CHECK(pos);
 
 CREATE_METHOD_CHECK(vel);
 
-template <concepts::Particle Particle>
+template <concepts::ParticlesData Particle>
 auto calc_potential_energy(Particle const &particle1, Particle const &particle2) {
   auto potential_eng = -consts::G * particle1.mass * particle2.mass;
   return potential_eng / norm(particle1.pos - particle2.pos);
@@ -343,7 +343,7 @@ auto calc_potential_energy(Particles const &particles) {
   return potential_eng * consts::G;
 }
 */
-template <concepts::Particles Particles>
+template <concepts::ParticlesData Particles>
 auto calc_potential_energy(Particles const &particles) {
   typename Particles::Scalar potential_eng{0};
   size_t const size = particles.number();
@@ -380,7 +380,7 @@ auto calc_potential_energy(Particles const &particles) {
   return potential_eng * consts::G;
 }
 
-template <typename Particles>
+template <concepts::ParticlesData Particles>
 inline auto calc_total_energy(Particles const &particles) {
   return calc_potential_energy(particles) + calc_kinetic_energy(particles);
 }
@@ -414,7 +414,7 @@ inline auto calc_fall_free_time(ScalarArray const &mass, VectorArray const &posi
  * @param particles
  * @return
  */
-template <concepts::Particles Particles>
+template <concepts::ParticlesData Particles>
 auto calc_step_scale(Particles const &particles) {
   if constexpr (HAS_METHOD(Particles, omega)) {
     return calc_fall_free_time(particles.mass(), particles.pos()) * particles.omega();
@@ -423,7 +423,7 @@ auto calc_step_scale(Particles const &particles) {
   }
 }
 
-template <concepts::Particles Particles>
+template <concepts::ParticlesData Particles>
 auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) {
   auto U = -calc_potential_energy(particles);
   auto T = calc_kinetic_energy(particles);

@@ -206,7 +206,7 @@ template <typename Real, template <typename> typename ErrChecker, template <size
 template <concepts::ParticleSystem U>
 auto BurlishStoer<Real, ErrChecker, StepControl>::iterate(U &particles, typename U::Scalar macro_step_size) -> Scalar {
   Scalar iter_h = macro_step_size;
-  particles.to_linear_container(input_);
+  particles.write_to_scalar_array(input_);
   check_variable_size();
 
   for (size_t i = 0; i < max_try_num; ++i) {
@@ -214,12 +214,12 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::iterate(U &particles, typename
     bool reject = true;
 
     integrate_by_n_steps(particles, iter_h, parameters_.step_sequence(0));
-    particles.to_linear_container(extrap_list_[0]);
+    particles.write_to_scalar_array(extrap_list_[0]);
 
     for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
-      particles.load_from_linear_container(input_);
+      particles.read_from_scalar_array(input_);
       integrate_by_n_steps(particles, iter_h, parameters_.step_sequence(k));
-      particles.to_linear_container(extrap_list_[k]);
+      particles.write_to_scalar_array(extrap_list_[k]);
       extrapolate(k);
 
       Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
@@ -234,7 +234,7 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::iterate(U &particles, typename
         if (error < 1.0) {
           reject = false;
           iter_h = set_next_iteration(k, last_step_reject_);
-          particles.load_from_linear_container(extrap_list_[0]);
+          particles.read_from_scalar_array(extrap_list_[0]);
           last_step_reject_ = reject;
           last_error_ = error;
           return iter_h;
@@ -247,7 +247,7 @@ auto BurlishStoer<Real, ErrChecker, StepControl>::iterate(U &particles, typename
       }
     }
     last_step_reject_ = reject;
-    particles.load_from_linear_container(input_);
+    particles.read_from_scalar_array(input_);
   }
 
   spacehub_abort("Reach max iteration loop number!");

@@ -58,6 +58,16 @@ class ARchainSystem {
   // Public methods
   SPACEHUB_READ_ACCESSOR(Particles, particles, ptcl_);
 
+  SPACEHUB_READ_ACCESSOR(Scalar, time, ptcl_.time());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(IdxArray, idn, ptcl_.idn());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(ScalarArray, mass, ptcl_.mass());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(VectorArray, pos, ptcl_.pos());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(VectorArray, vel, ptcl_.vel());
+
   SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
 
   SPACEHUB_STD_ACCESSOR(auto, chain_vel, chain_vel_);
@@ -67,6 +77,8 @@ class ARchainSystem {
   SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
 
   SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
+
+  size_t number() const {return ptcl_.number();};
 
   void advance_time(Scalar step_size);
 
@@ -85,10 +97,10 @@ class ARchainSystem {
   void post_iter_process();
 
   template <typename STL>
-  void to_linear_container(STL &stl_ranges);
+  void write_to_scalar_array(STL &stl_ranges);
 
   template <typename STL>
-  void load_from_linear_container(STL const &stl_ranges);
+  void read_from_scalar_array(STL const &stl_ranges);
 
   // Friend functions
   template <typename P, typename F, ReguType R>
@@ -245,7 +257,7 @@ void ARchainSystem<Particles, Interactions, RegType>::post_iter_process() {
 
 template <typename Particles, typename Interactions, ReguType RegType>
 template <typename STL>
-void ARchainSystem<Particles, Interactions, RegType>::to_linear_container(STL &stl_ranges) {
+void ARchainSystem<Particles, Interactions, RegType>::write_to_scalar_array(STL &stl_ranges) {
   stl_ranges.clear();
   stl_ranges.reserve(ptcl_.number() * 6 + 3);
   stl_ranges.emplace_back(ptcl_.time());
@@ -266,7 +278,7 @@ void ARchainSystem<Particles, Interactions, RegType>::to_linear_container(STL &s
 
 template <typename Particles, typename Interactions, ReguType RegType>
 template <typename STL>
-void ARchainSystem<Particles, Interactions, RegType>::load_from_linear_container(const STL &stl_ranges) {
+void ARchainSystem<Particles, Interactions, RegType>::read_from_scalar_array(const STL &stl_ranges) {
   auto begin = stl_ranges.begin();
   ptcl_.time() = *begin;
   omega() = *(begin + 1);

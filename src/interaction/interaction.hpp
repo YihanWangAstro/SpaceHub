@@ -30,7 +30,8 @@ namespace space::interactions {
 /*---------------------------------------------------------------------------*\
     Class Interactions Declaration
 \*---------------------------------------------------------------------------*/
-template <typename InternalForce, typename ExtraVelDepForce = void, typename ExtraVelIndepForce = void>
+template <concepts::Force InternalForce, concepts::Force ExtraVelDepForce = void,
+          concepts::Force ExtraVelIndepForce = void>
 class Interactions {
  public:
   static constexpr bool ext_vel_dep{!std::same_as<ExtraVelDepForce, void>};
@@ -45,7 +46,7 @@ class Interactions {
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <concepts::Particles Particles>
+  template <concepts::ParticlesData Particles>
   static void eval_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
   /**
@@ -56,7 +57,7 @@ class Interactions {
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <concepts::Particles Particles>
+  template <concepts::ParticlesData Particles>
   static void eval_extra_vel_dep_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
   /**
@@ -67,7 +68,7 @@ class Interactions {
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <concepts::Particles Particles>
+  template <concepts::ParticlesData Particles>
   static void eval_extra_vel_indep_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
   /**
@@ -78,13 +79,13 @@ class Interactions {
    * @param[in] particles The particle system need to be evaluated.
    * @param[out] acceleration The output of the evaluated acceleration.
    */
-  template <concepts::Particles Particles>
+  template <concepts::ParticlesData Particles>
   static void eval_newtonian_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 };
 
 template <typename Arg, typename... Args>
 struct ForceAdd {
-  template <concepts::Particles Particles>
+  template <concepts::ParticlesData Particles>
   static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration) {
     Arg::add_acc_to(particles, acceleration);
     if constexpr (sizeof...(Args) > 0) {
@@ -128,8 +129,8 @@ class InteractionData {
     Class Interactions Implementation
 \*---------------------------------------------------------------------------*/
 
-template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
-template <concepts::Particles Particles>
+template <concepts::Force InternalForce, concepts::Force ExtraVelDepForce, concepts::Force ExtraVelIndepForce>
+template <concepts::ParticlesData Particles>
 void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_acc(
     const Particles &particles, typename Particles::VectorArray &acceleration) {
   calc::array_set_zero(acceleration);
@@ -142,8 +143,8 @@ void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_acc
   }
 }
 
-template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
-template <concepts::Particles Particles>
+template <concepts::Force InternalForce, concepts::Force ExtraVelDepForce, concepts::Force ExtraVelIndepForce>
+template <concepts::ParticlesData Particles>
 void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_extra_vel_dep_acc(
     const Particles &particles, typename Particles::VectorArray &acceleration) {
   if constexpr (ext_vel_dep) {
@@ -152,8 +153,8 @@ void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_ext
   }
 }
 
-template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
-template <concepts::Particles Particles>
+template <concepts::Force InternalForce, concepts::Force ExtraVelDepForce, concepts::Force ExtraVelIndepForce>
+template <concepts::ParticlesData Particles>
 void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_extra_vel_indep_acc(
     const Particles &particles, typename Particles::VectorArray &acceleration) {
   if constexpr (ext_vel_indep) {
@@ -162,8 +163,8 @@ void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_ext
   }
 }
 
-template <typename InternalForce, typename ExtraVelDepForce, typename ExtraVelIndepForce>
-template <concepts::Particles Particles>
+template <concepts::Force InternalForce, concepts::Force ExtraVelDepForce, concepts::Force ExtraVelIndepForce>
+template <concepts::ParticlesData Particles>
 void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_newtonian_acc(
     const Particles &particles, typename Particles::VectorArray &acceleration) {
   calc::array_set_zero(acceleration);

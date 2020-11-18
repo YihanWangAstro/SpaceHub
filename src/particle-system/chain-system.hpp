@@ -56,11 +56,23 @@ class ChainSystem {
   // Public methods
   SPACEHUB_READ_ACCESSOR(Particles, particles, ptcl_);
 
+  SPACEHUB_READ_ACCESSOR(Scalar, time, ptcl_.time());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(IdxArray, idn, ptcl_.idn());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(ScalarArray, mass, ptcl_.mass());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(VectorArray, pos, ptcl_.pos());
+
+  SPACEHUB_ARRAY_READ_ACCESSOR(VectorArray, vel, ptcl_.vel());
+
   SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
 
   SPACEHUB_STD_ACCESSOR(auto, chain_vel, chain_vel_);
 
   SPACEHUB_STD_ACCESSOR(auto, index, index_);
+
+  size_t number() const {return ptcl_.number();};
 
   void advance_time(Scalar dt);
 
@@ -79,10 +91,10 @@ class ChainSystem {
   void post_iter_process();
 
   template <typename STL>
-  void to_linear_container(STL &stl_ranges);
+  void write_to_scalar_array(STL &stl_ranges);
 
   template <typename STL>
-  void load_from_linear_container(STL const &stl_ranges);
+  void read_from_scalar_array(STL const &stl_ranges);
 
  private:
   // Private methods
@@ -205,7 +217,7 @@ void ChainSystem<Particles, Interactions>::post_iter_process() {
 
 template <typename Particles, typename Interactions>
 template <typename STL>
-void ChainSystem<Particles, Interactions>::to_linear_container(STL &stl_ranges) {
+void ChainSystem<Particles, Interactions>::write_to_scalar_array(STL &stl_ranges) {
   stl_ranges.clear();
   stl_ranges.reserve(ptcl_.number() * 6 + 1);
   stl_ranges.emplace_back(ptcl_.time());
@@ -215,7 +227,7 @@ void ChainSystem<Particles, Interactions>::to_linear_container(STL &stl_ranges) 
 
 template <typename Particles, typename Interactions>
 template <typename STL>
-void ChainSystem<Particles, Interactions>::load_from_linear_container(const STL &stl_ranges) {
+void ChainSystem<Particles, Interactions>::read_from_scalar_array(const STL &stl_ranges) {
   auto begin = stl_ranges.begin();
   ptcl_.time() = *begin;
   size_t len = ptcl_.number() * 3;

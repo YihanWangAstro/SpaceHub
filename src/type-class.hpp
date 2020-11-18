@@ -80,6 +80,29 @@ struct Types {
    */
   using VectorArray = Container<Vector>;
 };
+
+template <typename Iter, typename VectorArray>
+void load_to_coords(Iter begin, Iter end, VectorArray& var) {
+  size_t len = (end - begin) / 3;
+  var.resize(len);
+  auto iter = begin;
+  for (auto& v : var) {
+    v.x = *iter++;
+    v.y = *iter++;
+    v.z = *iter++;
+  }
+}
+
+template <typename ScalarArray, typename VectorArray>
+void add_coords_to(ScalarArray& stl, VectorArray const& var) {
+  stl.reserve(var.size() * 3 + stl.size());
+  for (auto const& v : var) {
+    stl.emplace_back(v.x);
+    stl.emplace_back(v.y);
+    stl.emplace_back(v.z);
+  }
+}
+
 }  // namespace space
 
 #endif
