@@ -22,134 +22,133 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_ERROR_CHECKER_HPP
-#define SPACEHUB_ERROR_CHECKER_HPP
+#pragma once
 
 #include "../../dev-tools.hpp"
 
 namespace space::ode_iterator {
 
-/*---------------------------------------------------------------------------*\
-    Class Error_checker Declaration
-\*---------------------------------------------------------------------------*/
-/**
- * Abstract class of step error estimator. A class implements(partly/fully) the interfaces of this
- * class via CRTP idiom can be used cross the system as an implementation of the concept `ErrorChecker`. The error
- * estimator provides the interface to estimate the error of an integration system.
- *
- * @tparam Derived The implement class in CRTP idiom.
- */
-template <typename Derived>
-class ErrorChecker {
- public:
-  // public methods
-  DECLARE_CRTP_READ_ACCESSOR(Derived, auto, atol);
+    /*---------------------------------------------------------------------------*\
+        Class Error_checker Declaration
+    \*---------------------------------------------------------------------------*/
+    /**
+     * Abstract class of step error estimator. A class implements(partly/fully) the interfaces of this
+     * class via CRTP idiom can be used cross the system as an implementation of the concept `ErrorChecker`. The error
+     * estimator provides the interface to estimate the error of an integration system.
+     *
+     * @tparam Derived The implement class in CRTP idiom.
+     */
+    template <typename Derived>
+    class ErrorChecker {
+       public:
+        // public methods
+        DECLARE_CRTP_READ_ACCESSOR(Derived, auto, atol);
 
-  DECLARE_CRTP_READ_ACCESSOR(Derived, auto, rtol);
+        DECLARE_CRTP_READ_ACCESSOR(Derived, auto, rtol);
 
-  /**
-   * @auto_impl
-   *
-   * The downcast interface of Base class to Derived class.
-   * @return Derived
-   */
-  Derived &derived();
+        /**
+         * @auto_impl
+         *
+         * The downcast interface of Base class to Derived class.
+         * @return Derived
+         */
+        Derived &derived();
 
-  /**
-   * @opt_impl{Absolute error is required.}
-   *
-   * Set the absolute error of the error estimator.
-   *
-   * @tparam Scalar Floating point like type type.
-   * @param[in] abs_error Absolute error.
-   */
-  template <typename Scalar>
-  void set_atol(Scalar abs_error);
+        /**
+         * @opt_impl{Absolute error is required.}
+         *
+         * Set the absolute error of the error estimator.
+         *
+         * @tparam Scalar Floating point like type type.
+         * @param[in] abs_error Absolute error.
+         */
+        template <typename Scalar>
+        void set_atol(Scalar abs_error);
 
-  /**
-   * @opt_impl{Relative error is required.}
-   *
-   * Set the relative error of the error estimator.
-   *
-   * @tparam Scalar Floating point like type type.
-   * @param rel_error Relative error.
-   */
-  template <typename Scalar>
-  void set_rtol(Scalar rel_error);
+        /**
+         * @opt_impl{Relative error is required.}
+         *
+         * Set the relative error of the error estimator.
+         *
+         * @tparam Scalar Floating point like type type.
+         * @param rel_error Relative error.
+         */
+        template <typename Scalar>
+        void set_rtol(Scalar rel_error);
 
-  /**
-   * @must_impl
-   *
-   * Estimate the error between two results. For example,
-   * @f[\mathrm
-   *   error = {|diff|/|scale|}
-   * @f]
-   *
-   * @tparam Array Iterable array like type.
-   * @param[in] scale The provided scale for the results.
-   * @param[in] diff The difference between two results.
-   * @return The estimated error.
-   */
-  template <typename Array>
-  auto error(Array const &scale, Array const &diff) -> typename Array::value_type;
+        /**
+         * @must_impl
+         *
+         * Estimate the error between two results. For example,
+         * @f[\mathrm
+         *   error = {|diff|/|scale|}
+         * @f]
+         *
+         * @tparam Array Iterable array like type.
+         * @param[in] scale The provided scale for the results.
+         * @param[in] diff The difference between two results.
+         * @return The estimated error.
+         */
+        template <typename Array>
+        auto error(Array const &scale, Array const &diff) -> typename Array::value_type;
 
-  /**
-   * @must_impl
-   *
-   * Estimate the error between two results with given scale. For example
-   * @f[\mathrm
-   *   error = {|y_0 -y_1|/scale}
-   * @f]
-   *
-   * @tparam Array Iterable array like type.
-   * @param[in] scale The provided scale for the results.
-   * @param[in] y0 The first result.
-   * @param[in] y1 The second result.
-   * @return
-   */
-  template <typename Array>
-  auto error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
+        /**
+         * @must_impl
+         *
+         * Estimate the error between two results with given scale. For example
+         * @f[\mathrm
+         *   error = {|y_0 -y_1|/scale}
+         * @f]
+         *
+         * @tparam Array Iterable array like type.
+         * @param[in] scale The provided scale for the results.
+         * @param[in] y0 The first result.
+         * @param[in] y1 The second result.
+         * @return
+         */
+        template <typename Array>
+        auto error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
 
- private:
-  /**
-   * Construct a new ErrorChecker object
-   */
-  ErrorChecker() = default;
+       private:
+        /**
+         * Construct a new ErrorChecker object
+         */
+        ErrorChecker() = default;
 
-  friend Derived;
-};
+        friend Derived;
+    };
 
-/*---------------------------------------------------------------------------*\
-    Class Particles Implementation
-\*---------------------------------------------------------------------------*/
-template <typename Derived>
-Derived &ErrorChecker<Derived>::derived() {
-  return static_cast<Derived &>(*this);
-}
+    /*---------------------------------------------------------------------------*\
+        Class Particles Implementation
+    \*---------------------------------------------------------------------------*/
+    template <typename Derived>
+    Derived &ErrorChecker<Derived>::derived() {
+        return static_cast<Derived &>(*this);
+    }
 
-template <typename Derived>
-template <typename T>
-void ErrorChecker<Derived>::set_atol(T atol) {
-  static_cast<Derived *>(this)->impl_set_atol(atol);
-}
+    template <typename Derived>
+    template <typename T>
+    void ErrorChecker<Derived>::set_atol(T atol) {
+        static_cast<Derived *>(this)->impl_set_atol(atol);
+    }
 
-template <typename Derived>
-template <typename T>
-void ErrorChecker<Derived>::set_rtol(T rtol) {
-  static_cast<Derived *>(this)->impl_set_rtol(rtol);
-}
+    template <typename Derived>
+    template <typename T>
+    void ErrorChecker<Derived>::set_rtol(T rtol) {
+        static_cast<Derived *>(this)->impl_set_rtol(rtol);
+    }
 
-template <typename Derived>
-template <typename Array>
-auto ErrorChecker<Derived>::error(Array const &scale, Array const &diff) -> typename Array::value_type {
-  return static_cast<Derived *>(this)->impl_error(scale, diff);
-}
+    template <typename Derived>
+    template <typename Array>
+    auto ErrorChecker<Derived>::error(Array const &scale, Array const &diff) -> typename Array::value_type {
+        return static_cast<Derived *>(this)->impl_error(scale, diff);
+    }
 
-template <typename Derived>
-template <typename Array>
-auto ErrorChecker<Derived>::error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type {
-  return static_cast<Derived *>(this)->impl_error(scale, y0, y1);
-}
+    template <typename Derived>
+    template <typename Array>
+    auto ErrorChecker<Derived>::error(Array const &scale, Array const &y0, Array const &y1) ->
+        typename Array::value_type {
+        return static_cast<Derived *>(this)->impl_error(scale, y0, y1);
+    }
 
 }  // namespace space::ode_iterator
-#endif  // SPACEHUB_ERROR_CHECKER_HPP

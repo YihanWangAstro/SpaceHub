@@ -22,390 +22,390 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_KAHAN_NUMBER_HPP
-#define SPACEHUB_KAHAN_NUMBER_HPP
+#pragma once
 
 #include "math.hpp"
 
 namespace space {
-/** Kahan number
- *
- *  A way to reduce the round off error when adding a small number to a big one.
- *  See details in [Kahan summation](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)
- */
-template <typename T>
-struct Kahan {
- public:
-  using value_type = T;
-
-  T real, err;
-
-  /**
-   * Default constructor
-   */
-  Kahan() = default;
-
-  /**
-   * Single parameter constructor.
-   * @param r Scalar
-   */
-  Kahan(T r) : real(r), err(0){};
-
-  /**
-   * Copy constructor.
-   * @param k
-   */
-  Kahan(const Kahan &k) : real(k.real), err(k.err){};
-
-  /**
-   * Assignment operator.
-   */
-  inline Kahan &operator=(const Kahan &hs) {
-    real = hs.real, err = 0;
-    return *this;
-  }
-
-  /**
-   * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
-   */
-  inline operator T() { return real; }
-
-  /**
-   * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
-   */
-  inline operator T() const { return real; }
-
-  /**
-   * Set error to 0.
-   */
-  inline void zero_err() { err = 0; }
-
-  /**
-   * Opposite operator.
-   */
-  friend inline Kahan operator-(const Kahan &hs) { return Kahan(-hs.real); }
-
-  /**
-   * Addition assignment operator.
-   */
-  friend inline Kahan &operator+=(Kahan &lhs, const Kahan &rhs) {
-    T add = rhs.real - lhs.err;
-    T sum = lhs.real + add;
-
-    lhs.err = (sum - lhs.real) - add;
-
-    lhs.real = sum;
-    return lhs;
-  }
-
-  /**
-   * Subtraction assignment operator.
-   */
-  friend inline Kahan &operator-=(Kahan &lhs, const Kahan &rhs) {
-    T add = -rhs.real - lhs.err;
-    T sum = lhs.real + add;
-
-    lhs.err = (sum - lhs.real) - add;
-
-    lhs.real = sum;
-    return lhs;
-  }
-
-  /**
-   * Division assignment operator.
-   */
-  friend inline Kahan &operator/=(Kahan &lhs, const Kahan &rhs) {
-    lhs.real /= rhs.real;
-    return lhs;
-  }
-
-  /**
-   * Multiple assignment operator.
-   */
-  friend inline Kahan &operator*=(Kahan &lhs, const Kahan &rhs) {
-    lhs.real *= rhs.real;
-    return lhs;
-  }
-
-  /**
-   * Output stream
-   */
-  friend std::ostream &operator<<(std::ostream &output, const Kahan &v) {
-    output << v.real;
-    return output;
-  }
-
-  /**
-   * Input stream
-   */
-  friend std::istream &operator>>(std::istream &input, Kahan &v) {
-    input >> v.real;
-    v.err = 0;
-    return input;
-  }
-};
-
-  template <typename T>
-  struct Neumaier {
-  public:
-    using value_type = T;
-
-    T real, err;
-
-    /**
-     * Default constructor
+    /** Kahan number
+     *
+     *  A way to reduce the round off error when adding a small number to a big one.
+     *  See details in [Kahan summation](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)
      */
-    Neumaier() = default;
+    template <typename T>
+    struct Kahan {
+       public:
+        using value_type = T;
 
-    /**
-     * Single parameter constructor.
-     * @param r Scalar
-     */
-    Neumaier(T r) : real(r), err(0){};
+        T real, err;
 
-    /**
-     * Copy constructor.
-     * @param k
-     */
-    Neumaier(const Neumaier &k) : real(k.real), err(k.err){};
+        /**
+         * Default constructor
+         */
+        Kahan() = default;
 
-    /**
-     * Assignment operator.
-     */
-    inline Neumaier &operator=(const Neumaier &hs) {
-      real = hs.real, err = 0;
-      return *this;
-    }
+        /**
+         * Single parameter constructor.
+         * @param r Scalar
+         */
+        Kahan(T r) : real(r), err(0){};
 
-    /**
-     * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
-     */
-    inline operator T() { return real; }
+        /**
+         * Copy constructor.
+         * @param k
+         */
+        Kahan(const Kahan &k) : real(k.real), err(k.err){};
 
-    /**
-     * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
-     */
-    inline operator T() const { return real; }
+        /**
+         * Assignment operator.
+         */
+        inline Kahan &operator=(const Kahan &hs) {
+            real = hs.real, err = 0;
+            return *this;
+        }
 
-    /**
-     * Set error to 0.
-     */
-    inline void zero_err() { err = 0; }
+        /**
+         * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+         */
+        inline operator T() { return real; }
 
-    /**
-     * Opposite operator.
-     */
-    friend inline Neumaier operator-(const Neumaier &hs) { return Neumaier(-hs.real); }
+        /**
+         * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+         */
+        inline operator T() const { return real; }
 
-    /**
-     * Addition assignment operator.
-     */
-    friend inline Neumaier &operator+=(Neumaier &lhs, const Neumaier &rhs) {
-      T add = rhs.real + lhs.err;
-      T sum = lhs.real + add;
+        /**
+         * Set error to 0.
+         */
+        inline void zero_err() { err = 0; }
 
-      if (math::abs(add) < math::abs(lhs.real))
-        lhs.err = (lhs.real - sum) + add;
-      else
-        lhs.err = (add - sum) + lhs.real;
+        /**
+         * Opposite operator.
+         */
+        friend inline Kahan operator-(const Kahan &hs) { return Kahan(-hs.real); }
 
-      lhs.real = sum;
-      return lhs;
-    }
+        /**
+         * Addition assignment operator.
+         */
+        friend inline Kahan &operator+=(Kahan &lhs, const Kahan &rhs) {
+            T add = rhs.real - lhs.err;
+            T sum = lhs.real + add;
 
-    /**
-     * Subtraction assignment operator.
-     */
-    friend inline Neumaier &operator-=(Neumaier &lhs, const Neumaier &rhs) {
-      T add = -rhs.real + lhs.err;
-      T sum = lhs.real + add;
+            lhs.err = (sum - lhs.real) - add;
 
-      if (math::abs(add) < math::abs(lhs.real))
-        lhs.err = (lhs.real - sum) + add;
-      else
-        lhs.err = (add - sum) + lhs.real;
+            lhs.real = sum;
+            return lhs;
+        }
 
-      lhs.real = sum;
-      return lhs;
-    }
+        /**
+         * Subtraction assignment operator.
+         */
+        friend inline Kahan &operator-=(Kahan &lhs, const Kahan &rhs) {
+            T add = -rhs.real - lhs.err;
+            T sum = lhs.real + add;
 
-    /**
-     * Division assignment operator.
-     */
-    friend inline Neumaier &operator/=(Neumaier &lhs, const Neumaier &rhs) {
-      lhs.real /= rhs.real;
-      return lhs;
-    }
+            lhs.err = (sum - lhs.real) - add;
 
-    /**
-     * Multiple assignment operator.
-     */
-    friend inline Neumaier &operator*=(Neumaier &lhs, const Neumaier &rhs) {
-      lhs.real *= rhs.real;
-      return lhs;
-    }
+            lhs.real = sum;
+            return lhs;
+        }
 
-    /**
-     * Output stream
-     */
-    friend std::ostream &operator<<(std::ostream &output, const Neumaier &v) {
-      output << v.real;
-      return output;
-    }
+        /**
+         * Division assignment operator.
+         */
+        friend inline Kahan &operator/=(Kahan &lhs, const Kahan &rhs) {
+            lhs.real /= rhs.real;
+            return lhs;
+        }
 
-    /**
-     * Input stream
-     */
-    friend std::istream &operator>>(std::istream &input, Neumaier &v) {
-      input >> v.real;
-      v.err = 0;
-      return input;
-    }
-  };
+        /**
+         * Multiple assignment operator.
+         */
+        friend inline Kahan &operator*=(Kahan &lhs, const Kahan &rhs) {
+            lhs.real *= rhs.real;
+            return lhs;
+        }
 
+        /**
+         * Output stream
+         */
+        friend std::ostream &operator<<(std::ostream &output, const Kahan &v) {
+            output << v.real;
+            return output;
+        }
 
-  template <typename T>
-  struct Klein {
-  public:
-    using value_type = T;
+        /**
+         * Input stream
+         */
+        friend std::istream &operator>>(std::istream &input, Kahan &v) {
+            input >> v.real;
+            v.err = 0;
+            return input;
+        }
+    };
 
-    T real, err, err_of_err;
+    template <typename T>
+    struct Neumaier {
+       public:
+        using value_type = T;
 
-    /**
-     * Default constructor
-     */
-    Klein() = default;
+        T real, err;
 
-    /**
-     * Single parameter constructor.
-     * @param r Scalar
-     */
-    Klein(T r) : real{r}, err{0}, err_of_err{0} {};
+        /**
+         * Default constructor
+         */
+        Neumaier() = default;
 
-    /**
-     * Copy constructor.
-     * @param k
-     */
-    Klein(const Klein &k) : real(k.real), err(k.err), err_of_err{k.err_of_err}{};
+        /**
+         * Single parameter constructor.
+         * @param r Scalar
+         */
+        Neumaier(T r) : real(r), err(0){};
 
-    /**
-     * Assignment operator.
-     */
-    inline Klein &operator=(const Klein &hs) {
-      real = hs.real, err = 0, err_of_err = 0;
-      return *this;
-    }
+        /**
+         * Copy constructor.
+         * @param k
+         */
+        Neumaier(const Neumaier &k) : real(k.real), err(k.err){};
 
-    /**
-     * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
-     */
-    inline operator T() { return real; }
+        /**
+         * Assignment operator.
+         */
+        inline Neumaier &operator=(const Neumaier &hs) {
+            real = hs.real, err = 0;
+            return *this;
+        }
 
-    /**
-     * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
-     */
-    inline operator T() const { return real; }
+        /**
+         * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+         */
+        inline operator T() { return real; }
 
-    /**
-     * Set error to 0.
-     */
-    inline void zero_err() { err = 0; err_of_err = 0; }
+        /**
+         * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+         */
+        inline operator T() const { return real; }
 
-    /**
-     * Opposite operator.
-     */
-    friend inline Klein operator-(const Klein &hs) { return Klein(-hs.real); }
+        /**
+         * Set error to 0.
+         */
+        inline void zero_err() { err = 0; }
 
-    /**
-     * Addition assignment operator.
-     */
-    friend inline Klein &operator+=(Klein &lhs, const Klein &rhs) {
-      T add = lhs.err + lhs.err_of_err;
-      T sum = rhs.real + add;
+        /**
+         * Opposite operator.
+         */
+        friend inline Neumaier operator-(const Neumaier &hs) { return Neumaier(-hs.real); }
 
-      if (math::abs(add) < math::abs(rhs.real))
-        lhs.err_of_err = (rhs.real - sum) + add;
-      else
-        lhs.err_of_err = (add - sum) + rhs.real;
+        /**
+         * Addition assignment operator.
+         */
+        friend inline Neumaier &operator+=(Neumaier &lhs, const Neumaier &rhs) {
+            T add = rhs.real + lhs.err;
+            T sum = lhs.real + add;
 
-      add = sum;
-      sum = lhs.real + add;
+            if (math::abs(add) < math::abs(lhs.real))
+                lhs.err = (lhs.real - sum) + add;
+            else
+                lhs.err = (add - sum) + lhs.real;
 
-      if (math::abs(add) < math::abs(lhs.real))
-        lhs.err = (lhs.real - sum) + add;
-      else
-        lhs.err = (add - sum) + lhs.real;
+            lhs.real = sum;
+            return lhs;
+        }
 
-      lhs.real = sum;
-      return lhs;
-    }
+        /**
+         * Subtraction assignment operator.
+         */
+        friend inline Neumaier &operator-=(Neumaier &lhs, const Neumaier &rhs) {
+            T add = -rhs.real + lhs.err;
+            T sum = lhs.real + add;
 
-    /**
-     * Subtraction assignment operator.
-     */
-    friend inline Klein &operator-=(Klein &lhs, const Klein &rhs) {
-      T add = lhs.err + lhs.err_of_err;
-      T sum = -rhs.real + add;
+            if (math::abs(add) < math::abs(lhs.real))
+                lhs.err = (lhs.real - sum) + add;
+            else
+                lhs.err = (add - sum) + lhs.real;
 
-      if (math::abs(add) < math::abs(rhs.real))
-        lhs.err_of_err = (-rhs.real - sum) + add;
-      else
-        lhs.err_of_err = (add - sum) - rhs.real;
+            lhs.real = sum;
+            return lhs;
+        }
 
-      add = sum;
-      sum = lhs.real + add;
+        /**
+         * Division assignment operator.
+         */
+        friend inline Neumaier &operator/=(Neumaier &lhs, const Neumaier &rhs) {
+            lhs.real /= rhs.real;
+            return lhs;
+        }
 
-      if (math::abs(add) < math::abs(lhs.real))
-        lhs.err = (lhs.real - sum) + add;
-      else
-        lhs.err = (add - sum) + lhs.real;
+        /**
+         * Multiple assignment operator.
+         */
+        friend inline Neumaier &operator*=(Neumaier &lhs, const Neumaier &rhs) {
+            lhs.real *= rhs.real;
+            return lhs;
+        }
 
-      lhs.real = sum;
-      return lhs;
-    }
+        /**
+         * Output stream
+         */
+        friend std::ostream &operator<<(std::ostream &output, const Neumaier &v) {
+            output << v.real;
+            return output;
+        }
 
-    /**
-     * Division assignment operator.
-     */
-    friend inline Klein &operator/=(Klein &lhs, const Klein &rhs) {
-      lhs.real /= rhs.real;
-      return lhs;
-    }
+        /**
+         * Input stream
+         */
+        friend std::istream &operator>>(std::istream &input, Neumaier &v) {
+            input >> v.real;
+            v.err = 0;
+            return input;
+        }
+    };
 
-    /**
-     * Multiple assignment operator.
-     */
-    friend inline Klein &operator*=(Klein &lhs, const Klein &rhs) {
-      lhs.real *= rhs.real;
-      return lhs;
-    }
+    template <typename T>
+    struct Klein {
+       public:
+        using value_type = T;
 
-    /**
-     * Output stream
-     */
-    friend std::ostream &operator<<(std::ostream &output, const Klein &v) {
-      output << v.real;
-      return output;
-    }
+        T real, err, err_of_err;
 
-    /**
-     * Input stream
-     */
-    friend std::istream &operator>>(std::istream &input, Klein &v) {
-      input >> v.real;
-      v.err = 0;
-      return input;
-    }
-  };
+        /**
+         * Default constructor
+         */
+        Klein() = default;
 
-//Neumaier<double>;//Kahan<double>;
-using double_k = Kahan<double>;
-using float_k = Kahan<float>;
+        /**
+         * Single parameter constructor.
+         * @param r Scalar
+         */
+        Klein(T r) : real{r}, err{0}, err_of_err{0} {};
 
-using double_p = Neumaier<double>;
-using float_p = Neumaier<float>;
+        /**
+         * Copy constructor.
+         * @param k
+         */
+        Klein(const Klein &k) : real(k.real), err(k.err), err_of_err{k.err_of_err} {};
 
-using double_e = Klein<double>;
-using float_e = Klein<float>;
+        /**
+         * Assignment operator.
+         */
+        inline Klein &operator=(const Klein &hs) {
+            real = hs.real, err = 0, err_of_err = 0;
+            return *this;
+        }
+
+        /**
+         * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+         */
+        inline operator T() { return real; }
+
+        /**
+         * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
+         */
+        inline operator T() const { return real; }
+
+        /**
+         * Set error to 0.
+         */
+        inline void zero_err() {
+            err = 0;
+            err_of_err = 0;
+        }
+
+        /**
+         * Opposite operator.
+         */
+        friend inline Klein operator-(const Klein &hs) { return Klein(-hs.real); }
+
+        /**
+         * Addition assignment operator.
+         */
+        friend inline Klein &operator+=(Klein &lhs, const Klein &rhs) {
+            T add = lhs.err + lhs.err_of_err;
+            T sum = rhs.real + add;
+
+            if (math::abs(add) < math::abs(rhs.real))
+                lhs.err_of_err = (rhs.real - sum) + add;
+            else
+                lhs.err_of_err = (add - sum) + rhs.real;
+
+            add = sum;
+            sum = lhs.real + add;
+
+            if (math::abs(add) < math::abs(lhs.real))
+                lhs.err = (lhs.real - sum) + add;
+            else
+                lhs.err = (add - sum) + lhs.real;
+
+            lhs.real = sum;
+            return lhs;
+        }
+
+        /**
+         * Subtraction assignment operator.
+         */
+        friend inline Klein &operator-=(Klein &lhs, const Klein &rhs) {
+            T add = lhs.err + lhs.err_of_err;
+            T sum = -rhs.real + add;
+
+            if (math::abs(add) < math::abs(rhs.real))
+                lhs.err_of_err = (-rhs.real - sum) + add;
+            else
+                lhs.err_of_err = (add - sum) - rhs.real;
+
+            add = sum;
+            sum = lhs.real + add;
+
+            if (math::abs(add) < math::abs(lhs.real))
+                lhs.err = (lhs.real - sum) + add;
+            else
+                lhs.err = (add - sum) + lhs.real;
+
+            lhs.real = sum;
+            return lhs;
+        }
+
+        /**
+         * Division assignment operator.
+         */
+        friend inline Klein &operator/=(Klein &lhs, const Klein &rhs) {
+            lhs.real /= rhs.real;
+            return lhs;
+        }
+
+        /**
+         * Multiple assignment operator.
+         */
+        friend inline Klein &operator*=(Klein &lhs, const Klein &rhs) {
+            lhs.real *= rhs.real;
+            return lhs;
+        }
+
+        /**
+         * Output stream
+         */
+        friend std::ostream &operator<<(std::ostream &output, const Klein &v) {
+            output << v.real;
+            return output;
+        }
+
+        /**
+         * Input stream
+         */
+        friend std::istream &operator>>(std::istream &input, Klein &v) {
+            input >> v.real;
+            v.err = 0;
+            return input;
+        }
+    };
+
+    // Neumaier<double>;//Kahan<double>;
+    using double_k = Kahan<double>;
+    using float_k = Kahan<float>;
+
+    using double_p = Neumaier<double>;
+    using float_p = Neumaier<float>;
+
+    using double_e = Klein<double>;
+    using float_e = Klein<float>;
 }  // namespace space
-#endif /* kahanNumber_h */

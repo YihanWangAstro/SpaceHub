@@ -41,8 +41,7 @@ License
  * Giant header file.
  */
 
-#ifndef SPACEHUB_SPACEHUB_HPP
-#define SPACEHUB_SPACEHUB_HPP
+#pragma once
 
 #include "args-callback/callbacks.hpp"
 #include "integrator/Gauss-Dadau.hpp"
@@ -80,31 +79,29 @@ License
  */
 namespace space {
 
-#define USING_NAMESPACE_SPACEHUB_ALL   \
-  using namespace space;               \
-  using namespace space::calc;         \
-  using namespace space::tools;        \
-  using namespace space::ode_iterator; \
-  using namespace space::integrator;   \
-  using namespace space::orbit;        \
-  using namespace space::unit;         \
-  using namespace space::particle_set; \
-  using namespace space::multi_thread; \
-  using namespace space::random;       \
-  using namespace space::particle_system
+#define USING_NAMESPACE_SPACEHUB_ALL     \
+    using namespace space;               \
+    using namespace space::calc;         \
+    using namespace space::tools;        \
+    using namespace space::ode_iterator; \
+    using namespace space::integrator;   \
+    using namespace space::orbit;        \
+    using namespace space::unit;         \
+    using namespace space::particle_set; \
+    using namespace space::multi_thread; \
+    using namespace space::random;       \
+    using namespace space::particle_system
 
-using DefaultTypes = Types<double, std::vector>;
+    using DefaultTypes = Types<double, std::vector>;
 
-using DefaultSolver =
-    Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>, interactions::NewtonianGrav,
-                                             particle_system::ReguType::LogH>,
-              ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
+    using DefaultSolver =
+        Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
+                                                 interactions::NewtonianGrav, particle_system::ReguType::LogH>,
+                  ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
 
-// template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-// using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
+    // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
+    // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
 
-// template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-// using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
+    // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
+    // using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
 }  // namespace space
-
-#endif

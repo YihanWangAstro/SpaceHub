@@ -26,31 +26,31 @@ License
 #include "../spacehub-concepts.hpp"
 namespace space::ode_iterator {
 
-/*---------------------------------------------------------------------------*\
-      Class ConstOdeIterator Declaration
-\*---------------------------------------------------------------------------*/
-/**
- *
- * @tparam Integrator
- */
-template <typename Integrator>
-class ConstOdeIterator {
- public:
-  template <concepts::ParticleSystem T>
-  auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
+    /*---------------------------------------------------------------------------*\
+          Class ConstOdeIterator Declaration
+    \*---------------------------------------------------------------------------*/
+    /**
+     *
+     * @tparam Integrator
+     */
+    template <typename Integrator>
+    class ConstOdeIterator {
+       public:
+        template <concepts::ParticleSystem T>
+        auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
 
- private:
-  // Private members
-  Integrator integrator_;
-};
+       private:
+        // Private members
+        Integrator integrator_;
+    };
 
-/*---------------------------------------------------------------------------*\
-      Class ConstOdeIterator Implementation
-\*---------------------------------------------------------------------------*/
-template <typename Integrator>
-template <concepts::ParticleSystem T>
-auto ConstOdeIterator<Integrator>::iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
-  integrator_.integrate(particles, macro_step_size);
-  return macro_step_size;
-}
+    /*---------------------------------------------------------------------------*\
+          Class ConstOdeIterator Implementation
+    \*---------------------------------------------------------------------------*/
+    template <typename Integrator>
+    template <concepts::ParticleSystem T>
+    auto ConstOdeIterator<Integrator>::iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
+        integrator_.integrate(particles, macro_step_size);
+        return macro_step_size;
+    }
 }  // namespace space::ode_iterator

@@ -22,8 +22,7 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_RAND_GENERATOR_HPP
-#define SPACEHUB_RAND_GENERATOR_HPP
+#pragma once
 
 #include <cmath>
 #include <functional>
@@ -46,9 +45,9 @@ namespace space::random {
  * @return double The generated number.
  */
 inline static double Uniform(double low, double high) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  std::uniform_real_distribution<double> dist{low, high};
-  return dist(generator);
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    std::uniform_real_distribution<double> dist{low, high};
+    return dist(generator);
 }
 
 /**
@@ -59,11 +58,11 @@ inline static double Uniform(double low, double high) {
  * @return double The generated number.
  */
 inline static double Logarithm(double low, double high) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  double log_low = log10(low);
-  double log_high = log10(high);
-  std::uniform_real_distribution<double> dist{log_low, log_high};
-  return pow(10, dist(generator));
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    double log_low = log10(low);
+    double log_high = log10(high);
+    std::uniform_real_distribution<double> dist{log_low, log_high};
+    return pow(10, dist(generator));
 }
 
 /**
@@ -75,16 +74,16 @@ inline static double Logarithm(double low, double high) {
  * @return double The generated number.
  */
 inline static double PowerLaw(double power, double low, double high) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  if (!math::iseq(power, -1.0)) {
-    double beta = power + 1;
-    double f_low = pow(low, beta);
-    double f_high = pow(high, beta);
-    std::uniform_real_distribution<double> dist{f_low, f_high};
-    return pow(dist(generator), 1.0 / beta);
-  } else {
-    return Logarithm(low, high);
-  }
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    if (!math::iseq(power, -1.0)) {
+        double beta = power + 1;
+        double f_low = pow(low, beta);
+        double f_high = pow(high, beta);
+        std::uniform_real_distribution<double> dist{f_low, f_high};
+        return pow(dist(generator), 1.0 / beta);
+    } else {
+        return Logarithm(low, high);
+    }
 }
 
 /**
@@ -95,9 +94,9 @@ inline static double PowerLaw(double power, double low, double high) {
  * @return double The generated number.
  */
 inline static double Normal(double mean = 0, double sigma = 1) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  std::normal_distribution<double> dist{mean, sigma};
-  return dist(generator);
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    std::normal_distribution<double> dist{mean, sigma};
+    return dist(generator);
 }
 
 /**
@@ -110,15 +109,15 @@ inline static double Normal(double mean = 0, double sigma = 1) {
  * @return double The generated number.
  */
 inline static double TruncatedNormal(double low, double high, double mean = 0, double sigma = 1) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  std::normal_distribution<double> dist{mean, sigma};
-  // TODO: can be optimized by using inverse transformed method.
-  for (;;) {
-    auto r = dist(generator);
-    if (low <= r && r <= high) {
-      return r;
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    std::normal_distribution<double> dist{mean, sigma};
+    // TODO: can be optimized by using inverse transformed method.
+    for (;;) {
+        auto r = dist(generator);
+        if (low <= r && r <= high) {
+            return r;
+        }
     }
-  }
 }
 
 /**
@@ -128,12 +127,12 @@ inline static double TruncatedNormal(double low, double high, double mean = 0, d
  * @return double The generated number.
  */
 inline static double Maxwellian(double sigma_1d) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  std::normal_distribution<double> dist{0.0, sigma_1d};
-  double x = dist(generator);
-  double y = dist(generator);
-  double z = dist(generator);
-  return sqrt(x * x + y * y + z * z);
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    std::normal_distribution<double> dist{0.0, sigma_1d};
+    double x = dist(generator);
+    double y = dist(generator);
+    double z = dist(generator);
+    return sqrt(x * x + y * y + z * z);
 }
 
 /**
@@ -145,47 +144,45 @@ inline static double Maxwellian(double sigma_1d) {
  * @return double The generated number.
  */
 inline static double TruncatedMaxwellian(double low, double high, double sigma_1d) {
-  static thread_local std::mt19937 generator{std::random_device{}()};
-  std::normal_distribution<double> dist{0.0, sigma_1d};
-  // TODO: can be optimized by using inverse transformed method.
-  for (;;) {
-    double x = dist(generator);
-    double y = dist(generator);
-    double z = dist(generator);
-    double r = sqrt(x * x + y * y + z * z);
-    if (low <= r && r <= high) {
-      return r;
+    static thread_local std::mt19937 generator{std::random_device{}()};
+    std::normal_distribution<double> dist{0.0, sigma_1d};
+    // TODO: can be optimized by using inverse transformed method.
+    for (;;) {
+        double x = dist(generator);
+        double y = dist(generator);
+        double z = dist(generator);
+        double r = sqrt(x * x + y * y + z * z);
+        if (low <= r && r <= high) {
+            return r;
+        }
     }
-  }
 }
 
 inline double Fixed(double x) { return x; }
 
 class Parameter {
- public:
-  template <typename Dist, typename... Args>
-  Parameter(Dist distribution, Args... args) : dist_{std::bind(distribution, args...)} {}
+   public:
+    template <typename Dist, typename... Args>
+    Parameter(Dist distribution, Args... args) : dist_{std::bind(distribution, args...)} {}
 
-  double draw() const {
-    double r = dist_();
-    for (; r < min_ || r > max_;) {
-      r = dist_();
+    double draw() const {
+        double r = dist_();
+        for (; r < min_ || r > max_;) {
+            r = dist_();
+        }
+        return r;
     }
-    return r;
-  }
 
-  void set_max(double max) { max_ = max; }
+    void set_max(double max) { max_ = max; }
 
-  void set_min(double min) { min_ = min; }
+    void set_min(double min) { min_ = min; }
 
-  void set_boundary(double min, double max) { min_ = min, max_ = max; }
+    void set_boundary(double min, double max) { min_ = min, max_ = max; }
 
- private:
-  double min_{std::numeric_limits<double>::min()};
-  double max_{std::numeric_limits<double>::max()};
-  std::function<double()> dist_;
+   private:
+    double min_{std::numeric_limits<double>::min()};
+    double max_{std::numeric_limits<double>::max()};
+    std::function<double()> dist_;
 };
 
 }  // namespace space::random
-
-#endif  // SPACEHUB_RAND_GENERATOR_HPP

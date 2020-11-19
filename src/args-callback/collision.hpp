@@ -23,52 +23,51 @@ License
  *
  * Header file.
  */
-#ifndef SPACEHUB_COLLISION_HPP
-#define SPACEHUB_COLLISION_HPP
+#pragma once
 #include "../dev-tools.hpp"
 #include "../vector/vector3.hpp"
 namespace run_operations {
 
-CREATE_METHOD_CHECK(radius);
+    CREATE_METHOD_CHECK(radius);
 
-/**
- * @brief Detect collisions with sticky radius approximation.
- *
- */
-class StickyCollision {
-  /**
-   * @brief Callable interface for collision detection.
-   *
-   * @tparam ParticleSys Any implementation of ParticleSystem.
-   * @param[in,out] ptc Particle system.
-   * @param[in] step_size The step size of the integration.
-   * @return true Collision detected.
-   * @return false No collision detected.
-   */
-  template <typename ParticleSys>
-  bool operator()(ParticleSys const &ptc, typename ParticleSys::Scalar step_size) {
-    static_assert(HAS_METHOD(ParticleSys, radius), "Particle system doesn't have method radius()");
+    /**
+     * @brief Detect collisions with sticky radius approximation.
+     *
+     */
+    class StickyCollision {
+        /**
+         * @brief Callable interface for collision detection.
+         *
+         * @tparam ParticleSys Any implementation of ParticleSystem.
+         * @param[in,out] ptc Particle system.
+         * @param[in] step_size The step size of the integration.
+         * @return true Collision detected.
+         * @return false No collision detected.
+         */
+        template <typename ParticleSys>
+        bool operator()(ParticleSys const &ptc, typename ParticleSys::Scalar step_size) {
+            static_assert(HAS_METHOD(ParticleSys, radius), "Particle system doesn't have method radius()");
 
-    auto const &px = ptc.pos().x;
-    auto const &py = ptc.pos().y;
-    auto const &pz = ptc.pos().z;
-    auto const &r = ptc.radius();
+            auto const &px = ptc.pos().x;
+            auto const &py = ptc.pos().y;
+            auto const &pz = ptc.pos().z;
 
-    size_t num = ptc.number();
-    for (size_t i = 0; i < num; ++i) {
-      for (size_t j = i + 1; j < num; ++j) {
-        auto dx = px[i] - px[j];
-        auto dy = py[i] - py[j];
-        auto dz = pz[i] - pz[j];
+            auto const &r = ptc.radius();
 
-        if (sqrt(dx * dx + dy * dy + dz * dz) <= r[i] + r[j]) {
-          return true;
+            size_t num = ptc.number();
+            for (size_t i = 0; i < num; ++i) {
+                for (size_t j = i + 1; j < num; ++j) {
+                    auto dx = px[i] - px[j];
+                    auto dy = py[i] - py[j];
+                    auto dz = pz[i] - pz[j];
+
+                    if (sqrt(dx * dx + dy * dy + dz * dz) <= r[i] + r[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-      }
-    }
-    return false;
-  }
-};
+    };
 
 }  // namespace run_operations
-#endif  // SPACEHUB_COLLISION_HPP
