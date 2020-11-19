@@ -86,12 +86,12 @@ namespace space {
         /**
          * The absolute error tolerance.
          */
-        Scalar atol{1e-12};
+        Scalar atol{1e-14};
 
         /**
          * The relative error tolerance.
          */
-        Scalar rtol{1e-12};
+        Scalar rtol{1e-13};
 
         // public methods
         /**
@@ -136,7 +136,7 @@ namespace space {
          * here.
          */
         template <typename Func, typename... Args>
-        void add_pre_step_operation(Func func, Args &&...args);
+        void add_pre_step_operation(Func func, Args &&... args);
 
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.
@@ -148,7 +148,7 @@ namespace space {
          * here.
          */
         template <typename Func, typename... Args>
-        void add_post_step_operation(Func func, Args &&...args);
+        void add_post_step_operation(Func func, Args &&... args);
 
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.
@@ -160,7 +160,7 @@ namespace space {
          * here.
          */
         template <typename Func, typename... Args>
-        void add_stop_point_operation(Func func, Args &&...args);
+        void add_stop_point_operation(Func func, Args &&... args);
 
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.
@@ -172,7 +172,7 @@ namespace space {
          * here.
          */
         template <typename Func, typename... Args>
-        void add_stop_condition(Func func, Args &&...args);
+        void add_stop_condition(Func func, Args &&... args);
 
         /**
          * Add the duration time of the integration as a stop condition.
@@ -253,7 +253,7 @@ namespace space {
          * @param[in] particle Initial particles.
          */
         template <typename... T>
-        explicit Simulator(Scalar time, T const &...particle);
+        explicit Simulator(Scalar time, T const &... particle);
 
         // Public methods
         /**
@@ -278,9 +278,9 @@ namespace space {
         /** @brief ODE Iterator*/
         OdeIterator iterator_;
 
-        CREATE_CRTP_IMPLEMENTATION_CHECK(set_atol);
+        CREATE_METHOD_CHECK(set_atol);
 
-        CREATE_CRTP_IMPLEMENTATION_CHECK(set_rtol);
+        CREATE_METHOD_CHECK(set_rtol);
     };
 
     /*---------------------------------------------------------------------------*\
@@ -317,28 +317,28 @@ namespace space {
 
     template <typename ParticleSys>
     template <typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&...args) {
+    void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&... args) {
         pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                          std::forward<Args>(args)...));
     }
 
     template <typename ParticleSys>
     template <typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&...args) {
+    void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&... args) {
         post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
     }
 
     template <typename ParticleSys>
     template <typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&...args) {
+    void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&... args) {
         stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
     }
 
     template <typename ParticleSys>
     template <typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_stop_condition(Func func, Args &&...args) {
+    void RunArgs<ParticleSys>::add_stop_condition(Func func, Args &&... args) {
         stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
     }
@@ -362,7 +362,7 @@ namespace space {
 
     template <typename ParticleSys, typename OdeIterator>
     template <typename... T>
-    Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, T const &...particle)
+    Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, T const &... particle)
         : Simulator(time, std::initializer_list<Particle>{particle...}) {
         static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particles type!");
     }
@@ -389,11 +389,11 @@ namespace space {
             space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
         }
 
-        if constexpr (HAS_CRTP_IMPLEMENTATION(OdeIterator, set_atol, Scalar)) {
+        if constexpr (HAS_METHOD(OdeIterator, set_atol, Scalar)) {
             iterator_.set_atol(run_args.atol);
         }
 
-        if constexpr (HAS_CRTP_IMPLEMENTATION(OdeIterator, set_rtol, Scalar)) {
+        if constexpr (HAS_METHOD(OdeIterator, set_rtol, Scalar)) {
             iterator_.set_rtol(run_args.rtol);
         }
 
