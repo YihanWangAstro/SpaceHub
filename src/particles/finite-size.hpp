@@ -123,7 +123,7 @@ namespace space::particle_set {
          * @param[in] t Initial time of the the particle group.
          * @param[in] particle_set Input particle set.
          */
-        template <concepts::ParticleContainer STL>
+        template <CONCEPT_PARTICLE_CONTAINER STL>
         SizeParticles(Scalar time, STL const &particles_set);
 
         // Public methods
@@ -174,7 +174,7 @@ namespace space::particle_set {
         Class SizeParticles Implementation
     \*---------------------------------------------------------------------------*/
     template <typename TypeSystem>
-    template <concepts::ParticleContainer STL>
+    template <CONCEPT_PARTICLE_CONTAINER STL>
     SizeParticles<TypeSystem>::SizeParticles(Scalar time, const STL &particles_set) {
         size_t input_num = particles_set.size();
         this->reserve(input_num);

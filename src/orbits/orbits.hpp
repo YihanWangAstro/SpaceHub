@@ -30,6 +30,7 @@ License
 #include "../IO.hpp"
 #include "../core-computation.hpp"
 #include "../rand-generator.hpp"
+#include "../spacehub-concepts.hpp"
 #include "../vector/vector3.hpp"
 /**
  * @namespace space::orbit
@@ -52,9 +53,14 @@ namespace space::orbit {
     struct RandomIndicator {
     } isotherm;
 
+#if __cplusplus > COMPILER_VERSION
     template <typename T>
-    concept AnomalyIndicator = std::convertible_to<T, double> || std::same_as<T, RandomIndicator>;
+    concept AngleIndicator = std::convertible_to<T, double> || std::same_as<T, RandomIndicator>;
 
+#define CONCEPT_ANGLE AngleIndicator
+#else
+#define CONCEPT_ANGLE typename
+#endif
     /**
      * @brief Orbital parameters of the Kepler orbit.
      *@tparam Real Floating point like type.
@@ -121,7 +127,7 @@ namespace space::orbit {
          * @param[in] argument_of_periapsis Argument of the periapsis.
          * @param[in] true_anomaly True anomaly.
          */
-        template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+        template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
         KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity, T1 inclination,
                     T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly);
 
@@ -197,7 +203,7 @@ namespace space::orbit {
          * @param[in]  r Distance between the two objects.
          * @param[in]  in_out  Indicator of incident in or ejected out
          */
-        template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3>
+        template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3>
         HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination, T2 longitude_of_ascending_node,
                    T3 argument_of_periapsis, Scalar r, Hyper in_out = Hyper::in);
 
@@ -234,7 +240,7 @@ namespace space::orbit {
          * @param[in] argument_of_periapsis Argument of periapsis.
          * @param[in] true_anomaly True anomaly.
          */
-        template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+        template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
         EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
                    T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly);
 
@@ -415,7 +421,7 @@ namespace space::orbit {
          Class OrbitArgs Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Real>
-    template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+    template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
     KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity,
                                    T1 inclination, T2 longitude_of_ascending_node, T3 argument_of_periapsis,
                                    T4 true_anomaly) {
@@ -432,25 +438,25 @@ namespace space::orbit {
         p = semi_latus_rectum;
         e = eccentricity;
 
-        if constexpr (std::same_as<T1, RandomIndicator>) {
+        if constexpr (std::is_same_v<T1, RandomIndicator>) {
             shuffle_i();
         } else {
             i = inclination;
         }
 
-        if constexpr (std::same_as<T2, RandomIndicator>) {
+        if constexpr (std::is_same_v<T2, RandomIndicator>) {
             shuffle_Omega();
         } else {
             Omega = longitude_of_ascending_node;
         }
 
-        if (std::same_as<T3, RandomIndicator>) {
+        if (std::is_same_v<T3, RandomIndicator>) {
             shuffle_omega();
         } else {
             omega = argument_of_periapsis;
         }
 
-        if (std::same_as<T4, RandomIndicator>) {
+        if (std::is_same_v<T4, RandomIndicator>) {
             shuffle_nu();
         } else {
             nu = true_anomaly;
@@ -486,7 +492,7 @@ namespace space::orbit {
     /*---------------------------------------------------------------------------*\
          Class HyperOrbit Implementation
     \*---------------------------------------------------------------------------*/
-    template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3>
+    template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3>
     HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination,
                            T2 longitude_of_ascending_node, T3 argument_of_periapsis, Scalar r, Hyper in_out)
         : KeplerOrbit<double>(m_1, m_2, 0.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
@@ -506,7 +512,7 @@ namespace space::orbit {
     /*---------------------------------------------------------------------------*\
          Class EllipOrbit Implementation
     \*---------------------------------------------------------------------------*/
-    template <AnomalyIndicator T1, AnomalyIndicator T2, AnomalyIndicator T3, AnomalyIndicator T4>
+    template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
     EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
                            T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly)
         : KeplerOrbit<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,

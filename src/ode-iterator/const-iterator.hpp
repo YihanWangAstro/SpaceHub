@@ -36,7 +36,7 @@ namespace space::ode_iterator {
     template <typename Integrator>
     class ConstOdeIterator {
        public:
-        template <concepts::ParticleSystem T>
+        template <CONCEPT_PARTICLE_SYSTEM T>
         auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
 
        private:
@@ -48,7 +48,7 @@ namespace space::ode_iterator {
           Class ConstOdeIterator Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Integrator>
-    template <concepts::ParticleSystem T>
+    template <CONCEPT_PARTICLE_SYSTEM T>
     auto ConstOdeIterator<Integrator>::iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar {
         integrator_.integrate(particles, macro_step_size);
         return macro_step_size;

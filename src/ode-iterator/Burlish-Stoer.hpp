@@ -91,7 +91,7 @@ namespace space::ode_iterator {
 
         using StepController = StepControl<2 * max_depth + 3, Scalar>;
 
-        template <concepts::ParticleSystem U>
+        template <CONCEPT_PARTICLE_SYSTEM U>
         Scalar iterate(U &particles, typename U::Scalar macro_step_size);
 
         void set_atol(Scalar atol);
@@ -203,7 +203,7 @@ namespace space::ode_iterator {
          Class BurlishStoer Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl>
-    template <concepts::ParticleSystem U>
+    template <CONCEPT_PARTICLE_SYSTEM U>
     auto BurlishStoer<Real, ErrChecker, StepControl>::iterate(U &particles, typename U::Scalar macro_step_size)
         -> Scalar {
         Scalar iter_h = macro_step_size;

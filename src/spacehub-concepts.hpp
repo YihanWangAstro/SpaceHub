@@ -24,6 +24,10 @@ License
  */
 #pragma once
 
+#define COMPILER_VERSION 201703L
+
+#if __cplusplus > COMPILER_VERSION
+
 #include <concepts>
 #include <type_traits>
 
@@ -123,7 +127,6 @@ namespace space::concepts {
         typename T::VectorArray;
         typename T::ScalarArray;
         typename T::IdxArray;
-
         requires Particles<std::remove_const_t<std::remove_reference_t<decltype(p.particles())>>>;
 
         { p.advance_time(INSTANCE(typename T::Scalar)) }
@@ -210,4 +213,27 @@ namespace space::concepts {
         ->std::same_as<void>;
     };
 
+    // template <typename T>
+    // concept Integrator = requires(T i){};
+
 }  // namespace space::concepts
+
+#define CONCEPT_PARTICLE concepts::Particle
+#define CONCEPT_PARTICLES concepts::Particles
+#define CONCEPT_PARTICLE_SYSTEM concepts::ParticleSystem
+#define CONCEPT_CONTAINER concepts::Container
+#define CONCEPT_PARTICLES_DATA concepts::ParticlesData
+#define CONCEPT_INTERACTION concepts::Interaction
+#define CONCEPT_PARTICLE_CONTAINER concepts::ParticleContainer
+#define CONCEPT_FORCE concepts::Force
+
+#else
+#define CONCEPT_PARTICLE typename
+#define CONCEPT_PARTICLES typename
+#define CONCEPT_PARTICLE_SYSTEM typename
+#define CONCEPT_CONTAINER typename
+#define CONCEPT_PARTICLES_DATA typename
+#define CONCEPT_INTERACTION typename
+#define CONCEPT_PARTICLE_CONTAINER typename
+#define CONCEPT_FORCE typename
+#endif

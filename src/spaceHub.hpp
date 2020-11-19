@@ -96,7 +96,8 @@ namespace space {
 
     using DefaultSolver =
         Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
-                                                 interactions::NewtonianGrav, particle_system::ReguType::LogH>,
+                                                 interactions::Interactions<interactions::NewtonianGrav>,
+                                                 particle_system::ReguType::LogH>,
                   ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
 
     // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>

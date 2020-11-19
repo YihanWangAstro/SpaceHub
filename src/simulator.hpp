@@ -55,7 +55,7 @@ namespace space {
      *
      * @tparam ParticleSys Any implementation of concept ParticleSystem.
      */
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     class RunArgs {
        public:
         // type members
@@ -243,7 +243,7 @@ namespace space {
          * @param[in] time Initial time of the particle system.
          * @param[in] particles_set Particle container.
          */
-        template <typename STL>
+        template <CONCEPT_PARTICLE_CONTAINER STL>
         Simulator(Scalar time, STL const &particles_set);
 
         /**
@@ -286,28 +286,28 @@ namespace space {
     /*---------------------------------------------------------------------------*\
         Class RunArgs Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     void RunArgs<ParticleSys>::pre_operations(ParticleSys &particle_system, Scalar step_size) const {
         for (auto const &opt : pre_opts_) {
             opt(particle_system, step_size);
         }
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     void RunArgs<ParticleSys>::post_operations(ParticleSys &particle_system, Scalar step_size) const {
         for (auto const &opt : post_opts_) {
             opt(particle_system, step_size);
         }
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     void RunArgs<ParticleSys>::stop_operations(ParticleSys &particle_system, Scalar step_size) const {
         for (auto const &opt : stop_opts_) {
             opt(particle_system, step_size);
         }
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system, Scalar step_size) const {
         for (auto const &check : stop_cond_) {
             if (check(particle_system, step_size)) return true;
@@ -315,35 +315,35 @@ namespace space {
         return false;
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&... args) {
         pre_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                          std::forward<Args>(args)...));
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&... args) {
         post_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&... args) {
         stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_stop_condition(Func func, Args &&... args) {
         stop_cond_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
     }
 
-    template <typename ParticleSys>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename T>
     void RunArgs<ParticleSys>::add_stop_condition(T end) {
         end_time = end;
@@ -354,7 +354,7 @@ namespace space {
         Class Simulator Implememtation
     \*---------------------------------------------------------------------------*/
     template <typename ParticleSys, typename OdeIterator>
-    template <typename STL>
+    template <CONCEPT_PARTICLE_CONTAINER STL>
     Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set)
         : particles_(time, particle_set) {
         static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
