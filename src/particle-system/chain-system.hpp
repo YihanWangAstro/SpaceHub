@@ -186,9 +186,9 @@ namespace space::particle_system {
         if constexpr (Interactions::ext_vel_dep) {
             Scalar half_step = 0.5 * step_size;
             eval_vel_indep_acc();
-            kick_pseu_vel(half_step);
-            kick_real_vel(step_size);
-            kick_pseu_vel(half_step);
+            kick_real_vel(half_step);
+            kick_pseu_vel(step_size);
+            kick_real_vel(half_step);
         } else {
             Interactions::eval_acc(*this, accels_.acc());
             advance_vel(step_size, accels_.acc());

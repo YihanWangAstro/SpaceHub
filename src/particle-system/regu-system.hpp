@@ -28,7 +28,7 @@ License
 
 #include "../core-computation.hpp"
 #include "../interaction/interaction.hpp"
-
+#include "../spacehub-concepts.hpp"
 namespace space::particle_system {
     /**
      *
@@ -51,14 +51,14 @@ namespace space::particle_system {
         explicit Regularization(Particles const &particles);
 
         // Public methods
-        SPACEHUB_STD_ACCESSOR(auto, omega, omega_);
+        SPACEHUB_STD_ACCESSOR(Scalar, omega, omega_);
 
-        SPACEHUB_STD_ACCESSOR(auto, bindE, bindE_);
+        SPACEHUB_STD_ACCESSOR(Scalar, bindE, bindE_);
 
-        template <typename Particles>
+        template <CONCEPT_PARTICLES_DATA Particles>
         Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size) const;
 
-        template <typename Particles>
+        template <CONCEPT_PARTICLES_DATA Particles>
         Scalar eval_vel_phy_time(Particles const &particles, Scalar step_size) const;
 
        private:
@@ -239,9 +239,9 @@ namespace space::particle_system {
         eval_vel_indep_acc();
 
         if constexpr (Interactions::ext_vel_dep) {
-            kick_pseu_vel(half_time);
-            kick_real_vel(phy_time);
-            kick_pseu_vel(half_time);
+            kick_real_vel(half_time);
+            kick_pseu_vel(phy_time);
+            kick_real_vel(half_time);
         } else {
             calc::array_advance(ptcl_.vel(), accels_.tot_vel_indep_acc(), half_time);
             advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
@@ -335,6 +335,15 @@ namespace space::particle_system {
         Interactions::eval_extra_vel_dep_acc(ptcl_, accels_.ext_vel_dep_acc());
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         calc::array_advance(aux_vel_, accels_.acc(), phy_time);
+
+        advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
+
+        if constexpr (Interactions::ext_vel_indep) {
+            calc::array_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());
+            advance_bindE(ptcl_.vel(), accels_.acc(), phy_time);
+        } else {
+            advance_bindE(ptcl_.vel(), accels_.ext_vel_dep_acc(), phy_time);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -345,15 +354,6 @@ namespace space::particle_system {
 
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         calc::array_advance(ptcl_.vel(), accels_.acc(), phy_time);
-
-        advance_omega(aux_vel_, accels_.newtonian_acc(), phy_time);
-
-        if constexpr (Interactions::ext_vel_indep) {
-            calc::array_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());
-            advance_bindE(aux_vel_, accels_.acc(), phy_time);
-        } else {
-            advance_bindE(aux_vel_, accels_.ext_vel_dep_acc(), phy_time);
-        }
     }
 
     /*---------------------------------------------------------------------------*\
@@ -367,7 +367,7 @@ namespace space::particle_system {
     }
 
     template <typename Scalar, ReguType Type>
-    template <typename Particles>
+    template <CONCEPT_PARTICLES_DATA Particles>
     Scalar Regularization<Scalar, Type>::eval_pos_phy_time(const Particles &particles, Scalar step_size) const {
         if constexpr (Type == ReguType::LogH) {
             return step_size / (bindE_ + calc::calc_kinetic_energy(particles));
@@ -381,7 +381,7 @@ namespace space::particle_system {
     }
 
     template <typename Scalar, ReguType Type>
-    template <typename Particles>
+    template <CONCEPT_PARTICLES_DATA Particles>
     Scalar Regularization<Scalar, Type>::eval_vel_phy_time(const Particles &particles, Scalar step_size) const {
         if constexpr (Type == ReguType::LogH) {
             return step_size / -calc::calc_potential_energy(particles);

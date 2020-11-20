@@ -168,6 +168,8 @@ namespace space::particle_system {
             aux_vel_ = ptcl_.vel();
             chain_aux_vel_ = chain_vel_;
         }
+        regu_ = std::move(
+            Regularization<Scalar, RegType>{*this});  // re-construct the regularization with chain coordinates.
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -210,19 +212,19 @@ namespace space::particle_system {
         eval_vel_indep_acc();
 
         if constexpr (Interactions::ext_vel_dep) {
-            kick_pseu_vel(half_time);
-            kick_real_vel(phy_time);
-            kick_pseu_vel(half_time);
+            kick_real_vel(half_time);
+            kick_pseu_vel(phy_time);
+            kick_real_vel(half_time);
         } else {
-            /*Chain::calc_chain(accels_.tot_vel_indep_acc(), chain_acc_, index());
+            Chain::calc_chain(accels_.tot_vel_indep_acc(), chain_acc_, index());
             chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);
             advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
             if constexpr (Interactions::ext_vel_indep) {
-              advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
+                advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), phy_time);
             }
-            chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);*/
+            chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, half_time);
 
-            advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
+            /*advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
             if constexpr (Interactions::ext_vel_indep) {
                 advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
             }
@@ -233,7 +235,7 @@ namespace space::particle_system {
             advance_omega(ptcl_.vel(), accels_.newtonian_acc(), half_time);
             if constexpr (Interactions::ext_vel_indep) {
                 advance_bindE(ptcl_.vel(), accels_.ext_vel_indep_acc(), half_time);
-            }
+            }*/
         }
     }
 
@@ -365,6 +367,15 @@ namespace space::particle_system {
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         Chain::calc_chain(accels_.acc(), chain_acc_, index());
         chain_advance(aux_vel_, chain_aux_vel_, chain_acc_, phy_time);
+
+        advance_omega(ptcl_.vel(), accels_.newtonian_acc(), phy_time);
+
+        if constexpr (Interactions::ext_vel_indep) {
+            calc::array_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());
+            advance_bindE(ptcl_.vel(), accels_.acc(), phy_time);
+        } else {
+            advance_bindE(ptcl_.vel(), accels_.ext_vel_dep_acc(), phy_time);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -378,14 +389,5 @@ namespace space::particle_system {
 
         Chain::calc_chain(accels_.acc(), chain_acc_, index());
         chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, phy_time);
-
-        advance_omega(aux_vel_, accels_.newtonian_acc(), phy_time);
-
-        if constexpr (Interactions::ext_vel_indep) {
-            calc::array_add(accels_.acc(), accels_.ext_vel_indep_acc(), accels_.ext_vel_dep_acc());
-            advance_bindE(aux_vel_, accels_.acc(), phy_time);
-        } else {
-            advance_bindE(aux_vel_, accels_.ext_vel_dep_acc(), phy_time);
-        }
     }
 }  // namespace space::particle_system

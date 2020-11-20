@@ -139,6 +139,8 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
     args.rtol = rtol;
 
+    // args.atol = args.rtol;
+
     args.add_pre_step_operation(TimeSlice(
         [&](auto &ptc, auto step_size) {
             auto err = calc::calc_energy_error(ptc.particles(), E0);
@@ -190,6 +192,8 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
         args.add_stop_condition(end_time);
 
         args.rtol = rtol_start * pow(2, thid);
+
+        // args.atol = args.rtol;
 
         Solver sim{0, p};
         sim.run(args);

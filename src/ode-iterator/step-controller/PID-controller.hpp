@@ -125,7 +125,7 @@ namespace space::ode_iterator {
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
                        step_limiter(order, safe_guard1_ * pow(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
-                                               pow(std::get<1>(errors), Ki_ * expon_[order]));
+                                               pow(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]));
             } else {
                 return old_step * limiter_max_[order];
             }

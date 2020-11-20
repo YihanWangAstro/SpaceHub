@@ -86,7 +86,7 @@ namespace space {
         /**
          * The absolute error tolerance.
          */
-        Scalar atol{1e-14};
+        Scalar atol{0};
 
         /**
          * The relative error tolerance.

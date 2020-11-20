@@ -428,6 +428,7 @@ namespace space::calc {
         auto U = -calc_potential_energy(particles);
         auto T = calc_kinetic_energy(particles);
 
+        // return fabs((T - U - E0) / E0);
         if constexpr (HAS_METHOD(Particles, bindE)) {
             return log(fabs((T + particles.bindE()) / U));
         } else {
