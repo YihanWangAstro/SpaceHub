@@ -427,8 +427,6 @@ namespace space::calc {
     auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) {
         auto U = -calc_potential_energy(particles);
         auto T = calc_kinetic_energy(particles);
-
-        // return fabs((T - U - E0) / E0);
         if constexpr (HAS_METHOD(Particles, bindE)) {
             return log(fabs((T + particles.bindE()) / U));
         } else {

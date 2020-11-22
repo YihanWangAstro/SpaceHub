@@ -159,13 +159,13 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, const VectorArray &velocity) {
+    void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, VectorArray const &velocity) {
         Chain::calc_chain(velocity, chain_vel(), index());
         chain_advance(ptcl_.pos(), chain_pos(), chain_vel(), step_size);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::advance_vel(Scalar step_size, const VectorArray &acceleration) {
+    void ChainSystem<Particles, Interactions>::advance_vel(Scalar step_size, VectorArray const &acceleration) {
         Chain::calc_chain(acceleration, chain_acc_, index());
         chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, step_size);
     }

@@ -351,7 +351,7 @@ namespace space {
     }
 
     /*---------------------------------------------------------------------------*\
-        Class Simulator Implememtation
+        Class Simulator Implementation
     \*---------------------------------------------------------------------------*/
     template <typename ParticleSys, typename OdeIterator>
     template <CONCEPT_PARTICLE_CONTAINER STL>
@@ -403,6 +403,7 @@ namespace space {
             run_args.post_operations(particles_, step_size_);
         }
         run_args.stop_operations(particles_, step_size_);
+        // std::cout << "reject rate:" << iterator_.reject_rate() << "\n";
     }
 
     template <typename ParticleSys, typename OdeIterator>

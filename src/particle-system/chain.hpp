@@ -158,7 +158,7 @@ namespace space {
           Class Chain Implementation
     \*---------------------------------------------------------------------------*/
     template <typename VectorArray, typename IdxArray>
-    void Chain::calc_chain_index(const VectorArray &pos, IdxArray &index) {
+    void Chain::calc_chain_index(VectorArray const &pos, IdxArray &index) {
         std::vector<Node> dist;
         create_distances_array(pos, dist);
         std::sort(dist.begin(), dist.end(), [&](Node const &ni, Node const &nj) { return (ni.r < nj.r); });
@@ -192,7 +192,7 @@ namespace space {
     }
 
     template <typename ScalarArray, typename VectorArray, typename IdxArray>
-    void Chain::calc_cartesian(const ScalarArray &mass, const VectorArray &chain, VectorArray &cartesian,
+    void Chain::calc_cartesian(const ScalarArray &mass, VectorArray const &chain, VectorArray &cartesian,
                                const IdxArray &index) {
         to_cartesian(chain, cartesian, index);
         if constexpr (!bijective_transfer) {
@@ -201,7 +201,7 @@ namespace space {
     }
 
     template <typename VectorArray, typename IdxArray>
-    void Chain::calc_chain(const VectorArray &cartesian, VectorArray &chain, const IdxArray &index) {
+    void Chain::calc_chain(VectorArray const &cartesian, VectorArray &chain, const IdxArray &index) {
         to_chain(cartesian, chain, index);
     }
 
@@ -236,7 +236,7 @@ namespace space {
     }
 
     template <typename VectorArray, typename Container>
-    void Chain::create_distances_array(const VectorArray &pos, Container &vec) {
+    void Chain::create_distances_array(VectorArray const &pos, Container &vec) {
         size_t num = pos.size();
         vec.reserve(num * (num - 1));
         for (size_t i = 0; i < num; ++i) {
@@ -279,7 +279,7 @@ namespace space {
     }
 
     template <typename VectorArray>
-    auto Chain::get_new_node(const VectorArray &chain, size_t head, size_t tail) -> typename VectorArray::value_type {
+    auto Chain::get_new_node(VectorArray const &chain, size_t head, size_t tail) -> typename VectorArray::value_type {
         using Vector = typename VectorArray::value_type;
         using Scalar = typename Vector::value_type;
 

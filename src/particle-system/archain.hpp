@@ -179,7 +179,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_pos(Scalar step_size, const VectorArray &velocity) {
+    void ARchainSystem<Particles, Interactions, RegType>::advance_pos(Scalar step_size, VectorArray const &velocity) {
         Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
         Chain::calc_chain(velocity, chain_acc_, index());  // borrow chain_acc_ as chain velocity buffer.
         chain_advance(ptcl_.pos(), chain_pos(), chain_acc_, phy_time);
@@ -187,7 +187,7 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
     void ARchainSystem<Particles, Interactions, RegType>::advance_vel(Scalar step_size,
-                                                                      const VectorArray &acceleration) {
+                                                                      VectorArray const &acceleration) {
         Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
         Chain::calc_chain(acceleration, chain_acc_, index());
         chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, phy_time);
@@ -263,6 +263,7 @@ namespace space::particle_system {
     template <typename STL>
     void ARchainSystem<Particles, Interactions, RegType>::write_to_scalar_array(STL &stl_ranges) {
         stl_ranges.clear();
+
         stl_ranges.reserve(ptcl_.number() * 6 + 3);
         stl_ranges.emplace_back(ptcl_.time());
         stl_ranges.emplace_back(omega());
@@ -297,13 +298,13 @@ namespace space::particle_system {
         load_to_coords(pos_begin, pos_end, chain_pos_);
         load_to_coords(vel_begin, vel_end, chain_vel_);
 
-        /*auto c_pos_begin = vel_end;
-        auto c_pos_end = c_pos_begin + len;
-        auto c_vel_begin = c_pos_end;
-        auto c_vel_end = c_vel_begin + len;
+        /* auto c_pos_begin = vel_end;
+         auto c_pos_end = c_pos_begin + len;
+         auto c_vel_begin = c_pos_end;
+         auto c_vel_end = c_vel_begin + len;
 
-        load_to_coords(c_pos_begin, c_pos_end, ptcl_.pos());
-        load_to_coords(c_vel_begin, c_vel_end, ptcl_.vel());*/
+         load_to_coords(c_pos_begin, c_pos_end, ptcl_.pos());
+         load_to_coords(c_vel_begin, c_vel_end, ptcl_.vel());*/
 
         Chain::calc_cartesian(ptcl_.mass(), chain_pos_, ptcl_.pos(), index());
         Chain::calc_cartesian(ptcl_.mass(), chain_vel_, ptcl_.vel(), index());
@@ -323,7 +324,7 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
     void ARchainSystem<Particles, Interactions, RegType>::chain_advance(VectorArray &var, VectorArray &chain_var,
-                                                                        const VectorArray &chain_increment,
+                                                                        VectorArray const &chain_increment,
                                                                         Scalar phy_time) {
         calc::array_advance(chain_var, chain_increment, phy_time);
         Chain::calc_cartesian(ptcl_.mass(), chain_var, var, index());
@@ -342,18 +343,18 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_omega(const VectorArray &velocity,
-                                                                        const VectorArray &d_omega_dr,
+    void ARchainSystem<Particles, Interactions, RegType>::advance_omega(VectorArray const &velocity,
+                                                                        VectorArray const &d_omega_dr,
                                                                         Scalar phy_time) {
-        if constexpr (regu_type == ReguType::TTL) {
-            Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
-            regu_.omega() += d_omega * phy_time;
-        }
+        // if constexpr (regu_type == ReguType::TTL) {
+        Scalar d_omega = calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_omega_dr);
+        regu_.omega() += d_omega * phy_time;
+        //}
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(const VectorArray &velocity,
-                                                                        const VectorArray &d_bindE_dr,
+    void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(VectorArray const &velocity,
+                                                                        VectorArray const &d_bindE_dr,
                                                                         Scalar phy_time) {
         if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {
             Scalar d_bindE = -calc::coord_contract_to_scalar(ptcl_.mass(), velocity, d_bindE_dr);

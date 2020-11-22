@@ -240,12 +240,12 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void SimpleSystem<Particles, Interactions>::advance_vel(Scalar step_size, const VectorArray &acceleration) {
+    void SimpleSystem<Particles, Interactions>::advance_vel(Scalar step_size, VectorArray const &acceleration) {
         calc::array_advance(ptcl_.vel(), acceleration, step_size);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void SimpleSystem<Particles, Interactions>::advance_pos(Scalar step_size, const VectorArray &velocity) {
+    void SimpleSystem<Particles, Interactions>::advance_pos(Scalar step_size, VectorArray const &velocity) {
         calc::array_advance(ptcl_.pos(), velocity, step_size);
     }
 

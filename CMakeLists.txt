@@ -61,10 +61,8 @@ set(TMP_HEADER_FILES
         src/simulator.hpp
         src/spaceHub.hpp
         src/type-class.hpp
-        src/ode-iterator/error-checker/error-checker.hpp
         src/ode-iterator/error-checker/worst-offender.hpp
         src/ode-iterator/error-checker/RMS.hpp
-        src/ode-iterator/step-controller/stepsize-controller.hpp
         src/ode-iterator/step-controller/PID-controller.hpp
         src/scattering/cross-section.hpp
         src/ode-iterator/error-checker/IAS15-error.hpp

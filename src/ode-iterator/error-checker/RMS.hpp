@@ -24,8 +24,6 @@ License
  */
 #pragma once
 
-#include "error-checker.hpp"
-
 namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
          Class RMS Declaration

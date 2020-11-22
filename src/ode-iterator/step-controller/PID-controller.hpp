@@ -25,7 +25,6 @@ License
 #pragma once
 
 #include "../../math.hpp"
-#include "stepsize-controller.hpp"
 
 namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
@@ -37,10 +36,9 @@ namespace space::ode_iterator {
      * @tparam T
      */
     template <size_t Max_order, typename T>
-    class PIDController : public StepController<PIDController<Max_order, T>> {
+    class PIDController {
        public:
         // Type member
-        using Base = StepController<PIDController<Max_order, T>>;
 
         using Scalar = T;
 
@@ -57,14 +55,10 @@ namespace space::ode_iterator {
 
         void set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4);
 
-        CRTP_IMPL :
-            // CRTP implementation
+        template <typename ArrayLike>
+        Scalar next_step_size(size_t order, Scalar old_step, ArrayLike const &errors);
 
-            template <typename ArrayLike>
-            Scalar
-            impl_next_step_size(size_t order, Scalar old_step, ArrayLike const &errors);
-
-        Scalar impl_next_step_size(size_t order, Scalar old_step, Scalar error);
+        Scalar next_step_size(size_t order, Scalar old_step, Scalar error);
 
        private:
         std::array<Scalar, Max_order + 1> limiter_max_;
@@ -73,9 +67,9 @@ namespace space::ode_iterator {
 
         std::array<Scalar, Max_order + 1> expon_;
 
-        Scalar safe_guard1_{0.95};
+        Scalar safe_guard1_{0.65};
 
-        Scalar safe_guard2_{0.95};
+        Scalar safe_guard2_{0.94};
 
         Scalar safe_guard3_{0.02};
 
@@ -112,8 +106,7 @@ namespace space::ode_iterator {
 
     template <size_t Max_order, typename T>
     template <typename ArrayLike>
-    auto PIDController<Max_order, T>::impl_next_step_size(size_t order, Scalar old_step, ArrayLike const &errors)
-        -> Scalar {
+    auto PIDController<Max_order, T>::next_step_size(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
         if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
@@ -133,7 +126,7 @@ namespace space::ode_iterator {
     }
 
     template <size_t Max_order, typename T>
-    auto PIDController<Max_order, T>::impl_next_step_size(size_t order, Scalar old_step, Scalar error) -> Scalar {
+    auto PIDController<Max_order, T>::next_step_size(size_t order, Scalar old_step, Scalar error) -> Scalar {
         if (error != 0.0) {
             return old_step * step_limiter(order, safe_guard1_ * pow(safe_guard2_ / error, expon_[order]));
         } else {
@@ -143,6 +136,9 @@ namespace space::ode_iterator {
 
     template <size_t Max_order, typename T>
     PIDController<Max_order, T>::PIDController() {
+        expon_[0] = 0.0;
+        limiter_max_[0] = 1.0;
+        limiter_min_[0] = 1.0 / safe_guard4_;
         for (size_t i = 1; i <= Max_order; i++) {
             expon_[i] = 1.0 / static_cast<Scalar>(i);
             limiter_max_[i] = pow(1.0 / safe_guard3_, expon_[i]);

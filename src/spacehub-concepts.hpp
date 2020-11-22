@@ -213,6 +213,14 @@ namespace space::concepts {
         ->std::same_as<void>;
     };
 
+    template <typename T>
+    concept StepControler = requires(T c, std::tuple<typename T::Scalar, typename T::Scalar> tup) {
+        typename T::Scalar;
+        { c.next_step_size(INSTANCE(typename T::Scalar), INSTANCE(typename T::Scalar), INSTANCE(typename T::Scalar)) }
+        ->std::convertible_to<typename T::Scalar>;
+        { c.next_step_size(INSTANCE(typename T::Scalar), INSTANCE(typename T::Scalar), tup) }
+        ->std::convertible_to<typename T::Scalar>;
+    };
     // template <typename T>
     // concept Integrator = requires(T i){};
 
@@ -226,8 +234,10 @@ namespace space::concepts {
 #define CONCEPT_INTERACTION concepts::Interaction
 #define CONCEPT_PARTICLE_CONTAINER concepts::ParticleContainer
 #define CONCEPT_FORCE concepts::Force
+#define CONCEPT_STEP_CONTROLER concepts::StepControler
 
 #else
+
 #define CONCEPT_PARTICLE typename
 #define CONCEPT_PARTICLES typename
 #define CONCEPT_PARTICLE_SYSTEM typename
@@ -236,4 +246,5 @@ namespace space::concepts {
 #define CONCEPT_INTERACTION typename
 #define CONCEPT_PARTICLE_CONTAINER typename
 #define CONCEPT_FORCE typename
+#define CONCEPT_STEP_CONTROLER typename
 #endif

@@ -143,7 +143,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
     args.add_pre_step_operation(TimeSlice(
         [&](auto &ptc, auto step_size) {
-            auto err = calc::calc_energy_error(ptc.particles(), E0);
+            auto err = calc::calc_energy_error(ptc, E0);
             tot_error += err * err;
             error_num++;
             err_file << ptc.particles().time() << ',' << err << '\n';
@@ -200,7 +200,7 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
 
         rtol[thid] = args.rtol;
         err[thid] = sqrt(tot_error / error_num);
-        std::cout << tot_error << ' ' << error_num << " " << thid << std::endl;
+        // std::cout << tot_error << ' ' << error_num << " " << thid << std::endl;
     });
 
     return std::make_tuple(rtol, err);

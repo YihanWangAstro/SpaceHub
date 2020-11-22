@@ -24,8 +24,6 @@ License
  */
 #pragma once
 
-#include "error-checker.hpp"
-
 namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
          Class WorstOffender Declaration
@@ -85,8 +83,9 @@ namespace space::ode_iterator {
         size_t const size = y0.size();
         Scalar max_err = 0;
         for (size_t i = 0; i < size; ++i) {
-            Scalar scale = std::max(fabs(y1[i]), fabs(y1_prime[i]));
-            max_err = std::max(max_err, fabs(y1_prime[i] - y1[i]) / (atol_ + scale * rtol_));
+            Scalar scale = std::max(fabs(y1[i]), fabs(y0[i]));
+            // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));
+            max_err = math::max(max_err, fabs(y1_prime[i] - y1[i]) / (atol_ + scale * rtol_));
         }
         return max_err;
     }
