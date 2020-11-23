@@ -145,11 +145,13 @@ namespace space::particle_system {
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
 
+        std::string column_names() const;
+
         // Friend functions
-        template <typename P, typename F, ReguType R>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
         friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<P, F, R> const &ps);
 
-        template <typename P, typename F, ReguType R>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
         friend std::istream &operator>>(std::istream &is, RegularizedSystem<P, F, R> &ps);
 
        private:
@@ -353,6 +355,11 @@ namespace space::particle_system {
 
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         calc::array_advance(ptcl_.vel(), accels_.acc(), phy_time);
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    std::string RegularizedSystem<Particles, Interactions, RegType>::column_names() const {
+        return ptcl_.column_names();
     }
 
     /*---------------------------------------------------------------------------*\

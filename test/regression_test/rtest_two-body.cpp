@@ -26,9 +26,9 @@ template <typename simulation>
 void run(std::string const &sim_type) {
     auto twobody_sys = two_body<simulation>(0.9999);
 
-    basic_error_test<simulation>("two-body-" + sim_type, 10000_year, 1e-14, twobody_sys);
+    basic_error_test<simulation>("two-body-" + sim_type, 1000_year, 1e-15, twobody_sys);
 
-    auto [rtol, error] = error_scale<simulation>(1e-15, 1e-9, 1000_year, twobody_sys);
+    auto [rtol, error] = error_scale<simulation>(1e-16, 1e-9, 1000_year, twobody_sys);
 
     std::fstream err_stream{"two-body-" + sim_type + ".scale", std::ios::out};
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 
     // using iter = ConstOdeIterator<Symplectic2nd>;
 
-    using iter = BurlishStoer<double, WorstOffender, PIDController, LeapFrog::DKD>;
+    using iter = BurlishStoer<double_k, RMS, PIDController, LeapFrog::DKD>;
 
     run<Simulator<sim_sys, iter>>("sim");
 

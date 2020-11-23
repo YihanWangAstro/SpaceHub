@@ -117,7 +117,10 @@ namespace space::concepts {
     };
 
     template <typename T>
-    concept Particles = ParticlesData<T> &&ParticlesResizable<T>;
+    concept Particles = ParticlesData<T> &&ParticlesResizable<T> &&requires(T p) {
+        { p.column_names() }
+        ->std::same_as<std::string>;
+    };
 
     template <typename T>
     concept ParticleSystem = ParticlesData<T> &&requires(T p, size_t index) {
@@ -149,6 +152,8 @@ namespace space::concepts {
         ->std::same_as<void>;
         { p.read_from_scalar_array(INSTANCE(typename T::ScalarArray const &)) }
         ->std::same_as<void>;
+        { p.column_names() }
+        ->std::same_as<std::string>;
     };
 
     struct TestParticle {

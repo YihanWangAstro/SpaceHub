@@ -173,7 +173,7 @@ namespace space::interactions {
 
     template <typename Interactions, typename VectorArray>
     InteractionData<Interactions, VectorArray>::InteractionData(size_t size)
-        : acc_{size}, newtonian_acc_{size}, tot_vel_indep_acc_{size} {
+        : acc_(size), newtonian_acc_(size), tot_vel_indep_acc_(size) {
         if constexpr (Interactions::ext_vel_indep) {
             ext_vel_indep_acc_.resize(size);
         }

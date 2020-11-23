@@ -102,11 +102,13 @@ namespace space::particle_system {
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
 
+        std::string column_names() const;
+
         // Friend functions
-        template <typename P, typename F, ReguType R>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
         friend std::ostream &operator<<(std::ostream &os, ARchainSystem<P, F, R> const &ps);
 
-        template <typename P, typename F, ReguType R>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
         friend std::istream &operator>>(std::istream &is, ARchainSystem<P, F, R> &ps);
 
        private:
@@ -298,16 +300,21 @@ namespace space::particle_system {
         load_to_coords(pos_begin, pos_end, chain_pos_);
         load_to_coords(vel_begin, vel_end, chain_vel_);
 
-        /* auto c_pos_begin = vel_end;
-         auto c_pos_end = c_pos_begin + len;
-         auto c_vel_begin = c_pos_end;
-         auto c_vel_end = c_vel_begin + len;
+        /*auto c_pos_begin = vel_end;
+        auto c_pos_end = c_pos_begin + len;
+        auto c_vel_begin = c_pos_end;
+        auto c_vel_end = c_vel_begin + len;
 
-         load_to_coords(c_pos_begin, c_pos_end, ptcl_.pos());
-         load_to_coords(c_vel_begin, c_vel_end, ptcl_.vel());*/
+        load_to_coords(c_pos_begin, c_pos_end, ptcl_.pos());
+        load_to_coords(c_vel_begin, c_vel_end, ptcl_.vel());*/
 
         Chain::calc_cartesian(ptcl_.mass(), chain_pos_, ptcl_.pos(), index());
         Chain::calc_cartesian(ptcl_.mass(), chain_vel_, ptcl_.vel(), index());
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    std::string ARchainSystem<Particles, Interactions, RegType>::column_names() const {
+        return ptcl_.column_names();
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>

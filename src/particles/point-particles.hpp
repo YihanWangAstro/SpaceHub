@@ -146,6 +146,14 @@ namespace space::particle_set {
 
         void clear();
 
+        std::string column_names() const;
+
+        template <typename U>
+        friend std::ostream &operator<<(std::ostream &os, PointParticles<U> const &ps);
+
+        template <typename U>
+        friend std::istream &operator>>(std::istream &is, PointParticles<U> &ps);
+
        private:
         // Private members
         VectorArray pos_;
@@ -243,12 +251,15 @@ namespace space::particle_set {
     }
 
     template <typename TypeSystem>
-    std::ostream &operator<<(std::ostream &os, PointParticles<TypeSystem> const &particle_system) {
-        size_t num = particle_system.number();
-        os << particle_system.time();
+    std::string PointParticles<TypeSystem>::column_names() const {
+        return "time,id,mass,px,py,pz,vx,vy,vz";
+    }
+
+    template <typename TypeSystem>
+    std::ostream &operator<<(std::ostream &os, PointParticles<TypeSystem> const &ps) {
+        size_t num = ps.number();
         for (size_t i = 0; i < num; ++i) {
-            space::print_csv(os, "", particle_system.idn(i), particle_system.mass(i), particle_system.pos(i),
-                             particle_system.vel(i));
+            space::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.pos(i), ',', ps.vel(i), '\n');
         }
         return os;
     }

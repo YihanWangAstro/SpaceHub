@@ -86,7 +86,7 @@ namespace space {
         /**
          * The absolute error tolerance.
          */
-        Scalar atol{0};
+        Scalar atol{1e-15};
 
         /**
          * The relative error tolerance.
@@ -117,6 +117,14 @@ namespace space {
          * @param[in] step_size The current step size.
          */
         void stop_operations(ParticleSys &particle_sys, Scalar step_size) const;
+
+        /**
+         * Call the all registered start-operation functions by sequence.
+         *
+         * @param[in,out] particle_sys The particle system that is going to be operated.
+         * @param[in] step_size The current step size.
+         */
+        void start_operations(ParticleSys &particle_sys, Scalar step_size) const;
 
         /**
          * Check the all registered stop condition functions by sequence. If any of them is satisfied, return `true`.
@@ -163,6 +171,18 @@ namespace space {
         void add_stop_point_operation(Func func, Args &&... args);
 
         /**
+         * Register a callable object(function pointer, functor, lambda,etc...) to start-point-operations.
+         *
+         * @tparam Func Callable type that is conversional to member type Callback.
+         * @tparam Args Type of the binding arguments.
+         * @param[in] func Callable object.
+         * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments
+         * here.
+         */
+        template <typename Func, typename... Args>
+        void add_start_point_operation(Func func, Args &&... args);
+
+        /**
          * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.
          *
          * @tparam Func Callable type that is conversional to member type Stopback.
@@ -201,6 +221,8 @@ namespace space {
         std::vector<Callback> post_opts_;
 
         std::vector<Callback> stop_opts_;
+
+        std::vector<Callback> start_opts_;
 
         std::vector<StopCall> stop_cond_;
 
@@ -308,6 +330,13 @@ namespace space {
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
+    void RunArgs<ParticleSys>::start_operations(ParticleSys &particle_system, Scalar step_size) const {
+        for (auto const &opt : start_opts_) {
+            opt(particle_system, step_size);
+        }
+    }
+
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system, Scalar step_size) const {
         for (auto const &check : stop_cond_) {
             if (check(particle_system, step_size)) return true;
@@ -334,6 +363,13 @@ namespace space {
     void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&... args) {
         stop_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
                                           std::forward<Args>(args)...));
+    }
+
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
+    template <typename Func, typename... Args>
+    void RunArgs<ParticleSys>::add_start_point_operation(Func func, Args &&... args) {
+        start_opts_.emplace_back(std::bind(std::forward<Func>(func), std::placeholders::_1, std::placeholders::_2,
+                                           std::forward<Args>(args)...));
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
@@ -376,7 +412,8 @@ namespace space {
         step_size_ = run_args.step_size;
 
         if (step_size_ == 0.0) {
-            step_size_ = 0.01 * calc::calc_step_scale(particles_.particles());
+            step_size_ = 0.01 * calc::calc_step_scale(particles_) *
+                         calc::calc_fall_free_time(particles_.mass(), particles_.pos());
         }
 
         Scalar end_time = space::unit::T_hubble;
@@ -397,6 +434,7 @@ namespace space {
             iterator_.set_rtol(run_args.rtol);
         }
 
+        run_args.start_operations(particles_, step_size_);
         for (; particles_.particles().time() < end_time && !run_args.check_stops(particles_, step_size_);) {
             run_args.pre_operations(particles_, step_size_);
             advance_one_step();

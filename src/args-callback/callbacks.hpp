@@ -197,6 +197,7 @@ namespace space::run_operations {
 
        private:
         std::shared_ptr<std::ofstream> fstream_;
+        bool column_names_{false};
     };
 
     /*---------------------------------------------------------------------------*\
@@ -288,7 +289,14 @@ namespace space::run_operations {
 
     template <typename ParticleSys>
     void DefaultWriter::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) {
-        *fstream_ << ptc << '\n';
+        if (column_names_) [[likely]] {
+                *fstream_ << ptc << '\n';
+            }
+        else
+            [[unlikely]] {
+                *fstream_ << ptc.column_names() << '\n';
+                column_names_ = true;
+            }
     }
 
     template <typename T>

@@ -127,7 +127,7 @@ namespace space {
          * mapping, otherwise, a centre of mass movement will be performed after the transformation from chain
          * coordinates to Cartesian coordinates.
          */
-        static constexpr bool bijective_transfer{true};
+        static constexpr bool bijective_transfer{false};
 
        private:
         template <typename T>

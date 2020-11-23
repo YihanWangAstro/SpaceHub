@@ -139,8 +139,9 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
     args.rtol = rtol;
 
-    // args.atol = args.rtol;
+    std::cout << std::setprecision(16);
 
+    // args.atol = args.rtol;
     args.add_pre_step_operation(TimeSlice(
         [&](auto &ptc, auto step_size) {
             auto err = calc::calc_energy_error(ptc, E0);
@@ -149,6 +150,8 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
             err_file << ptc.particles().time() << ',' << err << '\n';
         },
         0, end_time));
+
+    // args.add_pre_step_operation(DefaultWriter("TEST.txt"));
 
     args.add_stop_condition(end_time);
 

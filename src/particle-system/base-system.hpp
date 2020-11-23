@@ -75,7 +75,6 @@ namespace space::particle_system {
         size_t number() const { return ptcl_.number(); };
 
         /**
-         *
          * @param dt
          */
         void advance_time(Scalar dt);
@@ -135,11 +134,13 @@ namespace space::particle_system {
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
 
+        std::string column_names() const;
+
         // Friend functions
-        template <typename P, typename F>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
         friend std::ostream &operator<<(std::ostream &os, SimpleSystem<P, F> const &ps);
 
-        template <typename P, typename F>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
         friend std::istream &operator>>(std::istream &is, SimpleSystem<P, F> &ps);
 
        private:
@@ -277,6 +278,11 @@ namespace space::particle_system {
             Interactions::eval_extra_vel_indep_acc(ptcl_, accels_.ext_vel_indep_acc());
             calc::array_add(accels_.tot_vel_indep_acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_indep_acc());
         }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    std::string SimpleSystem<Particles, Interactions>::column_names() const {
+        return ptcl_.column_names();
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>

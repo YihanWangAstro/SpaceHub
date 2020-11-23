@@ -96,6 +96,8 @@ namespace space::particle_system {
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
 
+        std::string column_names() const;
+
        private:
         // Private methods
         void chain_advance(VectorArray &var, VectorArray &chain_var, VectorArray &chain_increment, Scalar step_size);
@@ -107,10 +109,10 @@ namespace space::particle_system {
         void kick_real_vel(Scalar step_size);
 
         // Friend functions
-        template <typename P, typename F>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
         friend std::ostream &operator<<(std::ostream &os, ChainSystem<P, F> const &ps);
 
-        template <typename P, typename F>
+        template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
         friend std::istream &operator>>(std::istream &is, ChainSystem<P, F> &ps);
 
        private:
@@ -142,10 +144,9 @@ namespace space::particle_system {
           new_index_(particle_set.size()),
           accels_(particle_set.size()),
           chain_acc_(particle_set.size()) {
-        static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
         Chain::calc_chain_index(ptcl_.pos(), index_);
-        Chain::calc_chain(ptcl_.pos(), chain_pos(), index());
-        Chain::calc_chain(ptcl_.vel(), chain_vel(), index());
+        Chain::calc_chain(ptcl_.pos(), chain_pos(), index_);
+        Chain::calc_chain(ptcl_.vel(), chain_vel(), index_);
 
         if constexpr (Interactions::ext_vel_dep) {
             aux_vel_ = ptcl_.vel();
@@ -241,6 +242,11 @@ namespace space::particle_system {
 
         Chain::calc_cartesian(ptcl_.mass(), chain_pos_, ptcl_.pos(), index_);
         Chain::calc_cartesian(ptcl_.mass(), chain_vel_, ptcl_.vel(), index_);
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    std::string ChainSystem<Particles, Interactions>::column_names() const {
+        return ptcl_.column_names();
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
