@@ -71,7 +71,7 @@ auto kozai() {
     using namespace space::unit;
     using namespace space::orbit;
 
-    Particle m1{1.4_Ms}, m2{0.3_Ms}, m3{0.01_Ms};
+    Particle m1{1.4_Ms}, m2{0.1_Ms}, m3{0.8_Ms};
 
     auto in_orbit = EllipOrbit(m1.mass, m2.mass, 5_AU, 0.5, 0, 0, 120_deg, 0);
 
@@ -79,7 +79,7 @@ auto kozai() {
 
     move_to_COM_frame(m1, m2);
 
-    auto out_orbit = EllipOrbit(m1.mass + m2.mass, m3.mass, 50_AU, 0, 80.8_deg, 0, 0, 0);
+    auto out_orbit = EllipOrbit(m1.mass + m2.mass, m3.mass, 50_AU, 0.5, 88_deg, 0, 0, 0);
 
     move_particles(out_orbit, m3);
 
@@ -142,7 +142,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
     std::cout << std::setprecision(16);
 
     // args.atol = args.rtol;
-    args.add_pre_step_operation(TimeSlice(
+    args.add_operation(TimeSlice(
         [&](auto &ptc, auto step_size) {
             auto err = calc::calc_energy_error(ptc, E0);
             tot_error += err * err;
@@ -151,7 +151,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
         },
         0, end_time));
 
-    // args.add_pre_step_operation(DefaultWriter("TEST.txt"));
+    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
 
     args.add_stop_condition(end_time);
 

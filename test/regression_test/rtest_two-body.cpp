@@ -28,11 +28,17 @@ void run(std::string const &sim_type) {
 
     basic_error_test<simulation>("two-body-" + sim_type, 1000_year, 1e-15, twobody_sys);
 
+    Timer timer;
+
+    timer.start();
+
     auto [rtol, error] = error_scale<simulation>(1e-16, 1e-9, 1000_year, twobody_sys);
 
     std::fstream err_stream{"two-body-" + sim_type + ".scale", std::ios::out};
 
     err_stream << rtol << '\n' << error;
+
+    std::cout << "total time : " << timer.get_time() << " s\n";
 }
 
 int main(int argc, char **argv) {
@@ -50,9 +56,9 @@ int main(int argc, char **argv) {
 
     using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-    // using iter = ConstOdeIterator<Symplectic2nd>;
+    //    using iter = ConstOdeIterator<Symplectic2nd>;
 
-    using iter = BurlishStoer<double_k, RMS, PIDController, LeapFrog::DKD>;
+    using iter = BurlishStoer<double, WorstOffender, PIDController, LeapFrog::DKD>;
 
     run<Simulator<sim_sys, iter>>("sim");
 

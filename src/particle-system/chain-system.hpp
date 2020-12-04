@@ -119,7 +119,7 @@ namespace space::particle_system {
         // Private members
         Particles ptcl_;
 
-        interactions::InteractionData<Interactions, VectorArray> accels_{};
+        interactions::InteractionData<Interactions, VectorArray> accels_;
         VectorArray chain_pos_;
         VectorArray chain_vel_;
         VectorArray chain_acc_;
@@ -220,10 +220,13 @@ namespace space::particle_system {
     template <typename STL>
     void ChainSystem<Particles, Interactions>::write_to_scalar_array(STL &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(ptcl_.number() * 6 + 1);
+        stl_ranges.reserve(ptcl_.number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
         stl_ranges.emplace_back(ptcl_.time());
         add_coords_to(stl_ranges, chain_pos_);
         add_coords_to(stl_ranges, chain_vel_);
+        if constexpr (Interactions::ext_vel_dep) {
+            add_coords_to(stl_ranges, chain_aux_vel_);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
@@ -242,6 +245,12 @@ namespace space::particle_system {
 
         Chain::calc_cartesian(ptcl_.mass(), chain_pos_, ptcl_.pos(), index_);
         Chain::calc_cartesian(ptcl_.mass(), chain_vel_, ptcl_.vel(), index_);
+        if constexpr (Interactions::ext_vel_dep) {
+            auto aux_vel_begin = vel_end;
+            auto aux_vel_end = aux_vel_begin + len;
+            load_to_coords(aux_vel_begin, aux_vel_end, chain_aux_vel_);
+            Chain::calc_cartesian(ptcl_.mass(), chain_aux_vel_, aux_vel_, index_);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>

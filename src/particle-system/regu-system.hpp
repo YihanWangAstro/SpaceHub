@@ -55,6 +55,8 @@ namespace space::particle_system {
 
         SPACEHUB_STD_ACCESSOR(Scalar, bindE, bindE_);
 
+        SPACEHUB_STD_ACCESSOR(Scalar, step_scale, scale_);
+
         template <CONCEPT_PARTICLES_DATA Particles>
         Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size) const;
 
@@ -70,6 +72,8 @@ namespace space::particle_system {
         Scalar omega_;
 
         Scalar bindE_;
+
+        Scalar scale_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -274,13 +278,16 @@ namespace space::particle_system {
     template <typename STL>
     void RegularizedSystem<Particles, Interactions, RegType>::write_to_scalar_array(STL &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(ptcl_.number() * 6 + 3);
+        stl_ranges.reserve(ptcl_.number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
         stl_ranges.emplace_back(ptcl_.time());
         stl_ranges.emplace_back(omega());
         stl_ranges.emplace_back(bindE());
 
         add_coords_to(stl_ranges, ptcl_.pos());
         add_coords_to(stl_ranges, ptcl_.vel());
+        if constexpr (Interactions::ext_vel_dep) {
+            add_coords_to(stl_ranges, aux_vel_);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -297,6 +304,11 @@ namespace space::particle_system {
         auto vel_end = vel_begin + len;
         load_to_coords(pos_begin, pos_end, ptcl_.pos());
         load_to_coords(vel_begin, vel_end, ptcl_.vel());
+        if constexpr (Interactions::ext_vel_dep) {
+            auto aux_vel_begin = vel_end;
+            auto aux_vel_end = aux_vel_begin + len;
+            load_to_coords(aux_vel_begin, aux_vel_end, aux_vel_);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>

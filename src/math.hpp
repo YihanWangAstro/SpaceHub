@@ -58,7 +58,7 @@ namespace space::math {
      */
     template <typename T1, typename T2>
     inline constexpr auto max(T1 const &x, T2 const &y) {
-        return y > x ? y : x;
+        return y > x ? y : static_cast<T2>(x);
     }
 
     /**

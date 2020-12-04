@@ -29,7 +29,7 @@ License
  * Documentation for space
  */
 namespace space::consts {
-    constexpr double pi = 3.14159265358979323;
+    constexpr double pi = 3.14159265358979323846;
 }
 
 /**

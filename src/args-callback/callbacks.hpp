@@ -100,6 +100,8 @@ namespace space::run_operations {
          */
         void reset_slice_params(double start, double end, size_t opt_num = 5000);
 
+        Operation operation() { return opt_; };
+
        private:
         Operation opt_;
         double opt_time_{0};
@@ -162,6 +164,8 @@ namespace space::run_operations {
          */
         void reset_slice_params(size_t step_interval);
 
+        Operation operation() { return opt_; };
+
        private:
         Operation opt_;
         size_t step_{0};
@@ -197,7 +201,6 @@ namespace space::run_operations {
 
        private:
         std::shared_ptr<std::ofstream> fstream_;
-        bool column_names_{false};
     };
 
     /*---------------------------------------------------------------------------*\
@@ -212,8 +215,8 @@ namespace space::run_operations {
     auto TimeSlice<Operation>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
         std::is_same_v<void, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, void> {
         using Scalar = typename ParticleSys::Scalar;
-        auto t = ptc.particles().time();
-        if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
+        auto t = ptc.time();
+        if (t >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ += opt_interval_;
             opt_(ptc, step_size);
         }
@@ -225,7 +228,7 @@ namespace space::run_operations {
         std::is_same_v<bool, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, bool> {
         using Scalar = typename ParticleSys::Scalar;
         auto t = ptc.time();
-        if (t >= static_cast<Scalar>(opt_time_) && opt_time_ <= end_time_) {
+        if (ptc.time() >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ += opt_interval_;
             return opt_(ptc, step_size);
         } else {
@@ -283,20 +286,16 @@ namespace space::run_operations {
         if (!fstream_->is_open()) {
             spacehub_abort("Fail to open the file " + file_name);
         } else {
-            (*fstream_) /*<< std::fixed*/ << std::setprecision(16);
+            (*fstream_) << std::scientific << std::setprecision(16);
         }
     }
 
     template <typename ParticleSys>
     void DefaultWriter::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) {
-        if (column_names_) [[likely]] {
-                *fstream_ << ptc << '\n';
-            }
-        else
-            [[unlikely]] {
-                *fstream_ << ptc.column_names() << '\n';
-                column_names_ = true;
-            }
+        if (ptc.time() == 0) [[unlikely]] {
+            *fstream_ << ptc.column_names() << '\n';
+        }
+        *fstream_ << ptc << '\n';
     }
 
     template <typename T>

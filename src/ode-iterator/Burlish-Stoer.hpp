@@ -210,7 +210,7 @@ namespace space::ode_iterator {
                 particles.write_to_scalar_array(extrap_list_[k]);
                 extrapolate(k);
 
-                Scalar error = err_checker_.error(input_, extrap_list_[0], extrap_list_[1]);
+                Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
 
                 // ideal_step_size_[k] =
                 // step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
@@ -255,7 +255,7 @@ namespace space::ode_iterator {
               LeapFrog LeapOrder>
     void BurlishStoer<Real, ErrChecker, StepControl, LeapOrder>::check_variable_size() {
         var_num_ = input_.size();
-        if (var_num_ > extrap_list_[0].size()) {
+        if (var_num_ > extrap_list_[0].size()) [[unlikely]] {
             for (auto &v : extrap_list_) {
                 v.resize(var_num_);
             }

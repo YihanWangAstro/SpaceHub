@@ -41,7 +41,7 @@ namespace space::calc {
      * @return constexpr auto The sum.
      */
     template <typename... Args>
-    constexpr auto add(Args &&... args) {
+    constexpr auto add(Args &&...args) {
         return (... + args);
     }
 
@@ -53,7 +53,7 @@ namespace space::calc {
      * @return constexpr auto The product.
      */
     template <typename... Args>
-    constexpr auto mul(Args &&... args) {
+    constexpr auto mul(Args &&...args) {
         return (... * args);
     }
 
@@ -101,7 +101,7 @@ namespace space::calc {
      * @param[in,out] args Containers.
      */
     template <typename... Args>
-    void set_arrays_zero(Args &... args) {
+    void set_arrays_zero(Args &...args) {
         (..., (array_set_zero(args)));
     }
 
@@ -120,10 +120,12 @@ namespace space::calc {
      * @note One should ensure the input arrays have method `size()` and they have the same length.
      */
     template <typename Array, typename Array2, typename... Args>
-    auto array_dot(Array const &a, Array2 const &b, Args const &... args) {
+    auto array_dot(Array const &a, Array2 const &b, Args const &...args) {
         DEBUG_MODE_ASSERT(b.size() == a.size(), "length of the array mismatch!");
         typename Array::value_type product{0};
         size_t const size = a.size();
+
+#pragma omp parallel for
         for (size_t i = 0; i < size; ++i) {
             product += (args[i] * ... * (a[i] * b[i]));
         }
@@ -142,9 +144,10 @@ namespace space::calc {
      * @param[in] args The rest arrays.
      */
     template <typename Array, typename... Args>
-    void array_add(Array &dst, Array const &a, Args const &... args) {
+    void array_add(Array &dst, Array const &a, Args const &...args) {
         size_t const size = dst.size();
 
+#pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] + (args[i] + ...);
         }
@@ -166,6 +169,7 @@ namespace space::calc {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         size_t const size = dst.size();
 
+#pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] * scale;
         }
@@ -184,9 +188,9 @@ namespace space::calc {
      * @param[in] args The rest arrays.
      */
     template <typename Array, typename... Args>
-    void array_mul(Array &dst, Array const &a, Array const &b, Args const &... args) {
+    void array_mul(Array &dst, Array const &a, Array const &b, Args const &...args) {
         size_t const size = dst.size();
-
+#pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] * b[i] * (args[i] * ...);
         }
@@ -196,7 +200,7 @@ namespace space::calc {
     void array_sub(Array &dst, Array const &a, Array const &b) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         size_t const size = dst.size();
-
+#pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] - b[i];
         }
@@ -214,7 +218,7 @@ namespace space::calc {
     template <typename Scalar, typename Array>
     void array_advance(Array &var, Array const &increment, Scalar step_size) {
         size_t const size = var.size();
-
+#pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             var[i] += increment[i] * step_size;
         }
@@ -223,6 +227,7 @@ namespace space::calc {
     template <typename Array, typename VectorArray>
     void coord_dot(Array &dst, VectorArray const &a, VectorArray const &b) {
         size_t const size = dst.size();
+#pragma omp parallel for
         for (size_t i = 0; i < size; ++i) {
             dst[i] = dot(a[i], b[i]);
         }
@@ -269,6 +274,7 @@ namespace space::calc {
     template <typename Array1, typename Array2>
     inline void move_to_com(Array1 const &mass, Array2 &var) {
         auto com_var = calc_com(mass, var);
+#pragma omp parallel for
         for (auto &v : var) v -= com_var;
     }
 
@@ -290,6 +296,8 @@ namespace space::calc {
     CREATE_METHOD_CHECK(pos);
 
     CREATE_METHOD_CHECK(vel);
+
+    CREATE_STATIC_MEMBER_CHECK(regu_type);
 
     template <CONCEPT_PARTICLES_DATA Particle>
     auto calc_potential_energy(Particle const &particle1, Particle const &particle2) {
@@ -416,7 +424,7 @@ namespace space::calc {
      */
     template <CONCEPT_PARTICLES_DATA Particles>
     auto calc_step_scale(Particles const &particles) {
-        if constexpr (HAS_METHOD(Particles, omega)) {
+        if constexpr (HAS_METHOD(Particles, omega) && HAS_STATIC_MEMBER(Particles, regu_type)) {
             return particles.omega();
         } else {
             return 1;
@@ -427,7 +435,7 @@ namespace space::calc {
     auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) {
         auto U = -calc_potential_energy(particles);
         auto T = calc_kinetic_energy(particles);
-        if constexpr (HAS_METHOD(Particles, bindE)) {
+        if constexpr (HAS_METHOD(Particles, bindE) && HAS_STATIC_MEMBER(Particles, regu_type)) {
             return log(fabs((T + particles.bindE()) / U));
         } else {
             return fabs((T - U - E0) / E0);

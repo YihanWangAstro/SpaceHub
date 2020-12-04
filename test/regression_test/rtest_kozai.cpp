@@ -26,9 +26,9 @@ template <typename simulation>
 void run(std::string const &sim_type) {
     auto twobody_sys = kozai<simulation>();
 
-    basic_error_test<simulation>("kozai-" + sim_type, 100000_year, 1e-14, twobody_sys);
+    basic_error_test<simulation>("kozai-" + sim_type, 100000_year, 1e-15, twobody_sys);
 
-    auto [rtol, error] = error_scale<simulation>(1e-15, 1e-11, 100000_year, twobody_sys);
+    auto [rtol, error] = error_scale<simulation>(2e-16, 1e-11, 100000_year, twobody_sys);
 
     std::fstream err_stream{"kozai-" + sim_type + ".scale", std::ios::out};
 
