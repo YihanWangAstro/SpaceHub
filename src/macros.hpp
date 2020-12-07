@@ -83,6 +83,13 @@ namespace space::consts {
     constexpr double LoAN_neptune = 131.784 * unit::deg;
     constexpr double AoP_neptune = 276.336 * unit::deg;
     constexpr double i_neptune = 6.43 * unit::deg;
+
+
+    constexpr double a_mercury = 0.387098 * unit::AU;
+    constexpr double e_mercury = 0.20563;
+    constexpr double LoAN_mercury = 48.331 * unit::deg;
+    constexpr double AoP_mercury = 29.124 * unit::deg;
+    constexpr double i_mercury = 3.38 * unit::deg;
 }  // namespace space::consts
 
 namespace space::consts {

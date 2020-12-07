@@ -47,6 +47,7 @@ License
 #include "integrator/Gauss-Dadau.hpp"
 #include "integrator/symplectic/symplectic-integrator.hpp"
 #include "interaction/newtonian.hpp"
+#include "interaction/post-newtonian.hpp"
 #include "kahan-number.hpp"
 #include "macros.hpp"
 #include "multi-thread/multi-thread.hpp"

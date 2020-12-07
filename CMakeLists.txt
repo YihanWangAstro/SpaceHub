@@ -89,6 +89,9 @@ set(SOLAR_TEST
 set(KOZAI_TEST
         test/regression_test/rtest_kozai.cpp)
 
+set(PN_P_TEST
+        test/regression_test/rtest_PN_precession.cpp)
+
 set(IMPROVEMENT_TEST
         test/regression_test/rtest_improvement.cpp)
 
@@ -100,5 +103,7 @@ add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 add_executable(SpaceHub_twobody_test ${TMP_HEADER_FILES} ${TWOBODY_TEST})
 
 add_executable(SpaceHub_improve_test ${TMP_HEADER_FILES} ${IMPROVEMENT_TEST})
+
+add_executable(SpaceHub_PN_p_test ${TMP_HEADER_FILES} ${PN_P_TEST})
 
 add_executable(SpaceHub_solar_test ${TMP_HEADER_FILES} ${SOLAR_TEST} test/regression_test/rtest_samples.hpp)

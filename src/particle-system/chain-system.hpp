@@ -66,11 +66,11 @@ namespace space::particle_system {
 
         SPACEHUB_ARRAY_READ_ACCESSOR(VectorArray, vel, ptcl_.vel());
 
-        SPACEHUB_STD_ACCESSOR(auto, chain_pos, chain_pos_);
+        SPACEHUB_STD_ACCESSOR(VectorArray, chain_pos, chain_pos_);
 
-        SPACEHUB_STD_ACCESSOR(auto, chain_vel, chain_vel_);
+        SPACEHUB_STD_ACCESSOR(VectorArray, chain_vel, chain_vel_);
 
-        SPACEHUB_STD_ACCESSOR(auto, index, index_);
+        SPACEHUB_STD_ACCESSOR(IdxArray, index, index_);
 
         size_t number() const { return ptcl_.number(); };
 
@@ -304,6 +304,6 @@ namespace space::particle_system {
 
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         Chain::calc_chain(accels_.acc(), chain_acc_, index());
-        chain_advance(ptcl_.vel(), chain_vel_(), chain_acc_, step_size);
+        chain_advance(ptcl_.vel(), chain_vel(), chain_acc_, step_size);
     }
 }  // namespace space::particle_system

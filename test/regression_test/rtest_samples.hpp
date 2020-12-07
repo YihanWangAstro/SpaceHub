@@ -17,8 +17,7 @@ License
     for more details. You should have received a copy of the MIT License along
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
-#ifndef SPACEHUB_RTEST_SAMPLES_HPP
-#define SPACEHUB_RTEST_SAMPLES_HPP
+#pragma once
 
 #include <iomanip>
 #include <tuple>
@@ -209,4 +208,4 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
     return std::make_tuple(rtol, err);
 }
 
-#endif  // SPACEHUB_RTEST_SAMPLES_HPP
+

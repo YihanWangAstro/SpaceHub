@@ -9,7 +9,7 @@
 
 namespace space::interactions {
 
-    // pair-wise Post-Newtonian term in Centre of mass reference frame. on page 88.  https://arxiv.org/pdf/1310.1528.pdf
+    // pair-wise Post-Newtonian term in Centre of mass reference frame. on page 76. https://arxiv.org/pdf/1310.1528.pdf
     class PN1 {
        public:
         // Type members
@@ -63,27 +63,32 @@ namespace space::interactions {
         auto &m = particles.mass();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
-            auto m_tot = m[i] + m[j];
-            auto m_nu = m[i] * m[j] / (m_tot * m_tot);
-
             auto r2 = norm2(dr);
             auto r = sqrt(r2);
             auto n = dr / r;
-            auto r_dot = dot(n, dr);
 
-            auto v2 = norm2(dv);
+            auto v1s = norm2(v[i]);
+            auto v2s = norm2(v[j]);
+            auto v12 = dot(v[i], v[j]);
 
-            auto A1 = -1.5 * r_dot * r_dot * m_nu + v2 + 3 * m_nu * v2;
-            auto B = r_dot * (-4 + 2 * m_nu);
-            auto A2 = -consts::G / r * (4 + 2 * m_nu);
+            auto nv1 = dot(n, v[i]);
+            auto nv2 = dot(n, v[j]);
 
-            auto Ai = A1 + m[j] * A2;
-            auto Aj = A1 + m[i] * A2;
+            auto gmr1 = consts::G * m[i] / r;
+            auto gmr2 = consts::G * m[j] / r;
 
-            auto coef = consts::G / r2 * INV_C2;
+            auto Ai = -v1s - 2 * v2s + 4 * v12 + 1.5 * nv2 * nv2 + 5 * gmr1 + 4 * gmr2;
 
-            acceleration[i] += (coef * m[j]) * (Ai * n + B * dv);
-            acceleration[j] -= (coef * m[i]) * (Aj * n + B * dv);
+            auto Aj = -v2s - 2 * v1s + 4 * v12 + 1.5 * nv1 * nv1 + 5 * gmr2 + 4 * gmr1;
+
+            auto Bi = 4 * nv1 - 3 * nv2;
+
+            auto Bj = 4 * nv2 - 3 * nv1;
+
+            auto coef = -consts::G / r2 * INV_C2;
+
+            acceleration[i] += coef * m[j] * (Ai * n + Bi * dv);
+            acceleration[j] -= coef * m[i] * (Aj * n + Bj * dv);
         };
 
         if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
@@ -126,46 +131,47 @@ namespace space::interactions {
         auto &m = particles.mass();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
-            auto m_tot = m[i] + m[j];
-
-            auto m_nu = m[i] * m[j] / (m_tot * m_tot);
-            auto m_nu2 = m_nu * m_nu;
-
             auto r2 = norm2(dr);
             auto r = sqrt(r2);
             auto n = dr / r;
-            auto r_dot = dot(n, dr);
-            auto r_dot2 = r_dot * r_dot;
-            auto r_dot3 = r_dot2 * r_dot;
-            auto r_dot4 = r_dot2 * r_dot2;
 
-            auto v2 = norm2(dv);
+            auto v1s = norm2(v[i]);
+            auto v1q = v1s * v1s;
+            auto v2s = norm2(v[j]);
+            auto v2q = v2s * v2s;
+            auto v12 = dot(v[i], v[j]);
 
-            auto gmri = consts::G * m[i] / r;
-            auto gmri2 = gmri * gmri;
-            auto gmrj = consts::G * m[j] / r;
-            auto gmrj2 = gmrj * gmrj;
+            auto nv1 = dot(n, v[i]);
+            auto nv1s = nv1 * nv1;
+            auto nv2 = dot(n, v[j]);
+            auto nv2s = nv2 * nv2;
 
-            auto A1 = r_dot4 * (1.875 * m_nu - 5.625 * m_nu2) - r_dot2 * (4.5 * m_nu * v2 + 6 * m_nu2 * v2) +
-                      v2 * v2 * (3 * m_nu - 4 * m_nu2);
+            auto gmr1 = consts::G * m[i] / r;
+            auto gmr2 = consts::G * m[j] / r;
 
-            auto A2 = r_dot2 * (-2 - 25 * m_nu - 2 * m_nu2) - v2 * (6.5 * m_nu + 2 * m_nu2);
+            auto m1s = m[i] * m[i];
+            auto m2s = m[j] * m[j];
+            auto m12 = m[i] * m[j];
 
-            auto A3 = 9 + 21.75 * m_nu;
+            auto Ai = -2 * v2q + 4 * v2s * v12 - 2 * v12 * v12 + 1.5 * v1s * nv2s + 4.5 * v2s * nv2s - 6 * v12 * nv2s -
+                      1.875 * nv2 * nv2 +
+                      gmr1 * (-3.75 * v1s + 1.25 * v2s - 2.5 * v12 + 19.5 * nv1s - 39 * nv1 * nv2 + 8.5 * nv2s) +
+                      gmr2 * (4 * v2s - 8 * v12 + 2 * nv1s - 4 * nv1 * nv2 - 6 * nv2s) +
+                      consts::G * consts::G / r2 * (-14.25 * m1s - 9 * m2s - 34.5 * m12);
 
-            auto B1 = 4.5 * r_dot3 * m_nu + 3 * r_dot3 * m_nu2 - 7.5 * r_dot * m_nu * v2 - 2 * r_dot * m_nu2 * v2;
+            auto Aj = -2 * v1q + 4 * v1s * v12 - 2 * v12 * v12 + 1.5 * v2s * nv1s + 4.5 * v1s * nv1s - 6 * v12 * nv1s -
+                      1.875 * nv1 * nv1 +
+                      gmr2 * (-3.75 * v2s + 1.25 * v1s - 2.5 * v12 + 19.5 * nv2s - 39 * nv1 * nv2 + 8.5 * nv1s) +
+                      gmr1 * (4 * v1s - 8 * v12 + 2 * nv2s - 4 * nv1 * nv2 - 6 * nv1s) +
+                      consts::G * consts::G / r2 * (-14.25 * m2s - 9 * m1s - 34.5 * m12);
 
-            auto B2 = r_dot * (2 + 20.5 * m_nu + 4 * m_nu2);
+            auto Bi = v1s * nv2 + 4 * v2s * nv1 - 5 * v2s * nv2 - 4 * v12 * nv1 + 4 * v12 * nv2 - 6 * nv1 * nv2s +
+                      4.5 * nv2 * nv2s + gmr1 * (-15.75 * nv1 + 13.75 * nv2) + gmr2 * (-2 * nv1 - 2 * nv2);
 
-            auto Ai = A1 + gmrj * A2 + gmrj2 * A3;
+            auto Bj = v2s * nv1 + 4 * v1s * nv2 - 5 * v1s * nv2 - 4 * v12 * nv2 + 4 * v12 * nv1 - 6 * nv2 * nv1s +
+                      4.5 * nv1 * nv1s + gmr2 * (-15.75 * nv2 + 13.75 * nv1) + gmr1 * (-2 * nv2 - 2 * nv1);
 
-            auto Aj = A1 * gmri * A2 + gmri2 * A3;
-
-            auto Bi = B1 + B2 * gmrj;
-
-            auto Bj = B1 + B2 * gmri;
-
-            auto coef = consts::G / r2 * INV_C4;
+            auto coef = -consts::G / r2 * INV_C4;
 
             acceleration[i] += (coef * m[j]) * (Ai * n + Bi * dv);
             acceleration[j] -= (coef * m[i]) * (Aj * n + Bj * dv);
@@ -209,29 +215,33 @@ namespace space::interactions {
         auto &m = particles.mass();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
-            auto m_tot = m[i] + m[j];
-            auto m_nu = m[i] * m[j] / (m_tot * m_tot);
-
             auto r2 = norm2(dr);
             auto r = sqrt(r2);
             auto n = dr / r;
-            auto r_dot = dot(n, dr);
 
-            auto v2 = norm2(dv);
+            auto v1s = norm2(v[i]);
+            auto v2s = norm2(v[j]);
+            auto v12 = dot(v[i], v[j]);
+            auto dv2 = norm2(dv);
 
-            auto gmri = consts::G * m[i] / r;
-            auto gmrj = consts::G * m[j] / r;
+            auto nv1 = dot(n, v[i]);
+            auto nv2 = dot(n, v[j]);
 
-            auto Ai = gmrj * m_nu * r_dot * (-4.8 * v2 - 136.0 / 15 * gmrj);
-            auto Aj = gmri * m_nu * r_dot * (-4.8 * v2 - 136.0 / 15 * gmri);
+            auto gmr1 = consts::G * m[i] / r;
+            auto gmr2 = consts::G * m[j] / r;
 
-            auto Bi = gmrj * m_nu * (1.6 * v2 + 4.8 * gmrj);
-            auto Bj = gmri * m_nu * (1.6 * v2 + 4.8 * gmri);
+            auto Ai = (nv1 - nv2) * (3 * dv2 - 6 * gmr1 + 52.0 / 3 * gmr2);
 
-            auto coef = consts::G / r2 * INV_C5;
+            auto Aj = (nv2 - nv1) * (3 * dv2 - 6 * gmr2 + 52.0 / 3 * gmr1);
 
-            acceleration[i] += (coef * m[j]) * (Ai * n + Bi * dv);
-            acceleration[j] -= (coef * m[i]) * (Aj * n + Bj * dv);
+            auto Bi = -dv2 + 2 * gmr1 - 8 * gmr2;
+
+            auto Bj = -dv2 + 2 * gmr2 - 8 * gmr1;
+
+            auto coef = -0.8 * consts::G * consts::G * m[i] * m[j] / (r2 * r) * INV_C5;
+
+            acceleration[i] += coef * (Ai * n + Bi * dv);
+            acceleration[j] -= coef * (Aj * n + Bj * dv);
         };
 
         if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
