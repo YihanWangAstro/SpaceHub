@@ -18,6 +18,8 @@ namespace space::interactions {
      */
     class NewtonianGrav {
        public:
+        constexpr static bool vel_dependent{false};
+
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);

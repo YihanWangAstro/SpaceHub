@@ -12,6 +12,8 @@ namespace space::interactions {
     // pair-wise Post-Newtonian term in Centre of mass reference frame. on page 76. https://arxiv.org/pdf/1310.1528.pdf
     class PN1 {
        public:
+        constexpr static bool vel_dependent{true};
+
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
@@ -24,6 +26,7 @@ namespace space::interactions {
 
     class PN2 {
        public:
+        constexpr static bool vel_dependent{true};
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
@@ -36,6 +39,7 @@ namespace space::interactions {
 
     class PN2p5 {
        public:
+        constexpr static bool vel_dependent{true};
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);

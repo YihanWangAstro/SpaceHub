@@ -27,16 +27,16 @@ License
 #include "../core-computation.hpp"
 #include "../spacehub-concepts.hpp"
 namespace space::interactions {
+
     /*---------------------------------------------------------------------------*\
         Class Interactions Declaration
     \*---------------------------------------------------------------------------*/
-    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE ExtraVelDepForce = void,
-              CONCEPT_FORCE ExtraVelIndepForce = void>
+    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
     class Interactions {
        public:
-        static constexpr bool ext_vel_dep{!std::is_same_v<ExtraVelDepForce, void>};
+        static constexpr bool ext_vel_dep{(... || ExtraForce::vel_dependent)};
 
-        static constexpr bool ext_vel_indep{!std::is_same_v<ExtraVelIndepForce, void>};
+        static constexpr bool ext_vel_indep{(... || !ExtraForce::vel_dependent)};
 
         /**
          * Evaluate the total acceleration of the current state of a given particle system.
@@ -83,17 +83,6 @@ namespace space::interactions {
         static void eval_newtonian_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
     };
 
-    template <typename Arg, typename... Args>
-    struct ForceAdd {
-        template <CONCEPT_PARTICLES_DATA Particles>
-        static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration) {
-            Arg::add_acc_to(particles, acceleration);
-            if constexpr (sizeof...(Args) > 0) {
-                ForceAdd<Args...>::add_acc_to(particles, acceleration);
-            }
-        }
-    };
-
     template <typename Interactions, typename VectorArray>
     class InteractionData {
        public:
@@ -124,49 +113,68 @@ namespace space::interactions {
 
         std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> ext_vel_dep_acc_;
     };
+    template <typename Arg, typename... Args>
+    struct InvokeVelDepForce {
+        template <CONCEPT_PARTICLES_DATA Particles>
+        static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration) {
+            if constexpr (Arg::vel_dependent) {
+                Arg::add_acc_to(particles, acceleration);
+            }
+            if constexpr (sizeof...(Args) > 0) {
+                InvokeVelDepForce<Args...>::add_acc_to(particles, acceleration);
+            }
+        }
+    };
 
+    template <typename Arg, typename... Args>
+    struct InvokeVelIndepForce {
+        template <CONCEPT_PARTICLES_DATA Particles>
+        static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration) {
+            if constexpr (!Arg::vel_dependent) {
+                Arg::add_acc_to(particles, acceleration);
+            }
+            if constexpr (sizeof...(Args) > 0) {
+                InvokeVelIndepForce<Args...>::add_acc_to(particles, acceleration);
+            }
+        }
+    };
     /*---------------------------------------------------------------------------*\
         Class Interactions Implementation
     \*---------------------------------------------------------------------------*/
 
-    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE ExtraVelDepForce, CONCEPT_FORCE ExtraVelIndepForce>
+    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
     template <CONCEPT_PARTICLES_DATA Particles>
-    void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_acc(
-        const Particles &particles, typename Particles::VectorArray &acceleration) {
+    void Interactions<InternalForce, ExtraForce...>::eval_acc(const Particles &particles,
+                                                              typename Particles::VectorArray &acceleration) {
         calc::array_set_zero(acceleration);
         InternalForce::add_acc_to(particles, acceleration);
-        if constexpr (ext_vel_dep) {
-            ExtraVelDepForce::add_acc_to(particles, acceleration);
-        }
-        if constexpr (ext_vel_indep) {
-            ExtraVelIndepForce::add_acc_to(particles, acceleration);
-        }
+        (ExtraForce::add_acc_to(particles, acceleration), ...);
     }
 
-    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE ExtraVelDepForce, CONCEPT_FORCE ExtraVelIndepForce>
+    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
     template <CONCEPT_PARTICLES_DATA Particles>
-    void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_extra_vel_dep_acc(
+    void Interactions<InternalForce, ExtraForce...>::eval_extra_vel_dep_acc(
         const Particles &particles, typename Particles::VectorArray &acceleration) {
         if constexpr (ext_vel_dep) {
             calc::array_set_zero(acceleration);
-            ExtraVelDepForce::add_acc_to(particles, acceleration);
+            InvokeVelDepForce<ExtraForce...>::add_acc_to(particles, acceleration);
         }
     }
 
-    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE ExtraVelDepForce, CONCEPT_FORCE ExtraVelIndepForce>
+    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
     template <CONCEPT_PARTICLES_DATA Particles>
-    void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_extra_vel_indep_acc(
+    void Interactions<InternalForce, ExtraForce...>::eval_extra_vel_indep_acc(
         const Particles &particles, typename Particles::VectorArray &acceleration) {
         if constexpr (ext_vel_indep) {
             calc::array_set_zero(acceleration);
-            ExtraVelIndepForce::add_acc_to(particles, acceleration);
+            InvokeVelIndepForce<ExtraForce...>::add_acc_to(particles, acceleration);
         }
     }
 
-    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE ExtraVelDepForce, CONCEPT_FORCE ExtraVelIndepForce>
+    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
     template <CONCEPT_PARTICLES_DATA Particles>
-    void Interactions<InternalForce, ExtraVelDepForce, ExtraVelIndepForce>::eval_newtonian_acc(
-        const Particles &particles, typename Particles::VectorArray &acceleration) {
+    void Interactions<InternalForce, ExtraForce...>::eval_newtonian_acc(const Particles &particles,
+                                                                        typename Particles::VectorArray &acceleration) {
         calc::array_set_zero(acceleration);
         InternalForce::add_acc_to(particles, acceleration);
     }

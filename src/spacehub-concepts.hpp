@@ -193,7 +193,7 @@ namespace space::concepts {
 
     template <typename T>
     concept ExtraVelDepInteraction = requires(TestParticles p) {
-        //requires Particles<typename T::Particles>;
+        // requires Particles<typename T::Particles>;
 
         { T::eval_extra_vel_dep_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
         ->std::same_as<void>;
@@ -201,7 +201,7 @@ namespace space::concepts {
 
     template <typename T>
     concept ExtraVelIndepInteraction = requires(TestParticles p) {
-        //requires Particles<typename T::Particles>;
+        // requires Particles<typename T::Particles>;
 
         { T::eval_extra_vel_indep_acc(p, INSTANCE(typename TestParticles::VectorArray &)) }
         ->std::same_as<void>;
@@ -214,6 +214,8 @@ namespace space::concepts {
 
     template <typename T>
     concept Force = std::same_as<T, void> || requires(TestParticles p) {
+        { T::vel_dependent }
+        ->std::convertible_to<bool>;
         { T::add_acc_to(p, INSTANCE(typename TestParticles::VectorArray &)) }
         ->std::same_as<void>;
     };
