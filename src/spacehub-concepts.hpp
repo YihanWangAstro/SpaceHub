@@ -130,7 +130,7 @@ namespace space::concepts {
         typename T::VectorArray;
         typename T::ScalarArray;
         typename T::IdxArray;
-        requires Particles<std::remove_const_t<std::remove_reference_t<decltype(p.particles())>>>;
+        // requires Particles<std::remove_const_t<std::remove_reference_t<decltype(p.particles())>>>;
 
         { p.advance_time(INSTANCE(typename T::Scalar)) }
         ->std::same_as<void>;

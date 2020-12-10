@@ -268,7 +268,7 @@ namespace space {
          */
         using Particle = typename ParticleSys::Particle;
 
-        SPACEHUB_READ_ACCESSOR(auto, particles, particles_.particles());
+        SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
 
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(Simulator, delete, default, default, default, default);
@@ -428,9 +428,7 @@ namespace space {
     template <typename ParticleSys, typename OdeIterator>
     template <CONCEPT_PARTICLE_CONTAINER STL>
     Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set)
-        : particles_(time, particle_set) {
-        static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
-    }
+        : particles_(time, particle_set) {}
 
     template <typename ParticleSys, typename OdeIterator>
     template <typename... T>
@@ -458,7 +456,7 @@ namespace space {
             end_time = run_args.end_time;
         }
 
-        if (particles_.particles().time() >= end_time) {
+        if (particles_.time() >= end_time) {
             space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
         }
 

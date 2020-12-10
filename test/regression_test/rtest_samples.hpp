@@ -146,7 +146,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
             auto err = calc::calc_energy_error(ptc, E0);
             tot_error += err * err;
             error_num++;
-            err_file << ptc.particles().time() << ',' << err << '\n';
+            err_file << ptc.time() << ',' << err << '\n';
         },
         0, end_time));
 
@@ -207,5 +207,3 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
 
     return std::make_tuple(rtol, err);
 }
-
-

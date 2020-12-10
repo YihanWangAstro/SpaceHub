@@ -9,7 +9,7 @@
 namespace space::interactions {
     class Tidal {
        public:
-        constexpr static bool vel_dependent{false};
+        constexpr static bool vel_dependent{true};
 
         // Type members
         template <typename Particles>
@@ -27,8 +27,8 @@ namespace space::interactions {
         auto &p = particles.pos();
         auto &v = particles.vel();
         auto &m = particles.mass();
-        auto &k = particles.k_AM();
-        auto &tau = particles.tau_tide();
+        auto &k = particles.tide_apsidal_const();
+        auto &tau = particles.tide_lag_time();
         auto &rad = particles.radius();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
