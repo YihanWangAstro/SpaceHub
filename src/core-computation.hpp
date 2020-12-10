@@ -224,6 +224,15 @@ namespace space::calc {
         }
     }
 
+    template <typename Scalar, typename Array>
+    void array_advance(Array &dst, Array const &var, Array const &increment, Scalar step_size) {
+        size_t const size = var.size();
+#pragma omp parallel for
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = var[i] + increment[i] * step_size;
+        }
+    }
+
     template <typename Array, typename VectorArray>
     void coord_dot(Array &dst, VectorArray const &a, VectorArray const &b) {
         size_t const size = dst.size();

@@ -4,103 +4,85 @@
 
 #pragma once
 
-#include "../dev-tools.hpp"
-#include "../macros.hpp"
-#include "../orbits/orbits.hpp"
-#include "interaction.hpp"
+#include "../spacehub-concepts.hpp"
 
-namespace space {
-    class TidalForce : public Interactions<TidalForce> {
+namespace space::interactions {
+    class Tidal {
+       public:
+        constexpr static bool vel_dependent{false};
+
+        // Type members
+        template <typename Particles>
+        static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
+
        private:
         CREATE_METHOD_CHECK(chain_pos);
 
-        CREATE_METHOD_CHECK(chain_vel);
-
         CREATE_METHOD_CHECK(index);
+    };
 
-       public:
-        template <typename Particles>
-        void impl_eval_acc(Particles const &partc, typename Particles::Coord &acc) {
-            impl_eval_newtonian_acc(partc, acc);
-        }
+    template <typename Particles>
+    void Tidal::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
+        size_t num = particles.number();
+        auto &p = particles.pos();
+        auto &v = particles.vel();
+        auto &m = particles.mass();
+        auto &k = particles.k_AM();
+        auto &tau = particles.tau_tide();
+        auto &rad = particles.radius();
 
-        template <typename Particles>
-        void impl_eval_extra_vel_dep_acc(Particles const &partc, typename Particles::Coord &acc) {}
+        auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
+            if (k[i] != 0 || k[j] != 0) {
+                auto r = norm(dr);
+                auto r2 = r * r;
+                auto r4 = r2 * r2;
+                auto r8 = r4 * r4;
+                if (k[i] != 0) {
+                    auto rad2 = rad[i] * rad[i];
+                    auto rad4 = rad2 * rad2;
+                    auto rad5 = rad4 * rad[i];
+                    auto coef = 3 * consts::G * k[i] * rad5 * m[j] * m[j] * (1 + 3 * tau[i] * dot(dv, dr) / r2) / r8;
+                    acceleration[i] += coef / m[i] * dr;
+                    acceleration[j] -= coef / m[j] * dr;
+                }
+                if (k[j] != 0) {
+                    auto rad2 = rad[j] * rad[j];
+                    auto rad4 = rad2 * rad2;
+                    auto rad5 = rad4 * rad[j];
+                    auto coef = 3 * consts::G * k[j] * rad5 * m[i] * m[i] * (1 + 3 * tau[j] * dot(dv, dr) / r2) / r8;
+                    acceleration[i] += coef / m[i] * dr;
+                    acceleration[j] -= coef / m[j] * dr;
+                }
+            }
+        };
 
-        template <typename Particles>
-        void impl_eval_newtonian_acc(Particles const &partc, typename Particles::Coord &acc) {
-            size_t num = partc.number();
-            auto &px = partc.pos().x;
-            auto &py = partc.pos().y;
-            auto &pz = partc.pos().z;
-            auto &m = partc.mass();
+        if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index) &&
+                      HAS_METHOD(Particles, chain_vel)) {
+            auto const &ch_p = particles.chain_pos();
+            auto const &ch_v = particles.chain_vel();
+            auto const &idx = particles.index();
 
-            calc::set_arrays_zero(acc.x, acc.y, acc.z);
+            size_t size = particles.number();
+            for (size_t i = 0; i < size - 1; ++i) {
+                force(ch_p[i], ch_v[i], idx[i], idx[i + 1]);
+            }
 
-            auto force = [&](auto dx, auto dy, auto dz, auto i, auto j) {
-                auto r = sqrt(dx * dx + dy * dy + dz * dz);
-                auto rr3 = 1.0 / (r * r * r);
-                acc.x[i] += dx * rr3 * m[j];
-                acc.y[i] += dy * rr3 * m[j];
-                acc.z[i] += dz * rr3 * m[j];
-                acc.x[j] -= dx * rr3 * m[i];
-                acc.y[j] -= dy * rr3 * m[i];
-                acc.z[j] -= dz * rr3 * m[i];
-            };
+            for (size_t i = 0; i < size - 2; ++i) {
+                force(ch_p[i] + ch_p[i + 1], ch_v[i] + ch_v[i + 1], idx[i], idx[i + 2]);
+            }
 
-            if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, chain_vel) &&
-                          HAS_METHOD(Particles, index)) {
-                auto const &ch_px = partc.chain_pos().x;
-                auto const &ch_py = partc.chain_pos().y;
-                auto const &ch_pz = partc.chain_pos().z;
-                auto const &ch_vx = partc.chain_vel().x;
-                auto const &ch_vy = partc.chain_vel().y;
-                auto const &ch_vz = partc.chain_vel().z;
-                auto const &idx = partc.index();
+            for (size_t i = 0; i < size; ++i) {
+                for (size_t j = i + 3; j < size; ++j) {
+                    force(p[idx[j]] - p[idx[i]], v[idx[j]] - v[idx[i]], idx[i], idx[j]);
+                }
+            }
 
-                size_t size = partc.number();
-                for (size_t i = 0; i < size - 1; ++i) force(ch_px[i], ch_py[i], ch_pz[i], idx[i], idx[i + 1]);
-
-                for (size_t i = 0; i < size - 2; ++i)
-                    force(ch_px[i] + ch_px[i + 1], ch_py[i] + ch_py[i + 1], ch_pz[i] + ch_pz[i + 1], idx[i],
-                          idx[i + 2]);
-
-                for (size_t i = 0; i < size; ++i)
-                    for (size_t j = i + 3; j < size; ++j)
-                        force(px[idx[j]] - px[idx[i]], py[idx[j]] - py[idx[i]], pz[idx[j]] - pz[idx[i]], idx[i],
-                              idx[j]);
-
-            } else {
-                for (size_t i = 0; i < num; ++i) {
-                    for (size_t j = i + 1; j < num; ++j) {
-                        force(px[j] - px[i], py[j] - py[i], pz[j] - pz[i], i, j);
-                    }
+        } else {
+            for (size_t i = 0; i < num; ++i) {
+                for (size_t j = i + 1; j < num; ++j) {
+                    force(p[j] - p[i], v[j] - v[i], i, j);
                 }
             }
         }
-
-       private:
-        template <typename Scalar>
-        auto tidal_T(Scalar eta) {
-            auto x = log10(eta);
-            constexpr Scalar A{-0.517};
-            constexpr Scalar B{-0.906};
-            constexpr Scalar C{23.88};
-            constexpr Scalar D{-93.49};
-            constexpr Scalar E{112.3};
-            constexpr Scalar F{-44.15};
-            auto logT = (((((F * x) + E) * x + D) * x + C) * x + B) * x + A;
-            return pow(10, logT);
-        }
-
-        template <typename Scalar>
-        auto calc_e_loss(Scalar mt, Scalar mp, Scalar Rt, Scalar Rp, Scalar a, Scalar e) {
-            auto rp = a * (1 - e);
-            auto e1 = (space::consts::G * mt * mt / Rt);
-            auto e2 = mp * mp / mt;
-            auto e3 = Rt / rp;
-            auto eta = sqrt(mt / (mt + mp)) * pow(rp / Rt, 1.5);
-            return e1 * e2 * e2 * e3 * e3 * e3 * e3 * e3 * e3 * tidal_T(eta);
-        }
-    };
-}  // namespace space
+    }
+}  // namespace space::interactions

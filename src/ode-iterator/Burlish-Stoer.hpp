@@ -25,8 +25,10 @@ License
 #pragma once
 
 #include <array>
+#include <functional>
 #include <vector>
 
+#include "../core-computation.hpp"
 #include "../spacehub-concepts.hpp"
 namespace space::ode_iterator {
 
@@ -93,10 +95,15 @@ namespace space::ode_iterator {
 
         using StepController = StepControl<2 * max_depth + 3, Scalar>;
 
+        using State = std::vector<Scalar>;
+
         static constexpr size_t max_try_num{100};
 
         template <CONCEPT_PARTICLE_SYSTEM U>
         Scalar iterate(U &particles, typename U::Scalar macro_step_size);
+
+        Scalar iterate(std::function<void(State const &, State &, Scalar)> func, State &data, Scalar &time,
+                       Scalar step_size);
 
         void set_atol(Scalar atol);
 
@@ -109,8 +116,11 @@ namespace space::ode_iterator {
 
         [[nodiscard]] inline size_t at(size_t i, size_t j) const { return parameters_.at(i, j); };
 
-        template <typename U>
+        template <CONCEPT_PARTICLE_SYSTEM U>
         void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps);
+
+        void integrate_by_n_steps(std::function<void(State const &, State &, Scalar)> func, State &data_out,
+                                  Scalar &time, Scalar step_size, size_t steps);
 
         void extrapolate(size_t k);
 
@@ -129,13 +139,13 @@ namespace space::ode_iterator {
         BSConsts parameters_;
 
         /** @brief Extrapolation table.*/
-        std::array<std::vector<Scalar>, max_depth + 1> extrap_list_;
+        std::array<State, max_depth + 1> extrap_list_;
 
         ErrChecker<Scalar> err_checker_;
 
         StepController step_controller_;
 
-        std::vector<Scalar> input_;
+        State input_;
 
         /** @brief The optimal step size array.*/
         std::array<Scalar, max_depth + 1> ideal_step_size_{0};
@@ -190,6 +200,49 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
          Class BurlishStoer Implementation
     \*---------------------------------------------------------------------------*/
+    template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl,
+              LeapFrog LeapOrder>
+    auto BurlishStoer<Real, ErrChecker, StepControl, LeapOrder>::iterate(
+        std::function<void(State const &, State &, Scalar)> func, State &data, Scalar &time, Scalar step_size)
+        -> Scalar {
+        Scalar iter_h = step_size;
+        input_ = data;
+        check_variable_size();
+        for (size_t i = 0; i < max_try_num; ++i) {
+            iter_num_++;
+            integrate_by_n_steps(func, extrap_list_[0], time, iter_h, parameters_.step_sequence(0));
+
+            for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
+                integrate_by_n_steps(func, extrap_list_[k], time, iter_h, parameters_.step_sequence(k));
+
+                extrapolate(k);
+
+                Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
+
+                ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
+
+                cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
+                // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
+                if (in_converged_window(k)) {
+                    if (error <= 1.0) {
+                        step_reject_ = false;
+                        time += iter_h;
+                        data = extrap_list_[0];
+                        iter_h = set_next_iteration(k);
+                        last_error_ = error;
+                        return iter_h;
+                    } else if (is_diverged_anyhow(error, k)) {
+                        step_reject_ = true;
+                        rej_num_++;
+                        iter_h = set_next_iteration(k);  // get_next_try_step(k);
+                        break;
+                    }
+                }
+            }
+            // particles.read_from_scalar_array(input_);
+        }
+        spacehub_abort("Reach max iteration loop number!");
+    }
     template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl,
               LeapFrog LeapOrder>
     template <CONCEPT_PARTICLE_SYSTEM U>
@@ -264,7 +317,7 @@ namespace space::ode_iterator {
 
     template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl,
               LeapFrog LeapOrder>
-    template <typename U>
+    template <CONCEPT_PARTICLE_SYSTEM U>
     void BurlishStoer<Real, ErrChecker, StepControl, LeapOrder>::integrate_by_n_steps(U &particles,
                                                                                       Scalar macro_step_size,
                                                                                       size_t steps) {
@@ -290,6 +343,32 @@ namespace space::ode_iterator {
         } else {
             static_assert(true, "Burlish-Stoer Undefined embeded integration method");
         }
+    }
+
+    template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl,
+              LeapFrog LeapOrder>
+    void BurlishStoer<Real, ErrChecker, StepControl, LeapOrder>::integrate_by_n_steps(
+        std::function<void(State const &, State &, Scalar)> func, State &data_out, Scalar &time, Scalar step_size,
+        size_t steps) {
+        data_out = input_;
+        Scalar h = step_size / steps;
+        Scalar t = time;
+        State dxdt(input_.size());
+        State data_mid(input_);
+
+        func(input_, dxdt, t);
+        calc::array_advance(data_out, input_, dxdt, h);
+        t += h;
+        for (size_t i = 1; i < steps; i++) {
+            func(data_out, dxdt, t);
+            calc::array_advance(data_mid, dxdt, 2 * h);
+            t += h;
+            std::swap(data_mid, data_out);
+        }
+        func(data_out, dxdt, t);
+        calc::array_advance(data_mid, dxdt, h);
+        calc::array_add(data_out, data_mid, data_out);
+        calc::array_scale(data_out, data_out, 0.5);
     }
 
     template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl,
@@ -332,17 +411,6 @@ namespace space::ode_iterator {
     template <typename Real, template <typename> typename ErrChecker, template <size_t, typename> typename StepControl,
               LeapFrog LeapOrder>
     auto BurlishStoer<Real, ErrChecker, StepControl, LeapOrder>::set_next_iteration(size_t k) -> Scalar {
-        /*if (k == ideal_rank_) {
-            if (cost_per_len_[k - 1] < BSConsts::dec_factor * cost_per_len_[k]) {
-                ideal_rank_ = allowed(k - 1);
-                return get_next_step_len(allowed(k - 1), k);
-            } else if (cost_per_len_[k] < BSConsts::inc_factor * cost_per_len_[k - 1] && !step_reject_) {
-                ideal_rank_ = allowed(k + 1);
-                return get_next_step_len(allowed(k + 1), k);
-            } else {
-                return get_next_step_len(k, k);
-            }
-        } else*/
         if (k == ideal_rank_ - 1 || k == ideal_rank_) [[likely]] {
             if (cost_per_len_[k - 1] < BSConsts::dec_factor * cost_per_len_[k]) [[unlikely]] {
                 ideal_rank_ = allowed(k - 1);

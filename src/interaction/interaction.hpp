@@ -179,6 +179,9 @@ namespace space::interactions {
         InternalForce::add_acc_to(particles, acceleration);
     }
 
+    /*---------------------------------------------------------------------------*\
+            Class InteractionData Implementation
+    \*---------------------------------------------------------------------------*/
     template <typename Interactions, typename VectorArray>
     InteractionData<Interactions, VectorArray>::InteractionData(size_t size)
         : acc_(size), newtonian_acc_(size), tot_vel_indep_acc_(size) {
