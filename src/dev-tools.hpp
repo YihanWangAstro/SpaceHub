@@ -137,7 +137,7 @@ namespace space {
     CLASS &operator=(CLASS &&) = ATTR5;
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                      \
-    using TypeSet = CLASS::TypeSet;                               \
+    using TypeSet = typename CLASS::TypeSet;                      \
     template <typename... _T_>                                    \
     using Container = typename CLASS::template Container<_T_...>; \
                                                                   \
