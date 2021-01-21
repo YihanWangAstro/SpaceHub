@@ -258,11 +258,6 @@ namespace space {
 
 #define HAS_PROTECTED_METHOD(CLASS, METHOD, ...) has_protected_method_##METHOD<CLASS, ##__VA_ARGS__>::value
 
-#define CREATE_CRTP_IMPLEMENTATION_CHECK(NAME) CREATE_PROTECTED_METHOD_CHECK(impl_##NAME) CREATE_METHOD_CHECK(NAME)
-
-#define HAS_CRTP_IMPLEMENTATION(CLASS, METHOD, ...) \
-    has_protected_method_impl_##METHOD<CLASS, ##__VA_ARGS__>::value &&has_method_##METHOD<CLASS, ##__VA_ARGS__>::value
-
 /** @brief Macros used to check if a class has a member.*/
 #define CREATE_MEMBER_CHECK(MEMBER)                                                                                 \
     template <typename __T, typename __V = bool>                                                                    \
@@ -315,18 +310,6 @@ namespace space {
         template <typename U>
         constexpr static auto check(const void *)
             -> decltype(std::declval<U>().operator[](std::declval<Args>()...), std::true_type());
-
-        template <typename U>
-        constexpr static std::false_type check(...);
-
-        static constexpr bool value = decltype(check<T>(nullptr))::value;
-    };
-
-    template <typename T>
-    struct is_reservable {
-        template <typename U>
-        constexpr static auto check(const void *)
-            -> decltype(std::declval<U>().reserve(std::declval<size_t>()), std::true_type());
 
         template <typename U>
         constexpr static std::false_type check(...);

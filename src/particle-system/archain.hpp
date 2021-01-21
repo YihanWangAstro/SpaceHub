@@ -144,7 +144,6 @@ namespace space::particle_system {
           chain_acc_(particle_set.size()),
           index_(particle_set.size()),
           new_index_(particle_set.size()) {
-        static_assert(is_ranges_v<STL>, "Only STL-like container can be used");
         Chain::calc_chain_index(this->pos(), index_);
         Chain::calc_chain(this->pos(), chain_pos(), index());
         Chain::calc_chain(this->vel(), chain_vel(), index());
