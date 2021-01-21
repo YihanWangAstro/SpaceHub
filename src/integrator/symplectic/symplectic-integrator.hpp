@@ -46,6 +46,13 @@ namespace space::integrator {
          */
         static constexpr size_t order{2};
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param system
+         * @param step_size
+         */
         template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };
@@ -62,6 +69,13 @@ namespace space::integrator {
          */
         static constexpr size_t order{2};
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param system
+         * @param step_size
+         */
         template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };
@@ -80,6 +94,13 @@ namespace space::integrator {
          */
         static constexpr size_t order{4};
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param system
+         * @param step_size
+         */
         template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };
@@ -99,6 +120,13 @@ namespace space::integrator {
          */
         static constexpr size_t order{6};
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param system
+         * @param step_size
+         */
         template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };
@@ -118,6 +146,13 @@ namespace space::integrator {
          */
         static constexpr size_t order{8};
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param system
+         * @param step_size
+         */
         template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };
@@ -137,6 +172,13 @@ namespace space::integrator {
          */
         static constexpr size_t order{10};
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param system
+         * @param step_size
+         */
         template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };

@@ -92,6 +92,7 @@ namespace space::interactions {
         explicit InteractionData(size_t size);
 
         // Public methods
+
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, acc, acc_);
 
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, newtonian_acc, newtonian_acc_);

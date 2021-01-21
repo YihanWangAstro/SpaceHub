@@ -86,10 +86,6 @@ namespace space {
         using type = decltype(check<T>(0));
     };
 
-#define CRTP_IMPL \
-    friend Base;  \
-   protected
-
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A##B)
 #define MACRO_CAT_II(P, REST) REST
@@ -151,16 +147,6 @@ namespace space {
     using IntArray = typename CLASS::IntArray;                    \
     using Vector = typename CLASS::Vector;                        \
     using VectorArray = typename CLASS::VectorArray;
-
-#define DECLARE_CRTP_ACCESSOR(DERIVED, TYPE, NAME)                                        \
-    /**@must_impl The setter interface of member `NAME`. */                               \
-    inline TYPE &NAME() noexcept { return static_cast<Derived *>(this)->impl_##NAME(); }; \
-    /**@must_impl The getter interface of member `NAME`. */                               \
-    inline TYPE const &NAME() const noexcept { return static_cast<Derived const *>(this)->impl_##NAME(); };
-
-#define DECLARE_CRTP_READ_ACCESSOR(DERIVED, TYPE, NAME)     \
-    /**@must_impl The getter interface of member `NAME`. */ \
-    inline TYPE const &NAME() const noexcept { return static_cast<Derived *>(this)->impl_##NAME(); };
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                    \
     /** The setter interface of member `MEMBER` in name of `NAME`.*/ \

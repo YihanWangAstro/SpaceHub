@@ -292,6 +292,13 @@ namespace space::integrator {
          */
         void check_particle_size(size_t particle_num);
 
+        /**
+         * @brief
+         *
+         * @tparam ParticleSys
+         * @param particles
+         * @param step_size
+         */
         template <typename ParticleSys>
         void integrate(ParticleSys &particles, Scalar step_size);
 
