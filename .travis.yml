@@ -15,7 +15,6 @@ os:
 
 env:
   - BUILD_TYPE=Release
-  - BUILD_TYPE=RelWithDebInfo
 
 jobs:
   allow_failures:

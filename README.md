@@ -1,6 +1,7 @@
 
 [![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions)
 
+[![Build Status](https://travis-ci.com/YihanWangAstro/SpaceHub.svg?branch=master)](https://travis-ci.com/YihanWangAstro/SpaceHub)
 
 # SpaceHub
 
