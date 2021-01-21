@@ -14,12 +14,11 @@ os:
   - osx
 
 env:
-  - BUILD_TYPE=Debug
+  - BUILD_TYPE=Release
   - BUILD_TYPE=RelWithDebInfo
 
 jobs:
   allow_failures:
-    # Homebrew's GCC is currently broken on XCode 11.
     - compiler: gcc
       os: osx
 
@@ -30,26 +29,14 @@ addons:
         key_url: "https://apt.llvm.org/llvm-snapshot.gpg.key"
       - sourceline: "ppa:ubuntu-toolchain-r/test"
     packages:
-      - clang-10
+      - clang-12
       - cmake
       - gcc-10
       - g++-10
-      - libgoogle-perftools-dev
-      - libkyotocabinet-dev
-      - libsnappy-dev
-      - libsqlite3-dev
-      - ninja-build
   homebrew:
     packages:
       - cmake
-      - crc32c
       - gcc@10
-      - gperftools
-      - kyoto-cabinet
-      - llvm@10
-      - ninja
-      - snappy
-      - sqlite3
     update: true
 
 install:
@@ -75,8 +62,6 @@ install:
 
 before_script:
   - mkdir -p build && cd build
-  - cmake .. -G Ninja -DCMAKE_BUILD_TYPE=$BUILD_TYPE
-    -DCMAKE_INSTALL_PREFIX=$HOME/.local
   - cmake --build .
   - cd ..
 
@@ -85,4 +70,4 @@ script:
   - "if [ -f build/db_bench ] ; then build/db_bench ; fi"
   - "if [ -f build/db_bench_sqlite3 ] ; then build/db_bench_sqlite3 ; fi"
   - "if [ -f build/db_bench_tree_db ] ; then build/db_bench_tree_db ; fi"
-  - cd build && cmake --build . --config Release
+  - cd build && cmake --build . --config $BUILD_TYPE
