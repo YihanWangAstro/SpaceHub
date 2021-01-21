@@ -29,7 +29,7 @@ addons:
         key_url: "https://apt.llvm.org/llvm-snapshot.gpg.key"
       - sourceline: "ppa:ubuntu-toolchain-r/test"
     packages:
-      - clang-10
+      - clang-11
       - cmake
       - gcc-10
       - g++-10
@@ -53,7 +53,7 @@ install:
   # below don't work on macOS. Fortunately, the path change above makes the
   # default values (clang and clang++) resolve to the correct compiler on macOS.
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-    if [ "$CXX" = "clang++" ]; then export CXX="clang++-10" CC="clang-10"; fi;
+    if [ "$CXX" = "clang++" ]; then export CXX="clang++-11" CC="clang-11"; fi;
     fi
   - echo ${CC}
   - echo ${CXX}
