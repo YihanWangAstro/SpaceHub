@@ -52,11 +52,16 @@ int main(int argc, char **argv) {
 
     using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-    using iter = ConstOdeIterator<Symplectic2nd>;
+    using base_integrator = LeapFrogDKD<type>;
+    //    using iter = ConstOdeIterator<Symplectic2nd>;
 
-    // using iter = BurlishStoer<double, WorstOffender, PIDController>;
+    using err_estimator = WorstOffender<type>;
 
-    // using ias15_iter = IAS15<type, IAS15Error, PIDController>;
+    using step_controller = PIDController<type>;
+
+    using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
+
+    using ias15_iter = IAS15<type, IAS15Error<type>, step_controller>;
 
     // run<Simulator<sim_sys, iter>>("sim_k");
 

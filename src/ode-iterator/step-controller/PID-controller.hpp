@@ -40,7 +40,7 @@ namespace space::ode_iterator {
         // Type member
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        constexpr static size_t max_order{30};
+        constexpr static size_t max_order{50};
 
         // Constructors
         // SPACEHUB_MAKE_CONSTRUCTORS(PIDController, delete, default, default, default, default);
@@ -118,6 +118,8 @@ namespace space::ode_iterator {
             } else {
                 return old_step * limiter_max_[order];
             }
+        } else {
+            spacehub_abort("unsupported error type. Only tuple is supported in this interface!");
         }
     }
 
@@ -135,7 +137,7 @@ namespace space::ode_iterator {
         expon_[0] = 0.0;
         limiter_max_[0] = 1.0;
         limiter_min_[0] = 1.0 / safe_guard4_;
-        for (size_t i = 1; i <= Max_order; i++) {
+        for (size_t i = 1; i < max_order; i++) {
             expon_[i] = 1.0 / static_cast<Scalar>(i);
             limiter_max_[i] = pow(1.0 / safe_guard3_, expon_[i]);
             limiter_min_[i] = pow(safe_guard3_, expon_[i]) / safe_guard4_;

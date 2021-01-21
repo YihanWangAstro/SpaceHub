@@ -18,6 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 #include <thread>
+
 #include "../../src/spaceHub.hpp"
 #include "rtest_samples.hpp"
 
@@ -25,35 +26,44 @@ USING_NAMESPACE_SPACEHUB_ALL;
 
 template <typename simulation>
 void run(std::string const &sim_name) {
-  auto earth_sys = earth_system<simulation>();
+    auto earth_sys = earth_system<simulation>();
 
-  basic_error_test<simulation>("improvement-" + sim_name, 1000_year, 1e-13, earth_sys);
+    basic_error_test<simulation>("improvement-" + sim_name, 1000_year, 1e-13, earth_sys);
 
-  auto [rtol, error] = error_scale<simulation>(1e-14, 1e-8, 1000_year, earth_sys);
+    auto [rtol, error] = error_scale<simulation>(1e-14, 1e-8, 1000_year, earth_sys);
 
-  std::fstream err_stream{"improvement-" + sim_name + ".scale", std::ios::out};
+    std::fstream err_stream{"improvement-" + sim_name + ".scale", std::ios::out};
 
-  err_stream << rtol << '\n' << error;
+    err_stream << rtol << '\n' << error;
 }
 
 int main(int argc, char **argv) {
-  using type = Types<double_k>;
+    using type = Types<double>;
 
-  using force = interactions::NewtonianGrav;
+    using force = interactions::Interactions<interactions::NewtonianGrav>;
 
-  using particles = PointParticles<type>;
+    using particles = PointParticles<type>;
 
-  using sim_sys = SimpleSystem<particles, force>;
+    using sim_sys = SimpleSystem<particles, force>;
 
-  using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
+    using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
 
-  using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
+    using chain_sys = ChainSystem<particles, force>;
 
-  // using iter = ConstOdeIterator<Symplectic2nd>;
+    using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-  using iter = BurlishStoer<double, WorstOffender, PIDController>;
+    using base_integrator = LeapFrogDKD<type>;
+    //    using iter = ConstOdeIterator<Symplectic2nd>;
 
-  run<Simulator<arch_sys, iter>>("arch");
+    using err_estimator = WorstOffender<type>;
 
-  return 0;
+    using step_controller = PIDController<type>;
+
+    using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
+
+    using ias15_iter = IAS15<type, IAS15Error<type>, step_controller>;
+
+    run<Simulator<arch_sys, iter>>("arch");
+
+    return 0;
 }

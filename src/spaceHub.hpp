@@ -95,11 +95,12 @@ namespace space {
 
     using DefaultTypes = Types<double, std::vector>;
 
-    using DefaultSolver =
-        Simulator<particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
-                                                 interactions::Interactions<interactions::NewtonianGrav>,
-                                                 particle_system::ReguType::LogH>,
-                  ode_iterator::BurlishStoer<double, ode_iterator::WorstOffender, ode_iterator::PIDController>>;
+    using DefaultSolver = Simulator<
+        particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
+                                       interactions::Interactions<interactions::NewtonianGrav>,
+                                       particle_system::ReguType::LogH>,
+        ode_iterator::BurlishStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
+                                   ode_iterator::PIDController<DefaultTypes>>>;
 
     // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
     // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;

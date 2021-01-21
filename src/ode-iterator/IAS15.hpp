@@ -8,7 +8,6 @@
 #include "../dev-tools.hpp"
 #include "../integrator/Gauss-Dadau.hpp"
 #include "../math.hpp"
-#include "ode-iterator.hpp"
 
 namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
@@ -23,7 +22,7 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController>
     class IAS15 {
        public:
-        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
         static_assert(std::is_same_v<Integrator, integrator::GaussDadau<TypeSet>>,
                       "IAS15 iterator only works with GaussDadau integrator!");
         IAS15();
@@ -38,9 +37,9 @@ namespace space::ode_iterator {
 
         Integrator integrator_;
         typename Integrator::IterTable last_b_table_;
-        StepControl<TypeSet> step_controller_;
-        ErrChecker<TypeSet> err_checker_;
-        ErrChecker<TypeSet> PC_err_checker_;
+        StepController step_controller_;
+        ErrEstimator err_checker_;
+        ErrEstimator PC_err_checker_;
         Scalar last_PC_error_{math::max_value<Scalar>::value};
         Scalar last_error_{1};
         static constexpr size_t max_iter_{12};

@@ -59,19 +59,23 @@ int main(int argc, char **argv) {
     using base_integrator = LeapFrogDKD<type>;
     //    using iter = ConstOdeIterator<Symplectic2nd>;
 
-    using iter = BurlishStoer<base_integrator, WorstOffender, PIDController>;
+    using err_estimator = WorstOffender<type>;
 
-    using ias15_iter = IAS15<type, IAS15Error, PIDController>;
+    using step_controller = PIDController<type>;
 
-    // run<Simulator<sim_sys, iter>>("sim");
+    using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
 
-    // run<Simulator<regu_sys, iter>>("regu");
+    using ias15_iter = IAS15<type, IAS15Error<type>, step_controller>;
 
-    // run<Simulator<chain_sys, iter>>("chain");
+    run<Simulator<sim_sys, iter>>("sim");
+
+    run<Simulator<regu_sys, iter>>("regu");
+
+    run<Simulator<chain_sys, iter>>("chain");
 
     run<Simulator<arch_sys, iter>>("arch");
 
-    // run<Simulator<sim_sys, ias15_iter>>("ias15");
+    run<Simulator<sim_sys, ias15_iter>>("ias15");
 
     return 0;
 }
