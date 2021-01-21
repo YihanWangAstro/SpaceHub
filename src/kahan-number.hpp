@@ -60,7 +60,7 @@ namespace space {
          * Assignment operator.
          */
         inline Kahan &operator=(const Kahan &hs) {
-            real = hs.real, err = 0;
+            real = hs.real, err = hs.err;
             return *this;
         }
 
@@ -172,7 +172,7 @@ namespace space {
          * Assignment operator.
          */
         inline Neumaier &operator=(const Neumaier &hs) {
-            real = hs.real, err = 0;
+            real = hs.real, err = hs.err;
             return *this;
         }
 
@@ -290,7 +290,7 @@ namespace space {
          * Assignment operator.
          */
         inline Klein &operator=(const Klein &hs) {
-            real = hs.real, err = 0, err_of_err = 0;
+            real = hs.real, err = hs.err, err_of_err = hs.err_of_err;
             return *this;
         }
 

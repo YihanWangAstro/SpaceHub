@@ -32,13 +32,11 @@ namespace space::ode_iterator {
      *
      * @tparam T
      */
-    template <typename T>
+    template <typename TypeSystem>
     class WorstOffender {
        public:
         // Type member
-        using Scalar = T;
-
-        using value_type = T;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(WorstOffender, default, default, default, default, default);
@@ -66,30 +64,40 @@ namespace space::ode_iterator {
          Class WorstOffender Implementation
     \*---------------------------------------------------------------------------*/
 
-    template <typename T>
-    void WorstOffender<T>::set_atol(Scalar error) {
+    template <typename TypeSystem>
+    void WorstOffender<TypeSystem>::set_atol(Scalar error) {
         atol_ = error;
     }
 
-    template <typename T>
-    void WorstOffender<T>::set_rtol(Scalar error) {
+    template <typename TypeSystem>
+    void WorstOffender<TypeSystem>::set_rtol(Scalar error) {
         rtol_ = error;
     }
 
-    template <typename T>
+    template <typename TypeSystem>
     template <typename Array>
-    auto WorstOffender<T>::error(const Array &y0, const Array &y1, const Array &y1_prime) ->
+    auto WorstOffender<TypeSystem>::error(const Array &y0, const Array &y1, const Array &y1_prime) ->
         typename Array::value_type {
         size_t const size = y0.size();
         Scalar max_err = 0;
-        for (size_t i = 0; i < size; ++i) {
-            Scalar scale = std::max(fabs(y1[i]), fabs(y0[i]));
-            // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));
-            max_err = math::max(max_err, fabs(y1_prime[i] - y1[i]) / (atol_ + scale * rtol_));
+        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+            for (size_t i = 0; i < size; ++i) {
+                Scalar scale = std::max(fabs(y1[i]), fabs(y0[i]));
+                // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));
+                max_err = math::max(max_err, fabs(y1_prime[i] - y1[i]) / (atol_ + scale * rtol_));
+            }
+        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+            for (size_t i = 0; i < size; ++i) {
+                Scalar scale = std::max(max_abs(y1[i]), max_abs(y0[i]));
+                // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));
+                max_err = math::max(max_err, max_abs(y1_prime[i] - y1[i]) / (atol_ + scale * rtol_));
+            }
+        } else {
+            spacehub_abort("Unsupported array type!");
         }
         return max_err;
     }
 
-    template <typename T>
-    WorstOffender<T>::WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
+    template <typename TypeSystem>
+    WorstOffender<TypeSystem>::WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 }  // namespace space::ode_iterator

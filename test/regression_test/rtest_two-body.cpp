@@ -24,15 +24,15 @@ USING_NAMESPACE_SPACEHUB_ALL;
 
 template <typename simulation>
 void run(std::string const &sim_type) {
-    auto twobody_sys = two_body<simulation>(0.9999);
+    auto twobody_sys = two_body<simulation>(0);
 
-    basic_error_test<simulation>("two-body-" + sim_type, 1000_year, 1e-15, twobody_sys);
+    basic_error_test<simulation>("two-body-" + sim_type, 10000_year, 1e-15, twobody_sys);
 
     Timer timer;
 
     timer.start();
 
-    auto [rtol, error] = error_scale<simulation>(1e-16, 1e-9, 1000_year, twobody_sys);
+    auto [rtol, error] = error_scale<simulation>(1e-16, 1e-11, 3000_year, twobody_sys);
 
     std::fstream err_stream{"two-body-" + sim_type + ".scale", std::ios::out};
 
@@ -56,17 +56,22 @@ int main(int argc, char **argv) {
 
     using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
+    using base_integrator = LeapFrogDKD<type>;
     //    using iter = ConstOdeIterator<Symplectic2nd>;
 
-    using iter = BurlishStoer<double, WorstOffender, PIDController, LeapFrog::DKD>;
+    using iter = BurlishStoer<base_integrator, WorstOffender, PIDController>;
 
-    run<Simulator<sim_sys, iter>>("sim");
+    using ias15_iter = IAS15<type, IAS15Error, PIDController>;
 
-    run<Simulator<regu_sys, iter>>("regu");
+    // run<Simulator<sim_sys, iter>>("sim");
 
-    run<Simulator<chain_sys, iter>>("chain");
+    // run<Simulator<regu_sys, iter>>("regu");
+
+    // run<Simulator<chain_sys, iter>>("chain");
 
     run<Simulator<arch_sys, iter>>("arch");
+
+    // run<Simulator<sim_sys, ias15_iter>>("ias15");
 
     return 0;
 }

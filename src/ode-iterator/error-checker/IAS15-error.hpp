@@ -32,14 +32,12 @@ namespace space::ode_iterator {
      *
      * @tparam T
      */
-    template <typename T>
+    template <typename TypeSystem>
     class IAS15Error {
        public:
         // Type member
 
-        using Scalar = T;
-
-        using value_type = T;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(IAS15Error, default, default, default, default, default);
@@ -55,72 +53,70 @@ namespace space::ode_iterator {
         void set_rtol(Scalar);
 
         template <typename Array>
-        auto error(Array const &scale, Array const &diff) -> typename Array::value_type;
+        auto error(Array const &scale, Array const &diff) -> Scalar;
 
         template <typename Array>
-        auto error(Array const &scale, Array const &y0, Array const &y1) -> typename Array::value_type;
+        auto error(Array const &scale, Array const &y1, Array const &y1_prime) -> Scalar;
 
        private:
         Scalar atol_{1e-12};
 
         Scalar rtol_{1e-12};
-
-        template <typename Array>
-        auto one_dimension_error(Array const &scale, Array const &diff);
-
-        template <typename Array>
-        auto one_dimension_error(Array const &scale, Array const &y0, Array const &y1);
     };
     /*---------------------------------------------------------------------------*\
          Class IAS15Error Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename T>
-    void IAS15Error<T>::set_atol(Scalar error) {
+    template <typename TypeSystem>
+    void IAS15Error<TypeSystem>::set_atol(Scalar error) {
         atol_ = error;
     }
 
-    template <typename T>
-    void IAS15Error<T>::set_rtol(Scalar error) {
+    template <typename TypeSystem>
+    void IAS15Error<TypeSystem>::set_rtol(Scalar error) {
         rtol_ = error;
     }
 
-    template <typename T>
+    template <typename TypeSystem>
     template <typename Array>
-    auto IAS15Error<T>::error(const Array &scale, const Array &diff) -> typename Array::value_type {
-        auto [max_diff, max_scale] = one_dimension_error(scale, diff);
-        return max_diff / max_scale;
-    }
-
-    template <typename T>
-    template <typename Array>
-    auto IAS15Error<T>::error(const Array &scale, const Array &y0, const Array &y1) -> typename Array::value_type {
-        auto [max_diff, max_scale] = one_dimension_error(scale, y0, y1);
-        return max_diff / max_scale;
-    }
-
-    template <typename T>
-    template <typename Array>
-    auto IAS15Error<T>::one_dimension_error(const Array &scale, const Array &diff) {
+    auto IAS15Error<TypeSystem>::error(const Array &scale, const Array &diff) -> Scalar {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;
-        for (size_t i = 0; i < size; ++i) {
-            max_diff = std::max(max_diff, static_cast<Scalar>(fabs(diff[i])));
-            max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
+        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+            for (size_t i = 0; i < size; ++i) {
+                max_diff = std::max(max_diff, static_cast<Scalar>(fabs(diff[i])));
+                max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
+            }
+        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+            for (size_t i = 0; i < size; ++i) {
+                max_diff = std::max(max_diff, static_cast<Scalar>(max_abs(diff[i])));
+                max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + max_abs(scale[i]) * rtol_));
+            }
+        } else {
+            spacehub_abort("Unsupported array type!");
         }
-        return std::make_tuple(max_diff, max_scale);
+        return max_diff / max_scale;
     }
 
-    template <typename T>
+    template <typename TypeSystem>
     template <typename Array>
-    auto IAS15Error<T>::one_dimension_error(const Array &scale, const Array &y0, const Array &y1) {
+    auto IAS15Error<TypeSystem>::error(const Array &scale, const Array &y1, const Array &y1_prime) -> Scalar {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;
-        for (size_t i = 0; i < size; ++i) {
-            max_diff = std::max(max_diff, static_cast<Scalar>(fabs(y0[i] - y1[i])));
-            max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
+        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+            for (size_t i = 0; i < size; ++i) {
+                max_diff = std::max(max_diff, static_cast<Scalar>(fabs(y1_prime[i] - y1[i])));
+                max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
+            }
+        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+            for (size_t i = 0; i < size; ++i) {
+                max_diff = std::max(max_diff, static_cast<Scalar>(max_abs(y1_prime[i] - y1[i])));
+                max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + max_abs(scale[i]) * rtol_));
+            }
+        } else {
+            spacehub_abort("Unsupported array type!");
         }
-        return std::make_tuple(max_diff, max_scale);
+        return max_diff / max_scale;
     }
 }  // namespace space::ode_iterator

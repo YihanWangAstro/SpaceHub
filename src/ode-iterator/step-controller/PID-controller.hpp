@@ -32,19 +32,15 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     /**
      * https://en.wikipedia.org/wiki/PID_controller
-     * @tparam Max_order
      * @tparam T
      */
-    template <size_t Max_order, typename T>
+    template <typename TypeSystem>
     class PIDController {
        public:
         // Type member
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        using Scalar = T;
-
-        using value_type = T;
-
-        constexpr static size_t max_order{Max_order};
+        constexpr static size_t max_order{30};
 
         // Constructors
         // SPACEHUB_MAKE_CONSTRUCTORS(PIDController, delete, default, default, default, default);
@@ -61,11 +57,11 @@ namespace space::ode_iterator {
         Scalar next_step_size(size_t order, Scalar old_step, Scalar error);
 
        private:
-        std::array<Scalar, Max_order + 1> limiter_max_;
+        std::array<Scalar, max_order> limiter_max_;
 
-        std::array<Scalar, Max_order + 1> limiter_min_;
+        std::array<Scalar, max_order> limiter_min_;
 
-        std::array<Scalar, Max_order + 1> expon_;
+        std::array<Scalar, max_order> expon_;
 
         Scalar safe_guard1_{0.65};
 
@@ -86,27 +82,27 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
          Class PIDController Implementation
     \*---------------------------------------------------------------------------*/
-    template <size_t Max_order, typename T>
-    inline auto PIDController<Max_order, T>::step_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
+    template <typename TypeSystem>
+    inline auto PIDController<TypeSystem>::step_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
         return math::in_range(limiter_min_[order], step_size_ratio, limiter_max_[order]);
     }
 
-    template <size_t Max_order, typename T>
-    void PIDController<Max_order, T>::set_PID_coefficients(Scalar Kp, Scalar Ki, Scalar Kd) {
+    template <typename TypeSystem>
+    void PIDController<TypeSystem>::set_PID_coefficients(Scalar Kp, Scalar Ki, Scalar Kd) {
         Kp_ = Kp, Ki_ = Ki, Kd_ = Kd;
     }
 
-    template <size_t Max_order, typename T>
-    void PIDController<Max_order, T>::set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4) {
+    template <typename TypeSystem>
+    void PIDController<TypeSystem>::set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4) {
         safe_guard1_ = S1;
         safe_guard2_ = S2;
         safe_guard3_ = S3;
         safe_guard4_ = S4;
     }
 
-    template <size_t Max_order, typename T>
+    template <typename TypeSystem>
     template <typename ArrayLike>
-    auto PIDController<Max_order, T>::next_step_size(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
+    auto PIDController<TypeSystem>::next_step_size(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
         if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
@@ -125,8 +121,8 @@ namespace space::ode_iterator {
         }
     }
 
-    template <size_t Max_order, typename T>
-    auto PIDController<Max_order, T>::next_step_size(size_t order, Scalar old_step, Scalar error) -> Scalar {
+    template <typename TypeSystem>
+    auto PIDController<TypeSystem>::next_step_size(size_t order, Scalar old_step, Scalar error) -> Scalar {
         if (error != 0.0) {
             return old_step * step_limiter(order, safe_guard1_ * pow(safe_guard2_ / error, expon_[order]));
         } else {
@@ -134,8 +130,8 @@ namespace space::ode_iterator {
         }
     }
 
-    template <size_t Max_order, typename T>
-    PIDController<Max_order, T>::PIDController() {
+    template <typename TypeSystem>
+    PIDController<TypeSystem>::PIDController() {
         expon_[0] = 0.0;
         limiter_max_[0] = 1.0;
         limiter_min_[0] = 1.0 / safe_guard4_;

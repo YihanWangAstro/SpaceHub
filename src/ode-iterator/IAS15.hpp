@@ -16,22 +16,20 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     /**
      * IAS15 iterator see details in https://arxiv.org/abs/1409.4779 .
-     * @tparam Coords
+     * @tparam TypeSystem
      * @tparam ErrChecker
      * @tparam StepControl
      */
-    template <typename Coords, template <typename> typename ErrChecker,
-              template <size_t, typename> typename StepControl>
-    class IAS15 : public OdeIterator<IAS15<Coords, ErrChecker, StepControl>> {
+    template <typename Integrator, typename ErrEstimator, typename StepController>
+    class IAS15 {
        public:
-        using Scalar = typename Coords::Scalar;
-        using Coord = Coords;
-        using Integrator = integrator::GaussDadau<Coord>;
-
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+        static_assert(std::is_same_v<Integrator, integrator::GaussDadau<TypeSet>>,
+                      "IAS15 iterator only works with GaussDadau integrator!");
         IAS15();
 
         template <typename U>
-        Scalar impl_iterate(U &particles, typename U::Scalar macro_step_size);
+        Scalar iterate(U &particles, typename U::Scalar macro_step_size);
 
        private:
         inline void reset_PC_iteration();
@@ -40,9 +38,9 @@ namespace space::ode_iterator {
 
         Integrator integrator_;
         typename Integrator::IterTable last_b_table_;
-        StepControl<7, Scalar> step_controller_;
-        ErrChecker<Scalar> err_checker_;
-        ErrChecker<Scalar> PC_err_checker_;
+        StepControl<TypeSet> step_controller_;
+        ErrChecker<TypeSet> err_checker_;
+        ErrChecker<TypeSet> PC_err_checker_;
         Scalar last_PC_error_{math::max_value<Scalar>::value};
         Scalar last_error_{1};
         static constexpr size_t max_iter_{12};
@@ -51,9 +49,8 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
           Class IAS15 Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Coords, template <typename> typename ErrChecker,
-              template <size_t, typename> typename StepControl>
-    IAS15<Coords, ErrChecker, StepControl>::IAS15() {
+    template <typename Integrator, typename ErrEstimator, typename StepController>
+    IAS15<Integrator, ErrEstimator, StepController>::IAS15() {
         PC_err_checker_.set_atol(0);
         PC_err_checker_.set_rtol(1e-16);
         err_checker_.set_atol(0);
@@ -61,10 +58,9 @@ namespace space::ode_iterator {
         step_controller_.set_safe_guards(0.95, 0.65, 0.02, 4);
     }
 
-    template <typename Coords, template <typename> typename ErrChecker,
-              template <size_t, typename> typename StepControl>
+    template <typename Integrator, typename ErrEstimator, typename StepController>
     template <typename U>
-    auto IAS15<Coords, ErrChecker, StepControl>::impl_iterate(U &particles, typename U::Scalar macro_step_size)
+    auto IAS15<Integrator, ErrEstimator, StepController>::iterate(U &particles, typename U::Scalar macro_step_size)
         -> Scalar {
         Scalar iter_h = macro_step_size;
         integrator_.check_particle_size(particles.number());
@@ -100,15 +96,13 @@ namespace space::ode_iterator {
         spacehub_abort("Exceed the max iteration number");
     }
 
-    template <typename Coords, template <typename> typename ErrChecker,
-              template <size_t, typename> typename StepControl>
-    void IAS15<Coords, ErrChecker, StepControl>::reset_PC_iteration() {
+    template <typename Integrator, typename ErrEstimator, typename StepController>
+    void IAS15<Integrator, ErrEstimator, StepController>::reset_PC_iteration() {
         last_PC_error_ = math::max_value<Scalar>::value;
     }
 
-    template <typename Coords, template <typename> typename ErrChecker,
-              template <size_t, typename> typename StepControl>
-    bool IAS15<Coords, ErrChecker, StepControl>::in_converged_window(size_t k) {
+    template <typename Integrator, typename ErrEstimator, typename StepController>
+    bool IAS15<Integrator, ErrEstimator, StepController>::in_converged_window(size_t k) {
         Scalar PC_error = PC_err_checker_.error(integrator_.last_acc(), last_b_table_[6], integrator_.b_tab()[6]);
         if (PC_error < static_cast<Scalar>(1) || PC_error >= last_PC_error_) {
             reset_PC_iteration();

@@ -52,17 +52,21 @@ int main(int argc, char **argv) {
 
     using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-    // using iter = ConstOdeIterator<Symplectic2nd>;
+    using iter = ConstOdeIterator<Symplectic2nd>;
 
-    using iter = BurlishStoer<double, WorstOffender, PIDController>;
+    // using iter = BurlishStoer<double, WorstOffender, PIDController>;
 
-    run<Simulator<sim_sys, iter>>("sim");
+    // using ias15_iter = IAS15<type, IAS15Error, PIDController>;
 
-    run<Simulator<regu_sys, iter>>("regu");
+    // run<Simulator<sim_sys, iter>>("sim_k");
 
-    run<Simulator<chain_sys, iter>>("chain");
+    // run<Simulator<regu_sys, iter>>("regu_k");
 
-    run<Simulator<arch_sys, iter>>("arch");
+    // run<Simulator<chain_sys, iter>>("chain_k");
+
+    // run<Simulator<arch_sys, iter>>("arch");
+
+    // run<Simulator<sim_sys, ias15_iter>>("ias15_k");
 
     return 0;
 }

@@ -295,7 +295,7 @@ namespace space::run_operations {
         if (ptc.time() == 0) [[unlikely]] {
             *fstream_ << ptc.column_names() << '\n';
         }
-        *fstream_ << ptc << '\n';
+        *fstream_ << ptc << std::endl;  //'\n';
     }
 
     template <typename T>

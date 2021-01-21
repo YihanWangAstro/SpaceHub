@@ -33,37 +33,37 @@ License
 namespace space {
 
     template <typename STL, typename... Args>
-    void emplace_back(STL &container, Args &&... args) {
+    void emplace_back(STL &container, Args &&...args) {
         (..., container.emplace_back(std::forward<Args>(args)));
     }
 
     template <typename STL, typename... Args>
-    void push_back(STL &container, Args &&... args) {
+    void push_back(STL &container, Args &&...args) {
         (..., container.emplace_back(std::forward<Args>(args)));
     }
 
     template <typename... Args>
-    void resize_all(size_t new_sz, Args &&... args) {
+    void resize_all(size_t new_sz, Args &&...args) {
         (..., (args.resize(new_sz)));
     }
 
     template <typename... Args>
-    void reserve_all(size_t new_cap, Args &&... args) {
+    void reserve_all(size_t new_cap, Args &&...args) {
         (..., (args.reserve(new_cap)));
     }
 
     template <typename... Args>
-    void clear_all(Args &&... args) {
+    void clear_all(Args &&...args) {
         (..., (args.clear()));
     }
 
     template <typename... Args>
-    void shrink_to_fit_all(Args &&... args) {
+    void shrink_to_fit_all(Args &&...args) {
         (..., (args.shrink_to_fit()));
     }
 
     template <typename... Args>
-    [[noreturn]] void spacehub_abort(Args &&... args) {
+    [[noreturn]] void spacehub_abort(Args &&...args) {
         space::print(std::cout, __FILE__, ": Line :", __LINE__, "\r\n");
         space::print(std::cout, std::forward<Args>(args)...);
         exit(0);
@@ -141,6 +141,7 @@ namespace space {
     CLASS &operator=(CLASS &&) = ATTR5;
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                      \
+    using TypeSet = CLASS::TypeSet;                               \
     template <typename... _T_>                                    \
     using Container = typename CLASS::template Container<_T_...>; \
                                                                   \

@@ -89,7 +89,8 @@ namespace space {
          * @param[in] new_idx New chain index array.
          */
         template <typename VectorArray, typename IdxArray>
-        static void update_chain(VectorArray &chain, IdxArray const &idx, IdxArray const &new_idx);
+        static void update_chain(VectorArray &chain, VectorArray &cartesian, IdxArray const &idx,
+                                 IdxArray const &new_idx);
 
         /**
          * @brief Calculate the corresponding Cartesian coordinates of the chain coordinates.
@@ -166,7 +167,7 @@ namespace space {
     }
 
     template <typename VectorArray, typename IdxArray>
-    void Chain::update_chain(VectorArray &chain, const IdxArray &idx, const IdxArray &new_idx) {
+    void Chain::update_chain(VectorArray &chain, VectorArray &cartesian, const IdxArray &idx, const IdxArray &new_idx) {
         using Vector = typename VectorArray::value_type;
         size_t size = chain.size();
 
@@ -184,8 +185,9 @@ namespace space {
         if constexpr (!bijective_transfer) {
             new_chain.emplace_back(Vector(0, 0, 0));
         } else {
-            Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
-            new_chain.emplace_back(chain.back() + new_head);
+            // Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
+            // new_chain.emplace_back(chain.back() + new_head);
+            new_chain.emplace_back(cartesian[new_idx[0]]);
         }
 
         chain = std::move(new_chain);

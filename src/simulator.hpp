@@ -467,6 +467,7 @@ namespace space {
         if constexpr (HAS_METHOD(OdeIterator, set_rtol, Scalar)) {
             iterator_.set_rtol(run_args.rtol);
         }
+
         run_args.start_operations(particles_, step_size_);
         for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
             Scalar rest_step = (end_time - particles_.time()) * calc::calc_step_scale(particles_);
@@ -475,7 +476,6 @@ namespace space {
                 advance_one_step();
                 run_args.post_operations(particles_, step_size_);
             } else {
-                // print(std::cout, step_size_, ',', rest_step, '\n');
                 step_size_ = rest_step;
                 run_args.pre_operations(particles_, step_size_);
                 advance_one_step();

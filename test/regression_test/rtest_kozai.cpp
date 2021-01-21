@@ -54,6 +54,8 @@ int main(int argc, char **argv) {
 
     using iter = BurlishStoer<double, WorstOffender, PIDController>;
 
+    using ias15_iter = IAS15<type, IAS15Error, PIDController>;
+
     run<Simulator<sim_sys, iter>>("sim");
 
     run<Simulator<regu_sys, iter>>("regu");
@@ -61,6 +63,8 @@ int main(int argc, char **argv) {
     run<Simulator<chain_sys, iter>>("chain");
 
     run<Simulator<arch_sys, iter>>("arch");
+
+    run<Simulator<sim_sys, ias15_iter>>("ias15");
 
     return 0;
 }

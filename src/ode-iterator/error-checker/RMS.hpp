@@ -32,14 +32,12 @@ namespace space::ode_iterator {
      *
      * @tparam T
      */
-    template <typename T>
+    template <typename TypeSystem>
     class RMS {
        public:
         // Type member
 
-        using Scalar = T;
-
-        using value_type = T;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(RMS, default, default, default, default, default);
@@ -55,7 +53,7 @@ namespace space::ode_iterator {
         void set_rtol(Scalar);
 
         template <typename Array>
-        auto error(Array const &y0, Array const &y1, Array const &y1_prime) -> typename Array::value_type;
+        auto error(Array const &y0, Array const &y1, Array const &y1_prime) -> Scalar;
 
        private:
         Scalar atol_{1e-13};
@@ -65,29 +63,44 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
          Class RMS Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename T>
-    void RMS<T>::set_atol(Scalar error) {
+    template <typename TypeSystem>
+    void RMS<TypeSystem>::set_atol(Scalar error) {
         atol_ = error;
     }
 
-    template <typename T>
-    void RMS<T>::set_rtol(Scalar error) {
+    template <typename TypeSystem>
+    void RMS<TypeSystem>::set_rtol(Scalar error) {
         rtol_ = error;
     }
 
-    template <typename T>
+    template <typename TypeSystem>
     template <typename Array>
-    auto RMS<T>::error(const Array &y0, const Array &y1, const Array &y1_prime) -> typename Array::value_type {
+    auto RMS<TypeSystem>::error(const Array &y0, const Array &y1, const Array &y1_prime) -> Scalar {
         size_t const size = y0.size();
         Scalar error = 0;
-        for (size_t i = 0; i < size; ++i) {
-            Scalar scale = std::max(fabs(y0[i]), fabs(y1[i]));
-            auto r = fabs(y1[i] - y1_prime[i]) / (atol_ + scale * rtol_);
-            error += r * r;
+
+        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+            for (size_t i = 0; i < size; ++i) {
+                Scalar scale = std::max(fabs(y0[i]), fabs(y1[i]));
+                auto r = fabs(y1[i] - y1_prime[i]) / (atol_ + scale * rtol_);
+                error += r * r;
+            }
+        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+            for (size_t i = 0; i < size; ++i) {
+                auto scale = vec_max(vec_abs(y0[i]), vec_abs(y1[i]));
+                auto v = vec_abs(y1[i] - y1_prime[i]) / (atol_ + scale * rtol_);
+                auto r = norm2(v) / 3;
+                error += r;
+                // Scalar scale = std::max(max_abs(y0[i]), max_abs(y1[i]));
+                // auto r = max_abs(y1[i] - y1_prime[i]) / (atol_ + scale * rtol_);
+                // error += r * r;
+            }
+        } else {
+            spacehub_abort("Unsupported array type!");
         }
         return sqrt(error / size);
     }
 
-    template <typename T>
-    RMS<T>::RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
+    template <typename TypeSystem>
+    RMS<TypeSystem>::RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 }  // namespace space::ode_iterator

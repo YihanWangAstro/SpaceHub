@@ -31,14 +31,16 @@ License
  */
 namespace space::integrator {
 
-        /*---------------------------------------------------------------------------*\
-        Class Symplectic2nd Declaration
-    \*---------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------*\
+    Class Symplectic2nd Declaration
+\*---------------------------------------------------------------------------*/
     /**
      * Second order symplectic method.
      */
+    template <typename TypeSystem>
     class Symplectic2nd {
        public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
         /**
          * Order of the integrator.
          */
@@ -48,14 +50,31 @@ namespace space::integrator {
         void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
     };
 
+    template <typename TypeSystem>
+    using LeapFrogDKD = Symplectic2nd<TypeSystem>;
+
+    template <typename TypeSystem>
+    class LeapFrogKDK {
+       public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+        /**
+         * Order of the integrator.
+         */
+        static constexpr size_t order{2};
+
+        template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
+        void integrate(ParticleSys &system, typename ParticleSys::Scalar step_size);
+    };
     /*---------------------------------------------------------------------------*\
         Class Symplectic4th Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * Fourth order symplectic method.
      */
+    template <typename TypeSystem>
     class Symplectic4th {
        public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
         /**
          * Order of the integrator.
          */
@@ -71,8 +90,10 @@ namespace space::integrator {
     /**
      * Sixth order symplectic method.
      */
+    template <typename TypeSystem>
     class Symplectic6th {
        public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
         /**
          * Order of the integrator.
          */
@@ -88,8 +109,10 @@ namespace space::integrator {
     /**
      * Eighth order symplectic method.
      */
+    template <typename TypeSystem>
     class Symplectic8th {
        public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
         /**
          * Order of the integrator.
          */
@@ -105,8 +128,10 @@ namespace space::integrator {
     /**
      * Tenth order symplectic method.
      */
+    template <typename TypeSystem>
     class Symplectic10th {
        public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
         /**
          * Order of the integrator.
          */
@@ -119,18 +144,28 @@ namespace space::integrator {
     /*---------------------------------------------------------------------------*\
          Class Symplectic2nd Implementation
     \*---------------------------------------------------------------------------*/
+    template <typename TypeSystem>
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void Symplectic2nd::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    void Symplectic2nd<TypeSystem>::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
         system.drift(0.5 * step_size);
         system.kick(step_size);
         system.drift(0.5 * step_size);
     }
 
+    template <typename TypeSystem>
+    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
+    void LeapFrogKDK<TypeSystem>::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+        system.kick(0.5 * step_size);
+        system.drift(step_size);
+        system.kick(0.5 * step_size);
+    }
+
     /*---------------------------------------------------------------------------*\
          Class Symplectic4th Implementation
     \*---------------------------------------------------------------------------*/
+    template <typename TypeSystem>
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void Symplectic4th::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    void Symplectic4th<TypeSystem>::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
         system.drift(6.7560359597983000E-1 * step_size);
         system.kick(1.3512071919596600E0 * step_size);
         system.drift(-1.7560359597983000E-1 * step_size);
@@ -143,8 +178,9 @@ namespace space::integrator {
     /*---------------------------------------------------------------------------*\
          Class Symplectic6th Implementation
     \*---------------------------------------------------------------------------*/
+    template <typename TypeSystem>
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void Symplectic6th::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    void Symplectic6th<TypeSystem>::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
         /*unroll loop manually*/
         system.drift(3.9225680523877998E-1 * step_size);
         system.kick(7.8451361047755996E-1 * step_size);
@@ -166,8 +202,9 @@ namespace space::integrator {
     /*---------------------------------------------------------------------------*\
          Class Symplectic8th Implementation
     \*---------------------------------------------------------------------------*/
+    template <typename TypeSystem>
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void Symplectic8th::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    void Symplectic8th<TypeSystem>::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
         /*unroll loop manually*/
         system.drift(5.21213104349955048E-1 * step_size);
         system.kick(1.04242620869991010E0 * step_size);
@@ -205,8 +242,9 @@ namespace space::integrator {
     /*---------------------------------------------------------------------------*\
          Class Symplectic10th Implementation
     \*---------------------------------------------------------------------------*/
+    template <typename TypeSystem>
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void Symplectic10th::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
+    void Symplectic10th<TypeSystem>::integrate(ParticleSys &system, typename ParticleSys::Scalar step_size) {
         /*unroll loop manually*/
         system.drift(3.0610967201933609e-01 * step_size);
         system.kick(6.1221934403867218e-01 * step_size);

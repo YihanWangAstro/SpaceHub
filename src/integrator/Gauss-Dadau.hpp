@@ -240,13 +240,13 @@ namespace space::integrator {
      * Gauss Radau stepping method. See details in
      * https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
      *
-     * @tparam Coord
+     * @tparam TypeSystem
      */
-    template <typename Coord>
+    template <typename TypeSystem>
     class GaussDadau {
        public:
-        using IterTable = std::array<Coord, 7>;
-        using Scalar = typename Coord::Scalar;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+        using IterTable = std::array<VectorArray, 7>;
 
         static constexpr size_t order{15};
         static constexpr size_t final_point{7};
@@ -296,13 +296,14 @@ namespace space::integrator {
         void integrate(ParticleSys &particles, Scalar step_size);
 
        private:
-        void calc_G_table(Coord const &acc0, Coord const &acc, size_t stage);
+        void calc_G_table(VectorArray const &acc0, VectorArray const &acc, size_t stage);
 
-        void update_B_table(Coord const &acc0, Coord const &acc, size_t stage);
+        void update_B_table(VectorArray const &acc0, VectorArray const &acc, size_t stage);
 
-        void calc_vel_increment(Coord &dvel, Coord const &acc0, size_t stage);
+        void calc_vel_increment(VectorArray &dvel, VectorArray const &acc0, size_t stage);
 
-        void calc_pos_increment(Coord &dpos, Coord const &vel0, Coord const &acc0, Scalar step_size, size_t stage);
+        void calc_pos_increment(VectorArray &dpos, VectorArray const &vel0, VectorArray const &acc0, Scalar step_size,
+                                size_t stage);
 
        private:
         IterTable b_tab_;
@@ -312,10 +313,10 @@ namespace space::integrator {
         IterTable old_g_tab_;
         IterTable dg_tab_;
 
-        Coord acceleration0_;
-        Coord acceleration_;
-        Coord pos_increment_;
-        Coord vel_increment_;
+        VectorArray acceleration0_;
+        VectorArray acceleration_;
+        VectorArray pos_increment_;
+        VectorArray vel_increment_;
         std::vector<Scalar> input_;
         size_t particle_num_{0};
     };
@@ -347,8 +348,8 @@ namespace space::integrator {
     /*---------------------------------------------------------------------------*\
          Class RadauConsts Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Coord>
-    void GaussDadau<Coord>::check_particle_size(size_t particle_num) {
+    template <typename TypeSystem>
+    void GaussDadau<TypeSystem>::check_particle_size(size_t particle_num) {
         if (particle_num_ != particle_num) {
             particle_num_ = particle_num;
             acceleration0_.resize(particle_num_);
@@ -357,41 +358,41 @@ namespace space::integrator {
             vel_increment_.resize(particle_num_);
             for (auto &b : b_tab_) {
                 b.resize(particle_num_);
-                b.set_zero();
+                calc::array_set_zero(b);
             }
             for (auto &old_b : old_b_tab_) {
                 old_b.resize(particle_num_);
-                old_b.set_zero();
+                calc::array_set_zero(old_b);
             }
             for (auto &db : db_tab_) {
                 db.resize(particle_num_);
-                db.set_zero();
+                calc::array_set_zero(db);
             }
             for (auto &g : g_tab_) {
                 g.resize(particle_num_);
-                g.set_zero();
+                calc::array_set_zero(g);
             }
             for (auto &g : old_g_tab_) {
                 g.resize(particle_num_);
-                g.set_zero();
+                calc::array_set_zero(g);
             }
             for (auto &g : dg_tab_) {
                 g.resize(particle_num_);
-                g.set_zero();
+                calc::array_set_zero(g);
             }
         }
     }
 
-    template <typename Coord>
+    template <typename TypeSystem>
     template <typename ParticleSys>
-    void GaussDadau<Coord>::integrate(ParticleSys &particles, Scalar step_size) {
+    void GaussDadau<TypeSystem>::integrate(ParticleSys &particles, Scalar step_size) {
         calc_B_table(particles, step_size);
         integrate_to(particles, step_size, final_point);
     }
 
-    template <typename Coord>
+    template <typename TypeSystem>
     template <typename ParticleSys>
-    void GaussDadau<Coord>::integrate_to(ParticleSys &particles, Scalar step_size, size_t stage) {
+    void GaussDadau<TypeSystem>::integrate_to(ParticleSys &particles, Scalar step_size, size_t stage) {
         calc_vel_increment(vel_increment_, acceleration0_, stage);
         calc_pos_increment(pos_increment_, particles.vel(), acceleration0_, step_size, stage);
         particles.advance_vel(step_size, vel_increment_);
@@ -399,8 +400,8 @@ namespace space::integrator {
         particles.advance_time(step_size);
     }
 
-    template <typename Coord>
-    void GaussDadau<Coord>::calc_vel_increment(Coord &dvel, const Coord &acc0, size_t stage) {
+    template <typename TypeSystem>
+    void GaussDadau<TypeSystem>::calc_vel_increment(VectorArray &dvel, const VectorArray &acc0, size_t stage) {
         calc::array_scale(dvel, b_tab_[6], RadauConsts::vel_B_tab(stage, 7));
         for (size_t i = 6; i > 0; --i) {
             calc::array_advance(dvel, b_tab_[i - 1], RadauConsts::vel_B_tab(stage, i));
@@ -408,9 +409,9 @@ namespace space::integrator {
         calc::array_advance(dvel, acc0, RadauConsts::vel_B_tab(stage, 0));
     }
 
-    template <typename Coord>
-    void GaussDadau<Coord>::calc_pos_increment(Coord &dpos, const Coord &vel0, const Coord &acc0, Scalar step_size,
-                                               size_t stage) {
+    template <typename TypeSystem>
+    void GaussDadau<TypeSystem>::calc_pos_increment(VectorArray &dpos, const VectorArray &vel0, const VectorArray &acc0,
+                                                    Scalar step_size, size_t stage) {
         calc::array_scale(dpos, b_tab_[6], RadauConsts::pos_B_tab(stage, 8) * step_size);
         for (size_t i = 7; i > 1; --i) {
             calc::array_advance(dpos, b_tab_[i - 2], RadauConsts::pos_B_tab(stage, i) * step_size);
@@ -419,8 +420,8 @@ namespace space::integrator {
         calc::array_advance(dpos, vel0, RadauConsts::pos_B_tab(stage, 0));
     }
 
-    template <typename Coord>
-    void GaussDadau<Coord>::calc_G_table(Coord const &acc0, Coord const &acc, size_t stage) {
+    template <typename TypeSystem>
+    void GaussDadau<TypeSystem>::calc_G_table(VectorArray const &acc0, VectorArray const &acc, size_t stage) {
         calc::array_sub(g_tab_[stage], acc, acc0);
         calc::array_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
         for (size_t j = 0; j < stage; ++j) {
@@ -428,8 +429,8 @@ namespace space::integrator {
         }
     }
 
-    template <typename Coord>
-    void GaussDadau<Coord>::update_B_table(const Coord &acc0, const Coord &acc, size_t stage) {
+    template <typename TypeSystem>
+    void GaussDadau<TypeSystem>::update_B_table(const VectorArray &acc0, const VectorArray &acc, size_t stage) {
         calc::array_sub(g_tab_[stage], acc, acc0);
         calc::array_scale(g_tab_[stage], g_tab_[stage], RadauConsts::G_tab(stage, 0));
         for (size_t j = 0; j < stage; ++j) {
@@ -444,9 +445,9 @@ namespace space::integrator {
         swap(old_g_tab_[stage], g_tab_[stage]);
     }
 
-    template <typename Coord>
+    template <typename TypeSystem>
     template <typename ParticleSys>
-    void GaussDadau<Coord>::calc_B_table(ParticleSys &particles, Scalar step_size) {
+    void GaussDadau<TypeSystem>::calc_B_table(ParticleSys &particles, Scalar step_size) {
         particles.write_to_scalar_array(input_);
         check_particle_size(particles.number());
         particles.evaluate_acc(acceleration0_);
@@ -462,8 +463,8 @@ namespace space::integrator {
         particles.read_from_scalar_array(input_);
     }
 
-    template <typename Coord>
-    void GaussDadau<Coord>::predict_new_B(Scalar step_ratio) {
+    template <typename TypeSystem>
+    void GaussDadau<TypeSystem>::predict_new_B(Scalar step_ratio) {
         std::array<Scalar, final_point> Q;
         Q[0] = step_ratio;
         Q[1] = Q[0] * Q[0];

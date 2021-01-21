@@ -190,9 +190,9 @@ namespace space::particle_system {
     void ChainSystem<Particles, Interactions>::post_iter_process() {
         Chain::calc_chain_index(this->pos(), new_index_);
         if (new_index_ != index_) {
-            Chain::update_chain(chain_pos_, index_, new_index_);
+            Chain::update_chain(chain_pos_, this->pos(), index_, new_index_);
             Chain::calc_cartesian(this->mass(), chain_pos_, this->pos(), new_index_);
-            Chain::update_chain(chain_vel_, index_, new_index_);
+            Chain::update_chain(chain_vel_, this->vel(), index_, new_index_);
             Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), new_index_);
             index_ = new_index_;
         }

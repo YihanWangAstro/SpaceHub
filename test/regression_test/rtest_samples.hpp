@@ -138,6 +138,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
     args.rtol = rtol;
 
+    args.atol = 0;
     std::cout << std::setprecision(16);
 
     // args.atol = args.rtol;

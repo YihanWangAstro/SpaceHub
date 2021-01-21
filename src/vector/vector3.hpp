@@ -250,6 +250,27 @@ namespace space {
         return Vec3<T1>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
     }
 
+    template <typename T>
+    inline Vec3<T> vec_abs(Vec3<T> const &v) {
+        return Vec3<T>(fabs(v.x), fabs(v.y), fabs(v.z));
+    }
+
+    template <typename T>
+    inline Vec3<T> vec_max(Vec3<T> const &v1, Vec3<T> const &v2) {
+        return Vec3<T>(std::max(v1.x, v2.x), std::max(v1.y, v2.y), std::max(v1.z, v2.z));
+    }
+
+    template <typename T>
+    inline Vec3<T> vec_min(Vec3<T> const &v1, Vec3<T> const &v2) {
+        return Vec3<T>(std::min(v1.x, v2.x), std::min(v1.y, v2.y), std::min(v1.z, v2.z));
+    }
+
+    template <typename T>
+    inline T max_abs(Vec3<T> const &v) {
+        auto max = std::max(fabs(v.x), fabs(v.y));
+        return std::max(max, fabs(v.z));
+    }
+
     /**
      * Alias for long double 3-d vector
      */

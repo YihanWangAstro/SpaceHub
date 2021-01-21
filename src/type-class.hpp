@@ -44,6 +44,7 @@ namespace space {
          *
          * @tparam T variadic template parameters that compatible to various containers.
          */
+        using TypeSet = Types<Real, TContainer>;
         template <typename... T>
         using Container = TContainer<T...>;
 
