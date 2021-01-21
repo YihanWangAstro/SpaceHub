@@ -2,19 +2,20 @@ name: Build
 
 on: [push]
 
+strategy:
+  fail-fast: true
+  matrix:
+    os: [ubuntu-latest, macos-latest, windows-latest]
+    compiler: [gcc-10, clang-10]
+
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
-  CC: gcc-10
-  CXX: g++-10
-  CODECOV_TOKEN: "60aa14e6-ecdc-43af-97ed-e98698f3f447"
+  CC: ${{matrix.compiler}}
+  CXX: ${{matrix.compiler}}
 
 jobs:
   build:
-    strategy:
-      fail-fast: true
-      matrix:
-        os: [ubuntu-latest, macos-latest]
     # The CMake configure and build commands are platform agnostic and should work equally
     # well on Windows or Mac.  You can convert this to a matrix build if you need
     # cross-platform coverage.
