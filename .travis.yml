@@ -60,11 +60,11 @@ install:
   - ${CXX} --version
   - cmake --version
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
 script:
   - cmake -E make_directory ./build && cd build
   - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE
   - cmake --build . --config $BUILD_TYPE
   - ctest -C $BUILD_TYPE
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
