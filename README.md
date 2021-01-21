@@ -1,5 +1,5 @@
 
-[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/CMake/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions)
+[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions)
 
 
 # SpaceHub
