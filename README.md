@@ -1,5 +1,5 @@
-![example workflow file path](https://github.com/YihanWangAstro/SpaceHub/workflows/.github/workflows/cmake.yml/badge.svg)
 
+[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/CMake/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions)
 
 
 # SpaceHub
