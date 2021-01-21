@@ -16,10 +16,10 @@ os:
 env:
   - BUILD_TYPE=Release
 
-jobs:
-  allow_failures:
-    - compiler: gcc
-      os: osx
+#jobs:
+#  allow_failures:
+#    - compiler: gcc
+#      os: osx
 
 addons:
   apt:
@@ -63,3 +63,4 @@ script:
   - cmake -E make_directory ./build && cd build
   - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE
   - cmake --build . --config $BUILD_TYPE
+  - ctest -C $BUILD_TYPE
