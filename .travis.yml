@@ -60,14 +60,7 @@ install:
   - ${CXX} --version
   - cmake --version
 
-before_script:
-  - mkdir -p build && cd build
-  - cmake --build .
-  - cd ..
-
 script:
-  - cd build && ctest --verbose && cd ..
-  - "if [ -f build/db_bench ] ; then build/db_bench ; fi"
-  - "if [ -f build/db_bench_sqlite3 ] ; then build/db_bench_sqlite3 ; fi"
-  - "if [ -f build/db_bench_tree_db ] ; then build/db_bench_tree_db ; fi"
-  - cd build && cmake --build . --config $BUILD_TYPE
+  - cmake -E make_directory ./build && cd build
+  - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+  - cmake --build . --config $BUILD_TYPE
