@@ -1,5 +1,5 @@
 
-[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions)
+[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions)[![License: MIT](https://img.shields.io/badge/License-MIT-lightgreen.svg)](https://opensource.org/licenses/MIT)
 
 # SpaceHub
 

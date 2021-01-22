@@ -120,3 +120,9 @@ add_executable(SpaceHub_solar_test ${TMP_HEADER_FILES} ${SOLAR_TEST} test/regres
 enable_testing()
 
 add_test(UnitTest SpaceHub_unit_test)
+
+#set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+#if(CMAKE_COMPILER_IS_GNUCXX)
+#    include(CodeCoverage)
+#    setup_target_for_coverage_gcovr_xml(NAME Utest_coverage UnitTest coverage)
+#endif()
