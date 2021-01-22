@@ -25,14 +25,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Create Build Environment
-         evn: 
+        env:
           CXX: ${{matrix.compiler}}
         # Some projects don't allow in-source building, so create a separate build directory
         # We'll use this as our working directory for all subsequent commands
         run: cmake -E make_directory ${{github.workspace}}/build
 
       - name: Configure CMake
-         evn: 
+        env:
           CXX: ${{matrix.compiler}}
         # Use a bash shell so we can use the same syntax for environment variable
         # access regardless of the host operating system
@@ -44,7 +44,7 @@ jobs:
         run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
       - name: Build
-         evn: 
+        env:
           CXX: ${{matrix.compiler}}
         working-directory: ${{github.workspace}}/build
         shell: bash
