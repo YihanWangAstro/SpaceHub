@@ -17,6 +17,16 @@ namespace space::multi_thread {
        public:
         using Task = std::function<void()>;
 
+        template <typename Func, typename... Args>
+        auto commit(Func &&func, Args &&...args);
+
+        static ThreadPool &get_instance() {
+            static ThreadPool instance{
+                (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1, 1000};
+            return instance;
+        }
+
+       private:
         ThreadPool() = delete;
 
         ThreadPool(ThreadPool const &) = delete;
@@ -26,11 +36,6 @@ namespace space::multi_thread {
         ThreadPool(size_t max_thread, size_t max_tasks);
 
         ~ThreadPool();
-
-        template <typename Func, typename... Args>
-        auto commit(Func &&func, Args &&... args);
-
-       private:
         std::vector<std::thread> workers_;
         std::queue<Task> tasks_;
         std::mutex lock_;
@@ -70,7 +75,7 @@ namespace space::multi_thread {
     }
 
     template <typename Func, typename... Args>
-    auto ThreadPool::commit(Func &&func, Args &&... args) {
+    auto ThreadPool::commit(Func &&func, Args &&...args) {
         using ReturnType = decltype(func(args...));
         using Package = std::packaged_task<ReturnType()>;
 
