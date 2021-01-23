@@ -81,14 +81,20 @@ namespace space::ode_iterator {
 
         if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
             for (size_t i = 0; i < size; ++i) {
-                Scalar scale = std::max(fabs(y0[i]), fabs(y1[i]));
-                auto r = fabs(y1[i] - y1_prime[i]) / (atol_ + scale * rtol_);
+                Scalar scale = std::max(fabs(y0[i]), fabs(y1[i])) * rtol_ + atol_;
+                if (scale == 0) {
+                    continue;
+                }
+                auto r = fabs(y1[i] - y1_prime[i]) / scale;
                 error += r * r;
             }
         } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
             for (size_t i = 0; i < size; ++i) {
-                auto scale = vec_max(vec_abs(y0[i]), vec_abs(y1[i]));
-                auto v = vec_abs(y1[i] - y1_prime[i]) / (atol_ + scale * rtol_);
+                auto scale = vec_max(vec_abs(y0[i]), vec_abs(y1[i])) * rtol_ + atol_;
+                if (scale == 0) {
+                    continue;
+                }
+                auto v = vec_abs(y1[i] - y1_prime[i]) / scale;
                 auto r = norm2(v) / 3;
                 error += r;
                 // Scalar scale = std::max(max_abs(y0[i]), max_abs(y1[i]));

@@ -28,9 +28,9 @@ template <typename simulation>
 void run(std::string const &sim_name) {
     auto earth_sys = earth_system<simulation>();
 
-    basic_error_test<simulation>("earth-system-" + sim_name, 1000_year, 1e-13, earth_sys);
+    basic_error_test<simulation>("earth-system-" + sim_name, 500_year, 1e-13, earth_sys);
 
-    auto [rtol, error] = error_scale<simulation>(1e-14, 1e-8, 1000_year, earth_sys);
+    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-8, 500_year, earth_sys);
 
     std::fstream err_stream{"earth-system-" + sim_name + ".scale", std::ios::out};
 
@@ -38,7 +38,7 @@ void run(std::string const &sim_name) {
 }
 
 int main(int argc, char **argv) {
-    using type = Types<double>;
+    using type = Types<double_p>;
 
     using force = interactions::Interactions<interactions::NewtonianGrav>;
 
@@ -63,15 +63,19 @@ int main(int argc, char **argv) {
 
     using ias15_iter = IAS15<integrator::GaussDadau<type>, IAS15Error<type>, step_controller>;
 
-    // run<Simulator<sim_sys, iter>>("sim_k");
+    using space_iter = BisecOdeIterator<integrator::Symplectic6th<type>, WorstOffender<type>, step_controller>;
 
-    // run<Simulator<regu_sys, iter>>("regu_k");
+    /*run<Simulator<sim_sys, iter>>("sim");
 
-    // run<Simulator<chain_sys, iter>>("chain_k");
+    run<Simulator<regu_sys, iter>>("regu");
 
-    // run<Simulator<arch_sys, iter>>("arch");
+    run<Simulator<chain_sys, iter>>("chain");
 
-    // run<Simulator<sim_sys, ias15_iter>>("ias15_k");
+    run<Simulator<arch_sys, iter>>("arch");*/
+
+    run<Simulator<sim_sys, ias15_iter>>("ias15");
+
+    // run<Simulator<arch_sys, space_iter>>("space");
 
     return 0;
 }

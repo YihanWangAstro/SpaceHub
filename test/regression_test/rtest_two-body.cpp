@@ -24,15 +24,15 @@ USING_NAMESPACE_SPACEHUB_ALL;
 
 template <typename simulation>
 void run(std::string const &sim_type) {
-    auto twobody_sys = two_body<simulation>(0);
+    auto twobody_sys = two_body<simulation>(0.9999);
 
-    basic_error_test<simulation>("two-body-" + sim_type, 10000_year, 1e-15, twobody_sys);
+    basic_error_test<simulation>("two-body-" + sim_type, 1000_year, 1e-15, twobody_sys);
 
     Timer timer;
 
     timer.start();
 
-    auto [rtol, error] = error_scale<simulation>(1e-16, 1e-11, 3000_year, twobody_sys);
+    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-11, 1000_year, twobody_sys);
 
     std::fstream err_stream{"two-body-" + sim_type + ".scale", std::ios::out};
 
@@ -42,7 +42,7 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
-    using type = Types<double>;
+    using type = Types<double_p>;
 
     using force = interactions::Interactions<interactions::NewtonianGrav>;
 
@@ -67,6 +67,8 @@ int main(int argc, char **argv) {
 
     using ias15_iter = IAS15<integrator::GaussDadau<type>, IAS15Error<type>, step_controller>;
 
+    using space_iter = BisecOdeIterator<integrator::Symplectic6th<type>, WorstOffender<type>, step_controller>;
+
     run<Simulator<sim_sys, iter>>("sim");
 
     run<Simulator<regu_sys, iter>>("regu");
@@ -76,6 +78,8 @@ int main(int argc, char **argv) {
     run<Simulator<arch_sys, iter>>("arch");
 
     run<Simulator<sim_sys, ias15_iter>>("ias15");
+
+    run<Simulator<arch_sys, space_iter>>("space");
 
     return 0;
 }

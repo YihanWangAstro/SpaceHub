@@ -446,7 +446,7 @@ namespace space {
         step_size_ = run_args.step_size;
 
         if (step_size_ == 0.0) {
-            step_size_ = 0.01 * calc::calc_step_scale(particles_) *
+            step_size_ = 0.1 * calc::calc_step_scale(particles_) *
                          calc::calc_fall_free_time(particles_.mass(), particles_.pos());
         }
 

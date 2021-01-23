@@ -139,6 +139,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
     args.rtol = rtol;
 
     args.atol = 0;
+
     std::cout << std::setprecision(16);
 
     // args.atol = args.rtol;
@@ -151,7 +152,7 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
         },
         0, end_time));
 
-    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
+    // args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
 
     args.add_stop_condition(end_time);
 
@@ -196,7 +197,7 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
 
         args.rtol = rtol_start * pow(2, thid);
 
-        // args.atol = args.rtol;
+        args.atol = 0;
 
         Solver sim{0, p};
         sim.run(args);

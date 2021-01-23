@@ -53,11 +53,13 @@ License
 #include "multi-thread/multi-thread.hpp"
 #include "ode-iterator/Burlish-Stoer.hpp"
 #include "ode-iterator/IAS15.hpp"
+#include "ode-iterator/bisec-iterator.hpp"
 #include "ode-iterator/const-iterator.hpp"
 #include "ode-iterator/error-checker/IAS15-error.hpp"
 #include "ode-iterator/error-checker/RMS.hpp"
 #include "ode-iterator/error-checker/worst-offender.hpp"
 #include "ode-iterator/step-controller/PID-controller.hpp"
+#include "ode-iterator/step-controller/const-controller.hpp"
 #include "orbits/orbits.hpp"
 #include "orbits/particle-manip.hpp"
 #include "particle-system/archain.hpp"
@@ -101,10 +103,4 @@ namespace space {
                                        particle_system::ReguType::LogH>,
         ode_iterator::BurlishStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
                                    ode_iterator::PIDController<DefaultTypes>>>;
-
-    // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-    // using DefaultSolver = Simulator<ChainSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
-
-    // template<template <class> class Paticles = SoAPointParticles, typename Force = interactions::NewtonianGrav>
-    // using DefaultSolver = Simulator<SimpleSystem<Paticles<DefaultTypes>, Force>, ode_iterator::BurlishStoer<double>>;
 }  // namespace space

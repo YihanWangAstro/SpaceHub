@@ -32,18 +32,19 @@ namespace space {
 
     /** @brief Specilization of vector3d */
     template <>
-    struct Vec3<double> {
+    struct alignas(32) Vec3<double> {
        public:
         /* Typedef */
         using value_type = double;
         /* Typedef */
 
-        union {
-            struct {
+        union alignas(32) {
+            struct alignas(32) {
                 double x, y, z;
             };
             __m256d mmvalue;
-        } __attribute__((aligned(32)));
+        };
+        // __attribute__((aligned(32)));
 
         Vec3() : mmvalue(_mm256_setzero_pd()){};
         Vec3(double vx, double vy, double vz) : mmvalue(_mm256_set_pd(0.0, vz, vy, vx)){};
@@ -88,6 +89,30 @@ namespace space {
             mmvalue = v.mmvalue;
             return *this;
         }
+
+        template <typename U>
+        inline Vec3 operator+(const Vec3<U>& v) const {
+            return Vec3(x + v.x, y + v.y, z + v.z);
+        }
+
+        /** Subtraction by wise */
+        template <typename U>
+        inline Vec3 operator-(const Vec3<U>& v) const {
+            return Vec3(x - v.x, y - v.y, z - v.z);
+        }
+
+        /** Product by wise */
+        template <typename U>
+        inline Vec3 operator*(const Vec3<U>& v) const {
+            return Vec3(x * v.x, y * v.y, z * v.z);
+        }
+
+        /** Divition by wise */
+        template <typename U>
+        inline Vec3 operator/(const Vec3<U>& v) const {
+            return Vec3(x / v.x, y / v.y, z / v.z);
+        }
+
         /** operator+ for left scalar operation*/
         friend Vec3 operator+(const value_type c, const Vec3& v) {
             return Vec3(_mm256_add_pd(_mm256_set1_pd(c), v.mmvalue));

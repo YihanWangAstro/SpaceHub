@@ -23,6 +23,9 @@ License
  * Header file.
  */
 #pragma once
+
+#include <omp.h>
+
 #include "macros.hpp"
 #include "math.hpp"
 #include "spacehub-concepts.hpp"
@@ -125,7 +128,6 @@ namespace space::calc {
         typename Array::value_type product{0};
         size_t const size = a.size();
 
-#pragma omp parallel for
         for (size_t i = 0; i < size; ++i) {
             product += (args[i] * ... * (a[i] * b[i]));
         }
@@ -218,7 +220,7 @@ namespace space::calc {
     template <typename Scalar, typename Array>
     void array_advance(Array &var, Array const &increment, Scalar step_size) {
         size_t const size = var.size();
-#pragma omp parallel for
+
         for (size_t i = 0; i < size; i++) {
             var[i] += increment[i] * step_size;
         }
@@ -283,7 +285,7 @@ namespace space::calc {
     template <typename Array1, typename Array2>
     inline void move_to_com(Array1 const &mass, Array2 &var) {
         auto com_var = calc_com(mass, var);
-#pragma omp parallel for
+
         for (auto &v : var) v -= com_var;
     }
 

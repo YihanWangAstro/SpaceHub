@@ -65,7 +65,7 @@ namespace space::ode_iterator {
 
         Scalar safe_guard1_{0.65};
 
-        Scalar safe_guard2_{0.94};
+        Scalar safe_guard2_{0.95};
 
         Scalar safe_guard3_{0.02};
 

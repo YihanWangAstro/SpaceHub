@@ -72,6 +72,7 @@ namespace space::ode_iterator {
                 Scalar error = err_checker_.error(integrator_.last_acc(), integrator_.b_tab()[6]);
                 Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h,
                                                                     std::make_tuple(error, last_error_));
+                // Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
                 // space::std_print("stp error ", k, ' ', iter_h, ' ', error, ',', new_iter_h, '\n');
                 if (error < 1) {
                     integrator_.integrate_to(particles, iter_h, Integrator::final_point);

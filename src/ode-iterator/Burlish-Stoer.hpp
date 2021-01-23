@@ -24,13 +24,17 @@ License
  */
 #pragma once
 
+#include <omp.h>
+
 #include <array>
 #include <functional>
 #include <vector>
 
 #include "../core-computation.hpp"
 #include "../integrator/symplectic/symplectic-integrator.hpp"
+#include "../multi-thread/thread_pool.h"
 #include "../spacehub-concepts.hpp"
+
 namespace space::ode_iterator {
 
     /*---------------------------------------------------------------------------*\
@@ -362,6 +366,7 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController>
     void BurlishStoer<Integrator, ErrEstimator, StepController>::extrapolate(size_t k) {
         for (size_t j = k; j > 0; --j) {
+#pragma omp parallel for
             for (size_t i = 0; i < var_num_; ++i) {
                 extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) *
                                                                   parameters_.table_coef(k, k - j);

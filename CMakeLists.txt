@@ -2,10 +2,10 @@
 cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3 -mavx -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3 -march=native -pthread ")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O2 -pthread -mavx")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3 -pthread -mavx")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread -march=native ")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3 -pthread -march=native ")
 
 set(TMP_HEADER_FILES
         src/args-callback/callbacks.hpp
@@ -100,6 +100,12 @@ set(PN_R_TEST
 set(IMPROVEMENT_TEST
         test/regression_test/rtest_improvement.cpp)
 
+set(BS_PARALLEL_TEST
+        test/regression_test/rtest_BS-parallel.cpp)
+
+set_source_files_properties(BS_PARALLEL_TEST PROPERTIES COMPILE_FLAGS "-DSINGLE_JOB_PARALLEL" )
+
+add_executable(SpaceHub_BS_parallel_test ${TMP_HEADER_FILES} ${BS_PARALLEL_TEST})
 
 add_executable(SpaceHub_unit_test ${UNIT_TEST} ${TMP_HEADER_FILES})
 
