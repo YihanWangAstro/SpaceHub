@@ -100,13 +100,6 @@ set(PN_R_TEST
 set(IMPROVEMENT_TEST
         test/regression_test/rtest_improvement.cpp)
 
-set(BS_PARALLEL_TEST
-        test/regression_test/rtest_BS-parallel.cpp)
-
-set_source_files_properties(BS_PARALLEL_TEST PROPERTIES COMPILE_FLAGS "-DSINGLE_JOB_PARALLEL" )
-
-add_executable(SpaceHub_BS_parallel_test ${TMP_HEADER_FILES} ${BS_PARALLEL_TEST})
-
 add_executable(SpaceHub_unit_test ${UNIT_TEST} ${TMP_HEADER_FILES})
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
