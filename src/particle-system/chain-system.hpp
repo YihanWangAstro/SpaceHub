@@ -47,6 +47,8 @@ namespace space::particle_system {
 
         using Particle = typename Particles::Particle;
 
+        using Interaction = Interactions;
+
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(ChainSystem, delete, default, default, default, default);
 
@@ -81,6 +83,15 @@ namespace space::particle_system {
 
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
+
+        /**
+         * @brief
+         *
+         * @tparam STL
+         * @param stl_ranges
+         */
+        template <typename STL>
+        void evaluate_general_derivative(STL &stl_ranges) const;
 
        private:
         // Private methods
@@ -143,8 +154,8 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, VectorArray const &velocity) {
-        Chain::calc_chain(velocity, chain_vel(), index());
-        chain_advance(this->pos(), chain_pos(), chain_vel(), step_size);
+        Chain::calc_chain(velocity, chain_acc_, index());  // borrow chain_acc_ as chain vel increament
+        chain_advance(this->pos(), chain_pos(), chain_acc_, step_size);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
@@ -208,6 +219,21 @@ namespace space::particle_system {
         add_coords_to(stl_ranges, chain_vel_);
         if constexpr (Interactions::ext_vel_dep) {
             add_coords_to(stl_ranges, chain_aux_vel_);
+        }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    template <typename STL>
+    void ChainSystem<Particles, Interactions>::evaluate_general_derivative(STL &stl_ranges) const {
+        stl_ranges.clear();
+        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        stl_ranges.emplace_back(1);             // dt/dt
+        add_coords_to(stl_ranges, chain_vel_);  // dX/dt
+        evaluate_acc(this->accels_.acc_);
+        Chain::calc_chain(this->accels_.acc_, chain_acc_, index());
+        add_coords_to(stl_ranges, chain_acc_);  // dV/dt
+        if constexpr (Interactions::ext_vel_dep) {
+            add_coords_to(stl_ranges, chain_acc_);
         }
     }
 

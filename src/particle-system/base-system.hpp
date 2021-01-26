@@ -47,6 +47,8 @@ namespace space::particle_system {
 
         using Particle = typename Particles::Particle;
 
+        using Interaction = Interactions;
+
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(SimpleSystem, delete, default, default, default, default);
 
@@ -85,6 +87,15 @@ namespace space::particle_system {
          * @param acceleration
          */
         void evaluate_acc(VectorArray &acceleration) const;
+
+        /**
+         * @brief
+         *
+         * @tparam STL
+         * @param stl_ranges
+         */
+        template <typename STL>
+        void evaluate_general_derivative(STL &stl_ranges) const;
 
         /**
          *
@@ -198,6 +209,20 @@ namespace space::particle_system {
         add_coords_to(stl_ranges, this->vel());
         if constexpr (Interactions::ext_vel_dep) {
             add_coords_to(stl_ranges, aux_vel_);
+        }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    template <typename STL>
+    void SimpleSystem<Particles, Interactions>::evaluate_general_derivative(STL &stl_ranges) const {
+        stl_ranges.clear();
+        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        stl_ranges.emplace_back(1);              // dt/dh
+        add_coords_to(stl_ranges, this->vel());  // dp/dt
+        evaluate_acc(this->accels_.acc_);
+        add_coords_to(stl_ranges, this->accels_.acc_);  // dv/dt
+        if constexpr (Interactions::ext_vel_dep) {
+            add_coords_to(stl_ranges, this->accels_.acc_);  // dw/dt
         }
     }
 

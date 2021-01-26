@@ -40,12 +40,14 @@ namespace space::particle_system {
     \*---------------------------------------------------------------------------*/
     /**
      *
-     * @tparam Scalar
+     * @tparam
      * @tparam Type
      */
-    template <typename Scalar, ReguType Type = ReguType::LogH>
+    template <typename TypeSystem, ReguType Type = ReguType::LogH>
     class Regularization {
        public:
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
+
         // Constructors
         template <typename Particles>
         explicit Regularization(Particles const &particles);
@@ -55,19 +57,18 @@ namespace space::particle_system {
 
         SPACEHUB_STD_ACCESSOR(Scalar, bindE, bindE_);
 
-        SPACEHUB_STD_ACCESSOR(Scalar, step_scale, scale_);
-
         template <CONCEPT_PARTICLES_DATA Particles>
         Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size) const;
 
         template <CONCEPT_PARTICLES_DATA Particles>
         Scalar eval_vel_phy_time(Particles const &particles, Scalar step_size) const;
 
+        template <typename Particles>
+        inline Scalar regu_function(Particles const &particles) const;
+
        private:
-        // Private methods
         template <typename Particles>
         inline Scalar capital_omega(Particles const &particles) const;
-
         // Private members
         Scalar omega_{1};
 
@@ -99,6 +100,8 @@ namespace space::particle_system {
 
         using Particle = typename Particles::Particle;
 
+        using Interaction = Interactions;
+
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(RegularizedSystem, delete, default, default, default, default);
 
@@ -112,6 +115,8 @@ namespace space::particle_system {
         SPACEHUB_STD_ACCESSOR(auto, omega, regu_.omega());
 
         SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
+
+        Scalar regu_function() const { return regu_.regu_function(*this); };
 
         void advance_time(Scalar step_size);
 
@@ -135,6 +140,15 @@ namespace space::particle_system {
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
 
+        /**
+         * @brief
+         *
+         * @tparam STL
+         * @param stl_ranges
+         */
+        template <typename STL>
+        void evaluate_general_derivative(STL &stl_ranges) const;
+
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
         friend std::ostream &operator<<(std::ostream &os, RegularizedSystem<P, F, R> const &ps);
@@ -156,7 +170,7 @@ namespace space::particle_system {
 
         // Private members
         interactions::InteractionData<Interactions, VectorArray> accels_;
-        Regularization<Scalar, RegType> regu_;
+        Regularization<TypeSet, RegType> regu_;
         std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> aux_vel_;
     };
 
@@ -202,10 +216,24 @@ namespace space::particle_system {
                                                                           VectorArray const &acceleration) {
         Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
         Scalar half_time = 0.5 * phy_time;
-        calc::array_advance(this->vel(), acceleration, half_time);
-        advance_omega(this->vel(), acceleration, phy_time);
-        // TODO : evolve bindE
-        calc::array_advance(this->vel(), acceleration, half_time);
+
+        if constexpr (regu_type == ReguType::TTL) {
+            calc::array_advance(this->vel(), acceleration, half_time);
+            Interactions::eval_newtonian_acc(*this, accels_.newtonian_acc());
+            advance_omega(this->vel(), accels_.newtonian_acc(), phy_time);
+            calc::array_advance(this->vel(), acceleration, half_time);
+        } else if constexpr (regu_type == ReguType::LogH) {
+            if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
+                calc::array_advance(this->vel(), acceleration, half_time);
+                Interactions::eval_extra_acc(*this, accels_.acc());
+                advance_bindE(this->vel(), accels_.acc(), phy_time);
+                calc::array_advance(this->vel(), acceleration, half_time);
+            } else {
+                calc::array_advance(this->vel(), acceleration, phy_time);
+            }
+        } else {
+            calc::array_advance(this->vel(), acceleration, phy_time);
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -232,21 +260,15 @@ namespace space::particle_system {
             kick_pseu_vel(phy_time);
             kick_real_vel(half_time);
         } else {
-            calc::array_advance(this->vel(), accels_.tot_vel_indep_acc(), half_time);
-            advance_omega(this->vel(), accels_.newtonian_acc(), phy_time);
-            if constexpr (Interactions::ext_vel_indep) {
-                advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), phy_time);
-            }
-            calc::array_advance(this->vel(), accels_.tot_vel_indep_acc(), half_time);
-            /*advance_omega(this->vel(), accels_.newtonian_acc(), half_time);
-            if constexpr (Interactions::ext_vel_indep) {
-              advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), half_time);
-            }
-            calc::array_advance(this->vel(), accels_.tot_vel_indep_acc(), phy_time);
             advance_omega(this->vel(), accels_.newtonian_acc(), half_time);
             if constexpr (Interactions::ext_vel_indep) {
-              advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), half_time);
-            }*/
+                advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), half_time);
+            }
+            calc::array_advance(this->vel(), accels_.tot_vel_indep_acc(), phy_time);
+            if constexpr (Interactions::ext_vel_indep) {
+                advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), half_time);
+            }
+            advance_omega(this->vel(), accels_.newtonian_acc(), half_time);
         }
     }
 
@@ -270,6 +292,43 @@ namespace space::particle_system {
         add_coords_to(stl_ranges, this->vel());
         if constexpr (Interactions::ext_vel_dep) {
             add_coords_to(stl_ranges, aux_vel_);
+        }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    template <typename STL>
+    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_general_derivative(STL &stl_ranges) const {
+        stl_ranges.clear();
+        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
+
+        Scalar pos_regu = regu_.eval_pos_phy_time(1);
+        Scalar vel_regu = regu_.eval_vel_phy_time(1);
+
+        stl_ranges.emplace_back(pos_regu);
+
+        Interactions::eval_newtonian_acc(*this, accels_.newtonian_acc());
+
+        if constexpr (regu_type == ReguType::TTL) {
+            Scalar d_omega_dh =
+                calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
+            stl_ranges.emplace_back(d_omega_dh);
+        } else {
+            stl_ranges.emplace_back(0);
+        }
+
+        if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {
+            Interactions::eval_extra_acc(*this, accels_.acc());
+            Scalar d_bindE_dh = -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
+            stl_ranges.emplace_back(d_bindE_dh);
+            calc::array_add(accels_.acc(), accels_.acc(), accels_.newtonian_acc());
+        } else {
+            stl_ranges.emplace_back(0);
+        }
+
+        add_scaled_coords_to(stl_ranges, this->vel(), pos_regu);
+        add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
+        if constexpr (Interactions::ext_vel_dep) {
+            add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
         }
     }
 
@@ -310,10 +369,10 @@ namespace space::particle_system {
     void RegularizedSystem<Particles, Interactions, RegType>::advance_omega(VectorArray const &velocity,
                                                                             VectorArray const &d_omega_dr,
                                                                             Scalar phy_time) {
-        // if constexpr (regu_type == ReguType::TTL) {
-        Scalar d_omega = calc::coord_contract_to_scalar(this->mass(), velocity, d_omega_dr);
-        regu_.omega() += d_omega * phy_time;
-        //}
+        if constexpr (regu_type == ReguType::TTL) {
+            Scalar d_omega = calc::coord_contract_to_scalar(this->mass(), velocity, d_omega_dr);
+            regu_.omega() += d_omega * phy_time;
+        }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -355,16 +414,17 @@ namespace space::particle_system {
     /*---------------------------------------------------------------------------*\
         Class Regularization Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Scalar, ReguType Type>
+    template <typename TypeSystem, ReguType Type>
     template <typename Particles>
-    Regularization<Scalar, Type>::Regularization(Particles const &particles) {
+    Regularization<TypeSystem, Type>::Regularization(Particles const &particles) {
         omega_ = capital_omega(particles);
         bindE_ = -calc::calc_total_energy(particles);
     }
 
-    template <typename Scalar, ReguType Type>
+    template <typename TypeSystem, ReguType Type>
     template <CONCEPT_PARTICLES_DATA Particles>
-    Scalar Regularization<Scalar, Type>::eval_pos_phy_time(Particles const &particles, Scalar step_size) const {
+    auto Regularization<TypeSystem, Type>::eval_pos_phy_time(Particles const &particles, Scalar step_size) const
+        -> Scalar {
         if constexpr (Type == ReguType::LogH) {
             return step_size / (bindE_ + calc::calc_kinetic_energy(particles));
         } else if constexpr (Type == ReguType::TTL) {
@@ -376,9 +436,10 @@ namespace space::particle_system {
         }
     }
 
-    template <typename Scalar, ReguType Type>
+    template <typename TypeSystem, ReguType Type>
     template <CONCEPT_PARTICLES_DATA Particles>
-    Scalar Regularization<Scalar, Type>::eval_vel_phy_time(Particles const &particles, Scalar step_size) const {
+    auto Regularization<TypeSystem, Type>::eval_vel_phy_time(Particles const &particles, Scalar step_size) const
+        -> Scalar {
         if constexpr (Type == ReguType::LogH) {
             return step_size / -calc::calc_potential_energy(particles);
         } else if constexpr (Type == ReguType::TTL) {
@@ -390,9 +451,15 @@ namespace space::particle_system {
         }
     }
 
-    template <typename Scalar, ReguType Type>
+    template <typename TypeSystem, ReguType Type>
     template <typename Particles>
-    Scalar Regularization<Scalar, Type>::capital_omega(Particles const &particles) const {
+    auto Regularization<TypeSystem, Type>::capital_omega(Particles const &particles) const -> Scalar {
         return -calc::calc_potential_energy(particles);
+    }
+
+    template <typename TypeSystem, ReguType Type>
+    template <typename Particles>
+    auto Regularization<TypeSystem, Type>::regu_function(Particles const &particles) const -> Scalar {
+        return capital_omega(particles);
     }
 }  // namespace space::particle_system
