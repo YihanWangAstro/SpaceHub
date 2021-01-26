@@ -50,6 +50,18 @@ namespace space::interactions {
         static void eval_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
 
         /**
+         * Evaluate the external acceleration of the current state of a given particle system.
+         *
+         * @brief
+         *
+         * @tparam Particles
+         * @param particles
+         * @param acceleration
+         */
+        template <CONCEPT_PARTICLES_DATA Particles>
+        static void eval_extra_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
+
+        /**
          * Evaluate the external velocity dependent acceleration of the current state of a given particle system.
          *
          * @tparam Particles Type of the particle system.
@@ -150,6 +162,19 @@ namespace space::interactions {
         calc::array_set_zero(acceleration);
         InternalForce::add_acc_to(particles, acceleration);
         (ExtraForce::add_acc_to(particles, acceleration), ...);
+    }
+
+    template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
+    template <CONCEPT_PARTICLES_DATA Particles>
+    void Interactions<InternalForce, ExtraForce...>::eval_extra_acc(const Particles &particles,
+                                                                    typename Particles::VectorArray &acceleration) {
+        if constexpr (ext_vel_dep) {
+            calc::array_set_zero(acceleration);
+            InvokeVelDepForce<ExtraForce...>::add_acc_to(particles, acceleration);
+        }
+        if constexpr (ext_vel_indep) {
+            InvokeVelIndepForce<ExtraForce...>::add_acc_to(particles, acceleration);
+        }
     }
 
     template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
