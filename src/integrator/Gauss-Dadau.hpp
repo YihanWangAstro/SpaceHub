@@ -403,8 +403,8 @@ namespace space::integrator {
         calc_vel_increment(vel_increment_, acceleration0_, stage);
         calc_pos_increment(pos_increment_, particles.vel(), acceleration0_, step_size, stage);
         particles.advance_vel(step_size, vel_increment_);
-        particles.advance_pos(step_size, pos_increment_);
         particles.advance_time(step_size);
+        particles.advance_pos(step_size, pos_increment_);
     }
 
     template <typename TypeSystem>

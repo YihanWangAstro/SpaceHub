@@ -28,9 +28,9 @@ template <typename simulation>
 void run(std::string const &sim_name) {
     auto earth_sys = earth_system<simulation>();
 
-    basic_error_test<simulation>("earth-system-" + sim_name, 500_year, 1e-13, earth_sys);
+    basic_error_test<simulation>("earth-system-" + sim_name, 100_year, 1e-13, earth_sys);
 
-    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-8, 500_year, earth_sys);
+    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-8, 100_year, earth_sys);
 
     std::fstream err_stream{"earth-system-" + sim_name + ".scale", std::ios::out};
 
@@ -74,6 +74,10 @@ int main(int argc, char **argv) {
     run<Simulator<arch_sys, iter>>("arch");*/
 
     run<Simulator<sim_sys, ias15_iter>>("ias15");
+
+    run<Simulator<chain_sys, ias15_iter>>("chain_ias15");
+
+    run<Simulator<regu_sys, ias15_iter>>("ar_ias15");
 
     // run<Simulator<arch_sys, space_iter>>("space");
 

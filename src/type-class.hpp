@@ -102,4 +102,14 @@ namespace space {
         }
     }
 
+    template <typename ScalarArray, typename VectorArray, typename Scalar>
+    void add_scaled_coords_to(ScalarArray& stl, VectorArray const& var, Scalar scale) {
+        stl.reserve(var.size() * 3 + stl.size());
+        for (auto const& v : var) {
+            stl.emplace_back(v.x * scale);
+            stl.emplace_back(v.y * scale);
+            stl.emplace_back(v.z * scale);
+        }
+    }
+
 }  // namespace space
