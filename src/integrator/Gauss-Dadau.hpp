@@ -265,36 +265,30 @@ namespace space::integrator {
 
     template <typename TypeSystem>
     void GaussDadau<TypeSystem>::predict_new_B(Scalar step_ratio) {
-        if (step_ratio > 20) {
-            for (size_t j = 0; j < final_point; ++j) {
-                calc::array_set_zero(b_tab_[j]);
-                calc::array_set_zero(old_b_tab_[j]);
-            }
-        } else {
-            std::array<Scalar, final_point> Q;
-            Q[0] = step_ratio;
-            Q[1] = Q[0] * Q[0];
-            Q[2] = Q[1] * Q[0];
-            Q[3] = Q[1] * Q[1];
-            Q[4] = Q[2] * Q[1];
-            Q[5] = Q[2] * Q[2];
-            Q[6] = Q[3] * Q[2];
+        std::array<Scalar, final_point> Q;
+        Q[0] = step_ratio;
+        Q[1] = Q[0] * Q[0];
+        Q[2] = Q[1] * Q[0];
+        Q[3] = Q[1] * Q[1];
+        Q[4] = Q[2] * Q[1];
+        Q[5] = Q[2] * Q[2];
+        Q[6] = Q[3] * Q[2];
 
-            for (size_t j = 0; j < final_point; ++j) {
-                calc::array_sub(db_tab_[j], b_tab_[j], old_b_tab_[j]);
-            }
+        for (size_t j = 0; j < final_point; ++j) {
+            calc::array_sub(db_tab_[j], b_tab_[j], old_b_tab_[j]);
+        }
 
-            for (size_t stage = 0; stage < final_point; ++stage) {
-                calc::array_scale(old_b_tab_[stage], b_tab_[6], Q[stage] * RadauConsts::B_tab(6, stage));
-                for (size_t j = 6; j > stage; --j) {
-                    calc::array_advance(old_b_tab_[stage], b_tab_[j - 1], Q[stage] * RadauConsts::B_tab(j - 1, stage));
-                }
-            }
-
-            for (size_t j = 0; j < final_point; ++j) {
-                calc::array_add(b_tab_[j], old_b_tab_[j], db_tab_[j]);
+        for (size_t stage = 0; stage < final_point; ++stage) {
+            calc::array_scale(old_b_tab_[stage], b_tab_[6], Q[stage] * RadauConsts::B_tab(6, stage));
+            for (size_t j = 6; j > stage; --j) {
+                calc::array_advance(old_b_tab_[stage], b_tab_[j - 1], Q[stage] * RadauConsts::B_tab(j - 1, stage));
             }
         }
+
+        for (size_t j = 0; j < final_point; ++j) {
+            calc::array_add(b_tab_[j], old_b_tab_[j], db_tab_[j]);
+        }
+
         RadauConsts::transfer_B_to_G(b_tab_, old_g_tab_);
     }
 }  // namespace space::integrator
