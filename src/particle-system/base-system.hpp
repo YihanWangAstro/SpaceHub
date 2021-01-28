@@ -73,29 +73,23 @@ namespace space::particle_system {
          * @param velocity
          * @param step_size
          */
-        void advance_pos(Scalar step_size, VectorArray const &velocity);
+        template <typename GenVectorArray>
+        void advance_pos(Scalar step_size, GenVectorArray const &velocity);
 
         /**
          *
          * @param acceleration
          * @param step_size
          */
-        void advance_vel(Scalar step_size, VectorArray const &acceleration);
+        template <typename GenVectorArray>
+        void advance_vel(Scalar step_size, GenVectorArray const &acceleration);
 
         /**
          *
          * @param acceleration
          */
-        void evaluate_acc(VectorArray &acceleration) const;
-
-        /**
-         * @brief
-         *
-         * @tparam STL
-         * @param stl_ranges
-         */
-        template <typename STL>
-        void evaluate_general_derivative(STL &stl_ranges) const;
+        template <typename GenVectorArray>
+        void evaluate_acc(GenVectorArray &acceleration) const;
 
         /**
          *
@@ -131,6 +125,17 @@ namespace space::particle_system {
          */
         template <typename STL>
         void read_from_scalar_array(STL const &stl_ranges);
+
+        /**
+         * @brief
+         *
+         * @tparam STL
+         * @param stl_ranges
+         */
+        template <typename STL>
+        void evaluate_general_derivative(STL &stl_ranges);
+
+        size_t variable_number() const;
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
@@ -214,16 +219,21 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename STL>
-    void SimpleSystem<Particles, Interactions>::evaluate_general_derivative(STL &stl_ranges) const {
+    void SimpleSystem<Particles, Interactions>::evaluate_general_derivative(STL &stl_ranges) {
         stl_ranges.clear();
         stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
         stl_ranges.emplace_back(1);              // dt/dh
         add_coords_to(stl_ranges, this->vel());  // dp/dt
-        evaluate_acc(this->accels_.acc_);
-        add_coords_to(stl_ranges, this->accels_.acc_);  // dv/dt
+        Interactions::eval_acc(*this, this->accels_.acc());
+        add_coords_to(stl_ranges, this->accels_.acc());  // dv/dt
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, this->accels_.acc_);  // dw/dt
+            add_coords_to(stl_ranges, this->accels_.acc());  // dw/dt
         }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    size_t SimpleSystem<Particles, Interactions>::variable_number() const {
+        return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1;
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
@@ -254,17 +264,20 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void SimpleSystem<Particles, Interactions>::evaluate_acc(VectorArray &acceleration) const {
+    template <typename GenVectorArray>
+    void SimpleSystem<Particles, Interactions>::evaluate_acc(GenVectorArray &acceleration) const {
         Interactions::eval_acc(*this, acceleration);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void SimpleSystem<Particles, Interactions>::advance_vel(Scalar step_size, VectorArray const &acceleration) {
+    template <typename GenVectorArray>
+    void SimpleSystem<Particles, Interactions>::advance_vel(Scalar step_size, GenVectorArray const &acceleration) {
         calc::array_advance(this->vel(), acceleration, step_size);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void SimpleSystem<Particles, Interactions>::advance_pos(Scalar step_size, VectorArray const &velocity) {
+    template <typename GenVectorArray>
+    void SimpleSystem<Particles, Interactions>::advance_pos(Scalar step_size, GenVectorArray const &velocity) {
         calc::array_advance(this->pos(), velocity, step_size);
     }
 

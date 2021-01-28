@@ -64,11 +64,14 @@ namespace space::particle_system {
 
         void advance_time(Scalar dt);
 
-        void advance_pos(Scalar step_size, VectorArray const &velocity);
+        template <typename GenVectorArray>
+        void advance_pos(Scalar step_size, GenVectorArray const &velocity);
 
-        void advance_vel(Scalar step_size, VectorArray const &acceleration);
+        template <typename GenVectorArray>
+        void advance_vel(Scalar step_size, GenVectorArray const &acceleration);
 
-        void evaluate_acc(VectorArray &acceleration) const;
+        template <typename GenVectorArray>
+        void evaluate_acc(GenVectorArray &acceleration) const;
 
         void drift(Scalar step_size);
 
@@ -91,7 +94,9 @@ namespace space::particle_system {
          * @param stl_ranges
          */
         template <typename STL>
-        void evaluate_general_derivative(STL &stl_ranges) const;
+        void evaluate_general_derivative(STL &stl_ranges);
+
+        size_t variable_number() const;
 
        private:
         // Private methods
@@ -153,19 +158,22 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, VectorArray const &velocity) {
+    template <typename GenVectorArray>
+    void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, GenVectorArray const &velocity) {
         Chain::calc_chain(velocity, chain_acc_, index());  // borrow chain_acc_ as chain vel increament
         chain_advance(this->pos(), chain_pos(), chain_acc_, step_size);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::advance_vel(Scalar step_size, VectorArray const &acceleration) {
+    template <typename GenVectorArray>
+    void ChainSystem<Particles, Interactions>::advance_vel(Scalar step_size, GenVectorArray const &acceleration) {
         Chain::calc_chain(acceleration, chain_acc_, index());
         chain_advance(this->vel(), chain_vel(), chain_acc_, step_size);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::evaluate_acc(VectorArray &acceleration) const {
+    template <typename GenVectorArray>
+    void ChainSystem<Particles, Interactions>::evaluate_acc(GenVectorArray &acceleration) const {
         Interactions::eval_acc(*this, acceleration);
     }
 
@@ -224,13 +232,13 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename STL>
-    void ChainSystem<Particles, Interactions>::evaluate_general_derivative(STL &stl_ranges) const {
+    void ChainSystem<Particles, Interactions>::evaluate_general_derivative(STL &stl_ranges) {
         stl_ranges.clear();
         stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
         stl_ranges.emplace_back(1);             // dt/dt
         add_coords_to(stl_ranges, chain_vel_);  // dX/dt
-        evaluate_acc(this->accels_.acc_);
-        Chain::calc_chain(this->accels_.acc_, chain_acc_, index());
+        evaluate_acc(this->accels_.acc());
+        Chain::calc_chain(this->accels_.acc(), chain_acc_, index());
         add_coords_to(stl_ranges, chain_acc_);  // dV/dt
         if constexpr (Interactions::ext_vel_dep) {
             add_coords_to(stl_ranges, chain_acc_);
@@ -261,6 +269,11 @@ namespace space::particle_system {
         }
     }
 
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+
+    size_t ChainSystem<Particles, Interactions>::variable_number() const {
+        return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1;
+    }
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     std::istream &operator>>(std::istream &is, ChainSystem<Particles, Interactions> &ps) {
         is >> static_cast<Particles>(ps);

@@ -120,11 +120,14 @@ namespace space::particle_system {
 
         void advance_time(Scalar step_size);
 
-        void advance_pos(Scalar step_size, VectorArray const &velocity);
+        template <typename GenVectorArray>
+        void advance_pos(Scalar step_size, GenVectorArray const &velocity);
 
-        void advance_vel(Scalar step_size, VectorArray const &acceleration);
+        template <typename GenVectorArray>
+        void advance_vel(Scalar step_size, GenVectorArray const &acceleration);
 
-        void evaluate_acc(VectorArray &acceleration) const;
+        template <typename GenVectorArray>
+        void evaluate_acc(GenVectorArray &acceleration) const;
 
         void drift(Scalar step_size);
 
@@ -147,7 +150,9 @@ namespace space::particle_system {
          * @param stl_ranges
          */
         template <typename STL>
-        void evaluate_general_derivative(STL &stl_ranges) const;
+        void evaluate_general_derivative(STL &stl_ranges);
+
+        size_t variable_number() const;
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
@@ -205,15 +210,17 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    template <typename GenVectorArray>
     void RegularizedSystem<Particles, Interactions, RegType>::advance_pos(Scalar step_size,
-                                                                          VectorArray const &velocity) {
+                                                                          GenVectorArray const &velocity) {
         Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
         calc::array_advance(this->pos(), velocity, phy_time);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    template <typename GenVectorArray>
     void RegularizedSystem<Particles, Interactions, RegType>::advance_vel(Scalar step_size,
-                                                                          VectorArray const &acceleration) {
+                                                                          GenVectorArray const &acceleration) {
         Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
         Scalar half_time = 0.5 * phy_time;
 
@@ -237,7 +244,8 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_acc(VectorArray &acceleration) const {
+    template <typename GenVectorArray>
+    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_acc(GenVectorArray &acceleration) const {
         Interactions::eval_acc(*this, acceleration);
     }
 
@@ -297,12 +305,12 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
     template <typename STL>
-    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_general_derivative(STL &stl_ranges) const {
+    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_general_derivative(STL &stl_ranges) {
         stl_ranges.clear();
         stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
 
-        Scalar pos_regu = regu_.eval_pos_phy_time(1);
-        Scalar vel_regu = regu_.eval_vel_phy_time(1);
+        Scalar pos_regu = regu_.eval_pos_phy_time(*this, 1);
+        Scalar vel_regu = regu_.eval_vel_phy_time(*this, 1);
 
         stl_ranges.emplace_back(pos_regu);
 
@@ -316,17 +324,26 @@ namespace space::particle_system {
             stl_ranges.emplace_back(0);
         }
 
-        if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {
+        if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
             Interactions::eval_extra_acc(*this, accels_.acc());
-            Scalar d_bindE_dh = -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
-            stl_ranges.emplace_back(d_bindE_dh);
+            if constexpr (regu_type == ReguType::LogH) {
+                Scalar d_bindE_dh =
+                    -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
+                stl_ranges.emplace_back(d_bindE_dh);
+            } else {
+                stl_ranges.emplace_back(0);
+            }
             calc::array_add(accels_.acc(), accels_.acc(), accels_.newtonian_acc());
         } else {
             stl_ranges.emplace_back(0);
         }
 
         add_scaled_coords_to(stl_ranges, this->vel(), pos_regu);
-        add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
+        if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
+            add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
+        } else {
+            add_scaled_coords_to(stl_ranges, accels_.newtonian_acc(), vel_regu);
+        }
         if constexpr (Interactions::ext_vel_dep) {
             add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
         }
@@ -351,6 +368,11 @@ namespace space::particle_system {
             auto aux_vel_end = aux_vel_begin + len;
             load_to_coords(aux_vel_begin, aux_vel_end, aux_vel_);
         }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    size_t RegularizedSystem<Particles, Interactions, RegType>::variable_number() const {
+        return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3;
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
