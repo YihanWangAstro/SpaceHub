@@ -54,6 +54,9 @@ namespace space::ode_iterator {
         template <typename Array>
         auto error(Array const &y0, Array const &y1, Array const &y1_prime) -> typename Array::value_type;
 
+        template <typename Array>
+        auto error(Array const &y0, Array const &diff) -> typename Array::value_type;
+
        private:
         Scalar atol_{1e-13};
 
@@ -98,6 +101,28 @@ namespace space::ode_iterator {
         return max_err;
     }
 
+    template <typename TypeSystem>
+    template <typename Array>
+    auto WorstOffender<TypeSystem>::error(const Array &y0, const Array &diff) -> typename Array::value_type {
+        size_t const size = y0.size();
+        Scalar max_err = 0;
+        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+            for (size_t i = 0; i < size; ++i) {
+                Scalar scale = fabs(y0[i]);
+                // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));
+                max_err = math::max(max_err, fabs(diff[i]) / (atol_ + scale * rtol_));
+            }
+        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+            for (size_t i = 0; i < size; ++i) {
+                Scalar scale = max_abs(y0[i]);
+                // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));
+                max_err = math::max(max_err, max_abs(diff[i]) / (atol_ + scale * rtol_));
+            }
+        } else {
+            spacehub_abort("Unsupported array type!");
+        }
+        return max_err;
+    }
     template <typename TypeSystem>
     WorstOffender<TypeSystem>::WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 }  // namespace space::ode_iterator
