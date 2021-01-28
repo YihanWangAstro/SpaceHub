@@ -217,6 +217,15 @@ namespace space::calc {
         return total;
     }
 
+    template <typename Array>
+    void array_advance(Array &var, Array const &increment) {
+        size_t const size = var.size();
+
+        for (size_t i = 0; i < size; i++) {
+            var[i] += increment[i];
+        }
+    }
+
     template <typename Scalar, typename Array>
     void array_advance(Array &var, Array const &increment, Scalar step_size) {
         size_t const size = var.size();

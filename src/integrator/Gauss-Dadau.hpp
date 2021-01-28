@@ -21,6 +21,8 @@ namespace space::integrator {
 
         [[nodiscard]] inline static constexpr double G_tab(size_t n, size_t j) { return G_coef_[n * (n + 1) / 2 + j]; }
 
+        [[nodiscard]] inline static constexpr double RR_tab(size_t n, size_t j) { return rr_[n * (n + 1) / 2 + j]; }
+
         [[nodiscard]] inline static constexpr double B_tab(size_t n, size_t j) { return B_coef_[n * (n + 1) / 2 + j]; }
 
         [[nodiscard]] inline static constexpr double G2B_tab(size_t n, size_t j) {
@@ -69,6 +71,18 @@ namespace space::integrator {
             0.0000000317188154017613665, 0.0002762930909826476593130, 0.0360285539837364596003871,
             0.5767330002770787313544596, 2.2485887607691597933926895, 2.7558127197720458314421588,
             1.0000000000000000000000000};
+
+        static constexpr double rr_[28] = {
+            0.0562625605369221464656522, 0.1802406917368923649875799, 0.1239781311999702185219278,
+            0.3526247171131696373739078, 0.2963621565762474909082556, 0.1723840253762772723863278,
+            0.5471536263305553830014486, 0.4908910657936332365357964, 0.3669129345936630180138686,
+            0.1945289092173857456275408, 0.7342101772154105315232106, 0.6779476166784883850575584,
+            0.5539694854785181665356307, 0.3815854601022408941493028, 0.1870565508848551485217621,
+            0.8853209468390957680903598, 0.8290583863021736216247076, 0.7050802551022034031027798,
+            0.5326962297259261307164520, 0.3381673205085403850889112, 0.1511107696236852365671492,
+            0.9775206135612875018911745, 0.9212580530243653554255223, 0.7972799218243951369035945,
+            0.6248958964481178645172667, 0.4303669872307321188897259, 0.2433104363458769703679639,
+            0.0921996667221917338008147};
 
         static constexpr double G_coef_[28] = {
             1.777380891407800084E+1, 4.475093038455599220E+1, 8.065938648381886689E+0, 5.550952167492268626E+1,
@@ -189,10 +203,8 @@ namespace space::integrator {
     void GaussDadau<TypeSystem>::check_particle_size(size_t var_num) {
         if (var_num_ != var_num) {
             var_num_ = var_num;
-            acceleration0_.resize(var_num_);
-            acceleration_.resize(var_num_);
-            increment_.resize(var_num_);
-            tmp_.resize(var_num_);
+
+            resize_all(var_num_, acceleration0_, acceleration_, increment_, tmp_);
 
             auto set_iter_tab_0 = [](auto &tab, size_t num) {
                 for (auto &t : tab) {
@@ -221,11 +233,20 @@ namespace space::integrator {
     template <typename ParticleSys>
     void GaussDadau<TypeSystem>::integrate_to(ParticleSys &particles, Scalar step_size, size_t stage) {
         tmp_ = input_;
-        calc::array_advance(tmp_, b_tab_[6], RadauConsts::dy_tab(stage, 7) * step_size);
+        /*calc::array_advance(tmp_, b_tab_[6], RadauConsts::dy_tab(stage, 7) * step_size);
         for (size_t i = 6; i > 0; --i) {
             calc::array_advance(tmp_, b_tab_[i - 1], RadauConsts::dy_tab(stage, i) * step_size);
         }
-        calc::array_advance(tmp_, acceleration0_, RadauConsts::dy_tab(stage, 0) * step_size);
+        calc::array_advance(tmp_, acceleration0_, RadauConsts::dy_tab(stage, 0) * step_size);*/
+        auto h_n = RadauConsts::step_sequence(stage);
+        calc::array_scale(increment_, b_tab_[6], 7 * h_n / 8);
+        for (size_t i = 6; i > 0; --i) {
+            calc::array_advance(increment_, b_tab_[i - 1]);
+            calc::array_scale(increment_, increment_, i * h_n / (i + 1));
+        }
+        calc::array_advance(increment_, acceleration0_);
+        calc::array_advance(tmp_, increment_, step_size * h_n);
+
         particles.read_from_scalar_array(tmp_);
     }
 
@@ -236,7 +257,6 @@ namespace space::integrator {
         for (size_t j = 0; j < stage; ++j) {
             calc::array_advance(g_tab_[stage], old_g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
         }
-
         calc::array_sub(dg_tab_[stage], g_tab_[stage], old_g_tab_[stage]);
 
         for (size_t i = 0; i <= stage; ++i)
