@@ -146,6 +146,9 @@ namespace space::integrator {
         template <typename ParticleSys>
         void integrate_to(ParticleSys &particles, Scalar step_size, size_t stage);
 
+        template <typename ParticleSys>
+        void integrate_at_end(ParticleSys &particles, Scalar step_size);
+
         void check_particle_size(size_t var_num);
 
         template <typename ParticleSys>
@@ -226,18 +229,14 @@ namespace space::integrator {
     template <typename ParticleSys>
     void GaussDadau<TypeSystem>::integrate(ParticleSys &particles, Scalar step_size) {
         calc_B_table(particles, step_size);
-        integrate_to(particles, step_size, final_point);
+        integrate_at_end(particles, step_size);
     }
 
     template <typename TypeSystem>
     template <typename ParticleSys>
     void GaussDadau<TypeSystem>::integrate_to(ParticleSys &particles, Scalar step_size, size_t stage) {
         tmp_ = input_;
-        /*calc::array_advance(tmp_, b_tab_[6], RadauConsts::dy_tab(stage, 7) * step_size);
-        for (size_t i = 6; i > 0; --i) {
-            calc::array_advance(tmp_, b_tab_[i - 1], RadauConsts::dy_tab(stage, i) * step_size);
-        }
-        calc::array_advance(tmp_, acceleration0_, RadauConsts::dy_tab(stage, 0) * step_size);*/
+
         auto h_n = RadauConsts::step_sequence(stage);
         calc::array_scale(increment_, b_tab_[6], 7 * h_n / 8);
         for (size_t i = 6; i > 0; --i) {
@@ -246,6 +245,19 @@ namespace space::integrator {
         }
         calc::array_advance(increment_, acceleration0_);
         calc::array_advance(tmp_, increment_, step_size * h_n);
+
+        particles.read_from_scalar_array(tmp_);
+    }
+
+    template <typename TypeSystem>
+    template <typename ParticleSys>
+    void GaussDadau<TypeSystem>::integrate_at_end(ParticleSys &particles, Scalar step_size) {
+        tmp_ = input_;
+
+        for (size_t i = 7; i > 0; --i) {
+            calc::array_advance(tmp_, b_tab_[i - 1], RadauConsts::dy_tab(final_point, i) * step_size);
+        }
+        calc::array_advance(tmp_, acceleration0_, RadauConsts::dy_tab(final_point, 0) * step_size);
 
         particles.read_from_scalar_array(tmp_);
     }

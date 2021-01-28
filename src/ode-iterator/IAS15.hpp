@@ -75,7 +75,7 @@ namespace space::ode_iterator {
                 // Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
 
                 if (error < 1) {
-                    integrator_.integrate_to(particles, iter_h, Integrator::final_point);
+                    integrator_.integrate_at_end(particles, iter_h);
                     integrator_.predict_new_B(new_iter_h / iter_h);
                     last_error_ = error;
                     warmed_up = true;
