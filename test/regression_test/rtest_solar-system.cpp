@@ -30,15 +30,17 @@ void run(std::string const &sim_name) {
 
     basic_error_test<simulation>("earth-system-" + sim_name, 100_year, 1e-13, earth_sys);
 
-    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-8, 100_year, earth_sys);
+    /*auto [rtol, error] = error_scale<simulation>(3e-16, 1e-8, 100_year, earth_sys);
 
     std::fstream err_stream{"earth-system-" + sim_name + ".scale", std::ios::out};
 
-    err_stream << rtol << '\n' << error;
+    err_stream << rtol << '\n' << error;*/
 }
 
 int main(int argc, char **argv) {
-    using type = Types<double_p>;
+    using type = Types<double_k>;
+
+    using rtype = Types<double_k>;
 
     using force = interactions::Interactions<interactions::NewtonianGrav>;
 
@@ -52,18 +54,20 @@ int main(int argc, char **argv) {
 
     using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-    using base_integrator = LeapFrogDKD<type>;
+    using base_integrator = LeapFrogDKD<rtype>;
     //    using iter = ConstOdeIterator<Symplectic2nd>;
 
-    using err_estimator = WorstOffender<type>;
+    using err_estimator = WorstOffender<rtype>;
 
-    using step_controller = PIDController<type>;
+    using step_controller = PIDController<rtype>;
 
     using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
 
-    using ias15_iter = IAS15<integrator::GaussDadau<type>, IAS15Error<type>, step_controller>;
+    using ias15_iter = IAS15<integrator::GaussDadau<rtype>, IAS15Error<rtype>, step_controller>;
 
-    using space_iter = BisecOdeIterator<integrator::Symplectic6th<type>, WorstOffender<type>, step_controller>;
+    // using ias15_iter = IAS15<integrator::GaussDadau<rtype>, err_estimator, step_controller>;
+
+    using space_iter = BisecOdeIterator<integrator::Symplectic6th<rtype>, WorstOffender<rtype>, step_controller>;
 
     /*run<Simulator<sim_sys, iter>>("sim");
 
@@ -75,9 +79,9 @@ int main(int argc, char **argv) {
 
     run<Simulator<sim_sys, ias15_iter>>("ias15");
 
-    run<Simulator<chain_sys, ias15_iter>>("chain_ias15");
+    // run<Simulator<chain_sys, ias15_iter>>("chain_ias15");
 
-    run<Simulator<regu_sys, ias15_iter>>("ar_ias15");
+    // run<Simulator<arch_sys, ias15_iter>>("arch_ias15");
 
     // run<Simulator<arch_sys, space_iter>>("space");
 
