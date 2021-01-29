@@ -238,12 +238,20 @@ namespace space::integrator {
         tmp_ = input_;
 
         auto h_n = RadauConsts::step_sequence(stage);
-        calc::array_scale(increment_, b_tab_[6], 7 * h_n / 8);
+        /*calc::array_scale(increment_, b_tab_[6], 7 * h_n / 8);
         for (size_t i = 6; i > 0; --i) {
             calc::array_advance(increment_, b_tab_[i - 1]);
             calc::array_scale(increment_, increment_, i * h_n / (i + 1));
         }
         calc::array_advance(increment_, acceleration0_);
+        calc::array_advance(tmp_, increment_, step_size * h_n);*/
+
+        calc::array_scale(increment_, b_tab_[6], 7 * h_n / 8);
+        for (size_t i = 6; i > 0; --i) {
+            calc::array_add(increment_, increment_, b_tab_[i - 1]);
+            calc::array_scale(increment_, increment_, i * h_n / (i + 1));
+        }
+        calc::array_add(increment_, increment_, acceleration0_);
         calc::array_advance(tmp_, increment_, step_size * h_n);
 
         particles.read_from_scalar_array(tmp_);

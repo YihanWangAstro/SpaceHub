@@ -24,172 +24,222 @@ License
  */
 #pragma once
 
-#ifdef __AVX512F__
-#pragma message("Using AVX512 on vectorpd")
-#include <x86intrin.h>
-
-#include "../kahanNumber.h"
+#include "../kahan-number.hpp"
 
 namespace space {
-    /** @brief Specilization of vector3d */
     template <>
-    struct Vec3<double_p> {
+    struct alignas(32) Vec3<double_k> {
        public:
         /* Typedef */
-        using value_type = double_p;
+        using value_type = double_k;
         /* Typedef */
+        // static_assert(false, "double_k vector");
 
-        Vec3<double> __attribute__((aligned(32))) real;
-        Vec3<double> __attribute__((aligned(32))) err;
+        double x{0};
 
-        Vec3() : {};
-        Vec3(double vx, double vy, double vz) : mmvalue(_mm512_set_pd(vx, 0, vy, 0, vz, 0, 0, 0.0)){};
-        Vec3(__m256d v) : mmvalue(v){};
-        Vec3(const Vec3& v) : mmvalue(v.mmvalue){};
-        /** @brief Addition by wise */
-        inline Vec3 operator+(const Vec3& v) const { return Vec3(_mm512_add_pd(mmvalue, v.mmvalue)); }
-        /** @brief Subtraction by wise */
-        inline Vec3 operator-(const Vec3& v) const { return Vec3(_mm512_sub_pd(mmvalue, v.mmvalue)); }
-        /** @brief Product by wise */
-        inline Vec3 operator*(const Vec3& v) const { return Vec3(_mm512_mul_pd(mmvalue, v.mmvalue)); }
-        /** @brief Divition by wise */
-        inline Vec3 operator/(const Vec3& v) const { return Vec3(_mm512_div_pd(mmvalue, v.mmvalue)); }
-        /** @brief Add scalar by wise */
-        inline Vec3 operator+(const double_p c) const { return Vec3(_mm512_add_pd(mmvalue, _mm512_set1_pd(c))); }
-        /** @brief Subtract scalar by wise */
-        inline Vec3 operator-(const double_p c) const { return Vec3(_mm512_sub_pd(mmvalue, _mm512_set1_pd(c))); }
-        /** @brief Multiply scalar by wise */
-        inline Vec3 operator*(const double_p c) const { return Vec3(_mm512_mul_pd(mmvalue, _mm512_set1_pd(c))); }
-        /** @brief Divide scalar by wise */
-        inline Vec3 operator/(const double_p c) const { return Vec3(_mm512_div_pd(mmvalue, _mm512_set1_pd(c))); }
-        /** @brief Opposite vector */
-        inline Vec3 operator-() const { return Vec3(-x, -y, -z); }
-        /** @brief Absolute value by wise */
-        inline Vec3 abs() const { return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z); }
+        double y{0};
 
+        double z{0};
+
+        double x_err{0};
+
+        double y_err{0};
+
+        double z_err{0};
+
+        SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
+
+        explicit Vec3(double s) : x(s), y(s), z(s), x_err(0), y_err(0), z_err(0) {}
+
+        Vec3(double vx, double vy, double vz) : x(vx), y(vy), z(vz), x_err(0), y_err(0), z_err(0) {}
+
+        /** Addition by wise */
         template <typename U>
-        inline Vec3 operator+(const Vec3<U>& v) const {
+        inline Vec3 operator+(const Vec3<U> &v) const {
             return Vec3(x + v.x, y + v.y, z + v.z);
         }
 
         /** Subtraction by wise */
         template <typename U>
-        inline Vec3 operator-(const Vec3<U>& v) const {
+        inline Vec3 operator-(const Vec3<U> &v) const {
             return Vec3(x - v.x, y - v.y, z - v.z);
         }
 
         /** Product by wise */
         template <typename U>
-        inline Vec3 operator*(const Vec3<U>& v) const {
+        inline Vec3 operator*(const Vec3<U> &v) const {
             return Vec3(x * v.x, y * v.y, z * v.z);
         }
 
         /** Divition by wise */
         template <typename U>
-        inline Vec3 operator/(const Vec3<U>& v) const {
+        inline Vec3 operator/(const Vec3<U> &v) const {
             return Vec3(x / v.x, y / v.y, z / v.z);
         }
 
-        inline const Vec3& operator+=(const Vec3& v) {
-            mmvalue = _mm512_add_pd(mmvalue, v.mmvalue);
+        /** Add scalar by wise */
+        inline Vec3 operator+(const double c) const { return Vec3(x + c, y + c, z + c); }
+
+        /** Subtract scalar by wise */
+        inline Vec3 operator-(const double c) const { return Vec3(x - c, y - c, z - c); }
+
+        /** Multiply scalar by wise */
+        inline Vec3 operator*(const double c) const { return Vec3(x * c, y * c, z * c); }
+
+        /** Divide scalar by wise */
+        inline Vec3 operator/(const double c) const { return Vec3(x / c, y / c, z / c); }
+
+        /** Opposite vector */
+        inline Vec3 operator-() const { return Vec3(-x, -y, -z); }
+
+        /** Absolute value by wise */
+        inline Vec3 abs() const { return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z); }
+
+        /** Addition assignment for vector*/
+        template <typename U>
+        inline const Vec3 &operator+=(const Vec3<U> &v) {
+            double add_x = v.x - x_err;
+            double add_y = v.y - y_err;
+            double add_z = v.z - z_err;
+
+            double sum_x = x + add_x;
+            double sum_y = y + add_y;
+            double sum_z = z + add_z;
+
+            x_err = (sum_x - x) - add_x;
+            y_err = (sum_y - y) - add_y;
+            z_err = (sum_z - z) - add_z;
+
+            x = sum_x, y = sum_y, z = sum_z;
             return *this;
-        }
-        inline const Vec3& operator-=(const Vec3& v) {
-            mmvalue = _mm512_sub_pd(mmvalue, v.mmvalue);
-            return *this;
-        }
-        inline const Vec3& operator*=(const Vec3& v) {
-            mmvalue = _mm512_mul_pd(mmvalue, v.mmvalue);
-            return *this;
-        }
-        inline const Vec3& operator/=(const Vec3& v) {
-            mmvalue = _mm512_div_pd(mmvalue, v.mmvalue);
-            return *this;
-        }
-        inline const Vec3& operator+=(const double_p c) {
-            mmvalue = _mm512_add_pd(mmvalue, _mm512_set1_pd(c));
-            return *this;
-        }
-        inline const Vec3& operator-=(const double_p c) {
-            mmvalue = _mm512_sub_pd(mmvalue, _mm512_set1_pd(c));
-            return *this;
-        }
-        inline const Vec3& operator*=(const double_p c) {
-            mmvalue = _mm512_mul_pd(mmvalue, _mm512_set1_pd(c));
-            return *this;
-        }
-        inline const Vec3& operator/=(const double_p c) {
-            mmvalue = _mm512_div_pd(mmvalue, _mm512_set1_pd(c));
-            return *this;
-        }
-        inline const Vec3& operator=(const Vec3& v) {
-            mmvalue = v.mmvalue;
-            return *this;
-        }
-        /** @brief Calculate the norm */
-        inline double_p norm() const {
-            Vec3 product = _mm512_mul_pd(mmvalue, mmvalue);
-            return sqrt(product.x + product.y + product.z);
-        }
-        /** @brief Calculate the norm */
-        inline double_p norm2() const {
-            Vec3 product = _mm512_mul_pd(mmvalue, mmvalue);
-            return product.x + product.y + product.z;
         }
 
-        inline double_p max_component() {
-            double_p max = (x > y ? x : y);
+        /** Subtraction assignment for vector*/
+        template <typename U>
+        inline const Vec3 &operator-=(const Vec3<U> &v) {
+            double add_x = -v.x - x_err;
+            double add_y = -v.y - y_err;
+            double add_z = -v.z - z_err;
+
+            double sum_x = x + add_x;
+            double sum_y = y + add_y;
+            double sum_z = z + add_z;
+
+            x_err = (sum_x - x) - add_x;
+            y_err = (sum_y - y) - add_y;
+            z_err = (sum_z - z) - add_z;
+
+            x = sum_x, y = sum_y, z = sum_z;
+            return *this;
+        }
+
+        /** Multiple assignment for vector*/
+        template <typename U>
+        inline const Vec3 &operator*=(const Vec3<U> &v) {
+            x *= v.x, y *= v.y, z *= v.z;
+            return *this;
+        }
+
+        /** Division assignment for vector*/
+        template <typename U>
+        inline const Vec3 &operator/=(const Vec3<U> &v) {
+            x /= v.x, y /= v.y, z /= v.z;
+            return *this;
+        }
+
+        /** Addition assignment for scalar*/
+        inline const Vec3 &operator+=(const double c) {
+            double add_x = c - x_err;
+            double add_y = c - y_err;
+            double add_z = c - z_err;
+
+            double sum_x = x + add_x;
+            double sum_y = y + add_y;
+            double sum_z = z + add_z;
+
+            x_err = (sum_x - x) - add_x;
+            y_err = (sum_y - y) - add_y;
+            z_err = (sum_z - z) - add_z;
+
+            x = sum_x, y = sum_y, z = sum_z;
+            return *this;
+        }
+
+        /** Subtraction assignment for scalar*/
+        inline const Vec3 &operator-=(const double c) {
+            double add_x = -c - x_err;
+            double add_y = -c - y_err;
+            double add_z = -c - z_err;
+
+            double sum_x = x + add_x;
+            double sum_y = y + add_y;
+            double sum_z = z + add_z;
+
+            x_err = (sum_x - x) - add_x;
+            y_err = (sum_y - y) - add_y;
+            z_err = (sum_z - z) - add_z;
+
+            x = sum_x, y = sum_y, z = sum_z;
+            return *this;
+        }
+
+        /** Multiple assignment for scalar*/
+        inline const Vec3 &operator*=(const double c) {
+            x *= c, y *= c, z *= c;
+            return *this;
+        }
+
+        /** Division assignment for scalar*/
+        inline const Vec3 &operator/=(const double c) {
+            x /= c, y /= c, z /= c;
+            return *this;
+        }
+
+        /** Assignment operator for scalar*/
+        inline Vec3 &operator=(const double s) {
+            x = y = z = s;
+            return *this;
+        }
+
+        /** @deprecated Make it non-member function.*/
+        inline double norm() const { return sqrt(x * x + y * y + z * z); }
+
+        /** @deprecated Make it non-member function.*/
+        inline double norm2() const { return (x * x + y * y + z * z); }
+
+        /** @deprecated Make it non-member function.*/
+        inline double max_component() const {
+            double max = (x > y ? x : y);
             return max > z ? max : z;
         }
 
-        /** @brief Calculate the inverse of the norm */
-        inline double_p reNorm() const {
-            Vec3 product = _mm512_mul_pd(mmvalue, mmvalue);
-            return 1.0 / sqrt(product.x + product.y + product.z);
-        }
-        inline void setZero() { mmvalue = _mm512_setzero_pd(); }
-        friend Vec3 operator+(const double_p c, const Vec3& v) {
-            return Vec3(_mm512_add_pd(_mm512_set1_pd(c), v.mmvalue));
-        }
-        friend Vec3 operator-(const double_p c, const Vec3& v) {
-            return Vec3(_mm512_sub_pd(_mm512_set1_pd(c), v.mmvalue));
-        }
-        friend Vec3 operator*(const double_p c, const Vec3& v) {
-            return Vec3(_mm512_mul_pd(_mm512_set1_pd(c), v.mmvalue));
-        }
-        friend Vec3 operator/(const double_p c, const Vec3& v) {
-            return Vec3(_mm512_div_pd(_mm512_set1_pd(c), v.mmvalue));
-        }
-        /** @brief Output to ostream */
-        friend std::ostream& operator<<(std::ostream& output, const Vec3& v) {
-            output << v.x << "," << v.y << "," << v.z;
+        /** @deprecated Make it non-member function*/
+        inline double re_norm() const { return 1.0 / sqrt(x * x + y * y + z * z); }
+
+        /** operator+ for left scalar operation*/
+        friend Vec3 operator+(const double c, const Vec3 &v) { return Vec3(v.x + c, v.y + c, v.z + c); }
+
+        /** operator- for left scalar operation*/
+        friend Vec3 operator-(const double c, const Vec3 &v) { return Vec3(c - v.x, c - v.y, c - v.z); }
+
+        /** operator* for left scalar operation*/
+        friend Vec3 operator*(const double c, const Vec3 &v) { return Vec3(v.x * c, v.y * c, v.z * c); }
+
+        /** operator/ for left scalar operation*/
+        friend Vec3 operator/(const double c, const Vec3 &v) { return Vec3(c / v.x, c / v.y, c / v.z); }
+
+        /** output stream */
+        friend std::ostream &operator<<(std::ostream &output, const Vec3 &v) {
+            output << v.x << ',' << v.y << ',' << v.z;
             return output;
         }
-        /** @brief Input from istream */
-        friend std::istream& operator>>(std::istream& input, Vec3& v) {
+
+        /** input stream */
+        friend std::istream &operator>>(std::istream &input, Vec3 &v) {
             input >> v.x >> v.y >> v.z;
+            v.x_err = 0, v.y_err = 0, v.z_err = 0;
             return input;
         }
     };
 
-    /** @brief Calculate the Euclid distance of two vectors */
-    template <>
-    inline double_p distance<double_p>(const Vec3<double_p>& v1, const Vec3<double_p>& v2) {
-        __m512d sub = _mm512_sub_pd(v1.mmvalue, v2.mmvalue);
-        Vec3<double_p> product = _mm512_mul_pd(sub, sub);
-        return sqrt(product.x + product.y + product.z);
-    }
-    /** @brief Calculate the inner product of two vectors */
-    template <>
-    inline double_p dot<double_p>(const Vec3<double_p>& v1, const Vec3<double_p>& v2) {
-        Vec3<double_p> product = _mm512_mul_pd(v1.mmvalue, v2.mmvalue);
-        return product.x + product.y + product.z;
-    }
-    /** @brief Calculate the cross product of two vectors */
-    template <>
-    inline Vec3<double_p> cross<double_p>(const Vec3<double_p>& v1, const Vec3<double_p>& v2) {
-        return Vec3<double_p>(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
-    }
-
 }  // namespace space
-#endif

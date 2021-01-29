@@ -297,5 +297,5 @@ namespace space {
     using vec3b = Vec3<bool>;
 }  // namespace space
 
-//#include "vector3d.hpp"   //Specilization of Vec3<double> with AVX;
-//#include "vector3pd.hpp"  //Specilization of Vec3<double_p> with AVX;
+#include "vector3d.hpp"   //Specilization of Vec3<double> with AVX;
+#include "vector3pd.hpp"  //Specilization of Vec3<double_k> ;

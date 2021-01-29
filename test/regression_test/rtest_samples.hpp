@@ -42,6 +42,31 @@ auto two_body(double e = 0) {
 }
 
 template <typename Solver>
+auto outer_solar() {
+    using Particle = typename Solver::Particle;
+    using namespace space;
+    using namespace space::unit;
+    using namespace space::orbit;
+
+    Particle sun{1.00000597682_Ms,     -4.06428567034226e-3, -6.08813756435987e-3, -1.66162304225834e-6,
+                 +6.69048890636161e-6, -6.33922479583593e-6, -3.13202145590767e-9};
+    Particle jup{1. / 1047.355,       +3.40546614227466e+0, +3.62978190075864e+0,   +3.42386261766577e-2,
+                 -0.3254242234844626, 0.32078376079804843,  -0.00015504584274327233};
+    Particle sat{1. / 3501.6,          +6.60801554403466e+0, +6.38084674585064e+0, -1.36145963724542e-1,
+                 -0.24261807906125546, 0.23236917361652312,  0.0009720111543216125};
+    Particle ura{1. / 22869.,         +1.11636331405597e+1, +1.60373479057256e+1,  +3.61783279369958e-1,
+                 -0.1894447922304644, 0.12000768830940597,  -0.0012655376696374542};
+    Particle nep{1. / 19314.,          -3.01777243405203e+1, +1.91155314998064e+0, -1.53887595621042e-1,
+                 -0.01264216568441132, -0.18100181375010865, 0.0020831452402001265};
+    Particle plu{7.4074074e-09,        -2.13858977531573e+1, +3.20719104739886e+1, +2.49245689556096e+0,
+                 -0.10285755114348066, -0.12017192726456442, 0.038256490292647924};
+
+    move_to_COM_frame(sun, jup, sat, ura, nep);
+
+    return std::vector{sun, jup, sat, ura, nep};
+}
+
+template <typename Solver>
 auto earth_system() {
     using Particle = typename Solver::Particle;
     using namespace space;
@@ -85,34 +110,6 @@ auto kozai() {
     move_to_COM_frame(m1, m2, m3);
 
     return std::vector{m1, m2, m3};
-}
-
-template <typename Solver>
-auto outer_solar() {
-    using Particle = typename Solver::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
-    // data is from wikipedia https://en.wikipedia.org/wiki/Solar_System TODO: use mean anomaly as true anomaly.
-    Particle sun{1_Ms}, jupiter{1_Mj}, saturn{95.159_Me}, uranus{14.536_Me}, neptune{17.147_Me};
-
-    auto j_orbit = EllipOrbit(sun.mass, jupiter.mass, 5.2044_AU, 0.0489, 6.09_deg, 100.464_deg, 273.867_deg, 20.02_deg);
-    move_particles(j_orbit, jupiter);
-
-    auto s_orbit = EllipOrbit(sun.mass, saturn.mass, 9.5826_AU, 0.0565, 5.51_deg, 113.665_deg, 339.392_deg, 317.02_deg);
-    move_particles(j_orbit, saturn);
-
-    auto u_orbit =
-        EllipOrbit(sun.mass, uranus.mass, 19.2184_AU, 0.046381, 6.48_deg, 74.006_deg, 96.998857_deg, 142.2386_deg);
-    move_particles(j_orbit, uranus);
-
-    auto n_orbit =
-        EllipOrbit(sun.mass, neptune.mass, 30.11_AU, 0.009456, 6.43_deg, 131.784_deg, 276.336_deg, 256.228_deg);
-    move_particles(j_orbit, neptune);
-
-    move_to_COM_frame(sun, jupiter, saturn, uranus, neptune);
-
-    return std::vector{sun, jupiter, saturn, uranus, neptune};
 }
 
 template <typename Solver>

@@ -28,7 +28,7 @@ void run(std::string const &sim_type) {
 
     basic_error_test<simulation>("two-body-" + sim_type, 1000_year, 1e-15, twobody_sys);
 
-    /*Timer timer;
+    Timer timer;
 
     timer.start();
 
@@ -38,7 +38,7 @@ void run(std::string const &sim_type) {
 
     err_stream << rtol << '\n' << error;
 
-    std::cout << "total time : " << timer.get_time() << " s\n";*/
+    std::cout << "total time : " << timer.get_time() << " s\n";
 }
 
 int main(int argc, char **argv) {
@@ -75,15 +75,15 @@ int main(int argc, char **argv) {
 
     run<Simulator<regu_sys, iter>>("regu");
 
-    run<Simulator<chain_sys, iter>>("chain");
+    run<Simulator<chain_sys, iter>>("chain");*/
 
-    run<Simulator<arch_sys, iter>>("arch");*/
+    // run<Simulator<arch_sys, iter>>("arch+");
 
-    run<Simulator<sim_sys, ias15_iter>>("ias15");
+    // run<Simulator<sim_sys, ias15_iter>>("ias15");
 
-    run<Simulator<chain_sys, ias15_iter>>("chain_ias15");
+    // run<Simulator<chain_sys, ias15_iter>>("chain_ias15");
 
-    run<Simulator<arch_sys, ias15_iter>>("arch_ias15");
+    run<Simulator<regu_sys, ias15_iter>>("ar_ias15");
     // run<Simulator<arch_sys, space_iter>>("space");
 
     return 0;
