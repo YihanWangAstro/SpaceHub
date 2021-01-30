@@ -40,7 +40,7 @@ namespace space {
 
         union alignas(32) {
             struct alignas(32) {
-                double x, y, z;
+                double x{0}, y{0}, z{0};
             };
             __m256d mmvalue;
         };
@@ -69,6 +69,7 @@ namespace space {
             // return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z);
             return Vec3(_mm256_max_pd(mmvalue, -mmvalue));
         }
+
         inline const Vec3& operator+=(const Vec3& v) {
             mmvalue = _mm256_add_pd(mmvalue, v.mmvalue);
             return *this;
@@ -83,6 +84,33 @@ namespace space {
         }
         inline const Vec3& operator/=(const Vec3& v) {
             mmvalue = _mm256_div_pd(mmvalue, v.mmvalue);
+            return *this;
+        }
+        /** Addition assignment for vector*/
+        template <typename U>
+        inline const Vec3& operator+=(const Vec3<U>& v) {
+            x += v.x, y += v.y, z += v.z;
+            return *this;
+        }
+
+        /** Subtraction assignment for vector*/
+        template <typename U>
+        inline const Vec3& operator-=(const Vec3<U>& v) {
+            x -= v.x, y -= v.y, z -= v.z;
+            return *this;
+        }
+
+        /** Multiple assignment for vector*/
+        template <typename U>
+        inline const Vec3& operator*=(const Vec3<U>& v) {
+            x *= v.x, y *= v.y, z *= v.z;
+            return *this;
+        }
+
+        /** Division assignment for vector*/
+        template <typename U>
+        inline const Vec3& operator/=(const Vec3<U>& v) {
+            x /= v.x, y /= v.y, z /= v.z;
             return *this;
         }
         inline const Vec3& operator=(const Vec3& v) {

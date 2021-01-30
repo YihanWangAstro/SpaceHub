@@ -71,6 +71,9 @@ namespace space {
          */
         Vec3(value_type vx, value_type vy, value_type vz) : x(vx), y(vy), z(vz) {}
 
+        template <typename U>
+        Vec3(Vec3<U> const &v) : x(v.x), y(v.y), z(v.z) {}
+
         /** Addition by wise */
         template <typename U>
         inline Vec3 operator+(const Vec3<U> &v) const {
@@ -142,18 +145,21 @@ namespace space {
         }
 
         /** Addition assignment for scalar*/
+
         inline const Vec3 &operator+=(const value_type c) {
             x += c, y += c, z += c;
             return *this;
         }
 
         /** Subtraction assignment for scalar*/
+
         inline const Vec3 &operator-=(const value_type c) {
             x -= c, y -= c, z -= c;
             return *this;
         }
 
         /** Multiple assignment for scalar*/
+
         inline const Vec3 &operator*=(const value_type c) {
             x *= c, y *= c, z *= c;
             return *this;
@@ -297,5 +303,5 @@ namespace space {
     using vec3b = Vec3<bool>;
 }  // namespace space
 
-#include "vector3d.hpp"   //Specilization of Vec3<double> with AVX;
-#include "vector3pd.hpp"  //Specilization of Vec3<double_k> ;
+//#include "vector3d.hpp"   //Specilization of Vec3<double> with AVX;
+//#include "vector3pd.hpp"  //Specilization of Vec3<double_k> ;

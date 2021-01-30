@@ -47,11 +47,17 @@ namespace space {
 
         double z_err{0};
 
-        SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
+        // SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
+        Vec3() {}
 
         explicit Vec3(double s) : x(s), y(s), z(s), x_err(0), y_err(0), z_err(0) {}
 
         Vec3(double vx, double vy, double vz) : x(vx), y(vy), z(vz), x_err(0), y_err(0), z_err(0) {}
+
+        Vec3(Vec3 const &v) : x(v.x), y(v.y), z(v.z), x_err(v.x_err), y_err(v.y_err), z_err(v.z_err) {}
+
+        template <typename U>
+        Vec3(Vec3<U> const &v) : x(v.x), y(v.y), z(v.z), x_err(0), y_err(0), z_err(0) {}
 
         /** Addition by wise */
         template <typename U>
@@ -198,6 +204,7 @@ namespace space {
         /** Assignment operator for scalar*/
         inline Vec3 &operator=(const double s) {
             x = y = z = s;
+            x_err = y_err = z_err = 0;
             return *this;
         }
 
