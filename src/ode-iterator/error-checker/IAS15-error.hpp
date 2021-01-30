@@ -52,11 +52,11 @@ namespace space::ode_iterator {
 
         void set_rtol(Scalar);
 
-        template <typename Array>
-        auto error(Array const &scale, Array const &diff) -> Scalar;
+        template <typename Array1, typename Array2>
+        Scalar error(Array1 const &scale, Array2 const &diff);
 
-        template <typename Array>
-        auto error(Array const &scale, Array const &y1, Array const &y1_prime) -> Scalar;
+        template <typename Array1, typename Array2, typename Array3>
+        Scalar error(Array1 const &scale, Array2 const &y1, Array3 const &y1_prime);
 
        private:
         Scalar atol_{1e-12};
@@ -77,17 +77,17 @@ namespace space::ode_iterator {
     }
 
     template <typename TypeSystem>
-    template <typename Array>
-    auto IAS15Error<TypeSystem>::error(const Array &scale, const Array &diff) -> Scalar {
+    template <typename Array1, typename Array2>
+    auto IAS15Error<TypeSystem>::error(const Array1 &scale, const Array2 &diff) -> Scalar {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;
-        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+        if constexpr (std::is_same_v<typename Array1::value_type, Scalar>) {
             for (size_t i = 0; i < size; ++i) {
                 max_diff = std::max(max_diff, static_cast<Scalar>(fabs(diff[i])));
                 max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
             }
-        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+        } else if constexpr (std::is_same_v<typename Array1::value_type, Vec3<Scalar>>) {
             for (size_t i = 0; i < size; ++i) {
                 max_diff = std::max(max_diff, static_cast<Scalar>(max_abs(diff[i])));
                 max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + max_abs(scale[i]) * rtol_));
@@ -99,17 +99,17 @@ namespace space::ode_iterator {
     }
 
     template <typename TypeSystem>
-    template <typename Array>
-    auto IAS15Error<TypeSystem>::error(const Array &scale, const Array &y1, const Array &y1_prime) -> Scalar {
+    template <typename Array1, typename Array2, typename Array3>
+    auto IAS15Error<TypeSystem>::error(const Array1 &scale, const Array2 &y1, const Array3 &y1_prime) -> Scalar {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;
-        if constexpr (std::is_same_v<typename Array::value_type, Scalar>) {
+        if constexpr (std::is_same_v<typename Array1::value_type, Scalar>) {
             for (size_t i = 0; i < size; ++i) {
                 max_diff = std::max(max_diff, static_cast<Scalar>(fabs(y1_prime[i] - y1[i])));
                 max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));
             }
-        } else if constexpr (std::is_same_v<typename Array::value_type, Vec3<Scalar>>) {
+        } else if constexpr (std::is_same_v<typename Array1::value_type, Vec3<Scalar>>) {
             for (size_t i = 0; i < size; ++i) {
                 max_diff = std::max(max_diff, static_cast<Scalar>(max_abs(y1_prime[i] - y1[i])));
                 max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + max_abs(scale[i]) * rtol_));
