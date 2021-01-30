@@ -26,10 +26,15 @@ License
 
 #include <omp.h>
 
+#include <type_traits>
+
 #include "macros.hpp"
 #include "math.hpp"
 #include "spacehub-concepts.hpp"
 #include "vector/vector3.hpp"
+#ifdef __AVX__
+#include <x86intrin.h>
+#endif
 /**
  * @namespace space::calc
  * Documentation for space
@@ -146,12 +151,12 @@ namespace space::calc {
      * @param[in] args The rest arrays.
      */
     template <typename Array, typename... Args>
-    void array_add(Array &dst, Array const &a, Args const &...args) {
+    void array_add(Array &dst, Args const &...args) {
         size_t const size = dst.size();
 
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
-            dst[i] = a[i] + (args[i] + ...);
+            dst[i] = (args[i] + ...);
         }
     }
 
@@ -166,14 +171,43 @@ namespace space::calc {
      * @param[in] a The input array.
      * @param[in] scale Scale factor.
      */
-    template <typename Array, typename Scalar>
-    void array_scale(Array &dst, Array const &a, Scalar scale) {
+    template <typename Array1, typename Array2, typename Scalar>
+    void array_scale(Array1 &dst, Array2 const &a, Scalar scale) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
-        size_t const size = dst.size();
 
+        if constexpr (std::is_same_v<Array1, Array2> &&
+                      (std::is_same_v<Array1, std::vector<double>> ||
+                       std::is_same_v<Array1, std::vector<Vec3<double>>>)&&std::is_same_v<Scalar, double>) {
+#ifdef __AVX__1
+#pragma message("Using AVX on array_scale")
+            double *end = (double *)(void *)(dst.data() + dst.size());
+            double *m_end = end - 4;
+            double *p = (double *)(void *)a.data();
+            double *dst_ptr = (double *)(void *)dst.data();
+            __m256d m_scale = _mm256_set1_pd(scale);
+            for (; dst_ptr <= m_end; p += 4, dst_ptr += 4) {
+                __m256d m_a = _mm256_loadu_pd(p);
+                __m256d m_dst = _mm256_mul_pd(m_a, m_scale);
+                _mm256_storeu_pd(dst_ptr, m_dst);
+            }
+
+            for (; dst_ptr < end; dst_ptr++, p++) {
+                *dst_ptr = (*p) * scale;
+            }
+
+#else
+            size_t const size = dst.size();
 #pragma omp parallel for
-        for (size_t i = 0; i < size; i++) {
-            dst[i] = a[i] * scale;
+            for (size_t i = 0; i < size; i++) {
+                dst[i] = a[i] * scale;
+            }
+#endif
+        } else {
+            size_t const size = dst.size();
+#pragma omp parallel for
+            for (size_t i = 0; i < size; i++) {
+                dst[i] = a[i] * scale;
+            }
         }
     }
 
@@ -190,17 +224,17 @@ namespace space::calc {
      * @param[in] args The rest arrays.
      */
     template <typename Array, typename... Args>
-    void array_mul(Array &dst, Array const &a, Array const &b, Args const &...args) {
+    void array_mul(Array &dst, Args const &...args) {
         size_t const size = dst.size();
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
-            dst[i] = a[i] * b[i] * (args[i] * ...);
+            dst[i] = (args[i] * ...);
         }
     }
 
-    template <typename Array>
-    void array_sub(Array &dst, Array const &a, Array const &b) {
-        DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
+    template <typename Array1, typename Array2, typename Array3>
+    void array_sub(Array1 &dst, Array2 const &a, Array3 const &b) {
+        // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         size_t const size = dst.size();
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
@@ -217,8 +251,8 @@ namespace space::calc {
         return total;
     }
 
-    template <typename Array>
-    void array_advance(Array &var, Array const &increment) {
+    template <typename Array1, typename Array2>
+    void array_advance(Array1 &var, Array2 const &increment) {
         size_t const size = var.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -226,8 +260,8 @@ namespace space::calc {
         }
     }
 
-    template <typename Scalar, typename Array>
-    void array_advance(Array &var, Array const &increment, Scalar step_size) {
+    template <typename Scalar, typename Array1, typename Array2>
+    void array_advance(Array1 &var, Array2 const &increment, Scalar step_size) {
         size_t const size = var.size();
 
         for (size_t i = 0; i < size; i++) {
@@ -235,8 +269,8 @@ namespace space::calc {
         }
     }
 
-    template <typename Scalar, typename Array>
-    void array_advance(Array &dst, Array const &var, Array const &increment, Scalar step_size) {
+    template <typename Scalar, typename Array1, typename Array2, typename Array3>
+    void array_advance(Array1 &dst, Array2 const &var, Array3 const &increment, Scalar step_size) {
         size_t const size = var.size();
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
@@ -244,8 +278,8 @@ namespace space::calc {
         }
     }
 
-    template <typename Array, typename VectorArray>
-    void coord_dot(Array &dst, VectorArray const &a, VectorArray const &b) {
+    template <typename Array, typename VectorArray1, typename VectorArray2>
+    void coord_dot(Array &dst, VectorArray1 const &a, VectorArray2 const &b) {
         size_t const size = dst.size();
 #pragma omp parallel for
         for (size_t i = 0; i < size; ++i) {
@@ -253,8 +287,8 @@ namespace space::calc {
         }
     }
 
-    template <typename Array, typename VectorArray>
-    auto coord_contract_to_scalar(Array &coef, VectorArray const &a, VectorArray const &b) {
+    template <typename Array, typename VectorArray1, typename VectorArray2>
+    auto coord_contract_to_scalar(Array &coef, VectorArray1 const &a, VectorArray2 const &b) {
         size_t const size = coef.size();
         typename Array::value_type sum{0};
 
@@ -275,10 +309,10 @@ namespace space::calc {
         return sum;
     }*/
 
-    template <typename VectorArray>
-    auto coord_contract_to_scalar(VectorArray const &a, VectorArray const &b) {
+    template <typename VectorArray1, typename VectorArray2>
+    auto coord_contract_to_scalar(VectorArray1 const &a, VectorArray2 const &b) {
         size_t const size = a.size();
-        typename VectorArray::value_type::value_type sum{0};
+        typename VectorArray1::value_type::value_type sum{0};
 
         for (size_t i = 0; i < size; ++i) {
             sum += dot(a[i], b[i]);
