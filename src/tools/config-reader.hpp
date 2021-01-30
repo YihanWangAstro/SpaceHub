@@ -41,7 +41,9 @@ namespace space::tools {
     /**
      *
      */
-    enum class ConfigDtype { Integer, Float, String, Empty };
+    enum class ConfigDtype {
+        Integer, Float, String, Empty
+    };
     /*---------------------------------------------------------------------------*\
           Class ConfigReader Declaration
     \*---------------------------------------------------------------------------*/
@@ -52,17 +54,15 @@ namespace space::tools {
        public:
         explicit ConfigReader(std::string const &file_name, char divider = '=', char commenter = '#');
 
-        explicit ConfigReader(char const *file_name, char divider = '=', char commenter = '#');
-        ;
+        explicit ConfigReader(char const *file_name, char divider = '=', char commenter = '#');;
 
         template <typename T>
         T get(std::string const &key);
 
        private:
         std::unordered_map<std::string, std::string> map_;
-
-        static auto classify_string(const std::string &s);
     };
+
     /*---------------------------------------------------------------------------*\
           Class ConfigReader Implementation
     \*---------------------------------------------------------------------------*/
@@ -86,7 +86,7 @@ namespace space::tools {
     }
 
     ConfigReader::ConfigReader(char const *file_name, char divider, char commenter)
-        : ConfigReader(std::string(file_name), divider, commenter) {}
+            : ConfigReader(std::string(file_name), divider, commenter) {}
 
     template <typename T>
     T ConfigReader::get(std::string const &key) {
@@ -98,29 +98,6 @@ namespace space::tools {
             return value;
         } else {
             spacehub_abort("Invalid key for configure file!");
-        }
-    }
-
-    auto ConfigReader::classify_string(const std::string &s) {
-        bool with_point{false};
-        auto it = s.begin();
-        while (it != s.end() && std::isdigit(*it)) {
-            if (*it == '.') with_point = true;
-            ++it;
-        }
-
-        if (s.empty()) {
-            return ConfigDtype::Empty;
-        } else {
-            if (it != s.end()) {
-                return ConfigDtype::String;
-            } else {
-                if (with_point) {
-                    return ConfigDtype::Float;
-                } else {
-                    return ConfigDtype::Integer;
-                }
-            }
         }
     }
 

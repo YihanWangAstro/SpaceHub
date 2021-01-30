@@ -29,6 +29,7 @@ namespace space::interactions {
     class PN2 {
        public:
         constexpr static bool vel_dependent{true};
+
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
@@ -44,6 +45,7 @@ namespace space::interactions {
     class PN2p5 {
        public:
         constexpr static bool vel_dependent{true};
+
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
@@ -68,9 +70,9 @@ namespace space::interactions {
     template <typename Particles>
     void PN1::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
         size_t num = particles.number();
-        auto &p = particles.pos();
-        auto &v = particles.vel();
-        auto &m = particles.mass();
+        auto const &p = particles.pos();
+        auto const &v = particles.vel();
+        auto const &m = particles.mass();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
             auto r2 = norm2(dr);
@@ -137,9 +139,9 @@ namespace space::interactions {
     template <typename Particles>
     void PN2::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
         size_t num = particles.number();
-        auto &p = particles.pos();
-        auto &v = particles.vel();
-        auto &m = particles.mass();
+        auto const &p = particles.pos();
+        auto const &v = particles.vel();
+        auto const &m = particles.mass();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
             auto r2 = norm2(dr);
@@ -216,15 +218,16 @@ namespace space::interactions {
             }
         }
     }
+
     /*---------------------------------------------------------------------------*\
           Class PN2.5 Implememtation
     \*---------------------------------------------------------------------------*/
     template <typename Particles>
     void PN2p5::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
         size_t num = particles.number();
-        auto &p = particles.pos();
-        auto &v = particles.vel();
-        auto &m = particles.mass();
+        auto const &p = particles.pos();
+        auto const &v = particles.vel();
+        auto const &m = particles.mass();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
             auto r2 = norm2(dr);

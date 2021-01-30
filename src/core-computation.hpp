@@ -248,6 +248,7 @@ namespace space::calc {
     template <typename Array>
     auto array_sum(Array const &array) {
         typename Array::value_type total = 0;
+
         for (auto const &a : array) {
             total += a;
         }

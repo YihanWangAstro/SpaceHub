@@ -23,7 +23,9 @@ License
  * Header file.
  */
 #pragma once
+
 #include "../spacehub-concepts.hpp"
+
 namespace space::ode_iterator {
 
     /*---------------------------------------------------------------------------*\
@@ -39,6 +41,8 @@ namespace space::ode_iterator {
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
 
         using State = ScalarArray;
+
+        SPACEHUB_MAKE_CONSTRUCTORS(BisecOdeIterator, default, default, default, default, default);
 
         template <CONCEPT_PARTICLE_SYSTEM T>
         auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
@@ -63,7 +67,7 @@ namespace space::ode_iterator {
 
         State dual_steps_output_;
 
-        size_t var_num_;
+        size_t var_num_{0};
 
         size_t max_iter_{10};
     };
@@ -87,7 +91,7 @@ namespace space::ode_iterator {
     template <CONCEPT_PARTICLE_SYSTEM T>
     auto BisecOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
                                                                              typename T::Scalar macro_step_size) ->
-        typename T::Scalar {
+    typename T::Scalar {
         static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
 
         check_variable_size();
@@ -109,7 +113,7 @@ namespace space::ode_iterator {
             h /= 2;
             n_steps *= 2;
             particles.read_from_scalar_array(input_);
-            for (size_t i = 0; i < n_steps; ++i) {
+            for (size_t j = 0; j < n_steps; ++j) {
                 integrator_.integrate(particles, h);
             }
             particles.write_to_scalar_array(dual_steps_output_);
@@ -128,6 +132,7 @@ namespace space::ode_iterator {
         particles.read_from_scalar_array(dual_steps_output_);
         return step_controller_.next_step_size(Integrator::order, macro_step_size, error);
     }
+
     template <typename Integrator, typename ErrEstimator, typename StepController>
     void BisecOdeIterator<Integrator, ErrEstimator, StepController>::check_variable_size() {
         var_num_ = input_.size();
@@ -138,12 +143,16 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_atol(Scalar atol) {
-        err_checker_.set_atol(atol);
-    }
+    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_atol(Scalar
+    atol) {
+    err_checker_.
+    set_atol(atol);
+}
 
-    template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
-        err_checker_.set_rtol(rtol);
-    }
+template <typename Integrator, typename ErrEstimator, typename StepController>
+void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar
+rtol) {
+err_checker_.
+set_rtol(rtol);
+}
 }  // namespace space::ode_iterator

@@ -196,6 +196,7 @@ namespace space::ode_iterator {
             }
         }
     }
+
     /*---------------------------------------------------------------------------*\
          Class BurlishStoer Implementation
     \*---------------------------------------------------------------------------*/
@@ -205,7 +206,9 @@ namespace space::ode_iterator {
         -> Scalar {
         Scalar iter_h = step_size;
         input_ = data;
+
         check_variable_size();
+
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
             integrate_by_n_steps(func, extrap_list_[0], time, iter_h, parameters_.step_sequence(0));
@@ -241,6 +244,7 @@ namespace space::ode_iterator {
         }
         spacehub_abort("Reach max iteration loop number!");
     }
+
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <CONCEPT_PARTICLE_SYSTEM U>
     auto BurlishStoer<Integrator, ErrEstimator, StepController>::iterate(U &particles,
@@ -340,25 +344,29 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(
-        std::function<void(State const &, State &, Scalar)> func, State &data_out, Scalar &time, Scalar step_size,
-        size_t steps) {
+    void BurlishStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(std::function<void(State const &,
+                                                                                                         State
+
+                                                                                                             &,
+                                                                                                         Scalar)>
+                                                                                          func,
+                                                                                      State &data_out, Scalar &time,
+                                                                                      Scalar step_size, size_t steps) {
         data_out = input_;
         Scalar h = step_size / steps;
-        Scalar t = time;
         State dxdt(input_.size());
         State data_mid(input_);
 
-        func(input_, dxdt, t);
+        func(input_, dxdt, time);
         calc::array_advance(data_out, input_, dxdt, h);
-        t += h;
+        time += h;
         for (size_t i = 1; i < steps; i++) {
-            func(data_out, dxdt, t);
+            func(data_out, dxdt, time);
             calc::array_advance(data_mid, dxdt, 2 * h);
-            t += h;
+            time += h;
             std::swap(data_mid, data_out);
         }
-        func(data_out, dxdt, t);
+        func(data_out, dxdt, time);
         calc::array_advance(data_mid, dxdt, h);
         calc::array_add(data_out, data_mid, data_out);
         calc::array_scale(data_out, data_out, 0.5);

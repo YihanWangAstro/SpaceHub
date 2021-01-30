@@ -31,13 +31,13 @@ namespace space::interactions {
     };
 
     /*---------------------------------------------------------------------------*\
-          Class NewtonianGrav Implememtation
+          Class NewtonianGrav Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Particles>
     void NewtonianGrav::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
         size_t num = particles.number();
-        auto &p = particles.pos();
-        auto &m = particles.mass();
+        auto const &p = particles.pos();
+        auto const &m = particles.mass();
 
         auto force = [&](auto const &dr, auto i, auto j) {
             auto r = norm(dr);
