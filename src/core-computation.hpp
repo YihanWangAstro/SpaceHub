@@ -32,8 +32,11 @@ License
 #include "math.hpp"
 #include "spacehub-concepts.hpp"
 #include "vector/vector3.hpp"
+
 #ifdef __AVX__
+
 #include <x86intrin.h>
+
 #endif
 /**
  * @namespace space::calc
@@ -177,7 +180,7 @@ namespace space::calc {
 
         if constexpr (std::is_same_v<Array1, Array2> &&
                       (std::is_same_v<Array1, std::vector<double>> ||
-                       std::is_same_v<Array1, std::vector<Vec3<double>>>)&&std::is_same_v<Scalar, double>) {
+                       std::is_same_v<Array1, std::vector<Vec3<double>>>) && std::is_same_v<Scalar, double>) {
 #ifdef __AVX__1
 #pragma message("Using AVX on array_scale")
             double *end = (double *)(void *)(dst.data() + dst.size());

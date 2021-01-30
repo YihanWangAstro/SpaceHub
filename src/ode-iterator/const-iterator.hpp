@@ -23,7 +23,9 @@ License
  * Header file.
  */
 #pragma once
+
 #include "../spacehub-concepts.hpp"
+
 namespace space::ode_iterator {
 
     /*---------------------------------------------------------------------------*\
@@ -33,13 +35,13 @@ namespace space::ode_iterator {
      *
      * @tparam Integrator
      */
-    template <typename Integrator, typename ErrEstimator = void, typename StepController = void>
+    template<typename Integrator, typename ErrEstimator = void, typename StepController = void>
     class ConstOdeIterator {
-       public:
-        template <CONCEPT_PARTICLE_SYSTEM T>
+    public:
+        template<CONCEPT_PARTICLE_SYSTEM T>
         auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
 
-       private:
+    private:
         // Private members
         Integrator integrator_;
     };
@@ -47,11 +49,11 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
           Class ConstOdeIterator Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Integrator, typename ErrEstimator, typename StepController>
-    template <CONCEPT_PARTICLE_SYSTEM T>
+    template<typename Integrator, typename ErrEstimator, typename StepController>
+    template<CONCEPT_PARTICLE_SYSTEM T>
     auto ConstOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
                                                                              typename T::Scalar macro_step_size) ->
-        typename T::Scalar {
+    typename T::Scalar {
         integrator_.integrate(particles, macro_step_size);
         return macro_step_size;
     }

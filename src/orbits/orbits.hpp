@@ -48,7 +48,7 @@ namespace space::orbit {
     enum class OrbitType { Ellipse, Parabola, Hyperbola, None };
 
     /**
-     * @brief A place holder that indicates one of the three angles in orbital parameters will be randomly generaged.
+     * @brief A place holder that indicates one of the three angles in orbital parameters will be randomly generated.
      */
     struct RandomIndicator {
     } isotherm;

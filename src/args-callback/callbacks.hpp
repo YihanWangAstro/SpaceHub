@@ -176,13 +176,13 @@ namespace space::run_operations {
      Class DefaultWriter Declaration
     \*---------------------------------------------------------------------------*/
     /**
-     * Default outputer for RunArgs. This class serves as a callable callback object
+     * Default output writer for RunArgs. This class serves as a callable callback object
      * to output data to a file stream.
      */
     class DefaultWriter {
        public:
         /**
-         * Constructor of the outputer.
+         * Constructor of the output writer.
          * @param file_name The file name of the output file stream.
          */
         explicit DefaultWriter(std::string const& file_name);

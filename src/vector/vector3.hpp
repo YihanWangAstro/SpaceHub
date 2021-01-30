@@ -35,7 +35,7 @@ namespace space {
      * */
     template <typename T>
     struct Vec3 {
-       public:
+    public:
         /* Typedef */
         using value_type = T;
         /* Typedef */

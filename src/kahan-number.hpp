@@ -48,13 +48,13 @@ namespace space {
          * Single parameter constructor.
          * @param r Scalar
          */
-        Kahan(T r) : real(r), err(0){};
+        Kahan(T r) : real(r), err(0) {};
 
         /**
          * Copy constructor.
          * @param k
          */
-        Kahan(const Kahan &k) : real(k.real), err(k.err){};
+        Kahan(const Kahan &k) : real(k.real), err(k.err) {};
 
         /**
          * Assignment operator.
@@ -160,13 +160,13 @@ namespace space {
          * Single parameter constructor.
          * @param r Scalar
          */
-        Neumaier(T r) : real(r), err(0){};
+        Neumaier(T r) : real(r), err(0) {};
 
         /**
          * Copy constructor.
          * @param k
          */
-        Neumaier(const Neumaier &k) : real(k.real), err(k.err){};
+        Neumaier(const Neumaier &k) : real(k.real), err(k.err) {};
 
         /**
          * Assignment operator.

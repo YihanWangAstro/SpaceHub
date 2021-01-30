@@ -296,11 +296,11 @@ namespace space::integrator {
         for (size_t j = 0; j < stage; ++j) {
             calc::array_advance(tmp_state_, g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
         }
-        calc::array_sub(dg_array_, tmp_state_, g_tab_[stage]);*/
+        calc::array_sub(dg_array_, tmp_state_, g_tab_[stage]);
 
         for (size_t i = 0; i < tmp_state_.size(); ++i) {
             g_tab_[stage][i] = tmp_state_[i];
-        }
+        }*/
 
         for (size_t i = 0; i <= stage; ++i) {
             calc::array_advance(b_tab_[i], dg_array_, RadauConsts::G2B_tab(stage, i));

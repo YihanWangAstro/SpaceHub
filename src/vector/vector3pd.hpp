@@ -28,225 +28,164 @@ License
 
 namespace space {
     template <>
-    struct alignas(32) Vec3<double_k> {
-       public:
-        /* Typedef */
+    struct Vec3<double_k> {
+    private:
+        using T = Vec3<double>;
+    public:
         using value_type = double_k;
-        /* Typedef */
-        // static_assert(false, "double_k vector");
+        union{
+            struct  {
+                double x, y, z;
+            };
+            T real;
+        };
+        T err;
 
-        double x{0};
+        Vec3() : real{}, err{} {};
 
-        double y{0};
 
-        double z{0};
+        Vec3(T r) : real(r), err(0){};
 
-        double x_err{0};
 
-        double y_err{0};
+        Vec3(Vec3 const  &k) : real(k.real), err(k.err){};
 
-        double z_err{0};
-
-        // SPACEHUB_MAKE_CONSTRUCTORS(Vec3, default, default, default, default, default);
-        Vec3() {}
-
-        explicit Vec3(double s) : x(s), y(s), z(s), x_err(0), y_err(0), z_err(0) {}
-
-        Vec3(double vx, double vy, double vz) : x(vx), y(vy), z(vz), x_err(0), y_err(0), z_err(0) {}
-
-        Vec3(Vec3 const &v) : x(v.x), y(v.y), z(v.z), x_err(v.x_err), y_err(v.y_err), z_err(v.z_err) {}
-
-        template <typename U>
-        Vec3(Vec3<U> const &v) : x(v.x), y(v.y), z(v.z), x_err(0), y_err(0), z_err(0) {}
-
-        /** Addition by wise */
-        template <typename U>
-        inline Vec3 operator+(const Vec3<U> &v) const {
-            return Vec3(x + v.x, y + v.y, z + v.z);
-        }
-
-        /** Subtraction by wise */
-        template <typename U>
-        inline Vec3 operator-(const Vec3<U> &v) const {
-            return Vec3(x - v.x, y - v.y, z - v.z);
-        }
-
-        /** Product by wise */
-        template <typename U>
-        inline Vec3 operator*(const Vec3<U> &v) const {
-            return Vec3(x * v.x, y * v.y, z * v.z);
-        }
-
-        /** Divition by wise */
-        template <typename U>
-        inline Vec3 operator/(const Vec3<U> &v) const {
-            return Vec3(x / v.x, y / v.y, z / v.z);
-        }
-
-        /** Add scalar by wise */
-        inline Vec3 operator+(const double c) const { return Vec3(x + c, y + c, z + c); }
-
-        /** Subtract scalar by wise */
-        inline Vec3 operator-(const double c) const { return Vec3(x - c, y - c, z - c); }
-
-        /** Multiply scalar by wise */
-        inline Vec3 operator*(const double c) const { return Vec3(x * c, y * c, z * c); }
-
-        /** Divide scalar by wise */
-        inline Vec3 operator/(const double c) const { return Vec3(x / c, y / c, z / c); }
-
-        /** Opposite vector */
-        inline Vec3 operator-() const { return Vec3(-x, -y, -z); }
-
-        /** Absolute value by wise */
-        inline Vec3 abs() const { return Vec3(x > 0 ? x : -x, y > 0 ? y : -y, z > 0 ? z : -z); }
-
-        /** Addition assignment for vector*/
-        template <typename U>
-        inline const Vec3 &operator+=(const Vec3<U> &v) {
-            double add_x = v.x - x_err;
-            double add_y = v.y - y_err;
-            double add_z = v.z - z_err;
-
-            double sum_x = x + add_x;
-            double sum_y = y + add_y;
-            double sum_z = z + add_z;
-
-            x_err = (sum_x - x) - add_x;
-            y_err = (sum_y - y) - add_y;
-            z_err = (sum_z - z) - add_z;
-
-            x = sum_x, y = sum_y, z = sum_z;
+        /**
+         * Assignment operator.
+         */
+        inline Vec3 &operator=(Vec3 const &hs) {
+            real = hs.real, err = hs.err;
             return *this;
         }
 
-        /** Subtraction assignment for vector*/
-        template <typename U>
-        inline const Vec3 &operator-=(const Vec3<U> &v) {
-            double add_x = -v.x - x_err;
-            double add_y = -v.y - y_err;
-            double add_z = -v.z - z_err;
 
-            double sum_x = x + add_x;
-            double sum_y = y + add_y;
-            double sum_z = z + add_z;
+        inline operator T() { return real; }
 
-            x_err = (sum_x - x) - add_x;
-            y_err = (sum_y - y) - add_y;
-            z_err = (sum_z - z) - add_z;
 
-            x = sum_x, y = sum_y, z = sum_z;
-            return *this;
+        inline operator T() const { return real; }
+
+
+        inline void zero_err() { err = 0; }
+
+
+        friend inline Vec3 operator-(const Vec3 &hs) { return Vec3(-hs.real); }
+
+
+        friend inline Vec3 &operator+=(Vec3 &lhs, const Vec3 &rhs) {
+            T add = rhs.real - lhs.err;
+            T sum = lhs.real + add;
+
+            lhs.err = (sum - lhs.real) - add;
+
+            lhs.real = sum;
+            return lhs;
         }
 
-        /** Multiple assignment for vector*/
-        template <typename U>
-        inline const Vec3 &operator*=(const Vec3<U> &v) {
-            x *= v.x, y *= v.y, z *= v.z;
-            return *this;
+        /**
+         * Subtraction assignment operator.
+         */
+        friend inline Vec3 &operator-=(Vec3 &lhs, const Vec3 &rhs) {
+            T add = -rhs.real - lhs.err;
+            T sum = lhs.real + add;
+
+            lhs.err = (sum - lhs.real) - add;
+
+            lhs.real = sum;
+            return lhs;
         }
 
-        /** Division assignment for vector*/
-        template <typename U>
-        inline const Vec3 &operator/=(const Vec3<U> &v) {
-            x /= v.x, y /= v.y, z /= v.z;
-            return *this;
+        /**
+         * Division assignment operator.
+         */
+        friend inline Vec3 &operator/=(Vec3 &lhs, const Vec3 &rhs) {
+            lhs.real /= rhs.real;
+            return lhs;
         }
 
-        /** Addition assignment for scalar*/
-        inline const Vec3 &operator+=(const double c) {
-            double add_x = c - x_err;
-            double add_y = c - y_err;
-            double add_z = c - z_err;
-
-            double sum_x = x + add_x;
-            double sum_y = y + add_y;
-            double sum_z = z + add_z;
-
-            x_err = (sum_x - x) - add_x;
-            y_err = (sum_y - y) - add_y;
-            z_err = (sum_z - z) - add_z;
-
-            x = sum_x, y = sum_y, z = sum_z;
-            return *this;
+        /**
+         * Multiple assignment operator.
+         */
+        friend inline Vec3 &operator*=(Vec3 &lhs, const Vec3 &rhs) {
+            lhs.real *= rhs.real;
+            return lhs;
         }
 
-        /** Subtraction assignment for scalar*/
-        inline const Vec3 &operator-=(const double c) {
-            double add_x = -c - x_err;
-            double add_y = -c - y_err;
-            double add_z = -c - z_err;
-
-            double sum_x = x + add_x;
-            double sum_y = y + add_y;
-            double sum_z = z + add_z;
-
-            x_err = (sum_x - x) - add_x;
-            y_err = (sum_y - y) - add_y;
-            z_err = (sum_z - z) - add_z;
-
-            x = sum_x, y = sum_y, z = sum_z;
-            return *this;
-        }
-
-        /** Multiple assignment for scalar*/
-        inline const Vec3 &operator*=(const double c) {
-            x *= c, y *= c, z *= c;
-            return *this;
-        }
-
-        /** Division assignment for scalar*/
-        inline const Vec3 &operator/=(const double c) {
-            x /= c, y /= c, z /= c;
-            return *this;
-        }
-
-        /** Assignment operator for scalar*/
-        inline Vec3 &operator=(const double s) {
-            x = y = z = s;
-            x_err = y_err = z_err = 0;
-            return *this;
-        }
-
-        /** @deprecated Make it non-member function.*/
-        inline double norm() const { return sqrt(x * x + y * y + z * z); }
-
-        /** @deprecated Make it non-member function.*/
-        inline double norm2() const { return (x * x + y * y + z * z); }
-
-        /** @deprecated Make it non-member function.*/
-        inline double max_component() const {
-            double max = (x > y ? x : y);
-            return max > z ? max : z;
-        }
-
-        /** @deprecated Make it non-member function*/
-        inline double re_norm() const { return 1.0 / sqrt(x * x + y * y + z * z); }
-
-        /** operator+ for left scalar operation*/
-        friend Vec3 operator+(const double c, const Vec3 &v) { return Vec3(v.x + c, v.y + c, v.z + c); }
-
-        /** operator- for left scalar operation*/
-        friend Vec3 operator-(const double c, const Vec3 &v) { return Vec3(c - v.x, c - v.y, c - v.z); }
-
-        /** operator* for left scalar operation*/
-        friend Vec3 operator*(const double c, const Vec3 &v) { return Vec3(v.x * c, v.y * c, v.z * c); }
-
-        /** operator/ for left scalar operation*/
-        friend Vec3 operator/(const double c, const Vec3 &v) { return Vec3(c / v.x, c / v.y, c / v.z); }
-
-        /** output stream */
+        /**
+         * Output stream
+         */
         friend std::ostream &operator<<(std::ostream &output, const Vec3 &v) {
-            output << v.x << ',' << v.y << ',' << v.z;
+            output << v.real;
             return output;
         }
 
-        /** input stream */
+        /**
+         * Input stream
+         */
         friend std::istream &operator>>(std::istream &input, Vec3 &v) {
-            input >> v.x >> v.y >> v.z;
-            v.x_err = 0, v.y_err = 0, v.z_err = 0;
+            input >> v.real;
+            v.err = 0;
             return input;
         }
+
+        Vec3 operator+(double c) const {
+            return Vec3(real + c);
+        }
+
+
+        Vec3 operator-(double c) const {
+            return Vec3(real - c);
+        }
+
+
+        Vec3 operator*(double c) const {
+            return Vec3(real * c);
+        }
+
+
+        Vec3 operator/(double c){
+            return Vec3(real / c);
+        }
+
+
+        template<typename U, typename V>
+        friend Vec3 operator+(Vec3<U> const& v1, Vec3<V> const& v2){
+            return Vec3(static_cast<T>(v1)+static_cast<T>(v2));
+        }
+
+        template<typename U, typename V>
+        friend Vec3 operator-(Vec3<U> const& v1, Vec3<V> const& v2){
+            return Vec3(static_cast<T>(v1)-static_cast<T>(v2));
+        }
+
+        template<typename U, typename V>
+        friend Vec3 operator*(Vec3<U> const& v1, Vec3<V> const& v2){
+            return Vec3(static_cast<T>(v1)*static_cast<T>(v2));
+        }
+
+        template<typename U, typename V>
+        friend Vec3 operator/(Vec3<U> const& v1, Vec3<V> const& v2){
+            return Vec3(static_cast<T>(v1)/static_cast<T>(v2));
+        }
+
+
+        friend Vec3 operator+(double c, Vec3 const& v2){
+            return Vec3(c+v2.real);
+        }
+
+
+        friend Vec3 operator-(double c, Vec3 const& v2){
+            return Vec3(c-v2.real);
+        }
+
+
+        friend Vec3 operator*(double c, Vec3 const& v2){
+            return Vec3(c*v2.real);
+        }
+
+
+        friend Vec3 operator/(double c, Vec3 const& v2){
+            return Vec3(c/v2.real);
+        }
+
     };
 
 }  // namespace space

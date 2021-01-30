@@ -32,13 +32,13 @@ void run(std::string const &sim_name, std::fstream &benck_mark_file) {
 
     auto rms_err = basic_error_test<simulation>("solar-" + sim_name, t_end, 1e-15, system);
 
-    /*auto [rtol, error] = error_scale<simulation>(3e-16, 1e-11, t_end, system);
+    benck_mark_file << sim_name << ":" << bench_mark<simulation>(t_end, 1e-15, system) << ":" << rms_err << '\n';
+
+    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-11, t_end, system);
 
     std::fstream err_stream{"solar-" + sim_name + ".scale", std::ios::out};
 
-    err_stream << rtol << '\n' << error;*/
-
-    benck_mark_file << sim_name << ":" << bench_mark<simulation>(t_end, 1e-15, system) << ":" << rms_err << '\n';
+    err_stream << rtol << '\n' << error;
 }
 
 int main(int argc, char **argv) {
