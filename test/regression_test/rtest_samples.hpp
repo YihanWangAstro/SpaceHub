@@ -113,8 +113,8 @@ auto kozai() {
 }
 
 template <typename Solver>
-void basic_error_test(std::string const &fname, double end_time, double rtol,
-                      std::vector<typename Solver::Particle> const &p) {
+double basic_error_test(std::string const &fname, double end_time, double rtol,
+                        std::vector<typename Solver::Particle> const p) {
     using namespace space;
     using namespace run_operations;
     using namespace tools;
@@ -153,18 +153,47 @@ void basic_error_test(std::string const &fname, double end_time, double rtol,
 
     args.add_stop_condition(end_time);
 
-    Timer timer;
-
-    timer.start();
-
     sim.run(args);
 
-    std::cout << "The mean relative error of test: " + fname + " : " << sqrt(tot_error / error_num) << "\n";
-    std::cout << "time : " << timer.get_time() << " s\n";
+    double rms_err = sqrt(tot_error / error_num);
+
+    std::cout << "The rms relative error of test: " + fname + " : " << rms_err << "\n";
+
+    return rms_err;
 }
 
 template <typename Solver>
-auto error_scale(double rtol_start, double rtol_end, double end_time, std::vector<typename Solver::Particle> const &p) {
+double bench_mark(double end_time, double rtol, std::vector<typename Solver::Particle> const p) {
+    using namespace space;
+    using namespace run_operations;
+    using namespace tools;
+
+    double cpu = 0;
+    size_t repeat = 5;
+    for (size_t i = 0; i < repeat; ++i) {
+        Solver sim{0, p};
+
+        typename Solver::RunArgs args;
+
+        args.rtol = rtol;
+
+        args.atol = 0;
+
+        args.add_stop_condition(end_time);
+
+        Timer timer;
+
+        timer.start();
+
+        sim.run(args);
+
+        cpu += timer.get_time();
+    }
+    return cpu / repeat;
+}
+
+template <typename Solver>
+auto error_scale(double rtol_start, double rtol_end, double end_time, std::vector<typename Solver::Particle> const p) {
     using namespace space;
     using namespace run_operations;
     using namespace tools;

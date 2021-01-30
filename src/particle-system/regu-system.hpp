@@ -165,9 +165,9 @@ namespace space::particle_system {
         // Private methods
         void eval_vel_indep_acc();
 
-        void advance_omega(VectorArray const &velocity, VectorArray const &d_omega_dr, Scalar phy_time);
+        void advance_omega(AdVectorArray const &velocity, VectorArray const &d_omega_dr, Scalar phy_time);
 
-        void advance_bindE(VectorArray const &velocity, VectorArray const &d_bindE_dr, Scalar phy_time);
+        void advance_bindE(AdVectorArray const &velocity, VectorArray const &d_bindE_dr, Scalar phy_time);
 
         void kick_pseu_vel(Scalar phy_time);
 
@@ -176,7 +176,7 @@ namespace space::particle_system {
         // Private members
         interactions::InteractionData<Interactions, VectorArray> accels_;
         Regularization<TypeSet, RegType> regu_;
-        std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -388,7 +388,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_omega(VectorArray const &velocity,
+    void RegularizedSystem<Particles, Interactions, RegType>::advance_omega(AdVectorArray const &velocity,
                                                                             VectorArray const &d_omega_dr,
                                                                             Scalar phy_time) {
         if constexpr (regu_type == ReguType::TTL) {
@@ -398,7 +398,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_bindE(VectorArray const &velocity,
+    void RegularizedSystem<Particles, Interactions, RegType>::advance_bindE(AdVectorArray const &velocity,
                                                                             VectorArray const &d_bindE_dr,
                                                                             Scalar phy_time) {
         if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {

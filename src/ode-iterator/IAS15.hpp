@@ -36,7 +36,7 @@ namespace space::ode_iterator {
         bool in_converged_window(size_t k);
 
         Integrator integrator_;
-        typename Integrator::IterTable last_b_table_;
+        typename Integrator::IterStateTable last_b_table_;
         StepController step_controller_;
         ErrEstimator err_checker_;
         ErrEstimator PC_err_checker_;
@@ -55,6 +55,9 @@ namespace space::ode_iterator {
         err_checker_.set_atol(0);
         err_checker_.set_rtol(1e-9);
         step_controller_.set_safe_guards(1, 0.9, 0.02, 4);
+        for (auto &b : last_b_table_) {
+            b.resize(0);
+        }
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>

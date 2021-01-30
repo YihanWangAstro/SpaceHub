@@ -2,10 +2,10 @@
 cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3 -march=native -pthread ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3  -pthread -mavx")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread -march=native ")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3 -pthread -march=native ")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread     ")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3 -pthread -mavx ")
 
 set(TMP_HEADER_FILES
         src/args-callback/callbacks.hpp
@@ -85,6 +85,9 @@ set(TWOBODY_TEST
 set(SOLAR_TEST
         test/regression_test/rtest_solar-system.cpp)
 
+set(EARTH_TEST
+        test/regression_test/rtest_earth-system.cpp)
+
 set(KOZAI_TEST
         test/regression_test/rtest_kozai.cpp)
 
@@ -103,6 +106,8 @@ set(IMPROVEMENT_TEST
 add_executable(SpaceHub_unit_test ${UNIT_TEST} ${TMP_HEADER_FILES})
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
+
+add_executable(SpaceHub_earth_test ${TMP_HEADER_FILES} ${EARTH_TEST})
 
 add_executable(SpaceHub_twobody_test ${TMP_HEADER_FILES} ${TWOBODY_TEST})
 

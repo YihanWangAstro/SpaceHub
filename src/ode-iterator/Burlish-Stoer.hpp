@@ -144,7 +144,7 @@ namespace space::ode_iterator {
 
         StepController step_controller_;
 
-        State input_;
+        State input_{0};
 
         /** @brief The optimal step size array.*/
         std::array<Scalar, max_depth + 1> ideal_step_size_{0};
@@ -305,6 +305,7 @@ namespace space::ode_iterator {
         if (var_num_ > extrap_list_[0].size()) [[unlikely]] {
             for (auto &v : extrap_list_) {
                 v.resize(var_num_);
+                calc::array_set_zero(v);
             }
         }
     }

@@ -56,9 +56,9 @@ namespace space::particle_system {
         ChainSystem(Scalar time, STL const &particle_set);
 
         // Public methods
-        SPACEHUB_STD_ACCESSOR(VectorArray, chain_pos, chain_pos_);
+        SPACEHUB_STD_ACCESSOR(AdVectorArray, chain_pos, chain_pos_);
 
-        SPACEHUB_STD_ACCESSOR(VectorArray, chain_vel, chain_vel_);
+        SPACEHUB_STD_ACCESSOR(AdVectorArray, chain_vel, chain_vel_);
 
         SPACEHUB_STD_ACCESSOR(IdxArray, index, index_);
 
@@ -100,7 +100,8 @@ namespace space::particle_system {
 
        private:
         // Private methods
-        void chain_advance(VectorArray &var, VectorArray &chain_var, VectorArray &chain_increment, Scalar step_size);
+        template <typename Array1, typename Array2, typename Array3>
+        void chain_advance(Array1 &var, Array2 &chain_var, Array3 &chain_increment, Scalar step_size);
 
         void eval_vel_indep_acc();
 
@@ -118,15 +119,15 @@ namespace space::particle_system {
        private:
         // Private members
         interactions::InteractionData<Interactions, VectorArray> accels_;
-        VectorArray chain_pos_;
-        VectorArray chain_vel_;
+        AdVectorArray chain_pos_;
+        AdVectorArray chain_vel_;
         VectorArray chain_acc_;
 
         IdxArray index_;
         IdxArray new_index_;
 
-        std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> aux_vel_;
-        std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> chain_aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> chain_aux_vel_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -287,8 +288,9 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::chain_advance(VectorArray &var, VectorArray &chain_var,
-                                                             VectorArray &chain_increment, Scalar step_size) {
+    template <typename Array1, typename Array2, typename Array3>
+    void ChainSystem<Particles, Interactions>::chain_advance(Array1 &var, Array2 &chain_var, Array3 &chain_increment,
+                                                             Scalar step_size) {
         calc::array_advance(chain_var, chain_increment, step_size);
         Chain::calc_cartesian(this->mass(), chain_var, var, index());
     }

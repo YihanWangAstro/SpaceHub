@@ -23,24 +23,38 @@ License
 USING_NAMESPACE_SPACEHUB_ALL;
 
 template <typename simulation>
-void run(std::string const &sim_type) {
-    auto twobody_sys = kozai<simulation>();
+void run(std::string const &sim_name, std::fstream &benck_mark_file) {
+    auto system = kozai<simulation>();
 
-    basic_error_test<simulation>("kozai-" + sim_type, 10000_year, 1e-15, twobody_sys);
+    double t_end = 10000_year;
 
-    auto [rtol, error] = error_scale<simulation>(2e-16, 1e-11, 10000_year, twobody_sys);
+    auto rms_err = basic_error_test<simulation>("kozai-" + sim_name, t_end, 1e-15, system);
 
-    std::fstream err_stream{"kozai-" + sim_type + ".scale", std::ios::out};
+    auto [rtol, error] = error_scale<simulation>(3e-16, 1e-11, t_end, system);
+
+    std::fstream err_stream{"kozai-" + sim_name + ".scale", std::ios::out};
 
     err_stream << rtol << '\n' << error;
+
+    benck_mark_file << sim_name << ":" << bench_mark<simulation>(t_end, 1e-15, system) << ":" << rms_err << '\n';
 }
 
 int main(int argc, char **argv) {
-    using type = Types<double_p>;
+    using type = Types<double>;
+
+    using adtype = Types<double_k>;
 
     using force = interactions::Interactions<interactions::NewtonianGrav>;
 
+    using base_integrator = LeapFrogDKD<type>;
+
+    using err_estimator = WorstOffender<type>;
+
+    using step_controller = PIDController<type>;
+
     using particles = PointParticles<type>;
+
+    using adparticles = PointParticles<adtype>;
 
     using sim_sys = SimpleSystem<particles, force>;
 
@@ -50,30 +64,32 @@ int main(int argc, char **argv) {
 
     using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
 
-    using base_integrator = LeapFrogDKD<type>;
-    //    using iter = ConstOdeIterator<Symplectic2nd>;
+    using adsim_sys = SimpleSystem<adparticles, force>;
 
-    using err_estimator = WorstOffender<type>;
+    using adregu_sys = RegularizedSystem<adparticles, force, ReguType::LogH>;
 
-    using step_controller = PIDController<type>;
+    using adchain_sys = ChainSystem<adparticles, force>;
+
+    using adarch_sys = ARchainSystem<adparticles, force, ReguType::LogH>;
 
     using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
 
-    using ias15_iter = IAS15<integrator::GaussDadau<type>, IAS15Error<type>, step_controller>;
+    using ias15_iter = IAS15<integrator::GaussDadau<adtype>, IAS15Error<type>, step_controller>;
 
     using space_iter = BisecOdeIterator<integrator::Symplectic6th<type>, WorstOffender<type>, step_controller>;
 
-    run<Simulator<sim_sys, iter>>("sim");
+    std::fstream benck_mark_file{"kozai-benchmark.txt", std::ios::out};
 
-    run<Simulator<regu_sys, iter>>("regu");
-
-    run<Simulator<chain_sys, iter>>("chain");
-
-    run<Simulator<arch_sys, iter>>("arch");
-
-    // run<Simulator<sim_sys, ias15_iter>>("ias15");
-
-    run<Simulator<arch_sys, space_iter>>("space");
+    run<Simulator<sim_sys, iter>>("BS", benck_mark_file);
+    run<Simulator<regu_sys, iter>>("AR", benck_mark_file);
+    run<Simulator<chain_sys, iter>>("Chain", benck_mark_file);
+    run<Simulator<arch_sys, iter>>("AR-chain", benck_mark_file);
+    run<Simulator<adarch_sys, iter>>("AR-chain+", benck_mark_file);
+    run<Simulator<adsim_sys, ias15_iter>>("IAS15(SpaceHub)", benck_mark_file);
+    run<Simulator<adchain_sys, ias15_iter>>("C-IAS15", benck_mark_file);
+    run<Simulator<adregu_sys, ias15_iter>>("AR-IAS15", benck_mark_file);
+    run<Simulator<adarch_sys, ias15_iter>>("ARC-IAS15", benck_mark_file);
+    run<Simulator<adarch_sys, space_iter>>("ARC-sym6", benck_mark_file);
 
     return 0;
 }

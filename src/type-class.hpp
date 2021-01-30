@@ -26,9 +26,10 @@ License
 
 #include <vector>
 
+#include "dev-tools.hpp"
 #include "vector/vector3.hpp"
-
 namespace space {
+
     /**
       Type system that is used across the Space Hub system. This type class provide all basic type i.e `Scalar`,
       `Vector`, `ScalarArray`, `Coord` and etc,.
@@ -51,12 +52,16 @@ namespace space {
         /**
          * Floating point like type cross the system
          */
-        using Scalar = Real;
+        using Scalar = typename raw_type<Real>::type;
+
+        using AdScalar = Real;
 
         /**
          * 1-d array with value type `Scalar`. Alias of `Container<Scalar>`.
          */
         using ScalarArray = Container<Scalar>;
+
+        using AdScalarArray = Container<AdScalar>;
 
         /**
          * 1-d array with value type `int`. Alias of `Container<int>`.
@@ -74,10 +79,14 @@ namespace space {
          */
         using Vector = Vec3<Scalar>;
 
+        using AdVector = Vec3<AdScalar>;
+
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
          */
         using VectorArray = Container<Vector>;
+
+        using AdVectorArray = Container<AdVector>;
     };
 
     template <typename Iter, typename VectorArray>

@@ -116,11 +116,11 @@ namespace space::interactions {
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, ext_vel_dep_acc, ext_vel_dep_acc_);
 
        private:
-        VectorArray acc_;
+        VectorArray acc_{0};
 
-        VectorArray newtonian_acc_;
+        VectorArray newtonian_acc_{0};
 
-        VectorArray tot_vel_indep_acc_;
+        VectorArray tot_vel_indep_acc_{0};
 
         std::conditional_t<Interactions::ext_vel_indep, VectorArray, Empty> ext_vel_indep_acc_;
 

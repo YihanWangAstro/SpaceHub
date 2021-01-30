@@ -115,14 +115,14 @@ namespace space::particle_system {
 
        private:
         // Private methods
-        void chain_advance(VectorArray &var, VectorArray &chain_var, VectorArray const &chain_increment,
-                           Scalar phy_time);
+        template <typename Array1, typename Array2, typename Array3>
+        void chain_advance(Array1 &var, Array2 &chain_var, Array3 const &chain_increment, Scalar phy_time);
 
         void eval_vel_indep_acc();
 
-        void advance_omega(VectorArray const &velocity, VectorArray const &d_omega_dr, Scalar phy_time);
+        void advance_omega(AdVectorArray const &velocity, VectorArray const &d_omega_dr, Scalar phy_time);
 
-        void advance_bindE(VectorArray const &velocity, VectorArray const &d_bindE_dr, Scalar phy_time);
+        void advance_bindE(AdVectorArray const &velocity, VectorArray const &d_bindE_dr, Scalar phy_time);
 
         void kick_pseu_vel(Scalar phy_time);
 
@@ -133,9 +133,9 @@ namespace space::particle_system {
 
         Regularization<TypeSet, RegType> regu_;
 
-        VectorArray chain_pos_;
+        AdVectorArray chain_pos_;
 
-        VectorArray chain_vel_;
+        AdVectorArray chain_vel_;
 
         VectorArray chain_acc_;
 
@@ -143,9 +143,9 @@ namespace space::particle_system {
 
         IdxArray new_index_;
 
-        std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
 
-        std::conditional_t<Interactions::ext_vel_dep, VectorArray, Empty> chain_aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> chain_aux_vel_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -400,8 +400,9 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::chain_advance(VectorArray &var, VectorArray &chain_var,
-                                                                        VectorArray const &chain_increment,
+    template <typename Array1, typename Array2, typename Array3>
+    void ARchainSystem<Particles, Interactions, RegType>::chain_advance(Array1 &var, Array2 &chain_var,
+                                                                        Array3 const &chain_increment,
                                                                         Scalar phy_time) {
         calc::array_advance(chain_var, chain_increment, phy_time);
         Chain::calc_cartesian(this->mass(), chain_var, var, index());
@@ -420,7 +421,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_omega(VectorArray const &velocity,
+    void ARchainSystem<Particles, Interactions, RegType>::advance_omega(AdVectorArray const &velocity,
                                                                         VectorArray const &d_omega_dr,
                                                                         Scalar phy_time) {
         if constexpr (regu_type == ReguType::TTL) {
@@ -430,7 +431,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(VectorArray const &velocity,
+    void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(AdVectorArray const &velocity,
                                                                         VectorArray const &d_bindE_dr,
                                                                         Scalar phy_time) {
         if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {

@@ -135,15 +135,15 @@ namespace space::particle_set {
         TideParticles(Scalar t, STL const &particle_set);
 
         // Public methods
-        SPACEHUB_STD_ACCESSOR(Scalar, time, time_);
+        SPACEHUB_STD_ACCESSOR(AdScalar, time, time_);
 
         SPACEHUB_ARRAY_ACCESSOR(ScalarArray, mass, mass_);
 
         SPACEHUB_ARRAY_ACCESSOR(IdxArray, idn, idn_);
 
-        SPACEHUB_ARRAY_ACCESSOR(VectorArray, pos, pos_);
+        SPACEHUB_ARRAY_ACCESSOR(AdVectorArray, pos, pos_);
 
-        SPACEHUB_ARRAY_ACCESSOR(VectorArray, vel, vel_);
+        SPACEHUB_ARRAY_ACCESSOR(AdVectorArray, vel, vel_);
 
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, tide_apsidal_const, k_AM_);
 
@@ -171,9 +171,9 @@ namespace space::particle_set {
 
        private:
         // Private members
-        VectorArray pos_;
+        AdVectorArray pos_;
 
-        VectorArray vel_;
+        AdVectorArray vel_;
 
         ScalarArray mass_;
 
@@ -183,7 +183,7 @@ namespace space::particle_set {
 
         IdxArray idn_;
 
-        Scalar time_{0.0};
+        AdScalar time_{0.0};
 
         size_t active_num_{0};
     };

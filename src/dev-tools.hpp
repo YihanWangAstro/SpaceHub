@@ -72,7 +72,7 @@ namespace space {
     class Empty {};
 
     template <typename T>
-    struct get_value_type {
+    struct raw_type {
        private:
         /*If U has member::value_type, getValueType<T>(0) will match this function. See details on SFINAE. */
         template <typename U>
@@ -146,7 +146,11 @@ namespace space {
     using IdxArray = typename CLASS::IdxArray;                    \
     using IntArray = typename CLASS::IntArray;                    \
     using Vector = typename CLASS::Vector;                        \
-    using VectorArray = typename CLASS::VectorArray;
+    using VectorArray = typename CLASS::VectorArray;              \
+    using AdScalar = typename CLASS::AdScalar;                    \
+    using AdScalarArray = typename CLASS::AdScalarArray;          \
+    using AdVector = typename CLASS::AdVector;                    \
+    using AdVectorArray = typename CLASS::AdVectorArray
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                    \
     /** The setter interface of member `MEMBER` in name of `NAME`.*/ \
