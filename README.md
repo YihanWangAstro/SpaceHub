@@ -1,4 +1,4 @@
-[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/YihanWangAstro/SpaceHub/blob/master/LICENSE.md) [![Code Quality Score](https://www.code-inspector.com/project/18448/score/svg)](https://frontend.code-inspector.com/public/project/18448/SpaceHub/dashboard) [![Code Grade](https://www.code-inspector.com/project/18448/status/svg)](https://frontend.code-inspector.com/public/project/18448/SpaceHub/dashboard)
+[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/YihanWangAstro/SpaceHub/blob/master/LICENSE.md) [![Code Quality Score](https://www.code-inspector.com/project/18448/score/svg)](https://frontend.code-inspector.com/public/project/18448/SpaceHub/dashboard) [![Grade](https://www.code-inspector.com/project/18448/status/svg)](https://frontend.code-inspector.com/public/project/18448/SpaceHub/dashboard)
 
 # SpaceHub
 
