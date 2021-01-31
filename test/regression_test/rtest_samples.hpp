@@ -24,9 +24,64 @@ License
 
 #include "../../src/spaceHub.hpp"
 
-template <typename Solver>
+struct MethodList {
+    using type = space::Types<double>;
+
+    using adtype = space::Types<space::double_k>;
+
+    using force = space::interactions::Interactions<space::interactions::NewtonianGrav>;
+
+    using base_integrator = space::integrator::LeapFrogDKD<type>;
+
+    using err_estimator = space::ode_iterator::WorstOffender<type>;
+
+    using step_controller = space::ode_iterator::PIDController<type>;
+
+    using particles = space::particle_set::PointParticles<type>;
+
+    using adparticles = space::particle_set::PointParticles<adtype>;
+
+    using sim_sys = space::particle_system::SimpleSystem<particles, force>;
+
+    using regu_sys =
+        space::particle_system::RegularizedSystem<particles, force, space::particle_system::ReguType::LogH>;
+
+    using chain_sys = space::particle_system::ChainSystem<particles, force>;
+
+    using arch_sys = space::particle_system::ARchainSystem<particles, force, space::particle_system::ReguType::LogH>;
+
+    using adsim_sys = space::particle_system::SimpleSystem<adparticles, force>;
+
+    using adregu_sys =
+        space::particle_system::RegularizedSystem<adparticles, force, space::particle_system::ReguType::LogH>;
+
+    using adchain_sys = space::particle_system::ChainSystem<adparticles, force>;
+
+    using adarch_sys =
+        space::particle_system::ARchainSystem<adparticles, force, space::particle_system::ReguType::LogH>;
+
+    using iter = space::ode_iterator::BurlishStoer<base_integrator, err_estimator, step_controller>;
+
+    using ias15_iter = space::ode_iterator::IAS15<space::integrator::GaussDadau<adtype>,
+                                                  space::ode_iterator::IAS15Error<type>, step_controller>;
+
+    using space_iter = space::ode_iterator::BisecOdeIterator<space::integrator::Symplectic6th<type>,
+                                                             space::ode_iterator::WorstOffender<type>, step_controller>;
+
+    using BS = space::Simulator<sim_sys, iter>;
+    using AR = space::Simulator<regu_sys, iter>;
+    using Chain = space::Simulator<chain_sys, iter>;
+    using AR_chain = space::Simulator<arch_sys, iter>;
+    using AR_chain_plus = space::Simulator<adarch_sys, iter>;
+    using IAS15 = space::Simulator<adsim_sys, ias15_iter>;
+    using C_IAS15 = space::Simulator<adchain_sys, ias15_iter>;
+    using AR_IAS15 = space::Simulator<adregu_sys, ias15_iter>;
+    using ARC_IAS15 = space::Simulator<adarch_sys, ias15_iter>;
+    using ARC_sym6 = space::Simulator<adarch_sys, space_iter>;
+};
+
 auto two_body(double e = 0) {
-    using Particle = typename Solver::Particle;
+    using Particle = typename space::DefaultSolver::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -41,9 +96,8 @@ auto two_body(double e = 0) {
     return std::vector{sun, earth};
 }
 
-template <typename Solver>
 auto outer_solar() {
-    using Particle = typename Solver::Particle;
+    using Particle = typename space::DefaultSolver::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -66,9 +120,8 @@ auto outer_solar() {
     return std::vector{sun, jup, sat, ura, nep};
 }
 
-template <typename Solver>
 auto earth_system() {
-    using Particle = typename Solver::Particle;
+    using Particle = typename space::DefaultSolver::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -88,9 +141,8 @@ auto earth_system() {
     return std::vector{sun, earth, moon};
 }
 
-template <typename Solver>
 auto kozai() {
-    using Particle = typename Solver::Particle;
+    using Particle = typename space::DefaultSolver::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -193,7 +245,8 @@ double bench_mark(double end_time, double rtol, std::vector<typename Solver::Par
 }
 
 template <typename Solver>
-auto error_scale(double rtol_start, double rtol_end, double end_time, std::vector<typename Solver::Particle> const& p) {
+void error_scale(std::string system_name, std::string method_name, double rtol_start, double rtol_end, double end_time,
+                 std::vector<typename Solver::Particle> const& p) {
     using namespace space;
     using namespace run_operations;
     using namespace tools;
@@ -233,5 +286,63 @@ auto error_scale(double rtol_start, double rtol_end, double end_time, std::vecto
         // std::cout << tot_error << ' ' << error_num << " " << thid << std::endl;
     });
 
-    return std::make_tuple(rtol, err);
+    std::fstream err_stream{system_name + "-" + method_name + ".scale", std::ios::out};
+
+    err_stream << rtol << '\n' << err;
+}
+
+template <typename System>
+auto fast_err_methods(std::string system_name, System const& system, double t_end) {
+    std::vector<double> errs;
+    errs.reserve(20);
+    errs.push_back(basic_error_test<MethodList::BS>(system_name + "-BS", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::AR>(system_name + "-AR", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::Chain>(system_name + "-Chain", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::AR_chain>(system_name + "-AR-chain", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::AR_chain_plus>(system_name + "-AR-chain+", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::IAS15>(system_name + "-IAS15(SpaceHub)", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::C_IAS15>(system_name + "-C-IAS15", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::AR_IAS15>(system_name + "-AR-IAS15", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::ARC_IAS15>(system_name + "-ARC-IAS15", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::ARC_sym6>(system_name + "-ARC-sym6", t_end, 1e-15, system));
+    return errs;
+}
+
+template <typename System>
+void bench_mark_methods(std::string system_name, System const& system, double t_end) {
+    std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
+
+    std::vector<std::string> names{"BS",      "AR",       "Chain",     "AR-chain", "AR-chain+", "IAS15(SpaceHub)",
+                                   "C-IAS15", "AR-IAS15", "ARC-IAS15", "ARC-sym6"};
+    std::vector<double> errs = fast_err_methods(system_name, system, t_end);
+    std::vector<double> cpu_t;
+    cpu_t.reserve(20);
+    cpu_t.push_back(bench_mark<MethodList::BS>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::AR>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::Chain>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_chain>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_chain_plus>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::IAS15>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::C_IAS15>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_IAS15>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::ARC_IAS15>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::ARC_sym6>(t_end, 1e-15, system));
+
+    for (size_t i = 0; i < names.size(); ++i) {
+        file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
+    }
+}
+
+template <typename System>
+auto err_scale_methods(std::string system_name, System const& system, double t_end) {
+    error_scale<MethodList::BS>(system_name, "BS", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR>(system_name, "AR", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::Chain>(system_name, "Chain", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_chain>(system_name, "AR-chain", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_chain_plus>(system_name, "AR-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::IAS15>(system_name, "IAS15(SpaceHub)", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::C_IAS15>(system_name, "C-IAS15", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_IAS15>(system_name, "AR-IAS15", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::ARC_IAS15>(system_name, "ARC-IAS15", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::ARC_sym6>(system_name, "ARC-sym6", 3e-16, 1e-11, t_end, system);
 }
