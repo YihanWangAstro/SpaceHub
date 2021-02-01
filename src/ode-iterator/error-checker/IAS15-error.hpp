@@ -59,7 +59,7 @@ namespace space::ode_iterator {
         Scalar error(Array1 const &scale, Array2 const &y1, Array3 const &y1_prime);
 
        private:
-        Scalar atol_{1e-12};
+        Scalar atol_{0};
 
         Scalar rtol_{1e-12};
     };

@@ -4,7 +4,7 @@ project(SpaceHub)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3  -pthread -mavx")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread     ")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread -mavx  ")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3 -pthread -mavx ")
 
 set(TMP_HEADER_FILES
@@ -102,6 +102,8 @@ set(PN_R_TEST
 
 set(IMPROVEMENT_TEST
         test/regression_test/rtest_improvement.cpp)
+
+add_executable(SpaceHub_simple_test ${TMP_HEADER_FILES} test/regression_test/rtest_basic.cpp)
 
 add_executable(SpaceHub_unit_test ${UNIT_TEST} ${TMP_HEADER_FILES})
 

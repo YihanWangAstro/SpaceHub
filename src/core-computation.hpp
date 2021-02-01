@@ -180,7 +180,7 @@ namespace space::calc {
 
         if constexpr (std::is_same_v<Array1, Array2> &&
                       (std::is_same_v<Array1, std::vector<double>> ||
-                       std::is_same_v<Array1, std::vector<Vec3<double>>>) && std::is_same_v<Scalar, double>) {
+                       std::is_same_v<Array1, std::vector<Vec3<double>>>)&&std::is_same_v<Scalar, double>) {
 #ifdef __AVX__1
 #pragma message("Using AVX on array_scale")
             double *end = (double *)(void *)(dst.data() + dst.size());
@@ -214,6 +214,17 @@ namespace space::calc {
         }
     }
 
+    template <typename Array1, typename Array2, typename Scalar>
+    void array_div_scale(Array1 &dst, Array2 const &a, Scalar scale) {
+        DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
+
+        size_t const size = dst.size();
+#pragma omp parallel for
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = a[i] / scale;
+        }
+    }
+
     /**
      * @brief Element wise multiplication of arrays.
      *
@@ -242,6 +253,16 @@ namespace space::calc {
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] - b[i];
+        }
+    }
+
+    template <typename Array1, typename Array2, typename Array3>
+    void array_div(Array1 &dst, Array2 const &a, Array3 const &b) {
+        // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
+        size_t const size = dst.size();
+#pragma omp parallel for
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = a[i] / b[i];
         }
     }
 
@@ -279,6 +300,33 @@ namespace space::calc {
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = var[i] + increment[i] * step_size;
+        }
+    }
+
+    template <typename Array1, typename Array2>
+    void array_retreat(Array1 &var, Array2 const &increment) {
+        size_t const size = var.size();
+
+        for (size_t i = 0; i < size; i++) {
+            var[i] -= increment[i];
+        }
+    }
+
+    template <typename Scalar, typename Array1, typename Array2>
+    void array_retreat(Array1 &var, Array2 const &increment, Scalar step_size) {
+        size_t const size = var.size();
+
+        for (size_t i = 0; i < size; i++) {
+            var[i] -= increment[i] * step_size;
+        }
+    }
+
+    template <typename Scalar, typename Array1, typename Array2, typename Array3>
+    void array_retreat(Array1 &dst, Array2 const &var, Array3 const &increment, Scalar step_size) {
+        size_t const size = var.size();
+#pragma omp parallel for
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = var[i] - increment[i] * step_size;
         }
     }
 

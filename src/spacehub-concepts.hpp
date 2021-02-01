@@ -163,7 +163,7 @@ namespace space::concepts {
         Vector vel;
     };
     struct TestParticles {
-        SPACEHUB_USING_TYPE_SYSTEM_OF(TestParticle)
+        SPACEHUB_USING_TYPE_SYSTEM_OF(TestParticle);
         using Particle = TestParticle;
         Scalar &time();
         IdxArray &idn();

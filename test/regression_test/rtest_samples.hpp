@@ -293,23 +293,25 @@ void error_scale(std::string system_name, std::string method_name, double rtol_s
 
 template <typename System>
 auto fast_err_methods(std::string system_name, System const& system, double t_end) {
+    double rtol = 1e-15;
     std::vector<double> errs;
     errs.reserve(20);
-    errs.push_back(basic_error_test<MethodList::BS>(system_name + "-BS", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::AR>(system_name + "-AR", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::Chain>(system_name + "-Chain", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::AR_chain>(system_name + "-AR-chain", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::AR_chain_plus>(system_name + "-AR-chain+", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::IAS15>(system_name + "-IAS15(SpaceHub)", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::C_IAS15>(system_name + "-C-IAS15", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::AR_IAS15>(system_name + "-AR-IAS15", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::ARC_IAS15>(system_name + "-ARC-IAS15", t_end, 1e-15, system));
-    errs.push_back(basic_error_test<MethodList::ARC_sym6>(system_name + "-ARC-sym6", t_end, 1e-15, system));
+    errs.push_back(basic_error_test<MethodList::BS>(system_name + "-BS", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR>(system_name + "-AR", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::Chain>(system_name + "-Chain", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_chain>(system_name + "-AR-chain", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_chain_plus>(system_name + "-AR-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::IAS15>(system_name + "-IAS15(SpaceHub)", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::C_IAS15>(system_name + "-C-IAS15", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_IAS15>(system_name + "-AR-IAS15", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::ARC_IAS15>(system_name + "-ARC-IAS15", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::ARC_sym6>(system_name + "-ARC-sym6", t_end, rtol, system));
     return errs;
 }
 
 template <typename System>
 void bench_mark_methods(std::string system_name, System const& system, double t_end) {
+    double rtol = 1e-15;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
     std::vector<std::string> names{"BS",      "AR",       "Chain",     "AR-chain", "AR-chain+", "IAS15(SpaceHub)",
@@ -317,16 +319,16 @@ void bench_mark_methods(std::string system_name, System const& system, double t_
     std::vector<double> errs = fast_err_methods(system_name, system, t_end);
     std::vector<double> cpu_t;
     cpu_t.reserve(20);
-    cpu_t.push_back(bench_mark<MethodList::BS>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::AR>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::Chain>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_chain>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_chain_plus>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::IAS15>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::C_IAS15>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_IAS15>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::ARC_IAS15>(t_end, 1e-15, system));
-    cpu_t.push_back(bench_mark<MethodList::ARC_sym6>(t_end, 1e-15, system));
+    cpu_t.push_back(bench_mark<MethodList::BS>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::Chain>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_chain>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_chain_plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::IAS15>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::C_IAS15>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_IAS15>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::ARC_IAS15>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::ARC_sym6>(t_end, rtol, system));
 
     for (size_t i = 0; i < names.size(); ++i) {
         file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
