@@ -344,14 +344,9 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(std::function<void(State const &,
-                                                                                                         State
-
-                                                                                                             &,
-                                                                                                         Scalar)>
-                                                                                          func,
-                                                                                      State &data_out, Scalar &time,
-                                                                                      Scalar step_size, size_t steps) {
+    void BurlishStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(
+        std::function<void(State const &, State &, Scalar)> func, State &data_out, Scalar &time, Scalar step_size,
+        size_t steps) {
         data_out = input_;
         Scalar h = step_size / steps;
         State dxdt(input_.size());
