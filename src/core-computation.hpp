@@ -32,6 +32,8 @@ License
 #include "math.hpp"
 #include "spacehub-concepts.hpp"
 #include "vector/vector3.hpp"
+#include <algorithm>
+#include <numeric>
 
 #ifdef __AVX__
 
@@ -100,9 +102,10 @@ namespace space::calc {
      */
     template <typename Array>
     void array_set_zero(Array &array) {
-        for (auto &a : array) {
-            a = 0;
-        }
+        std::fill(array.begin(), array.end(), 0);
+        /* for (auto &a : array) {
+             a = 0;
+         }*/
     }
 
     /**
@@ -178,51 +181,24 @@ namespace space::calc {
     void array_scale(Array1 &dst, Array2 const &a, Scalar scale) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
 
-        if constexpr (std::is_same_v<Array1, Array2> &&
-                      (std::is_same_v<Array1, std::vector<double>> ||
-                       std::is_same_v<Array1, std::vector<Vec3<double>>>)&&std::is_same_v<Scalar, double>) {
-#ifdef __AVX__1
-#pragma message("Using AVX on array_scale")
-            double *end = (double *)(void *)(dst.data() + dst.size());
-            double *m_end = end - 4;
-            double *p = (double *)(void *)a.data();
-            double *dst_ptr = (double *)(void *)dst.data();
-            __m256d m_scale = _mm256_set1_pd(scale);
-            for (; dst_ptr <= m_end; p += 4, dst_ptr += 4) {
-                __m256d m_a = _mm256_loadu_pd(p);
-                __m256d m_dst = _mm256_mul_pd(m_a, m_scale);
-                _mm256_storeu_pd(dst_ptr, m_dst);
-            }
-
-            for (; dst_ptr < end; dst_ptr++, p++) {
-                *dst_ptr = (*p) * scale;
-            }
-
-#else
-            size_t const size = dst.size();
+        std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return scale * x; });
+        /*size_t const size = dst.size();
 #pragma omp parallel for
-            for (size_t i = 0; i < size; i++) {
-                dst[i] = a[i] * scale;
-            }
-#endif
-        } else {
-            size_t const size = dst.size();
-#pragma omp parallel for
-            for (size_t i = 0; i < size; i++) {
-                dst[i] = a[i] * scale;
-            }
-        }
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = a[i] * scale;
+        }*/
+
     }
 
     template <typename Array1, typename Array2, typename Scalar>
     void array_div_scale(Array1 &dst, Array2 const &a, Scalar scale) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
-
-        size_t const size = dst.size();
-#pragma omp parallel for
-        for (size_t i = 0; i < size; i++) {
-            dst[i] = a[i] / scale;
-        }
+        std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return x / scale; });
+        /*   size_t const size = dst.size();
+   #pragma omp parallel for
+           for (size_t i = 0; i < size; i++) {
+               dst[i] = a[i] / scale;
+           }*/
     }
 
     /**
@@ -249,11 +225,12 @@ namespace space::calc {
     template <typename Array1, typename Array2, typename Array3>
     void array_sub(Array1 &dst, Array2 const &a, Array3 const &b) {
         // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
-        size_t const size = dst.size();
+        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [](auto x, auto y) { return x - y; });
+        /*size_t const size = dst.size();
 #pragma omp parallel for
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] - b[i];
-        }
+        }*/
     }
 
     template <typename Array1, typename Array2, typename Array3>
@@ -268,12 +245,13 @@ namespace space::calc {
 
     template <typename Array>
     auto array_sum(Array const &array) {
-        typename Array::value_type total = 0;
+        return std::reduce(array.begin(), array.end());
+        /*typename Array::value_type total = 0;
 
         for (auto const &a : array) {
             total += a;
         }
-        return total;
+        return total;*/
     }
 
     template <typename Array1, typename Array2>
