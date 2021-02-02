@@ -23,8 +23,8 @@ namespace space::ode_iterator {
     class IAS15 {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
-        static_assert(std::is_same_v<Integrator, integrator::GaussDadau < TypeSet>>,
-        "IAS15 iterator only works with GaussDadau integrator!");
+        static_assert(std::is_same_v<Integrator, integrator::GaussDadau<TypeSet>>,
+                      "IAS15 iterator only works with GaussDadau integrator!");
 
         IAS15();
 
@@ -61,7 +61,7 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <typename U>
     auto IAS15<Integrator, ErrEstimator, StepController>::iterate(U &particles, typename U::Scalar macro_step_size)
-    -> Scalar {
+        -> Scalar {
         Scalar iter_h = macro_step_size;
         integrator_.check_particle_size(particles.variable_number());
         // integrator_.check_particle_size(particles.number());
@@ -72,7 +72,7 @@ namespace space::ode_iterator {
 
                 Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
 
-                if (iter_h / new_iter_h < 4) {
+                if (error < 1) {
                     integrator_.integrate_at_end(particles, iter_h);
                     integrator_.predict_new_B(new_iter_h / iter_h);
                     last_error_ = error;

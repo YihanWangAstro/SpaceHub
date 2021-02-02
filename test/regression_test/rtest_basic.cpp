@@ -27,12 +27,12 @@ int main(int argc, char **argv) {
     Timer t;
 
     t.start();
-    basic_error_test<MethodList::IAS15>("outer", 11862_year, 1e-15, outer_solar());
+    basic_error_test<MethodList::AR_sym6>("outer", 11862_year, 1e-15, outer_solar());
 
     std::cout << t.get_time() << '\n';
-    //basic_error_test<MethodList::IAS15>("earth", 100_year, 1e-15, earth_system());
+    //basic_error_test<MethodList::AR_sym6>("earth", 100_year, 1e-15, earth_system());
 
-    //basic_error_test<MethodList::IAS15>("ecc", 1000_year, 1e-15, two_body(0.9999));
+    //basic_error_test<MethodList::AR_sym6>("ecc", 1000_year, 1e-15, two_body(0.9999));
 
     return 0;
 }

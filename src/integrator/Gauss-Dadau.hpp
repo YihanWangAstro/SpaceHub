@@ -10,12 +10,12 @@
 namespace space::integrator {
 
     /*---------------------------------------------------------------------------*\
-         Class RadauConsts Declaration
+         Class Dadau Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * Constant parameters used in Gauss Radau integration
      */
-    class RadauConsts {
+    class Dadau {
        public:
         [[nodiscard]] inline static constexpr double step_sequence(size_t i) { return sub_steps_[i]; }
 
@@ -176,11 +176,11 @@ namespace space::integrator {
     };
 
     /*---------------------------------------------------------------------------*\
-         Class RadauConsts Implementation
+         Class Dadau Implementation
     \*---------------------------------------------------------------------------*/
 
     template <typename Tab1, typename Tab2>
-    void RadauConsts::transfer_G_to_B(const Tab1 &G, Tab2 &B) {
+    void Dadau::transfer_G_to_B(const Tab1 &G, Tab2 &B) {
         for (size_t stage = 0; stage < 7; ++stage) {
             calc::array_scale(B[stage], G[6], G2B_tab(6, stage));
             for (size_t j = 6; j > stage; --j) {
@@ -190,7 +190,7 @@ namespace space::integrator {
     }
 
     template <typename Tab1, typename Tab2>
-    void RadauConsts::transfer_B_to_G(const Tab1 &B, Tab2 &G) {
+    void Dadau::transfer_B_to_G(const Tab1 &B, Tab2 &G) {
         for (size_t stage = 0; stage < 7; ++stage) {
             calc::array_scale(G[stage], B[6], B2G_tab(6, stage));
             for (size_t j = 6; j > stage; --j) {
@@ -200,7 +200,7 @@ namespace space::integrator {
     }
 
     /*---------------------------------------------------------------------------*\
-         Class RadauConsts Implementation
+         Class Dadau Implementation
     \*---------------------------------------------------------------------------*/
 
     template <typename TypeSystem>
@@ -248,7 +248,7 @@ namespace space::integrator {
     void GaussDadau<TypeSystem>::integrate_to(ParticleSys &particles, Scalar step_size, size_t stage) {
         tmp_state_ = input_;
 
-        auto h_n = RadauConsts::step_sequence(stage);
+        auto h_n = Dadau::step_sequence(stage);
         calc::array_scale(tmp_array_, b_tab_[6], 7 * h_n / 8);
         for (size_t i = 6; i > 0; --i) {
             calc::array_add(tmp_array_, tmp_array_, b_tab_[i - 1]);
@@ -274,27 +274,27 @@ namespace space::integrator {
     template <typename TypeSystem>
     void GaussDadau<TypeSystem>::update_B_table(const ScalarArray &acc0, const ScalarArray &acc, size_t stage) {
         calc::array_sub(tmp_array_, acc, acc0);
-        calc::array_scale(tmp_array_, tmp_array_, RadauConsts::G_tab(stage, 0));
+        calc::array_scale(tmp_array_, tmp_array_, Dadau::G_tab(stage, 0));
         for (size_t j = 0; j < stage; ++j) {
-            calc::array_advance(tmp_array_, g_tab_[j], -RadauConsts::G_tab(stage, j + 1));
+            calc::array_advance(tmp_array_, g_tab_[j], -Dadau::G_tab(stage, j + 1));
         }
         calc::array_sub(dg_array_, tmp_array_, g_tab_[stage]);
 
         swap(g_tab_[stage], tmp_array_);
 
         /*calc::array_sub(tmp_array_, acc, acc0);
-        calc::array_div_scale(tmp_array_, tmp_array_, RadauConsts::RR_tab(stage, 0));
+        calc::array_div_scale(tmp_array_, tmp_array_, Dadau::RR_tab(stage, 0));
 
         for (size_t j = 0; j < stage; ++j) {
             calc::array_retreat(tmp_array_, g_tab_[j]);
-            calc::array_div_scale(tmp_array_, tmp_array_, RadauConsts::RR_tab(stage, j + 1));
+            calc::array_div_scale(tmp_array_, tmp_array_, Dadau::RR_tab(stage, j + 1));
         }
 
         calc::array_sub(dg_array_, tmp_array_, g_tab_[stage]);
         swap(g_tab_[stage], tmp_array_);*/
 
         for (size_t i = 0; i <= stage; ++i) {
-            calc::array_advance(b_tab_[i], dg_array_, RadauConsts::G2B_tab(stage, i));
+            calc::array_advance(b_tab_[i], dg_array_, Dadau::G2B_tab(stage, i));
         }
     }
 
@@ -326,14 +326,14 @@ namespace space::integrator {
 
         for (size_t i = 0; i < final_point; ++i) {
             calc::array_sub(tmp_array_, b_tab_[i], old_b_tab_[i]);
-            calc::array_scale(old_b_tab_[i], b_tab_[6], Q[i] * RadauConsts::B_tab(6, i));
+            calc::array_scale(old_b_tab_[i], b_tab_[6], Q[i] * Dadau::B_tab(6, i));
             for (size_t j = 6; j > i; --j) {
-                calc::array_advance(old_b_tab_[i], b_tab_[j - 1], Q[i] * RadauConsts::B_tab(j - 1, i));
+                calc::array_advance(old_b_tab_[i], b_tab_[j - 1], Q[i] * Dadau::B_tab(j - 1, i));
             }
             //  calc::array_scale(old_b_tab_[i], old_b_tab_[i], Q[i]);
             calc::array_add(b_tab_[i], old_b_tab_[i], tmp_array_);
         }
 
-        RadauConsts::transfer_B_to_G(b_tab_, g_tab_);
+        Dadau::transfer_B_to_G(b_tab_, g_tab_);
     }
 }  // namespace space::integrator
