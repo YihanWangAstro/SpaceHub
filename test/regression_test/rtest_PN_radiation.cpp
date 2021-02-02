@@ -100,7 +100,7 @@ int main(int argc, char **argv) {
 
     using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
 
-    using ias15_iter = IAS15<integrator::GaussDadau<type>, IAS15Error<type>, step_controller>;
+    using ias15_iter = IAS15<integrator::GaussRadau<type>, IAS15Error<type>, step_controller>;
 
     /*run<Simulator<sim_sys, iter>>("sim");
 

@@ -11,7 +11,7 @@ set(TMP_HEADER_FILES
         src/args-callback/callbacks.hpp
 
         src/integrator/symplectic/symplectic-integrator.hpp
-        src/integrator/Gauss-Dadau.hpp
+        src/integrator/Gauss-Radau.hpp
 
         src/interaction/post-newtonian.hpp
         src/interaction/newtonian.hpp

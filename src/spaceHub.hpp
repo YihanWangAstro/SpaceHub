@@ -44,7 +44,7 @@ License
 #pragma once
 
 #include "args-callback/callbacks.hpp"
-#include "integrator/Gauss-Dadau.hpp"
+#include "integrator/Gauss-Radau.hpp"
 #include "integrator/symplectic/symplectic-integrator.hpp"
 #include "interaction/newtonian.hpp"
 #include "interaction/post-newtonian.hpp"

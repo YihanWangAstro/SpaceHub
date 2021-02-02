@@ -23,9 +23,9 @@ License
  * Header file.
  */
 #pragma once
-
+#ifdef _OPENMP
 #include <omp.h>
-
+#endif
 #include <type_traits>
 
 #include "macros.hpp"
@@ -187,7 +187,6 @@ namespace space::calc {
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] * scale;
         }*/
-
     }
 
     template <typename Array1, typename Array2, typename Scalar>

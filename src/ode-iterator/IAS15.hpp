@@ -6,7 +6,7 @@
  * Header file.
  */
 #include "../dev-tools.hpp"
-#include "../integrator/Gauss-Dadau.hpp"
+#include "../integrator/Gauss-Radau.hpp"
 #include "../math.hpp"
 
 namespace space::ode_iterator {
@@ -23,8 +23,8 @@ namespace space::ode_iterator {
     class IAS15 {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
-        static_assert(std::is_same_v<Integrator, integrator::GaussDadau<TypeSet>>,
-                      "IAS15 iterator only works with GaussDadau integrator!");
+        static_assert(std::is_same_v<Integrator, integrator::GaussRadau<TypeSet>>,
+                      "IAS15 iterator only works with GaussRadau integrator!");
 
         IAS15();
 
