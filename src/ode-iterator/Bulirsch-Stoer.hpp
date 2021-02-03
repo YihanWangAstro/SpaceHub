@@ -67,10 +67,10 @@ namespace space::ode_iterator {
         [[nodiscard]] inline size_t at(size_t i, size_t j) const { return i * MaxIter + j; };
 
         /** @brief Extrapolation coefficient.*/
-        std::array<Scalar, MaxIter * (MaxIter)> extrap_coef_;
+        std::array<Scalar, MaxIter *(MaxIter)> extrap_coef_;
 
         /** @brief The work(computation resource) per step size of each iteration depth.*/
-        std::array<size_t, MaxIter> cost_;
+        std::array<Scalar, MaxIter> cost_;
 
         /** @brief Steps of integration of each iteration depth.*/
         std::array<size_t, MaxIter> sub_steps_;
@@ -92,7 +92,7 @@ namespace space::ode_iterator {
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
 
         using BSConsts =
-        BulirschStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
+            BulirschStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
 
         using State = ScalarArray;
 
@@ -125,7 +125,7 @@ namespace space::ode_iterator {
 
         inline bool in_converged_window(size_t k);
 
-        [[nodiscard]]inline size_t allowed(size_t i) const;
+        [[nodiscard]] inline size_t allowed(size_t i) const;
 
         Scalar set_next_iteration(size_t k);
 
@@ -188,8 +188,8 @@ namespace space::ode_iterator {
                 if (j < i) {
                     // Scalar ratio = static_cast<Scalar>(h_[i]) / static_cast<Scalar>(h_[i - j - 1]);
                     // extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
-                    double nj2 = sub_steps_[i - j - 1] * sub_steps_[i - j - 1];
-                    double ni2 = sub_steps_[i] * sub_steps_[i];
+                    Scalar nj2 = static_cast<Scalar>(sub_steps_[i - j - 1] * sub_steps_[i - j - 1]);
+                    Scalar ni2 = static_cast<Scalar>(sub_steps_[i] * sub_steps_[i]);
                     extrap_coef_[at(i, j)] = nj2 / (ni2 - nj2);
                 } else {
                     extrap_coef_[at(i, j)] = 0;
@@ -248,7 +248,7 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <CONCEPT_PARTICLE_SYSTEM U>
     auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(U &particles, Scalar macro_step_size)
-    -> Scalar {
+        -> Scalar {
         Scalar iter_h = macro_step_size;
         particles.write_to_scalar_array(input_);
         check_variable_size();
@@ -373,7 +373,7 @@ namespace space::ode_iterator {
 #pragma omp parallel for
             for (size_t i = 0; i < var_num_; ++i) {
                 extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) *
-                                                              parameters_.table_coef(k, k - j);
+                                                                  parameters_.table_coef(k, k - j);
             }
         }
     }
@@ -390,7 +390,7 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     auto BulirschStoer<Integrator, ErrEstimator, StepController>::get_next_step_len(size_t k_new, size_t k) const
-    -> Scalar {
+        -> Scalar {
         if (k_new <= k) {
             return ideal_step_size_[k_new];
         } else if (k_new == k + 1) {
