@@ -45,7 +45,9 @@ namespace space::orbit {
     /**
      * @brief Enum of kepler orbit type. Possible value: Ellipse, Parabola, Hyperbola, None.
      */
-    enum class OrbitType { Ellipse, Parabola, Hyperbola, None };
+    enum class OrbitType {
+        Ellipse, Parabola, Hyperbola, None
+    };
 
     /**
      * @brief A place holder that indicates one of the three angles in orbital parameters will be randomly generated.
@@ -77,42 +79,42 @@ namespace space::orbit {
         /**
          *  @brief Mass of the primary object.
          */
-        Scalar m1;
+        Scalar m1{0};
         /**
          * @brief Mass of the secondary object.
          */
-        Scalar m2;
+        Scalar m2{0};
         /**
          * @brief Semi-latus rectum of the orbit  a(1-e^2)  .
          *
          * We don't use semi-major axis for this general orbital type because the semi-major axis for parabolic orbit is
          * undefined.
          */
-        Scalar p;
+        Scalar p{0};
         /**
          *  @brief Eccentricity of the orbit.
          */
-        Scalar e;
+        Scalar e{0};
         /**
          *  @brief Orbit inclination.
          */
-        Scalar i;
+        Scalar i{0};
         /**
          *  @brief Longitude of the ascending node.
          */
-        Scalar Omega;
+        Scalar Omega{0};
         /**
          *  @brief Argument of periapsis.
          */
-        Scalar omega;
+        Scalar omega{0};
         /**
          *  @brief True anomaly.
          */
-        Scalar nu;
+        Scalar nu{0};
         /**
          *  @brief Orbit type.
          */
-        OrbitType orbit_type;
+        OrbitType orbit_type{OrbitType::None};
 
         SPACEHUB_MAKE_CONSTRUCTORS(KeplerOrbit, default, default, default, default, default);
 
@@ -176,7 +178,9 @@ namespace space::orbit {
     /**
      * @brief Enum type that indicates the trajectory is hyperbolically incident in or hyperbolically eject out.
      */
-    enum class Hyper { in, out };
+    enum class Hyper {
+        in, out
+    };
 
     /**
      * @brief Derived class of Kepler orbit. Hyperbolic orbit.
@@ -321,16 +325,18 @@ namespace space::orbit {
 
         if (0 <= e && e < 1)
             return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); }, -space::consts::pi,
-                space::consts::pi);
+                    [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); },
+                    -space::consts::pi,
+                    space::consts::pi);
         else if (e > 1)
             return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); },
-                -space::consts::pi, space::consts::pi);
+                    [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); },
+                    -space::consts::pi, space::consts::pi);
         else if (fabs(e - 1) < math::epsilon<Scalar>::value)
             return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); }, -space::consts::pi,
-                space::consts::pi);
+                    [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); },
+                    -space::consts::pi,
+                    space::consts::pi);
         else {
             spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
         }
@@ -463,7 +469,6 @@ namespace space::orbit {
 
         if (std::is_same_v<T4, RandomIndicator>) {
             shuffle_nu();
-
         } else {
             nu = true_anomaly;
         }
@@ -501,8 +506,8 @@ namespace space::orbit {
     template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3>
     HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination,
                            T2 longitude_of_ascending_node, T3 argument_of_periapsis, Scalar r, Hyper in_out)
-        : KeplerOrbit<double>(m_1, m_2, 0.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
-                              0.0) {
+            : KeplerOrbit<double>(m_1, m_2, 0.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
+                                  0.0) {
         this->orbit_type = OrbitType::Hyperbola;
         Scalar u = space::consts::G * (m_1 + m_2);
         Scalar a = -u / (v_inf * v_inf);
@@ -521,8 +526,9 @@ namespace space::orbit {
     template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
     EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
                            T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly)
-        : KeplerOrbit<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,
-                              longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
+            : KeplerOrbit<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity,
+                                  inclination,
+                                  longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
         if (this->orbit_type != OrbitType::Ellipse) {
             spacehub_abort("The given parameters don't give an elliptic orbit.");
         }

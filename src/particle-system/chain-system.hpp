@@ -96,7 +96,7 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void evaluate_general_derivative(ScalarIterable &stl_ranges);
 
-        size_t variable_number() const;
+        [[nodiscard]]size_t variable_number() const;
 
        private:
         // Private methods
@@ -118,7 +118,7 @@ namespace space::particle_system {
 
        private:
         // Private members
-        interactions::InteractionData<Interactions, VectorArray> accels_;
+        interactions::InteractionData <Interactions, VectorArray> accels_;
         AdVectorArray chain_pos_;
         AdVectorArray chain_vel_;
         VectorArray chain_acc_;
@@ -136,13 +136,13 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <CONCEPT_PARTICLE_CONTAINER STL>
     ChainSystem<Particles, Interactions>::ChainSystem(Scalar time, const STL &particle_set)
-        : Particles(time, particle_set),
-          chain_pos_(particle_set.size()),
-          chain_vel_(particle_set.size()),
-          index_(particle_set.size()),
-          new_index_(particle_set.size()),
-          accels_(particle_set.size()),
-          chain_acc_(particle_set.size()) {
+            : Particles(time, particle_set),
+              chain_pos_(particle_set.size()),
+              chain_vel_(particle_set.size()),
+              index_(particle_set.size()),
+              new_index_(particle_set.size()),
+              accels_(particle_set.size()),
+              chain_acc_(particle_set.size()) {
         Chain::calc_chain_index(this->pos(), index_);
         Chain::calc_chain(this->pos(), chain_pos(), index_);
         Chain::calc_chain(this->vel(), chain_vel(), index_);

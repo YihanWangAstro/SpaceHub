@@ -23,8 +23,8 @@ namespace space::ode_iterator {
     class IAS15 {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
-        static_assert(std::is_same_v<Integrator, integrator::GaussRadau<TypeSet>>,
-                      "IAS15 iterator only works with GaussRadau integrator!");
+        static_assert(std::is_same_v<Integrator, integrator::GaussRadau < TypeSet>>,
+        "IAS15 iterator only works with GaussRadau integrator!");
 
         IAS15();
 
@@ -34,7 +34,7 @@ namespace space::ode_iterator {
        private:
         inline void reset_PC_iteration();
 
-        bool in_converged_window(size_t k);
+        bool in_converged_window();
 
         Integrator integrator_;
         StepController step_controller_;
@@ -66,7 +66,7 @@ namespace space::ode_iterator {
         // integrator_.check_particle_size(particles.number());
         for (size_t k = 0; k < max_iter_; ++k) {
             integrator_.calc_b_table(particles, iter_h);
-            if (in_converged_window(k)) {
+            if (in_converged_window()) {
                 Scalar error = err_checker_.error(integrator_.y_h(), integrator_.b()[6]);
 
                 Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
@@ -98,7 +98,7 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    bool IAS15<Integrator, ErrEstimator, StepController>::in_converged_window(size_t k) {
+    bool IAS15<Integrator, ErrEstimator, StepController>::in_converged_window() {
         Scalar PC_error = PC_err_checker_.error(integrator_.y_h(), integrator_.diff_b6());
         // space::print(std::cout, k, ':', PC_error, '\n', integrator_.last_acc(), "\n\n", integrator_.diff_b6(),
         //             "\n-------------\n\n");

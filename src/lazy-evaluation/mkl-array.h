@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string.h>
+#include <cstring>
 
 #include "../tools/timer.hpp"
 #include "/opt/intel/mkl/include/mkl.h"

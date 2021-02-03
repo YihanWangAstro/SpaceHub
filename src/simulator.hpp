@@ -352,10 +352,8 @@ namespace space {
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     bool RunArgs<ParticleSys>::check_stops(ParticleSys &particle_system, Scalar step_size) const {
-        for (auto const &check : stop_cond_) {
-            if (check(particle_system, step_size)) return true;
-        }
-        return false;
+        return std::any_of(stop_cond_.begin(), stop_cond_.end(),
+                           [&](auto cond) { return cond(particle_system, step_size); });
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>

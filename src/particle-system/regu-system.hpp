@@ -34,7 +34,9 @@ namespace space::particle_system {
     /**
      *
      */
-    enum class ReguType { LogH, TTL, None };
+    enum class ReguType {
+        LogH, TTL, None
+    };
 
     /*---------------------------------------------------------------------------*\
         Class Regularization Declaration
@@ -137,7 +139,7 @@ namespace space::particle_system {
 
         void pre_iter_process();
 
-        void post_iter_process(){};
+        void post_iter_process() {};
 
         template <typename ScalarIterable>
         void write_to_scalar_array(ScalarIterable &stl_ranges);
@@ -154,7 +156,7 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void evaluate_general_derivative(ScalarIterable &stl_ranges);
 
-        size_t variable_number() const;
+        [[nodiscard]] size_t variable_number() const;
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
@@ -176,7 +178,7 @@ namespace space::particle_system {
         void kick_real_vel(Scalar phy_time);
 
         // Private members
-        interactions::InteractionData<Interactions, VectorArray> accels_;
+        interactions::InteractionData <Interactions, VectorArray> accels_;
         Regularization<TypeSet, RegType> regu_;
         std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
     };
@@ -187,7 +189,7 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
     template <CONCEPT_PARTICLE_CONTAINER STL>
     RegularizedSystem<Particles, Interactions, RegType>::RegularizedSystem(Scalar time, const STL &particle_set)
-        : Particles(time, particle_set), accels_(particle_set.size()), regu_(*this) {
+            : Particles(time, particle_set), accels_(particle_set.size()), regu_(*this) {
         if constexpr (Interactions::ext_vel_dep) {
             aux_vel_ = this->vel();
         }
@@ -320,7 +322,7 @@ namespace space::particle_system {
 
         if constexpr (regu_type == ReguType::TTL) {
             Scalar d_omega_dh =
-                calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
+                    calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
             stl_ranges.emplace_back(d_omega_dh);
         } else {
             stl_ranges.emplace_back(0);
@@ -330,7 +332,7 @@ namespace space::particle_system {
             Interactions::eval_extra_acc(*this, accels_.acc());
             if constexpr (regu_type == ReguType::LogH) {
                 Scalar d_bindE_dh =
-                    -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
+                        -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
                 stl_ranges.emplace_back(d_bindE_dh);
             } else {
                 stl_ranges.emplace_back(0);
@@ -448,7 +450,7 @@ namespace space::particle_system {
     template <typename TypeSystem, ReguType Type>
     template <CONCEPT_PARTICLES_DATA Particles>
     auto Regularization<TypeSystem, Type>::eval_pos_phy_time(Particles const &particles, Scalar step_size) const
-        -> Scalar {
+    -> Scalar {
         if constexpr (Type == ReguType::LogH) {
             return step_size / (bindE_ + calc::calc_kinetic_energy(particles));
         } else if constexpr (Type == ReguType::TTL) {
@@ -463,7 +465,7 @@ namespace space::particle_system {
     template <typename TypeSystem, ReguType Type>
     template <CONCEPT_PARTICLES_DATA Particles>
     auto Regularization<TypeSystem, Type>::eval_vel_phy_time(Particles const &particles, Scalar step_size) const
-        -> Scalar {
+    -> Scalar {
         if constexpr (Type == ReguType::LogH) {
             return step_size / -calc::calc_potential_energy(particles);
         } else if constexpr (Type == ReguType::TTL) {

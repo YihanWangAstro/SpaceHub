@@ -24,12 +24,12 @@ namespace space::interactions {
     template <typename Particles>
     void Tidal::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
         size_t num = particles.number();
-        auto &p = particles.pos();
-        auto &v = particles.vel();
-        auto &m = particles.mass();
-        auto &k = particles.tide_apsidal_const();
-        auto &tau = particles.tide_lag_time();
-        auto &rad = particles.radius();
+        auto const &p = particles.pos();
+        auto const &v = particles.vel();
+        auto const &m = particles.mass();
+        auto const &k = particles.tide_apsidal_const();
+        auto const &tau = particles.tide_lag_time();
+        auto const &rad = particles.radius();
 
         auto force = [&](auto const &dr, auto const &dv, auto i, auto j) {
             if (k[i] != 0 || k[j] != 0) {

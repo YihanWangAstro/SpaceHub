@@ -268,8 +268,8 @@ void error_scale(std::string const &system_name, const std::string &method_name,
         auto E0 = orbit::E_tot(p);  // calc::calc_total_energy(sim.particles());
 
         args.add_pre_step_operation([&](auto &ptc, auto step_size) {
-            auto err = calc::calc_energy_error(ptc, E0);
-            tot_error += err * err;
+            auto r_err = calc::calc_energy_error(ptc, E0);
+            tot_error += r_err * r_err;
             // std::cout << ' ' << err << ' ' << error_num << ' ' << thid << '\n';
             error_num++;
         });

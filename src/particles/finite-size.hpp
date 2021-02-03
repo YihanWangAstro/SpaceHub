@@ -71,7 +71,7 @@ namespace space::particle_set {
          */
         SizeParticle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                      Scalar vz = 0)
-            : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
+                : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
         friend std::ostream &operator<<(std::ostream &os, SizeParticle const &particle) {
             space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
@@ -151,7 +151,7 @@ namespace space::particle_set {
 
         void clear();
 
-        std::string column_names() const;
+        [[nodiscard]]std::string column_names() const;
 
         template <typename U>
         friend std::ostream &operator<<(std::ostream &os, SizeParticles<U> const &ps);

@@ -38,10 +38,10 @@ namespace space::scattering {
     template <typename Vector>
     class HierarchicalNode {
        public:
-        Vector pos;
-        Vector vel;
-        double mass;
-        size_t weight;
+        Vector pos{0};
+        Vector vel{0};
+        double mass{0};
+        size_t weight{0};
         std::string name;
     };
     /*template <typename Node>
@@ -69,8 +69,8 @@ namespace space::scattering {
     bool check_most_bound(Nodes const &vec, size_t idx, double amin) {
         for (size_t i = 1; i < vec.size(); i++) {
             if (i != idx) {
-                auto [a, e] =
-                    orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
+                auto[a, e] =
+                orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
                 if (0 < a && a < amin) {
                     return false;
                 }
@@ -113,7 +113,7 @@ namespace space::scattering {
             double amin = 1e99;
             size_t idx = 0;
             for (size_t i = 1; i < vec.size(); i++) {
-                auto [a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);
+                auto[a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);
                 if (0 < a && a < amin) {
                     idx = i;
                     amin = a;
@@ -135,11 +135,11 @@ namespace space::scattering {
                     Vector p1 = vec[idx].pos;
                     Vector v1 = vec[idx].vel;
                     if (vec[0].weight < vec[idx].weight) {
-                        vec.emplace_back(Node{(m0 * p0 + m1 * p1) / mt, (m0 * v0 + m1 * p1) / mt, mt,
+                        vec.emplace_back(Node{(m0 * p0 + m1 * p1) / mt, (m0 * v0 + m1 * v1) / mt, mt,
                                               vec[0].weight + vec[idx].weight,
                                               "(" + vec[0].name + "," + vec[idx].name + ")"});
                     } else {
-                        vec.emplace_back(Node{(m0 * p0 + m1 * p1) / mt, (m0 * v0 + m1 * p1) / mt, mt,
+                        vec.emplace_back(Node{(m0 * p0 + m1 * p1) / mt, (m0 * v0 + m1 * v1) / mt, mt,
                                               vec[0].weight + vec[idx].weight,
                                               "(" + vec[idx].name + "," + vec[0].name + ")"});
                     }

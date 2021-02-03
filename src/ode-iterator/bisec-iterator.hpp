@@ -61,11 +61,11 @@ namespace space::ode_iterator {
 
         StepController step_controller_;
 
-        State input_;
+        State input_{0};
 
-        State output_;
+        State output_{0};
 
-        State dual_steps_output_;
+        State dual_steps_output_{0};
 
         size_t var_num_{0};
 
@@ -91,7 +91,7 @@ namespace space::ode_iterator {
     template <CONCEPT_PARTICLE_SYSTEM T>
     auto BisecOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
                                                                              typename T::Scalar macro_step_size) ->
-        typename T::Scalar {
+    typename T::Scalar {
         static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
 
         check_variable_size();

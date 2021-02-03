@@ -27,6 +27,7 @@ License
 #include "../IO.hpp"
 #include "../spacehub-concepts.hpp"
 #include "../vector/vector3.hpp"
+
 namespace space::particle_set {
 
     /*---------------------------------------------------------------------------*\
@@ -146,7 +147,7 @@ namespace space::particle_set {
 
         void clear();
 
-        std::string column_names() const;
+        [[nodiscard]] std::string column_names() const;
 
         template <typename U>
         friend std::ostream &operator<<(std::ostream &os, PointParticles<U> const &ps);
@@ -177,11 +178,11 @@ namespace space::particle_set {
     \*---------------------------------------------------------------------------*/
     template <typename Vec3>
     PointParticle<Vec3>::PointParticle(Scalar m, Vec3 position, Vec3 velocity)
-        : pos(position), vel(velocity), mass(m) {}
+            : pos(position), vel(velocity), mass(m) {}
 
     template <typename Vec3>
     PointParticle<Vec3>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
-        : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
+            : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
     template <typename Vec3>
     std::ostream &operator<<(std::ostream &os, PointParticle<Vec3> const &particle) {

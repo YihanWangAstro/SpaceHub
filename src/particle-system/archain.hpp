@@ -95,7 +95,7 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void read_from_scalar_array(ScalarIterable const &stl_ranges);
 
-        size_t variable_number() const;
+        [[nodiscard]]size_t variable_number() const;
 
         /**
          * @brief
@@ -154,14 +154,14 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
     template <CONCEPT_PARTICLE_CONTAINER STL>
     ARchainSystem<Particles, Interactions, RegType>::ARchainSystem(Scalar time, const STL &particle_set)
-        : Particles(time, particle_set),
-          accels_(particle_set.size()),
-          regu_(static_cast<Particles>(*this)),  // chain_pos that might be invoked by regu is not initialized yet.
-          chain_pos_(particle_set.size()),
-          chain_vel_(particle_set.size()),
-          chain_acc_(particle_set.size()),
-          index_(particle_set.size()),
-          new_index_(particle_set.size()) {
+            : Particles(time, particle_set),
+              accels_(particle_set.size()),
+              regu_(static_cast<Particles>(*this)),  // chain_pos that might be invoked by regu is not initialized yet.
+              chain_pos_(particle_set.size()),
+              chain_vel_(particle_set.size()),
+              chain_acc_(particle_set.size()),
+              index_(particle_set.size()),
+              new_index_(particle_set.size()) {
         Chain::calc_chain_index(this->pos(), index_);
         Chain::calc_chain(this->pos(), chain_pos(), index());
         Chain::calc_chain(this->vel(), chain_vel(), index());
@@ -170,7 +170,7 @@ namespace space::particle_system {
             chain_aux_vel_ = chain_vel_;
         }
         regu_ = std::move(
-            Regularization<TypeSet, RegType>{*this});  // re-construct the regularization with chain coordinates.
+                Regularization<TypeSet, RegType>{*this});  // re-construct the regularization with chain coordinates.
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -313,7 +313,7 @@ namespace space::particle_system {
 
         if constexpr (regu_type == ReguType::TTL) {
             Scalar d_omega_dh =
-                calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
+                    calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
             stl_ranges.emplace_back(d_omega_dh);
         } else {
             stl_ranges.emplace_back(0);
@@ -323,7 +323,7 @@ namespace space::particle_system {
             Interactions::eval_extra_acc(*this, accels_.acc());
             if constexpr (regu_type == ReguType::LogH) {
                 Scalar d_bindE_dh =
-                    -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
+                        -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
                 stl_ranges.emplace_back(d_bindE_dh);
             } else {
                 stl_ranges.emplace_back(0);

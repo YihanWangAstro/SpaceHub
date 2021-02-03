@@ -165,7 +165,7 @@ namespace space::random {
         template <typename Dist, typename... Args>
         Parameter(Dist distribution, Args... args) : dist_{std::bind(distribution, args...)} {}
 
-        double draw() const {
+        [[nodiscard]] double draw() const {
             double r = dist_();
             for (; r < min_ || r > max_;) {
                 r = dist_();

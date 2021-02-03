@@ -147,7 +147,7 @@ namespace space {
 
         template <typename VectorArray>
         static auto get_new_node(VectorArray const &chain, size_t head, size_t tail) ->
-            typename VectorArray::value_type;
+        typename VectorArray::value_type;
 
         template <typename Array, typename IdxArray>
         static void to_chain(Array const &cartesian, Array &chain, IdxArray const &index);
@@ -155,6 +155,7 @@ namespace space {
         template <typename Array, typename IdxArray>
         static void to_cartesian(Array const &chain, Array &cartesian, IdxArray const &index);
     };
+
     /*---------------------------------------------------------------------------*\
           Class Chain Implementation
     \*---------------------------------------------------------------------------*/
