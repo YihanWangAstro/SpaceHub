@@ -41,7 +41,7 @@ namespace space {
      * @return Output stream.
      */
     template <typename Ostream, typename... Args>
-    auto &print(Ostream &os, Args &&... args) {
+    auto &print(Ostream &os, Args &&...args) {
         (os << ... << std::forward<Args>(args));
         return os;
     }
@@ -56,7 +56,7 @@ namespace space {
      * @return Input stream.
      */
     template <typename Istream, typename... Args>
-    auto &input(Istream &istream, Args &&... args) {
+    auto &input(Istream &istream, Args &&...args) {
         (istream >> ... >> std::forward<Args>(args));
         return istream;
     }
@@ -69,7 +69,7 @@ namespace space {
      * @return std::cout.
      */
     template <typename... Args>
-    auto &std_print(Args &&... args) {
+    auto &std_print(Args &&...args) {
         (std::cout << ... << std::forward<Args>(args));
         return std::cout;
     }
@@ -82,7 +82,7 @@ namespace space {
      * @return std::cin.
      */
     template <typename... Args>
-    auto &std_input(Args &&... args) {
+    auto &std_input(Args &&...args) {
         (std::cin >> ... >> std::forward<Args>(args));
         return std::cin;
     }
@@ -99,7 +99,7 @@ namespace space {
      * @return auto& output stream.
      */
     template <typename Ostream, typename Arg, typename... Args>
-    auto &print_csv(Ostream &out, Arg &&arg, Args &&... args) {
+    auto &print_csv(Ostream &out, Arg &&arg, Args &&...args) {
         out << arg;
         (..., (out << ',' << std::forward<Args>(args)));
         return out;
@@ -114,24 +114,24 @@ namespace space {
      * @param[in] args Variables.
      */
     template <typename Ostream, typename... Args>
-    void display(Ostream &out, Args &&... args) {
+    void display(Ostream &out, Args &&...args) {
         (..., (out << std::forward<Args>(args) << ' '));
     }
 
     template <typename... Args>
     std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
         std::apply(
-                [&](auto &&arg, auto &&... args) {
-                    out << arg;
-                    (..., (out << ' ' << args));
-                },
-                tup);
+            [&](auto &&arg, auto &&...args) {
+                out << arg;
+                (..., (out << ' ' << args));
+            },
+            tup);
         return out;
     }
 
     template <typename... Args>
     std::istream &operator>>(std::istream &in, std::tuple<Args...> &&tup) {
-        std::apply([&](auto &&... args) { (..., (in >> args)); }, tup);
+        std::apply([&](auto &&...args) { (..., (in >> args)); }, tup);
         return in;
     }
 

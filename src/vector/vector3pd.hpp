@@ -29,12 +29,13 @@ License
 namespace space {
     template <>
     struct Vec3<double_k> {
-    private:
+       private:
         using T = Vec3<double>;
-    public:
+
+       public:
         using value_type = double_k;
-        union{
-            struct  {
+        union {
+            struct {
                 double x, y, z;
             };
             T real;
@@ -43,11 +44,9 @@ namespace space {
 
         Vec3() : real{}, err{} {};
 
-
         Vec3(T r) : real(r), err(0){};
 
-
-        Vec3(Vec3 const  &k) : real(k.real), err(k.err){};
+        Vec3(Vec3 const &k) : real(k.real), err(k.err){};
 
         /**
          * Assignment operator.
@@ -57,18 +56,13 @@ namespace space {
             return *this;
         }
 
-
         inline operator T() { return real; }
-
 
         inline operator T() const { return real; }
 
-
         inline void zero_err() { err = 0; }
 
-
         friend inline Vec3 operator-(const Vec3 &hs) { return Vec3(-hs.real); }
-
 
         friend inline Vec3 &operator+=(Vec3 &lhs, const Vec3 &rhs) {
             T add = rhs.real - lhs.err;
@@ -126,66 +120,41 @@ namespace space {
             return input;
         }
 
-        Vec3 operator+(double c) const {
-            return Vec3(real + c);
+        Vec3 operator+(double c) const { return Vec3(real + c); }
+
+        Vec3 operator-(double c) const { return Vec3(real - c); }
+
+        Vec3 operator*(double c) const { return Vec3(real * c); }
+
+        Vec3 operator/(double c) { return Vec3(real / c); }
+
+        template <typename U, typename V>
+        friend Vec3 operator+(Vec3<U> const &v1, Vec3<V> const &v2) {
+            return Vec3(static_cast<T>(v1) + static_cast<T>(v2));
         }
 
-
-        Vec3 operator-(double c) const {
-            return Vec3(real - c);
+        template <typename U, typename V>
+        friend Vec3 operator-(Vec3<U> const &v1, Vec3<V> const &v2) {
+            return Vec3(static_cast<T>(v1) - static_cast<T>(v2));
         }
 
-
-        Vec3 operator*(double c) const {
-            return Vec3(real * c);
+        template <typename U, typename V>
+        friend Vec3 operator*(Vec3<U> const &v1, Vec3<V> const &v2) {
+            return Vec3(static_cast<T>(v1) * static_cast<T>(v2));
         }
 
-
-        Vec3 operator/(double c){
-            return Vec3(real / c);
+        template <typename U, typename V>
+        friend Vec3 operator/(Vec3<U> const &v1, Vec3<V> const &v2) {
+            return Vec3(static_cast<T>(v1) / static_cast<T>(v2));
         }
 
+        friend Vec3 operator+(double c, Vec3 const &v2) { return Vec3(c + v2.real); }
 
-        template<typename U, typename V>
-        friend Vec3 operator+(Vec3<U> const& v1, Vec3<V> const& v2){
-            return Vec3(static_cast<T>(v1)+static_cast<T>(v2));
-        }
+        friend Vec3 operator-(double c, Vec3 const &v2) { return Vec3(c - v2.real); }
 
-        template<typename U, typename V>
-        friend Vec3 operator-(Vec3<U> const& v1, Vec3<V> const& v2){
-            return Vec3(static_cast<T>(v1)-static_cast<T>(v2));
-        }
+        friend Vec3 operator*(double c, Vec3 const &v2) { return Vec3(c * v2.real); }
 
-        template<typename U, typename V>
-        friend Vec3 operator*(Vec3<U> const& v1, Vec3<V> const& v2){
-            return Vec3(static_cast<T>(v1)*static_cast<T>(v2));
-        }
-
-        template<typename U, typename V>
-        friend Vec3 operator/(Vec3<U> const& v1, Vec3<V> const& v2){
-            return Vec3(static_cast<T>(v1)/static_cast<T>(v2));
-        }
-
-
-        friend Vec3 operator+(double c, Vec3 const& v2){
-            return Vec3(c+v2.real);
-        }
-
-
-        friend Vec3 operator-(double c, Vec3 const& v2){
-            return Vec3(c-v2.real);
-        }
-
-
-        friend Vec3 operator*(double c, Vec3 const& v2){
-            return Vec3(c*v2.real);
-        }
-
-
-        friend Vec3 operator/(double c, Vec3 const& v2){
-            return Vec3(c/v2.real);
-        }
-
+        friend Vec3 operator/(double c, Vec3 const &v2) { return Vec3(c / v2.real); }
     };
 
 }  // namespace space

@@ -21,9 +21,7 @@ namespace space::octree {
         std::unique_ptr<Node> brd{nullptr};
     };
 
-    enum class region {
-        flu, fld, fru, frd, blu, bld, bru, brd
-    };
+    enum class region { flu, fld, fru, frd, blu, bld, bru, brd };
 
     template <typename T>
     class Octree {

@@ -26,14 +26,14 @@ License
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+#include <algorithm>
+#include <numeric>
 #include <type_traits>
 
 #include "macros.hpp"
 #include "math.hpp"
 #include "spacehub-concepts.hpp"
 #include "vector/vector3.hpp"
-#include <algorithm>
-#include <numeric>
 
 #ifdef __AVX__
 

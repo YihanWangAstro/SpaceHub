@@ -91,7 +91,7 @@ namespace space::ode_iterator {
     template <CONCEPT_PARTICLE_SYSTEM T>
     auto BisecOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
                                                                              typename T::Scalar macro_step_size) ->
-    typename T::Scalar {
+        typename T::Scalar {
         static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
 
         check_variable_size();
@@ -143,16 +143,12 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_atol(Scalar
-    atol) {
-    err_checker_.
-    set_atol(atol);
-}
+    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_atol(Scalar atol) {
+        err_checker_.set_atol(atol);
+    }
 
-template <typename Integrator, typename ErrEstimator, typename StepController>
-void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar
-rtol) {
-err_checker_.
-set_rtol(rtol);
-}
+    template <typename Integrator, typename ErrEstimator, typename StepController>
+    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
+        err_checker_.set_rtol(rtol);
+    }
 }  // namespace space::ode_iterator

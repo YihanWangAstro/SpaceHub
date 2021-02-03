@@ -13,7 +13,7 @@ namespace space::multi_thread {
         ~ConcurrentDeque() { stop(); }
 
         template <typename... Args>
-        void emplace_back(Args &&... args) {
+        void emplace_back(Args &&...args) {
             {
                 std::lock_guard<std::mutex> lock(mutex_);
                 deque_.emplace_back(std::forward<Args>(args)...);
@@ -32,7 +32,7 @@ namespace space::multi_thread {
         }
 
         template <typename... Args>
-        void emplace_front(Args &&... args) {
+        void emplace_front(Args &&...args) {
             {
                 std::lock_guard<std::mutex> lock(mutex_);
                 deque_.emplace_front(std::forward<Args>(args)...);

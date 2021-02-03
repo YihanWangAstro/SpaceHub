@@ -99,9 +99,9 @@ namespace space {
     using DefaultTypes = Types<double, std::vector>;
 
     using DefaultSolver = Simulator<
-            particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
-                    interactions::Interactions<interactions::NewtonianGrav>,
-                    particle_system::ReguType::LogH>,
-            ode_iterator::BulirschStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
-                    ode_iterator::PIDController<DefaultTypes>>>;
+        particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
+                                       interactions::Interactions<interactions::NewtonianGrav>,
+                                       particle_system::ReguType::LogH>,
+        ode_iterator::BulirschStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
+                                    ode_iterator::PIDController<DefaultTypes>>>;
 }  // namespace space

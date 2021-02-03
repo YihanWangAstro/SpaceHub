@@ -47,15 +47,15 @@ namespace space {
         };
         // __attribute__((aligned(32)));
 
-        Vec3() : mm_value(_mm256_setzero_pd()) {};
+        Vec3() : mm_value(_mm256_setzero_pd()){};
 
-        Vec3(double vx, double vy, double vz) : mm_value(_mm256_set_pd(0.0, vz, vy, vx)) {};
+        Vec3(double vx, double vy, double vz) : mm_value(_mm256_set_pd(0.0, vz, vy, vx)){};
 
-        Vec3(double scalar) : mm_value(_mm256_set1_pd(scalar)) {};
+        Vec3(double scalar) : mm_value(_mm256_set1_pd(scalar)){};
 
-        Vec3(__m256d v) : mm_value(v) {};
+        Vec3(__m256d v) : mm_value(v){};
 
-        Vec3(const Vec3 &v) : mm_value(v.mm_value) {};
+        Vec3(const Vec3 &v) : mm_value(v.mm_value){};
 
         /** @brief Addition by wise */
         inline Vec3 operator+(const Vec3 &v) const { return Vec3(_mm256_add_pd(mm_value, v.mm_value)); }

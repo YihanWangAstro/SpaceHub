@@ -41,9 +41,7 @@ namespace space::tools {
     /**
      *
      */
-    enum class ConfigDtype {
-        Integer, Float, String, Empty
-    };
+    enum class ConfigDtype { Integer, Float, String, Empty };
     /*---------------------------------------------------------------------------*\
           Class ConfigReader Declaration
     \*---------------------------------------------------------------------------*/
@@ -54,7 +52,8 @@ namespace space::tools {
        public:
         explicit ConfigReader(std::string const &file_name, char divider = '=', char commenter = '#');
 
-        explicit ConfigReader(char const *file_name, char divider = '=', char commenter = '#');;
+        explicit ConfigReader(char const *file_name, char divider = '=', char commenter = '#');
+        ;
 
         template <typename T>
         T get(std::string const &key);
@@ -86,7 +85,7 @@ namespace space::tools {
     }
 
     ConfigReader::ConfigReader(char const *file_name, char divider, char commenter)
-            : ConfigReader(std::string(file_name), divider, commenter) {}
+        : ConfigReader(std::string(file_name), divider, commenter) {}
 
     template <typename T>
     T ConfigReader::get(std::string const &key) {
@@ -102,7 +101,7 @@ namespace space::tools {
     }
 
     template <typename... Args>
-    void read_command_line(int argc, char **argv, Args &&... args) {
+    void read_command_line(int argc, char **argv, Args &&...args) {
         constexpr size_t n = sizeof...(Args);
 
         if (argc != n + 1) {

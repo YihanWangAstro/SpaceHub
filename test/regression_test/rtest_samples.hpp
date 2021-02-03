@@ -246,7 +246,7 @@ double bench_mark(double end_time, double rtol, std::vector<typename Solver::Par
 }
 
 template <typename Solver>
-void error_scale(const std::string &system_name, const std::string &method_name, double rtol_start, double rtol_end,
+void error_scale(std::string const &system_name, const std::string &method_name, double rtol_start, double rtol_end,
                  double end_time,
                  std::vector<typename Solver::Particle> const &p) {
     using namespace space;
@@ -294,7 +294,7 @@ void error_scale(const std::string &system_name, const std::string &method_name,
 }
 
 template <typename System>
-auto fast_err_methods(const std::string &system_name, System const &system, double t_end) {
+auto fast_err_methods(std::string const &system_name, System const &system, double t_end) {
     double rtol = 1e-15;
     std::vector<double> errs;
     errs.reserve(20);
@@ -313,7 +313,7 @@ auto fast_err_methods(const std::string &system_name, System const &system, doub
 }
 
 template <typename System>
-void bench_mark_methods(std::string system_name, System const &system, double t_end) {
+void bench_mark_methods(std::string const &system_name, System const &system, double t_end) {
     double rtol = 1e-15;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
@@ -341,7 +341,7 @@ void bench_mark_methods(std::string system_name, System const &system, double t_
 }
 
 template <typename System>
-auto err_scale_methods(std::string system_name, System const &system, double t_end) {
+auto err_scale_methods(std::string const &system_name, System const &system, double t_end) {
     error_scale<MethodList::BS>(system_name, "BS", 3e-16, 1e-11, t_end, system);
     error_scale<MethodList::AR>(system_name, "AR", 3e-16, 1e-11, t_end, system);
     error_scale<MethodList::Chain>(system_name, "Chain", 3e-16, 1e-11, t_end, system);

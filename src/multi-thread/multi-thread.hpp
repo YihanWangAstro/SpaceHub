@@ -73,7 +73,7 @@ namespace space::multi_thread {
     }
 
     template <typename Callable, typename... Args>
-    void multi_thread(size_t thread_num, Callable &&job, Args &&... args) {
+    void multi_thread(size_t thread_num, Callable &&job, Args &&...args) {
         std::vector<std::thread> threads;
         threads.reserve(thread_num);
         for (size_t i = 0; i < thread_num; ++i) {
@@ -86,7 +86,7 @@ namespace space::multi_thread {
     }
 
     template <typename Callable, typename... Args>
-    void indexed_multi_thread(size_t thread_num, Callable &&job, Args &&... args) {
+    void indexed_multi_thread(size_t thread_num, Callable &&job, Args &&...args) {
         std::vector<std::thread> threads;
         threads.reserve(thread_num);
         for (size_t i = 0; i < thread_num; ++i) {
@@ -99,12 +99,12 @@ namespace space::multi_thread {
     }
 
     template <typename... Args>
-    void auto_multi_thread(Args &&... args) {
+    void auto_multi_thread(Args &&...args) {
         multi_thread(machine_thread_num, std::forward<Args>(args)...);
     }
 
     template <typename... Args>
-    void auto_indexed_multi_thread(Args &&... args) {
+    void auto_indexed_multi_thread(Args &&...args) {
         indexed_multi_thread(machine_thread_num, std::forward<Args>(args)...);
     }
 
@@ -114,7 +114,7 @@ namespace space::multi_thread {
         inline ConcurrentFile(const std::string &file_name, std::ios_base::openmode mode);
 
         template <typename Callback, typename... Args>
-        auto execute(Callback &&func, Args &&... args);
+        auto execute(Callback &&func, Args &&...args);
 
         inline void flush();
 
@@ -142,7 +142,7 @@ namespace space::multi_thread {
         : ConcurrentFile(file_name.c_str(), mode) {}
 
     template <typename Callback, typename... Args>
-    auto ConcurrentFile::execute(Callback &&func, Args &&... args) {
+    auto ConcurrentFile::execute(Callback &&func, Args &&...args) {
         std::lock_guard<std::mutex> lock(*mutex_);
         return func(*file_, std::forward<Args>(args)...);
     }
@@ -161,7 +161,7 @@ namespace space::multi_thread {
     template <typename... Args>
     std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
         std::apply(
-            [&](auto &&arg, auto &&... args) {
+            [&](auto &&arg, auto &&...args) {
                 out << arg;
                 (..., (out << ' ' << args));
             },

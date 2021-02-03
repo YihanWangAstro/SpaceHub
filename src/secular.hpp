@@ -28,12 +28,8 @@ License
 namespace space::secular {
 
     template <typename T = double>
-    T GW_dadt(){
-      
-    }
+    T GW_dadt() {}
 
     template <typename T = double>
-    T radial_tidal_dadt(T m, T M, T R, T a, T e, T k, T tau) {
-
-    }
+    T radial_tidal_dadt(T m, T M, T R, T a, T e, T k, T tau) {}
 }  // namespace space::secular

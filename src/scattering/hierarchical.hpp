@@ -69,8 +69,8 @@ namespace space::scattering {
     bool check_most_bound(Nodes const &vec, size_t idx, double amin) {
         for (size_t i = 1; i < vec.size(); i++) {
             if (i != idx) {
-                auto[a, e] =
-                orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
+                auto [a, e] =
+                    orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
                 if (0 < a && a < amin) {
                     return false;
                 }
@@ -113,7 +113,7 @@ namespace space::scattering {
             double amin = 1e99;
             size_t idx = 0;
             for (size_t i = 1; i < vec.size(); i++) {
-                auto[a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);
+                auto [a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);
                 if (0 < a && a < amin) {
                     idx = i;
                     amin = a;

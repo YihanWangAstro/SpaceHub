@@ -22,7 +22,7 @@ namespace space::multi_thread {
 
         static ThreadPool &get_instance() {
             static ThreadPool instance{
-                    (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1, 1000};
+                (std::thread::hardware_concurrency() > 1) ? std::thread::hardware_concurrency() : 1, 1000};
             return instance;
         }
 
