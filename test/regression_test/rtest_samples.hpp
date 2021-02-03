@@ -44,7 +44,7 @@ struct MethodList {
     using sim_sys = space::particle_system::SimpleSystem<particles, force>;
 
     using regu_sys =
-        space::particle_system::RegularizedSystem<particles, force, space::particle_system::ReguType::LogH>;
+    space::particle_system::RegularizedSystem<particles, force, space::particle_system::ReguType::LogH>;
 
     using chain_sys = space::particle_system::ChainSystem<particles, force>;
 
@@ -53,20 +53,20 @@ struct MethodList {
     using adsim_sys = space::particle_system::SimpleSystem<adparticles, force>;
 
     using adregu_sys =
-        space::particle_system::RegularizedSystem<adparticles, force, space::particle_system::ReguType::LogH>;
+    space::particle_system::RegularizedSystem<adparticles, force, space::particle_system::ReguType::LogH>;
 
     using adchain_sys = space::particle_system::ChainSystem<adparticles, force>;
 
     using adarch_sys =
-        space::particle_system::ARchainSystem<adparticles, force, space::particle_system::ReguType::LogH>;
+    space::particle_system::ARchainSystem<adparticles, force, space::particle_system::ReguType::LogH>;
 
-    using iter = space::ode_iterator::BurlishStoer<base_integrator, err_estimator, step_controller>;
+    using iter = space::ode_iterator::BulirschStoer<base_integrator, err_estimator, step_controller>;
 
     using ias15_iter = space::ode_iterator::IAS15<space::integrator::GaussRadau<adtype>,
-                                                  space::ode_iterator::IAS15Error<type>, step_controller>;
+            space::ode_iterator::IAS15Error<type>, step_controller>;
 
     using space_iter = space::ode_iterator::BisecOdeIterator<space::integrator::Symplectic6th<type>,
-                                                             space::ode_iterator::WorstOffender<type>, step_controller>;
+            space::ode_iterator::WorstOffender<type>, step_controller>;
 
     using BS = space::Simulator<sim_sys, iter>;
     using AR = space::Simulator<regu_sys, iter>;
@@ -103,17 +103,17 @@ auto outer_solar() {
     using namespace space::unit;
     using namespace space::orbit;
 
-    Particle sun{1.00000597682_Ms,     -4.06428567034226e-3, -6.08813756435987e-3, -1.66162304225834e-6,
+    Particle sun{1.00000597682_Ms, -4.06428567034226e-3, -6.08813756435987e-3, -1.66162304225834e-6,
                  +6.69048890636161e-6, -6.33922479583593e-6, -3.13202145590767e-9};
-    Particle jup{1. / 1047.355,       +3.40546614227466e+0, +3.62978190075864e+0,   +3.42386261766577e-2,
-                 -0.3254242234844626, 0.32078376079804843,  -0.00015504584274327233};
-    Particle sat{1. / 3501.6,          +6.60801554403466e+0, +6.38084674585064e+0, -1.36145963724542e-1,
-                 -0.24261807906125546, 0.23236917361652312,  0.0009720111543216125};
-    Particle ura{1. / 22869.,         +1.11636331405597e+1, +1.60373479057256e+1,  +3.61783279369958e-1,
-                 -0.1894447922304644, 0.12000768830940597,  -0.0012655376696374542};
-    Particle nep{1. / 19314.,          -3.01777243405203e+1, +1.91155314998064e+0, -1.53887595621042e-1,
+    Particle jup{1. / 1047.355, +3.40546614227466e+0, +3.62978190075864e+0, +3.42386261766577e-2,
+                 -0.3254242234844626, 0.32078376079804843, -0.00015504584274327233};
+    Particle sat{1. / 3501.6, +6.60801554403466e+0, +6.38084674585064e+0, -1.36145963724542e-1,
+                 -0.24261807906125546, 0.23236917361652312, 0.0009720111543216125};
+    Particle ura{1. / 22869., +1.11636331405597e+1, +1.60373479057256e+1, +3.61783279369958e-1,
+                 -0.1894447922304644, 0.12000768830940597, -0.0012655376696374542};
+    Particle nep{1. / 19314., -3.01777243405203e+1, +1.91155314998064e+0, -1.53887595621042e-1,
                  -0.01264216568441132, -0.18100181375010865, 0.0020831452402001265};
-    Particle plu{7.4074074e-09,        -2.13858977531573e+1, +3.20719104739886e+1, +2.49245689556096e+0,
+    Particle plu{7.4074074e-09, -2.13858977531573e+1, +3.20719104739886e+1, +2.49245689556096e+0,
                  -0.10285755114348066, -0.12017192726456442, 0.038256490292647924};
 
     move_to_COM_frame(sun, jup, sat, ura, nep);
@@ -194,13 +194,13 @@ double basic_error_test(std::string const &fname, double end_time, double rtol,
 
     // args.atol = args.rtol;
     args.add_operation(TimeSlice(
-        [&](auto &ptc, auto step_size) {
-            auto err = calc::calc_energy_error(ptc, E0);
-            tot_error += err * err;
-            error_num++;
-            err_file << ptc.time() << ',' << err << '\n';
-        },
-        0, end_time));
+            [&](auto &ptc, auto step_size) {
+                auto err = calc::calc_energy_error(ptc, E0);
+                tot_error += err * err;
+                error_num++;
+                err_file << ptc.time() << ',' << err << '\n';
+            },
+            0, end_time));
 
     // args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
 
@@ -246,7 +246,8 @@ double bench_mark(double end_time, double rtol, std::vector<typename Solver::Par
 }
 
 template <typename Solver>
-void error_scale(std::string system_name, std::string method_name, double rtol_start, double rtol_end, double end_time,
+void error_scale(const std::string &system_name, const std::string &method_name, double rtol_start, double rtol_end,
+                 double end_time,
                  std::vector<typename Solver::Particle> const &p) {
     using namespace space;
     using namespace run_operations;
@@ -293,7 +294,7 @@ void error_scale(std::string system_name, std::string method_name, double rtol_s
 }
 
 template <typename System>
-auto fast_err_methods(std::string system_name, System const &system, double t_end) {
+auto fast_err_methods(const std::string &system_name, System const &system, double t_end) {
     double rtol = 1e-15;
     std::vector<double> errs;
     errs.reserve(20);
@@ -302,7 +303,7 @@ auto fast_err_methods(std::string system_name, System const &system, double t_en
     errs.push_back(basic_error_test<MethodList::Chain>(system_name + "-Chain", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::AR_chain>(system_name + "-AR-chain", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::AR_chain_plus>(system_name + "-AR-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::IAS15>(system_name + "Radau+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::IAS15>(system_name + "-Radau+", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::C_IAS15>(system_name + "-Radau-chain+", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::AR_IAS15>(system_name + "-AR-Radau+", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::ARC_IAS15>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
@@ -316,7 +317,7 @@ void bench_mark_methods(std::string system_name, System const &system, double t_
     double rtol = 1e-15;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
-    std::vector<std::string> names{"BS",     "AR",           "Chain",     "AR-chain",        "AR-chain+",
+    std::vector<std::string> names{"BS", "AR", "Chain", "AR-chain", "AR-chain+",
                                    "Radau+", "Radau-chain+", "AR-Radau+", "AR-Radau-chain+", "AR-sym6-chain+",
                                    "AR-sym6"};
     std::vector<double> errs = fast_err_methods(system_name, system, t_end);

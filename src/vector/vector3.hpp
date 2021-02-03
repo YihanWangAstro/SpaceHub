@@ -35,7 +35,7 @@ namespace space {
      * */
     template <typename T>
     struct Vec3 {
-    public:
+       public:
         /* Typedef */
         using value_type = T;
         /* Typedef */
@@ -92,7 +92,7 @@ namespace space {
             return Vec3(x * v.x, y * v.y, z * v.z);
         }
 
-        /** Divition by wise */
+        /** Division by wise */
         template <typename U>
         inline Vec3 operator/(const Vec3<U> &v) const {
             return Vec3(x / v.x, y / v.y, z / v.z);
@@ -238,7 +238,7 @@ namespace space {
         return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
     }
 
-    /**  Calculate the inverse lenght of a vector*/
+    /**  Calculate the inverse length of a vector*/
     template <typename T>
     inline T re_norm(const Vec3<T> &v) {
         return 1.0 / sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
@@ -303,5 +303,5 @@ namespace space {
     using vec3b = Vec3<bool>;
 }  // namespace space
 
-//#include "vector3d.hpp"   //Specilization of Vec3<double> with AVX;
-//#include "vector3pd.hpp"  //Specilization of Vec3<double_k> ;
+//#include "vector3d.hpp"   //Specialization of Vec3<double> with AVX;
+//#include "vector3pd.hpp"  //Specialization of Vec3<double_k> ;

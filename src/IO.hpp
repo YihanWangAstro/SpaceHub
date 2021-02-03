@@ -106,7 +106,7 @@ namespace space {
     }
 
     /**
-     * @brief Print space seperated value to an ostream.
+     * @brief Print space separated value to an ostream.
      *
      * @tparam Ostream Type of ostream.
      * @tparam Args Variadic type(any).
@@ -121,11 +121,11 @@ namespace space {
     template <typename... Args>
     std::ostream &operator<<(std::ostream &out, std::tuple<Args...> const &tup) {
         std::apply(
-            [&](auto &&arg, auto &&... args) {
-                out << arg;
-                (..., (out << ' ' << args));
-            },
-            tup);
+                [&](auto &&arg, auto &&... args) {
+                    out << arg;
+                    (..., (out << ' ' << args));
+                },
+                tup);
         return out;
     }
 

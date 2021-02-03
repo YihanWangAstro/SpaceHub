@@ -5,11 +5,12 @@
 #pragma once
 
 #include <memory>
+
 namespace space::octree {
 
     template <typename T>
     class Node {
-        T* data{nullptr};
+        T *data{nullptr};
         std::unique_ptr<Node> flu{nullptr};
         std::unique_ptr<Node> fld{nullptr};
         std::unique_ptr<Node> fru{nullptr};
@@ -20,22 +21,24 @@ namespace space::octree {
         std::unique_ptr<Node> brd{nullptr};
     };
 
-    enum class region { flu, fld, fru, frd, blu, bld, bru, brd };
+    enum class region {
+        flu, fld, fru, frd, blu, bld, bru, brd
+    };
 
     template <typename T>
     class Octree {
        public:
         using value_type = T;
 
-        template <typename STL>
-        Octree(STL& stl) {
-            for (auto& d : stl) {
+        template <typename ParticleIterable>
+        Octree(STL &stl) {
+            for (auto &d : stl) {
                 insert();
             }
         }
 
        private:
-        void insert(std::unique_ptr<Node<T>>& node, T const& data) {
+        void insert(std::unique_ptr<Node<T>> &node, T const &data) {
             if (node == nullptr) {
                 node = std::make_unique<Node<T>>();
                 node.data = &data;
@@ -71,7 +74,7 @@ namespace space::octree {
         }
 
         template <typename Vector>
-        region get_region(Vector const& loc, Vector const& p) {
+        region get_region(Vector const &loc, Vector const &p) {
             if (p.x > loc.x) {
                 if (p.y > loc.y) {
                     if (p.z > loc.z) {

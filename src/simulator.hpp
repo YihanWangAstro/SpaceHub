@@ -137,7 +137,7 @@ namespace space {
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to start point and every post-step.
          *
-         * @tparam Func Callable type that is conversional to member type Callback.
+         * @tparam Func Callable type that is convertible to member type Callback.
          * @tparam Args Type of the binding arguments.
          * @param[in] func Callable object.
          * @param[in] args Binding arguments.If func accepts more than one arguments, you can bind the rest arguments
@@ -149,7 +149,7 @@ namespace space {
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.
          *
-         * @tparam Func Callable type that is conversional to member type Callback.
+         * @tparam Func Callable type that is convertible to member type Callback.
          * @tparam Args Type of the binding arguments.
          * @param[in] func Callable object.
          * @param[in] args Binding arguments.If func accepts more than one arguments, you can bind the rest arguments
@@ -161,7 +161,7 @@ namespace space {
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.
          *
-         * @tparam Func Callable type that is conversional to member type Callback.
+         * @tparam Func Callable type that is convertible to member type Callback.
          * @tparam Args Type of the binding arguments.
          * @param[in] func Callable object.
          * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments
@@ -173,7 +173,7 @@ namespace space {
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.
          *
-         * @tparam Func Callable type that is conversional to member type Callback.
+         * @tparam Func Callable type that is convertible to member type Callback.
          * @tparam Args Type of the binding arguments.
          * @param[in] func Callable object.
          * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments
@@ -185,7 +185,7 @@ namespace space {
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to start-point-operations.
          *
-         * @tparam Func Callable type that is conversional to member type Callback.
+         * @tparam Func Callable type that is convertible to member type Callback.
          * @tparam Args Type of the binding arguments.
          * @param[in] func Callable object.
          * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments
@@ -197,7 +197,7 @@ namespace space {
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to stop conditions.
          *
-         * @tparam Func Callable type that is conversional to member type Stopback.
+         * @tparam Func Callable type that is convertible to member type Stopback.
          * @tparam Args Type of the binding arguments.
          * @param[in] func Callable object.
          * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments
@@ -362,15 +362,16 @@ namespace space {
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_operation(Func func, Args &&...args) {
         start_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 
         post_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 
         // if func is a time/step sliced callable object, force to invoke it at endpoint.
         if constexpr (HAS_METHOD(Func, operation)) {
             stop_opts_.emplace_back(
-                std::bind(func.operation(), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                    std::bind(func.operation(), std::placeholders::_1, std::placeholders::_2,
+                              std::forward<Args>(args)...));
         }
     }
 
@@ -378,19 +379,20 @@ namespace space {
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&...args) {
         pre_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&...args) {
         post_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
 
         // if func is a time/step sliced callable object, force to invoke it at endpoint.
         if constexpr (HAS_METHOD(Func, operation)) {
             stop_opts_.emplace_back(
-                std::bind(func.operation(), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                    std::bind(func.operation(), std::placeholders::_1, std::placeholders::_2,
+                              std::forward<Args>(args)...));
         }
     }
 
@@ -398,21 +400,21 @@ namespace space {
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_stop_point_operation(Func func, Args &&...args) {
         stop_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_start_point_operation(Func func, Args &&...args) {
         start_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_stop_condition(Func func, Args &&...args) {
         stop_cond_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
+                std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
@@ -427,71 +429,82 @@ namespace space {
     \*---------------------------------------------------------------------------*/
     template <typename ParticleSys, typename OdeIterator>
     template <CONCEPT_PARTICLE_CONTAINER STL>
-    Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, const STL &particle_set)
-        : particles_(time, particle_set) {}
+    Simulator<ParticleSys, OdeIterator>::Simulator(Scalar
+    time,
+    const STL &particle_set
+    )
+    :
+    particles_(time, particle_set
+    ) {
+}
 
-    template <typename ParticleSys, typename OdeIterator>
-    template <typename... T>
-    Simulator<ParticleSys, OdeIterator>::Simulator(Scalar time, T const &...particle)
-        : Simulator(time, std::initializer_list<Particle>{particle...}) {
-        static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particles type!");
+template <typename ParticleSys, typename OdeIterator>
+template <typename... T>
+Simulator<ParticleSys, OdeIterator>::Simulator(Scalar
+time,
+T const &...particle
+)
+:
+Simulator(time, std::initializer_list<Particle>{particle...}
+) {
+static_assert(calc::all(std::is_same_v<T, Particle>...), "Wrong particles type!");
+}
+
+template <typename ParticleSys, typename OdeIterator>
+void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
+    if (!run_args.is_stop_condition_set() && !run_args.is_end_time_set()) {
+        space::spacehub_abort("Use 'add_stop_condition' to set stop condition.");
     }
 
-    template <typename ParticleSys, typename OdeIterator>
-    void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
-        if (!run_args.is_stop_condition_set() && !run_args.is_end_time_set()) {
-            space::spacehub_abort("Use 'add_stop_condition' to set stop condition.");
-        }
+    step_size_ = run_args.step_size;
 
-        step_size_ = run_args.step_size;
-
-        if (step_size_ == 0.0) {
-            step_size_ = 0.1 * calc::calc_step_scale(particles_) *
-                         calc::calc_fall_free_time(particles_.mass(), particles_.pos());
-        }
-
-        Scalar end_time = space::unit::T_hubble;
-
-        if (run_args.is_end_time_set()) {
-            end_time = run_args.end_time;
-        }
-
-        if (particles_.time() >= end_time) {
-            space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
-        }
-
-        if constexpr (HAS_METHOD(OdeIterator, set_atol, Scalar)) {
-            iterator_.set_atol(run_args.atol);
-        }
-
-        if constexpr (HAS_METHOD(OdeIterator, set_rtol, Scalar)) {
-            iterator_.set_rtol(run_args.rtol);
-        }
-
-        run_args.start_operations(particles_, step_size_);
-        for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
-            Scalar rest_step = (end_time - particles_.time()) * calc::calc_step_scale(particles_);
-            if (step_size_ <= rest_step) [[likely]] {
-                run_args.pre_operations(particles_, step_size_);
-                advance_one_step();
-                run_args.post_operations(particles_, step_size_);
-            } else {
-                step_size_ = rest_step;
-                run_args.pre_operations(particles_, step_size_);
-                advance_one_step();
-                run_args.post_operations(particles_, step_size_);
-                break;  // to avoid inf loop for regularized method.
-            }
-        }
-        run_args.stop_operations(particles_, step_size_);
-        // std::cout << "reject rate:" << iterator_.reject_rate() << "\n";
+    if (step_size_ == 0.0) {
+        step_size_ = 0.1 * calc::calc_step_scale(particles_) *
+                     calc::calc_fall_free_time(particles_.mass(), particles_.pos());
     }
 
-    template <typename ParticleSys, typename OdeIterator>
-    inline void Simulator<ParticleSys, OdeIterator>::advance_one_step() {
-        particles_.pre_iter_process();
-        step_size_ = iterator_.iterate(particles_, step_size_);
-        particles_.post_iter_process();
+    Scalar end_time = space::unit::T_hubble;
+
+    if (run_args.is_end_time_set()) {
+        end_time = run_args.end_time;
     }
+
+    if (particles_.time() >= end_time) {
+        space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
+    }
+
+    if constexpr (HAS_METHOD(OdeIterator, set_atol, Scalar)) {
+        iterator_.set_atol(run_args.atol);
+    }
+
+    if constexpr (HAS_METHOD(OdeIterator, set_rtol, Scalar)) {
+        iterator_.set_rtol(run_args.rtol);
+    }
+
+    run_args.start_operations(particles_, step_size_);
+    for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
+        Scalar rest_step = (end_time - particles_.time()) * calc::calc_step_scale(particles_);
+        if (step_size_ <= rest_step) [[likely]] {
+            run_args.pre_operations(particles_, step_size_);
+            advance_one_step();
+            run_args.post_operations(particles_, step_size_);
+        } else {
+            step_size_ = rest_step;
+            run_args.pre_operations(particles_, step_size_);
+            advance_one_step();
+            run_args.post_operations(particles_, step_size_);
+            break;  // to avoid inf loop for regularized method.
+        }
+    }
+    run_args.stop_operations(particles_, step_size_);
+    // std::cout << "reject rate:" << iterator_.reject_rate() << "\n";
+}
+
+template <typename ParticleSys, typename OdeIterator>
+inline void Simulator<ParticleSys, OdeIterator>::advance_one_step() {
+    particles_.pre_iter_process();
+    step_size_ = iterator_.iterate(particles_, step_size_);
+    particles_.post_iter_process();
+}
 
 }  // namespace space

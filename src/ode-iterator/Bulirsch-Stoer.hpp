@@ -18,7 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file Burlish-Stoer.hpp
+ * @file Bulirsch-Stoer.hpp
  *
  * Header file.
  */
@@ -38,14 +38,14 @@ License
 namespace space::ode_iterator {
 
     /*---------------------------------------------------------------------------*\
-         Class BurlishStoerConsts Declaration
+         Class BulirschStoerConsts Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * @tparam T
      * @tparam MaxIter
      */
     template <typename T, size_t MaxIter, bool IsKDK>
-    class BurlishStoerConsts {
+    class BulirschStoerConsts {
        public:
         using Scalar = T;
 
@@ -61,13 +61,13 @@ namespace space::ode_iterator {
 
         constexpr inline Scalar table_coef(size_t i, size_t j) const { return extrap_coef_[at(i, j)]; };
 
-        constexpr explicit BurlishStoerConsts();
+        constexpr explicit BulirschStoerConsts();
 
        private:
         [[nodiscard]] inline size_t at(size_t i, size_t j) const { return i * MaxIter + j; };
 
         /** @brief Extrapolation coefficient.*/
-        std::array<Scalar, MaxIter *(MaxIter)> extrap_coef_;
+        std::array<Scalar, MaxIter * (MaxIter)> extrap_coef_;
 
         /** @brief The work(computation resource) per step size of each iteration depth.*/
         std::array<size_t, MaxIter> cost_;
@@ -77,7 +77,7 @@ namespace space::ode_iterator {
     };
 
     /*---------------------------------------------------------------------------*\
-         Class BurlishStoer Declaration
+         Class BulirschStoer Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * @tparam Real
@@ -85,21 +85,21 @@ namespace space::ode_iterator {
      * @tparam StepController
      */
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    class BurlishStoer {
+    class BulirschStoer {
        public:
         static constexpr size_t max_depth{7};
 
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
 
         using BSConsts =
-            BurlishStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
+        BulirschStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
 
         using State = ScalarArray;
 
         static constexpr size_t max_try_num{100};
 
         template <CONCEPT_PARTICLE_SYSTEM U>
-        Scalar iterate(U &particles, typename U::Scalar macro_step_size);
+        Scalar iterate(U &particles, Scalar macro_step_size);
 
         Scalar iterate(std::function<void(State const &, State &, Scalar)> func, State &data, Scalar &time,
                        Scalar step_size);
@@ -134,7 +134,8 @@ namespace space::ode_iterator {
         Scalar get_next_step_len(size_t k_new, size_t k) const;
 
        private:
-        /** @brief The constat coef for BS extrapolation*/
+        using EvaluateFun = std::function<void(State const &, State &, Scalar)>;
+        /** @brief The constant coef for BS extrapolation*/
         BSConsts parameters_;
 
         /** @brief Extrapolation table.*/
@@ -170,10 +171,10 @@ namespace space::ode_iterator {
     };
 
     /*---------------------------------------------------------------------------*\
-         Class BurlishStoerConsts Implementation
+         Class BulirschStoerConsts Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Scalar, size_t MaxIter, bool IsKDK>
-    constexpr BurlishStoerConsts<Scalar, MaxIter, IsKDK>::BurlishStoerConsts() {
+    constexpr BulirschStoerConsts<Scalar, MaxIter, IsKDK>::BulirschStoerConsts() {
         for (size_t i = 0; i < MaxIter; ++i) {
             sub_steps_[i] = 2 * (i + 1);
 
@@ -185,7 +186,7 @@ namespace space::ode_iterator {
 
             for (size_t j = 0; j < MaxIter; ++j) {
                 if (j < i) {
-                    // Scalar ratio = static_cast<Scalar>(sub_steps_[i]) / static_cast<Scalar>(sub_steps_[i - j - 1]);
+                    // Scalar ratio = static_cast<Scalar>(h_[i]) / static_cast<Scalar>(h_[i - j - 1]);
                     // extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
                     double nj2 = sub_steps_[i - j - 1] * sub_steps_[i - j - 1];
                     double ni2 = sub_steps_[i] * sub_steps_[i];
@@ -198,12 +199,11 @@ namespace space::ode_iterator {
     }
 
     /*---------------------------------------------------------------------------*\
-         Class BurlishStoer Implementation
+         Class BulirschStoer Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    auto BurlishStoer<Integrator, ErrEstimator, StepController>::iterate(
-        std::function<void(State const &, State &, Scalar)> func, State &data, Scalar &time, Scalar step_size)
-        -> Scalar {
+    auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(EvaluateFun func, State &data, Scalar &time,
+                                                                          Scalar step_size) -> Scalar {
         Scalar iter_h = step_size;
         input_ = data;
 
@@ -247,8 +247,8 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <CONCEPT_PARTICLE_SYSTEM U>
-    auto BurlishStoer<Integrator, ErrEstimator, StepController>::iterate(U &particles,
-                                                                         typename U::Scalar macro_step_size) -> Scalar {
+    auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(U &particles, Scalar macro_step_size)
+    -> Scalar {
         Scalar iter_h = macro_step_size;
         particles.write_to_scalar_array(input_);
         check_variable_size();
@@ -294,17 +294,17 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::set_atol(Scalar atol) {
+    void BulirschStoer<Integrator, ErrEstimator, StepController>::set_atol(Scalar atol) {
         err_checker_.set_atol(atol);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
+    void BulirschStoer<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
         err_checker_.set_rtol(rtol);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::check_variable_size() {
+    void BulirschStoer<Integrator, ErrEstimator, StepController>::check_variable_size() {
         var_num_ = input_.size();
         if (var_num_ > extrap_list_[0].size()) [[unlikely]] {
             for (auto &v : extrap_list_) {
@@ -316,9 +316,9 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <CONCEPT_PARTICLE_SYSTEM U>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(U &particles,
-                                                                                      Scalar macro_step_size,
-                                                                                      size_t steps) {
+    void BulirschStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(U &particles,
+                                                                                       Scalar macro_step_size,
+                                                                                       size_t steps) {
         size_t num_drift = steps / 2;
         Scalar h = macro_step_size / num_drift;
 
@@ -339,14 +339,14 @@ namespace space::ode_iterator {
             particles.drift(h);
             particles.kick(0.5 * h);
         } else {
-            static_assert(true, "Burlish-Stoer Undefined embeded integration method");
+            static_assert(true, "Burlish-Stoer Undefined embedded integration method");
         }
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(
-        std::function<void(State const &, State &, Scalar)> func, State &data_out, Scalar &time, Scalar step_size,
-        size_t steps) {
+    void BulirschStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(EvaluateFun func,
+                                                                                       State &data_out, Scalar &time,
+                                                                                       Scalar step_size, size_t steps) {
         data_out = input_;
         Scalar h = step_size / steps;
         State dxdt(input_.size());
@@ -368,41 +368,41 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BurlishStoer<Integrator, ErrEstimator, StepController>::extrapolate(size_t k) {
+    void BulirschStoer<Integrator, ErrEstimator, StepController>::extrapolate(size_t k) {
         for (size_t j = k; j > 0; --j) {
 #pragma omp parallel for
             for (size_t i = 0; i < var_num_; ++i) {
                 extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) *
-                                                                  parameters_.table_coef(k, k - j);
+                                                              parameters_.table_coef(k, k - j);
             }
         }
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    bool BurlishStoer<Integrator, ErrEstimator, StepController>::in_converged_window(size_t k) {
+    bool BulirschStoer<Integrator, ErrEstimator, StepController>::in_converged_window(size_t k) {
         return k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1;
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    size_t BurlishStoer<Integrator, ErrEstimator, StepController>::allowed(size_t i) const {
+    size_t BulirschStoer<Integrator, ErrEstimator, StepController>::allowed(size_t i) const {
         return math::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    auto BurlishStoer<Integrator, ErrEstimator, StepController>::get_next_step_len(size_t k_new, size_t k) const
-        -> Scalar {
+    auto BulirschStoer<Integrator, ErrEstimator, StepController>::get_next_step_len(size_t k_new, size_t k) const
+    -> Scalar {
         if (k_new <= k) {
             return ideal_step_size_[k_new];
         } else if (k_new == k + 1) {
             return ideal_step_size_[k] * static_cast<Scalar>(parameters_.cost(k + 1)) /
                    static_cast<Scalar>(parameters_.cost(k));
         } else {
-            spacehub_abort("unexcepted order!");
+            spacehub_abort("unexpected order!");
         }
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    auto BurlishStoer<Integrator, ErrEstimator, StepController>::set_next_iteration(size_t k) -> Scalar {
+    auto BulirschStoer<Integrator, ErrEstimator, StepController>::set_next_iteration(size_t k) -> Scalar {
         if (k == ideal_rank_ - 1 || k == ideal_rank_) [[likely]] {
             if (cost_per_len_[k - 1] < BSConsts::dec_factor * cost_per_len_[k]) [[unlikely]] {
                 ideal_rank_ = allowed(k - 1);
@@ -428,7 +428,7 @@ namespace space::ode_iterator {
     }  // namespace space::ode_iterator
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    bool BurlishStoer<Integrator, ErrEstimator, StepController>::is_diverged_anyhow(Scalar error, size_t k) const {
+    bool BulirschStoer<Integrator, ErrEstimator, StepController>::is_diverged_anyhow(Scalar error, size_t k) const {
         Scalar r = 1.0;
         if (k == ideal_rank_ - 1) {
             r = static_cast<Scalar>(parameters_.step_sequence(k + 1) * parameters_.step_sequence(k + 2)) /
@@ -439,4 +439,5 @@ namespace space::ode_iterator {
         }  // else k == iterDepth+1 and error >1 reject directly
         return error > r * r;
     }
+
 }  // namespace space::ode_iterator

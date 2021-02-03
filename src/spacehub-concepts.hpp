@@ -241,7 +241,7 @@ namespace space::concepts {
 #define CONCEPT_INTERACTION concepts::Interaction
 #define CONCEPT_PARTICLE_CONTAINER concepts::ParticleContainer
 #define CONCEPT_FORCE concepts::Force
-#define CONCEPT_STEP_CONTROLER concepts::StepControler
+#define CONCEPT_STEP_CONTROLLER concepts::StepControler
 
 #else
 
@@ -253,5 +253,5 @@ namespace space::concepts {
 #define CONCEPT_INTERACTION typename
 #define CONCEPT_PARTICLE_CONTAINER typename
 #define CONCEPT_FORCE typename
-#define CONCEPT_STEP_CONTROLER typename
+#define CONCEPT_STEP_CONTROLLER typename
 #endif

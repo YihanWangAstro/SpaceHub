@@ -51,7 +51,7 @@ License
 #include "kahan-number.hpp"
 #include "macros.hpp"
 #include "multi-thread/multi-thread.hpp"
-#include "ode-iterator/Burlish-Stoer.hpp"
+#include "ode-iterator/Bulirsch-Stoer.hpp"
 #include "ode-iterator/IAS15.hpp"
 #include "ode-iterator/bisec-iterator.hpp"
 #include "ode-iterator/const-iterator.hpp"
@@ -99,9 +99,9 @@ namespace space {
     using DefaultTypes = Types<double, std::vector>;
 
     using DefaultSolver = Simulator<
-        particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
-                                       interactions::Interactions<interactions::NewtonianGrav>,
-                                       particle_system::ReguType::LogH>,
-        ode_iterator::BurlishStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
-                                   ode_iterator::PIDController<DefaultTypes>>>;
+            particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
+                    interactions::Interactions<interactions::NewtonianGrav>,
+                    particle_system::ReguType::LogH>,
+            ode_iterator::BulirschStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
+                    ode_iterator::PIDController<DefaultTypes>>>;
 }  // namespace space

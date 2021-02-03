@@ -165,7 +165,7 @@ namespace space::math {
     };
 
     /**
-     * @brief A big value of a specifi type.
+     * @brief A big value of a specific type.
      *
      * 0.1 max_value_v
      *
@@ -205,7 +205,7 @@ namespace space::math {
     /**
      * @brief find root use bisection method
      *
-     * @tparam Fun Type of Callable ojbect.
+     * @tparam Fun Type of Callable object.
      * @param f Callable object
      * @param low Lower limit of root range
      * @param high Upper limit of root range

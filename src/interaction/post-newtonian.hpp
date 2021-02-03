@@ -65,7 +65,7 @@ namespace space::interactions {
     constexpr double INV_C5 = INV_C2 * INV_C3;
 
     /*---------------------------------------------------------------------------*\
-          Class PN1 Implememtation
+          Class PN1 Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Particles>
     void PN1::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
@@ -134,7 +134,7 @@ namespace space::interactions {
     }
 
     /*---------------------------------------------------------------------------*\
-              Class PN2 Implememtation
+              Class PN2 Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Particles>
     void PN2::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
@@ -220,7 +220,7 @@ namespace space::interactions {
     }
 
     /*---------------------------------------------------------------------------*\
-          Class PN2.5 Implememtation
+          Class PN2.5 Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Particles>
     void PN2p5::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {

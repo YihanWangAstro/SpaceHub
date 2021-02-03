@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
 
     using step_controller = PIDController<type>;
 
-    using iter = BurlishStoer<base_integrator, err_estimator, step_controller>;
+    using iter = BulirschStoer<base_integrator, err_estimator, step_controller>;
 
     using ias15_iter = IAS15<integrator::GaussRadau<type>, IAS15Error<type>, step_controller>;
 

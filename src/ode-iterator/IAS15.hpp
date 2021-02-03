@@ -23,13 +23,13 @@ namespace space::ode_iterator {
     class IAS15 {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
-        static_assert(std::is_same_v<Integrator, integrator::GaussRadau<TypeSet>>,
-                      "IAS15 iterator only works with GaussRadau integrator!");
+        static_assert(std::is_same_v<Integrator, integrator::GaussRadau < TypeSet>>,
+        "IAS15 iterator only works with GaussRadau integrator!");
 
         IAS15();
 
         template <typename U>
-        Scalar iterate(U &particles, typename U::Scalar macro_step_size);
+        Scalar iterate(U &particles, Scalar macro_step_size);
 
        private:
         inline void reset_PC_iteration();
@@ -60,27 +60,27 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <typename U>
-    auto IAS15<Integrator, ErrEstimator, StepController>::iterate(U &particles, typename U::Scalar macro_step_size)
-        -> Scalar {
+    auto IAS15<Integrator, ErrEstimator, StepController>::iterate(U &particles, Scalar macro_step_size)
+    -> Scalar {
         Scalar iter_h = macro_step_size;
         integrator_.check_particle_size(particles.variable_number());
         // integrator_.check_particle_size(particles.number());
         for (size_t k = 0; k < max_iter_; ++k) {
-            integrator_.calc_B_table(particles, iter_h);
+            integrator_.calc_b_table(particles, iter_h);
             if (in_converged_window(k)) {
-                Scalar error = err_checker_.error(integrator_.last_acc(), integrator_.b_tab()[6]);
+                Scalar error = err_checker_.error(integrator_.y_h(), integrator_.b()[6]);
 
                 Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
 
                 if (error < 1) {
                     integrator_.integrate_at_end(particles, iter_h);
-                    integrator_.predict_new_B(new_iter_h / iter_h);
+                    integrator_.predict_new_b(new_iter_h / iter_h);
                     last_error_ = error;
                     warmed_up = true;
                     return new_iter_h;
                 } else {
                     if (warmed_up) {
-                        integrator_.predict_new_B(new_iter_h / iter_h);
+                        integrator_.predict_new_b(new_iter_h / iter_h);
                     }
                     iter_h = new_iter_h;
                     k = 0;
@@ -100,7 +100,7 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     bool IAS15<Integrator, ErrEstimator, StepController>::in_converged_window(size_t k) {
-        Scalar PC_error = PC_err_checker_.error(integrator_.last_acc(), integrator_.diff_b6());
+        Scalar PC_error = PC_err_checker_.error(integrator_.y_h(), integrator_.diff_b6());
         // space::print(std::cout, k, ':', PC_error, '\n', integrator_.last_acc(), "\n\n", integrator_.diff_b6(),
         //             "\n-------------\n\n");
         // space::print(std::cout, k, '\n');
