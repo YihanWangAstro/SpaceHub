@@ -189,6 +189,18 @@ namespace space::calc {
         }*/
     }
 
+    template <typename Array1, typename Array2, typename Array3,typename Scalar>
+    void array_scale_add(Array1 &dst, Array2 const &a,  Array3 const &b, Scalar c) {
+        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [=](auto x, auto y) { return (x + y)*c; });
+    }
+
+    template <typename Array1, typename Array2, typename Array3, typename Scalar>
+    void array_scale_add(Array1 &dst, Array2 const &a, Scalar b, Array3 const &c, Scalar d) {
+        std::transform(a.begin(), a.end(), c.begin(), dst.begin(), [=](auto x, auto y) { return x*b + y*d; });
+    }
+
+
+
     template <typename Array1, typename Array2, typename Scalar>
     void array_div_scale(Array1 &dst, Array2 const &a, Scalar scale) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
@@ -230,6 +242,11 @@ namespace space::calc {
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] - b[i];
         }*/
+    }
+
+    template <typename Array1, typename Array2, typename Array3,typename Scalar>
+    void array_scale_sub(Array1 &dst, Array2 const &a,  Array3 const &b, Scalar c) {
+        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [=](auto x, auto y) { return (x - y)*c; });
     }
 
     template <typename Array1, typename Array2, typename Array3>

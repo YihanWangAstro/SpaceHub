@@ -31,6 +31,8 @@ namespace space::integrator {
 
         [[nodiscard]] inline static constexpr double dy_tab(size_t stage, size_t i) { return dy_tab_[stage][i]; }
 
+        [[nodiscard]] inline static constexpr double dy_p(size_t stage, size_t i) { return dy_p_[stage][i]; }
+
         template <typename Tab1, typename Tab2>
         static void transform_g2b(Tab1 const &G, Tab2 &B);
 
@@ -124,6 +126,39 @@ namespace space::integrator {
             {1, 0.5, 0.333333333333333333333333333334, 0.250000000000000000000000000000,
              0.200000000000000000000000000000, 0.166666666666666666666666666667, 0.142857142857142857142857142857,
              0.125000000000000000000000000000}};
+
+        static constexpr double dy_p_[8][8] = {
+            {0.0562625605369221464656521910318, 0.0281312802684610732328260955159, 0.0375083736912814309771014606879,
+             0.0421969204026916098492391432738, 0.0450100484295377171725217528254, 0.0468854671141017887213768258598,
+             0.0482250518887904112562733065987, 0.0492297404698068781574456671528},
+
+            {0.180240691736892364987579942780, 0.0901203458684461824937899713900, 0.120160461157928243325053295187,
+             0.135180518802669273740684957085, 0.144192553389513891990063954224, 0.150200576447410304156316618983,
+             0.154492021488764884275068522383, 0.157710605269780819364132449932},
+
+            {0.352624717113169637373907769648, 0.176312358556584818686953884824, 0.235083144742113091582605179765,
+             0.264468537834877228030430827236, 0.282099773690535709899126215718, 0.293853930927641364478256474707,
+             0.302249757525573974891920945413, 0.308546627474023432702169298442},
+
+            {0.547153626330555383001448554766, 0.273576813165277691500724277383, 0.364769084220370255334299036511,
+             0.410365219747916537251086416074, 0.437722901064444306401158843813, 0.455961355275462819167873795638,
+             0.468988822569047471144098761228, 0.478759423039235960126267485420},
+
+            {0.734210177215410531523210605558, 0.367105088607705265761605302779, 0.489473451476940354348807070372,
+             0.550657632911557898642407954168, 0.587368141772328425218568484446, 0.611841814346175442936008837965,
+             0.629323009041780455591323376193, 0.642433905063484215082809279863},
+
+            {0.885320946839095768090359771030, 0.442660473419547884045179885515, 0.590213964559397178726906514020,
+             0.663990710129321826067769828272, 0.708256757471276614472287816824, 0.737767455699246473408633142525,
+             0.758846525862082086934594089454, 0.774655828484208797079064799651},
+
+            {0.977520613561287501891174488626, 0.488760306780643750945587244313, 0.651680409040858334594116325751,
+             0.733140460170965626418380866470, 0.782016490849030001512939590901, 0.814600511301072918242645407188,
+             0.837874811623960715906720990251, 0.855330536866126564154777677548},
+
+            {1, 0.5, 0.666666666666666666666666666667, 0.75, 0.8, 0.833333333333333333333333333333,
+             0.857142857142857142857142857143, 0.875},
+        };
     };
 
     /*---------------------------------------------------------------------------*\
@@ -261,16 +296,30 @@ namespace space::integrator {
     template <typename ParticleSys>
     void GaussRadau<TypeSystem>::integrate_to(ParticleSys &particles, Scalar step_size, size_t stage) {
         tmp_state_ = input_;
-
         auto h_n = Radau::h(stage);
-        calc::array_scale(tmp_array_, b_[6], 7.0 * h_n / 8.0);
-        for (size_t i = 6; i > 0; --i) {
-            calc::array_add(tmp_array_, tmp_array_, b_[i - 1]);
-            calc::array_scale(tmp_array_, tmp_array_, static_cast<Scalar>(i) * h_n / static_cast<Scalar>(i + 1));
-        }
-        calc::array_add(tmp_array_, tmp_array_, dydh0_);
-        calc::array_advance(tmp_state_, tmp_array_, step_size * h_n);
 
+        /*calc::array_scale(tmp_array_, b_[6], 7.0 * h_n / 8.0);
+        for (size_t i = 6; i > 0; --i) {
+            calc::array_scale_add(tmp_array_, tmp_array_, b_[i-1], static_cast<double>(i) * h_n / static_cast<double>(i
+        + 1));
+        }
+        calc::array_advance(tmp_array_, dydh0_);
+        calc::array_advance(tmp_state_, tmp_array_, step_size * h_n);*/
+
+        for (size_t i = 0; i < var_num_; ++i) {
+            tmp_state_[i] +=
+                ((((((((b_[6][i] * (7.0 * h_n / 8.0)) + b_[5][i]) * (6.0 * h_n / 7.0) + b_[4][i]) * (5.0 * h_n / 6.0) +
+                     b_[3][i]) *
+                        (4.0 * h_n / 5.0) +
+                    b_[2][i]) *
+                       (3.0 * h_n / 4.0) +
+                   b_[1][i]) *
+                      (2.0 * h_n / 3.0) +
+                  b_[0][i]) *
+                     (1.0 * h_n / 2.0) +
+                 dydh0_[i]) *
+                (h_n * step_size);
+        }
         particles.read_from_scalar_array(tmp_state_);
     }
 
@@ -278,17 +327,26 @@ namespace space::integrator {
     template <typename ParticleSys>
     void GaussRadau<TypeSystem>::integrate_at_end(ParticleSys &particles, Scalar step_size) {
         tmp_state_ = input_;
-        for (size_t i = 7; i > 0; --i) {
-            calc::array_advance(tmp_state_, b_[i - 1], step_size / (i + 1));
+        /* for (size_t i = 7; i > 0; --i) {
+             calc::array_advance(tmp_state_, b_[i - 1], step_size / (i + 1));
+         }
+         calc::array_advance(tmp_state_, dydh0_, step_size);*/
+        for (size_t i = 0; i < var_num_; ++i) {
+            tmp_state_[i] += b_[6][i] * (step_size / 8.0);
+            tmp_state_[i] += b_[5][i] * (step_size / 7.0);
+            tmp_state_[i] += b_[4][i] * (step_size / 6.0);
+            tmp_state_[i] += b_[3][i] * (step_size / 5.0);
+            tmp_state_[i] += b_[2][i] * (step_size / 4.0);
+            tmp_state_[i] += b_[1][i] * (step_size / 3.0);
+            tmp_state_[i] += b_[0][i] * (step_size / 2.0);
+            tmp_state_[i] += dydh0_[i] * step_size;
         }
-        calc::array_advance(tmp_state_, dydh0_, step_size);
         particles.read_from_scalar_array(tmp_state_);
     }
 
     template <typename TypeSystem>
     void GaussRadau<TypeSystem>::update_b_table(const ScalarArray &y_init, const ScalarArray &y_now, size_t stage) {
-        calc::array_sub(tmp_array_, y_now, y_init);
-        calc::array_scale(tmp_array_, tmp_array_, Radau::rs(stage, 0));
+        /*calc::array_scale_sub(tmp_array_, y_now, y_init, Radau::rs(stage, 0));
         for (size_t j = 0; j < stage; ++j) {
             calc::array_advance(tmp_array_, g_[j], -Radau::rs(stage, j + 1));
         }
@@ -296,17 +354,70 @@ namespace space::integrator {
 
         std::swap(g_[stage], tmp_array_);
 
-        /*calc::array_sub(tmp_array_, y_now, y_init);
-        calc::array_div_scale(tmp_array_, tmp_array_, Radau::RR_tab(stage, 0));
+        for (size_t i = 0; i <= stage; ++i) {
+            calc::array_advance(b_[i], dg_array_, Radau::g2b(stage, i));
+        }*/
+        switch (stage) {
+            case 0:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[0][i];
+                    g_[0][i] = (y_now[i] - y_init[i]) * Radau::rs(0, 0);
+                    dg_array_[i] = g_[0][i] - tmp;
+                }
+                break;
+            case 1:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[1][i];
+                    g_[1][i] = (y_now[i] - y_init[i]) * Radau::rs(1, 0) - g_[0][i] * Radau::rs(1, 1);
+                    dg_array_[i] = g_[1][i] - tmp;
+                }
+                break;
+            case 2:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[2][i];
+                    g_[2][i] = (y_now[i] - y_init[i]) * Radau::rs(2, 0) - g_[0][i] * Radau::rs(2, 1) -
+                               g_[1][i] * Radau::rs(2, 2);
+                    dg_array_[i] = g_[2][i] - tmp;
+                }
+                break;
+            case 3:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[3][i];
+                    g_[3][i] = (y_now[i] - y_init[i]) * Radau::rs(3, 0) - g_[0][i] * Radau::rs(3, 1) -
+                               g_[1][i] * Radau::rs(3, 2) - g_[2][i] * Radau::rs(3, 3);
+                    dg_array_[i] = g_[3][i] - tmp;
+                }
+                break;
+            case 4:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[4][i];
+                    g_[4][i] = (y_now[i] - y_init[i]) * Radau::rs(4, 0) - g_[0][i] * Radau::rs(4, 1) -
+                               g_[1][i] * Radau::rs(4, 2) - g_[2][i] * Radau::rs(4, 3) - g_[3][i] * Radau::rs(4, 4);
+                    dg_array_[i] = g_[4][i] - tmp;
+                }
+                break;
+            case 5:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[5][i];
+                    g_[5][i] = (y_now[i] - y_init[i]) * Radau::rs(5, 0) - g_[0][i] * Radau::rs(5, 1) -
+                               g_[1][i] * Radau::rs(5, 2) - g_[2][i] * Radau::rs(5, 3) - g_[3][i] * Radau::rs(5, 4) -
+                               g_[4][i] * Radau::rs(5, 5);
+                    dg_array_[i] = g_[5][i] - tmp;
+                }
+                break;
+            case 6:
+                for (size_t i = 0; i < var_num_; ++i) {
+                    auto tmp = g_[6][i];
+                    g_[6][i] = (y_now[i] - y_init[i]) * Radau::rs(6, 0) - g_[0][i] * Radau::rs(6, 1) -
+                               g_[1][i] * Radau::rs(6, 2) - g_[2][i] * Radau::rs(6, 3) - g_[3][i] * Radau::rs(6, 4) -
+                               g_[4][i] * Radau::rs(6, 5) - g_[5][i] * Radau::rs(6, 6);
+                    dg_array_[i] = g_[6][i] - tmp;
+                }
+                break;
 
-        for (size_t j = 0; j < stage; ++j) {
-            calc::array_retreat(tmp_array_, g_[j]);
-            calc::array_div_scale(tmp_array_, tmp_array_, Radau::rr(stage, j + 1));
+            default:
+                break;
         }
-
-        calc::array_sub(dg_array_, tmp_array_, g_[stage]);
-        swap(g_[stage], tmp_array_);*/
-
         for (size_t i = 0; i <= stage; ++i) {
             calc::array_advance(b_[i], dg_array_, Radau::g2b(stage, i));
         }
