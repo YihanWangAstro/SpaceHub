@@ -57,7 +57,7 @@ namespace space::ode_iterator {
 
         constexpr inline Scalar cost(size_t i) const { return cost_[i]; };
 
-        [[nodiscard]] constexpr inline size_t step_sequence(size_t i) const { return sub_steps_[i]; };
+        [[nodiscard]] constexpr inline size_t h(size_t i) const { return h_[i]; };
 
         constexpr inline Scalar table_coef(size_t i, size_t j) const { return extrap_coef_[at(i, j)]; };
 
@@ -73,7 +73,7 @@ namespace space::ode_iterator {
         std::array<Scalar, MaxIter> cost_;
 
         /** @brief Steps of integration of each iteration depth.*/
-        std::array<size_t, MaxIter> sub_steps_;
+        std::array<size_t, MaxIter> h_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -113,7 +113,7 @@ namespace space::ode_iterator {
        private:
         void check_variable_size();
 
-        [[nodiscard]] inline size_t at(size_t i, size_t j) const { return parameters_.at(i, j); };
+        [[nodiscard]] inline size_t at(size_t i, size_t j) const { return consts_.at(i, j); };
 
         template <CONCEPT_PARTICLE_SYSTEM U>
         void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps);
@@ -136,7 +136,7 @@ namespace space::ode_iterator {
        private:
         using EvaluateFun = std::function<void(State const &, State &, Scalar)>;
         /** @brief The constant coef for BS extrapolation*/
-        BSConsts parameters_;
+        BSConsts consts_;
 
         /** @brief Extrapolation table.*/
         std::array<State, max_depth + 1> extrap_list_;
@@ -176,20 +176,20 @@ namespace space::ode_iterator {
     template <typename Scalar, size_t MaxIter, bool IsKDK>
     constexpr BulirschStoerConsts<Scalar, MaxIter, IsKDK>::BulirschStoerConsts() {
         for (size_t i = 0; i < MaxIter; ++i) {
-            sub_steps_[i] = 2 * (i + 1);
+            h_[i] = 2 * (i + 1);
 
             if (i == 0) {
-                cost_[i] = sub_steps_[i] + static_cast<size_t>(IsKDK) * 2;
+                cost_[i] = h_[i] + static_cast<size_t>(IsKDK) * 2;
             } else {
-                cost_[i] = cost_[i - 1] + sub_steps_[i] + static_cast<size_t>(IsKDK) * 2;
+                cost_[i] = cost_[i - 1] + h_[i] + static_cast<size_t>(IsKDK) * 2;
             }
 
             for (size_t j = 0; j < MaxIter; ++j) {
                 if (j < i) {
                     // Scalar ratio = static_cast<Scalar>(h_[i]) / static_cast<Scalar>(h_[i - j - 1]);
                     // extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
-                    Scalar nj2 = static_cast<Scalar>(sub_steps_[i - j - 1] * sub_steps_[i - j - 1]);
-                    Scalar ni2 = static_cast<Scalar>(sub_steps_[i] * sub_steps_[i]);
+                    Scalar nj2 = static_cast<Scalar>(h_[i - j - 1] * h_[i - j - 1]);
+                    Scalar ni2 = static_cast<Scalar>(h_[i] * h_[i]);
                     extrap_coef_[at(i, j)] = nj2 / (ni2 - nj2);
                 } else {
                     extrap_coef_[at(i, j)] = 0;
@@ -211,10 +211,10 @@ namespace space::ode_iterator {
 
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
-            integrate_by_n_steps(func, extrap_list_[0], time, iter_h, parameters_.step_sequence(0));
+            integrate_by_n_steps(func, extrap_list_[0], time, iter_h, consts_.h(0));
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
-                integrate_by_n_steps(func, extrap_list_[k], time, iter_h, parameters_.step_sequence(k));
+                integrate_by_n_steps(func, extrap_list_[k], time, iter_h, consts_.h(k));
 
                 extrapolate(k);
 
@@ -222,7 +222,7 @@ namespace space::ode_iterator {
 
                 ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
 
-                cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
+                cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
                 // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
                 if (in_converged_window(k)) {
                     if (error <= 1.0) {
@@ -255,12 +255,12 @@ namespace space::ode_iterator {
 
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
-            integrate_by_n_steps(particles, iter_h, parameters_.step_sequence(0));
+            integrate_by_n_steps(particles, iter_h, consts_.h(0));
             particles.write_to_scalar_array(extrap_list_[0]);
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
                 particles.read_from_scalar_array(input_);
-                integrate_by_n_steps(particles, iter_h, parameters_.step_sequence(k));
+                integrate_by_n_steps(particles, iter_h, consts_.h(k));
                 particles.write_to_scalar_array(extrap_list_[k]);
                 extrapolate(k);
 
@@ -271,7 +271,7 @@ namespace space::ode_iterator {
 
                 ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
 
-                cost_per_len_[k] = parameters_.cost(k) / ideal_step_size_[k];
+                cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
                 // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
                 if (in_converged_window(k)) {
                     if (error <= 1.0) {
@@ -339,7 +339,7 @@ namespace space::ode_iterator {
             particles.drift(h);
             particles.kick(0.5 * h);
         } else {
-            static_assert(true, "Burlish-Stoer Undefined embedded integration method");
+            static_assert(true, "Bulirsch-Stoer Undefined embedded integration method");
         }
     }
 
@@ -372,8 +372,8 @@ namespace space::ode_iterator {
         for (size_t j = k; j > 0; --j) {
 #pragma omp parallel for
             for (size_t i = 0; i < var_num_; ++i) {
-                extrap_list_[j - 1][i] = extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) *
-                                                                  parameters_.table_coef(k, k - j);
+                extrap_list_[j - 1][i] =
+                    extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * consts_.table_coef(k, k - j);
             }
         }
     }
@@ -394,8 +394,8 @@ namespace space::ode_iterator {
         if (k_new <= k) {
             return ideal_step_size_[k_new];
         } else if (k_new == k + 1) {
-            return ideal_step_size_[k] * static_cast<Scalar>(parameters_.cost(k + 1)) /
-                   static_cast<Scalar>(parameters_.cost(k));
+            return ideal_step_size_[k] * static_cast<Scalar>(consts_.cost(k + 1)) /
+                   static_cast<Scalar>(consts_.cost(k));
         } else {
             spacehub_abort("unexpected order!");
         }
@@ -431,11 +431,10 @@ namespace space::ode_iterator {
     bool BulirschStoer<Integrator, ErrEstimator, StepController>::is_diverged_anyhow(Scalar error, size_t k) const {
         Scalar r = 1.0;
         if (k == ideal_rank_ - 1) {
-            r = static_cast<Scalar>(parameters_.step_sequence(k + 1) * parameters_.step_sequence(k + 2)) /
-                static_cast<Scalar>(parameters_.step_sequence(0) * parameters_.step_sequence(0));
+            r = static_cast<Scalar>(consts_.h(k + 1) * consts_.h(k + 2)) /
+                static_cast<Scalar>(consts_.h(0) * consts_.h(0));
         } else if (k == ideal_rank_) {
-            r = static_cast<Scalar>(parameters_.step_sequence(k + 1)) /
-                static_cast<Scalar>(parameters_.step_sequence(0));
+            r = static_cast<Scalar>(consts_.h(k + 1)) / static_cast<Scalar>(consts_.h(0));
         }  // else k == iterDepth+1 and error >1 reject directly
         return error > r * r;
     }

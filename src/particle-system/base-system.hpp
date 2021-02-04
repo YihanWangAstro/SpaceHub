@@ -108,7 +108,7 @@ namespace space::particle_system {
          */
         void pre_iter_process();
 
-        void post_iter_process() {};
+        void post_iter_process(){};
 
         /**
          *
@@ -135,7 +135,7 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void evaluate_general_derivative(ScalarIterable &stl_ranges);
 
-        [[nodiscard]]size_t variable_number() const;
+        [[nodiscard]] size_t variable_number() const;
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
@@ -166,7 +166,7 @@ namespace space::particle_system {
         // Private members
         // Particles ptcl_;
 
-        interactions::InteractionData <Interactions, VectorArray> accels_;
+        interactions::InteractionData<Interactions, VectorArray> accels_;
 
         std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
     };
@@ -179,7 +179,7 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <CONCEPT_PARTICLE_CONTAINER STL>
     SimpleSystem<Particles, Interactions>::SimpleSystem(Scalar time, const STL &particle_set)
-            : Particles(time, particle_set), accels_(particle_set.size()) {
+        : Particles(time, particle_set), accels_(particle_set.size()) {
         if constexpr (Interactions::ext_vel_dep) {
             aux_vel_ = this->vel();
         }
@@ -188,19 +188,24 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
     void SimpleSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &stl_ranges) {
-        auto begin = stl_ranges.begin();
-        this->time() = *begin;
-        size_t len = this->number() * 3;
-        auto pos_begin = begin + 1;
-        auto pos_end = pos_begin + len;
-        auto vel_begin = pos_end;
-        auto vel_end = vel_begin + len;
-        load_to_coords(pos_begin, pos_end, this->pos());
-        load_to_coords(vel_begin, vel_end, this->vel());
-        if constexpr (Interactions::ext_vel_dep) {
-            auto aux_vel_begin = vel_end;
-            auto aux_vel_end = aux_vel_begin + len;
-            load_to_coords(aux_vel_begin, aux_vel_end, aux_vel_);
+        if (stl_ranges.size() == this->variable_number()) {
+            auto begin = stl_ranges.begin();
+            this->time() = *begin;
+            size_t len = this->number() * 3;
+            auto pos_begin = begin + 1;
+            auto pos_end = pos_begin + len;
+            auto vel_begin = pos_end;
+            auto vel_end = vel_begin + len;
+
+            load_to_coords(pos_begin, pos_end, this->pos());
+            load_to_coords(vel_begin, vel_end, this->vel());
+            if constexpr (Interactions::ext_vel_dep) {
+                auto aux_vel_begin = vel_end;
+                auto aux_vel_end = aux_vel_begin + len;
+                load_to_coords(aux_vel_begin, aux_vel_end, aux_vel_);
+            }
+        } else {
+            spacehub_abort("Wrong input array size!");
         }
     }
 
@@ -208,7 +213,7 @@ namespace space::particle_system {
     template <typename ScalarIterable>
     void SimpleSystem<Particles, Interactions>::write_to_scalar_array(ScalarIterable &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        stl_ranges.reserve(this->variable_number());
         stl_ranges.emplace_back(this->time());
         add_coords_to(stl_ranges, this->pos());
         add_coords_to(stl_ranges, this->vel());
@@ -221,7 +226,7 @@ namespace space::particle_system {
     template <typename ScalarIterable>
     void SimpleSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        stl_ranges.reserve(this->variable_number());
         stl_ranges.emplace_back(1);              // dt/dh
         add_coords_to(stl_ranges, this->vel());  // dp/dt
         Interactions::eval_acc(*this, this->accels_.acc());

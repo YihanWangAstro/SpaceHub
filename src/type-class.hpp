@@ -104,6 +104,7 @@ namespace space {
     template <typename ScalarArray, typename VectorArray>
     void add_coords_to(ScalarArray& stl, VectorArray const& var) {
         stl.reserve(var.size() * 3 + stl.size());
+        
         for (auto const& v : var) {
             stl.emplace_back(v.x);
             stl.emplace_back(v.y);

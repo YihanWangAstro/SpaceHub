@@ -23,8 +23,8 @@ namespace space::ode_iterator {
     class IAS15 {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
-        static_assert(std::is_same_v<Integrator, integrator::GaussRadau < TypeSet>>,
-        "IAS15 iterator only works with GaussRadau integrator!");
+        static_assert(std::is_same_v<Integrator, integrator::GaussRadau<TypeSet>>,
+                      "IAS15 iterator only works with Gauss-Radau integrator!");
 
         IAS15();
 

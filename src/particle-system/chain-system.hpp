@@ -96,7 +96,7 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void evaluate_general_derivative(ScalarIterable &stl_ranges);
 
-        [[nodiscard]]size_t variable_number() const;
+        [[nodiscard]] size_t variable_number() const;
 
        private:
         // Private methods
@@ -118,7 +118,7 @@ namespace space::particle_system {
 
        private:
         // Private members
-        interactions::InteractionData <Interactions, VectorArray> accels_;
+        interactions::InteractionData<Interactions, VectorArray> accels_;
         AdVectorArray chain_pos_;
         AdVectorArray chain_vel_;
         VectorArray chain_acc_;
@@ -136,13 +136,13 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <CONCEPT_PARTICLE_CONTAINER STL>
     ChainSystem<Particles, Interactions>::ChainSystem(Scalar time, const STL &particle_set)
-            : Particles(time, particle_set),
-              chain_pos_(particle_set.size()),
-              chain_vel_(particle_set.size()),
-              index_(particle_set.size()),
-              new_index_(particle_set.size()),
-              accels_(particle_set.size()),
-              chain_acc_(particle_set.size()) {
+        : Particles(time, particle_set),
+          chain_pos_(particle_set.size()),
+          chain_vel_(particle_set.size()),
+          index_(particle_set.size()),
+          new_index_(particle_set.size()),
+          accels_(particle_set.size()),
+          chain_acc_(particle_set.size()) {
         Chain::calc_chain_index(this->pos(), index_);
         Chain::calc_chain(this->pos(), chain_pos(), index_);
         Chain::calc_chain(this->vel(), chain_vel(), index_);
@@ -251,24 +251,28 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
     void ChainSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &stl_ranges) {
-        auto begin = stl_ranges.begin();
-        this->time() = *begin;
-        size_t len = this->number() * 3;
-        auto pos_begin = begin + 1;
-        auto pos_end = pos_begin + len;
-        auto vel_begin = pos_end;
-        auto vel_end = vel_begin + len;
+        if (stl_ranges.size() == this->variable_number()) {
+            auto begin = stl_ranges.begin();
+            this->time() = *begin;
+            size_t len = this->number() * 3;
+            auto pos_begin = begin + 1;
+            auto pos_end = pos_begin + len;
+            auto vel_begin = pos_end;
+            auto vel_end = vel_begin + len;
 
-        load_to_coords(pos_begin, pos_end, chain_pos_);
-        load_to_coords(vel_begin, vel_end, chain_vel_);
+            load_to_coords(pos_begin, pos_end, chain_pos_);
+            load_to_coords(vel_begin, vel_end, chain_vel_);
 
-        Chain::calc_cartesian(this->mass(), chain_pos_, this->pos(), index_);
-        Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), index_);
-        if constexpr (Interactions::ext_vel_dep) {
-            auto aux_vel_begin = vel_end;
-            auto aux_vel_end = aux_vel_begin + len;
-            load_to_coords(aux_vel_begin, aux_vel_end, chain_aux_vel_);
-            Chain::calc_cartesian(this->mass(), chain_aux_vel_, aux_vel_, index_);
+            Chain::calc_cartesian(this->mass(), chain_pos_, this->pos(), index_);
+            Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), index_);
+            if constexpr (Interactions::ext_vel_dep) {
+                auto aux_vel_begin = vel_end;
+                auto aux_vel_end = aux_vel_begin + len;
+                load_to_coords(aux_vel_begin, aux_vel_end, chain_aux_vel_);
+                Chain::calc_cartesian(this->mass(), chain_aux_vel_, aux_vel_, index_);
+            }
+        } else {
+            spacehub_abort("Wrong input array size!");
         }
     }
 
