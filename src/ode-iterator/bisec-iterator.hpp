@@ -42,7 +42,8 @@ namespace space::ode_iterator {
 
         using State = ScalarArray;
 
-        SPACEHUB_MAKE_CONSTRUCTORS(BisecOdeIterator, default, default, default, default, default);
+        // SPACEHUB_MAKE_CONSTRUCTORS(BisecOdeIterator, default, default, default, default, default);
+        BisecOdeIterator();
 
         template <CONCEPT_PARTICLE_SYSTEM T>
         auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
@@ -52,6 +53,8 @@ namespace space::ode_iterator {
         void set_rtol(Scalar rtol);
 
        private:
+        static constexpr double ns[13] = {1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24};
+
         void check_variable_size();
 
         // Private members
@@ -86,13 +89,17 @@ namespace space::ode_iterator {
        public:
         constexpr static size_t value{1};
     };
+    template <typename Integrator, typename ErrEstimator, typename StepController>
+    BisecOdeIterator<Integrator, ErrEstimator, StepController>::BisecOdeIterator() {
+        step_controller_.set_safe_guards(0.75, 1, 0.02, 4.0);
+    }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <CONCEPT_PARTICLE_SYSTEM T>
     auto BisecOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
                                                                              typename T::Scalar macro_step_size) ->
-    typename T::Scalar {
-        static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
+        typename T::Scalar {
+        // static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
 
         check_variable_size();
         particles.write_to_scalar_array(input_);
@@ -109,7 +116,7 @@ namespace space::ode_iterator {
 
         particles.write_to_scalar_array(output_);
 
-        for (size_t i = 0; i < max_iter_; ++i) {
+        /*for (size_t i = 0; i < max_iter_; ++i) {
             h /= 2;
             n_steps *= 2;
             particles.read_from_scalar_array(input_);
@@ -123,12 +130,25 @@ namespace space::ode_iterator {
                 break;
             }
 
-            /* if (i == max_iter_ - 1) {
-                 std::cout << macro_step_size << ' ' << error << '\n';
-             }*/
+            // if (i == max_iter_ - 1) {
+            //    std::cout << macro_step_size << ' ' << error << '\n';
+            //}
+            std::swap(output_, dual_steps_output_);
+        }*/
+        for (size_t i = 1; i <= max_iter_; ++i) {
+            h = macro_step_size / ns[i];
+            particles.read_from_scalar_array(input_);
+            for (size_t j = 0; j < ns[i]; ++j) {
+                integrator_.integrate(particles, h);
+            }
+            particles.write_to_scalar_array(dual_steps_output_);
+            auto bisec_error_scale = 1.0 / (pow(double(ns[i]) / double(ns[i - 1]), Integrator::order) - 1);
+            error = bisec_error_scale * err_checker_.error(input_, output_, dual_steps_output_);
+            if (error <= 1) {
+                break;
+            }
             std::swap(output_, dual_steps_output_);
         }
-        // std::cout << '\n';
         particles.read_from_scalar_array(dual_steps_output_);
         return step_controller_.next_step_size(Integrator::order, macro_step_size, error);
     }
