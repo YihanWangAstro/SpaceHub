@@ -25,18 +25,18 @@ USING_NAMESPACE_SPACEHUB_ALL;
 
 int main(int argc, char **argv) {
     Timer t;
-
+    double rtol = 1e-15;
     t.start();
-    basic_error_test<MethodList::AR_chain>("outer", 11862_year, 1e-15, outer_solar());
+    basic_error_test<MethodList::ARC_sym8>("outer", 11862_year, rtol, outer_solar());
     std::cout << t.get_time() << '\n';
-    /* t.reset();
-     t.start();
-     basic_error_test<MethodList::IAS15>("earth", 100_year, 1e-15, earth_system());
-     std::cout << t.get_time() << '\n';
-     t.reset();
-     t.start();
-     basic_error_test<MethodList::IAS15>("ecc", 1000_year, 1e-15, two_body(0.9999));
-     std::cout << t.get_time() << '\n';*/
+    t.reset();
+    t.start();
+    basic_error_test<MethodList::ARC_sym8>("earth", 100_year, rtol, earth_system());
+    std::cout << t.get_time() << '\n';
+    t.reset();
+    t.start();
+    basic_error_test<MethodList::ARC_sym8>("ecc", 1000_year, rtol, two_body(0.9999));
+    std::cout << t.get_time() << '\n';
 
     return 0;
 }

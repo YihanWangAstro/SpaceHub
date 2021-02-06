@@ -42,16 +42,15 @@ namespace space::interactions {
         auto force = [&](auto const &dr, auto i, auto j) {
             auto r = norm(dr);
             auto rr3 = 1.0 / (r * r * r);
-            auto mri = rr3 * m[i];
-            auto mrj = rr3 * m[j];
-            /*acceleration[i] += dr * mrj;
-            acceleration[j] -= dr * mri;*/
-            acceleration[i].x += dr.x * mrj;
-            acceleration[i].y += dr.y * mrj;
-            acceleration[i].z += dr.z * mrj;
-            acceleration[j].x -= dr.x * mri;
-            acceleration[j].y -= dr.y * mri;
-            acceleration[j].z -= dr.z * mri;
+            /*
+            acceleration[i] += dr * rr3 * m[j];
+            acceleration[j] -= dr * rr3 * m[i];*/
+            acceleration[i].x += dr.x * rr3 * m[j];
+            acceleration[i].y += dr.y * rr3 * m[j];
+            acceleration[i].z += dr.z * rr3 * m[j];
+            acceleration[j].x -= dr.x * rr3 * m[i];
+            acceleration[j].y -= dr.y * rr3 * m[i];
+            acceleration[j].z -= dr.z * rr3 * m[i];
         };
 
         if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {

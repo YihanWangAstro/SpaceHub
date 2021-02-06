@@ -205,7 +205,7 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     template <typename Integrator, typename ErrEstimator, typename StepController>
     BulirschStoer<Integrator, ErrEstimator, StepController>::BulirschStoer() {
-        step_controller_.set_safe_guards(0.9, 0.95, 0.02, 4.0);
+        step_controller_.set_safe_guards(0.85, 0.95, 0.02, 4.0);
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
     auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(EvaluateFun func, State &data, Scalar &time,

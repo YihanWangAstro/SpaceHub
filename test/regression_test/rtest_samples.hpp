@@ -77,8 +77,8 @@ struct MethodList {
     using C_IAS15 = space::Simulator<adchain_sys, ias15_iter>;
     using AR_IAS15 = space::Simulator<adregu_sys, ias15_iter>;
     using ARC_IAS15 = space::Simulator<adarch_sys, ias15_iter>;
-    using ARC_sym6 = space::Simulator<adarch_sys, space_iter>;
-    using AR_sym6 = space::Simulator<adregu_sys, space_iter>;
+    using ARC_sym8 = space::Simulator<adarch_sys, space_iter>;
+    using AR_sym8 = space::Simulator<adregu_sys, space_iter>;
 };
 
 auto two_body(double e = 0) {
@@ -221,7 +221,7 @@ double bench_mark(double end_time, double rtol, std::vector<typename Solver::Par
     using namespace run_operations;
     using namespace tools;
 
-    double cpu = 0;
+    double cpu = 1e20;  // in seconds
     size_t repeat = 5;
     for (size_t i = 0; i < repeat; ++i) {
         Solver sim{0, p};
@@ -240,9 +240,13 @@ double bench_mark(double end_time, double rtol, std::vector<typename Solver::Par
 
         sim.run(args);
 
-        cpu += timer.get_time();
+        auto t = timer.get_time();
+
+        if (t < cpu) {
+            cpu = t;
+        }
     }
-    return cpu / repeat;
+    return cpu;
 }
 
 template <typename Solver>
@@ -306,8 +310,8 @@ auto fast_err_methods(std::string const &system_name, System const &system, doub
     errs.push_back(basic_error_test<MethodList::C_IAS15>(system_name + "-Radau-chain+", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::AR_IAS15>(system_name + "-AR-Radau+", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::ARC_IAS15>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::ARC_sym6>(system_name + "-AR-sym6-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_sym6>(system_name + "-AR-sym6", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::ARC_sym8>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_sym8>(system_name + "-AR-sym8", t_end, rtol, system));
     return errs;
 }
 
@@ -317,8 +321,8 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
     std::vector<std::string> names{"BS",     "AR",           "Chain",     "AR-chain",        "AR-chain+",
-                                   "Radau+", "Radau-chain+", "AR-Radau+", "AR-Radau-chain+", "AR-sym6-chain+",
-                                   "AR-sym6"};
+                                   "Radau+", "Radau-chain+", "AR-Radau+", "AR-Radau-chain+", "AR-sym8-chain+",
+                                   "AR-sym8"};
     std::vector<double> errs = fast_err_methods(system_name, system, t_end);
     std::vector<double> cpu_t;
     cpu_t.reserve(20);
@@ -331,8 +335,8 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
     cpu_t.push_back(bench_mark<MethodList::C_IAS15>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<MethodList::AR_IAS15>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<MethodList::ARC_IAS15>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::ARC_sym6>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_sym6>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::ARC_sym8>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_sym8>(t_end, rtol, system));
 
     for (size_t i = 0; i < names.size(); ++i) {
         file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
@@ -350,6 +354,6 @@ auto err_scale_methods(std::string const &system_name, System const &system, dou
     error_scale<MethodList::C_IAS15>(system_name, "Radau-chain+", 3e-16, 1e-11, t_end, system);
     error_scale<MethodList::AR_IAS15>(system_name, "AR-Radau+", 3e-16, 1e-11, t_end, system);
     error_scale<MethodList::ARC_IAS15>(system_name, "AR-Radau-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::ARC_sym6>(system_name, "AR-sym6-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_sym6>(system_name, "AR-sym6", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::ARC_sym8>(system_name, "AR-sym8-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_sym8>(system_name, "AR-sym8", 3e-16, 1e-11, t_end, system);
 }

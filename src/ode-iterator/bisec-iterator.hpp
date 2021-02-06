@@ -89,9 +89,18 @@ namespace space::ode_iterator {
        public:
         constexpr static size_t value{1};
     };
+
+    template <typename T>
+    constexpr T integer_pow(T base, size_t p) {
+        decltype(base) iter = 1;
+        for (size_t i = 0; i < p; ++i) {
+            iter *= base;
+        }
+        return iter;
+    }
     template <typename Integrator, typename ErrEstimator, typename StepController>
     BisecOdeIterator<Integrator, ErrEstimator, StepController>::BisecOdeIterator() {
-        step_controller_.set_safe_guards(0.75, 1, 0.02, 4.0);
+        step_controller_.set_safe_guards(0.7, 1, 0.02, 4.0);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
@@ -142,8 +151,9 @@ namespace space::ode_iterator {
                 integrator_.integrate(particles, h);
             }
             particles.write_to_scalar_array(dual_steps_output_);
-            auto bisec_error_scale = 1.0 / (pow(double(ns[i]) / double(ns[i - 1]), Integrator::order) - 1);
+            auto bisec_error_scale = 1.0 / (integer_pow(double(ns[i]) / double(ns[i - 1]), Integrator::order) - 1);
             error = bisec_error_scale * err_checker_.error(input_, output_, dual_steps_output_);
+            // std::cout << i << ' ' << error << '\n';
             if (error <= 1) {
                 break;
             }
