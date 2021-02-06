@@ -138,8 +138,8 @@ namespace space {
 
 #define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                      \
     using TypeSet = typename CLASS::TypeSet;                      \
-    template <typename... _T_>                                    \
-    using Container = typename CLASS::template Container<_T_...>; \
+    template <typename _T_>                                    \
+    using Container = typename CLASS::template Container<_T_>; \
                                                                   \
     using Scalar = typename CLASS::Scalar;                        \
     using ScalarArray = typename CLASS::ScalarArray;              \

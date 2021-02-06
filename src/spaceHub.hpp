@@ -96,7 +96,7 @@ namespace space {
     using namespace space::run_operations; \
     using namespace space::particle_system
 
-    using DefaultTypes = Types<double, std::vector>;
+    using DefaultTypes = Types<double>;
 
     using DefaultSolver = Simulator<
         particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,

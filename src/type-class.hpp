@@ -27,9 +27,15 @@ License
 #include <vector>
 
 #include "dev-tools.hpp"
+#include "small-vector.hpp"
 #include "vector/vector3.hpp"
-namespace space {
 
+namespace space {
+    template <typename T>
+    using SSO_vector = llvm::SmallVector<T, 16>;
+
+    template <typename T>
+    using SSO_vec_vector = llvm::SmallVector<T, 5>;
     /**
       Type system that is used across the Space Hub system. This type class provide all basic type i.e `Scalar`,
       `Vector`, `ScalarArray`, `Coord` and etc,.
@@ -37,7 +43,7 @@ namespace space {
       @tparam Real The basic scalar type, i.e `float`, `double`, etc.
       @tparam TContainer The container type, i.e `std::vector`. Use std::vector as default.
      */
-    template <typename Real, template <class...> class TContainer = std::vector>
+    template <typename Real>
     struct Types {
        public:
         /**
@@ -45,9 +51,10 @@ namespace space {
          *
          * @tparam T variadic template parameters that compatible to various containers.
          */
-        using TypeSet = Types<Real, TContainer>;
-        template <typename... T>
-        using Container = TContainer<T...>;
+        using TypeSet = Types<Real>;
+
+        template <typename T>
+        using Container = SSO_vector<T>;
 
         /**
          * Floating point like type cross the system
@@ -84,9 +91,9 @@ namespace space {
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
          */
-        using VectorArray = Container<Vector>;
+        using VectorArray = SSO_vec_vector<Vector>;
 
-        using AdVectorArray = Container<AdVector>;
+        using AdVectorArray = SSO_vec_vector<AdVector>;
     };
 
     template <typename Iter, typename VectorArray>
@@ -104,7 +111,7 @@ namespace space {
     template <typename ScalarArray, typename VectorArray>
     void add_coords_to(ScalarArray& stl, VectorArray const& var) {
         stl.reserve(var.size() * 3 + stl.size());
-        
+
         for (auto const& v : var) {
             stl.emplace_back(v.x);
             stl.emplace_back(v.y);
