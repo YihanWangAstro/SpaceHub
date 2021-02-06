@@ -42,8 +42,16 @@ namespace space::interactions {
         auto force = [&](auto const &dr, auto i, auto j) {
             auto r = norm(dr);
             auto rr3 = 1.0 / (r * r * r);
-            acceleration[i] += dr * rr3 * m[j];
-            acceleration[j] -= dr * rr3 * m[i];
+            auto mri = rr3 * m[i];
+            auto mrj = rr3 * m[j];
+            /*acceleration[i] += dr * mrj;
+            acceleration[j] -= dr * mri;*/
+            acceleration[i].x += dr.x * mrj;
+            acceleration[i].y += dr.y * mrj;
+            acceleration[i].z += dr.z * mrj;
+            acceleration[j].x -= dr.x * mri;
+            acceleration[j].y -= dr.y * mri;
+            acceleration[j].z -= dr.z * mri;
         };
 
         if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
@@ -54,7 +62,6 @@ namespace space::interactions {
             for (size_t i = 0; i < size - 1; ++i) {
                 force(ch_p[i], idx[i], idx[i + 1]);
             }
-
             for (size_t i = 0; i < size - 2; ++i) {
                 force(ch_p[i] + ch_p[i + 1], idx[i], idx[i + 2]);
             }
@@ -64,7 +71,6 @@ namespace space::interactions {
                     force(p[idx[j]] - p[idx[i]], idx[i], idx[j]);
                 }
             }
-
         } else {
             for (size_t i = 0; i < num; ++i) {
                 for (size_t j = i + 1; j < num; ++j) {

@@ -147,7 +147,7 @@ namespace space {
 
         template <typename VectorArray>
         static auto get_new_node(VectorArray const &chain, size_t head, size_t tail) ->
-        typename VectorArray::value_type;
+            typename VectorArray::value_type;
 
         template <typename Array, typename IdxArray>
         static void to_chain(Array const &cartesian, Array &chain, IdxArray const &index);
@@ -313,6 +313,7 @@ namespace space {
         } else {
             chain[size - 1] = cartesian[index[0]];
         }
+#pragma GCC ivdep
         for (size_t i = 0; i < size - 1; ++i) {
             chain[i] = cartesian[index[i + 1]] - cartesian[index[i]];
         }

@@ -99,8 +99,8 @@ namespace space::interactions {
 
             auto coef = consts::G / r2 * INV_C2;
 
-            acceleration[i] += coef * m[j] * (Ai * n - Bi * dv);
-            acceleration[j] -= coef * m[i] * (Aj * n - Bj * dv);
+            acceleration[i] += (coef * m[j]) * (Ai * n - Bi * dv);
+            acceleration[j] -= (coef * m[i]) * (Aj * n - Bj * dv);
         };
 
         if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index) &&
