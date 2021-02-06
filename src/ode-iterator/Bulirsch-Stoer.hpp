@@ -94,7 +94,7 @@ namespace space::ode_iterator {
         using BSConsts =
             BulirschStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
 
-        using State = ScalarArray;
+        using State = AdScalarArray;
 
         static constexpr size_t max_try_num{100};
 

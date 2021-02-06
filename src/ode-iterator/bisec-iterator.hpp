@@ -40,7 +40,7 @@ namespace space::ode_iterator {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
 
-        using State = ScalarArray;
+        using State = AdScalarArray;
 
         // SPACEHUB_MAKE_CONSTRUCTORS(BisecOdeIterator, default, default, default, default, default);
         BisecOdeIterator();

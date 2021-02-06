@@ -79,7 +79,7 @@ namespace space::ode_iterator {
         size_t const size = y0.size();
         Scalar error = 0;
 
-        if constexpr (std::is_same_v<typename Array1::value_type, Scalar>) {
+        if constexpr (std::is_same_v<raw_type_t<typename Array1::value_type>, raw_type_t<Scalar>>) {
             for (size_t i = 0; i < size; ++i) {
                 Scalar scale = std::max(fabs(y0[i]), fabs(y1[i])) * rtol_ + atol_;
                 if (scale == 0) {

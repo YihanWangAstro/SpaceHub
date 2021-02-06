@@ -82,7 +82,7 @@ namespace space::ode_iterator {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;
-        if constexpr (std::is_same_v<typename Array1::value_type, Scalar>) {
+        if constexpr (std::is_same_v<raw_type_t<typename Array1::value_type>, raw_type_t<Scalar>>) {
             for (size_t i = 0; i < size; ++i) {
                 max_diff = std::max(max_diff, static_cast<Scalar>(fabs(diff[i])));
                 max_scale = std::max(max_scale, static_cast<Scalar>(atol_ + fabs(scale[i]) * rtol_));

@@ -82,7 +82,7 @@ namespace space::ode_iterator {
     auto WorstOffender<TypeSystem>::error(const Array1 &y0, const Array2 &y1, const Array3 &y1_prime) -> Scalar {
         size_t const size = y0.size();
         Scalar max_err = 0;
-        if constexpr (std::is_same_v<typename Array1::value_type, Scalar>) {
+        if constexpr (std::is_same_v<raw_type_t<typename Array1::value_type>, raw_type_t<Scalar>>) {
             for (size_t i = 0; i < size; ++i) {
                 Scalar scale = std::max(fabs(y1[i]), fabs(y0[i]));
                 // Scalar scale = fabs(y0[i]) + fabs((y1[i] - y0[i]));

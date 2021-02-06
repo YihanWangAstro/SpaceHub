@@ -166,6 +166,28 @@ namespace space::calc {
         }
     }
 
+    CREATE_MEMBER_CHECK(err);
+
+    template <typename A1, typename A2>
+    void array_load_err(A1 &dst, A2 const &src) {
+        if constexpr (HAS_MEMBER(typename A1::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].err = src[i];
+            }
+        }
+    }
+
+    template <typename A1, typename A2>
+    void array_save_err(A1 &dst, A2 const &src) {
+        if constexpr (HAS_MEMBER(typename A2::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i] = src[i].err;
+            }
+        }
+    }
+
     /**
      * @brief Element wise scale.
      *

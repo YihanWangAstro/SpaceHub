@@ -86,6 +86,9 @@ namespace space {
         using type = decltype(check<T>(0));
     };
 
+    template <typename T>
+    using raw_type_t = typename raw_type<T>::type;
+
 #define MACRO_CAT(A, B) MACRO_CAT_I(A, B)
 #define MACRO_CAT_I(A, B) MACRO_CAT_II(~, A##B)
 #define MACRO_CAT_II(P, REST) REST
@@ -136,20 +139,20 @@ namespace space {
     /** Default move assignment operator */                                  \
     CLASS &operator=(CLASS &&) = ATTR5;
 
-#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                      \
-    using TypeSet = typename CLASS::TypeSet;                      \
+#define SPACEHUB_USING_TYPE_SYSTEM_OF(CLASS)                   \
+    using TypeSet = typename CLASS::TypeSet;                   \
     template <typename _T_>                                    \
     using Container = typename CLASS::template Container<_T_>; \
-                                                                  \
-    using Scalar = typename CLASS::Scalar;                        \
-    using ScalarArray = typename CLASS::ScalarArray;              \
-    using IdxArray = typename CLASS::IdxArray;                    \
-    using IntArray = typename CLASS::IntArray;                    \
-    using Vector = typename CLASS::Vector;                        \
-    using VectorArray = typename CLASS::VectorArray;              \
-    using AdScalar = typename CLASS::AdScalar;                    \
-    using AdScalarArray = typename CLASS::AdScalarArray;          \
-    using AdVector = typename CLASS::AdVector;                    \
+                                                               \
+    using Scalar = typename CLASS::Scalar;                     \
+    using ScalarArray = typename CLASS::ScalarArray;           \
+    using IdxArray = typename CLASS::IdxArray;                 \
+    using IntArray = typename CLASS::IntArray;                 \
+    using Vector = typename CLASS::Vector;                     \
+    using VectorArray = typename CLASS::VectorArray;           \
+    using AdScalar = typename CLASS::AdScalar;                 \
+    using AdScalarArray = typename CLASS::AdScalarArray;       \
+    using AdVector = typename CLASS::AdVector;                 \
     using AdVectorArray = typename CLASS::AdVectorArray
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                    \
