@@ -270,7 +270,7 @@ namespace space::integrator {
         }
         calc::array_advance(tmp_array_, dydh0_);
         calc::array_advance(tmp_state_, tmp_array_, step_size * h_n);*/
-
+#pragma GCC ivdep
         for (size_t i = 0; i < var_num_; ++i) {
             tmp_state_[i] +=
                 ((((((((b_[6][i] * (7.0 * h_n / 8.0)) + b_[5][i]) * (6.0 * h_n / 7.0) + b_[4][i]) * (5.0 * h_n / 6.0) +
@@ -296,6 +296,7 @@ namespace space::integrator {
              calc::array_advance(tmp_state_, b_[i - 1], step_size / (i + 1));
          }
          calc::array_advance(tmp_state_, dydh0_, step_size);*/
+#pragma GCC ivdep
         for (size_t i = 0; i < var_num_; ++i) {
             tmp_state_[i] += b_[6][i] * (step_size / 8.0);
             tmp_state_[i] += b_[5][i] * (step_size / 7.0);
@@ -324,6 +325,7 @@ namespace space::integrator {
         }*/
         switch (stage) {
             case 0:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[0][i];
                     g_[0][i] = (y_now[i] - y_init[i]) * Radau::rs(0, 0);
@@ -331,6 +333,7 @@ namespace space::integrator {
                 }
                 break;
             case 1:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[1][i];
                     g_[1][i] = (y_now[i] - y_init[i]) * Radau::rs(1, 0) - g_[0][i] * Radau::rs(1, 1);
@@ -338,6 +341,7 @@ namespace space::integrator {
                 }
                 break;
             case 2:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[2][i];
                     g_[2][i] = (y_now[i] - y_init[i]) * Radau::rs(2, 0) - g_[0][i] * Radau::rs(2, 1) -
@@ -346,6 +350,7 @@ namespace space::integrator {
                 }
                 break;
             case 3:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[3][i];
                     g_[3][i] = (y_now[i] - y_init[i]) * Radau::rs(3, 0) - g_[0][i] * Radau::rs(3, 1) -
@@ -354,6 +359,7 @@ namespace space::integrator {
                 }
                 break;
             case 4:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[4][i];
                     g_[4][i] = (y_now[i] - y_init[i]) * Radau::rs(4, 0) - g_[0][i] * Radau::rs(4, 1) -
@@ -362,6 +368,7 @@ namespace space::integrator {
                 }
                 break;
             case 5:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[5][i];
                     g_[5][i] = (y_now[i] - y_init[i]) * Radau::rs(5, 0) - g_[0][i] * Radau::rs(5, 1) -
@@ -371,6 +378,7 @@ namespace space::integrator {
                 }
                 break;
             case 6:
+#pragma GCC ivdep
                 for (size_t i = 0; i < var_num_; ++i) {
                     auto tmp = g_[6][i];
                     g_[6][i] = (y_now[i] - y_init[i]) * Radau::rs(6, 0) - g_[0][i] * Radau::rs(6, 1) -

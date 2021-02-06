@@ -138,7 +138,6 @@ namespace space::calc {
         DEBUG_MODE_ASSERT(b.size() == a.size(), "length of the array mismatch!");
         typename Array::value_type product{0};
         size_t const size = a.size();
-
         for (size_t i = 0; i < size; ++i) {
             product += (args[i] * ... * (a[i] * b[i]));
         }
@@ -161,6 +160,7 @@ namespace space::calc {
         size_t const size = dst.size();
 
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = (args[i] + ...);
         }
@@ -181,35 +181,35 @@ namespace space::calc {
     void array_scale(Array1 &dst, Array2 const &a, Scalar scale) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
 
-        std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return scale * x; });
-        /*size_t const size = dst.size();
+        // std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return scale * x; });
+        size_t const size = dst.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] * scale;
-        }*/
+        }
     }
 
-    template <typename Array1, typename Array2, typename Array3,typename Scalar>
-    void array_scale_add(Array1 &dst, Array2 const &a,  Array3 const &b, Scalar c) {
-        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [=](auto x, auto y) { return (x + y)*c; });
+    template <typename Array1, typename Array2, typename Array3, typename Scalar>
+    void array_scale_add(Array1 &dst, Array2 const &a, Array3 const &b, Scalar c) {
+        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [=](auto x, auto y) { return (x + y) * c; });
     }
 
     template <typename Array1, typename Array2, typename Array3, typename Scalar>
     void array_scale_add(Array1 &dst, Array2 const &a, Scalar b, Array3 const &c, Scalar d) {
-        std::transform(a.begin(), a.end(), c.begin(), dst.begin(), [=](auto x, auto y) { return x*b + y*d; });
+        std::transform(a.begin(), a.end(), c.begin(), dst.begin(), [=](auto x, auto y) { return x * b + y * d; });
     }
-
-
 
     template <typename Array1, typename Array2, typename Scalar>
     void array_div_scale(Array1 &dst, Array2 const &a, Scalar scale) {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
-        std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return x / scale; });
-        /*   size_t const size = dst.size();
-   #pragma omp parallel for
-           for (size_t i = 0; i < size; i++) {
-               dst[i] = a[i] / scale;
-           }*/
+        // std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return x / scale; });
+        size_t const size = dst.size();
+#pragma omp parallel for
+#pragma GCC ivdep
+        for (size_t i = 0; i < size; i++) {
+            dst[i] = a[i] / scale;
+        }
     }
 
     /**
@@ -228,6 +228,7 @@ namespace space::calc {
     void array_mul(Array &dst, Args const &...args) {
         size_t const size = dst.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = (args[i] * ...);
         }
@@ -236,17 +237,18 @@ namespace space::calc {
     template <typename Array1, typename Array2, typename Array3>
     void array_sub(Array1 &dst, Array2 const &a, Array3 const &b) {
         // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
-        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [](auto x, auto y) { return x - y; });
-        /*size_t const size = dst.size();
+        // std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [](auto x, auto y) { return x - y; });
+        size_t const size = dst.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] - b[i];
-        }*/
+        }
     }
 
-    template <typename Array1, typename Array2, typename Array3,typename Scalar>
-    void array_scale_sub(Array1 &dst, Array2 const &a,  Array3 const &b, Scalar c) {
-        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [=](auto x, auto y) { return (x - y)*c; });
+    template <typename Array1, typename Array2, typename Array3, typename Scalar>
+    void array_scale_sub(Array1 &dst, Array2 const &a, Array3 const &b, Scalar c) {
+        std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [=](auto x, auto y) { return (x - y) * c; });
     }
 
     template <typename Array1, typename Array2, typename Array3>
@@ -254,6 +256,7 @@ namespace space::calc {
         // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         size_t const size = dst.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] / b[i];
         }
@@ -273,7 +276,7 @@ namespace space::calc {
     template <typename Array1, typename Array2>
     void array_advance(Array1 &var, Array2 const &increment) {
         size_t const size = var.size();
-
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             var[i] += increment[i];
         }
@@ -282,7 +285,7 @@ namespace space::calc {
     template <typename Scalar, typename Array1, typename Array2>
     void array_advance(Array1 &var, Array2 const &increment, Scalar step_size) {
         size_t const size = var.size();
-
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             var[i] += increment[i] * step_size;
         }
@@ -292,6 +295,7 @@ namespace space::calc {
     void array_advance(Array1 &dst, Array2 const &var, Array3 const &increment, Scalar step_size) {
         size_t const size = var.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = var[i] + increment[i] * step_size;
         }
@@ -300,7 +304,7 @@ namespace space::calc {
     template <typename Array1, typename Array2>
     void array_retreat(Array1 &var, Array2 const &increment) {
         size_t const size = var.size();
-
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             var[i] -= increment[i];
         }
@@ -309,7 +313,7 @@ namespace space::calc {
     template <typename Scalar, typename Array1, typename Array2>
     void array_retreat(Array1 &var, Array2 const &increment, Scalar step_size) {
         size_t const size = var.size();
-
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             var[i] -= increment[i] * step_size;
         }
@@ -319,6 +323,7 @@ namespace space::calc {
     void array_retreat(Array1 &dst, Array2 const &var, Array3 const &increment, Scalar step_size) {
         size_t const size = var.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = var[i] - increment[i] * step_size;
         }
@@ -328,6 +333,7 @@ namespace space::calc {
     void coord_dot(Array &dst, VectorArray1 const &a, VectorArray2 const &b) {
         size_t const size = dst.size();
 #pragma omp parallel for
+#pragma GCC ivdep
         for (size_t i = 0; i < size; ++i) {
             dst[i] = dot(a[i], b[i]);
         }
@@ -374,7 +380,7 @@ namespace space::calc {
     template <typename Array1, typename Array2>
     inline void move_to_com(Array1 const &mass, Array2 &var) {
         auto com_var = calc_com(mass, var);
-
+#pragma GCC ivdep
         for (auto &v : var) v -= com_var;
     }
 
