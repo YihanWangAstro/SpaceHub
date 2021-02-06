@@ -204,7 +204,8 @@ namespace space::ode_iterator {
          Class BulirschStoer Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    BulirschStoer<Integrator, ErrEstimator, StepController>::BulirschStoer() {
+    BulirschStoer<Integrator, ErrEstimator, StepController>::BulirschStoer()
+        : step_controller_{}, err_checker_{0, 1e-14} {
         step_controller_.set_safe_guards(0.85, 0.95, 0.02, 4.0);
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
@@ -289,7 +290,7 @@ namespace space::ode_iterator {
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
-                        iter_h = set_next_iteration(k);  // get_next_try_step(k);
+                        iter_h = set_next_iteration(k);
                         break;
                     }
                 }

@@ -24,9 +24,9 @@ License
 USING_NAMESPACE_SPACEHUB_ALL;
 
 int main(int argc, char **argv) {
-    using method = MethodList::AR_sym6;
+    using method = MethodList::AR_chain_plus;
     Timer t;
-    double rtol = 1e-15;
+    double rtol = 1e-14;
     t.start();
     basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
     std::cout << t.get_time() << '\n';

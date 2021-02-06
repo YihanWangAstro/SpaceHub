@@ -62,6 +62,9 @@ struct MethodList {
 
     using iter = space::ode_iterator::BulirschStoer<base_integrator, err_estimator, step_controller>;
 
+    using aditer =
+        space::ode_iterator::BulirschStoer<space::integrator::LeapFrogDKD<adtype>, err_estimator, step_controller>;
+
     using ias15_iter = space::ode_iterator::IAS15<space::integrator::GaussRadau<adtype>,
                                                   space::ode_iterator::IAS15Error<type>, step_controller>;
 
@@ -310,7 +313,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
 template <typename System>
 auto fast_err_methods(std::string const &system_name, System const &system, double t_end) {
-    double rtol = 1e-15;
+    double rtol = 1e-14;
     std::vector<double> errs;
     errs.reserve(20);
     errs.push_back(basic_error_test<MethodList::BS>(system_name + "-BS", t_end, rtol, system));
@@ -331,7 +334,7 @@ auto fast_err_methods(std::string const &system_name, System const &system, doub
 
 template <typename System>
 void bench_mark_methods(std::string const &system_name, System const &system, double t_end) {
-    double rtol = 1e-15;
+    double rtol = 1e-14;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
     std::vector<std::string> names{

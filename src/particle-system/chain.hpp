@@ -128,7 +128,7 @@ namespace space {
          * mapping, otherwise, a centre of mass movement will be performed after the transformation from chain
          * coordinates to Cartesian coordinates.
          */
-        static constexpr bool bijective_transfer{false};
+        static constexpr bool bijective_transfer{true};
 
        private:
         template <typename T>
@@ -286,23 +286,30 @@ namespace space {
         using Vector = typename VectorArray::value_type;
         using Scalar = typename Vector::value_type;
 
-        Scalar sign{1};
+        bool sign{true};
 
         if (head > tail) {
             std::swap(head, tail);
-            sign = -1;
+            sign = false;
         }
 
-        auto connect = [](auto const &array, auto first, auto last) -> auto {
-            auto new_d = array[first];
-            for (size_t j = first + 1; j < last; ++j) {
-                new_d += array[j];
+        auto connect = [](auto const &array, auto first, auto last, bool sign) -> auto {
+            if (sign) {
+                auto new_d = array[first];
+                for (size_t j = first + 1; j < last; ++j) {
+                    new_d += array[j];
+                }
+                return new_d;
+            } else {
+                auto new_d = -array[first];
+                for (size_t j = first + 1; j < last; ++j) {
+                    new_d -= array[j];
+                }
+                return new_d;
             }
-
-            return new_d;
         };
 
-        return connect(chain, head, tail) * sign;
+        return connect(chain, head, tail, sign);
     }
 
     template <typename Array, typename IdxArray>
