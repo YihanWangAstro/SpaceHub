@@ -438,7 +438,7 @@ namespace space {
     template <typename ParticleSys, typename OdeIterator>
     void Simulator<ParticleSys, OdeIterator>::run(RunArgs const &run_args) {
         if (!run_args.is_stop_condition_set() && !run_args.is_end_time_set()) {
-            space::spacehub_abort("Use 'add_stop_condition' to set stop condition.");
+            spacehub_abort("Use 'add_stop_condition' to set stop condition.");
         }
 
         step_size_ = run_args.step_size;

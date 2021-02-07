@@ -133,11 +133,11 @@ namespace space::particle_set {
 
         SPACEHUB_ARRAY_ACCESSOR(IdxArray, idn, idn_);
 
-        SPACEHUB_STD_ACCESSOR(AdScalar, time, time_);
+        SPACEHUB_STD_ACCESSOR(StateScalar, time, time_);
 
-        SPACEHUB_ARRAY_ACCESSOR(AdVectorArray, pos, pos_);
+        SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, pos, pos_);
 
-        SPACEHUB_ARRAY_ACCESSOR(AdVectorArray, vel, vel_);
+        SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, vel, vel_);
 
         void resize(size_t new_sz);
 
@@ -161,9 +161,9 @@ namespace space::particle_set {
 
        private:
         // Private members
-        AdVectorArray pos_;
+        StateVectorArray pos_;
 
-        AdVectorArray vel_;
+        StateVectorArray vel_;
 
         ScalarArray mass_;
 
@@ -171,7 +171,7 @@ namespace space::particle_set {
 
         IdxArray idn_;
 
-        AdScalar time_{0};
+        StateScalar time_{0};
 
         size_t active_num_{0};
     };

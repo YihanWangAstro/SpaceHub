@@ -140,9 +140,8 @@ namespace space::integrator {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
-        using State = AdScalarArray;
         using IterTable = std::array<ScalarArray, 7>;
-        using IterStateTable = std::array<State, 7>;
+        using IterStateTable = std::array<StateScalarArray, 7>;
 
         static constexpr size_t order{15};
         static constexpr size_t final_point{7};
@@ -184,8 +183,8 @@ namespace space::integrator {
         ScalarArray dydh_{0};
         ScalarArray tmp_array_{0};
         ScalarArray dg_array_{0};
-        State tmp_state_{0};
-        State input_{0};
+        StateScalarArray tmp_state_{0};
+        StateScalarArray input_{0};
         size_t var_num_{0};
     };
 

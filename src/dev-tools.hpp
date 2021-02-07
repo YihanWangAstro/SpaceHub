@@ -62,12 +62,19 @@ namespace space {
         (..., (args.shrink_to_fit()));
     }
 
-    template <typename... Args>
+#define spacehub_abort(...)                                              \
+    do {                                                                 \
+        space::print(std::cout, __FILE__, ": Line :", __LINE__, "\r\n"); \
+        space::print(std::cout, __VA_ARGS__);                            \
+        exit(0);                                                         \
+    } while (0)
+
+    /*template <typename... Args>
     [[noreturn]] void spacehub_abort(Args &&...args) {
         space::print(std::cout, __FILE__, ": Line :", __LINE__, "\r\n");
         space::print(std::cout, std::forward<Args>(args)...);
         exit(0);
-    }
+    }*/
 
     class Empty {};
 
@@ -150,10 +157,10 @@ namespace space {
     using IntArray = typename CLASS::IntArray;                 \
     using Vector = typename CLASS::Vector;                     \
     using VectorArray = typename CLASS::VectorArray;           \
-    using AdScalar = typename CLASS::AdScalar;                 \
-    using AdScalarArray = typename CLASS::AdScalarArray;       \
-    using AdVector = typename CLASS::AdVector;                 \
-    using AdVectorArray = typename CLASS::AdVectorArray
+    using StateScalar = typename CLASS::StateScalar;           \
+    using StateScalarArray = typename CLASS::StateScalarArray; \
+    using StateVector = typename CLASS::StateVector;           \
+    using StateVectorArray = typename CLASS::StateVectorArray
 
 #define SPACEHUB_STD_ACCESSOR(TYPE, NAME, MEMBER)                    \
     /** The setter interface of member `MEMBER` in name of `NAME`.*/ \

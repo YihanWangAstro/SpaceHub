@@ -125,15 +125,15 @@ namespace space::particle_set {
         PointParticles(Scalar t, STL const &particle_set);
 
         // Public methods
-        SPACEHUB_STD_ACCESSOR(AdScalar, time, time_);
+        SPACEHUB_STD_ACCESSOR(StateScalar, time, time_);
 
         SPACEHUB_ARRAY_ACCESSOR(ScalarArray, mass, mass_);
 
         SPACEHUB_ARRAY_ACCESSOR(IdxArray, idn, idn_);
 
-        SPACEHUB_ARRAY_ACCESSOR(AdVectorArray, pos, pos_);
+        SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, pos, pos_);
 
-        SPACEHUB_ARRAY_ACCESSOR(AdVectorArray, vel, vel_);
+        SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, vel, vel_);
 
         void resize(size_t new_sz);
 
@@ -157,15 +157,15 @@ namespace space::particle_set {
 
        private:
         // Private members
-        AdVectorArray pos_;
+        StateVectorArray pos_;
 
-        AdVectorArray vel_;
+        StateVectorArray vel_;
 
         ScalarArray mass_;
 
         IdxArray idn_;
 
-        AdScalar time_{0.0};
+        StateScalar time_{0.0};
 
         size_t active_num_{0};
     };
@@ -178,11 +178,11 @@ namespace space::particle_set {
     \*---------------------------------------------------------------------------*/
     template <typename Vec3>
     PointParticle<Vec3>::PointParticle(Scalar m, Vec3 position, Vec3 velocity)
-            : pos(position), vel(velocity), mass(m) {}
+        : pos(position), vel(velocity), mass(m) {}
 
     template <typename Vec3>
     PointParticle<Vec3>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
-            : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
+        : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
     template <typename Vec3>
     std::ostream &operator<<(std::ostream &os, PointParticle<Vec3> const &particle) {

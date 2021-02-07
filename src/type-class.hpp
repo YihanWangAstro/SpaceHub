@@ -61,14 +61,14 @@ namespace space {
          */
         using Scalar = typename raw_type<Real>::type;
 
-        using AdScalar = Real;
+        using StateScalar = Real;
 
         /**
          * 1-d array with value type `Scalar`. Alias of `Container<Scalar>`.
          */
         using ScalarArray = Container<Scalar>;
 
-        using AdScalarArray = Container<AdScalar>;
+        using StateScalarArray = Container<StateScalar>;
 
         /**
          * 1-d array with value type `int`. Alias of `Container<int>`.
@@ -86,14 +86,14 @@ namespace space {
          */
         using Vector = lazy::LazyVec3<Scalar>;
 
-        using AdVector = lazy::LazyVec3<AdScalar>;
+        using StateVector = lazy::LazyVec3<StateScalar>;
 
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
          */
         using VectorArray = SSO_vec_vector<Vector>;
 
-        using AdVectorArray = SSO_vec_vector<AdVector>;
+        using StateVectorArray = SSO_vec_vector<StateVector>;
     };
 
     template <typename Iter, typename VectorArray>

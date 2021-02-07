@@ -168,7 +168,7 @@ namespace space::particle_system {
 
         interactions::InteractionData<Interactions, VectorArray> accels_;
 
-        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;
     };
 }  // namespace space::particle_system
 

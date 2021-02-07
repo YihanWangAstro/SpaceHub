@@ -120,9 +120,9 @@ namespace space::particle_system {
 
         void eval_vel_indep_acc();
 
-        void advance_omega(AdVectorArray const &velocity, VectorArray const &d_omega_dr, Scalar phy_time);
+        void advance_omega(StateVectorArray const &velocity, VectorArray const &d_omega_dr, Scalar phy_time);
 
-        void advance_bindE(AdVectorArray const &velocity, VectorArray const &d_bindE_dr, Scalar phy_time);
+        void advance_bindE(StateVectorArray const &velocity, VectorArray const &d_bindE_dr, Scalar phy_time);
 
         void kick_pseu_vel(Scalar phy_time);
 
@@ -133,9 +133,9 @@ namespace space::particle_system {
 
         Regularization<TypeSet, RegType> regu_;
 
-        AdVectorArray chain_pos_;
+        StateVectorArray chain_pos_;
 
-        AdVectorArray chain_vel_;
+        StateVectorArray chain_vel_;
 
         VectorArray chain_acc_;
 
@@ -143,9 +143,9 @@ namespace space::particle_system {
 
         IdxArray new_index_;
 
-        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;
 
-        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> chain_aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> chain_aux_vel_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -426,7 +426,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_omega(AdVectorArray const &velocity,
+    void ARchainSystem<Particles, Interactions, RegType>::advance_omega(StateVectorArray const &velocity,
                                                                         VectorArray const &d_omega_dr,
                                                                         Scalar phy_time) {
         if constexpr (regu_type == ReguType::TTL) {
@@ -436,7 +436,7 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(AdVectorArray const &velocity,
+    void ARchainSystem<Particles, Interactions, RegType>::advance_bindE(StateVectorArray const &velocity,
                                                                         VectorArray const &d_bindE_dr,
                                                                         Scalar phy_time) {
         if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {

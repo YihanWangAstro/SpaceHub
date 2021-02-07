@@ -94,8 +94,6 @@ namespace space::ode_iterator {
         using BSConsts =
             BulirschStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
 
-        using State = AdScalarArray;
-
         static constexpr size_t max_try_num{100};
 
         BulirschStoer();
@@ -103,7 +101,7 @@ namespace space::ode_iterator {
         template <CONCEPT_PARTICLE_SYSTEM U>
         Scalar iterate(U &particles, Scalar macro_step_size);
 
-        Scalar iterate(std::function<void(State const &, State &, Scalar)> func, State &data, Scalar &time,
+        Scalar iterate(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func, StateScalarArray &data, Scalar &time,
                        Scalar step_size);
 
         void set_atol(Scalar atol);
@@ -120,7 +118,7 @@ namespace space::ode_iterator {
         template <CONCEPT_PARTICLE_SYSTEM U>
         void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps);
 
-        void integrate_by_n_steps(std::function<void(State const &, State &, Scalar)> func, State &data_out,
+        void integrate_by_n_steps(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func, StateScalarArray &data_out,
                                   Scalar &time, Scalar step_size, size_t steps);
 
         void extrapolate(size_t k);
@@ -136,18 +134,18 @@ namespace space::ode_iterator {
         Scalar get_next_step_len(size_t k_new, size_t k) const;
 
        private:
-        using EvaluateFun = std::function<void(State const &, State &, Scalar)>;
+        using EvaluateFun = std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)>;
         /** @brief The constant coef for BS extrapolation*/
         BSConsts consts_;
 
         /** @brief Extrapolation table.*/
-        std::array<State, max_depth + 1> extrap_list_;
+        std::array<StateScalarArray, max_depth + 1> extrap_list_;
 
         ErrEstimator err_checker_;
 
         StepController step_controller_;
 
-        State input_{0};
+        StateScalarArray input_{0};
 
         /** @brief The optimal step size array.*/
         std::array<Scalar, max_depth + 1> ideal_step_size_{0};
@@ -209,7 +207,7 @@ namespace space::ode_iterator {
         step_controller_.set_safe_guards(0.85, 0.95, 0.02, 4.0);
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(EvaluateFun func, State &data, Scalar &time,
+    auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(EvaluateFun func, StateScalarArray &data, Scalar &time,
                                                                           Scalar step_size) -> Scalar {
         Scalar iter_h = step_size;
         input_ = data;
@@ -352,12 +350,12 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     void BulirschStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(EvaluateFun func,
-                                                                                       State &data_out, Scalar &time,
+                                                                                       StateScalarArray &data_out, Scalar &time,
                                                                                        Scalar step_size, size_t steps) {
         data_out = input_;
         Scalar h = step_size / steps;
-        State dxdt(input_.size());
-        State data_mid(input_);
+        StateScalarArray dxdt(input_.size());
+        StateScalarArray data_mid(input_);
 
         func(input_, dxdt, time);
         calc::array_advance(data_out, input_, dxdt, h);

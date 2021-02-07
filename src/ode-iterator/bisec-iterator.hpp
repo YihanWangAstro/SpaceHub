@@ -40,8 +40,6 @@ namespace space::ode_iterator {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
 
-        using State = AdScalarArray;
-
         // SPACEHUB_MAKE_CONSTRUCTORS(BisecOdeIterator, default, default, default, default, default);
         BisecOdeIterator();
 
@@ -64,11 +62,11 @@ namespace space::ode_iterator {
 
         StepController step_controller_;
 
-        State input_{0};
+        StateScalarArray input_{0};
 
-        State output_{0};
+        StateScalarArray output_{0};
 
-        State dual_steps_output_{0};
+        StateScalarArray dual_steps_output_{0};
 
         size_t var_num_{0};
 
@@ -92,7 +90,7 @@ namespace space::ode_iterator {
 
     template <typename T>
     constexpr T integer_pow(T base, size_t p) {
-        decltype(base) iter = 1;
+        T iter = 1;
         for (size_t i = 0; i < p; ++i) {
             iter *= base;
         }

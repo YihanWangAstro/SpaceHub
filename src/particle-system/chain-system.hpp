@@ -56,9 +56,9 @@ namespace space::particle_system {
         ChainSystem(Scalar time, STL const &particle_set);
 
         // Public methods
-        SPACEHUB_STD_ACCESSOR(AdVectorArray, chain_pos, chain_pos_);
+        SPACEHUB_STD_ACCESSOR(StateVectorArray, chain_pos, chain_pos_);
 
-        SPACEHUB_STD_ACCESSOR(AdVectorArray, chain_vel, chain_vel_);
+        SPACEHUB_STD_ACCESSOR(StateVectorArray, chain_vel, chain_vel_);
 
         SPACEHUB_STD_ACCESSOR(IdxArray, index, index_);
 
@@ -119,15 +119,15 @@ namespace space::particle_system {
        private:
         // Private members
         interactions::InteractionData<Interactions, VectorArray> accels_;
-        AdVectorArray chain_pos_;
-        AdVectorArray chain_vel_;
+        StateVectorArray chain_pos_;
+        StateVectorArray chain_vel_;
         VectorArray chain_acc_;
 
         IdxArray index_;
         IdxArray new_index_;
 
-        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> aux_vel_;
-        std::conditional_t<Interactions::ext_vel_dep, AdVectorArray, Empty> chain_aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;
+        std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> chain_aux_vel_;
     };
 
     /*---------------------------------------------------------------------------*\
