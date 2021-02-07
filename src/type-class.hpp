@@ -54,7 +54,7 @@ namespace space {
         using TypeSet = Types<Real>;
 
         template <typename T>
-        using Container = std::vector<T>;
+        using Container = SSO_vector<T>;
 
         /**
          * Floating point like type cross the system
@@ -91,9 +91,9 @@ namespace space {
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
          */
-        using VectorArray = std::vector<Vector>;
+        using VectorArray = SSO_vec_vector<Vector>;
 
-        using AdVectorArray = std::vector<AdVector>;
+        using AdVectorArray = SSO_vec_vector<AdVector>;
     };
 
     template <typename Iter, typename VectorArray>
