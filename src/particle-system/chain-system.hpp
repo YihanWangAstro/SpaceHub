@@ -27,8 +27,8 @@ License
 #include <type_traits>
 
 #include "../core-computation.hpp"
+#include "../type-class.hpp"
 #include "chain.hpp"
-
 namespace space::particle_system {
 
     /*---------------------------------------------------------------------------*\

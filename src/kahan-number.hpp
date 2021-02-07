@@ -48,31 +48,31 @@ namespace space {
          * Single parameter constructor.
          * @param r Scalar
          */
-        Kahan(T r) : real(r), err(0){};
+        constexpr Kahan(T r) : real(r), err(0){};
 
         /**
          * Copy constructor.
          * @param k
          */
-        Kahan(const Kahan &k) : real(k.real), err(k.err){};
+        constexpr Kahan(const Kahan &k) : real(k.real), err(k.err){};
 
         /**
          * Assignment operator.
          */
-        inline Kahan &operator=(const Kahan &hs) {
-            real = hs.real, err = hs.err;
-            return *this;
-        }
+        // inline Kahan &operator=(const Kahan &hs) {
+        //   real = hs.real, err = hs.err;
+        //   return *this;
+        //}
 
         /**
          * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
          */
-        inline operator T() { return real; }
+        inline constexpr operator T() { return real; }
 
         /**
          * Conversion operator. Convert Khan number to Scalar i.e `double`, `float`,...
          */
-        inline operator T() const { return real; }
+        inline constexpr operator T() const { return real; }
 
         /**
          * Set error to 0.

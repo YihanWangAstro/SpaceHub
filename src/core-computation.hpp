@@ -496,20 +496,20 @@ namespace space::calc {
             }
 
             for (size_t i = 0; i < size - 2; ++i) {
-                auto dr = ch_p[i] + ch_p[i + 1];
+                decltype(ch_p[i]) dr = ch_p[i] + ch_p[i + 1];
                 potential_eng -= m[idx[i]] * m[idx[i + 2]] / norm(dr);
             }
 
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 3; j < size; ++j) {
-                    auto dr = p[idx[j]] - p[idx[i]];
+                    decltype(p[idx[j]]) dr = p[idx[j]] - p[idx[i]];
                     potential_eng -= m[idx[i]] * m[idx[j]] / norm(dr);
                 }
             }
         } else {
             for (size_t i = 0; i < size; ++i)
                 for (size_t j = i + 1; j < size; ++j) {
-                    auto dr = p[i] - p[j];
+                    decltype(p[i]) dr = p[i] - p[j];
                     potential_eng -= m[i] * m[j] / norm(dr);
                 }
         }

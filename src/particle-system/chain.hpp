@@ -244,8 +244,8 @@ namespace space {
         vec.reserve(num * (num - 1));
         for (size_t i = 0; i < num; ++i) {
             for (size_t j = i + 1; j < num; ++j) {
-                auto dr = (pos[j] - pos[i]);
-                auto r2 = dr.x * dr.x + dr.y * dr.y + dr.z * dr.z;
+                decltype(pos[j]) dr = (pos[j] - pos[i]);
+                decltype(dr.x) r2 = dr.x * dr.x + dr.y * dr.y + dr.z * dr.z;
                 vec.emplace_back(Node{r2, i, j, true});
             }
         }
@@ -295,13 +295,13 @@ namespace space {
 
         auto connect = [](auto const &array, auto first, auto last, bool sign) -> auto {
             if (sign) {
-                auto new_d = array[first];
+                Vector new_d = array[first];
                 for (size_t j = first + 1; j < last; ++j) {
                     new_d += array[j];
                 }
                 return new_d;
             } else {
-                auto new_d = -array[first];
+                Vector new_d = -array[first];
                 for (size_t j = first + 1; j < last; ++j) {
                     new_d -= array[j];
                 }

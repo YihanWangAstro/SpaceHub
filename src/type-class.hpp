@@ -28,8 +28,8 @@ License
 
 #include "dev-tools.hpp"
 #include "small-vector.hpp"
+#include "vector/lazy-vec3.h"
 #include "vector/vector3.hpp"
-
 namespace space {
     template <typename T>
     using SSO_vector = llvm::SmallVector<T, 16>;
@@ -84,9 +84,9 @@ namespace space {
          * 3-d math vector (x, y, z) with `Scalar` type of x, y, z. Use genetic `Vec3` by default, but can be replaced
          * with any other implementation implements interfaces defined in `Vec3`.
          */
-        using Vector = Vec3<Scalar>;
+        using Vector = lazy::LazyVec3<Scalar>;
 
-        using AdVector = Vec3<AdScalar>;
+        using AdVector = lazy::LazyVec3<AdScalar>;
 
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.

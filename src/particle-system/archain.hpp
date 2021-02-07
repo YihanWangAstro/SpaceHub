@@ -24,9 +24,9 @@ License
  */
 #pragma once
 
+#include "../type-class.hpp"
 #include "chain.hpp"
 #include "regu-system.hpp"
-
 namespace space::particle_system {
 
     /*---------------------------------------------------------------------------*\

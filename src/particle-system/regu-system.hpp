@@ -29,7 +29,7 @@ License
 #include "../core-computation.hpp"
 #include "../interaction/interaction.hpp"
 #include "../spacehub-concepts.hpp"
-
+#include "../type-class.hpp"
 namespace space::particle_system {
     /**
      *
