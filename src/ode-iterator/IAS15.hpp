@@ -100,9 +100,6 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController>
     bool IAS15<Integrator, ErrEstimator, StepController>::in_converged_window() {
         Scalar PC_error = PC_err_checker_.error(integrator_.y_h(), integrator_.diff_b6());
-        // space::print(std::cout, k, ':', PC_error, '\n', integrator_.last_acc(), "\n\n", integrator_.diff_b6(),
-        //             "\n-------------\n\n");
-        // space::print(std::cout, k, '\n');
         if (PC_error < static_cast<Scalar>(1) || PC_error >= last_PC_error_) {
             reset_PC_iteration();
             return true;

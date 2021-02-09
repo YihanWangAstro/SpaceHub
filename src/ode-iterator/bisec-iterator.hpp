@@ -107,7 +107,6 @@ namespace space::ode_iterator {
                                                                              typename T::Scalar macro_step_size) ->
         typename T::Scalar {
         // static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
-
         check_variable_size();
         particles.write_to_scalar_array(input_);
 

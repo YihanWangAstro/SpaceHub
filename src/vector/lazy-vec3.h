@@ -59,7 +59,7 @@ namespace space::lazy {
         }
 
         template <typename U>
-        LazyVec3 &operator+=(Expr<U> const &rhs_expr) {
+        inline LazyVec3 &operator+=(Expr<U> const &rhs_expr) {
             const U &rhs = rhs_expr.cast();
             data_[0] += rhs.eval(0);
             data_[1] += rhs.eval(1);
@@ -68,7 +68,7 @@ namespace space::lazy {
         }
 
         template <typename U>
-        LazyVec3 &operator-=(Expr<U> const &rhs_expr) {
+        inline LazyVec3 &operator-=(Expr<U> const &rhs_expr) {
             const U &rhs = rhs_expr.cast();
             data_[0] -= rhs.eval(0);
             data_[1] -= rhs.eval(1);
@@ -77,7 +77,7 @@ namespace space::lazy {
         }
 
         template <typename U>
-        LazyVec3 &operator*=(Expr<U> const &rhs_expr) {
+        inline LazyVec3 &operator*=(Expr<U> const &rhs_expr) {
             const U &rhs = rhs_expr.cast();
             data_[0] *= rhs.eval(0);
             data_[1] *= rhs.eval(1);
@@ -86,7 +86,7 @@ namespace space::lazy {
         }
 
         template <typename U>
-        LazyVec3 &operator/=(Expr<U> const &rhs_expr) {
+        inline LazyVec3 &operator/=(Expr<U> const &rhs_expr) {
             const U &rhs = rhs_expr.cast();
             data_[0] /= rhs.eval(0);
             data_[1] /= rhs.eval(1);
@@ -101,13 +101,13 @@ namespace space::lazy {
         }
 
         template <typename U>
-        LazyVec3 &operator+=(Vec3<U> const &v) {
+        inline LazyVec3 &operator+=(Vec3<U> const &v) {
             x += v.x, y += v.y, z += v.z;
             return *this;
         }
 
         template <typename U>
-        LazyVec3 &operator-=(Vec3<U> const &v) {
+        inline LazyVec3 &operator-=(Vec3<U> const &v) {
             x -= v.x, y -= v.y, z -= v.z;
             return *this;
         }
@@ -119,7 +119,7 @@ namespace space::lazy {
         }
 
         template <typename U>
-        LazyVec3 &operator/=(Vec3<U> const &v) {
+        inline LazyVec3 &operator/=(Vec3<U> const &v) {
             x /= v.x, y /= v.y, z /= v.z;
             return *this;
         }
