@@ -314,9 +314,10 @@ namespace space {
 
     template <typename Array, typename IdxArray>
     void Chain::to_chain(const Array &cartesian, Array &chain, const IdxArray &index) {
+        using T = typename Array::value_type;
         const size_t size = cartesian.size();
         if constexpr (!bijective_transfer) {
-            chain[size - 1] = 0;
+            chain[size - 1] = T{0.0};
         } else {
             chain[size - 1] = cartesian[index[0]];
         }
@@ -328,9 +329,10 @@ namespace space {
 
     template <typename Array, typename IdxArray>
     void Chain::to_cartesian(const Array &chain, Array &cartesian, const IdxArray &index) {
+        using T = typename Array::value_type;
         const size_t size = cartesian.size();
         if constexpr (!bijective_transfer) {
-            cartesian[index[0]] = 0;
+            cartesian[index[0]] = T{0.0};
         } else {
             cartesian[index[0]] = chain[size - 1];
         }
