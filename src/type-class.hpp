@@ -52,7 +52,7 @@ namespace space {
         using TypeSet = Types<Real>;
 
         template <typename T>
-        using Container = std::vector<T>;
+        using Container = SSO_vector<T>;
 
         /**
          * Floating point like type cross the system
@@ -84,14 +84,14 @@ namespace space {
          */
         using Vector = lazy::LazyVec3<Scalar>;
 
-        using StateVector =lazy::LazyVec3<StateScalar>;
+        using StateVector = lazy::LazyVec3<StateScalar>;
 
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
          */
-        using VectorArray = std::vector<Vector>;
+        using VectorArray = SSO_vec_vector<Vector>;
 
-        using StateVectorArray = std::vector<StateVector>;
+        using StateVectorArray = SSO_vec_vector<StateVector>;
     };
 
     template <typename Iter, typename VectorArray>
