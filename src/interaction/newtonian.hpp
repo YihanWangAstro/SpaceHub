@@ -59,17 +59,19 @@ namespace space::interactions {
             auto const &idx = particles.index();
 
             size_t size = particles.number();
-            for (size_t i = 0; i < size - 1; ++i) {
-                force(ch_p[i], idx[i], idx[i + 1]);
-            }
-            for (size_t i = 0; i < size - 2; ++i) {
-                force(ch_p[i] + ch_p[i + 1], idx[i], idx[i + 2]);
-            }
 
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 3; j < size; ++j) {
                     force(p[idx[j]] - p[idx[i]], idx[i], idx[j]);
                 }
+            }
+
+            for (size_t i = 0; i < size - 2; ++i) {
+                force(ch_p[i] + ch_p[i + 1], idx[i], idx[i + 2]);
+            }
+
+            for (size_t i = 0; i < size - 1; ++i) {
+                force(ch_p[i], idx[i], idx[i + 1]);
             }
         } else {
             for (size_t i = 0; i < num; ++i) {

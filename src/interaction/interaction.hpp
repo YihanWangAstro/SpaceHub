@@ -168,8 +168,10 @@ namespace space::interactions {
     template <CONCEPT_PARTICLES_DATA Particles>
     void Interactions<InternalForce, ExtraForce...>::eval_extra_acc(const Particles &particles,
                                                                     typename Particles::VectorArray &acceleration) {
-        if constexpr (ext_vel_dep) {
+        if constexpr (ext_vel_dep || ext_vel_indep) {
             calc::array_set_zero(acceleration);
+        }
+        if constexpr (ext_vel_dep) {
             InvokeVelDepForce<ExtraForce...>::add_acc_to(particles, acceleration);
         }
         if constexpr (ext_vel_indep) {
