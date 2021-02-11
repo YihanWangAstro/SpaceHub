@@ -249,7 +249,7 @@ namespace space::ode_iterator {
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
-                        iter_h = set_next_iteration(k);  // get_next_try_step(k);
+                        iter_h = set_next_iteration(k);
                         break;
                     }
                 }
@@ -276,14 +276,13 @@ namespace space::ode_iterator {
             iter_num_++;
             integrate_by_n_steps(particles, iter_h, consts_.h(0));
             // particles.write_to_scalar_array(extrap_list_[0]);
-            // calc::array_sub(extrap_list_[0], extrap_list_[0], input_);
+
             load_tab(extrap_list_[0], particles.increment());
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
                 particles.read_from_scalar_array(input_);
                 integrate_by_n_steps(particles, iter_h, consts_.h(k));
                 // particles.write_to_scalar_array(extrap_list_[k]);
-                // calc::array_sub(extrap_list_[k], extrap_list_[k], input_);
                 load_tab(extrap_list_[k], particles.increment());
                 extrapolate(k);
 
@@ -300,17 +299,16 @@ namespace space::ode_iterator {
                     if (error <= 1.0) {
                         step_reject_ = false;
                         iter_h = set_next_iteration(k);
+                        // particles.read_from_scalar_array(extrap_list_[0]);
                         calc::array_advance(input_, extrap_list_[0]);
                         particles.read_from_scalar_array(input_);
-                        // particles.read_from_scalar_array(extrap_list_[0]);
+
                         last_error_ = error;
-                        // std::cout << "accept\n" << iter_h << '\n';
                         return iter_h;
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
                         iter_h = set_next_iteration(k);
-                        // std::cout << "rej\n";
                         break;
                     }
                 }
@@ -348,9 +346,9 @@ namespace space::ode_iterator {
                                                                                        size_t steps) {
         size_t num_drift = steps;
         Scalar h = macro_step_size / num_drift;
-
+        particles.sync_increment(true);
+        particles.clear_increment();
         if constexpr (std::is_same_v<Integrator, integrator::LeapFrogDKD<TypeSet>>) {
-            particles.clear_increment();
             particles.drift(0.5 * h);
             for (size_t i = 1; i < num_drift; i++) {
                 particles.kick(h);
@@ -369,6 +367,7 @@ namespace space::ode_iterator {
         } else {
             static_assert(true, "Bulirsch-Stoer Undefined embedded integration method");
         }
+        particles.sync_increment(false);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
