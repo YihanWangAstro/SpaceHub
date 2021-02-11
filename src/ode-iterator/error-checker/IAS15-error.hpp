@@ -26,7 +26,7 @@ License
 
 namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
-         Class IAS15Error Declaration
+         Class MaxRatioError Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * @brief
@@ -34,16 +34,16 @@ namespace space::ode_iterator {
      * @tparam TypeSystem
      */
     template <typename TypeSystem>
-    class IAS15Error {
+    class MaxRatioError {
        public:
         // Type member
 
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
         // Constructors
-        SPACEHUB_MAKE_CONSTRUCTORS(IAS15Error, default, default, default, default, default);
+        SPACEHUB_MAKE_CONSTRUCTORS(MaxRatioError, default, default, default, default, default);
 
-        IAS15Error(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
+        MaxRatioError(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 
         SPACEHUB_READ_ACCESSOR(auto, atol, atol_);
 
@@ -65,21 +65,21 @@ namespace space::ode_iterator {
         Scalar rtol_{1e-12};
     };
     /*---------------------------------------------------------------------------*\
-         Class IAS15Error Implementation
+         Class MaxRatioError Implementation
     \*---------------------------------------------------------------------------*/
     template <typename TypeSystem>
-    void IAS15Error<TypeSystem>::set_atol(Scalar error) {
+    void MaxRatioError<TypeSystem>::set_atol(Scalar error) {
         atol_ = error;
     }
 
     template <typename TypeSystem>
-    void IAS15Error<TypeSystem>::set_rtol(Scalar error) {
+    void MaxRatioError<TypeSystem>::set_rtol(Scalar error) {
         rtol_ = error;
     }
 
     template <typename TypeSystem>
     template <typename Array1, typename Array2>
-    auto IAS15Error<TypeSystem>::error(const Array1 &scale, const Array2 &diff) -> Scalar {
+    auto MaxRatioError<TypeSystem>::error(const Array1 &scale, const Array2 &diff) -> Scalar {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;
@@ -101,7 +101,7 @@ namespace space::ode_iterator {
 
     template <typename TypeSystem>
     template <typename Array1, typename Array2, typename Array3>
-    auto IAS15Error<TypeSystem>::error(const Array1 &scale, const Array2 &y1, const Array3 &y1_prime) -> Scalar {
+    auto MaxRatioError<TypeSystem>::error(const Array1 &scale, const Array2 &y1, const Array3 &y1_prime) -> Scalar {
         size_t const size = scale.size();
         Scalar max_diff = 0;
         Scalar max_scale = 0;

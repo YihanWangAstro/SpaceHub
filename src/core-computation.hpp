@@ -102,7 +102,7 @@ namespace space::calc {
      */
     template <typename Array>
     void array_set_zero(Array &array) {
-        std::fill(array.begin(), array.end(), 0);
+        std::fill(array.begin(), array.end(), typename Array::value_type{0});
         /* for (auto &a : array) {
              a = 0;
          }*/
@@ -396,8 +396,8 @@ namespace space::calc {
 
     template <typename ScalarArray, typename VectorArray>
     inline auto calc_com(ScalarArray const &mass, VectorArray const &var) -> typename VectorArray::value_type {
-        //typename VectorArray::value_type com = array_dot(var, mass) / array_sum(mass);//evaluate for lazy vecor otherwise will return an expression
-        //return com;
+        // typename VectorArray::value_type com = array_dot(var, mass) / array_sum(mass);//evaluate for lazy vecor
+        // otherwise will return an expression return com;
         return array_dot(var, mass) / array_sum(mass);
     }
 

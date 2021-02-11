@@ -91,17 +91,147 @@ namespace space {
     using namespace space::orbit;          \
     using namespace space::unit;           \
     using namespace space::particle_set;   \
-    using namespace space::multi_thread;   \
     using namespace space::random;         \
     using namespace space::run_operations; \
     using namespace space::particle_system
 
-    using DefaultTypes = Types<double>;
+    namespace details {
+        using namespace ode_iterator;
+        using namespace integrator;
+        using normal_type = Types<double>;
+        using precise_type = Types<double_k>;
+        using rms_err = ode_iterator::RMS<normal_type>;
+        using worst_offender_err = ode_iterator::WorstOffender<normal_type>;
+        using adaptive_step_ctrl = PIDController<normal_type>;
+        using const_step_ctrl = ConstStepController<normal_type>;
 
-    using DefaultSolver = Simulator<
-        particle_system::ARchainSystem<particle_set::PointParticles<DefaultTypes>,
-                                       interactions::Interactions<interactions::NewtonianGrav>,
-                                       particle_system::ReguType::LogH>,
-        ode_iterator::BulirschStoer<integrator::LeapFrogDKD<DefaultTypes>, ode_iterator::WorstOffender<DefaultTypes>,
-                                    ode_iterator::PIDController<DefaultTypes>>>;
+        using const_sym2 = ConstOdeIterator<Symplectic2nd<normal_type>>;
+        using const_sym4 = ConstOdeIterator<Symplectic4th<normal_type>>;
+        using const_sym6 = ConstOdeIterator<Symplectic6th<normal_type>>;
+        using const_sym8 = ConstOdeIterator<Symplectic8th<normal_type>>;
+        using const_sym10 = ConstOdeIterator<Symplectic10th<normal_type>>;
+        using const_Radau = ConstOdeIterator<GaussRadau<normal_type>>;
+
+        using const_sym2_plus = ConstOdeIterator<Symplectic2nd<precise_type>>;
+        using const_sym4_plus = ConstOdeIterator<Symplectic4th<precise_type>>;
+        using const_sym6_plus = ConstOdeIterator<Symplectic6th<precise_type>>;
+        using const_sym8_plus = ConstOdeIterator<Symplectic8th<precise_type>>;
+        using const_sym10_plus = ConstOdeIterator<Symplectic10th<precise_type>>;
+        using const_Radau_plus = ConstOdeIterator<GaussRadau<precise_type>>;
+
+        using BS = BulirschStoer<LeapFrogDKD<normal_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym2 = SequentOdeIterator<Symplectic2nd<normal_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym4 = SequentOdeIterator<Symplectic4th<normal_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym6 = SequentOdeIterator<Symplectic6th<normal_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym8 = SequentOdeIterator<Symplectic8th<normal_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym10 = SequentOdeIterator<Symplectic10th<normal_type>, worst_offender_err, adaptive_step_ctrl>;
+        using Radau = IAS15<GaussRadau<normal_type>, MaxRatioError<normal_type>, adaptive_step_ctrl>;
+
+        using BS_plus = BulirschStoer<LeapFrogDKD<precise_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym2_plus = SequentOdeIterator<Symplectic2nd<precise_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym4_plus = SequentOdeIterator<Symplectic4th<precise_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym6_plus = SequentOdeIterator<Symplectic6th<precise_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym8_plus = SequentOdeIterator<Symplectic8th<precise_type>, worst_offender_err, adaptive_step_ctrl>;
+        using sym10_plus = SequentOdeIterator<Symplectic10th<precise_type>, worst_offender_err, adaptive_step_ctrl>;
+        using Radau_plus = IAS15<GaussRadau<precise_type>, MaxRatioError<normal_type>, adaptive_step_ctrl>;
+
+    };  // namespace details
+
+    using DefaultForce = interactions::Interactions<space::interactions::NewtonianGrav>;
+
+    template <typename T>
+    using DefaultParticles = particle_set::PointParticles<T>;
+
+#define DEFINE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                             \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using NAME = Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::ITER>; \
+                                                                                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using NAME##_Plus =                                                                                           \
+        Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, details::ITER##_plus>;  \
+                                                                                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using Const_##NAME =                                                                                          \
+        Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::const_##ITER>;  \
+                                                                                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using Const_##NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, \
+                                          details::const_##ITER##_plus>;
+
+#define DEFINE_ADAPTIVE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                    \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using NAME = Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::ITER>; \
+                                                                                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using NAME##_Plus =                                                                                           \
+        Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, details::ITER##_plus>;
+
+#define DEFINE_CONST_STEP_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using Const_##NAME =                                                                                          \
+        Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::const_##ITER>;  \
+                                                                                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
+    using Const_##NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, \
+                                          details::const_##ITER##_plus>;
+
+    DEFINE_ADAPTIVE_INTEGRATION_METHOD(BS, SimpleSystem, BS)
+
+    DEFINE_ADAPTIVE_INTEGRATION_METHOD(AR_BS, RegularizedSystem, BS)
+
+    DEFINE_ADAPTIVE_INTEGRATION_METHOD(Chain_BS, ChainSystem, BS)
+
+    DEFINE_ADAPTIVE_INTEGRATION_METHOD(AR_Chain, ARchainSystem, BS)
+
+    DEFINE_INTEGRATION_METHOD(Sym2, SimpleSystem, sym2)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym2, RegularizedSystem, sym2)
+
+    DEFINE_INTEGRATION_METHOD(Chain_Sym2, ChainSystem, sym2)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym2_Chain, ARchainSystem, sym2)
+
+    DEFINE_INTEGRATION_METHOD(Sym4, SimpleSystem, sym4)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym4, RegularizedSystem, sym4)
+
+    DEFINE_INTEGRATION_METHOD(Chain_Sym4, ChainSystem, sym4)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym4_Chain, ARchainSystem, sym4)
+
+    DEFINE_INTEGRATION_METHOD(Sym6, SimpleSystem, sym6)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym6, RegularizedSystem, sym6)
+
+    DEFINE_INTEGRATION_METHOD(Chain_Sym6, ChainSystem, sym6)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym6_Chain, ARchainSystem, sym6)
+
+    DEFINE_INTEGRATION_METHOD(Sym8, SimpleSystem, sym8)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym8, RegularizedSystem, sym8)
+
+    DEFINE_INTEGRATION_METHOD(Chain_Sym8, ChainSystem, sym8)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym8_Chain, ARchainSystem, sym8)
+
+    DEFINE_INTEGRATION_METHOD(Sym10, SimpleSystem, sym10)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym10, RegularizedSystem, sym10)
+
+    DEFINE_INTEGRATION_METHOD(Chain_Sym10, ChainSystem, sym10)
+
+    DEFINE_INTEGRATION_METHOD(AR_Sym10_Chain, ARchainSystem, sym10)
+
+    DEFINE_INTEGRATION_METHOD(Radau, SimpleSystem, Radau)
+
+    DEFINE_INTEGRATION_METHOD(AR_Radau, RegularizedSystem, Radau)
+
+    DEFINE_INTEGRATION_METHOD(Chain_Radau, ChainSystem, Radau)
+
+    DEFINE_INTEGRATION_METHOD(AR_Radau_Chain, ARchainSystem, Radau)
+
+    using DefaultTypes = Types<double>;
+    using DefaultSolver =
+        AR_Chain_Plus<interactions::Interactions<interactions::NewtonianGrav>, particle_set::PointParticles>;
 }  // namespace space

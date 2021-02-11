@@ -29,19 +29,19 @@ License
 namespace space::ode_iterator {
 
     /*---------------------------------------------------------------------------*\
-          Class BisecOdeIterator Declaration
+          Class SequentOdeIterator Declaration
     \*---------------------------------------------------------------------------*/
     /**
      *
      * @tparam Integrator
      */
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    class BisecOdeIterator {
+    class SequentOdeIterator {
        public:
         SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
 
-        // SPACEHUB_MAKE_CONSTRUCTORS(BisecOdeIterator, default, default, default, default, default);
-        BisecOdeIterator();
+        // SPACEHUB_MAKE_CONSTRUCTORS(SequentOdeIterator, default, default, default, default, default);
+        SequentOdeIterator();
 
         template <CONCEPT_PARTICLE_SYSTEM T>
         auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
@@ -74,7 +74,7 @@ namespace space::ode_iterator {
     };
 
     /*---------------------------------------------------------------------------*\
-          Class BisecOdeIterator Implementation
+          Class SequentOdeIterator Implementation
     \*---------------------------------------------------------------------------*/
     template <size_t Base, size_t I>
     class constexpr_pow {
@@ -97,14 +97,14 @@ namespace space::ode_iterator {
         return iter;
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    BisecOdeIterator<Integrator, ErrEstimator, StepController>::BisecOdeIterator() {
+    SequentOdeIterator<Integrator, ErrEstimator, StepController>::SequentOdeIterator() {
         step_controller_.set_safe_guards(0.7, 1, 0.02, 4.0);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     template <CONCEPT_PARTICLE_SYSTEM T>
-    auto BisecOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
-                                                                             typename T::Scalar macro_step_size) ->
+    auto SequentOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
+                                                                               typename T::Scalar macro_step_size) ->
         typename T::Scalar {
         // static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
         check_variable_size();
@@ -161,7 +161,7 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::check_variable_size() {
+    void SequentOdeIterator<Integrator, ErrEstimator, StepController>::check_variable_size() {
         var_num_ = input_.size();
         if (var_num_ > output_.size()) [[unlikely]] {
             output_.resize(var_num_);
@@ -170,12 +170,12 @@ namespace space::ode_iterator {
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_atol(Scalar atol) {
+    void SequentOdeIterator<Integrator, ErrEstimator, StepController>::set_atol(Scalar atol) {
         err_checker_.set_atol(atol);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    void BisecOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
+    void SequentOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
         err_checker_.set_rtol(rtol);
     }
 }  // namespace space::ode_iterator

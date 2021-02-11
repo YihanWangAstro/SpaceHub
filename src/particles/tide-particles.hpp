@@ -52,11 +52,11 @@ namespace space::particle_set {
 
         SPACEHUB_MAKE_CONSTRUCTORS(TideParticle, default, default, default, default, default);
 
-               explicit TideParticle(Scalar mass, Vector position, Vector velocity, Scalar apsidal_motion_const,
+        explicit TideParticle(Scalar mass, Vector position, Vector velocity, Scalar r, Scalar apsidal_motion_const,
                               Scalar lag_time);
 
         explicit TideParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
-                              Scalar vz = 0, Scalar apsidal_motion_const = 0, Scalar lag_time = 0);
+                              Scalar vz = 0, Scalar r = 0, Scalar apsidal_motion_const = 0, Scalar lag_time = 0);
 
         // public members
         /**
@@ -73,6 +73,12 @@ namespace space::particle_set {
          * @brief Mass of the particle.
          */
         Scalar mass;
+
+        /**
+         * @brief
+         *
+         */
+        Scalar radius;
 
         /**
          * @brief Apsidal motion constant
@@ -122,6 +128,8 @@ namespace space::particle_set {
 
         SPACEHUB_ARRAY_ACCESSOR(ScalarArray, mass, mass_);
 
+        SPACEHUB_ARRAY_ACCESSOR(ScalarArray, radius, radius_);
+
         SPACEHUB_ARRAY_ACCESSOR(IdxArray, idn, idn_);
 
         SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, pos, pos_);
@@ -160,6 +168,8 @@ namespace space::particle_set {
 
         ScalarArray mass_;
 
+        ScalarArray radius_;
+
         ScalarArray k_AM_;
 
         ScalarArray tau_lag_;
@@ -178,29 +188,35 @@ namespace space::particle_set {
         Class TideParticle Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Vec3>
-    TideParticle<Vec3>::TideParticle(Scalar m, Vec3 position, Vec3 velocity, Scalar apsidal_motion_const,
+    TideParticle<Vec3>::TideParticle(Scalar m, Vec3 position, Vec3 velocity, Scalar r, Scalar apsidal_motion_const,
                                      Scalar lag_time)
-        : pos(position), vel(velocity), mass(m), tide_apsidal_const(apsidal_motion_const), tide_lag_time(lag_time) {}
+        : pos(position),
+          vel(velocity),
+          mass(m),
+          radius(r),
+          tide_apsidal_const(apsidal_motion_const),
+          tide_lag_time(lag_time) {}
 
     template <typename Vec3>
     TideParticle<Vec3>::TideParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz,
-                                     Scalar apsidal_motion_const, Scalar lag_time)
+                                     Scalar r, Scalar apsidal_motion_const, Scalar lag_time)
         : pos(px, py, pz),
           vel(vx, vy, vz),
           mass(m),
+          radius(r),
           tide_apsidal_const(apsidal_motion_const),
           tide_lag_time(lag_time) {}
 
     template <typename Vec3>
     std::ostream &operator<<(std::ostream &os, TideParticle<Vec3> const &particle) {
-        space::print_csv(os, particle.mass, particle.pos, particle.vel, particle.tide_apsidal_const,
+        space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel, particle.tide_apsidal_const,
                          particle.tide_lag_time);
         return os;
     }
 
     template <typename Vec3>
     std::istream &operator>>(std::istream &is, TideParticle<Vec3> &particle) {
-        space::input(is, particle.mass, particle.pos, particle.vel, particle.tide_apsidal_const,
+        space::input(is, particle.mass, particle.radius, particle.pos, particle.vel, particle.tide_apsidal_const,
                      particle.tide_lag_time);
         return is;
     }
@@ -218,6 +234,7 @@ namespace space::particle_set {
             pos_.emplace_back(p.pos);
             vel_.emplace_back(p.vel);
             mass_.emplace_back(p.mass);
+            radius_.emplace_back(p.radius);
             k_AM_.emplace_back(p.tide_apsidal_const);
             tau_lag_.emplace_back(p.tide_lag_time);
             idn_.emplace_back(id++);
@@ -228,18 +245,18 @@ namespace space::particle_set {
 
     template <typename TypeSystem>
     void TideParticles<TypeSystem>::resize(size_t new_sz) {
-        space::resize_all(new_sz, pos_, vel_, mass_, k_AM_, tau_lag_, idn_);
+        space::resize_all(new_sz, pos_, vel_, mass_, radius_, k_AM_, tau_lag_, idn_);
         active_num_ = new_sz;
     }
 
     template <typename TypeSystem>
     void TideParticles<TypeSystem>::reserve(size_t new_cap) {
-        space::reserve_all(new_cap, pos_, vel_, mass_, k_AM_, tau_lag_, idn_);
+        space::reserve_all(new_cap, pos_, vel_, mass_, radius_, k_AM_, tau_lag_, idn_);
     }
 
     template <typename TypeSystem>
     void TideParticles<TypeSystem>::clear() {
-        space::clear_all(pos_, vel_, mass_, k_AM_, tau_lag_, idn_);
+        space::clear_all(pos_, vel_, mass_, radius_, k_AM_, tau_lag_, idn_);
         active_num_ = 0;
     }
 
@@ -248,6 +265,7 @@ namespace space::particle_set {
         pos_.emplace_back(new_particle.pos);
         vel_.emplace_back(new_particle.vel);
         mass_.emplace_back(new_particle.mass);
+        radius_.emplace_back(new_particle.radius);
         k_AM_.emplace_back(new_particle.tide_apsidal_const);
         tau_lag_.emplace_back(new_particle.tide_lag_time);
         idn_.emplace_back(this->number());
@@ -266,15 +284,15 @@ namespace space::particle_set {
 
     template <typename TypeSystem>
     std::string TideParticles<TypeSystem>::column_names() const {
-        return "time,id,mass,k_AM,tau_lag,px,py,pz,vx,vy,vz";
+        return "time,id,mass,radius,k_AM,tau_lag,px,py,pz,vx,vy,vz";
     }
 
     template <typename TypeSystem>
     std::ostream &operator<<(std::ostream &os, TideParticles<TypeSystem> const &ps) {
         size_t num = ps.number();
         for (size_t i = 0; i < num; ++i) {
-            space::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.tide_apsidal_const(i), ',',
-                         ps.tide_lag_time(i), ',', ps.pos(i), ',', ps.vel(i), '\n');
+            space::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.radius(i), ',',
+                         ps.tide_apsidal_const(i), ',', ps.tide_lag_time(i), ',', ps.pos(i), ',', ps.vel(i), '\n');
         }
         return os;
     }

@@ -25,75 +25,20 @@ License
 #include "../../src/spaceHub.hpp"
 
 struct MethodList {
-    using type = space::Types<double>;
-
-    using adtype = space::Types<space::double_k>;
-
-    using force = space::interactions::Interactions<space::interactions::NewtonianGrav>;
-
-    using base_integrator = space::integrator::LeapFrogDKD<type>;
-
-    using err_estimator = space::ode_iterator::WorstOffender<type>;
-
-    using step_controller = space::ode_iterator::PIDController<type>;
-
-    using particles = space::particle_set::PointParticles<type>;
-
-    using adparticles = space::particle_set::PointParticles<adtype>;
-
-    using sim_sys = space::particle_system::SimpleSystem<particles, force>;
-
-    using regu_sys =
-        space::particle_system::RegularizedSystem<particles, force, space::particle_system::ReguType::LogH>;
-
-    using chain_sys = space::particle_system::ChainSystem<particles, force>;
-
-    using arch_sys = space::particle_system::ARchainSystem<particles, force, space::particle_system::ReguType::LogH>;
-
-    using adsim_sys = space::particle_system::SimpleSystem<adparticles, force>;
-
-    using adregu_sys =
-        space::particle_system::RegularizedSystem<adparticles, force, space::particle_system::ReguType::LogH>;
-
-    using adchain_sys = space::particle_system::ChainSystem<adparticles, force>;
-
-    using adarch_sys =
-        space::particle_system::ARchainSystem<adparticles, force, space::particle_system::ReguType::LogH>;
-
-    using iter = space::ode_iterator::BulirschStoer<base_integrator, err_estimator, step_controller>;
-
-    using aditer =
-        space::ode_iterator::BulirschStoer<space::integrator::LeapFrogDKD<adtype>, err_estimator, step_controller>;
-
-    using ias15_iter = space::ode_iterator::IAS15<space::integrator::GaussRadau<adtype>,
-                                                  space::ode_iterator::IAS15Error<type>, step_controller>;
-
-    using space6_iter =
-        space::ode_iterator::BisecOdeIterator<space::integrator::Symplectic6th<adtype>,
-                                              space::ode_iterator::WorstOffender<type>, step_controller>;
-
-    using space8_iter =
-        space::ode_iterator::BisecOdeIterator<space::integrator::Symplectic8th<adtype>,
-                                              space::ode_iterator::WorstOffender<type>, step_controller>;
-
-    using space10_iter =
-        space::ode_iterator::BisecOdeIterator<space::integrator::Symplectic10th<adtype>,
-                                              space::ode_iterator::WorstOffender<type>, step_controller>;
-
-    using BS = space::Simulator<sim_sys, iter>;
-    using BS_plus = space::Simulator<adsim_sys, iter>;
-    using AR = space::Simulator<regu_sys, iter>;
-    using Chain = space::Simulator<chain_sys, iter>;
-    using AR_chain = space::Simulator<arch_sys, iter>;
-    using AR_chain_plus = space::Simulator<adarch_sys, aditer>;
-    using IAS15 = space::Simulator<adsim_sys, ias15_iter>;
-    using C_IAS15 = space::Simulator<adchain_sys, ias15_iter>;
-    using AR_IAS15 = space::Simulator<adregu_sys, ias15_iter>;
-    using ARC_IAS15 = space::Simulator<adarch_sys, ias15_iter>;
-    using ARC_sym6 = space::Simulator<adarch_sys, space6_iter>;
-    using AR_sym6 = space::Simulator<adregu_sys, space6_iter>;
-    using ARC_sym8 = space::Simulator<adarch_sys, space8_iter>;
-    using AR_sym8 = space::Simulator<adregu_sys, space8_iter>;
+    using BS = space::BS<>;
+    using BS_plus = space::BS_Plus<>;
+    using AR = space::AR_BS<>;
+    using Chain = space::Chain_BS<>;
+    using AR_Chain = space::AR_Chain<>;
+    using AR_Chain_Plus = space::AR_Chain_Plus<>;
+    using Radau_Plus = space::Radau_Plus<>;
+    using Chain_Radau_Plus = space::Chain_Radau_Plus<>;
+    using AR_Radau_Plus = space::AR_Radau_Plus<>;
+    using AR_Radau_Chain_Plus = space::AR_Radau_Chain_Plus<>;
+    using AR_Sym6_Chain_Plus = space::AR_Sym6_Chain_Plus<>;
+    using AR_Sym6_Plus = space::AR_Sym6_Plus<>;
+    using AR_Sym8_Chain_Plus = space::AR_Sym8_Chain_Plus<>;
+    using AR_Sym8_Plus = space::AR_Sym8_Plus<>;
 };
 
 auto two_body(double e = 0) {
@@ -319,16 +264,19 @@ auto fast_err_methods(std::string const &system_name, System const &system, doub
     errs.push_back(basic_error_test<MethodList::BS>(system_name + "-BS", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::AR>(system_name + "-AR", t_end, rtol, system));
     errs.push_back(basic_error_test<MethodList::Chain>(system_name + "-Chain", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_chain>(system_name + "-AR-chain", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_chain_plus>(system_name + "-AR-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::IAS15>(system_name + "-Radau+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::C_IAS15>(system_name + "-Radau-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_IAS15>(system_name + "-AR-Radau+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::ARC_IAS15>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::ARC_sym6>(system_name + "-AR-sym6-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_sym6>(system_name + "-AR-sym6", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::ARC_sym8>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_sym8>(system_name + "-AR-sym8", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_Chain>(system_name + "-AR-chain", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_Chain_Plus>(system_name + "-AR-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::Radau_Plus>(system_name + "-Radau+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::Chain_Radau_Plus>(system_name + "-Radau-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_Radau_Plus>(system_name + "-AR-Radau+", t_end, rtol, system));
+    errs.push_back(
+        basic_error_test<MethodList::AR_Radau_Chain_Plus>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
+    errs.push_back(
+        basic_error_test<MethodList::AR_Sym6_Chain_Plus>(system_name + "-AR-sym6-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_Sym6_Plus>(system_name + "-AR-sym6", t_end, rtol, system));
+    errs.push_back(
+        basic_error_test<MethodList::AR_Sym8_Chain_Plus>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<MethodList::AR_Sym8_Plus>(system_name + "-AR-sym8", t_end, rtol, system));
     return errs;
 }
 
@@ -347,16 +295,16 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
     cpu_t.push_back(bench_mark<MethodList::BS>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<MethodList::AR>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<MethodList::Chain>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_chain>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_chain_plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::IAS15>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::C_IAS15>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_IAS15>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::ARC_IAS15>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::ARC_sym6>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_sym6>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::ARC_sym8>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_sym8>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Chain>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Chain_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::Radau_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::Chain_Radau_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Radau_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Radau_Chain_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Sym6_Chain_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Sym6_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Sym8_Chain_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<MethodList::AR_Sym8_Plus>(t_end, rtol, system));
 
     for (size_t i = 0; i < names.size(); ++i) {
         file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
@@ -368,14 +316,14 @@ auto err_scale_methods(std::string const &system_name, System const &system, dou
     error_scale<MethodList::BS>(system_name, "BS", 3e-16, 1e-11, t_end, system);
     error_scale<MethodList::AR>(system_name, "AR", 3e-16, 1e-11, t_end, system);
     error_scale<MethodList::Chain>(system_name, "Chain", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_chain>(system_name, "AR-chain", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_chain_plus>(system_name, "AR-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::IAS15>(system_name, "Radau+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::C_IAS15>(system_name, "Radau-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_IAS15>(system_name, "AR-Radau+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::ARC_IAS15>(system_name, "AR-Radau-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::ARC_sym6>(system_name, "AR-sym6-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_sym6>(system_name, "AR-sym6", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::ARC_sym8>(system_name, "AR-sym8-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_sym8>(system_name, "AR-sym8", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Chain>(system_name, "AR-chain", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Chain_Plus>(system_name, "AR-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::Radau_Plus>(system_name, "Radau+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::Chain_Radau_Plus>(system_name, "Radau-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Radau_Plus>(system_name, "AR-Radau+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Radau_Chain_Plus>(system_name, "AR-Radau-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Sym6_Chain_Plus>(system_name, "AR-sym6-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Sym6_Plus>(system_name, "AR-sym6", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Sym8_Chain_Plus>(system_name, "AR-sym8-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<MethodList::AR_Sym8_Plus>(system_name, "AR-sym8", 3e-16, 1e-11, t_end, system);
 }

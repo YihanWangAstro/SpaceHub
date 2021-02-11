@@ -38,7 +38,7 @@ namespace space::particle_system {
      * @tparam Interactions
      * @tparam RegType
      */
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType = ReguType::LogH>
     class ARchainSystem : public Particles {
        public:
         // Type members

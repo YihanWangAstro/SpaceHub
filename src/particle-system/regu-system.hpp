@@ -94,7 +94,7 @@ namespace space::particle_system {
      * @tparam Particles
      * @tparam Interactions
      */
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType = ReguType::LogH>
     class RegularizedSystem : public Particles {
        public:
         // Type members

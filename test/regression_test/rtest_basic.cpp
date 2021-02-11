@@ -24,7 +24,7 @@ License
 USING_NAMESPACE_SPACEHUB_ALL;
 
 int main(int argc, char **argv) {
-    using method = MethodList::Chain;
+    using method = MethodList::AR_Chain_Plus;
     Timer t;
     double rtol = 1e-14;
     t.start();

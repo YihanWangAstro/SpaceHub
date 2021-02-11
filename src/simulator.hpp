@@ -86,12 +86,12 @@ namespace space {
         /**
          * The absolute error tolerance.
          */
-        Scalar atol{1e-15};
+        Scalar atol{0.0};
 
         /**
          * The relative error tolerance.
          */
-        Scalar rtol{1e-13};
+        Scalar rtol{1e-14};
 
         // public methods
         /**

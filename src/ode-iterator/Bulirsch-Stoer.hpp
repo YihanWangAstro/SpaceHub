@@ -144,7 +144,7 @@ namespace space::ode_iterator {
         BSConsts consts_;
 
         /** @brief Extrapolation table.*/
-        std::array<StateScalarArray, max_depth + 1> extrap_list_;
+        std::array<ScalarArray, max_depth + 1> extrap_list_;
 
         ErrEstimator err_checker_;
 
@@ -266,24 +266,19 @@ namespace space::ode_iterator {
         Scalar iter_h = macro_step_size;
         particles.write_to_scalar_array(input_);
         check_variable_size();
+        auto const & dy = particles.increment();
 
-        auto load_tab = [=](auto &tab, auto const &inc) {
-            for (size_t i = 0; i < var_num_; ++i) {
-                tab[i] = inc[i];
-            }
-        };
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
             integrate_by_n_steps(particles, iter_h, consts_.h(0));
             // particles.write_to_scalar_array(extrap_list_[0]);
-
-            load_tab(extrap_list_[0], particles.increment());
+            std::copy(dy.begin(), dy.end(),extrap_list_[0].begin());
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
                 particles.read_from_scalar_array(input_);
                 integrate_by_n_steps(particles, iter_h, consts_.h(k));
                 // particles.write_to_scalar_array(extrap_list_[k]);
-                load_tab(extrap_list_[k], particles.increment());
+                std::copy(dy.begin(), dy.end(),extrap_list_[k].begin());
                 extrapolate(k);
 
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
