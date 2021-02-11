@@ -32,7 +32,7 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     /**
      * https://en.wikipedia.org/wiki/PID_controller
-     * @tparam T
+     * @tparam TypeSystem
      */
     template <typename TypeSystem>
     class PIDController {

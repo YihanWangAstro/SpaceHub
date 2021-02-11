@@ -41,20 +41,18 @@ namespace space {
       `Vector`, `ScalarArray`, `Coord` and etc,.
 
       @tparam Real The basic scalar type, i.e `float`, `double`, etc.
-      @tparam TContainer The container type, i.e `std::vector`. Use std::vector as default.
      */
     template <typename Real>
     struct Types {
        public:
         /**
-         * @brief Generic container
+         * @brief
          *
-         * @tparam T variadic template parameters that compatible to various containers.
          */
         using TypeSet = Types<Real>;
 
         template <typename T>
-        using Container = SSO_vector<T>;
+        using Container = std::vector<T>;
 
         /**
          * Floating point like type cross the system
@@ -86,14 +84,14 @@ namespace space {
          */
         using Vector = lazy::LazyVec3<Scalar>;
 
-        using StateVector = lazy::LazyVec3<StateScalar>;
+        using StateVector =lazy::LazyVec3<StateScalar>;
 
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.
          */
-        using VectorArray = SSO_vec_vector<Vector>;
+        using VectorArray = std::vector<Vector>;
 
-        using StateVectorArray = SSO_vec_vector<StateVector>;
+        using StateVectorArray = std::vector<StateVector>;
     };
 
     template <typename Iter, typename VectorArray>

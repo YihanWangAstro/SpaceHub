@@ -41,8 +41,11 @@ namespace space::ode_iterator {
          Class BulirschStoerConsts Declaration
     \*---------------------------------------------------------------------------*/
     /**
+     * @brief
+     *
      * @tparam T
      * @tparam MaxIter
+     * @tparam IsKDK
      */
     template <typename T, size_t MaxIter, bool IsKDK>
     class BulirschStoerConsts {
@@ -80,7 +83,9 @@ namespace space::ode_iterator {
          Class BulirschStoer Declaration
     \*---------------------------------------------------------------------------*/
     /**
-     * @tparam Real
+     * @brief
+     *
+     * @tparam Integrator
      * @tparam ErrEstimator
      * @tparam StepController
      */
@@ -101,8 +106,8 @@ namespace space::ode_iterator {
         template <CONCEPT_PARTICLE_SYSTEM U>
         Scalar iterate(U &particles, Scalar macro_step_size);
 
-        Scalar iterate(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func, StateScalarArray &data, Scalar &time,
-                       Scalar step_size);
+        Scalar iterate(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func,
+                       StateScalarArray &data, Scalar &time, Scalar step_size);
 
         void set_atol(Scalar atol);
 
@@ -118,8 +123,8 @@ namespace space::ode_iterator {
         template <CONCEPT_PARTICLE_SYSTEM U>
         void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps);
 
-        void integrate_by_n_steps(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func, StateScalarArray &data_out,
-                                  Scalar &time, Scalar step_size, size_t steps);
+        void integrate_by_n_steps(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func,
+                                  StateScalarArray &data_out, Scalar &time, Scalar step_size, size_t steps);
 
         void extrapolate(size_t k);
 
@@ -175,9 +180,13 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     template <typename Scalar, size_t MaxIter, bool IsKDK>
     constexpr BulirschStoerConsts<Scalar, MaxIter, IsKDK>::BulirschStoerConsts() {
-        for (size_t i = 0; i < MaxIter; ++i) {
-            h_[i] = 2 * (i + 1);
+        static_assert(MaxIter <= 11, " Iteration depth cannot be larger than9");
 
+        std::array<size_t, 11> seq = {1, 2, 3, 5, 8, 12, 17, 25, 36, 51, 73};  // better sequence
+
+        for (size_t i = 0; i < MaxIter; ++i) {
+            // h_[i] = 2 * (i + 1);
+            h_[i] = seq[i];
             if (i == 0) {
                 cost_[i] = h_[i] + static_cast<size_t>(IsKDK) * 2;
             } else {
@@ -204,11 +213,11 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController>
     BulirschStoer<Integrator, ErrEstimator, StepController>::BulirschStoer()
         : step_controller_{}, err_checker_{0, 1e-14} {
-        step_controller_.set_safe_guards(0.85, 0.95, 0.02, 4.0);
+        step_controller_.set_safe_guards(0.72, 0.9, 0.02, 4.0);
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(EvaluateFun func, StateScalarArray &data, Scalar &time,
-                                                                          Scalar step_size) -> Scalar {
+    auto BulirschStoer<Integrator, ErrEstimator, StepController>::iterate(EvaluateFun func, StateScalarArray &data,
+                                                                          Scalar &time, Scalar step_size) -> Scalar {
         Scalar iter_h = step_size;
         input_ = data;
 
@@ -258,15 +267,24 @@ namespace space::ode_iterator {
         particles.write_to_scalar_array(input_);
         check_variable_size();
 
+        auto load_tab = [=](auto &tab, auto const &inc) {
+            for (size_t i = 0; i < var_num_; ++i) {
+                tab[i] = inc[i];
+            }
+        };
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
             integrate_by_n_steps(particles, iter_h, consts_.h(0));
-            particles.write_to_scalar_array(extrap_list_[0]);
+            // particles.write_to_scalar_array(extrap_list_[0]);
+            // calc::array_sub(extrap_list_[0], extrap_list_[0], input_);
+            load_tab(extrap_list_[0], particles.increment());
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
                 particles.read_from_scalar_array(input_);
                 integrate_by_n_steps(particles, iter_h, consts_.h(k));
-                particles.write_to_scalar_array(extrap_list_[k]);
+                // particles.write_to_scalar_array(extrap_list_[k]);
+                // calc::array_sub(extrap_list_[k], extrap_list_[k], input_);
+                load_tab(extrap_list_[k], particles.increment());
                 extrapolate(k);
 
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
@@ -282,13 +300,17 @@ namespace space::ode_iterator {
                     if (error <= 1.0) {
                         step_reject_ = false;
                         iter_h = set_next_iteration(k);
-                        particles.read_from_scalar_array(extrap_list_[0]);
+                        calc::array_advance(input_, extrap_list_[0]);
+                        particles.read_from_scalar_array(input_);
+                        // particles.read_from_scalar_array(extrap_list_[0]);
                         last_error_ = error;
+                        // std::cout << "accept\n" << iter_h << '\n';
                         return iter_h;
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
                         iter_h = set_next_iteration(k);
+                        // std::cout << "rej\n";
                         break;
                     }
                 }
@@ -324,10 +346,11 @@ namespace space::ode_iterator {
     void BulirschStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(U &particles,
                                                                                        Scalar macro_step_size,
                                                                                        size_t steps) {
-        size_t num_drift = steps / 2;
+        size_t num_drift = steps;
         Scalar h = macro_step_size / num_drift;
 
         if constexpr (std::is_same_v<Integrator, integrator::LeapFrogDKD<TypeSet>>) {
+            particles.clear_increment();
             particles.drift(0.5 * h);
             for (size_t i = 1; i < num_drift; i++) {
                 particles.kick(h);
@@ -350,8 +373,9 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     void BulirschStoer<Integrator, ErrEstimator, StepController>::integrate_by_n_steps(EvaluateFun func,
-                                                                                       StateScalarArray &data_out, Scalar &time,
-                                                                                       Scalar step_size, size_t steps) {
+                                                                                       StateScalarArray &data_out,
+                                                                                       Scalar &time, Scalar step_size,
+                                                                                       size_t steps) {
         data_out = input_;
         Scalar h = step_size / steps;
         StateScalarArray dxdt(input_.size());
@@ -385,7 +409,7 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
     bool BulirschStoer<Integrator, ErrEstimator, StepController>::in_converged_window(size_t k) {
-        return k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1;
+        return (k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>

@@ -31,7 +31,9 @@ namespace space::ode_iterator {
          Class Const step Controller Declaration
     \*---------------------------------------------------------------------------*/
     /**
-     * @tparam T
+     * @brief
+     *
+     * @tparam TypeSystem
      */
     template <typename TypeSystem>
     class ConstStepController {

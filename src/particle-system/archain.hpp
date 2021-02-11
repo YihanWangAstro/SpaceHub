@@ -68,6 +68,8 @@ namespace space::particle_system {
 
         SPACEHUB_STD_ACCESSOR(auto, bindE, regu_.bindE());
 
+        SPACEHUB_STD_ACCESSOR(auto, increment, increment_);
+
         Scalar regu_function() const { return regu_.regu_function(*this); };
 
         void advance_time(Scalar step_size);
@@ -95,12 +97,14 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void read_from_scalar_array(ScalarIterable const &stl_ranges);
 
+        void clear_increment() { calc::array_set_zero(increment_); }
+
         [[nodiscard]] size_t variable_number() const;
 
         /**
          * @brief
          *
-         * @tparam STL
+         * @tparam ScalarIterable
          * @param stl_ranges
          */
         template <typename ScalarIterable>
@@ -128,6 +132,27 @@ namespace space::particle_system {
 
         void kick_real_vel(Scalar phy_time);
 
+        template <typename Array>
+        void incre_vel(Array const &inc, Scalar step_size) {
+            size_t offset = this->number() * 3;
+            for (size_t i = 0; i < inc.size(); ++i) {
+                increment_[3 * i + 3 + offset] += inc[i].x * step_size;
+                increment_[3 * i + 4 + offset] += inc[i].y * step_size;
+                increment_[3 * i + 5 + offset] += inc[i].z * step_size;
+            }
+        }
+
+        template <typename Array>
+        void incre_pos(Array const &inc, Scalar step_size) {
+            for (size_t i = 0; i < inc.size(); ++i) {
+                increment_[3 * i + 3] += inc[i].x * step_size;
+                increment_[3 * i + 4] += inc[i].y * step_size;
+                increment_[3 * i + 5] += inc[i].z * step_size;
+            }
+        }
+
+        void incre_time(Scalar inc) { increment_[0] += inc; }
+
         // Private members
         interactions::InteractionData<Interactions, VectorArray> accels_;
 
@@ -146,6 +171,8 @@ namespace space::particle_system {
         std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;
 
         std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> chain_aux_vel_;
+
+        StateScalarArray increment_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -161,7 +188,8 @@ namespace space::particle_system {
           chain_vel_(particle_set.size()),
           chain_acc_(particle_set.size()),
           index_(particle_set.size()),
-          new_index_(particle_set.size()) {
+          new_index_(particle_set.size()),
+          increment_(this->variable_number()) {
         Chain::calc_chain_index(this->pos(), index_);
         Chain::calc_chain(this->pos(), chain_pos(), index());
         Chain::calc_chain(this->vel(), chain_vel(), index());
@@ -170,7 +198,7 @@ namespace space::particle_system {
             chain_aux_vel_ = chain_vel_;
         }
         regu_ = std::move(
-            Regularization<TypeSet, RegType>{*this});  // re-construct the regularization with chain coordinates.
+            Regularization<TypeSet, RegType>{*this});  // re-construct the regularization with chain coordinates
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -226,6 +254,8 @@ namespace space::particle_system {
         Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
         chain_advance(this->pos(), chain_pos(), chain_vel(), phy_time);
         this->time() += phy_time;
+        incre_time(phy_time);
+        incre_pos(chain_vel(), phy_time);
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -247,6 +277,7 @@ namespace space::particle_system {
                 advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), half_time);
             }
             chain_advance(this->vel(), chain_vel(), chain_acc_, phy_time);
+            incre_vel(chain_acc_, phy_time);
             if constexpr (Interactions::ext_vel_indep) {
                 advance_bindE(this->vel(), accels_.ext_vel_indep_acc(), half_time);
             }

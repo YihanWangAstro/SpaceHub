@@ -13,11 +13,13 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
           Class IAS15 Declaration
     \*---------------------------------------------------------------------------*/
+
     /**
-     * IAS15 iterator see details in https://arxiv.org/abs/1409.4779 .
-     * @tparam TypeSystem
-     * @tparam ErrChecker
-     * @tparam StepControl
+     * @brief IAS15 iterator see details in https://arxiv.org/abs/1409.4779 .
+     *
+     * @tparam Integrator
+     * @tparam ErrEstimator
+     * @tparam StepController
      */
     template <typename Integrator, typename ErrEstimator, typename StepController>
     class IAS15 {

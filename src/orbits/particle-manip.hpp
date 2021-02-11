@@ -350,7 +350,6 @@ namespace space::orbit {
      * @brief Move the centre of mass position and velocity of particles/a cluster of particles/single particle to the
      * corresponding position and velocity of a Kepler orbit.
      *
-     * @tparam Scalar Floating point like type for KeplerOrbit.
      * @tparam Particle Type of the first particle/std::ranges(Container) with element type has public member
      * `mass`(Scalar), `pos`(Vector) and `vel`(Vector)..
      * @tparam Args Type of the particles if exits, should be same as Particle.
@@ -732,7 +731,6 @@ namespace space::orbit {
      * `vel`(Vector)./Type of single particle.
      * @tparam Cluster2 std::ranges(Container) with element type has public member `mass`(Scalar), `pos`(Vector) and
      * `vel`(Vector)./Type of single particle.
-     * @tparam Scalar Floating point like type.
      * @param[in] cluster1 The first cluster/first single particle.
      * @param[in] cluster2 The second cluster/first single particle.
      * @return auto The tidal potential energy.

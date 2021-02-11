@@ -146,10 +146,10 @@ namespace space::particle_system {
         void read_from_scalar_array(ScalarIterable const &stl_ranges);
 
         /**
-         * @brief
-         *
-         * @tparam STL
-         * @param stl_ranges
+         * @brief 
+         * 
+         * @tparam ScalarIterable 
+         * @param stl_ranges 
          */
         template <typename ScalarIterable>
         void evaluate_general_derivative(ScalarIterable &stl_ranges);

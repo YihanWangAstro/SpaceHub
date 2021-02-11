@@ -85,7 +85,7 @@ struct MethodList {
     using AR = space::Simulator<regu_sys, iter>;
     using Chain = space::Simulator<chain_sys, iter>;
     using AR_chain = space::Simulator<arch_sys, iter>;
-    using AR_chain_plus = space::Simulator<adarch_sys, iter>;
+    using AR_chain_plus = space::Simulator<adarch_sys, aditer>;
     using IAS15 = space::Simulator<adsim_sys, ias15_iter>;
     using C_IAS15 = space::Simulator<adchain_sys, ias15_iter>;
     using AR_IAS15 = space::Simulator<adregu_sys, ias15_iter>;

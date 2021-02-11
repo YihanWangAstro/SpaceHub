@@ -34,8 +34,9 @@ namespace space::particle_set {
     Class PointParticle Declaration
     \*---------------------------------------------------------------------------*/
     /**
-     * @brief Point particle
-     * @tparam Real Floating point like type.
+     * @brief
+     *
+     * @tparam Vec3
      */
     template <typename Vec3>
     struct PointParticle {
@@ -115,11 +116,11 @@ namespace space::particle_set {
         SPACEHUB_MAKE_CONSTRUCTORS(PointParticles, default, default, default, default, default);
 
         /**
-         * @brief Construct a new Point Particles object from std::ranges(Container)
+         * @brief Construct a new Point Particles object
          *
-         * @tparam STL std::ranges(Container)
-         * @param[in] t Initial time of the the particle group.
-         * @param[in] particle_set Input particle set.
+         * @tparam STL
+         * @param t
+         * @param particle_set
          */
         template <CONCEPT_PARTICLE_CONTAINER STL>
         PointParticles(Scalar t, STL const &particle_set);

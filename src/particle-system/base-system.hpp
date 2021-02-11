@@ -111,16 +111,18 @@ namespace space::particle_system {
         void post_iter_process(){};
 
         /**
+         * @brief
          *
-         * @tparam STL
+         * @tparam ScalarIterable
          * @param stl_ranges
          */
         template <typename ScalarIterable>
         void write_to_scalar_array(ScalarIterable &stl_ranges);
 
         /**
+         * @brief
          *
-         * @tparam STL
+         * @tparam ScalarIterable
          * @param stl_ranges
          */
         template <typename ScalarIterable>
@@ -129,7 +131,7 @@ namespace space::particle_system {
         /**
          * @brief
          *
-         * @tparam STL
+         * @tparam ScalarIterable
          * @param stl_ranges
          */
         template <typename ScalarIterable>

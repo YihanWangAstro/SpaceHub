@@ -63,8 +63,9 @@ namespace space::orbit {
 #endif
 
     /**
-     * @brief Orbital parameters of the Kepler orbit.
-     *@tparam Real Floating point like type.
+     * @brief
+     *
+     * @tparam Real
      */
     template <typename Real>
     struct KeplerOrbit {
@@ -661,7 +662,7 @@ namespace space::orbit {
     /**
      * @brief Transfer Kepler orbit parameters to relative position and velocity between two component in orbit.
      *
-     * @tparam Scalar
+     * @tparam Vector
      * @param args
      * @return auto
      */

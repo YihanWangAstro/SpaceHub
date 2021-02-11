@@ -29,8 +29,9 @@ namespace space::ode_iterator {
          Class RMS Declaration
     \*---------------------------------------------------------------------------*/
     /**
+     * @brief
      *
-     * @tparam T
+     * @tparam TypeSystem
      */
     template <typename TypeSystem>
     class RMS {

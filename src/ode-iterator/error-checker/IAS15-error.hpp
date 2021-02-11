@@ -29,8 +29,9 @@ namespace space::ode_iterator {
          Class IAS15Error Declaration
     \*---------------------------------------------------------------------------*/
     /**
+     * @brief
      *
-     * @tparam T
+     * @tparam TypeSystem
      */
     template <typename TypeSystem>
     class IAS15Error {

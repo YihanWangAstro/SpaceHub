@@ -33,8 +33,9 @@ namespace space::particle_set {
     Class TideParticle Declaration
     \*---------------------------------------------------------------------------*/
     /**
-     * @brief Point particle
-     * @tparam Real Floating point like type.
+     * @brief
+     *
+     * @tparam Vec3
      */
     template <typename Vec3>
     struct TideParticle {
@@ -51,27 +52,9 @@ namespace space::particle_set {
 
         SPACEHUB_MAKE_CONSTRUCTORS(TideParticle, default, default, default, default, default);
 
-        /**
-         * @brief Construct a new Point Particle object
-         *
-         * @param[in] mass The mass of the particle
-         * @param[in] position The 3D vector position of the particle
-         * @param[in] velocity The 3D vector velocity of the particle
-         */
-        explicit TideParticle(Scalar mass, Vector position, Vector velocity, Scalar apsidal_motion_const,
+               explicit TideParticle(Scalar mass, Vector position, Vector velocity, Scalar apsidal_motion_const,
                               Scalar lag_time);
 
-        /**
-         * @brief Construct a new Point Particle object
-         *
-         * @param[in] mass The mass fof the particle
-         * @param[in] px The x-component of the position vector
-         * @param[in] py The y-component of the position vector
-         * @param[in] pz The z-component of the position vector
-         * @param[in] vx The x-component of the velocity vector
-         * @param[in] vy The y-component of the velocity vector
-         * @param[in] vz The z-component of the velocity vector
-         */
         explicit TideParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                               Scalar vz = 0, Scalar apsidal_motion_const = 0, Scalar lag_time = 0);
 
