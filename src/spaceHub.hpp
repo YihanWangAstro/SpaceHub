@@ -50,7 +50,7 @@ License
 #include "interaction/post-newtonian.hpp"
 #include "kahan-number.hpp"
 #include "macros.hpp"
-#include "mpfr-real.hpp"
+#include "mpfr.hpp"
 #include "multi-thread/multi-thread.hpp"
 #include "ode-iterator/Bulirsch-Stoer.hpp"
 #include "ode-iterator/IAS15.hpp"
