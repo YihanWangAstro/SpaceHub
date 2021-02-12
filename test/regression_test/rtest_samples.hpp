@@ -158,8 +158,8 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
     return rms_err;
 }
 
-template <typename Solver>
-double bench_mark(double end_time, double rtol, std::vector<typename Solver::Particle> const &p) {
+template <typename Solver, typename Pt>
+double bench_mark(double end_time, double rtol, std::vector<Pt> const &p) {
     using namespace space;
     using namespace callback;
     using namespace tools;
@@ -241,10 +241,13 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
 template <typename System>
 auto fast_err_methods(std::string const &system_name, System const &system, double t_end) {
+    using namespace mpfr;
+    mpreal::set_default_prec(88);
     using namespace space;
     double rtol = 1e-14;
     std::vector<double> errs;
     errs.reserve(20);
+    std::cout << "Running fast error test...\n";
     errs.push_back(basic_error_test<methods::BS<>>(system_name + "-BS", t_end, rtol, system));
     errs.push_back(basic_error_test<methods::AR_BS<>>(system_name + "-AR", t_end, rtol, system));
     errs.push_back(basic_error_test<methods::Chain_BS<>>(system_name + "-Chain", t_end, rtol, system));
@@ -261,11 +264,14 @@ auto fast_err_methods(std::string const &system_name, System const &system, doub
     errs.push_back(
         basic_error_test<methods::AR_Sym8_Chain_Plus<>>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
     errs.push_back(basic_error_test<methods::AR_Sym8_Plus<>>(system_name + "-AR-sym8", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_ABITS<>>(system_name + "-AR-ABITS", t_end, rtol, system).toDouble());
     return errs;
 }
 
 template <typename System>
 void bench_mark_methods(std::string const &system_name, System const &system, double t_end) {
+    using namespace mpfr;
+    mpreal::set_default_prec(88);
     using namespace space;
     double rtol = 1e-14;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
@@ -273,10 +279,11 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
     std::vector<std::string> names{
         "BS",           "AR",        "Chain",           "AR-chain",       "AR-chain+", "Radau+",
         "Radau-chain+", "AR-Radau+", "AR-Radau-chain+", "AR-sym6-chain+", "AR-sym6",   "AR-sym8-chain+",
-        "AR-sym8"};
+        "AR-sym8",      "AR-ABITS"};
     std::vector<double> errs = fast_err_methods(system_name, system, t_end);
     std::vector<double> cpu_t;
     cpu_t.reserve(20);
+    std::cout << "Running benchmark...\n";
     cpu_t.push_back(bench_mark<methods::BS<>>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_BS<>>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::Chain_BS<>>(t_end, rtol, system));
@@ -290,6 +297,7 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
     cpu_t.push_back(bench_mark<methods::AR_Sym6_Plus<>>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Sym8_Chain_Plus<>>(t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Sym8_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_ABITS<>>(t_end, rtol, system));
 
     for (size_t i = 0; i < names.size(); ++i) {
         file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
@@ -299,6 +307,7 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
 template <typename System>
 auto err_scale_methods(std::string const &system_name, System const &system, double t_end) {
     using namespace space;
+    std::cout << "Running error scaling...\n";
     error_scale<methods::BS<>>(system_name, "BS", 3e-16, 1e-11, t_end, system);
     error_scale<methods::AR_BS<>>(system_name, "AR", 3e-16, 1e-11, t_end, system);
     error_scale<methods::Chain_BS<>>(system_name, "Chain", 3e-16, 1e-11, t_end, system);

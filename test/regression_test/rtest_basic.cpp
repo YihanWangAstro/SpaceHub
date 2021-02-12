@@ -19,9 +19,6 @@ License
 \*---------------------------------------------------------------------------*/
 #include <thread>
 
-// using namespace mpfr;
-
-#include "../../src/mpfr-real.hpp"
 #include "rtest_samples.hpp"
 
 USING_NAMESPACE_SPACEHUB_ALL;
