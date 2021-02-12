@@ -42,14 +42,14 @@ namespace space {
 
       @tparam Real The basic scalar type, i.e `float`, `double`, etc.
      */
-    template <typename Real>
+    template <typename Real, template <typename> typename V = lazy::LazyVec3>
     struct Types {
        public:
         /**
          * @brief
          *
          */
-        using TypeSet = Types<Real>;
+        using TypeSet = Types<Real, V>;
 
         template <typename T>
         using Container = SSO_vector<T>;
@@ -82,9 +82,9 @@ namespace space {
          * 3-d math vector (x, y, z) with `Scalar` type of x, y, z. Use genetic `Vec3` by default, but can be replaced
          * with any other implementation implements interfaces defined in `Vec3`.
          */
-        using Vector = lazy::LazyVec3<Scalar>;
+        using Vector = V<Scalar>;
 
-        using StateVector = lazy::LazyVec3<StateScalar>;
+        using StateVector = V<StateScalar>;
 
         /**
          * 1-d array with value type `Vector`, Alias of `Container<Vector>`.

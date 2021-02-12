@@ -28,8 +28,9 @@ License
 #include <iostream>
 
 #include "../dev-tools.hpp"
-
+#include "lazy-vec3.h"
 namespace space {
+
     /**
      * Generic 3-d vector (x,y,z) with Scalar x, y, z.
      * */
@@ -73,6 +74,9 @@ namespace space {
 
         template <typename U>
         Vec3(Vec3<U> const &v) : x(v.x), y(v.y), z(v.z) {}
+
+        // template <typename U>
+        // Vec3(lazy::LazyVec3<U> const &v) : x(v.x), y(v.y), z(v.z) {}
 
         /** Addition by wise */
         template <typename U>

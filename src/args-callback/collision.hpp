@@ -26,7 +26,7 @@ License
 #pragma once
 #include "../dev-tools.hpp"
 #include "../vector/vector3.hpp"
-namespace run_operations {
+namespace callback {
 
     CREATE_METHOD_CHECK(radius);
 
@@ -70,4 +70,4 @@ namespace run_operations {
         }
     };
 
-}  // namespace run_operations
+}  // namespace callback

@@ -32,10 +32,10 @@ License
 #include "../dev-tools.hpp"
 
 /**
- * @namespace space::run_operations
- * Documentation for run_operations
+ * @namespace space::callback
+ * Documentation for callback
  */
-namespace space::run_operations {
+namespace space::callback {
 
     /*---------------------------------------------------------------------------*\
      Class TimeSlice Declaration
@@ -303,4 +303,4 @@ namespace space::run_operations {
         (*wtr.fstream_) << d;
         return wtr;
     }
-}  // namespace space::run_operations
+}  // namespace space::callback

@@ -19,12 +19,16 @@ License
 \*---------------------------------------------------------------------------*/
 #include <thread>
 
+// using namespace mpfr;
+
+#include "../../src/mpfr-real.hpp"
 #include "rtest_samples.hpp"
 
 USING_NAMESPACE_SPACEHUB_ALL;
-
+using namespace mpfr;
 int main(int argc, char **argv) {
-    using method = MethodList::AR_Chain_Plus;
+    mpreal::set_default_prec(88);
+    using method = space::methods::AR_ABITS<>;
     Timer t;
     double rtol = 1e-14;
     t.start();

@@ -435,52 +435,6 @@ namespace space::calc {
         return potential_eng / norm(particle1.pos - particle2.pos);
     }
 
-    /*template <CONCEPT_PARTICLES Particles>
-    auto calc_potential_energy(Particles const &particles) {
-      typename Particles::Scalar potential_eng{0};
-      size_t const size = particles.number();
-      auto const &m = particles.mass();
-      auto const &v = particles.vel();
-      auto const &p = particles.pos();
-
-      if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {
-        auto const &ch_px = particles.chain_pos().x;
-        auto const &ch_py = particles.chain_pos().y;
-        auto const &ch_pz = particles.chain_pos().z;
-        auto const &idx = particles.index();
-
-        for (size_t i = 0; i < size - 1; ++i) {
-          potential_eng -=
-              m[idx[i]] * m[idx[i + 1]] / sqrt(ch_px[i] * ch_px[i] + ch_py[i] * ch_py[i] + ch_pz[i] * ch_pz[i]);
-        }
-
-        for (size_t i = 0; i < size - 2; ++i) {
-          auto dx = ch_px[i] + ch_px[i + 1];
-          auto dy = ch_py[i] + ch_py[i + 1];
-          auto dz = ch_pz[i] + ch_pz[i + 1];
-          potential_eng -= m[idx[i]] * m[idx[i + 2]] / sqrt(dx * dx + dy * dy + dz * dz);
-        }
-
-        for (size_t i = 0; i < size; ++i) {
-          for (size_t j = i + 3; j < size; ++j) {
-            auto dx = p.x[idx[j]] - p.x[idx[i]];
-            auto dy = p.y[idx[j]] - p.y[idx[i]];
-            auto dz = p.z[idx[j]] - p.z[idx[i]];
-            potential_eng -= m[idx[i]] * m[idx[j]] / sqrt(dx * dx + dy * dy + dz * dz);
-          }
-        }
-      } else {
-        for (size_t i = 0; i < size; ++i)
-          for (size_t j = i + 1; j < size; ++j) {
-            auto dx = p.x[i] - p.x[j];
-            auto dy = p.y[i] - p.y[j];
-            auto dz = p.z[i] - p.z[j];
-            potential_eng -= m[i] * m[j] / sqrt(dx * dx + dy * dy + dz * dz);
-          }
-      }
-      return potential_eng * consts::G;
-    }
-    */
     template <CONCEPT_PARTICLES_DATA Particles>
     auto calc_potential_energy(Particles const &particles) {
         typename Particles::Scalar potential_eng{0};
@@ -533,7 +487,7 @@ namespace space::calc {
     inline auto calc_fall_free_time(ScalarArray const &mass, VectorArray const &position) {
         using Scalar = typename ScalarArray::value_type;
         size_t const size = mass.size();
-        Scalar min_fall_free = math::max_value<Scalar>::value;
+        Scalar min_fall_free = math::max_value<double>::value;  // TODO:
 
         for (size_t i = 0; i < size; i++) {
             for (size_t j = i + 1; j < size; j++) {

@@ -24,25 +24,8 @@ License
 
 #include "../../src/spaceHub.hpp"
 
-struct MethodList {
-    using BS = space::BS<>;
-    using BS_plus = space::BS_Plus<>;
-    using AR = space::AR_BS<>;
-    using Chain = space::Chain_BS<>;
-    using AR_Chain = space::AR_Chain<>;
-    using AR_Chain_Plus = space::AR_Chain_Plus<>;
-    using Radau_Plus = space::Radau_Plus<>;
-    using Chain_Radau_Plus = space::Chain_Radau_Plus<>;
-    using AR_Radau_Plus = space::AR_Radau_Plus<>;
-    using AR_Radau_Chain_Plus = space::AR_Radau_Chain_Plus<>;
-    using AR_Sym6_Chain_Plus = space::AR_Sym6_Chain_Plus<>;
-    using AR_Sym6_Plus = space::AR_Sym6_Plus<>;
-    using AR_Sym8_Chain_Plus = space::AR_Sym8_Chain_Plus<>;
-    using AR_Sym8_Plus = space::AR_Sym8_Plus<>;
-};
-
 auto two_body(double e = 0) {
-    using Particle = typename space::DefaultSolver::Particle;
+    using Particle = typename space::DefaultMethod::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -58,7 +41,7 @@ auto two_body(double e = 0) {
 }
 
 auto outer_solar() {
-    using Particle = typename space::DefaultSolver::Particle;
+    using Particle = typename space::DefaultMethod::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -82,7 +65,7 @@ auto outer_solar() {
 }
 
 auto earth_system() {
-    using Particle = typename space::DefaultSolver::Particle;
+    using Particle = typename space::DefaultMethod::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -103,7 +86,7 @@ auto earth_system() {
 }
 
 auto kozai() {
-    using Particle = typename space::DefaultSolver::Particle;
+    using Particle = typename space::DefaultMethod::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -125,13 +108,13 @@ auto kozai() {
     return std::vector{m1, m2, m3};
 }
 
-template <typename Solver>
-double basic_error_test(std::string const &fname, double end_time, double rtol,
-                        std::vector<typename Solver::Particle> const &p) {
+template <typename Solver, typename Pt>
+auto basic_error_test(std::string const &fname, double end_time, double rtol, std::vector<Pt> const &p) ->
+    typename Solver::Scalar {
     using namespace space;
-    using namespace run_operations;
+    using namespace callback;
     using namespace tools;
-
+    using Scalar = typename Solver::Scalar;
     Solver sim{0, p};
 
     typename Solver::RunArgs args;
@@ -142,7 +125,7 @@ double basic_error_test(std::string const &fname, double end_time, double rtol,
 
     auto E0 = calc::calc_total_energy(sim.particles());
 
-    double tot_error = 0;
+    Scalar tot_error = 0;
 
     size_t error_num = 0;
 
@@ -168,7 +151,7 @@ double basic_error_test(std::string const &fname, double end_time, double rtol,
 
     sim.run(args);
 
-    double rms_err = sqrt(tot_error / error_num);
+    Scalar rms_err = sqrt(tot_error / error_num);
 
     std::cout << "The rms relative error of test: " + fname + " : " << rms_err << "\n";
 
@@ -178,7 +161,7 @@ double basic_error_test(std::string const &fname, double end_time, double rtol,
 template <typename Solver>
 double bench_mark(double end_time, double rtol, std::vector<typename Solver::Particle> const &p) {
     using namespace space;
-    using namespace run_operations;
+    using namespace callback;
     using namespace tools;
 
     double cpu = 1e20;  // in seconds
@@ -213,7 +196,7 @@ template <typename Solver>
 void error_scale(std::string const &system_name, const std::string &method_name, double rtol_start, double rtol_end,
                  double end_time, std::vector<typename Solver::Particle> const &p) {
     using namespace space;
-    using namespace run_operations;
+    using namespace callback;
     using namespace tools;
 
     size_t n = static_cast<size_t>(log(rtol_end / rtol_start) / log(2)) + 1;
@@ -258,30 +241,32 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
 template <typename System>
 auto fast_err_methods(std::string const &system_name, System const &system, double t_end) {
+    using namespace space;
     double rtol = 1e-14;
     std::vector<double> errs;
     errs.reserve(20);
-    errs.push_back(basic_error_test<MethodList::BS>(system_name + "-BS", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR>(system_name + "-AR", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::Chain>(system_name + "-Chain", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_Chain>(system_name + "-AR-chain", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_Chain_Plus>(system_name + "-AR-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::Radau_Plus>(system_name + "-Radau+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::Chain_Radau_Plus>(system_name + "-Radau-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_Radau_Plus>(system_name + "-AR-Radau+", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::BS<>>(system_name + "-BS", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_BS<>>(system_name + "-AR", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::Chain_BS<>>(system_name + "-Chain", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_Chain<>>(system_name + "-AR-chain", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_Chain_Plus<>>(system_name + "-AR-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::Radau_Plus<>>(system_name + "-Radau+", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::Chain_Radau_Plus<>>(system_name + "-Radau-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_Radau_Plus<>>(system_name + "-AR-Radau+", t_end, rtol, system));
     errs.push_back(
-        basic_error_test<MethodList::AR_Radau_Chain_Plus>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
+        basic_error_test<methods::AR_Radau_Chain_Plus<>>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
     errs.push_back(
-        basic_error_test<MethodList::AR_Sym6_Chain_Plus>(system_name + "-AR-sym6-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_Sym6_Plus>(system_name + "-AR-sym6", t_end, rtol, system));
+        basic_error_test<methods::AR_Sym6_Chain_Plus<>>(system_name + "-AR-sym6-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_Sym6_Plus<>>(system_name + "-AR-sym6", t_end, rtol, system));
     errs.push_back(
-        basic_error_test<MethodList::AR_Sym8_Chain_Plus>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<MethodList::AR_Sym8_Plus>(system_name + "-AR-sym8", t_end, rtol, system));
+        basic_error_test<methods::AR_Sym8_Chain_Plus<>>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
+    errs.push_back(basic_error_test<methods::AR_Sym8_Plus<>>(system_name + "-AR-sym8", t_end, rtol, system));
     return errs;
 }
 
 template <typename System>
 void bench_mark_methods(std::string const &system_name, System const &system, double t_end) {
+    using namespace space;
     double rtol = 1e-14;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
@@ -292,19 +277,19 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
     std::vector<double> errs = fast_err_methods(system_name, system, t_end);
     std::vector<double> cpu_t;
     cpu_t.reserve(20);
-    cpu_t.push_back(bench_mark<MethodList::BS>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::Chain>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Chain>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Chain_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::Radau_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::Chain_Radau_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Radau_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Radau_Chain_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Sym6_Chain_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Sym6_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Sym8_Chain_Plus>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<MethodList::AR_Sym8_Plus>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::BS<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_BS<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::Chain_BS<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Chain<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Chain_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::Radau_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::Chain_Radau_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Radau_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Radau_Chain_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym6_Chain_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym6_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym8_Chain_Plus<>>(t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym8_Plus<>>(t_end, rtol, system));
 
     for (size_t i = 0; i < names.size(); ++i) {
         file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
@@ -313,17 +298,18 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
 
 template <typename System>
 auto err_scale_methods(std::string const &system_name, System const &system, double t_end) {
-    error_scale<MethodList::BS>(system_name, "BS", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR>(system_name, "AR", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::Chain>(system_name, "Chain", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Chain>(system_name, "AR-chain", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Chain_Plus>(system_name, "AR-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::Radau_Plus>(system_name, "Radau+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::Chain_Radau_Plus>(system_name, "Radau-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Radau_Plus>(system_name, "AR-Radau+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Radau_Chain_Plus>(system_name, "AR-Radau-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Sym6_Chain_Plus>(system_name, "AR-sym6-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Sym6_Plus>(system_name, "AR-sym6", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Sym8_Chain_Plus>(system_name, "AR-sym8-chain+", 3e-16, 1e-11, t_end, system);
-    error_scale<MethodList::AR_Sym8_Plus>(system_name, "AR-sym8", 3e-16, 1e-11, t_end, system);
+    using namespace space;
+    error_scale<methods::BS<>>(system_name, "BS", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_BS<>>(system_name, "AR", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::Chain_BS<>>(system_name, "Chain", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Chain<>>(system_name, "AR-chain", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Chain_Plus<>>(system_name, "AR-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::Radau_Plus<>>(system_name, "Radau+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::Chain_Radau_Plus<>>(system_name, "Radau-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Radau_Plus<>>(system_name, "AR-Radau+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Radau_Chain_Plus<>>(system_name, "AR-Radau-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Sym6_Chain_Plus<>>(system_name, "AR-sym6-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Sym6_Plus<>>(system_name, "AR-sym6", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Sym8_Chain_Plus<>>(system_name, "AR-sym8-chain+", 3e-16, 1e-11, t_end, system);
+    error_scale<methods::AR_Sym8_Plus<>>(system_name, "AR-sym8", 3e-16, 1e-11, t_end, system);
 }

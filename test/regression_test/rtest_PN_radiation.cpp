@@ -43,7 +43,7 @@ template <typename Solver>
 void PN_radiation_test(std::string const &fname, double end_time, double rtol,
                        std::vector<typename Solver::Particle> const &p) {
     using namespace space;
-    using namespace run_operations;
+    using namespace callback;
     using namespace tools;
 
     Solver sim{0, p};

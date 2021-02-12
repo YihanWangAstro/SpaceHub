@@ -6,6 +6,9 @@
 namespace space::lazy {
 
     template <typename T>
+    class Vec3;
+
+    template <typename T>
     struct LazyVec3 : public Expr<LazyVec3<T>> {
        public:
         using value_type = T;
@@ -26,6 +29,8 @@ namespace space::lazy {
         LazyVec3(value_type vx, value_type vy, value_type vz) : x(vx), y(vy), z(vz) {}
 
         LazyVec3(LazyVec3 const &v) { x = v.x, y = v.y, z = v.z; }
+
+        ~LazyVec3() {}
 
         template <typename U>
         LazyVec3(const Expr<U> &expr) {
