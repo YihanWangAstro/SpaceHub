@@ -218,7 +218,11 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::BulirschStoer()
         : step_controller_{}, err_checker_{0, 1e-14} {
-        step_controller_.set_safe_guards(0.72, 0.9, 0.02, 4.0);
+        if (MaxIter < 11) {
+            step_controller_.set_safe_guards(0.72, 0.9, 0.02, 4.0);  // for standard double precision
+        } else {
+            step_controller_.set_safe_guards(0.6, 0.95, 0.02, 4.0);  // for arbitrary bits floating points
+        }
     }
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::iterate(EvaluateFun func,
@@ -300,7 +304,7 @@ namespace space::ode_iterator {
                     if (error <= 1.0) {
                         step_reject_ = false;
                         iter_h = set_next_iteration(k);
-                        // particles.read_from_scalar_array(extrap_list_[0]);
+                        particles.read_from_scalar_array(extrap_list_[0]);
                         calc::array_advance(input_, extrap_list_[0]);
                         particles.read_from_scalar_array(input_);
 

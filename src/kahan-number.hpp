@@ -25,7 +25,7 @@ License
 #pragma once
 
 #include "math.hpp"
-
+#include "mpfr.hpp"
 namespace space {
     /** Kahan number
      *
@@ -402,6 +402,7 @@ namespace space {
     // Neumaier<double>;//Kahan<double>;
     using double_k = Kahan<double>;
     using float_k = Kahan<float>;
+    using mpreal_k = Kahan<mpfr::mpreal>;
 
     using double_p = Neumaier<double>;
     using float_p = Neumaier<float>;

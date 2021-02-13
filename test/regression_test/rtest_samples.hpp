@@ -192,37 +192,46 @@ double bench_mark(double end_time, double rtol, std::vector<Pt> const &p) {
     return cpu;
 }
 
-template <typename Solver>
-void error_scale(std::string const &system_name, const std::string &method_name, double rtol_start, double rtol_end,
-                 double end_time, std::vector<typename Solver::Particle> const &p) {
+template <typename Solver, typename Pt>
+void error_scale(std::string const &system_name, const std::string &method_name, typename Solver::Scalar rtol_start,
+                 typename Solver::Scalar rtol_end, typename Solver::Scalar end_time, std::vector<Pt> const &p) {
     using namespace space;
     using namespace callback;
     using namespace tools;
+    using namespace mpfr;
 
-    size_t n = static_cast<size_t>(log(rtol_end / rtol_start) / log(2)) + 1;
+    using Scalar = typename Solver::Scalar;
 
-    std::vector<double> rtol(n);
-    std::vector<double> err(n);
+    size_t n = 12;
+    // static_cast<size_t>(log(rtol_end / rtol_start) / log(2)) + 1;
 
+    Scalar base = pow(10, log10(rtol_end / rtol_start) / n);
+
+    std::vector<Scalar> rtol(n);
+    std::vector<Scalar> err(n);
+    std::cout << n << std::endl;
     multi_thread::indexed_multi_thread(n, [&](size_t thid) {
         typename Solver::RunArgs args;
 
-        double tot_error = 0;
+        Scalar tot_error = 0;
 
         size_t error_num = 0;
 
-        auto E0 = orbit::E_tot(p);  // calc::calc_total_energy(sim.particles());
+        Scalar E0 = 1;
+
+        args.add_start_point_operation([&](auto &ptc, auto step_size) { E0 = calc::calc_total_energy(ptc); });
 
         args.add_pre_step_operation([&](auto &ptc, auto step_size) {
-            auto r_err = calc::calc_energy_error(ptc, E0);
+            Scalar r_err = calc::calc_energy_error(ptc, E0);
             tot_error += r_err * r_err;
-            // std::cout << ' ' << err << ' ' << error_num << ' ' << thid << '\n';
             error_num++;
         });
 
         args.add_stop_condition(end_time);
 
-        args.rtol = rtol_start * pow(2, thid);
+        args.rtol = rtol_start * pow(base, thid);
+
+        // mpreal::set_default_prec(size_t(fabs(log10(args.rtol))) * 4 + 32);
 
         args.atol = 0;
 
@@ -231,7 +240,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
         rtol[thid] = args.rtol;
         err[thid] = sqrt(tot_error / error_num);
-        // std::cout << tot_error << ' ' << error_num << " " << thid << std::endl;
+        std::cout << err[thid] << ',' << rtol[thid] << std::endl;
     });
 
     std::fstream err_stream{system_name + "-" + method_name + ".scale", std::ios::out};

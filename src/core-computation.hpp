@@ -409,7 +409,7 @@ namespace space::calc {
     }
 
     template <CONCEPT_PARTICLES_DATA Particles>
-    inline auto calc_kinetic_energy(Particles const &ptc) {
+    inline auto calc_kinetic_energy(Particles const &ptc) -> typename Particles::Scalar {
         return 0.5 * coord_contract_to_scalar(ptc.mass(), ptc.vel(), ptc.vel());
     }
 
@@ -430,13 +430,13 @@ namespace space::calc {
     CREATE_STATIC_MEMBER_CHECK(regu_type);
 
     template <CONCEPT_PARTICLES_DATA Particle>
-    auto calc_potential_energy(Particle const &particle1, Particle const &particle2) {
-        auto potential_eng = -consts::G * particle1.mass * particle2.mass;
+    auto calc_potential_energy(Particle const &particle1, Particle const &particle2) -> typename Particle::Scalar {
+        typename Particle::Scalar potential_eng = -consts::G * particle1.mass * particle2.mass;
         return potential_eng / norm(particle1.pos - particle2.pos);
     }
 
     template <CONCEPT_PARTICLES_DATA Particles>
-    auto calc_potential_energy(Particles const &particles) {
+    auto calc_potential_energy(Particles const &particles) -> typename Particles::Scalar {
         typename Particles::Scalar potential_eng{0};
         size_t const size = particles.number();
         auto const &m = particles.mass();
@@ -473,7 +473,7 @@ namespace space::calc {
     }
 
     template <CONCEPT_PARTICLES_DATA Particles>
-    inline auto calc_total_energy(Particles const &particles) {
+    inline auto calc_total_energy(Particles const &particles) -> typename Particles::Scalar {
         return calc_potential_energy(particles) + calc_kinetic_energy(particles);
     }
 
@@ -516,9 +516,10 @@ namespace space::calc {
     }
 
     template <CONCEPT_PARTICLES_DATA Particles>
-    auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) {
-        auto U = -calc_potential_energy(particles);
-        auto T = calc_kinetic_energy(particles);
+    auto calc_energy_error(Particles const &particles, typename Particles::Scalar E0) -> typename Particles::Scalar {
+        using Scalar = typename Particles::Scalar;
+        Scalar U = -calc_potential_energy(particles);
+        Scalar T = calc_kinetic_energy(particles);
         if constexpr (HAS_METHOD(Particles, bindE) && HAS_STATIC_MEMBER(Particles, regu_type)) {
             return log(fabs((T + particles.bindE()) / U));
         } else {

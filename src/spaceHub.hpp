@@ -109,6 +109,7 @@ namespace space {
             using normal_type = Types<double, Vec3>;
             using precise_type = Types<double_k, Vec3>;
             using any_bits_type = Types<mpfr::mpreal, Vec3>;  // lazy vec3 will crash due to mpreal implementation.
+            using precise_any_bits_type = Types<mpreal_k, Vec3>;
             using rms_err = ode_iterator::RMS<normal_type>;
             using worst_offender_err = ode_iterator::WorstOffender<normal_type>;
             using adaptive_step_ctrl = PIDController<normal_type>;
@@ -146,6 +147,9 @@ namespace space {
 
             using ABits = BulirschStoer<LeapFrogDKD<any_bits_type>, ode_iterator::WorstOffender<any_bits_type>,
                                         PIDController<any_bits_type>, 32>;
+            using ABits_plus =
+                BulirschStoer<LeapFrogDKD<precise_any_bits_type>, ode_iterator::WorstOffender<precise_any_bits_type>,
+                              PIDController<precise_any_bits_type>, 32>;
         };  // namespace details
 
 #define DEFINE_ADAPTIVE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                    \
@@ -180,9 +184,22 @@ namespace space {
     template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
     using Const_##NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, \
                                           details::const_##ITER##_plus>;
-        template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>
+
+#define DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(NAME, SYSTEM, ITER)                                                    \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>       \
+    using NAME = Simulator<particle_system::SYSTEM<particle<details::any_bits_type>, interactions>, details::ITER>; \
+                                                                                                                    \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>       \
+    using NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_any_bits_type>, interactions>,  \
+                                  details::ITER##_plus>;
+
+        /*template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>
         using AR_ABITS = Simulator<particle_system::RegularizedSystem<particle<details::any_bits_type>, interactions>,
                                    details::ABits>;
+
+        template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>
+        using ABITS =
+            Simulator<particle_system::SimpleSystem<particle<details::any_bits_type>, interactions>, details::ABits>;*/
 
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(BS, SimpleSystem, BS)
 
@@ -191,6 +208,12 @@ namespace space {
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(Chain_BS, ChainSystem, BS)
 
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(AR_Chain, ARchainSystem, BS)
+
+        DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(ABITS, SimpleSystem, ABits)
+
+        DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(AR_ABITS, RegularizedSystem, ABits)
+
+        DEFINE_ADAPTIVE_INTEGRATION_METHOD(BS, SimpleSystem, BS)
 
         DEFINE_INTEGRATION_METHOD(Sym2, SimpleSystem, sym2)
 
