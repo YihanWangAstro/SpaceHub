@@ -104,7 +104,7 @@ namespace space::particle_system {
         template <typename ScalarIterable>
         void evaluate_general_derivative(ScalarIterable &stl_ranges);
 
-        inline void sync_increment(bool sync) { sync_increment_ = sync; };
+        inline void collect_increment(bool sync) { sync_increment_ = sync; };
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>

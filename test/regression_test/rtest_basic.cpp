@@ -24,8 +24,8 @@ License
 USING_NAMESPACE_SPACEHUB_ALL;
 using namespace mpfr;
 int main(int argc, char **argv) {
-    mpreal::set_default_prec(88);
-    using method = space::methods::AR_ABITS<>;
+    //mpreal::set_default_prec(88);
+    using method = space::methods::AR_Chain_Plus<>;
     Timer t;
     double rtol = 1e-14;
     t.start();
