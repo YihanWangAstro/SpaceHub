@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     Timer t;
     double rtol = 1e-14;
     t.start();
-    basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
+    basic_error_test<method>("outer", 11862_year , rtol, outer_solar());
     std::cout << t.get_time() << '\n';
     t.reset();
     t.start();

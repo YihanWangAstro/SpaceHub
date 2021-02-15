@@ -30,8 +30,8 @@ int main(int argc, char **argv) {
 
     std::string system_name = "solar";
 
-    bench_mark_methods(system_name, system, t_end);
+    // bench_mark_methods(system_name, system, t_end);
 
-    // err_scale_methods(system_name, system, t_end);
+    err_scale_methods(system_name, system, t_end);
     return 0;
 }
