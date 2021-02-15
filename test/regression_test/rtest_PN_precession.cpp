@@ -75,40 +75,9 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
-    using namespace interactions;
+    using f = force::Interactions<force::NewtonianGrav, force::PN1>;
 
-    using type = Types<double>;
-
-    using force = interactions::Interactions<interactions::NewtonianGrav>;
-
-    using particles = PointParticles<type>;
-
-    using sim_sys = SimpleSystem<particles, force>;
-
-    using regu_sys = RegularizedSystem<particles, force, ReguType::LogH>;
-
-    using chain_sys = ChainSystem<particles, force>;
-
-    using arch_sys = ARchainSystem<particles, force, ReguType::LogH>;
-
-    using base_integrator = LeapFrogDKD<type>;
-    //    using iter = ConstOdeIterator<Symplectic2nd>;
-
-    using err_estimator = WorstOffender<type>;
-
-    using step_controller = PIDController<type>;
-
-    using iter = BulirschStoer<base_integrator, err_estimator, step_controller>;
-
-    using ias15_iter = IAS15<integrator::GaussRadau<type>, MaxRatioError<type>, step_controller>;
-
-    run<Simulator<sim_sys, iter>>("sim");
-
-    run<Simulator<regu_sys, iter>>("regu");
-
-    run<Simulator<chain_sys, iter>>("chain");
-
-    run<Simulator<arch_sys, iter>>("arch");
+    using method = methods::AR_Chain_Plus<f>;
 
     return 0;
 }

@@ -134,7 +134,7 @@ namespace space::particle_system {
 
        private:
         // Private members
-        interactions::InteractionData<Interactions, VectorArray> accels_;
+        force::InteractionData<Interactions, VectorArray> accels_;
         StateVectorArray chain_pos_;
         StateVectorArray chain_vel_;
         VectorArray chain_acc_;

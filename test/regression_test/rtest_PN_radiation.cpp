@@ -75,11 +75,11 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
-    using namespace interactions;
+    using namespace force;
 
     using type = Types<double>;
 
-    using force = interactions::Interactions<interactions::NewtonianGrav>;
+    using force = force::Interactions<force::NewtonianGrav>;
 
     using particles = PointParticles<type>;
 

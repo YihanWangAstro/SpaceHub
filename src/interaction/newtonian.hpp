@@ -6,10 +6,10 @@
 
 #include "../spacehub-concepts.hpp"
 /**
- * @namespace space::interactions
+ * @namespace space::force
  * Documentation for space
  */
-namespace space::interactions {
+namespace space::force {
     /*---------------------------------------------------------------------------*\
          Class NewtonianGrav Declaration
     \*---------------------------------------------------------------------------*/
@@ -81,4 +81,4 @@ namespace space::interactions {
             }
         }
     }
-}  // namespace space::interactions
+}  // namespace space::force

@@ -154,17 +154,17 @@ namespace space::integrator {
 
         SPACEHUB_READ_ACCESSOR(auto, y_h, dydh_);
 
-        SPACEHUB_READ_ACCESSOR(auto, diff_b6, dg_array_);  // after calc_b_table
+        SPACEHUB_READ_ACCESSOR(auto, diff_b6, dg_array_);  // after correct
         template <typename ParticleSys>
-        void calc_b_table(ParticleSys &particles, Scalar step_size);
+        void correct(ParticleSys &particles, Scalar step_size);
 
-        void predict_new_b(Scalar step_ratio);
+        void predict(Scalar step_ratio);
 
         template <typename ParticleSys>
         void integrate_to(ParticleSys &particles, Scalar step_size, size_t stage);
 
         template <typename ParticleSys>
-        void integrate_at_end(ParticleSys &particles, Scalar step_size);
+        void evaluate(ParticleSys &particles, Scalar step_size);
 
         void check_particle_size(size_t var_num);
 
@@ -252,8 +252,8 @@ namespace space::integrator {
     template <typename TypeSystem>
     template <typename ParticleSys>
     void GaussRadau<TypeSystem>::integrate(ParticleSys &particles, Scalar step_size) {
-        calc_b_table(particles, step_size);
-        integrate_at_end(particles, step_size);
+        correct(particles, step_size);
+        evaluate(particles, step_size);
     }
 
     template <typename TypeSystem>
@@ -289,7 +289,7 @@ namespace space::integrator {
 
     template <typename TypeSystem>
     template <typename ParticleSys>
-    void GaussRadau<TypeSystem>::integrate_at_end(ParticleSys &particles, Scalar step_size) {
+    void GaussRadau<TypeSystem>::evaluate(ParticleSys &particles, Scalar step_size) {
         tmp_state_ = input_;
         /* for (size_t i = 7; i > 0; --i) {
              calc::array_advance(tmp_state_, b_[i - 1], step_size / (i + 1));
@@ -397,7 +397,7 @@ namespace space::integrator {
 
     template <typename TypeSystem>
     template <typename ParticleSys>
-    void GaussRadau<TypeSystem>::calc_b_table(ParticleSys &particles, Scalar step_size) {
+    void GaussRadau<TypeSystem>::correct(ParticleSys &particles, Scalar step_size) {
         particles.write_to_scalar_array(input_);
         check_particle_size(input_.size());
         particles.evaluate_general_derivative(dydh0_);
@@ -411,7 +411,7 @@ namespace space::integrator {
     }
 
     template <typename TypeSystem>
-    void GaussRadau<TypeSystem>::predict_new_b(Scalar step_ratio) {
+    void GaussRadau<TypeSystem>::predict(Scalar step_ratio) {
         std::array<Scalar, final_point> Q;
         Q[0] = step_ratio;
         Q[1] = Q[0] * Q[0];

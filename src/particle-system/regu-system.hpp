@@ -198,7 +198,7 @@ namespace space::particle_system {
         inline constexpr size_t auxi_vel_offset() { return this->number() * 6 + 3; };
 
         // Private members
-        interactions::InteractionData<Interactions, VectorArray> accels_;
+        force::InteractionData<Interactions, VectorArray> accels_;
         StateScalarArray increment_;
         Regularization<TypeSet, RegType> regu_;
         std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;

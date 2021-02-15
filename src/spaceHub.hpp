@@ -54,9 +54,9 @@ License
 #include "multi-thread/multi-thread.hpp"
 #include "ode-iterator/Bulirsch-Stoer.hpp"
 #include "ode-iterator/IAS15.hpp"
-#include "ode-iterator/bisec-iterator.hpp"
+#include "ode-iterator/sequent-iterator.hpp"
 #include "ode-iterator/const-iterator.hpp"
-#include "ode-iterator/error-checker/IAS15-error.hpp"
+#include "ode-iterator/error-checker/max-raio-error.hpp"
 #include "ode-iterator/error-checker/RMS.hpp"
 #include "ode-iterator/error-checker/worst-offender.hpp"
 #include "ode-iterator/step-controller/PID-controller.hpp"
@@ -98,7 +98,7 @@ namespace space {
 
     using DefaultTypes = Types<double, Vec3>;
 
-    using DefaultForce = interactions::Interactions<space::interactions::NewtonianGrav>;
+    using DefaultForce = force::Interactions<space::force::NewtonianGrav>;
 
     template <typename T>
     using DefaultParticles = particle_set::PointParticles<T>;
@@ -193,13 +193,13 @@ namespace space {
     using NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_any_bits_type>, interactions>,  \
                                   details::ITER##_plus>;
 
-        /*template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>
-        using AR_ABITS = Simulator<particle_system::RegularizedSystem<particle<details::any_bits_type>, interactions>,
+        /*template <typename force = DefaultForce, template <typename> typename particle = DefaultParticles>
+        using AR_ABITS = Simulator<particle_system::RegularizedSystem<particle<details::any_bits_type>, force>,
                                    details::ABits>;
 
-        template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>
+        template <typename force = DefaultForce, template <typename> typename particle = DefaultParticles>
         using ABITS =
-            Simulator<particle_system::SimpleSystem<particle<details::any_bits_type>, interactions>, details::ABits>;*/
+            Simulator<particle_system::SimpleSystem<particle<details::any_bits_type>, force>, details::ABits>;*/
 
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(BS, SimpleSystem, BS)
 
@@ -212,8 +212,6 @@ namespace space {
         DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(ABITS, SimpleSystem, ABits)
 
         DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(AR_ABITS, RegularizedSystem, ABits)
-
-        DEFINE_ADAPTIVE_INTEGRATION_METHOD(BS, SimpleSystem, BS)
 
         DEFINE_INTEGRATION_METHOD(Sym2, SimpleSystem, sym2)
 

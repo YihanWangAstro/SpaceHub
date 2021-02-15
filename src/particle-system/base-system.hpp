@@ -184,7 +184,7 @@ namespace space::particle_system {
         // Private members
         // Particles ptcl_;
 
-        interactions::InteractionData<Interactions, VectorArray> accels_;
+        force::InteractionData<Interactions, VectorArray> accels_;
 
         StateScalarArray increment_;
 

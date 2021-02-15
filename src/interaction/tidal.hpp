@@ -6,7 +6,7 @@
 
 #include "../spacehub-concepts.hpp"
 
-namespace space::interactions {
+namespace space::force {
     class Tidal {
        public:
         constexpr static bool vel_dependent{true};
@@ -85,4 +85,4 @@ namespace space::interactions {
             }
         }
     }
-}  // namespace space::interactions
+}  // namespace space::force

@@ -7,7 +7,7 @@
 #include "../dev-tools.hpp"
 #include "interaction.hpp"
 
-namespace space::interactions {
+namespace space::force {
 
     // pair-wise Post-Newtonian term in Centre of mass reference frame. on page 76. https://arxiv.org/pdf/1310.1528.pdf
     class PN1 {
@@ -290,4 +290,4 @@ namespace space::interactions {
             }
         }
     }
-}  // namespace space::interactions
+}  // namespace space::force

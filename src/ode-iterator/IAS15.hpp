@@ -64,24 +64,22 @@ namespace space::ode_iterator {
     template <typename U>
     auto IAS15<Integrator, ErrEstimator, StepController>::iterate(U &particles, Scalar macro_step_size) -> Scalar {
         Scalar iter_h = macro_step_size;
-        integrator_.check_particle_size(particles.variable_number());
-        // integrator_.check_particle_size(particles.number());
         for (size_t k = 0; k < max_iter_; ++k) {
-            integrator_.calc_b_table(particles, iter_h);
+            integrator_.correct(particles, iter_h);
             if (in_converged_window()) {
                 Scalar error = err_checker_.error(integrator_.y_h(), integrator_.b()[6]);
 
                 Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
 
                 if (error < 1) {
-                    integrator_.integrate_at_end(particles, iter_h);
-                    integrator_.predict_new_b(new_iter_h / iter_h);
+                    integrator_.evaluate(particles, iter_h);
+                    integrator_.predict(new_iter_h / iter_h);
                     last_error_ = error;
                     warmed_up = true;
                     return new_iter_h;
                 } else {
                     if (warmed_up) {
-                        integrator_.predict_new_b(new_iter_h / iter_h);
+                        integrator_.predict(new_iter_h / iter_h);
                     }
                     iter_h = new_iter_h;
                     k = 0;
