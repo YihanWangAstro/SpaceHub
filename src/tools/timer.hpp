@@ -46,7 +46,7 @@ namespace space::tools {
          * Get the time in milli-second.
          * @return Time duration from start().
          */
-        float get_time();
+        double get_time();
 
         /**
          * Pause the timer.
@@ -60,7 +60,7 @@ namespace space::tools {
 
        private:
         Time start_;
-        float duration_{0};
+        double duration_{0};
         bool active_{false};
     };
     /*---------------------------------------------------------------------------*\
@@ -71,12 +71,12 @@ namespace space::tools {
         start_ = std::chrono::high_resolution_clock::now();
     }
 
-    float Timer::get_time() {
+    double Timer::get_time() {
         if (active_) {
             auto now = std::chrono::high_resolution_clock::now();
-            auto len = std::chrono::duration_cast<std::chrono::milliseconds>(now - start_);
-            return duration_ + static_cast<float>(len.count()) * std::chrono::milliseconds::period::num /
-                                   std::chrono::milliseconds::period::den;
+            auto len = std::chrono::duration_cast<std::chrono::nanoseconds>(now - start_);
+            return duration_ + static_cast<double>(len.count()) * std::chrono::nanoseconds::period::num /
+                                   std::chrono::nanoseconds::period::den;
         } else
             return duration_;
     }
