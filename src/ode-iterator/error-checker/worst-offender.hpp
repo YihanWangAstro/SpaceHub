@@ -43,9 +43,9 @@ namespace space::ode_iterator {
 
         WorstOffender(Scalar atol, Scalar rtol);
 
-        SPACEHUB_READ_ACCESSOR(auto, atol, atol_);
+        SPACEHUB_READ_ACCESSOR(Scalar, atol, atol_);
 
-        SPACEHUB_READ_ACCESSOR(auto, rtol, rtol_);
+        SPACEHUB_READ_ACCESSOR(Scalar, rtol, rtol_);
 
         void set_atol(Scalar);
 

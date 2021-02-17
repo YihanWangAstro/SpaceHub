@@ -24,15 +24,15 @@ License
 USING_NAMESPACE_SPACEHUB_ALL;
 
 int main(int argc, char **argv) {
-    using method = space::methods::AR_ABITS<>;
+    using method = space::methods::AR_Radau_Plus<>;
 
     double rtol = 1e-14;
 
-    // basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
+    basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
 
-    basic_error_test<method>("earth", 100_year / 10, rtol, earth_system());
+    basic_error_test<method>("earth", 100_year, rtol, earth_system());
 
-    // basic_error_test<method>("ecc", 100000 * consts::pi * 2 * sqrt(2_PC * 2_PC * 2_PC / 4e9), rtol, two_body(0.9));
+    basic_error_test<method>("ecc", 1000_year, rtol, two_body(0.9999));
 
     return 0;
 }

@@ -148,13 +148,13 @@ namespace space::integrator {
 
         GaussRadau();
 
-        SPACEHUB_READ_ACCESSOR(auto, b, b_);
+        SPACEHUB_READ_ACCESSOR(IterTable, b, b_);
 
-        SPACEHUB_READ_ACCESSOR(auto, y_0, dydh0_);
+        SPACEHUB_READ_ACCESSOR(ScalarArray, y_0, dydh0_);
 
-        SPACEHUB_READ_ACCESSOR(auto, y_h, dydh_);
+        SPACEHUB_READ_ACCESSOR(ScalarArray, y_h, dydh_);
 
-        SPACEHUB_READ_ACCESSOR(auto, diff_b6, dg_array_);  // after correct
+        SPACEHUB_READ_ACCESSOR(ScalarArray, diff_b6, dg_array_);  // after correct
         template <typename ParticleSys>
         void correct(ParticleSys &particles, Scalar step_size);
 
@@ -254,6 +254,7 @@ namespace space::integrator {
     void GaussRadau<TypeSystem>::integrate(ParticleSys &particles, Scalar step_size) {
         correct(particles, step_size);
         evaluate(particles, step_size);
+        predict(static_cast<Scalar>(1.0));
     }
 
     template <typename TypeSystem>
@@ -291,21 +292,10 @@ namespace space::integrator {
     template <typename ParticleSys>
     void GaussRadau<TypeSystem>::evaluate(ParticleSys &particles, Scalar step_size) {
         tmp_state_ = input_;
-        /* for (size_t i = 7; i > 0; --i) {
-             calc::array_advance(tmp_state_, b_[i - 1], step_size / (i + 1));
-         }
-         calc::array_advance(tmp_state_, dydh0_, step_size);*/
-#pragma GCC ivdep
-        for (size_t i = 0; i < var_num_; ++i) {
-            tmp_state_[i] += b_[6][i] * (step_size / 8.0);
-            tmp_state_[i] += b_[5][i] * (step_size / 7.0);
-            tmp_state_[i] += b_[4][i] * (step_size / 6.0);
-            tmp_state_[i] += b_[3][i] * (step_size / 5.0);
-            tmp_state_[i] += b_[2][i] * (step_size / 4.0);
-            tmp_state_[i] += b_[1][i] * (step_size / 3.0);
-            tmp_state_[i] += b_[0][i] * (step_size / 2.0);
-            tmp_state_[i] += dydh0_[i] * step_size;
+        for (size_t i = 7; i > 0; --i) {
+            calc::array_advance(tmp_state_, b_[i - 1], step_size / (i + 1));
         }
+        calc::array_advance(tmp_state_, dydh0_, step_size);
         particles.read_from_scalar_array(tmp_state_);
     }
 

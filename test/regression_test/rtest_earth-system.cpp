@@ -30,9 +30,9 @@ int main(int argc, char **argv) {
 
     std::string system_name = "earth";
 
-    // bench_mark_methods(system_name, system, t_end * 10);
+    bench_mark_methods(system_name, system, t_end);
 
-    err_scale_methods(system_name, system, t_end);
+    // err_scale_methods(system_name, system, t_end);
 
     return 0;
 }

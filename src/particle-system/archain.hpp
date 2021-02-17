@@ -172,6 +172,8 @@ namespace space::particle_system {
         StateScalarArray increment_;
 
         bool sync_increment_{false};
+
+        CREATE_MEMBER_CHECK(err);
     };
 
     /*---------------------------------------------------------------------------*\
@@ -303,10 +305,26 @@ namespace space::particle_system {
     void ARchainSystem<Particles, Interactions, RegType>::post_iter_process() {
         Chain::calc_chain_index(this->pos(), new_index_);
         if (new_index_ != index_) {
-            Chain::update_chain(chain_pos_, this->pos(), index_, new_index_);
-            Chain::calc_cartesian(this->mass(), chain_pos_, this->pos(), new_index_);
-            Chain::update_chain(chain_vel_, this->vel(), index_, new_index_);
-            Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), new_index_);
+            if constexpr (HAS_MEMBER(StateScalar, err)) {
+                VectorArray errs{chain_pos_.size()}, cartesian_zero{chain_pos_.size()};
+                calc::array_set_zero(cartesian_zero);
+                calc::array_save_err(errs, chain_pos_);
+                Chain::update_chain(chain_pos_, this->pos(), index_, new_index_);
+                Chain::update_chain(errs, cartesian_zero, index_, new_index_);
+                calc::array_load_err(chain_pos_, errs);
+                Chain::calc_cartesian(this->mass(), chain_pos_, this->pos(), new_index_);
+
+                calc::array_save_err(errs, chain_vel_);
+                Chain::update_chain(chain_vel_, this->vel(), index_, new_index_);
+                Chain::update_chain(errs, cartesian_zero, index_, new_index_);
+                calc::array_load_err(chain_vel_, errs);
+                Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), new_index_);
+            } else {
+                Chain::update_chain(chain_pos_, this->pos(), index_, new_index_);
+                Chain::calc_cartesian(this->mass(), chain_pos_, this->pos(), new_index_);
+                Chain::update_chain(chain_vel_, this->vel(), index_, new_index_);
+                Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), new_index_);
+            }
             index_ = new_index_;
         }
     }

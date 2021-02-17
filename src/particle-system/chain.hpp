@@ -89,7 +89,7 @@ namespace space {
          * @param[in] new_idx New chain index array.
          */
         template <typename VectorArray, typename IdxArray>
-        static void update_chain(VectorArray &chain, VectorArray &cartesian, IdxArray const &idx,
+        static void update_chain(VectorArray &chain, VectorArray const &cartesian, IdxArray const &idx,
                                  IdxArray const &new_idx);
 
         /**
@@ -154,6 +154,8 @@ namespace space {
 
         template <typename Array, typename IdxArray>
         static void to_cartesian(Array const &chain, Array &cartesian, IdxArray const &index);
+
+        CREATE_MEMBER_CHECK(err);
     };
 
     /*---------------------------------------------------------------------------*\
@@ -168,8 +170,11 @@ namespace space {
     }
 
     template <typename VectorArray, typename IdxArray>
-    void Chain::update_chain(VectorArray &chain, VectorArray &cartesian, const IdxArray &idx, const IdxArray &new_idx) {
+    void Chain::update_chain(VectorArray &chain, VectorArray const &cartesian, const IdxArray &idx,
+                             const IdxArray &new_idx) {
         using Vector = typename VectorArray::value_type;
+        using Scalar = typename Vector::value_type;
+
         size_t size = chain.size();
 
         VectorArray new_chain;
@@ -186,11 +191,31 @@ namespace space {
         if constexpr (!bijective_transfer) {
             new_chain.emplace_back(Vector(0, 0, 0));
         } else {
-            // Vector new_head = get_new_node(chain, 0, get_idx(new_idx[0]));
-            // new_chain.emplace_back(chain.back() + new_head);
             new_chain.emplace_back(cartesian[new_idx[0]]);
         }
 
+        if constexpr (false && HAS_MEMBER(Scalar, err)) {
+            typename Types<Scalar>::VectorArray err_chain, new_err_chain;
+            err_chain.resize(size);
+            new_err_chain.reserve(size);
+
+            calc::array_save_err(err_chain, chain);
+
+            for (size_t i = 0; i < size - 1; ++i) {
+                auto first = get_idx(new_idx[i]);
+                auto last = get_idx(new_idx[i + 1]);
+                new_err_chain.emplace_back(get_new_node(err_chain, first, last));
+            }
+
+            if constexpr (!bijective_transfer) {
+                new_err_chain.emplace_back(Vector(0, 0, 0));
+            } else {
+                auto &v0 = cartesian[new_idx[0]];
+                new_err_chain.emplace_back(Vector(v0.x.err, v0.y.err, v0.z.err));
+                // new_err_chain.emplace_back(Vector(0, 0, 0));
+            }
+            calc::array_load_err(new_chain, new_err_chain);
+        }
         chain = std::move(new_chain);
     }
 

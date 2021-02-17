@@ -167,6 +167,11 @@ namespace space::calc {
     }
 
     CREATE_MEMBER_CHECK(err);
+    CREATE_MEMBER_CHECK(x);
+    CREATE_MEMBER_CHECK(y);
+    CREATE_MEMBER_CHECK(z);
+
+#define IS_VECTOR3(CLASS) HAS_MEMBER(CLASS, x) && HAS_MEMBER(CLASS, y) && HAS_MEMBER(CLASS, z)
 
     template <typename A1, typename A2>
     void array_load_err(A1 &dst, A2 const &src) {
@@ -174,6 +179,14 @@ namespace space::calc {
             size_t size = dst.size();
             for (size_t i = 0; i < size; ++i) {
                 dst[i].err = src[i];
+            }
+        } else if constexpr (IS_VECTOR3(typename A1::value_type) &&
+                             HAS_MEMBER(typename A1::value_type::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].x.err = src[i].x;
+                dst[i].y.err = src[i].y;
+                dst[i].z.err = src[i].z;
             }
         }
     }
@@ -184,6 +197,14 @@ namespace space::calc {
             size_t size = dst.size();
             for (size_t i = 0; i < size; ++i) {
                 dst[i] = src[i].err;
+            }
+        } else if constexpr (IS_VECTOR3(typename A2::value_type) &&
+                             HAS_MEMBER(typename A2::value_type::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].x = src[i].x.err;
+                dst[i].y = src[i].y.err;
+                dst[i].z = src[i].z.err;
             }
         }
     }

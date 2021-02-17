@@ -45,9 +45,9 @@ namespace space::ode_iterator {
 
         MaxRatioError(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 
-        SPACEHUB_READ_ACCESSOR(auto, atol, atol_);
+        SPACEHUB_READ_ACCESSOR(Scalar, atol, atol_);
 
-        SPACEHUB_READ_ACCESSOR(auto, rtol, rtol_);
+        SPACEHUB_READ_ACCESSOR(scalar, rtol, rtol_);
 
         void set_atol(Scalar);
 

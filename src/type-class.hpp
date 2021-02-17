@@ -42,7 +42,7 @@ namespace space {
 
       @tparam Real The basic scalar type, i.e `float`, `double`, etc.
      */
-    template <typename Real, template <typename> typename V = lazy::LazyVec3>
+    template <typename Real, template <typename> typename V = Vec3>
     struct Types {
        public:
         /**

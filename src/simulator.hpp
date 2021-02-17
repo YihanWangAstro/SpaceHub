@@ -268,7 +268,7 @@ namespace space {
          */
         using Particle = typename ParticleSys::Particle;
 
-        SPACEHUB_READ_ACCESSOR(auto, particles, particles_);
+        SPACEHUB_READ_ACCESSOR(ParticleSys, particles, particles_);
 
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(Simulator, delete, default, default, default, default);
