@@ -29,7 +29,7 @@ License
 #include "IO.hpp"
 #include "core-computation.hpp"
 #include "dev-tools.hpp"
-
+#include "mpfr.hpp"
 namespace space {
 
     /*---------------------------------------------------------------------------*\

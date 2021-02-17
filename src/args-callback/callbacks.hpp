@@ -57,7 +57,7 @@ namespace space::callback {
      * p.time()=[0,100/10, 2*100/10, 3*100/10,...100].
      * @tparam Operation Callable object.
      */
-    template <typename Operation>
+    template <typename Operation, typename Scalar>
     class TimeSlice {
        public:
         SPACEHUB_MAKE_CONSTRUCTORS(TimeSlice, default, default, default, default, default);
@@ -70,7 +70,7 @@ namespace space::callback {
          * @param[in] opt_num The bin number of the time slice. i.e time interval =
          * (end-start)/opt_num
          */
-        TimeSlice(Operation const& opt, double start, double end, size_t opt_num = 5000);
+        TimeSlice(Operation const& opt, Scalar start, Scalar end, size_t opt_num = 5000);
 
         /**
          * Callable interface.
@@ -100,15 +100,15 @@ namespace space::callback {
          * @param[in] opt_num The bin number of the time slice. i.e time interval =
          * (end-start)/opt_num
          */
-        void reset_slice_params(double start, double end, size_t opt_num = 5000);
+        void reset_slice_params(Scalar start, Scalar end, size_t opt_num = 5000);
 
         Operation operation() { return opt_; };
 
        private:
         Operation opt_;
-        double opt_time_{0};
-        double end_time_{0};
-        double opt_interval_{0};
+        Scalar opt_time_{0};
+        Scalar end_time_{0};
+        Scalar opt_interval_{0};
     };
 
     /*---------------------------------------------------------------------------*\
@@ -181,7 +181,7 @@ namespace space::callback {
 
      * @tparam Operation Callable object.
      */
-    template <typename Operation>
+    template <typename Operation, typename Scalar>
     class LogTimeSlice {
        public:
         SPACEHUB_MAKE_CONSTRUCTORS(LogTimeSlice, default, default, default, default, default);
@@ -194,7 +194,7 @@ namespace space::callback {
          * @param[in] opt_num The bin number of the time slice. i.e time interval =
          * (end-start)/opt_num
          */
-        LogTimeSlice(Operation const& opt, double start, double end, size_t opt_num = 5000);
+        LogTimeSlice(Operation const& opt, Scalar start, Scalar end, size_t opt_num = 5000);
 
         /**
          * Callable interface.
@@ -224,16 +224,16 @@ namespace space::callback {
          * @param[in] opt_num The bin number of the time slice. i.e time interval =
          * (end-start)/opt_num
          */
-        void reset_slice_params(double start, double end, size_t opt_num = 5000);
+        void reset_slice_params(Scalar start, Scalar end, size_t opt_num = 5000);
 
         Operation operation() { return opt_; };
 
        private:
         Operation opt_;
-        double opt_time_{0};
-        double start_time_{0};
-        double end_time_{0};
-        double opt_interval_{1};
+        Scalar opt_time_{0};
+        Scalar start_time_{0};
+        Scalar end_time_{0};
+        Scalar opt_interval_{1};
     };
     /*---------------------------------------------------------------------------*\
      Class DefaultWriter Declaration
@@ -269,17 +269,17 @@ namespace space::callback {
     /*---------------------------------------------------------------------------*\
      Class TimeSlice Definition
     \*---------------------------------------------------------------------------*/
-    template <typename Operation>
-    TimeSlice<Operation>::TimeSlice(const Operation& opt, double start, double end, size_t opt_num)
+    template <typename Operation, typename Scalar>
+    TimeSlice<Operation, Scalar>::TimeSlice(const Operation& opt, Scalar start, Scalar end, size_t opt_num)
         : opt_{opt}, opt_time_{start}, end_time_{end}, opt_interval_{(end - start) / opt_num} {
         assert(end >= start);
     }
 
-    template <typename Operation>
+    template <typename Operation, typename Scalar>
     template <typename ParticleSys>
-    auto TimeSlice<Operation>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
-        std::is_same_v<void, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, void> {
-        using Scalar = typename ParticleSys::Scalar;
+    auto TimeSlice<Operation, Scalar>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
+        -> std::enable_if_t<
+            std::is_same_v<void, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, void> {
         auto t = ptc.time();
         if (t >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ += opt_interval_;
@@ -287,11 +287,11 @@ namespace space::callback {
         }
     }
 
-    template <typename Operation>
+    template <typename Operation, typename Scalar>
     template <typename ParticleSys>
-    auto TimeSlice<Operation>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) -> std::enable_if_t<
-        std::is_same_v<bool, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, bool> {
-        using Scalar = typename ParticleSys::Scalar;
+    auto TimeSlice<Operation, Scalar>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
+        -> std::enable_if_t<
+            std::is_same_v<bool, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, bool> {
         auto t = ptc.time();
         if (ptc.time() >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ += opt_interval_;
@@ -301,8 +301,8 @@ namespace space::callback {
         }
     }
 
-    template <typename Operation>
-    void TimeSlice<Operation>::reset_slice_params(double start, double end, size_t opt_num) {
+    template <typename Operation, typename Scalar>
+    void TimeSlice<Operation, Scalar>::reset_slice_params(Scalar start, Scalar end, size_t opt_num) {
         opt_time_ = start;
         end_time_ = end;
         opt_interval_ = (end - start) / opt_num;
@@ -347,18 +347,17 @@ namespace space::callback {
     /*---------------------------------------------------------------------------*\
         Class LogTimeSlice Definition //TODO
     \*---------------------------------------------------------------------------*/
-    template <typename Operation>
-    LogTimeSlice<Operation>::LogTimeSlice(const Operation& opt, double start, double end, size_t opt_num)
+    template <typename Operation, typename Scalar>
+    LogTimeSlice<Operation, Scalar>::LogTimeSlice(const Operation& opt, Scalar start, Scalar end, size_t opt_num)
         : opt_{opt}, opt_time_{start}, start_time_{start}, end_time_{end}, opt_interval_{log(end - start) / opt_num} {
         assert(end >= start);
     }
 
-    template <typename Operation>
+    template <typename Operation, typename Scalar>
     template <typename ParticleSys>
-    auto LogTimeSlice<Operation>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
+    auto LogTimeSlice<Operation, Scalar>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
         -> std::enable_if_t<
             std::is_same_v<void, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, void> {
-        using Scalar = typename ParticleSys::Scalar;
         auto t = ptc.time();
         if (t >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ = (opt_time_ - start_time_) * opt_interval_ + start_time_;
@@ -366,12 +365,12 @@ namespace space::callback {
         }
     }
 
-    template <typename Operation>
+    template <typename Operation, typename Scalar>
     template <typename ParticleSys>
-    auto LogTimeSlice<Operation>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
+    auto LogTimeSlice<Operation, Scalar>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
         -> std::enable_if_t<
             std::is_same_v<bool, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, bool> {
-        using Scalar = typename ParticleSys::Scalar;
+
         auto t = ptc.time();
         if (ptc.time() >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ += opt_interval_;
@@ -381,8 +380,8 @@ namespace space::callback {
         }
     }
 
-    template <typename Operation>
-    void LogTimeSlice<Operation>::reset_slice_params(double start, double end, size_t opt_num) {
+    template <typename Operation, typename Scalar>
+    void LogTimeSlice<Operation, Scalar>::reset_slice_params(Scalar start, Scalar end, size_t opt_num) {
         opt_time_ = start;
         end_time_ = end;
         opt_interval_ = (end - start) / opt_num;

@@ -22,7 +22,6 @@ License
 #include "rtest_samples.hpp"
 
 USING_NAMESPACE_SPACEHUB_ALL;
-using namespace mpfr;
 int main(int argc, char **argv) {
     using method = space::methods::ABITS<>;
 

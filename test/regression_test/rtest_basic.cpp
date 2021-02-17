@@ -22,18 +22,17 @@ License
 #include "rtest_samples.hpp"
 
 USING_NAMESPACE_SPACEHUB_ALL;
-// using namespace mpfr;
+
 int main(int argc, char **argv) {
-    // mpreal::set_default_prec(88);
-    using method = space::methods::AR_Chain_Plus<>;
+    using method = space::methods::AR_ABITS<>;
 
     double rtol = 1e-14;
 
-    basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
+    // basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
 
-    basic_error_test<method>("earth", 100_year, rtol, earth_system());
+    basic_error_test<method>("earth", 100_year / 10, rtol, earth_system());
 
-    basic_error_test<method>("ecc", 100000 * consts::pi * 2 * sqrt(2_PC * 2_PC * 2_PC / 4e9), rtol, two_body(0.9));
+    // basic_error_test<method>("ecc", 100000 * consts::pi * 2 * sqrt(2_PC * 2_PC * 2_PC / 4e9), rtol, two_body(0.9));
 
     return 0;
 }

@@ -30,11 +30,8 @@ auto two_body(double e = 0) {
     using namespace space::unit;
     using namespace space::orbit;
 
-    /*Particle sun{1_Ms}, earth{1_Me};
-    auto orbit = EllipOrbit(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);*/
-
-    Particle sun{2e9_Ms}, earth{2e9_Ms};
-    auto orbit = EllipOrbit(sun.mass, earth.mass, 2_PC, e, 0, 0, 0, 0);
+    Particle sun{1_Ms}, earth{1_Me};
+    auto orbit = EllipOrbit(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);
 
     move_particles(orbit, earth);
 
@@ -118,9 +115,14 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
     using namespace callback;
     using namespace tools;
     using Scalar = typename Solver::Scalar;
-    Solver sim{0, p};
 
     typename Solver::RunArgs args;
+
+    args.rtol = rtol;
+
+    set_mpreal_bits_from_rtol(rtol);
+
+    args.atol = 0;
 
     std::ofstream err_file(fname + ".err");
 
@@ -130,10 +132,6 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
     Scalar tot_error = 0;
 
     size_t error_num = 0;
-
-    args.rtol = rtol;
-
-    args.atol = 0;
 
     std::cout << std::setprecision(16);
 
@@ -146,11 +144,13 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
             error_num++;
             err_file << ptc.time() << ',' << err << '\n';
         },
-        0, end_time));
+        decltype(end_time)(0), end_time));
 
     // args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
 
     args.add_stop_condition(end_time);
+
+    Solver sim{0, p};
 
     Timer tick;
     tick.start();
@@ -159,7 +159,8 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
     Scalar rms_err = sqrt(tot_error / error_num);
 
     std::cout << "The rms err of " + fname + " : " << rms_err
-              << "; err at end: " << calc::calc_energy_error(sim.particles(), E0) << "; CPU time :" << duration << " s\n";
+              << "; err at end: " << calc::calc_energy_error(sim.particles(), E0) << "; CPU time :" << duration
+              << " s\n";
 
     return rms_err;
 }
@@ -173,15 +174,17 @@ double bench_mark(double end_time, double rtol, std::vector<Pt> const &p) {
     double cpu = 1e20;  // in seconds
     size_t repeat = 5;
     for (size_t i = 0; i < repeat; ++i) {
-        Solver sim{0, p};
-
         typename Solver::RunArgs args;
 
         args.rtol = rtol;
 
         args.atol = 0;
 
+        set_mpreal_bits_from_rtol(rtol);
+
         args.add_stop_condition(end_time);
+
+        Solver sim{0, p};
 
         Timer timer;
 
@@ -219,6 +222,14 @@ void error_scale(std::string const &system_name, const std::string &method_name,
         {
             typename Solver::RunArgs args;
 
+            args.add_stop_condition(end_time);
+
+            args.rtol = rtol_start * pow(base, thid);
+
+            set_mpreal_bits_from_rtol(args.rtol);
+
+            args.atol = 0;
+
             Scalar tot_error = 0;
 
             size_t error_num = 0;
@@ -233,15 +244,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
                     tot_error += r_err * r_err;
                     error_num++;
                 },
-                0, end_time));
-
-            args.add_stop_condition(end_time);
-
-            args.rtol = rtol_start * pow(base, thid);
-
-            // mpreal::set_default_prec(size_t(fabs(log10(args.rtol))) * 4 + 32);
-
-            args.atol = 0;
+                decltype(end_time)(0.0), end_time));
 
             Solver sim{0, p};
             sim.run(args);
@@ -257,7 +260,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
             args.rtol = rtol_start * pow(base, thid);
 
-            // mpreal::set_default_prec(size_t(fabs(log10(args.rtol))) * 4 + 32);
+            set_mpreal_bits_from_rtol(args.rtol);
 
             args.atol = 0;
 
@@ -269,7 +272,8 @@ void error_scale(std::string const &system_name, const std::string &method_name,
             sim.run(args);
             wall_time[thid] = t.get_time();
         }
-        space::print_csv(std::cout, rtol[thid], err[thid], wall_time[thid], '\n');
+        space::print(std::cout, method_name, "; rtol: ", rtol[thid], "; rms err: ", err[thid],
+                     "; time: ", wall_time[thid], " s\n");
     }
 
     std::fstream err_stream{system_name + "-" + method_name + ".scale", std::ios::out};
@@ -278,14 +282,11 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 }
 
 template <typename System>
-auto fast_err_methods(std::string const &system_name, System const &system, double t_end) {
-    using namespace mpfr;
-    mpreal::set_default_prec(88);
+auto fast_err_methods(std::string const &system_name, System const &system, double t_end, double rtol = 1e-14) {
     using namespace space;
-    double rtol = 1e-14;
     std::vector<double> errs;
     errs.reserve(20);
-    std::cout << "Running fast error test...\n";
+    std::cout << "Running fast error test with I/O...\n";
     errs.push_back(basic_error_test<methods::BS<>>(system_name + "-BS", t_end, rtol, system));
     errs.push_back(basic_error_test<methods::AR_BS<>>(system_name + "-AR", t_end, rtol, system));
     errs.push_back(basic_error_test<methods::Chain_BS<>>(system_name + "-Chain", t_end, rtol, system));
@@ -307,11 +308,8 @@ auto fast_err_methods(std::string const &system_name, System const &system, doub
 }
 
 template <typename System>
-void bench_mark_methods(std::string const &system_name, System const &system, double t_end) {
-    using namespace mpfr;
-    mpreal::set_default_prec(88);
+void bench_mark_methods(std::string const &system_name, System const &system, double t_end, double rtol = 1e-14) {
     using namespace space;
-    double rtol = 1e-14;
     std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
 
     std::vector<std::string> names{
@@ -343,12 +341,10 @@ void bench_mark_methods(std::string const &system_name, System const &system, do
 }
 
 template <typename System>
-auto err_scale_methods(std::string const &system_name, System const &system, double t_end) {
+auto err_scale_methods(std::string const &system_name, System const &system, double t_end, double rtol_start = 1e-16,
+                       double rtol_end = 1e-10) {
     using namespace space;
     std::cout << "Running error scaling...\n";
-    double rtol_start = 1e-16;
-
-    double rtol_end = 1e-10;
     error_scale<methods::BS<>>(system_name, "BS", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_BS<>>(system_name, "AR", rtol_start, rtol_end, t_end, system);
     error_scale<methods::Chain_BS<>>(system_name, "Chain", rtol_start, rtol_end, t_end, system);
@@ -362,5 +358,5 @@ auto err_scale_methods(std::string const &system_name, System const &system, dou
     error_scale<methods::AR_Sym6_Plus<>>(system_name, "AR-sym6", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Sym8_Chain_Plus<>>(system_name, "AR-sym8-chain+", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Sym8_Plus<>>(system_name, "AR-sym8", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::AR_ABITS<>>(system_name, "AR-ABITS", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::AR_ABITS<>>(system_name, "AR-ABITS", rtol_start, rtol_end, t_end, system);
 }

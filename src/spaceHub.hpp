@@ -54,11 +54,11 @@ License
 #include "multi-thread/multi-thread.hpp"
 #include "ode-iterator/Bulirsch-Stoer.hpp"
 #include "ode-iterator/IAS15.hpp"
-#include "ode-iterator/sequent-iterator.hpp"
 #include "ode-iterator/const-iterator.hpp"
-#include "ode-iterator/error-checker/max-raio-error.hpp"
 #include "ode-iterator/error-checker/RMS.hpp"
+#include "ode-iterator/error-checker/max-raio-error.hpp"
 #include "ode-iterator/error-checker/worst-offender.hpp"
+#include "ode-iterator/sequent-iterator.hpp"
 #include "ode-iterator/step-controller/PID-controller.hpp"
 #include "ode-iterator/step-controller/const-controller.hpp"
 #include "orbits/orbits.hpp"
@@ -263,4 +263,9 @@ namespace space {
     }  // namespace methods
 
     using DefaultMethod = methods::AR_Chain_Plus<>;
+
+    template <typename T>
+    inline constexpr void set_mpreal_bits_from_rtol(T rtol) {
+        mpfr::mpreal::set_default_prec(size_t(mpfr::fabs(mpfr::log10(rtol))) * 4 + 32);
+    }
 }  // namespace space
