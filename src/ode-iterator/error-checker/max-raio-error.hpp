@@ -47,7 +47,7 @@ namespace space::ode_iterator {
 
         SPACEHUB_READ_ACCESSOR(Scalar, atol, atol_);
 
-        SPACEHUB_READ_ACCESSOR(scalar, rtol, rtol_);
+        SPACEHUB_READ_ACCESSOR(Scalar, rtol, rtol_);
 
         void set_atol(Scalar);
 

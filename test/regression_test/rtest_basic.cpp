@@ -24,7 +24,7 @@ License
 USING_NAMESPACE_SPACEHUB_ALL;
 
 int main(int argc, char **argv) {
-    using method = space::methods::AR_Radau_Plus<>;
+    using method = space::methods::AR_Chain_Plus<>;
 
     double rtol = 1e-14;
 

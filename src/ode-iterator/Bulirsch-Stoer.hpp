@@ -35,6 +35,10 @@ License
 #include "../multi-thread/thread_pool.h"
 #include "../spacehub-concepts.hpp"
 
+#ifdef BS_SUBSTEP_PARALLEL
+#include "../taskflow/taskflow.hpp"
+#endif
+
 namespace space::ode_iterator {
 
     /*---------------------------------------------------------------------------*\
@@ -173,6 +177,12 @@ namespace space::ode_iterator {
         size_t iter_num_{0};
 
         bool step_reject_{false};
+
+#ifdef BS_SUBSTEP_PARALLEL
+        tf::Executor executor;
+        template <CONCEPT_PARTICLE_SYSTEM U>
+        void integrate_with_stride(U &particles, size_t start, size_t stride);
+#endif
     };
 
     /*---------------------------------------------------------------------------*\
@@ -217,13 +227,20 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::BulirschStoer()
-        : step_controller_{}, err_checker_{0, 1e-14} {
+        : step_controller_{}, err_checker_ {
+        0, 1e-14
+    }
+#ifdef BS_SUBSTEP_PARALLEL
+    , executor { 1 }
+#endif
+    {
         if (MaxIter < 11) {
             step_controller_.set_safe_guards(0.72, 0.9, 0.02, 4.0);  // for standard double precision
         } else {
             step_controller_.set_safe_guards(0.6, 0.95, 0.02, 4.0);  // for arbitrary bits floating points
         }
     }
+
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::iterate(EvaluateFun func,
                                                                                    StateScalarArray &data, Scalar &time,
@@ -235,6 +252,7 @@ namespace space::ode_iterator {
 
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
+
             integrate_by_n_steps(func, extrap_list_[0], time, iter_h, consts_.h(0));
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
@@ -279,29 +297,47 @@ namespace space::ode_iterator {
         auto const &dy = particles.increment();
         particles.collect_increment(true);
 
+#ifdef BS_SUBSTEP_PARALLEL
+        auto integrate_with_stride = [&](auto &ptc, size_t start, size_t stride) {
+            auto const &dy = ptc.increment();
+
+            for (size_t p = start; p <= ideal_rank_ + 1; p += stride) {
+                ptc.read_from_scalar_array(input_);
+                ptc.clear_increment();
+                integrate_by_n_steps(ptc, iter_h, consts_.h(p));
+                std::copy(dy.begin(), dy.end(), extrap_list_[p].begin());
+            }
+        };
+#endif
+
         for (size_t i = 0; i < max_try_num; ++i) {
             iter_num_++;
 
+#ifdef BS_SUBSTEP_PARALLEL
+            executor.silent_async(integrate_with_stride, particles, 0, 2);
+
+            integrate_with_stride(particles, 1, 2);
+
+            executor.wait_for_all();
+#else
             particles.clear_increment();
             integrate_by_n_steps(particles, iter_h, consts_.h(0));
-
-            // particles.write_to_scalar_array(extrap_list_[0]);
             std::copy(dy.begin(), dy.end(), extrap_list_[0].begin());
 
-            for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
-                particles.read_from_scalar_array(input_);
+#endif
 
+            for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {
+#ifdef BS_SUBSTEP_PARALLEL
+
+#else
+                particles.read_from_scalar_array(input_);
                 particles.clear_increment();
                 integrate_by_n_steps(particles, iter_h, consts_.h(k));
-                // particles.write_to_scalar_array(extrap_list_[k]);
                 std::copy(dy.begin(), dy.end(), extrap_list_[k].begin());
-
+#endif
                 extrapolate(k);  // extrapolate results and save it to extrap_list_[0];
 
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
-
-                // ideal_step_size_[k] =
-                // step_controller_.next_step_size(2 * k + 1, iter_h, std::make_tuple(error, last_error_));
 
                 ideal_step_size_[k] = step_controller_.next_step_size(2 * k + 1, iter_h, error);
 
@@ -311,12 +347,9 @@ namespace space::ode_iterator {
                     if (error <= 1.0) {
                         step_reject_ = false;
                         iter_h = set_next_iteration(k);
-                        // particles.read_from_scalar_array(extrap_list_[0]);
                         calc::array_advance(input_, extrap_list_[0]);
                         particles.read_from_scalar_array(input_);
-
                         last_error_ = error;
-
                         particles.collect_increment(false);  // turn off the increment collection
                         return iter_h;
                     } else if (is_diverged_anyhow(error, k)) {
