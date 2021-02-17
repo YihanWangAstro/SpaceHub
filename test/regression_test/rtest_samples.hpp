@@ -30,8 +30,11 @@ auto two_body(double e = 0) {
     using namespace space::unit;
     using namespace space::orbit;
 
-    Particle sun{1_Ms}, earth{1_Me};
-    auto orbit = EllipOrbit(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);
+    /*Particle sun{1_Ms}, earth{1_Me};
+    auto orbit = EllipOrbit(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);*/
+
+    Particle sun{2e9_Ms}, earth{2e9_Ms};
+    auto orbit = EllipOrbit(sun.mass, earth.mass, 2_PC, e, 0, 0, 0, 0);
 
     move_particles(orbit, earth);
 
@@ -149,11 +152,14 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
 
     args.add_stop_condition(end_time);
 
+    Timer tick;
+    tick.start();
     sim.run(args);
-
+    double duration = tick.get_time();
     Scalar rms_err = sqrt(tot_error / error_num);
 
-    std::cout << "The rms relative error of test: " + fname + " : " << rms_err << "\n";
+    std::cout << "The rms err of " + fname + " : " << rms_err
+              << "; err at end: " << calc::calc_energy_error(sim.particles(), E0) << "; CPU time :" << duration << " s\n";
 
     return rms_err;
 }

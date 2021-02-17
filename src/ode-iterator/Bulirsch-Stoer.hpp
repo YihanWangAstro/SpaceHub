@@ -161,7 +161,7 @@ namespace space::ode_iterator {
         Scalar last_error_{1.0};
 
         /** @brief Current iteration depth.*/
-        size_t ideal_rank_{4};
+        size_t ideal_rank_{MaxIter / 2};
 
         /** @brief Total volume of extrapolation table(in scalar).*/
         size_t var_num_{0};
@@ -284,7 +284,7 @@ namespace space::ode_iterator {
 
             particles.clear_increment();
             integrate_by_n_steps(particles, iter_h, consts_.h(0));
-    
+
             // particles.write_to_scalar_array(extrap_list_[0]);
             std::copy(dy.begin(), dy.end(), extrap_list_[0].begin());
 
