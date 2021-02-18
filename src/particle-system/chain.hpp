@@ -193,29 +193,6 @@ namespace space {
         } else {
             new_chain.emplace_back(cartesian[new_idx[0]]);
         }
-
-        if constexpr (false && HAS_MEMBER(Scalar, err)) {
-            typename Types<Scalar>::VectorArray err_chain, new_err_chain;
-            err_chain.resize(size);
-            new_err_chain.reserve(size);
-
-            calc::array_save_err(err_chain, chain);
-
-            for (size_t i = 0; i < size - 1; ++i) {
-                auto first = get_idx(new_idx[i]);
-                auto last = get_idx(new_idx[i + 1]);
-                new_err_chain.emplace_back(get_new_node(err_chain, first, last));
-            }
-
-            if constexpr (!bijective_transfer) {
-                new_err_chain.emplace_back(Vector(0, 0, 0));
-            } else {
-                auto &v0 = cartesian[new_idx[0]];
-                new_err_chain.emplace_back(Vector(v0.x.err, v0.y.err, v0.z.err));
-                // new_err_chain.emplace_back(Vector(0, 0, 0));
-            }
-            calc::array_load_err(new_chain, new_err_chain);
-        }
         chain = std::move(new_chain);
     }
 
@@ -321,14 +298,23 @@ namespace space {
         auto connect = [](auto const &array, auto first, auto last, bool sign) -> auto {
             if (sign) {
                 Vector new_d = array[first];
+                if constexpr (HAS_MEMBER(typename Vector::value_type, err)) {
+                    new_d.x.err = new_d.y.err = new_d.z.err = 0;
+                }
                 for (size_t j = first + 1; j < last; ++j) {
-                    new_d += array[j];
+                    new_d = new_d + array[j];
+                    // new_d += array[j];
                 }
                 return new_d;
             } else {
                 Vector new_d = -array[first];
+                if constexpr (HAS_MEMBER(typename Vector::value_type, err)) {
+                    new_d.x.err = new_d.y.err = new_d.z.err = 0;
+                }
+
                 for (size_t j = first + 1; j < last; ++j) {
-                    new_d -= array[j];
+                    new_d = new_d - array[j];
+                    // new_d -= array[j];
                 }
                 return new_d;
             }

@@ -209,6 +209,42 @@ namespace space::calc {
         }
     }
 
+    template <typename A1, typename A2>
+    void array_copy_err(A1 &dst, A2 const &src) {
+        if constexpr (HAS_MEMBER(typename A2::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].err = src[i].err;
+            }
+        } else if constexpr (IS_VECTOR3(typename A2::value_type) &&
+                             HAS_MEMBER(typename A2::value_type::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].x.err = src[i].x.err;
+                dst[i].y.err = src[i].y.err;
+                dst[i].z.err = src[i].z.err;
+            }
+        }
+    }
+
+    template <typename A1>
+    void array_set_err_zero(A1 &dst) {
+        if constexpr (HAS_MEMBER(typename A1::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].err = 0;
+            }
+        } else if constexpr (IS_VECTOR3(typename A1::value_type) &&
+                             HAS_MEMBER(typename A1::value_type::value_type, err)) {
+            size_t size = dst.size();
+            for (size_t i = 0; i < size; ++i) {
+                dst[i].x.err = 0;
+                dst[i].y.err = 0;
+                dst[i].z.err = 0;
+            }
+        }
+    }
+
     /**
      * @brief Element wise scale.
      *

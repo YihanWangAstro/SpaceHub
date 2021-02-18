@@ -28,11 +28,11 @@ int main(int argc, char **argv) {
 
     double rtol = 1e-14;
 
-    basic_error_test<method>("outer", 11862_year, rtol, outer_solar());
+    basic_error_test<method>("outer", 11862_year, rtol, outer_solar(), false);
 
-    basic_error_test<method>("earth", 100_year, rtol, earth_system());
+    basic_error_test<method>("earth", 100_year, rtol, earth_system(), false);
 
-    basic_error_test<method>("ecc", 1000_year, rtol, two_body(0.9999));
+    basic_error_test<method>("ecc", 1000_year, rtol, two_body(0.9999), false);
 
     return 0;
 }

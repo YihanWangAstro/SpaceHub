@@ -179,9 +179,7 @@ namespace space::ode_iterator {
         bool step_reject_{false};
 
 #ifdef BS_SUBSTEP_PARALLEL
-        tf::Executor executor;
-        template <CONCEPT_PARTICLE_SYSTEM U>
-        void integrate_with_stride(U &particles, size_t start, size_t stride);
+        tf::Executor executor{1};
 #endif
     };
 
@@ -227,13 +225,7 @@ namespace space::ode_iterator {
     \*---------------------------------------------------------------------------*/
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::BulirschStoer()
-        : step_controller_{}, err_checker_ {
-        0, 1e-14
-    }
-#ifdef BS_SUBSTEP_PARALLEL
-    , executor { 1 }
-#endif
-    {
+        : step_controller_{}, err_checker_{0, 1e-14} {
         if (MaxIter < 11) {
             step_controller_.set_safe_guards(0.72, 0.9, 0.02, 4.0);  // for standard double precision
         } else {
@@ -298,10 +290,10 @@ namespace space::ode_iterator {
         particles.collect_increment(true);
 
 #ifdef BS_SUBSTEP_PARALLEL
-        auto integrate_with_stride = [&](auto &ptc, size_t start, size_t stride) {
+        static const auto integrate_with_stride = [&](auto &ptc, size_t start, size_t stride) {
             auto const &dy = ptc.increment();
 
-            for (size_t p = start; p <= ideal_rank_ + 1; p += stride) {
+            for (int p = start; p >= 0; p -= stride) {
                 ptc.read_from_scalar_array(input_);
                 ptc.clear_increment();
                 integrate_by_n_steps(ptc, iter_h, consts_.h(p));
@@ -314,16 +306,13 @@ namespace space::ode_iterator {
             iter_num_++;
 
 #ifdef BS_SUBSTEP_PARALLEL
-            executor.silent_async(integrate_with_stride, particles, 0, 2);
-
-            integrate_with_stride(particles, 1, 2);
-
+            executor.silent_async(integrate_with_stride, particles, ideal_rank_, 2);
+            integrate_with_stride(particles, ideal_rank_ + 1, 2);
             executor.wait_for_all();
 #else
             particles.clear_increment();
             integrate_by_n_steps(particles, iter_h, consts_.h(0));
             std::copy(dy.begin(), dy.end(), extrap_list_[0].begin());
-
 #endif
 
             for (size_t k = 1; k <= ideal_rank_ + 1; ++k) {

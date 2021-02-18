@@ -54,7 +54,7 @@ void PN_radiation_test(std::string const &fname, double end_time, double rtol,
 
     std::cout << std::setprecision(16);
 
-    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
+    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0.0, end_time, 10000));
 
     args.add_stop_condition(end_time);
 

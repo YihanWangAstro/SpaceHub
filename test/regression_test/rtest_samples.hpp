@@ -109,8 +109,8 @@ auto kozai() {
 }
 
 template <typename Solver, typename Pt>
-auto basic_error_test(std::string const &fname, double end_time, double rtol, std::vector<Pt> const &p) ->
-    typename Solver::Scalar {
+auto basic_error_test(std::string const &fname, double end_time, double rtol, std::vector<Pt> const &p, bool IO = true)
+    -> typename Solver::Scalar {
     using namespace space;
     using namespace callback;
     using namespace tools;
@@ -124,10 +124,6 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
 
     args.atol = 0;
 
-    std::ofstream err_file(fname + ".err");
-
-    err_file << std::setprecision(16);
-
     Scalar E0 = 1;
     Scalar tot_error = 0;
 
@@ -137,18 +133,28 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
 
     args.add_start_point_operation([&](auto &ptc, auto step_size) { E0 = calc::calc_total_energy(ptc); });
 
+    args.add_stop_condition(end_time);
+
+    std::ofstream err_file;
+
+    if (IO) {
+        err_file.open(fname + ".err");
+
+        err_file << std::setprecision(16);
+    }
+
     args.add_operation(TimeSlice(
         [&](auto &ptc, auto step_size) {
             auto err = calc::calc_energy_error(ptc, E0);
             tot_error += err * err;
             error_num++;
-            err_file << ptc.time() << ',' << err << '\n';
+            if (IO) {
+                err_file << ptc.time() << ',' << err << '\n';
+            }
         },
         decltype(end_time)(0), end_time));
 
     // args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
-
-    args.add_stop_condition(end_time);
 
     Solver sim{0, p};
 
@@ -210,7 +216,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
     using Scalar = typename Solver::Scalar;
 
-    size_t n = 20;
+    size_t n = 12;
 
     Scalar base = pow(10, log10(rtol_end / rtol_start) / n);
 
