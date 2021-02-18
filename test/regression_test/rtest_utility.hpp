@@ -137,8 +137,11 @@ void bench_mark_methods(std::string const &sys_name, System const &system, doubl
     cpu_t.push_back(bench_mark<methods::AR_Sym6_Plus<>>(sys_name + "-AR-sym6+", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Sym8_Chain_Plus<>>(sys_name + "-AR-sym8-chain+", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Sym8_Plus<>>(sys_name + "-AR-sym8+", t_end, rtol, system));
+#ifdef MPFR_VERSION_MAJOR
     cpu_t.push_back(bench_mark<methods::AR_ABITS<>>(sys_name + "-AR-ABITS", t_end, rtol, system));
-
+#else
+    std::cout << "mpfr lib is not installed. Skip test for AR_ABITS\n";
+#endif
     for (size_t i = 0; i < names.size(); ++i) {
         file << names[i] << ':' << std::get<1>(cpu_t[i]) << ':' << std::get<0>(cpu_t[i]) << '\n';
     }
@@ -192,5 +195,9 @@ auto err_scale_methods(std::string const &system_name, System const &system, dou
     error_scale<methods::AR_Sym6_Plus<>>(system_name, "AR-sym6", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Sym8_Chain_Plus<>>(system_name, "AR-sym8-chain+", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Sym8_Plus<>>(system_name, "AR-sym8", rtol_start, rtol_end, t_end, system);
+#ifdef MPFR_VERSION_MAJOR
     error_scale<methods::AR_ABITS<>>(system_name, "AR-ABITS", rtol_start, rtol_end, t_end, system);
+#else
+    std::cout << "mpfr lib is not installed. Skip test for AR_ABITS\n";
+#endif
 }

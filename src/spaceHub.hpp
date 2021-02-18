@@ -50,7 +50,6 @@ License
 #include "interaction/post-newtonian.hpp"
 #include "kahan-number.hpp"
 #include "macros.hpp"
-#include "mpfr.hpp"
 #include "multi-thread/multi-thread.hpp"
 #include "ode-iterator/Bulirsch-Stoer.hpp"
 #include "ode-iterator/IAS15.hpp"
@@ -77,6 +76,10 @@ License
 #include "tools/config-reader.hpp"
 #include "tools/timer.hpp"
 #include "type-class.hpp"
+
+#ifdef MPFR_VERSION_MAJOR
+#include "mpfr.hpp"
+#endif
 /**
  * @namespace space
  * Documentation for space
@@ -108,8 +111,10 @@ namespace space {
             using namespace integrator;
             using normal_type = Types<double, Vec3>;
             using precise_type = Types<double_k, Vec3>;
+#ifdef MPFR_VERSION_MAJOR
             using any_bits_type = Types<mpfr::mpreal, Vec3>;  // lazy vec3 will crash due to mpreal implementation.
             using precise_any_bits_type = Types<mpreal_k, Vec3>;
+#endif
             using rms_err = ode_iterator::RMS<normal_type>;
             using worst_offender_err = ode_iterator::WorstOffender<normal_type>;
             using adaptive_step_ctrl = PIDController<normal_type>;
@@ -144,12 +149,13 @@ namespace space {
             using sym8_plus = SequentOdeIterator<Symplectic8th<precise_type>, worst_offender_err, adaptive_step_ctrl>;
             using sym10_plus = SequentOdeIterator<Symplectic10th<precise_type>, worst_offender_err, adaptive_step_ctrl>;
             using Radau_plus = IAS15<GaussRadau<precise_type>, MaxRatioError<normal_type>, adaptive_step_ctrl>;
-
+#ifdef MPFR_VERSION_MAJOR
             using ABits = BulirschStoer<LeapFrogDKD<any_bits_type>, ode_iterator::WorstOffender<any_bits_type>,
                                         PIDController<any_bits_type>, 32>;
             using ABits_plus =
                 BulirschStoer<LeapFrogDKD<precise_any_bits_type>, ode_iterator::WorstOffender<precise_any_bits_type>,
                               PIDController<precise_any_bits_type>, 32>;
+#endif
         };  // namespace details
 
 #define DEFINE_ADAPTIVE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                    \
@@ -208,11 +214,11 @@ namespace space {
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(Chain_BS, ChainSystem, BS)
 
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(AR_Chain, ARchainSystem, BS)
-
+#ifdef MPFR_VERSION_MAJOR
         DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(ABITS, SimpleSystem, ABits)
 
         DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(AR_ABITS, RegularizedSystem, ABits)
-
+#endif
         DEFINE_INTEGRATION_METHOD(Sym2, SimpleSystem, sym2)
 
         DEFINE_INTEGRATION_METHOD(AR_Sym2, RegularizedSystem, sym2)
