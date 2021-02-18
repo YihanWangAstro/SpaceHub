@@ -79,18 +79,24 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
     if (output) {
         printf("  rtol: %5.2e | wall time: %8.3lf s", rtol, duration);
         if (calc_err) {
+#ifdef MPFR_VERSION_MAJOR
             if constexpr (std::is_same_v<Scalar, mpfr::mpreal>) {
                 printf(" | rms/end err: %6.2e / %6.2e", rms_err.toDouble(),
                        calc::calc_energy_error(sim.particles(), E0).toDouble());
-            } else {
+            } else
+#endif
+            {
                 printf(" | rms/end err: %6.2e / %6.2e", rms_err, calc::calc_energy_error(sim.particles(), E0));
             }
         }
         printf(" | %s\n", fname.c_str());
     }
+#ifdef MPFR_VERSION_MAJOR
     if constexpr (std::is_same_v<Scalar, mpfr::mpreal>) {
         return std::make_tuple(rms_err.toDouble(), duration);
-    } else {
+    } else
+#endif
+    {
         return std::make_tuple(rms_err, duration);
     }
 }
