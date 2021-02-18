@@ -24,15 +24,12 @@ License
  */
 #pragma once
 
-#include <omp.h>
-
 #include <array>
 #include <functional>
 #include <vector>
 
 #include "../core-computation.hpp"
 #include "../integrator/symplectic/symplectic-integrator.hpp"
-#include "../multi-thread/thread_pool.h"
 #include "../spacehub-concepts.hpp"
 
 #ifdef BS_SUBSTEP_PARALLEL
