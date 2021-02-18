@@ -19,6 +19,7 @@ License
 \*---------------------------------------------------------------------------*/
 #pragma once
 
+#include <algorithm>
 #include <iomanip>
 #include <tuple>
 
@@ -97,19 +98,16 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
 template <typename Solver, typename Pt>
 auto bench_mark(std::string const &test_name, double end_time, double rtol, std::vector<Pt> const &p,
                 size_t repeat = 5) {
-    using Particle = typename Solver::Particle;
-    double cpu = 1e20;  // in seconds
+    std::vector<double> errs(repeat), ts(repeat);
 
     auto [err, t] = basic_error_test<Solver>(test_name, end_time, rtol, p, true, false, false);
 
     for (size_t i = 0; i < repeat; ++i) {
-        auto [err, t] = basic_error_test<Solver>(test_name, end_time, rtol, p, false, false, false);
-
-        if (t < cpu) {
-            cpu = t;
-        }
+        std::tie(errs[i], ts[i]) = basic_error_test<Solver, Pt>(test_name, end_time, rtol, p, false, false, false);
     }
-    printf("\n  rtol: %5.2e | wall time: %8.3lf s | rms err %6.2e | %s\n", rtol, cpu, err, test_name.c_str());
+
+    double cpu = *(std::min_element(ts.begin(), ts.end()));
+    printf("  rtol: %5.2e | wall time: %8.3lf s | rms err %6.2e | %s\n", rtol, cpu, err, test_name.c_str());
     return std::make_tuple(err, cpu);
 }
 
@@ -149,9 +147,7 @@ void bench_mark_methods(std::string const &sys_name, System const &system, doubl
 template <typename Solver, typename Pt>
 void error_scale(std::string const &system_name, const std::string &method_name, double rtol_start, double rtol_end,
                  double end_time, std::vector<Pt> const &p) {
-    // using Scalar = typename Solver::Scalar;
-
-    size_t n = 12;
+    size_t n = 24;
     double base = pow(10, log10(rtol_end / rtol_start) / n);
     std::string test_name = system_name + "-" + method_name;
 
@@ -180,7 +176,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 
 template <typename System>
 auto err_scale_methods(std::string const &system_name, System const &system, double t_end, double rtol_start = 1e-16,
-                       double rtol_end = 1e-10) {
+                       double rtol_end = 1e-6) {
     using namespace space;
 
     error_scale<methods::BS<>>(system_name, "BS", rtol_start, rtol_end, t_end, system);

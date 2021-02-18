@@ -56,7 +56,7 @@ namespace space::lazy {
     };
 
 #define EXPR_CREATE_UNARY_OPERATION(FUNC, EXPR)                                             \
-    auto UNIQ(OP) = [](const auto &unary) -> decltype(EXPR) { return (EXPR); };             \
+    inline auto UNIQ(OP) = [](const auto &unary) -> decltype(EXPR) { return (EXPR); };      \
                                                                                             \
     template <typename Unary>                                                               \
     inline constexpr Unary_Expr<decltype(UNIQ(OP)), Unary> FUNC(const Expr<Unary> &unary) { \
@@ -66,7 +66,7 @@ namespace space::lazy {
 #define EXPR_FILTER(TYPE, ...) typename std::enable_if_t<!IS_EXPR(TYPE), ##__VA_ARGS__>
 
 #define EXPR_CREATE_BINARY_OPERATION(FUNC, EXPR)                                                                  \
-    auto UNIQ(OP) = [](const auto &lhs, const auto &rhs) -> decltype(EXPR) { return (EXPR); };                    \
+    inline auto UNIQ(OP) = [](const auto &lhs, const auto &rhs) -> decltype(EXPR) { return (EXPR); };             \
                                                                                                                   \
     template <typename Lhs, typename Rhs>                                                                         \
     inline constexpr EXPR_FILTER(Lhs, Binary_Expr<decltype(UNIQ(OP)), Lhs, Rhs>)                                  \

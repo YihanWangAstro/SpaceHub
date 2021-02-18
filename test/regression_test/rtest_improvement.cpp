@@ -17,10 +17,9 @@ License
     for more details. You should have received a copy of the MIT License along
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
-#include <thread>
+
 
 #include "../../src/spaceHub.hpp"
-#include "rtest_samples.hpp"
 
 USING_NAMESPACE_SPACEHUB_ALL;
 

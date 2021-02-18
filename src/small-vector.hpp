@@ -1322,7 +1322,7 @@ namespace llvm {
      */
     /// grow_pod - This is an implementation of the grow() method which only works
     /// on POD-like datatypes and is out of line to reduce code duplication.
-    void SmallVectorBase::grow_pod(void *FirstEl, size_t MinSizeInBytes, size_t TSize) {
+    inline void SmallVectorBase::grow_pod(void *FirstEl, size_t MinSizeInBytes, size_t TSize) {
         size_t CurSizeBytes = size_in_bytes();
         size_t NewCapacityInBytes = 2 * capacity_in_bytes() + TSize;  // Always grow.
         if (NewCapacityInBytes < MinSizeInBytes) NewCapacityInBytes = MinSizeInBytes;
@@ -1349,7 +1349,7 @@ namespace llvm {
      * Simplified implementation
      * Originally in llvm/Support/ErrorHandling.h and lib/Support/ErrorHandling.cpp
      */
-    void report_bad_alloc_error(const char *Reason, bool GenCrashDiag) {
+    inline void report_bad_alloc_error(const char *Reason, bool GenCrashDiag) {
 #ifdef LLVM_SMALL_VECTOR_BAD_ALLOC
         LLVM_SMALL_VECTOR_BAD_ALLOC(Reason);
 #else
