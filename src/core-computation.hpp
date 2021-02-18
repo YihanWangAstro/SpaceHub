@@ -159,7 +159,7 @@ namespace space::calc {
     void array_add(Array &dst, Args const &...args) {
         size_t const size = dst.size();
 
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = (args[i] + ...);
@@ -262,7 +262,7 @@ namespace space::calc {
 
         // std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return scale * x; });
         size_t const size = dst.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] * scale;
@@ -284,7 +284,7 @@ namespace space::calc {
         DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         // std::transform(a.begin(), a.end(), dst.begin(), [=](auto x) { return x / scale; });
         size_t const size = dst.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] / scale;
@@ -306,7 +306,7 @@ namespace space::calc {
     template <typename Array, typename... Args>
     void array_mul(Array &dst, Args const &...args) {
         size_t const size = dst.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = (args[i] * ...);
@@ -318,7 +318,7 @@ namespace space::calc {
         // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         // std::transform(a.begin(), a.end(), b.begin(), dst.begin(), [](auto x, auto y) { return x - y; });
         size_t const size = dst.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] - b[i];
@@ -334,7 +334,7 @@ namespace space::calc {
     void array_div(Array1 &dst, Array2 const &a, Array3 const &b) {
         // DEBUG_MODE_ASSERT(b.size() == a.size() || dst.size() >= a.size(), "length of the array mismatch!");
         size_t const size = dst.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = a[i] / b[i];
@@ -373,7 +373,7 @@ namespace space::calc {
     template <typename Scalar, typename Array1, typename Array2, typename Array3>
     void array_advance(Array1 &dst, Array2 const &var, Array3 const &increment, Scalar step_size) {
         size_t const size = var.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = var[i] + increment[i] * step_size;
@@ -401,7 +401,7 @@ namespace space::calc {
     template <typename Scalar, typename Array1, typename Array2, typename Array3>
     void array_retreat(Array1 &dst, Array2 const &var, Array3 const &increment, Scalar step_size) {
         size_t const size = var.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; i++) {
             dst[i] = var[i] - increment[i] * step_size;
@@ -411,7 +411,7 @@ namespace space::calc {
     template <typename Array, typename VectorArray1, typename VectorArray2>
     void coord_dot(Array &dst, VectorArray1 const &a, VectorArray2 const &b) {
         size_t const size = dst.size();
-#pragma omp parallel for
+//#pragma omp parallel for
 #pragma GCC ivdep
         for (size_t i = 0; i < size; ++i) {
             dst[i] = dot(a[i], b[i]);

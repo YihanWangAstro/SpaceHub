@@ -17,11 +17,10 @@ License
     for more details. You should have received a copy of the MIT License along
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
-#include <thread>
-
 #include "rtest_samples.hpp"
+#include "rtest_utility.hpp"
 
-USING_NAMESPACE_SPACEHUB_ALL;
+using namespace space::unit;
 int main(int argc, char **argv) {
     using method = space::methods::ABITS<>;
 

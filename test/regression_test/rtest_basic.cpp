@@ -17,22 +17,20 @@ License
     for more details. You should have received a copy of the MIT License along
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
-#include <thread>
 
 #include "rtest_samples.hpp"
-
-USING_NAMESPACE_SPACEHUB_ALL;
-
+#include "rtest_utility.hpp"
+using namespace space::unit;
 int main(int argc, char **argv) {
-    using method = space::methods::AR_Chain_Plus<>;
+    using method = space::methods::AR_ABITS<>;
 
     double rtol = 1e-14;
 
-    basic_error_test<method>("outer", 11862_year, rtol, outer_solar(), false);
+    basic_error_test<method>("outer", 11862_year * 1, rtol, outer_solar(), true, false);
 
-    basic_error_test<method>("earth", 100_year, rtol, earth_system(), false);
+    basic_error_test<method>("earth", 100_year * 1, rtol, earth_system(), true, false);
 
-    basic_error_test<method>("ecc", 1000_year, rtol, two_body(0.9999), false);
+    basic_error_test<method>("ecc", 1000_year * 1, rtol, two_body(0.9999), true, false);
 
     return 0;
 }

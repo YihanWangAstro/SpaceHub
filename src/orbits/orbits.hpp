@@ -249,7 +249,7 @@ namespace space::orbit {
         /**
          * @brief Semi-major axis.
          */
-        Scalar a{0};
+        Scalar a{1};
     };
 
     /*---------------------------------------------------------------------------*\
@@ -428,7 +428,7 @@ namespace space::orbit {
     KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity,
                                    T1 inclination, T2 longitude_of_ascending_node, T3 argument_of_periapsis,
                                    T4 true_anomaly) {
-        if (semi_latus_rectum < 0) spacehub_abort("Semi-latus rectum cannot be negative");
+        if (semi_latus_rectum <= 0) spacehub_abort("Semi-latus rectum must be positive");
 
         orbit_type = classify_orbit(eccentricity);
 

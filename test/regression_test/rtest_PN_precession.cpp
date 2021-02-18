@@ -18,8 +18,8 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 #include "../../src/spaceHub.hpp"
-
-USING_NAMESPACE_SPACEHUB_ALL;
+#include "rtest_utility.hpp"
+using namespace space::unit;
 
 template <typename Solver>
 auto mercury(double e = 0) {

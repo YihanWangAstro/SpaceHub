@@ -430,7 +430,7 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::extrapolate(size_t k) {
         for (size_t j = k; j > 0; --j) {
-#pragma omp parallel for
+            //#pragma omp parallel for
             for (size_t i = 0; i < var_num_; ++i) {
                 extrap_list_[j - 1][i] =
                     extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * consts_.table_coef(k, k - j);

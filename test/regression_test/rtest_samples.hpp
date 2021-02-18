@@ -19,7 +19,6 @@ License
 \*---------------------------------------------------------------------------*/
 #pragma once
 
-#include <iomanip>
 #include <tuple>
 
 #include "../../src/spaceHub.hpp"
@@ -85,6 +84,31 @@ auto earth_system() {
     return std::vector{sun, earth, moon};
 }
 
+auto harmonic_system(size_t N) {
+    using Particle = typename space::DefaultMethod::Particle;
+    using namespace space;
+    using namespace space::unit;
+    using namespace space::orbit;
+
+    Particle sun{1_Ms};
+    std::vector<Particle> particles;
+    particles.reserve(N + 1);
+    particles.emplace_back(sun);
+
+    for (size_t i = 0; i < N; ++i) {
+        Particle test{1_Mmoon};
+        auto orbit = EllipOrbit(sun.mass, test.mass, (i + 1) * 1_AU, 0.0, 0, 0, 0, (i % 2) * consts::pi);
+
+        move_particles(orbit, test);
+
+        particles.emplace_back(test);
+    }
+
+    move_to_COM_frame(particles);
+
+    return particles;
+}
+
 auto kozai() {
     using Particle = typename space::DefaultMethod::Particle;
     using namespace space;
@@ -106,263 +130,4 @@ auto kozai() {
     move_to_COM_frame(m1, m2, m3);
 
     return std::vector{m1, m2, m3};
-}
-
-template <typename Solver, typename Pt>
-auto basic_error_test(std::string const &fname, double end_time, double rtol, std::vector<Pt> const &p, bool IO = true)
-    -> typename Solver::Scalar {
-    using namespace space;
-    using namespace callback;
-    using namespace tools;
-    using Scalar = typename Solver::Scalar;
-
-    typename Solver::RunArgs args;
-
-    args.rtol = rtol;
-
-    set_mpreal_bits_from_rtol(rtol);
-
-    args.atol = 0;
-
-    Scalar E0 = 1;
-    Scalar tot_error = 0;
-
-    size_t error_num = 0;
-
-    std::cout << std::setprecision(16);
-
-    args.add_start_point_operation([&](auto &ptc, auto step_size) { E0 = calc::calc_total_energy(ptc); });
-
-    args.add_stop_condition(end_time);
-
-    std::ofstream err_file;
-
-    if (IO) {
-        err_file.open(fname + ".err");
-
-        err_file << std::setprecision(16);
-    }
-
-    args.add_operation(TimeSlice(
-        [&](auto &ptc, auto step_size) {
-            auto err = calc::calc_energy_error(ptc, E0);
-            tot_error += err * err;
-            error_num++;
-            if (IO) {
-                err_file << ptc.time() << ',' << err << '\n';
-            }
-        },
-        decltype(end_time)(0), end_time));
-
-    // args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
-
-    Solver sim{0, p};
-
-    Timer tick;
-    tick.start();
-    sim.run(args);
-    double duration = tick.get_time();
-    Scalar rms_err = sqrt(tot_error / error_num);
-
-    std::cout << "The rms err of " + fname + " : " << rms_err
-              << "; err at end: " << calc::calc_energy_error(sim.particles(), E0) << "; CPU time :" << duration
-              << " s\n";
-
-    return rms_err;
-}
-
-template <typename Solver, typename Pt>
-double bench_mark(double end_time, double rtol, std::vector<Pt> const &p) {
-    using namespace space;
-    using namespace callback;
-    using namespace tools;
-
-    double cpu = 1e20;  // in seconds
-    size_t repeat = 5;
-    for (size_t i = 0; i < repeat; ++i) {
-        typename Solver::RunArgs args;
-
-        args.rtol = rtol;
-
-        args.atol = 0;
-
-        set_mpreal_bits_from_rtol(rtol);
-
-        args.add_stop_condition(end_time);
-
-        Solver sim{0, p};
-
-        Timer timer;
-
-        timer.start();
-
-        sim.run(args);
-
-        auto t = timer.get_time();
-
-        if (t < cpu) {
-            cpu = t;
-        }
-    }
-    return cpu;
-}
-
-template <typename Solver, typename Pt>
-void error_scale(std::string const &system_name, const std::string &method_name, typename Solver::Scalar rtol_start,
-                 typename Solver::Scalar rtol_end, typename Solver::Scalar end_time, std::vector<Pt> const &p) {
-    using namespace space;
-    using namespace callback;
-    using namespace tools;
-
-    using Scalar = typename Solver::Scalar;
-
-    size_t n = 12;
-
-    Scalar base = pow(10, log10(rtol_end / rtol_start) / n);
-
-    std::vector<Scalar> rtol(n);
-    std::vector<Scalar> err(n);
-    std::vector<Scalar> wall_time(n);
-
-    for (size_t thid = 0; thid < n; ++thid) {
-        {
-            typename Solver::RunArgs args;
-
-            args.add_stop_condition(end_time);
-
-            args.rtol = rtol_start * pow(base, thid);
-
-            set_mpreal_bits_from_rtol(args.rtol);
-
-            args.atol = 0;
-
-            Scalar tot_error = 0;
-
-            size_t error_num = 0;
-
-            Scalar E0 = 1;
-
-            args.add_start_point_operation([&](auto &ptc, auto step_size) { E0 = calc::calc_total_energy(ptc); });
-
-            args.add_pre_step_operation(TimeSlice(
-                [&](auto &ptc, auto step_size) {
-                    Scalar r_err = calc::calc_energy_error(ptc, E0);
-                    tot_error += r_err * r_err;
-                    error_num++;
-                },
-                decltype(end_time)(0.0), end_time));
-
-            Solver sim{0, p};
-            sim.run(args);
-
-            rtol[thid] = args.rtol;
-            err[thid] = sqrt(tot_error / error_num);
-        }
-
-        {
-            typename Solver::RunArgs args;
-
-            args.add_stop_condition(end_time);
-
-            args.rtol = rtol_start * pow(base, thid);
-
-            set_mpreal_bits_from_rtol(args.rtol);
-
-            args.atol = 0;
-
-            Solver sim{0, p};
-
-            Timer t;
-
-            t.start();
-            sim.run(args);
-            wall_time[thid] = t.get_time();
-        }
-        space::print(std::cout, method_name, "; rtol: ", rtol[thid], "; rms err: ", err[thid],
-                     "; time: ", wall_time[thid], " s\n");
-    }
-
-    std::fstream err_stream{system_name + "-" + method_name + ".scale", std::ios::out};
-
-    err_stream << rtol << '\n' << err << '\n' << wall_time;
-}
-
-template <typename System>
-auto fast_err_methods(std::string const &system_name, System const &system, double t_end, double rtol = 1e-14) {
-    using namespace space;
-    std::vector<double> errs;
-    errs.reserve(20);
-    std::cout << "Running fast error test with I/O...\n";
-    errs.push_back(basic_error_test<methods::BS<>>(system_name + "-BS", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_BS<>>(system_name + "-AR", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::Chain_BS<>>(system_name + "-Chain", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_Chain<>>(system_name + "-AR-chain", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_Chain_Plus<>>(system_name + "-AR-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::Radau_Plus<>>(system_name + "-Radau+", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::Chain_Radau_Plus<>>(system_name + "-Radau-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_Radau_Plus<>>(system_name + "-AR-Radau+", t_end, rtol, system));
-    errs.push_back(
-        basic_error_test<methods::AR_Radau_Chain_Plus<>>(system_name + "-AR-Radau-chain+", t_end, rtol, system));
-    errs.push_back(
-        basic_error_test<methods::AR_Sym6_Chain_Plus<>>(system_name + "-AR-sym6-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_Sym6_Plus<>>(system_name + "-AR-sym6", t_end, rtol, system));
-    errs.push_back(
-        basic_error_test<methods::AR_Sym8_Chain_Plus<>>(system_name + "-AR-sym8-chain+", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_Sym8_Plus<>>(system_name + "-AR-sym8", t_end, rtol, system));
-    errs.push_back(basic_error_test<methods::AR_ABITS<>>(system_name + "-AR-ABITS", t_end, rtol, system).toDouble());
-    return errs;
-}
-
-template <typename System>
-void bench_mark_methods(std::string const &system_name, System const &system, double t_end, double rtol = 1e-14) {
-    using namespace space;
-    std::ofstream file{system_name + "-benchmark.txt", std::ios::out};
-
-    std::vector<std::string> names{
-        "BS",           "AR",        "Chain",           "AR-chain",       "AR-chain+", "Radau+",
-        "Radau-chain+", "AR-Radau+", "AR-Radau-chain+", "AR-sym6-chain+", "AR-sym6",   "AR-sym8-chain+",
-        "AR-sym8",      "AR-ABITS"};
-    std::vector<double> errs = fast_err_methods(system_name, system, t_end);
-    std::vector<double> cpu_t;
-    cpu_t.reserve(20);
-    std::cout << "Running benchmark...\n";
-    cpu_t.push_back(bench_mark<methods::BS<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_BS<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::Chain_BS<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Chain<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Chain_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::Radau_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::Chain_Radau_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Radau_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Radau_Chain_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Sym6_Chain_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Sym6_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Sym8_Chain_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_Sym8_Plus<>>(t_end, rtol, system));
-    cpu_t.push_back(bench_mark<methods::AR_ABITS<>>(t_end, rtol, system));
-
-    for (size_t i = 0; i < names.size(); ++i) {
-        file << names[i] << ':' << cpu_t[i] << ':' << errs[i] << '\n';
-    }
-}
-
-template <typename System>
-auto err_scale_methods(std::string const &system_name, System const &system, double t_end, double rtol_start = 1e-16,
-                       double rtol_end = 1e-10) {
-    using namespace space;
-    std::cout << "Running error scaling...\n";
-    error_scale<methods::BS<>>(system_name, "BS", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_BS<>>(system_name, "AR", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::Chain_BS<>>(system_name, "Chain", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Chain<>>(system_name, "AR-chain", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Chain_Plus<>>(system_name, "AR-chain+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::Radau_Plus<>>(system_name, "Radau+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::Chain_Radau_Plus<>>(system_name, "Radau-chain+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Radau_Plus<>>(system_name, "AR-Radau+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Radau_Chain_Plus<>>(system_name, "AR-Radau-chain+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Sym6_Chain_Plus<>>(system_name, "AR-sym6-chain+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Sym6_Plus<>>(system_name, "AR-sym6", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Sym8_Chain_Plus<>>(system_name, "AR-sym8-chain+", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_Sym8_Plus<>>(system_name, "AR-sym8", rtol_start, rtol_end, t_end, system);
-    error_scale<methods::AR_ABITS<>>(system_name, "AR-ABITS", rtol_start, rtol_end, t_end, system);
 }

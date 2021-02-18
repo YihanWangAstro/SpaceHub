@@ -19,9 +19,8 @@ License
 \*---------------------------------------------------------------------------*/
 
 #include "rtest_samples.hpp"
-
-USING_NAMESPACE_SPACEHUB_ALL;
-
+#include "rtest_utility.hpp"
+using namespace space::unit;
 int main(int argc, char **argv) {
     auto system = kozai();
 

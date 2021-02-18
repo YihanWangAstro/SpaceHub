@@ -34,7 +34,7 @@ namespace space::tools {
      * High precision timer for benchmark.
      */
     class Timer {
-        using Time = std::chrono::time_point<std::chrono::high_resolution_clock>;
+        using Time = std::chrono::time_point<std::chrono::steady_clock>;
 
        public:
         /**
@@ -68,12 +68,12 @@ namespace space::tools {
     \*---------------------------------------------------------------------------*/
     void Timer::start() {
         active_ = true;
-        start_ = std::chrono::high_resolution_clock::now();
+        start_ = std::chrono::steady_clock::now();
     }
 
     double Timer::get_time() {
         if (active_) {
-            auto now = std::chrono::high_resolution_clock::now();
+            auto now = std::chrono::steady_clock::now();
             auto len = std::chrono::duration_cast<std::chrono::nanoseconds>(now - start_);
             return duration_ + static_cast<double>(len.count()) * std::chrono::nanoseconds::period::num /
                                    std::chrono::nanoseconds::period::den;

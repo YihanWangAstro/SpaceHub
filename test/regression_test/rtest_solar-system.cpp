@@ -17,16 +17,14 @@ License
     for more details. You should have received a copy of the MIT License along
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
-#include <thread>
 
 #include "rtest_samples.hpp"
-
-USING_NAMESPACE_SPACEHUB_ALL;
-
+#include "rtest_utility.hpp"
+using namespace space::unit;
 int main(int argc, char **argv) {
     auto system = outer_solar();
 
-    double t_end = 11862_year;
+    double t_end = 11862_year / 10;
 
     std::string system_name = "solar";
 
