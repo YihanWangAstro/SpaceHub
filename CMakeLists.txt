@@ -3,9 +3,12 @@ cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3  -pthread -mavx")
+if(MPFR_VERSION_MAJOR)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lmpfr -lgmp ")
+endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -std=c++17 -O3 -pthread -mavx  -lmpfr -lgmp ")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=c++17 -O3 -pthread -mavx ")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS}  ")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} ")
 
 set(TMP_HEADER_FILES
         src/args-callback/callbacks.hpp
