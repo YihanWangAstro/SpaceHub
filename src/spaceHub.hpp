@@ -272,6 +272,8 @@ namespace space {
 
     template <typename T>
     inline constexpr void set_mpreal_bits_from_rtol(T rtol) {
+#ifdef MPFR_VERSION_MAJOR
         mpfr::mpreal::set_default_prec(size_t(mpfr::fabs(mpfr::log10(rtol))) * 4 + 32);
+#endif
     }
 }  // namespace space
