@@ -23,13 +23,14 @@ License
  * Header file.
  */
 #pragma once
-
+#include <cfenv>
 #include <vector>
 
 #include "dev-tools.hpp"
 #include "small-vector.hpp"
 #include "vector/lazy-vec3.h"
 #include "vector/vector3.hpp"
+
 namespace space {
     template <typename T>
     using SSO_vector = llvm::SmallVector<T, 16>;

@@ -22,8 +22,10 @@ License
 #include "rtest_utility.hpp"
 using namespace space::unit;
 int main(int argc, char **argv) {
-
     using method = space::methods::AR_Chain_Plus<>;
+
+#pragma STDC FENV_ACCESS ON
+    std::fesetround(FE_TONEAREST);
 
     double rtol = 1e-14;
 

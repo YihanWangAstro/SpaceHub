@@ -24,7 +24,7 @@ using namespace space::unit;
 int main(int argc, char **argv) {
     auto system = outer_solar();
 
-    double t_end = 11862_year / 10;
+    double t_end = 11862_year;
 
     std::string system_name = "solar";
 

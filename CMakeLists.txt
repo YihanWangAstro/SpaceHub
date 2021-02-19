@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(SpaceHub)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3  -pthread -mavx")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3 -pthread -Wno-attributes")
 if(MPFR_VERSION_MAJOR)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lmpfr -lgmp ")
 endif()
