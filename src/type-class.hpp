@@ -23,7 +23,6 @@ License
  * Header file.
  */
 #pragma once
-#include <cfenv>
 #include <vector>
 
 #include "dev-tools.hpp"

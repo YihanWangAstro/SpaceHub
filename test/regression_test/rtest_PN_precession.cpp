@@ -75,6 +75,7 @@ void run(std::string const &sim_type) {
 }
 
 int main(int argc, char **argv) {
+    using namespace space;
     using f = force::Interactions<force::NewtonianGrav, force::PN1>;
 
     using method = methods::AR_Chain_Plus<f>;

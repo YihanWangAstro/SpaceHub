@@ -22,8 +22,12 @@ License
 
 using namespace space::unit;
 int main(int argc, char **argv) {
+#ifdef MPFR_VERSION_MAJOR
     using method = space::methods::ABITS<>;
 
     error_scale<method>("earth", "ABITS", 1e-30, 1e-9, 100_month, earth_system());
+#else
+    std::cout << "mpfr lib is not installed. Skip test for AR_ABITS\n";
+#endif
     return 0;
 }
