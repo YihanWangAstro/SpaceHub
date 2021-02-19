@@ -77,19 +77,13 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
     Scalar rms_err = error_num ? sqrt(tot_error / error_num) : 0;
 
     if (output) {
-        printf("  rtol: %5.2e | wall time: %8.3lf s", rtol, duration);
+        std::cout << std::scientific << std::setprecision(4) << "  rtol: " << rtol
+                  << " | wall time: " << std::defaultfloat << std::setw(8) << duration << " s";
         if (calc_err) {
-#ifdef MPFR_VERSION_MAJOR
-            if constexpr (std::is_same_v<Scalar, mpfr::mpreal>) {
-                printf(" | rms/end err: %6.2e / %6.2e", rms_err.toDouble(),
-                       calc::calc_energy_error(sim.particles(), E0).toDouble());
-            } else
-#endif
-            {
-                printf(" | rms/end err: %6.2e / %6.2e", rms_err, calc::calc_energy_error(sim.particles(), E0));
-            }
+            std::cout << " | rms/end err: " << std::scientific << rms_err << " / "
+                      << calc::calc_energy_error(sim.particles(), E0);
         }
-        printf(" | %s\n", fname.c_str());
+        std::cout << " | " << fname << '\n';
     }
 #ifdef MPFR_VERSION_MAJOR
     if constexpr (std::is_same_v<Scalar, mpfr::mpreal>) {
@@ -113,7 +107,8 @@ auto bench_mark(std::string const &test_name, double end_time, double rtol, std:
     }
 
     double cpu = *(std::min_element(ts.begin(), ts.end()));
-    printf("  rtol: %5.2e | wall time: %8.3lf s | rms err %6.2e | %s\n", rtol, cpu, err, test_name.c_str());
+    std::cout << "  rtol: " << std::scientific << std::setprecision(4) << rtol << " | wall time: " << std::defaultfloat
+              << std::setw(8) << cpu << " s | rms err " << std::scientific << err << " | " << test_name << "\n";
     return std::make_tuple(err, cpu);
 }
 
@@ -163,7 +158,9 @@ void error_scale(std::string const &system_name, const std::string &method_name,
     std::vector<double> rtols(n);
     std::vector<double> errs(n);
     std::vector<double> wall_times(n);
-    printf("Running error scaling of %s in range of rtol=[%5.2e, %5.2e]\n", test_name.c_str(), rtol_start, rtol_end);
+
+    std::cout << "Running error scaling of " << test_name << " in range of rtol=[" << std::setw(7) << rtol_start << ","
+              << rtol_end << "\n";
     for (size_t thid = 0; thid < n; ++thid) {
         test_executor.silent_async(
             [&](size_t idx) {
