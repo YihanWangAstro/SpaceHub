@@ -28,6 +28,34 @@ License
 
 #include "dev-tools.hpp"
 
+#ifdef CRLIBM
+#define SIN sin_rn
+#define COS cos_rn
+#define TAN tan_rn
+#define ASIN asin_rn
+#define ACOS acos_rn
+#define ATAN atan_rn
+#define SINH sinh_rn
+#define COSH cosh_rn
+#define LOG log_rn
+#define LOG10 log10_rn
+#define POW pow_rn
+#define EXP exp_rn
+#else
+#define SIN std::sin
+#define COS std::cos
+#define TAN std::tan
+#define ASIN std::asin
+#define ACOS std::acos
+#define ATAN std::atan
+#define SINH std::sinh
+#define COSH std::cosh
+#define LOG std::log
+#define LOG10 std::log10
+#define POW std::pow
+#define EXP std::exp
+#endif
+
 /**
  * @namespace space::math
  * namespace for math

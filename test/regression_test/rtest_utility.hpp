@@ -152,7 +152,7 @@ template <typename Solver, typename Pt>
 void error_scale(std::string const &system_name, const std::string &method_name, double rtol_start, double rtol_end,
                  double end_time, std::vector<Pt> const &p) {
     size_t n = 24;
-    double base = pow(10, log10(rtol_end / rtol_start) / n);
+    double base = POW(10, LOG10(rtol_end / rtol_start) / n);
     std::string test_name = system_name + "-" + method_name;
 
     std::vector<double> rtols(n);
@@ -164,7 +164,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
     for (size_t thid = 0; thid < n; ++thid) {
         test_executor.silent_async(
             [&](size_t idx) {
-                double rtol = rtol_start * pow(base, idx);
+                double rtol = rtol_start * POW(base, idx);
                 auto [err, t] = bench_mark<Solver, Pt>(test_name, end_time, rtol, p, 1);
                 rtols[idx] = rtol;
                 errs[idx] = err;

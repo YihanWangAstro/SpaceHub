@@ -106,15 +106,15 @@ namespace space::ode_iterator {
         if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
-                       step_limiter(order, safe_guard1_ * pow(safe_guard2_ / std::get<0>(errors), expon_[order]));
+                       step_limiter(order, safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), expon_[order]));
             } else {
                 return old_step * limiter_max_[order];
             }
         } else if constexpr (std::tuple_size_v<ArrayLike> == 2) {  // Proportion & Integral part are provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
-                       step_limiter(order, safe_guard1_ * pow(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
-                                               pow(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]));
+                       step_limiter(order, safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
+                                               POW(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]));
             } else {
                 return old_step * limiter_max_[order];
             }
@@ -126,7 +126,7 @@ namespace space::ode_iterator {
     template <typename TypeSystem>
     auto PIDController<TypeSystem>::next_step_size(size_t order, Scalar old_step, Scalar error) -> Scalar {
         if (error != 0.0) {
-            return old_step * step_limiter(order, safe_guard1_ * pow(safe_guard2_ / error, expon_[order]));
+            return old_step * step_limiter(order, safe_guard1_ * POW(safe_guard2_ / error, expon_[order]));
         } else {
             return old_step * limiter_max_[order];
         }
@@ -139,8 +139,8 @@ namespace space::ode_iterator {
         limiter_min_[0] = 1.0 / safe_guard4_;
         for (size_t i = 1; i < max_order; i++) {
             expon_[i] = 1.0 / static_cast<Scalar>(i);
-            limiter_max_[i] = pow(1.0 / safe_guard3_, expon_[i]);
-            limiter_min_[i] = pow(safe_guard3_, expon_[i]) / safe_guard4_;
+            limiter_max_[i] = POW(1.0 / safe_guard3_, expon_[i]);
+            limiter_min_[i] = POW(safe_guard3_, expon_[i]) / safe_guard4_;
         }
     }
 

@@ -549,7 +549,7 @@ namespace space::calc {
         for (size_t i = 0; i < size; i++) {
             for (size_t j = i + 1; j < size; j++) {
                 Scalar r = distance(position[i], position[j]);
-                Scalar fall_free = pow(r, 1.5) / sqrt(mass[i] + mass[j]);
+                Scalar fall_free = POW(r, 1.5) / sqrt(mass[i] + mass[j]);
 
                 if (fall_free < min_fall_free) min_fall_free = fall_free;
             }
@@ -578,7 +578,7 @@ namespace space::calc {
         Scalar U = -calc_potential_energy(particles);
         Scalar T = calc_kinetic_energy(particles);
         if constexpr (HAS_METHOD(Particles, bindE) && HAS_STATIC_MEMBER(Particles, regu_type)) {
-            return log(fabs((T + particles.bindE()) / U));
+            return LOG(fabs((T + particles.bindE()) / U));
         } else {
             return fabs((T - U - E0) / E0);
         }
