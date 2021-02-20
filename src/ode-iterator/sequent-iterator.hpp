@@ -60,7 +60,7 @@ namespace space::ode_iterator {
 
         ErrEstimator err_checker_;
 
-        StepController step_controller_;
+        StepController step_ctrl_;
 
         StateScalarArray input_{0};
 
@@ -98,7 +98,7 @@ namespace space::ode_iterator {
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
     SequentOdeIterator<Integrator, ErrEstimator, StepController>::SequentOdeIterator() {
-        step_controller_.set_safe_guards(0.7, 1, 0.02, 4.0);
+        step_ctrl_.set_safe_guards(0.7, 1, 0.02, 4.0);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
@@ -157,7 +157,7 @@ namespace space::ode_iterator {
             std::swap(output_, dual_steps_output_);
         }
         particles.read_from_scalar_array(dual_steps_output_);
-        return step_controller_.next_with_limiter(Integrator::order, macro_step_size, error);
+        return step_ctrl_.next_with_limiter(Integrator::order, macro_step_size, error);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>

@@ -61,8 +61,7 @@ namespace space::ode_iterator {
 
         Scalar next(size_t order, Scalar old_step, Scalar error);
 
-
-        inline Scalar step_limiter(size_t order, Scalar step_size_ratio);
+        inline Scalar ratio_limiter(size_t order, Scalar step_size_ratio);
 
        private:
         std::array<Scalar, max_order> limiter_max_;
@@ -84,14 +83,12 @@ namespace space::ode_iterator {
         Scalar Ki_{0.4};  // Integral feedback coefficient
 
         Scalar Kd_{0};  // Derivative feedback coefficient
-
-
     };
     /*---------------------------------------------------------------------------*\
          Class PIDController Implementation
     \*---------------------------------------------------------------------------*/
     template <typename TypeSystem>
-    inline auto PIDController<TypeSystem>::step_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
+    inline auto PIDController<TypeSystem>::ratio_limiter(size_t order, Scalar step_size_ratio) -> Scalar {
         return math::in_range(limiter_min_[order], step_size_ratio, limiter_max_[order]);
     }
 
@@ -110,19 +107,21 @@ namespace space::ode_iterator {
 
     template <typename TypeSystem>
     template <typename ArrayLike>
-    auto PIDController<TypeSystem>::next_with_limiter(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
+    auto PIDController<TypeSystem>::next_with_limiter(size_t order, Scalar old_step, ArrayLike const &errors)
+        -> Scalar {
         if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
-                       step_limiter(order, safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), expon_[order]));
+                       ratio_limiter(order, safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), expon_[order]));
             } else {
                 return old_step * limiter_max_[order];
             }
         } else if constexpr (std::tuple_size_v<ArrayLike> == 2) {  // Proportion & Integral part are provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
-                       step_limiter(order, safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
-                                               POW(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]));
+                       ratio_limiter(order, safe_guard1_ *
+                                                POW(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
+                                                POW(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]));
             } else {
                 return old_step * limiter_max_[order];
             }
@@ -134,7 +133,7 @@ namespace space::ode_iterator {
     template <typename TypeSystem>
     auto PIDController<TypeSystem>::next_with_limiter(size_t order, Scalar old_step, Scalar error) -> Scalar {
         if (error != 0.0) {
-            return old_step * step_limiter(order, safe_guard1_ * POW(safe_guard2_ / error, expon_[order]));
+            return old_step * ratio_limiter(order, safe_guard1_ * POW(safe_guard2_ / error, expon_[order]));
         } else {
             return old_step * limiter_max_[order];
         }
@@ -145,16 +144,14 @@ namespace space::ode_iterator {
     auto PIDController<TypeSystem>::next(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
         if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
             if (std::get<0>(errors) != 0.0) {
-                return old_step *
-                        safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), expon_[order]);
+                return old_step * safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), expon_[order]);
             } else {
                 return old_step * limiter_max_[order];
             }
         } else if constexpr (std::tuple_size_v<ArrayLike> == 2) {  // Proportion & Integral part are provided
             if (std::get<0>(errors) != 0.0) {
-                return old_step *
-                       safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
-                                           POW(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]);
+                return old_step * safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
+                       POW(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]);
             } else {
                 return old_step * limiter_max_[order];
             }

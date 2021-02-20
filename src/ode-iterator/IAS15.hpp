@@ -41,7 +41,7 @@ namespace space::ode_iterator {
         bool in_converged_window();
 
         Integrator integrator_;
-        StepController step_controller_;
+        StepController step_ctrl_;
         ErrEstimator err_checker_;
         ErrEstimator PC_err_checker_;
         Scalar last_PC_error_{math::max_value<Scalar>::value};
@@ -59,7 +59,7 @@ namespace space::ode_iterator {
         PC_err_checker_.set_rtol(1e-16);
         err_checker_.set_atol(0);
         err_checker_.set_rtol(5e-10);
-        step_controller_.set_safe_guards(0.85, 1, 6e-5, 1);  //(1/6e-5)**(1/7)~4
+        step_ctrl_.set_safe_guards(0.85, 1, 6e-5, 1);  //(1/6e-5)**(1/7)~4
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>
@@ -71,7 +71,7 @@ namespace space::ode_iterator {
             if (in_converged_window()) {
                 Scalar error = err_checker_.error(integrator_.y_h(), integrator_.b()[6]);
 
-                Scalar new_iter_h = step_controller_.next_with_limiter((Integrator::order - 1) / 2, iter_h, error);
+                Scalar new_iter_h = step_ctrl_.next_with_limiter((Integrator::order - 1) / 2, iter_h, error);
 
                 if (error < 1) {
                     integrator_.evaluate(particles, iter_h);
