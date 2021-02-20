@@ -162,7 +162,7 @@ namespace space::ode_iterator {
         Scalar last_error_{1.0};
 
         /** @brief Current iteration depth.*/
-        size_t ideal_rank_{MaxIter / 2};
+        size_t ideal_rank_{MaxIter - 1};  // make sure the first step reach maxiter
 
         /** @brief Total volume of extrapolation table(in scalar).*/
         size_t var_num_{0};
@@ -174,6 +174,8 @@ namespace space::ode_iterator {
         size_t iter_num_{0};
 
         bool step_reject_{false};
+
+        bool first_step_{true};
 
 #ifdef BS_SUBSTEP_PARALLEL
         tf::Executor executor{1};
@@ -322,26 +324,26 @@ namespace space::ode_iterator {
                 std::copy(dy.begin(), dy.end(), extrap_list_[k].begin());
 #endif
                 extrapolate(k);  // extrapolate results and save it to extrap_list_[0];
-
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
-
-                ideal_step_size_[k] = step_controller_.next_with_limiter(2 * k + 1, iter_h, error);
-
+                ideal_step_size_[k] = step_controller_.next(2 * k + 1, iter_h, error);
                 cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
                 // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
                 if (in_converged_window(k)) {
                     if (error <= 1.0) {
+                        last_error_ = error;
                         step_reject_ = false;
-                        iter_h = set_next_iteration(k);
                         calc::array_advance(input_, extrap_list_[0]);
                         particles.read_from_scalar_array(input_);
-                        last_error_ = error;
                         particles.collect_increment(false);  // turn off the increment collection
-                        return iter_h;
+
+                        Scalar new_h = set_next_iteration(k);
+                        first_step_ = false;
+                        return iter_h * step_controller_.step_limiter(2 * k + 1, new_h / iter_h);
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
-                        iter_h = set_next_iteration(k);
+                        Scalar new_h = set_next_iteration(k);
+                        iter_h *= step_controller_.step_limiter(2 * k + 1, new_h / iter_h);
                         break;
                     }
                 }
@@ -350,7 +352,6 @@ namespace space::ode_iterator {
         }
         spacehub_abort("Reach max iteration loop number!");
     }
-
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::set_atol(Scalar atol) {
         err_checker_.set_atol(atol);
@@ -437,7 +438,7 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     bool BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::in_converged_window(size_t k) {
-        return (k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1);
+        return (k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1) || (first_step_);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
@@ -460,41 +461,53 @@ namespace space::ode_iterator {
 
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::set_next_iteration(size_t k) -> Scalar {
-        if (k == ideal_rank_ - 1 || k == ideal_rank_) [[likely]] {
-            if (cost_per_len_[k - 1] < BSConsts::dec_factor * cost_per_len_[k]) [[unlikely]] {
-                ideal_rank_ = allowed(k - 1);
-                return get_next_step_len(ideal_rank_, k);
-            } else if (cost_per_len_[k] < BSConsts::inc_factor * cost_per_len_[k - 1] && !step_reject_) [[unlikely]] {
-                ideal_rank_ = allowed(k + 1);
+        if (!first_step_) {
+            if (k == ideal_rank_ - 1 || k == ideal_rank_) [[likely]] {
+                if (cost_per_len_[k - 1] < BSConsts::dec_factor * cost_per_len_[k]) [[unlikely]] {
+                    ideal_rank_ = allowed(k - 1);
+                    return get_next_step_len(ideal_rank_, k);
+                } else if (cost_per_len_[k] < BSConsts::inc_factor * cost_per_len_[k - 1] && !step_reject_)
+                    [[unlikely]] {
+                    ideal_rank_ = allowed(k + 1);
+                    return get_next_step_len(ideal_rank_, k);
+                } else {
+                    ideal_rank_ = allowed(k);
+                    return get_next_step_len(ideal_rank_, k);
+                }
+            } else if (k == ideal_rank_ + 1) {
+                if (cost_per_len_[k - 2] < BSConsts::dec_factor * cost_per_len_[k - 1]) {
+                    ideal_rank_ = allowed(k - 2);
+                }
+                if (cost_per_len_[k] < BSConsts::inc_factor * cost_per_len_[ideal_rank_] && !step_reject_) {
+                    ideal_rank_ = allowed(k);
+                }
                 return get_next_step_len(ideal_rank_, k);
             } else {
-                ideal_rank_ = allowed(k);
-                return get_next_step_len(ideal_rank_, k);
+                spacehub_abort("unexpected iteration index!");
             }
-        } else if (k == ideal_rank_ + 1) {
-            if (cost_per_len_[k - 2] < BSConsts::dec_factor * cost_per_len_[k - 1]) {
-                ideal_rank_ = allowed(k - 2);
-            }
-            if (cost_per_len_[k] < BSConsts::inc_factor * cost_per_len_[ideal_rank_] && !step_reject_) {
-                ideal_rank_ = allowed(k);
-            }
-            return get_next_step_len(ideal_rank_, k);
         } else {
-            spacehub_abort("unexpected iteration index!");
+            if (!step_reject_) {
+                ideal_rank_ = k;
+            }
+            return ideal_step_size_[k];
         }
-    }  // namespace space::ode_iterator
+    }
 
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     bool BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::is_diverged_anyhow(Scalar error,
                                                                                               size_t k) const {
-        Scalar r = 1.0;
-        if (k == ideal_rank_ - 1) {
-            r = static_cast<Scalar>(consts_.h(k + 1) * consts_.h(k + 2)) /
-                static_cast<Scalar>(consts_.h(0) * consts_.h(0));
-        } else if (k == ideal_rank_) {
-            r = static_cast<Scalar>(consts_.h(k + 1)) / static_cast<Scalar>(consts_.h(0));
-        }  // else k == iterDepth+1 and error >1 reject directly
-        return error > r * r;
+        if (!first_step_) {
+            Scalar r = 1.0;
+            if (k == ideal_rank_ - 1) {
+                r = static_cast<Scalar>(consts_.h(k + 1) * consts_.h(k + 2)) /
+                    static_cast<Scalar>(consts_.h(0) * consts_.h(0));
+            } else if (k == ideal_rank_) {
+                r = static_cast<Scalar>(consts_.h(k + 1)) / static_cast<Scalar>(consts_.h(0));
+            }  // else k == iterDepth+1 and error >1 reject directly
+            return error > r * r;
+        } else {
+            return false;
+        }
     }
 
 }  // namespace space::ode_iterator
