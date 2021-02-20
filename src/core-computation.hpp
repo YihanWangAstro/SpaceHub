@@ -568,7 +568,7 @@ namespace space::calc {
         if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
             return particles.regu_function();
         } else {
-            return 1;
+            return 1.0;
         }
     }
 

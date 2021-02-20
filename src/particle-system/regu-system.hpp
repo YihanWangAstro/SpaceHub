@@ -59,10 +59,10 @@ namespace space::particle_system {
         SPACEHUB_STD_ACCESSOR(StateScalar, bindE, bindE_);
 
         template <CONCEPT_PARTICLES_DATA Particles>
-        Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size) const;
+        Scalar eval_pos_phy_time(Particles const &particles, Scalar step_size);
 
         template <CONCEPT_PARTICLES_DATA Particles>
-        Scalar eval_vel_phy_time(Particles const &particles, Scalar step_size) const;
+        Scalar eval_vel_phy_time(Particles const &particles, Scalar step_size);
 
         template <typename Particles>
         inline StateScalar regu_function(Particles const &particles) const;
@@ -547,16 +547,20 @@ namespace space::particle_system {
     Regularization<TypeSystem, Type>::Regularization(Particles const &particles) {
         omega_ = capital_omega(particles);
         bindE_ = -calc::calc_total_energy(particles);
+        if constexpr (Type != ReguType::None) {
+            scale_ = omega_;
+        }
     }
 
     template <typename TypeSystem, ReguType Type>
     template <CONCEPT_PARTICLES_DATA Particles>
-    auto Regularization<TypeSystem, Type>::eval_pos_phy_time(Particles const &particles, Scalar step_size) const
-        -> Scalar {
+    auto Regularization<TypeSystem, Type>::eval_pos_phy_time(Particles const &particles, Scalar step_size) -> Scalar {
         if constexpr (Type == ReguType::LogH) {
-            return step_size / (bindE_ + calc::calc_kinetic_energy(particles));
+            scale_ = (bindE_ + calc::calc_kinetic_energy(particles));
+            return step_size / scale_;
         } else if constexpr (Type == ReguType::TTL) {
-            return step_size / omega_;
+            scale_ = omega_;
+            return step_size / scale_;
         } else if constexpr (Type == ReguType::None) {
             return step_size;
         } else {
@@ -566,12 +570,13 @@ namespace space::particle_system {
 
     template <typename TypeSystem, ReguType Type>
     template <CONCEPT_PARTICLES_DATA Particles>
-    auto Regularization<TypeSystem, Type>::eval_vel_phy_time(Particles const &particles, Scalar step_size) const
-        -> Scalar {
+    auto Regularization<TypeSystem, Type>::eval_vel_phy_time(Particles const &particles, Scalar step_size) -> Scalar {
         if constexpr (Type == ReguType::LogH) {
-            return step_size / -calc::calc_potential_energy(particles);
+            scale_ = -calc::calc_potential_energy(particles);
+            return step_size / scale_;
         } else if constexpr (Type == ReguType::TTL) {
-            return step_size / capital_omega(particles);
+            scale_ = capital_omega(particles);
+            return step_size / scale_;
         } else if constexpr (Type == ReguType::None) {
             return step_size;
         } else {
@@ -588,7 +593,7 @@ namespace space::particle_system {
     template <typename TypeSystem, ReguType Type>
     template <typename Particles>
     auto Regularization<TypeSystem, Type>::regu_function(Particles const &particles) const -> StateScalar {
-        return capital_omega(particles);
+        return scale_;
     }
 
 }  // namespace space::particle_system
