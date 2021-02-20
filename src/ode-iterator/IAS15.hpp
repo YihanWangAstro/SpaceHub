@@ -71,7 +71,7 @@ namespace space::ode_iterator {
             if (in_converged_window()) {
                 Scalar error = err_checker_.error(integrator_.y_h(), integrator_.b()[6]);
 
-                Scalar new_iter_h = step_controller_.next_step_size((Integrator::order - 1) / 2, iter_h, error);
+                Scalar new_iter_h = step_controller_.next_with_limiter((Integrator::order - 1) / 2, iter_h, error);
 
                 if (error < 1) {
                     integrator_.evaluate(particles, iter_h);

@@ -157,7 +157,7 @@ namespace space::ode_iterator {
             std::swap(output_, dual_steps_output_);
         }
         particles.read_from_scalar_array(dual_steps_output_);
-        return step_controller_.next_step_size(Integrator::order, macro_step_size, error);
+        return step_controller_.next_with_limiter(Integrator::order, macro_step_size, error);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>

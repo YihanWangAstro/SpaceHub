@@ -32,5 +32,7 @@ int main(int argc, char **argv) {
 
     basic_error_test<method>("ecc", 1000_year * 1, rtol, two_body(0.9999), true, false);
 
+    basic_error_test<method>("kozai", 1500000_year * 1, rtol, kozai(), true, false);
+
     return 0;
 }

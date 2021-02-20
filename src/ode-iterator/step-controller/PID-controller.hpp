@@ -52,9 +52,17 @@ namespace space::ode_iterator {
         void set_safe_guards(Scalar S1, Scalar S2, Scalar S3, Scalar S4);
 
         template <typename ArrayLike>
-        Scalar next_step_size(size_t order, Scalar old_step, ArrayLike const &errors);
+        Scalar next_with_limiter(size_t order, Scalar old_step, ArrayLike const &errors);
 
-        Scalar next_step_size(size_t order, Scalar old_step, Scalar error);
+        Scalar next_with_limiter(size_t order, Scalar old_step, Scalar error);
+
+        template <typename ArrayLike>
+        Scalar next(size_t order, Scalar old_step, ArrayLike const &errors);
+
+        Scalar next(size_t order, Scalar old_step, Scalar error);
+
+
+        inline Scalar step_limiter(size_t order, Scalar step_size_ratio);
 
        private:
         std::array<Scalar, max_order> limiter_max_;
@@ -77,7 +85,7 @@ namespace space::ode_iterator {
 
         Scalar Kd_{0};  // Derivative feedback coefficient
 
-        inline Scalar step_limiter(size_t order, Scalar step_size_ratio);
+
     };
     /*---------------------------------------------------------------------------*\
          Class PIDController Implementation
@@ -102,7 +110,7 @@ namespace space::ode_iterator {
 
     template <typename TypeSystem>
     template <typename ArrayLike>
-    auto PIDController<TypeSystem>::next_step_size(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
+    auto PIDController<TypeSystem>::next_with_limiter(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
         if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
             if (std::get<0>(errors) != 0.0) {
                 return old_step *
@@ -124,9 +132,41 @@ namespace space::ode_iterator {
     }
 
     template <typename TypeSystem>
-    auto PIDController<TypeSystem>::next_step_size(size_t order, Scalar old_step, Scalar error) -> Scalar {
+    auto PIDController<TypeSystem>::next_with_limiter(size_t order, Scalar old_step, Scalar error) -> Scalar {
         if (error != 0.0) {
             return old_step * step_limiter(order, safe_guard1_ * POW(safe_guard2_ / error, expon_[order]));
+        } else {
+            return old_step * limiter_max_[order];
+        }
+    }
+
+    template <typename TypeSystem>
+    template <typename ArrayLike>
+    auto PIDController<TypeSystem>::next(size_t order, Scalar old_step, ArrayLike const &errors) -> Scalar {
+        if constexpr (std::tuple_size_v<ArrayLike> == 1) {  // Only proportion part is provided
+            if (std::get<0>(errors) != 0.0) {
+                return old_step *
+                        safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), expon_[order]);
+            } else {
+                return old_step * limiter_max_[order];
+            }
+        } else if constexpr (std::tuple_size_v<ArrayLike> == 2) {  // Proportion & Integral part are provided
+            if (std::get<0>(errors) != 0.0) {
+                return old_step *
+                       safe_guard1_ * POW(safe_guard2_ / std::get<0>(errors), Kp_ * expon_[order]) *
+                                           POW(std::get<1>(errors) / safe_guard2_, Ki_ * expon_[order]);
+            } else {
+                return old_step * limiter_max_[order];
+            }
+        } else {
+            spacehub_abort("unsupported error type. Only tuple is supported in this interface!");
+        }
+    }
+
+    template <typename TypeSystem>
+    auto PIDController<TypeSystem>::next(size_t order, Scalar old_step, Scalar error) -> Scalar {
+        if (error != 0.0) {
+            return old_step * safe_guard1_ * POW(safe_guard2_ / error, expon_[order]);
         } else {
             return old_step * limiter_max_[order];
         }
