@@ -115,15 +115,15 @@ auto kozai() {
     using namespace space::unit;
     using namespace space::orbit;
 
-    Particle m1{10_Ms}, m2{0_Ms}, m3{30_Ms};
+    Particle m1{1_Ms}, m2{0.5_Ms}, m3{1_Ms};
 
-    auto in_orbit = EllipOrbit(m1.mass, m2.mass, 10_AU, 0.001, 0, 0, 240_deg, 0);
+    auto in_orbit = EllipOrbit(m1.mass, m2.mass, 10_AU, 0.001, 88_deg, 180_deg, 0_deg, 0);
 
     move_particles(in_orbit, m2);
 
     move_to_COM_frame(m1, m2);
 
-    auto out_orbit = EllipOrbit(m1.mass + m2.mass, m3.mass, 502_AU, 0.7, 94_deg, 0, 240_deg, 0);
+    auto out_orbit = EllipOrbit(m1.mass + m2.mass, m3.mass, 100_AU, 0.5, 9_deg, 0_deg, 0_deg, 0);
 
     move_particles(out_orbit, m3);
 

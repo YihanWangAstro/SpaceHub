@@ -24,7 +24,7 @@ using namespace space::unit;
 int main(int argc, char **argv) {
     auto system = kozai();
 
-    double t_end = 10000_year;
+    double t_end = 100000_year;
 
     std::string system_name = "kozai";
 
