@@ -98,7 +98,8 @@ namespace space::ode_iterator {
     }
     template <typename Integrator, typename ErrEstimator, typename StepController>
     SequentOdeIterator<Integrator, ErrEstimator, StepController>::SequentOdeIterator() {
-        step_ctrl_.set_safe_guards(0.7, 1, 0.02, 4.0);
+        step_ctrl_.set_safe_guards(0.7, 1);
+        step_ctrl_.set_limiter(0.02, 4.0);
     }
 
     template <typename Integrator, typename ErrEstimator, typename StepController>

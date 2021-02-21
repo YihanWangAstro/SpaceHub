@@ -225,10 +225,11 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
     BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::BulirschStoer()
         : step_ctrl_{}, err_checker_{0, 1e-14} {
+        step_ctrl_.set_limiter(0.02, 4.0);
         if (MaxIter < 11) {
-            step_ctrl_.set_safe_guards(0.72, 0.9, 0.02, 4.0);  // for standard double precision
+            step_ctrl_.set_safe_guards(0.72, 0.95);  // for standard double precision
         } else {
-            step_ctrl_.set_safe_guards(0.6, 0.95, 0.02, 4.0);  // for arbitrary bits floating points
+            step_ctrl_.set_safe_guards(0.6, 0.95);  // for arbitrary bits floating points
         }
     }
 
@@ -254,7 +255,7 @@ namespace space::ode_iterator {
 
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
 
-                ideal_step_size_[k] = step_ctrl_.next(result_order, iter_h, error);
+                ideal_step_size_[k] = iter_h * step_ctrl_.next(result_order, error);
 
                 cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
                 // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
@@ -264,14 +265,14 @@ namespace space::ode_iterator {
                         time += iter_h;
                         data = extrap_list_[0];
                         Scalar new_h = set_next_iteration(k);
-                        iter_h *= step_ctrl_.ratio_limiter(result_order, new_h / iter_h);
+                        iter_h *= step_ctrl_.limiter(result_order, new_h / iter_h);
                         last_error_ = error;
                         return iter_h;
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
                         Scalar new_h = set_next_iteration(k);
-                        iter_h *= step_ctrl_.ratio_limiter(result_order, new_h / iter_h);
+                        iter_h *= step_ctrl_.limiter(result_order, new_h / iter_h);
                         break;
                     }
                 }
@@ -329,7 +330,7 @@ namespace space::ode_iterator {
 #endif
                 extrapolate(k);  // extrapolate results and save it to extrap_list_[0];
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
-                ideal_step_size_[k] = step_ctrl_.next(result_order, iter_h, error);
+                ideal_step_size_[k] = iter_h * step_ctrl_.next(result_order, error);
                 cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
                 // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
                 if (in_converged_window(k)) {
@@ -342,12 +343,12 @@ namespace space::ode_iterator {
 
                         Scalar new_h = set_next_iteration(k);
                         first_step_ = false;
-                        return iter_h * step_ctrl_.ratio_limiter(result_order, new_h / iter_h);
+                        return iter_h * step_ctrl_.limiter(result_order, new_h / iter_h);
                     } else if (is_diverged_anyhow(error, k)) {
                         step_reject_ = true;
                         rej_num_++;
                         Scalar new_h = set_next_iteration(k);
-                        iter_h *= step_ctrl_.ratio_limiter(result_order, new_h / iter_h);
+                        iter_h *= step_ctrl_.limiter(result_order, new_h / iter_h);
                         break;
                     }
                 }

@@ -22,7 +22,7 @@ License
 #include "rtest_utility.hpp"
 using namespace space::unit;
 int main(int argc, char **argv) {
-    using method = space::methods::Radau_Plus<>;
+    using method = space::methods::AR_Chain_Plus<>;
 
     double rtol = 1e-14;
 
