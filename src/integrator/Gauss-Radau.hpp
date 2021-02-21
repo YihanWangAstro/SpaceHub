@@ -150,9 +150,11 @@ namespace space::integrator {
 
         SPACEHUB_READ_ACCESSOR(IterTable, b, b_);
 
-        SPACEHUB_READ_ACCESSOR(ScalarArray, y_0, dydh0_);
+        SPACEHUB_READ_ACCESSOR(ScalarArray, dy_0, dydh0_);
 
-        SPACEHUB_READ_ACCESSOR(ScalarArray, y_h, dydh_);
+        SPACEHUB_READ_ACCESSOR(ScalarArray, dy_h, dydh_);
+
+        SPACEHUB_READ_ACCESSOR(StateScalarArray, y_h, input_);
 
         SPACEHUB_READ_ACCESSOR(ScalarArray, diff_b6, dg_array_);  // after correct
         template <typename ParticleSys>

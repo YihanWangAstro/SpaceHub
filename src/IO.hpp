@@ -29,6 +29,7 @@ License
 #include <tuple>
 #include <vector>
 
+#include "small-vector.hpp"
 namespace space {
 
     /**
@@ -145,6 +146,14 @@ namespace space {
 
     template <typename T>
     std::ostream &operator<<(std::ostream &os, std::vector<T> const &container) {
+        for (auto const &c : container) {
+            os << c << ' ';
+        }
+        return os;
+    }
+
+    template <typename T, unsigned int N>
+    std::ostream &operator<<(std::ostream &os, llvm::SmallVector<T, N> const &container) {
         for (auto const &c : container) {
             os << c << ' ';
         }

@@ -566,7 +566,7 @@ namespace space::calc {
     template <CONCEPT_PARTICLES_DATA Particles>
     auto calc_step_scale(Particles const &particles) {
         if constexpr (HAS_STATIC_MEMBER(Particles, regu_type)) {
-            return particles.regu_function();
+            return particles.step_scale();
         } else {
             return 1.0;
         }

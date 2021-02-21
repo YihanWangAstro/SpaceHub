@@ -22,17 +22,18 @@ License
 #include "rtest_utility.hpp"
 using namespace space::unit;
 int main(int argc, char **argv) {
-    using method = space::methods::AR_Chain_Plus<>;
+    using method = space::methods::Radau_Plus<>;
 
     double rtol = 1e-14;
-
-    basic_error_test<method>("outer", 11862_year, rtol, outer_solar(), true, false);
 
     basic_error_test<method>("earth", 100_year, rtol, earth_system(), true, false);
 
     basic_error_test<method>("ecc", 1000_year, rtol, two_body(0.9999), true, false);
 
-    basic_error_test<method>("kozai", 1500000_year, rtol, kozai(), true, false);
+    basic_error_test<method>("outer", 11862_year, rtol, outer_solar(), true, false);
+    // std::cout << std::setprecision(16) << kozai();
+    // return 0;
+    basic_error_test<method>("kozai", 150000_year, rtol, kozai(), true, false);
 
     return 0;
 }

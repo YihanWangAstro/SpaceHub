@@ -49,6 +49,10 @@ namespace space::particle_system {
         using Interaction = Interactions;
 
         // Static public members
+        static constexpr bool ext_vel_dep{Interactions::ext_vel_dep};
+
+        static constexpr bool ext_vel_indep{Interactions::ext_vel_indep};
+
         static constexpr ReguType regu_type{RegType};
 
         // Constructors
@@ -70,7 +74,7 @@ namespace space::particle_system {
 
         SPACEHUB_STD_ACCESSOR(StateScalarArray, increment, increment_);
 
-        Scalar regu_function() const { return regu_.regu_function(*this); };
+        Scalar step_scale() const { return regu_.regu_function(*this); };
 
         void advance_time(Scalar step_size);
 
@@ -113,6 +117,17 @@ namespace space::particle_system {
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
         friend std::istream &operator>>(std::istream &is, ARchainSystem<P, F, R> &ps);
 
+        inline constexpr size_t time_offset() const { return 0; };
+        inline constexpr size_t pos_offset() const { return 1; };
+        inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+        inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
+        inline constexpr size_t omega_offset() const {
+            return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1;
+        };
+        inline constexpr size_t bindE_offset() const {
+            return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 2;
+        };
+
        private:
         // Private methods
         template <typename Array1, typename Array2, typename Array3>
@@ -142,13 +157,6 @@ namespace space::particle_system {
         void sync_omega_increment(Scalar domega);
 
         void sync_bindE_increment(Scalar dbindE);
-
-        inline constexpr size_t time_offset() { return 0; };
-        inline constexpr size_t omega_offset() { return 1; };
-        inline constexpr size_t bindE_offset() { return 2; };
-        inline constexpr size_t pos_offset() { return 3; };
-        inline constexpr size_t vel_offset() { return this->number() * 3 + 3; };
-        inline constexpr size_t auxi_vel_offset() { return this->number() * 6 + 3; };
 
         // Private members
         force::InteractionData<Interactions, VectorArray> accels_;
@@ -317,10 +325,9 @@ namespace space::particle_system {
     template <typename ScalarIterable>
     void ARchainSystem<Particles, Interactions, RegType>::write_to_scalar_array(ScalarIterable &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
+        stl_ranges.reserve(this->variable_number());
         stl_ranges.emplace_back(this->time());
-        stl_ranges.emplace_back(omega());
-        stl_ranges.emplace_back(bindE());
+
         add_coords_to(stl_ranges, chain_pos_);
         add_coords_to(stl_ranges, chain_vel_);
 
@@ -335,13 +342,16 @@ namespace space::particle_system {
         if constexpr (Interactions::ext_vel_dep) {
             add_coords_to(stl_ranges, chain_aux_vel_);
         }
+
+        stl_ranges.emplace_back(omega());
+        stl_ranges.emplace_back(bindE());
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
     template <typename ScalarIterable>
     void ARchainSystem<Particles, Interactions, RegType>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
+        stl_ranges.reserve(this->variable_number());
 
         Scalar pos_regu = regu_.eval_pos_phy_time(*this, 1);
         Scalar vel_regu = regu_.eval_vel_phy_time(*this, 1);
@@ -349,27 +359,9 @@ namespace space::particle_system {
         stl_ranges.emplace_back(pos_regu);
 
         Interactions::eval_newtonian_acc(*this, accels_.newtonian_acc());
-
-        if constexpr (regu_type == ReguType::TTL) {
-            Scalar d_omega_dh =
-                calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
-            stl_ranges.emplace_back(d_omega_dh);
-        } else {
-            stl_ranges.emplace_back(0);
-        }
-
         if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
             Interactions::eval_extra_acc(*this, accels_.acc());
-            if constexpr (regu_type == ReguType::LogH) {
-                Scalar d_bindE_dh =
-                    -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
-                stl_ranges.emplace_back(d_bindE_dh);
-            } else {
-                stl_ranges.emplace_back(0);
-            }
             calc::array_add(accels_.acc(), accels_.acc(), accels_.newtonian_acc());
-        } else {
-            stl_ranges.emplace_back(0);
         }
 
         add_scaled_coords_to(stl_ranges, chain_vel_, pos_regu);
@@ -383,6 +375,27 @@ namespace space::particle_system {
         }
         if constexpr (Interactions::ext_vel_dep) {
             add_scaled_coords_to(stl_ranges, chain_acc_, vel_regu);
+        }
+
+        if constexpr (regu_type == ReguType::TTL) {
+            Scalar d_omega_dh =
+                calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
+            stl_ranges.emplace_back(d_omega_dh);
+        } else {
+            stl_ranges.emplace_back(0);
+        }
+
+        if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
+            if constexpr (regu_type == ReguType::LogH) {
+                Scalar d_bindE_dh =
+                    -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
+                stl_ranges.emplace_back(d_bindE_dh);
+            } else {
+                stl_ranges.emplace_back(0);
+            }
+
+        } else {
+            stl_ranges.emplace_back(0);
         }
     }
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
@@ -451,8 +464,6 @@ namespace space::particle_system {
         if (stl_ranges.size() == this->variable_number()) {
             auto begin = stl_ranges.begin();
             this->time() = *(begin + time_offset());
-            omega() = *(begin + omega_offset());
-            bindE() = *(begin + bindE_offset());
 
             auto pos_begin = begin + pos_offset();
             auto pos_end = begin + vel_offset();
@@ -478,6 +489,9 @@ namespace space::particle_system {
                 load_to_coords(aux_vel_begin, aux_vel_end, chain_aux_vel_);
                 Chain::calc_cartesian(this->mass(), chain_aux_vel_, aux_vel_, index_);
             }
+
+            omega() = *(begin + omega_offset());
+            bindE() = *(begin + bindE_offset());
         } else {
             spacehub_abort("Wrong input array size!");
         }

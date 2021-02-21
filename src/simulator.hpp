@@ -467,7 +467,7 @@ namespace space {
 
         run_args.start_operations(particles_, step_size_);
         for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
-            Scalar rest_step = (end_time - particles_.time()) * calc::calc_step_scale(particles_);
+            Scalar rest_step = (end_time - particles_.time()) * particles_.step_scale();
             if (step_size_ <= rest_step) [[likely]] {
                 run_args.pre_operations(particles_, step_size_);
                 advance_one_step();

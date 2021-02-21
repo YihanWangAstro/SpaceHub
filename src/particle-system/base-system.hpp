@@ -49,10 +49,16 @@ namespace space::particle_system {
 
         using Interaction = Interactions;
 
+        static constexpr bool ext_vel_dep{Interactions::ext_vel_dep};
+
+        static constexpr bool ext_vel_indep{Interactions::ext_vel_indep};
+
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(SimpleSystem, delete, default, default, default, default);
 
         SPACEHUB_STD_ACCESSOR(StateScalarArray, increment, increment_);
+
+        Scalar step_scale() const { return 1.0; };
 
         /**
          *
@@ -146,6 +152,11 @@ namespace space::particle_system {
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
         friend std::istream &operator>>(std::istream &is, SimpleSystem<P, F> &ps);
 
+        inline constexpr size_t time_offset() const { return 0; };
+        inline constexpr size_t pos_offset() const { return 1; };
+        inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+        inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
+
        private:
         // Private methods
         /**
@@ -175,11 +186,6 @@ namespace space::particle_system {
         void sync_auxi_vel_increment(Array const &inc, Scalar step_size);
 
         void sync_time_increment(Scalar phy_time);
-
-        inline constexpr size_t time_offset() { return 0; };
-        inline constexpr size_t pos_offset() { return 1; };
-        inline constexpr size_t vel_offset() { return this->number() * 3 + 1; };
-        inline constexpr size_t auxi_vel_offset() { return this->number() * 6 + 1; };
 
         // Private members
         // Particles ptcl_;

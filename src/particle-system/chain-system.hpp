@@ -49,6 +49,10 @@ namespace space::particle_system {
 
         using Interaction = Interactions;
 
+        static constexpr bool ext_vel_dep{Interactions::ext_vel_dep};
+
+        static constexpr bool ext_vel_indep{Interactions::ext_vel_indep};
+
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(ChainSystem, delete, default, default, default, default);
 
@@ -63,6 +67,8 @@ namespace space::particle_system {
         SPACEHUB_STD_ACCESSOR(IdxArray, index, index_);
 
         SPACEHUB_STD_ACCESSOR(StateScalarArray, increment, increment_);
+
+        Scalar step_scale() const { return 1.0; };
 
         void advance_time(Scalar dt);
 
@@ -98,6 +104,11 @@ namespace space::particle_system {
 
         [[nodiscard]] size_t variable_number() const;
 
+        inline constexpr size_t time_offset() const { return 0; };
+        inline constexpr size_t pos_offset() const { return 1; };
+        inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+        inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
+
        private:
         // Private methods
         template <typename Array1, typename Array2, typename Array3>
@@ -119,11 +130,6 @@ namespace space::particle_system {
         void sync_auxi_vel_increment(Array const &inc, Scalar step_size);
 
         void sync_time_increment(Scalar phy_time);
-
-        inline constexpr size_t time_offset() { return 0; };
-        inline constexpr size_t pos_offset() { return 1; };
-        inline constexpr size_t vel_offset() { return this->number() * 3 + 1; };
-        inline constexpr size_t auxi_vel_offset() { return this->number() * 6 + 1; };
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
