@@ -51,6 +51,8 @@ namespace space::ode_iterator {
         bool warmed_up{false};
 
         CREATE_STATIC_MEMBER_CHECK(regu_type);
+        CREATE_METHOD_CHECK(chain_pos);
+        CREATE_METHOD_CHECK(chain_vel);
     };
 
     /*---------------------------------------------------------------------------*\
@@ -130,6 +132,12 @@ namespace space::ode_iterator {
         Scalar dt2 = dt * dt;
         std::vector<bool> mask(size, false);
         for (size_t i = 0; i < ptc_num; i++) {
+            bool slow_varing = false;
+            if constexpr (HAS_METHOD(U, chain_pos) && HAS_METHOD(U, chain_vel)) {
+                slow_varing = norm2(ptc.chain_pos(i)) * 1e-12 > norm2(ptc.chain_vel(i)) * dt2;
+            } else {
+                slow_varing = norm2(ptc.pos(i)) * 1e-12 > norm2(ptc.vel(i)) * dt2;
+            }
             if (norm2(ptc.pos(i)) * 1e-12 > norm2(ptc.vel(i)) * dt2) {
                 mask[pos_offset + 3 * i] = mask[pos_offset + 3 * i + 1] = mask[pos_offset + 3 * i + 2] = true;
                 mask[vel_offset + 3 * i] = mask[vel_offset + 3 * i + 1] = mask[vel_offset + 3 * i + 2] = true;

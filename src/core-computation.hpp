@@ -550,7 +550,6 @@ namespace space::calc {
             for (size_t j = i + 1; j < size; j++) {
                 Scalar r = distance(position[i], position[j]);
                 Scalar fall_free = POW(r, 1.5) / sqrt(mass[i] + mass[j]);
-
                 if (fall_free < min_fall_free) min_fall_free = fall_free;
             }
         }

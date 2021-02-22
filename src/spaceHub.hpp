@@ -43,6 +43,10 @@ License
 
 #pragma once
 
+#ifdef MPFR_VERSION_MAJOR
+#include "mpfr.hpp"
+#endif
+
 #include "args-callback/callbacks.hpp"
 #include "integrator/Gauss-Radau.hpp"
 #include "integrator/symplectic/symplectic-integrator.hpp"
@@ -77,9 +81,6 @@ License
 #include "tools/timer.hpp"
 #include "type-class.hpp"
 
-#ifdef MPFR_VERSION_MAJOR
-#include "mpfr.hpp"
-#endif
 /**
  * @namespace space
  * Documentation for space

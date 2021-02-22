@@ -56,7 +56,7 @@ namespace space::particle_system {
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(SimpleSystem, delete, default, default, default, default);
 
-        SPACEHUB_STD_ACCESSOR(StateScalarArray, increment, increment_);
+        SPACEHUB_ARRAY_ACCESSOR(StateScalarArray, increment, increment_);
 
         Scalar step_scale() const { return 1.0; };
 

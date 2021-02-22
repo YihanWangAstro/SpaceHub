@@ -27,10 +27,15 @@ int main(int argc, char **argv) {
     double t_end = 1000_year;
 
     std::string system_name = "ecc";
+    double r_tol = 1e-14;
+    double r_tol_low = 5e-16;
+    double r_tol_hi = 1e-6;
 
-    bench_mark_methods(system_name, system, t_end);
+    fast_test_methods(system_name, system, t_end, r_tol);
 
-    err_scale_methods(system_name, system, t_end);
+    bench_mark_methods(system_name, system, t_end, r_tol);
+
+    err_scale_methods(system_name, system, t_end, r_tol_low, r_tol_hi);
 
     return 0;
 }

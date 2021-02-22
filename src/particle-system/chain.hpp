@@ -193,6 +193,7 @@ namespace space {
         } else {
             new_chain.emplace_back(cartesian[new_idx[0]]);
         }
+
         chain = std::move(new_chain);
     }
 

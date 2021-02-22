@@ -42,18 +42,18 @@ License
 #define POW pow_rn
 #define EXP exp_rn
 #else
-#define SIN std::sin
-#define COS std::cos
-#define TAN std::tan
-#define ASIN std::asin
-#define ACOS std::acos
-#define ATAN std::atan
-#define SINH std::sinh
-#define COSH std::cosh
-#define LOG std::log
-#define LOG10 std::log10
-#define POW std::pow
-#define EXP std::exp
+#define SIN sin
+#define COS cos
+#define TAN tan
+#define ASIN asin
+#define ACOS acos
+#define ATAN atan
+#define SINH sinh
+#define COSH cosh
+#define LOG log
+#define LOG10 log10
+#define POW pow
+#define EXP exp
 #endif
 
 /**

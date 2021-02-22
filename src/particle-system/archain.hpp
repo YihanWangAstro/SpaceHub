@@ -62,17 +62,17 @@ namespace space::particle_system {
         ARchainSystem(Scalar time, STL const &particle_set);
 
         // Public methods
-        SPACEHUB_STD_ACCESSOR(StateVectorArray, chain_pos, chain_pos_);
+        SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, chain_pos, chain_pos_);
 
-        SPACEHUB_STD_ACCESSOR(StateVectorArray, chain_vel, chain_vel_);
+        SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, chain_vel, chain_vel_);
 
-        SPACEHUB_STD_ACCESSOR(IdxArray, index, index_);
+        SPACEHUB_ARRAY_ACCESSOR(IdxArray, index, index_);
 
         SPACEHUB_STD_ACCESSOR(StateScalar, omega, regu_.omega());
 
         SPACEHUB_STD_ACCESSOR(StateScalar, bindE, regu_.bindE());
 
-        SPACEHUB_STD_ACCESSOR(StateScalarArray, increment, increment_);
+        SPACEHUB_ARRAY_ACCESSOR(StateScalarArray, increment, increment_);
 
         Scalar step_scale() const { return regu_.regu_function(*this); };
 
