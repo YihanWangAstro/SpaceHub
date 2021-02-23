@@ -4,8 +4,8 @@
 
 #pragma once
 
+#include "../dev-tools.hpp"
 #include "../spacehub-concepts.hpp"
-
 namespace space::force {
     class Tidal {
        public:
@@ -63,13 +63,6 @@ namespace space::force {
             auto const &idx = particles.index();
 
             size_t size = particles.number();
-            for (size_t i = 0; i < size - 1; ++i) {
-                force(ch_p[i], ch_v[i], idx[i], idx[i + 1]);
-            }
-
-            for (size_t i = 0; i < size - 2; ++i) {
-                force(ch_p[i] + ch_p[i + 1], ch_v[i] + ch_v[i + 1], idx[i], idx[i + 2]);
-            }
 
             for (size_t i = 0; i < size; ++i) {
                 for (size_t j = i + 3; j < size; ++j) {
@@ -77,6 +70,13 @@ namespace space::force {
                 }
             }
 
+            for (size_t i = 0; i < size - 2; ++i) {
+                force(ch_p[i] + ch_p[i + 1], ch_v[i] + ch_v[i + 1], idx[i], idx[i + 2]);
+            }
+
+            for (size_t i = 0; i < size - 1; ++i) {
+                force(ch_p[i], ch_v[i], idx[i], idx[i + 1]);
+            }
         } else {
             for (size_t i = 0; i < num; ++i) {
                 for (size_t j = i + 1; j < num; ++j) {
