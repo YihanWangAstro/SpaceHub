@@ -29,14 +29,14 @@ auto mercury(double e = 0) {
     using namespace space::orbit;
     using namespace space::consts;
 
-    Particle sun{1_Ms}, mercury{0.055_Me};
-    auto orbit = EllipOrbit(sun.mass, mercury.mass, a_mercury, e_mercury, i_mercury, LoAN_mercury, AoP_mercury, 0);
+    Particle p1{1_Ms}, p2{1_Ms};
+    auto orbit = EllipOrbit(p1.mass, p2.mass, 0.1_AU, e, 0, 0, 0, 0);
 
-    move_particles(orbit, mercury);
+    move_particles(orbit, p2);
 
-    move_to_COM_frame(sun, mercury);
+    move_to_COM_frame(p1, p2);
 
-    return std::vector{sun, mercury};
+    return std::vector{p1, p2};
 }
 
 template <typename Solver>
@@ -54,7 +54,7 @@ void PN_precession_test(std::string const &fname, double end_time, double rtol,
 
     std::cout << std::setprecision(16);
 
-    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0, end_time, 10000));
+    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0.0, end_time));
 
     args.add_stop_condition(end_time);
 
@@ -68,10 +68,10 @@ void PN_precession_test(std::string const &fname, double end_time, double rtol,
 }
 
 template <typename simulation>
-void run(std::string const &sim_type) {
-    auto twobody_sys = mercury<simulation>();
+void run(std::string const &sim_type, double ecc) {
+    auto twobody_sys = mercury<simulation>(ecc);
 
-    PN_precession_test<simulation>("PN-precession-" + sim_type, 100_year, 1e-15, twobody_sys);
+    PN_precession_test<simulation>("PN-precession-" + sim_type, 100_year, 1e-14, twobody_sys);
 }
 
 int main(int argc, char **argv) {
@@ -79,6 +79,14 @@ int main(int argc, char **argv) {
     using f = force::Interactions<force::NewtonianGrav, force::PN1>;
 
     using method = methods::AR_Chain_Plus<f>;
+
+    run<method>("e=06", 0.6);
+
+    run<method>("e=09", 0.9);
+
+    run<method>("e=095", 0.95);
+
+    run<method>("e=099", 0.99);
 
     return 0;
 }

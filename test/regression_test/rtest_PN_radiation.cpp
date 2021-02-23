@@ -22,7 +22,7 @@ License
 using namespace space::unit;
 
 template <typename Solver>
-auto BHB(double e = 0) {
+auto BHB(double e = 0.9) {
     using Particle = typename Solver::Particle;
     using namespace space;
     using namespace space::unit;
@@ -30,7 +30,7 @@ auto BHB(double e = 0) {
     using namespace space::consts;
 
     Particle bh1{30_Ms}, bh2{50_Ms};
-    auto orbit = EllipOrbit(bh1.mass, bh2.mass, 0.01_AU, 0.9, 0, 0, 0, 0);
+    auto orbit = EllipOrbit(bh1.mass, bh2.mass, 0.01_AU, e, 0, 0, 0, 0);
 
     move_particles(orbit, bh2);
 
@@ -54,7 +54,7 @@ void PN_radiation_test(std::string const &fname, double end_time, double rtol,
 
     std::cout << std::setprecision(16);
 
-    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0.0, end_time, 10000));
+    args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), 0.0, end_time));
 
     args.add_stop_condition(end_time);
 
@@ -68,13 +68,22 @@ void PN_radiation_test(std::string const &fname, double end_time, double rtol,
 }
 
 template <typename simulation>
-void run(std::string const &sim_type) {
-    auto twobody_sys = BHB<simulation>();
+void run(std::string const &sim_type, double e) {
+    auto twobody_sys = BHB<simulation>(e);
 
-    PN_radiation_test<simulation>("PN-radiation-" + sim_type, 70_year, 1e-15, twobody_sys);
+    PN_radiation_test<simulation>("PN-radiation-" + sim_type, 70_year, 1e-14, twobody_sys);
 }
 
 int main(int argc, char **argv) {
-    // run<space::methods::AR_Chain_Plus>("AR-Chain+");
+    using namespace space;
+    using f = force::Interactions<force::NewtonianGrav, force::PN2p5>;
+
+    // using f = force::Interactions<force::NewtonianGrav>;
+
+    using method = methods::AR_Chain_Plus<f>;
+    run<method>("e=0894", 0.894);
+    run<method>("e=0896", 0.896);
+    run<method>("e=0898", 0.898);
+    run<method>("e=09", 0.9);
     return 0;
 }
