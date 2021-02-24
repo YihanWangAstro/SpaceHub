@@ -33,8 +33,6 @@ namespace space::ode_iterator {
         template <typename U>
         Scalar iterate(U& particles, Scalar macro_step_size);
 
-        void set_rtol(Scalar rtol) { PC_err_checker_.set_rtol(rtol); };
-
        private:
         inline void reset_PC_iteration();
 
