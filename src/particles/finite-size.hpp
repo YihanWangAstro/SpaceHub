@@ -71,7 +71,7 @@ namespace space::particle_set {
          */
         SizeParticle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                      Scalar vz = 0)
-                : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
+            : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
         friend std::ostream &operator<<(std::ostream &os, SizeParticle const &particle) {
             space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
@@ -116,15 +116,7 @@ namespace space::particle_set {
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(SizeParticles, default, default, default, default, default);
 
-        /**
-         * @brief Construct a new Size Particles object from std::ranges(Container).
-         *
-         * @tparam STL std::ranges(Container)
-         * @param[in] t Initial time of the the particle group.
-         * @param[in] particle_set Input particle set.
-         */
-        template <CONCEPT_PARTICLE_CONTAINER STL>
-        SizeParticles(Scalar time, STL const &particles_set);
+        SizeParticles(Scalar time, concepts::ParticleContainer auto const &particles_set);
 
         // Public methods
         SPACEHUB_ARRAY_ACCESSOR(ScalarArray, radius, radius_);
@@ -145,13 +137,13 @@ namespace space::particle_set {
 
         void emplace_back(Particle const &new_particle);
 
-        [[nodiscard]] size_t number() const;
+        size_t number() const;
 
-        [[nodiscard]] size_t capacity() const;
+        size_t capacity() const;
 
         void clear();
 
-        [[nodiscard]]std::string column_names() const;
+        std::string column_names() const;
 
         template <typename U>
         friend std::ostream &operator<<(std::ostream &os, SizeParticles<U> const &ps);
@@ -178,12 +170,14 @@ namespace space::particle_set {
 }  // namespace space::particle_set
 
 namespace space::particle_set {
+
+#define CLASS_SizeParticles(...)   \
+    template <typename TypeSystem> \
+    __VA_ARGS__ SizeParticles<TypeSystem>
     /*---------------------------------------------------------------------------*\
         Class SizeParticles Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename TypeSystem>
-    template <CONCEPT_PARTICLE_CONTAINER STL>
-    SizeParticles<TypeSystem>::SizeParticles(Scalar time, const STL &particles_set) {
+    CLASS_SizeParticles()::SizeParticles(Scalar time, concepts::ParticleContainer auto const &particles_set) {
         size_t input_num = particles_set.size();
         this->reserve(input_num);
         size_t id = 0;
@@ -198,35 +192,25 @@ namespace space::particle_set {
         active_num_ = input_num;
     }
 
-    template <typename TypeSystem>
-    size_t SizeParticles<TypeSystem>::number() const {
-        return active_num_;
-    }
+    CLASS_SizeParticles(size_t)::number() const { return active_num_; }
 
-    template <typename TypeSystem>
-    size_t SizeParticles<TypeSystem>::capacity() const {
-        return idn_.capacity();
-    }
+    CLASS_SizeParticles(size_t)::capacity() const { return idn_.capacity(); }
 
-    template <typename TypeSystem>
-    void SizeParticles<TypeSystem>::reserve(size_t new_cap) {
+    CLASS_SizeParticles(void)::reserve(size_t new_cap) {
         space::reserve_all(new_cap, pos_, vel_, mass_, radius_, idn_);
     }
 
-    template <typename TypeSystem>
-    void SizeParticles<TypeSystem>::clear() {
+    CLASS_SizeParticles(void)::clear() {
         space::clear_all(pos_, vel_, mass_, radius_, idn_);
         active_num_ = 0;
     }
 
-    template <typename TypeSystem>
-    void SizeParticles<TypeSystem>::resize(size_t new_sz) {
+    CLASS_SizeParticles(void)::resize(size_t new_sz) {
         space::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
         active_num_ = new_sz;
     }
 
-    template <typename TypeSystem>
-    void SizeParticles<TypeSystem>::emplace_back(typename SizeParticles<TypeSystem>::Particle const &new_particle) {
+    CLASS_SizeParticles(void)::emplace_back(typename SizeParticles<TypeSystem>::Particle const &new_particle) {
         pos_.emplace_back(new_particle.pos);
         vel_.emplace_back(new_particle.vel);
         mass_.emplace_back(new_particle.mass);
@@ -235,10 +219,7 @@ namespace space::particle_set {
         active_num_++;
     }
 
-    template <typename TypeSystem>
-    std::string SizeParticles<TypeSystem>::column_names() const {
-        return "time,id,mass,radius,px,py,pz,vx,vy,vz";
-    }
+    CLASS_SizeParticles(std::string)::column_names() const { return "time,id,mass,radius,px,py,pz,vx,vy,vz"; }
 
     template <typename TypeSystem>
     std::ostream &operator<<(std::ostream &os, SizeParticles<TypeSystem> const &ps) {

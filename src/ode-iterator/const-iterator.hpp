@@ -38,8 +38,9 @@ namespace space::ode_iterator {
     template <typename Integrator, typename ErrEstimator = void, typename StepController = void>
     class ConstOdeIterator {
        public:
-        template <CONCEPT_PARTICLE_SYSTEM T>
-        auto iterate(T &particles, typename T::Scalar macro_step_size) -> typename T::Scalar;
+        SPACEHUB_USING_TYPE_SYSTEM_OF(Integrator);
+
+        Scalar iterate(concepts::ParticleSystem auto &particles, Scalar macro_step_size);
 
        private:
         // Private members
@@ -50,10 +51,8 @@ namespace space::ode_iterator {
           Class ConstOdeIterator Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Integrator, typename ErrEstimator, typename StepController>
-    template <CONCEPT_PARTICLE_SYSTEM T>
-    auto ConstOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
-                                                                             typename T::Scalar macro_step_size) ->
-        typename T::Scalar {
+    auto ConstOdeIterator<Integrator, ErrEstimator, StepController>::iterate(concepts::ParticleSystem auto &particles,
+                                                                             Scalar macro_step_size) -> Scalar {
         integrator_.integrate(particles, macro_step_size);
         return macro_step_size;
     }

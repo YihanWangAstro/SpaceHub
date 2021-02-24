@@ -256,18 +256,18 @@ namespace space {
 
 #define HAS_METHOD(CLASS, METHOD, ...) has_method_##METHOD<CLASS, ##__VA_ARGS__>::value
 
-#define CREATE_PROTECTED_METHOD_CHECK(NAME)                                                                         \
-    template <typename __T, typename... __Args>                                                                     \
-    struct has_protected_method_##NAME : public __T {                                                               \
-        template <typename U>                                                                                       \
-        constexpr static auto check(const void *)                                                                   \
-            -> decltype(std::declval<has_protected_method_##NAME<U, __Args...> >().NAME(std::declval<__Args>()...), \
-                        std::true_type());                                                                          \
-                                                                                                                    \
-        template <typename U>                                                                                       \
-        constexpr static std::false_type check(...);                                                                \
-                                                                                                                    \
-        static constexpr bool value = decltype(check<__T>(nullptr))::value;                                         \
+#define CREATE_PROTECTED_METHOD_CHECK(NAME)                                                                        \
+    template <typename __T, typename... __Args>                                                                    \
+    struct has_protected_method_##NAME : public __T {                                                              \
+        template <typename U>                                                                                      \
+        constexpr static auto check(const void *)                                                                  \
+            -> decltype(std::declval<has_protected_method_##NAME<U, __Args...>>().NAME(std::declval<__Args>()...), \
+                        std::true_type());                                                                         \
+                                                                                                                   \
+        template <typename U>                                                                                      \
+        constexpr static std::false_type check(...);                                                               \
+                                                                                                                   \
+        static constexpr bool value = decltype(check<__T>(nullptr))::value;                                        \
     };
 
 #define HAS_PROTECTED_METHOD(CLASS, METHOD, ...) has_protected_method_##METHOD<CLASS, ##__VA_ARGS__>::value
@@ -347,7 +347,7 @@ namespace space {
                                                // typename T::const_iterator,
                                                decltype(std::declval<T>().size()), decltype(std::declval<T>().begin()),
                                                decltype(std::declval<T>().end())>,
-                              void> > : public std::true_type {};
+                              void>> : public std::true_type {};
 
     template <typename T>
     constexpr bool is_ranges_v = is_ranges<T>::value;
@@ -355,6 +355,9 @@ namespace space {
 #define IS_BASE_OF(BASE, DERIVED) (std::is_base_of<BASE, DERIVED>::value)
 
 #define TYPE_OF_SELF std::remove_reference<decltype(*this)>::type
+
+    template <typename T>
+    using remove_cv_all_t = std::remove_cv_t<std::remove_reference_t<T>>;
 
 #define ALIGNED_OPERATOR_NEW                                                                                   \
     void *operator new(std::size_t count) {                                                                    \

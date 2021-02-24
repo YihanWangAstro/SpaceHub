@@ -61,14 +61,14 @@ namespace space::ode_iterator {
 
         constexpr inline Scalar cost(size_t i) const { return cost_[i]; };
 
-        [[nodiscard]] constexpr inline size_t h(size_t i) const { return h_[i]; };
+        constexpr inline size_t h(size_t i) const { return h_[i]; };
 
         constexpr inline Scalar table_coef(size_t i, size_t j) const { return extrap_coef_[at(i, j)]; };
 
         constexpr explicit BulirschStoerConsts();
 
        private:
-        [[nodiscard]] inline size_t at(size_t i, size_t j) const { return i * MaxIter + j; };
+        inline size_t at(size_t i, size_t j) const { return i * MaxIter + j; };
 
         /** @brief Extrapolation coefficient.*/
         std::array<Scalar, MaxIter *(MaxIter)> extrap_coef_;
@@ -100,15 +100,15 @@ namespace space::ode_iterator {
         using BSConsts =
             BulirschStoerConsts<Scalar, max_depth + 1, std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>>;
 
+        using EvaluateFun = std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)>;
+
         static constexpr size_t max_try_num{100};
 
         BulirschStoer();
 
-        template <CONCEPT_PARTICLE_SYSTEM U>
-        Scalar iterate(U &particles, Scalar macro_step_size);
+        Scalar iterate(concepts::ParticleSystem auto &particles, Scalar macro_step_size);
 
-        Scalar iterate(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func,
-                       StateScalarArray &data, Scalar &time, Scalar step_size);
+        Scalar iterate(EvaluateFun func, StateScalarArray &data, Scalar &time, Scalar step_size);
 
         void set_atol(Scalar atol);
 
@@ -119,19 +119,18 @@ namespace space::ode_iterator {
        private:
         void check_variable_size();
 
-        [[nodiscard]] inline size_t at(size_t i, size_t j) const { return consts_.at(i, j); };
+        inline size_t at(size_t i, size_t j) const { return consts_.at(i, j); };
 
-        template <CONCEPT_PARTICLE_SYSTEM U>
-        void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps);
+        void integrate_by_n_steps(concepts::ParticleSystem auto &particles, Scalar macro_step_size, size_t steps);
 
-        void integrate_by_n_steps(std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)> func,
-                                  StateScalarArray &data_out, Scalar &time, Scalar step_size, size_t steps);
+        void integrate_by_n_steps(EvaluateFun func, StateScalarArray &data_out, Scalar &time, Scalar step_size,
+                                  size_t steps);
 
         void extrapolate(size_t k);
 
         inline bool in_converged_window(size_t k);
 
-        [[nodiscard]] inline size_t allowed(size_t i) const;
+        inline size_t allowed(size_t i) const;
 
         Scalar set_next_iteration(size_t k);
 
@@ -140,7 +139,6 @@ namespace space::ode_iterator {
         Scalar get_next_step_len(size_t k_new, size_t k) const;
 
        private:
-        using EvaluateFun = std::function<void(StateScalarArray const &, StateScalarArray &, Scalar)>;
         /** @brief The constant coef for BS extrapolation*/
         BSConsts consts_;
 
@@ -182,13 +180,14 @@ namespace space::ode_iterator {
 #endif
     };
 
+#define CLASS_BulirschStoerConsts(...)                     \
+    template <typename Scalar, size_t MaxIter, bool IsKDK> \
+    __VA_ARGS__ BulirschStoerConsts<Scalar, MaxIter, IsKDK>
+
     /*---------------------------------------------------------------------------*\
          Class BulirschStoerConsts Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Scalar, size_t MaxIter, bool IsKDK>
-    constexpr BulirschStoerConsts<Scalar, MaxIter, IsKDK>::BulirschStoerConsts() {
-        // static_assert(MaxIter <= 11, " Iteration depth cannot be larger than9");
-
+    CLASS_BulirschStoerConsts(constexpr)::BulirschStoerConsts() {
         std::array<size_t, 11> seq = {1, 2, 3, 5, 8, 12, 17, 25, 36, 51, 73};  // better sequence
 
         for (size_t i = 0; i < MaxIter; ++i) {
@@ -207,8 +206,6 @@ namespace space::ode_iterator {
 
             for (size_t j = 0; j < MaxIter; ++j) {
                 if (j < i) {
-                    // Scalar ratio = static_cast<Scalar>(h_[i]) / static_cast<Scalar>(h_[i - j - 1]);
-                    // extrap_coef_[at(i, j)] = 1.0 / (ratio * ratio - 1.0);
                     Scalar nj2 = static_cast<Scalar>(h_[i - j - 1] * h_[i - j - 1]);
                     Scalar ni2 = static_cast<Scalar>(h_[i] * h_[i]);
                     extrap_coef_[at(i, j)] = nj2 / (ni2 - nj2);
@@ -219,12 +216,14 @@ namespace space::ode_iterator {
         }
     }
 
+#define CLASS_BulirschStoer(...)                                                                   \
+    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter> \
+    __VA_ARGS__ BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>
+
     /*---------------------------------------------------------------------------*\
          Class BulirschStoer Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::BulirschStoer()
-        : step_ctrl_{}, err_checker_{0, 1e-14} {
+    CLASS_BulirschStoer()::BulirschStoer() : step_ctrl_{}, err_checker_{0, 1e-14} {
         step_ctrl_.set_limiter(0.02, 4.0);
         if (MaxIter < 11) {
             step_ctrl_.set_safe_guards(0.72, 0.95);  // for standard double precision
@@ -233,10 +232,8 @@ namespace space::ode_iterator {
         }
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::iterate(EvaluateFun func,
-                                                                                   StateScalarArray &data, Scalar &time,
-                                                                                   Scalar step_size) -> Scalar {
+    CLASS_BulirschStoer(auto)::iterate(EvaluateFun func, StateScalarArray &data, Scalar &time, Scalar step_size)
+        -> Scalar {
         Scalar iter_h = step_size;
         input_ = data;
 
@@ -282,10 +279,7 @@ namespace space::ode_iterator {
         spacehub_abort("Reach max iteration loop number!");
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    template <CONCEPT_PARTICLE_SYSTEM U>
-    auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::iterate(U &particles, Scalar macro_step_size)
-        -> Scalar {
+    CLASS_BulirschStoer(auto)::iterate(concepts::ParticleSystem auto &particles, Scalar macro_step_size) -> Scalar {
         Scalar iter_h = macro_step_size;
         particles.write_to_scalar_array(input_);
         check_variable_size();
@@ -357,18 +351,12 @@ namespace space::ode_iterator {
         }
         spacehub_abort("Reach max iteration loop number!");
     }
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::set_atol(Scalar atol) {
-        err_checker_.set_atol(atol);
-    }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::set_rtol(Scalar rtol) {
-        err_checker_.set_rtol(rtol);
-    }
+    CLASS_BulirschStoer(void)::set_atol(Scalar atol) { err_checker_.set_atol(atol); }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::check_variable_size() {
+    CLASS_BulirschStoer(void)::set_rtol(Scalar rtol) { err_checker_.set_rtol(rtol); }
+
+    CLASS_BulirschStoer(void)::check_variable_size() {
         var_num_ = input_.size();
         if (var_num_ > extrap_list_[0].size()) [[unlikely]] {
             for (auto &v : extrap_list_) {
@@ -378,17 +366,13 @@ namespace space::ode_iterator {
         }
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    template <CONCEPT_PARTICLE_SYSTEM U>
-    void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::integrate_by_n_steps(U &particles,
-                                                                                                Scalar macro_step_size,
-                                                                                                size_t steps) {
-        size_t num_drift = steps;
-        Scalar h = macro_step_size / num_drift;
+    CLASS_BulirschStoer(void)::integrate_by_n_steps(concepts::ParticleSystem auto &particles, Scalar macro_step_size,
+                                                    size_t steps) {
+        Scalar h = macro_step_size / steps;
 
         if constexpr (std::is_same_v<Integrator, integrator::LeapFrogDKD<TypeSet>>) {
             particles.drift(0.5 * h);
-            for (size_t i = 1; i < num_drift; i++) {
+            for (size_t i = 1; i < steps; i++) {
                 particles.kick(h);
                 particles.drift(h);
             }
@@ -396,7 +380,7 @@ namespace space::ode_iterator {
             particles.drift(0.5 * h);
         } else if constexpr (std::is_same_v<Integrator, integrator::LeapFrogKDK<TypeSet>>) {
             particles.kick(0.5 * h);
-            for (size_t i = 1; i < num_drift; i++) {
+            for (size_t i = 1; i < steps; i++) {
                 particles.drift(h);
                 particles.kick(h);
             }
@@ -407,9 +391,8 @@ namespace space::ode_iterator {
         }
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::integrate_by_n_steps(
-        EvaluateFun func, StateScalarArray &data_out, Scalar &time, Scalar step_size, size_t steps) {
+    CLASS_BulirschStoer(void)::integrate_by_n_steps(EvaluateFun func, StateScalarArray &data_out, Scalar &time,
+                                                    Scalar step_size, size_t steps) {
         data_out = input_;
         Scalar h = step_size / steps;
         StateScalarArray dxdt(input_.size());
@@ -430,10 +413,8 @@ namespace space::ode_iterator {
         calc::array_scale(data_out, data_out, 0.5);
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    void BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::extrapolate(size_t k) {
+    CLASS_BulirschStoer(void)::extrapolate(size_t k) {
         for (size_t j = k; j > 0; --j) {
-            //#pragma omp parallel for
             for (size_t i = 0; i < var_num_; ++i) {
                 extrap_list_[j - 1][i] =
                     extrap_list_[j][i] + (extrap_list_[j][i] - extrap_list_[j - 1][i]) * consts_.table_coef(k, k - j);
@@ -441,19 +422,15 @@ namespace space::ode_iterator {
         }
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    bool BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::in_converged_window(size_t k) {
+    CLASS_BulirschStoer(bool)::in_converged_window(size_t k) {
         return (k == ideal_rank_ - 1 || k == ideal_rank_ || k == ideal_rank_ + 1) || (first_step_);
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    size_t BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::allowed(size_t i) const {
+    CLASS_BulirschStoer(size_t)::allowed(size_t i) const {
         return math::in_range(static_cast<size_t>(2), i, static_cast<size_t>(max_depth - 1));
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::get_next_step_len(size_t k_new,
-                                                                                             size_t k) const -> Scalar {
+    CLASS_BulirschStoer(auto)::get_next_step_len(size_t k_new, size_t k) const -> Scalar {
         if (k_new <= k) {
             return ideal_step_size_[k_new];
         } else if (k_new == k + 1) {
@@ -464,8 +441,7 @@ namespace space::ode_iterator {
         }
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    auto BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::set_next_iteration(size_t k) -> Scalar {
+    CLASS_BulirschStoer(auto)::set_next_iteration(size_t k) -> Scalar {
         if (!first_step_) {
             if (k == ideal_rank_ - 1 || k == ideal_rank_) [[likely]] {
                 if (cost_per_len_[k - 1] < BSConsts::dec_factor * cost_per_len_[k]) [[unlikely]] {
@@ -498,9 +474,7 @@ namespace space::ode_iterator {
         }
     }
 
-    template <typename Integrator, typename ErrEstimator, typename StepController, size_t MaxIter>
-    bool BulirschStoer<Integrator, ErrEstimator, StepController, MaxIter>::is_diverged_anyhow(Scalar error,
-                                                                                              size_t k) const {
+    CLASS_BulirschStoer(bool)::is_diverged_anyhow(Scalar error, size_t k) const {
         if (!first_step_) {
             Scalar r = 1.0;
             if (k == ideal_rank_ - 1) {

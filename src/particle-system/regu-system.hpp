@@ -107,11 +107,9 @@ namespace space::particle_system {
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(RegularizedSystem, delete, default, default, default, default);
 
-        template <CONCEPT_PARTICLE_CONTAINER STL>
-        RegularizedSystem(Scalar time, STL const &particle_set);
+        RegularizedSystem(Scalar time, concepts::ParticleContainer auto const &particle_set);
 
         // Static members
-
         static constexpr bool ext_vel_dep{Interactions::ext_vel_dep};
 
         static constexpr bool ext_vel_indep{Interactions::ext_vel_indep};
@@ -127,16 +125,7 @@ namespace space::particle_system {
 
         Scalar step_scale() const { return regu_.regu_function(*this); };
 
-        void advance_time(Scalar step_size);
-
-        template <typename GenVectorArray>
-        void advance_pos(Scalar step_size, GenVectorArray const &velocity);
-
-        template <typename GenVectorArray>
-        void advance_vel(Scalar step_size, GenVectorArray const &acceleration);
-
-        template <typename GenVectorArray>
-        void evaluate_acc(GenVectorArray &acceleration) const;
+        void evaluate_acc(concepts::Vec3Container auto &acceleration) const;
 
         void drift(Scalar step_size);
 
@@ -146,20 +135,17 @@ namespace space::particle_system {
 
         void post_iter_process(){};
 
-        template <typename ScalarIterable>
-        void write_to_scalar_array(ScalarIterable &stl_ranges);
+        void write_to_scalar_array(concepts::ScalarContainer auto &container);
 
-        template <typename ScalarIterable>
-        void read_from_scalar_array(ScalarIterable const &stl_ranges);
+        void read_from_scalar_array(concepts::ScalarContainer auto const &container);
 
-        template <typename ScalarIterable>
-        void evaluate_general_derivative(ScalarIterable &stl_ranges);
+        void evaluate_general_derivative(concepts::ScalarContainer auto &container);
 
-        inline void collect_increment(bool sync) { sync_increment_ = sync; };
+        void collect_increment(bool sync) { sync_increment_ = sync; };
 
         void clear_increment() { calc::array_set_zero(increment_); };
 
-        [[nodiscard]] size_t variable_number() const;
+        size_t variable_number() const;
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F, ReguType R>
@@ -169,12 +155,17 @@ namespace space::particle_system {
         friend std::istream &operator>>(std::istream &is, RegularizedSystem<P, F, R> &ps);
 
         inline constexpr size_t time_offset() const { return 0; };
+
         inline constexpr size_t pos_offset() const { return 1; };
+
         inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+
         inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
+
         inline constexpr size_t omega_offset() const {
             return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1;
         };
+
         inline constexpr size_t bindE_offset() const {
             return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 2;
         };
@@ -191,14 +182,11 @@ namespace space::particle_system {
 
         void kick_real_vel(Scalar phy_time);
 
-        template <typename Array>
-        void sync_pos_increment(Array const &inc, Scalar step_size);
+        void sync_pos_increment(concepts::Vec3Container auto const &inc, Scalar step_size);
 
-        template <typename Array>
-        void sync_vel_increment(Array const &inc, Scalar step_size);
+        void sync_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size);
 
-        template <typename Array>
-        void sync_auxi_vel_increment(Array const &inc, Scalar step_size);
+        void sync_auxi_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size);
 
         void sync_time_increment(Scalar phy_time);
 
@@ -208,18 +196,24 @@ namespace space::particle_system {
 
         // Private members
         force::InteractionData<Interactions, VectorArray> accels_;
+
         StateScalarArray increment_;
+
         Regularization<TypeSet, RegType> regu_;
+
         std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;
+
         bool sync_increment_{false};
     };
+
+#define CLASS_RegularizedSystem(...)                                                           \
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType> \
+    __VA_ARGS__ RegularizedSystem<Particles, Interactions, RegType>
 
     /*---------------------------------------------------------------------------*\
         Class RegularizedSystem Implementation
     \*---------------------------------------------------------------------------*/
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <CONCEPT_PARTICLE_CONTAINER STL>
-    RegularizedSystem<Particles, Interactions, RegType>::RegularizedSystem(Scalar time, const STL &particle_set)
+    CLASS_RegularizedSystem()::RegularizedSystem(Scalar time, concepts::ParticleContainer auto const &particle_set)
         : Particles(time, particle_set),
           accels_(particle_set.size()),
           increment_(this->variable_number()),
@@ -229,73 +223,11 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    std::istream &operator>>(std::istream &is, RegularizedSystem<Particles, Interactions, RegType> &ps) {
-        is >> static_cast<Particles>(ps);
-        return is;
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    std::ostream &operator<<(std::ostream &os, const RegularizedSystem<Particles, Interactions, RegType> &ps) {
-        os << static_cast<Particles>(ps);
-        return os;
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_time(Scalar step_size) {
-        Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
-        this->time() += phy_time;
-        sync_time_increment(phy_time);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename GenVectorArray>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_pos(Scalar step_size,
-                                                                          GenVectorArray const &velocity) {
-        Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
-        calc::array_advance(this->pos(), velocity, phy_time);
-        sync_pos_increment(velocity, phy_time);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename GenVectorArray>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_vel(Scalar step_size,
-                                                                          GenVectorArray const &acceleration) {
-        Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
-        Scalar half_time = 0.5 * phy_time;
-
-        if constexpr (regu_type == ReguType::TTL) {
-            Interactions::eval_newtonian_acc(*this, accels_.newtonian_acc());
-            advance_omega(this->vel(), accels_.newtonian_acc(), half_time);
-            calc::array_advance(this->vel(), acceleration, phy_time);
-            sync_vel_increment(acceleration, phy_time);
-            advance_omega(this->vel(), accels_.newtonian_acc(), half_time);
-        } else if constexpr (regu_type == ReguType::LogH) {
-            if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
-                calc::array_advance(this->vel(), acceleration, half_time);
-                sync_vel_increment(acceleration, half_time);
-                Interactions::eval_extra_acc(*this, accels_.acc());
-                advance_bindE(this->vel(), accels_.acc(), phy_time);
-                calc::array_advance(this->vel(), acceleration, half_time);
-                sync_vel_increment(acceleration, half_time);
-            } else {
-                calc::array_advance(this->vel(), acceleration, phy_time);
-                sync_vel_increment(acceleration, phy_time);
-            }
-        } else {
-            calc::array_advance(this->vel(), acceleration, phy_time);
-            sync_vel_increment(acceleration, phy_time);
-        }
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename GenVectorArray>
-    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_acc(GenVectorArray &acceleration) const {
+    CLASS_RegularizedSystem(void)::evaluate_acc(concepts::Vec3Container auto &acceleration) const {
         Interactions::eval_acc(*this, acceleration);
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::drift(Scalar step_size) {
+    CLASS_RegularizedSystem(void)::drift(Scalar step_size) {
         Scalar phy_time = regu_.eval_pos_phy_time(*this, step_size);
         calc::array_advance(this->pos(), this->vel(), phy_time);
         this->time() += phy_time;
@@ -303,8 +235,7 @@ namespace space::particle_system {
         sync_pos_increment(this->vel(), phy_time);
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::kick(Scalar step_size) {
+    CLASS_RegularizedSystem(void)::kick(Scalar step_size) {
         Scalar phy_time = regu_.eval_vel_phy_time(*this, step_size);
         Scalar half_time = 0.5 * phy_time;
 
@@ -328,40 +259,35 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::pre_iter_process() {
+    CLASS_RegularizedSystem(void)::pre_iter_process() {
         if constexpr (Interactions::ext_vel_dep) {
             aux_vel_ = this->vel();
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename ScalarIterable>
-    void RegularizedSystem<Particles, Interactions, RegType>::write_to_scalar_array(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
-        stl_ranges.emplace_back(this->time());
+    CLASS_RegularizedSystem(void)::write_to_scalar_array(concepts::ScalarContainer auto &container) {
+        container.clear();
+        container.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
+        container.emplace_back(this->time());
 
-        add_coords_to(stl_ranges, this->pos());
-        add_coords_to(stl_ranges, this->vel());
+        add_coords_to(container, this->pos());
+        add_coords_to(container, this->vel());
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, aux_vel_);
+            add_coords_to(container, aux_vel_);
         }
 
-        stl_ranges.emplace_back(omega());
-        stl_ranges.emplace_back(bindE());
+        container.emplace_back(omega());
+        container.emplace_back(bindE());
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename ScalarIterable>
-    void RegularizedSystem<Particles, Interactions, RegType>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
+    CLASS_RegularizedSystem(void)::evaluate_general_derivative(concepts::ScalarContainer auto &container) {
+        container.clear();
+        container.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3);
 
         Scalar pos_regu = regu_.eval_pos_phy_time(*this, 1);
         Scalar vel_regu = regu_.eval_vel_phy_time(*this, 1);
 
-        stl_ranges.emplace_back(pos_regu);
+        container.emplace_back(pos_regu);
 
         Interactions::eval_newtonian_acc(*this, accels_.newtonian_acc());
 
@@ -370,42 +296,40 @@ namespace space::particle_system {
             calc::array_add(accels_.acc(), accels_.acc(), accels_.newtonian_acc());
         }
 
-        add_scaled_coords_to(stl_ranges, this->vel(), pos_regu);
+        add_scaled_coords_to(container, this->vel(), pos_regu);
         if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
-            add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
+            add_scaled_coords_to(container, accels_.acc(), vel_regu);
         } else {
-            add_scaled_coords_to(stl_ranges, accels_.newtonian_acc(), vel_regu);
+            add_scaled_coords_to(container, accels_.newtonian_acc(), vel_regu);
         }
         if constexpr (Interactions::ext_vel_dep) {
-            add_scaled_coords_to(stl_ranges, accels_.acc(), vel_regu);
+            add_scaled_coords_to(container, accels_.acc(), vel_regu);
         }
 
         if constexpr (regu_type == ReguType::TTL) {
             Scalar d_omega_dh =
                 calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.newtonian_acc()) * vel_regu;
-            stl_ranges.emplace_back(d_omega_dh);
+            container.emplace_back(d_omega_dh);
         } else {
-            stl_ranges.emplace_back(0);
+            container.emplace_back(0);
         }
 
         if constexpr (Interactions::ext_vel_indep || Interactions::ext_vel_dep) {
             if constexpr (regu_type == ReguType::LogH) {
                 Scalar d_bindE_dh =
                     -calc::coord_contract_to_scalar(this->mass(), this->vel(), accels_.acc()) * vel_regu;
-                stl_ranges.emplace_back(d_bindE_dh);
+                container.emplace_back(d_bindE_dh);
             } else {
-                stl_ranges.emplace_back(0);
+                container.emplace_back(0);
             }
         } else {
-            stl_ranges.emplace_back(0);
+            container.emplace_back(0);
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename ScalarIterable>
-    void RegularizedSystem<Particles, Interactions, RegType>::read_from_scalar_array(const ScalarIterable &stl_ranges) {
-        if (stl_ranges.size() == this->variable_number()) {
-            auto begin = stl_ranges.begin();
+    CLASS_RegularizedSystem(void)::read_from_scalar_array(concepts::ScalarContainer auto const &container) {
+        if (container.size() == this->variable_number()) {
+            auto begin = container.begin();
             this->time() = *begin;
             auto pos_begin = begin + pos_offset();
             auto pos_end = begin + vel_offset();
@@ -415,7 +339,7 @@ namespace space::particle_system {
             load_to_coords(vel_begin, vel_end, this->vel());
             if constexpr (Interactions::ext_vel_dep) {
                 auto aux_vel_begin = begin + auxi_vel_offset();
-                auto aux_vel_end = stl_ranges.end();
+                auto aux_vel_end = container.end();
                 load_to_coords(aux_vel_begin, aux_vel_end, aux_vel_);
             }
             omega() = *(begin + omega_offset());
@@ -425,9 +349,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename Array>
-    void RegularizedSystem<Particles, Interactions, RegType>::sync_pos_increment(Array const &inc, Scalar step_size) {
+    CLASS_RegularizedSystem(void)::sync_pos_increment(concepts::Vec3Container auto const &inc, Scalar step_size) {
         if (sync_increment_) {
             size_t offset = pos_offset();
             for (size_t i = 0; i < inc.size(); ++i) {
@@ -438,9 +360,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename Array>
-    void RegularizedSystem<Particles, Interactions, RegType>::sync_vel_increment(Array const &inc, Scalar step_size) {
+    CLASS_RegularizedSystem(void)::sync_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size) {
         if (sync_increment_) {
             size_t offset = vel_offset();
             for (size_t i = 0; i < inc.size(); ++i) {
@@ -451,10 +371,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    template <typename Array>
-    void RegularizedSystem<Particles, Interactions, RegType>::sync_auxi_vel_increment(Array const &inc,
-                                                                                      Scalar step_size) {
+    CLASS_RegularizedSystem(void)::sync_auxi_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size) {
         if (sync_increment_) {
             size_t offset = auxi_vel_offset();
             for (size_t i = 0; i < inc.size(); ++i) {
@@ -465,34 +382,29 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::sync_time_increment(Scalar phy_time) {
+    CLASS_RegularizedSystem(void)::sync_time_increment(Scalar phy_time) {
         if (sync_increment_) {
             increment_[time_offset()] += phy_time;
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::sync_omega_increment(Scalar domega) {
+    CLASS_RegularizedSystem(void)::sync_omega_increment(Scalar domega) {
         if (sync_increment_) {
             increment_[omega_offset()] += domega;
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::sync_bindE_increment(Scalar dbindE) {
+    CLASS_RegularizedSystem(void)::sync_bindE_increment(Scalar dbindE) {
         if (sync_increment_) {
             increment_[bindE_offset()] += dbindE;
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    size_t RegularizedSystem<Particles, Interactions, RegType>::variable_number() const {
+    CLASS_RegularizedSystem(size_t)::variable_number() const {
         return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 3;
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::eval_vel_indep_acc() {
+    CLASS_RegularizedSystem(void)::eval_vel_indep_acc() {
         Interactions::eval_newtonian_acc(*this, accels_.newtonian_acc());
 
         if constexpr (Interactions::ext_vel_indep) {
@@ -503,10 +415,8 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_omega(StateVectorArray const &velocity,
-                                                                            VectorArray const &d_omega_dr,
-                                                                            Scalar phy_time) {
+    CLASS_RegularizedSystem(void)::advance_omega(StateVectorArray const &velocity, VectorArray const &d_omega_dr,
+                                                 Scalar phy_time) {
         if constexpr (regu_type == ReguType::TTL) {
             Scalar d_omega = calc::coord_contract_to_scalar(this->mass(), velocity, d_omega_dr) * phy_time;
             regu_.omega() += d_omega;
@@ -514,10 +424,8 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::advance_bindE(StateVectorArray const &velocity,
-                                                                            VectorArray const &d_bindE_dr,
-                                                                            Scalar phy_time) {
+    CLASS_RegularizedSystem(void)::advance_bindE(StateVectorArray const &velocity, VectorArray const &d_bindE_dr,
+                                                 Scalar phy_time) {
         if constexpr ((Interactions::ext_vel_indep || Interactions::ext_vel_dep) && regu_type == ReguType::LogH) {
             Scalar d_bindE = -calc::coord_contract_to_scalar(this->mass(), velocity, d_bindE_dr) * phy_time;
             regu_.bindE() += d_bindE;
@@ -525,8 +433,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::kick_pseu_vel(Scalar phy_time) {
+    CLASS_RegularizedSystem(void)::kick_pseu_vel(Scalar phy_time) {
         Interactions::eval_extra_vel_dep_acc(*this, accels_.ext_vel_dep_acc());
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         calc::array_advance(aux_vel_, accels_.acc(), phy_time);
@@ -541,8 +448,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
-    void RegularizedSystem<Particles, Interactions, RegType>::kick_real_vel(Scalar phy_time) {
+    CLASS_RegularizedSystem(void)::kick_real_vel(Scalar phy_time) {
         std::swap(aux_vel_, this->vel());
         Interactions::eval_extra_vel_dep_acc(*this, accels_.ext_vel_dep_acc());
         std::swap(aux_vel_, this->vel());
@@ -552,6 +458,17 @@ namespace space::particle_system {
         sync_vel_increment(accels_.acc(), phy_time);
     }
 
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    std::istream &operator>>(std::istream &is, RegularizedSystem<Particles, Interactions, RegType> &ps) {
+        is >> static_cast<Particles>(ps);
+        return is;
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions, ReguType RegType>
+    std::ostream &operator<<(std::ostream &os, const RegularizedSystem<Particles, Interactions, RegType> &ps) {
+        os << static_cast<Particles>(ps);
+        return os;
+    }
     /*---------------------------------------------------------------------------*\
         Class Regularization Implementation
     \*---------------------------------------------------------------------------*/

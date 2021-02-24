@@ -115,15 +115,7 @@ namespace space::particle_set {
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(PointParticles, default, default, default, default, default);
 
-        /**
-         * @brief Construct a new Point Particles object
-         *
-         * @tparam STL
-         * @param t
-         * @param particle_set
-         */
-        template <CONCEPT_PARTICLE_CONTAINER STL>
-        PointParticles(Scalar t, STL const &particle_set);
+        PointParticles(Scalar t, concepts::ParticleContainer auto const &particle_set);
 
         // Public methods
         SPACEHUB_STD_ACCESSOR(StateScalar, time, time_);
@@ -174,15 +166,17 @@ namespace space::particle_set {
 
 namespace space::particle_set {
 
+#define CLASS_PointParticle(...) \
+    template <typename Vec3>     \
+    __VA_ARGS__ PointParticle<Vec3>
+
     /*---------------------------------------------------------------------------*\
         Class PointParticle Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Vec3>
-    PointParticle<Vec3>::PointParticle(Scalar m, Vec3 position, Vec3 velocity)
+    CLASS_PointParticle()::PointParticle(Scalar m, Vec3 position, Vec3 velocity)
         : pos(position), vel(velocity), mass(m) {}
 
-    template <typename Vec3>
-    PointParticle<Vec3>::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
+    CLASS_PointParticle()::PointParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
         : pos(px, py, pz), vel(vx, vy, vz), mass(m) {}
 
     template <typename Vec3>
@@ -197,12 +191,14 @@ namespace space::particle_set {
         return is;
     }
 
+#define CLASS_PointParticles(...)  \
+    template <typename TypeSystem> \
+    __VA_ARGS__ PointParticles<TypeSystem>
+
     /*---------------------------------------------------------------------------*\
         Class PointParticles Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename TypeSystem>
-    template <CONCEPT_PARTICLE_CONTAINER STL>
-    PointParticles<TypeSystem>::PointParticles(Scalar t, const STL &particle_set) {
+    CLASS_PointParticles()::PointParticles(Scalar t, concepts::ParticleContainer auto const &particle_set) {
         size_t input_num = particle_set.size();
         this->reserve(input_num);
         size_t id = 0;
@@ -216,25 +212,19 @@ namespace space::particle_set {
         active_num_ = input_num;
     }
 
-    template <typename TypeSystem>
-    void PointParticles<TypeSystem>::resize(size_t new_sz) {
+    CLASS_PointParticles(void)::resize(size_t new_sz) {
         space::resize_all(new_sz, pos_, vel_, mass_, idn_);
         active_num_ = new_sz;
     }
 
-    template <typename TypeSystem>
-    void PointParticles<TypeSystem>::reserve(size_t new_cap) {
-        space::reserve_all(new_cap, pos_, vel_, mass_, idn_);
-    }
+    CLASS_PointParticles(void)::reserve(size_t new_cap) { space::reserve_all(new_cap, pos_, vel_, mass_, idn_); }
 
-    template <typename TypeSystem>
-    void PointParticles<TypeSystem>::clear() {
+    CLASS_PointParticles(void)::clear() {
         space::clear_all(pos_, vel_, mass_, idn_);
         active_num_ = 0;
     }
 
-    template <typename TypeSystem>
-    void PointParticles<TypeSystem>::emplace_back(typename PointParticles<TypeSystem>::Particle const &new_particle) {
+    CLASS_PointParticles(void)::emplace_back(typename PointParticles<TypeSystem>::Particle const &new_particle) {
         pos_.emplace_back(new_particle.pos);
         vel_.emplace_back(new_particle.vel);
         mass_.emplace_back(new_particle.mass);
@@ -242,20 +232,11 @@ namespace space::particle_set {
         active_num_++;
     }
 
-    template <typename TypeSystem>
-    size_t PointParticles<TypeSystem>::number() const {
-        return active_num_;
-    }
+    CLASS_PointParticles(size_t)::number() const { return active_num_; }
 
-    template <typename TypeSystem>
-    size_t PointParticles<TypeSystem>::capacity() const {
-        return idn_.capacity();
-    }
+    CLASS_PointParticles(size_t)::capacity() const { return idn_.capacity(); }
 
-    template <typename TypeSystem>
-    std::string PointParticles<TypeSystem>::column_names() const {
-        return "time,id,mass,px,py,pz,vx,vy,vz";
-    }
+    CLASS_PointParticles(std::string)::column_names() const { return "time,id,mass,px,py,pz,vx,vy,vz"; }
 
     template <typename TypeSystem>
     std::ostream &operator<<(std::ostream &os, PointParticles<TypeSystem> const &ps) {

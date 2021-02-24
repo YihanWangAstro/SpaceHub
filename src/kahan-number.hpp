@@ -25,7 +25,7 @@ License
 #pragma once
 
 #include "math.hpp"
-
+#include "spacehub-concepts.hpp"
 #ifdef MPFR_VERSION_MAJOR
 #include "mpfr.hpp"
 #endif
@@ -414,4 +414,42 @@ namespace space {
 
     using double_e = Klein<double>;
     using float_e = Klein<float>;
+}  // namespace space
+
+namespace space::concepts {
+
+    template <>
+    struct is_scalar<space::double_k> {
+        static constexpr bool value{true};
+    };
+
+    template <>
+    struct is_scalar<space::float_k> {
+        static constexpr bool value{true};
+    };
+
+    template <>
+    struct is_scalar<space::double_p> {
+        static constexpr bool value{true};
+    };
+
+    template <>
+    struct is_scalar<space::float_p> {
+        static constexpr bool value{true};
+    };
+
+    template <>
+    struct is_scalar<space::double_e> {
+        static constexpr bool value{true};
+    };
+
+    template <>
+    struct is_scalar<space::float_e> {
+        static constexpr bool value{true};
+    };
+
+    template <>
+    struct is_scalar<space::mpreal_k> {
+        static constexpr bool value{true};
+    };
 }  // namespace space

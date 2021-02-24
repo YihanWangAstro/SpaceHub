@@ -76,17 +76,6 @@ namespace space::ode_iterator {
     /*---------------------------------------------------------------------------*\
           Class SequentOdeIterator Implementation
     \*---------------------------------------------------------------------------*/
-    template <size_t Base, size_t I>
-    class constexpr_pow {
-       public:
-        constexpr static size_t value{Base * constexpr_pow<Base, I - 1>::value};
-    };
-
-    template <size_t Base>
-    class constexpr_pow<Base, 0> {
-       public:
-        constexpr static size_t value{1};
-    };
 
     template <typename T>
     constexpr T integer_pow(T base, size_t p) {
@@ -107,7 +96,6 @@ namespace space::ode_iterator {
     auto SequentOdeIterator<Integrator, ErrEstimator, StepController>::iterate(T &particles,
                                                                                typename T::Scalar macro_step_size) ->
         typename T::Scalar {
-        // static constexpr double bisec_error_scale = 1.0 / (constexpr_pow<2, Integrator::order>::value - 1);
         check_variable_size();
         particles.write_to_scalar_array(input_);
 
@@ -117,31 +105,10 @@ namespace space::ode_iterator {
 
         Scalar error = 0;
 
-        // Scalar last_error = math::max_value<Scalar>::value;
-
         integrator_.integrate(particles, h);
 
         particles.write_to_scalar_array(output_);
 
-        /*for (size_t i = 0; i < max_iter_; ++i) {
-            h /= 2;
-            n_steps *= 2;
-            particles.read_from_scalar_array(input_);
-            for (size_t j = 0; j < n_steps; ++j) {
-                integrator_.integrate(particles, h);
-            }
-            particles.write_to_scalar_array(dual_steps_output_);
-            error = bisec_error_scale * err_checker_.error(input_, output_, dual_steps_output_);
-            // std::cout << macro_step_size << ' ' << error << '\n';
-            if (error <= 1) {
-                break;
-            }
-
-            // if (i == max_iter_ - 1) {
-            //    std::cout << macro_step_size << ' ' << error << '\n';
-            //}
-            std::swap(output_, dual_steps_output_);
-        }*/
         for (size_t i = 1; i <= max_iter_; ++i) {
             h = macro_step_size / ns[i];
             particles.read_from_scalar_array(input_);

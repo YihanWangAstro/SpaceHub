@@ -113,15 +113,7 @@ namespace space::particle_set {
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(TideParticles, default, default, default, default, default);
 
-        /**
-         * @brief Construct a new Point Particles object from std::ranges(Container)
-         *
-         * @tparam STL std::ranges(Container)
-         * @param[in] t Initial time of the the particle group.
-         * @param[in] particle_set Input particle set.
-         */
-        template <CONCEPT_PARTICLE_CONTAINER STL>
-        TideParticles(Scalar t, STL const &particle_set);
+        TideParticles(Scalar t, concepts::ParticleContainer auto const &particle_set);
 
         // Public methods
         SPACEHUB_STD_ACCESSOR(StateScalar, time, time_);
@@ -146,9 +138,9 @@ namespace space::particle_set {
 
         void emplace_back(Particle const &new_particle);
 
-        [[nodiscard]] size_t number() const;
+        size_t number() const;
 
-        [[nodiscard]] size_t capacity() const;
+        size_t capacity() const;
 
         void clear();
 
@@ -184,12 +176,14 @@ namespace space::particle_set {
 
 namespace space::particle_set {
 
+#define CLASS_TideParticle(...) \
+    template <typename Vec3>    \
+    __VA_ARGS__ TideParticle<Vec3>
     /*---------------------------------------------------------------------------*\
         Class TideParticle Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename Vec3>
-    TideParticle<Vec3>::TideParticle(Scalar m, Vec3 position, Vec3 velocity, Scalar r, Scalar apsidal_motion_const,
-                                     Scalar lag_time)
+    CLASS_TideParticle()::TideParticle(Scalar m, Vec3 position, Vec3 velocity, Scalar r, Scalar apsidal_motion_const,
+                                       Scalar lag_time)
         : pos(position),
           vel(velocity),
           mass(m),
@@ -197,9 +191,8 @@ namespace space::particle_set {
           tide_apsidal_const(apsidal_motion_const),
           tide_lag_time(lag_time) {}
 
-    template <typename Vec3>
-    TideParticle<Vec3>::TideParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz,
-                                     Scalar r, Scalar apsidal_motion_const, Scalar lag_time)
+    CLASS_TideParticle()::TideParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz,
+                                       Scalar r, Scalar apsidal_motion_const, Scalar lag_time)
         : pos(px, py, pz),
           vel(vx, vy, vz),
           mass(m),
@@ -221,12 +214,14 @@ namespace space::particle_set {
         return is;
     }
 
+#define CLASS_TideParticles(...)   \
+    template <typename TypeSystem> \
+    __VA_ARGS__ TideParticles<TypeSystem>
+
     /*---------------------------------------------------------------------------*\
         Class TideParticles Implementation
     \*---------------------------------------------------------------------------*/
-    template <typename TypeSystem>
-    template <CONCEPT_PARTICLE_CONTAINER STL>
-    TideParticles<TypeSystem>::TideParticles(Scalar t, const STL &particle_set) {
+    CLASS_TideParticles()::TideParticles(Scalar t, concepts::ParticleContainer auto const &particle_set) {
         size_t input_num = particle_set.size();
         this->reserve(input_num);
         size_t id = 0;
@@ -243,25 +238,21 @@ namespace space::particle_set {
         active_num_ = input_num;
     }
 
-    template <typename TypeSystem>
-    void TideParticles<TypeSystem>::resize(size_t new_sz) {
+    CLASS_TideParticles(void)::resize(size_t new_sz) {
         space::resize_all(new_sz, pos_, vel_, mass_, radius_, k_AM_, tau_lag_, idn_);
         active_num_ = new_sz;
     }
 
-    template <typename TypeSystem>
-    void TideParticles<TypeSystem>::reserve(size_t new_cap) {
+    CLASS_TideParticles(void)::reserve(size_t new_cap) {
         space::reserve_all(new_cap, pos_, vel_, mass_, radius_, k_AM_, tau_lag_, idn_);
     }
 
-    template <typename TypeSystem>
-    void TideParticles<TypeSystem>::clear() {
+    CLASS_TideParticles(void)::clear() {
         space::clear_all(pos_, vel_, mass_, radius_, k_AM_, tau_lag_, idn_);
         active_num_ = 0;
     }
 
-    template <typename TypeSystem>
-    void TideParticles<TypeSystem>::emplace_back(typename TideParticles<TypeSystem>::Particle const &new_particle) {
+    CLASS_TideParticles(void)::emplace_back(typename TideParticles<TypeSystem>::Particle const &new_particle) {
         pos_.emplace_back(new_particle.pos);
         vel_.emplace_back(new_particle.vel);
         mass_.emplace_back(new_particle.mass);
@@ -272,18 +263,11 @@ namespace space::particle_set {
         active_num_++;
     }
 
-    template <typename TypeSystem>
-    size_t TideParticles<TypeSystem>::number() const {
-        return active_num_;
-    }
+    CLASS_TideParticles(size_t)::number() const { return active_num_; }
 
-    template <typename TypeSystem>
-    size_t TideParticles<TypeSystem>::capacity() const {
-        return idn_.capacity();
-    }
+    CLASS_TideParticles(size_t)::capacity() const { return idn_.capacity(); }
 
-    template <typename TypeSystem>
-    std::string TideParticles<TypeSystem>::column_names() const {
+    CLASS_TideParticles(std::string)::column_names() const {
         return "time,id,mass,radius,k_AM,tau_lag,px,py,pz,vx,vy,vz";
     }
 

@@ -56,8 +56,7 @@ namespace space::particle_system {
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(ChainSystem, delete, default, default, default, default);
 
-        template <CONCEPT_PARTICLE_CONTAINER STL>
-        ChainSystem(Scalar time, STL const &particle_set);
+        ChainSystem(Scalar time, concepts::ParticleContainer auto const &particle_set);
 
         // Public methods
         SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, chain_pos, chain_pos_);
@@ -70,16 +69,7 @@ namespace space::particle_system {
 
         Scalar step_scale() const { return 1.0; };
 
-        void advance_time(Scalar dt);
-
-        template <typename GenVectorArray>
-        void advance_pos(Scalar step_size, GenVectorArray const &velocity);
-
-        template <typename GenVectorArray>
-        void advance_vel(Scalar step_size, GenVectorArray const &acceleration);
-
-        template <typename GenVectorArray>
-        void evaluate_acc(GenVectorArray &acceleration) const;
+        void evaluate_acc(concepts::Vec3Container auto &acceleration) const;
 
         void drift(Scalar step_size);
 
@@ -89,30 +79,30 @@ namespace space::particle_system {
 
         void post_iter_process();
 
-        template <typename ScalarIterable>
-        void write_to_scalar_array(ScalarIterable &stl_ranges);
+        void write_to_scalar_array(concepts::ScalarContainer auto &container);
 
-        template <typename ScalarIterable>
-        void read_from_scalar_array(ScalarIterable const &stl_ranges);
+        void read_from_scalar_array(concepts::ScalarContainer auto const &container);
 
-        template <typename ScalarIterable>
-        void evaluate_general_derivative(ScalarIterable &stl_ranges);
+        void evaluate_general_derivative(concepts::ScalarContainer auto &container);
 
-        inline void collect_increment(bool sync) { sync_increment_ = sync; };
+        void collect_increment(bool sync) { sync_increment_ = sync; };
 
         void clear_increment() { calc::array_set_zero(increment_); };
 
-        [[nodiscard]] size_t variable_number() const;
+        size_t variable_number() const;
 
         inline constexpr size_t time_offset() const { return 0; };
+
         inline constexpr size_t pos_offset() const { return 1; };
+
         inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+
         inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
 
        private:
         // Private methods
-        template <typename Array1, typename Array2, typename Array3>
-        void chain_advance(Array1 &var, Array2 &chain_var, Array3 &chain_increment, Scalar step_size);
+        void chain_advance(concepts::Vec3Container auto &var, concepts::Vec3Container auto &chain_var,
+                           concepts::Vec3Container auto &chain_increment, Scalar step_size);
 
         void eval_vel_indep_acc();
 
@@ -120,14 +110,11 @@ namespace space::particle_system {
 
         void kick_real_vel(Scalar step_size);
 
-        template <typename Array>
-        void sync_pos_increment(Array const &inc, Scalar step_size);
+        void sync_pos_increment(concepts::Vec3Container auto const &inc, Scalar step_size);
 
-        template <typename Array>
-        void sync_vel_increment(Array const &inc, Scalar step_size);
+        void sync_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size);
 
-        template <typename Array>
-        void sync_auxi_vel_increment(Array const &inc, Scalar step_size);
+        void sync_auxi_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size);
 
         void sync_time_increment(Scalar phy_time);
 
@@ -141,25 +128,34 @@ namespace space::particle_system {
        private:
         // Private members
         force::InteractionData<Interactions, VectorArray> accels_;
+
         StateVectorArray chain_pos_;
+
         StateVectorArray chain_vel_;
+
         VectorArray chain_acc_;
+
         StateScalarArray increment_;
+
         IdxArray index_;
+
         IdxArray new_index_;
 
         std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> aux_vel_;
+
         std::conditional_t<Interactions::ext_vel_dep, StateVectorArray, Empty> chain_aux_vel_;
 
         bool sync_increment_{false};
     };
 
+#define CLASS_ChainSystem(...)                                               \
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions> \
+    __VA_ARGS__ ChainSystem<Particles, Interactions>
+
     /*---------------------------------------------------------------------------*\
         Class ChainSystem Implementation
     \*---------------------------------------------------------------------------*/
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <CONCEPT_PARTICLE_CONTAINER STL>
-    ChainSystem<Particles, Interactions>::ChainSystem(Scalar time, const STL &particle_set)
+    CLASS_ChainSystem()::ChainSystem(Scalar time, concepts::ParticleContainer auto const &particle_set)
         : Particles(time, particle_set),
           chain_pos_(particle_set.size()),
           chain_vel_(particle_set.size()),
@@ -178,44 +174,18 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::advance_time(Scalar dt) {
-        this->time() += dt;
-        sync_time_increment(dt);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename GenVectorArray>
-    void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, GenVectorArray const &velocity) {
-        Chain::calc_chain(velocity, chain_acc_, index());  // borrow chain_acc_ as chain vel increment
-        chain_advance(this->pos(), chain_pos(), chain_acc_, step_size);
-        sync_pos_increment(chain_acc_, step_size);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename GenVectorArray>
-    void ChainSystem<Particles, Interactions>::advance_vel(Scalar step_size, GenVectorArray const &acceleration) {
-        Chain::calc_chain(acceleration, chain_acc_, index());
-        chain_advance(this->vel(), chain_vel(), chain_acc_, step_size);
-        sync_vel_increment(chain_acc_, step_size);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename GenVectorArray>
-    void ChainSystem<Particles, Interactions>::evaluate_acc(GenVectorArray &acceleration) const {
+    CLASS_ChainSystem(void)::evaluate_acc(concepts::Vec3Container auto &acceleration) const {
         Interactions::eval_acc(*this, acceleration);
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::drift(Scalar step_size) {
+    CLASS_ChainSystem(void)::drift(Scalar step_size) {
         this->time() += step_size;
         chain_advance(this->pos(), chain_pos(), chain_vel(), step_size);
         sync_time_increment(step_size);
         sync_pos_increment(chain_vel(), step_size);
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::kick(Scalar step_size) {
+    CLASS_ChainSystem(void)::kick(Scalar step_size) {
         if constexpr (Interactions::ext_vel_dep) {
             Scalar half_step = 0.5 * step_size;
 
@@ -230,16 +200,14 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::pre_iter_process() {
+    CLASS_ChainSystem(void)::pre_iter_process() {
         if constexpr (Interactions::ext_vel_dep) {
             aux_vel_ = this->vel();
             chain_aux_vel_ = chain_vel_;
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::post_iter_process() {
+    CLASS_ChainSystem(void)::post_iter_process() {
         Chain::calc_chain_index(this->pos(), new_index_);
         if (new_index_ != index_) {
             Chain::update_chain(chain_pos_, this->pos(), index_, new_index_);
@@ -250,39 +218,33 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename ScalarIterable>
-    void ChainSystem<Particles, Interactions>::write_to_scalar_array(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
-        stl_ranges.emplace_back(this->time());
-        add_coords_to(stl_ranges, chain_pos_);
-        add_coords_to(stl_ranges, chain_vel_);
+    CLASS_ChainSystem(void)::write_to_scalar_array(concepts::ScalarContainer auto &container) {
+        container.clear();
+        container.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        container.emplace_back(this->time());
+        add_coords_to(container, chain_pos_);
+        add_coords_to(container, chain_vel_);
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, chain_aux_vel_);
+            add_coords_to(container, chain_aux_vel_);
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename ScalarIterable>
-    void ChainSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
-        stl_ranges.emplace_back(1);             // dt/dt
-        add_coords_to(stl_ranges, chain_vel_);  // dX/dt
+    CLASS_ChainSystem(void)::evaluate_general_derivative(concepts::ScalarContainer auto &container) {
+        container.clear();
+        container.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        container.emplace_back(1);             // dt/dt
+        add_coords_to(container, chain_vel_);  // dX/dt
         evaluate_acc(this->accels_.acc());
         Chain::calc_chain(this->accels_.acc(), chain_acc_, index());
-        add_coords_to(stl_ranges, chain_acc_);  // dV/dt
+        add_coords_to(container, chain_acc_);  // dV/dt
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, chain_acc_);
+            add_coords_to(container, chain_acc_);
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename ScalarIterable>
-    void ChainSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &stl_ranges) {
-        if (stl_ranges.size() == this->variable_number()) {
-            auto begin = stl_ranges.begin();
+    CLASS_ChainSystem(void)::read_from_scalar_array(concepts::ScalarContainer auto const &container) {
+        if (container.size() == this->variable_number()) {
+            auto begin = container.begin();
             this->time() = *(begin + time_offset());
             auto pos_begin = begin + pos_offset();
             auto pos_end = begin + vel_offset();
@@ -296,7 +258,7 @@ namespace space::particle_system {
             Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), index_);
             if constexpr (Interactions::ext_vel_dep) {
                 auto aux_vel_begin = begin + auxi_vel_offset();
-                auto aux_vel_end = stl_ranges.end();
+                auto aux_vel_end = container.end();
                 load_to_coords(aux_vel_begin, aux_vel_end, chain_aux_vel_);
                 Chain::calc_cartesian(this->mass(), chain_aux_vel_, aux_vel_, index_);
             }
@@ -305,34 +267,17 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-
-    size_t ChainSystem<Particles, Interactions>::variable_number() const {
+    CLASS_ChainSystem(size_t)::variable_number() const {
         return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1;
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    std::istream &operator>>(std::istream &is, ChainSystem<Particles, Interactions> &ps) {
-        is >> static_cast<Particles>(ps);
-        return is;
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    std::ostream &operator<<(std::ostream &os, const ChainSystem<Particles, Interactions> &ps) {
-        os << static_cast<Particles>(ps);
-        return os;
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename Array1, typename Array2, typename Array3>
-    void ChainSystem<Particles, Interactions>::chain_advance(Array1 &var, Array2 &chain_var, Array3 &chain_increment,
-                                                             Scalar step_size) {
+    CLASS_ChainSystem(void)::chain_advance(concepts::Vec3Container auto &var, concepts::Vec3Container auto &chain_var,
+                                           concepts::Vec3Container auto &chain_increment, Scalar step_size) {
         calc::array_advance(chain_var, chain_increment, step_size);
         Chain::calc_cartesian(this->mass(), chain_var, var, index());
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::eval_vel_indep_acc() {
+    CLASS_ChainSystem(void)::eval_vel_indep_acc() {
         Interactions::eval_newtonian_acc(*this, accels_.tot_vel_indep_acc());
         if constexpr (Interactions::ext_vel_indep) {
             Interactions::eval_extra_vel_indep_acc(*this, accels_.ext_vel_indep_acc());
@@ -340,8 +285,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::kick_pseu_vel(Scalar step_size) {
+    CLASS_ChainSystem(void)::kick_pseu_vel(Scalar step_size) {
         Interactions::eval_extra_vel_dep_acc(*this, accels_.ext_vel_dep_acc());
         calc::array_add(accels_.acc(), accels_.tot_vel_indep_acc(), accels_.ext_vel_dep_acc());
         Chain::calc_chain(accels_.acc(), chain_acc_, index());
@@ -349,8 +293,7 @@ namespace space::particle_system {
         sync_auxi_vel_increment(chain_acc_, step_size);
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::kick_real_vel(Scalar step_size) {
+    CLASS_ChainSystem(void)::kick_real_vel(Scalar step_size) {
         std::swap(aux_vel_, this->vel());
         std::swap(chain_aux_vel_, chain_vel());
         Interactions::eval_extra_vel_dep_acc(*this, accels_.ext_vel_dep_acc());
@@ -363,9 +306,7 @@ namespace space::particle_system {
         sync_vel_increment(chain_acc_, step_size);
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename Array>
-    void ChainSystem<Particles, Interactions>::sync_pos_increment(Array const &inc, Scalar step_size) {
+    CLASS_ChainSystem(void)::sync_pos_increment(concepts::Vec3Container auto const &inc, Scalar step_size) {
         if (sync_increment_) {
             size_t offset = pos_offset();
             for (size_t i = 0; i < inc.size(); ++i) {
@@ -376,9 +317,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename Array>
-    void ChainSystem<Particles, Interactions>::sync_vel_increment(Array const &inc, Scalar step_size) {
+    CLASS_ChainSystem(void)::sync_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size) {
         if (sync_increment_) {
             size_t offset = vel_offset();
             for (size_t i = 0; i < inc.size(); ++i) {
@@ -389,9 +328,7 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename Array>
-    void ChainSystem<Particles, Interactions>::sync_auxi_vel_increment(Array const &inc, Scalar step_size) {
+    CLASS_ChainSystem(void)::sync_auxi_vel_increment(concepts::Vec3Container auto const &inc, Scalar step_size) {
         if (sync_increment_) {
             size_t offset = auxi_vel_offset();
             for (size_t i = 0; i < inc.size(); ++i) {
@@ -402,10 +339,21 @@ namespace space::particle_system {
         }
     }
 
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::sync_time_increment(Scalar phy_time) {
+    CLASS_ChainSystem(void)::sync_time_increment(Scalar phy_time) {
         if (sync_increment_) {
             increment_[time_offset()] += phy_time;
         }
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    std::istream &operator>>(std::istream &is, ChainSystem<Particles, Interactions> &ps) {
+        is >> static_cast<Particles>(ps);
+        return is;
+    }
+
+    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
+    std::ostream &operator<<(std::ostream &os, const ChainSystem<Particles, Interactions> &ps) {
+        os << static_cast<Particles>(ps);
+        return os;
     }
 }  // namespace space::particle_system
