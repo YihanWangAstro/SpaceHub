@@ -136,7 +136,7 @@ namespace space::ode_iterator {
             } else {
                 slow_varing = norm2(ptc.pos(i)) * 1e-12 > norm2(ptc.vel(i)) * dt2;
             }
-            if (norm2(ptc.pos(i)) * 1e-12 > norm2(ptc.vel(i)) * dt2) {
+            if (slow_varing) {
                 mask[pos_offset + 3 * i] = mask[pos_offset + 3 * i + 1] = mask[pos_offset + 3 * i + 2] = true;
                 mask[vel_offset + 3 * i] = mask[vel_offset + 3 * i + 1] = mask[vel_offset + 3 * i + 2] = true;
                 if constexpr (U::ext_vel_dep) {

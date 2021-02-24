@@ -103,18 +103,18 @@ void fast_test_methods(std::string const &sys_name, System const &system, double
 
     std::cout << "Running fast error test...\n";
     basic_error_test<methods::BS<>>(sys_name + "-BS", t_end, rtol, system);
-    //  basic_error_test<methods::AR_BS<>>(sys_name + "-AR", t_end, rtol, system);
-    //  basic_error_test<methods::Chain_BS<>>(sys_name + "-Chain", t_end, rtol, system);
+    basic_error_test<methods::AR_BS<>>(sys_name + "-AR", t_end, rtol, system);
+    basic_error_test<methods::Chain_BS<>>(sys_name + "-Chain", t_end, rtol, system);
     basic_error_test<methods::AR_Chain<>>(sys_name + "-AR-chain", t_end, rtol, system);
     basic_error_test<methods::AR_Chain_Plus<>>(sys_name + "-AR-chain+", t_end, rtol, system);
-    //  basic_error_test<methods::Radau_Plus<>>(sys_name + "-Radau+", t_end, rtol, system));
-    //  basic_error_test<methods::Chain_Radau_Plus<>>(sys_name + "-Radau-chain+", t_end, rtol, system));
+    basic_error_test<methods::Radau_Plus<>>(sys_name + "-Radau+", t_end, rtol, system);
+    basic_error_test<methods::Chain_Radau_Plus<>>(sys_name + "-Radau-chain+", t_end, rtol, system);
     basic_error_test<methods::AR_Radau_Plus<>>(sys_name + "-AR-Radau+", t_end, rtol, system);
-    //  basic_error_test<methods::AR_Radau_Chain_Plus<>>(sys_name + "-AR-Radau-chain+", t_end, rtol, system);
-    //  basic_error_test<methods::AR_Sym6_Chain_Plus<>>(sys_name + "-AR-sym6-chain+", t_end, rtol, system);
+    basic_error_test<methods::AR_Radau_Chain_Plus<>>(sys_name + "-AR-Radau-chain+", t_end, rtol, system);
+    basic_error_test<methods::AR_Sym6_Chain_Plus<>>(sys_name + "-AR-sym6-chain+", t_end, rtol, system);
     basic_error_test<methods::AR_Sym6_Plus<>>(sys_name + "-AR-sym6+", t_end, rtol, system);
-    //  basic_error_test<methods::AR_Sym8_Chain_Plus<>>(sys_name + "-AR-sym8-chain+", t_end, rtol, system);
-    //  basic_error_test<methods::AR_Sym8_Plus<>>(sys_name + "-AR-sym8+", t_end, rtol, system);
+    basic_error_test<methods::AR_Sym8_Chain_Plus<>>(sys_name + "-AR-sym8-chain+", t_end, rtol, system);
+    basic_error_test<methods::AR_Sym8_Plus<>>(sys_name + "-AR-sym8+", t_end, rtol, system);
 #ifdef MPFR_VERSION_MAJOR
     basic_error_test<methods::AR_ABITS<>>(sys_name + "-AR-ABITS", t_end, rtol, system);
 #else
@@ -144,29 +144,29 @@ void bench_mark_methods(std::string const &sys_name, System const &system, doubl
     using namespace space;
     std::ofstream file{sys_name + "-benchmark.txt", std::ios::out};
 
-    /*std::vector<std::string> names{
+    std::vector<std::string> names{
         "BS",           "AR",        "Chain",           "AR-chain",       "AR-chain+", "Radau+",
         "Radau-chain+", "AR-Radau+", "AR-Radau-chain+", "AR-sym6-chain+", "AR-sym6+",  "AR-sym8-chain+",
-        "AR-sym8+",     "AR-ABITS"};*/
+        "AR-sym8+",     "AR-ABITS"};
 
-    std::vector<std::string> names{"BS", "AR-chain", "AR-chain+", "AR-Radau+", "AR-sym6+", "AR-ABITS"};
+    // std::vector<std::string> names{"BS", "AR-chain", "AR-chain+", "AR-Radau+", "AR-sym6+", "AR-ABITS"};
 
     std::vector<std::tuple<double, double>> cpu_t;
     cpu_t.reserve(20);
     std::cout << "Running benchmark...\n";
     cpu_t.push_back(bench_mark<methods::BS<>>(sys_name + "-BS", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::AR_BS<>>(sys_name + "-AR", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::Chain_BS<>>(sys_name + "-Chain", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_BS<>>(sys_name + "-AR", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::Chain_BS<>>(sys_name + "-Chain", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Chain<>>(sys_name + "-AR-chain", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Chain_Plus<>>(sys_name + "-AR-chain+", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::Radau_Plus<>>(sys_name + "-Radau+", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::Chain_Radau_Plus<>>(sys_name + "-Radau-chain+", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::Radau_Plus<>>(sys_name + "-Radau+", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::Chain_Radau_Plus<>>(sys_name + "-Radau-chain+", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Radau_Plus<>>(sys_name + "-AR-Radau+", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::AR_Radau_Chain_Plus<>>(sys_name + "-AR-Radau-chain+", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::AR_Sym6_Chain_Plus<>>(sys_name + "-AR-sym6-chain+", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Radau_Chain_Plus<>>(sys_name + "-AR-Radau-chain+", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym6_Chain_Plus<>>(sys_name + "-AR-sym6-chain+", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_Sym6_Plus<>>(sys_name + "-AR-sym6+", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::AR_Sym8_Chain_Plus<>>(sys_name + "-AR-sym8-chain+", t_end, rtol, system));
-    // cpu_t.push_back(bench_mark<methods::AR_Sym8_Plus<>>(sys_name + "-AR-sym8+", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym8_Chain_Plus<>>(sys_name + "-AR-sym8-chain+", t_end, rtol, system));
+    cpu_t.push_back(bench_mark<methods::AR_Sym8_Plus<>>(sys_name + "-AR-sym8+", t_end, rtol, system));
 #ifdef MPFR_VERSION_MAJOR
     cpu_t.push_back(bench_mark<methods::AR_ABITS<>>(sys_name + "-AR-ABITS", t_end, rtol, system));
 #else
@@ -215,18 +215,18 @@ auto err_scale_methods(std::string const &system_name, System const &system, dou
     using namespace space;
 
     error_scale<methods::BS<>>(system_name, "BS", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::AR_BS<>>(system_name, "AR", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::Chain_BS<>>(system_name, "Chain", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::AR_BS<>>(system_name, "AR", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::Chain_BS<>>(system_name, "Chain", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Chain<>>(system_name, "AR-chain", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Chain_Plus<>>(system_name, "AR-chain+", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::Radau_Plus<>>(system_name, "Radau+", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::Chain_Radau_Plus<>>(system_name, "Radau-chain+", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::Radau_Plus<>>(system_name, "Radau+", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::Chain_Radau_Plus<>>(system_name, "Radau-chain+", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Radau_Plus<>>(system_name, "AR-Radau+", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::AR_Radau_Chain_Plus<>>(system_name, "AR-Radau-chain+", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::AR_Sym6_Chain_Plus<>>(system_name, "AR-sym6-chain+", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::AR_Radau_Chain_Plus<>>(system_name, "AR-Radau-chain+", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::AR_Sym6_Chain_Plus<>>(system_name, "AR-sym6-chain+", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_Sym6_Plus<>>(system_name, "AR-sym6", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::AR_Sym8_Chain_Plus<>>(system_name, "AR-sym8-chain+", rtol_start, rtol_end, t_end, system);
-    // error_scale<methods::AR_Sym8_Plus<>>(system_name, "AR-sym8", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::AR_Sym8_Chain_Plus<>>(system_name, "AR-sym8-chain+", rtol_start, rtol_end, t_end, system);
+    error_scale<methods::AR_Sym8_Plus<>>(system_name, "AR-sym8", rtol_start, rtol_end, t_end, system);
 #ifdef MPFR_VERSION_MAJOR
     error_scale<methods::AR_ABITS<>>(system_name, "AR-ABITS", rtol_start, rtol_end, t_end, system);
 #else

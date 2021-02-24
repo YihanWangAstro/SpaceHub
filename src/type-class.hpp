@@ -106,6 +106,26 @@ namespace space {
         }
     }
 
+    template <typename Iter, typename VectorArray>
+    void advance_coords_to(Iter begin, VectorArray const& var) {
+        auto iter = begin;
+        for (auto& v : var) {
+            *(iter++) += v.x;
+            *(iter++) += v.y;
+            *(iter++) += v.z;
+        }
+    }
+
+    template <typename Iter, typename VectorArray, typename Scalar>
+    void advance_scaled_coords_to(Iter begin, VectorArray const& var, Scalar scale) {
+        auto iter = begin;
+        for (auto& v : var) {
+            *(iter++) += v.x * scale;
+            *(iter++) += v.y * scale;
+            *(iter++) += v.z * scale;
+        }
+    }
+
     template <typename ScalarArray, typename VectorArray>
     void add_coords_to(ScalarArray& stl, VectorArray const& var) {
         stl.reserve(var.size() * 3 + stl.size());

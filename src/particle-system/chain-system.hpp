@@ -70,14 +70,6 @@ namespace space::particle_system {
 
         Scalar step_scale() const { return 1.0; };
 
-        void advance_time(Scalar dt);
-
-        template <typename GenVectorArray>
-        void advance_pos(Scalar step_size, GenVectorArray const &velocity);
-
-        template <typename GenVectorArray>
-        void advance_vel(Scalar step_size, GenVectorArray const &acceleration);
-
         template <typename GenVectorArray>
         void evaluate_acc(GenVectorArray &acceleration) const;
 
@@ -179,28 +171,6 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    void ChainSystem<Particles, Interactions>::advance_time(Scalar dt) {
-        this->time() += dt;
-        sync_time_increment(dt);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename GenVectorArray>
-    void ChainSystem<Particles, Interactions>::advance_pos(Scalar step_size, GenVectorArray const &velocity) {
-        Chain::calc_chain(velocity, chain_acc_, index());  // borrow chain_acc_ as chain vel increment
-        chain_advance(this->pos(), chain_pos(), chain_acc_, step_size);
-        sync_pos_increment(chain_acc_, step_size);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-    template <typename GenVectorArray>
-    void ChainSystem<Particles, Interactions>::advance_vel(Scalar step_size, GenVectorArray const &acceleration) {
-        Chain::calc_chain(acceleration, chain_acc_, index());
-        chain_advance(this->vel(), chain_vel(), chain_acc_, step_size);
-        sync_vel_increment(chain_acc_, step_size);
-    }
-
-    template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename GenVectorArray>
     void ChainSystem<Particles, Interactions>::evaluate_acc(GenVectorArray &acceleration) const {
         Interactions::eval_acc(*this, acceleration);
@@ -226,7 +196,9 @@ namespace space::particle_system {
             kick_real_vel(half_step);
         } else {
             Interactions::eval_acc(*this, accels_.acc());
-            advance_vel(step_size, accels_.acc());
+            Chain::calc_chain(accels_.acc(), chain_acc_, index());
+            chain_advance(this->vel(), chain_vel(), chain_acc_, step_size);
+            sync_vel_increment(chain_acc_, step_size);
         }
     }
 
@@ -367,12 +339,7 @@ namespace space::particle_system {
     template <typename Array>
     void ChainSystem<Particles, Interactions>::sync_pos_increment(Array const &inc, Scalar step_size) {
         if (sync_increment_) {
-            size_t offset = pos_offset();
-            for (size_t i = 0; i < inc.size(); ++i) {
-                increment_[3 * i + offset] += inc[i].x * step_size;
-                increment_[3 * i + offset + 1] += inc[i].y * step_size;
-                increment_[3 * i + offset + 2] += inc[i].z * step_size;
-            }
+            advance_scaled_coords_to(increment_.begin() + pos_offset(), inc, step_size);
         }
     }
 
@@ -380,12 +347,7 @@ namespace space::particle_system {
     template <typename Array>
     void ChainSystem<Particles, Interactions>::sync_vel_increment(Array const &inc, Scalar step_size) {
         if (sync_increment_) {
-            size_t offset = vel_offset();
-            for (size_t i = 0; i < inc.size(); ++i) {
-                increment_[3 * i + offset] += inc[i].x * step_size;
-                increment_[3 * i + offset + 1] += inc[i].y * step_size;
-                increment_[3 * i + offset + 2] += inc[i].z * step_size;
-            }
+            advance_scaled_coords_to(increment_.begin() + vel_offset(), inc, step_size);
         }
     }
 
@@ -393,12 +355,7 @@ namespace space::particle_system {
     template <typename Array>
     void ChainSystem<Particles, Interactions>::sync_auxi_vel_increment(Array const &inc, Scalar step_size) {
         if (sync_increment_) {
-            size_t offset = auxi_vel_offset();
-            for (size_t i = 0; i < inc.size(); ++i) {
-                increment_[3 * i + offset] += inc[i].x * step_size;
-                increment_[3 * i + offset + 1] += inc[i].y * step_size;
-                increment_[3 * i + offset + 2] += inc[i].z * step_size;
-            }
+            advance_scaled_coords_to(increment_.begin() + auxi_vel_offset(), inc, step_size);
         }
     }
 
