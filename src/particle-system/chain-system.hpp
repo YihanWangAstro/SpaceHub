@@ -239,7 +239,7 @@ namespace space::particle_system {
     template <typename ScalarIterable>
     void ChainSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
         stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        stl_ranges.reserve(this->variable_number());
         stl_ranges.emplace_back(1);             // dt/dt
         add_coords_to(stl_ranges, chain_vel_);  // dX/dt
         evaluate_acc(this->accels_.acc());

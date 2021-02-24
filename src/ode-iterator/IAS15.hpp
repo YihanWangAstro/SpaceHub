@@ -129,6 +129,11 @@ namespace space::ode_iterator {
         Scalar dt = step_size / ptc.step_scale();
         Scalar dt2 = dt * dt;
         std::vector<bool> mask(size, false);
+
+        if constexpr (!HAS_STATIC_MEMBER(U, regu_type)) {
+            mask[0] = true;
+        }
+
         for (size_t i = 0; i < ptc_num; i++) {
             bool slow_varing = false;
             if constexpr (HAS_METHOD(U, chain_pos) && HAS_METHOD(U, chain_vel)) {
