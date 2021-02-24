@@ -35,6 +35,6 @@ int main(int argc, char **argv) {
 
     bench_mark_methods(system_name, system, t_end, r_tol);
 
-    err_scale_methods(system_name, system, t_end, r_tol_low, r_tol_hi);
+    // err_scale_methods(system_name, system, t_end, r_tol_low, r_tol_hi);
     return 0;
 }
