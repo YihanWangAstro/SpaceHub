@@ -1,4 +1,4 @@
-[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/YihanWangAstro/SpaceHub/blob/master/LICENSE.md)
+[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/YihanWangAstro/SpaceHub/blob/master/LICENSE)
 
 # SpaceHub
 
