@@ -1,5 +1,4 @@
-[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/YihanWangAstro/SpaceHub/blob/master/LICENSE)
-
+[![Status](https://github.com/YihanWangAstro/SpaceHub/workflows/Build/badge.svg)](https://github.com/YihanWangAstro/SpaceHub/actions) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # SpaceHub
 
 SpaceHub is a developing software for extremely high precision few-body and large scale N-body simulations.
