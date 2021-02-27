@@ -18,7 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file const-iterator.hpp
+ * @file sequent-iterator.hpp
  *
  * Header file.
  */

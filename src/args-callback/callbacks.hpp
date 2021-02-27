@@ -50,7 +50,7 @@ namespace space::callback {
      * implement equal time operation in simulations. For example, one can provide a
      * printer `[](auto&p){std::cout << p << std::endl;}` as the pre_step_operation
      * in RunArgs to output the state of the integrated system. This printer then
-     * will be invoked before every step integration. The output might be very dense
+     * will be invoked before every step. The output might be very dense
      * sometimes, thus outputting the result of every step is somewhat heavy. If one
      * wraps the printer with TimeSlice, `TimeSlice([](auto&p){std::cout << p <<
      * '\n'}, 0, 100, 10)`, then the output will be performed only at

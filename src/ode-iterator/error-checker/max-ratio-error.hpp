@@ -18,7 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file IAS15-error.hpp
+ * @file max-ratio-error.hpp
  *
  * Header file.
  */
@@ -29,33 +29,74 @@ namespace space::ode_iterator {
          Class MaxRatioError Declaration
     \*---------------------------------------------------------------------------*/
     /**
-     * @brief
+     * @brief Error estimator using max diff/ max scale
      *
-     * @tparam TypeSystem
+     * @tparam TypeSystem Type class of SpaceHub
      */
     template <typename TypeSystem>
     class MaxRatioError {
        public:
         // Type member
-
         SPACEHUB_USING_TYPE_SYSTEM_OF(TypeSystem);
 
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(MaxRatioError, default, default, default, default, default);
 
+        /**
+         * @brief Construct a new Max Ratio Error object
+         *
+         * @param atol Absolute error tolerance
+         * @param rtol Relative error tolerance
+         */
         MaxRatioError(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
 
+        /**
+         * @brief Absolute error tolerance
+         *
+         */
         SPACEHUB_READ_ACCESSOR(Scalar, atol, atol_);
 
+        /**
+         * @brief Relative error tolerance
+         *
+         */
         SPACEHUB_READ_ACCESSOR(Scalar, rtol, rtol_);
 
+        /**
+         * @brief Set the absolute error tolerance
+         *
+         */
         void set_atol(Scalar);
 
+        /**
+         * @brief Set the relative error tolerance
+         *
+         */
         void set_rtol(Scalar);
 
+        /**
+         * @brief Estimate the error
+         *
+         * @tparam Array1 Scalar array type.
+         * @tparam Array2 Scalar array type.
+         * @param scale Scale used for normalization. The error ~ |diff|/|scale|.
+         * @param diff Difference between two results that need convergence check.
+         * @return Scalar
+         */
         template <typename Array1, typename Array2>
         Scalar error(Array1 const &scale, Array2 const &diff);
 
+        /**
+         * @brief Estimate the error
+         *
+         * @tparam Array1 Scalar array type
+         * @tparam Array2 Scalar array type
+         * @tparam Array3 Scalar array type
+         * @param scale Scale used for normalization. The error ~ |y1-y1`|/|scale|.
+         * @param y1 One of the results needs convergence check.
+         * @param y1_prime The other results needs convergence check.
+         * @return Scalar
+         */
         template <typename Array1, typename Array2, typename Array3>
         Scalar error(Array1 const &scale, Array2 const &y1, Array3 const &y1_prime);
 

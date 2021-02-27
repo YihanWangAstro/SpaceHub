@@ -1,7 +1,27 @@
-//
-// Created by yihan on 2/25/19.
-//
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the GPL-3.0 License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GPL-3.0 License
+    for more details. You should have received a copy of the GPL-3.0 License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file newtonian.hpp
+ *
+ * Header file.
+ */
 #pragma once
 
 #include "../spacehub-concepts.hpp"
@@ -13,14 +33,29 @@ namespace space::force {
     /*---------------------------------------------------------------------------*\
          Class NewtonianGrav Declaration
     \*---------------------------------------------------------------------------*/
+
     /**
+     * @brief Newtonian direct summation force.
      *
      */
     class NewtonianGrav {
        public:
+        /**
+         * @brief Is this force velocity dependent?
+         *
+         */
         constexpr static bool vel_dependent{false};
 
         // Type members
+        /**
+         * @brief Add newtonian acceleration to existing 3D vector array.
+         *
+         * @note this method ADD newtonian acceleration TO input 'acceleration'.
+         *
+         * @tparam Particles Particle system type satisfy concept particle system.
+         * @param[in] particles Particle system that is used to evaluated the acceleration.
+         * @param[in,out] acceleration 3D vector array to be updated.
+         */
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
 

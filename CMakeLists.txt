@@ -67,7 +67,7 @@ set(TMP_HEADER_FILES
         src/ode-iterator/error-checker/RMS.hpp
         src/ode-iterator/step-controller/PID-controller.hpp
         src/scattering/cross-section.hpp
-        src/ode-iterator/error-checker/max-raio-error.hpp
+        src/ode-iterator/error-checker/max-ratio-error.hpp
         src/orbits/particle-manip.hpp
         src/IO.hpp
         src/args-callback/collision.hpp

@@ -1,4 +1,27 @@
-
+/*---------------------------------------------------------------------------*\
+        .-''''-.         |
+       /        \        |
+      /_        _\       |  SpaceHub: The Open Source N-body Toolkit
+     // \  <>  / \\      |
+     |\__\    /__/|      |  Website:  https://yihanwangastro.github.io/SpaceHub/
+      \    ||    /       |
+        \  __  /         |  Copyright (C) 2019 Yihan Wang
+         '.__.'          |
+---------------------------------------------------------------------
+License
+    This file is part of SpaceHub.
+    SpaceHub is free software: you can redistribute it and/or modify it under
+    the terms of the GPL-3.0 License. SpaceHub is distributed in the hope that it
+    will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GPL-3.0 License
+    for more details. You should have received a copy of the GPL-3.0 License along
+    with SpaceHub.
+\*---------------------------------------------------------------------------*/
+/**
+ * @file Gauss-Radau.hpp
+ *
+ * Header file.
+ */
 #pragma once
 
 #include <array>
@@ -14,26 +37,96 @@ namespace space::integrator {
     \*---------------------------------------------------------------------------*/
     /**
      * Constant parameters used in Gauss Radau integration
+     *
+     * https://www.cambridge.org/core/journals/international-astronomical-union-colloquium/article/an-efficient-integrator-that-uses-gauss-radau-spacings/F942BC9121C74CC2FA296050FC18D824
      */
     class Radau {
        public:
+        /**
+         * @brief Substeps of Gauss-Radau stepping.
+         *
+         * @param[in] i Index of steps
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double h(size_t i) { return h_[i]; }
 
+        /**
+         * @brief Coefficients used in 'g' update.
+         *
+         * Coefficients before G_i in equation 4 after open the brackets.
+         *
+         * @param[in] n Raw index.
+         * @param[in] j Column index
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double rs(size_t n, size_t j) { return rs_[n * (n + 1) / 2 + j]; }
 
+        /**
+         * @brief Coefficients used in 'g' update.
+         *
+         * Reciprocal of coefficient r_{ij} in equation 4.
+         *
+         * @param[in] n Raw index.
+         * @param[in] j Column index
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double rr(size_t n, size_t j) { return rr_[n * (n + 1) / 2 + j]; }
 
+        /**
+         * @brief Coefficient for B prediction update in equation 13.
+         *
+         * @param[in] n Raw index.
+         * @param[in] j Column index.
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double est_b(size_t n, size_t j) { return est_b_[n * (n + 1) / 2 + j]; }
 
+        /**
+         * @brief Transformation coefficients from G to B in equation 5.
+         *
+         * @param[in] n Raw index
+         * @param[in] j Column index
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double g2b(size_t n, size_t j) { return g2b_[n * (n + 1) / 2 + j]; }
 
+        /**
+         * @brief Transformation coefficients from B to G in equation 7.
+         *
+         * @param[in] n Raw index
+         * @param[in] j Column index
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double b2g(size_t n, size_t j) { return b2g_[n * (n + 1) / 2 + j]; }
 
+        /**
+         * @brief Coefficients for y^\prime estimation in equation 10 after open the brackets.
+         *
+         * @param[in] stage Raw index(for x-th step)
+         * @param[in] i Column index
+         * @return constexpr double
+         */
         [[nodiscard]] inline static constexpr double dy_tab(size_t stage, size_t i) { return dy_tab_[stage][i]; }
 
+        /**
+         * @brief Calculate the corresponding B table from G table.
+         *
+         * @tparam Tab1 Type of G table.
+         * @tparam Tab2 Type of B table.
+         * @param[in] G G table.
+         * @param[out] B B table.
+         */
         template <typename Tab1, typename Tab2>
         static void transform_g2b(Tab1 const &G, Tab2 &B);
 
+        /**
+         * @brief Calculate the corresponding G table from B table.
+         *
+         * @tparam Tab1 Type of B table.
+         * @tparam Tab2 Type of G table.
+         * @param[in] B B table.
+         * @param[out] G G table.
+         */
         template <typename Tab1, typename Tab2>
         static void transform_b2g(Tab1 const &B, Tab2 &G);
 

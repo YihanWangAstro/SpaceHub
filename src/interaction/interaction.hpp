@@ -31,11 +31,25 @@ namespace space::force {
     /*---------------------------------------------------------------------------*\
         Class Interactions Declaration
     \*---------------------------------------------------------------------------*/
+    /**
+     * @brief Interaction adapter. Put all interactions together.
+     *
+     * @tparam InternalForce Internal force type
+     * @tparam ExtraForce External force types
+     */
     template <CONCEPT_FORCE InternalForce, CONCEPT_FORCE... ExtraForce>
     class Interactions {
        public:
+        /**
+         * @brief Any external velocity dependent force?
+         *
+         */
         static constexpr bool ext_vel_dep{(... || ExtraForce::vel_dependent)};
 
+        /**
+         * @brief Any external velocity independent force?
+         *
+         */
         static constexpr bool ext_vel_indep{(... || !ExtraForce::vel_dependent)};
 
         /**
@@ -52,11 +66,10 @@ namespace space::force {
         /**
          * Evaluate the external acceleration of the current state of a given particle system.
          *
-         * @brief
          *
-         * @tparam Particles
-         * @param particles
-         * @param acceleration
+         * @tparam Particles Type of the particle system.
+         * @param[in] particles The particle system need to be evaluated.
+         * @param[out] acceleration The output of the evaluated acceleration.
          */
         template <CONCEPT_PARTICLES_DATA Particles>
         static void eval_extra_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
@@ -95,24 +108,57 @@ namespace space::force {
         static void eval_newtonian_acc(Particles const &particles, typename Particles::VectorArray &acceleration);
     };
 
+    /**
+     * @brief Acceleration data set.
+     *
+     * @tparam Interactions Interaction types that provide constexpr member 'ext_vel_indep' and 'ext_vel_dep' to
+     * determine the data layout
+     * @tparam VectorArray 3D Vector array type
+     */
     template <typename Interactions, typename VectorArray>
     class InteractionData {
        public:
         // Constructors
         SPACEHUB_MAKE_CONSTRUCTORS(InteractionData, default, default, default, default, default);
 
+        /**
+         * @brief Construct a new Interaction Data object
+         *
+         * @param[in] size Number of Particles.
+         */
         explicit InteractionData(size_t size);
 
         // Public methods
-
+        /**
+         * @brief 3D vector array to store the total acceleration.
+         *
+         */
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, acc, acc_);
 
+        /**
+         * @brief 3D vector array to store the Newtonian acceleration.
+         *
+         */
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, newtonian_acc, newtonian_acc_);
 
+        /**
+         * @brief 3D vector array to store the total velocity independent acceleration.
+         *
+         */
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, tot_vel_indep_acc, tot_vel_indep_acc_);
 
+        /**
+         * @brief 3D vector array to store the velocity independent acceleration.(if no external velocity independent
+         * appears, this becomes empty type).
+         *
+         */
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, ext_vel_indep_acc, ext_vel_indep_acc_);
 
+        /**
+         * @brief 3D vector array to store the velocity dependent acceleration.(if no external velocity dependent
+         * appears, this becomes empty type).
+         *
+         */
         SPACEHUB_ARRAY_ACCESSOR(VectorArray, ext_vel_dep_acc, ext_vel_dep_acc_);
 
        private:

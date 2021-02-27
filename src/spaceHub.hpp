@@ -59,7 +59,7 @@ License
 #include "ode-iterator/IAS15.hpp"
 #include "ode-iterator/const-iterator.hpp"
 #include "ode-iterator/error-checker/RMS.hpp"
-#include "ode-iterator/error-checker/max-raio-error.hpp"
+#include "ode-iterator/error-checker/max-ratio-error.hpp"
 #include "ode-iterator/error-checker/worst-offender.hpp"
 #include "ode-iterator/sequent-iterator.hpp"
 #include "ode-iterator/step-controller/PID-controller.hpp"
