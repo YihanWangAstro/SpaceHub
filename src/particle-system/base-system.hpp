@@ -49,6 +49,7 @@ namespace space::particle_system {
 
         using Interaction = Interactions;
 
+        // static public members
         static constexpr bool ext_vel_dep{Interactions::ext_vel_dep};
 
         static constexpr bool ext_vel_indep{Interactions::ext_vel_indep};
@@ -100,28 +101,36 @@ namespace space::particle_system {
          * @brief
          *
          * @tparam ScalarIterable
-         * @param stl_ranges
+         * @param y
          */
         template <typename ScalarIterable>
-        void write_to_scalar_array(ScalarIterable &stl_ranges);
+        void write_to_scalar_array(ScalarIterable &y);
 
         /**
          * @brief
          *
          * @tparam ScalarIterable
-         * @param stl_ranges
+         * @param y
          */
         template <typename ScalarIterable>
-        void read_from_scalar_array(ScalarIterable const &stl_ranges);
+        void read_from_scalar_array(ScalarIterable const &y);
 
         template <typename ScalarIterable>
-        void evaluate_general_derivative(ScalarIterable &stl_ranges);
+        void evaluate_general_derivative(ScalarIterable &dy_dh);
 
         inline void collect_increment(bool sync) { sync_increment_ = sync; };
 
         void clear_increment() { calc::array_set_zero(increment_); };
 
-        [[nodiscard]] size_t variable_number() const;
+        size_t variable_number() const;
+
+        inline constexpr size_t time_offset() const { return 0; };
+
+        inline constexpr size_t pos_offset() const { return 1; };
+
+        inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+
+        inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
 
         // Friend functions
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
@@ -129,11 +138,6 @@ namespace space::particle_system {
 
         template <CONCEPT_PARTICLES P, CONCEPT_INTERACTION F>
         friend std::istream &operator>>(std::istream &is, SimpleSystem<P, F> &ps);
-
-        inline constexpr size_t time_offset() const { return 0; };
-        inline constexpr size_t pos_offset() const { return 1; };
-        inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
-        inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
 
        private:
         // Private methods
@@ -166,7 +170,6 @@ namespace space::particle_system {
         void sync_time_increment(Scalar phy_time);
 
         // Private members
-        // Particles ptcl_;
 
         force::InteractionData<Interactions, VectorArray> accels_;
 
@@ -193,9 +196,9 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
-    void SimpleSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &stl_ranges) {
-        if (stl_ranges.size() == this->variable_number()) {
-            auto begin = stl_ranges.begin();
+    void SimpleSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &y) {
+        if (y.size() == this->variable_number()) {
+            auto begin = y.begin();
             this->time() = *(begin + time_offset());
 
             auto pos_begin = begin + pos_offset();
@@ -207,7 +210,7 @@ namespace space::particle_system {
             load_to_coords(vel_begin, vel_end, this->vel());
             if constexpr (Interactions::ext_vel_dep) {
                 auto aux_vel_begin = begin + auxi_vel_offset();
-                auto aux_vel_end = stl_ranges.end();
+                auto aux_vel_end = y.end();
                 load_to_coords(aux_vel_begin, aux_vel_end, aux_vel_);
             }
         } else {
@@ -217,28 +220,28 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
-    void SimpleSystem<Particles, Interactions>::write_to_scalar_array(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->variable_number());
-        stl_ranges.emplace_back(this->time());
-        add_coords_to(stl_ranges, this->pos());
-        add_coords_to(stl_ranges, this->vel());
+    void SimpleSystem<Particles, Interactions>::write_to_scalar_array(ScalarIterable &y) {
+        y.clear();
+        y.reserve(this->variable_number());
+        y.emplace_back(this->time());
+        add_coords_to(y, this->pos());
+        add_coords_to(y, this->vel());
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, aux_vel_);
+            add_coords_to(y, aux_vel_);
         }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
-    void SimpleSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->variable_number());
-        stl_ranges.emplace_back(1);              // dt/dh
-        add_coords_to(stl_ranges, this->vel());  // dp/dt
+    void SimpleSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &dy_dh) {
+        dy_dh.clear();
+        dy_dh.reserve(this->variable_number());
+        dy_dh.emplace_back(1);              // dt/dh
+        add_coords_to(dy_dh, this->vel());  // dp/dh
         Interactions::eval_acc(*this, this->accels_.acc());
-        add_coords_to(stl_ranges, this->accels_.acc());  // dv/dt
+        add_coords_to(dy_dh, this->accels_.acc());  // dv/dh
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, this->accels_.acc());  // dw/dt
+            add_coords_to(dy_dh, this->accels_.acc());  // dw/dh
         }
     }
 

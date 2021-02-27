@@ -217,13 +217,13 @@ namespace space {
          * Check if the integration duration time is set.
          * @return boolean
          */
-        [[nodiscard]] bool is_end_time_set() const { return is_end_time_set_; }
+           bool is_end_time_set() const { return is_end_time_set_; }
 
         /**
          * Check if any of the stop condition(except the duration time) is set.
          * @return boolean
          */
-        [[nodiscard]] bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
+           bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
 
        private:
         // private members

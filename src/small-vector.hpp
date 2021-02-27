@@ -120,7 +120,7 @@
  * From llvm/Support/Compiler.h
  */
 #ifndef LLVM_NODISCARD
-#define LLVM_NODISCARD [[nodiscard]]
+#define LLVM_NODISCARD   
 #endif
 
 /// \macro LLVM_GNUC_PREREQ

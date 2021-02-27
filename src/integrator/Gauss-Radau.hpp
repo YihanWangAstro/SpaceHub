@@ -48,7 +48,7 @@ namespace space::integrator {
          * @param[in] i Index of steps
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double h(size_t i) { return h_[i]; }
+        inline static constexpr double h(size_t i) { return h_[i]; }
 
         /**
          * @brief Coefficients used in 'g' update.
@@ -59,7 +59,7 @@ namespace space::integrator {
          * @param[in] j Column index
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double rs(size_t n, size_t j) { return rs_[n * (n + 1) / 2 + j]; }
+        inline static constexpr double rs(size_t n, size_t j) { return rs_[n * (n + 1) / 2 + j]; }
 
         /**
          * @brief Coefficients used in 'g' update.
@@ -70,7 +70,7 @@ namespace space::integrator {
          * @param[in] j Column index
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double rr(size_t n, size_t j) { return rr_[n * (n + 1) / 2 + j]; }
+        inline static constexpr double rr(size_t n, size_t j) { return rr_[n * (n + 1) / 2 + j]; }
 
         /**
          * @brief Coefficient for B prediction update in equation 13.
@@ -79,7 +79,7 @@ namespace space::integrator {
          * @param[in] j Column index.
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double est_b(size_t n, size_t j) { return est_b_[n * (n + 1) / 2 + j]; }
+        inline static constexpr double est_b(size_t n, size_t j) { return est_b_[n * (n + 1) / 2 + j]; }
 
         /**
          * @brief Transformation coefficients from G to B in equation 5.
@@ -88,7 +88,7 @@ namespace space::integrator {
          * @param[in] j Column index
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double g2b(size_t n, size_t j) { return g2b_[n * (n + 1) / 2 + j]; }
+        inline static constexpr double g2b(size_t n, size_t j) { return g2b_[n * (n + 1) / 2 + j]; }
 
         /**
          * @brief Transformation coefficients from B to G in equation 7.
@@ -97,7 +97,7 @@ namespace space::integrator {
          * @param[in] j Column index
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double b2g(size_t n, size_t j) { return b2g_[n * (n + 1) / 2 + j]; }
+        inline static constexpr double b2g(size_t n, size_t j) { return b2g_[n * (n + 1) / 2 + j]; }
 
         /**
          * @brief Coefficients for y^\prime estimation in equation 10 after open the brackets.
@@ -106,7 +106,7 @@ namespace space::integrator {
          * @param[in] i Column index
          * @return constexpr double
          */
-        [[nodiscard]] inline static constexpr double dy_tab(size_t stage, size_t i) { return dy_tab_[stage][i]; }
+        inline static constexpr double dy_tab(size_t stage, size_t i) { return dy_tab_[stage][i]; }
 
         /**
          * @brief Calculate the corresponding B table from G table.

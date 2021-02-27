@@ -49,6 +49,7 @@ namespace space::particle_system {
 
         using Interaction = Interactions;
 
+        // static public members
         static constexpr bool ext_vel_dep{Interactions::ext_vel_dep};
 
         static constexpr bool ext_vel_indep{Interactions::ext_vel_indep};
@@ -82,23 +83,26 @@ namespace space::particle_system {
         void post_iter_process();
 
         template <typename ScalarIterable>
-        void write_to_scalar_array(ScalarIterable &stl_ranges);
+        void write_to_scalar_array(ScalarIterable &y);
 
         template <typename ScalarIterable>
-        void read_from_scalar_array(ScalarIterable const &stl_ranges);
+        void read_from_scalar_array(ScalarIterable const &y);
 
         template <typename ScalarIterable>
-        void evaluate_general_derivative(ScalarIterable &stl_ranges);
+        void evaluate_general_derivative(ScalarIterable &dy_dh);
 
         inline void collect_increment(bool sync) { sync_increment_ = sync; };
 
         void clear_increment() { calc::array_set_zero(increment_); };
 
-        [[nodiscard]] size_t variable_number() const;
+        size_t variable_number() const;
 
         inline constexpr size_t time_offset() const { return 0; };
+
         inline constexpr size_t pos_offset() const { return 1; };
+
         inline constexpr size_t vel_offset() const { return this->number() * 3 + 1; };
+
         inline constexpr size_t auxi_vel_offset() const { return this->number() * 6 + 1; };
 
        private:
@@ -224,37 +228,37 @@ namespace space::particle_system {
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
-    void ChainSystem<Particles, Interactions>::write_to_scalar_array(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
-        stl_ranges.emplace_back(this->time());
-        add_coords_to(stl_ranges, chain_pos_);
-        add_coords_to(stl_ranges, chain_vel_);
+    void ChainSystem<Particles, Interactions>::write_to_scalar_array(ScalarIterable &y) {
+        y.clear();
+        y.reserve(this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1);
+        y.emplace_back(this->time());
+        add_coords_to(y, chain_pos_);
+        add_coords_to(y, chain_vel_);
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, chain_aux_vel_);
+            add_coords_to(y, chain_aux_vel_);
         }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
-    void ChainSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &stl_ranges) {
-        stl_ranges.clear();
-        stl_ranges.reserve(this->variable_number());
-        stl_ranges.emplace_back(1);             // dt/dt
-        add_coords_to(stl_ranges, chain_vel_);  // dX/dt
+    void ChainSystem<Particles, Interactions>::evaluate_general_derivative(ScalarIterable &dy_dh) {
+        dy_dh.clear();
+        dy_dh.reserve(this->variable_number());
+        dy_dh.emplace_back(1);             // dt/dt
+        add_coords_to(dy_dh, chain_vel_);  // dX/dt
         evaluate_acc(this->accels_.acc());
         Chain::calc_chain(this->accels_.acc(), chain_acc_, index());
-        add_coords_to(stl_ranges, chain_acc_);  // dV/dt
+        add_coords_to(dy_dh, chain_acc_);  // dV/dt
         if constexpr (Interactions::ext_vel_dep) {
-            add_coords_to(stl_ranges, chain_acc_);
+            add_coords_to(dy_dh, chain_acc_);
         }
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
     template <typename ScalarIterable>
-    void ChainSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &stl_ranges) {
-        if (stl_ranges.size() == this->variable_number()) {
-            auto begin = stl_ranges.begin();
+    void ChainSystem<Particles, Interactions>::read_from_scalar_array(const ScalarIterable &y) {
+        if (y.size() == this->variable_number()) {
+            auto begin = y.begin();
             this->time() = *(begin + time_offset());
             auto pos_begin = begin + pos_offset();
             auto pos_end = begin + vel_offset();
@@ -268,7 +272,7 @@ namespace space::particle_system {
             Chain::calc_cartesian(this->mass(), chain_vel_, this->vel(), index_);
             if constexpr (Interactions::ext_vel_dep) {
                 auto aux_vel_begin = begin + auxi_vel_offset();
-                auto aux_vel_end = stl_ranges.end();
+                auto aux_vel_end = y.end();
                 load_to_coords(aux_vel_begin, aux_vel_end, chain_aux_vel_);
                 Chain::calc_cartesian(this->mass(), chain_aux_vel_, aux_vel_, index_);
             }
@@ -278,7 +282,6 @@ namespace space::particle_system {
     }
 
     template <CONCEPT_PARTICLES Particles, CONCEPT_INTERACTION Interactions>
-
     size_t ChainSystem<Particles, Interactions>::variable_number() const {
         return this->number() * 3 * (2 + static_cast<size_t>(Interactions::ext_vel_dep)) + 1;
     }

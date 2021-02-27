@@ -61,14 +61,14 @@ namespace space::ode_iterator {
 
         constexpr inline Scalar cost(size_t i) const { return cost_[i]; };
 
-        [[nodiscard]] constexpr inline size_t h(size_t i) const { return h_[i]; };
+        constexpr inline size_t h(size_t i) const { return h_[i]; };
 
         constexpr inline Scalar table_coef(size_t i, size_t j) const { return extrap_coef_[at(i, j)]; };
 
         constexpr explicit BulirschStoerConsts();
 
        private:
-        [[nodiscard]] inline size_t at(size_t i, size_t j) const { return i * MaxIter + j; };
+        inline size_t at(size_t i, size_t j) const { return i * MaxIter + j; };
 
         /** @brief Extrapolation coefficient.*/
         std::array<Scalar, MaxIter *(MaxIter)> extrap_coef_;
@@ -119,7 +119,7 @@ namespace space::ode_iterator {
        private:
         void check_variable_size();
 
-        [[nodiscard]] inline size_t at(size_t i, size_t j) const { return consts_.at(i, j); };
+        inline size_t at(size_t i, size_t j) const { return consts_.at(i, j); };
 
         template <CONCEPT_PARTICLE_SYSTEM U>
         void integrate_by_n_steps(U &particles, Scalar macro_step_size, size_t steps);
@@ -131,7 +131,7 @@ namespace space::ode_iterator {
 
         inline bool in_converged_window(size_t k);
 
-        [[nodiscard]] inline size_t allowed(size_t i) const;
+        inline size_t allowed(size_t i) const;
 
         Scalar set_next_iteration(size_t k);
 
@@ -277,7 +277,7 @@ namespace space::ode_iterator {
                     }
                 }
             }
-            // particles.read_from_scalar_array(input_);
+            particles.read_from_scalar_array(input_);
         }
         spacehub_abort("Reach max iteration loop number!");
     }

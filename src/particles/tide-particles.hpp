@@ -146,9 +146,9 @@ namespace space::particle_set {
 
         void emplace_back(Particle const &new_particle);
 
-        [[nodiscard]] size_t number() const;
+           size_t number() const;
 
-        [[nodiscard]] size_t capacity() const;
+           size_t capacity() const;
 
         void clear();
 
