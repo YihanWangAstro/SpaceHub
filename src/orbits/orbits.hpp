@@ -33,11 +33,11 @@ License
 #include "../spacehub-concepts.hpp"
 #include "../vector/vector3.hpp"
 /**
- * @namespace space::orbit
+ * @namespace hub::orbit
  *
  * Documentation
  */
-namespace space::orbit {
+namespace hub::orbit {
 
     /*---------------------------------------------------------------------------*\
          Class OrbitArgs Declaration
@@ -161,7 +161,7 @@ namespace space::orbit {
          * @return std::ostream& Output stream.
          */
         friend std::ostream &operator<<(std::ostream &os, KeplerOrbit const &obt) {
-            space::print_csv(os, obt.m1, obt.m2, obt.p, obt.e, obt.i, obt.Omega, obt.omega, obt.nu);
+            hub::print_csv(os, obt.m1, obt.m2, obt.p, obt.e, obt.i, obt.Omega, obt.omega, obt.nu);
             return os;
         }
     };
@@ -322,16 +322,16 @@ namespace space::orbit {
 
         if (0 <= e && e < 1)
             return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); }, -space::consts::pi,
-                space::consts::pi);
+                    [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); }, -hub::consts::pi,
+                    hub::consts::pi);
         else if (e > 1)
             return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); },
-                -space::consts::pi, space::consts::pi);
+                    [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); },
+                    -hub::consts::pi, hub::consts::pi);
         else if (fabs(e - 1) < math::epsilon<Scalar>::value)
             return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); }, -space::consts::pi,
-                space::consts::pi);
+                    [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); }, -hub::consts::pi,
+                    hub::consts::pi);
         else {
             spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
         }
@@ -505,7 +505,7 @@ namespace space::orbit {
         : KeplerOrbit<double>(m_1, m_2, 1.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
                               0.0) {
         this->orbit_type = OrbitType::Hyperbola;
-        Scalar u = space::consts::G * (m_1 + m_2);
+        Scalar u = hub::consts::G * (m_1 + m_2);
         Scalar a = -u / (v_inf * v_inf);
         this->e = sqrt(1 + b * b / (a * a));
         this->p = a * (1 - e * e);
@@ -819,4 +819,4 @@ namespace space::orbit {
         return std::max(r1, r2);
     }
 
-}  // namespace space::orbit
+}  // namespace hub::orbit

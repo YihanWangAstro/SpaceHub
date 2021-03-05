@@ -1,6 +1,6 @@
 
 #include "../src/spaceHub.hpp"
-using namespace space;
+using namespace hub;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 

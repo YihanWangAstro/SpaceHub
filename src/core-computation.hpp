@@ -41,10 +41,10 @@ License
 
 #endif
 /**
- * @namespace space::calc
- * Documentation for space
+ * @namespace hub::calc
+ * Documentation for hub
  */
-namespace space::calc {
+namespace hub::calc {
 
     /**
      * @brief Calculate the sum of variables
@@ -552,7 +552,7 @@ namespace space::calc {
                 if (fall_free < min_fall_free) min_fall_free = fall_free;
             }
         }
-        return min_fall_free * space::consts::pi * 0.5 / sqrt(2 * space::consts::G);
+        return min_fall_free * hub::consts::pi * 0.5 / sqrt(2 * hub::consts::G);
     }
 
     /**
@@ -581,4 +581,4 @@ namespace space::calc {
             return fabs((T - U - E0) / E0);
         }
     }
-}  // namespace space::calc
+}  // namespace hub::calc

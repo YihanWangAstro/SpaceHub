@@ -6,7 +6,7 @@
 /*---------------------------------------------------------------------------*\
         Class stellar Declaration
 \*---------------------------------------------------------------------------*/
-namespace space::stellar {
+namespace hub::stellar {
 
     enum class StarType { BH, NS, STAR, WD };
 
@@ -22,7 +22,7 @@ namespace space::stellar {
             return 0.01 * unit::Rs * pow(unit::Ms / mass, 1.0 / 3);
         }
     }
-}  // namespace space::stellar
+}  // namespace hub::stellar
 
 /*---------------------------------------------------------------------------*\
         Class stellar Implementation

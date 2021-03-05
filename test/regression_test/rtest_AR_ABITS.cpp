@@ -20,10 +20,10 @@ License
 #include "rtest_samples.hpp"
 #include "rtest_utility.hpp"
 
-using namespace space::unit;
+using namespace hub::unit;
 int main(int argc, char **argv) {
 #ifdef MPFR_VERSION_MAJOR
-    using method = space::methods::ABITS<>;
+    using method = hub::methods::ABITS<>;
 
     error_scale<method>("short-ecc", "ABITS", 1e-30, 1e-9, 100_year, two_body());
 #else

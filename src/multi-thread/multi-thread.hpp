@@ -37,11 +37,11 @@ License
 #include "../dev-tools.hpp"
 
 /**
- * @namespace space::multi_thread
+ * @namespace hub::multi_thread
  * Documentation for Foo here. More docs for Foo here,
  * and down here.
  */
-namespace space::multi_thread {
+namespace hub::multi_thread {
 
 #if defined(_MSC_VER)  // Visual studio
 #define thread_local __declspec(thread)
@@ -187,4 +187,4 @@ namespace space::multi_thread {
     inline ConcurrentFile make_thread_safe_fstream(std::string const &name, std::ios_base::openmode mode) {
         return ConcurrentFile(name, mode);
     }
-}  // namespace space::multi_thread
+}  // namespace hub::multi_thread

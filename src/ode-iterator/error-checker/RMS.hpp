@@ -24,7 +24,7 @@ License
  */
 #pragma once
 
-namespace space::ode_iterator {
+namespace hub::ode {
     /*---------------------------------------------------------------------------*\
          Class RMS Declaration
     \*---------------------------------------------------------------------------*/
@@ -110,4 +110,4 @@ namespace space::ode_iterator {
 
     template <typename TypeSystem>
     RMS<TypeSystem>::RMS(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

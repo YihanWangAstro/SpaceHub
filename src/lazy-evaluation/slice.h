@@ -4,7 +4,7 @@
 #include <cstddef>
 
 #include "lazy_expr.h"
-namespace space::lazy {
+namespace hub::lazy {
 
 #define slice(BEGIN, END, ...) (Slice<BEGIN, END, ##__VA_ARGS__>())
 
@@ -91,4 +91,4 @@ namespace space::lazy {
             return *this;
         }
     };
-}  // namespace space::lazy
+}  // namespace hub::lazy

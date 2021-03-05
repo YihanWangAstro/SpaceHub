@@ -26,10 +26,10 @@ License
 
 #include "../../spacehub-concepts.hpp"
 /**
- * @namespace space::integrator
- * Documentation for space
+ * @namespace hub::integrator
+ * Documentation for hub
  */
-namespace space::integrator {
+namespace hub::integrator {
 
     /*---------------------------------------------------------------------------*\
     Class Symplectic2nd Declaration
@@ -361,4 +361,4 @@ namespace space::integrator {
         system.kick(6.1221934403867218e-01 * step_size);
         system.drift(3.0610967201933609e-01 * step_size);
     }
-}  // namespace space::integrator
+}  // namespace hub::integrator

@@ -20,7 +20,7 @@ License
 
 #include "rtest_samples.hpp"
 #include "rtest_utility.hpp"
-using namespace space::unit;
+using namespace hub::unit;
 int main(int argc, char **argv) {
     auto system = outer_solar();
 

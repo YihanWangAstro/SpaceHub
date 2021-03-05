@@ -29,7 +29,7 @@ License
 #ifdef MPFR_VERSION_MAJOR
 #include "mpfr.hpp"
 #endif
-namespace space {
+namespace hub {
     /** Kahan number
      *
      *  A way to reduce the round off error when adding a small number to a big one.
@@ -416,4 +416,4 @@ namespace space {
     using long_double_e = Klein<long double>;
     using double_e = Klein<double>;
     using float_e = Klein<float>;
-}  // namespace space
+}  // namespace hub

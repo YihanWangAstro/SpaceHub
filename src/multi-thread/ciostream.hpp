@@ -8,7 +8,7 @@
 
 #include "../dev-tools.hpp"
 
-namespace space::multi_thread {
+namespace hub::multi_thread {
     template <typename T>
     class Opip {
        public:
@@ -163,4 +163,4 @@ namespace space::multi_thread {
         std::shared_ptr<Ipip<T>> pip_ptr_;
     };
 
-}  // namespace space::multi_thread
+}  // namespace hub::multi_thread

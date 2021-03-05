@@ -1,6 +1,6 @@
 
 #include "../src/spaceHub.hpp"
-using namespace space;
+using namespace hub;
 using namespace unit;
 using namespace callback;  // save writing callback::
 using Solver = methods::DefaultMethod<>;

@@ -19,15 +19,15 @@ License
 \*---------------------------------------------------------------------------*/
 #include "../../src/spaceHub.hpp"
 #include "rtest_utility.hpp"
-using namespace space::unit;
+using namespace hub::unit;
 
 template <typename Solver>
 auto mercury(double e = 0) {
     using Particle = typename Solver::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
-    using namespace space::consts;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
+    using namespace hub::consts;
 
     Particle p1{1_Ms}, p2{1_Ms};
     auto orbit = EllipOrbit(p1.mass, p2.mass, 0.1_AU, e, 0, 0, 0, 0);
@@ -42,7 +42,7 @@ auto mercury(double e = 0) {
 template <typename Solver>
 void PN_precession_test(std::string const &fname, double end_time, double rtol,
                         std::vector<typename Solver::Particle> const &p) {
-    using namespace space;
+    using namespace hub;
     using namespace callback;
     using namespace tools;
 
@@ -75,7 +75,7 @@ void run(std::string const &sim_type, double ecc) {
 }
 
 int main(int argc, char **argv) {
-    using namespace space;
+    using namespace hub;
     using f = force::Interactions<force::NewtonianGrav, force::PN1>;
 
     using method = methods::AR_Chain_Plus<f>;

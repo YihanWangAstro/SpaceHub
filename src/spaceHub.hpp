@@ -84,33 +84,34 @@ License
 #include "type-class.hpp"
 
 /**
- * @namespace space
- * Documentation for space
+ * @namespace hub
+ * Documentation for hub
  */
-namespace space {
+namespace hub {
 
-#define USING_NAMESPACE_SPACEHUB_ALL     \
-    using namespace space;               \
-    using namespace space::calc;         \
-    using namespace space::tools;        \
-    using namespace space::ode_iterator; \
-    using namespace space::integrator;   \
-    using namespace space::orbit;        \
-    using namespace space::unit;         \
-    using namespace space::particle_set; \
-    using namespace space::random;       \
-    using namespace space::callback;     \
-    using namespace space::particle_system
+#define USING_NAMESPACE_SPACEHUB_ALL \
+    using namespace hub;             \
+    using namespace hub::calc;       \
+    using namespace hub::tools;      \
+    using namespace hub::ode;        \
+    using namespace hub::integrator; \
+    using namespace hub::orbit;      \
+    using namespace hub::unit;       \
+    using namespace hub::particles;  \
+    using namespace hub::random;     \
+    using namespace hub::callback;   \
+    using namespace hub::system;     \
+    using namespace hub::force
 
     using DefaultTypes = Types<double, Vec3>;
 
-    using DefaultForce = force::Interactions<space::force::NewtonianGrav>;
+    using DefaultForce = force::Interactions<hub::force::NewtonianGrav>;
 
     template <typename T>
-    using DefaultParticles = particle_set::PointParticles<T>;
+    using DefaultParticles = particles::PointParticles<T>;
     namespace methods {
         namespace details {
-            using namespace ode_iterator;
+            using namespace ode;
             using namespace integrator;
             using normal_type = Types<double, Vec3>;
             using extended_type = Types<long double, Vec3>;
@@ -120,13 +121,13 @@ namespace space {
             using any_bits_type = Types<mpfr::mpreal, Vec3>;  // lazy vec3 will crash due to mpreal implementation.
             using precise_any_bits_type = Types<mpreal_k, Vec3>;
 #endif
-            using rms_err = ode_iterator::RMS<normal_type>;
-            using worst_offender_err = ode_iterator::WorstOffender<normal_type>;
+            using rms_err = ode::RMS<normal_type>;
+            using worst_offender_err = ode::WorstOffender<normal_type>;
             using adaptive_step_ctrl = PIDController<normal_type>;
             using const_step_ctrl = ConstStepController<normal_type>;
 
-            using rms_err_ext = ode_iterator::RMS<extended_type>;
-            using worst_offender_err_ext = ode_iterator::WorstOffender<extended_type>;
+            using rms_err_ext = ode::RMS<extended_type>;
+            using worst_offender_err_ext = ode::WorstOffender<extended_type>;
             using adaptive_step_ctrl_ext = PIDController<extended_type>;
             using const_step_ctrl_ext = ConstStepController<extended_type>;
 
@@ -202,29 +203,28 @@ namespace space {
             using Radau_extplus =
                 IAS15<GaussRadau<extended_precise_type>, MaxRatioError<extended_type>, adaptive_step_ctrl_ext>;
 #ifdef MPFR_VERSION_MAJOR
-            using ABits = BulirschStoer<LeapFrogDKD<any_bits_type>, ode_iterator::WorstOffender<any_bits_type>,
+            using ABits = BulirschStoer<LeapFrogDKD<any_bits_type>, ode::WorstOffender<any_bits_type>,
                                         PIDController<any_bits_type>, 32>;
             using ABits_plus =
-                BulirschStoer<LeapFrogDKD<precise_any_bits_type>, ode_iterator::WorstOffender<precise_any_bits_type>,
+                BulirschStoer<LeapFrogDKD<precise_any_bits_type>, ode::WorstOffender<precise_any_bits_type>,
                               PIDController<precise_any_bits_type>, 32>;
 #endif
         };  // namespace details
 
-#define DEFINE_ADAPTIVE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                        \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>         \
-    using NAME = Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::ITER>;     \
-                                                                                                                      \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>         \
-    using NAME##_Plus =                                                                                               \
-        Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, details::ITER##_plus>;      \
-                                                                                                                      \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>         \
-    using NAME##_Ext =                                                                                                \
-        Simulator<particle_system::SYSTEM<particle<details::extended_type>, interactions>, details::ITER##_ext>;      \
-                                                                                                                      \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>         \
-    using NAME##_ExtPlus = Simulator<particle_system::SYSTEM<particle<details::extended_precise_type>, interactions>, \
-                                     details::ITER##_extplus>;
+#define DEFINE_ADAPTIVE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                         \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME = Simulator<system::SYSTEM<particle<details::normal_type>, interactions>, details::ITER>;               \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME##_Plus =                                                                                                \
+        Simulator<system::SYSTEM<particle<details::precise_type>, interactions>, details::ITER##_plus>;                \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME##_Ext = Simulator<system::SYSTEM<particle<details::extended_type>, interactions>, details::ITER##_ext>; \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME##_ExtPlus =                                                                                             \
+        Simulator<system::SYSTEM<particle<details::extended_precise_type>, interactions>, details::ITER##_extplus>;
 
 #define DEFINE_CONST_STEP_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                  \
     template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>     \
@@ -244,38 +244,36 @@ namespace space {
         Simulator<particle_system::SYSTEM<particle<details::extended_precise_type>, interactions>,                \
                   details::const_##ITER##_extplus>;
 
-#define DEFINE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                                \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using NAME = Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::ITER>;    \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using NAME##_Plus =                                                                                              \
-        Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>, details::ITER##_plus>;     \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using Const_##NAME =                                                                                             \
-        Simulator<particle_system::SYSTEM<particle<details::normal_type>, interactions>, details::const_##ITER>;     \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using Const_##NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_type>, interactions>,    \
-                                          details::const_##ITER##_plus>;                                             \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using NAME##_Ext =                                                                                               \
-        Simulator<particle_system::SYSTEM<particle<details::extended_type>, interactions>, details::ITER##_ext>;     \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using NAME##_ExtPlus =                                                                                           \
-        Simulator<particle_system::SYSTEM<particle<details::extended_type>, interactions>, details::ITER##_extplus>; \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using Const_##NAME##_Ext = Simulator<particle_system::SYSTEM<particle<details::extended_type>, interactions>,    \
-                                         details::const_##ITER##_ext>;                                               \
-                                                                                                                     \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>        \
-    using Const_##NAME##_ExtPlus =                                                                                   \
-        Simulator<particle_system::SYSTEM<particle<details::extended_precise_type>, interactions>,                   \
-                  details::const_##ITER##_extplus>;
+#define DEFINE_INTEGRATION_METHOD(NAME, SYSTEM, ITER)                                                                  \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME = Simulator<system::SYSTEM<particle<details::normal_type>, interactions>, details::ITER>;               \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME##_Plus =                                                                                                \
+        Simulator<system::SYSTEM<particle<details::precise_type>, interactions>, details::ITER##_plus>;                \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using Const_##NAME =                                                                                               \
+        Simulator<system::SYSTEM<particle<details::normal_type>, interactions>, details::const_##ITER>;                \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using Const_##NAME##_Plus =                                                                                        \
+        Simulator<system::SYSTEM<particle<details::precise_type>, interactions>, details::const_##ITER##_plus>;        \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME##_Ext = Simulator<system::SYSTEM<particle<details::extended_type>, interactions>, details::ITER##_ext>; \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using NAME##_ExtPlus =                                                                                             \
+        Simulator<system::SYSTEM<particle<details::extended_type>, interactions>, details::ITER##_extplus>;            \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using Const_##NAME##_Ext =                                                                                         \
+        Simulator<system::SYSTEM<particle<details::extended_type>, interactions>, details::const_##ITER##_ext>;        \
+                                                                                                                       \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>          \
+    using Const_##NAME##_ExtPlus = Simulator<system::SYSTEM<particle<details::extended_precise_type>, interactions>,   \
+                                             details::const_##ITER##_extplus>;
 
 #define DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(NAME, SYSTEM, ITER)                                                    \
     template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>       \
@@ -286,12 +284,12 @@ namespace space {
                                   details::ITER##_plus>;
 
         /*template <typename force = DefaultForce, template <typename> typename particle = DefaultParticles>
-        using AR_ABITS = Simulator<particle_system::RegularizedSystem<particle<details::any_bits_type>, force>,
+        using AR_ABITS = Simulator<system::RegularizedSystem<particle<details::any_bits_type>, force>,
                                    details::ABits>;
 
         template <typename force = DefaultForce, template <typename> typename particle = DefaultParticles>
         using ABITS =
-            Simulator<particle_system::SimpleSystem<particle<details::any_bits_type>, force>, details::ABits>;*/
+            Simulator<system::SimpleSystem<particle<details::any_bits_type>, force>, details::ABits>;*/
 
         DEFINE_ADAPTIVE_INTEGRATION_METHOD(BS, SimpleSystem, BS)
 
@@ -363,4 +361,4 @@ namespace space {
         mpfr::mpreal::set_default_prec(size_t(mpfr::fabs(mpfr::LOG10(rtol))) * 4 + 32);
 #endif
     }
-}  // namespace space
+}  // namespace hub

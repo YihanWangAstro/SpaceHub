@@ -4,7 +4,7 @@
 
 #include "../dev-tools.hpp"
 
-namespace space::lazy {
+namespace hub::lazy {
 
 #define IS_EXPR(TYPE) IS_BASE_OF(Expr<TYPE>, TYPE)
 
@@ -121,4 +121,4 @@ namespace space::lazy {
     EXPR_CREATE_UNARY_OPERATION(sinh, sinh(unary));
     EXPR_CREATE_UNARY_OPERATION(cosh, cosh(unary));
     EXPR_CREATE_UNARY_OPERATION(tanh, tanh(unary));
-}  // namespace space::lazy
+}  // namespace hub::lazy

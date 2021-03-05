@@ -738,7 +738,7 @@ constexpr auto operator "" _catch_sr( char const* rawChars, std::size_t size ) n
 #define INTERNAL_CATCH_STRINGIZE2(...) #__VA_ARGS__
 #define INTERNAL_CATCH_STRINGIZE_WITHOUT_PARENS(param) INTERNAL_CATCH_STRINGIZE(INTERNAL_CATCH_REMOVE_PARENS(param))
 #else
-// MSVC is adding extra space and needs another indirection to expand INTERNAL_CATCH_NOINTERNAL_CATCH_DEF
+// MSVC is adding extra hub and needs another indirection to expand INTERNAL_CATCH_NOINTERNAL_CATCH_DEF
 #define INTERNAL_CATCH_STRINGIZE2(...) INTERNAL_CATCH_STRINGIZE3(__VA_ARGS__)
 #define INTERNAL_CATCH_STRINGIZE3(...) #__VA_ARGS__
 #define INTERNAL_CATCH_STRINGIZE_WITHOUT_PARENS(param) (INTERNAL_CATCH_STRINGIZE(INTERNAL_CATCH_REMOVE_PARENS(param)) + 1)

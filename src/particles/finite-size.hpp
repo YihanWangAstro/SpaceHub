@@ -27,7 +27,7 @@ License
 #include "../IO.hpp"
 #include "point-particles.hpp"
 
-namespace space::particle_set {
+namespace hub::particles {
 
     template <typename Vec3>
     struct SizeParticle : public PointParticle<Vec3> {
@@ -74,12 +74,12 @@ namespace space::particle_set {
                 : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
         friend std::ostream &operator<<(std::ostream &os, SizeParticle const &particle) {
-            space::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
+            hub::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
             return os;
         }
 
         friend std::istream &operator>>(std::istream &is, SizeParticle &particle) {
-            space::input(is, particle.mass, particle.radius, particle.pos, particle.vel);
+            hub::input(is, particle.mass, particle.radius, particle.pos, particle.vel);
             return is;
         }
 
@@ -96,7 +96,7 @@ namespace space::particle_set {
     /**
      * @brief Finite size particle.
      *
-     * @tparam TypeSystem The type system in spaceHub(space::Types).
+     * @tparam TypeSystem The type system in spaceHub(hub::Types).
      */
     template <typename TypeSystem>
     class SizeParticles {
@@ -175,9 +175,9 @@ namespace space::particle_set {
 
         size_t active_num_{0};
     };
-}  // namespace space::particle_set
+}  // namespace hub::particles
 
-namespace space::particle_set {
+namespace hub::particles {
     /*---------------------------------------------------------------------------*\
         Class SizeParticles Implementation
     \*---------------------------------------------------------------------------*/
@@ -210,18 +210,18 @@ namespace space::particle_set {
 
     template <typename TypeSystem>
     void SizeParticles<TypeSystem>::reserve(size_t new_cap) {
-        space::reserve_all(new_cap, pos_, vel_, mass_, radius_, idn_);
+        hub::reserve_all(new_cap, pos_, vel_, mass_, radius_, idn_);
     }
 
     template <typename TypeSystem>
     void SizeParticles<TypeSystem>::clear() {
-        space::clear_all(pos_, vel_, mass_, radius_, idn_);
+        hub::clear_all(pos_, vel_, mass_, radius_, idn_);
         active_num_ = 0;
     }
 
     template <typename TypeSystem>
     void SizeParticles<TypeSystem>::resize(size_t new_sz) {
-        space::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
+        hub::resize_all(new_sz, pos_, vel_, mass_, radius_, idn_);
         active_num_ = new_sz;
     }
 
@@ -244,9 +244,9 @@ namespace space::particle_set {
     std::ostream &operator<<(std::ostream &os, SizeParticles<TypeSystem> const &ps) {
         size_t num = ps.number();
         for (size_t i = 0; i < num; ++i) {
-            space::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.radius(i), ',', ps.pos(i), ',',
-                         ps.vel(i), '\n');
+            hub::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.radius(i), ',', ps.pos(i), ',',
+                       ps.vel(i), '\n');
         }
         return os;
     }
-}  // namespace space::particle_set
+}  // namespace hub::particles

@@ -30,7 +30,7 @@ License
 #include "vector/lazy-vec3.h"
 #include "vector/vector3.hpp"
 
-namespace space {
+namespace hub {
     template <typename T>
     using SSO_vector = llvm::SmallVector<T, 16>;
 
@@ -147,4 +147,4 @@ namespace space {
         }
     }
 
-}  // namespace space
+}  // namespace hub

@@ -5,7 +5,7 @@
 #include <deque>
 #include <mutex>
 
-namespace space::multi_thread {
+namespace hub::multi_thread {
 
     template <typename T>
     class ConcurrentDeque {
@@ -70,4 +70,4 @@ namespace space::multi_thread {
         std::condition_variable cv_;
         std::atomic_bool stop_{false};
     };
-}  // namespace space::multi_thread
+}  // namespace hub::multi_thread

@@ -7,7 +7,7 @@
 #include "lazy_expr.h"
 #include "slice.h"
 
-namespace space::lazy {
+namespace hub::lazy {
 
     template <typename T>
     constexpr bool leq_cache_line(size_t len = 1) {
@@ -169,4 +169,4 @@ namespace space::lazy {
         T data_[Len];
     };
 
-}  // namespace space::lazy
+}  // namespace hub::lazy

@@ -30,7 +30,7 @@ License
 #include <vector>
 
 #include "small-vector.hpp"
-namespace space {
+namespace hub {
 
     /**
      * @brief Print variables to an output stream
@@ -107,7 +107,7 @@ namespace space {
     }
 
     /**
-     * @brief Print space separated value to an ostream.
+     * @brief Print hub separated value to an ostream.
      *
      * @tparam Ostream Type of ostream.
      * @tparam Args Variadic type(any).
@@ -159,4 +159,4 @@ namespace space {
         }
         return os;
     }
-}  // namespace space
+}  // namespace hub

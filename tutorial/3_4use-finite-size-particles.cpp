@@ -1,12 +1,11 @@
 
 #include "../src/spaceHub.hpp"
-using namespace space;
+using namespace hub;
 using namespace unit;
 using namespace callback;
 /*--------------------------------------------------New-----------------------------------------------------------*/
-using Solver =
-    methods::DefaultMethod<DefaultForce, particle_set::SizeParticles>;  // default particle are point particle. check
-                                                                        // available particles at xx
+using Solver = methods::DefaultMethod<DefaultForce, particles::SizeParticles>;  // default particle are point particle.
+                                                                                // check available particles at xx
 /*----------------------------------------------------------------------------------------------------------------*/
 using Particle = Solver::Particle;
 

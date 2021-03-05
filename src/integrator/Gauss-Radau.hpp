@@ -30,7 +30,7 @@ License
 #include "../core-computation.hpp"
 #include "../dev-tools.hpp"
 
-namespace space::integrator {
+namespace hub::integrator {
 
     /*---------------------------------------------------------------------------*\
          Class Radau Declaration
@@ -517,4 +517,4 @@ namespace space::integrator {
         }
         Radau::transform_b2g(b_, g_);
     }
-}  // namespace space::integrator
+}  // namespace hub::integrator

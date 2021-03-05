@@ -26,7 +26,7 @@ License
 
 #include "../spacehub-concepts.hpp"
 
-namespace space::ode_iterator {
+namespace hub::ode {
 
     /*---------------------------------------------------------------------------*\
           Class ConstOdeIterator Declaration
@@ -57,4 +57,4 @@ namespace space::ode_iterator {
         integrator_.integrate(particles, macro_step_size);
         return macro_step_size;
     }
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

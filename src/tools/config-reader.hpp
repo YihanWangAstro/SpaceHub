@@ -33,10 +33,10 @@ License
 #include "../dev-tools.hpp"
 
 /**
- * @namespace space::tools
- * space name for tools
+ * @namespace hub::tools
+ * hub name for tools
  */
-namespace space::tools {
+namespace hub::tools {
 
     /**
      *
@@ -182,4 +182,4 @@ namespace space::tools {
     tools::OptArg __VA_ARGS__;         \
     read_command_line(ARGC, ARGV, __VA_ARGS__);
 
-}  // namespace space::tools
+}  // namespace hub::tools

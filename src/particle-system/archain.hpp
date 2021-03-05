@@ -27,7 +27,7 @@ License
 #include "../type-class.hpp"
 #include "chain.hpp"
 #include "regu-system.hpp"
-namespace space::particle_system {
+namespace hub::system {
 
     /*---------------------------------------------------------------------------*\
         Class ARchainSystem Declaration
@@ -506,4 +506,4 @@ namespace space::particle_system {
         chain_advance(this->vel(), chain_vel(), chain_acc_, phy_time);
         sync_vel_increment(chain_acc_, phy_time);
     }
-}  // namespace space::particle_system
+}  // namespace hub::system

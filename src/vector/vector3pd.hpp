@@ -26,7 +26,7 @@ License
 
 #include "../kahan-number.hpp"
 
-namespace space {
+namespace hub {
     template <>
     struct Vec3<double_k> {
        private:
@@ -157,4 +157,4 @@ namespace space {
         friend Vec3 operator/(double c, Vec3 const &v2) { return Vec3(c / v2.real); }
     };
 
-}  // namespace space
+}  // namespace hub

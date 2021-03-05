@@ -26,7 +26,7 @@ License
 
 #include "../../math.hpp"
 
-namespace space::ode_iterator {
+namespace hub::ode {
     /*---------------------------------------------------------------------------*\
          Class Const step Controller Declaration
     \*---------------------------------------------------------------------------*/
@@ -55,4 +55,4 @@ namespace space::ode_iterator {
 
         inline Scalar next(size_t order, Scalar old_step, Scalar error) { return old_step; };
     };
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

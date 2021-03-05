@@ -26,10 +26,10 @@ License
 
 #include "../spacehub-concepts.hpp"
 /**
- * @namespace space::force
- * Documentation for space
+ * @namespace hub::force
+ * Documentation for hub
  */
-namespace space::force {
+namespace hub::force {
     /*---------------------------------------------------------------------------*\
          Class NewtonianGrav Declaration
     \*---------------------------------------------------------------------------*/
@@ -116,4 +116,4 @@ namespace space::force {
             }
         }
     }
-}  // namespace space::force
+}  // namespace hub::force

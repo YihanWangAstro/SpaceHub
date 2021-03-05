@@ -19,15 +19,15 @@ License
 \*---------------------------------------------------------------------------*/
 #include "../../src/spaceHub.hpp"
 
-using namespace space::unit;
+using namespace hub::unit;
 
 template <typename Solver>
 auto BHB(double e = 0.9) {
     using Particle = typename Solver::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
-    using namespace space::consts;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
+    using namespace hub::consts;
 
     Particle bh1{30_Ms}, bh2{50_Ms};
     auto orbit = EllipOrbit(bh1.mass, bh2.mass, 0.01_AU, e, 0, 0, 0, 0);
@@ -42,7 +42,7 @@ auto BHB(double e = 0.9) {
 template <typename Solver>
 void PN_radiation_test(std::string const &fname, double end_time, double rtol,
                        std::vector<typename Solver::Particle> const &p) {
-    using namespace space;
+    using namespace hub;
     using namespace callback;
     using namespace tools;
 
@@ -75,7 +75,7 @@ void run(std::string const &sim_type, double e) {
 }
 
 int main(int argc, char **argv) {
-    using namespace space;
+    using namespace hub;
     using f = force::Interactions<force::NewtonianGrav, force::PN2p5>;
 
     // using f = force::Interactions<force::NewtonianGrav>;

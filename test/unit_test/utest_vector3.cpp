@@ -23,7 +23,7 @@ License
 #include "../catch.hpp"
 #include "utest.hpp"
 
-using namespace space;
+using namespace hub;
 using Vector = Vec3<utest_scalar>;
 
 TEST_CASE("Vector3", "[default construction]") {

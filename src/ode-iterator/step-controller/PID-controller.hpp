@@ -26,7 +26,7 @@ License
 
 #include "../../math.hpp"
 
-namespace space::ode_iterator {
+namespace hub::ode {
     /*---------------------------------------------------------------------------*\
          Class PIDController Declaration
     \*---------------------------------------------------------------------------*/
@@ -172,4 +172,4 @@ namespace space::ode_iterator {
         }
     }
 
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

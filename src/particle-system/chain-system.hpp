@@ -29,7 +29,7 @@ License
 #include "../core-computation.hpp"
 #include "../type-class.hpp"
 #include "chain.hpp"
-namespace space::particle_system {
+namespace hub::system {
 
     /*---------------------------------------------------------------------------*\
         Class ChainSystem Declaration
@@ -368,4 +368,4 @@ namespace space::particle_system {
             increment_[time_offset()] += phy_time;
         }
     }
-}  // namespace space::particle_system
+}  // namespace hub::system

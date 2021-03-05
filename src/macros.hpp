@@ -25,18 +25,18 @@ License
 #pragma once
 
 /**
- * @namespace space::consts
- * Documentation for space
+ * @namespace hub::consts
+ * Documentation for hub
  */
-namespace space::consts {
+namespace hub::consts {
     constexpr double pi = 3.14159265358979323846;
 }
 
 /**
- * @namespace space::unit
- * Documentation for space
+ * @namespace hub::unit
+ * Documentation for hub
  */
-namespace space::unit {
+namespace hub::unit {
 
 #define MAKE_UNIT(NAME, UNIT)                                                                                 \
     constexpr double NAME = UNIT;                                                                             \
@@ -69,9 +69,9 @@ namespace space::unit {
     MAKE_UNIT(Mj, 317.8_Me)
     MAKE_UNIT(Mmoon, 0.012300_Me)
 
-}  // namespace space::unit
+}  // namespace hub::unit
 
-namespace space::consts {
+namespace hub::consts {
     constexpr double a_jupiter = 5.2044 * unit::AU;
     constexpr double e_jupiter = 0.0489;
     constexpr double LoAN_jupiter = 100.464 * unit::deg;
@@ -89,9 +89,9 @@ namespace space::consts {
     constexpr double LoAN_mercury = 48.331 * unit::deg;
     constexpr double AoP_mercury = 29.124 * unit::deg;
     constexpr double i_mercury = 3.38 * unit::deg;
-}  // namespace space::consts
+}  // namespace hub::consts
 
-namespace space::consts {
+namespace hub::consts {
     constexpr double G = 1;
     constexpr double C = 299792.458 * unit::kms;
-}  // namespace space::consts
+}  // namespace hub::consts

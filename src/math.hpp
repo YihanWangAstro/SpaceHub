@@ -57,10 +57,10 @@ License
 #endif
 
 /**
- * @namespace space::math
+ * @namespace hub::math
  * namespace for math
  */
-namespace space::math {
+namespace hub::math {
     /**
      * @brief SpaceHub min
      *
@@ -146,7 +146,7 @@ namespace space::math {
 
     template <typename Dtype>
     struct epsilon {
-        using value_type = typename space::raw_type<Dtype>::type;
+        using value_type = typename hub::raw_type<Dtype>::type;
         constexpr static value_type value = std::numeric_limits<value_type>::epsilon();
     };
 
@@ -174,7 +174,7 @@ namespace space::math {
 
     template <typename Dtype>
     struct max_value {
-        using value_type = typename space::raw_type<Dtype>::type;
+        using value_type = typename hub::raw_type<Dtype>::type;
         constexpr static value_type value = std::numeric_limits<value_type>::max();
     };
 
@@ -188,7 +188,7 @@ namespace space::math {
 
     template <typename Dtype>
     struct big_value {
-        using value_type = typename space::raw_type<Dtype>::type;
+        using value_type = typename hub::raw_type<Dtype>::type;
         constexpr static value_type value = 0.01 * std::numeric_limits<value_type>::max();
     };
 
@@ -276,4 +276,4 @@ namespace space::math {
         }
         return x;
     }
-}  // namespace space::math
+}  // namespace hub::math

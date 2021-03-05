@@ -32,10 +32,10 @@ License
 #include "multi-thread/multi-thread.hpp"
 
 /**
- * @namespace space::random
- * Documentation for space
+ * @namespace hub::random
+ * Documentation for hub
  */
-namespace space::random {
+namespace hub::random {
 
     /**
      * @brief Uniform distributed random number generator
@@ -185,4 +185,4 @@ namespace space::random {
         std::function<double()> dist_;
     };
 
-}  // namespace space::random
+}  // namespace hub::random

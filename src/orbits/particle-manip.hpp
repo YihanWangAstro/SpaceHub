@@ -29,7 +29,7 @@ License
 #include "../dev-tools.hpp"
 #include "orbits.hpp"
 
-namespace space::orbit {
+namespace hub::orbit {
     CREATE_MEMBER_CHECK(mass);
     CREATE_MEMBER_CHECK(pos);
     CREATE_MEMBER_CHECK(vel);
@@ -830,4 +830,4 @@ namespace space::orbit {
         return tidal_radius(tidal_factor, cluster1, cluster2, R2);
     }
 
-}  // namespace space::orbit
+}  // namespace hub::orbit

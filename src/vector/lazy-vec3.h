@@ -3,7 +3,7 @@
 
 #include "../lazy-evaluation/lazy_expr.h"
 #include "vector3.hpp"
-namespace space::lazy {
+namespace hub::lazy {
 
     template <typename T>
     class Vec3;
@@ -199,4 +199,4 @@ namespace space::lazy {
         return std::max(max, fabs(v.z));
     }
 
-}  // namespace space::lazy
+}  // namespace hub::lazy

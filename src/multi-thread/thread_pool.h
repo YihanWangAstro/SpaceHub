@@ -9,7 +9,7 @@
 #include <thread>
 #include <vector>
 
-namespace space::multi_thread {
+namespace hub::multi_thread {
     /*---------------------------------------------------------------------------*\
          Class ThreadPool Declaration
     \*---------------------------------------------------------------------------*/
@@ -93,4 +93,4 @@ namespace space::multi_thread {
         cv_.notify_one();
         return result;
     }
-}  // namespace space::multi_thread
+}  // namespace hub::multi_thread

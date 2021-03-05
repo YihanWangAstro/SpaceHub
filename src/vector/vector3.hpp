@@ -29,7 +29,7 @@ License
 
 #include "../dev-tools.hpp"
 #include "lazy-vec3.h"
-namespace space {
+namespace hub {
 
     /**
      * Generic 3-d vector (x,y,z) with Scalar x, y, z.
@@ -305,7 +305,7 @@ namespace space {
      * Alias for bool 3-d vector
      */
     using vec3b = Vec3<bool>;
-}  // namespace space
+}  // namespace hub
 
 //#include "vector3d.hpp"   //Specialization of Vec3<double> with AVX;
 //#include "vector3pd.hpp"  //Specialization of Vec3<double_k> ;

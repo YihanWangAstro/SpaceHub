@@ -1,13 +1,13 @@
 
 #include "../src/spaceHub.hpp"
-using namespace space;
+using namespace hub;
 using namespace unit;
 using namespace callback;
 
 /*--------------------------------------------------New-----------------------------------------------------------*/
 template <typename SolverType>
 void run_simulation(std::string const& method_name) {
-    using Particle = typename SolverType::Particle;//get particle type from the solver 
+    using Particle = typename SolverType::Particle;  // get particle type from the solver
 
     Particle p1{1_Ms};
     Particle p2{1_Ms};
@@ -27,7 +27,7 @@ void run_simulation(std::string const& method_name) {
 
     SolverType solver{0, p1, p2, p3};
 
-    typename SolverType::RunArgs args; //get run argument type from the solver 
+    typename SolverType::RunArgs args;  // get run argument type from the solver
 
     args.add_stop_condition(1000_year);
 

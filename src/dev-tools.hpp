@@ -30,7 +30,7 @@ License
 
 #include "IO.hpp"
 
-namespace space {
+namespace hub {
 
     template <typename STL, typename... Args>
     void emplace_back(STL &container, Args &&...args) {
@@ -64,15 +64,15 @@ namespace space {
 
 #define spacehub_abort(...)                                                                            \
     do {                                                                                               \
-        space::print(std::cout, __FILE__, ": Line :", __LINE__, " within \"", __FUNCTION__, "\"\r\n"); \
-        space::print(std::cout, __VA_ARGS__);                                                          \
+        hub::print(std::cout, __FILE__, ": Line :", __LINE__, " within \"", __FUNCTION__, "\"\r\n"); \
+        hub::print(std::cout, __VA_ARGS__);                                                          \
         exit(0);                                                                                       \
     } while (0)
 
     /*template <typename... Args>
     [[noreturn]] void spacehub_abort(Args &&...args) {
-        space::print(std::cout, __FILE__, ": Line :", __LINE__, "\r\n");
-        space::print(std::cout, std::forward<Args>(args)...);
+        hub::print(std::cout, __FILE__, ": Line :", __LINE__, "\r\n");
+        hub::print(std::cout, std::forward<Args>(args)...);
         exit(0);
     }*/
 
@@ -111,7 +111,7 @@ namespace space {
 
 /** @brief Macros used to output debug info.  */
 #ifdef DEBUG
-#define DEBUG_MSG(EXPR, ...) (EXPR ? space::print(std::cout, __VA_ARGS__) : void(0))
+#define DEBUG_MSG(EXPR, ...) (EXPR ? hub::print(std::cout, __VA_ARGS__) : void(0))
 #else
 #define DEBUG_MSG(EXPR, ...)
 #endif
@@ -315,7 +315,7 @@ namespace space {
 #define CHECK_TYPE(T1, T2)                                                     \
     static_assert(std::is_same<typename T1::Types, typename T2::Types>::value, \
                   "Template argument '" #T1 "' and '" #T2                      \
-                  "' must have the same type of the type member(space::ProtoType<...>)");
+                  "' must have the same type of the type member(hub::ProtoType<...>)");
 
 #define CHECK_POD(DATA) static_assert(std::is_trivial<DATA>::value, "Template arg '" #DATA "' must be a POD type!");
 
@@ -365,4 +365,4 @@ namespace space {
     }                                                                                                          \
     void operator delete(void *ptr) { ::operator delete(*(reinterpret_cast<void **>(ptr) - 1)); }
 
-}  // namespace space
+}  // namespace hub

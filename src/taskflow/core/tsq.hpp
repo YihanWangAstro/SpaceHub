@@ -106,7 +106,7 @@ class TaskQueue {
 
     Only the owner thread can insert an item to the queue. 
     The operation can trigger the queue to resize its capacity 
-    if more space is required.
+    if more hub is required.
 
     @tparam O data type 
 

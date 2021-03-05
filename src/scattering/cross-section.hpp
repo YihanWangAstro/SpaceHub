@@ -30,10 +30,10 @@ License
 #include "../vector/vector3.hpp"
 
 /**
- * @namespace space::scattering
+ * @namespace hub::scattering
  * namespace for scattering
  */
-namespace space::scattering {
+namespace hub::scattering {
 
     /**
      * @brief Calculate the critical velocity of the scattering between two clusters(can be single particle).
@@ -163,4 +163,4 @@ namespace space::scattering {
         return consts::G * m1 * m2 / (m_evn * sigma * sigma);
     }
 
-}  // namespace space::scattering
+}  // namespace hub::scattering

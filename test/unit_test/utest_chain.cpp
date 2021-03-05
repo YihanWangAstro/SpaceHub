@@ -26,7 +26,7 @@ License
 #include "utest.hpp"
 // TODO test update_chain()
 TEST_CASE("particle system chain xy") {
-    using type_sys = space::Types<utest_scalar>;
+    using type_sys = hub::Types<utest_scalar>;
     using VectorArray = typename type_sys::VectorArray;
     using IdxArray = typename type_sys::IdxArray;
     using ScalarArray = typename type_sys::ScalarArray;
@@ -41,20 +41,20 @@ TEST_CASE("particle system chain xy") {
     pos.emplace_back(5, -1, 0);
     pos.emplace_back(-1, -4, 0);
 
-    space::calc::move_to_com(mass, pos);
+    hub::calc::move_to_com(mass, pos);
 
     SECTION("create index") {
         IdxArray ida;
-        space::Chain::calc_chain_index(pos, ida);
+        hub::Chain::calc_chain_index(pos, ida);
         IdxArray expected{4, 5, 0, 1, 2, 3};
         REQUIRE(expected == ida);
     }
 
     SECTION("calc chain") {
         IdxArray idx;
-        space::Chain::calc_chain_index(pos, idx);
+        hub::Chain::calc_chain_index(pos, idx);
         VectorArray chain_pos{pos.size()};
-        space::Chain::calc_chain(pos, chain_pos, idx);
+        hub::Chain::calc_chain(pos, chain_pos, idx);
         REQUIRE(chain_pos[0].x == APPROX(-6));
         REQUIRE(chain_pos[0].y == APPROX(-3));
         REQUIRE(chain_pos[0].z == APPROX(0));
@@ -75,7 +75,7 @@ TEST_CASE("particle system chain xy") {
         REQUIRE(chain_pos[4].y == APPROX(0));
         REQUIRE(chain_pos[4].z == APPROX(0));
 
-        if constexpr (space::Chain::bijective_transfer) {
+        if constexpr (hub::Chain::bijective_transfer) {
             REQUIRE(chain_pos[5].x == APPROX(pos[idx[0]].x));
             REQUIRE(chain_pos[5].y == APPROX(pos[idx[0]].y));
             REQUIRE(chain_pos[5].z == APPROX(pos[idx[0]].z));
@@ -88,12 +88,12 @@ TEST_CASE("particle system chain xy") {
 
     SECTION("calc cartesian") {
         IdxArray idx;
-        space::Chain::calc_chain_index(pos, idx);
+        hub::Chain::calc_chain_index(pos, idx);
         VectorArray chain_pos{pos.size()};
-        space::Chain::calc_chain(pos, chain_pos, idx);
+        hub::Chain::calc_chain(pos, chain_pos, idx);
 
         VectorArray cartesian_pos{pos.size()};
-        space::Chain::calc_cartesian(mass, chain_pos, cartesian_pos, idx);
+        hub::Chain::calc_cartesian(mass, chain_pos, cartesian_pos, idx);
 
         for (size_t i = 0; i < pos.size(); ++i) {
             REQUIRE(pos[i].x == APPROX(cartesian_pos[i].x));
@@ -104,7 +104,7 @@ TEST_CASE("particle system chain xy") {
 }
 
 TEST_CASE("particle system chain yz") {
-    using type_sys = space::Types<utest_scalar>;
+    using type_sys = hub::Types<utest_scalar>;
     using VectorArray = typename type_sys::VectorArray;
     using IdxArray = typename type_sys::IdxArray;
     using ScalarArray = typename type_sys::ScalarArray;
@@ -119,20 +119,20 @@ TEST_CASE("particle system chain yz") {
     pos.emplace_back(0, 5, -1);
     pos.emplace_back(0, -1, -4);
 
-    space::calc::move_to_com(mass, pos);
+    hub::calc::move_to_com(mass, pos);
 
     SECTION("create index") {
         IdxArray idx;
-        space::Chain::calc_chain_index(pos, idx);
+        hub::Chain::calc_chain_index(pos, idx);
         IdxArray expected{4, 5, 0, 1, 2, 3};
         REQUIRE(expected == idx);
     }
 
     SECTION("calc chain") {
         IdxArray idx;
-        space::Chain::calc_chain_index(pos, idx);
+        hub::Chain::calc_chain_index(pos, idx);
         VectorArray chain_pos{pos.size()};
-        space::Chain::calc_chain(pos, chain_pos, idx);
+        hub::Chain::calc_chain(pos, chain_pos, idx);
         REQUIRE(chain_pos[0].y == APPROX(-6));
         REQUIRE(chain_pos[0].z == APPROX(-3));
         REQUIRE(chain_pos[0].x == APPROX(0));
@@ -153,7 +153,7 @@ TEST_CASE("particle system chain yz") {
         REQUIRE(chain_pos[4].z == APPROX(0));
         REQUIRE(chain_pos[4].x == APPROX(0));
 
-        if constexpr (space::Chain::bijective_transfer) {
+        if constexpr (hub::Chain::bijective_transfer) {
             REQUIRE(chain_pos[5].x == APPROX(pos[idx[0]].x));
             REQUIRE(chain_pos[5].y == APPROX(pos[idx[0]].y));
             REQUIRE(chain_pos[5].z == APPROX(pos[idx[0]].z));
@@ -166,12 +166,12 @@ TEST_CASE("particle system chain yz") {
 
     SECTION("calc cartesian") {
         IdxArray idx;
-        space::Chain::calc_chain_index(pos, idx);
+        hub::Chain::calc_chain_index(pos, idx);
         VectorArray chain_pos{pos.size()};
-        space::Chain::calc_chain(pos, chain_pos, idx);
+        hub::Chain::calc_chain(pos, chain_pos, idx);
 
         VectorArray cartesian_pos{pos.size()};
-        space::Chain::calc_cartesian(mass, chain_pos, cartesian_pos, idx);
+        hub::Chain::calc_cartesian(mass, chain_pos, cartesian_pos, idx);
 
         for (size_t i = 0; i < pos.size(); ++i) {
             REQUIRE(pos[i].x == APPROX(cartesian_pos[i].x));

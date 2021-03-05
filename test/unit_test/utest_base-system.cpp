@@ -22,8 +22,8 @@ License
 #include "../../src/particle-system/base-system.hpp"
 
 TEST_CASE("Base system") {
-    using namespace space;
-    using namespace space::particle_system;
+    using namespace hub;
+    using namespace hub::system;
 
 
 

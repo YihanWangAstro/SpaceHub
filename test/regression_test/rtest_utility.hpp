@@ -31,7 +31,7 @@ tf::Executor test_executor;
 template <typename Solver, typename Pt>
 auto basic_error_test(std::string const &fname, double end_time, double rtol, std::vector<Pt> const &p,
                       bool calc_err = true, bool IO = true, bool output = true) {
-    using namespace space;
+    using namespace hub;
     using namespace callback;
     using Scalar = typename Solver::Scalar;
 
@@ -99,7 +99,7 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
 
 template <typename System>
 void fast_test_methods(std::string const &sys_name, System const &system, double t_end, double rtol = 1e-14) {
-    using namespace space;
+    using namespace hub;
 
     std::cout << "Running fast error test...\n";
     basic_error_test<methods::BS<>>(sys_name + "-BS", t_end, rtol, system);
@@ -141,7 +141,7 @@ auto bench_mark(std::string const &test_name, double end_time, double rtol, std:
 
 template <typename System>
 void bench_mark_methods(std::string const &sys_name, System const &system, double t_end, double rtol = 1e-14) {
-    using namespace space;
+    using namespace hub;
     std::ofstream file{sys_name + "-benchmark.txt", std::ios::out};
 
     std::vector<std::string> names{
@@ -212,7 +212,7 @@ void error_scale(std::string const &system_name, const std::string &method_name,
 template <typename System>
 auto err_scale_methods(std::string const &system_name, System const &system, double t_end, double rtol_start = 5e-16,
                        double rtol_end = 1e-6) {
-    using namespace space;
+    using namespace hub;
 
     error_scale<methods::BS<>>(system_name, "BS", rtol_start, rtol_end, t_end, system);
     error_scale<methods::AR_BS<>>(system_name, "AR", rtol_start, rtol_end, t_end, system);

@@ -6,7 +6,7 @@
 
 #include <memory>
 
-namespace space::octree {
+namespace hub::octree {
 
     template <typename T>
     class Node {
@@ -106,4 +106,4 @@ namespace space::octree {
 
         std::unique_ptr<Node<T>> root{nullptr};
     };
-}  // namespace space::octree
+}  // namespace hub::octree

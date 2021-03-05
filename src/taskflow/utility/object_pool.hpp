@@ -639,7 +639,7 @@ T* ObjectPool<T, S>::animate(ArgsT&&... args) {
     }
   }
   
-  // the superblock must have at least one space
+  // the superblock must have at least one hub
   //assert(s->u < M);
   //printf("%lu %lu %lu\n", h.u, h.a, s->u);
   //assert(h.u < h.a);

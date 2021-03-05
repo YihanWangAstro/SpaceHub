@@ -28,7 +28,7 @@ License
 #include "../integrator/Gauss-Radau.hpp"
 #include "../math.hpp"
 
-namespace space::ode_iterator {
+namespace hub::ode {
     /*---------------------------------------------------------------------------*\
           Class IAS15 Declaration
     \*---------------------------------------------------------------------------*/
@@ -184,4 +184,4 @@ namespace space::ode_iterator {
             return max_diff / (max_scale * step_rtol_);
         }
     }
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

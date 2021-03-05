@@ -6,7 +6,7 @@
 #include "/opt/intel/mkl/include/mkl.h"
 #include "lazy_expr.h"
 
-namespace space {
+namespace hub {
 
     template <typename T, size_t Size>
     struct MKLArray {
@@ -70,4 +70,4 @@ namespace space {
 
     MKL_CREATE_BINARY_OPERATION(operator/, vsDiv, float);
 
-}  // namespace space
+}  // namespace hub

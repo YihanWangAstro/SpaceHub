@@ -30,10 +30,10 @@ License
 #include "../vector/vector3.hpp"
 
 /**
- * @namespace space::scattering
+ * @namespace hub::scattering
  * namespace for scattering
  */
-namespace space::scattering {
+namespace hub::scattering {
 
     template <typename Vector>
     class HierarchicalNode {
@@ -153,4 +153,4 @@ namespace space::scattering {
         return hierarchical_to_string(vec_out);
     }
 
-}  // namespace space::scattering
+}  // namespace hub::scattering

@@ -26,7 +26,7 @@ License
 
 #include <chrono>
 
-namespace space::tools {
+namespace hub::tools {
     /*---------------------------------------------------------------------------*\
           Class Timer Declaration
     \*---------------------------------------------------------------------------*/
@@ -90,4 +90,4 @@ namespace space::tools {
         active_ = false;
         duration_ = 0;
     }
-}  // namespace space::tools
+}  // namespace hub::tools

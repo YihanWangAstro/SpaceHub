@@ -26,7 +26,7 @@ License
 
 #include "../dev-tools.hpp"
 #include "../spacehub-concepts.hpp"
-namespace space::force {
+namespace hub::force {
     class Tidal {
        public:
         constexpr static bool vel_dependent{true};
@@ -107,4 +107,4 @@ namespace space::force {
             }
         }
     }
-}  // namespace space::force
+}  // namespace hub::force

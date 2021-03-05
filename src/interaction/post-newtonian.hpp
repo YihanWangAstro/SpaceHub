@@ -27,7 +27,7 @@ License
 #include "../dev-tools.hpp"
 #include "interaction.hpp"
 
-namespace space::force {
+namespace hub::force {
 
     // pair-wise Post-Newtonian term in Centre of mass reference frame. on page 76. https://arxiv.org/pdf/1310.1528.pdf
 
@@ -348,4 +348,4 @@ namespace space::force {
             }
         }
     }
-}  // namespace space::force
+}  // namespace hub::force

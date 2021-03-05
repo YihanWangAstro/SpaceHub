@@ -32,7 +32,7 @@ License
 #include <type_traits>
 
 #include "type-class.hpp"
-namespace space::concepts {
+namespace hub::concepts {
 
 #define INSTANCE(X) std::declval<X>()
 
@@ -231,7 +231,7 @@ namespace space::concepts {
     // template <typename T>
     // concept Integrator = requires(T i){};
 
-}  // namespace space::concepts
+}  // namespace hub::concepts
 
 #define CONCEPT_PARTICLE concepts::Particle
 #define CONCEPT_PARTICLES concepts::Particles

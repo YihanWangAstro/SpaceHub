@@ -471,8 +471,8 @@ namespace llvm {
         template <typename, unsigned>
         friend struct SmallVectorStorage;
 
-        // Allocate raw space for N elements of type T.  If T has a ctor or dtor, we
-        // don't want it to be automatically run, so we need to represent the space
+        // Allocate raw hub for N elements of type T.  If T has a ctor or dtor, we
+        // don't want it to be automatically run, so we need to represent the hub
         // as something else.  Use an array of char of sufficient alignment.
         using U = AlignedCharArrayUnion<T>;
         U FirstEl;
@@ -601,7 +601,7 @@ namespace llvm {
         }
 
         /// Grow the allocated memory (without initializing new elements), doubling
-        /// the size of the allocated memory. Guarantees space for at least one more
+        /// the size of the allocated memory. Guarantees hub for at least one more
         /// element, or MinSize more elements if specified.
         void grow(size_t MinSize = 0);
 
@@ -641,7 +641,7 @@ namespace llvm {
         // Destroy the original elements.
         destroy_range(this->begin(), this->end());
 
-        // If this wasn't grown from the inline copy, deallocate the old space.
+        // If this wasn't grown from the inline copy, deallocate the old hub.
         if (!this->isSmall()) free(this->begin());
 
         this->setEnd(NewElts + CurSize);
@@ -688,7 +688,7 @@ namespace llvm {
             if (I != E) memcpy(Dest, I, (E - I) * sizeof(T));
         }
 
-        /// Double the size of the allocated memory, guaranteeing space for at
+        /// Double the size of the allocated memory, guaranteeing hub for at
         /// least one more element or MinSize if specified.
         void grow(size_t MinSize = 0) { this->grow_pod(MinSize * sizeof(T), sizeof(T)); }
 
@@ -724,7 +724,7 @@ namespace llvm {
             // Destroy the constructed elements in the vector.
             this->destroy_range(this->begin(), this->end());
 
-            // If this wasn't grown from the inline copy, deallocate the old space.
+            // If this wasn't grown from the inline copy, deallocate the old hub.
             if (!this->isSmall()) free(this->begin());
         }
 
@@ -773,7 +773,7 @@ namespace llvm {
                       typename std::iterator_traits<in_iter>::iterator_category, std::input_iterator_tag>::value>::type>
         void append(in_iter in_start, in_iter in_end) {
             size_type NumInputs = std::distance(in_start, in_end);
-            // Grow allocated space if needed.
+            // Grow allocated hub if needed.
             if (NumInputs > size_type(this->capacity_ptr() - this->end())) this->grow(this->size() + NumInputs);
 
             // Copy the new elements over.
@@ -783,7 +783,7 @@ namespace llvm {
 
         /// Add the specified range to the end of the SmallVector.
         void append(size_type NumInputs, const T &Elt) {
-            // Grow allocated space if needed.
+            // Grow allocated hub if needed.
             if (NumInputs > size_type(this->capacity_ptr() - this->end())) this->grow(this->size() + NumInputs);
 
             // Copy the new elements over.
@@ -919,7 +919,7 @@ namespace llvm {
             assert(I >= this->begin() && "Insertion iterator is out of bounds.");
             assert(I <= this->end() && "Inserting past the end of the vector.");
 
-            // Ensure there is enough space.
+            // Ensure there is enough hub.
             reserve(this->size() + NumToInsert);
 
             // Uninvalidate the iterator.
@@ -927,7 +927,7 @@ namespace llvm {
 
             // If there are more elements between the insertion point and the end of
             // the range than there are being inserted, we can use a simple approach to
-            // insertion.  Since we already reserved space, we know that this won't
+            // insertion.  Since we already reserved hub, we know that this won't
             // reallocate the vector.
             if (size_t(this->end() - I) >= NumToInsert) {
                 T *OldEnd = this->end();
@@ -976,7 +976,7 @@ namespace llvm {
 
             size_t NumToInsert = std::distance(From, To);
 
-            // Ensure there is enough space.
+            // Ensure there is enough hub.
             reserve(this->size() + NumToInsert);
 
             // Uninvalidate the iterator.
@@ -984,7 +984,7 @@ namespace llvm {
 
             // If there are more elements between the insertion point and the end of
             // the range than there are being inserted, we can use a simple approach to
-            // insertion.  Since we already reserved space, we know that this won't
+            // insertion.  Since we already reserved hub, we know that this won't
             // reallocate the vector.
             if (size_t(this->end() - I) >= NumToInsert) {
                 T *OldEnd = this->end();
@@ -1097,7 +1097,7 @@ namespace llvm {
         // Avoid self-assignment.
         if (this == &RHS) return *this;
 
-        // If we already have sufficient space, assign the common elements, then
+        // If we already have sufficient hub, assign the common elements, then
         // destroy any excess.
         size_t RHSSize = RHS.size();
         size_t CurSize = this->size();
@@ -1155,7 +1155,7 @@ namespace llvm {
             return *this;
         }
 
-        // If we already have sufficient space, assign the common elements, then
+        // If we already have sufficient hub, assign the common elements, then
         // destroy any excess.
         size_t RHSSize = RHS.size();
         size_t CurSize = this->size();
@@ -1222,7 +1222,7 @@ namespace llvm {
     ///
     template <typename T, unsigned N>
     class SmallVector : public SmallVectorImpl<T> {
-        /// Inline space for elements which aren't stored in the base class.
+        /// Inline hub for elements which aren't stored in the base class.
         SmallVectorStorage<T, N> Storage;
 
        public:
@@ -1335,7 +1335,7 @@ namespace llvm {
             // Copy the elements over.  No need to run dtors on PODs.
             memcpy(NewElts, this->BeginX, CurSizeBytes);
         } else {
-            // If this wasn't grown from the inline copy, grow the allocated space.
+            // If this wasn't grown from the inline copy, grow the allocated hub.
             NewElts = realloc(this->BeginX, NewCapacityInBytes);
             if (NewElts == nullptr) report_bad_alloc_error("Reallocation of SmallVector element failed.");
         }

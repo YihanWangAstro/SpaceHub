@@ -25,8 +25,8 @@ License
 #include "utest.hpp"
 
 TEST_CASE("point particle") {
-  using namespace space::particle_set;
-  using Type = space::Types<utest_scalar>;
+  using namespace hub::particles;
+  using Type = hub::Types<utest_scalar>;
   using Particles = PointParticles<Type>;
   using Particle = typename Particles::Particle;
 

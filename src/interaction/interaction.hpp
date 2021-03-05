@@ -26,7 +26,7 @@ License
 
 #include "../core-computation.hpp"
 #include "../spacehub-concepts.hpp"
-namespace space::force {
+namespace hub::force {
 
     /*---------------------------------------------------------------------------*\
         Class Interactions Declaration
@@ -266,4 +266,4 @@ namespace space::force {
             ext_vel_dep_acc_.resize(size);
         }
     }
-}  // namespace space::force
+}  // namespace hub::force

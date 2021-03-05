@@ -34,10 +34,10 @@ License
 #include "../dev-tools.hpp"
 
 /**
- * @namespace space::callback
+ * @namespace hub::callback
  * Documentation for callback
  */
-namespace space::callback {
+namespace hub::callback {
 
     /*---------------------------------------------------------------------------*\
      Class TimeSlice Declaration
@@ -411,4 +411,4 @@ namespace space::callback {
         (*wtr.fstream_) << d;
         return wtr;
     }
-}  // namespace space::callback
+}  // namespace hub::callback

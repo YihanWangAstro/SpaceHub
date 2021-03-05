@@ -30,7 +30,7 @@ License
 #include "../interaction/interaction.hpp"
 #include "../spacehub-concepts.hpp"
 #include "../type-class.hpp"
-namespace space::particle_system {
+namespace hub::system {
     /**
      *
      */
@@ -550,4 +550,4 @@ namespace space::particle_system {
         return scale_;
     }
 
-}  // namespace space::particle_system
+}  // namespace hub::system

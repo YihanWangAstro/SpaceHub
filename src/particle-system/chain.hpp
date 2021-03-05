@@ -30,7 +30,7 @@ License
 
 #include "../core-computation.hpp"
 
-namespace space {
+namespace hub {
 
     /*---------------------------------------------------------------------------*\
           Class Chain Declaration
@@ -73,7 +73,7 @@ namespace space {
          * @tparam IdxArray Type of the index array.
          * @param[in] pos Input position in Cartesian coordinates.
          * @param[out] index Output index array.
-         * @note The memory space of the index need to be allocated in advance. The size of pos and index need to be the
+         * @note The memory hub of the index need to be allocated in advance. The size of pos and index need to be the
          * same.
          */
         template <typename VectorArray, typename IdxArray>
@@ -102,7 +102,7 @@ namespace space {
          * @param[in] chain The chain coordinates.
          * @param[out] cartesian The Cartesian coordinates.
          * @param[in] index The chain index array.
-         * @note The memory space of the cartesian need to be allocated in advance. The size of the input parameters
+         * @note The memory hub of the cartesian need to be allocated in advance. The size of the input parameters
          * need to be the same.
          */
         template <typename ScalarArray, typename VectorArray, typename IdxArray>
@@ -352,4 +352,4 @@ namespace space {
             cartesian[index[i]] = cartesian[index[i - 1]] + chain[i - 1];
         }
     }
-}  // namespace space
+}  // namespace hub

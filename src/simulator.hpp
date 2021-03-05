@@ -29,7 +29,7 @@ License
 #include "IO.hpp"
 #include "core-computation.hpp"
 #include "dev-tools.hpp"
-namespace space {
+namespace hub {
 
     /*---------------------------------------------------------------------------*\
         Class RunArgs Declaration
@@ -246,8 +246,8 @@ namespace space {
     /**
      * Wrapper to integrate the particle system and ode-iterator to perform the simulation.
      *
-     * @tparam ParticleSys Any implementation of concept `particle_system::ParticleSystem`.
-     * @tparam OdeIterator Any implementation of concept `ode_iterator::OdeIterator`.
+     * @tparam ParticleSys Any implementation of concept `system::ParticleSystem`.
+     * @tparam OdeIterator Any implementation of concept `ode::OdeIterator`.
      */
     template <typename ParticleSys, typename OdeIterator>
     class Simulator {
@@ -258,7 +258,7 @@ namespace space {
         /**
          * Run arguments that is used to set all arguments needed by Simulator.
          */
-        using RunArgs = space::RunArgs<ParticleSys>;
+        using RunArgs = hub::RunArgs<ParticleSys>;
 
         using ParticleSystem = ParticleSys;
 
@@ -446,14 +446,14 @@ namespace space {
                          calc::calc_fall_free_time(particles_.mass(), particles_.pos());
         }
 
-        Scalar end_time = space::unit::T_hubble;
+        Scalar end_time = hub::unit::T_hubble;
 
         if (run_args.is_end_time_set()) {
             end_time = run_args.end_time;
         }
 
         if (particles_.time() >= end_time) {
-            space::print(std::cout, "Warning: The stop time is '<=' to the start time!");
+            hub::print(std::cout, "Warning: The stop time is '<=' to the start time!");
         }
 
         if constexpr (HAS_METHOD(OdeIterator, set_atol, Scalar)) {
@@ -489,4 +489,4 @@ namespace space {
         particles_.post_iter_process();
     }
 
-}  // namespace space
+}  // namespace hub

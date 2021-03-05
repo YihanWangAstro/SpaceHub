@@ -36,7 +36,7 @@ License
 #include "../taskflow/taskflow.hpp"
 #endif
 
-namespace space::ode_iterator {
+namespace hub::ode {
 
     /*---------------------------------------------------------------------------*\
          Class BulirschStoerConsts Declaration
@@ -258,7 +258,7 @@ namespace space::ode_iterator {
                 ideal_step_size_[k] = iter_h * step_ctrl_.next(result_order, error);
 
                 cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
-                // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
+                // hub::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
                 if (in_converged_window(k)) {
                     if (error <= 1.0) {
                         step_reject_ = false;
@@ -331,7 +331,7 @@ namespace space::ode_iterator {
                 Scalar error = err_checker_.error(input_, extrap_list_[1], extrap_list_[0]);
                 ideal_step_size_[k] = iter_h * step_ctrl_.next(result_order, error);
                 cost_per_len_[k] = consts_.cost(k) / ideal_step_size_[k];
-                // space::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
+                // hub::print_csv(std::cout, k, ideal_rank_, error, ideal_step_size_[k], cost_per_len_[k], '\n');
                 if (in_converged_window(k)) {
                     if (error <= 1.0) {
                         last_error_ = error;
@@ -514,4 +514,4 @@ namespace space::ode_iterator {
         }
     }
 
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

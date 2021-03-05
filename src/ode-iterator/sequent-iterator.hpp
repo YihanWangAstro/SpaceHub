@@ -26,7 +26,7 @@ License
 
 #include "../spacehub-concepts.hpp"
 
-namespace space::ode_iterator {
+namespace hub::ode {
 
     /*---------------------------------------------------------------------------*\
           Class SequentOdeIterator Declaration
@@ -177,4 +177,4 @@ namespace space::ode_iterator {
     void SequentOdeIterator<Integrator, ErrEstimator, StepController>::set_rtol(Scalar rtol) {
         err_checker_.set_rtol(rtol);
     }
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

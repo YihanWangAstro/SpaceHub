@@ -30,7 +30,7 @@ License
 #include "../interaction/interaction.hpp"
 #include "../spacehub-concepts.hpp"
 #include "../type-class.hpp"
-namespace space::particle_system {
+namespace hub::system {
 
     /*---------------------------------------------------------------------------*\
         Class SimpleSystem Declaration
@@ -179,9 +179,9 @@ namespace space::particle_system {
 
         bool sync_increment_{false};
     };
-}  // namespace space::particle_system
+}  // namespace hub::system
 
-namespace space::particle_system {
+namespace hub::system {
     /*---------------------------------------------------------------------------*\
         Class SimpleSystem Implementation
     \*---------------------------------------------------------------------------*/
@@ -358,4 +358,4 @@ namespace space::particle_system {
         return is;
     }
 
-}  // namespace space::particle_system
+}  // namespace hub::system

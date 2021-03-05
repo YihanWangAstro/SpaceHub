@@ -24,7 +24,7 @@ License
  */
 #pragma once
 
-namespace space::ode_iterator {
+namespace hub::ode {
     /*---------------------------------------------------------------------------*\
          Class MaxRatioError Declaration
     \*---------------------------------------------------------------------------*/
@@ -161,4 +161,4 @@ namespace space::ode_iterator {
         }
         return max_diff / max_scale;
     }
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

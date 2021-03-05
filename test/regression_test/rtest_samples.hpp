@@ -24,10 +24,10 @@ License
 #include "../../src/spaceHub.hpp"
 
 auto two_body(double e = 0) {
-    using Particle = typename space::methods::DefaultMethod<>::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
+    using Particle = typename hub::methods::DefaultMethod<>::Particle;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
 
     Particle sun{1_Ms}, earth{1_Me};
     auto orbit = EllipOrbit(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);
@@ -40,10 +40,10 @@ auto two_body(double e = 0) {
 }
 
 auto outer_solar() {
-    using Particle = typename space::methods::DefaultMethod<>::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
+    using Particle = typename hub::methods::DefaultMethod<>::Particle;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
 
     Particle sun{1.00000597682,        -4.06428567034226e-3, -6.08813756435987e-3, -1.66162304225834e-6,
                  +6.69048890636161e-6, -6.33922479583593e-6, -3.13202145590767e-9};
@@ -64,10 +64,10 @@ auto outer_solar() {
 }
 
 auto earth_system() {
-    using Particle = typename space::methods::DefaultMethod<>::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
+    using Particle = typename hub::methods::DefaultMethod<>::Particle;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
 
     Particle sun{1_Ms}, earth{1_Me}, moon{1_Mmoon};
 
@@ -85,10 +85,10 @@ auto earth_system() {
 }
 
 auto harmonic_system(size_t N) {
-    using Particle = typename space::methods::DefaultMethod<>::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
+    using Particle = typename hub::methods::DefaultMethod<>::Particle;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
 
     Particle sun{1_Ms};
     std::vector<Particle> particles;
@@ -110,10 +110,10 @@ auto harmonic_system(size_t N) {
 }
 
 auto kozai() {
-    using Particle = typename space::methods::DefaultMethod<>::Particle;
-    using namespace space;
-    using namespace space::unit;
-    using namespace space::orbit;
+    using Particle = typename hub::methods::DefaultMethod<>::Particle;
+    using namespace hub;
+    using namespace hub::unit;
+    using namespace hub::orbit;
 
     Particle m1{1_Ms}, m2{0.5_Ms}, m3{1_Ms};
 

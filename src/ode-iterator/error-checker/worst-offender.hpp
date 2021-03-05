@@ -24,7 +24,7 @@ License
  */
 #pragma once
 
-namespace space::ode_iterator {
+namespace hub::ode {
     /*---------------------------------------------------------------------------*\
          Class WorstOffender Declaration
     \*---------------------------------------------------------------------------*/
@@ -124,4 +124,4 @@ namespace space::ode_iterator {
     }
     template <typename TypeSystem>
     WorstOffender<TypeSystem>::WorstOffender(Scalar atol, Scalar rtol) : atol_{atol}, rtol_{rtol} {}
-}  // namespace space::ode_iterator
+}  // namespace hub::ode

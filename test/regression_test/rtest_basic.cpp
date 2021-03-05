@@ -20,9 +20,9 @@ License
 
 #include "rtest_samples.hpp"
 #include "rtest_utility.hpp"
-using namespace space::unit;
+using namespace hub::unit;
 int main(int argc, char **argv) {
-    using method = space::methods::AR_Chain<>;
+    using method = hub::methods::AR_Chain<>;
 
     double rtol = 1e-14;
 
