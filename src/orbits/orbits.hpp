@@ -161,7 +161,7 @@ namespace space::orbit {
          * @return std::ostream& Output stream.
          */
         friend std::ostream &operator<<(std::ostream &os, KeplerOrbit const &obt) {
-            space::display(os, obt.m1, obt.m2, obt.p, obt.e, obt.i, obt.Omega, obt.omega, obt.nu);
+            space::print_csv(os, obt.m1, obt.m2, obt.p, obt.e, obt.i, obt.Omega, obt.omega, obt.nu);
             return os;
         }
     };
@@ -362,7 +362,7 @@ namespace space::orbit {
     Scalar T_anomaly_to_E_anomaly(Scalar T_anomaly, Scalar e) {
         if (math::iseq(e, 1.0)) {
             return tan(0.5 * T_anomaly);
-        } else if (0 <= e && e < 1) {
+        } else if (0.0 <= e && e < 1) {
             auto cos_T = cos(T_anomaly);
             return acos((e + cos_T) / (1 + e * cos_T));
         } else if (e > 1) {
@@ -428,7 +428,9 @@ namespace space::orbit {
     KeplerOrbit<Real>::KeplerOrbit(Scalar m_1, Scalar m_2, Scalar semi_latus_rectum, Scalar eccentricity,
                                    T1 inclination, T2 longitude_of_ascending_node, T3 argument_of_periapsis,
                                    T4 true_anomaly) {
-        if (semi_latus_rectum <= 0) spacehub_abort("Semi-latus rectum must be positive");
+        if (semi_latus_rectum <= 0) {
+            spacehub_abort("Semi-latus rectum must be positive");
+        }
 
         orbit_type = classify_orbit(eccentricity);
 
@@ -501,7 +503,7 @@ namespace space::orbit {
     template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3>
     HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination,
                            T2 longitude_of_ascending_node, T3 argument_of_periapsis, Scalar r, Hyper in_out)
-        : KeplerOrbit<double>(m_1, m_2, 0.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
+        : KeplerOrbit<double>(m_1, m_2, 1.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
                               0.0) {
         this->orbit_type = OrbitType::Hyperbola;
         Scalar u = space::consts::G * (m_1 + m_2);
@@ -669,6 +671,7 @@ namespace space::orbit {
     template <typename Vector>
     auto orbit_to_coord(KeplerOrbit<typename Vector::value_type> const &args) {
         using Scalar = typename Vector::value_type;
+
         Scalar u = (args.m1 + args.m2) * consts::G;
 
         Scalar sin_nu = sin(args.nu);
@@ -777,6 +780,8 @@ namespace space::orbit {
             return 0.5 * sqrt(a * a * a / u) * M_anomaly;
         } else if (obt_type == OrbitType::Hyperbola) {
             return sqrt(-a * a * a / u) * M_anomaly;
+        } else {
+            return 0.0;
         }
     }
 

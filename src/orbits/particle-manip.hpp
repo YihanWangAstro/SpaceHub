@@ -46,7 +46,7 @@ namespace space::orbit {
      * @return auto The containers contains input particles.
      */
     template <typename Particle, typename... Args>
-    auto cluster(Particle const &ptc1, Particle const &ptc2, Args const &...ptcs) {
+    auto group(Particle const &ptc1, Particle const &ptc2, Args const &...ptcs) {
         static_assert(calc::all(std::is_same_v<Args, Particle>...), "Type of the arguments must be same!");
         return std::array{ptc1, ptc2, ptcs...};
     }

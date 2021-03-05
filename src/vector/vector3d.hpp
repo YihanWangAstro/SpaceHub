@@ -179,7 +179,7 @@ namespace space {
 
         /** @brief Output to ostream */
         friend std::ostream &operator<<(std::ostream &output, const Vec3 &v) {
-            output << v.x << "," << v.y << "," << v.z;
+            print_csv(output, v.x, v.y, v.z);
             return output;
         }
 

@@ -277,7 +277,6 @@ namespace space::ode_iterator {
                     }
                 }
             }
-            particles.read_from_scalar_array(input_);
         }
         spacehub_abort("Reach max iteration loop number!");
     }

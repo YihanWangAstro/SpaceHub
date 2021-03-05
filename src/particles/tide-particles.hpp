@@ -18,7 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file point-particles.hpp
+ * @file tide-particles.hpp
  *
  * Header file.
  */

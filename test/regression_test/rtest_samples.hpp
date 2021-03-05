@@ -24,7 +24,7 @@ License
 #include "../../src/spaceHub.hpp"
 
 auto two_body(double e = 0) {
-    using Particle = typename space::DefaultMethod::Particle;
+    using Particle = typename space::methods::DefaultMethod<>::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -40,7 +40,7 @@ auto two_body(double e = 0) {
 }
 
 auto outer_solar() {
-    using Particle = typename space::DefaultMethod::Particle;
+    using Particle = typename space::methods::DefaultMethod<>::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -64,7 +64,7 @@ auto outer_solar() {
 }
 
 auto earth_system() {
-    using Particle = typename space::DefaultMethod::Particle;
+    using Particle = typename space::methods::DefaultMethod<>::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -85,7 +85,7 @@ auto earth_system() {
 }
 
 auto harmonic_system(size_t N) {
-    using Particle = typename space::DefaultMethod::Particle;
+    using Particle = typename space::methods::DefaultMethod<>::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;
@@ -110,7 +110,7 @@ auto harmonic_system(size_t N) {
 }
 
 auto kozai() {
-    using Particle = typename space::DefaultMethod::Particle;
+    using Particle = typename space::methods::DefaultMethod<>::Particle;
     using namespace space;
     using namespace space::unit;
     using namespace space::orbit;

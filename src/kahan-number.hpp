@@ -403,15 +403,17 @@ namespace space {
     };
 
     // Neumaier<double>;//Kahan<double>;
+    using long_double_k = Kahan<long double>;
     using double_k = Kahan<double>;
     using float_k = Kahan<float>;
 #ifdef MPFR_VERSION_MAJOR
     using mpreal_k = Kahan<mpfr::mpreal>;
 #endif
-
+    using long_double_p = Neumaier<long double>;
     using double_p = Neumaier<double>;
     using float_p = Neumaier<float>;
 
+    using long_double_e = Klein<long double>;
     using double_e = Klein<double>;
     using float_e = Klein<float>;
 }  // namespace space

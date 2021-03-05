@@ -217,13 +217,13 @@ namespace space {
          * Check if the integration duration time is set.
          * @return boolean
          */
-           bool is_end_time_set() const { return is_end_time_set_; }
+        bool is_end_time_set() const { return is_end_time_set_; }
 
         /**
          * Check if any of the stop condition(except the duration time) is set.
          * @return boolean
          */
-           bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
+        bool is_stop_condition_set() const { return stop_cond_.size() > 0; }
 
        private:
         // private members
@@ -261,6 +261,8 @@ namespace space {
          * Run arguments that is used to set all arguments needed by Simulator.
          */
         using RunArgs = space::RunArgs<ParticleSys>;
+
+        using ParticleSystem = ParticleSys;
 
         /**
          * Particle type that is used to create the initial conditions to initialize the Simulator.
@@ -481,7 +483,6 @@ namespace space {
             }
         }
         run_args.stop_operations(particles_, step_size_);
-        // std::cout << "reject rate:" << iterator_.reject_rate() << "\n";
     }
 
     template <typename ParticleSys, typename OdeIterator>

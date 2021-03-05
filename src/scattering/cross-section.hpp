@@ -159,19 +159,6 @@ namespace space::scattering {
         return incident_orbit(M_stay, M_incident, v_inf, b_upper, r_start);
     }
 
-    template <typename Cluster1, typename Cluster2, typename Scalar>
-    auto incident_orbit(Cluster1 const& stay_cluster, Cluster2 const& incident_cluster, Scalar v_inf, Scalar b_max,
-                        Scalar tidal_factor) {
-        auto const M_stay = orbit::M_tot(stay_cluster);
-        auto const M_incident = orbit::M_tot(incident_cluster);
-        auto const R1 = orbit::cluster_size(stay_cluster);
-        auto const R2 = orbit::cluster_size(incident_cluster);
-
-        auto const r_start = orbit::tidal_radius(tidal_factor, M_stay, M_incident, R1, R2);
-
-        return incident_orbit(M_stay, M_incident, v_inf, b_max, r_start);
-    }
-
     template <typename Scalar>
     inline auto hard_radius(Scalar m1, Scalar m2, Scalar m_evn, Scalar sigma) {
         return consts::G * m1 * m2 / (m_evn * sigma * sigma);
