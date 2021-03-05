@@ -6,12 +6,13 @@ using namespace callback;
 using namespace orbit;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
+using Scalar = Solver::Scalar;
 
 int main(int argc, char** argv) {
     size_t n = 5000;
-    double v_inf = 10_kms;
-    double b_max = 20_AU;
-    double r_start = 500_AU;
+    Scalar v_inf = 10_kms;
+    Scalar b_max = 20_AU;
+    Scalar r_start = 500_AU;
 
     std::fstream file("scattering2+2.txt", std::ios::out);
 
@@ -45,7 +46,7 @@ int main(int argc, char** argv) {
 
         Solver::RunArgs args;
 
-        double t_end = 2 * time_to_periapsis(orbit::group(p1, p2), orbit::group(p3, p4));
+        Scalar t_end = 2 * time_to_periapsis(orbit::group(p1, p2), orbit::group(p3, p4));
 
         args.add_stop_condition(t_end);
 

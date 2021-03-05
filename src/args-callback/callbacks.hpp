@@ -31,8 +31,8 @@ License
 #include <iomanip>
 #include <memory>
 
+#include "../core-computation.hpp"
 #include "../dev-tools.hpp"
-
 /**
  * @namespace hub::callback
  * Documentation for callback
@@ -264,6 +264,38 @@ namespace hub::callback {
 
        private:
         std::shared_ptr<std::ofstream> fstream_;
+        bool header{false};
+    };
+
+    /*---------------------------------------------------------------------------*\
+     Class EnergyErrWriter Declaration
+    \*---------------------------------------------------------------------------*/
+    /**
+     * Default error writer for RunArgs. This class serves as a callable callback object
+     * to output data to a file stream.
+     */
+    class EnergyErrWriter {
+       public:
+        /**
+         * Constructor of the error writer.
+         * @param file_name The file name of the output file stream.
+         */
+        explicit EnergyErrWriter(std::string const& file_name);
+
+        /**
+         * Callable interface.
+         * @tparam ParticleSys Any type provides method `time()`
+         * @param[in,out] ptc Input parameter.
+         * @param[in] step_size The step size of the integration.
+         */
+        template <typename ParticleSys>
+        inline void operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size);
+
+        template <typename T>
+        friend EnergyErrWriter& operator<<(EnergyErrWriter& wtr, T const& d);
+
+       private:
+        std::shared_ptr<std::ofstream> fstream_;
     };
 
     /*---------------------------------------------------------------------------*\
@@ -370,7 +402,6 @@ namespace hub::callback {
     auto LogTimeSlice<Operation, Scalar>::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size)
         -> std::enable_if_t<
             std::is_same_v<bool, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, bool> {
-
         auto t = ptc.time();
         if (ptc.time() >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
             opt_time_ += opt_interval_;
@@ -400,14 +431,40 @@ namespace hub::callback {
 
     template <typename ParticleSys>
     void DefaultWriter::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) {
-        if (ptc.time() == 0) [[unlikely]] {
+        if (header) {
+            *fstream_ << ptc << '\n';
+        } else {
             *fstream_ << ptc.column_names() << '\n';
+            header = true;
         }
-        *fstream_ << ptc << std::endl;  //'\n';
     }
 
     template <typename T>
     DefaultWriter& operator<<(DefaultWriter& wtr, const T& d) {
+        (*wtr.fstream_) << d;
+        return wtr;
+    }
+
+    /*---------------------------------------------------------------------------*\
+       Class EnergyErrWriter Definition
+    \*---------------------------------------------------------------------------*/
+    EnergyErrWriter::EnergyErrWriter(std::string const& file_name)
+        : fstream_{std::make_shared<std::ofstream>(file_name)} {
+        if (!fstream_->is_open()) {
+            spacehub_abort("Fail to open the file " + file_name);
+        } else {
+            (*fstream_) << std::scientific << std::setprecision(16);
+        }
+    }
+
+    template <typename ParticleSys>
+    void EnergyErrWriter::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) {
+        static typename ParticleSys::Scalar E0 = calc::calc_total_energy(ptc);
+        *fstream_ << calc::calc_energy_error(ptc, E0) << '\n';
+    }
+
+    template <typename T>
+    EnergyErrWriter& operator<<(EnergyErrWriter& wtr, const T& d) {
         (*wtr.fstream_) << d;
         return wtr;
     }

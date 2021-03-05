@@ -8,12 +8,13 @@ using namespace orbit;  // save writing orbit::
 /*----------------------------------------------------------------------------------------------------------------*/
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
+using Scalar = Solver::Scalar;
 
 int main(int argc, char** argv) {
     size_t n = 5000;
-    double v_inf = 10_kms;
-    double b_max = 10_AU;
-    double r_start = 100_AU;
+    Scalar v_inf = 10_kms;
+    Scalar b_max = 10_AU;
+    Scalar r_start = 100_AU;
 
     std::fstream file("scattering2+1.txt", std::ios::out);
 
@@ -43,7 +44,7 @@ int main(int argc, char** argv) {
 
         /*--------------------------------------------------New-----------------------------------------------------------*/
         // orbit::group(p1, p2) is the scattered object, p3 in the incident object
-        double t_end = 2 * time_to_periapsis(orbit::group(p1, p2), p3);
+        Scalar t_end = 2 * time_to_periapsis(orbit::group(p1, p2), p3);
 
         args.add_stop_condition(t_end);
         /*----------------------------------------------------------------------------------------------------------------*/

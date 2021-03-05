@@ -9,11 +9,12 @@ using namespace callback;
 using namespace orbit;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
+using Scalar = Solver::Scalar;
 
 void job(size_t task_id, size_t scattering_num) {
-    double v_inf = 10_kms;
-    double b_max = 10_AU;
-    double r_start = 100_AU;
+    Scalar v_inf = 10_kms;
+    Scalar b_max = 10_AU;
+    Scalar r_start = 100_AU;
 
     std::fstream file("scattering_par_" + std::to_string(task_id) + ".txt", std::ios::out);
 

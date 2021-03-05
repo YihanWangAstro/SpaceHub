@@ -5,12 +5,14 @@ using namespace unit;
 using namespace callback;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
-
+/*--------------------------------------------------New-----------------------------------------------------------*/
+using Scalar = Solver::Scalar;//using the scalar type of the solver
+ /*----------------------------------------------------------------------------------------------------------------*/
 int main(int argc, char** argv) {
     size_t n = 5000;  // 5000 times scattering
-    double v_inf = 10_kms;
-    double b_max = 10_AU;
-    double r_start = 100_AU;
+    Scalar v_inf = 10_kms;
+    Scalar b_max = 10_AU;
+    Scalar r_start = 100_AU;
 
     std::fstream file("scattering1+1.txt", std::ios::out);
 
@@ -35,7 +37,7 @@ int main(int argc, char** argv) {
         Solver::RunArgs args;
 
         /*--------------------------------------------------New-----------------------------------------------------------*/
-        double t_end = 2 * orbit::time_to_periapsis(p1, p2);  // calculate the time from start position to periapsis
+        Scalar t_end = 2 * orbit::time_to_periapsis(p1, p2);  // calculate the time from start position to periapsis
 
         args.add_stop_condition(t_end);
         /*----------------------------------------------------------------------------------------------------------------*/

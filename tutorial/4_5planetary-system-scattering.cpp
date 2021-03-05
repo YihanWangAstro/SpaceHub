@@ -6,12 +6,13 @@ using namespace callback;
 using namespace orbit;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
+using Scalar = Solver::Scalar;
 
 int main(int argc, char** argv) {
     size_t n = 5000;
-    double v_inf = 10_kms;
-    double b_max = 50_AU;
-    double r_start = 500_AU;
+    Scalar v_inf = 10_kms;
+    Scalar b_max = 50_AU;
+    Scalar r_start = 500_AU;
 
     std::fstream file("scattering-planetary.txt", std::ios::out);
 
@@ -25,7 +26,7 @@ int main(int argc, char** argv) {
 
         /*--------------------------------------------------New-----------------------------------------------------------*/
         // create first planetary system
-        double inclination1 = acos(random::Uniform(-1.0, 1.0));
+        Scalar inclination1 = acos(random::Uniform(-1.0, 1.0));
 
         auto orb1 = EllipOrbit(star1.mass, p1.mass, 1_AU, 0.0, inclination1, isotherm, isotherm, isotherm);
 
@@ -39,7 +40,7 @@ int main(int argc, char** argv) {
         /*----------------------------------------------------------------------------------------------------------------*/
         // create secondary planetary system
 
-        double inclination2 = acos(random::Uniform(-1.0, 1.0));
+        Scalar inclination2 = acos(random::Uniform(-1.0, 1.0));
 
         auto orb3 = EllipOrbit(star2.mass, p3.mass, 1_AU, 0.0, inclination2, isotherm, isotherm, isotherm);
 
@@ -62,7 +63,7 @@ int main(int argc, char** argv) {
 
         Solver::RunArgs args;
 
-        double t_end = 2 * time_to_periapsis(orbit::group(star1, p1, p2), orbit::group(star2, p3, p4));
+        Scalar t_end = 2 * time_to_periapsis(orbit::group(star1, p1, p2), orbit::group(star2, p3, p4));
 
         args.add_stop_condition(t_end);
 
