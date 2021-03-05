@@ -1,7 +1,8 @@
 
 #include "../src/spaceHub.hpp"
+/*--------------------------------------------------New-----------------------------------------------------------*/
 #include "../src/taskflow/taskflow.hpp"
-
+/*----------------------------------------------------------------------------------------------------------------*/
 using namespace space;
 using namespace unit;
 using namespace callback;
@@ -22,9 +23,9 @@ void job(size_t task_id, size_t scattering_num) {
 
         auto orb = scattering::incident_orbit(p1.mass, p2.mass, v_inf, b_max, r_start);
 
-        orbit::move_particles(orb, p2);
+        move_particles(orb, p2);
 
-        orbit::move_to_COM_frame(p1, p2);
+        move_to_COM_frame(p1, p2);
 
         Solver solver{0, p1, p2};
 
@@ -47,6 +48,7 @@ int main(int argc, char** argv) {
     // worry about the cpu resource competition
     size_t job_num = 24;
 
+    /*--------------------------------------------------New-----------------------------------------------------------*/
     tf::Executor executor;  // create multi thread executor; thread number = cpu logical core number
 
     tools::Timer timer;
@@ -56,6 +58,7 @@ int main(int argc, char** argv) {
         executor.silent_async(job, i, n / job_num);
     }
     executor.wait_for_all();  // wait all jobs to be finished
+    /*----------------------------------------------------------------------------------------------------------------*/
     print(std::cout, "finished with ", multi_thread::machine_thread_num, " threads in : ", timer.get_time(), " s\n");
 
     return 0;
