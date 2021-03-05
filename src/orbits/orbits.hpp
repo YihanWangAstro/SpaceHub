@@ -457,14 +457,13 @@ namespace space::orbit {
             Omega = longitude_of_ascending_node;
         }
 
-        if (std::is_same_v<T3, RandomIndicator>) {
+        if constexpr (std::is_same_v<T3, RandomIndicator>) {
             shuffle_omega();
-
         } else {
             omega = argument_of_periapsis;
         }
 
-        if (std::is_same_v<T4, RandomIndicator>) {
+        if constexpr (std::is_same_v<T4, RandomIndicator>) {
             shuffle_nu();
         } else {
             nu = true_anomaly;
