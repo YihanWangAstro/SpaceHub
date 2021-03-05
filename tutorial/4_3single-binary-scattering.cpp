@@ -10,7 +10,7 @@ using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 
 int main(int argc, char** argv) {
-    int n = 5000;  
+    size_t n = 5000;
     double v_inf = 10_kms;
     double b_max = 10_AU;
     double r_start = 100_AU;
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
         // [&] capture all variables in lambda in reference
         args.add_stop_point_operation([&](auto& ptc, auto h) {
             // print the end state of the system into file
-            print(file, binary_orb, ',' orb, ',', ptc, '\n');
+            print(file, binary_orb, ',', orb, ',', ptc, '\n');
         });
 
         solver.run(args);

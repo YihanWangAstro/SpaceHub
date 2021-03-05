@@ -30,7 +30,8 @@ int main(int argc, char** argv) {
     args.add_stop_condition(1000_year);
 
     /*--------------------------------------------------New-----------------------------------------------------------*/
-    // define a lambda that has the same functionality as last example.
+    // the callback function have two input parameters, the first is the evolving particle system, the second is the
+    // step size(no necessary to be dt, in regularized algorithm this is dh) in the next iteration
     auto own_callback = [](auto& particles, auto step_size) {
         // print the info of particle system to stdout
         print(std::cout, "\n", particles, "\n");

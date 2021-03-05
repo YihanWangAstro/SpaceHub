@@ -9,7 +9,7 @@ using namespace orbit;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 
-void job(size_t task_id, int scattering_num) {
+void job(size_t task_id, size_t scattering_num) {
     double v_inf = 10_kms;
     double b_max = 10_AU;
     double r_start = 100_AU;
@@ -42,10 +42,10 @@ void job(size_t task_id, int scattering_num) {
 }
 
 int main(int argc, char** argv) {
-    int n = 500000;  // total scattering number
+    size_t n = 500000;  // total scattering number
     // job number; any number > cpu core number can utilize all CPU powers; jobs will be scheducled by executor so don't
     // worry about the cpu resource competition
-    int job_num = 24;
+    size_t job_num = 24;
 
     tf::Executor executor;  // create multi thread executor; thread number = cpu logical core number
 

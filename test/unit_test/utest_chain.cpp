@@ -28,7 +28,6 @@ License
 TEST_CASE("particle system chain xy") {
     using type_sys = space::Types<utest_scalar>;
     using VectorArray = typename type_sys::VectorArray;
-    using Vector = typename type_sys::Vector;
     using IdxArray = typename type_sys::IdxArray;
     using ScalarArray = typename type_sys::ScalarArray;
 
@@ -107,7 +106,6 @@ TEST_CASE("particle system chain xy") {
 TEST_CASE("particle system chain yz") {
     using type_sys = space::Types<utest_scalar>;
     using VectorArray = typename type_sys::VectorArray;
-    using Vector = typename type_sys::Vector;
     using IdxArray = typename type_sys::IdxArray;
     using ScalarArray = typename type_sys::ScalarArray;
 

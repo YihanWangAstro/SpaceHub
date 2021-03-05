@@ -207,11 +207,9 @@ namespace space {
 
         /**
          * Add the duration time of the integration as a stop condition.
-         * @tparam T Floating point like scalar.
          * @param[in] end Duration time of the integration.
          */
-        template <typename T>
-        void add_stop_condition(T end);
+        void add_stop_condition(Scalar end);
 
         /**
          * Check if the integration duration time is set.
@@ -415,8 +413,7 @@ namespace space {
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    template <typename T>
-    void RunArgs<ParticleSys>::add_stop_condition(T end) {
+    void RunArgs<ParticleSys>::add_stop_condition(Scalar end) {
         end_time = end;
         is_end_time_set_ = true;
     }

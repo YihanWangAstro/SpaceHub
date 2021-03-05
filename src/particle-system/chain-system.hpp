@@ -157,13 +157,13 @@ namespace space::particle_system {
     template <CONCEPT_PARTICLE_CONTAINER STL>
     ChainSystem<Particles, Interactions>::ChainSystem(Scalar time, const STL &particle_set)
         : Particles(time, particle_set),
+          accels_(particle_set.size()),
           chain_pos_(particle_set.size()),
           chain_vel_(particle_set.size()),
-          index_(particle_set.size()),
-          new_index_(particle_set.size()),
-          accels_(particle_set.size()),
           chain_acc_(particle_set.size()),
-          increment_(this->variable_number()) {
+          increment_(this->variable_number()),
+          index_(particle_set.size()),
+          new_index_(particle_set.size()) {
         Chain::calc_chain_index(this->pos(), index_);
         Chain::calc_chain(this->pos(), chain_pos(), index_);
         Chain::calc_chain(this->vel(), chain_vel(), index_);

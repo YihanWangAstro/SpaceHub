@@ -147,9 +147,9 @@ namespace space::ode_iterator {
         /** @brief Extrapolation table.*/
         std::array<ScalarArray, max_depth + 1> extrap_list_;
 
-        ErrEstimator err_checker_;
-
         StepController step_ctrl_;
+
+        ErrEstimator err_checker_;
 
         StateScalarArray input_{0};
 

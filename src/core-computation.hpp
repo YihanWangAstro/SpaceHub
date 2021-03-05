@@ -497,7 +497,6 @@ namespace space::calc {
         typename Particles::Scalar potential_eng{0};
         size_t const size = particles.number();
         auto const &m = particles.mass();
-        auto const &v = particles.vel();
         auto const &p = particles.pos();
 
         if constexpr (HAS_METHOD(Particles, chain_pos) && HAS_METHOD(Particles, index)) {

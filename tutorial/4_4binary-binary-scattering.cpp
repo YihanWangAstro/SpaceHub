@@ -8,7 +8,7 @@ using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 
 int main(int argc, char** argv) {
-    int n = 5000;
+    size_t n = 5000;
     double v_inf = 10_kms;
     double b_max = 20_AU;
     double r_start = 500_AU;
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
         args.add_stop_condition(t_end);
 
         args.add_stop_point_operation(
-            [&](auto& ptc, auto h) { print(file, binary_orb1, ',', binary_orb2, ',' orb, ',', ptc, '\n'); });
+            [&](auto& ptc, auto h) { print(file, binary_orb1, ',', binary_orb2, ',', orb, ',', ptc, '\n'); });
 
         solver.run(args);
     }

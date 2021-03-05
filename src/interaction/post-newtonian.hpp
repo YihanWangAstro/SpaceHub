@@ -298,13 +298,7 @@ namespace space::force {
             auto r = sqrt(r2);
             auto n = -dr / r;
 
-            auto v1s = norm2(v[i]);
-            auto v2s = norm2(v[j]);
-            auto v12 = dot(v[i], v[j]);
             auto dv2 = norm2(dv);
-
-            /*auto nv1 = dot(n, v[i]);
-            auto nv2 = dot(n, v[j]);*/
 
             auto nv = -dot(n, dv);
 

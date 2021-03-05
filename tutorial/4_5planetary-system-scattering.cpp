@@ -8,7 +8,7 @@ using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 
 int main(int argc, char** argv) {
-    int n = 5000;
+    size_t n = 5000;
     double v_inf = 10_kms;
     double b_max = 50_AU;
     double r_start = 500_AU;

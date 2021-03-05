@@ -7,7 +7,7 @@ using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 
 int main(int argc, char** argv) {
-    int n = 5000;  // 5000 times scattering
+    size_t n = 5000;  // 5000 times scattering
     double v_inf = 10_kms;
     double b_max = 10_AU;
     double r_start = 100_AU;

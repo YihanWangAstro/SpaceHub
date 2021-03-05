@@ -111,8 +111,6 @@ namespace space::ode_iterator {
         check_variable_size();
         particles.write_to_scalar_array(input_);
 
-        size_t n_steps = 1;
-
         Scalar h = macro_step_size;
 
         Scalar error = 0;

@@ -173,7 +173,7 @@ namespace space {
     void Chain::update_chain(VectorArray &chain, VectorArray const &cartesian, const IdxArray &idx,
                              const IdxArray &new_idx) {
         using Vector = typename VectorArray::value_type;
-        using Scalar = typename Vector::value_type;
+        // using Scalar = typename Vector::value_type;
 
         size_t size = chain.size();
 
@@ -287,7 +287,7 @@ namespace space {
     template <typename VectorArray>
     auto Chain::get_new_node(VectorArray const &chain, size_t head, size_t tail) -> typename VectorArray::value_type {
         using Vector = typename VectorArray::value_type;
-        using Scalar = typename Vector::value_type;
+        // using Scalar = typename Vector::value_type;
 
         bool sign{true};
 
