@@ -30,7 +30,7 @@ auto two_body(double e = 0) {
     using namespace hub::orbit;
 
     Particle sun{1_Ms}, earth{1_Me};
-    auto orbit = EllipOrbit(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);
+    auto orbit = Elliptic(sun.mass, earth.mass, 1_AU, e, 0, 0, 0, 0);
 
     move_particles(orbit, earth);
 
@@ -71,11 +71,11 @@ auto earth_system() {
 
     Particle sun{1_Ms}, earth{1_Me}, moon{1_Mmoon};
 
-    auto moon_orbit = EllipOrbit(earth.mass, moon.mass, 384748_km, 0.0549006, 5.15_deg, 0, 0, 0);
+    auto moon_orbit = Elliptic(earth.mass, moon.mass, 384748_km, 0.0549006, 5.15_deg, 0, 0, 0);
 
     move_particles(moon_orbit, moon);
 
-    auto orbit = EllipOrbit(sun.mass, earth.mass + moon.mass, 1_AU, 0, 0, 0, 0, 0);
+    auto orbit = Elliptic(sun.mass, earth.mass + moon.mass, 1_AU, 0, 0, 0, 0, 0);
 
     move_particles(orbit, earth, moon);
 
@@ -97,7 +97,7 @@ auto harmonic_system(size_t N) {
 
     for (size_t i = 0; i < N; ++i) {
         Particle test{1_Mmoon};
-        auto orbit = EllipOrbit(sun.mass, test.mass, (i + 1) * 1_AU, 0.0, 0, 0, 0, (i % 2) * consts::pi);
+        auto orbit = Elliptic(sun.mass, test.mass, (i + 1) * 1_AU, 0.0, 0, 0, 0, (i % 2) * consts::pi);
 
         move_particles(orbit, test);
 
@@ -117,13 +117,13 @@ auto kozai() {
 
     Particle m1{1_Ms}, m2{0.5_Ms}, m3{1_Ms};
 
-    auto in_orbit = EllipOrbit(m1.mass, m2.mass, 10_AU, 0.001, 88_deg, 180_deg, 0_deg, 0);
+    auto in_orbit = Elliptic(m1.mass, m2.mass, 10_AU, 0.001, 88_deg, 180_deg, 0_deg, 0);
 
     move_particles(in_orbit, m2);
 
     move_to_COM_frame(m1, m2);
 
-    auto out_orbit = EllipOrbit(m1.mass + m2.mass, m3.mass, 100_AU, 0.5, 9_deg, 0_deg, 0_deg, 0);
+    auto out_orbit = Elliptic(m1.mass + m2.mass, m3.mass, 100_AU, 0.5, 9_deg, 0_deg, 0_deg, 0);
 
     move_particles(out_orbit, m3);
 

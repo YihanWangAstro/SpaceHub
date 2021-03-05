@@ -23,13 +23,13 @@ int main(int argc, char** argv) {
         Particle p4{1_Ms};
 
         /*--------------------------------------------------New-----------------------------------------------------------*/
-        auto binary_orb1 = EllipOrbit(p1.mass, p2.mass, 5_AU, 0.0, isotherm, isotherm, isotherm, isotherm);
+        auto binary_orb1 = Elliptic(p1.mass, p2.mass, 5_AU, 0.0, isotherm, isotherm, isotherm, isotherm);
 
         move_particles(binary_orb1, p2);
 
         move_to_COM_frame(p1, p2);
 
-        auto binary_orb2 = EllipOrbit(p1.mass, p2.mass, 6_AU, 0.0, isotherm, isotherm, isotherm, isotherm);
+        auto binary_orb2 = Elliptic(p1.mass, p2.mass, 6_AU, 0.0, isotherm, isotherm, isotherm, isotherm);
 
         move_particles(binary_orb2, p4);
 

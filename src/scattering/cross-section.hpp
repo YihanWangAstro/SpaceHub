@@ -119,7 +119,7 @@ namespace hub::scattering {
     auto incident_orbit(Scalar m_stay, Scalar m_incident, Scalar v_inf, Scalar b_max, Scalar r) {
         auto b = sqrt(random::Uniform(0, b_max * b_max));
         auto w = random::Uniform(0, 2 * consts::pi);
-        return orbit::HyperOrbit(m_stay, m_incident, v_inf, b, w, 0.0, 0.0, r, orbit::Hyper::in);
+        return orbit::Hyperbolic(m_stay, m_incident, v_inf, b, w, 0.0, 0.0, r, orbit::Hyper::in);
     }
 
     /**

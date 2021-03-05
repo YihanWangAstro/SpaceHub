@@ -13,13 +13,13 @@ int main(int argc, char **argv) {
     Particle p4{0.1 * Me};
     
     /*--------------------------------------------------New-----------------------------------------------------------*/
-    auto orb1 = orbit::EllipOrbit(star.mass, p1.mass, 1 * AU, 0.01, 1 * deg, 2 * deg, 3 * deg, 4 * deg);
+    auto orb1 = orbit::Elliptic(star.mass, p1.mass, 1 * AU, 0.01, 1 * deg, 2 * deg, 3 * deg, 4 * deg);
 
-    auto orb2 = orbit::EllipOrbit(star.mass, p2.mass, 5 * AU, 0.1, 6 * deg, 7 * deg, 8 * deg, 9 * deg);
+    auto orb2 = orbit::Elliptic(star.mass, p2.mass, 5 * AU, 0.1, 6 * deg, 7 * deg, 8 * deg, 9 * deg);
 
-    auto orb3 = orbit::EllipOrbit(star.mass, p3.mass, 20 * AU, 0.04, 8 * deg, 7 * deg, 6 * deg, 5 * deg);
+    auto orb3 = orbit::Elliptic(star.mass, p3.mass, 20 * AU, 0.04, 8 * deg, 7 * deg, 6 * deg, 5 * deg);
 
-    auto orb4 = orbit::EllipOrbit(star.mass, p4.mass, 60 * AU, 0.2, 4 * deg, 3 * deg, 2 * deg, 1 * deg);
+    auto orb4 = orbit::Elliptic(star.mass, p4.mass, 60 * AU, 0.2, 4 * deg, 3 * deg, 2 * deg, 1 * deg);
 
     orbit::move_particles(orb1, p1);
 

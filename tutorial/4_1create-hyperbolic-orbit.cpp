@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
     // longitude_of_ascending_node,  argument_of_periapsis, start drop off distance between primary and secondary
     // object, incident in/fly away out)
     auto incident_orb =
-        orbit::HyperOrbit(p1.mass, p2.mass, 5_kms, 50_AU, 15_deg, 0_deg, 2_deg, 1000_AU, orbit::Hyper::in);
+        orbit::Hyperbolic(p1.mass, p2.mass, 5_kms, 50_AU, 15_deg, 0_deg, 2_deg, 1000_AU, orbit::Hyper::in);
 
     // move particle p2 to the coresponding position/velocity of hyperbolic orbit orb; (p1 stays remain at origin)
     orbit::move_particles(incident_orb, p2);

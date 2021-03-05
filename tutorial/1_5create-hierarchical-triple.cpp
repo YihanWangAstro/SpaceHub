@@ -11,10 +11,10 @@ int main(int argc, char **argv) {
     Particle p3{1_Ms};
 
     /*--------------------------------------------------New-----------------------------------------------------------*/
-    auto inner_orb = orbit::EllipOrbit(p1.mass, p2.mass, 5_AU, 0.001, 1_deg, 2_deg, 3_deg, 4_deg);
+    auto inner_orb = orbit::Elliptic(p1.mass, p2.mass, 5_AU, 0.001, 1_deg, 2_deg, 3_deg, 4_deg);
 
     // use inner binary as the primary object in outer orbit
-    auto outer_orb = orbit::EllipOrbit(p1.mass + p2.mass, p3.mass, 40_AU, 0.1, 6_deg, 7_deg, 8_deg, 9_deg);
+    auto outer_orb = orbit::Elliptic(p1.mass + p2.mass, p3.mass, 40_AU, 0.1, 6_deg, 7_deg, 8_deg, 9_deg);
 
     orbit::move_particles(inner_orb, p2);  // inner binary formed
 

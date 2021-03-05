@@ -30,7 +30,7 @@ auto mercury(double e = 0) {
     using namespace hub::consts;
 
     Particle p1{1_Ms}, p2{1_Ms};
-    auto orbit = EllipOrbit(p1.mass, p2.mass, 0.1_AU, e, 0, 0, 0, 0);
+    auto orbit = Elliptic(p1.mass, p2.mass, 0.1_AU, e, 0, 0, 0, 0);
 
     move_particles(orbit, p2);
 

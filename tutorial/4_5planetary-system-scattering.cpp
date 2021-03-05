@@ -28,9 +28,9 @@ int main(int argc, char** argv) {
         // create first planetary system
         Scalar inclination1 = acos(random::Uniform(-1.0, 1.0));
 
-        auto orb1 = EllipOrbit(star1.mass, p1.mass, 1_AU, 0.0, inclination1, isotherm, isotherm, isotherm);
+        auto orb1 = Elliptic(star1.mass, p1.mass, 1_AU, 0.0, inclination1, isotherm, isotherm, isotherm);
 
-        auto orb2 = EllipOrbit(star1.mass, p2.mass, 5_AU, 0.0, inclination1, isotherm, isotherm, isotherm);
+        auto orb2 = Elliptic(star1.mass, p2.mass, 5_AU, 0.0, inclination1, isotherm, isotherm, isotherm);
 
         move_particles(orb1, p1);
 
@@ -42,9 +42,9 @@ int main(int argc, char** argv) {
 
         Scalar inclination2 = acos(random::Uniform(-1.0, 1.0));
 
-        auto orb3 = EllipOrbit(star2.mass, p3.mass, 1_AU, 0.0, inclination2, isotherm, isotherm, isotherm);
+        auto orb3 = Elliptic(star2.mass, p3.mass, 1_AU, 0.0, inclination2, isotherm, isotherm, isotherm);
 
-        auto orb4 = EllipOrbit(star2.mass, p4.mass, 5_AU, 0.0, inclination2, isotherm, isotherm, isotherm);
+        auto orb4 = Elliptic(star2.mass, p4.mass, 5_AU, 0.0, inclination2, isotherm, isotherm, isotherm);
 
         move_particles(orb3, p3);
 

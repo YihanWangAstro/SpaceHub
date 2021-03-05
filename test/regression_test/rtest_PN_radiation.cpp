@@ -30,7 +30,7 @@ auto BHB(double e = 0.9) {
     using namespace hub::consts;
 
     Particle bh1{30_Ms}, bh2{50_Ms};
-    auto orbit = EllipOrbit(bh1.mass, bh2.mass, 0.01_AU, e, 0, 0, 0, 0);
+    auto orbit = Elliptic(bh1.mass, bh2.mass, 0.01_AU, e, 0, 0, 0, 0);
 
     move_particles(orbit, bh2);
 

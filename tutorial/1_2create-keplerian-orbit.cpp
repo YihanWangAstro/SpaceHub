@@ -11,8 +11,8 @@ int main(int argc, char **argv) {
 
     // create an ellipse orbit with (primary mass, secondary mass, semi-major axis, eccentricity, inclination,
     // longitude_of_ascending_node,  argument_of_periapsis, true_anomaly)
-    auto orb = orbit::EllipOrbit(p1.mass, p2.mass, 1 * unit::AU, 0.2, 0.4 * unit::deg, 25 * unit::deg, 35 * unit::deg,
-                                 134 * unit::deg);
+    auto orb = orbit::Elliptic(p1.mass, p2.mass, 1 * unit::AU, 0.2, 0.4 * unit::deg, 25 * unit::deg, 35 * unit::deg,
+                               134 * unit::deg);
 
     // move particle p2 to the coresponding position/velocity of orbit orb; (p1 stays remain at origin)
     orbit::move_particles(orb, p2);

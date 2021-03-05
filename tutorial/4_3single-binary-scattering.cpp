@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
 
         /*--------------------------------------------------New-----------------------------------------------------------*/
 
-        auto binary_orb = EllipOrbit(p1.mass, p2.mass, 5_AU, 0.0, isotherm, isotherm, isotherm, isotherm);
+        auto binary_orb = Elliptic(p1.mass, p2.mass, 5_AU, 0.0, isotherm, isotherm, isotherm, isotherm);
 
         move_particles(binary_orb, p2);
 

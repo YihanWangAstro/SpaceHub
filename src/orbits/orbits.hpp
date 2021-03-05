@@ -172,7 +172,7 @@ namespace hub::orbit {
     using Kepler = KeplerOrbit<double>;
 
     /*---------------------------------------------------------------------------*\
-         Class HyperOrbit Declaration
+         Class Hyperbolic Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * @brief Enum type that indicates the trajectory is hyperbolically incident in or hyperbolically eject out.
@@ -182,14 +182,14 @@ namespace hub::orbit {
     /**
      * @brief Derived class of Kepler orbit. Hyperbolic orbit.
      */
-    struct HyperOrbit : public KeplerOrbit<double> {
+    struct Hyperbolic : public KeplerOrbit<double> {
        public:
         /**
          * @brief Floating point like type.
          */
         using Scalar = typename KeplerOrbit<double>::Scalar;
 
-        SPACEHUB_MAKE_CONSTRUCTORS(HyperOrbit, delete, default, default, default, default);
+        SPACEHUB_MAKE_CONSTRUCTORS(Hyperbolic, delete, default, default, default, default);
 
         /**
          * @brief Construct a new Hyper Orbit object from scattering parameter b:impact parameter, v_inf:velocity at
@@ -206,7 +206,7 @@ namespace hub::orbit {
          * @param[in]  in_out  Indicator of incident in or ejected out
          */
         template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3>
-        HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination, T2 longitude_of_ascending_node,
+        Hyperbolic(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination, T2 longitude_of_ascending_node,
                    T3 argument_of_periapsis, Scalar r, Hyper in_out = Hyper::in);
 
         /**
@@ -216,19 +216,19 @@ namespace hub::orbit {
     };
 
     /*---------------------------------------------------------------------------*\
-         Class EllipOrbit Declaration
+         Class Elliptic Declaration
     \*---------------------------------------------------------------------------*/
     /**
      * @brief Derived class of Kepler orbit. Elliptical orbit.
      */
-    struct EllipOrbit : public KeplerOrbit<double> {
+    struct Elliptic : public KeplerOrbit<double> {
        public:
         /**
          * @brief Floating point like type.
          */
         using Scalar = typename KeplerOrbit<double>::Scalar;
 
-        SPACEHUB_MAKE_CONSTRUCTORS(EllipOrbit, delete, default, default, default, default);
+        SPACEHUB_MAKE_CONSTRUCTORS(Elliptic, delete, default, default, default, default);
 
         /**
          * @brief Construct a new Elliptical Orbit object from orbital parameters.
@@ -243,8 +243,8 @@ namespace hub::orbit {
          * @param[in] true_anomaly True anomaly.
          */
         template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
-        EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
-                   T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly);
+        Elliptic(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
+                 T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly);
 
         /**
          * @brief Semi-major axis.
@@ -497,10 +497,10 @@ namespace hub::orbit {
     }
 
     /*---------------------------------------------------------------------------*\
-         Class HyperOrbit Implementation
+         Class Hyperbolic Implementation
     \*---------------------------------------------------------------------------*/
     template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3>
-    HyperOrbit::HyperOrbit(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination,
+    Hyperbolic::Hyperbolic(Scalar m_1, Scalar m_2, Scalar v_inf, Scalar b, T1 inclination,
                            T2 longitude_of_ascending_node, T3 argument_of_periapsis, Scalar r, Hyper in_out)
         : KeplerOrbit<double>(m_1, m_2, 1.0, 0.0, inclination, longitude_of_ascending_node, argument_of_periapsis,
                               0.0) {
@@ -517,11 +517,11 @@ namespace hub::orbit {
     }
 
     /*---------------------------------------------------------------------------*\
-         Class EllipOrbit Implementation
+         Class Elliptic Implementation
     \*---------------------------------------------------------------------------*/
     template <CONCEPT_ANGLE T1, CONCEPT_ANGLE T2, CONCEPT_ANGLE T3, CONCEPT_ANGLE T4>
-    EllipOrbit::EllipOrbit(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
-                           T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly)
+    Elliptic::Elliptic(Scalar m_1, Scalar m_2, Scalar semi_major_axis, Scalar eccentricity, T1 inclination,
+                       T2 longitude_of_ascending_node, T3 argument_of_periapsis, T4 true_anomaly)
         : KeplerOrbit<double>(m_1, m_2, semi_major_axis * (1 - eccentricity * eccentricity), eccentricity, inclination,
                               longitude_of_ascending_node, argument_of_periapsis, true_anomaly) {
         if (this->orbit_type != OrbitType::Ellipse) {
