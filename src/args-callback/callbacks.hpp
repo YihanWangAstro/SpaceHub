@@ -460,7 +460,7 @@ namespace hub::callback {
     template <typename ParticleSys>
     void EnergyErrWriter::operator()(ParticleSys& ptc, typename ParticleSys::Scalar step_size) {
         static typename ParticleSys::Scalar E0 = calc::calc_total_energy(ptc);
-        *fstream_ << calc::calc_energy_error(ptc, E0) << '\n';
+        *fstream_ << ptc.time() << ',' << calc::calc_energy_error(ptc, E0) << '\n';
     }
 
     template <typename T>

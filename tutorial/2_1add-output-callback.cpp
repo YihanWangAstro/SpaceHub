@@ -32,6 +32,10 @@ int main(int argc, char **argv) {
     // add an operation after each step. The operation is a default output writer that writes the info of particles to a
     // file 'hierarchical.txt'.
     args.add_operation(callback::DefaultWriter("hierarchical.txt"));
+
+    // add an operation after each step. The operation is a default relative energy error writer that writes the
+    // relative energy error of the integration to file 'hierarchical.err'.
+    args.add_operation(callback::EnergyErrWriter("hierarchical.err"));
     /*----------------------------------------------------------------------------------------------------------------*/
 
     solver.run(args);
