@@ -456,6 +456,11 @@ namespace hub {
             hub::print(std::cout, "Warning: The stop time is '<=' to the start time!");
         }
 
+        if (particles_.step_scale() == 0.0) {
+            hub::print(std::cout, "regularization function === 0. Use other method instead\n");
+            return;
+        }
+
         if constexpr (HAS_METHOD(OdeIterator, set_atol, Scalar)) {
             iterator_.set_atol(run_args.atol);
         }
