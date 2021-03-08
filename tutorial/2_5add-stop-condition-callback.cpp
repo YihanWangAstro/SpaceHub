@@ -53,10 +53,10 @@ int main(int argc, char** argv) {
     };
 
     // distance check in each step, otherwise we may miss it.
-    args.add_stop_condition(distance_check);  // add function in line 16.
+    args.add_stop_condition(distance_check);  // add callback.
 
     // time check may not be that strict, heck it every 1000 steps.
-    args.add_stop_condition(StepSlice(stop_callback, 1000));  // add lambda in line 51.
+    args.add_stop_condition(StepSlice(stop_callback, 1000));  // add callback.
 
     // now we have three stop condition: 1. time upper limit 1000 year; 2. distance check between particle 0(p1) and
     // 1(p2); 3. t > 500 years(so condition 1 will never be triggered);
