@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     Particle p1{1 * unit::Ms};  // 1 solar mass particle rest at origin(x=y=z=vx=vy=vz=default 0)
     Particle p2{1 * unit::Me};  // 1 earth mass particle rest at origin
 
-    // create an ellipse orbit with (primary mass, secondary mass, semi-major axis, eccentricity, inclination,
+    // create an elliptic orbit with (primary mass, secondary mass, semi-major axis, eccentricity, inclination,
     // longitude_of_ascending_node,  argument_of_periapsis, true_anomaly)
     auto orb = orbit::Elliptic(p1.mass, p2.mass, 1 * unit::AU, 0.2, 0.4 * unit::deg, 25 * unit::deg, 35 * unit::deg,
                                134 * unit::deg);

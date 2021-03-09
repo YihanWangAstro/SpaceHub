@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 
         args.add_stop_condition(t_end);
         /*----------------------------------------------------------------------------------------------------------------*/
-        // [&] capture all variables in lambda in reference
+        // [&] capture all variables in lambda by reference
         args.add_stop_point_operation([&](auto& ptc, auto h) {
             // print the end state of the system into file
             print(file, binary_orb, ',', orb, ',', ptc, '\n');

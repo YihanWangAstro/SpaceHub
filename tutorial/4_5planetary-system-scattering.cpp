@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
         Particle p4{1_Me};
 
         /*--------------------------------------------------New-----------------------------------------------------------*/
-        // create first planetary system
+        // create first planetary system. coplanar orbits, thus inclinations of planets are the same
         Scalar inclination1 = acos(random::Uniform(-1.0, 1.0));
 
         auto orb1 = Elliptic(star1.mass, p1.mass, 1_AU, 0.0, inclination1, isotherm, isotherm, isotherm);
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
         // create incident orbit
         auto orb = scattering::incident_orbit(M_tot(star1, p1, p2), M_tot(star2, p3, p4), v_inf, b_max, r_start);
 
-        move_particles(orb, star2, p3, p4);
+        move_particles(orb, star2, p3, p4);  // move the secondary planetary system to +inf with proper v_inf and b
 
         move_to_COM_frame(star1, star2, p1, p2, p3, p4);
         /*----------------------------------------------------------------------------------------------------------------*/

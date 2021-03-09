@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 
     orbit::move_particles(inner_orb, p2);  // inner binary formed
 
-    orbit::move_to_COM_frame(p1, p2);  // this step is critical
+    orbit::move_to_COM_frame(p1, p2);  // this step is critical, move the centre of mass of inner binary to origin
 
     orbit::move_particles(outer_orb, p3);  // outer binary formed thus hierarchical triple formed
 

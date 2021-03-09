@@ -6,13 +6,14 @@ using namespace callback;
 using Solver = methods::DefaultMethod<>;
 using Particle = Solver::Particle;
 /*--------------------------------------------------New-----------------------------------------------------------*/
-using Scalar = Solver::Scalar;//using the scalar type of the solver
- /*----------------------------------------------------------------------------------------------------------------*/
+using Scalar = Solver::Scalar;  // using the scalar type of the solver
+/*----------------------------------------------------------------------------------------------------------------*/
 int main(int argc, char** argv) {
     size_t n = 5000;  // 5000 times scattering
     Scalar v_inf = 10_kms;
     Scalar b_max = 10_AU;
-    Scalar r_start = 100_AU;
+    Scalar r_start = 100_AU;  // drop the incident object 100 AU away from the scattered object. The trajectory from
+                              // +inf to r_start will be calculated analytically
 
     std::fstream file("scattering1+1.txt", std::ios::out);
 
