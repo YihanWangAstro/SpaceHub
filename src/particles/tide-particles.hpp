@@ -136,9 +136,9 @@ namespace hub::particles {
 
         SPACEHUB_ARRAY_ACCESSOR(StateVectorArray, vel, vel_);
 
-        SPACEHUB_ARRAY_ACCESSOR(VectorArray, tide_apsidal_const, k_AM_);
+        SPACEHUB_ARRAY_ACCESSOR(ScalarArray, tide_apsidal_const, k_AM_);
 
-        SPACEHUB_ARRAY_ACCESSOR(VectorArray, tide_lag_time, tau_lag_);
+        SPACEHUB_ARRAY_ACCESSOR(ScalarArray, tide_lag_time, tau_lag_);
 
         void resize(size_t new_sz);
 
@@ -146,9 +146,9 @@ namespace hub::particles {
 
         void emplace_back(Particle const &new_particle);
 
-           size_t number() const;
+        size_t number() const;
 
-           size_t capacity() const;
+        size_t capacity() const;
 
         void clear();
 
@@ -291,8 +291,8 @@ namespace hub::particles {
     std::ostream &operator<<(std::ostream &os, TideParticles<TypeSystem> const &ps) {
         size_t num = ps.number();
         for (size_t i = 0; i < num; ++i) {
-            hub::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.radius(i), ',',
-                       ps.tide_apsidal_const(i), ',', ps.tide_lag_time(i), ',', ps.pos(i), ',', ps.vel(i), '\n');
+            hub::print(os, ps.time(), ',', ps.idn(i), ',', ps.mass(i), ',', ps.radius(i), ',', ps.tide_apsidal_const(i),
+                       ',', ps.tide_lag_time(i), ',', ps.pos(i), ',', ps.vel(i), '\n');
         }
         return os;
     }
