@@ -381,8 +381,13 @@ namespace hub::callback {
     \*---------------------------------------------------------------------------*/
     template <typename Operation, typename Scalar>
     LogTimeSlice<Operation, Scalar>::LogTimeSlice(const Operation& opt, Scalar start, Scalar end, size_t opt_num)
-        : opt_{opt}, opt_time_{start}, start_time_{start}, end_time_{end}, opt_interval_{log(end - start) / opt_num} {
+        : opt_{opt},
+          opt_time_{start},
+          start_time_{start},
+          end_time_{end},
+          opt_interval_{POW(end - start, 1.0 / opt_num)} {
         assert(end >= start);
+        opt_time_ = start + opt_interval_;
     }
 
     template <typename Operation, typename Scalar>
@@ -392,7 +397,9 @@ namespace hub::callback {
             std::is_same_v<void, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, void> {
         auto t = ptc.time();
         if (t >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
-            opt_time_ = (opt_time_ - start_time_) * opt_interval_ + start_time_;
+            do {
+                opt_time_ = (opt_time_ - start_time_) * opt_interval_ + start_time_;
+            } while (opt_time_ <= t);
             opt_(ptc, step_size);
         }
     }
@@ -404,7 +411,9 @@ namespace hub::callback {
             std::is_same_v<bool, std::result_of_t<Operation(ParticleSys&, typename ParticleSys::Scalar)>>, bool> {
         auto t = ptc.time();
         if (ptc.time() >= static_cast<Scalar>(opt_time_) && t <= end_time_) {
-            opt_time_ += opt_interval_;
+            do {
+                opt_time_ = (opt_time_ - start_time_) * opt_interval_ + start_time_;
+            } while (opt_time_ <= t);
             return opt_(ptc, step_size);
         } else {
             return false;
@@ -413,9 +422,9 @@ namespace hub::callback {
 
     template <typename Operation, typename Scalar>
     void LogTimeSlice<Operation, Scalar>::reset_slice_params(Scalar start, Scalar end, size_t opt_num) {
-        opt_time_ = start;
+        opt_interval_ = POW(end - start, 1.0 / opt_num);
+        opt_time_ = start + opt_interval_;
         end_time_ = end;
-        opt_interval_ = (end - start) / opt_num;
     }
 
     /*---------------------------------------------------------------------------*\

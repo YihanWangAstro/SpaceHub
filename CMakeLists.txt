@@ -107,6 +107,8 @@ add_executable(SpaceHub_simple_test ${TMP_HEADER_FILES} test/regression_test/rte
 
 add_executable(SpaceHub_ABITS_test ${TMP_HEADER_FILES} test/regression_test/rtest_AR_ABITS.cpp)
 
+add_executable(SpaceHub_long_test ${TMP_HEADER_FILES} test/regression_test/rtest_solar-long.cpp)
+
 add_executable(SpaceHub_unit_test ${UNIT_TEST} ${TMP_HEADER_FILES})
 
 add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
