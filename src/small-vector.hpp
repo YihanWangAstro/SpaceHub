@@ -120,7 +120,7 @@
  * From llvm/Support/Compiler.h
  */
 #ifndef LLVM_NODISCARD
-#define LLVM_NODISCARD   
+#define LLVM_NODISCARD
 #endif
 
 /// \macro LLVM_GNUC_PREREQ
@@ -145,9 +145,14 @@
 #define LLVM_ALIGNAS(x) alignas(x)
 #endif
 
+#ifdef __has_builtin
 #if __has_builtin(__builtin_expect) || LLVM_GNUC_PREREQ(4, 0, 0)
 #define LLVM_LIKELY(EXPR) __builtin_expect((bool)(EXPR), true)
 #define LLVM_UNLIKELY(EXPR) __builtin_expect((bool)(EXPR), false)
+#else
+#define LLVM_LIKELY(EXPR) (EXPR)
+#define LLVM_UNLIKELY(EXPR) (EXPR)
+#endif
 #else
 #define LLVM_LIKELY(EXPR) (EXPR)
 #define LLVM_UNLIKELY(EXPR) (EXPR)
@@ -544,12 +549,12 @@ namespace llvm {
 
         LLVM_ATTRIBUTE_ALWAYS_INLINE
         reference operator[](size_type idx) {
-            //assert(idx < size());
+            // assert(idx < size());
             return begin()[idx];
         }
         LLVM_ATTRIBUTE_ALWAYS_INLINE
         const_reference operator[](size_type idx) const {
-            //assert(idx < size());
+            // assert(idx < size());
             return begin()[idx];
         }
 
