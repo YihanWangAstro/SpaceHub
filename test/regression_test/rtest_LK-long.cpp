@@ -50,7 +50,7 @@ void job(std::string const &run_name, double rtol, double end_time) {
         },
         0.0, end_time, 100000));
 
-    Solver sim{0, outer_solar()};
+    Solver sim{0, kozai()};
 
     hub::tools::Timer tick;
     tick.start();
@@ -63,12 +63,12 @@ using namespace hub::unit;
 int main(int argc, char **argv) {
     tf::Executor exe;
 
-    double t_end = 11.862_year * 1e9;
-    exe.silent_async(job<hub::methods::BS<>>, "BS", 1e-14, t_end);
-    exe.silent_async(job<hub::methods::AR_Chain<>>, "AR-Chain", 1e-14, t_end);
-    exe.silent_async(job<hub::methods::AR_Chain_Plus<>>, "AR-Chain+", 1e-14, t_end);
-    exe.silent_async(job<hub::methods::AR_Sym6_Plus<>>, "AR-Sym6+", 1e-14, t_end);
-    exe.silent_async(job<hub::methods::AR_Radau_Plus<>>, "AR-Radau+", 1e-14, t_end);
+    double t_end = 1e10_year;
+    exe.silent_async(job<hub::methods::BS<>>, "LK-BS", 1e-14, t_end);
+    exe.silent_async(job<hub::methods::AR_Chain<>>, "LK-AR-Chain", 1e-14, t_end);
+    exe.silent_async(job<hub::methods::AR_Chain_Plus<>>, "LK-AR-Chain+", 1e-14, t_end);
+    exe.silent_async(job<hub::methods::AR_Sym6_Plus<>>, "LK-AR-Sym6+", 1e-14, t_end);
+    exe.silent_async(job<hub::methods::AR_Radau_Plus<>>, "LK-AR-Radau+", 1e-14, t_end);
 
     exe.wait_for_all();
     return 0;
