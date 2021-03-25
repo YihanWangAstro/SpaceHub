@@ -443,7 +443,10 @@ namespace hub::callback {
         if (header) {
             *fstream_ << ptc << '\n';
         } else {
-            *fstream_ << ptc.column_names() << '\n';
+            if (fstream_->tellp() == 0) {
+                *fstream_ << ptc.column_names() << '\n';
+            }
+            *fstream_ << ptc << '\n';
             header = true;
         }
     }
