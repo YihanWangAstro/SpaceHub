@@ -29,8 +29,8 @@ License
 tf::Executor test_executor;
 
 template <typename Solver, typename Pt>
-auto basic_error_test(std::string const &fname, double end_time, double rtol, std::vector<Pt> const &p,
-                      bool calc_err = true, bool IO = true, bool output = true) {
+auto basic_error_test(std::string const &fname, typename Solver::Scalar end_time, typename Solver::Scalar rtol,
+                      std::vector<Pt> const &p, bool calc_err = true, bool IO = true, bool output = true) {
     using namespace hub;
     using namespace callback;
     using Scalar = typename Solver::Scalar;

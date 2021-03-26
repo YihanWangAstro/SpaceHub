@@ -275,13 +275,13 @@ namespace hub {
     using Const_##NAME##_ExtPlus = Simulator<system::SYSTEM<particle<details::extended_precise_type>, interactions>,   \
                                              details::const_##ITER##_extplus>;
 
-#define DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(NAME, SYSTEM, ITER)                                                    \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>       \
-    using NAME = Simulator<particle_system::SYSTEM<particle<details::any_bits_type>, interactions>, details::ITER>; \
-                                                                                                                    \
-    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles>       \
-    using NAME##_Plus = Simulator<particle_system::SYSTEM<particle<details::precise_any_bits_type>, interactions>,  \
-                                  details::ITER##_plus>;
+#define DEFINE_ADAPTIVE_ARBITRARY_BIT_METHOD(NAME, SYSTEM, ITER)                                              \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles> \
+    using NAME = Simulator<system::SYSTEM<particle<details::any_bits_type>, interactions>, details::ITER>;    \
+                                                                                                              \
+    template <typename interactions = DefaultForce, template <typename> typename particle = DefaultParticles> \
+    using NAME##_Plus =                                                                                       \
+        Simulator<system::SYSTEM<particle<details::precise_any_bits_type>, interactions>, details::ITER##_plus>;
 
         /*template <typename force = DefaultForce, template <typename> typename particle = DefaultParticles>
         using AR_ABITS = Simulator<system::RegularizedSystem<particle<details::any_bits_type>, force>,
