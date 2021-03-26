@@ -65,8 +65,6 @@ auto basic_error_test(std::string const &fname, double end_time, double rtol, st
                 }
             },
             decltype(end_time)(0), end_time));
-
-        // args.add_operation(TimeSlice(DefaultWriter(fname + ".txt"), decltype(end_time)(0), end_time));
     }
 
     Solver sim{0, p};

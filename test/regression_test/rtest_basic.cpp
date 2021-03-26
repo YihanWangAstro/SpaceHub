@@ -22,7 +22,7 @@ License
 #include "rtest_utility.hpp"
 using namespace hub::unit;
 int main(int argc, char **argv) {
-    using method = hub::methods::AR_Chain<>;
+    using method = hub::methods::AR_Chain_Plus<>;
 
     double rtol = 1e-14;
 

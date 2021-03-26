@@ -115,15 +115,15 @@ auto kozai() {
     using namespace hub::unit;
     using namespace hub::orbit;
 
-    Particle m1{1_Ms}, m2{0.5_Ms}, m3{1_Ms};
+    Particle m1{1_Ms}, m2{1_Ms}, m3{1_Ms};
 
-    auto in_orbit = Elliptic(m1.mass, m2.mass, 10_AU, 0.001, 88_deg, 180_deg, 0_deg, 0);
+    auto in_orbit = Elliptic(m1.mass, m2.mass, 10_AU, 0.001, 96.7_deg, 0_deg, 0_deg, 0);
 
     move_particles(in_orbit, m2);
 
     move_to_COM_frame(m1, m2);
 
-    auto out_orbit = Elliptic(m1.mass + m2.mass, m3.mass, 100_AU, 0.5, 9_deg, 0_deg, 0_deg, 0);
+    auto out_orbit = Elliptic(m1.mass + m2.mass, m3.mass, 100_AU, 0.5, 0_deg, 0_deg, 0_deg, 0);
 
     move_particles(out_orbit, m3);
 
