@@ -100,8 +100,8 @@ set(PN_P_TEST
 set(PN_R_TEST
         test/regression_test/rtest_PN_radiation.cpp)
 
-set(IMPROVEMENT_TEST
-        test/regression_test/rtest_improvement.cpp)
+
+add_executable(SpaceHub_tide_test ${TMP_HEADER_FILES} test/regression_test/rtest_tides.cpp)
 
 add_executable(SpaceHub_simple_test ${TMP_HEADER_FILES} test/regression_test/rtest_basic.cpp)
 
@@ -114,8 +114,6 @@ add_executable(SpaceHub_kozai_test ${TMP_HEADER_FILES} ${KOZAI_TEST})
 add_executable(SpaceHub_earth_test ${TMP_HEADER_FILES} ${EARTH_TEST})
 
 add_executable(SpaceHub_twobody_test ${TMP_HEADER_FILES} ${TWOBODY_TEST})
-
-add_executable(SpaceHub_improve_test ${TMP_HEADER_FILES} ${IMPROVEMENT_TEST})
 
 add_executable(SpaceHub_PN_p_test ${TMP_HEADER_FILES} ${PN_P_TEST})
 

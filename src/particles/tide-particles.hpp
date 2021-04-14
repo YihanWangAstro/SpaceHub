@@ -52,11 +52,11 @@ namespace hub::particles {
 
         SPACEHUB_MAKE_CONSTRUCTORS(TideParticle, default, default, default, default, default);
 
-        explicit TideParticle(Scalar mass, Vector position, Vector velocity, Scalar r, Scalar apsidal_motion_const,
-                              Scalar lag_time);
+        explicit TideParticle(Scalar mass, Scalar r, Scalar apsidal_motion_const, Scalar lag_time, Vector position,
+                              Vector velocity);
 
-        explicit TideParticle(Scalar mass, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
-                              Scalar vz = 0, Scalar r = 0, Scalar apsidal_motion_const = 0, Scalar lag_time = 0);
+        explicit TideParticle(Scalar mass, Scalar r, Scalar apsidal_motion_const, Scalar lag_time, Scalar px = 0,
+                              Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0, Scalar vz = 0);
 
         // public members
         /**
@@ -188,8 +188,8 @@ namespace hub::particles {
         Class TideParticle Implementation
     \*---------------------------------------------------------------------------*/
     template <typename Vec3>
-    TideParticle<Vec3>::TideParticle(Scalar m, Vec3 position, Vec3 velocity, Scalar r, Scalar apsidal_motion_const,
-                                     Scalar lag_time)
+    TideParticle<Vec3>::TideParticle(Scalar m, Scalar r, Scalar apsidal_motion_const, Scalar lag_time, Vec3 position,
+                                     Vec3 velocity)
         : pos(position),
           vel(velocity),
           mass(m),
@@ -198,8 +198,8 @@ namespace hub::particles {
           tide_lag_time(lag_time) {}
 
     template <typename Vec3>
-    TideParticle<Vec3>::TideParticle(Scalar m, Scalar px, Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz,
-                                     Scalar r, Scalar apsidal_motion_const, Scalar lag_time)
+    TideParticle<Vec3>::TideParticle(Scalar m, Scalar r, Scalar apsidal_motion_const, Scalar lag_time, Scalar px,
+                                     Scalar py, Scalar pz, Scalar vx, Scalar vy, Scalar vz)
         : pos(px, py, pz),
           vel(vx, vy, vz),
           mass(m),
