@@ -25,21 +25,14 @@ int main(int argc, char **argv) {
     using method = hub::methods::AR_Chain_Plus<>;
 
     double rtol = 1e-14;
-    std::cout << std::setprecision(16) << std::scientific;
-    std::cout << earth_system() << "\n\n";
-    std::cout << two_body(0.9999) << "\n\n";
 
-    std::cout << outer_solar() << "\n\n";
-
-    std::cout << kozai() << "\n\n";
-
-    /*basic_error_test<method>("earth", 100_year, rtol, earth_system(), true, false);
+    basic_error_test<method>("earth", 100_year, rtol, earth_system(), true, false);
 
     basic_error_test<method>("ecc", 1000_year, rtol, two_body(0.9999), true, false);
 
     basic_error_test<method>("outer", 11862_year, rtol, outer_solar(), true, false);
 
-    basic_error_test<method>("kozai", 100000_year, rtol, kozai(), true, false);*/
+    basic_error_test<method>("kozai", 100000_year, rtol, kozai(), true, false);
 
     return 0;
 }
