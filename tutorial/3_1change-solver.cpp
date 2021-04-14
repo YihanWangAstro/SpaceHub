@@ -4,7 +4,8 @@ using namespace hub;
 using namespace unit;
 using namespace callback;
 /*--------------------------------------------------New-----------------------------------------------------------*/
-// chose the pure Bulirsch-Stoer method. check  to find the pre-defined methods list.
+// chose the pure Bulirsch-Stoer method. check https://yihanwangastro.github.io/SpaceHubWeb/ to find the pre-defined
+// methods list.
 using Solver = methods::BS<>;
 /*----------------------------------------------------------------------------------------------------------------*/
 using Particle = Solver::Particle;
