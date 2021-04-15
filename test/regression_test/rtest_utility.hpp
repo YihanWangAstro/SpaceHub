@@ -132,8 +132,9 @@ auto bench_mark(std::string const &test_name, double end_time, double rtol, std:
     }
 
     double cpu = *(std::min_element(ts.begin(), ts.end()));
-    std::cout << "  rtol: " << std::scientific << std::setprecision(4) << rtol << " | wall time: " << std::defaultfloat
-              << std::setw(8) << cpu << " s | rms err " << std::scientific << err << " | " << test_name << "\n";
+    std::cout << "  rtol: " << std::scientific << std::setprecision(4) << rtol
+              << " | min wall time: " << std::defaultfloat << std::setw(8) << cpu << " s | rms err " << std::scientific
+              << err << " | " << test_name << "\n";
     return std::make_tuple(err, cpu);
 }
 
@@ -151,7 +152,7 @@ void bench_mark_methods(std::string const &sys_name, System const &system, doubl
 
     std::vector<std::tuple<double, double>> cpu_t;
     cpu_t.reserve(20);
-    std::cout << "Running benchmark...\n";
+    std::cout << "Running benchmark(repeat 5 times)...\n";
     cpu_t.push_back(bench_mark<methods::BS<>>(sys_name + "-BS", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::AR_BS<>>(sys_name + "-AR", t_end, rtol, system));
     cpu_t.push_back(bench_mark<methods::Chain_BS<>>(sys_name + "-Chain", t_end, rtol, system));
