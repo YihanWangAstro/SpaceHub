@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 
     /*--------------------------------------------------New-----------------------------------------------------------*/
     // the stop condition callback function have two input parameters, the first is the evolving particle system, the
-    // second is the step size(no necessary to be dt, in regularized algorithm this is dh) in the next iteration. The
+    // second is the step size(not necessarily to be dt, in regularized algorithm this is dh) in the next iteration. The
     // return type must be bool
     auto distance_check = [](auto& particles, auto step_size) -> bool {
         // if the distance between particle 0 and 1 is smaller than 1 AU, stop the integration.

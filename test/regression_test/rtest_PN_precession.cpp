@@ -22,7 +22,7 @@ License
 using namespace hub::unit;
 
 template <typename Solver>
-auto mercury(double e = 0) {
+auto binary(double e = 0) {
     using Particle = typename Solver::Particle;
     using namespace hub;
     using namespace hub::unit;
@@ -69,7 +69,7 @@ void PN_precession_test(std::string const &fname, double end_time, double rtol,
 
 template <typename simulation>
 void run(std::string const &sim_type, double ecc) {
-    auto twobody_sys = mercury<simulation>(ecc);
+    auto twobody_sys = binary<simulation>(ecc);
 
     PN_precession_test<simulation>("PN-precession-" + sim_type, 100_year, 1e-14, twobody_sys);
 }
