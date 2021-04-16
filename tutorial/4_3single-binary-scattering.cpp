@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
         solver.run(args);
     }
 
-    print(std::cout, "simulation with binary binary complete!\n");
+    print(std::cout, "simulation of single binary scattering complete!\n");
 
     return 0;
 }

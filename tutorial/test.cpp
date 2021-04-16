@@ -2,11 +2,10 @@
 #include "../src/spaceHub.hpp"
 using namespace hub;
 using namespace unit;
-using namespace callback;
-using Solver = methods::DefaultMethod<>;
+using Solver = methods::AR_Sym6_Plus<>;
 using Particle = Solver::Particle;
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     Particle p1{1_Ms};
     Particle p2{1_Ms};
     Particle p3{1_Ms};
@@ -27,22 +26,21 @@ int main(int argc, char** argv) {
 
     Solver::RunArgs args;
 
-    args.add_stop_condition(1000_year);
+    args.add_stop_condition(100000_year);
 
     /*--------------------------------------------------New-----------------------------------------------------------*/
-    // the callback function has two input parameters, the first is the evolving particle system, the second is the
-    // step size(not necessarily to be dt, in regularized algorithm this is dh) in the next iteration
-    auto own_callback = [](auto& particles, auto step_size) {
-        // print the info of particle system to stdout
-        print(std::cout, "\n", particles, "\n");
-    };
+    // add an operation after each step. The operation is a default output writer that writes the info of particles to a
+    // file 'hierarchical.txt'.
+    args.add_operation(callback::LogTimeSlice(callback::EnergyErrWriter("log.txt"), 0.0, 100000_year, 1000));
 
-    args.add_operation(StepSlice(own_callback, 1000));
+    // add an operation after each step. The operation is a default relative energy error writer that writes the
+    // relative energy error of the integration to file 'hierarchical.err'.
+    //.add_operation(callback::EnergyErrWriter("hierarchical.err"));
     /*----------------------------------------------------------------------------------------------------------------*/
 
     solver.run(args);
 
-    print(std::cout, "simulation of adding own lambda complete!\n");
+    print(std::cout, "simulation of hierarchical triple with very dense(each step) output complete!\n");
 
     return 0;
 }

@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
         solver.run(args);
     }
 
-    print(std::cout, "simulation with planetary scattering complete!\n");
+    print(std::cout, "simulation of planetary system scattering complete!\n");
 
     return 0;
 }
