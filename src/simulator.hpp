@@ -94,20 +94,12 @@ namespace hub {
 
         // public methods
         /**
-         * Call the all registered pre-operation functions by sequence.
+         * Call the all registered operation functions by sequence.
          *
          * @param[in,out] particle_sys The particle system that is going to be operated.
          * @param[in] step_size The current step size.
          */
-        void pre_operations(ParticleSys &particle_sys, Scalar step_size) const;
-
-        /**
-         * Call the all registered pos-operation functions by sequence.
-         *
-         * @param[in,out] particle_sys The particle system that is going to be operated.
-         * @param[in] step_size The current step size.
-         */
-        void post_operations(ParticleSys &particle_sys, Scalar step_size) const;
+        void operations(ParticleSys &particle_sys, Scalar step_size) const;
 
         /**
          * Call the all registered stop-operation functions by sequence.
@@ -144,30 +136,6 @@ namespace hub {
          */
         template <typename Func, typename... Args>
         void add_operation(Func func, Args &&...args);
-
-        /**
-         * Register a callable object(function pointer, functor, lambda,etc...) to pre-step-operations.
-         *
-         * @tparam Func Callable type that is convertible to member type Callback.
-         * @tparam Args Type of the binding arguments.
-         * @param[in] func Callable object.
-         * @param[in] args Binding arguments.If func accepts more than one arguments, you can bind the rest arguments
-         * here.
-         */
-        template <typename Func, typename... Args>
-        void add_pre_step_operation(Func func, Args &&...args);
-
-        /**
-         * Register a callable object(function pointer, functor, lambda,etc...) to post-step-operations.
-         *
-         * @tparam Func Callable type that is convertible to member type Callback.
-         * @tparam Args Type of the binding arguments.
-         * @param[in] func Callable object.
-         * @param[in] args Binding arguments. If func accepts more than one arguments, you can bind the rest arguments
-         * here.
-         */
-        template <typename Func, typename... Args>
-        void add_post_step_operation(Func func, Args &&...args);
 
         /**
          * Register a callable object(function pointer, functor, lambda,etc...) to stop-point-operations.
@@ -225,9 +193,7 @@ namespace hub {
 
        private:
         // private members
-        std::vector<Callback> pre_opts_;
-
-        std::vector<Callback> post_opts_;
+        std::vector<Callback> opts_;
 
         std::vector<Callback> stop_opts_;
 
@@ -322,15 +288,8 @@ namespace hub {
         Class RunArgs Implementation
     \*---------------------------------------------------------------------------*/
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void RunArgs<ParticleSys>::pre_operations(ParticleSys &particle_system, Scalar step_size) const {
-        for (auto const &opt : pre_opts_) {
-            opt(particle_system, step_size);
-        }
-    }
-
-    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    void RunArgs<ParticleSys>::post_operations(ParticleSys &particle_system, Scalar step_size) const {
-        for (auto const &opt : post_opts_) {
+    void RunArgs<ParticleSys>::operations(ParticleSys &particle_system, Scalar step_size) const {
+        for (auto const &opt : opts_) {
             opt(particle_system, step_size);
         }
     }
@@ -358,37 +317,7 @@ namespace hub {
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
     template <typename Func, typename... Args>
     void RunArgs<ParticleSys>::add_operation(Func func, Args &&...args) {
-        start_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
-
-        post_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
-
-        // if func is a time/step sliced callable object, force to invoke it at endpoint.
-        if constexpr (HAS_METHOD(Func, operation)) {
-            stop_opts_.emplace_back(
-                std::bind(func.operation(), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
-        }
-    }
-
-    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    template <typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_pre_step_operation(Func func, Args &&...args) {
-        pre_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
-    }
-
-    template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
-    template <typename Func, typename... Args>
-    void RunArgs<ParticleSys>::add_post_step_operation(Func func, Args &&...args) {
-        post_opts_.emplace_back(
-            std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
-
-        // if func is a time/step sliced callable object, force to invoke it at endpoint.
-        if constexpr (HAS_METHOD(Func, operation)) {
-            stop_opts_.emplace_back(
-                std::bind(func.operation(), std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
-        }
+        opts_.emplace_back(std::bind(func, std::placeholders::_1, std::placeholders::_2, std::forward<Args>(args)...));
     }
 
     template <CONCEPT_PARTICLE_SYSTEM ParticleSys>
@@ -473,17 +402,16 @@ namespace hub {
         for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
             Scalar rest_step = (end_time - particles_.time()) * particles_.step_scale();
             if (step_size_ <= rest_step) [[likely]] {
-                run_args.pre_operations(particles_, step_size_);
+                run_args.operations(particles_, step_size_);
                 advance_one_step();
-                run_args.post_operations(particles_, step_size_);
             } else {
                 step_size_ = rest_step;
-                run_args.pre_operations(particles_, step_size_);
+                run_args.operations(particles_, step_size_);
                 advance_one_step();
-                run_args.post_operations(particles_, step_size_);
                 break;  // to avoid inf loop for regularized method.
             }
         }
+        run_args.operations(particles_, step_size_);
         run_args.stop_operations(particles_, step_size_);
     }
 

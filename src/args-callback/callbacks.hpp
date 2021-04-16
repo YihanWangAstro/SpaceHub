@@ -377,7 +377,7 @@ namespace hub::callback {
     }
 
     /*---------------------------------------------------------------------------*\
-        Class LogTimeSlice Definition //TODO
+        Class LogTimeSlice Definition 
     \*---------------------------------------------------------------------------*/
     template <typename Operation, typename Scalar>
     LogTimeSlice<Operation, Scalar>::LogTimeSlice(const Operation& opt, Scalar start, Scalar end, size_t opt_num)
