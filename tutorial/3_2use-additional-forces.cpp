@@ -4,7 +4,7 @@ using namespace hub;
 using namespace unit;
 using namespace callback;
 /*--------------------------------------------------New-----------------------------------------------------------*/
-// using the Newtonian gravity+ first order Post-Newtonian term as the force
+// using the Newtonian gravity + first order Post-Newtonian correction
 using f = force::Interactions<force::NewtonianGrav, force::PN1>;
 // pass the force to solver
 using Solver = methods::DefaultMethod<f>;// DefaultMethod<> = DefaultMethod<force::Interactions<force::NewtonianGrav>>
