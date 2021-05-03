@@ -1,0 +1,23 @@
+# YAML 1.2
+---
+abstract: "https://ui.adsabs.harvard.edu/abs/2021arXiv210406413W/abstract"
+authors: 
+  -
+    family-names: Wang
+    given-names: "Yihan "
+    orcid: "https://orcid.org/0000-0002-8614-8721"
+  -
+    family-names: Leigh
+    given-names: Nathan
+  -
+    family-names: Liu
+    given-names: Bin
+  -
+    family-names: Perna
+    given-names: Rosalba
+cff-version: "1.1.0"
+doi: "10.1093/mnras/stab1189"
+message: "If you use this software, please cite it using these metadata."
+title: "SpaceHub: A high-performance gravity integration toolkit for few-body problems in astrophysics "
+version: "0.0.1"
+...
