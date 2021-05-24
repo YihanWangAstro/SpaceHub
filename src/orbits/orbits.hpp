@@ -153,6 +153,8 @@ namespace hub::orbit {
          */
         inline void shuffle_nu();
 
+        // static void member_names(std::string prefix);
+
         /**
          * @brief Write the orbit to an output stream.
          *

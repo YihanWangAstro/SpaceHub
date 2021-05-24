@@ -533,6 +533,52 @@ namespace hub::calc {
         return calc_potential_energy(particles) + calc_kinetic_energy(particles);
     }
 
+    template <CONCEPT_PARTICLES_DATA Particles>
+    inline auto calc_total_angular_momentum(Particles const &particles) -> typename Particles::Vector {
+        size_t size = particles.number();
+        typename Particles::Vector L_tot{0, 0, 0};
+
+        for (size_t i = 0; i < size; ++i) {
+            L_tot += particles.mass(i) * cross(particles.pos(i), particles.vel(i));
+        }
+
+        return L_tot;
+    }
+
+    template <CONCEPT_PARTICLES_DATA Particles, typename Idx>
+    inline auto calc_angular_momentum(Particles const &particles, Idx const &idex) -> typename Particles::Vector {
+        typename Particles::Vector L_tot{0, 0, 0};
+
+        for (auto &id : idex) {
+            L_tot += particles.mass(id) * cross(particles.pos(id), particles.vel(id));
+        }
+
+        return L_tot;
+    }
+
+    template <CONCEPT_PARTICLES_DATA Particles, typename Idx>
+    inline auto calc_isolated_angular_momentum(Particles const &particles, Idx const &idex) ->
+        typename Particles::Vector {
+        typename Particles::Vector L_tot{0, 0, 0};
+        typename Particles::Vector CoM_pos{0, 0, 0};
+        typename Particles::Vector CoM_vel{0, 0, 0};
+        typename Particles::Scalar M_tot = 0;
+
+        for (auto &id : idex) {
+            M_tot += particles.mass(id);
+            CoM_pos += particles.mass(id) * particles.pos(id);
+            CoM_vel += particles.mass(id) * particles.vel(id);
+        }
+        CoM_pos /= M_tot;
+        CoM_vel /= M_tot;
+
+        for (auto &id : idex) {
+            L_tot += particles.mass(id) * cross(particles.pos(id) - CoM_pos, particles.vel(id) - CoM_vel);
+        }
+
+        return L_tot;
+    }
+
     /** @brief Calculate the minimal fall free time of two particles
      *
      *  @param  mass mass array of particle.
