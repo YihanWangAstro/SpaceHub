@@ -322,16 +322,16 @@ namespace hub::orbit {
 
         if (0 <= e && e < 1)
             return math::root_bisection(
-                    [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); }, -hub::consts::pi,
-                    hub::consts::pi);
+                [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); }, -hub::consts::pi,
+                hub::consts::pi);
         else if (e > 1)
             return math::root_bisection(
-                    [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); },
-                    -hub::consts::pi, hub::consts::pi);
+                [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); }, -hub::consts::pi,
+                hub::consts::pi);
         else if (fabs(e - 1) < math::epsilon<Scalar>::value)
             return math::root_bisection(
-                    [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); }, -hub::consts::pi,
-                    hub::consts::pi);
+                [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); }, -hub::consts::pi,
+                hub::consts::pi);
         else {
             spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
         }
@@ -703,6 +703,13 @@ namespace hub::orbit {
     inline Scalar calc_eccentricity(Scalar u, Vector const &dr, Vector const &dv) {
         return norm(dr * (norm2(dv) - u * re_norm(dr)) - dv * dot(dr, dv)) / u;
     }
+
+    template <typename Vector, typename Scalar>
+    inline Vector calc_angular_momentum(Scalar m1, Scalar m2, Vector const &dr, Vector const &dv) {
+        Scalar mu = m1 * m2 / (m1 + m2);
+        Vector L = cross(dr, dv);
+        return mu * L;
+    }
     /*
         template <typename Scalar>
         inline auto calc_eccentricity(Scalar u, Scalar dx, Scalar dy, Scalar dz, Scalar dvx, Scalar dvy, Scalar dvz) {
@@ -749,6 +756,20 @@ namespace hub::orbit {
         Scalar a = -u / (v2 - 2 * u / r);
         Vector e = ((dr * vdfs - dv * vr) / u);
         return std::make_tuple(a, e);
+    }
+
+    template <typename Vector, typename Scalar>
+    auto calc_a_e_L(Scalar m1, Scalar m2, Vector const &dr, Vector const &dv) {
+        Scalar u = (m1 + m2) * consts::G;
+        Scalar r = norm(dr);
+        Scalar v = norm(dv);
+        Scalar v2 = v * v;
+        Scalar vr = dot(dr, dv);
+        Scalar vdfs = v2 - u / r;
+        Scalar a = -u / (v2 - 2 * u / r);
+        Vector e = ((dr * vdfs - dv * vr) / u);
+        Scalar mu = m1 * m2 / (m1 + m2);
+        return std::make_tuple(a, e, mu * cross(dr, dv));
     }
 
     /*template <typename Scalar>
