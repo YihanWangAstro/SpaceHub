@@ -629,7 +629,7 @@ namespace hub::orbit {
         args.e = norm(E);
         args.orbit_type = classify_orbit(args.e);
 
-        if (args.orbit_type == OrbitType::Parabola) {
+        if (args.orbit_type != OrbitType::Parabola) {
             Scalar a = -u * r / (r * norm2(dv) - 2.0 * u);
             args.p = semi_latus_rectum(a, args.e);
         } else {
