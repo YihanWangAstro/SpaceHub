@@ -513,6 +513,9 @@ namespace hub::orbit {
         Scalar a = -u / (v_inf * v_inf);
         this->e = sqrt(1 + b * b / (a * a));
         this->p = a * (1 - e * e);
+        if (r < a * (1 - e)) {
+            spacehub_abort("r = p/(1+e*cos(theta)) = ", r, " is smaller than pericenter distance a*(1-e) = ", a * (1 - e));
+        }
         this->nu = -acos((p - r) / (e * r));
         this->b = b;
         if (in_out == Hyper::out) {
