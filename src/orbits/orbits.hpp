@@ -302,7 +302,7 @@ namespace hub::orbit {
         else if (e > 1)
             return 2 * atan2(sqrt(1 + e) * sinh(E_anomaly * 0.5), sqrt(e - 1) * cosh(0.5 * E_anomaly));
         else if (math::iseq(e, 1.0))
-            return 2 * atan(0.5 * E_anomaly);
+            return 2 * atan(E_anomaly);
         else {
             spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
         }
@@ -323,17 +323,14 @@ namespace hub::orbit {
         }
 
         if (0 <= e && e < 1)
-            return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly) / (1 - e * cos(x)); }, -hub::consts::pi,
-                hub::consts::pi);
+            return math::root_bisection([=](Scalar x) -> Scalar { return (x - e * sin(x) - M_anomaly); },
+                                        -hub::consts::pi, hub::consts::pi);
         else if (e > 1)
-            return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly) / (e * cosh(x) - 1); }, -hub::consts::pi,
-                hub::consts::pi);
+            return math::root_bisection([=](Scalar x) -> Scalar { return (e * sinh(x) - x - M_anomaly); },
+                                        -hub::consts::pi, hub::consts::pi);
         else if (fabs(e - 1) < math::epsilon<Scalar>::value)
-            return math::root_bisection(
-                [=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly) / (1 + x * x); }, -hub::consts::pi,
-                hub::consts::pi);
+            return math::root_bisection([=](Scalar x) -> Scalar { return (x + x * x * x / 3 - M_anomaly); },
+                                        -hub::consts::pi, hub::consts::pi);
         else {
             spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
         }
@@ -365,11 +362,16 @@ namespace hub::orbit {
         if (math::iseq(e, 1.0)) {
             return tan(0.5 * T_anomaly);
         } else if (0.0 <= e && e < 1) {
-            auto cos_T = cos(T_anomaly);
-            return acos((e + cos_T) / (1 + e * cos_T));
+            return 2 * atan2(sqrt(1 - e) * sin(0.5 * T_anomaly), sqrt(1 + e) * cos(0.5 * T_anomaly));
         } else if (e > 1) {
-            auto cos_T = cos(T_anomaly);
-            return acosh((e + cos_T) / (1 + e * cos_T));
+            Scalar x = sqrt((e - 1) / (e + 1)) * tan(0.5 * T_anomaly);
+            if (1 >= x && x >= -1) {
+                return 2 * atanh(x);
+            } else {
+                Scalar limit = 2 * atan(sqrt((e + 1) / (e - 1)));
+                spacehub_abort("True anomaly ", T_anomaly, " is out of range [", -limit, ", ", limit,
+                               "] in hyperbolic orbit with e = ", e);
+            }
         } else {
             spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
         }
@@ -406,7 +408,7 @@ namespace hub::orbit {
      */
     template <typename Scalar>
     Scalar T_anomaly_to_M_anomaly(Scalar T_anomaly, Scalar e) {
-        E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
+        return E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
     }
 
     template <typename T>
@@ -799,7 +801,7 @@ namespace hub::orbit {
         if (obt_type == OrbitType::Ellipse) {
             return sqrt(a * a * a / u) * M_anomaly;
         } else if (obt_type == OrbitType::Parabola) {
-            return 0.5 * sqrt(a * a * a / u) * M_anomaly;
+            return 0.5 * sqrt(a * a * a / u) * M_anomaly;  // 'a' here is semi-latus rectum p = a(1-e^2)
         } else if (obt_type == OrbitType::Hyperbola) {
             return sqrt(-a * a * a / u) * M_anomaly;
         } else {
