@@ -154,6 +154,8 @@ namespace hub::particles {
 
         std::string column_names() const;
 
+        std::vector<Particle> to_AoS() const;
+
         template <typename U>
         friend std::ostream &operator<<(std::ostream &os, TideParticles<U> const &ps);
 
@@ -285,6 +287,17 @@ namespace hub::particles {
     template <typename TypeSystem>
     std::string TideParticles<TypeSystem>::column_names() const {
         return "time,id,mass,radius,k_AM,tau_lag,px,py,pz,vx,vy,vz";
+    }
+
+    template <typename TypeSystem>
+    auto TideParticles<TypeSystem>::to_AoS() const -> std::vector<Particle> {
+        std::vector<Particle> ptc;
+        size_t ptc_num = this->number();
+        ptc.reserve(ptc_num);
+        for (size_t i = 0; i < ptc_num; ++i) {
+            ptc.emplace_back(mass_[i], radius_[i], k_AM_[i], tau_lag_[i], pos_[i], vel_[i]);
+        }
+        return ptc;
     }
 
     template <typename TypeSystem>

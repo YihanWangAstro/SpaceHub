@@ -25,11 +25,25 @@ License
 #pragma once
 #include "macros.hpp"
 
-namespace space::secular {
+namespace hub::secular {
 
     template <typename T = double>
     T GW_dadt() {}
 
     template <typename T = double>
     T radial_tidal_dadt(T m, T M, T R, T a, T e, T k, T tau) {}
-}  // namespace space::secular
+
+    template <typename T = double>
+    T ELK_quad_timescale(T m1, T m2, T m3, T a1, T a2, T e2) {
+        T m_in = m1 + m2;
+        T P = 2 * consts::pi * sqrt(a1 * a1 * a1 / consts::G * m_in);
+        T a_ratio_eff = a2 * sqrt(1 - e2 * e2) / a1;
+        return P * m_in / m3 * a_ratio_eff * a_ratio_eff * a_ratio_eff;
+    }
+
+    template <typename EllipticOrb>
+    auto ELK_quad_timescale(EllipticOrb const& orb1, EllipticOrb const& orb2) {
+        return ELK_quad_timescale(orb1.m1, orb1.m2, orb2.m2, orb1.a, orb2.a, orb2.e);
+    }
+
+}  // namespace hub::secular

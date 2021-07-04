@@ -71,7 +71,7 @@ namespace hub::particles {
          */
         SizeParticle(Scalar m, Scalar r, Scalar px = 0, Scalar py = 0, Scalar pz = 0, Scalar vx = 0, Scalar vy = 0,
                      Scalar vz = 0)
-                : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
+            : PointParticle<Vector>{m, px, py, pz, vx, vy, vz}, radius{r} {}
 
         friend std::ostream &operator<<(std::ostream &os, SizeParticle const &particle) {
             hub::print_csv(os, particle.mass, particle.radius, particle.pos, particle.vel);
@@ -145,13 +145,15 @@ namespace hub::particles {
 
         void emplace_back(Particle const &new_particle);
 
-           size_t number() const;
+        size_t number() const;
 
-           size_t capacity() const;
+        size_t capacity() const;
 
         void clear();
 
-          std::string column_names() const;
+        std::string column_names() const;
+
+        std::vector<Particle> to_AoS() const;
 
         template <typename U>
         friend std::ostream &operator<<(std::ostream &os, SizeParticles<U> const &ps);
@@ -238,6 +240,17 @@ namespace hub::particles {
     template <typename TypeSystem>
     std::string SizeParticles<TypeSystem>::column_names() const {
         return "time,id,mass,radius,px,py,pz,vx,vy,vz";
+    }
+
+    template <typename TypeSystem>
+    auto SizeParticles<TypeSystem>::to_AoS() const -> std::vector<Particle> {
+        std::vector<Particle> ptc;
+        size_t ptc_num = this->number();
+        ptc.reserve(ptc_num);
+        for (size_t i = 0; i < ptc_num; ++i) {
+            ptc.emplace_back(mass_[i], radius_[i], pos_[i], vel_[i]);
+        }
+        return ptc;
     }
 
     template <typename TypeSystem>
