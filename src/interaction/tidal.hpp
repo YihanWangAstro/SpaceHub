@@ -18,7 +18,7 @@ License
     with SpaceHub.
 \*---------------------------------------------------------------------------*/
 /**
- * @file post-newtonian.hpp
+ * @file tidal.hpp
  *
  * Header file.
  */
