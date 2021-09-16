@@ -483,20 +483,25 @@ namespace hub::orbit {
         auto r = norm(dr);
         auto [a, e] = calc_a_e(consts::G * (m1 + m2), dr, dv);
 
-        auto orbit_type = classify_orbit(e);
+        if (e >= 1) {
+            auto orbit_type = classify_orbit(e);
 
-        if (orbit_type == OrbitType::Parabola) {
-            auto h = cross(dr, dv);
-            auto h2 = dot(h, h);
-            auto p = h2 / u;
-            auto T_anomaly = acos((p / r - 1));
-            auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
-            return time_to_periapsis(orbit_type, u, a, M_anomaly);
+            if (orbit_type == OrbitType::Parabola) {
+                auto h = cross(dr, dv);
+                auto h2 = dot(h, h);
+                auto p = h2 / u;
+                auto T_anomaly = acos((p / r - 1));
+                auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
+                return time_to_periapsis(orbit_type, u, a, M_anomaly);
+            } else {
+                auto p = a * (1 - e * e);
+                auto T_anomaly = acos((p / r - 1) / e);
+                auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
+                return time_to_periapsis(orbit_type, u, a, M_anomaly);
+            }
         } else {
-            auto p = a * (1 - e * e);
-            auto T_anomaly = acos((p / r - 1) / e);
-            auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
-            return time_to_periapsis(orbit_type, u, a, M_anomaly);
+            spacehub_abort("Only parabolic/hyperbolic orbit can be calculated! e=", e, " a=", a, " m1=", m1, " m2=", m2,
+                           " dr=", dr, " dv=", dv);
         }
     }
 

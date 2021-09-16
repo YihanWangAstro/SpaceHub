@@ -359,9 +359,7 @@ namespace hub::orbit {
      */
     template <typename Scalar>
     Scalar T_anomaly_to_E_anomaly(Scalar T_anomaly, Scalar e) {
-        if (math::iseq(e, 1.0)) {
-            return tan(0.5 * T_anomaly);
-        } else if (0.0 <= e && e < 1) {
+        if (0.0 <= e && e < 1) {
             return 2 * atan2(sqrt(1 - e) * sin(0.5 * T_anomaly), sqrt(1 + e) * cos(0.5 * T_anomaly));
         } else if (e > 1) {
             Scalar x = sqrt((e - 1) / (e + 1)) * tan(0.5 * T_anomaly);
@@ -372,8 +370,10 @@ namespace hub::orbit {
                 spacehub_abort("True anomaly ", T_anomaly, " is out of range [", -limit, ", ", limit,
                                "] in hyperbolic orbit with e = ", e);
             }
+        } else if (math::iseq(e, 1.0)) {
+            return tan(0.5 * T_anomaly);
         } else {
-            spacehub_abort("Eccentricity cannot be negative, Nan or inf!");
+            spacehub_abort("Eccentricity cannot be negative, Nan or inf! e=", e, "true anomaly=", T_anomaly);
         }
     }
 
@@ -415,10 +415,10 @@ namespace hub::orbit {
     constexpr OrbitType classify_orbit(T eccentricity) {
         if (0 <= eccentricity && eccentricity < 1) {
             return OrbitType::Ellipse;
-        } else if (math::iseq(eccentricity, 1.0)) {
-            return OrbitType::Parabola;
         } else if (eccentricity > 1) {
             return OrbitType::Hyperbola;
+        } else if (math::iseq(eccentricity, 1.0)) {
+            return OrbitType::Parabola;
         } else {
             return OrbitType::None;
         }
@@ -514,7 +514,8 @@ namespace hub::orbit {
         this->e = sqrt(1 + b * b / (a * a));
         this->p = a * (1 - e * e);
         if (r < a * (1 - e)) {
-            spacehub_abort("r = p/(1+e*cos(theta)) = ", r, " is smaller than pericenter distance a*(1-e) = ", a * (1 - e));
+            spacehub_abort("r = p/(1+e*cos(theta)) = ", r,
+                           " is smaller than pericenter distance a*(1-e) = ", a * (1 - e));
         }
         this->nu = -acos((p - r) / (e * r));
         this->b = b;
@@ -814,7 +815,7 @@ namespace hub::orbit {
 
     template <typename Scalar>
     auto time_to_periapsis(KeplerOrbit<Scalar> const &args) {
-        auto M = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(args.nu));
+        auto M = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(args.nu, args.e));
         auto u = consts::G * (args.m1 + args.m2);
         if (args.orbit_type == OrbitType::Ellipse) {
             auto a = args.p / (1 - args.e * args.e);

@@ -25,6 +25,7 @@ License
 #pragma once
 
 #include <algorithm>
+#include <type_traits>
 
 #include "../orbits/orbits.hpp"
 #include "../vector/vector3.hpp"
@@ -38,8 +39,8 @@ namespace hub::scattering {
     template <typename Vector>
     class HierarchicalNode {
        public:
-        Vector pos{0};
-        Vector vel{0};
+        Vector pos{0, 0, 0};
+        Vector vel{0, 0, 0};
         double mass{0};
         size_t weight{0};
         std::string name;
@@ -57,11 +58,11 @@ namespace hub::scattering {
         vec.clear();
         vec.reserve(p_num);
         for (size_t i = 0; i < p_num; ++i) {
-            if constexpr (HAS_MEMBER(decltype(ptc[0]), m)) {
-                vec.emplace_back(Node{ptc[i].pos, ptc[i].vel, ptc[i].m, i, std::to_string(i)});
-            } else {
-                vec.emplace_back(Node{ptc.pos()[i], ptc.vel()[i], ptc.mass()[i], i, std::to_string(i)});
-            }
+            // if constexpr (HAS_MEMBER(decltype(ptc[0]), m)) {
+            //     vec.emplace_back(Node{ptc[i].pos, ptc[i].vel, ptc[i].m, i, std::to_string(i)});
+            //} else {
+            vec.emplace_back(Node{ptc.pos()[i], ptc.vel()[i], ptc.mass()[i], i, std::to_string(i)});
+            // }
         }
     }
 
@@ -69,8 +70,8 @@ namespace hub::scattering {
     bool check_most_bound(Nodes const &vec, size_t idx, double amin) {
         for (size_t i = 1; i < vec.size(); i++) {
             if (i != idx) {
-                auto[a, e] =
-                orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
+                auto [a, e] =
+                    orbit::calc_a_e(vec[idx].mass + vec[i].mass, vec[idx].pos - vec[i].pos, vec[idx].vel - vec[i].vel);
                 if (0 < a && a < amin) {
                     return false;
                 }
@@ -100,20 +101,20 @@ namespace hub::scattering {
 
     template <typename Particles>
     std::string get_hierarchical_struct(Particles const &ptc) {
-        using Vector = decltype(ptc[0].pos);
+        using Vector = std::remove_cv_t<decltype(ptc.pos(0))>;
         using Node = HierarchicalNode<Vector>;
         std::vector<Node> vec{0};
         create_init_list(ptc, vec);
         std::vector<Node> vec_out;
         vec_out.reserve(vec.size());
         for (; vec.size() > 0;) {
-            Vector p0 = vec[0].pos;
-            Vector v0 = vec[0].vel;
-            double m0 = vec[0].mass;
+            Vector p0 = vec.pos(0);
+            Vector v0 = vec.vel(0);
+            double m0 = vec.mass(0);
             double amin = 1e99;
             size_t idx = 0;
             for (size_t i = 1; i < vec.size(); i++) {
-                auto[a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);
+                auto [a, e] = orbit::calc_a_e(m0 + vec[i].mass, p0 - vec[i].pos, v0 - vec[i].vel);
                 if (0 < a && a < amin) {
                     idx = i;
                     amin = a;
