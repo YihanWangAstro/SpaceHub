@@ -484,13 +484,19 @@ namespace hub::orbit {
         auto [a, e] = calc_a_e(consts::G * (m1 + m2), dr, dv);
 
         if (e >= 0) {
+            auto orbit_type = classify_orbit(e);
+
             auto h = cross(dr, dv);
             auto h2 = dot(h, h);
             auto p = h2 / u;
-            auto T_anomaly = acos((p / r - 1));
+            auto T_anomaly = acos((p / r - 1) / e);
             auto M_anomaly = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(T_anomaly, e), e);
-            return time_to_periapsis(orbit_type, u, a, M_anomaly);
 
+            if (orbit_type == OrbitType::Parabola) {
+                return time_to_periapsis(orbit_type, u, p, M_anomaly);
+            } else {
+                return time_to_periapsis(orbit_type, u, a, M_anomaly);
+            }
             /*if (orbit_type == OrbitType::Parabola) {
                 auto h = cross(dr, dv);
                 auto h2 = dot(h, h);
@@ -505,8 +511,8 @@ namespace hub::orbit {
                 return time_to_periapsis(orbit_type, u, a, M_anomaly);
             }*/
         } else {
-            spacehub_abort("Only parabolic/hyperbolic orbit can be calculated! e=", e, " a=", a, " m1=", m1, " m2=", m2,
-                           " dr=", dr, " dv=", dv);
+            spacehub_abort("invalid eccentricity of orbit, e=", e, " a=", a, " m1=", m1, " m2=", m2, " dr=", dr,
+                           " dv=", dv);
         }
     }
 
