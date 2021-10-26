@@ -821,16 +821,18 @@ namespace hub::orbit {
 
     template <typename Scalar>
     auto time_to_periapsis(KeplerOrbit<Scalar> const &args) {
-        auto M = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(args.nu, args.e));
+        auto M = E_anomaly_to_M_anomaly(T_anomaly_to_E_anomaly(args.nu, args.e), args.e);
         auto u = consts::G * (args.m1 + args.m2);
         if (args.orbit_type == OrbitType::Ellipse) {
             auto a = args.p / (1 - args.e * args.e);
             return sqrt(a * a * a / u) * M;
         } else if (args.orbit_type == OrbitType::Parabola) {
-            return 0.5 * sqrt(args.p * args.p * args.p / u) * M;
+            // t = -inf corresponds to nu = -pi and t = +inf corresponds to nu = pi, so have extra minus sign
+            return -0.5 * sqrt(args.p * args.p * args.p / u) * M;
         } else if (args.orbit_type == OrbitType::Hyperbola) {
+            // t = -inf corresponds to nu = -pi and t = +inf corresponds to nu = pi, so have extra minus sign
             auto a = args.p / (1 - args.e * args.e);
-            return sqrt(-a * a * a / u) * M;
+            return -sqrt(-a * a * a / u) * M;
         }
     }
 
