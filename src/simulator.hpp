@@ -23,7 +23,7 @@ License
  * Header file.
  */
 #pragma once
-
+#define REGTOL 1.e-8
 #include <functional>
 
 #include "IO.hpp"
@@ -91,6 +91,13 @@ namespace hub {
          * The relative error tolerance.
          */
         Scalar rtol{1e-14};
+
+        /** Added by Dipto
+         * Relative time tolerance parameter to iterate to exact time for 
+         * regularized methods
+         */
+
+        Scalar time_rtol{1e-8};
 
         // public methods
         /**
@@ -369,7 +376,7 @@ namespace hub {
         }
 
         step_size_ = run_args.step_size;
-
+        auto time_rtol_ = run_args.time_rtol;
         if (step_size_ == 0.0) {
             step_size_ = 0.1 * calc::calc_step_scale(particles_) *
                          calc::calc_fall_free_time(particles_.mass(), particles_.pos());
@@ -399,16 +406,22 @@ namespace hub {
         }
 
         run_args.start_operations(particles_, step_size_);
-        for (; particles_.time() < end_time && !run_args.check_stops(particles_, step_size_);) {
+        
+        // Dipto's changes here
+
+        for (; std::abs((particles_.time()-end_time)/end_time) > time_rtol_ && !run_args.check_stops(particles_, step_size_);) {
             Scalar rest_step = (end_time - particles_.time()) * particles_.step_scale();
-            if (step_size_ <= rest_step) [[likely]] {
+            
+
+            if (std::abs(step_size_) <= std::abs(rest_step)) [[likely]] {
                 run_args.operations(particles_, step_size_);
                 advance_one_step();
+
             } else {
                 step_size_ = rest_step;
                 run_args.operations(particles_, step_size_);
                 advance_one_step();
-                break;  // to avoid inf loop for regularized method.
+                if(std::abs((particles_.time()-end_time)/end_time) < time_rtol_) break;
             }
         }
         run_args.operations(particles_, step_size_);
