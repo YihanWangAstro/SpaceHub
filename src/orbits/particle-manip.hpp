@@ -596,7 +596,7 @@ namespace hub::orbit {
     auto E_p(Particle const &ptc1, Particle const &ptc2, Args const &...args) {
         static_assert(calc::all(std::is_same_v<Args, Particle>...),
                       "Type of the 1st argument and the rest should be same!");
-        return E_p(cluster(ptc1, ptc2, args...));
+        return E_p(group(ptc1, ptc2, args...));
     }
 
     /**
@@ -712,7 +712,7 @@ namespace hub::orbit {
     auto cluster_size(Particle const &ptc1, Particle const &ptc2, Args const &...args) {
         static_assert(calc::all(std::is_same_v<Args, Particle>...),
                       "Type of the 1st argument and the rest should be same!");
-        return cluster_size(cluster(ptc1, ptc2, args...));
+        return cluster_size(group(ptc1, ptc2, args...));
     }
 
     /**

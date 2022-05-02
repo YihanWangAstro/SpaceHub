@@ -62,11 +62,11 @@ namespace hub {
         (..., (args.shrink_to_fit()));
     }
 
-#define spacehub_abort(...)                                                                            \
-    do {                                                                                               \
+#define spacehub_abort(...)                                                                          \
+    do {                                                                                             \
         hub::print(std::cout, __FILE__, ": Line :", __LINE__, " within \"", __FUNCTION__, "\"\r\n"); \
         hub::print(std::cout, __VA_ARGS__);                                                          \
-        exit(0);                                                                                       \
+        exit(0);                                                                                     \
     } while (0)
 
     /*template <typename... Args>
