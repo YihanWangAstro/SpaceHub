@@ -52,6 +52,7 @@ License
 #include "integrator/symplectic/symplectic-integrator.hpp"
 #include "interaction/newtonian.hpp"
 #include "interaction/post-newtonian.hpp"
+#include "interaction/static-gas-drag.hpp"
 #include "interaction/tidal.hpp"
 #include "kahan-number.hpp"
 #include "macros.hpp"

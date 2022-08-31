@@ -7,7 +7,7 @@ using namespace callback;
 // using the Newtonian gravity + first order Post-Newtonian correction
 using f = force::Interactions<force::NewtonianGrav, force::PN1>;
 // pass the force to solver
-using Solver = methods::DefaultMethod<f>;// DefaultMethod<> = DefaultMethod<force::Interactions<force::NewtonianGrav>>
+using Solver = methods::DefaultMethod<f>;  // DefaultMethod<> = DefaultMethod<force::Interactions<force::NewtonianGrav>>
 /*----------------------------------------------------------------------------------------------------------------*/
 using Particle = Solver::Particle;
 

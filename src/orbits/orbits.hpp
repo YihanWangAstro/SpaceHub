@@ -512,7 +512,7 @@ namespace hub::orbit {
         Scalar u = hub::consts::G * (m_1 + m_2);
         Scalar a = -u / (v_inf * v_inf);
         this->e = sqrt(1 + b * b / (a * a));
-        this->p = a * (1 - e * e);
+        this->p = (b * v_inf) * (b * v_inf) / u;
         if (this->p <= 0) {
             spacehub_abort("p = ", this->p, " invalid Semi-latus rectum `p` with a = ", a, " and e = ", e);
         }
