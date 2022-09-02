@@ -36,6 +36,7 @@ namespace hub::force {
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
 
         static double subsonic_coef;
+        static double sound_speed;
     };
 
     template <typename Particles>
@@ -43,9 +44,16 @@ namespace hub::force {
         size_t num = particles.number();
         auto const &v = particles.vel();
         auto const &m = particles.mass();
+        const double supersonic_coef =
+            3 * sqrt(consts::pi / 2) * subsonic_coef * sound_speed * sound_speed * sound_speed;
 
         for (size_t i = 0; i < num; ++i) {
-            acceleration[i] -= subsonic_coef * m[i] * v[i];
+            auto u = norm(v[i]);
+            if (u < sound_speed) {
+                acceleration[i] -= (subsonic_coef * m[i]) * v[i];
+            } else {
+                acceleration[i] -= (subsonic_coef * m[i] / (u * u * u)) * v[i];
+            }
         }
     }
 
