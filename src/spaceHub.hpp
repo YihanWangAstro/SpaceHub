@@ -75,6 +75,7 @@ License
 #include "particles/finite-size.hpp"
 #include "particles/point-particles.hpp"
 #include "particles/tide-particles.hpp"
+#include "particles/drag-particles.hpp"
 #include "scattering/cross-section.hpp"
 #include "scattering/hierarchical.hpp"
 #include "simulator.hpp"

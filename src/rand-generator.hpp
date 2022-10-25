@@ -135,6 +135,21 @@ namespace hub::random {
         return sqrt(x * x + y * y + z * z);
     }
 
+    inline static auto Normal2(double min_r) {
+        static thread_local std::mt19937 generator{std::random_device{}()};
+        std::uniform_real_distribution<double> dist{-1, 1};
+
+        for (;;) {
+            double x = dist(generator);
+            double y = dist(generator);
+            double r2 = x * x + y * y;
+            if (r2 < 1 && r2 > min_r * min_r) {
+                double f = sqrt(-2 * log(r2) / r2);
+                return std::make_pair(x * f, y * f);
+            }
+        }
+    }
+
     /**
      * @brief Truncated Maxwellian distributed random number generator
      *

@@ -233,7 +233,7 @@ namespace hub {
         using RunArgs = hub::RunArgs<ParticleSys>;
 
         using ParticleSystem = ParticleSys;
-
+ 
         /**
          * Particle type that is used to create the initial conditions to initialize the Simulator.
          */
