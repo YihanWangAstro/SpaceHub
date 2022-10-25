@@ -14,10 +14,10 @@ using Particle = Solver::Particle;
 int main(int argc, char** argv) {
     /*--------------------------------------------------New-----------------------------------------------------------*/
     //(mass, sub_sonic_coef, local_sound_speed)
-    Particle star{1_Ms, 0, 2};  // sub_sonic_coef = 0, local sound speed = 2;no drag force on this particle
-    Particle p1{1_Mj, 1, 10};   // sub_sonic_coef = 1; local sound speed = 10, subsonic drag;
-    Particle p2{1_Mj, 2, 1};    // sub_sonic_coef = 2; local sound speed = 1, supersonic drag;
-    Particle p3{1_Mj, 0, 2};    // sub_sonic_coef = 0, local sound speed = 2;no drag force on this particle
+    Particle star{1_Ms, 0, 2};   // sub_sonic_coef = 0, local sound speed = 2;no drag force on this particle
+    Particle p1{1_Mj, 1, 100};   // sub_sonic_coef = 1; local sound speed = 100, subsonic drag;
+    Particle p2{1_Mj, 2, 0.01};  // sub_sonic_coef = 2; local sound speed = 0.01, supersonic drag;
+    Particle p3{1_Mj, 0, 2};     // sub_sonic_coef = 0, local sound speed = 2;no drag force on this particle
     /*----------------------------------------------------------------------------------------------------------------*/
 
     auto orb1 = orbit::Elliptic(star.mass, p1.mass, 1 * AU, 0.01, 1 * deg, 2 * deg, 3 * deg, 4 * deg);
