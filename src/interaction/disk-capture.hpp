@@ -274,14 +274,21 @@ namespace hub::force {
         auto const &r = particles.radius();
 
         for (size_t i = 1; i < num; ++i) {
-            auto v_disk = disk_v(p[i], m[0]);
-            auto v_rel = v[i] - v_disk;
-            auto rho = disk_rho(p[i], m[0]);
+            auto dr = p[i] - p[0];
+            auto dv = v[i] - v[0];
+            auto v_disk = disk_v(dr, m[0]);
+            auto v_rel = dv - v_disk;
+            auto rho = disk_rho(dr, m[0]);
             auto rd = r[i];
             auto vabs = sqrt(dot(v_rel, v_rel));
-            double f1 = consts::pi * rd * rd * rho * dot(v_rel, v_rel);
+            /*double f1 = consts::pi * rd * rd * rho * dot(v_rel, v_rel);
             double f2 = 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / dot(v_rel, v_rel) * rho;
             acceleration[i] -= std::max(f1, f2) * v_rel / vabs;
+            acceleration[0] -= std::max(f1, f2) * v_rel / vabs;*/
+            // double f1 = consts::pi * rd * rd * rho * dot(v_rel, v_rel);
+            double f = 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / dot(v_rel, v_rel) * rho;
+            acceleration[i] -= f * v_rel / vabs / m[i];
+            acceleration[0] += f * v_rel / vabs / m[0];
         }
     }
 
