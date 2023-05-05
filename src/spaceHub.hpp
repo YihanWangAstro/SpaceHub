@@ -50,6 +50,7 @@ License
 #include "args-callback/callbacks.hpp"
 #include "integrator/Gauss-Radau.hpp"
 #include "integrator/symplectic/symplectic-integrator.hpp"
+#include "interaction/disk-capture-star.hpp"
 #include "interaction/disk-capture.hpp"
 #include "interaction/newtonian.hpp"
 #include "interaction/post-newtonian.hpp"
