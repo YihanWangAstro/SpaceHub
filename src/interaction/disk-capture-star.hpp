@@ -34,27 +34,28 @@ namespace hub::force {
         // Type members
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
+
+       private:
+        template <typename Vec>
+        double disk_rho(Vec &r, double M) {
+            const double Q = 1;
+            const double alpha = 1;
+            const double lambda = 1;
+            auto M_dot = lambda * 0.22 * (M / 1e7) / (2 * consts::pi);
+            auto R = sqrt(r.x * r.x + r.y * r.y);
+            auto Omega = sqrt(M / (R * R * R));
+            auto H = pow(Q / 2 / alpha * M_dot / M / Omega, 1.0 / 3) * R;
+            auto rho0 = M / (2 * Q * consts::pi * R * R * R);
+            return rho0 * exp(-(r.z * r.z) / (2 * H * H));
+        }
+
+        template <typename Vec>
+        Vec disk_v(Vec &r, double M) {
+            auto rr = sqrt(r.x * r.x + r.y * r.y);
+            auto v = sqrt(M / rr);
+            return Vec{-v * r.y / rr, v * r.x / rr, 0};
+        }
     };
-
-    template <typename Vec>
-    double disk_rho(Vec &r, double M) {
-        const double Q = 1;
-        const double alpha = 1;
-        const double lambda = 1;
-        auto M_dot = lambda * 0.22 * (M / 1e7) / (2 * consts::pi);
-        auto R = sqrt(r.x * r.x + r.y * r.y);
-        auto Omega = sqrt(M / (R * R * R));
-        auto H = pow(Q / 2 / alpha * M_dot / M / Omega, 1.0 / 3) * R;
-        auto rho0 = M / (2 * Q * consts::pi * R * R * R);
-        return rho0 * exp(-(r.z * r.z) / (2 * H * H));
-    }
-
-    template <typename Vec>
-    Vec disk_v(Vec &r, double M) {
-        auto rr = sqrt(r.x * r.x + r.y * r.y);
-        auto v = sqrt(M / rr);
-        return Vec{-v * r.y / rr, v * r.x / rr, 0};
-    }
 
     template <typename Particles>
     void DiskCaptureStar::add_acc_to(const Particles &particles, typename Particles::VectorArray &acceleration) {
