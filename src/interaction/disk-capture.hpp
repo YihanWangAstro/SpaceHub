@@ -36,7 +36,7 @@ namespace hub::force {
 
        private:
         template <typename Vec>
-        double disk_rho(Vec &r, double M) {
+        static double disk_rho(Vec &r, double M) {
             const double Q = 1;
             const double alpha = 1;
             const double lambda = 1;
@@ -49,7 +49,7 @@ namespace hub::force {
         }
 
         template <typename Vec>
-        Vec disk_v(Vec &r, double M) {
+        static Vec disk_v(Vec &r, double M) {
             auto rr = sqrt(r.x * r.x + r.y * r.y);
             auto v = sqrt(M / rr);
             return Vec{-v * r.y / rr, v * r.x / rr, 0};
