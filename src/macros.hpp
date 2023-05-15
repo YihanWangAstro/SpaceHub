@@ -58,7 +58,11 @@ namespace hub::unit {
     MAKE_UNIT(sec, 1_min / 60.0)
     MAKE_UNIT(T_hubble, 13.7_Gyr)
 
+    MAKE_UNIT(kg, 1_Ms / 1.98847e30)
+    MAKE_UNIT(mp, 1.67262192e-27_kg)
+
     MAKE_UNIT(km, 1_AU / 149597870.7)
+    MAKE_UNIT(m, 1_km / 1000)
     MAKE_UNIT(PC, 1_AU * 648000.0 / consts::pi)
     MAKE_UNIT(Rs, 6.957e5_km)
     MAKE_UNIT(Re, 6378_km)
@@ -95,4 +99,6 @@ namespace hub::consts {
 namespace hub::consts {
     constexpr double G = 1;
     constexpr double C = 299792.458 * unit::kms;
+    constexpr double kB = 1.38064852e-23 * unit::m * unit::m * unit::kg / unit::sec / unit::sec;
+    constexpr double kB_on_mp = 9.294676266398779e-06;
 }  // namespace hub::consts

@@ -34,16 +34,22 @@ namespace hub::force {
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
 
-       private:
+        static constexpr double Q{1};
+        static constexpr double alpha{1};
+        static constexpr double lambda{1};
+
         template <typename Vec>
-        static double disk_rho(Vec &r, double M) {
-            const double Q = 1;
-            const double alpha = 1;
-            const double lambda = 1;
+        static auto local_Omega_H(Vec &r, double M) {
             auto M_dot = lambda * 0.22 * (M / 1e7) / (2 * consts::pi);
             auto R = sqrt(r.x * r.x + r.y * r.y);
             auto Omega = sqrt(M / (R * R * R));
             auto H = pow(Q / 2 / alpha * M_dot / M / Omega, 1.0 / 3) * R;
+            return std::tuple(Omega, H);
+        }
+
+        template <typename Vec>
+        static double disk_rho(Vec &r, double M, double H) {
+            auto R = sqrt(r.x * r.x + r.y * r.y);
             auto rho0 = M / (2 * Q * consts::pi * R * R * R);
             return rho0 * exp(-(r.z * r.z) / (2 * H * H));
         }
@@ -64,20 +70,33 @@ namespace hub::force {
         auto const &m = particles.mass();
         auto const &r = particles.radius();
 
+        constexpr double eps = 1e-3;
+        constexpr double offset = log(2 * eps) / (1 + eps) / (1 + eps) * 0.5;
+        // constexpr double logx = 0.5 * log((2 - eps) / eps * (1 + eps) * (1 + eps) / ((1 + eps) * (1 + eps) - 1)) - 1;
+
         for (size_t i = 1; i < num; ++i) {
             auto dr = p[i] - p[0];
             auto dv = v[i] - v[0];
+            auto [Omega, H] = local_Omega_H(dr, m[0]);
             auto v_disk = disk_v(dr, m[0]);
             auto v_rel = dv - v_disk;
-            auto rho = disk_rho(dr, m[0]);
+            auto rho = disk_rho(dr, m[0], H);
             auto rd = r[i];
-            auto vabs = sqrt(dot(v_rel, v_rel));
-            /*double f1 = consts::pi * rd * rd * rho * dot(v_rel, v_rel);
-            double f2 = 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / dot(v_rel, v_rel) * rho;
-            acceleration[i] -= std::max(f1, f2) * v_rel / vabs;
-            acceleration[0] -= std::max(f1, f2) * v_rel / vabs;*/
-            // double f1 = consts::pi * rd * rd * rho * dot(v_rel, v_rel);
-            double f = 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / dot(v_rel, v_rel) * rho;
+            auto v2 = dot(v_rel, v_rel);
+            auto vabs = sqrt(v2);
+            auto cs = Omega * H;
+            auto Mach = vabs / cs;
+            auto logR = log(H / rd);
+
+            double I = logR + offset;
+            if (Mach > 1 + eps) {
+                I = (0.5 * log(1 - 1 / (Mach * Mach)) + logR) / (Mach * Mach);
+            } else if (Mach < 1 - eps) {
+                I = (0.5 * log((1 + Mach) / (1 - Mach)) - Mach) / (Mach * Mach);
+            }
+            double df = I * 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / (cs * cs) * rho;
+            double aero_drag = 4 * consts::pi * rd * rd * rho * v2;
+            double f = df + aero_drag;
             acceleration[i] -= f * v_rel / vabs / m[i];
             acceleration[0] += f * v_rel / vabs / m[0];
         }
