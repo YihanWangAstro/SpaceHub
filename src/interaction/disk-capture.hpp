@@ -34,9 +34,9 @@ namespace hub::force {
         template <typename Particles>
         static void add_acc_to(Particles const &particles, typename Particles::VectorArray &acceleration);
 
-        static constexpr double Q{1};
-        static constexpr double alpha{1};
-        static constexpr double lambda{1};
+        static double Q;
+        static double alpha;
+        static double lambda;
 
         template <typename Vec>
         static auto local_Omega_H(Vec &r, double M) {
