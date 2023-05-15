@@ -88,11 +88,13 @@ namespace hub::force {
             auto Mach = vabs / cs;
             auto logR = log(H / rd);
 
-            double I = logR + offset;
+            double I = std::max(logR + offset, 1);
             if (Mach > 1 + eps) {
                 I = (0.5 * log(1 - 1 / (Mach * Mach)) + logR) / (Mach * Mach);
-            } else if (Mach < 1 - eps) {
+            } else if ((0.1 < Mach) && (Mach < 1 - eps)) {
                 I = (0.5 * log((1 + Mach) / (1 - Mach)) - Mach) / (Mach * Mach);
+            } else if (Mach < 0.1) {
+                I = Mach / 3.0;
             }
             double df = I * 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / (cs * cs) * rho;
             double aero_drag = 4 * consts::pi * rd * rd * rho * v2;
