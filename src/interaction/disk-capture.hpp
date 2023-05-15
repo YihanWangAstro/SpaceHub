@@ -70,7 +70,7 @@ namespace hub::force {
         auto const &m = particles.mass();
         auto const &r = particles.radius();
 
-        constexpr double eps = 1e-3;
+        constexpr double eps = 1e-2;
         constexpr double offset = log(2 * eps) / (1 + eps) / (1 + eps) * 0.5;
         // constexpr double logx = 0.5 * log((2 - eps) / eps * (1 + eps) * (1 + eps) / ((1 + eps) * (1 + eps) - 1)) - 1;
 
@@ -86,9 +86,9 @@ namespace hub::force {
             auto vabs = sqrt(v2);
             auto cs = Omega * H;
             auto Mach = vabs / cs;
-            auto logR = log(H / rd);
+            auto logR = std::max(log(H / rd), 3.0);
 
-            double I = std::max(logR + offset, 1);
+            double I = std::max(logR + offset, 1.0);
             if (Mach > 1 + eps) {
                 I = (0.5 * log(1 - 1 / (Mach * Mach)) + logR) / (Mach * Mach);
             } else if ((0.1 < Mach) && (Mach < 1 - eps)) {
