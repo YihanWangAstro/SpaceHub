@@ -86,7 +86,7 @@ namespace hub::force {
             auto vabs = sqrt(v2);
             auto cs = Omega * H;
             auto Mach = vabs / cs;
-            auto logR = std::max(log(H / rd), 3.0);
+            auto logR = std::max(log(m[0] / m[i]), 3.0);
 
             double I = std::max(logR + offset, 1.0);
             if (Mach > 1 + eps) {
