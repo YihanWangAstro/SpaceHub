@@ -37,6 +37,7 @@ namespace hub::force {
         static double Q;
         static double alpha;
         static double lambda;
+        static int force;
 
         template <typename Vec>
         static auto local_Omega_H(Vec &r, double M) {
@@ -86,19 +87,28 @@ namespace hub::force {
             auto vabs = sqrt(v2);
             auto cs = Omega * H;
             auto Mach = vabs / cs;
-            auto logR = std::max(log(m[0] / m[i]), 3.0);
+            auto logR = 3.0;
+            // std::max(log(m[0] / m[i]), 3.0);
 
             double I = std::max(logR + offset, 1.0);
-            if (Mach > 1 + eps) {
-                I = (0.5 * log(1 - 1 / (Mach * Mach)) + logR) / (Mach * Mach);
-            } else if ((0.1 < Mach) && (Mach < 1 - eps)) {
-                I = (0.5 * log((1 + Mach) / (1 - Mach)) - Mach) / (Mach * Mach);
-            } else if (Mach < 0.1) {
-                I = Mach / 3.0;
+
+            double f = 0;
+            if (force == 0) {
+                if (Mach > 1 + eps) {
+                    I = (0.5 * log(1 - 1 / (Mach * Mach)) + logR) / (Mach * Mach);
+                } else if ((0.1 < Mach) && (Mach < 1 - eps)) {
+                    I = (0.5 * log((1 + Mach) / (1 - Mach)) - Mach) / (Mach * Mach);
+                } else if (Mach < 0.1) {
+                    I = Mach / 3.0;
+                }
+                f = I * 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / (cs * cs) * rho;
+            } else if (force == 1) {
+                f = 4 * consts::pi * rd * rd * rho * v2;
+            } else {
+                double df = I * 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / (cs * cs) * rho;
+                double aeo = 4 * consts::pi * rd * rd * rho * v2;
+                f = df + aeo;
             }
-            double df = I * 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / (cs * cs) * rho;
-            double aero_drag = 4 * consts::pi * rd * rd * rho * v2;
-            double f = df + aero_drag;
             acceleration[i] -= f * v_rel / vabs / m[i];
             acceleration[0] += f * v_rel / vabs / m[0];
         }
