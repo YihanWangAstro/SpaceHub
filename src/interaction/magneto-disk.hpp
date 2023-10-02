@@ -610,7 +610,6 @@ namespace hub::force {
             double df = I * 4 * consts::pi * consts::G * consts::G * m[i] * m[i] / (cs * cs) * rho;
             double aeo = 4 * consts::pi * rd * rd * rho * v2;
             double f = df + aeo;
-            std::cout << r << ' ' << df / aeo << '\n';
 
             acceleration[i] -= f * v_rel / vabs / m[i];
             acceleration[0] += f * v_rel / vabs / m[0];
