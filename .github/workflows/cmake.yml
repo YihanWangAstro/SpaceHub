@@ -4,8 +4,8 @@ on: [push]
 
 env:
   BUILD_TYPE: Release
-  CC: gcc-10
-  CXX: g++-10
+  CC: gcc
+  CXX: g++
   CODECOV_TOKEN: "60aa14e6-ecdc-43af-97ed-e98698f3f447"
 
 jobs:
