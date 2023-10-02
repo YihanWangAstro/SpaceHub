@@ -63,13 +63,14 @@ namespace hub::unit {
 
     MAKE_UNIT(km, 1_AU / 149597870.7)
     MAKE_UNIT(m, 1_km / 1000)
+    MAKE_UNIT(cm, m / 100)
     MAKE_UNIT(PC, 1_AU * 648000.0 / consts::pi)
     MAKE_UNIT(Rs, 6.957e5_km)
     MAKE_UNIT(Re, 6378_km)
     MAKE_UNIT(Rj, 69911_km)
 
     MAKE_UNIT(kms, km / sec)
-
+    MAKE_UNIT(cms, cm / sec)
     MAKE_UNIT(Me, 3.003E-6_Ms)
     MAKE_UNIT(Mj, 317.8_Me)
     MAKE_UNIT(Mmoon, 0.012300_Me)
