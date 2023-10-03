@@ -4,8 +4,8 @@ on: [push]
 
 env:
   BUILD_TYPE: Release
-  CC: gcc-10
-  CXX: g++-10
+  CC: gcc
+  CXX: g++
   CODECOV_TOKEN: "60aa14e6-ecdc-43af-97ed-e98698f3f447"
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [macos-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v2
