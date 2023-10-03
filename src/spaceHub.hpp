@@ -48,6 +48,7 @@ License
 #endif
 
 #include "args-callback/callbacks.hpp"
+#include "args-callback/collision.hpp"
 #include "integrator/Gauss-Radau.hpp"
 #include "integrator/symplectic/symplectic-integrator.hpp"
 // #include "interaction/disk-capture-star.hpp"
