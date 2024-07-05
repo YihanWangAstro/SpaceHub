@@ -245,7 +245,7 @@ namespace hub::math {
 
         for (; fabs((high - low)) > fabs(high) * math::epsilon<Scalar>::value;) {
             Scalar mid = 0.5 * (high + low);
-            if (f(mid) > 0)
+            if (f(mid) * f(high) > 0)
                 high = mid;
             else
                 low = mid;

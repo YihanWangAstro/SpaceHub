@@ -54,7 +54,7 @@ namespace hub::force {
         static double disk_rho(Vec &r, double M, double H) {
             auto R = sqrt(r.x * r.x + r.y * r.y);
             auto rho0 = M / (2 * Q * consts::pi * R * R * R);
-            return rho0 * exp(-(r.z * r.z) / (2 * H * H));
+            return rho0 * exp(-(r.z * r.z) / (2 * H * H)) * 1000;
         }
 
         template <typename Vec>
