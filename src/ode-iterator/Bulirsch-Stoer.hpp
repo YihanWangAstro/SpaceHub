@@ -491,7 +491,10 @@ namespace hub::ode {
             }
         } else {
             if (!step_reject_) {
-                ideal_rank_ = k;
+                // The next step iterates up to column ideal_rank_ + 1, so the rank has to stay in the allowed
+                // range here too: a first step that converged in the last column would otherwise send the
+                // next one past the end of the sub-step table.
+                ideal_rank_ = allowed(k);
             }
             return ideal_step_size_[k];
         }
